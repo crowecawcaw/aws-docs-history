@@ -35,8 +35,7 @@ can take up to 15 business days to process a registration request after it is
 submitted. We strongly recommend you begin this process early. For more information
 about registering, see [Registrations](../../../sms-voice/latest/userguide/registrations.md "../../../sms-voice/latest/userguide/registrations.md").
 
-We also strongly recommend reviewing [Best practices for requesting SMS
-numbers](sms-number.md#bp-request-sms-number "sms-number.md#bp-request-sms-number") before requesting a number.
+We also strongly recommend reviewing [Best practices for requesting SMS numbers](sms-number.md#bp-request-sms-number "sms-number.md#bp-request-sms-number") before requesting a number.
 
 For instructions for using the CLI to perform this step, see [Request a phone number](../../../sms-voice/latest/userguide/phone-numbers-request.md "../../../sms-voice/latest/userguide/phone-numbers-request.md") in the _AWS End User Messaging SMS User
 Guide_.
@@ -120,9 +119,7 @@ Guide_.
     You are still billed the recurring monthly lease fee for the
     phone number regardless of registration status.
 
-## Step 2: Enable two-way SMS on the phone
-
-number
+## Step 2: Enable two-way SMS on the phone number
 
 After you have successfully procured a phone number from AWS End User Messaging SMS, you enable two-way
 SMS on the phone number with Amazon Connect as the message destination. You can
@@ -174,9 +171,7 @@ Amazon Connect SMS](regions.md#messaging-integrations_region "regions.md#messagi
 
 ![The Amazon Connect admin website, the Phone numbers page.](images/golden-sms-channel.png)
 
-## Step 3: Update flows to branch on SMS
-
-contacts
+## Step 3: Update flows to branch on SMS contacts
 
 If you have existing flows that you want to branch when a contact uses SMS, add a
 [Check contact
@@ -231,9 +226,7 @@ that you have configured. For move instructions, see [Moving from the SMS sandbo
 
 ![The agent's CCP and the customer's phone sending SMS messages.](images/sms-testing2.png)
 
-## Step 5: Prerequisites for going into
-
-production
+## Step 5: Prerequisites for going into production
 
 Before you use SMS in production mode, make sure you've completed the following
 prerequisites for AWS End User Messaging SMS.
@@ -248,20 +241,17 @@ prerequisites for AWS End User Messaging SMS.
 
 ## Customers not receiving SMS messages?
 
-Before opening an AWS Support ticket, please verify that you've completed [Step 5: Prerequisites for going into
-production](#verify-sms-config "#verify-sms-config").
+Before opening an AWS Support ticket, please verify that you've completed [Step 5: Prerequisites for going into production](#verify-sms-config "#verify-sms-config").
 
 ## Next steps
 
 We recommend the following steps to provide the best experience for your agents and
 customers.
 
-- [Enable customers to resume chat conversations in
-  Amazon Connect](chat-persistence.md "chat-persistence.md"): Customers
+- [Enable customers to resume chat conversations in Amazon Connect](chat-persistence.md "chat-persistence.md"): Customers
   can resume previous conversations with the context, metadata, and transcripts
   carried forward. They don't need to repeat themselves when they return to a
   chat, and agents have access to the entire conversation history.
-- [Create quick responses for use with chat and email
-  contacts in Amazon Connect](create-quick-responses.md "create-quick-responses.md"): Provide agents with pre-written responses to common customer inquiries that
+- [Create quick responses for use with chat and email contacts in Amazon Connect](create-quick-responses.md "create-quick-responses.md"): Provide agents with pre-written responses to common customer inquiries that
   they can use while they chat with customers. Quick responses make it faster for
   agents to respond to customers.

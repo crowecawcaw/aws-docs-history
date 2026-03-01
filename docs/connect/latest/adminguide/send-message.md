@@ -34,9 +34,7 @@ This flow block is designed to be used in the following scenarios:
 | Task         | Yes        |
 | Email        | Yes        |
 
-## Important information about
-
-using the Send message block in outbound flows
+## Important information about using the Send message block in outbound flows
 
 ###### Important
 
@@ -389,9 +387,7 @@ You can enter only one email address on the cc line.
   you within X hours._ every time you receive a
   contact.
 
-### About using templates in the
-
-block
+### About using templates in the block
 
 An email template is a complete email message that contains plain or rich text
 content. It serves as a pattern for part or all of an email message. An email
@@ -418,9 +414,7 @@ The subject from the template is not included when the **Send
 message** block is being used to Reply or Reply all to an
 inbound email contact.
 
-### About creating email and text messages
-
-in the block
+### About creating email and text messages in the block
 
 In the case of email, when you use a message created in the **Send
 message** block, you need to enter a **Subject**

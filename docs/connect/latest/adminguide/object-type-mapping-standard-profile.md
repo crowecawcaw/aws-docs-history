@@ -1,6 +1,4 @@
-# Object type mapping for
-
-the standard profile in Amazon Connect Customer Profiles
+# Object type mapping for the standard profile in Amazon Connect Customer Profiles
 
 The topics in this section provide the standard profile definition, and the
 object type mapping from external applications to the standard profile.
@@ -10,8 +8,7 @@ object type mapping from external applications to the standard profile.
 - [Amazon AppFlow
   access requirements](appflow-access-requirements-profile.md "appflow-access-requirements-profile.md")
 - [Amazon AppIntegrations access requirements](standard-profile-appintegrations-requirements.md "standard-profile-appintegrations-requirements.md")
-- [Amazon EventBridge access
-  requirements in Customer Profiles](standard-profile-eventbridge-requirements.md "standard-profile-eventbridge-requirements.md")
+- [Amazon EventBridge access requirements in Customer Profiles](standard-profile-eventbridge-requirements.md "standard-profile-eventbridge-requirements.md")
 - [Standard profile
   definition](standard-profile-definition.md "standard-profile-definition.md")
 - [Mapping Salesforce

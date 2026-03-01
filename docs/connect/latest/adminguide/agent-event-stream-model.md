@@ -1,6 +1,4 @@
-# Agent event streams data model in
-
-Amazon Connect
+# Agent event streams data model in Amazon Connect
 
 Agent event streams are created in JavaScript Object Notation (JSON) format. For each
 event type, a JSON blob is sent to the Kinesis data stream. The following event types are
@@ -272,8 +270,7 @@ Valid values:
   callback flow.
 
 For more information about the InitiationMethod in this
-scenario, see [Queued callbacks in real-time metrics in
-Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md").
+scenario, see [Queued callbacks in real-time metrics in Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md").
 
 - `API`: The contact was initiated with Amazon Connect by API.
   This could be an outbound contact you created and queued to an

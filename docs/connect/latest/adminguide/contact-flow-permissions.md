@@ -1,6 +1,4 @@
-# Permissions required to work with flows in
-
-Amazon Connect
+# Permissions required to work with flows in Amazon Connect
 
 To view, edit, create, and publish flows you need **Flows**
 permissions added to your security profile.

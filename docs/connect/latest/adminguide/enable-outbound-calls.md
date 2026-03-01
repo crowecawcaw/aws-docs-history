@@ -1,6 +1,4 @@
-# Enable outbound calls in your Amazon Connect
-
-instance
+# Enable outbound calls in your Amazon Connect instance
 
 Before your agents can make outbound calls to customers, you need to set up your Amazon Connect
 instance for outbound communications.
@@ -19,14 +17,12 @@ as busy signals, failure-to-connect errors, or other informational messages from
 telephony providers, when making outbound calls. Choose **Enable early
 media**. 7. Choose **Save**. 8. Ensure agents have the **Contact Control Panel (CCP) - Make outbound
 calls** permission in their security profile. For instructions, see
-[Assign a security profile for Amazon Connect to a
-contact center user](assign-security-profile.md "assign-security-profile.md").
+[Assign a security profile for Amazon Connect to a contact center user](assign-security-profile.md "assign-security-profile.md").
 
 ###### Note
 
 For a list of countries you can call **by default**
-based on the Region of your instance, see [Countries that call centers using Amazon Connect can
-call by default](country-code-allow-list.md "country-code-allow-list.md").
+based on the Region of your instance, see [Countries that call centers using Amazon Connect can call by default](country-code-allow-list.md "country-code-allow-list.md").
 
 For a list of all countries available for outbound calls based on the Region of
 your instance, see [Amazon Connect

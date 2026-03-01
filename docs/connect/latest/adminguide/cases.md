@@ -35,8 +35,7 @@ Amazon Connect admin website**
   permissions](assign-security-profile-cases.md "assign-security-profile-cases.md")
 - [Create case fields](case-fields.md "case-fields.md") and [case templates](case-templates.md "case-templates.md")
 - [Set up a case assignment in Amazon Connect Cases](case-assignment.md "case-assignment.md")
-- [Automatically monitor and update cases in
-  Amazon Connect Cases](create-alerts-on-cases.md "create-alerts-on-cases.md")
+- [Automatically monitor and update cases in Amazon Connect Cases](create-alerts-on-cases.md "create-alerts-on-cases.md")
 - [Amazon Connect Cases metrics](case-management-metrics.md "case-management-metrics.md")
 - [Cases block](cases-block.md "cases-block.md")
 - [Case event streams](case-event-streams.md "case-event-streams.md")
@@ -45,8 +44,7 @@ Amazon Connect admin website**
 
 **Agent actions in the agent workspace**
 
-- [Search cases in Amazon Connect to view customer contact
-  details](search-cases.md "search-cases.md")
+- [Search cases in Amazon Connect to view customer contact details](search-cases.md "search-cases.md")
 - [Edit an existing case](cm-editcases.md "cm-editcases.md")
 - [Add comments to a case](cm-comments.md "cm-comments.md")
 - [Associate a contact with a

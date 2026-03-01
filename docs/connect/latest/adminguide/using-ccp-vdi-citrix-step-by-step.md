@@ -1,6 +1,4 @@
-# Optimize Amazon Connect audio for Citrix
-
-cloud desktops
+# Optimize Amazon Connect audio for Citrix cloud desktops
 
 Amazon Connect makes it easier to deliver high-quality voice experiences when your agents
 are using Citrix Virtual Desktop Infrastructure (VDI) environments. Your agents can
@@ -12,9 +10,7 @@ To get started, you can use the [Amazon Connect open source
 libraries](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams") to create a new or update an existing agent user interface,
 such as a custom Contact Control Panel (CCP).
 
-## System
-
-requirements
+## System requirements
 
 This section describes the system requirements for using the Citrix Unified
 Communications SDK with Amazon Connect.
@@ -76,9 +72,7 @@ Manager** to finish the setup.
 - **Unsupported CCP Deployment**
   - Native CCP
 
-## Confirm media flows
-
-between thin client and Amazon Connect during the call
+## Confirm media flows between thin client and Amazon Connect during the call
 
 - **Use Task Manager (Windows) to
   verify**

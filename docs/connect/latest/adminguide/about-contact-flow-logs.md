@@ -1,6 +1,4 @@
-# Use flow logs to track events in Amazon Connect
-
-flows
+# Use flow logs to track events in Amazon Connect flows
 
 Amazon Connect flow logs provide you with real-time details about events in your flows
 as customers interact with them. You can also use flow logs to help debug your flows as you
@@ -20,8 +18,7 @@ the customer interaction through each flow.
 The CloudWatch group log is created automatically when [Enable flow logging](contact-flow-logs.md#enable-contact-flow-logs "contact-flow-logs.md#enable-contact-flow-logs") is selected for
 your instance on the Amazon Connect console. However, to enable logging, you also need to add
 a **Set logging behavior** block to your flow. For instructions,
-see [Enable Amazon Connect flow logs in an Amazon CloudWatch log
-group](contact-flow-logs.md "contact-flow-logs.md").
+see [Enable Amazon Connect flow logs in an Amazon CloudWatch log group](contact-flow-logs.md "contact-flow-logs.md").
 
 - **Automated interaction logs**. Use these logs to
   analyze the quality of conversations between customers and bots, understand common
@@ -50,8 +47,7 @@ for your instance on the Amazon Connect console:
 - [Enable flow logs](contact-flow-logs.md "contact-flow-logs.md")
 - [Search flow logs](search-contact-flow-logs.md "search-contact-flow-logs.md")
 - [Data in flow logs](contact-flow-log-data.md "contact-flow-log-data.md")
-- [Track customers between multiple flows
-  in your contact center](contact-flow-log-multiple-flows.md "contact-flow-log-multiple-flows.md")
+- [Track customers between multiple flows in your contact center](contact-flow-log-multiple-flows.md "contact-flow-log-multiple-flows.md")
 - [Create alerts for events in your
   flow logs](contact-flow-log-alerts.md "contact-flow-log-alerts.md")
 - [Monitor automated

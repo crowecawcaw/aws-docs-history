@@ -1,6 +1,4 @@
-# Route contacts based on queue capacity
-
-using Amazon Connect
+# Route contacts based on queue capacity using Amazon Connect
 
 To define routing decisions based on queue capacity, use a [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block to check
 whether a queue is full ([Maximum contacts in

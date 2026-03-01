@@ -1,6 +1,4 @@
-# Create a
-
-Contact Lens rule that generates an EventBridge event
+# Create a Contact Lens rule that generates an EventBridge event
 
 In real-time or post-call/chat, you can get events and use them to trigger
 subsequent notifications or alerts, or aggregate reports outside of Amazon Connect.
@@ -40,9 +38,7 @@ specific action name, such as NOTIFY_CUSTOMER_RETENTION.
 You cannot apply rules to past, stored conversations. 5. To leverage the EventBridge data, subscribe to the EventBridge event type. See the
 next procedure.
 
-## Subscribe to EventBridge event
-
-types
+## Subscribe to EventBridge event types
 
 To subscribe to EventBridge event types, create a custom EventBridge rule that matches
 the following:

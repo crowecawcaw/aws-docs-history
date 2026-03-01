@@ -1,6 +1,4 @@
-# Set up calculated attributes in
-
-Amazon Connect Customer Profiles
+# Set up calculated attributes in Amazon Connect Customer Profiles
 
 _Calculated attributes_ are values that are derived from other
 attributes by using formulas. You can use them to identify users' aggregate
@@ -28,8 +26,7 @@ Voice Response (IVR) or chatbots. You can build personalized experiences and hel
 understand customer context faster.
 
 For a list of AWS Regions where the calculated attributes APIs are available, see
-[Customer Profiles calculated attributes
-API availability by Region](regions.md#customerprofiles_calculatedattributesregion "regions.md#customerprofiles_calculatedattributesregion").
+[Customer Profiles calculated attributes API availability by Region](regions.md#customerprofiles_calculatedattributesregion "regions.md#customerprofiles_calculatedattributesregion").
 
 ###### Contents
 

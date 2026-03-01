@@ -49,9 +49,7 @@ Amazon Connect Client Application.
   recordings are captured only from Amazon Connect domains specified in your
   allowlist.
 
-#### Programmatic installation by using software distribution
-
-tools
+#### Programmatic installation by using software distribution tools
 
 - Download the latest version of the
   **Amazon.Connect.Client.Service.Setup.msi**
@@ -105,9 +103,7 @@ in Task Manager.
 
 ![Amazon.Connect.Client.RecordingSession in Task Manager.](images/taskmanager.png)
 
-##### To verify that the application is functioning correctly and
-
-creating log files:
+##### To verify that the application is functioning correctly and creating log files:
 
 1. Navigate to the following directory:
    `C:\ProgramData\Amazon\Amazon.Connect.Client.Service\logs`

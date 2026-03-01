@@ -63,8 +63,7 @@ Amazon Connect includes a set of sample flows. For instructions that explain how
 [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample queue configurations flow in
-  Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
+- [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
 - [Sample queued callback flow in Amazon Connect](sample-queued-callback.md "sample-queued-callback.md"): this sample only applies to
   previous instances of Amazon Connect.
 
@@ -72,7 +71,5 @@ that describe the sample flows which include this block.
 
 See these topics for scenarios that use this block:
 
-- [Set up queued callback by creating flows, queues, and
-  routing profiles in Amazon Connect](setup-queued-cb.md "setup-queued-cb.md")
-- [Queued callbacks in real-time metrics in
-  Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md")
+- [Set up queued callback by creating flows, queues, and routing profiles in Amazon Connect](setup-queued-cb.md "setup-queued-cb.md")
+- [Queued callbacks in real-time metrics in Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md")

@@ -89,9 +89,7 @@ The **AI Prompt builder** page is displayed. The
 you to edit. 6. Continue to the next section for information about choosing AI prompt
 model and editing the AI prompt template.
 
-## Choose the AI prompt model
-
-(optional)
+## Choose the AI prompt model (optional)
 
 In the **Models** section of the **AI Prompt
 builder** page, the system default model for your AWS Region is
@@ -101,8 +99,7 @@ this AI prompt.
 ###### Note
 
 The models listed in the dropdown menu are based on the AWS Region of your
-Amazon Connect instance. For a list of models supported for each AWS Region, see [Supported models for system/custom
-prompts](#cli-create-aiprompt "#cli-create-aiprompt").
+Amazon Connect instance. For a list of models supported for each AWS Region, see [Supported models for system/custom prompts](#cli-create-aiprompt "#cli-create-aiprompt").
 
 The following image shows **us.amazon.nova-pro-v1:0 (Cross Region)(System
 Default)** as the model for this AI prompt.
@@ -149,9 +146,7 @@ put into production—and override the default AI prompt—by adding it to
 the AI agent. For instructions about how to put the AI prompt into production, see
 [Create AI agents](create-ai-agents.md "create-ai-agents.md").
 
-## Guidelines for writing for AI prompts in
-
-YAML
+## Guidelines for writing for AI prompts in YAML
 
 Because AI prompts use templates, you don't need to know much about YAML to get
 started. However, if you want to write an AI prompt from scratch, or delete portions
@@ -509,9 +504,7 @@ Follow these guidelines to optimize the performance of your AI prompts:
 - When using multiple variables, create a separate prefix with at least
   1,000 tokens to optimize each variable.
 
-## Prompt latency optimization by
-
-utilizing prompt caching
+## Prompt latency optimization by utilizing prompt caching
 
 Prompt caching is enabled by default for all customers. However to maximize
 performance please adhere to the following guidelines:
@@ -538,9 +531,7 @@ requirements, see [supported models, regions and limits](../../../bedrock/latest
 | us.amazon.nova-lite-v1:0<br>apac.amazon.nova-lite-v1:0<br>apac.amazon.nova-lite-v1:0                                                     |
 | us.amazon.nova-micro-v1:0<br>eu.amazon.nova-micro-v1:0<br>apac.amazon.nova-micro-v1:0                                                    |
 
-## Supported models for system/custom
-
-prompts
+## Supported models for system/custom prompts
 
 After you create the YAML files for the AI prompt, you can choose
 **Publish** on the **AI Prompt builder** page,
@@ -548,8 +539,7 @@ or call the [CreateAIPrompt](../APIReference/API_amazon-q-connect_CreateAIPrompt
 following LLM models for a particular AWS Region. Some LLM model
 options support cross-region inference, which can improve performance and
 availability. Refer to the following table to see which models include cross-region
-inference support. For more information, see [Cross-region inference
-service](ai-agent-initial-setup.md#enable-ai-agents-cross-region-inference-service "ai-agent-initial-setup.md#enable-ai-agents-cross-region-inference-service").
+inference support. For more information, see [Cross-region inference service](ai-agent-initial-setup.md#enable-ai-agents-cross-region-inference-service "ai-agent-initial-setup.md#enable-ai-agents-cross-region-inference-service").
 
 | Models used by system prompts | **System prompt**                                           | **us-east-1, us-west-2**                                      | **ca-central-1**                                              | **eu-west-2**                                                 | **eu-central-1**                                               | **ap-northeast-1, ap-northeast-2, ap-southeast-1, ap-southeast-2** |
 | ----------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------ |
@@ -621,9 +611,7 @@ aws qconnect create-ai-prompt \
   }'
 ```
 
-### CLI to create an AI prompt
-
-version
+### CLI to create an AI prompt version
 
 After an AI prompt has been created, you can create a version, which is an
 immutable instance of the AI prompt that can be used at runtime.
@@ -666,9 +654,7 @@ Be sure to use `--origin SYSTEM` as an argument to fetch the
 system AI Prompt versions. Without this argument, customized AI prompt
 versions will be listed, too.
 
-## Amazon Nova Pro model for self-service
-
-pre-processing AI prompts
+## Amazon Nova Pro model for self-service pre-processing AI prompts
 
 When using the Amazon Nova Pro model for your self-service pre-processing AI
 prompts, if you need to include an example of tool_use, you must specify it in

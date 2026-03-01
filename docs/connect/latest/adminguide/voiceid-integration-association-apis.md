@@ -1,6 +1,4 @@
-# Voice ID and Amazon Connect
-
-Integration Association APIs
+# Voice ID and Amazon Connect Integration Association APIs
 
 ###### Note
 

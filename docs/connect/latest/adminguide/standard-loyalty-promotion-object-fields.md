@@ -1,6 +1,4 @@
-# Customer Profiles
-
-standard loyalty promotion object fields
+# Customer Profiles standard loyalty promotion object fields
 
 The following table lists all the fields in the Customer Profiles standard
 loyalty promotion object.

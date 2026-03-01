@@ -1,6 +1,4 @@
-# Contact attributes for live media streaming
-
-in Kinesis Video Streams
+# Contact attributes for live media streaming in Kinesis Video Streams
 
 The attributes are displayed when you select **Media streams** for
 the **Type** in a flow block that supports attributes, such as the

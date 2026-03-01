@@ -1,6 +1,4 @@
-# Integrate external
-
-applications with Amazon Connect Customer Profiles
+# Integrate external applications with Amazon Connect Customer Profiles
 
 Amazon Connect provides a set of pre-built integrations powered by Amazon AppFlow and Amazon EventBridge. After
 you enable Amazon Connect Customer Profiles, you can use these integrations to combine information from external
@@ -13,8 +11,7 @@ You can also use Customer Profiles in Amazon AppFlow. Amazon AppFlow supports
 into Customer Profiles using `CustomerProfiles` as the destination name.
 
 Before you begin, make sure you are using a customer managed key. For more information about
-configuring KMS keys, see [Create a KMS key to
-be used by Customer Profiles to encrypt data (required)](enable-customer-profiles.md#enable-customer-profiles-awsmanagedkey "enable-customer-profiles.md#enable-customer-profiles-awsmanagedkey").
+configuring KMS keys, see [Create a KMS key to be used by Customer Profiles to encrypt data (required)](enable-customer-profiles.md#enable-customer-profiles-awsmanagedkey "enable-customer-profiles.md#enable-customer-profiles-awsmanagedkey").
 
 ## Set up integrations
 
@@ -31,5 +28,4 @@ agents](https://aws.amazon.com/blogs/contact-center/unified-customer-data/ "http
   for featured applications in Amazon Connect](integrate-customer-profiles-appflow.md "integrate-customer-profiles-appflow.md")
 - [Set up
   integration for external applications using Amazon AppFlow](integrate-external-applications-appflow.md "integrate-external-applications-appflow.md")
-- [Delete Customer Profiles or stop
-  integrations](delete-customer-profile-connection.md "delete-customer-profile-connection.md")
+- [Delete Customer Profiles or stop integrations](delete-customer-profile-connection.md "delete-customer-profile-connection.md")

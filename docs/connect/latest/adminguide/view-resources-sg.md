@@ -1,6 +1,4 @@
-# Views: UI templates to customize an agent's
-
-workspace in Amazon Connect
+# Views: UI templates to customize an agent's workspace in Amazon Connect
 
 _Views_ are UI templates that you can use to customize your agent's
 workspace. For example, you can use views to display contact attributes to an agent,

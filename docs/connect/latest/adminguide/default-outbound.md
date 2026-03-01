@@ -1,12 +1,9 @@
-# Default outbound flow in Amazon Connect: "This call is not
-
-being recorded"
+# Default outbound flow in Amazon Connect: "This call is not being recorded"
 
 ###### Important
 
 Before using the **Send message** block in an outbound flow, see
-[Important information about
-using the Send message block in outbound flows](send-message.md#send-message-outboundflow-important "send-message.md#send-message-outboundflow-important") for recommended safeguards
+[Important information about using the Send message block in outbound flows](send-message.md#send-message-outboundflow-important "send-message.md#send-message-outboundflow-important") for recommended safeguards
 you should implement.
 
 This flow is an outbound whisper that manages what the customer experiences as part of
@@ -23,8 +20,7 @@ works:
   prompt** are run.
 - After the customer picks up, the first **Play prompt** and
   all the blocks after it are run.
-  For instructions about how to override and change a default flow, see [Change a default flow in your Amazon Connect
-  contact center](change-default-contact-flow.md "change-default-contact-flow.md").
+  For instructions about how to override and change a default flow, see [Change a default flow in your Amazon Connect contact center](change-default-contact-flow.md "change-default-contact-flow.md").
 
 ###### Tip
 

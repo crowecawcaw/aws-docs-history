@@ -1,6 +1,4 @@
-# Use sample data to preview your
-
-view in Amazon Connect
+# Use sample data to preview your view in Amazon Connect
 
 You can use sample data to see what the view will look like to the user. You can
 even see data fields that are dynamically determined at runtime. When a field is set

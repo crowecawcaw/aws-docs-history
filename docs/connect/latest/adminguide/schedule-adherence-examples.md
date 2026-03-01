@@ -1,6 +1,4 @@
-# Examples of adherence thresholds for
-
-agent shifts in Amazon Connect
+# Examples of adherence thresholds for agent shifts in Amazon Connect
 
 Assume a shift that starts at 9:00 AM and ends at 5:00 PM with a 30-minute break
 and a 1-hour lunch. This arrangement is shown in the following image of the shift

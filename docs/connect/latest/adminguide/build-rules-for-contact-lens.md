@@ -1,6 +1,4 @@
-# Create Contact Lens rules
-
-using the Amazon Connect admin website
+# Create Contact Lens rules using the Amazon Connect admin website
 
 Contact Lens rules allow you to automatically categorize contacts, receive
 alerts, or generate tasks based on keywords that are used during a call or chat,
@@ -14,12 +12,9 @@ Function language](../APIReference/connect-rules-language.md "../APIReference/co
 ###### Tip
 
 For a list of rules feature specifications (for example, how many rules you
-can create), see [Amazon Connect Rules feature
-specifications](feature-limits.md#rules-feature-specs "feature-limits.md#rules-feature-specs").
+can create), see [Amazon Connect Rules feature specifications](feature-limits.md#rules-feature-specs "feature-limits.md#rules-feature-specs").
 
-## Step 1: Define rule conditions for
-
-conversational analytics
+## Step 1: Define rule conditions for conversational analytics
 
 1. On the navigation menu, choose **Analytics and
    optimization**, **Rules**.

@@ -20,12 +20,9 @@ list.
 - [Set up agents and
   flows](#setup-case-assignment "#setup-case-assignment")
 - [How agents assign case ownership](#agents-case-assignment "#agents-case-assignment")
-- [How to configure the Cases block to assign
-  case ownership in a flow](#flows-case-assignment "#flows-case-assignment")
+- [How to configure the Cases block to assign case ownership in a flow](#flows-case-assignment "#flows-case-assignment")
 
-## Set up agents and flows case
-
-assignment
+## Set up agents and flows case assignment
 
 To enable case assignment in your Amazon Connect instance, configure the following
 resources:
@@ -39,16 +36,14 @@ resources:
    - **Security profile**. Grant agents permission to
      view the queues, users, and quick connects that are going to appear
      in the dropdown lists in the agent workspace. For more information,
-     see [Required queue, quick connect,
-     and user view permissions](assign-security-profile-cases.md#required-cases-queue-permissions "assign-security-profile-cases.md#required-cases-queue-permissions").
+     see [Required queue, quick connect, and user view permissions](assign-security-profile-cases.md#required-cases-queue-permissions "assign-security-profile-cases.md#required-cases-queue-permissions").
    - **Quick connects**. Create user and queue quick
      connects for each user and queue that you want to appear in the
      dropdown lists. For instructions, see [Create quick connects in Amazon Connect](quick-connects.md "quick-connects.md").
    - **Queues**. Add the quick connects to the agent's
      queue. For instructions, see [Create a queue using the Amazon Connect admin website](create-queue.md "create-queue.md").
    - **Routing profile**. Add the queue to the agent's
-     routing profile. For instructions, see [Create a routing profile in Amazon Connect to link queues to
-     agents](routing-profiles.md "routing-profiles.md").
+     routing profile. For instructions, see [Create a routing profile in Amazon Connect to link queues to agents](routing-profiles.md "routing-profiles.md").
 
    Agents see only those quick connects that are added to the queues
    assigned to their routing profile.
@@ -56,8 +51,7 @@ resources:
 3. To configure the Cases block to assign case ownership automatically during
    a flow, set the **Request Fields** section to
    **Assigned Queue** or **Assigned
-   User**. For an image and more instructions, see [How to configure the Cases block to assign
-   case ownership in a flow](#flows-case-assignment "#flows-case-assignment").
+   User**. For an image and more instructions, see [How to configure the Cases block to assign case ownership in a flow](#flows-case-assignment "#flows-case-assignment").
 
 ## How agents assign case ownership
 
@@ -90,9 +84,7 @@ the agent's routing profile.
 
 ![The Assign to user box.](images/case-assignment-userexample.png)
 
-## How to configure the Cases block to assign
-
-case ownership in a flow
+## How to configure the Cases block to assign case ownership in a flow
 
 You can configure the [Cases](cases-block.md "cases-block.md") block to
 automatically populate the **Assigned queue** or **Assigned

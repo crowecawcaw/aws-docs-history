@@ -1,19 +1,13 @@
-# Download the transcript for your chat
-
-widget in Amazon Connect
+# Download the transcript for your chat widget in Amazon Connect
 
 You can download a PDF of the transcript in your chat widget.
 
 ###### Contents
 
-- [Enable
-  Header Dropdown](#chat-widget-download-transcript-enable-header-dropdown "#chat-widget-download-transcript-enable-header-dropdown")
-- [Download PDF of Chat
-  Transcript](#chat-widget-download-transcript-pdf "#chat-widget-download-transcript-pdf")
+- [Enable Header Dropdown](#chat-widget-download-transcript-enable-header-dropdown "#chat-widget-download-transcript-enable-header-dropdown")
+- [Download PDF of Chat Transcript](#chat-widget-download-transcript-pdf "#chat-widget-download-transcript-pdf")
 
-## Enable
-
-Header Dropdown
+## Enable Header Dropdown
 
 The button to download the transcript is within a drop down menu in the header. To
 enable the header’s drop down menu, we have to configure our chat widget’s [customizationObject](pass-customization-object.md "pass-customization-object.md") in the widget
@@ -47,9 +41,7 @@ amazon_connect('customizationObject', {
 
 ```
 
-## Download PDF of Chat
-
-Transcript
+## Download PDF of Chat Transcript
 
 After enabling the header drop down menu, you should be able to see a triple dot
 menu on the top left of the chat widget. Within that drop down menu, you should see

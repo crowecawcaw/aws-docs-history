@@ -1,6 +1,4 @@
-# Queued callbacks in real-time metrics in
-
-Amazon Connect
+# Queued callbacks in real-time metrics in Amazon Connect
 
 This topic explains how queued callbacks appear in your real-time metrics reports and
 the contact record.
@@ -32,9 +30,7 @@ following image shows the **Initiation Timestamp** field on the
 
 ![The contact record page, the Initiation Timestamp field.](images/ctr-callback-initiation-timestamp.png)
 
-## How properties in the Transfer to
-
-Queue block affect this flow
+## How properties in the Transfer to Queue block affect this flow
 
 The [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block has the
 following properties, which affect how Amazon Connect handles the
@@ -43,8 +39,7 @@ callback:
 - **Initial delay**: This property affects when a callback
   is put in queue. Specify how much time has to pass between a callback
   contact being initiated in the flow, and the customer being put in queue for
-  the next available agent. For more information, see [How Initial delay affects Scheduled and In
-  queue metrics in Amazon Connect](scheduled-vs-inqueue.md "scheduled-vs-inqueue.md").
+  the next available agent. For more information, see [How Initial delay affects Scheduled and In queue metrics in Amazon Connect](scheduled-vs-inqueue.md "scheduled-vs-inqueue.md").
 - **Maximum number of retries**: If this is set to 2, then
   Amazon Connect tries to call the customer at most three times: the
   initial callback, and two retries.

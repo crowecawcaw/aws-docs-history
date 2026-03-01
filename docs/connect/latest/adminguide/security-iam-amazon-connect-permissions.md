@@ -1,6 +1,4 @@
-# Required permissions for using
-
-custom IAM policies to manage access to the Amazon Connect console
+# Required permissions for using custom IAM policies to manage access to the Amazon Connect console
 
 If you're using custom [IAM](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") policies
 to manage access to the Amazon Connect console, your users need some or all of the permissions
@@ -44,9 +42,7 @@ add permissions to your inline policies.
 - [Forecasting, capacity planning, and scheduling page](#forecasting-page "#forecasting-page")
 - [Federations](#federations "#federations")
 
-## AWS managed policy:
-
-AmazonConnect_FullAccess policy
+## AWS managed policy: AmazonConnect_FullAccess policy
 
 To allow full read/write access to Amazon Connect, you must attach two policies to your users,
 groups, or roles. Attach the `AmazonConnect_FullAccess` policy and a custom
@@ -85,9 +81,7 @@ When you use `AmazonConnect_FullAccess` policy, note the following:
 - Assign users additional privileges to attach other AWS resources like Amazon Polly,
   Live Media Streaming, Data Streaming, and Lex bots to their Amazon Connect instances.
 
-## AWS managed policy:
-
-AmazonConnectReadOnlyAccess policy
+## AWS managed policy: AmazonConnectReadOnlyAccess policy
 
 To allow read-only access, you need to attach only the
 `AmazonConnectReadOnlyAccess` policy.
@@ -248,9 +242,7 @@ To perform `Edit` actions, users also need `List` and
 | View Contact Lens connectors              | `connect:ListIntegrationAssociations`<br>`chime:GetVoiceConnector`<br>`chime:GetVoiceConnectorLoggingConfiguration`<br>`chime:GetVoiceConnectorTermination`<br>`chime:GetVoiceConnectorTerminationHealth`<br>`chime:ListVoiceConnectors`<br>`chime:ListVoiceConnectorTerminationCredentials`<br>`chime:GetVoiceConnectorExternalSystemsConfiguration`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | Add/Update/Remove Contact Lens connectors | `chime:CreateVoiceConnector`<br>`chime:DeleteVoiceConnector`<br>`chime:DeleteVoiceConnectorTermination`<br>`chime:DeleteVoiceConnectorTerminationCredentials`<br>`chime:GetVoiceConnector`<br>`chime:GetVoiceConnectorLoggingConfiguration`<br>`chime:GetVoiceConnectorTermination`<br>`chime:GetVoiceConnectorTerminationHealth`<br>`chime:ListVoiceConnectors`<br>`chime:ListVoiceConnectorTerminationCredentials`<br>`chime:PutVoiceConnectorLoggingConfiguration`<br>`chime:PutVoiceConnectorTermination`<br>`chime:PutVoiceConnectorTerminationCredentials`<br>`chime:UpdateVoiceConnector`<br>`chime:CreateConnectAnalyticsConnector`<br>`chime:PutVoiceConnectorExternalSystemsConfiguration`<br>`chime:GetVoiceConnectorExternalSystemsConfiguration`<br>`chime:DeleteVoiceConnectorExternalSystemsConfiguration`<br>`chime:AssociateVoiceConnectorConnect`<br>`chime:DisassociateVoiceConnectorConnect`<br>`chime:TagResources`<br>`chime:UntagResources`<br>`chime:ListTagsForResource` |
 
-## Voice transfer integrations
-
-page
+## Voice transfer integrations page
 
 | Action/Use case                                         | Permissions needed                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

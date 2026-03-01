@@ -1,6 +1,4 @@
-# Use the agent workspace to optimize audio for
-
-Citrix, Amazon WorkSpaces, and Omnissa cloud desktops
+# Use the agent workspace to optimize audio for Citrix, Amazon WorkSpaces, and Omnissa cloud desktops
 
 You can use the Amazon Connect agent workspace to simplify the delivery of high-quality voice
 experiences in Amazon WorkSpaces, Citrix, and Omnissa Virtual Desktop Infrastructure (VDI)
@@ -12,9 +10,7 @@ agent's local desktop to Amazon Connect. It streamlines the agent experience and
 audio quality by reducing network hops. Your agents can leverage these audio
 optimizations in the agent workspace.
 
-## Important things to
-
-know
+## Important things to know
 
 - For non SSO users, if the agents navigate to the agent workspace from the
   Amazon Connect admin website, there will be a query parameter for referrer already appended to
@@ -34,9 +30,7 @@ know
   devices during an ongoing contact, they would not be able to access
   audio in the updated device.
 
-## How to use audio optimization in
-
-the agent workspace
+## How to use audio optimization in the agent workspace
 
 To use audio optimization in the agent workspace, users need to have a query
 parameter in the URL with a value for the VDI environment in which the agent

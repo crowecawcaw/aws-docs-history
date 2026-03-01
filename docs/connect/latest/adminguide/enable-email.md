@@ -23,14 +23,11 @@ After you move Amazon SES into production mode, if you already enabled email whe
 your Amazon Connect instance, skip to these topics:
 
 - [(Optional) Step 4: Use your own custom email domains](#use-custom-email1 "#use-custom-email1")
-- [Step 5: Configure a CORS policy on your
-  attachments bucket](#config-email-attachments-cors "#config-email-attachments-cors")
+- [Step 5: Configure a CORS policy on your attachments bucket](#config-email-attachments-cors "#config-email-attachments-cors")
 
 Otherwise, proceed to Step 2.
 
-## Step 2: Enable email and create an Amazon S3 bucket for
-
-storing email and attachments
+## Step 2: Enable email and create an Amazon S3 bucket for storing email and attachments
 
 These steps apply only if you already created an Amazon Connect instance but didn't enable
 email.
@@ -92,9 +89,7 @@ Amazon SES](../../../ses/latest/dg/creating-identities.md#just-verify-domain-pro
 
 ![The Use custom email domain option.](images/email-add-custom-domain.png)
 
-## Step 5: Configure a CORS policy on your
-
-attachments bucket
+## Step 5: Configure a CORS policy on your attachments bucket
 
 To allow customers and agents to upload and download files, update your cross-origin
 resource sharing (CORS) policy to allow `PUT` and `GET` requests for the

@@ -1,6 +1,4 @@
-# Assign permissions to manage quick responses in
-
-Amazon Connect
+# Assign permissions to manage quick responses in Amazon Connect
 
 To create and manage quick responses in the Amazon Connect admin website, users need the Content Management
 security profile permissions. The following image shows these permissions on the

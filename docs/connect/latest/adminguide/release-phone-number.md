@@ -1,6 +1,4 @@
-# Release a phone number from Amazon Connect back to
-
-inventory
+# Release a phone number from Amazon Connect back to inventory
 
 If you want a different phone number, or have extra numbers that you aren't using,
 you can release them back to inventory. You can do this using the Amazon Connect console, or
@@ -47,9 +45,7 @@ not a working phone number.
 You will not be billed for the phone number during the 180-day cool
 down period.
 
-## Avoid being blocked from
-
-claiming or releasing too many numbers
+## Avoid being blocked from claiming or releasing too many numbers
 
 If you plan to claim and release numbers frequently,
 contact us for a service quota exception. Otherwise, it's possible you will be blocked from

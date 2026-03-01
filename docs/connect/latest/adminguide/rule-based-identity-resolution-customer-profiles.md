@@ -1,6 +1,4 @@
-# Rule-based
-
-matching for Identity Resolution in Amazon Connect
+# Rule-based matching for Identity Resolution in Amazon Connect
 
 Identity Resolution in AC automatically finds similar profiles and helps you
 consolidate them. The topics in this section describe how to set up rule-based

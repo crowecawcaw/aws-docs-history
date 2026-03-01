@@ -35,9 +35,7 @@ set up:
 - [APIs to create field case
   conditions](#case-conditions-apis "#case-conditions-apis")
 
-## Step 1: Create case field
-
-conditions
+## Step 1: Create case field conditions
 
 1. Log in to the Amazon Connect admin website with an **Admin** account, or an
    account assigned to a security profile that has the following permission in
@@ -80,9 +78,7 @@ France**, the **State** field won't be
 required. 7. Choose **Save**, and then proceed to the next step to add
 the condition to your template.
 
-## Step 2: Add case field
-
-conditions to a template
+## Step 2: Add case field conditions to a template
 
 In this step, you specify which case fields the condition will apply to.
 
@@ -120,9 +116,7 @@ condition is applied to the **State** field.
 
 ## Example case field conditions
 
-### Example 1: Require agents to enter a
-
-reason for closing a case
+### Example 1: Require agents to enter a reason for closing a case
 
 1.  Create the following condition:
 
@@ -139,9 +133,7 @@ on the cases template. 3. Result: When agents save a case and the **Closed
 Reason** field is blank, they will be prompted to enter a
 value.
 
-### Example 2: Require agents to provide
-
-a reason every time they update a case
+### Example 2: Require agents to provide a reason every time they update a case
 
 1. Create the following condition:
 
@@ -155,9 +147,7 @@ field on the cases template. 3. Result: When agents save a case and the **Agent 
 Reason** is blank, they will be prompted to enter a
 value.
 
-### Example 3: Require agents to provide
-
-a reason when they assign a case to the Escalation queue
+### Example 3: Require agents to provide a reason when they assign a case to the Escalation queue
 
 1. Create the following condition:
 

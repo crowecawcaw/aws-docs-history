@@ -1,6 +1,4 @@
-# Provide call metadata for
-
-Contact Lens integration
+# Provide call metadata for Contact Lens integration
 
 In Amazon Connect, each interaction with a customer is an Amazon Connect contact. Each voice session
 that comes through the Contact Lens connector creates an Amazon Connect contact. The
@@ -35,8 +33,7 @@ fields:
 | SIPREC metadata | SIPREC metadata from the SIP event                                                                                                                     | $.Media.Sip.SiprecMetadata            |
 | SIP header      | SIP header from the SIP event. {SIP header name} is the name of<br>the SIP header provided in the SIP event. For example, "To", "From",<br>and others. | $.Media.Sip.Headers.{SIP header name} |
 
-For more information, see [Telephony call metadata attributes
-(call attributes)](connect-attrib-list.md#telephony-call-metadata-attributes "connect-attrib-list.md#telephony-call-metadata-attributes").
+For more information, see [Telephony call metadata attributes (call attributes)](connect-attrib-list.md#telephony-call-metadata-attributes "connect-attrib-list.md#telephony-call-metadata-attributes").
 
 ## How to use event metadata
 
@@ -54,7 +51,5 @@ some things you can do with this event metadata:
 3. You can search by custom contact attributes in the Amazon Connect admin website to find the
    contact for the third-party call in the two Amazon Connect instances.
 
-For information about how to create Amazon Connect flow Lambda functions, see [Grant Amazon Connect access to your AWS Lambda
-functions](connect-lambda-functions.md "connect-lambda-functions.md"). For a list of all the supported contact attributes that you can access in
-your flow Lambda, see [List of available contact attributes in Amazon Connect and their
-JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
+For information about how to create Amazon Connect flow Lambda functions, see [Grant Amazon Connect access to your AWS Lambda functions](connect-lambda-functions.md "connect-lambda-functions.md"). For a list of all the supported contact attributes that you can access in
+your flow Lambda, see [List of available contact attributes in Amazon Connect and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md").

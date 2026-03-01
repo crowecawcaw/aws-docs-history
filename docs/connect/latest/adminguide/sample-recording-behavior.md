@@ -26,10 +26,7 @@ to record both the **Agent and Customer**.
 
 For more information, see the following topics:
 
-- [When, what, and where for contact recordings
-  in Amazon Connect](about-recording-behavior.md "about-recording-behavior.md")
+- [When, what, and where for contact recordings in Amazon Connect](about-recording-behavior.md "about-recording-behavior.md")
 - [Enable contact recording](set-up-recordings.md "set-up-recordings.md")
-- [Enable enhanced multi-party contact monitoring
-  in Amazon Connect](monitor-conversations.md "monitor-conversations.md")
-- [Review recorded conversations between agents
-  and customers using Amazon Connect](review-recorded-conversations.md "review-recorded-conversations.md")
+- [Enable enhanced multi-party contact monitoring in Amazon Connect](monitor-conversations.md "monitor-conversations.md")
+- [Review recorded conversations between agents and customers using Amazon Connect](review-recorded-conversations.md "review-recorded-conversations.md")

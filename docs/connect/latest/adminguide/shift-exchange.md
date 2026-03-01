@@ -19,9 +19,7 @@ Want to watch a video that shows how to set up shift exchange? See [How Schedule
 the Shift Exchange Feature](https://www.youtube.com/watch?v=skhoJqb4hzY "https://www.youtube.com/watch?v=skhoJqb4hzY") on the Amazon Connect Enablement channel on
 YouTube.
 
-###### To define how shift exchange will work for the agents in a shift trade
-
-group
+###### To define how shift exchange will work for the agents in a shift trade group
 
 1. Log in to the Amazon Connect admin website with an account that has security profile permissions
    for **Scheduling**, **Schedule manager -

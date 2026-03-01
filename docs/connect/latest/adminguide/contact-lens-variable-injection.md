@@ -1,6 +1,4 @@
-# Specify variables for certain
-
-parameters when creating or managing rules using Amazon Connect APIs
+# Specify variables for certain parameters when creating or managing rules using Amazon Connect APIs
 
 When you create or manage rules programmatically using Amazon Connect APIs (such as
 [CreateRule](../APIReference/API_CreateRule.md "../APIReference/API_CreateRule.md") or

@@ -50,8 +50,7 @@ agents to engage in chats, perform the following steps:
   procure an SMS-enabled phone number by using AWS End User Messaging SMS, import it into
   Amazon Connect, and then assign it to your flows. For more
   information, see:
-  - [Request an SMS-enabled phone number through
-    AWS End User Messaging SMS](sms-number.md "sms-number.md")
+  - [Request an SMS-enabled phone number through AWS End User Messaging SMS](sms-number.md "sms-number.md")
   - [Set up SMS messaging in Amazon Connect](setup-sms-messaging.md "setup-sms-messaging.md")
 
 Agents can then begin accepting chats through the Contact Control Panel.
@@ -157,8 +156,6 @@ pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect
 For more information about chat, see the following topics:
 
 - [Test voice, chat, and task experiences in Amazon Connect](chat-testing.md "chat-testing.md")
-- [How routing works with multiple
-  channels](about-routing.md#routing-profile-channels-works "about-routing.md#routing-profile-channels-works")
-- [Create a routing profile in Amazon Connect to link queues to
-  agents](routing-profiles.md "routing-profiles.md")
+- [How routing works with multiple channels](about-routing.md#routing-profile-channels-works "about-routing.md#routing-profile-channels-works")
+- [Create a routing profile in Amazon Connect to link queues to agents](routing-profiles.md "routing-profiles.md")
 - [Amazon Connect Chat SDK and Sample Implementations](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/ "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/")

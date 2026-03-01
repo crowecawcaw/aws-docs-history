@@ -131,9 +131,7 @@ domains:
 
 For more information about setting up your allowlist, see [Set up your network](ccp-networking.md "ccp-networking.md").
 
-## About the Amazon Connect access URL and emergency
-
-login
+## About the Amazon Connect access URL and emergency login
 
 The Amazon Connect access URL and emergency login URLs will be updated in the AWS console
 after we complete the domain migration. Until that time, they will reflect the old

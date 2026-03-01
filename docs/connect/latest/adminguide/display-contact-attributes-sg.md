@@ -1,6 +1,4 @@
-# Display contact context in the agent
-
-workspace when a contact begins in Amazon Connect
+# Display contact context in the agent workspace when a contact begins in Amazon Connect
 
 When you design step-by-step guides for the agent workspace, you can set them up to
 display contact attributes at the start of the contact. This gives agents the context

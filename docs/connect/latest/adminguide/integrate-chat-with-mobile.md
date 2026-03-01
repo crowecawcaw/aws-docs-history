@@ -1,6 +1,4 @@
-# Integrate Amazon Connect chat into a mobile
-
-application
+# Integrate Amazon Connect chat into a mobile application
 
 This topic explains how to integrate Amazon Connect Chat into your mobile application. You
 can use one of the following options:
@@ -14,10 +12,8 @@ can use one of the following options:
 ###### Contents
 
 - [Which integration option to use](#integrate-options "#integrate-options")
-- [Amazon Connect chat
-  integration workflow](#integrate-chat-with-mobile-workflow "#integrate-chat-with-mobile-workflow")
-- [Get started with
-  Amazon Connect chat integration](#integrate-chat-with-mobile-getting-started "#integrate-chat-with-mobile-getting-started")
+- [Amazon Connect chat integration workflow](#integrate-chat-with-mobile-workflow "#integrate-chat-with-mobile-workflow")
+- [Get started with Amazon Connect chat integration](#integrate-chat-with-mobile-getting-started "#integrate-chat-with-mobile-getting-started")
 
 ## Which integration option to use
 
@@ -43,9 +39,7 @@ For more information on implementing WebView integration, see the Amazon Connect
 ideal for rapid development and minimal maintenance while ensuring comprehensive
 chat functionality.
 
-### Amazon Connect Chat
-
-SDKs for Mobile
+### Amazon Connect Chat SDKs for Mobile
 
 The Amazon Connect Chat SDKs for iOS and Android simplify the integration of
 Amazon Connect chat for native mobile applications. The SDKs help handle
@@ -83,9 +77,7 @@ libraries such as `react-native-websocket` and API calls with
 **Best for**: Teams that want to maximize code
 reuse while maintaining functional flexibility.
 
-## Amazon Connect chat
-
-integration workflow
+## Amazon Connect chat integration workflow
 
 The following diagram shows the programming flow between a customer using a mobile app
 and an agent. Numbered text in the diagram corresponds to numbered text below the
@@ -116,9 +108,7 @@ image.
    events and attachments from the agent. This will all be handled and parsed by
    the SDK and surfaced to the UI in an easily consumed structure.
 
-## Get started with
-
-Amazon Connect chat integration
+## Get started with Amazon Connect chat integration
 
 The following steps and resources will help you get started with integrating Amazon Connect Chat into your native mobile applications:
 

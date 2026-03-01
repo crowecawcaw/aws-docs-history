@@ -21,8 +21,7 @@ Agents metrics such as invocation count, latency, and success rate.
 Ensure users are assigned the appropriate security profile permissions:
 
 **Access metrics - Access** permission or the **Dashboard -
-Access** permission. For information about the difference in behavior, see [Assign permissions to view dashboards
-and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+Access** permission. For information about the difference in behavior, see [Assign permissions to view dashboards and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
 
 **Agent applications -** **Connect Workspace AI Chat Widget** permission: This permission is needed to access the AI Agent Performance dashboard.
 

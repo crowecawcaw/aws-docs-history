@@ -1,6 +1,4 @@
-# Map third-party numbers to your Amazon Connect
-
-account
+# Map third-party numbers to your Amazon Connect account
 
 In some countries you may need to obtain a third-party phone number that is hosted
 directly by a carrier in that country instead of being hosted by Amazon Connect. The carrier is

@@ -1,6 +1,4 @@
-# Notify supervisors and agents about
-
-performance evaluations
+# Notify supervisors and agents about performance evaluations
 
 You can create rules that automatically send emails or tasks to supervisors and agents
 based on evaluation results.
@@ -20,9 +18,7 @@ based on evaluation results.
 - [Example rule with multiple
   conditions](#rule-example-eval "#rule-example-eval")
 
-## Step 1: Define rule conditions for evaluation
-
-forms
+## Step 1: Define rule conditions for evaluation forms
 
 1. On the navigation menu, choose **Analytics and
    optimization**, **Rules**.

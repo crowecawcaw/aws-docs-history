@@ -1,6 +1,4 @@
-# Delete users from your Amazon Connect
-
-instance
+# Delete users from your Amazon Connect instance
 
 ###### Important
 
@@ -78,9 +76,7 @@ options:
     * Choose **Cancel** to not do anything with the
      user records that weren't deleted.
 
-## Required permissions to delete
-
-users
+## Required permissions to delete users
 
 Before you can update permissions in a security profile, you must be logged in
 with an Amazon Connect account that has the following permissions:

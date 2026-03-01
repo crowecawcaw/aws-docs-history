@@ -1,6 +1,4 @@
-# Set up US emergency calling in
-
-Amazon Connect
+# Set up US emergency calling in Amazon Connect
 
 By default 911 is enabled for all users in the following North America Regions: US
 East (N. Virginia), US West (Oregon), and AWS GovCloud (US-West). If a user calls 911,
@@ -15,14 +13,10 @@ dispatch when a 911 call is placed.
 
 There are two steps to set up E911:
 
-- [Get and store an agent's
-  validated physical address in your Amazon Connect instance](get-and-store-agent-address-e911.md "get-and-store-agent-address-e911.md")
-- [Retrieve an agent's address from Amazon Connect
-  when they call 911](retrieve-agent-address-e911.md "retrieve-agent-address-e911.md")
+- [Get and store an agent's validated physical address in your Amazon Connect instance](get-and-store-agent-address-e911.md "get-and-store-agent-address-e911.md")
+- [Retrieve an agent's address from Amazon Connect when they call 911](retrieve-agent-address-e911.md "retrieve-agent-address-e911.md")
 
-## Place 911 calls from your Test
-
-Environment
+## Place 911 calls from your Test Environment
 
 ###### Important
 

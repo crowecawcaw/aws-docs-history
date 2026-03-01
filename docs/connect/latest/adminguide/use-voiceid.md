@@ -1,6 +1,4 @@
-# Enroll callers in Voice ID in the Contact Control Panel
-
-(CCP)
+# Enroll callers in Voice ID in the Contact Control Panel (CCP)
 
 ###### Note
 
@@ -53,9 +51,7 @@ Voice ID.
 2. The caller has previously opted out of Voice ID.
 3. You have the option to enroll them.
 
-## Authentication status = Not
-
-authenticated
+## Authentication status = Not authenticated
 
 When an enrolled caller calls your contact center, Voice ID may return a result
 of **Not authenticated**. This means Voice ID was unable to
@@ -68,9 +64,7 @@ The previous images show that the **Fraud risk** can be
 **High** or **Low**, independent of whether
 the caller is authenticated.
 
-## Authentication status:
-
-Inconclusive
+## Authentication status: Inconclusive
 
 When an enrolled customer calls your contact center, Voice ID may return a result
 of **Inconclusive**: Voice ID was unable to analyze a caller's

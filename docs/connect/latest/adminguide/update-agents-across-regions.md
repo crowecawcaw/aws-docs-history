@@ -1,6 +1,4 @@
-# Update agent distribution in your
-
-Amazon Connect agent workspace across AWS Regions
+# Update agent distribution in your Amazon Connect agent workspace across AWS Regions
 
 Just as you can use the `UpdateTrafficDistribution` API to [distribute telephony traffic
 across Regions](update-telephony-traffic-distribution.md "update-telephony-traffic-distribution.md"), you can also use it to distribute agents across AWS
@@ -24,8 +22,7 @@ will be able to complete active voice contacts before shifting Regions.
 
 If an agent gets an error when they try to end a contact before shifting
 Regions, they need to refresh the agent workspace page. For more
-information, see [Set up Amazon Connect Agent Workspace
-to support agents shifting across AWS Regions](setup-agentworkspace-switchover.md "setup-agentworkspace-switchover.md").
+information, see [Set up Amazon Connect Agent Workspace to support agents shifting across AWS Regions](setup-agentworkspace-switchover.md "setup-agentworkspace-switchover.md").
 
 ###### Contents
 
@@ -53,9 +50,7 @@ Region you can use either the traffic distribution group ID or Amazon Resource N
 `UpdateTrafficDistribution` in the replica Region, you must use the
 traffic distribution group ARN.
 
-## Enable both AWS Regions during
-
-regular operations
+## Enable both AWS Regions during regular operations
 
 The `UpdateTrafficDistribution` API includes a distribution
 called `SignInConfig`. It allows you to choose which backend
@@ -137,9 +132,7 @@ from having a session active in both the source and replica Regions
 because they will attempt to sign into their Amazon Connect instance in both
 Regions.
 
-## How to shift all telephony traffic and
-
-agents across AWS Regions
+## How to shift all telephony traffic and agents across AWS Regions
 
 To shift all new inbound voice contacts, agent sign-in distribution, and
 agent distribution from us-west-2 to us-east-1, use the following code

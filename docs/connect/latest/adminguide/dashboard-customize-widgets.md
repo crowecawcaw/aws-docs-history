@@ -17,23 +17,18 @@ widgets in your dashboards. For more information, see. [[New] Custom Metrics](cu
 - [Select custom time thresholds](#select-time-thresholds "#select-time-thresholds")
 - [Re-order the metrics](#reorder-metrics "#reorder-metrics")
 - [Re-size columns](#reorder-metrics "#reorder-metrics")
-- [Add comparisons to the Trailing performance
-  widgets](#add-comparisons "#add-comparisons")
+- [Add comparisons to the Trailing performance widgets](#add-comparisons "#add-comparisons")
 - [Configure groupings](#configure-groupings "#configure-groupings")
 - [Configure filters](#configure-filters "#configure-filters")
-- [Modify thresholds for summary widgets and
-  tables](#dashboard-thresholds "#dashboard-thresholds")
+- [Modify thresholds for summary widgets and tables](#dashboard-thresholds "#dashboard-thresholds")
 - [Add or remove
   widgets](#dashboard-add-widgets "#dashboard-add-widgets")
 - [Move and resize
   widgets](#widgets-move-charts "#widgets-move-charts")
 - [Create custom dashboards](#dashboard-create-custom "#dashboard-create-custom")
-- [Create custom calculations of service level
-  metrics](#dashboard-custom-sl "#dashboard-custom-sl")
+- [Create custom calculations of service level metrics](#dashboard-custom-sl "#dashboard-custom-sl")
 
-## Choose which metrics to display in a
-
-widget
+## Choose which metrics to display in a widget
 
 1. In a widget, select the Actions icon and then choose
    **Edit**. The following image shows the Actions icon
@@ -101,9 +96,7 @@ The following image shows a vertical bar on a dashboard.
 
 ![An example of the vertical bar you use to resize a column.](images/dashboard-resize-column.png)
 
-## Add comparisons to the Trailing performance
-
-widgets
+## Add comparisons to the Trailing performance widgets
 
 In the widget's **Edit** pane you can choose to show the
 comparisons in your Trailing performance widgets by choosing the **Show
@@ -141,9 +134,7 @@ performance** metrics.
 
 ![An example of filters you can add for a widget.](images/dashboards-configurable-filters.png)
 
-## Modify thresholds for summary widgets and
-
-tables
+## Modify thresholds for summary widgets and tables
 
 You can add color coded thresholds to summary widgets and tables by choosing the
 **Modify thresholds** option on the widget.
@@ -220,9 +211,7 @@ To create a custom dashboard, on the **Dashboards** tab choose
 A new custom dashboard opens. Use the **Add widget** option to
 customize the dashboard.
 
-## Create custom calculations of service level
-
-metrics
+## Create custom calculations of service level metrics
 
 You can create custom calculations of service level metrics to measure the
 percentage of contacts handled within your specified time threshold.
@@ -289,9 +278,7 @@ The preview shows:
 
 - You can add up to 10 custom metrics to a widget.
 
-### Use custom service level metrics in
-
-dashboards
+### Use custom service level metrics in dashboards
 
 After creating a custom service level metric, you can add it to any dashboard
 widget. Complete the following procedure.

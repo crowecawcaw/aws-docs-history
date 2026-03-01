@@ -1,42 +1,25 @@
-# Amazon Connect
-
-resource-level policy examples
+# Amazon Connect resource-level policy examples
 
 Amazon Connect supports resource-level permissions for users, so you can specify actions for them
 for an instance, as shown in the following policies.
 
 ###### Contents
 
-- [Deny all actions on an
-  Amazon Connect instance](#connect-access-control-resources-example-all "#connect-access-control-resources-example-all")
-- [Deny the "delete" and
-  "update" actions](#connect-access-control-resources-example2 "#connect-access-control-resources-example2")
-- [Allow actions for
-  integrations with specific names](#connect-access-control-resources-integration-example "#connect-access-control-resources-integration-example")
-- [Allow "create users" but
-  deny if you're assigned to a specific security profile](#connect-access-control-resources-example3 "#connect-access-control-resources-example3")
-- [Allow recording actions on a
-  contact](#connect-access-control-resources-example4 "#connect-access-control-resources-example4")
-- [Allow or Deny queue API
-  actions for phone numbers in a replica Region](#allow-deny-queue-actions-replica-region "#allow-deny-queue-actions-replica-region")
-- [View specific Amazon AppIntegrations
-  resources](#view-specific-appintegrations-resources "#view-specific-appintegrations-resources")
-- [Grant access to Amazon Connect Customer
-  Profiles](#grant-access-to-customer-profiles "#grant-access-to-customer-profiles")
-- [Grant read-only access to
-  Customer Profiles data](#grant-read-only-access-to-customer-profiles "#grant-read-only-access-to-customer-profiles")
-- [Query Connect AI agents only for a specific
-  Assistant](#query-wisdom-assistant "#query-wisdom-assistant")
-- [Grant full access to
-  Amazon Connect Voice ID](#grant-read-only-access-to-voiceid "#grant-read-only-access-to-voiceid")
-- [Grant access to Amazon Connect
-  outbound campaigns resources](#grant-read-only-access-to-outboundcommunications "#grant-read-only-access-to-outboundcommunications")
-- [Restrict the
-  ability to search on transcripts analyzed by Amazon Connect Contact Lens](#restrict-ability-to-search-transcripts-contact-lens "#restrict-ability-to-search-transcripts-contact-lens")
+- [Deny all actions on an Amazon Connect instance](#connect-access-control-resources-example-all "#connect-access-control-resources-example-all")
+- [Deny the "delete" and "update" actions](#connect-access-control-resources-example2 "#connect-access-control-resources-example2")
+- [Allow actions for integrations with specific names](#connect-access-control-resources-integration-example "#connect-access-control-resources-integration-example")
+- [Allow "create users" but deny if you're assigned to a specific security profile](#connect-access-control-resources-example3 "#connect-access-control-resources-example3")
+- [Allow recording actions on a contact](#connect-access-control-resources-example4 "#connect-access-control-resources-example4")
+- [Allow or Deny queue API actions for phone numbers in a replica Region](#allow-deny-queue-actions-replica-region "#allow-deny-queue-actions-replica-region")
+- [View specific Amazon AppIntegrations resources](#view-specific-appintegrations-resources "#view-specific-appintegrations-resources")
+- [Grant access to Amazon Connect Customer Profiles](#grant-access-to-customer-profiles "#grant-access-to-customer-profiles")
+- [Grant read-only access to Customer Profiles data](#grant-read-only-access-to-customer-profiles "#grant-read-only-access-to-customer-profiles")
+- [Query Connect AI agents only for a specific Assistant](#query-wisdom-assistant "#query-wisdom-assistant")
+- [Grant full access to Amazon Connect Voice ID](#grant-read-only-access-to-voiceid "#grant-read-only-access-to-voiceid")
+- [Grant access to Amazon Connect outbound campaigns resources](#grant-read-only-access-to-outboundcommunications "#grant-read-only-access-to-outboundcommunications")
+- [Restrict the ability to search on transcripts analyzed by Amazon Connect Contact Lens](#restrict-ability-to-search-transcripts-contact-lens "#restrict-ability-to-search-transcripts-contact-lens")
 
-## Deny all actions on an
-
-Amazon Connect instance
+## Deny all actions on an Amazon Connect instance
 
 An Amazon Connect instance is the top-level resource within Amazon Connect. All other sub-resources are
 created within its scope. To deny all actions on all resources within an Amazon Connect instance,
@@ -92,9 +75,7 @@ JSON
 
 ```
 
-## Deny the "delete" and
-
-"update" actions
+## Deny the "delete" and "update" actions
 
 This following sample policy denies the "delete" and "update" actions for users in
 one Amazon Connect instance. It uses a wild card at the end of the Amazon Connect user ARN so that "delete
@@ -121,9 +102,7 @@ JSON
 
 ```
 
-## Allow actions for
-
-integrations with specific names
+## Allow actions for integrations with specific names
 
 JSON
 
@@ -148,9 +127,7 @@ JSON
 
 ```
 
-## Allow "create users" but
-
-deny if you're assigned to a specific security profile
+## Allow "create users" but deny if you're assigned to a specific security profile
 
 The following sample policy allows "create users" but explicitly denies using
 arn:aws:connect:us-west-2:123456789012:instance/00fbeee1-123e-111e-93e3-11111bfbfcc1/security-profile/11dtcggg1-123e-111e-93e3-11111bfbfcc17
@@ -181,9 +158,7 @@ JSON
 
 ```
 
-## Allow recording actions on a
-
-contact
+## Allow recording actions on a contact
 
 The following sample policy allows "start contact recording" on a contact in a
 specific instance. Since contactID is dynamic, \* is used.
@@ -215,9 +190,7 @@ The following actions are defined for the recording APIs:
 - "connect:SuspendContactRecording"
 - "connect:ResumeContactRecording"
 
-### Allow more contact Actions in the same
-
-role
+### Allow more contact Actions in the same role
 
 If the same role is used to calling other contact APIs, you can list the following
 contact actions:
@@ -254,9 +227,7 @@ JSON
 
 ```
 
-## Allow or Deny queue API
-
-actions for phone numbers in a replica Region
+## Allow or Deny queue API actions for phone numbers in a replica Region
 
 The [CreateQueue](../APIReference/API_CreateQueue.md "../APIReference/API_CreateQueue.md") and [UpdateQueueOutboundCallerConfig](../APIReference/API_UpdateQueueOutboundCallerConfig.md "../APIReference/API_UpdateQueueOutboundCallerConfig.md") APIs contain an input field named
 `OutboundCallerIdNumberId`. This field represents a phone number resource
@@ -277,9 +248,7 @@ supports:
 We recommend using the V2 ARN format. The V1 ARN format is going to be deprecated
 in the future.
 
-### Provide both ARN formats for phone number
-
-resources in the replica Region
+### Provide both ARN formats for phone number resources in the replica Region
 
 If the phone number is claimed to a traffic distribution group, to correctly
 allow/deny access to queue API actions for phone number resources while operating in
@@ -288,9 +257,7 @@ in both V1 and V2 ARN formats**. If you provide the phone number resource
 in only one ARN format, it does not result in the correct allow/deny behavior while
 operating in the replica Region.
 
-### Example 1: Deny access to
-
-CreateQueue
+### Example 1: Deny access to CreateQueue
 
 For example, you're operating in the replica Region us-west-2 with account `123456789012` and instance
 `aaaaaaaa-bbbb-cccc-dddd-0123456789012`. You want to deny access to
@@ -321,9 +288,7 @@ JSON
 
 Where us-west-2 is the Region where the request is being made.
 
-### Example 2: Only allow access to
-
-UpdateQueueOutboundCallerConfig
+### Example 2: Only allow access to UpdateQueueOutboundCallerConfig
 
 For example, you're operating in the replica Region us-west-2 with account
 `123456789012` and instance
@@ -354,9 +319,7 @@ JSON
 
 ```
 
-## View specific Amazon AppIntegrations
-
-resources
+## View specific Amazon AppIntegrations resources
 
 The following sample policy allows a specific event integrations to be
 fetched.
@@ -379,9 +342,7 @@ JSON
 
 ```
 
-## Grant access to Amazon Connect Customer
-
-Profiles
+## Grant access to Amazon Connect Customer Profiles
 
 Amazon Connect Customer Profiles use `profile` as the prefix for actions instead of
 `connect`. The following policy grants full access to a specific domain in
@@ -407,9 +368,7 @@ JSON
 
 Set up a trusted relationship with accountID to domain domainName.
 
-## Grant read-only access to
-
-Customer Profiles data
+## Grant read-only access to Customer Profiles data
 
 Following is an example for granting read access to the data in Amazon Connect Customer
 Profiles.
@@ -432,9 +391,7 @@ JSON
 
 ```
 
-## Query Connect AI agents only for a specific
-
-Assistant
+## Query Connect AI agents only for a specific Assistant
 
 The following sample policy allows querying only a specific Assistant.
 
@@ -456,9 +413,7 @@ JSON
 
 ```
 
-## Grant full access to
-
-Amazon Connect Voice ID
+## Grant full access to Amazon Connect Voice ID
 
 Amazon Connect Voice ID uses `voiceid` as the prefix for actions instead of connect.
 The following policy grants full access to a specific domain in Amazon Connect Voice ID:
@@ -483,9 +438,7 @@ JSON
 
 Set up a trusted relationship with accountID to domain domainName.
 
-## Grant access to Amazon Connect
-
-outbound campaigns resources
+## Grant access to Amazon Connect outbound campaigns resources
 
 Outbound campaigns uses `connect-campaign` as the prefix for actions instead of
 `connect`. The following policy grants full access to a specific
@@ -510,9 +463,7 @@ outbound campaign.
     }
 ```
 
-## Restrict the
-
-ability to search on transcripts analyzed by Amazon Connect Contact Lens
+## Restrict the ability to search on transcripts analyzed by Amazon Connect Contact Lens
 
 The following policy allows search and describe contacts, but denies searching a
 contact using transcripts analyzed by Amazon Connect Contact Lens.

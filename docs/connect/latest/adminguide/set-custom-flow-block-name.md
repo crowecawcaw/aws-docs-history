@@ -1,6 +1,4 @@
-# Customize the name of a flow block in
-
-Amazon Connect
+# Customize the name of a flow block in Amazon Connect
 
 To help you distinguish blocks in a flow, you can customize the names of blocks. For
 example, when there are multiple **Play prompt** blocks, and you want

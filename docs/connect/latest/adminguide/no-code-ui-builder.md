@@ -1,6 +1,4 @@
-# Use the UI builder in Amazon Connect for resources
-
-in step-by-step guides
+# Use the UI builder in Amazon Connect for resources in step-by-step guides
 
 You can create the view resources used in step-by-step guides by using the UI
 builder in Amazon Connect. With the UI builder, you can:

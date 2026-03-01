@@ -1,6 +1,4 @@
-# When a rule or category fails to be
-
-evaluated by Amazon Connect Contact Lens
+# When a rule or category fails to be evaluated by Amazon Connect Contact Lens
 
 When Amazon Connect Contact Lens evaluates a rule or category during a
 post-contact analysis for a voice or chat contact, it is possible that the rule
@@ -43,9 +41,7 @@ condition. The two possible reasons are:
    down the number of contacts it may apply to. This will help avoid quota exceeded
    failures.
 
-## Contact Lens
-
-post-contact analysis output customer S3 file
+## Contact Lens post-contact analysis output customer S3 file
 
 Failed categories appear in the analysis file under JobDetails > Skipped
 Analysis.
@@ -102,5 +98,4 @@ Following is an example of failed categories within
 },
 ```
 
-For more information, see [Example Contact Lens
-conversational analytics output files for a call](contact-lens-example-output-files.md "contact-lens-example-output-files.md").
+For more information, see [Example Contact Lens conversational analytics output files for a call](contact-lens-example-output-files.md "contact-lens-example-output-files.md").

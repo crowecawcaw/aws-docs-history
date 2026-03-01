@@ -1,13 +1,9 @@
-# Mapping Salesforce
-
-objects to the standard asset in Customer Profiles
+# Mapping Salesforce objects to the standard asset in Customer Profiles
 
 This topic lists which fields in Salesforce objects map to fields in the
 standard asset object in Customer Profiles.
 
-## Salesforce-Asset
-
-object
+## Salesforce-Asset object
 
 Following is a list of all the fields in a Salesforce-Asset object.
 
@@ -50,9 +46,7 @@ Following is a list of all the fields in a Salesforce-Asset object.
 - LastViewedDate
 - LastReferencedDate
 
-## Mapping a
-
-Salesforce-Asset object to a standard asset
+## Mapping a Salesforce-Asset object to a standard asset
 
 A subset of the fields in the Salesforce-Asset object map to the
 standard asset object in Customer Profiles.

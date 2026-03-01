@@ -1,6 +1,4 @@
-# Mapping Zendesk objects to the
-
-standard profile in Amazon Connect Customer Profiles
+# Mapping Zendesk objects to the standard profile in Amazon Connect Customer Profiles
 
 This topic lists which fields in Zendesk objects map to fields in the
 standard profile in Customer Profiles.
@@ -44,9 +42,7 @@ object.
 - created_at
 - updated_at
 
-## Mapping Zendesk users to a
-
-standard profile
+## Mapping Zendesk users to a standard profile
 
 A subset of the fields in the Zendesk-users object map to the standard
 profile in Customer Profiles. The following table lists which fields can

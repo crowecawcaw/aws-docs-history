@@ -1,6 +1,4 @@
-# Create Voluntary time off slots for agents in
-
-your contact center
+# Create Voluntary time off slots for agents in your contact center
 
 1. Choose the **Make Request** button in the Published
    schedule calendar UI and select **VTO**.

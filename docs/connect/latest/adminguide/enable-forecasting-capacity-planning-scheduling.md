@@ -1,6 +1,4 @@
-# Enable forecasting, capacity planning, and scheduling in
-
-Amazon Connect
+# Enable forecasting, capacity planning, and scheduling in Amazon Connect
 
 You must enable forecasting, capacity planning, and scheduling at the Amazon Connect instance level. After you enable forecasting, capacity planning, and scheduling,
 it may take up to 24 hours for the feature to be available for use in your AWS

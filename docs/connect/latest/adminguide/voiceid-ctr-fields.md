@@ -1,6 +1,4 @@
-# Search for and review results of Voice ID
-
-authentication
+# Search for and review results of Voice ID authentication
 
 ###### Note
 

@@ -1,6 +1,4 @@
-# Enable Identity Resolution for your Amazon Connect Customer Profiles
-
-domain
+# Enable Identity Resolution for your Amazon Connect Customer Profiles domain
 
 ###### Important
 
@@ -57,8 +55,7 @@ IDs.
 
 
     We recommend applying a policy to prevent a confused deputy
-     security issue. For more information and a sample policy, see [Amazon Connect Customer Profiles cross-service
-     confused deputy prevention](cross-service-confused-deputy-prevention.md#customer-profiles-cross-service "cross-service-confused-deputy-prevention.md#customer-profiles-cross-service").
+     security issue. For more information and a sample policy, see [Amazon Connect Customer Profiles cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md#customer-profiles-cross-service "cross-service-confused-deputy-prevention.md#customer-profiles-cross-service").
 
 7. When done, choose **Enable Identity Resolution**. Both rule-based matching and
    ML-based matching are enabled after you enable Identity Resolution. You can disable one of
@@ -80,5 +77,4 @@ IDs.
    domain, we recommend checking your profile metrics to make sure
    that profiles have been created. Otherwise, there won't be any
    matching results. 2. You may want to set up consolidation criteria for auto-merging
-   matching profiles. If so, see [Set up consolidation criteria for
-   Identity Resolution in Amazon Connect](create-consolidation-criteria.md "create-consolidation-criteria.md").
+   matching profiles. If so, see [Set up consolidation criteria for Identity Resolution in Amazon Connect](create-consolidation-criteria.md "create-consolidation-criteria.md").

@@ -1,6 +1,4 @@
-# Review analyzed conversations using
-
-Contact Lens
+# Review analyzed conversations using Contact Lens
 
 By using Amazon Connect Contact Lens, you can review the transcript and identify what
 part of the contact is of interest. You won't need to listen to an entire call or

@@ -1,6 +1,4 @@
-# Search flow logs stored in an Amazon CloudWatch log
-
-group
+# Search flow logs stored in an Amazon CloudWatch log group
 
 Before you can search flow logs, you must first [enable flow logging](contact-flow-logs.md "contact-flow-logs.md").
 

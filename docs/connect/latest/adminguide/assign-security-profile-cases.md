@@ -1,10 +1,7 @@
-# Security profile permissions for Amazon Connect
-
-Cases
+# Security profile permissions for Amazon Connect Cases
 
 This topic describes the security profiles permissions that are required to access and
-use Amazon Connect Cases. For a list of Cases permissions and their API name, see [List of security profile permissions in
-Amazon Connect](security-profile-list.md "security-profile-list.md").
+use Amazon Connect Cases. For a list of Cases permissions and their API name, see [List of security profile permissions in Amazon Connect](security-profile-list.md "security-profile-list.md").
 
 ## Required Cases permissions
 
@@ -19,9 +16,7 @@ shown in the following image.
 
 ![Customer Profiles security profile permissions.](images/cases-customer-profiles-permissions.png)
 
-## Required queue, quick connect,
-
-and user view permissions
+## Required queue, quick connect, and user view permissions
 
 To be able to assign case ownership to users or queues, agents need permissions to
 view queues, quick connects, and users. To be able to view the author name on
@@ -32,9 +27,7 @@ following two images.
 
 ![User View permissions.](images/cases-security-user-permissions.png)
 
-## Description of Cases
-
-permissions
+## Description of Cases permissions
 
 - **Audit History**: Manage who can access the audit
   history of cases in the agent application.

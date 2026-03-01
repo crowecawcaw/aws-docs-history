@@ -1,6 +1,4 @@
-# Integrate video calling and screen
-
-sharing into your custom agent desktop by using Amazon Connect Streams JS
+# Integrate video calling and screen sharing into your custom agent desktop by using Amazon Connect Streams JS
 
 This topic is for developers. For custom agent desktops, you need to make changes to
 support video calling and screen sharing. Following are high level steps.

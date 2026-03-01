@@ -84,9 +84,7 @@ For example, while carrying out transfers, a contact attribute updated in the tr
 flow updates the attribute's value in the contact attributes of both contact records (that
 is, the Inbound and Transfer contact attributes).
 
-## Contact segment attributes in the contact
-
-record
+## Contact segment attributes in the contact record
 
 In contact records, the values of a contact segment attribute are specific to the
 individual contactID. The values are not shared across all contacts with the same

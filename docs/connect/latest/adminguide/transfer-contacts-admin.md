@@ -1,6 +1,4 @@
-# Transfer in progress contacts to a quick
-
-connect agent or a queue in Amazon Connect
+# Transfer in progress contacts to a quick connect agent or a queue in Amazon Connect
 
 On the **Contact details** page of an in-progress contact, you can
 transfer a contact to a quick connect agent or queue. This capability supports task,
@@ -22,8 +20,7 @@ To transfer contacts programmatically, use the [TransferContact](../APIReference
    access to contacts on the **Contact search** and
    **Contact details** pages within their own hierarchy
    group or any hierarchy groups below them. For more information about this
-   permissions, see [Manage who can search for
-   contacts and access detailed information](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
+   permissions, see [Manage who can search for contacts and access detailed information](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
 3. **Transfer Contact**: Enables a user to transfer contacts
    on the **Analytics & Optimization** pages. The
    following image shows the **Contact Actions - Transfer
@@ -31,9 +28,7 @@ To transfer contacts programmatically, use the [TransferContact](../APIReference
 
 ![The Contact details page, contact transferred successfully.](images/contact-details-contact-transfer-permissions.png)
 
-## How to transfer a task, email,
-
-or chat contact
+## How to transfer a task, email, or chat contact
 
 1. Log in to Amazon Connect with a user account that has [permissions to access
    contact records](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").

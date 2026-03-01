@@ -1,6 +1,4 @@
-# Manage contact center agent shortages
-
-during a contact surge
+# Manage contact center agent shortages during a contact surge
 
 Simultaneously achieving Service Level (SL), Average Speed of Answer (ASA), and cost
 targets requires matching supply (# of agents) and demand (# of contacts \* handle

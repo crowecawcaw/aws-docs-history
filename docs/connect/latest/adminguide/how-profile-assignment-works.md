@@ -1,6 +1,4 @@
-# How Customer Profiles processes
-
-key definitions
+# How Customer Profiles processes key definitions
 
 When Customer Profiles ingests the custom object mappings, it processes the
 key definitions. The following diagram shows how it processes standard

@@ -26,15 +26,11 @@ For more information about key management in Amazon Connect, see [Key management
 - [Amazon Connect Cases](#encryption-at-rest-cases "#encryption-at-rest-cases")
 - [Amazon Connect Customer Profiles](#encryption-at-rest-customer-profiles "#encryption-at-rest-customer-profiles")
 - [Connect AI agents](#encryption-at-rest-wisdom "#encryption-at-rest-wisdom")
-- [Amazon Connect Voice ID encryption at
-  rest](#encryption-at-rest-voiceid "#encryption-at-rest-voiceid")
+- [Amazon Connect Voice ID encryption at rest](#encryption-at-rest-voiceid "#encryption-at-rest-voiceid")
 - [Outbound campaigns encryption at rest](#encryption-at-rest-outboundcommunications "#encryption-at-rest-outboundcommunications")
-- [Forecasts, capacity plans, and
-  schedules](#forecasts-encryption-at-rest- "#forecasts-encryption-at-rest-")
+- [Forecasts, capacity plans, and schedules](#forecasts-encryption-at-rest- "#forecasts-encryption-at-rest-")
 
-## Amazon AppIntegrations data encryption at
-
-rest
+## Amazon AppIntegrations data encryption at rest
 
 When you create a DataIntegration encrypted with a customer managed key, Amazon AppIntegrations creates
 a grant on your behalf by sending a `CreateGrant` request to AWS KMS.
@@ -70,9 +66,7 @@ event streams is temporarily (typically for a few seconds) stored in Amazon Even
 it is made available through the default-bus in customers account. EventBridge also
 encrypts the entire payload at rest using AWS owned keys.
 
-## Amazon Connect Customer Profiles
-
-encryption at rest
+## Amazon Connect Customer Profiles encryption at rest
 
 All user data stored in Amazon Connect Customer Profiles is encrypted at rest. Amazon Connect
 Customer Profiles encryption at rest provides enhanced security by encrypting all
@@ -115,9 +109,7 @@ AWS KMS charges apply when using a key that you provide. For more information ab
 pricing, see [AWS KMS
 pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
 
-## Amazon Connect Voice ID encryption at
-
-rest
+## Amazon Connect Voice ID encryption at rest
 
 Amazon Connect Voice ID stores customer voiceprints which cannot be reverse-engineered to
 obtain the enrolled customer's speech or identify a customer. All user data stored
@@ -137,8 +129,7 @@ your domain's data will be encrypted under the new KMS key, and you may safely
 retire the old key. For more information, see [UpdateDomain](../../../voiceid/latest/APIReference/API_UpdateDomain.md "../../../voiceid/latest/APIReference/API_UpdateDomain.md").
 
 Voice ID creates a grant to the customer managed key that grants it access to the key. For
-more information, see [How Amazon Connect Voice ID uses grants in
-AWS KMS](#voiceid-uses-grants "#voiceid-uses-grants").
+more information, see [How Amazon Connect Voice ID uses grants in AWS KMS](#voiceid-uses-grants "#voiceid-uses-grants").
 
 Following is a list of data that is encrypted at rest using the customer managed key:
 
@@ -157,9 +148,7 @@ Following is a list of data that is encrypted at rest using the customer managed
 AWS KMS charges apply for a customer managed key. For more information about pricing, see
 [AWS KMS pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
 
-### How Amazon Connect Voice ID uses grants in
-
-AWS KMS
+### How Amazon Connect Voice ID uses grants in AWS KMS
 
 Amazon Connect Voice ID requires a grant to use your customer managed key. When you create a
 domain, Voice ID creates a grant on your behalf by sending a see [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") request to AWS KMS. The grant is required to use your
@@ -183,9 +172,7 @@ data encrypted by the customer managed key, which affects all the operations tha
 dependent on that data, leading to `AccessDeniedException` errors and
 failures in the asynchronous workflows.
 
-### Customer managed key policy for
-
-Voice ID
+### Customer managed key policy for Voice ID
 
 Key policies control access to your customer managed key. Every customer managed key must have
 exactly one key policy, which contains statements that determine who can use the
@@ -232,9 +219,7 @@ KMS keys in IAM policy statements](../../../kms/latest/developerguide/cmks-in-ia
 
 For information about troubleshooting key access, see [Troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md") in the AWS Key Management Service Developer Guide.
 
-### Voice ID encryption
-
-context
+### Voice ID encryption context
 
 An [encryption
 context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") is an optional set of key-value pairs that contain
@@ -261,9 +246,7 @@ You can also use the encryption context in audit records and logs to identify
 how the customer managed key is being used. The encryption context also appears in logs
 generated by CloudTrail or Amazon CloudWatch Logs.
 
-#### Using encryption
-
-context to control access to your customer managed key
+#### Using encryption context to control access to your customer managed key
 
 You can use the encryption context in key policies and IAM policies as
 conditions to control access to your symmetric customer managed key. You can also use
@@ -305,9 +288,7 @@ that specifies the encryption context.
 }
 ```
 
-### Monitoring your encryption keys for
-
-Voice ID
+### Monitoring your encryption keys for Voice ID
 
 When you use an AWS KMS customer managed key with Voice ID, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track requests that Voice ID sends to AWS KMS.
 
@@ -553,9 +534,7 @@ ReEncrypt
 }
 ```
 
-## Outbound
-
-campaigns encryption at rest
+## Outbound campaigns encryption at rest
 
 Outbound campaigns stores customer phone numbers and relevant attributes. This
 information is always encrypted at rest, using either a customer managed key or an
@@ -579,9 +558,7 @@ keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms
 AWS KMS charges apply for a customer managed key. For more information about
 pricing, see [AWS KMS pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
 
-### How outbound
-
-campaigns uses grants in AWS KMS
+### How outbound campaigns uses grants in AWS KMS
 
 Outbound campaigns requires a grant to use your customer managed key. When
 you onboard to outbound campaigns using the AWS console or the
@@ -605,9 +582,7 @@ campaigns has to the customer managed key at any time. If you do, outbound
 campaigns can not access any of the data encrypted by the customer managed key,
 which affects operations that are dependent on that data.
 
-### Customer
-
-managed key policy for outbound campaigns
+### Customer managed key policy for outbound campaigns
 
 Key policies control access to your customer managed key. Every customer
 managed key must have exactly one key policy, which contains statements that
@@ -665,9 +640,7 @@ keys in IAM policy statements](../../../kms/latest/developerguide/cmks-in-iam-po
 
 For information about troubleshooting key access, see [Troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md") in the AWS Key Management Service Developer Guide.
 
-### Outbound campaigns
-
-encryption context
+### Outbound campaigns encryption context
 
 An [encryption
 context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") is an optional set of key-value pairs that contain
@@ -695,9 +668,7 @@ You can also use the encryption context in audit records and logs to identify
 how the customer managed key is being used. The encryption context also appears
 in logs generated by CloudTrail or Amazon CloudWatch Logs.
 
-#### Using encryption context to control access to your customer managed
-
-key
+#### Using encryption context to control access to your customer managed key
 
 You can use the encryption context in key policies and IAM policies as
 conditions to control access to your symmetric customer managed key. You can
@@ -1005,9 +976,7 @@ Decrypt
 
 ```
 
-## Forecasts, capacity plans, and
-
-schedules
+## Forecasts, capacity plans, and schedules
 
 When you create forecasts, capacity plans, and schedules, all data are encrypted
 at rest using AWS owned key encryption keys stored in AWS Key Management Service.

@@ -1,6 +1,4 @@
-# Set up your Amazon Connect
-
-instance
+# Set up your Amazon Connect instance
 
 You can have multiple instances of Amazon Connect. Each instance contains all the resources
 related to your contact center, such as phone numbers, agent accounts, and
@@ -13,8 +11,7 @@ number that you can use for testing.
 
 - [Step 1: Launch Amazon Connect](#tutorial1-login-aws "#tutorial1-login-aws")
 - [Step 2: Create an instance](#tutorial1-create-instance "#tutorial1-create-instance")
-- [Step 3: Claim a phone number for your
-  instance](#tutorial1-claim-phone-number "#tutorial1-claim-phone-number")
+- [Step 3: Claim a phone number for your instance](#tutorial1-claim-phone-number "#tutorial1-claim-phone-number")
 
 ## Step 1: Launch Amazon Connect
 
@@ -90,12 +87,9 @@ is the navigation menu.
     2. The navigation menu.
 
 Congratulations! You set up your instance and now you're on the Amazon Connect dashboard.
-Go to [Step 3: Claim a phone number for your
-instance](#tutorial1-claim-phone-number "#tutorial1-claim-phone-number").
+Go to [Step 3: Claim a phone number for your instance](#tutorial1-claim-phone-number "#tutorial1-claim-phone-number").
 
-## Step 3: Claim a phone number for your
-
-instance
+## Step 3: Claim a phone number for your instance
 
 In this step, you set up a phone number so that you can experiment with
 Amazon Connect.
@@ -120,5 +114,4 @@ experience)**. 7. Choose **Save**.
 
 **Congratulations!** You set up your instance and
 claimed a phone number. Now you're ready to experience how chat and voice work in
-Amazon Connect. Go to [Test the sample voice and
-chat experience in Amazon Connect](tutorial1-explore-voice-and-chat.md "tutorial1-explore-voice-and-chat.md").
+Amazon Connect. Go to [Test the sample voice and chat experience in Amazon Connect](tutorial1-explore-voice-and-chat.md "tutorial1-explore-voice-and-chat.md").

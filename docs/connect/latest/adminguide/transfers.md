@@ -1,6 +1,4 @@
-# Transfer calls to a quick connect or external phone
-
-number using the Contact Control Panel (CCP)
+# Transfer calls to a quick connect or external phone number using the Contact Control Panel (CCP)
 
 You can transfer calls to people in a predefined list, called quick connects. You
 can also transfer calls to external phone numbers that you enter.
@@ -44,9 +42,7 @@ you can take at this point.
 
 ![Customer on hold.](images/transfer-menu.png)
 
-## Transfers create multiple contact
-
-records
+## Transfers create multiple contact records
 
 A contact record is opened for a customer when they are connected to your
 contact center. The contact record is completed when the interaction with the

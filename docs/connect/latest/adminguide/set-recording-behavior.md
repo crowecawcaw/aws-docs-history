@@ -1,6 +1,4 @@
-# Flow block in Amazon Connect: Set recording and
-
-analytics behavior
+# Flow block in Amazon Connect: Set recording and analytics behavior
 
 ###### Note
 
@@ -69,9 +67,7 @@ Using this block in a queue flow does not always guarantee that calls are
 recorded. This is because the block might run after the contact is joined to the
 agent.
 
-## How to configure this
-
-block
+## How to configure this block
 
 You can configure the **Set recording and analytics behavior**
 block by using the Amazon Connect admin website or by using the [UpdateContactRecordingBehavior](../APIReference/contact-actions-updatecontactrecordingbehavior.md "../APIReference/contact-actions-updatecontactrecordingbehavior.md") action in the Amazon Connect Flow language.
@@ -84,9 +80,7 @@ displayed in its header.
 
 ![The properties page of the Set recording and analytics behavior block.](images/set-recording-behavior-properties.png)
 
-### Enable recording and
-
-analytics
+### Enable recording and analytics
 
 In this section of the Properties page you configure recording and related
 analytics settings.
@@ -115,15 +109,11 @@ analytics settings.
        Amazon Connect**.
 
 - **Screen**: Use to enable or disable recording of the
-  agent's screen. For more information, see [Set up and review agent screen recordings in Amazon Connect
-  Contact Lens](agent-screen-recording.md "agent-screen-recording.md").
+  agent's screen. For more information, see [Set up and review agent screen recordings in Amazon Connect Contact Lens](agent-screen-recording.md "agent-screen-recording.md").
 - **Chat**: Use this option to enable chat analytics, a
-  feature in Contact Lens. For more information, see [Enable conversational analytics in
-  Amazon Connect Contact Lens](enable-analytics.md "enable-analytics.md").
+  feature in Contact Lens. For more information, see [Enable conversational analytics in Amazon Connect Contact Lens](enable-analytics.md "enable-analytics.md").
 
-### Configure analytics
-
-settings
+### Configure analytics settings
 
 This section of the properties page applies to Contact Lens
 conversational analytics. You specify supported languages, redaction, and
@@ -132,8 +122,7 @@ to both speech and chat Contact Lens conversational analytics.
 
 - **Language**: You can dynamically enable the
   redaction of the output files based on the language of the customer. For
-  instructions, see [Dynamically enable
-  redaction based on the customer's language](enable-analytics.md#dynamically-enable-analytics-contact-flow "enable-analytics.md#dynamically-enable-analytics-contact-flow").
+  instructions, see [Dynamically enable redaction based on the customer's language](enable-analytics.md#dynamically-enable-analytics-contact-flow "enable-analytics.md#dynamically-enable-analytics-contact-flow").
 - **Redaction**: Choose whether to redact sensitive
   data. For more information, see [Enable redaction of sensitive data](enable-analytics.md#enable-redaction "enable-analytics.md#enable-redaction").
 - **Sentiment**: Choose whether to enable sentiment
@@ -215,8 +204,7 @@ recording continues.
   **when** they receive it.
 
 For more information and example use cases that explain how the block
-affects the agents experience with key highlights, see [Design a flow for key
-highlights](enable-analytics.md#call-summarization-agent "enable-analytics.md#call-summarization-agent").
+affects the agents experience with key highlights, see [Design a flow for key highlights](enable-analytics.md#call-summarization-agent "enable-analytics.md#call-summarization-agent").
 
 ## Configured block
 
@@ -235,21 +223,15 @@ Amazon Connect includes a set of sample flows. For instructions that explain how
 [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample inbound flow in Amazon Connect for the first contact
-  experience](sample-inbound-flow.md "sample-inbound-flow.md")
+- [Sample inbound flow in Amazon Connect for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
 
 ## Scenarios
 
 See these topics for scenarios that use this block:
 
-- [When, what, and where for contact recordings
-  in Amazon Connect](about-recording-behavior.md "about-recording-behavior.md")
+- [When, what, and where for contact recordings in Amazon Connect](about-recording-behavior.md "about-recording-behavior.md")
 - [Enable contact recording](set-up-recordings.md "set-up-recordings.md")
-- [Enable enhanced multi-party contact monitoring
-  in Amazon Connect](monitor-conversations.md "monitor-conversations.md")
-- [Review recorded conversations between agents
-  and customers using Amazon Connect](review-recorded-conversations.md "review-recorded-conversations.md")
-- [Assign permissions to review
-  past contact center conversations in Amazon Connect](assign-permissions-to-review-recordings.md "assign-permissions-to-review-recordings.md")
-- [Analyze conversations using conversational
-  analytics in Amazon Connect Contact Lens](analyze-conversations.md "analyze-conversations.md")
+- [Enable enhanced multi-party contact monitoring in Amazon Connect](monitor-conversations.md "monitor-conversations.md")
+- [Review recorded conversations between agents and customers using Amazon Connect](review-recorded-conversations.md "review-recorded-conversations.md")
+- [Assign permissions to review past contact center conversations in Amazon Connect](assign-permissions-to-review-recordings.md "assign-permissions-to-review-recordings.md")
+- [Analyze conversations using conversational analytics in Amazon Connect Contact Lens](analyze-conversations.md "analyze-conversations.md")

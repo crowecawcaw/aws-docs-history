@@ -1,6 +1,4 @@
-# Assign claimed
-
-phone numbers to traffic distribution groups in Amazon Connect
+# Assign claimed phone numbers to traffic distribution groups in Amazon Connect
 
 - You created a new traffic distribution group and it's status is
   `ACTIVE`. We recommend using the [DescribeTrafficDistributionGroup](../APIReference/API_DescribeTrafficDistributionGroup.md "../APIReference/API_DescribeTrafficDistributionGroup.md") API to verify the
@@ -43,9 +41,7 @@ flows to support your traffic distribution configuration.
 
 instances across AWS Regions.
 
-## Why an
-
-AssociatePhoneNumberContactFlow call fails
+## Why an AssociatePhoneNumberContactFlow call fails
 
 If the number is claimed to a traffic distribution group, and you are calling [AssociatePhoneNumberContactFlow](../APIReference/API_AssociatePhoneNumberContactFlow.md "../APIReference/API_AssociatePhoneNumberContactFlow.md") using an instance in the AWS Region where the traffic distribution group was created, you can use either a full
 phone number ARN or UUID value for the `PhoneNumberId` URI request
@@ -58,9 +54,7 @@ in
 this scenario, you will receive a
 `ResourceNotFoundException`.
 
-## Why an UpdatePhoneNumber call
-
-fails
+## Why an UpdatePhoneNumber call fails
 
 Your [UpdatePhoneNumber](../APIReference/API_UpdatePhoneNumber.md "../APIReference/API_UpdatePhoneNumber.md") API call will fail with a
 `ResourceNotFoundException` in the following case:
@@ -75,9 +69,7 @@ Your [UpdatePhoneNumber](../APIReference/API_UpdatePhoneNumber.md "../APIReferen
 - The endpoint you are calling is not in the same Region where the
   traffic distribution group was created.
 
-## Phone number statuses
-
-defined
+## Phone number statuses defined
 
 Following is a description of phone number statuses:
 

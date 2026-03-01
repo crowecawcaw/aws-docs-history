@@ -1,6 +1,4 @@
-# Private optimization APIs for Amazon Connect forecasting,
-
-capacity planning, and scheduling
+# Private optimization APIs for Amazon Connect forecasting, capacity planning, and scheduling
 
 Amazon Connect forecasting, capacity planning, and scheduling uses the following private API
 resources as actions in its IAM policy:

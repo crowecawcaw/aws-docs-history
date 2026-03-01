@@ -1,6 +1,4 @@
-# View key highlights of customer conversations in
-
-the Contact Control Panel (CCP)
+# View key highlights of customer conversations in the Contact Control Panel (CCP)
 
 It can be time-consuming to review contact transcripts that are hundreds of lines
 long. To make this process faster and more efficient, Contact Lens
@@ -44,5 +42,4 @@ transcript** when Contact Lens can't identify an issue,
 outcome, or action item.
 
 To learn about the agent's experience—what part of the transcript is
-displayed in the Contact Control Panel (CCP), and when—see [Design a flow for key
-highlights](enable-analytics.md#call-summarization-agent "enable-analytics.md#call-summarization-agent").
+displayed in the Contact Control Panel (CCP), and when—see [Design a flow for key highlights](enable-analytics.md#call-summarization-agent "enable-analytics.md#call-summarization-agent").

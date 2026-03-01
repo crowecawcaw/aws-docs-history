@@ -1,6 +1,4 @@
-# Endpoints and Regions for third-party STT
-
-providers
+# Endpoints and Regions for third-party STT providers
 
 By default, Amazon Connect communicates with the following endpoints:
 

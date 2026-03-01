@@ -1,6 +1,4 @@
-# Mapping Zendesk objects to
-
-the standard case in Amazon Connect Customer Profiles
+# Mapping Zendesk objects to the standard case in Amazon Connect Customer Profiles
 
 This topic lists which fields in Zendesk objects map to fields in the
 standard case in Customer Profiles.
@@ -45,9 +43,7 @@ object.
 - created_at
 - updated_at
 
-## Mapping
-
-Zendesk-tickets object to a standard case
+## Mapping Zendesk-tickets object to a standard case
 
 A subset of the fields in the Zendesk-tickets object map to the
 standard case in Customer Profiles. The following table lists which

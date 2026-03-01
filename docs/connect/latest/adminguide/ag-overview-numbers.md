@@ -1,6 +1,4 @@
-# Set up contact center phone numbers for your Amazon Connect
-
-instance
+# Set up contact center phone numbers for your Amazon Connect instance
 
 After you create an Amazon Connect instance, you can get a phone number to use for your contact
 center. You can use this phone number to place a test call in to your contact center to

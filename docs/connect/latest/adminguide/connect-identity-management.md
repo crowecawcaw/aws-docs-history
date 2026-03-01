@@ -24,8 +24,7 @@ to Amazon Connect.
 If you choose this option, the directory must be associated with your account, set
 up in Directory Service, and be active in the same Region in which you create your instance. If
 you plan to choose this option, you should prepare your directory before you create
-your Amazon Connect instance. For more information, see [Use an existing directory for identity management in
-Amazon Connect](directory-service.md "directory-service.md").
+your Amazon Connect instance. For more information, see [Use an existing directory for identity management in Amazon Connect](directory-service.md "directory-service.md").
 
 - **SAML 2.0-based authentication**—Choose this option if
   you want to use your existing network identity provider to federate users with

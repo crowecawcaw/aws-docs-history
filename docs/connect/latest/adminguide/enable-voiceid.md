@@ -14,16 +14,11 @@ Before you get started, complete the following tasks.
 
 ###### Tasks
 
-- [Grant the required
-  permissions](#enable-voiceid-permissions "#enable-voiceid-permissions")
-- [Decide how to name your Voice ID
-  domain](#enable-voiceid-domains "#enable-voiceid-domains")
-- [Create an AWS KMS key to
-  encrypt data stored in the domain](#enable-voiceid-awsmanagedkey "#enable-voiceid-awsmanagedkey")
+- [Grant the required permissions](#enable-voiceid-permissions "#enable-voiceid-permissions")
+- [Decide how to name your Voice ID domain](#enable-voiceid-domains "#enable-voiceid-domains")
+- [Create an AWS KMS key to encrypt data stored in the domain](#enable-voiceid-awsmanagedkey "#enable-voiceid-awsmanagedkey")
 
-### Grant the required
-
-permissions
+### Grant the required permissions
 
 You must grant the required permissions to users, groups, or roles. For more
 information, see [AmazonConnectVoiceIDFullAccess](security_iam_awsmanpol.md#amazonconnectvoiceidfullaccesspolicy "security_iam_awsmanpol.md#amazonconnectvoiceidfullaccesspolicy").
@@ -31,24 +26,19 @@ information, see [AmazonConnectVoiceIDFullAccess](security_iam_awsmanpol.md#amaz
 Access to Voice ID APIs using the Contact Control Panel (CCP) is disabled by
 default.
 
-### Decide how to name your Voice ID
-
-domain
+### Decide how to name your Voice ID domain
 
 When you enable Voice ID, you are prompted to provide a friendly domain name
 that's meaningful to you such as your organization name, for example,
 _Voice ID-ExampleCorp_.
 
-### Create an AWS KMS key to
-
-encrypt data stored in the domain
+### Create an AWS KMS key to encrypt data stored in the domain
 
 When you enable Voice ID, you are prompted to create or provide an [AWS KMS key](../../../kms/latest/developerguide/concepts.md#kms_keys "../../../kms/latest/developerguide/concepts.md#kms_keys"). It
 encrypts the customer data stored by Voice ID such as audio files, voiceprints,
 and the speaker identifiers.
 
-Step-by-step instructions for creating these KMS keys are provided in [Step 2: Create a new Voice ID domain and
-encryption key](#enable-voiceid-step2 "#enable-voiceid-step2").
+Step-by-step instructions for creating these KMS keys are provided in [Step 2: Create a new Voice ID domain and encryption key](#enable-voiceid-step2 "#enable-voiceid-step2").
 
 Data at rest—specifically, freeform fields that you provide plus audio
 files/voiceprints—are encrypted under the KMS key you choose. Your
@@ -79,9 +69,7 @@ and you may safely retire the old key. For more information, see [UpdateDomain](
 You can create KMS keys or provide an existing KMS key
 programmatically. For more information, see [Amazon Connect Voice ID APIs](../../../voiceid/latest/APIReference.md "../../../voiceid/latest/APIReference.md").
 
-## Step 1: Read the BIPA Consent
-
-Acknowledgement
+## Step 1: Read the BIPA Consent Acknowledgement
 
 Reading the Biometric Privacy Act (BIPA) Consent Acknowledgement is a requirement
 to enable Voice ID. You need to do this once per account, across all Regions. You
@@ -101,9 +89,7 @@ BIPA Consent Acknowledgement, and accept if you agree.
 
 ![The Enable Voice ID page showing the BIPA (Biometric Information Privacy Act) Consent Acknowledgement button that users must read and accept before enabling Voice ID.](images/voiceid-bipa.png)
 
-## Step 2: Create a new Voice ID domain and
-
-encryption key
+## Step 2: Create a new Voice ID domain and encryption key
 
 You can perform this step using the Amazon Connect console or by using Amazon Connect and Voice ID
 APIs.
@@ -174,9 +160,7 @@ You've enabled Voice ID for your instance. The following has been created:
 
 Next, in Step 3 you configure how you want Voice ID to work in your flow.
 
-## Step 3: Configure Voice ID in your contact
-
-flow
+## Step 3: Configure Voice ID in your contact flow
 
 In this step you add the required blocks to your flow and configure how you want
 Voice ID to work.

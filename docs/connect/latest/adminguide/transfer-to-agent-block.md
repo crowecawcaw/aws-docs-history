@@ -1,6 +1,4 @@
-# Flow block in Amazon Connect: Transfer to agent
-
-(beta)
+# Flow block in Amazon Connect: Transfer to agent (beta)
 
 ## Description
 
@@ -19,8 +17,7 @@ from ACW at the time of transfer.
 - We recommend using the [Set working queue](set-working-queue.md "set-working-queue.md") block for agent-to-agent
   transfers instead of using this block. The **Set working
   queue** block supports omnichannel transfers such as voice and
-  chat. For instructions, see [Set up agent-to-agent transfers in
-  Amazon Connect](setup-agent-to-agent-transfers.md "setup-agent-to-agent-transfers.md").
+  chat. For instructions, see [Set up agent-to-agent transfers in Amazon Connect](setup-agent-to-agent-transfers.md "setup-agent-to-agent-transfers.md").
 
 ## Supported channels
 
@@ -36,8 +33,7 @@ specified channel.
 
 To transfer chats and tasks to agents, use the [Set working queue](set-working-queue.md "set-working-queue.md") block. Because [Set working queue](set-working-queue.md "set-working-queue.md") works for
 all channels, we recommend using it for voice calls too, instead of using
-**Transfer to agents (beta)**. For instructions, see [Set up agent-to-agent transfers in
-Amazon Connect](setup-agent-to-agent-transfers.md "setup-agent-to-agent-transfers.md").
+**Transfer to agents (beta)**. For instructions, see [Set up agent-to-agent transfers in Amazon Connect](setup-agent-to-agent-transfers.md "setup-agent-to-agent-transfers.md").
 
 ## Flow types
 

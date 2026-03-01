@@ -1,6 +1,4 @@
-# Use caller identification
-
-to personalize customer interaction
+# Use caller identification to personalize customer interaction
 
 You can provide a personalized experience for your customers by using metadata
 attributes that provide information related to call origination. For example, you can
@@ -14,9 +12,7 @@ fraud and may be subject to additional terms and conditions. Network-related cal
 data that is not displayed to call recipients may not be used for any purpose other
 than fraud detection.
 
-## Use telephony call metadata
-
-attributes
+## Use telephony call metadata attributes
 
 The following table lists the available telephony call metadata attributes. For
 information about using attributes, see [Use Amazon Connect contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").

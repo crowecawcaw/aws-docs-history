@@ -1,6 +1,4 @@
-# Create a custom historical
-
-metrics report in Amazon Connect
+# Create a custom historical metrics report in Amazon Connect
 
 Create your own customized historical metrics reports to look at specific data.
 
@@ -8,8 +6,7 @@ Create your own customized historical metrics reports to look at specific data.
 
 - You must have permission to access metric data. The following security
   profiles include this permission: **CallCenterManager** and
-  **QualityAnalyst**. For more information, see [Security profiles for Amazon Connect and Contact Control
-  Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md").
+  **QualityAnalyst**. For more information, see [Security profiles for Amazon Connect and Contact Control Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md").
 
 ## Grouping options
 
@@ -96,9 +93,7 @@ following:
   specified subtypes. If you don’t specify any subtypes, data for all
   subtypes are included.
 
-## How to create a historical
-
-metrics report
+## How to create a historical metrics report
 
 1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/.
 2. Choose **Analytics and optimization**,
@@ -111,8 +106,7 @@ metrics report
 
    - **Agents**
      - **Agent performance**
-     - [Agent activity audit report in
-       Amazon Connect](agent-activity-audit-report.md "agent-activity-audit-report.md")
+     - [Agent activity audit report in Amazon Connect](agent-activity-audit-report.md "agent-activity-audit-report.md")
 
    - **Phone numbers**
      - **Contact metrics**

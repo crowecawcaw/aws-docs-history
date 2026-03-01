@@ -6,8 +6,7 @@ configuring a communications widget in the Amazon Connect admin website.
 ###### Contents
 
 - ["Something went wrong"](#sww "#sww")
-- [Customers not receiving agent messages: Network or WebSocket
-  disconnected](#mam "#mam")
+- [Customers not receiving agent messages: Network or WebSocket disconnected](#mam "#mam")
 - [Bypassing CORS when opening third-party links](#bcwotpl "#bcwotpl")
 
 ## "Something went wrong"
@@ -60,8 +59,7 @@ amazon_connect('authenticate', function(callback) {
 });
 ```
 
-For instructions on implementing JWT, see [Step 3: Confirm and copy
-communications widget code and security keys](add-chat-to-website.md#confirm-and-copy-chat-widget-script "add-chat-to-website.md#confirm-and-copy-chat-widget-script").
+For instructions on implementing JWT, see [Step 3: Confirm and copy communications widget code and security keys](add-chat-to-website.md#confirm-and-copy-chat-widget-script "add-chat-to-website.md#confirm-and-copy-chat-widget-script").
 
 If you have implemented the callback already, the following scenarios may
 still cause a 401:
@@ -98,9 +96,7 @@ information, see [Use service-linked roles and role permissions for Amazon Conne
 If your service-linked role has the correct permissions, contact AWS
 Support.
 
-## Customers not receiving agent messages: Network or WebSocket
-
-disconnected
+## Customers not receiving agent messages: Network or WebSocket disconnected
 
 During a chat session, a customer who is using a chat application loses their
 network/WebSocket connection. They quickly re-gain connection, but messages that

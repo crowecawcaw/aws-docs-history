@@ -68,13 +68,9 @@ API.
 4. When you're finished adding quick connects, choose
    **Save**.
 
-## Step 2: Enable agents to
+## Step 2: Enable agents to see quick connects
 
-see quick connects
-
-###### To enable your agents to see the quick connects in the CCP when they transfer
-
-a contact
+###### To enable your agents to see the quick connects in the CCP when they transfer a contact
 
 1. After you create the quick connect, go to **Routing**,
    **Queues** and then choose the appropriate queue for
@@ -88,9 +84,7 @@ a contact
 Agents see the quick connects of the queues in their routing profile,
 including the Default outbound queue.
 
-## Example: Create a phone
-
-number quick connect to a mobile phone
+## Example: Create a phone number quick connect to a mobile phone
 
 In this example, you create a phone number quick connect to a person's mobile
 phone. This might be for a supervisor, for example, so agents can call them if
@@ -112,9 +106,7 @@ needed.
 
 ![The phone number on the Add quick connect page.](images/quick-connect-johndoe.png) 5. Choose **Save**.
 
-###### Add the quick connect to a queue. Agents working this queue will see the
-
-quick connect in their CCP.
+###### Add the quick connect to a queue. Agents working this queue will see the quick connect in their CCP.
 
 1. Go to **Routing**, **Queues**, and
    choose the queue you want to edit.

@@ -1,6 +1,4 @@
-# Additional customizations for
-
-your Amazon Connect web calling widget
+# Additional customizations for your Amazon Connect web calling widget
 
 You can add the following additional customizations to your web calling widget:
 
@@ -83,16 +81,12 @@ aspect ratio of the video frame does not match the video tile.
 - To resize the video for agent, set
   `videoTile.remoteVideoObjectFit` to the target value.
 
-For more information, see [Supported options and
-constraints](#supported-options-web-calling "#supported-options-web-calling").
+For more information, see [Supported options and constraints](#supported-options-web-calling "#supported-options-web-calling").
 
-## Configure the customization
-
-object
+## Configure the customization object
 
 The following example shows how to implement optional customizations for web
-calling. For a detailed description of these options, see [Supported options and
-constraints](#supported-options-web-calling "#supported-options-web-calling").
+calling. For a detailed description of these options, see [Supported options and constraints](#supported-options-web-calling "#supported-options-web-calling").
 
 You can implement some or all of the fields shown in the following example. When
 you don't implement customizations, default behaviors are used for the missing
@@ -130,9 +124,7 @@ mode.
 
 ![Customizations when in full-screen mode.](images/nonfullscreenmode.png)
 
-## Supported options and
-
-constraints
+## Supported options and constraints
 
 The following table lists the supported customization fields and recommended value
 constraints.

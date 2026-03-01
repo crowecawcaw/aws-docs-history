@@ -1,6 +1,4 @@
-# Enable Amazon Connect flow logs in an Amazon CloudWatch log
-
-group
+# Enable Amazon Connect flow logs in an Amazon CloudWatch log group
 
 By default when you create a new Amazon Connect instance, an Amazon CloudWatch log group is created
 automatically to store the logs for your instance.
@@ -11,9 +9,7 @@ Amazon Connect delivers flow logs at least once. They may be delivered again
 for multiple reasons. For example, a service retry due to an unavoidable
 failure.
 
-## Step 1: Enable logging for your
-
-instance
+## Step 1: Enable logging for your instance
 
 Use the following procedure to check that logging is enabled for your
 instance.
@@ -28,9 +24,7 @@ instance.
 ![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Flows**. 4. Select **Enable Flow logs** and choose
 **Save**.
 
-## Step 2: Add the Set logging
-
-behavior block
+## Step 2: Add the Set logging behavior block
 
 Logs are generated only for flows that include a [Set logging behavior](set-logging-behavior.md "set-logging-behavior.md")
 block with logging set to enabled.

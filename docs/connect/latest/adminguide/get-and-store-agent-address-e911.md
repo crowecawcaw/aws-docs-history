@@ -1,6 +1,4 @@
-# Get and store an agent's
-
-validated physical address in your Amazon Connect instance
+# Get and store an agent's validated physical address in your Amazon Connect instance
 
 The first step in setting up E911 for your Amazon Connect instance is to get and store the
 agent's validated physical address. The following illustration shows the process for

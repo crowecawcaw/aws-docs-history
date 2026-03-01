@@ -1,6 +1,4 @@
-# Agent performance evaluations
-
-dashboard
+# Agent performance evaluations dashboard
 
 You can use the **Agent performance evaluations dashboard** to view aggregated agent performance,
 and get insights across agent cohorts and over time.
@@ -11,30 +9,20 @@ You can also use it to view agent performance metrics such as average handle tim
 
 ###### Contents
 
-- [Enable access to
-  the dashboard](#enable-agent-performance-evaluations-dashboard "#enable-agent-performance-evaluations-dashboard")
-- [Specify "Time range" and "Compare to"
-  benchmark](#agents-timerange "#agents-timerange")
-- [Examples of "Time range" and "Compare
-  to" configurations](#agents-timerange-examples "#agents-timerange-examples")
-- [Agent performance overview and Agent
-  evaluation performance overview charts](#agent-performance-overview "#agent-performance-overview")
+- [Enable access to the dashboard](#enable-agent-performance-evaluations-dashboard "#enable-agent-performance-evaluations-dashboard")
+- [Specify "Time range" and "Compare to" benchmark](#agents-timerange "#agents-timerange")
+- [Examples of "Time range" and "Compare to" configurations](#agents-timerange-examples "#agents-timerange-examples")
+- [Agent performance overview and Agent evaluation performance overview charts](#agent-performance-overview "#agent-performance-overview")
 - [Evaluation scorecard chart](#evaluation-scorecard-dashboard "#evaluation-scorecard-dashboard")
-- [Evaluation score trend
-  chart](#evaluation-scorecard-trend-chart "#evaluation-scorecard-trend-chart")
-- [Agent performance evaluation metrics
-  table](#agent-perf-metrics-chart "#agent-perf-metrics-chart")
-- [Agent online time breakdown
-  chart](#agent-online-time-breakdown-chart "#agent-online-time-breakdown-chart")
-- [Average handle time breakdown
-  chart](#avg-handletime-breakdown-chart "#avg-handletime-breakdown-chart")
+- [Evaluation score trend chart](#evaluation-scorecard-trend-chart "#evaluation-scorecard-trend-chart")
+- [Agent performance evaluation metrics table](#agent-perf-metrics-chart "#agent-perf-metrics-chart")
+- [Agent online time breakdown chart](#agent-online-time-breakdown-chart "#agent-online-time-breakdown-chart")
+- [Average handle time breakdown chart](#avg-handletime-breakdown-chart "#avg-handletime-breakdown-chart")
 - [Agent performance metrics table](#agent-perf-metrics-table "#agent-perf-metrics-table")
 - [Evaluations performed by evaluator](#evaluations-performed-by-evaluator-table "#evaluations-performed-by-evaluator-table")
 - [Agent hierarchy evaluation metrics](#agent-hierarchy-evaluation-metrics-table "#agent-hierarchy-evaluation-metrics-table")
 
-## Enable access to
-
-the dashboard
+## Enable access to the dashboard
 
 Managers can access the dashboard within **Analytics and Optimization > Dashboards and Reports**.
 
@@ -42,8 +30,7 @@ Grant managers the appropriate security profile permissions:
 
 - **Access metrics - Access permission** or the
   **Dashboard - Access permission**. For information
-  about the difference in behavior, see [Assign permissions to view dashboards
-  and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+  about the difference in behavior, see [Assign permissions to view dashboards and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
 - **Users - View**: This permission enables you to view users,
   such as agents receiving evaluations and managers performing evaluations.
 - **Evaluation forms - perform evaluations - View**: This
@@ -53,12 +40,9 @@ Grant managers the appropriate security profile permissions:
   form structure, scoring weights, and more.
 - **Saved reports - Create, View, Publish [optional]**: Grants managers permissions to create custom saved dashboards and publish them to agents and other managers.
 
-You can limit team manager access to performance evaluation metrics within their own agent hierarchy. See [Apply hierarchy-based access control to
-dashboards and reports in Amazon Connect](dashboard-access-control.md "dashboard-access-control.md").
+You can limit team manager access to performance evaluation metrics within their own agent hierarchy. See [Apply hierarchy-based access control to dashboards and reports in Amazon Connect](dashboard-access-control.md "dashboard-access-control.md").
 
-## Specify "Time range" and "Compare to"
-
-benchmark
+## Specify "Time range" and "Compare to" benchmark
 
 Following are a few use cases that help explain how to configure the
 **Time range** and **Compare to**
@@ -78,9 +62,7 @@ settings.
 - **Queue**
 - **Routing Profile**
 
-## Examples of "Time range" and "Compare
-
-to" configurations
+## Examples of "Time range" and "Compare to" configurations
 
 - **Use case 1**: I want to compare my agents’
   performance today with my performance yesterday
@@ -133,9 +115,7 @@ Configure the dashboard as follows:
 
 ![Time range = Week, Time = Last week, Comparison type = Resource.](images/agent-evaluations-dashboard-example3.png)
 
-## Agent performance overview and Agent
-
-evaluation performance overview charts
+## Agent performance overview and Agent evaluation performance overview charts
 
 These two charts provide aggregated metrics based on your filters.
 
@@ -184,17 +164,14 @@ The evaluation source helps you differentiate between evaluations performed
 manually, automatically, or where the manager completed the evaluation with
 assistance from automation. For a description of each `evaluationSource`
 valid value (`ASSISTED_BY_AUTOMATION`, `MANUAL`,
-`AUTOMATED`), see [Evaluation form metadata
-definitions](evaluationforms-example-output-file.md#evaluation-form-metadata "evaluationforms-example-output-file.md#evaluation-form-metadata").
+`AUTOMATED`), see [Evaluation form metadata definitions](evaluationforms-example-output-file.md#evaluation-form-metadata "evaluationforms-example-output-file.md#evaluation-form-metadata").
 
 The following image shows an example **Evaluation scorecard**
 chart.
 
 ![The Evaluation scorecard chart.](images/evaluation-scorecard-dashboard.png)
 
-## Evaluation score trend
-
-chart
+## Evaluation score trend chart
 
 On the **Evaluation score trend** chart you can view trends at
 intervals of 15 minutes, daily, weekly or monthly, and perform comparison with prior
@@ -210,9 +187,7 @@ chart.
 
 ![The Evaluation score trend chart.](images/evaluation-score-trend.png)
 
-## Agent performance evaluation metrics
-
-table
+## Agent performance evaluation metrics table
 
 You can view the average evaluation score for each of your agents. For example,
 you can filter for a particular agent hierarchy and sort agents by their
@@ -229,17 +204,14 @@ automatic fails on their performance evaluations.
 
 You can set custom thresholds that enable you to get an at-a-glance view of agents
 that are below the desirable threshold for their average evaluation score. For more
-information, see [Modify thresholds for summary widgets and
-tables](dashboard-customize-widgets.md#dashboard-thresholds "dashboard-customize-widgets.md#dashboard-thresholds").
+information, see [Modify thresholds for summary widgets and tables](dashboard-customize-widgets.md#dashboard-thresholds "dashboard-customize-widgets.md#dashboard-thresholds").
 
 The following image shows an example **Agent performance evaluation
 metrics** table.
 
 ![The Agent performance evaluation metrics chart.](images/agent-perf-evaluation-metrics.png)
 
-## Agent online time breakdown
-
-chart
+## Agent online time breakdown chart
 
 This chart provides a breakdown of the online time spent by agents being
 on-contact, being idle (while being available to take calls), and non-productive
@@ -259,9 +231,7 @@ breakdown** chart.
 
 ![The Agent online time breakdown chart.](images/agent-online-time-breakdown.png)
 
-## Average handle time breakdown
-
-chart
+## Average handle time breakdown chart
 
 This chart provides a breakdown of the average handle time across interaction
 time, hold time, and After Contact Work (ACW) time.

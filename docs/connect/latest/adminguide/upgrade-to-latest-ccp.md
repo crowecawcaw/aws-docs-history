@@ -1,6 +1,4 @@
-# Upgrade to the latest Amazon Connect Contact Control Panel
-
-(CCP).
+# Upgrade to the latest Amazon Connect Contact Control Panel (CCP).
 
 The URL for the latest Contact Control Panel (CCP) ends with
 **ccp-v2**
@@ -14,17 +12,13 @@ options:
   If you’re still unsure whether your using the latest CCP, go to [Compare the earlier and latest CCP](upgrade-browser-ccp.md#ui-comparison "upgrade-browser-ccp.md#ui-comparison") to see if your CCP looks like
   the latest one.
 
-## Upgrade on your own schedule, before your automatic
-
-upgrade date
+## Upgrade on your own schedule, before your automatic upgrade date
 
 To upgrade to the latest CCP before your automatic upgrade date, use the steps in the
 following sections:
 
-- [Upgrade your Contact Control Panel (CCP) when your
-  CCP URL ends with /ccp#](upgrade-browser-ccp.md "upgrade-browser-ccp.md")
-- [Upgrade your Contact Control Panel (CCP) when
-  using the Amazon Connect Streams API](upgrade-ccp-streams-api.md "upgrade-ccp-streams-api.md")
+- [Upgrade your Contact Control Panel (CCP) when your CCP URL ends with /ccp#](upgrade-browser-ccp.md "upgrade-browser-ccp.md")
+- [Upgrade your Contact Control Panel (CCP) when using the Amazon Connect Streams API](upgrade-ccp-streams-api.md "upgrade-ccp-streams-api.md")
 
 ## Upgrade later, automatically
 

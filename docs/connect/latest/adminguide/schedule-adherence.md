@@ -1,6 +1,4 @@
-# Schedule Adherence for agent productivity in
-
-Amazon Connect
+# Schedule Adherence for agent productivity in Amazon Connect
 
 Contact center supervisors or managers track schedule adherence to understand when
 agents are following the schedule that you have created. This helps ensure you achieve
@@ -95,9 +93,7 @@ following two images show these options.
 
 ![Options to configure a 5-minute early/late threshold for breaks.](images/configure-thresholds.png)
 
-## Configure adherence
-
-thresholds
+## Configure adherence thresholds
 
 Complete the following steps to configure activity-based thresholds.
 
@@ -116,9 +112,7 @@ thresholds**. 5. Configure the following options:
     * **Allowable variance**: Minutes allowed to extend
      or reduce the activity.
 
-### Staffing group
-
-threshold configuration
+### Staffing group threshold configuration
 
 You can configure specific thresholds for activities within a staffing group.
 Complete the following steps.
@@ -153,13 +147,9 @@ status.
 - Changes to thresholds apply to future adherence calculations
   only.
 
-## Where you can view schedule
+## Where you can view schedule adherence
 
-adherence
-
-### Real-time and historical metrics
-
-reports
+### Real-time and historical metrics reports
 
 You can view Schedule Adherence metrics on the **Historical
 metrics** and **Real-Time metrics** pages. The
@@ -175,9 +165,7 @@ appear in a historical metrics report.
 
 ![The historical metrics page for agents, the table settings box, the schedule adherence metrics.](images/wfm-schedule-adherence-metrics.png)
 
-### Published calendar
-
-view
+### Published calendar view
 
 You can also view schedule adherence data in a calendar view. This view
 provides a visual and intuitive representation of adherence breaches by agent
@@ -192,9 +180,7 @@ The following image shows an example of adherence on a calendar view.
 
 ![An example of the adherence view where all the agents have breached their schedule during all blocks of time.](images/scheduling-dailyview1.png)
 
-### Queue and agent performance
-
-dashboard
+### Queue and agent performance dashboard
 
 Real-time agent adherence is available in the **Agent
 adherence** widget on the [Queue and agent performance
@@ -209,9 +195,7 @@ applied on the **Adherence status duration**.
 
 ![The Agent adherence widget with conditional formatting.](images/dashboard-adherence-widget.png)
 
-### Adherence threshold
-
-reports
+### Adherence threshold reports
 
 The **Queue and agent performance** dashboard includes
 threshold-specific information:
@@ -228,9 +212,7 @@ Historical reports can display:
 - Time spent within configured thresholds
 - Threshold utilization patterns
 
-## Monitor adherence with
-
-thresholds
+## Monitor adherence with thresholds
 
 In the **Queue and agent performance** dashboard, the
 **Agent Adherence** widget shows how agents are performing
@@ -258,9 +240,7 @@ threshold.
 
 ![The Using thresholds messages.](images/adherence-thresholds-dashboard.png)
 
-## Set up schedule adherence
-
-notifications
+## Set up schedule adherence notifications
 
 You can use Contact Lens rules to configure notifications to be sent when
 agents are out of adherence.

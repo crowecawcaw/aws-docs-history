@@ -1,6 +1,4 @@
-# How call center agents connect to the Contact Control
-
-Panel (CCP)
+# How call center agents connect to the Contact Control Panel (CCP)
 
 When an agent logs in, the CCP attempts to connect to the Amazon EC2 signaling endpoints
 listed in the AWS ipranges.json file, Amazon Connect for media, and CloudFront for web artifacts such

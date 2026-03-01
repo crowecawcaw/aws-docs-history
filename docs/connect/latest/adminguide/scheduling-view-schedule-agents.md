@@ -1,6 +1,4 @@
-# How agents view their schedule in
-
-the Amazon Connect agent workspace
+# How agents view their schedule in the Amazon Connect agent workspace
 
 There are two ways agents can access their schedules:
 

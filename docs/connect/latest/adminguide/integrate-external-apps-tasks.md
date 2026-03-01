@@ -1,6 +1,4 @@
-# Set up application integration to create
-
-tasks in Amazon Connect
+# Set up application integration to create tasks in Amazon Connect
 
 Set up application integration to create tasks, without needing to code.
 
@@ -15,10 +13,7 @@ configure your service-linked roles (SLR), see [For instances created before Oct
 
 ###### Contents
 
-- [Set up application integration for
-  Salesforce using Amazon AppFlow](integrate-salesforce-tasks.md "integrate-salesforce-tasks.md")
-- [Set up application integration for Zendesk
-  using Amazon EventBridge](integrate-zendesk-tasks.md "integrate-zendesk-tasks.md")
+- [Set up application integration for Salesforce using Amazon AppFlow](integrate-salesforce-tasks.md "integrate-salesforce-tasks.md")
+- [Set up application integration for Zendesk using Amazon EventBridge](integrate-zendesk-tasks.md "integrate-zendesk-tasks.md")
 - [Monitor task creation in Amazon Connect](monitor-task-creation.md "monitor-task-creation.md")
-- [Disconnect Amazon Connect from a third-party
-  connection](disassociate-connection.md "disassociate-connection.md")
+- [Disconnect Amazon Connect from a third-party connection](disassociate-connection.md "disassociate-connection.md")

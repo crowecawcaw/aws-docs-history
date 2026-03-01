@@ -1,6 +1,4 @@
-# Import estimated future
-
-shrinkage and available full-time employees in Amazon Connect
+# Import estimated future shrinkage and available full-time employees in Amazon Connect
 
 You can increase capacity planning accuracy by providing estimated future data
 (Available FTE and Shrinkage) for your existing forecast groups. Providing Available
@@ -31,9 +29,7 @@ It usually between 2 - 5 minutes for the .csv file to upload. If the upload
 fails, check if the `FORECAST_GROUP` name in the .csv file matches
 the name of the forecast group that you created.
 
-## Important things
-
-to know about your .csv file
+## Important things to know about your .csv file
 
 - FORECAST_GROUP: Enter the EXACT name of the forecast group you
   created. You can add multiple forecast groups in this `.csv`

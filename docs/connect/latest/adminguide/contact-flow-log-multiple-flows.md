@@ -1,6 +1,4 @@
-# Track customers between multiple flows
-
-in your contact center
+# Track customers between multiple flows in your contact center
 
 In many cases, customers interact with multiple flows in your contact center, being
 passed from one flow to another to appropriately assist them with their specific issue.

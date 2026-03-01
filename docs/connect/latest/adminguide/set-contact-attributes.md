@@ -1,6 +1,4 @@
-# Flow block in Amazon Connect: Set contact
-
-attributes
+# Flow block in Amazon Connect: Set contact attributes
 
 This topic defines the flow block for storing key-value pairs as contact attributes,
 and then setting a value that is later referenced in a flow.
@@ -84,12 +82,9 @@ customer's credit card number to do a Lambda data dip.
     + The `GetContactAttributes` API can't expose them.
     + If you have logging enabled on the flow, the key and value appear in the Cloudwatch log.
 
-## How to reference
+## How to reference attributes
 
-attributes
-
-- For the JSON syntax for each attribute, see [List of available contact attributes in Amazon Connect and their
-  JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
+- For the JSON syntax for each attribute, see [List of available contact attributes in Amazon Connect and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
 - To reference attributes that contain special characters in their name,
   such as spaces, place brackets and single quotations around the attribute
   name. For example: `$.Attributes.['user attribute name']`.
@@ -121,9 +116,7 @@ attributes
   _slotName_ with the name of the slot in the
   bot.
 
-## What happens when attributes exceed
-
-32 KB
+## What happens when attributes exceed 32 KB
 
 Attributes can be up to 32 KB, which is the maximum size of the contact record
 attributes section. When the attributes for a contact exceed 32 KB, the contact is
@@ -169,12 +162,10 @@ Amazon Connect includes a set of sample flows. For instructions that explain how
 [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample inbound flow in Amazon Connect for the first contact
-  experience](sample-inbound-flow.md "sample-inbound-flow.md")
+- [Sample inbound flow in Amazon Connect for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
 
 ## Scenarios
 
 See these topics for scenarios that use this block:
 
-- [How to reference contact attributes in
-  Amazon Connect](how-to-reference-attributes.md "how-to-reference-attributes.md")
+- [How to reference contact attributes in Amazon Connect](how-to-reference-attributes.md "how-to-reference-attributes.md")

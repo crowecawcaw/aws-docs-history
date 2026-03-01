@@ -1,6 +1,4 @@
-# About versioning message
-
-templates
+# About versioning message templates
 
 Each time you change a template, you can specify whether you want to save your changes
 as a new draft of the template or as an update to the most recent, existing draft of the

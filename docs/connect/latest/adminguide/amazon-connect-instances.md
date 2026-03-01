@@ -13,8 +13,7 @@ contact center.
 - To allow a user to create an instance, ensure that they have the permissions
   granted by the **AmazonConnect_FullAccess** policy.
 - For a list of the minimum IAM permissions required to create an instance, see
-  [Required permissions for using
-  custom IAM policies to manage access to the Amazon Connect console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md").
+  [Required permissions for using custom IAM policies to manage access to the Amazon Connect console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md").
 - By default when you create an Amazon Connect instance, Next Generation Amazon Connect is
   enabled. It's pricing model includes unlimited AI features in Amazon Connect. It's an
   all-inclusive channel pricing model that covers all optimization features for
@@ -88,8 +87,7 @@ security profile.
 
 2. You can also select **No administrator** if an administrator
    is not needed for your instance.
-3. (Optional) Add tags to your instance. For more information see [Tagging an Amazon Connect
-   instance](tagging-connect-instance.md "tagging-connect-instance.md").
+3. (Optional) Add tags to your instance. For more information see [Tagging an Amazon Connect instance](tagging-connect-instance.md "tagging-connect-instance.md").
 4. Choose **Next**.
 
 ## Step 3: Set telephony
@@ -143,8 +141,7 @@ in the Amazon S3 bucket.
 
 This bucket and key are used for both recordings of conversations and exported
 reports. Alternatively, you can specify separate buckets and keys for recordings of
-conversations and exported reports. For instructions, see [Update settings for your Amazon Connect
-instance](update-instance-settings.md "update-instance-settings.md").
+conversations and exported reports. For instructions, see [Update settings for your Amazon Connect instance](update-instance-settings.md "update-instance-settings.md").
 
 ###### Note
 
@@ -171,8 +168,7 @@ chat transcripts, exported reports, flow logs, and email messages.**
 If you choose **Enable Attachments sharing** for your
 instance, you must configure a CORS policy on your attachments bucket. If
 you don't do this, the email channel will not work for your instance. For
-instructions, see [Step 5: Configure a CORS policy on
-your attachments bucket](enable-email1.md#config-email-attachments-cors1 "enable-email1.md#config-email-attachments-cors1").
+instructions, see [Step 5: Configure a CORS policy on your attachments bucket](enable-email1.md#config-email-attachments-cors1 "enable-email1.md#config-email-attachments-cors1").
 
 - Live media streaming is not enabled by default.
 - Screen recording is not enabled by default. For more information, see [Enable screen recording for your Amazon Connect instance](enable-sr.md "enable-sr.md").
@@ -181,12 +177,9 @@ your attachments bucket](enable-email1.md#config-email-attachments-cors1 "enable
 profiles that combine customer contact history with customer information such as account
 number, address, billing address, and birth date. Data is encrypted using AWS Key Management Service. You
 can configure Customer Profiles to use your own customer managed key after your instance is set up. For more
-information, see [Create a KMS key to
-be used by Customer Profiles to encrypt data (required)](enable-customer-profiles.md#enable-customer-profiles-awsmanagedkey "enable-customer-profiles.md#enable-customer-profiles-awsmanagedkey").
+information, see [Create a KMS key to be used by Customer Profiles to encrypt data (required)](enable-customer-profiles.md#enable-customer-profiles-awsmanagedkey "enable-customer-profiles.md#enable-customer-profiles-awsmanagedkey").
 
-###### Review and copy the location of the S3 bucket, flow logs, and whether you want to
-
-enable Customer Profiles.
+###### Review and copy the location of the S3 bucket, flow logs, and whether you want to enable Customer Profiles.
 
 1. If desired, copy the location of the S3 bucket where your data encryption is
    stored, and the location of the flow logs in CloudWatch.
@@ -200,8 +193,7 @@ enable Customer Profiles.
    management options after you create the instance.
 2. (Optional) To change any of the configuration options, choose
    **Edit**.
-3. (Optional) Add tags to your instance. For more information see [Tagging an Amazon Connect
-   instance](tagging-connect-instance.md "tagging-connect-instance.md").
+3. (Optional) Add tags to your instance. For more information see [Tagging an Amazon Connect instance](tagging-connect-instance.md "tagging-connect-instance.md").
 4. Choose **Create instance**.
 5. (Optional) To continue configuring your instance, choose **Get
    started** and then choose **Let's go**. If you
@@ -223,5 +215,4 @@ Generation Amazon Connect](enable-nextgeneration-amazonconnect.md#how-to-disable
 ## Next steps
 
 After you create an instance, you can assign your contact center a phone number or
-import your own phone number. For more information, see [Set up contact center phone numbers for your Amazon Connect
-instance](ag-overview-numbers.md "ag-overview-numbers.md").
+import your own phone number. For more information, see [Set up contact center phone numbers for your Amazon Connect instance](ag-overview-numbers.md "ag-overview-numbers.md").

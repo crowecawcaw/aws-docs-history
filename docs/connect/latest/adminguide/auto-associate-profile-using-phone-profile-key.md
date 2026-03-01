@@ -1,6 +1,4 @@
-# Associate the
-
-Contact Record with one profile found using the \_phone key in Customer Profiles
+# Associate the Contact Record with one profile found using the \_phone key in Customer Profiles
 
 You can automatically associate the Contact Record with one profile found using
 the `_phone` key.

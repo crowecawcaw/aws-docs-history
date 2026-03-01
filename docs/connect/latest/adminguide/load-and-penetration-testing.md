@@ -1,6 +1,4 @@
-# Load and penetration / security testing
-
-policies for Amazon Connect
+# Load and penetration / security testing policies for Amazon Connect
 
 Amazon Connect regularly performs rigorous testing to ensure our service delivers the security,
 reliability, and availability required to support world-class contact centers of all
@@ -11,9 +9,7 @@ your own security assessments (such as penetration tests) and load testing to va
 your environments and ensure they are production-ready. This topic explains the policies
 and requirements.
 
-## Security and penetration
-
-testing
+## Security and penetration testing
 
 Due to the inherent risk of damage from security testing, Amazon Connect does not support
 any customer security or penetration tests, as explained on this AWS Cloud

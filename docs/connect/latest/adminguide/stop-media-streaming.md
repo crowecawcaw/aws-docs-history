@@ -41,8 +41,7 @@ This block doesn't have any properties.
 ## Configuration tips
 
 - You must enable live media streaming in your instance to successfully
-  capture customer audio. For instructions, see [Set up live media streaming of customer audio in
-  Amazon Connect](customer-voice-streams.md "customer-voice-streams.md").
+  capture customer audio. For instructions, see [Set up live media streaming of customer audio in Amazon Connect](customer-voice-streams.md "customer-voice-streams.md").
 - Customer audio is captured until a **Stop media
   streaming** block is invoked, even if the contact is passed to
   another flow.
@@ -63,5 +62,4 @@ Amazon Connect includes a set of sample flows. For instructions that explain how
 [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-[Example flow for testing live media streaming
-in Amazon Connect](use-media-streams-blocks.md "use-media-streams-blocks.md")
+[Example flow for testing live media streaming in Amazon Connect](use-media-streams-blocks.md "use-media-streams-blocks.md")

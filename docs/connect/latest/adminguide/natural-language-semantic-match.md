@@ -1,6 +1,4 @@
-# Use Generative AI to
-
-semantically match contacts with natural language statements
+# Use Generative AI to semantically match contacts with natural language statements
 
 Within a Contact Lens
 **conversational analytics** rule, you have the option to
@@ -14,9 +12,7 @@ the call) or when there are too many possible words or phrases to use the
 Pro Tip: Use generative AI-powered Natural language- Semantic match if you
 previously used Words or Phrases - Semantic Match.
 
-## How to use Natural
-
-language - semantic match
+## How to use Natural language - semantic match
 
 ######
 
@@ -49,9 +45,7 @@ notifications](contact-lens-rules-email.md "contact-lens-rules-email.md"), [auto
 ready to publish the rule, you can also **Save as
 draft**.
 
-## Guidelines to use
-
-semantic-match
+## Guidelines to use semantic-match
 
 The following list details how to best use semantic-match:
 

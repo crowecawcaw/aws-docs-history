@@ -1,15 +1,11 @@
-# Enable multi-user in-app, web, and video
-
-calling
+# Enable multi-user in-app, web, and video calling
 
 Amazon Connect supports adding additional users to join the in-app, web, and video
 call in an existing call. You can add up to four additional users to an ongoing or
 scheduled in-app, web or video call, for a total of six participants: the agent, the
 first user, and four other participants (users or agents).
 
-## How to add participants to a multi-user
-
-call
+## How to add participants to a multi-user call
 
 1. To enable multi user calling, you need to enable [enhanced multi-party contact
    monitoring](monitor-conversations.md "monitor-conversations.md") from the Amazon Connect console.
@@ -157,8 +153,7 @@ participant's responsibility to handle PII accordingly. If using the native CCP
 application, agent video is disabled if any non-agent participant is on hold. If you
 want to change this behavior, you can build a custom CCP and communication widget.
 
-For more information, see [Integrate in-app, web, video calling, and screen
-sharing natively into your application](config-com-widget2.md "config-com-widget2.md").
+For more information, see [Integrate in-app, web, video calling, and screen sharing natively into your application](config-com-widget2.md "config-com-widget2.md").
 
 ## Limitation
 

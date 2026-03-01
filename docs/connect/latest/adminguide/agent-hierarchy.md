@@ -1,6 +1,4 @@
-# Organize agents into teams and groups for reporting
-
-and access by creating hierarchies
+# Organize agents into teams and groups for reporting and access by creating hierarchies
 
 Agent hierarchies are a way for you to organize agents into teams and groups for
 reporting purposes. It's useful to organize them based on their location and their skill
@@ -14,16 +12,13 @@ teams. Here are a couple of things to note about using hierarchies:
 - Removing agents from a level affects historical reporting.
 - When you use the **Restrict contact access** security profile
   permission, you can restrict contact search results based on the agent's
-  hierarchy. For more information, see [Manage who can search for
-  contacts and access detailed information](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
+  hierarchy. For more information, see [Manage who can search for contacts and access detailed information](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
 
 ###### Contents
 
 - [Required permissions](#permissions-agent-hierarchy "#permissions-agent-hierarchy")
-- [Define your organization's hierarchy
-  levels](#new-agent-hierarchy "#new-agent-hierarchy")
-- [Define groups and teams in your
-  hierarchy](#add-groups-teams-agents-hierarchy "#add-groups-teams-agents-hierarchy")
+- [Define your organization's hierarchy levels](#new-agent-hierarchy "#new-agent-hierarchy")
+- [Define groups and teams in your hierarchy](#add-groups-teams-agents-hierarchy "#add-groups-teams-agents-hierarchy")
 - [Delete an agent hierarchy](#delete-agent-hierarchy "#delete-agent-hierarchy")
 
 ## Required permissions
@@ -44,9 +39,7 @@ permissions** page.
 
 ![The Users and Permissions - Agent hierarchy on the Security profile permissions page.](images/permission-agent-hierarchy.png)
 
-## Define your organization's hierarchy
-
-levels
+## Define your organization's hierarchy levels
 
 You can specify up to 5 levels or tiers for your organization's hierarchy groups.
 For example, if your teams are organized by geography your levels might be
@@ -82,9 +75,7 @@ can delete the level. 4. Choose **Save** to apply the changes, or
 **Save** button isn't active, you don't have [permissions](#permissions-agent-hierarchy "#permissions-agent-hierarchy") in your
 security profile to create or edit the agent hierarchy.
 
-## Define groups and teams in your
-
-hierarchy
+## Define groups and teams in your hierarchy
 
 After you create hierarchy levels, you can add the groups that call within each,
 from the top down.

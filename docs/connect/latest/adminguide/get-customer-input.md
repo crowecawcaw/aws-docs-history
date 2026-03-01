@@ -122,9 +122,7 @@ Choose the following options:
 - **Add condition**: The number against which the
   customer input is compared.
 
-#### Flow language representation when DTMF
-
-is used
+#### Flow language representation when DTMF is used
 
 The following code example shows how a DTMF configuration would be
 represented by the [GetParticipantInput](../APIReference/participant-actions-getparticipantinput.md "../APIReference/participant-actions-getparticipantinput.md") action in the Flow language.
@@ -344,9 +342,7 @@ manually** are selected.
 
 ![The Get customer input block, the Initialize bot with message option.](images/get-customer-input-properties-initialize-bot-1.png)
 
-#### Configurable
-
-time-outs for voice input
+#### Configurable time-outs for voice input
 
 To configure time-out values for voice contacts, use the following session
 attributes in the **Get customer input** block that calls
@@ -447,9 +443,7 @@ of silence are expected while providing input.
 
 Default = 600 milliseconds (0.6 seconds)
 
-#### Configurable
-
-time-outs for chat input during a Lex interaction
+#### Configurable time-outs for chat input during a Lex interaction
 
 Use the **Chat timeout** field under
 **Intents** to configure timeouts for chat input. Enter
@@ -467,9 +461,7 @@ minutes.
 For information about setting up chat timeouts when all participants are
 human, see [Set up chat timeouts for chat participants](setup-chat-timeouts.md "setup-chat-timeouts.md").
 
-#### Barge-in configuration and
-
-usage for Amazon Lex
+#### Barge-in configuration and usage for Amazon Lex
 
 You can allow customers to interrupt the Amazon Lex bot mid-sentence using
 their voice, without waiting for it to finishing speaking. Customers
@@ -503,8 +495,7 @@ the session attribute in the **Get customer
 input** block that calls your Lex bot to
 enable it at the global, bot, or slot levels. This
 attribute only controls Amazon Lex barge-in; it doesn't
-control DTMF barge-in. For more information, see [How flow blocks use Amazon Lex session
-attributes](how-to-use-session-attributes.md "how-to-use-session-attributes.md").
+control DTMF barge-in. For more information, see [How flow blocks use Amazon Lex session attributes](how-to-use-session-attributes.md "how-to-use-session-attributes.md").
 
 The following image shows the **Session
 attributes** section with barge-in
@@ -512,9 +503,7 @@ enabled.
 
 ![The session attributes section of the properties page, Value set to true.](images/barge-in-session-attribute.png)
 
-#### Configurable fields
-
-for DTMF input
+#### Configurable fields for DTMF input
 
 Use the following session attributes to specify how your Lex bot responds
 to DTMF input.
@@ -555,12 +544,9 @@ This cannot be increased.
 
 Default = 1024 characters
 
-For more information, see [How flow blocks use Amazon Lex session
-attributes](how-to-use-session-attributes.md "how-to-use-session-attributes.md").
+For more information, see [How flow blocks use Amazon Lex session attributes](how-to-use-session-attributes.md "how-to-use-session-attributes.md").
 
-#### Flow Language representation when Amazon Lex
-
-is used
+#### Flow Language representation when Amazon Lex is used
 
 The following code sample shows how an Amazon Lex configuration would be
 represented by the [ConnectParticipantWithLexBot](../APIReference/participant-actions-connectparticipantwithlexbot.md "../APIReference/participant-actions-connectparticipantwithlexbot.md") action in the Flow
@@ -599,9 +585,7 @@ language:
   }
 ```
 
-#### Fragmented action
-
-representation
+#### Fragmented action representation
 
 The following code sample represents a fragmented [Compare](../APIReference/flow-control-actions-compare.md "../APIReference/flow-control-actions-compare.md") action for a Amazon Lex sentiment score returned from a Lex
 bot after the conversation.
@@ -792,12 +776,9 @@ Amazon Connect includes a set of sample flows. For instructions that explain how
 [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample inbound flow in Amazon Connect for the first contact
-  experience](sample-inbound-flow.md "sample-inbound-flow.md")
-- [Sample interruptible queue flow with
-  callback in Amazon Connect](sample-interruptible-queue.md "sample-interruptible-queue.md")
-- [Sample queue configurations flow in
-  Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
+- [Sample inbound flow in Amazon Connect for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
+- [Sample interruptible queue flow with callback in Amazon Connect](sample-interruptible-queue.md "sample-interruptible-queue.md")
+- [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
 - [Sample recording behavior in Amazon Connect](sample-recording-behavior.md "sample-recording-behavior.md")
 
 ## More resources
@@ -805,7 +786,5 @@ that describe the sample flows which include this block.
 See the following topics to learn more about Amazon Lex and adding prompts.
 
 - [Create conversational AI bots in Amazon Connect](connect-conversational-ai-bots.md "connect-conversational-ai-bots.md")
-- [How to use the same Amazon Lex bot for voice and
-  chat](one-bot-voice-chat.md "one-bot-voice-chat.md")
-- [Add text-to-speech to prompts in flow blocks in
-  Amazon Polly](text-to-speech.md "text-to-speech.md")
+- [How to use the same Amazon Lex bot for voice and chat](one-bot-voice-chat.md "one-bot-voice-chat.md")
+- [Add text-to-speech to prompts in flow blocks in Amazon Polly](text-to-speech.md "text-to-speech.md")

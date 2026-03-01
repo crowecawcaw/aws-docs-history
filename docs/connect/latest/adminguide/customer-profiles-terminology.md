@@ -1,6 +1,4 @@
-# Customer object type mapping
-
-terminology and concepts
+# Customer object type mapping terminology and concepts
 
 The following terminology and concepts are central to your understanding of custom
 object type mappings.

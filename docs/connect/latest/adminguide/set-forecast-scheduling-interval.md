@@ -1,6 +1,4 @@
-# Set the forecast and schedule
-
-interval in Amazon Connect
+# Set the forecast and schedule interval in Amazon Connect
 
 You can set the granularity for your short-term forecasts and your
 schedules.

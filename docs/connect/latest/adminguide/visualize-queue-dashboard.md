@@ -1,6 +1,4 @@
-# Visualize historical queue data in
-
-Amazon Connect
+# Visualize historical queue data in Amazon Connect
 
 You can visualize historical queue data using time series graphs to help identify
 patterns, trends, and outliers such as Service Level, Contacts Queued, and Average

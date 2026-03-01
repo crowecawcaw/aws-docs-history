@@ -1,6 +1,4 @@
-# Add quick responses for use with chat and email contacts in
-
-Amazon Connect
+# Add quick responses for use with chat and email contacts in Amazon Connect
 
 This topic explains how to add a quick response by using the Amazon Connect admin website. For the APIs used to
 create and manage quick responses programmatically, see [APIs to create and manage quick responses](#apis-quick-responses "#apis-quick-responses").

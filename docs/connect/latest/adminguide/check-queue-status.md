@@ -91,5 +91,4 @@ condition, **No Match**, and **Error**.
 
 See these topics for scenarios that use this block:
 
-- [Set up a flow to manage contacts in a queue in
-  Amazon Connect](queue-to-queue-transfer.md "queue-to-queue-transfer.md")
+- [Set up a flow to manage contacts in a queue in Amazon Connect](queue-to-queue-transfer.md "queue-to-queue-transfer.md")

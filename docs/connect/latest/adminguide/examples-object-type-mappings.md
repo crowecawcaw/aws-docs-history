@@ -1,10 +1,6 @@
-# Examples of object type mappings in
+# Examples of object type mappings in Amazon Connect Customer Profiles
 
-Amazon Connect Customer Profiles
-
-## An object type mapping that
-
-generates a profile
+## An object type mapping that generates a profile
 
 The following example shows data that populates the standard profile.
 
@@ -95,9 +91,7 @@ ingested it overwrites the previous object with the same account ID.
 Several fields are populated in the standard profile object (see the fields
 that have `Target` defined).
 
-## An object type mapping that doesn't
-
-populate the standard profile
+## An object type mapping that doesn't populate the standard profile
 
 This example shows a more complicated use case. It ingests data related to a
 profile but it doesn't necessarily populate the standard profile object.

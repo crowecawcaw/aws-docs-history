@@ -84,9 +84,7 @@ In this example, the agent sees the following values for
 
 You cannot apply rules to past, stored conversations.
 
-## Voice and task contact records are
-
-linked
+## Voice and task contact records are linked
 
 When a rule creates a task, a contact record is automatically generated
 for the task. It's linked to the contact record of the voice call or chat
@@ -105,9 +103,7 @@ image:
 
 ![Contact record 2 for the task.](images/contact-lens-rules-attributes-example2.png)
 
-## About dynamic values for ContactId,
-
-AgentId, QueueId, RuleName
+## About dynamic values for ContactId, AgentId, QueueId, RuleName
 
 The dynamic values in brackets [ ] are called [contact attributes](what-is-a-contact-attribute.md "what-is-a-contact-attribute.md"). Contact
 attributes enable you to store temporary information about the contact so

@@ -1,6 +1,4 @@
-# Evaluate agent performance in
-
-Amazon Connect using generative AI
+# Evaluate agent performance in Amazon Connect using generative AI
 
 ###### Note
 
@@ -28,26 +26,21 @@ title and evaluation criteria specified within the instructions to evaluators as
 with each question, and using these to analyze the conversation transcript. For more
 information, see [Step 2: Add sections and questions](create-evaluation-forms.md#step-sections "create-evaluation-forms.md#step-sections").
 
-## Process to automate evaluations using
-
-generative AI
+## Process to automate evaluations using generative AI
 
 The following is the overview of the automation process:
 
 1. Get a high-level understanding of which of the evaluation questions should
-   be answered with generative AI by reading [Guidelines to improve
-   generative AI accuracy](#guidelines-to-improve-generative-ai-accuracy "#guidelines-to-improve-generative-ai-accuracy").
+   be answered with generative AI by reading [Guidelines to improve generative AI accuracy](#guidelines-to-improve-generative-ai-accuracy "#guidelines-to-improve-generative-ai-accuracy").
 2. Assign permissions to select users within your quality management team to
    use Ask AI assistant. These users will start seeing the Ask AI button next
    to each question, while performing evaluations and can use that to get
    answer recommendations. These users can provide feedback on which questions
    are receiving accurate answers using generative AI. For more information,
-   see [Assign security profile permissions for
-   users to create and access evaluation forms](evaluation-forms-permissions.md "evaluation-forms-permissions.md").
+   see [Assign security profile permissions for users to create and access evaluation forms](evaluation-forms-permissions.md "evaluation-forms-permissions.md").
 3. To improve accuracy, you can provide additional evaluation criteria within
    [instructions to evaluators](create-evaluation-forms.md#step-sections "create-evaluation-forms.md#step-sections"). For
-   more information, see [Guidelines to improve
-   generative AI accuracy](#guidelines-to-improve-generative-ai-accuracy "#guidelines-to-improve-generative-ai-accuracy").
+   more information, see [Guidelines to improve generative AI accuracy](#guidelines-to-improve-generative-ai-accuracy "#guidelines-to-improve-generative-ai-accuracy").
 4. Once you have a good understanding of which questions can be accurately
    answered with generative AI, you can do a broader rollout by pre-configuring
    on the evaluation form, whether a question will receive an automated answer
@@ -60,9 +53,7 @@ The following is the overview of the automation process:
    generative AI answers before submission or you can automatically fill and
    submit evaluations.
 
-## Use Ask AI to get
-
-generative AI answer recommendations
+## Use Ask AI to get generative AI answer recommendations
 
 1. Log into Amazon Connect with a user account that has [permissions to perform
    evaluations](evaluation-forms-permissions.md "evaluation-forms-permissions.md") and [ask
@@ -82,10 +73,7 @@ generative AI answer recommendations
 
 ![Generative AI-powered recommendations while evaluating agent performance.](images/get-generative-ai-powered-recommendations-performance.png)
 
-## Provide
-
-additional criteria for answering evaluation form questions using generative
-AI
+## Provide additional criteria for answering evaluation form questions using generative AI
 
 While configuring an evaluation form, you can provide criteria for answering
 questions within the **instructions to evaluators**
@@ -95,9 +83,7 @@ AI-powered evaluations.
 
 ![New account opening scorecard.](images/provide-criteria-for-answering-evaluation-form-questions.png)
 
-## Set up
-
-automated evaluations using generative AI on the evaluation form
+## Set up automated evaluations using generative AI on the evaluation form
 
 You can pre-configure on an evaluation form whether a question will be
 automatically answered using generative AI. Then, if you start an evaluation using
@@ -110,12 +96,9 @@ automation using contact categories or metrics (for example, longest
 hold duration, etc.).
 
 To learn more about setting up automated evaluations using generative AI, see
-[Guidelines to improve
-generative AI accuracy](#guidelines-to-improve-generative-ai-accuracy "#guidelines-to-improve-generative-ai-accuracy").
+[Guidelines to improve generative AI accuracy](#guidelines-to-improve-generative-ai-accuracy "#guidelines-to-improve-generative-ai-accuracy").
 
-##
-
-Set up generative AI-powered evaluations in non-English languages
+## Set up generative AI-powered evaluations in non-English languages
 
 By default, if you do not set the language of an evaluation form, the generative
 AI model automatically detects the language of your evaluation form questions and
@@ -144,9 +127,7 @@ To set the language of the evaluation form:
 
 ![The evaluation form page, the Additional settings tab.](images/evaluationforms-languageexample1.png)
 
-## Guidelines to improve
-
-generative AI accuracy
+## Guidelines to improve generative AI accuracy
 
 ###### Selecting questions for getting generative AI recommendations
 

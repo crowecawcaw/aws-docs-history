@@ -26,8 +26,7 @@ requirements:
 - **CPU** - Minimum 4-core CPU or 4 vCPU
   for virtual machines
 - **Memory** - Follow CCP hardware
-  recommendations (see [Agent headset and workstation requirements for using
-  the Contact Control Panel (CCP)](ccp-agent-hardware.md "ccp-agent-hardware.md"))
+  recommendations (see [Agent headset and workstation requirements for using the Contact Control Panel (CCP)](ccp-agent-hardware.md "ccp-agent-hardware.md"))
 - **Phone type** - Softphone users only
 - **Infrastructure** - Native, embedded,
   custom, and [VDI
@@ -176,10 +175,7 @@ If you require additional support, contact AWS Support and include:
 
 ## Related topics
 
-- [Agent headset and workstation requirements for using
-  the Contact Control Panel (CCP)](ccp-agent-hardware.md "ccp-agent-hardware.md")
-- [Security profiles for Amazon Connect and Contact Control
-  Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md")
-- [Provide agents with access to the
-  Amazon Connect Contact Control Panel (CCP)](amazon-connect-contact-control-panel.md "amazon-connect-contact-control-panel.md")
+- [Agent headset and workstation requirements for using the Contact Control Panel (CCP)](ccp-agent-hardware.md "ccp-agent-hardware.md")
+- [Security profiles for Amazon Connect and Contact Control Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md")
+- [Provide agents with access to the Amazon Connect Contact Control Panel (CCP)](amazon-connect-contact-control-panel.md "amazon-connect-contact-control-panel.md")
 - [Set up your contact center in Amazon Connect](amazon-connect-contact-centers.md "amazon-connect-contact-centers.md")

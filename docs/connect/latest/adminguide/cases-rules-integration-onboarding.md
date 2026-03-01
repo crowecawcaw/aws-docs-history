@@ -1,6 +1,4 @@
-# Allow Amazon Connect Cases to send
-
-updates to Contact Lens rules
+# Allow Amazon Connect Cases to send updates to Contact Lens rules
 
 ###### Note
 

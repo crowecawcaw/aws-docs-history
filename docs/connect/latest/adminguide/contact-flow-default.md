@@ -1,6 +1,4 @@
-# Default flows in Amazon Connect for your contact
-
-center
+# Default flows in Amazon Connect for your contact center
 
 Amazon Connect includes a set of default flows that have already been published. It uses them to
 power your contact center.

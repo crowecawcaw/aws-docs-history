@@ -26,8 +26,7 @@ Sets routing criteria on a contact.
   the contact to the Amazon Connect queue and activate the routing criteria specified
   on the contact.
 - Routing criteria set on the contact does not take effect if the contact is
-  transferred into an agent queue. For more information, see [Set up routing in Amazon Connect based on agent
-  proficiencies](proficiency-routing.md "proficiency-routing.md").
+  transferred into an agent queue. For more information, see [Set up routing in Amazon Connect based on agent proficiencies](proficiency-routing.md "proficiency-routing.md").
 - When the expiration time (DurationInSeconds) is set too short, it can
   prevent the Amazon Connect from properly routing contacts to the next most proficient
   agent when the first agent misses the call. The default queue-based routing
@@ -56,22 +55,16 @@ types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact
 - Transfer to Agent flow
 - Transfer to Queue flow
 
-## Prerequisites for setting
-
-routing criteria using predefined attributes
+## Prerequisites for setting routing criteria using predefined attributes
 
 Before setting the routing criteria on a contact, you must complete the following
 steps:
 
-1. Create [Create predefined attributes for routing contacts to
-   agents](predefined-attributes.md "predefined-attributes.md").
-2. [Assign proficiencies to agents in your
-   Amazon Connect instance](assign-proficiencies-to-agents.md "assign-proficiencies-to-agents.md") using predefined
+1. Create [Create predefined attributes for routing contacts to agents](predefined-attributes.md "predefined-attributes.md").
+2. [Assign proficiencies to agents in your Amazon Connect instance](assign-proficiencies-to-agents.md "assign-proficiencies-to-agents.md") using predefined
    attributes that were previously created
 
-## When to use the Set routing criteria
-
-block
+## When to use the Set routing criteria block
 
 There are two ways to route contacts directly to an agent:
 
@@ -115,9 +108,7 @@ this scenario in mind to accommodate these impacts.
   For instructions about setting up this option, see [Transfer contacts to agent
   queue](transfer-to-agent.md "transfer-to-agent.md").
 
-## How routing criteria
-
-works
+## How routing criteria works
 
 When a contact is transferred to a standard queue, Amazon Connect activates the first step
 specified in the routing criteria of the contact.
@@ -144,13 +135,11 @@ step never expires.
   - Up to three OR conditions in a routing step. Each requirement
     separated by an OR can have up to eight attributes.
     - You can only use OR when setting attributes dynamically.
-      For more information, see [How to set routing
-      criteria](#set-routing-criteria-using-the-flow-block "#set-routing-criteria-using-the-flow-block").
+      For more information, see [How to set routing criteria](#set-routing-criteria-using-the-flow-block "#set-routing-criteria-using-the-flow-block").
 
   - NOT operator to exclude a proficiency by chosen levels. You can
     only use NOT when setting attributes dynamically. For more
-    information, see [How to set routing
-    criteria](#set-routing-criteria-using-the-flow-block "#set-routing-criteria-using-the-flow-block").
+    information, see [How to set routing criteria](#set-routing-criteria-using-the-flow-block "#set-routing-criteria-using-the-flow-block").
 
 ###### Note
 
@@ -166,9 +155,7 @@ In addition, attributes and routing criteria must have the following;
 - The last step of the criteria can have a timed or non-expiring expiration
   timer.
 
-## How to set routing
-
-criteria
+## How to set routing criteria
 
 You can set the desired routing criteria either manually in the flow block UI or
 dynamically based on the output from the [AWS Lambda
@@ -176,9 +163,7 @@ function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") blo
 
 ![The Set routing criteria properties page.](images/set-routing-criteria-using-the-flow-block.png)
 
-### Set routing criteria
-
-manually
+### Set routing criteria manually
 
 Using this option, you can set routing criteria on contacts as specified in
 the **Set routing criteria** block manually. See the example of
@@ -191,12 +176,9 @@ As needed, you can configure predefined attribute value dynamically using
 JSONPath reference even in this option. For example, you can specify
 `$.External.language` JSONPath reference instead of hard coding
 a `AWS DynamoDB` value on the `Technology` requirement
-of all of the contacts. For more information about JSONPath reference, see [List of available contact attributes in Amazon Connect and their
-JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
+of all of the contacts. For more information about JSONPath reference, see [List of available contact attributes in Amazon Connect and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
 
-### Set routing criteria
-
-dynamically
+### Set routing criteria dynamically
 
 You can set routing criteria on a contact dynamically based on the output from
 the **Invoke AWS Lambda function** block.
@@ -206,8 +188,7 @@ the **Invoke AWS Lambda function** block.
   configure the Lambda function to return the routing criteria in JSON
   format and set the response validation as JSON. For more information
   about using the **Invoke AWS Lambda function**, see the
-  [Grant Amazon Connect access to your AWS Lambda
-  functions](connect-lambda-functions.md "connect-lambda-functions.md") documentation.
+  [Grant Amazon Connect access to your AWS Lambda functions](connect-lambda-functions.md "connect-lambda-functions.md") documentation.
 - In the `Set routing criteria` block, choose **Set
   dynamically** option with the above Lambda attributes -
   **Namespace** as `External` and
@@ -216,9 +197,7 @@ the **Invoke AWS Lambda function** block.
   the routing criteria in the sample Lambda response in the following
   section.
 
-### Sample Lambda
-
-function for setting routing criteria
+### Sample Lambda function for setting routing criteria
 
 The following Lambda example uses `AndExpression` to return
 routing criteria:
@@ -339,9 +318,7 @@ export const handler = async(event) => {
 };
 ```
 
-## What are the statuses
-
-of a routing step and why are they needed?
+## What are the statuses of a routing step and why are they needed?
 
 1. **Inactive:** When the routing criteria is
    activated the first step immediately becomes Inactive. The routing engine
@@ -365,9 +342,7 @@ of a routing step and why are they needed?
 6. **Deactivated:** When a customer drops a call
    or a connection is dropped, routing will stop.
 
-## Use routing criteria
-
-to target a specific preferred agent
+## Use routing criteria to target a specific preferred agent
 
 You can also use routing criteria to restrict a contact in a queue to a specific
 preferred agent or set of preferred agents, based on user ID instead of predefined
@@ -391,18 +366,15 @@ agent the customer connected with. You can use this data to route new contacts f
 a given customer to the same agent who handled their contact previously. To do so,
 first use the Customer Profiles flow block to retrieve a customer profile using at least one
 search identifier, such as `Phone = $.CustomerEndpoint.Address`. For more
-information, see [Properties: Get
-profile](customer-profiles-block.md#customer-profiles-block-properties-get-profile "customer-profiles-block.md#customer-profiles-block-properties-get-profile").
+information, see [Properties: Get profile](customer-profiles-block.md#customer-profiles-block-properties-get-profile "customer-profiles-block.md#customer-profiles-block-properties-get-profile").
 
 You can then use the **Set manually** option in the **Set
 routing criteria** block to specify that each contact should be routed
 to `$.Customer.CalculatedAttributes._last_agent_id` (a JSONPath
 reference) instead of hard coding a specific user ID, and set an expiration timer
 for how long to restrict each contact to route to the last agent. For more
-information on JSONPath reference, see [List of available contact attributes in Amazon Connect and their
-JSONPath references](connect-attrib-list.md "connect-attrib-list.md"). For more information about the default
-attributes available through Amazon Connect Customer Profiles, see [Default calculated
-attributes in Amazon Connect Customer Profiles](customerprofiles-default-calculated-attributes.md "customerprofiles-default-calculated-attributes.md").
+information on JSONPath reference, see [List of available contact attributes in Amazon Connect and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md"). For more information about the default
+attributes available through Amazon Connect Customer Profiles, see [Default calculated attributes in Amazon Connect Customer Profiles](customerprofiles-default-calculated-attributes.md "customerprofiles-default-calculated-attributes.md").
 
 **If the preferred agent is not available, what
 happens?**
@@ -441,5 +413,4 @@ requiring a minimum proficiency level in Spanish.
 
 See these topics for scenarios that use this block:
 
-- [How to reference contact attributes in
-  Amazon Connect](how-to-reference-attributes.md "how-to-reference-attributes.md")
+- [How to reference contact attributes in Amazon Connect](how-to-reference-attributes.md "how-to-reference-attributes.md")

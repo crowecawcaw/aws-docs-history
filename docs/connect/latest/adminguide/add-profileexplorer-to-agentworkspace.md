@@ -1,6 +1,4 @@
-# Add Profile explorer to the
-
-agent workspace
+# Add Profile explorer to the agent workspace
 
 By default users who have the appropriate [security profile permissions](enabling-profile-explorer.md "enabling-profile-explorer.md") can view Profile explorer on the Amazon Connect admin website. You may
 also want your agents to have access to Profile explorer in their agent workspace. This
@@ -10,22 +8,17 @@ The following image shows an example of Profile explorer in the agent workspace.
 
 ![The agent workspace, the Profile explorer tab.](images/profile-explorer-agent-workspace.png)
 
-## Create the Profile explorer
-
-layout you want to share with agents
+## Create the Profile explorer layout you want to share with agents
 
 Here's a high-level overview:
 
 1. Ensure you have the [security profile permissions](enabling-profile-explorer.md "enabling-profile-explorer.md")
    to create a Profile explorer layout.
-2. Follow the instructions in [Get started with Amazon Connect Customer Profiles Profile
-   Explorer](getting-started-profile-explorer.md "getting-started-profile-explorer.md")
+2. Follow the instructions in [Get started with Amazon Connect Customer Profiles Profile Explorer](getting-started-profile-explorer.md "getting-started-profile-explorer.md")
    to create and save the layout you
    want to share with agents.
 
-## Add Profile explorer to Amazon Connect as a third-party
-
-app
+## Add Profile explorer to Amazon Connect as a third-party app
 
 1. On the Amazon Connect console, in the left navigation, choose **Third-party
    applications**, as shown in the following image.
@@ -76,8 +69,7 @@ fields:
      workspace.
 
     For more details about what is allowed for this field, see
-     [How to integrate a third-party
-     application](3p-apps.md#onboard-3p-apps-how-to-integrate "3p-apps.md#onboard-3p-apps-how-to-integrate").
+     [How to integrate a third-party application](3p-apps.md#onboard-3p-apps-how-to-integrate "3p-apps.md#onboard-3p-apps-how-to-integrate").
     2. **Approved origins - optional**: Allowlist URLs
      that should be permitted, if different than the access URL. The URL
      must be secure, starting with https, unless it's a local
@@ -86,17 +78,14 @@ fields:
 5. Completing the next two sections—**Permissions**
    and **Iframe configuration**—is optional and not
    required to add the Profile explorer to the agent workspace. For information
-   about these sections, see [How to integrate a third-party
-   application](3p-apps.md#onboard-3p-apps-how-to-integrate "3p-apps.md#onboard-3p-apps-how-to-integrate").
+   about these sections, see [How to integrate a third-party application](3p-apps.md#onboard-3p-apps-how-to-integrate "3p-apps.md#onboard-3p-apps-how-to-integrate").
 6. **Instance association**: Choose the instance
    your agents are using.
 
 You can give any instance(s) within this account-region access to this
 application. 7. Choose **Add application**.
 
-## Assign agents permission to the new
-
-security profile
+## Assign agents permission to the new security profile
 
 In this step you need to assign agents permissions to access the new third-party
 application AND view permission to the Profile explorer.
@@ -115,9 +104,7 @@ application AND view permission to the Profile explorer.
 
 ![Security profile permissions for the new third-party application.](images/profile-explorer-securityperms.png)
 
-## Tell agents to pin the new
-
-application
+## Tell agents to pin the new application
 
 Using your normal communication method, tell agents to pin the new application to
 their agent workspace. This allows them to access Profile explorer across workspace
@@ -145,5 +132,4 @@ contacts. The following are supported:
 
 ```
 
-For more information, see [Automatically populate customer
-profiles](auto-pop-customer-profile.md "auto-pop-customer-profile.md").
+For more information, see [Automatically populate customer profiles](auto-pop-customer-profile.md "auto-pop-customer-profile.md").

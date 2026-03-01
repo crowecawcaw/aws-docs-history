@@ -44,8 +44,7 @@ For detailed information about the activity of agents in your contact center, us
 - [Identify conferences and
   transfers](identify-conferences-transfers.md "identify-conferences-transfers.md")
 - [View a contact record in the Amazon Connect admin website](sample-ctr.md "sample-ctr.md")
-- [Agent status in the Contact Control Panel
-  (CCP)](metrics-agent-status.md "metrics-agent-status.md")
+- [Agent status in the Contact Control Panel (CCP)](metrics-agent-status.md "metrics-agent-status.md")
 - [About contact states](about-contact-states.md "about-contact-states.md")
 - [About queued
   callbacks](about-queued-callbacks.md "about-queued-callbacks.md")

@@ -33,9 +33,7 @@ Example use case:
   preferredChannel to Email and route the flow to an email delivery branch. This helps ensure
   the customer still receives the message without manual intervention.
 
-## How to configure this
-
-block
+## How to configure this block
 
 You can configure the Set attributes block by using the Amazon Connect admin website or by
 using the SetAttributes action in Flow language.

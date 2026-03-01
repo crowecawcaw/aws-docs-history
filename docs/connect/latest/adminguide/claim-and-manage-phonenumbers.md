@@ -1,6 +1,4 @@
-# Claim and manage your phone numbers in
-
-Amazon Connect
+# Claim and manage your phone numbers in Amazon Connect
 
 The topics in this section explain how to claim an Amazon Connect phone number, list phone
 numbers claimed to your instance, move a phone number across Amazon Connect instances, and

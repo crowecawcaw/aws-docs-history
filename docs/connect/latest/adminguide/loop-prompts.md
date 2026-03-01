@@ -38,9 +38,7 @@ prompts you can choose from the dropdown list: **Audio recording**,
 
 ![The properties page of the Loop prompts block, the dropdown list of prompt types.](images/loop-prompts-properties.png)
 
-### How the Interrupt option
-
-works
+### How the Interrupt option works
 
 Let's say you have multiple prompts and you set **Interrupt**
 to 60 seconds. Following is what will happen:
@@ -157,12 +155,10 @@ Amazon Connect includes a set of sample flows. For instructions that explain how
 [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample interruptible queue flow with
-  callback in Amazon Connect](sample-interruptible-queue.md "sample-interruptible-queue.md")
+- [Sample interruptible queue flow with callback in Amazon Connect](sample-interruptible-queue.md "sample-interruptible-queue.md")
 
 ## Scenarios
 
 See these topics for scenarios that use this block:
 
-- [Set up a flow to manage contacts in a queue in
-  Amazon Connect](queue-to-queue-transfer.md "queue-to-queue-transfer.md")
+- [Set up a flow to manage contacts in a queue in Amazon Connect](queue-to-queue-transfer.md "queue-to-queue-transfer.md")

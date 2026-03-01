@@ -11,9 +11,7 @@ Data limits are estimates and may vary slightly, with a possible deviation of
 a few units in either direction during periods of high ingestion on a single
 profile.
 
-## How to configure Customer Profiles
-
-data limits
+## How to configure Customer Profiles data limits
 
 1. Open the Amazon Connect Customer Profiles console.
 2. Choose the **Data limits** tab to configure limits
@@ -27,9 +25,7 @@ limit.
 
 ![Image shows a new limit being entered and highlights the check-mark icon that is used to save or update your limit.](images/customer-profiles-data-limits-setup-3.png)
 
-## How to clear Customer Profiles data
-
-limits
+## How to clear Customer Profiles data limits
 
 1. Select the radio button for the data object whose limit you want to
    clear. You will then be able to choose **Clear

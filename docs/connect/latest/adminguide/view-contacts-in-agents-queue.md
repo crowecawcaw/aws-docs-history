@@ -1,6 +1,4 @@
-# View how many contacts are in a
-
-contact center agent's queue
+# View how many contacts are in a contact center agent's queue
 
 To see how many contacts are in an agent's personal queue, add an
 **Agent queues** table to your **Real-time
@@ -31,9 +29,7 @@ An agent is included in the **Agent queues**
 table only if they are online or there is at least one contact in
 the their queue.
 
-## Add In Queue and Queue to the Agent
-
-queue table
+## Add In Queue and Queue to the Agent queue table
 
 If **In queue** or **Queue** don't
 appear in your **Agent queue** table, use the following

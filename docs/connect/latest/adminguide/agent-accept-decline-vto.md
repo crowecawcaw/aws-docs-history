@@ -1,6 +1,4 @@
-# How contact center agents accept or
-
-decline a time off request
+# How contact center agents accept or decline a time off request
 
 The contact center manager and agents will see the pending voluntary time off
 requests in the agent calendars.
@@ -12,9 +10,7 @@ profile permissions. For more information about security profile permissions, se
 [Update security
 profiles](update-security-profiles.md "update-security-profiles.md").
 
-## Required security profile
-
-permissions
+## Required security profile permissions
 
 To accept or decline the request, an agent must have **Agent
 application schedule calendar - Edit** permissions in their
@@ -24,9 +20,7 @@ page.
 
 ![The security profiles page, the agent applications section, the agent application schedule calendar permission.](images/security-profile-perms-accept-decline-wfm.png)
 
-## Accept and Decline
-
-buttons for agents
+## Accept and Decline buttons for agents
 
 The following image shows the **Accept** and
 **Decline** buttons on the agent application.

@@ -1,28 +1,20 @@
-# Get started with Predictive
-
-Insights
+# Get started with Predictive Insights
 
 To start using Predictive Insights, follow these steps:
 
 ###### Topics
 
-- [Step 1: Adding Interaction data into Customer
-  Profiles](#add-interaction-data "#add-interaction-data")
+- [Step 1: Adding Interaction data into Customer Profiles](#add-interaction-data "#add-interaction-data")
 - [Step 2: Adding Item Catalog data](#add-item-catalog-data "#add-item-catalog-data")
-- [Step 3: Creating Predictive
-  Insights](#create-predictive-insights "#create-predictive-insights")
-- [Step 4: Using Predictive
-  Insights across customer engagement channels](#use-across-customer-engagement-channels "#use-across-customer-engagement-channels")
+- [Step 3: Creating Predictive Insights](#create-predictive-insights "#create-predictive-insights")
+- [Step 4: Using Predictive Insights across customer engagement channels](#use-across-customer-engagement-channels "#use-across-customer-engagement-channels")
 
-## Step 1: Adding Interaction data into Customer
-
-Profiles
+## Step 1: Adding Interaction data into Customer Profiles
 
 You can leverage the existing data connectors in Customer Profiles to map
 interactions data into standard Web Analytics Object.
 
-For more information, see [Object
-type mapping for Web Analytics Object](standard-loyalty-promotion-object-mapping-web-analytics.md "standard-loyalty-promotion-object-mapping-web-analytics.md").
+For more information, see [Object type mapping for Web Analytics Object](standard-loyalty-promotion-object-mapping-web-analytics.md "standard-loyalty-promotion-object-mapping-web-analytics.md").
 
 ## Step 2: Adding Item Catalog data
 
@@ -35,12 +27,9 @@ connectors that provide flexible options for ingesting and maintaining your cata
 information, ensuring your product data remains current and accessible within the
 system.
 
-For more information, see [Object
-type mapping for Item Catalog](standard-loyalty-promotion-object-mapping-item-catalog.md "standard-loyalty-promotion-object-mapping-item-catalog.md").
+For more information, see [Object type mapping for Item Catalog](standard-loyalty-promotion-object-mapping-item-catalog.md "standard-loyalty-promotion-object-mapping-item-catalog.md").
 
-## Step 3: Creating Predictive
-
-Insights
+## Step 3: Creating Predictive Insights
 
 Amazon Connect enables you to build and deploy specialized AI models tailored to
 your specific product recommendation needs. These models can be configured through
@@ -71,13 +60,9 @@ scenarios. Predictive Insights offers several types of recommendations:
 Enabling AI models with Predictive Insights is available under preview.
 Additional pricing may apply in future.
 
-## Step 4: Using Predictive
+## Step 4: Using Predictive Insights across customer engagement channels
 
-Insights across customer engagement channels
-
-### Using Customer Profile Recommendations in
-
-Connect Flows
+### Using Customer Profile Recommendations in Connect Flows
 
 This section describes how you can use the Customer Profiles Get profile
 recommendations flow block to enrich user experience during a contact by
@@ -198,9 +183,7 @@ Once you have set up your flow with the **Get profile
 recommendations** block, you can start using it to generate
 recommendations for your customers during their contacts.
 
-### Setting Up Connect AI Agents for
-
-Sales Recommendations
+### Setting Up Connect AI Agents for Sales Recommendations
 
 Amazon Q in Connect enhances agent capabilities through its new "Orchestration" Agent
 type. This functionality is particularly valuable for creating a Sales AI Agent
@@ -254,9 +237,7 @@ Administrators can further refine the implementation by adding domain-specific
 instructions and customizing recommendation types to match their business
 requirements.
 
-### Configuring SalesAgent to be used for
-
-Agent Assistance
+### Configuring SalesAgent to be used for Agent Assistance
 
 You can configure the SalesAgent to be used within the Q in connect chat
 widget in Agent Workspace. To do so you need to modify 2 main things.

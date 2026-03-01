@@ -1,14 +1,10 @@
-# Queue priority and delay examples
-
-to help you load balance Amazon Connect contacts
+# Queue priority and delay examples to help you load balance Amazon Connect contacts
 
 This topic provides several example priority and delay settings for queues, and
 explains how contacts are routed in each scenario. Use these examples to load balance
 contacts using the priority and delay features.
 
-## Example 1: Different
-
-priority but same delay
+## Example 1: Different priority but same delay
 
 For example, one group of agents is assigned to a Sales routing profile. Since
 their primary job is sales, the Sales queue is Priority 1 and Delay is 0. But they
@@ -23,9 +19,7 @@ the following table:
 If there are no contacts in the Sales queue, then the agents will be presented
 with contacts from the Support queue.
 
-## Example 2: Same
-
-priority but different delay
+## Example 2: Same priority but different delay
 
 Say you set the Support queue to Priority 1 and Delay of 30 seconds, as shown in
 the following table:
@@ -40,9 +34,7 @@ is 0. However, when a contact in the **Support** queue
 ages past 30 seconds, it will also be treated as priority 1. The agents will then be
 presented with the contact from the **Support** queue.
 
-## Example 3: Different
-
-Priorities and Delays
+## Example 3: Different Priorities and Delays
 
 Here's a more complicated example for a Support routing profile:
 
@@ -74,9 +66,7 @@ equally because each is priority 1.
   Tier 1 Support, Tier 2 Support, or Tier 3 Support and waiting 20 seconds or
   longer, but that's not right.)
 
-## Example 4: Same
-
-Priority and Delay
+## Example 4: Same Priority and Delay
 
 In this example a routing profile has only two queues, and they have the same
 priority and delay:
@@ -89,9 +79,7 @@ priority and delay:
 For this routing profile, the oldest contact is routed first. It goes to the agent
 who has been idle for the longest time.
 
-## Example 5: Agent is
-
-idle and Contact is in 30 second delay queue
+## Example 5: Agent is idle and Contact is in 30 second delay queue
 
 Let's say the agent is idle and the contact is in delay (for a 30 second delay
 queue, the contact is 15 seconds old). What happens?
@@ -101,9 +89,7 @@ must pass before this contact can be offered to agents with this routing profile
 Whether the agents are idle or not isn't taken into account. So in this case, this
 agent isn't offered the contact until the contact is at least 30 seconds old.
 
-## Example 6: Different
-
-routing profiles, same queues, different priorities
+## Example 6: Different routing profiles, same queues, different priorities
 
 For example:
 
@@ -140,5 +126,4 @@ priority queues are empty. One agent's priority setting for a queue does not
 impact when the queue is routed a contact relative to other agents, but
 relative to other queues in the agent's profile.
 
-For instructions on how to set priority and delay for a routing profile, see [Create a routing profile in Amazon Connect to link queues to
-agents](routing-profiles.md "routing-profiles.md").
+For instructions on how to set priority and delay for a routing profile, see [Create a routing profile in Amazon Connect to link queues to agents](routing-profiles.md "routing-profiles.md").

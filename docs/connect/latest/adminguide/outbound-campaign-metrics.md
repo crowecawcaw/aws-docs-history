@@ -20,8 +20,7 @@ start time and end time.
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Avg. dials per minute
 
 **Notes**:
@@ -52,9 +51,7 @@ outbound call through the Amazon Connect dialer.
 - Data for this metric is available starting from June 25, 2024 0:00:00
   GMT.
 
-## Campaign contacts abandoned after
-
-X
+## Campaign contacts abandoned after X
 
 This metric counts the outbound campaign calls that were connected to a live customer but did not get connected to an agent within X seconds.
 The possible values for X are from 1 to 604800 inclusive.
@@ -72,8 +69,7 @@ This metric is only available with answering machine detection enabled. For more
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Campaign contacts abandoned after x seconds rate
 
 **Notes**:
@@ -83,9 +79,7 @@ This metric is only available with answering machine detection enabled. For more
 - Data for this metric is available starting from June 25, 2024 0:00:00
   GMT.
 
-## Campaign contacts abandoned after X
-
-rate
+## Campaign contacts abandoned after X rate
 
 This metric measures the percentage of outbound campaign calls that were connected to a live customer
 but did not get connected to an agent within X seconds divided by the count of contacts connected to a live customer in an outbound campaign.
@@ -105,8 +99,7 @@ The possible values for X are from 1 to 604800 inclusive.
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Campaign contacts abandoned rate
 
 **Notes**:
@@ -132,8 +125,7 @@ Example interactions include `Open`, `Click`, and `Compliant`.
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CAMPAIGN_INTERACTIONS`
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md")
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md")
 
 **Notes**:
 
@@ -157,8 +149,7 @@ recipients attempted for delivery, out of the total number of recipients targete
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CAMPAIGN_PROGRESS_RATE`
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md")
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md")
 
 **Notes**:
 
@@ -182,8 +173,7 @@ A campaign send request represents a send attempt made to reach out to an recipi
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Send attempts
 
 **Notes**:
@@ -205,8 +195,7 @@ This metric measures the count of outbound campaign send attempts that were excl
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Campaign send exclusions
 
 **Notes**:
@@ -231,8 +220,7 @@ or SMS message outcomes that were successfully sent to Amazon Connect to be deli
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"), Delivery attempts
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"), Delivery attempts
 
 **Notes**:
 
@@ -244,9 +232,7 @@ or SMS message outcomes that were successfully sent to Amazon Connect to be deli
 - Data for this metric is available starting from June 25, 2024 0:00:00 GMT for the Telephony delivery mode and
   November 6, 2024 0:00:00 GMT for the Email and SMS delivery modes.
 
-## Delivery attempt disposition
-
-rate
+## Delivery attempt disposition rate
 
 This metric measures the percentage of each delivery outcome from a campaign outreach.
 The percent of call classification by answering machine detection or disconnect reason from outbound campaign contacts executed by the Amazon Connect dialer,
@@ -287,8 +273,7 @@ This metric is available only when answering machine detection is enabled.
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Human answered
 
 **Notes**:
@@ -313,8 +298,7 @@ This metric measures the approximate count of outbound campaign recipients attem
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Recipients attempted
 
 **Notes**:
@@ -339,8 +323,7 @@ with the engagement after a successful delivery attempt. Example interactions in
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md")
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md")
 
 **Notes**:
 
@@ -362,8 +345,7 @@ This metric measures the count of outbound campaign recipients identified as the
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Recipients targeted
 
 **Notes**:

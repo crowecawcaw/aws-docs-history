@@ -1,6 +1,4 @@
-# Input and output file schema for the
-
-Speaker Enrollment Job in Amazon Connect Voice ID
+# Input and output file schema for the Speaker Enrollment Job in Amazon Connect Voice ID
 
 ###### Note
 

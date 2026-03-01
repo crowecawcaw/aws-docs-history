@@ -1,6 +1,4 @@
-# Pass the customer display name when an Amazon Connect
-
-chat starts
+# Pass the customer display name when an Amazon Connect chat starts
 
 To deliver a more personalized experience for both your customers and agents, you can
 customize the Amazon Connect communications widget to pass the customer display name during contact
@@ -16,15 +14,12 @@ their name in the agent's CCP.
    interface.
 2. How the customer display name may appear to the agent using the CCP.
 
-## How to pass a customer display name in the
-
-communications widget
+## How to pass a customer display name in the communications widget
 
 To pass a customer display name, implement your callback function in the snippet.
 Amazon Connect retrieves the display name automatically.
 
-1. Complete the steps in [Add a chat user interface to your website hosted by
-   Amazon Connect](add-chat-to-website.md "add-chat-to-website.md"), if you haven't already.
+1. Complete the steps in [Add a chat user interface to your website hosted by Amazon Connect](add-chat-to-website.md "add-chat-to-website.md"), if you haven't already.
 2. Augment your existing widget snippet to add a
    `customerDisplayName` callback. It might look something like
    the following example:
@@ -39,9 +34,7 @@ amazon_connect('customerDisplayName', function(callback) {
 The important thing is that the name is passed to
 `callback(name)`.
 
-## What you need to know about the
-
-customer display name
+## What you need to know about the customer display name
 
 - Only one `customerDisplayName` function can exist at a
   time.

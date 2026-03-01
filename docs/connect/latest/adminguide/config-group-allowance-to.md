@@ -1,6 +1,4 @@
-# Set group allowance for time off in
-
-Amazon Connect
+# Set group allowance for time off in Amazon Connect
 
 Managers can set the maximum time off hours that agents combined can take within
 the Forecast Group: by hour, for each calendar day, for specific time off
@@ -13,8 +11,7 @@ and other time off types that you specified when you [created shift activities](
 ###### Tip
 
 **IT admins**: For the endpoints to add to your
-proxy exception list for this feature, see [Allow upload of time-off balances and allowances
-in Amazon Connect scheduling](ccp-networking.md#endpoints-scheduling "ccp-networking.md#endpoints-scheduling").
+proxy exception list for this feature, see [Allow upload of time-off balances and allowances in Amazon Connect scheduling](ccp-networking.md#endpoints-scheduling "ccp-networking.md#endpoints-scheduling").
 
 ###### Contents
 
@@ -27,9 +24,7 @@ in Amazon Connect scheduling](ccp-networking.md#endpoints-scheduling "ccp-networ
 - [Example of using the time off
   allowances feature](#example-to-feature "#example-to-feature")
 
-## Download the time off .csv
-
-template
+## Download the time off .csv template
 
 1. On the **Scheduling** page, choose the **Time
    off** tab.
@@ -58,9 +53,7 @@ following:
      multiple of 15 minutes from top of the hour, such as HH:00,
      HH:15, HH:30 and HH:45`
 
-## Download time off for a forecast
-
-group
+## Download time off for a forecast group
 
 1. On the **Scheduling** page, choose the **Time
    off** tab.
@@ -96,8 +89,7 @@ Then at a later date you can upload another csv file that contains non-zero allo
 July to December 2026, thus opening up these dates for agents to request time-offs.
 
 For the maximum file size that you can upload, see _File size per
-upload of time off group allowance data_ in [Forecasting, capacity
-planning, and scheduling feature specifications](feature-limits.md#forecasting-cap-planning-scheduling-specs "feature-limits.md#forecasting-cap-planning-scheduling-specs").
+upload of time off group allowance data_ in [Forecasting, capacity planning, and scheduling feature specifications](feature-limits.md#forecasting-cap-planning-scheduling-specs "feature-limits.md#forecasting-cap-planning-scheduling-specs").
 
 1. On the **Scheduling** page, choose the **Time
    off** tab.
@@ -111,9 +103,7 @@ planning, and scheduling feature specifications](feature-limits.md#forecasting-c
    - Uploads the file and displays a confirmation message when
      complete.
 
-## Example of using the time off allowances
-
-feature
+## Example of using the time off allowances feature
 
 For example, your business provides time off in December. Here's how you might
 use the time off allowances feature:

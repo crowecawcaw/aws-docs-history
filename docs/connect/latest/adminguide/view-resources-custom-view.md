@@ -1,6 +1,4 @@
-# Custom views in the Amazon Connect agent
-
-workspace
+# Custom views in the Amazon Connect agent workspace
 
 Using APIs you can create your own view resources. The View resource includes
 CloudFormation, CloudTrail, and tagging support.
@@ -106,9 +104,7 @@ Let's say `NoIconCardHeading` is set to `No Icon
 
 ![Image of the agent workspace view card.](images/view-resources-custom-the-view.png)
 
-## View output
-
-example
+## View output example
 
 Views output two main pieces of data: the `Action` taken, and the
 `Output` data.
@@ -143,9 +139,7 @@ Button**
 
 ```
 
-## Form View
-
-output example
+## Form View output example
 
 When using the **AWS-managed view (Form view)**, the result
 of form data will be under _FormData_.

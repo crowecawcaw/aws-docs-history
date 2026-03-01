@@ -1,6 +1,4 @@
-# Mapping Marketo objects to the
-
-standard profile in Amazon Connect Customer Profiles
+# Mapping Marketo objects to the standard profile in Amazon Connect Customer Profiles
 
 This topic lists which fields in Marketo objects map to fields in the
 standard profile object in Customer Profiles.
@@ -29,9 +27,7 @@ Following is a list of all the fields in a Marketo-leads object
 - gender
 - dateOfBirth
 
-## Mapping Marketo-leads to
-
-a standard profile
+## Mapping Marketo-leads to a standard profile
 
 A subset of fields in the Marketo-leads object map to the standard
 profile.

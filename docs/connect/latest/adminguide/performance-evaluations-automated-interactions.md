@@ -1,6 +1,4 @@
-#
-
-Performance evaluations of self-service interactions in Amazon Connect
+# Performance evaluations of self-service interactions in Amazon Connect
 
 Amazon Connect provides you with the ability to automatically evaluate the quality of self-service
 interactions and get aggregated insights to improve customer experience. Managers can
@@ -17,16 +15,14 @@ to improve bot or AI agent performance.
 Performance evaluations of self-service interactions is only available as part of
 Amazon Connect (with unlimited AI). For more information, see [Amazon Connect pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
 
-To automatically evaluate self-service interactions, you need to first [Enable conversational analytics in
-Amazon Connect Contact Lens](enable-analytics.md "enable-analytics.md"). Performance evaluations can evaluate the entire self-service
+To automatically evaluate self-service interactions, you need to first [Enable conversational analytics in Amazon Connect Contact Lens](enable-analytics.md "enable-analytics.md"). Performance evaluations can evaluate the entire self-service
 interaction, irrespective of whether it's handled by touch tone, Lex bots, Amazon Connect AI agents
 or custom bots within Amazon Connect. The steps to set up automated evaluations of self-service
 interactions are as follows:
 
 - [Step 1: Create a draft evaluation form](#step-create-draft-form-self-service "#step-create-draft-form-self-service")
 - [Step 2: Set up automation](#step-setup-automation-self-service "#step-setup-automation-self-service")
-- [Step 3: Set up a rule to automatically submit
-  evaluations of self-service interactions](#step-setup-rule-self-service "#step-setup-rule-self-service")
+- [Step 3: Set up a rule to automatically submit evaluations of self-service interactions](#step-setup-rule-self-service "#step-setup-rule-self-service")
 
 ## Step 1: Create a draft evaluation form
 
@@ -163,9 +159,7 @@ evaluation form.
 
 For additional details, see [Step 6: Enable automated evaluations](create-evaluation-forms.md#step-automate "create-evaluation-forms.md#step-automate").
 
-## Step 3: Set up a rule to automatically submit
-
-evaluations of self-service interactions
+## Step 3: Set up a rule to automatically submit evaluations of self-service interactions
 
 You can use the following conditions to identify specific self-service
 interactions.
@@ -198,5 +192,4 @@ After you have defined conditions:
    already selected on the page if you created the rule when you activate the
    form.)
 
-For more information, see [Create a rule
-in Contact Lens that submits an automated evaluation](contact-lens-rules-submit-automated-evaluation.md "contact-lens-rules-submit-automated-evaluation.md").
+For more information, see [Create a rule in Contact Lens that submits an automated evaluation](contact-lens-rules-submit-automated-evaluation.md "contact-lens-rules-submit-automated-evaluation.md").

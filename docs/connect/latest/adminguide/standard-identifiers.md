@@ -1,6 +1,4 @@
-# Standard identifiers for setting
-
-attributes on the key in Customer Profiles
+# Standard identifiers for setting attributes on the key in Customer Profiles
 
 Standard identifiers allow you to set attributes on the key. Decide which
 identifiers to use based on how you want the data to be ingested in the
@@ -29,8 +27,6 @@ merged into a single profile.
 | ORDER               | This identifier means that this key uniquely identifies<br>an order. When this identifier is specified, it means that<br>during ingestion, Customer Profiles looks for any order that<br>has this key associated with it.<br>• If an order is found, then the object is assigned<br>to that order.<br>• If more than one order is found when searching for<br>this key, the match is rejected. (Only keys that<br>uniquely identify an order should be used as unique<br>keys except for special circumstances.)                                                                                                                                                                                                                                                                                           |
 | CASE                | This identifier means that this key uniquely identifies<br>a case. When this identifier is specified, it means that<br>during ingestion, Customer Profiles looks for any case that<br>has this key associated with it.<br>• If a case is found, then the object is assigned to<br>that case.<br>• If more than one case is found when searching for<br>this key, the match is rejected. (Only keys that<br>uniquely identify a case should be used as unique<br>keys except for special circumstances.)                                                                                                                                                                                                                                                                                                    |
 
-## Compatible
-
-identifiers
+## Compatible identifiers
 
 ![Matrix showing allowed and restricted identifiers and key names for different data types.](images/standard-identifiers-compatibility-image.png)

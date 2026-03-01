@@ -1,6 +1,4 @@
-# Evaluate the performance of your conversational AI bot in
-
-Amazon Connect
+# Evaluate the performance of your conversational AI bot in Amazon Connect
 
 You can use the comprehensive analytics tools in Amazon Connect to help you evaluate and optimize your
 conversational AI bot performance. These insights enable you to identify successful interactions,

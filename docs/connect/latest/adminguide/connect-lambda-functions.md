@@ -1,6 +1,4 @@
-# Grant Amazon Connect access to your AWS Lambda
-
-functions
+# Grant Amazon Connect access to your AWS Lambda functions
 
 Amazon Connect can interact with your own systems and take different paths in flows dynamically. To
 achieve this, invoke AWS Lambda functions in a flow, fetch the results, and call your own
@@ -12,16 +10,13 @@ To invoke a Lambda function from a flow, complete the following tasks.
 ###### Tasks
 
 - [Create a Lambda function](#create-lambda-function "#create-lambda-function")
-- [Add a Lambda function to your Amazon Connect
-  instance](#add-lambda-function "#add-lambda-function")
+- [Add a Lambda function to your Amazon Connect instance](#add-lambda-function "#add-lambda-function")
 - [Invoke a Lambda function from a flow](#function-contact-flow "#function-contact-flow")
 - [Best practice for invoking multiple Lambda functions](#invoke-multiple-functions "#invoke-multiple-functions")
-- [Configure your Lambda function to parse the
-  event](#function-parsing "#function-parsing")
+- [Configure your Lambda function to parse the event](#function-parsing "#function-parsing")
 - [Verify the function response](#verify-function "#verify-function")
 - [Consume the Lambda function response](#process-function-response "#process-function-response")
-- [Tutorial: Create a Lambda function and invoke in
-  a flow](#tutorial-invokelambda "#tutorial-invokelambda")
+- [Tutorial: Create a Lambda function and invoke in a flow](#tutorial-invokelambda "#tutorial-invokelambda")
 
 ## Create a Lambda function
 
@@ -31,8 +26,7 @@ Lambda](../../../lambda/latest/dg/get-started.md "../../../lambda/latest/dg/get-
 
 If you create the Lambda function in the same Region as your contact center, you can
 use the Amazon Connect console to add the Lambda function to your instance as described in the
-next task, [Add a Lambda function to your Amazon Connect
-instance](#add-lambda-function "#add-lambda-function").
+next task, [Add a Lambda function to your Amazon Connect instance](#add-lambda-function "#add-lambda-function").
 This automatically adds resource permissions that allow Amazon Connect to invoke the Lambda
 function. Otherwise, if the Lambda function is in a different Region, you can add it to
 your flow using the flow designer and add the resource permissions using the [add-permission](../../../cli/latest/reference/lambda/add-permission.md "../../../cli/latest/reference/lambda/add-permission.md") command, with a principal of
@@ -41,9 +35,7 @@ information, see [Using
 Resource-Based Policies for AWS Lambda](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md") in the
 _AWS Lambda Developer Guide_.
 
-## Add a Lambda function to your Amazon Connect
-
-instance
+## Add a Lambda function to your Amazon Connect instance
 
 Before you can use an Lambda function in a flow, you need to add it to your Amazon Connect
 instance.
@@ -236,9 +228,7 @@ By breaking up a chain of Lambda functions with the **Play
 prompt** block, you can invoke multiple functions that last longer than
 the 20 second threshold.
 
-## Configure your Lambda function to parse the
-
-event
+## Configure your Lambda function to parse the event
 
 To successfully pass attributes and parameters between your Lambda function and Amazon Connect,
 configure your function to correctly parse the JSON request sent from the
@@ -420,13 +410,9 @@ as shown in the following image.
 Make sure that the name specified for the source external attribute matches the
 key name returned from Lambda.
 
-## Tutorial: Create a Lambda function and invoke in
+## Tutorial: Create a Lambda function and invoke in a flow
 
-a flow
-
-### Step 1: Create the Lambda
-
-example
+### Step 1: Create the Lambda example
 
 1. Sign in to the AWS Management Console and open the AWS Lambda console at
    [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
@@ -520,9 +506,7 @@ enter the following code instead.
 
 Your balance will be different. The code generates a random number.
 
-### Step 2: Add your Lambda to
-
-Amazon Connect
+### Step 2: Add your Lambda to Amazon Connect
 
 1. Go to the Amazon Connect console, at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. Choose your Amazon Connect instance alias.
@@ -532,9 +516,7 @@ dropdown box to select **MyFirstConnectLambda**.
 
 ![The flows page, the AWS Lambda section.](images/lambda-add-myfirstconnectlambda.png) 5. Choose **Add Lambda Function**.
 
-### Step 3: Create the contact
-
-flow
+### Step 3: Create the contact flow
 
 The following image is an example of the flow you are going to build using the
 steps in this procedure. It contains the following blocks: **Set contact

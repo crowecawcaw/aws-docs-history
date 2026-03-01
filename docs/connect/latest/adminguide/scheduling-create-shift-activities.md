@@ -1,6 +1,4 @@
-# Create daily activities in
-
-Amazon Connect for an agent's shift in your contact center
+# Create daily activities in Amazon Connect for an agent's shift in your contact center
 
 Shift activities are daily activities that the staff (agents) does during their
 shift. For example:
@@ -164,5 +162,4 @@ shift activities** page.
 
 Create shift profiles to ensure the desired sequence of the shift activities.
 For example, to schedule agents to go on their break two hours before lunch. For
-instructions, see [Create a template for an agent's
-weekly shift in Amazon Connect](scheduling-create-shift-profiles.md "scheduling-create-shift-profiles.md").
+instructions, see [Create a template for an agent's weekly shift in Amazon Connect](scheduling-create-shift-profiles.md "scheduling-create-shift-profiles.md").

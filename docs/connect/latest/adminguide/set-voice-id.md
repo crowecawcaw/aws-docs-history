@@ -38,8 +38,7 @@ UUID. For more information, see `CustomerSpeakerId` in the [Speaker](../../../vo
   results of the enrollment check, authentication, or fraud detection.
 - For information about how to use **Set Voice ID** in a
   flow, along with [Check Voice ID](check-voice-id.md "check-voice-id.md") and [Set contact
-  attributes](set-contact-attributes.md "set-contact-attributes.md"), see [Step 2: Create a new Voice ID domain and
-  encryption key](enable-voiceid.md#enable-voiceid-step2 "enable-voiceid.md#enable-voiceid-step2") in
+  attributes](set-contact-attributes.md "set-contact-attributes.md"), see [Step 2: Create a new Voice ID domain and encryption key](enable-voiceid.md#enable-voiceid-step2 "enable-voiceid.md#enable-voiceid-step2") in
   [Get started enabling Voice ID in Amazon Connect](enable-voiceid.md "enable-voiceid.md").
 
 ## Supported channels
@@ -76,9 +75,7 @@ Threshold** is set to 90. This is the recommended threshold.
 
 ![The properties page of the Set Voice ID block.](images/set-voice-id-properties.png)
 
-### Start streaming audio
-
-for Voice ID
+### Start streaming audio for Voice ID
 
 When this option is selected, Amazon Connect begins streaming audio from the customer's
 channel to Voice ID.
@@ -88,9 +85,7 @@ streaming audio** is selected, it cannot be disabled, even if later
 in the flow there are other **Set Voice ID** blocks that do not
 have it enabled.
 
-### Voice
-
-authentication
+### Voice authentication
 
 **Authentication threshold**: When Voice ID compares
 the voiceprint of the caller to the enrolled voiceprint of the claimed
@@ -128,9 +123,7 @@ threshold based on certain criteria. For example, you may want to raise the
 threshold based on the membership level of the customer, or the type of
 transaction or information they are calling about.
 
-### Fraud
-
-detection
+### Fraud detection
 
 The threshold you set for fraud detection is used to measure risk.
 Scores higher than the threshold are reported as higher risk. Scores lower than the threshold are reported as lower risk. Raising the threshold lowers false positive rates (makes result more certain), but raises false negative rates
@@ -206,8 +199,6 @@ configured. It has the following branches: **Success** and
 
 See the following topic for more information about this block:
 
-- [Use real-time caller authentication with Voice ID in
-  Amazon Connect](voice-id.md "voice-id.md")
+- [Use real-time caller authentication with Voice ID in Amazon Connect](voice-id.md "voice-id.md")
 - [Flow block in Amazon Connect: Check Voice ID](check-voice-id.md "check-voice-id.md")
-- [Enroll callers in Voice ID in the Contact Control Panel
-  (CCP)](use-voiceid.md "use-voiceid.md")
+- [Enroll callers in Voice ID in the Contact Control Panel (CCP)](use-voiceid.md "use-voiceid.md")

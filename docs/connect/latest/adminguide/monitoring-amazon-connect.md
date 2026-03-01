@@ -1,6 +1,4 @@
-# Monitor live and recorded conversations using
-
-Amazon Connect Contact Lens
+# Monitor live and recorded conversations using Amazon Connect Contact Lens
 
 Managers can monitor or listen-in to live conversations between agents and contacts. They
 can also review and download recordings of past interactions for both automated interactions
@@ -31,8 +29,7 @@ You cannot barge into calls or chats.
 You enable this capability by adding a [Set recording and analytics
 behavior](set-recording-behavior.md "set-recording-behavior.md") block to your flow.
 How agents manage the conferencing experience is very different between these two options.
-Enhanced monitoring provides more functionality for the agents. See [Comparison of enhanced contact
-monitoring (multi-party) and three-party functionality in Amazon Connect](three-party-multi-party-comparison.md "three-party-multi-party-comparison.md").
+Enhanced monitoring provides more functionality for the agents. See [Comparison of enhanced contact monitoring (multi-party) and three-party functionality in Amazon Connect](three-party-multi-party-comparison.md "three-party-multi-party-comparison.md").
 
 ###### Important
 

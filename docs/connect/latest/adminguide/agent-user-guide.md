@@ -1,6 +1,4 @@
-# Agent training guide for the Contact Control Panel (CCP)
-
-and agent workspace in Amazon Connect
+# Agent training guide for the Contact Control Panel (CCP) and agent workspace in Amazon Connect
 
 This section provides an overview of the default Amazon Connect agent workspace and Contact Control
 Panel. Your organization may be using a customized version of the agent workspace and/or

@@ -1,6 +1,4 @@
-# Object type
-
-mapping for the standard communication record
+# Object type mapping for the standard communication record
 
 The topics in this section provide the standard communication record
 definition, and the object type mapping from campaign events to the standard

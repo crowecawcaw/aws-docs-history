@@ -1,6 +1,4 @@
-# Calibration sessions for
-
-performance evaluations
+# Calibration sessions for performance evaluations
 
 Amazon Connect Contact Lens enables you to conduct calibration sessions to drive
 consistency and accuracy in how managers evaluate agent performance, so that agents
@@ -13,9 +11,7 @@ answered by managers. You can also compare manager’s answers with a designated
 to measure and improve manager accuracy on evaluating agent performance. The expert is
 usually the quality manager who is conducting the calibration session.
 
-## Permissions
-
-needed for calibrations
+## Permissions needed for calibrations
 
 You need the following permissions for calibrations:
 
@@ -30,12 +26,9 @@ You need the following permissions for calibrations:
   participants.
 
 In addition, for both sets of users, you also need permissions to search and view
-contacts. For more information, see [Manage who can search for
-contacts and access detailed information](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
+contacts. For more information, see [Manage who can search for contacts and access detailed information](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
 
-## Create a calibration
-
-session
+## Create a calibration session
 
 ###### To create a calibration session
 
@@ -61,9 +54,7 @@ evaluation will be automatically generated for each participant.
 
 ![A diagram of the created calibrations session for each participant.](images/calibration-setup3.png)
 
-## Edit a calibration
-
-session
+## Edit a calibration session
 
 ###### To edit a calibration session
 
@@ -77,9 +68,7 @@ changes will be reflected in the side panel. New participants will
 automatically receive an evaluation, while removed participants will have
 their evaluations deleted.
 
-## Perform evaluations as a part of
-
-a calibration session
+## Perform evaluations as a part of a calibration session
 
 Use the following procedure to perform evaluations as a part of a calibration
 session:

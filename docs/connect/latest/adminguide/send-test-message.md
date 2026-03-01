@@ -1,13 +1,9 @@
-# Send a test message for Apple Messages for Business to test integration
-
-with Amazon Connect
+# Send a test message for Apple Messages for Business to test integration with Amazon Connect
 
 After onboarding to the Apple Messages for Business account, use the following steps to send a test message
 to make sure the integration is set up properly.
 
-## Step 1: Add internal testers to your Messages for Business
-
-account
+## Step 1: Add internal testers to your Messages for Business account
 
 1. Sign in to [Apple Business
    Register](https://register.apple.com/ "https://register.apple.com/").
@@ -25,9 +21,7 @@ recheck that their email address is provided in the Account Testing section. It'
 most likely that the email address is incorrect or it's not an Apple ID. For
 security reasons, Apple cannot verify Apple ID email addresses.
 
-## Step 2: Test sending and receiving
-
-messages
+## Step 2: Test sending and receiving messages
 
 When your testers get the instructional email, they will need to activate the link
 in it. After doing this, they can send messages to your agents, who can then reply

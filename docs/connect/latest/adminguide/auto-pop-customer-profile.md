@@ -1,6 +1,4 @@
-# Automatically populate customer
-
-profiles
+# Automatically populate customer profiles
 
 By default, Amazon Connect Customer Profiles uses the following values to search for and
 autopopulate a customer profile in its user interface:
@@ -30,14 +28,11 @@ block.
 
 ![The properties page of the Set contact attributes block.](images/customer-profiles-attributes1.png)
 
-## Automatically associate a
-
-customer profile with a contact
+## Automatically associate a customer profile with a contact
 
 By default, agents need to manually associate a customer profile with a contact
 based after they've verified the customer's identity. To change this behavior to
-automatically associate contacts with a profile based on the phone number, see [Associate the
-Contact Record with one profile found using the \_phone key in Customer Profiles](auto-associate-profile-using-phone-profile-key.md "auto-associate-profile-using-phone-profile-key.md").
+automatically associate contacts with a profile based on the phone number, see [Associate the Contact Record with one profile found using the \_phone key in Customer Profiles](auto-associate-profile-using-phone-profile-key.md "auto-associate-profile-using-phone-profile-key.md").
 
 If multiple profiles match a contact's phone number, the multiple matched profiles
 are shown to the agent. The agent needs to choose which profile to associate with

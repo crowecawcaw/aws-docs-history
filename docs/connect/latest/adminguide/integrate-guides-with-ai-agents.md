@@ -1,6 +1,4 @@
-# Integrate Connect AI agents with step-by-step
-
-guides
+# Integrate Connect AI agents with step-by-step guides
 
 To help agents get to solutions faster, you can associate [step-by-step guides](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md") with knowledge
 base content, such as knowledge articles. Then, when Connect AI agents provides a recommended
@@ -10,9 +8,7 @@ guide that you associated with the content.
 This topic explains how to associate step-by-step guides with knowledge base
 content.
 
-## Step 1: Identify the resources you
-
-want to integrate
+## Step 1: Identify the resources you want to integrate
 
 The first step is to gather the information needed to run the integration command
 in [Step 2: Associate the step-by-step guide
@@ -58,9 +54,7 @@ aws qconnect list-contents \
 Identify which content resources you want to associate with a step-by-step
 guide. Copy and save the `contentId`. You'll use it in [Step 2](#associate-guide-content "#associate-guide-content").
 
-### Get the
-
-`flowARN` of the step-by-step guide
+### Get the `flowARN` of the step-by-step guide
 
 You need to get the `flowARN` of the step-by-step guide that you
 want to associate with the content. There are two ways you can get the
@@ -115,13 +109,9 @@ the knowledge base, and copy and save its
 `flowARN`. You'll use the
 `flowARN` in [Step 2](#associate-guide-content "#associate-guide-content").
 
-## Step 2: Associate the step-by-step guide
+## Step 2: Associate the step-by-step guide with the knowledge base content
 
-with the knowledge base content
-
-### Create the content
-
-association
+### Create the content association
 
 To complete this step you need the `knowledgeBaseId`,
 `contentId` and `flowARN` that you obtained in Step
@@ -160,9 +150,7 @@ aws qconnect create-content-association \
 --association '{"amazonConnectGuideAssociation":{"flowId":"arn:aws:connect:`us-west-2`:`111111111111`:instance/`22222222-2222-2222-2222-222222222222`/contact-flow/`00711358-cd68-441d-8301-2e847ca80c82`"}}'
 ```
 
-### Confirm that the content
-
-association exists
+### Confirm that the content association exists
 
 You can call the [ListContentAssociations](../APIReference/API_amazon-q-connect_ListContentAssociations.md "../APIReference/API_amazon-q-connect_ListContentAssociations.md") API or run the
 `list-content-associations` CLI command to list all of the
@@ -187,9 +175,7 @@ aws qconnect list-content-associations \
 --content-id `11111111-1111-1111-1111-111111111111`
 ```
 
-### Assign permissions so agents can view
-
-recommendations and step-by-step guides
+### Assign permissions so agents can view recommendations and step-by-step guides
 
 Assign the following **Agent Applications** security profile
 permissions to the agents so they can view the knowledge base content and the

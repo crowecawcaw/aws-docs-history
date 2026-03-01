@@ -30,8 +30,7 @@ others.
 
 1. [Create capacity
    planning scenarios](capacity-planning-create-scenarios.md "capacity-planning-create-scenarios.md")
-2. [Import estimated future
-   shrinkage and available full-time employees in Amazon Connect](upload-estimated-future-shrinkage.md "upload-estimated-future-shrinkage.md"): This is an optional
+2. [Import estimated future shrinkage and available full-time employees in Amazon Connect](upload-estimated-future-shrinkage.md "upload-estimated-future-shrinkage.md"): This is an optional
    step but it can improve the accuracy of your capacity plan.
 3. [Create capacity plans
    using forecasts and scenarios](capacity-planning-use-forecast.md "capacity-planning-use-forecast.md")

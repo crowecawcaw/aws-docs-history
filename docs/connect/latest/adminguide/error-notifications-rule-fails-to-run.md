@@ -1,6 +1,4 @@
-# Error notifications when
-
-an Amazon Connect rule fails to run
+# Error notifications when an Amazon Connect rule fails to run
 
 It's important to know when a specific rule action has failed in a production
 environment, and what caused the failure. Then you can proactively mitigate such
@@ -17,9 +15,7 @@ Events are emitted on a
 [best effort](../../../eventbridge/latest/userguide/eb-service-event.md "../../../eventbridge/latest/userguide/eb-service-event.md")
 basis.
 
-## Subscribe to EventBridge
-
-notifications
+## Subscribe to EventBridge notifications
 
 To subscribe to these notifications, create a custom EventBridge rule that
 matches the following:
@@ -56,9 +52,7 @@ The format of a notification looks like the following sample:
 }
 ```
 
-## Supported action
-
-types
+## Supported action types
 
 - `CREATE_TASK`
 - `GENERATE_EVENTBRIDGE_EVENT`
@@ -76,9 +70,7 @@ contact](contact-lens-error-notifications.md "contact-lens-error-notifications.m
 - `POST_CHAT`
 - `THIRD_PARTY`
 
-## Reason codes for failed
-
-actions
+## Reason codes for failed actions
 
 When an action fails, the error notification service collects the reason
 codes from the supported actions. For more information about the reason

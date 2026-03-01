@@ -1,6 +1,4 @@
-# Flow block in Amazon Connect: Transfer to phone
-
-number
+# Flow block in Amazon Connect: Transfer to phone number
 
 This topic defines the flow block for transferring the customer to an external phone
 number outside of your Amazon Connect instance.
@@ -112,8 +110,7 @@ local anti-fraud requirements.
   service quota increase request](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-connect "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-connect") requesting that your business be
   allowed to make outbound calls to the country you specified. If your
   business is not on the allowlist for making the call, it will fail. For more
-  information, see [Countries that call centers using Amazon Connect can
-  call by default](country-code-allow-list.md "country-code-allow-list.md").
+  information, see [Countries that call centers using Amazon Connect can call by default](country-code-allow-list.md "country-code-allow-list.md").
 - If the country you want to select is not listed, you can submit a request
   to add countries you want to transfer calls to using the [Amazon Connect service
   quotas increase form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-connect "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-connect").

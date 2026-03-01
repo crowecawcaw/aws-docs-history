@@ -1,6 +1,4 @@
-# Object
-
-type mapping for Item Catalog
+# Object type mapping for Item Catalog
 
 | Field                 | Type                | Description                                      |
 | --------------------- | ------------------- | ------------------------------------------------ |

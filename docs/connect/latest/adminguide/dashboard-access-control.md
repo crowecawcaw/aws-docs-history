@@ -1,6 +1,4 @@
-# Apply hierarchy-based access control to
-
-dashboards and reports in Amazon Connect
+# Apply hierarchy-based access control to dashboards and reports in Amazon Connect
 
 You can leverage agent hierarchies to control who has access to view specific agents
 and their performance related metrics in dashboards and reports.
@@ -18,15 +16,11 @@ have specific tags associated to them.
 
 ###### Contents
 
-- [How to enable hierarchy-based access control
-  for reports and dashboards](#dashboard-ac-enable "#dashboard-ac-enable")
-- [Assign security profiles permissions to
-  access dashboards, reports, and resources](#dashboard-ac-permissions "#dashboard-ac-permissions")
+- [How to enable hierarchy-based access control for reports and dashboards](#dashboard-ac-enable "#dashboard-ac-enable")
+- [Assign security profiles permissions to access dashboards, reports, and resources](#dashboard-ac-permissions "#dashboard-ac-permissions")
 - [Limitations](#dashboard-ac-limitations "#dashboard-ac-limitations")
 
-## How to enable hierarchy-based access control
-
-for reports and dashboards
+## How to enable hierarchy-based access control for reports and dashboards
 
 To enable granular access control for a given user based on the hierarchy they
 belong to, you configure the user as an access controlled resource. To do this, you
@@ -51,9 +45,7 @@ security profile or a child hierarchy group.
 
 ![The Hierarchy-based access control option, the Targeting dropdown list.](images/dashboard-hbac-enable.png)
 
-## Assign security profiles permissions to
-
-access dashboards, reports, and resources
+## Assign security profiles permissions to access dashboards, reports, and resources
 
 The user will need one of the following permissions to view the reports and
 dashboards:

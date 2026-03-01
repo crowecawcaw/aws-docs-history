@@ -1,6 +1,4 @@
-# Personalize the customer experience for in-app,
-
-web, and video calling in Amazon Connect
+# Personalize the customer experience for in-app, web, and video calling in Amazon Connect
 
 The steps in this topic are optional but recommended. They enable you to personalize
 the customer's experience based on their actions previously taken within your app. This
@@ -46,9 +44,7 @@ websites. Ask your website administrator to set up your web servers to issue
 JWTs using this security key. 5. Choose **Save and continue**. 6. Copy the custom HTML code snippet and insert it into your website's source
 code.
 
-## Alternate method: Pass contact attributes
-
-directly from snippet code
+## Alternate method: Pass contact attributes directly from snippet code
 
 ###### Note
 
@@ -72,9 +68,7 @@ code without enabling widget security.
 <script/>
 ```
 
-### Using the attributes in contact
-
-flows
+### Using the attributes in contact flows
 
 The [Check contact attributes](check-contact-attributes.md "check-contact-attributes.md")
 flow block provides access to these attributes via the **User
@@ -84,9 +78,7 @@ the flow block to add branching logic. The full path is
 
 ![Image showing a flow block branching to Valid and Invalid prompts.](images/flow-check-contact-attrib.png)
 
-## Copy communications widget code and security
-
-keys
+## Copy communications widget code and security keys
 
 In this step, you confirm your selections and copy the code for the communications widget
 and embed it in your website. You can also copy the secret keys for creating the

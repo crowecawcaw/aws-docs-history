@@ -1,6 +1,4 @@
-# Use screen pop functionality of
-
-third-party applications in the Amazon Connect agent workspace
+# Use screen pop functionality of third-party applications in the Amazon Connect agent workspace
 
 For screen pop functionality of third-party applications, you can use step-by-step
 guides or you can use app pinning. For more information, see [Access third-party

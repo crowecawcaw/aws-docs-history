@@ -1,6 +1,4 @@
-# Error
-
-messages and resolutions for Amazon Connect Customer Profiles calculated attributes
+# Error messages and resolutions for Amazon Connect Customer Profiles calculated attributes
 
 The following table shows calculated attributes error messages, cause, and
 resolution for each error.

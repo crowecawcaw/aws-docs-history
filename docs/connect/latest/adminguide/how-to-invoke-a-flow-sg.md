@@ -1,6 +1,4 @@
-# Invoke a guide at the start of a contact in
-
-Amazon Connect
+# Invoke a guide at the start of a contact in Amazon Connect
 
 After you've created your flows, you can dynamically determine which guides to show to
 users. To do this:

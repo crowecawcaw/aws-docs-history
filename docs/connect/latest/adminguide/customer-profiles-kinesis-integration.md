@@ -1,6 +1,4 @@
-# Create a Kinesis Integration with
-
-Amazon Connect Customer Profiles
+# Create a Kinesis Integration with Amazon Connect Customer Profiles
 
 The following steps outline the process of streaming objects from an Amazon Kinesis Data
 Stream into Amazon Connect Customer Profiles. The integration consists of two main steps:
@@ -10,9 +8,7 @@ Stream into Amazon Connect Customer Profiles. The integration consists of two ma
 2. Set up a Customer Profiles data integration with your Kinesis Data Stream using
    your created EventBridge Pipe
 
-## Step 1: Stream Data
-
-from Kinesis to EventBridge
+## Step 1: Stream Data from Kinesis to EventBridge
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/")
 2. In the navigation pane, choose **Event
@@ -46,9 +42,7 @@ from Kinesis to EventBridge
 At this point, you have successfully configured the routing of Kinesis events to
 EventBridge. Next, we will create an integration with Customer Profiles.
 
-## Step 2:
-
-Ingest EventBridge Data into Customer Profiles
+## Step 2: Ingest EventBridge Data into Customer Profiles
 
 1. Go to **Customer Profiles** in the Amazon
    Connect console.

@@ -1,6 +1,4 @@
-# Set actions that
-
-appear as flow branches in the Show view block
+# Set actions that appear as flow branches in the Show view block
 
 In step-by-step guides, users must choose a button to proceed to a new page in
 guides. You configure these buttons in the UI builder by setting an Action

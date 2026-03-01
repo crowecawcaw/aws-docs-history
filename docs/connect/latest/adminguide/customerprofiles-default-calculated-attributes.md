@@ -1,10 +1,6 @@
-# Default calculated
+# Default calculated attributes in Amazon Connect Customer Profiles
 
-attributes in Amazon Connect Customer Profiles
-
-## Default CTR
-
-calculated attributes
+## Default CTR calculated attributes
 
 Amazon Connect Customer Profiles provides out-of-the box default attributes based on
 contact records. The attributes are as follows:
@@ -236,9 +232,7 @@ contact records. The attributes are as follows:
 
 ```
 
-## Default
-
-profile calculated attribute
+## Default profile calculated attribute
 
 Amazon Connect Customer Profiles provides an out-of-the box default attribute based on
 a profile. The attributes are as follows:
@@ -275,9 +269,7 @@ a profile. The attributes are as follows:
 
 ```
 
-## Default
-
-asset calculated attributes
+## Default asset calculated attributes
 
 Amazon Connect Customer Profiles provides out-of-the box default attributes based on
 assets. The attributes are as follows:
@@ -464,9 +456,7 @@ assets. The attributes are as follows:
 
 ```
 
-## Default
-
-case calculated attributes
+## Default case calculated attributes
 
 Amazon Connect Customer Profiles provides out-of-the box default attributes based on
 cases. The attributes are as follows:
@@ -930,9 +920,7 @@ communication records. The attributes are as follows:
 
 ```
 
-## Default
-
-order calculated attributes
+## Default order calculated attributes
 
 Amazon Connect Customer Profiles provides out-of-the box default attributes based on
 orders. The attributes are as follows:

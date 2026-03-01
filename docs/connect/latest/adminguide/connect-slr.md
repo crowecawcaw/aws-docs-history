@@ -1,8 +1,6 @@
 # Use service-linked roles and role permissions for Amazon Connect
 
-## What are service-linked roles (SLR) and why are they
-
-important?
+## What are service-linked roles (SLR) and why are they important?
 
 Amazon Connect uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to an Amazon Connect instance.
@@ -332,13 +330,9 @@ image.
 
 ![The account overview page, the create service-linked role button.](images/slr-create-slr.png)
 
-For a list of the IAM permissions required to create the service-linked role, see [Overview page](security-iam-amazon-connect-permissions.md#overview-page "security-iam-amazon-connect-permissions.md#overview-page") in the [Required permissions for using
-custom IAM policies to manage access to the Amazon Connect console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md") topic.
+For a list of the IAM permissions required to create the service-linked role, see [Overview page](security-iam-amazon-connect-permissions.md#overview-page "security-iam-amazon-connect-permissions.md#overview-page") in the [Required permissions for using custom IAM policies to manage access to the Amazon Connect console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md") topic.
 
-## For Customer Profile domains created before Jan 31, 2025
-
-and configured with a customer KMS key to encrypt data, you need to grant additional KMS
-permissions to your Amazon Connect Instance.
+## For Customer Profile domains created before Jan 31, 2025 and configured with a customer KMS key to encrypt data, you need to grant additional KMS permissions to your Amazon Connect Instance.
 
 If your associated Customer Profile domain was created before Jan 31, 2025 and the domain
 uses a Customer-Managed KMS key (CMK) for encryption, to enable CMK enforcement by the Connect
@@ -352,7 +346,7 @@ Instance, take the following actions:
 your account.
 
 For a list of IAM permission to update your Amazon Connect instance, see the required
-permission for custom IAM policies for the [Customer Profiles page](security-iam-amazon-connect-permissions.md#customer-profiles-page "security-iam-amazon-connect-permissions.md#customer-profiles-page") .
+permission for custom IAM policies for the [Customer Profiles page](security-iam-amazon-connect-permissions.md#customer-profiles-page "security-iam-amazon-connect-permissions.md#customer-profiles-page").
 
 ## Edit a service-linked role for Amazon Connect
 

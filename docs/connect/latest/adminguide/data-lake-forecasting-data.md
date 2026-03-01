@@ -1,6 +1,4 @@
-# Forecasting data in the Amazon Connect analytics
-
-data lake
+# Forecasting data in the Amazon Connect analytics data lake
 
 This topic details the content in the Amazon Connect data lake forecasting
 tables. Each table lists the column, type, and description of the content in the
@@ -9,28 +7,22 @@ table.
 There are two ways to access the analytics data lake and configure data to be
 shared:
 
-- [Option 1: Use the Amazon Connect
-  console](access-datalake.md#option1-configure-data-to-be-shared "access-datalake.md#option1-configure-data-to-be-shared")
-- [Option 2: Use CLI or
-  CloudShell](access-datalake.md#option2-configure-data-to-be-shared "access-datalake.md#option2-configure-data-to-be-shared")
+- [Option 1: Use the Amazon Connect console](access-datalake.md#option1-configure-data-to-be-shared "access-datalake.md#option1-configure-data-to-be-shared")
+- [Option 2: Use CLI or CloudShell](access-datalake.md#option2-configure-data-to-be-shared "access-datalake.md#option2-configure-data-to-be-shared")
   If you are unable to access the scheduling tables by using Option 1, try using
   Option 2.
 
 ###### Contents
 
-- [Important things to
-  know](#data-lake-forecasting-data-important "#data-lake-forecasting-data-important")
+- [Important things to know](#data-lake-forecasting-data-important "#data-lake-forecasting-data-important")
 - [Forecast groups table](#data-lake-forecast-groups "#data-lake-forecast-groups")
 - [Long-term forecasts table](#data-lake-longterm-forecasts "#data-lake-longterm-forecasts")
-- [Short-term forecasts
-  table](#data-lake-shortterm-forecasts "#data-lake-shortterm-forecasts")
+- [Short-term forecasts table](#data-lake-shortterm-forecasts "#data-lake-shortterm-forecasts")
 - [Intraday forecasts table](#data-lake-intraday-forecasts "#data-lake-intraday-forecasts")
 - [Demand group table](#data-lake-demand-groups "#data-lake-demand-groups")
 - [Demand group definitions table](#data-lake-demand-group-definition "#data-lake-demand-group-definition")
 
-## Important things to
-
-know
+## Important things to know
 
 - You can use the tables described in this topic to access published
   forecasts data in the data lake.
@@ -88,9 +80,7 @@ Composite primary key: {instance_id, long_term_forcast_id}
 | instance_arn                       | String    | The ARN of the Amazon Connect instance of the forecast.                                                                                                                                                  |
 | data_lake_last_processed_timestamp | Timestamp | The Timestamp for the last time the data lake processed the<br>record. This can include transformation and backfill processes.<br>This field cannot be used to determine reliably data<br>freshness.     |
 
-## Short-term forecasts
-
-table
+## Short-term forecasts table
 
 Table name: short_term_forecasts
 

@@ -36,8 +36,7 @@ profile.
     attributes](check-contact-attributes.md "check-contact-attributes.md") block after
     retrieving profile data to route a contact conditional on the
     value.
-  - See [How to persist fields
-    throughout the flow](#customer-profiles-block-persist-fields "#customer-profiles-block-persist-fields") for
+  - See [How to persist fields throughout the flow](#customer-profiles-block-persist-fields "#customer-profiles-block-persist-fields") for
     more details.
 
 ## Supported channels
@@ -92,9 +91,7 @@ The following property types are available in the Customer Profiles flow block:
 - **[Get Calculated Attributes](#customer-profiles-block-properties-get-calculated-attributes "#customer-profiles-block-properties-get-calculated-attributes")**
 - **[Associate Contact to Profile](#customer-profiles-block-properties-associate.title "#customer-profiles-block-properties-associate.title")**
 
-## Properties: Get
-
-profile
+## Properties: Get profile
 
 When configuring properties to **Get profile**, consider the
 following:
@@ -131,9 +128,7 @@ fields** - **AccountNumber**, **FirstName**, **LastName**,
 
 ![The properties page of the Customer Profiles GetProfile block.](images/customer-profiles-block-properties-get-profile.png)
 
-## Properties:
-
-Create profile
+## Properties: Create profile
 
 When configuring properties for **Create profile**, consider the
 following:
@@ -160,9 +155,7 @@ subsequent blocks.
 
 ![The properties page of the Customer Profiles CreateProfile block.](images/customer-profiles-block-properties-create-profile.png)
 
-## Properties:
-
-Update profile
+## Properties: Update profile
 
 When configuring properties to **Update profile**, consider the
 following:
@@ -258,12 +251,9 @@ on the **View segment details** page.
   to check the segment membership. This may be due to a system error or
   misconfiguration of the **Check segment
   membership** action. To learn more about flow error logging,
-  see [Enable Amazon Connect flow logs in an Amazon CloudWatch log
-  group](contact-flow-logs.md "contact-flow-logs.md").
+  see [Enable Amazon Connect flow logs in an Amazon CloudWatch log group](contact-flow-logs.md "contact-flow-logs.md").
 
-## Properties:
-
-Get profile object
+## Properties: Get profile object
 
 When configuring properties to **Get profile object**, consider
 the following:
@@ -373,9 +363,7 @@ contact attributes: **Average Call Duration**, and
 
 ![The properties page of the Customer Profiles GetCalculatedAttributes block.](images/customer-profiles-block-properties-get-calculated-attributes-2.png)
 
-## Properties: Associate
-
-contact to profile
+## Properties: Associate contact to profile
 
 ###### Important
 
@@ -424,9 +412,7 @@ contact attributes.
 
 ![The properties page of the Customer Profiles AssociateContactToProfile block.](images/customer-profiles-block-properties-associate-2.png)
 
-## Properties: Get profile
-
-recommendations
+## Properties: Get profile recommendations
 
 ###### Important
 
@@ -436,12 +422,9 @@ API: `GetProfileRecommendations` in either of the following Policies:
 **AmazonConnectServiceCustomerProfileAccess**.
 
 For more details on how to set up and use the **Get profile
-recommendations** block, please refer to [Step 4: Using Predictive
-Insights across customer engagement channels](predictive-insights-get-started.md#use-across-customer-engagement-channels "predictive-insights-get-started.md#use-across-customer-engagement-channels") .
+recommendations** block, please refer to [Step 4: Using Predictive Insights across customer engagement channels](predictive-insights-get-started.md#use-across-customer-engagement-channels "predictive-insights-get-started.md#use-across-customer-engagement-channels").
 
-## How to persist fields
-
-throughout the flow
+## How to persist fields throughout the flow
 
 Let’s say you want customers to interact with your contact center and learn the
 status of their delivery order without directly communicating with an agent.

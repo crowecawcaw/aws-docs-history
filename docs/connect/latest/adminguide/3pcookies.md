@@ -1,6 +1,4 @@
-# Allow the Amazon Connect Contact Control Panel (CCP) to access
-
-cookies
+# Allow the Amazon Connect Contact Control Panel (CCP) to access cookies
 
 When logging into the CCP you may see one of these banners:
 
@@ -17,9 +15,7 @@ of Amazon Connect cookies.
    You may need to repeat these steps periodically, for example, if your organization
    requires it every 30 days.
 
-## What happens if you don't choose Grant access when
-
-prompted?
+## What happens if you don't choose Grant access when prompted?
 
 If you don't choose **Grant access** when prompted, you won't be
 able to log into the CCP. To enable access outside of the login workflow, perform

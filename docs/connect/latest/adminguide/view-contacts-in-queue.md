@@ -1,6 +1,4 @@
-# View the number of contacts waiting in an
-
-Amazon Connect contact center queue
+# View the number of contacts waiting in an Amazon Connect contact center queue
 
 ###### To view the number of contacts waiting in a queue for an agent
 

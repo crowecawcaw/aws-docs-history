@@ -1,6 +1,4 @@
-# Guidelines for porting phone numbers to your
-
-Amazon Connect project in South Korea
+# Guidelines for porting phone numbers to your Amazon Connect project in South Korea
 
 Rules for South Korea differ from those in other countries. To help with
 requirements in South Korea, here are some helpful hints.

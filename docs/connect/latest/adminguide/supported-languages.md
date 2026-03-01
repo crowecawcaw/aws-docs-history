@@ -117,9 +117,7 @@ for the country code).
 
 Following is additional information about language support for Connect AI agents.
 
-#### Agent assistance - Proactive Intent
-
-Detection based on transcripts
+#### Agent assistance - Proactive Intent Detection based on transcripts
 
 - **Supported languages:** English,
   Spanish, Portuguese, French, Korean, Japanese, and Chinese

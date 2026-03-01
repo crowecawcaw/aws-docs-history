@@ -24,8 +24,7 @@ console:
 - `connect:DescribeInstance`
 - `iam:PutRolePolicy`
 
-For more information, see [Required permissions for using custom
-IAM policies to manage Amazon Connect Cases](required-permissions-iam-cases.md "required-permissions-iam-cases.md").
+For more information, see [Required permissions for using custom IAM policies to manage Amazon Connect Cases](required-permissions-iam-cases.md "required-permissions-iam-cases.md").
 
 ## How to enable Amazon Connect Cases
 

@@ -1,6 +1,4 @@
-# Add Amazon Lex interactive messages for customers in
-
-chat
+# Add Amazon Lex interactive messages for customers in chat
 
 Interactive messages are rich messages that present a prompt and pre-configured display
 options for a customer to choose. These messages are powered by Amazon Lex and configured through
@@ -1310,9 +1308,7 @@ The following example shows how to format text as code with markdown:
 
 `This is `<code />``
 
-### How to format links with
-
-markdown
+### How to format links with markdown
 
 To create a link, use the following syntax:
 

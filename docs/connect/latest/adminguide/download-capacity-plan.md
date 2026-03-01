@@ -16,9 +16,7 @@ Following is a description of each worksheet:
 - **Generation Details**: The metadata indicating when
   someone last changed the capacity plan.
 
-## How to download capacity plan
-
-results
+## How to download capacity plan results
 
 1. Log in to the Amazon Connect admin website with an account that has security profile
    permissions for **Analytics**, **Capacity

@@ -1,6 +1,4 @@
-# Determine the contact center agent's ACW (After
-
-Contact Work) time
+# Determine the contact center agent's ACW (After Contact Work) time
 
 There's no event in the agent event stream that tells you how long a contact is in the
 After Contact Work (ACW) state, and by extension how long an agent spends doing ACW. However, there's other

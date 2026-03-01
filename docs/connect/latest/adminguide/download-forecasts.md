@@ -1,6 +1,4 @@
-# Download a forecast from Amazon Connect to view
-
-offline
+# Download a forecast from Amazon Connect to view offline
 
 You can download a forecast so you can inspect it offline. A forecast is
 downloaded as a .csv file of the forecast data. It has the queue name, channel type,

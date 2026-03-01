@@ -16,8 +16,7 @@ This topic explains how to:
 ###### Tip
 
 For the maximum number of shift rotation patterns per instance and other
-feature specifications, see [Forecasting, capacity
-planning, and scheduling feature specifications](feature-limits.md#forecasting-cap-planning-scheduling-specs "feature-limits.md#forecasting-cap-planning-scheduling-specs").
+feature specifications, see [Forecasting, capacity planning, and scheduling feature specifications](feature-limits.md#forecasting-cap-planning-scheduling-specs "feature-limits.md#forecasting-cap-planning-scheduling-specs").
 
 ## Set up shift rotation patterns
 
@@ -52,9 +51,7 @@ rotation step is 1 week, the next shift rotation - **Rotation
 step 2** - will take place on January 7. You can add up to
 51 additional steps and each step can be up to 51 weeks. 5. Choose **Save**.
 
-## Assign agents to shift rotation
-
-patterns
+## Assign agents to shift rotation patterns
 
 You assign agents to shift rotation patterns on the
 **Scheduling**, **Staff rules** page.
@@ -67,9 +64,7 @@ There are two ways you can update the shift rotation pattern of an agent:
 
 These options are discussed next.
 
-### Assign individual agents
-
-to shift rotation patterns
+### Assign individual agents to shift rotation patterns
 
 1. On the **Staff rules** page, choose
    **Shift Profile override**,
@@ -81,9 +76,7 @@ to shift rotation patterns
 
 ![The Staff details section of the Staff rules page.](images/shift-rotation-apply.png) 3. When complete, choose **Apply to Staff**.
 
-### Bulk upload shift rotation
-
-pattern assignments
+### Bulk upload shift rotation pattern assignments
 
 When managing a larger number of agents, use the bulk upload option to set
 the shift profile override, shift rotation pattern, and starting step in a
@@ -133,9 +126,7 @@ set only one.
 
 ![The template with a sample shift rotation pattern name in column C and shift rotation in column D.](images/shift-rotation-csv.png)
 
-### Upload shift rotation and
-
-shift profiles
+### Upload shift rotation and shift profiles
 
 To upload a .csv file that contains shift rotation overrides, on the
 **Staff rules** page, choose **Upload
@@ -157,9 +148,7 @@ minutes for thousands of agents. The banner automatically refreshes when the
 shift profile override data has been successfully processed. This means the
 data has been loaded into agent scheduling.
 
-## Generate schedules that use
-
-shift rotation patterns
+## Generate schedules that use shift rotation patterns
 
 1. On the **Scheduling** page, choose **Schedule
    manager**, **Generate schedule**.
@@ -174,9 +163,7 @@ as shown in the following image.
 
 ![The Generate schedule page with shift rotation patterns for the specified forecast group.](images/shift-rotation-generate.png)
 
-## Remove a shift rotation
-
-pattern
+## Remove a shift rotation pattern
 
 Before you can remove a shift rotation pattern, you must first remove all
 agents linked to the shift rotation pattern. You can unset up to 50 agents by

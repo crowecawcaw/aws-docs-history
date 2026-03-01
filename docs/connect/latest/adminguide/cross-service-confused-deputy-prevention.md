@@ -1,6 +1,4 @@
-# Cross-service confused deputy
-
-prevention in AWS
+# Cross-service confused deputy prevention in AWS
 
 The confused deputy problem is a security issue where an entity that doesn't have permission
 to perform an action can coerce a more-privileged entity to perform the action. In AWS,
@@ -26,9 +24,7 @@ ARN. For example,
 `arn:aws:`servicename`::`region-name`::`your
 AWS account ID`:*`.
 
-## Amazon Connect Customer Profiles cross-service
-
-confused deputy prevention
+## Amazon Connect Customer Profiles cross-service confused deputy prevention
 
 The following examples show policies that apply to cases where someone else is set up as
 the administrator for Amazon Connect Customer Profiles. Use these policies to prevent the confused deputy
@@ -125,9 +121,7 @@ the Identity Resolution process**
 }
 ```
 
-## Amazon Connect Voice ID cross-service confused deputy
-
-prevention
+## Amazon Connect Voice ID cross-service confused deputy prevention
 
 The following Voice ID example shows a resource policy to apply to prevent the confused
 deputy problem.
@@ -157,9 +151,7 @@ JSON
 
 ```
 
-## Amazon Connect chat message streaming
-
-cross-service confused deputy prevention
+## Amazon Connect chat message streaming cross-service confused deputy prevention
 
 The following Amazon Connect example shows a resource policy to apply to prevent the confused
 deputy problem.

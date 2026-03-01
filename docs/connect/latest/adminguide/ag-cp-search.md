@@ -1,6 +1,4 @@
-# Accept incoming contacts with Amazon Connect Customer
-
-Profiles
+# Accept incoming contacts with Amazon Connect Customer Profiles
 
 When a call or chat is connected to your Contact Control Panel (CCP), Amazon Connect Customer Profiles, in the
 same browser window, automatically populates the customer profile that may match the
@@ -28,12 +26,9 @@ Customer Profiles into your agent workspace. For more information, see [Enable C
 - [Autopopulate results in multiple profiles found](#example4-autopop-multiple-customer-profiles "#example4-autopop-multiple-customer-profiles")
 - [Create a new customer
   profile](ag-cp-create.md "ag-cp-create.md")
-- [Search for a customer profile in the agent
-  workspace](ag-cp-search.md "ag-cp-search.md")
+- [Search for a customer profile in the agent workspace](ag-cp-search.md "ag-cp-search.md")
 
-## Example 1: Auto-populate the
-
-customer profile
+## Example 1: Auto-populate the customer profile
 
 As soon as Amazon Connect Customer Profiles matches the phone number (voice) or customer
 name (chat) with an existing customer profile, it automatically displays the profile
@@ -70,9 +65,7 @@ You can associate a contact with customer profile multiple times during an
 interaction, including during After Contact Work (ACW) time. Only the most
 recent association remains, before you clear the contact.
 
-## Example 2: Accept incoming
-
-contact, no customer profile found
+## Example 2: Accept incoming contact, no customer profile found
 
 If no results are returned when a call or chat comes in, do the following:
 
@@ -94,9 +87,7 @@ matches were found so they chose **Create profile**.
 
 ![The Customer profile tab, create profile option.](images/customer-profiles-no-profiles-found.png)
 
-## Example 3: Search when not on
-
-contact
+## Example 3: Search when not on contact
 
 When there are no incoming contacts, you can search for customer profiles using
 any search key available in search drop down menu. For example, phone, name, email,
@@ -105,9 +96,7 @@ contacts, or completing a profile.
 
 ![The Customer profile tab, the search box.](images/customer-profiles-search-not-connected-example4.png)
 
-## Example 4:
-
-Autopopulate results in multiple profiles found
+## Example 4: Autopopulate results in multiple profiles found
 
 In some cases, multiple profiles may be returned for the same call or chat. Use
 the profile information to verify the customer's identity. For example, ask the

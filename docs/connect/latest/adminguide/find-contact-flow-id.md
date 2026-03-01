@@ -1,6 +1,4 @@
-# Find the flow ID when integrating Apple Messages
-
-for Business with Amazon Connect
+# Find the flow ID when integrating Apple Messages for Business with Amazon Connect
 
 The flow ID is the flow you want to use for inbound Apple Messages for Business messages. Flows define the
 experiences for your customer when they begin a new chat.

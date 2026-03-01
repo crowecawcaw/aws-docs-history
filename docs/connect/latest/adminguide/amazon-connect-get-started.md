@@ -11,8 +11,7 @@ Use these steps to set up your contact center.
    contact center. You specify how you plan to manage user accounts, whether your
    contact center will accept incoming calls and make outbound calls, and review the
    location where data will be stored in your Amazon S3 bucket.
-2. [Set up contact center phone numbers for your Amazon Connect
-   instance](ag-overview-numbers.md "ag-overview-numbers.md"). If you're using voice, either
+2. [Set up contact center phone numbers for your Amazon Connect instance](ag-overview-numbers.md "ag-overview-numbers.md"). If you're using voice, either
    claim a phone number that AWS provides, or port your current phone number to
    Amazon Connect. If you choose to port your numbers, we suggest claiming a number so you can
    test Amazon Connect and build your contact center while waiting for your numbers to be ported
@@ -46,8 +45,7 @@ additional steps that you may find useful:
    recording in your flows. For chat conversations, set up recording at the
    instance level.
 
-To learn how to monitor conversations, see [Enable enhanced multi-party contact monitoring
-in Amazon Connect](monitor-conversations.md "monitor-conversations.md"). 2. [Create conversational AI bots in Amazon Connect](connect-conversational-ai-bots.md "connect-conversational-ai-bots.md"). Use Amazon Lex in your
+To learn how to monitor conversations, see [Enable enhanced multi-party contact monitoring in Amazon Connect](monitor-conversations.md "monitor-conversations.md"). 2. [Create conversational AI bots in Amazon Connect](connect-conversational-ai-bots.md "connect-conversational-ai-bots.md"). Use Amazon Lex in your
 contact center to reduce the load on your agents. For example, a bot can handle
 the initial interaction before the chat is routed to an agent, and also answer
 common questions for the customer.

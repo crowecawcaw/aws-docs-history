@@ -1,6 +1,4 @@
-# Can I cancel a scheduled phone number
-
-porting in Amazon Connect?
+# Can I cancel a scheduled phone number porting in Amazon Connect?
 
 ###### Important
 
@@ -16,8 +14,7 @@ if the number has not already been ported. If you need to cancel or reschedule
 your porting, let us know immediately.
 
 You cannot cancel a port after it has been moved to the RespOrg (Responsible
-Organization). The port is complete. For this situation, see [Revert phone numbers to
-your original carrier after porting to Amazon Connect](revert-porting-to-original-carrier.md "revert-porting-to-original-carrier.md").
+Organization). The port is complete. For this situation, see [Revert phone numbers to your original carrier after porting to Amazon Connect](revert-porting-to-original-carrier.md "revert-porting-to-original-carrier.md").
 
 If a porting is successfully cancelled, timelines for the port schedule are
 reset and the carriers will need to identify another mutually agreed date and

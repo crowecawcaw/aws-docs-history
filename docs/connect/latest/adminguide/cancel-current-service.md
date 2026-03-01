@@ -1,6 +1,4 @@
-# When do I cancel my current telecom
-
-service when porting numbers to Amazon Connect?
+# When do I cancel my current telecom service when porting numbers to Amazon Connect?
 
 Do not cancel your existing telecom service until your phone numbers have been
 ported and confirmed working in Amazon Connect.

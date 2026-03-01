@@ -1,11 +1,8 @@
-# Create a routing profile in Amazon Connect to link queues to
-
-agents
+# Create a routing profile in Amazon Connect to link queues to agents
 
 This topic is for administrators and contact center managers. It explains how to
 create routing profiles using the Amazon Connect admin website. For the APIs used to create and manage routing
-profiles programmatically, see [APIs to create and manage routing
-profiles](#apis-routing-profiles "#apis-routing-profiles").
+profiles programmatically, see [APIs to create and manage routing profiles](#apis-routing-profiles "#apis-routing-profiles").
 
 While queues are a 'waiting area' for contacts, a routing profile links queues to
 agents. When you create a routing profile, you specify:
@@ -31,11 +28,11 @@ at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.co
 3. In the **Channel Settings** section, enter or choose the
    following information:
 
-| Item                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Channel availability**       | Choose which types of contacts will be routed to agents<br>who are assigned to this routing profile.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| **Maximum contacts per agent** | For chat, task, and email channels, specify how many<br>contacts that an agent can handle simultaneously, up to<br>10.<br>For emails, this field defines how many emails agents can<br>receive, and double that number is how many outbound emails<br>agents can initiate. For example, if you set<br>\*_Maximum contacts per agent_<br>• to 5,<br>agents can receive up to 5 emails and create up to 10<br>agent-initiated outbound emails.                                                                                                                                             |
-| **Cross-channel concurrency**  | Choose one of the following options:<br>• **No other channels while agent is on<br>`channel`**. For<br>example, while an agent is on a chat, they will not<br>receive a voice contact, email, or a task.<br>• **Allow other channel<br>concurrently**. For example, while an<br>agent is on a voice contact, they can be offered<br>contacts from any other channels enabled in the<br>routing profile, such as chats, emails, and<br>tasks.<br>See [Example of how a contact is routed<br>with cross-channel concurrency](#example-routing-concurrency "#example-routing-concurrency"). |
+| Item                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Channel availability**       | Choose which types of contacts will be routed to agents<br>who are assigned to this routing profile.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **Maximum contacts per agent** | For chat, task, and email channels, specify how many<br>contacts that an agent can handle simultaneously, up to<br>10.<br>For emails, this field defines how many emails agents can<br>receive, and double that number is how many outbound emails<br>agents can initiate. For example, if you set<br>\*_Maximum contacts per agent_<br>• to 5,<br>agents can receive up to 5 emails and create up to 10<br>agent-initiated outbound emails.                                                                                                                                          |
+| **Cross-channel concurrency**  | Choose one of the following options:<br>• **No other channels while agent is on<br>`channel`**. For<br>example, while an agent is on a chat, they will not<br>receive a voice contact, email, or a task.<br>• **Allow other channel<br>concurrently**. For example, while an<br>agent is on a voice contact, they can be offered<br>contacts from any other channels enabled in the<br>routing profile, such as chats, emails, and<br>tasks.<br>See [Example of how a contact is routed with cross-channel concurrency](#example-routing-concurrency "#example-routing-concurrency"). |
 
 4. In the **Queues** section, enter the following
    information:
@@ -45,7 +42,7 @@ at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.co
 | **Name**                                              | Use the dropdown menu or text field to choose a queue that<br>you've already set up. You can add multiple queues to a<br>routing profile.                                                                                                                                                                                                                                                                                                                                                                                           |
 | **Channels**                                          | Choose whether the queue is for chat, voice, email, task,<br>or all of them.<br>ImportantThe channel that you specify here must also be<br>specified in the **Channel Settings**<br>section. If it isn't, contacts from that channel won't<br>be routed to agents.                                                                                                                                                                                                                                                                  |
 | **Priority**                                          | Specify the order in which contacts are to be handled for<br>that queue. For example, a contact in a queue with a<br>priority of 2 would be a lower priority than a contact in a<br>queue with a priority of 1.                                                                                                                                                                                                                                                                                                                     |
-| **Delay (in seconds)**                                | Enter the minimum amount of time a contact should be in<br>the queue before they are routed to an available<br>agent.<br>To learn more about how Priority and Delay work together,<br>see [Queue priority and delay examples<br>to help you load balance Amazon Connect contacts](concepts-routing-profiles-priority.md "concepts-routing-profiles-priority.md").                                                                                                                                                                   |
+| **Delay (in seconds)**                                | Enter the minimum amount of time a contact should be in<br>the queue before they are routed to an available<br>agent.<br>To learn more about how Priority and Delay work together,<br>see [Queue priority and delay examples to help you load balance Amazon Connect contacts](concepts-routing-profiles-priority.md "concepts-routing-profiles-priority.md").                                                                                                                                                                      |
 | **Default outbound queue**                            | Choose a queue to be associated with outbound calls or<br>emails initiated by the agents. Outbound contacts respect<br>the settings from the default outbound queue, such as caller<br>ID and "From" email address. For more information, see [Create a queue using the Amazon Connect admin website](create-queue.md "create-queue.md").                                                                                                                                                                                           |
 | **Set routing order**                                 | By default Amazon Connect routes new contacts to<br>agents that have been in **Available**<br>status the longest. You can customize this behavior, for<br>example, to change the impact that outbound contacts have on<br>the assignment of new inbound<br>contacts.                                                                                                                                                                                                                                                                |
 | **Outbound calls should not impact routing<br>order** | Use this setting if you don't want agents who make<br>outbound contacts to move to the bottom of the list for<br>receiving inbound contacts.<br>By default new contacts are routed to the agent who has<br>been in \*_Available_<br>• status longest. By<br>making an outbound contact, the agent drops to the bottom of<br>the list waiting for inbound contacts. You can use this<br>setting to override that default logic and ensure that<br>agents making outbound contacts still get their fair share<br>of inbound contacts. |
@@ -54,9 +51,7 @@ at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.co
    who can access this routing profile. For more information, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md").
 6. Choose **Save**.
 
-## Tips for setting up channels and
-
-concurrency
+## Tips for setting up channels and concurrency
 
 - Use **Channel availability** to toggle on and off whether
   agents assigned to a profile get voice, chat, task, and email
@@ -81,8 +76,7 @@ you want to restart voice contacts for these agents again, select
        Delay are equal. Even though it's evaluating multiple channels at
        the same time, First-In First-Out is still respected.
 
-  See [Example of how a contact is routed
-  with cross-channel concurrency](#example-routing-concurrency "#example-routing-concurrency").
+  See [Example of how a contact is routed with cross-channel concurrency](#example-routing-concurrency "#example-routing-concurrency").
 
 - For each queue in the profile, choose whether it's for voice, chat, task,
   email, or all channels.
@@ -93,9 +87,7 @@ you want to restart voice contacts for these agents again, select
 
 ![Queue configuration showing two BasicQueue entries with different channel and priority settings.](images/set-channels-and-concurrency-2.png)
 
-## Example of how a contact is routed
-
-with cross-channel concurrency
+## Example of how a contact is routed with cross-channel concurrency
 
 For example, assume an agent is assigned to the routing profile that has the
 channel settings shown in the following image. They can be routed voice, chat, task,
@@ -159,9 +151,7 @@ The agent will experience the following routing behavior:
      the agent handles the voice call, they still won't be offered the
      task until they finish their current task.
 
-## APIs to create and manage routing
-
-profiles
+## APIs to create and manage routing profiles
 
 Use the following APIs to create and manage routing profiles
 programmatically:

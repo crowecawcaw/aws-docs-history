@@ -1,6 +1,4 @@
-# The roles responsible for contact center
-
-scheduling in Amazon Connect
+# The roles responsible for contact center scheduling in Amazon Connect
 
 There are a variety of roles for people who might create and manage schedules in a
 contact center, such as the following:

@@ -10,8 +10,7 @@ existing task template.
 - Initiates a flow to start the task immediately or schedules it for a
   future date and time.
 
-For more information about Amazon Connect Tasks, see [The task channel in Amazon Connect](tasks.md "tasks.md") and [Pause and resume tasks in Amazon Connect
-Tasks](concepts-pause-and-resume-tasks.md "concepts-pause-and-resume-tasks.md").
+For more information about Amazon Connect Tasks, see [The task channel in Amazon Connect](tasks.md "tasks.md") and [Pause and resume tasks in Amazon Connect Tasks](concepts-pause-and-resume-tasks.md "concepts-pause-and-resume-tasks.md").
 
 ###### Note
 
@@ -149,5 +148,4 @@ Amazon Connect includes a set of sample flows. For instructions that explain how
 [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample inbound flow in Amazon Connect for the first contact
-  experience](sample-inbound-flow.md "sample-inbound-flow.md")
+- [Sample inbound flow in Amazon Connect for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")

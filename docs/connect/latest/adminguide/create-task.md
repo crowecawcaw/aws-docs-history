@@ -1,6 +1,4 @@
-# Create a new task in the Contact Control Panel
-
-(CCP)
+# Create a new task in the Contact Control Panel (CCP)
 
 You can create a task any time, even when your status is Offline. And you can
 assign a task to anyone who has a quick connect, including yourself.

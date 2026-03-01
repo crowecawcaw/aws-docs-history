@@ -1,6 +1,4 @@
-# Export customer segments to a
-
-CSV file in Amazon Connect
+# Export customer segments to a CSV file in Amazon Connect
 
 From the **Customer segments** page in the Amazon Connect admin website, you can export
 an existing segment to a file on your computer. When you do, Customer Profiles

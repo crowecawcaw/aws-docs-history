@@ -1,6 +1,4 @@
-# Flow block in Amazon Connect: Invoke a published
-
-module
+# Flow block in Amazon Connect: Invoke a published module
 
 This topic defines the flow block for calling a published module to create reusable
 sections in a flow.

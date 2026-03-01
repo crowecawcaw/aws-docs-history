@@ -1,18 +1,14 @@
-# Set up routing in Amazon Connect based on agent
-
-proficiencies
+# Set up routing in Amazon Connect based on agent proficiencies
 
 Following is an overview of the steps to set up routing based on agent proficiencies:
 
-1. [Create predefined attributes for routing contacts to
-   agents](predefined-attributes.md "predefined-attributes.md")
+1. [Create predefined attributes for routing contacts to agents](predefined-attributes.md "predefined-attributes.md")
    - You create the predefined attributes that you want to use to make a
      routing decision. In the next step, you can use predefined attributes
      individually, or you can combine them by using the `AND` or
      `OR` operators to form a routing step.
 
-2. [Assign proficiencies to agents in your
-   Amazon Connect instance](assign-proficiencies-to-agents.md "assign-proficiencies-to-agents.md")
+2. [Assign proficiencies to agents in your Amazon Connect instance](assign-proficiencies-to-agents.md "assign-proficiencies-to-agents.md")
    - You select predefined attributes and associate them with an agent. All
      available agents that meet a routing step requirement of a contact within
      the same queue will be considered for a match.
@@ -28,9 +24,7 @@ Amazon Connect runs the routing criteria.
 
 ![Proficiency routing 4 step chart.](images/proficiency-routing-chart.png)
 
-## Example of how to use agent proficiencies
-
-for routing
+## Example of how to use agent proficiencies for routing
 
 Consider a scenario where a contact enters a queue **General Inbound
 Queue** and two agents, Agent1 and Agent2, are available. A customer who
@@ -59,9 +53,7 @@ For regulatory or compliance use cases you can use the **Never
 Expire** option for the expiration timer to ensure any agent
 who is joined on the contact meets a minimum requirement.
 
-###### To route the contact to the above requirements, complete the following
-
-steps:
+###### To route the contact to the above requirements, complete the following steps:
 
 1. **Create predefined attributes**: For example,
    add `Technology` as a predefined attribute in **User
@@ -137,15 +129,12 @@ real-time metrics for queues table which shows you a list of the routing steps i
 for active contacts on the queue. You can find the definitions for the routing step
 specific metrics under [Metric definitions in Amazon Connect](metrics-definitions.md "metrics-definitions.md").
 
-## Contact record, contact event stream, and
-
-agent event stream updates for agent proficiencies
+## Contact record, contact event stream, and agent event stream updates for agent proficiencies
 
 Models have been added for proficiency routing in the following sections:
 
 - [Data model for Amazon Connect contact records](ctr-data-model.md "ctr-data-model.md")
-- [Agent event streams data model in
-  Amazon Connect](agent-event-stream-model.md "agent-event-stream-model.md")
+- [Agent event streams data model in Amazon Connect](agent-event-stream-model.md "agent-event-stream-model.md")
 - [Contact events data model](contact-events.md#contact-events-data-model "contact-events.md#contact-events-data-model")
 
 ## Frequently asked questions

@@ -1,6 +1,4 @@
-# Step-by-step Guides to set up your
-
-Amazon Connect agent workspace
+# Step-by-step Guides to set up your Amazon Connect agent workspace
 
 In the Amazon Connect agent workspace, you can create workflows that walk agents through custom
 UI pages that suggest what to do at a given moment during a customer interaction. You
@@ -32,9 +30,7 @@ When mapping a view to a **Show view** block, you will be able to
 select from a list of pre-built Views. For details and best practices about creating
 Guides, see [Show view](show-view-block.md "show-view-block.md").
 
-## Complex JSON Object
-
-support
+## Complex JSON Object support
 
 Use the [Show view](show-view-block.md "show-view-block.md")
 block to pass complex JSON objects between Amazon Connect agent workspaces and

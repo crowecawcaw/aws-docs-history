@@ -1,6 +1,4 @@
-# Enable Amazon Connect quick responses in a custom Contact Control Panel
-
-(CCP)
+# Enable Amazon Connect quick responses in a custom Contact Control Panel (CCP)
 
 To enable your agents to use quick responses for an embedded or custom CCP, you use the
 [Amazon Connect Streams

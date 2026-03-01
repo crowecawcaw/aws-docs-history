@@ -1,6 +1,4 @@
-# Outbound campaigns
-
-performance dashboard
+# Outbound campaigns performance dashboard
 
 You can use the outbound campaigns performance dashboard to understand the performance
 of your outbound campaigns across your email, SMS, and telephony delivery modes. You can
@@ -10,41 +8,28 @@ abandoned rate, spam, bounces and more.
 
 ###### Contents
 
-- [Enable access to the
-  dashboard](#campaigns-dashboard-enable-access "#campaigns-dashboard-enable-access")
-- [Campaign performance overview
-  chart](#campaigns-perf-overview-chart "#campaigns-perf-overview-chart")
-- [Campaign progress over time
-  chart](#campaigns-progress-over-time-chart "#campaigns-progress-over-time-chart")
-- [Campaign progress comparison
-  chart](#campaigns-progress-comparison-chart "#campaigns-progress-comparison-chart")
-- [Delivery classification stacked bar
-  charts](#delivery-classification-chart "#delivery-classification-chart")
-- [Campaign metrics by recipients
-  table](#campaign-metrics-recipients-table "#campaign-metrics-recipients-table")
-- [Campaign send exclusions
-  breakdown](#campaign-send-exclusions-breakdown "#campaign-send-exclusions-breakdown")
+- [Enable access to the dashboard](#campaigns-dashboard-enable-access "#campaigns-dashboard-enable-access")
+- [Campaign performance overview chart](#campaigns-perf-overview-chart "#campaigns-perf-overview-chart")
+- [Campaign progress over time chart](#campaigns-progress-over-time-chart "#campaigns-progress-over-time-chart")
+- [Campaign progress comparison chart](#campaigns-progress-comparison-chart "#campaigns-progress-comparison-chart")
+- [Delivery classification stacked bar charts](#delivery-classification-chart "#delivery-classification-chart")
+- [Campaign metrics by recipients table](#campaign-metrics-recipients-table "#campaign-metrics-recipients-table")
+- [Campaign send exclusions breakdown](#campaign-send-exclusions-breakdown "#campaign-send-exclusions-breakdown")
 - [Campaign metrics table](#campaign-metrics-table "#campaign-metrics-table")
-- [Dashboard
-  functionality limitations](#campaign-dashboard-functionality-limitations "#campaign-dashboard-functionality-limitations")
+- [Dashboard functionality limitations](#campaign-dashboard-functionality-limitations "#campaign-dashboard-functionality-limitations")
 
-## Enable access to the
-
-dashboard
+## Enable access to the dashboard
 
 Ensure users are assigned the appropriate security profile permissions:
 
 - **Access metrics - Access** permission or the
   **Dashboard - Access** permission. For information
-  about the difference in behavior, see [Assign permissions to view dashboards
-  and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+  about the difference in behavior, see [Assign permissions to view dashboards and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
 - **Outbound Campaign - Campaigns - View** permission: This
   permission is required to view outbound campaigns data on the
   dashboard.
 
-## Campaign performance overview
-
-chart
+## Campaign performance overview chart
 
 The Campaign performance overview chart provides aggregated metrics based on your
 filters. Each metric within the chart is compared to your "compare to" benchmark
@@ -119,9 +104,7 @@ Performance overview chart includes data from deleted campaigns when there is no
 campaign filter selected. You can apply a campaign filter to filter out deleted
 campaign data.
 
-## Campaign progress over time
-
-chart
+## Campaign progress over time chart
 
 The Campaign progress chart is a time-series chart that displays the
 Dials attempted metric per campaign over a specific time
@@ -150,9 +133,7 @@ filtering for more than 5 campaigns, additional campaigns will not display in th
 visualization. You can select specific campaign(s) you want to see in this visual by
 using the campaign filter.
 
-## Campaign progress comparison
-
-chart
+## Campaign progress comparison chart
 
 The Campaign progress comparison chart shows the Send attempts metric in its
 current period broken down by campaign, compared to the Prior send attempted metric
@@ -168,17 +149,13 @@ filter.
 
 ![The campaign delivery breakdown chart.](images/dashboard-oc-campaign-progress-comparison.png)
 
-## Delivery classification stacked bar
-
-charts
+## Delivery classification stacked bar charts
 
 The Telephony, SMS, Email, and WhatsApp classification by campaign charts drill down into
 the delivery outcomes of each delivery attempt for each campaign delivery mode. The
 charts show the count of each delivery classification across a campaign.
 
-### Telephony classification
-
-stacked bar chart
+### Telephony classification stacked bar chart
 
 This chart shows the telephony classifications that include the following AMD
 (Answering Machine Detection) statuses:
@@ -201,9 +178,7 @@ chart.
 
 ![The Telephony classification stacked bar chart.](images/dashboard-oc-telephony-classification.png)
 
-### SMS classification stacked bar
-
-chart
+### SMS classification stacked bar chart
 
 This chart shows the following delivery outcomes:
 
@@ -221,9 +196,7 @@ chart.
 
 ![The SMS classification stacked bar chart.](images/dashboard-oc-sms-classification.png)
 
-### Email classification stacked bar
-
-chart
+### Email classification stacked bar chart
 
 The Email classifications displayed include the following delivery
 outcomes:
@@ -259,9 +232,7 @@ The following image shows a sample WhatsApp classification stacked bar chart.
 
 The widget must be manually added to your dashboard. Refer to [Add or remove widgets on a dashboard](dashboard-customize-widgets.md#dashboard-add-widgets "dashboard-customize-widgets.md#dashboard-add-widgets"), then locate the `WhatsApp classification by campaign` widget under the Campaign section.
 
-## Campaign metrics by recipients
-
-table
+## Campaign metrics by recipients table
 
 A detailed view of recipient-level outbound campaigns metrics over the selected
 time range, with drill-down capabilities to view metrics for individual campaign
@@ -284,9 +255,7 @@ Metrics include:
 Campaign execution breakdown is only available for segment-based campaigns. If
 removed from the grouping, it must be re-added through a new table.
 
-## Campaign send exclusions
-
-breakdown
+## Campaign send exclusions breakdown
 
 A detailed view of campaign send exclusions, including reasons why outbound
 engagements were excluded from sending.
@@ -364,9 +333,7 @@ This table includes the following metrics.
 - **Email unique clicked**: The number of unique recipients
   who clicked the email message.
 
-## Dashboard
-
-functionality limitations
+## Dashboard functionality limitations
 
 The following limitations apply to the Outbound campaigns performance
 dashboard:

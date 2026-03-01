@@ -1,13 +1,9 @@
-# Mapping Salesforce objects to
-
-the standard profile in Amazon Connect Customer Profiles
+# Mapping Salesforce objects to the standard profile in Amazon Connect Customer Profiles
 
 This topic lists which fields in Salesforce objects map to fields in the
 standard profile object in Customer Profiles.
 
-## Salesforce-Account
-
-object
+## Salesforce-Account object
 
 Following is a list of all the fields in a Salesforce-Account object.
 The fields in your Salesforce-Account object may vary depending on the
@@ -86,9 +82,7 @@ configuration of your Salesforce instance.
 - DandbCompanyId
 - IsBuyer
 
-## Mapping a
-
-Salesforce-Account object to a standard profile
+## Mapping a Salesforce-Account object to a standard profile
 
 A subset of the fields in the Salesforce-Account object map to the
 standard profile object in Customer Profiles.
@@ -148,9 +142,7 @@ the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListP
 `ObjectTypeName` set to
 `Salesforce-Account`.
 
-## Salesforce-Contact
-
-object
+## Salesforce-Contact object
 
 Following is a list of all the fields in a Salesforce-Contact
 object.
@@ -228,9 +220,7 @@ object.
 - CleanStatus
 - IndividualId
 
-## Mapping a
-
-Salesforce-Contact object to a standard profile
+## Mapping a Salesforce-Contact object to a standard profile
 
 A subset of the fields in the Salesforce-Contact object map to the
 standard profile object in Customer Profiles. The following table lists

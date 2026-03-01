@@ -1,6 +1,4 @@
-# Assign security profile permissions for
-
-users to create and access evaluation forms
+# Assign security profile permissions for users to create and access evaluation forms
 
 To allow users to create, automate, and access evaluation forms, assign the following
 **Analytics and optimization** security profile permissions:

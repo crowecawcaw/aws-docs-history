@@ -1,6 +1,4 @@
-# View a call transcript during ACW in the
-
-CCP or Amazon Connect agent workspace
+# View a call transcript during ACW in the CCP or Amazon Connect agent workspace
 
 At the end of a call, you can see an unredacted transcript of your conversation in
 the CCP or agent workspace. You can view the entire transcript for reference, and

@@ -1,6 +1,4 @@
-# Not receiving calls on the
-
-phone number ported to Amazon Connect
+# Not receiving calls on the phone number ported to Amazon Connect
 
 After the scheduled porting window has completed, if you are not receiving
 phone calls on the ported phone number, update your support ticket. We will

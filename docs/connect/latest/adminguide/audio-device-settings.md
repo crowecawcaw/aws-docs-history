@@ -1,6 +1,4 @@
-# Change your audio device settings in the CCP or
-
-agent workspace
+# Change your audio device settings in the CCP or agent workspace
 
 When you're using the CCP or agent workspace, you can choose your preferred device for
 the audio, microphone, and ringer. This allows you to have audio notifications to ring
@@ -15,9 +13,7 @@ Your speaker, ringer, and microphone settings are saved in your browser storage,
 - If you move to a different computer or browser, you will need to change
   these settings there, too.
 
-## Change audio device settings in the
-
-CCP
+## Change audio device settings in the CCP
 
 1. In the CCP or agent workspace, choose **Settings**. The
    **Settings** dialog box appears, similar to the
@@ -30,9 +26,7 @@ Enhancement**. For more information about Audio Enhancement,
 see [Enable Audio
 Enhancement for agents in Amazon Connect](audio-enhancement.md "audio-enhancement.md").
 
-## Prerequisite: Allow your browser to access
-
-your microphone
+## Prerequisite: Allow your browser to access your microphone
 
 Before you can change your audio device settings in the CCP, you need to make sure
 you've given your browser permission to access your microphone. This populates the
@@ -44,9 +38,7 @@ If you haven't done this yet, see the instructions for your browser.
 - [Edge](https://support.microsoft.com/en-us/windows/windows-camera-microphone-and-privacy-a83257bc-e990-d54a-d212-b5e41beba857 "https://support.microsoft.com/en-us/windows/windows-camera-microphone-and-privacy-a83257bc-e990-d54a-d212-b5e41beba857")
 - [Firefox](https://support.mozilla.org/en-US/kb/how-manage-your-camera-and-microphone-permissions#w_change-microphone-permissions "https://support.mozilla.org/en-US/kb/how-manage-your-camera-and-microphone-permissions#w_change-microphone-permissions")
 
-## What to check when your audio device isn't working
-
-as expected
+## What to check when your audio device isn't working as expected
 
 Following are the top tips for resolving issues with audio devices.
 
@@ -65,9 +57,7 @@ Following are the top tips for resolving issues with audio devices.
   4.  Under **Allow apps to access your microphone**,
       set the toggle to **On**.
 
-## Info for IT admins and
-
-Developers
+## Info for IT admins and Developers
 
 - **IT admins**: Agents need **Contact
   Control Panel (CCP) - Audio device settings** permissions in

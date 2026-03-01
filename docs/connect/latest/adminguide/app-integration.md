@@ -1,6 +1,4 @@
-# Use an allowlist for integrated applications in
-
-Amazon Connect
+# Use an allowlist for integrated applications in Amazon Connect
 
 All domains that embed the CCP for a particular instance must be explicitly allowed
 for cross-domain access to the instance. For example, to integrate with Salesforce, you

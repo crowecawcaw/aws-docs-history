@@ -1,6 +1,4 @@
-# Mapping Campaign objects to the standard communication record in Amazon
-
-Connect Customer Profiles
+# Mapping Campaign objects to the standard communication record in Amazon Connect Customer Profiles
 
 This topic lists which fields in Campaign objects map to fields in the
 standard communication record object in Customer Profiles.
@@ -95,9 +93,7 @@ Campaign-SMS object to the standard communication record.
 | sms.totalCarrierFee                 | Events.{{campaign\_event\_type}}.Attributes.TotalCarrierFee          |
 | sms.isoCountryCode                  | Events.{{campaign\_event\_type}}.Attributes.IsoCountryCode           |
 
-## Campaign-Telephony
-
-object
+## Campaign-Telephony object
 
 For a list of all the fields in a Campaign-Telephony object, see the
 [Voice object](../../../sms-voice/latest/userguide/configuration-sets-event-format.md "../../../sms-voice/latest/userguide/configuration-sets-event-format.md") in the AWS End User Messaging SMS
@@ -138,9 +134,7 @@ Campaign-Telephony object to the standard communication record.
 | voice.answeringMachineDetectionStatus            | Events.{{campaign\_event\_type}}.Attributes.AnsweringMachineDetectionStatus |
 | campaign_event_timestamp                         | SourceLastUpdatedTimestamp                                                  |
 
-## Campaign-Orchestration
-
-object
+## Campaign-Orchestration object
 
 **Mapping a Campaign-Orchestration object to a
 standard communication record**

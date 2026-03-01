@@ -10,9 +10,7 @@ interactions in a single place.
 Following is an overview of key concepts and the information that you'll be
 prompted for during the setup process.
 
-### About the customer profiles
-
-domain
+### About the customer profiles domain
 
 When you enable Amazon Connect Customer Profiles, you create a customer profiles
 domain: a container for all data, such as customer profiles, object types,
@@ -38,9 +36,7 @@ powered by Spark SQL and predictive insights and must be enabled to use those
 features. It is not used in computing calculated attributes or populating Agent
 Workspace.
 
-### How do you want to name your
-
-customer profiles domain?
+### How do you want to name your customer profiles domain?
 
 When you enable customer profiles, you are prompted to provide a friendly
 domain name that's meaningful to you such as your organization name, for
@@ -53,9 +49,7 @@ Data store is a service-managed data store required for segmentation powered by 
 
 Once you enable Data store, it automatically stores you ingest into Customer Profiles. After you enable Data store, you can't disable this feature. To delete data from the Data Store, you can use the DeleteProfile API or delete the object types or the Customer Profile domain.
 
-### Do you want to use a
-
-dead-letter queue?
+### Do you want to use a dead-letter queue?
 
 A dead-letter queue is used for reporting errors associated with processing
 data from external applications.
@@ -104,17 +98,13 @@ to that queue:
 }
 ```
 
-To prevent a confused deputy security issue, see [Amazon Connect Customer Profiles cross-service
-confused deputy prevention](cross-service-confused-deputy-prevention.md#customer-profiles-cross-service "cross-service-confused-deputy-prevention.md#customer-profiles-cross-service") for an example policy to
+To prevent a confused deputy security issue, see [Amazon Connect Customer Profiles cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md#customer-profiles-cross-service "cross-service-confused-deputy-prevention.md#customer-profiles-cross-service") for an example policy to
 apply.
 
 Step-by-step instructions for creating a dead-letter queue are provided later
-in this topic, in [Enable Customer Profiles, and specify a
-dead-letter queue and KMS key](#enable-customer-profiles-step1 "#enable-customer-profiles-step1").
+in this topic, in [Enable Customer Profiles, and specify a dead-letter queue and KMS key](#enable-customer-profiles-step1 "#enable-customer-profiles-step1").
 
-### Create a KMS key to
-
-be used by Customer Profiles to encrypt data (required)
+### Create a KMS key to be used by Customer Profiles to encrypt data (required)
 
 ###### Note
 
@@ -128,8 +118,7 @@ resources retrieved from the API related to Customer Profiles.
 When you enable Customer Profiles, you are prompted to create or provide a
 AWS Key Management Service [KMS key](../../../kms/latest/developerguide/concepts.md#kms_keys "../../../kms/latest/developerguide/concepts.md#kms_keys").
 Step-by-step instructions for creating a KMS key are provided later in this
-topic, in [Enable Customer Profiles, and specify a
-dead-letter queue and KMS key](#enable-customer-profiles-step1 "#enable-customer-profiles-step1").
+topic, in [Enable Customer Profiles, and specify a dead-letter queue and KMS key](#enable-customer-profiles-step1 "#enable-customer-profiles-step1").
 
 All data at rest for Customer Profiles is encrypted under the KMS key you
 choose. Your customer managed key is created, owned, and managed by you. You have full
@@ -141,13 +130,10 @@ it must have a policy that allows `kms:GenerateDataKey`,
 the Customer Profiles service principal. For information about how to change a
 key policy, see [Changing a
 key policy](../../../kms/latest/developerguide/key-policy-modifying.md "../../../kms/latest/developerguide/key-policy-modifying.md") in the AWS Key Management Service Developer Guide. In addition, to prevent
-cross-service impersonation, see [Cross-service confused deputy
-prevention in AWS](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md") for sample
+cross-service impersonation, see [Cross-service confused deputy prevention in AWS](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md") for sample
 policies that you should apply.
 
-## Enable Customer Profiles, and specify a
-
-dead-letter queue and KMS key
+## Enable Customer Profiles, and specify a dead-letter queue and KMS key
 
 **Data store**
 

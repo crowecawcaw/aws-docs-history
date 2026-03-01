@@ -1,6 +1,4 @@
-# Agent headset and workstation requirements for using
-
-the Contact Control Panel (CCP)
+# Agent headset and workstation requirements for using the Contact Control Panel (CCP)
 
 Agent headsets and workstations in the contact center vary widely. While the Amazon Connect CCP is
 built to handle high levels of jitter and high latency environments, the architecture of the
@@ -24,8 +22,7 @@ sample rate of 48kHz, audio issues such as an audible humming sound may be prese
 in the agent's outgoing audio. This has been seen with Firefox but not with Chrome.
 
 For instructions on verifying the sample rate of the agent's headset and browser,
-see [Humming sound in the agent's audio device: Verify
-the headset and browser sample rates](verify-sample-rate.md "verify-sample-rate.md")
+see [Humming sound in the agent's audio device: Verify the headset and browser sample rates](verify-sample-rate.md "verify-sample-rate.md")
 
 ## Workstation minimum requirements
 
@@ -71,9 +68,7 @@ anything else running on the workstation to avoid resource contention.
 The Amazon Connect console, Contact Control Panel (CCP), and agent workspace do not support mobile
 browsers.
 
-## How to determine whether a workstation is the
-
-source of problems
+## How to determine whether a workstation is the source of problems
 
 To determine whether a workstation is the source of problems, you need access to
 various levels of logging information. However, adding logging and monitoring to

@@ -1,6 +1,4 @@
-# Amazon Connect Voice ID speaker,
-
-watchlist, and fraudster management APIs
+# Amazon Connect Voice ID speaker, watchlist, and fraudster management APIs
 
 ###### Note
 

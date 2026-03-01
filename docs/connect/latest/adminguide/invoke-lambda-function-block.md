@@ -1,6 +1,4 @@
-# Flow block in Amazon Connect: AWS Lambda
-
-function
+# Flow block in Amazon Connect: AWS Lambda function
 
 This topic defines the flow block for calling AWS Lambda. The fetched response can be
 used in the [Set contact
@@ -11,8 +9,7 @@ attributes](set-contact-attributes.md "set-contact-attributes.md") block.
 - Calls AWS Lambda.
 - The returned data can be used to set contact attributes in the [Set contact
   attributes](set-contact-attributes.md "set-contact-attributes.md") block.
-- For an example, see [Tutorial: Create a Lambda function and invoke in
-  a flow](connect-lambda-functions.md#tutorial-invokelambda "connect-lambda-functions.md#tutorial-invokelambda").
+- For an example, see [Tutorial: Create a Lambda function and invoke in a flow](connect-lambda-functions.md#tutorial-invokelambda "connect-lambda-functions.md#tutorial-invokelambda").
 
 ## Supported channels
 
@@ -116,8 +113,7 @@ following options under **Lambda Invocation RequestId**:
 ## Configuration tips
 
 - To use an AWS Lambda function in a flow, first add the function to your
-  instance. For more information, see [Add a Lambda function to your Amazon Connect
-  instance](connect-lambda-functions.md#add-lambda-function "connect-lambda-functions.md#add-lambda-function").
+  instance. For more information, see [Add a Lambda function to your Amazon Connect instance](connect-lambda-functions.md#add-lambda-function "connect-lambda-functions.md#add-lambda-function").
 - After you add the function to your instance, you can select the function
   from the **Select a function** drop-down list in the block
   to use it in the flow.
@@ -139,12 +135,10 @@ Amazon Connect includes a set of sample flows. For instructions that explain how
 [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-[Sample Lambda integration flow in
-Amazon Connect](sample-lambda-integration.md "sample-lambda-integration.md")
+[Sample Lambda integration flow in Amazon Connect](sample-lambda-integration.md "sample-lambda-integration.md")
 
 ## Scenarios
 
 See these topics for scenarios that use this block:
 
-- [Grant Amazon Connect access to your AWS Lambda
-  functions](connect-lambda-functions.md "connect-lambda-functions.md")
+- [Grant Amazon Connect access to your AWS Lambda functions](connect-lambda-functions.md "connect-lambda-functions.md")

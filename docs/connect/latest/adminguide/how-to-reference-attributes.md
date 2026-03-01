@@ -1,12 +1,9 @@
-# How to reference contact attributes in
-
-Amazon Connect
+# How to reference contact attributes in Amazon Connect
 
 The way you reference contact attributes depends on how they were created and how you are
 accessing them.
 
-- For the JSON syntax for each attribute, see [List of available contact attributes in Amazon Connect and their
-  JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
+- For the JSON syntax for each attribute, see [List of available contact attributes in Amazon Connect and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
 - To reference attributes that contain special characters in their name, such as spaces,
   place brackets and single quotations around the attribute name. For example: `$.Attributes.['user attribute name']`.
 - To reference attributes in the same namespace, such as a system attribute, you use the

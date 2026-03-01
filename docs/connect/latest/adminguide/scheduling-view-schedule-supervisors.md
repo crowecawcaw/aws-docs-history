@@ -1,6 +1,4 @@
-# How supervisors view
-
-published schedules using the Amazon Connect admin website
+# How supervisors view published schedules using the Amazon Connect admin website
 
 After a scheduler publishes a schedule, it's official. Agents can now view their
 individual scheduling using their agent workspace. Supervisors can also view their
@@ -24,9 +22,7 @@ agent workspace to reflect the change.
   adherence data](#scheduling-display-adherence-data "#scheduling-display-adherence-data")
 - [Display Week schedule view](#scheduling-view-schedule-supervisors-weekly "#scheduling-view-schedule-supervisors-weekly")
 
-## Sort and filter
-
-schedules
+## Sort and filter schedules
 
 Managers and supervisors can sort or filter schedules based on the following
 criteria.
@@ -54,9 +50,7 @@ Supervisor's profile on the **Staff Rules** page.
 Supervisors can choose to view agent schedules in a different time zone by
 selecting the desired time zone from the date filter.
 
-## Display adherence
-
-data
+## Display adherence data
 
 As a manager or supervisor, you can display the adherence view by enabling the
 **Adherence** toggle.
@@ -92,9 +86,7 @@ date (not the date of the schedule), adherence is re-calculated with the new
 schedule. This enables you to make real-time adjustments to an agent's shift
 and correctly evaluate their adherence.
 
-## Display Week
-
-schedule view
+## Display Week schedule view
 
 In addition to Day view, supervisors can display a Week view of agent
 schedules in both draft and published calendars.

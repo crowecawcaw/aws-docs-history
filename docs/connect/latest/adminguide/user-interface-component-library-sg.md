@@ -1,6 +1,4 @@
-# UI component library for
-
-UI builder in Amazon Connect
+# UI component library for UI builder in Amazon Connect
 
 All of the UI builder components are described in the [Amazon Connect UI
 component documentation](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/overview--page "https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/overview--page"). This documentation shows you the individual UI
@@ -14,9 +12,7 @@ following image shows an example of the **Library** tab and the
 
 ![The UI builder Create panel, the Library tab, the UI components.](images/user-interface-component-library-example.png)
 
-## Use Containers to
-
-move and organize components
+## Use Containers to move and organize components
 
 Containers are a core building block to make views. You can move UI components
 (including other containers) into a container to group them together logically
@@ -27,9 +23,7 @@ top level view settings, we recommend using containers in all of your views.
 Containers also come with column layout. Column layout allows you to organize
 the contents within a container.
 
-## Create a
-
-form
+## Create a form
 
 To create a form for agents or customers to complete and submit, you use the
 [Form](https://d3irlmavjxd3d8.cloudfront.net/?path=/story/aws-managed-views-form--with-all "https://d3irlmavjxd3d8.cloudfront.net/?path=/story/aws-managed-views-form--with-all") component. You can either:

@@ -1,6 +1,4 @@
-# Optimize Amazon Connect audio for
-
-Omnissa cloud desktops
+# Optimize Amazon Connect audio for Omnissa cloud desktops
 
 Amazon Connect makes it easier to deliver high-quality voice experiences when your agents
 are using Omnissa Virtual Desktop Infrastructure (VDI) environments. Your agents can
@@ -13,9 +11,7 @@ To get started, you can use the [Amazon Connect open source
 libraries](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams") to create a new or update an existing agent user interface,
 such as a custom Contact Control Panel (CCP).
 
-## System
-
-requirements
+## System requirements
 
 This section describes the system requirements for using the Omnissa Horizon
 SDK with Amazon Connect.
@@ -155,9 +151,7 @@ Manager.
 
   ![A diagram illustrating the use of UDP Port 3478.](images/omnissa-3.png)
 
-## Required code changes on your
-
-custom CCP
+## Required code changes on your custom CCP
 
 To enable audio optimization in Omnissa VDI environment, you must configure
 your custom CCP with the following changes.
@@ -217,9 +211,7 @@ optimization fails. This means:
     3. Implement an API to determine the correct configuration
      based on user context.
 
-## How to verify the media flow between thin
-
-client and Amazon Connect during the call
+## How to verify the media flow between thin client and Amazon Connect during the call
 
 1.  Ensure Omnissa Horizon WebRTC browser extension is enabled and in
     Ready state.

@@ -111,8 +111,7 @@ This metric helps organizations:
 ## Adherence
 
 This metric is available in AWS Regions only where
-[Forecasting, capacity planning, and
-scheduling](regions.md#optimization_region "regions.md#optimization_region") is available.
+[Forecasting, capacity planning, and scheduling](regions.md#optimization_region "regions.md#optimization_region") is available.
 
 This metric measures the percentage of time that an agent correctly follows their schedule.
 
@@ -143,8 +142,7 @@ For a list of all schedule adherence metrics, see [Schedule Adherence metrics in
 ## Adherent time
 
 This metric is available in AWS Regions only where
-[Forecasting, capacity planning, and
-scheduling](regions.md#optimization_region "regions.md#optimization_region") is available.
+[Forecasting, capacity planning, and scheduling](regions.md#optimization_region "regions.md#optimization_region") is available.
 
 This metric measures the total time an agent adhered to their schedule.
 
@@ -273,8 +271,7 @@ contacts in ACW state, not the number of agents.
 - Historical metrics reports: Contacts in ACW
 - Dashboard: ACW contacts
 
-To learn more about agent status and contact states, see [Agent status in the Contact Control Panel
-(CCP)](metrics-agent-status.md "metrics-agent-status.md") and [About contact states in Amazon Connect](about-contact-states.md "about-contact-states.md").
+To learn more about agent status and contact states, see [Agent status in the Contact Control Panel (CCP)](metrics-agent-status.md "metrics-agent-status.md") and [About contact states in Amazon Connect](about-contact-states.md "about-contact-states.md").
 
 ## Agent API connecting time
 
@@ -352,9 +349,7 @@ of accepted contacts to total routing attempts.
 - Data for this metric is available starting from December 29, 2023 0:00:00
   GMT.
 
-## Agent average contact
-
-first response wait time
+## Agent average contact first response wait time
 
 This metric measures the average time (in seconds) elapsed from the chat session
 enqueue timestamp to the timestamp of the first agent reply to the customer. It only
@@ -518,9 +513,7 @@ parameter set as follows:
   `STATE_CHANGE` event changes from `CONNECTING` to
   `CONNECTED`/`MISSED`/ `ERROR`.
 
-## Agent interaction and hold
-
-time
+## Agent interaction and hold time
 
 This metric measures the total time an agent spends on a customer interaction,
 including [Agent interaction time](#agent-interaction-time "#agent-interaction-time") and [Customer hold time](#customer-hold-time "#customer-hold-time"). It applies to both inbound
@@ -700,9 +693,7 @@ each time it is routed to an agent but not answered.
 - It returns null if non-response data is not present.
 - Data for this metric is available starting from October 1, 2023 0:00:00 GMT.
 
-## Agent non-response
-
-without customer abandons
+## Agent non-response without customer abandons
 
 This metric counts the voice contacts routed to an agent but not answered by that agent,
 excluding contacts abandoned by the customer.
@@ -894,8 +885,7 @@ conversation duration.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in
-Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## AI Handoffs
 
@@ -1573,8 +1563,7 @@ If a question is marked as an automatic fail, then the parent section and the fo
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Agent performance evaluations
-  dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
+- Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 
 **Calculation logic**:
 
@@ -1717,9 +1706,7 @@ status.)
 - Return final_result = sum of all the result values / total number of matching
   contact records.
 
-## Average after contact work
-
-time
+## Average after contact work time
 
 This metric measures the average time that an agent spent doing After Contact Work
 (ACW) for contacts.
@@ -1752,9 +1739,7 @@ This metric measures the average time that an agent spent doing After Contact Wo
 - Return final_result = sum of all the result values / total number of contact
   records (excluding skipped records).
 
-## Average agent API connecting
-
-time
+## Average agent API connecting time
 
 This metric measures the average time between when a contact is initiated using an
 Amazon Connect API, and the agent is connected.
@@ -1779,9 +1764,7 @@ parameter set as follows:
 - Real-time metrics reports: Avg API connecting time
 - Historical metrics reports: Average agent API connecting time
 
-## Average agent callback
-
-connecting time
+## Average agent callback connecting time
 
 This metric measures the average time between when a callback contact is initiated by
 Amazon Connect reserving the agent for the contact, and the agent is connected.
@@ -1816,9 +1799,7 @@ parameter set as follows:
 
 ![The five parts used to calculate average callback connecting time.](images/metrics-agent-callback-connection-time.png)
 
-## Average agent first response
-
-time
+## Average agent first response time
 
 This metric measures the average time (in seconds) taken by an agent to respond after
 obtaining a chat contact. It only supports filtering and grouping by channel =
@@ -1880,12 +1861,9 @@ indicating how quickly they engage with customers after joining the chat.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in
-Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
 
-## Average agent incoming
-
-connecting time
+## Average agent incoming connecting time
 
 This metric measures the average time between when contact is initiated by Amazon Connect reserving the agent for the contact, and the agent is connected. This is
 the ring time for configurations where the agent is not set to auto-answer.
@@ -1923,9 +1901,7 @@ Missed, or Rejected.
 
 ![The three parts used to calculate average incoming connecting time.](images/metrics-agent-inbound-connection-time.png)
 
-## Average agent
-
-interaction and customer hold time
+## Average agent interaction and customer hold time
 
 This metric measures the average time an agent spends on a customer interaction,
 including Agent interaction time and Customer hold time. It applies to both inbound and
@@ -2025,12 +2001,9 @@ customer interactions.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in
-Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
 
-## Average agent interruption
-
-time
+## Average agent interruption time
 
 This metric measures the average of total agent interruption time while talking to a contact.
 
@@ -2059,8 +2032,7 @@ This metric measures the average of total agent interruption time while talking 
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in
-Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average agent message length
 
@@ -2130,9 +2102,7 @@ only supports filtering and grouping by channel = CHAT.
 - The final result = average of the result across all the contacts not
   skipped
 
-## Average agent outbound
-
-connecting time
+## Average agent outbound connecting time
 
 This metric measures the average time between when an outbound contact is initiated by
 Amazon Connect reserving the agent for the contact, and the agent is connected.
@@ -2267,8 +2237,7 @@ This metric measures the average time that was spent talking in a conversation b
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in
-Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average bot conversation time
 
@@ -2432,9 +2401,7 @@ during the provided time interval.
 
 For a list of all case driven metrics, see [Amazon Connect Cases metrics](case-management-metrics.md "case-management-metrics.md").
 
-## Average conversation close
-
-time
+## Average conversation close time
 
 This metric measures the average time elapsed (in seconds) since last customer message
 before the contact is disconnected. It only supports filtering and grouping by channel =
@@ -2498,8 +2465,7 @@ This metric measures the average conversation duration of voice contacts with ag
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in
-Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average customer hold time
 
@@ -2540,9 +2506,7 @@ notice a value of 0 on the report for them.
 - Return final_result = sum of all the result values / total number of contact
   records (excluding skipped records.
 
-## Average customer hold time all
-
-contacts
+## Average customer hold time all contacts
 
 This metric measures the average hold time for all contacts handled by an agent. The
 calculation includes contacts that were never put on hold.
@@ -2575,9 +2539,7 @@ calculation includes contacts that were never put on hold.
 - Return final_result = sum of all the result values / total number of all
   contact records (excluding skipped records).
 
-## Average customer message
-
-length
+## Average customer message length
 
 This metric measures the average length (in characters) of messages sent by customers.
 It only supports filtering and grouping by channel = CHAT.
@@ -2716,8 +2678,7 @@ conversation by a customer.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in
-Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average dials per minute
 
@@ -2736,8 +2697,7 @@ start time and end time.
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Avg. dials per minute
 
 **Notes**:
@@ -2769,8 +2729,7 @@ If the grouping does not contain evaluation form, section or question, then the 
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Agent performance evaluations
-  dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
+- Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 
 **Calculation logic**:
 
@@ -2958,12 +2917,9 @@ conversation.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in
-Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
 
-## Average outbound after
-
-contact work time
+## Average outbound after contact work time
 
 This metric measures the average time that agents spent doing After Contact Work (ACW)
 for an outbound contact.
@@ -2991,9 +2947,7 @@ parameter set as follows:
 
 - Average after contact work time where INITIATION_METHOD = OUTBOUND.
 
-## Average outbound agent
-
-interaction time
+## Average outbound agent interaction time
 
 This metric measures the average time that agents spent interacting with a customer
 during an outbound contact. This does not include After Contact Work Time, Customer Hold
@@ -3079,9 +3033,7 @@ staffing, leading to poor customer satisfaction.
 - Return final_result = average of the result values across all contact
   records.
 
-## Average queue
-
-abandon time - customer first callback
+## Average queue abandon time - customer first callback
 
 This metric measures the average time that callback contacts, who were called for
 their first callback, waited in the queue before abandoning the call. A contact is
@@ -3172,9 +3124,7 @@ better a customer experience.
 - Return final_result = average of the result values across all contact
   records.
 
-## Average queue answer
-
-time - customer first callback
+## Average queue answer time - customer first callback
 
 This metric measures the average time that callback contacts were queued for their
 first callback before being answered by an agent.
@@ -3210,9 +3160,7 @@ first callback before being answered by an agent.
 - This metric is available when next generation Amazon Connect is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
   unlimited AI capabilities.
 
-## Average queue answer time
-
-(enqueue timestamp)
+## Average queue answer time (enqueue timestamp)
 
 This metric measures the average time that contacts waited in the queue before being
 answered by an agent. In some businesses, this is also known as average speed of answer
@@ -3237,8 +3185,7 @@ Duration (from the contact record).
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Intraday forecast performance
-  dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md")
+- Dashboard: [Intraday forecast performance dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md")
 
 ## Average resolution time
 
@@ -3284,9 +3231,7 @@ contacts, leading to better customer satisfaction.
 - Return final_result = average of the result values across all contact
   records.
 
-## Average speed
-
-of answer - customer first callback dialed
+## Average speed of answer - customer first callback dialed
 
 This metric measures the average time that callback contacts, who were called for
 their first callback, waited in the queue before their call was answered by an agent.
@@ -3357,8 +3302,7 @@ customer or the agent.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in
-Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average Test Case Execution Duration
 
@@ -3423,9 +3367,7 @@ connected to an agent after they answer their first callback.
 - This metric is available when next generation Amazon Connect is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
   unlimited AI capabilities.
 
-## Average wait time after
-
-customer connection
+## Average wait time after customer connection
 
 This metric measures the average duration of total wait time by the customer after they answer the
 outbound call through the Amazon Connect dialer.
@@ -3448,9 +3390,7 @@ outbound call through the Amazon Connect dialer.
 
 For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
-## Average weighted evaluation
-
-score
+## Average weighted evaluation score
 
 This metric provides the average weighted evaluation score for all submitted evaluations.
 Evaluations for calibrations are excluded from this metric.
@@ -3473,8 +3413,7 @@ then the average evaluation score is at an evaluation form level.
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Agent performance evaluations
-  dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
+- Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 
 **Calculation logic**:
 
@@ -3642,9 +3581,7 @@ customer did not answer the call.
 
 - Return final_result = sum of the counts across all contacts.
 
-## Callback attempts - customer
-
-first callback
+## Callback attempts - customer first callback
 
 This metric represents the number of contacts where a callback was dialed for the
 first time, but the customer did not answer the call.
@@ -3730,9 +3667,7 @@ parameter set as follows:
 - Historical metrics reports: Callback contacts handled
 - Dashboard: Contacts handled - agent first callback
 
-## Campaign contacts abandoned after
-
-X
+## Campaign contacts abandoned after X
 
 This metric counts the outbound campaign calls that were connected to a live customer but did not get connected to an agent within X seconds.
 The possible values for X are from 1 to 604800 inclusive.
@@ -3750,8 +3685,7 @@ This metric is only available with answering machine detection enabled. For more
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Campaign contacts abandoned after x seconds rate
 
 **Notes**:
@@ -3763,9 +3697,7 @@ This metric is only available with answering machine detection enabled. For more
 
 For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
-## Campaign contacts abandoned
-
-after X rate
+## Campaign contacts abandoned after X rate
 
 This metric measures the percentage of outbound campaign calls that were connected to a live customer
 but did not get connected to an agent within X seconds divided by the count of contacts connected to a live customer in an outbound campaign.
@@ -3785,8 +3717,7 @@ The possible values for X are from 1 to 604800 inclusive.
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Campaign contacts abandoned rate
 
 **Notes**:
@@ -3814,8 +3745,7 @@ Example interactions include `Open`, `Click`, and `Compliant`.
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CAMPAIGN_INTERACTIONS`
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md")
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md")
 
 **Notes**:
 
@@ -3841,8 +3771,7 @@ recipients attempted for delivery, out of the total number of recipients targete
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CAMPAIGN_PROGRESS_RATE`
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md")
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md")
 
 **Notes**:
 
@@ -3868,8 +3797,7 @@ A campaign send request represents a send attempt made to reach out to an recipi
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Send attempts
 
 **Notes**:
@@ -3893,8 +3821,7 @@ This metric measures the count of outbound campaign send attempts that were excl
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Campaign send exclusions
 
 **Notes**:
@@ -4011,9 +3938,7 @@ This metric measures the number of times cases have been resolved.
 
 For a list of all case driven metrics, see [Amazon Connect Cases metrics](case-management-metrics.md "case-management-metrics.md").
 
-## Cases resolved on first
-
-contact
+## Cases resolved on first contact
 
 This metric measures the percent of cases that were resolved on the first contact (only including
 calls, chats, or email). Cases that have been reopened and subsequently closed in the
@@ -4173,12 +4098,9 @@ methods: Inbound, Transfer, Queue_Transfer, Callback, and API.
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Intraday forecast performance
-  dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md")
+- Dashboard: [Intraday forecast performance dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md")
 
-## Contact volume - agent first
-
-callback
+## Contact volume - agent first callback
 
 This metric counts the contacts in a queue that were initiated from a queued callback
 for the first callback.
@@ -4216,9 +4138,7 @@ for the first callback.
 - This metric is available when next generation Amazon Connect is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
   unlimited AI capabilities.
 
-## Contact volume - customer first
-
-callback
+## Contact volume - customer first callback
 
 This metric counts the contacts in a queue that were initiated from a dialed callback
 for the first callback.
@@ -4307,9 +4227,7 @@ customers abandoned the queue before being connected to an agent.
 
 - Return final_result = ssum of the counts across all contacts.
 
-## Contacts abandoned -
-
-customer first callback
+## Contacts abandoned - customer first callback
 
 This metric counts the number of contacts that were dialed for their first callback,
 but were disconnected by the customer while waiting in the queue. This metric helps
@@ -4354,9 +4272,7 @@ abandoned the queue before being connected to an agent.
 - This metric is available when next generation Amazon Connect is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
   unlimited AI capabilities.
 
-## Contacts abandoned in
-
-_X_ seconds
+## Contacts abandoned in _X_ seconds
 
 This metric counts the queued contacts disconnected without being connected to an
 agent for 0 to _X_ seconds. It provides the count of contacts that
@@ -4497,8 +4413,7 @@ the contact center.
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Intraday forecast performance
-  dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md"), Contacts created
+- Dashboard: [Intraday forecast performance dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md"), Contacts created
 
 **Calculation logic**:
 
@@ -4599,12 +4514,9 @@ handled by their agents.
 **Notes**:
 
 - This metric gets incremented when a contact disconnects. To see the count of
-  contacts handled as soon as a contact is connected to an agent, see [Contacts handled
-  (connected to the agent timestamp)](#contacts-handled-by-connected-to-agent-timestamp "#contacts-handled-by-connected-to-agent-timestamp").
+  contacts handled as soon as a contact is connected to an agent, see [Contacts handled (connected to the agent timestamp)](#contacts-handled-by-connected-to-agent-timestamp "#contacts-handled-by-connected-to-agent-timestamp").
 
-## Contacts handled
-
-(connected to the agent timestamp)
+## Contacts handled (connected to the agent timestamp)
 
 This metric counts the contacts that were connected to an agent, updated as soon as a
 contact is connected to an agent. **Contacts handled** is aggregated on
@@ -4645,9 +4557,7 @@ the `CONNECTED_TO_AGENT` timestamp.
   center. For more information, see [Amazon Connect contact events](contact-events.md "contact-events.md").
 - To see the count of contacts handled when a contact disconnects, see [Contacts handled](#contacts-handled "#contacts-handled").
 
-## Contacts handled - customer
-
-first callback
+## Contacts handled - customer first callback
 
 This metric counts the contacts handled by an agent for callback customers who were
 dialed for their first callback.
@@ -4849,8 +4759,7 @@ staffing decisions. When queue size reaches 95% of capacity, a warning message i
 displayed.
 
 To learn how this is different from Scheduled contacts in a callback scenario, see
-[How Initial delay affects Scheduled and In
-queue metrics in Amazon Connect](scheduled-vs-inqueue.md "scheduled-vs-inqueue.md").
+[How Initial delay affects Scheduled and In queue metrics in Amazon Connect](scheduled-vs-inqueue.md "scheduled-vs-inqueue.md").
 
 In the real-time metrics report, when queue size is greater than 95% of capacity, a
 message is displayed, as shown in the following image. For more information about queue
@@ -4995,9 +4904,7 @@ enqueued. **Contacts queued (enqueue timestamp)** is aggregated on the
   contact center. For more information, see [Amazon Connect contact events](contact-events.md "contact-events.md").
 - To see the count of contacts queued when a contact disconnects, see [Contacts queued](#contacts-queued "#contacts-queued").
 
-## Contacts removed from queue in X
-
-seconds
+## Contacts removed from queue in X seconds
 
 This metric counts the contacts removed from the queue between 0 and X after being
 added to it. A contact is removed from a queue when the following occurs: an agent
@@ -5095,9 +5002,7 @@ parameter set as follows:
 - Real-time metrics reports: Transferred in
 - Historical metrics reports: Contacts transferred in
 
-## Contacts transferred in by
-
-agent
+## Contacts transferred in by agent
 
 This metric counts the contacts transferred in by an agent using the CCP.
 
@@ -5123,9 +5028,7 @@ parameter set as follows:
 - Real-time metrics reports: Transferred in by agent
 - Historical metrics reports: Contacts transferred in by agent
 
-## Contacts transferred in from
-
-queue
+## Contacts transferred in from queue
 
 This metric counts the contacts transferred to the queue from another in a
 **Transfer to queue** flow. It counts the contacts transferred in
@@ -5196,9 +5099,7 @@ Following is the difference between **Contacts transferred out** and
 
 - Return final_result = sum of the counts across all contacts.
 
-## Contacts transferred out by
-
-agent
+## Contacts transferred out by agent
 
 This metric counts the contacts transferred out by an agent using the CCP.
 
@@ -5228,9 +5129,7 @@ Following is the difference between **Contacts transferred out** and
 - Real-time metrics reports: Transferred out by agent
 - Historical metrics reports: Contacts transferred out by agent
 
-## Contacts transferred out
-
-external
+## Contacts transferred out external
 
 This metric counts the contacts that an agent transferred from the queue to an
 external source, such as a phone number other than the phone number for your contact
@@ -5434,8 +5333,7 @@ conversation duration.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in
-Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Delivery attempts
 
@@ -5454,8 +5352,7 @@ or SMS message outcomes that were successfully sent to Amazon Connect to be deli
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"), Delivery attempts
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"), Delivery attempts
 
 **Notes**:
 
@@ -5469,9 +5366,7 @@ or SMS message outcomes that were successfully sent to Amazon Connect to be deli
 
 For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
-## Delivery attempt disposition
-
-rate
+## Delivery attempt disposition rate
 
 This metric measures the percentage of each delivery outcome from a campaign outreach.
 The percent of call classification by answering machine detection or disconnect reason from outbound campaign contacts executed by the Amazon Connect dialer,
@@ -5506,8 +5401,7 @@ Activity State.
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Access the performance dashboard directly in
-  the agent workspace](performance-dashboard-aw.md "performance-dashboard-aw.md")
+- Dashboard: [Access the performance dashboard directly in the agent workspace](performance-dashboard-aw.md "performance-dashboard-aw.md")
 
 ## Effective staffing
 
@@ -5590,8 +5484,7 @@ Evaluations for calibrations are excluded from this metric.
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Agent performance evaluations
-  dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
+- Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 
 **Calculation logic**:
 
@@ -5744,8 +5637,7 @@ This metric is available only when answering machine detection is enabled.
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Human answered
 
 **Notes**:
@@ -5866,8 +5758,7 @@ start time and end time.
 ## Non-adherent time
 
 This metric is available in AWS Regions only where
-[Forecasting, capacity planning, and
-scheduling](regions.md#optimization_region "regions.md#optimization_region") is available.
+[Forecasting, capacity planning, and scheduling](regions.md#optimization_region "regions.md#optimization_region") is available.
 
 This metric measures the total time an agent did not adhere to their schedule.
 
@@ -5914,8 +5805,7 @@ conversation duration.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in
-Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Occupancy
 
@@ -6081,17 +5971,14 @@ with at least one contact, they are not considered idle.
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: Agent performance evaluation dashboard, the [Agent online time breakdown
-  chart](agent-performance-evaluation-dashboard.md#agent-online-time-breakdown-chart "agent-performance-evaluation-dashboard.md#agent-online-time-breakdown-chart")
+- Dashboard: Agent performance evaluation dashboard, the [Agent online time breakdown chart](agent-performance-evaluation-dashboard.md#agent-online-time-breakdown-chart "agent-performance-evaluation-dashboard.md#agent-online-time-breakdown-chart")
 
 **Calculation logic**:
 
 - (`SUM_IDLE_TIME_AGENT`/`SUM_ONLINE_TIME_AGENT`) \*
   100
 
-## Percent agent non-productive
-
-time
+## Percent agent non-productive time
 
 This metric provides the percent of online time that agents spent in a custom status.
 That is, their CCP status is other than Available or Offline.
@@ -6104,16 +5991,13 @@ This metric doesn't mean that the agent was spending their time unproductively.
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: Agent performance evaluation dashboard, the [Agent online time breakdown
-  chart](agent-performance-evaluation-dashboard.md#agent-online-time-breakdown-chart "agent-performance-evaluation-dashboard.md#agent-online-time-breakdown-chart")
+- Dashboard: Agent performance evaluation dashboard, the [Agent online time breakdown chart](agent-performance-evaluation-dashboard.md#agent-online-time-breakdown-chart "agent-performance-evaluation-dashboard.md#agent-online-time-breakdown-chart")
 
 **Calculation logic**:
 
 - (`SUM_NON_PRODUCTIVE_TIME_AGENT`/`SUM_ONLINE_TIME_AGENT`) \* 100
 
-## Percent bot conversations
-
-outcome
+## Percent bot conversations outcome
 
 This metric provides the percentage of total conversations that ended in the specific outcome type
 specified in the metric level filter
@@ -6217,8 +6101,7 @@ This metric measures the approximate count of outbound campaign recipients attem
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Recipients attempted
 
 **Notes**:
@@ -6245,8 +6128,7 @@ with the engagement after a successful delivery attempt. Example interactions in
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md")
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md")
 
 **Notes**:
 
@@ -6270,8 +6152,7 @@ This metric measures the count of outbound campaign recipients identified as the
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Outbound campaigns
-  performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Recipients targeted
 
 **Notes**:
@@ -6284,8 +6165,7 @@ For a list of all Outbound campaigns driven metrics, see [Outbound campaign metr
 ## Scheduled time
 
 This metric is available in AWS Regions only where
-[Forecasting, capacity planning, and
-scheduling](regions.md#optimization_region "regions.md#optimization_region") is available.
+[Forecasting, capacity planning, and scheduling](regions.md#optimization_region "regions.md#optimization_region") is available.
 
 This metric measures the total time an agent was scheduled (either for productive or non-productive
 time) and _Adherence_ for those shifts was set to
@@ -6312,8 +6192,7 @@ This metric counts the customers in the queue for which there is a callback
 scheduled.
 
 To learn how this is different from In queue contacts in a callback scenario, see
-[How Initial delay affects Scheduled and In
-queue metrics in Amazon Connect](scheduled-vs-inqueue.md "scheduled-vs-inqueue.md").
+[How Initial delay affects Scheduled and In queue metrics in Amazon Connect](scheduled-vs-inqueue.md "scheduled-vs-inqueue.md").
 
 **How to access using the Amazon Connect API**:
 
@@ -6460,8 +6339,7 @@ This metric helps organizations:
   it specifically excludes agents in custom statuses, providing a more accurate
   view of actual operational capacity.
 - For information about why this metric may appear incorrect in a report, see
-  [Why your Login/Logout report may appear
-  incorrect](login-logout-reports.md#login-logout-incorrect "login-logout-reports.md#login-logout-incorrect").
+  [Why your Login/Logout report may appear incorrect](login-logout-reports.md#login-logout-incorrect "login-logout-reports.md#login-logout-incorrect").
 
 ## Step contacts queued
 
@@ -6547,8 +6425,7 @@ duration.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in
-Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Test case execution count
 

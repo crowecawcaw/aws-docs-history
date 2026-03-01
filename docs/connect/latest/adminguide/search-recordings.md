@@ -1,6 +1,4 @@
-# Search for recordings of conversations by a
-
-customer's contact ID in Amazon Connect
+# Search for recordings of conversations by a customer's contact ID in Amazon Connect
 
 To find a recording of a specific contact, you only need the contact ID. You don't
 need to know the date range, agent, or any other information about the contact.
@@ -30,5 +28,4 @@ referring the audio file on the contact's record.
    permissions, you won't see these icons.
 
 ![The contact search page, the play, download, and delete recording icons.](images/recording-icons.png)
-To learn more about searching, see [Search for completed and in-progress contacts in
-Amazon Connect](contact-search.md "contact-search.md").
+To learn more about searching, see [Search for completed and in-progress contacts in Amazon Connect](contact-search.md "contact-search.md").

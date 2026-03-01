@@ -1,6 +1,4 @@
-# Set up matching rules for rule-based
-
-Identity Resolution in Amazon Connect
+# Set up matching rules for rule-based Identity Resolution in Amazon Connect
 
 ## Limits
 
@@ -43,9 +41,7 @@ profiles that are not duplicates, the following tips are recommended:
   **MaxAllowedRuleLevelForMerging** if you are
   satisfied with the match results.
 
-## Resolve
-
-profile conflicts for profile merging
+## Resolve profile conflicts for profile merging
 
 You can define which record to use when the value of an attribute from two
 or more similar profiles is different, such as conflicting address
@@ -103,13 +99,9 @@ will be re-ingested using your updated object type and
 `Fields.sourceLastUpdatedTimestamp` will be parsed from
 it.
 
-## Example:
+## Example: How matching works
 
-How matching works
-
-### Example for
-
-ONE_TO_ONE
+### Example for ONE_TO_ONE
 
 You can choose `ONE_TO_ONE` as the
 `AttributeMatchingModel`. When choosing
@@ -159,9 +151,7 @@ The Profile A and Profile B matches at rule level 1 since the
 `EmailAddress` type, `LastName`, and
 `FirstName` match.
 
-### Example for
-
-MANY_TO_MANY
+### Example for MANY_TO_MANY
 
 You can choose `MANY_TO_MANY` as the
 `AttributeMatchingModel`. When choosing

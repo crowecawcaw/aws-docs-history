@@ -1,6 +1,4 @@
-# Set up granular billing for a detailed view of your Amazon Connect
-
-usage
+# Set up granular billing for a detailed view of your Amazon Connect usage
 
 By default bills for Amazon Connect channels (voice calls, chat, tasks, and emails) are summarized
 at the AWS account level by usage type. For example:
@@ -111,9 +109,7 @@ Do not store personally identifiable information (PII) or other confidential or
 sensitive information in tags. We use contact tags to provide you with billing
 services. Tags are not intended to be used for private or sensitive data.
 
-## Step 2: Activate cost allocation tags in the
-
-AWS Billing console
+## Step 2: Activate cost allocation tags in the AWS Billing console
 
 ###### Tip
 
@@ -136,9 +132,7 @@ tags** page.
 
 ![Contact tags on the cost allocation tags page.](images/granularbilling-costallocationtags.png)
 
-## Step 3: View cost and usage trends using cost
-
-allocation tags
+## Step 3: View cost and usage trends using cost allocation tags
 
 You can view the month-over-month trends at the granular level by using cost
 allocation tags.
@@ -164,9 +158,7 @@ dashboard after implementing contact tags. The following image shows an example 
 For more information about using AWS Cost Explorer, see [Analyzing your costs with
 AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md") in the _AWS Cost Management User Guide_.
 
-## (Optional) Step 4: Enable Cost and Usage
-
-reports in the AWS Billing and Cost Management console
+## (Optional) Step 4: Enable Cost and Usage reports in the AWS Billing and Cost Management console
 
 You can enable AWS Cost and Usage reports on the AWS Billing and Cost Management console, and
 configure your S3 bucket to export data to along with time granularity for reports
@@ -186,9 +178,7 @@ user-defined tags.
 
 ![An Amazon Connect cost and usage report without granular billing.](images/granularbilling-before-cur.png)
 
-## More reporting
-
-options
+## More reporting options
 
 Another option is to view usage data for each contact. You can enable contact resource
 IDs to appear on your cost and usage reports in the AWS Billing and Cost Management console. After choosing

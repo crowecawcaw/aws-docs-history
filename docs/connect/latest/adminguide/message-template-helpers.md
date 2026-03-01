@@ -1583,9 +1583,7 @@ found, `Hello Jane` is returned.
 Handlebars include additional features beyond those documented here. For more
 information, see [handlebarsjs.com](https://handlebarsjs.com/ "https://handlebarsjs.com/").
 
-## Use variables with message template
-
-helpers
+## Use variables with message template helpers
 
 Amazon Connect custom attribute names support spaces. To have a custom attribute named
 `"Last Name"`, you must format the attribute as

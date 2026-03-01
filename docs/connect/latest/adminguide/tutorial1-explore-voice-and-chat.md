@@ -1,6 +1,4 @@
-# Test the sample voice and
-
-chat experience in Amazon Connect
+# Test the sample voice and chat experience in Amazon Connect
 
 To better understand what the voice and chat experiences are like for your agents and
 customers, you can test them without doing any development.
@@ -21,8 +19,7 @@ not, here's what you need:
 ###### Contents
 
 - [Step 1: Handle a voice contact](#tutorial1-explore-voice "#tutorial1-explore-voice")
-- [Step 2: Use the CCP to handle a chat
-  contact](#tutorial1-test-2 "#tutorial1-test-2")
+- [Step 2: Use the CCP to handle a chat contact](#tutorial1-test-2 "#tutorial1-test-2")
 
 ## Step 1: Handle a voice contact
 
@@ -73,13 +70,10 @@ by choosing the phone icon on the top of the page.
 
 ### Next step
 
-Go to [Step 2: Use the CCP to handle a chat
-contact](#tutorial1-test-2 "#tutorial1-test-2") to
+Go to [Step 2: Use the CCP to handle a chat contact](#tutorial1-test-2 "#tutorial1-test-2") to
 experience how to handle a chat contact.
 
-## Step 2: Use the CCP to handle a chat
-
-contact
+## Step 2: Use the CCP to handle a chat contact
 
 In Step 1, you used the Contact Control Panel (CCP) to manage a voice contact. In
 this step, you experience how to use the CCP to manage a chat contact.

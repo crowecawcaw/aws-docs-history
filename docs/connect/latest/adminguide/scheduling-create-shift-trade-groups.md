@@ -1,6 +1,4 @@
-# Create shift trade
-
-groups
+# Create shift trade groups
 
 You create shift trade groups so that agents within the same forecast group can
 trade shifts with each other. For information about the shift exchange capability,

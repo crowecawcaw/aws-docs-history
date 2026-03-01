@@ -1,6 +1,4 @@
-# Restrict AWS resources that can be associated
-
-with Amazon Connect
+# Restrict AWS resources that can be associated with Amazon Connect
 
 Each Amazon Connect instance is associated with an IAM [service-linked role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") when the instance is created. Amazon Connect can integrate with other
 AWS services for use cases such as call recording storage (Amazon S3 bucket), natural language
@@ -25,9 +23,7 @@ For more information about what resources, condition keys, and dependent APIs yo
 use to restrict access, see [Actions, resources,
 and condition keys for Amazon Connect](../../../service-authorization/latest/reference/list_amazonconnect.md "../../../service-authorization/latest/reference/list_amazonconnect.md").
 
-## Example 1: Restrict which Amazon S3 buckets can
-
-be associated with an Amazon Connect instance
+## Example 1: Restrict which Amazon S3 buckets can be associated with an Amazon Connect instance
 
 This example allows an IAM principal to associate an Amazon S3 bucket for call
 recordings for the given Amazon Connect instance ARN, and a specific Amazon S3 bucket named
@@ -41,9 +37,7 @@ needed).
 To use an AWS KMS key to encrypt recordings in this bucket, an additional policy is
 needed.
 
-## Example 2: Restrict which AWS Lambda
-
-functions can be associated with an Amazon Connect instance
+## Example 2: Restrict which AWS Lambda functions can be associated with an Amazon Connect instance
 
 AWS Lambda functions are associated with an Amazon Connect instance, but the Amazon Connect
 service-linked role is not used to invoke them, and so is not modified. Instead, a
@@ -76,9 +70,7 @@ JSON
 
 ```
 
-## Example 3: Restrict which
-
-Amazon Kinesis Data Streams can be associated with an Amazon Connect instance
+## Example 3: Restrict which Amazon Kinesis Data Streams can be associated with an Amazon Connect instance
 
 This example follows a similar model to the Amazon S3 example. It restricts which specific
 Kinesis Data Streams may be associated with a given Amazon Connect instance for delivering contact

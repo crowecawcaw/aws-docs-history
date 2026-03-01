@@ -1,6 +1,4 @@
-# Enable text formatting in Amazon Connect for your
-
-customer's chat experience
+# Enable text formatting in Amazon Connect for your customer's chat experience
 
 With Amazon Connect message formatting, you can enable your customers and agents to quickly add
 structure and clarity to their chat messages.
@@ -24,12 +22,9 @@ agent application using markdown:
 - Numbered list
 - Hyperlinks
 - Emoji
-- Attachments. To enable attachments, follow [Enable attachments in your CCP so customers and
-  agents can share and upload files](enable-attachments.md "enable-attachments.md").
+- Attachments. To enable attachments, follow [Enable attachments in your CCP so customers and agents can share and upload files](enable-attachments.md "enable-attachments.md").
 
-## How to enable message
-
-formatting
+## How to enable message formatting
 
 1. When you create a new [chat user
    interface](add-chat-to-website.md "add-chat-to-website.md"), rich text formatting is enabled out of the box. No

@@ -91,9 +91,7 @@ to include only chat contacts.
 
 ## Configuration tips
 
-### Specifying a channel in the Set
-
-contact attributes block
+### Specifying a channel in the Set contact attributes block
 
 Dynamic attributes can only return metrics for one channel.
 
@@ -108,9 +106,7 @@ image, for the attribute value enter **Voice** or
 
 ![The properties page of the Set contact attributes block, Value set to chat.](images/get-metrics-properties2.png)
 
-### Using the Check contact attributes
-
-block after the Get metrics block
+### Using the Check contact attributes block after the Get metrics block
 
 After a **Get metrics** block, add a [Check contact
 attributes](check-contact-attributes.md "check-contact-attributes.md") block to branch based on
@@ -128,9 +124,7 @@ the returned metrics. Use the following steps:
 
 ![Attribute to check section, dropdown list of available metrics.](images/get-metrics-block-returned-metrics.png)
 
-### Why Get metrics block throws an
-
-error
+### Why Get metrics block throws an error
 
 The **Get metrics** block throws an error in the
 following scenario:
@@ -153,5 +147,4 @@ configured. It has two branches: **Success** and
 
 See these topics for scenarios that use this block:
 
-- [How to reference contact attributes in
-  Amazon Connect](how-to-reference-attributes.md "how-to-reference-attributes.md")
+- [How to reference contact attributes in Amazon Connect](how-to-reference-attributes.md "how-to-reference-attributes.md")

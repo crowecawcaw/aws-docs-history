@@ -1,6 +1,4 @@
-# Release numbers that
-
-you ported to Amazon Connect that you no longer need
+# Release numbers that you ported to Amazon Connect that you no longer need
 
 You do not have to keep phone numbers assigned to your Amazon Connect instance.
 

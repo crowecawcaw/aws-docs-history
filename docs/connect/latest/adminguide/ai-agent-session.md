@@ -5,9 +5,7 @@ it can be used to drive the generative AI driven solutions.
 Custom data can be used by first adding it to a session using
 the [UpdateSessionData](../APIReference/API_amazon-q-connect_UpdateSessionData.md "../APIReference/API_amazon-q-connect_UpdateSessionData.md") API, and then using the data added to customize AI prompts..
 
-## Add and update data on
-
-a session
+## Add and update data on a session
 
 You add data to a session by using the [UpdateSessionData](../APIReference/API_amazon-q-connect_UpdateSessionData.md "../APIReference/API_amazon-q-connect_UpdateSessionData.md") API. Use the following sample AWS CLI command.
 
@@ -44,9 +42,7 @@ function](invoke-lambda-function-block.md "invoke-lambda-function-block.md").
 
 ![The Connect assistant block and AWS Lambda function block configured to add session data.](images/ai-agents-add-session-data.png)
 
-## Use custom data with an AI
-
-prompt
+## Use custom data with an AI prompt
 
 After data is added to a session, you can customize your AI prompts to use the
 data for the generative AI results.

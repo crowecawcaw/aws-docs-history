@@ -38,9 +38,7 @@ Recipients with incorrect or invalid endpoints are dropped from the communicatio
 example, for an Email campaign, a recipient with email address "jane.doe@abc!com" is
 not valid and will not be processed.
 
-## Outbound campaigns channel
-
-configurations
+## Outbound campaigns channel configurations
 
 Email
 
@@ -116,8 +114,7 @@ capacity reduces if any other campaigns start actively dialing.
   progress](check-call-progress.md "check-call-progress.md") block, the contact is routed down the Error branch.
 - For preview dialing mode, a contact is enqueued only when there is a [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") set in the flow. For a list of
   supported blocks, see **Chat** channel of
-  [Supported channels for flow blocks in
-  Amazon Connect](block-support-by-channel.md "block-support-by-channel.md").
+  [Supported channels for flow blocks in Amazon Connect](block-support-by-channel.md "block-support-by-channel.md").
 - Preview dialing mode does not support [agent
   whisper flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"), however the [outbound whisper
   flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types") can play the intended whisper to the customer.
@@ -323,9 +320,7 @@ version**.
 
 ![The options to configure an SMS message in response to a bounced email.](images/reattempt-rules-3.png)
 
-## Campaign set up
-
-and Cycling through recipient contact types for communication
+## Campaign set up and Cycling through recipient contact types for communication
 
 The purpose of this section is to showcase how you can configure the campaign to cycle
 through multiple contact types for each recipient.
@@ -469,9 +464,7 @@ active communication times:
 
 ![Active communication time configuration panel showing day and time selection for campaign outreach.](images/active-communication-time-1.png)
 
-### Exceptions to communication time -
-
-(optional)
+### Exceptions to communication time - (optional)
 
 **Exceptions to communication time** is an optional set of
 specific calendar days for which you do not want communications sent.  If exceptions are

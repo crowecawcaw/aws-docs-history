@@ -1,6 +1,4 @@
-# Scenario and deployment approaches in
-
-Amazon Connect
+# Scenario and deployment approaches in Amazon Connect
 
 Amazon Connect offers self-service configuration and enables dynamic, personal, and natural
 customer engagement at any scale with a variety of migration and integration options. In
@@ -171,9 +169,7 @@ line-of-business migrations.
 
 ![A diagram showing a hybrid Agent only and Interactive Voice Response experience.](images/architecture/hybridmixed.png)
 
-## Legacy contact center
-
-migration
+## Legacy contact center migration
 
 When you are evaluating Amazon Connect for new or existing workloads, there are several
 strategies you can consider. For situations that require contact details to be
@@ -266,12 +262,9 @@ their Citrix environments. The following diagram describes that approach:
 
 This solution requires you to allow WebRTC signaling traffic between your
 VDI server and Amazon Connect, and the media connection between the agent’s desktop
-and Amazon Connect. For more information, see the [Set up your network to use the Amazon Connect Contact Control Panel
-(CCP)](ccp-networking.md "ccp-networking.md") documentation.
+and Amazon Connect. For more information, see the [Set up your network to use the Amazon Connect Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md") documentation.
 
-### Amazon WorkSpaces VDI with Amazon Connect audio
-
-optimization
+### Amazon WorkSpaces VDI with Amazon Connect audio optimization
 
 By using Amazon WorkSpaces, a Virtual Desktop Infrastructure (VDI) environment, you
 have the capability to create a customized Contact Control Panel (CCP) by
@@ -302,9 +295,7 @@ approach.
 
 ![Amazon Connect and Omnissa environment.](images/omnissa-6.png)
 
-### VDI client without local browser
-
-access
+### VDI client without local browser access
 
 Sometimes the VDI client does not have access to a local browser. In this
 scenario, you can create a single CCP instance with media run from the VDI

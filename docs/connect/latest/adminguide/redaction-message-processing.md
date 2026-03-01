@@ -1,6 +1,4 @@
-# Enable in-flight sensitive data redaction
-
-and message processing
+# Enable in-flight sensitive data redaction and message processing
 
 Amazon Connect supports message processing that intercepts and modifies chat messages before
 they reach any participant. This capability enables automatic redaction of sensitive

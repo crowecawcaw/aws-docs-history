@@ -1,6 +1,4 @@
-# How flow blocks use Amazon Lex session
-
-attributes
+# How flow blocks use Amazon Lex session attributes
 
 When a customer starts a conversation with your bot, Amazon Lex creates a
 _session_. With _session attributes_, also known as
@@ -37,9 +35,7 @@ and Response Format](../../../lex/latest/dg/lambda-input-response-format.md "../
 about Amazon Lex V2, see [Interpreting the input event
 format](../../../lexv2/latest/dg/lambda-input-format.md "../../../lexv2/latest/dg/lambda-input-format.md").
 
-## Flow blocks that support Lex
-
-session attributes
+## Flow blocks that support Lex session attributes
 
 You can use Lex session attributes in the following flow blocks when a Lex bot is
 called:

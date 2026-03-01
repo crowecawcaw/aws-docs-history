@@ -1,6 +1,4 @@
-# Get started with Amazon Connect Global
-
-Resiliency
+# Get started with Amazon Connect Global Resiliency
 
 ###### Important
 

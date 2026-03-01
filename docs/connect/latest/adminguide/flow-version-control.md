@@ -1,8 +1,6 @@
 # Flow version control: Roll back a flow
 
-## View a previous version of a
-
-flow
+## View a previous version of a flow
 
 This procedure is especially useful if you want to research how a flow has been
 changed over time.
@@ -24,8 +22,7 @@ For users with tag-based access controls configured on their security
 profile, the dropdown will be restricted to **Latest:
 Published** and **Latest: Saved**
 versions. To learn more about tag-based access controls in Amazon Connect, see
-[Apply tag-based access control in
-Amazon Connect](tag-based-access-control.md "tag-based-access-control.md"). 3. Choose the version of the flow to open and view it. You can view all the
+[Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md"). 3. Choose the version of the flow to open and view it. You can view all the
 blocks and how they are configured. 4. Next, you can do one of the following:
 
     * To return to the most recently published version, choose it from

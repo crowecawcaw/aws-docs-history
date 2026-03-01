@@ -16,8 +16,7 @@ This topic explains how to enable logging for Connect AI agents.
 - [Supported log
   types](#supported-log-types-q "#supported-log-types-q")
 - [Check for CloudWatch Logs quotas](#cwl-quotas "#cwl-quotas")
-- [Documenting CloudWatch Events by using
-  Interactive Handler](#documenting-cw-events-ih "#documenting-cw-events-ih")
+- [Documenting CloudWatch Events by using Interactive Handler](#documenting-cw-events-ih "#documenting-cw-events-ih")
 - [Examples of common queries to
   debug assistant logs](#example2-assistant-log "#example2-assistant-log")
 
@@ -110,9 +109,7 @@ Quotas set a maximum number of times you can call an API or create a resource.
 Exceeding the limit results in a `ServiceQuotaExceededException`
 error.
 
-## Documenting CloudWatch Events by using
-
-Interactive Handler
+## Documenting CloudWatch Events by using Interactive Handler
 
 ### Event Type Definitions
 
@@ -402,9 +399,7 @@ Manual Search Generation
 
 ```
 
-## Examples of common queries to debug
-
-assistant logs
+## Examples of common queries to debug assistant logs
 
 You can interact with logs by using queries. For example, you can query for all
 events within a session by using `SESSION_NAME`.

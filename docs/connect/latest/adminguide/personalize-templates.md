@@ -1,6 +1,4 @@
-# Add personalized content to message
-
-templates
+# Add personalized content to message templates
 
 To deliver dynamic, personalized content in messages that use a template, add
 _message variables_ to the message template. A

@@ -34,8 +34,7 @@ You can associate SLAs with cases in two ways:
 
 - **Automatically**: Use Contact Lens Rules to add
   SLAs to cases that meet specified conditions (case template and field values)
-  for Case Creation and Update rules. For more information, see [Automatically monitor and update cases in
-  Amazon Connect Cases](create-alerts-on-cases.md "create-alerts-on-cases.md").
+  for Case Creation and Update rules. For more information, see [Automatically monitor and update cases in Amazon Connect Cases](create-alerts-on-cases.md "create-alerts-on-cases.md").
 - **Manually**: Use the CreateRelatedItem API to
   add an SLA related item to a case.
 
@@ -77,9 +76,7 @@ These settings persist unless you clear your cookies.
   - Completion date and time (if applicable)
   - Time to breach (if applicable)
 
-## Automating Actions for Breached
-
-SLAs
+## Automating Actions for Breached SLAs
 
 You can use Contact Lens Rules to trigger automated actions when SLAs reach their
 target completion time without being met:
@@ -88,5 +85,4 @@ target completion time without being met:
    **Case SLA Breach**.
 2. Specify which SLA names the **Breach rule** should apply to.
 
-For more information, see [Automatically monitor and update cases in
-Amazon Connect Cases](create-alerts-on-cases.md "create-alerts-on-cases.md") in the Amazon Connect documentation.
+For more information, see [Automatically monitor and update cases in Amazon Connect Cases](create-alerts-on-cases.md "create-alerts-on-cases.md") in the Amazon Connect documentation.

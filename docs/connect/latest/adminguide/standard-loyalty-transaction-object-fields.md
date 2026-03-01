@@ -1,6 +1,4 @@
-# Customer
-
-Profiles standard loyalty transaction object fields
+# Customer Profiles standard loyalty transaction object fields
 
 The following table lists all the fields in the Customer Profiles standard
 loyalty transaction object.

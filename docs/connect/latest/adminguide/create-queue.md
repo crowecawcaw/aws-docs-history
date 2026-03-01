@@ -24,20 +24,16 @@ The following image shows the queue information for the BasicQueue.
 See the following topics for detailed information about each of the above
 areas:
 
-    1. [Set the hours of operation and time zone for a
-     queue using Amazon Connect](set-hours-operation.md "set-hours-operation.md")
+    1. [Set the hours of operation and time zone for a queue using Amazon Connect](set-hours-operation.md "set-hours-operation.md")
     2. [Set up outbound caller ID in Amazon Connect](queues-callerid.md "queues-callerid.md")
     3. [Set up email in Amazon Connect](setup-email-channel.md "setup-email-channel.md")
-    4. [Set the limit of maximum contacts in a queue
-     using Amazon Connect](set-maximum-queue-limit.md "set-maximum-queue-limit.md")
+    4. [Set the limit of maximum contacts in a queue using Amazon Connect](set-maximum-queue-limit.md "set-maximum-queue-limit.md")
     5. [Create quick connects in Amazon Connect](quick-connects.md "quick-connects.md")
 
-The queue is automatically active. 4. Assign the queue to a routing profile; for information, see [Create a routing profile in Amazon Connect to link queues to
-agents](routing-profiles.md "routing-profiles.md"). The routing
+The queue is automatically active. 4. Assign the queue to a routing profile; for information, see [Create a routing profile in Amazon Connect to link queues to agents](routing-profiles.md "routing-profiles.md"). The routing
 profile links the queue and agents together. 5. Add tags to identify, organize, search for, filter and control who can access
 this queue. For more information, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md").
-To learn how queues work, see [How Amazon Connect uses routing profiles](concepts-routing.md "concepts-routing.md") and [Queue-based routing to route customers to
-a specific contact center agent](concepts-queue-based-routing.md "concepts-queue-based-routing.md").
+To learn how queues work, see [How Amazon Connect uses routing profiles](concepts-routing.md "concepts-routing.md") and [Queue-based routing to route customers to a specific contact center agent](concepts-queue-based-routing.md "concepts-queue-based-routing.md").
 
 ## APIs to create and manage queues
 

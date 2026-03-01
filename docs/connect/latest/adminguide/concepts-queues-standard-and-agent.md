@@ -1,6 +1,4 @@
-# Standard queues and agent queues in
-
-your Amazon Connect contact center
+# Standard queues and agent queues in your Amazon Connect contact center
 
 There are two types of queues:
 

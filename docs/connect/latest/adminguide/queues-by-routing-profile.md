@@ -1,6 +1,4 @@
-# List queues grouped by routing profile
-
-in Amazon Connect
+# List queues grouped by routing profile in Amazon Connect
 
 This topic explains how to display a list of queues organized by routing profile
 in your Amazon Connect contact center.

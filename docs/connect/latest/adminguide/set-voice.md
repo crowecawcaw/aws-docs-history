@@ -187,5 +187,4 @@ configured. It has the following branches: **Success** and
 
 See these topics for scenarios that use this block:
 
-- [Add text-to-speech to prompts in flow blocks in
-  Amazon Polly](text-to-speech.md "text-to-speech.md")
+- [Add text-to-speech to prompts in flow blocks in Amazon Polly](text-to-speech.md "text-to-speech.md")

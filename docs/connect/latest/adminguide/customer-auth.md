@@ -1,6 +1,4 @@
-# Set up customer authentication in Amazon Connect for chat
-
-contacts
+# Set up customer authentication in Amazon Connect for chat contacts
 
 You can prompt your customers to sign in and authenticate during a chat. For example,
 unauthenticated customers engaged with a chat bot can be prompted to sign in before to being

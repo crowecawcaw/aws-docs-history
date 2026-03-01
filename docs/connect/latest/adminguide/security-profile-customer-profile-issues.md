@@ -1,6 +1,4 @@
-# Assign new Customer Profiles
-
-permissions in case of error
+# Assign new Customer Profiles permissions in case of error
 
 1. In order to update permissions in case of a 403 forbidden call error for
    any of the backend APIs, navigate to the domain section of the Amazon Connect Customer Profiles console and choose **View details**.

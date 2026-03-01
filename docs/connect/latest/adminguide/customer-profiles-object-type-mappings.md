@@ -1,6 +1,4 @@
-# Create and ingest customer data
-
-into Customer Profiles
+# Create and ingest customer data into Customer Profiles
 
 You can define data from any source using Amazon S3 and seamlessly enrich a customer
 profile without the need for custom or pre-built integrations. For example, say you want
@@ -24,9 +22,7 @@ notation.
 For a list of the required IAM permissions needed for Customer Profiles to access data from the
 Amazon S3 bucket for data mapping, see `PutProfileObject` in the table in [Actions defined by Amazon Connect Customer Profiles](../../../service-authorization/latest/reference/list_amazonconnectcustomerprofiles.md#amazonconnectcustomerprofiles-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonconnectcustomerprofiles.md#amazonconnectcustomerprofiles-actions-as-permissions").
 
-## Customer
-
-Profile ingestion
+## Customer Profile ingestion
 
 ###### Ingesting account-based profiles
 

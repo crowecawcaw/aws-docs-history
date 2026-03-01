@@ -1,6 +1,4 @@
-# Agent evaluation form output in
-
-Amazon Connect
+# Agent evaluation form output in Amazon Connect
 
 This section shows the export output path for evaluations, provides an example of
 evaluation form scores, and describes the evaluation form metadata.
@@ -27,9 +25,7 @@ To verify the name of the bucket, go to your instance alias, choose **Data
 storage**, **Contact evaluations**, then
 **Edit**.
 
-## Example output
-
-locations
+## Example output locations
 
 Following is the output file path for evaluation forms:
 
@@ -39,9 +35,7 @@ For example:
 
 `amazon-connect-s3/Evaluations/2022/04/14/05:04:20.869Z-11111111-2222-3333-4444-555555555555.json`
 
-## Known issue: Two output files for
-
-the same evaluation
+## Known issue: Two output files for the same evaluation
 
 Contact Lens generates two output files for the same evaluation
 form.
@@ -60,115 +54,160 @@ The previous S3 path looks like the following:
 The following example shows a typical score.
 
 ```
- {
-"schemaVersion": "3.1",
-"evaluationId": "fb90de35-4507-479a-8b57-970290fd5c2c",
- "metadata": {
+{
+  "schemaVersion": "3.5",
+  "evaluationId": "fb90de35-4507-479a-8b57-970290fd5c2c",
+  "metadata": {
     "contactId": "badd4896-75f7-43b3-bee6-c617ed3d04cb",
     "accountId": "874551140838",
     "instanceId": "8f753c94-9cd2-4f16-85eb-945f7f0d559a",
     "agentId": "286bcec0-e722-4166-865f-84db80252218",
-    "evaluationDefinitionTitle": "`Compliance Evaluation Form`",
+    "evaluationDefinitionTitle": "Compliance Evaluation Form",
     "evaluator": "jane",
     "evaluationDefinitionId": "15d8fbf1-b4b2-4ace-869b-82714e2f6e3e",
     "evaluationDefinitionVersion": 2,
-    "evaluationStartTimestamp": "2022-11-14T17:57:08.649Z",
-    "evaluationSubmitTimestamp": "2022-11-14T17:59:29.052Z",
-    "score": { "percentage": 100 },
+    "evaluationStartTimestamp": "2025-11-14T17:57:08.649Z",
+    "evaluationSubmitTimestamp": "2025-11-14T17:59:29.052Z",
+    "score": {
+      "percentage": 100
+    },
     "creator": "jane.doe@acme.com",
     "autoEvaluated": false,
     "resubmitted": false,
     "evaluationSource": "ASSISTED_BY_AUTOMATION",
-    "acknowledgerComment": "The Acknowledgment comment",
-         "acknowledgedTimestamp": "2022-12-22T05:20:39.297Z",
-         "acknowledgedByUserName": "john",
-         "acknowledgedByUserId": "286bcec0-e722-4166-865f-84db80252218"
+    "evaluationType": "CONTACT_EVALUATION",
+    "evaluationAcknowledgerComment": "The Acknowledgment comment",
+    "evaluationAcknowledgedTimestamp": "2025-12-22T05:20:39.297Z",
+    "evaluationAcknowledgedByUserName": "john",
+    "evaluationAcknowledgedByUserId": "286bcec0-e722-4166-865f-84db80252218"
   },
-"sections": [
+  "sections": [
     {
       "sectionRefId": "s1a1b58d6",
-      "sectionTitle": "`The title of the section`",
+      "sectionTitle": "The title of the section",
       "notes": "Section note",
-      "score": { "percentage": 100 }
+      "score": {
+        "percentage": 100
+      }
     },
     {
       "sectionRefId": "s46661c49",
-      "sectionTitle": "`The title of the subsection`",
+      "sectionTitle": "The title of the subsection",
       "parentSectionRefId": "s1a1b58d6",
-      "score": { "percentage": 100 }
+      "score": {
+        "percentage": 100
+      }
     }
   ],
-"questions": [
+  "questions": [
     {
       "questionRefId": "q570b206a",
       "sectionRefId": "s46661c49",
       "questionType": "NUMERIC",
-      "questionText": "`How do you rate the contact between 1 and 10?`",
+      "questionText": "How do you rate the contact between 1 and 10?",
       "answer": {
         "value": "",
-        "notes": "`Add more information here`",
-        "metadata": { "notApplicable": true }
+        "notes": "Add more information here",
+        "metadata": {
+          "notApplicable": true
+        }
       },
-      "score": { "notApplicable": true }
+      "score": {
+        "notApplicable": true
+      }
     },
     {
       "questionRefId": "q73bc5b9d",
       "sectionRefId": "s46661c49",
       "questionType": "SINGLESELECT",
-      "questionText": "`Did the agent introduce themselves?`",
+      "questionText": "Did the agent introduce themselves?",
       "answer": {
         "values": [
-          { "valueText": "`Yes`", "valueRefId": "o6999aa94", "selected": true },
-          { "valueText": "`No`", "valueRefId": "o284e4d9e", "selected": false },
-          { "valueText": "`Maybe`", "valueRefId": "o1b2f0a14", "selected": false }
+          {
+            "valueText": "Yes",
+            "valueRefId": "o6999aa94",
+            "selected": true
+          },
+          {
+            "valueText": "No",
+            "valueRefId": "o284e4d9e",
+            "selected": false
+          },
+          {
+            "valueText": "Maybe",
+            "valueRefId": "o1b2f0a14",
+            "selected": false
+          }
         ],
-        "notes": "`Add more information here`",
+        "notes": "Add more information here",
         "automation": {
-            "status": "SYSTEM_ANSWER",
-            "systemSuggestedValue": "Yes"
+          "status": "SYSTEM_ANSWER",
+          "systemSuggestedValue": "Yes"
         },
-        "metadata": { "notApplicable": false }
+        "metadata": {
+          "notApplicable": false
+        }
       },
-      "score": { "percentage": 100 }
+      "score": {
+        "percentage": 100
+      }
     },
     {
       "questionRefId": "h89bc7a9t",
       "sectionRefId": "s46661c49",
       "questionType": "SINGLESELECT",
-      "questionText": "`Did the agent offer a promotion?`",
+      "questionText": "Did the agent offer a promotion?",
       "answer": {
         "values": [
-          { "valueText": "`Yes`", "valueRefId": "o6999aa94", "selected": false },
-          { "valueText": "`No`", "valueRefId": "o284e4d9e", "selected": true },
-          { "valueText": "`Maybe`", "valueRefId": "o1b2f0a14", "selected": false }
+          {
+            "valueText": "Yes",
+            "valueRefId": "p7888bb85",
+            "selected": false
+          },
+          {
+            "valueText": "No",
+            "valueRefId": "p395f5e8f",
+            "selected": true
+          },
+          {
+            "valueText": "Maybe",
+            "valueRefId": "p2c3g1b25",
+            "selected": false
+          }
         ],
-        "notes": "`Add more information here`",
+        "notes": "Add more information here",
         "assistedSuggestion": {
-            value: "`No. A promotion was not offered by the agent.`"
+          "value": "No. A promotion was not offered by the agent."
         },
-        "metadata": { "notApplicable": false }
+        "metadata": {
+          "notApplicable": false
+        }
       },
-      "score": { "percentage": 100 }
+      "score": {
+        "percentage": 100
+      }
     },
     {
       "questionRefId": "qc2effc9d",
       "sectionRefId": "s46661c49",
       "questionType": "TEXT",
-      "questionText": "`Describe the outcome.`",
+      "questionText": "Describe the outcome.",
       "answer": {
-        "value": "`Example answer text`",
-        "notes": "`Add more information here`",
-        "metadata": { "notApplicable": false }
+        "value": "Example answer text",
+        "notes": "Add more information here",
+        "metadata": {
+          "notApplicable": false
+        }
       },
-      "score": { "notApplicable": true }
+      "score": {
+        "percentage": 50
+      }
     }
   ]
 }
 ```
 
-## Evaluation form metadata
-
-definitions
+## Evaluation form metadata definitions
 
 The following list describes the fields in the evaluation form.
 
@@ -265,6 +304,16 @@ The evaluation's creation timestamp.
 
 _Type_ – Timestamp
 
+_Example_ – 2025-11-14T17:57:08.649Z
+
+**evaluationSubmitTimestamp**
+
+The evaluation's submission timestamp.
+
+_Type_ – Timestamp
+
+_Example_ – 2025-11-14T17:59:29.052Z
+
 **score**
 
 The evaluation's score.
@@ -311,6 +360,44 @@ Valid values:
   evaluation was submitted using fully automated
   evaluations (see "autoEvaluated" field).
 
+**evaluationType**
+
+The type of evaluation.
+
+_Type_ – String
+
+Valid values:
+
+- `CONTACT_EVALUATION` - evaluation of a contact.
+
+**calibrationSessionId**
+
+The identifier of the calibration session associated with this evaluation.
+
+_Type_ – String
+
+_Length constraints_ – Minimum length of 1, maximum length of 500
+
+**evaluatedParticipantId**
+
+The identifier of the participant being evaluated.
+
+_Type_ – String
+
+_Length constraints_ – Minimum length of 1, maximum length of 256
+
+**evaluatedParticipantRole**
+
+The role of the participant being evaluated.
+
+_Type_ – String
+
+Valid values:
+
+- `AGENT` - the agent participant.
+- `CUSTOMER` - the customer participant.
+- `SYSTEM` - the system participant.
+
 **acknowledgerComment**
 
 Comment left by the user who acknowledged the
@@ -343,6 +430,8 @@ _Type_ – String
 The evaluation's acknowledgment timestamp.
 
 _Type_ – Timestamp
+
+_Example_ – 2025-12-24T15:45:56.662Z
 
 **sections**
 
@@ -578,56 +667,74 @@ The following example shows a typical exported evaluation.
 
 ```
 {
-"schemaVersion": "3.1",
-"evaluationId": "fb90de35-4507-479a-8b57-970290fd5c2c",
- "metadata": {
-    "contactId": "badd4896-75f7-43b3-bee6-c617ed3d04cb",
+  "schemaVersion": "3.5",
+  "evaluationId": "fb90de35-4507-479a-8b57-970290fd5c2c",
+  "metadata": {
     "accountId": "874551140838",
     "instanceId": "8f753c94-9cd2-4f16-85eb-945f7f0d559a",
+    "contactId": "badd4896-75f7-43b3-bee6-c617ed3d04cb",
     "agentId": "286bcec0-e722-4166-865f-84db80252218",
-    "evaluationDefinitionTitle": "Compliance Evaluation Form",
+    "evaluationDefinitionTitle": "Legal Compliance Evaluation Form",
     "evaluator": "jane",
     "evaluationDefinitionId": "15d8fbf1-b4b2-4ace-869b-82714e2f6e3e",
     "evaluationDefinitionVersion": 2,
     "evaluationStartTimestamp": "2022-11-14T17:57:08.649Z",
     "evaluationSubmitTimestamp": "2022-11-14T17:59:29.052Z",
-    "score": { "percentage": 100 },
-    "creator": "john",
+    "score": {
+      "percentage": 85
+    },
     "autoEvaluated": false,
+    "creator": "john",
     "resubmitted": false,
     "evaluationSource": "ASSISTED_BY_AUTOMATION",
-     "acknowledgerComment": "Manager walked through the evaluation during coaching",
+    "evaluationType": "CONTACT_EVALUATION",
+    "calibrationSessionId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
     "evaluationAcknowledgedByUserId": "286bcec0-e722-4166-865f-84db80252218",
-     "evaluationAcknowledgedByUserName": "mike",
-     "evaluationAcknowledgedTimestamp": "2022-12-24T15:45:56.662Z"
+    "evaluationAcknowledgedByUserName": "mike",
+    "evaluationAcknowledgedTimestamp": "2022-12-24T15:45:56.662Z",
+    "evaluationAcknowledgerComment": "Manager walked through the evaluation during coaching",
+    "evaluatedParticipantId": "participant-123",
+    "evaluatedParticipantRole": "AGENT"
   },
-  },
-"sections": [
+  "sections": [
     {
       "sectionRefId": "s1a1b58d6",
-      "sectionTitle": "The title of the section",
-      "notes": "Section note",
-      "score": { "percentage": 100 }
+      "sectionTitle": "Communication Skills",
+      "notes": "Overall communication was professional",
+      "score": {
+        "percentage": 90
+      }
     },
     {
       "sectionRefId": "s46661c49",
-      "sectionTitle": "The title of the subsection",
+      "sectionTitle": "Greeting and Introduction",
       "parentSectionRefId": "s1a1b58d6",
-      "score": { "percentage": 100 }
+      "notes": "Agent followed proper greeting protocol",
+      "score": {
+        "percentage": 100
+      }
     }
   ],
-"questions": [
+  "questions": [
     {
       "questionRefId": "q570b206a",
       "sectionRefId": "s46661c49",
       "questionType": "NUMERIC",
-      "questionText": "How do you rate the contact between 1 and 10?",
+      "questionText": "How many times did agent interrupt the customer",
       "answer": {
-        "value": "",
-        "notes": "Add more information here",
-        "metadata": { "notApplicable": true }
+        "value": "2",
+        "notes": "Interruptions were minimal and appropriate",
+        "metadata": {
+          "notApplicable": false,
+          "automation": {
+            "status": "OVERRIDDEN_ANSWER",
+            "systemSuggestedValue": "3"
+          }
+        }
       },
-      "score": { "notApplicable": true }
+      "score": {
+        "percentage": 80
+      }
     },
     {
       "questionRefId": "q73bc5b9d",
@@ -636,49 +743,130 @@ The following example shows a typical exported evaluation.
       "questionText": "Did the agent introduce themselves?",
       "answer": {
         "values": [
-          { "valueText": "Yes", "valueRefId": "o6999aa94", "selected": true },
-          { "valueText": "No", "valueRefId": "o284e4d9e", "selected": false },
-          { "valueText": "Maybe", "valueRefId": "o1b2f0a14", "selected": false }
+          {
+            "valueText": "Yes",
+            "valueRefId": "o6999aa94",
+            "selected": true
+          },
+          {
+            "valueText": "No",
+            "valueRefId": "o284e4d9e",
+            "selected": false
+          },
+          {
+            "valueText": "N/A",
+            "valueRefId": "system_default_null_value",
+            "selected": false
+          }
         ],
-        "notes": "Add more information here",
-        "automation": {
-            "status": "SYSTEM_ANSWER",
-            "systemSuggestedValue": "Yes"
-        },
-        "metadata": { "notApplicable": false }
+        "notes": "Agent provided clear introduction with name and department",
+        "metadata": {
+          "notApplicable": false,
+          "assistedSuggestion": {
+            "value": "The agent introduced themselves at the beginning of the call."
+          }
+        }
       },
-      "score": { "percentage": 100 }
+      "score": {
+        "percentage": 100
+      }
     },
     {
       "questionRefId": "h89bc7a9t",
       "sectionRefId": "s46661c49",
       "questionType": "SINGLESELECT",
-      "questionText": "Did the agent offer a promotion?",
+      "questionText": "Did the agent ask for consent to perform a credit check",
       "answer": {
         "values": [
-          { "valueText": "Yes", "valueRefId": "o6999aa94", "selected": false },
-          { "valueText": "No", "valueRefId": "o284e4d9e", "selected": true },
-          { "valueText": "Maybe", "valueRefId": "o1b2f0a14", "selected": false }
+          {
+            "valueText": "Yes",
+            "valueRefId": "o6999aa94",
+            "selected": false
+          },
+          {
+            "valueText": "No",
+            "valueRefId": "o284e4d9e",
+            "selected": true
+          },
+          {
+            "valueText": "N/A",
+            "valueRefId": "system_default_null_value",
+            "selected": false
+          }
         ],
-        "notes": "Add more information here",
-        "assistedSuggestion": {
-            value: "No. A promotion was not offered by the agent."
-        },
-        "metadata": { "notApplicable": false }
+        "notes": "Agent failed to obtain consent before credit check",
+        "metadata": {
+          "notApplicable": false
+        }
       },
-      "score": { "percentage": 100 }
+      "score": {
+        "percentage": 0,
+        "automaticFail": true
+      }
     },
     {
       "questionRefId": "qc2effc9d",
       "sectionRefId": "s46661c49",
-      "questionType": "TEXT",
-      "questionText": "Describe the outcome.",
+      "questionType": "MULTISELECT",
+      "questionText": "What topics were discussed during the call",
       "answer": {
-        "value": "Example answer text",
-        "notes": "Add more information here",
-        "metadata": { "notApplicable": false }
+        "values": [
+          {
+            "valueText": "Account balance",
+            "valueRefId": "topic_balance",
+            "selected": true
+          },
+          {
+            "valueText": "Payment options",
+            "valueRefId": "topic_payment",
+            "selected": true
+          },
+          {
+            "valueText": "Account closure",
+            "valueRefId": "topic_closure",
+            "selected": false
+          }
+        ],
+        "notes": "Customer inquired about balance and payment plans",
+        "metadata": {
+          "notApplicable": false
+        }
       },
-      "score": { "notApplicable": true }
+      "score": {
+        "notApplicable": true
+      }
+    },
+    {
+      "questionRefId": "q8a9b0c1d",
+      "sectionRefId": "s46661c49",
+      "questionType": "TEXT",
+      "questionText": "What was your general impression about the customer's satisfaction",
+      "answer": {
+        "value": "The customer seemed satisfied with the resolution and thanked the agent",
+        "notes": "Positive customer sentiment throughout the call",
+        "metadata": {
+          "notApplicable": false
+        }
+      },
+      "score": {
+        "notApplicable": true
+      }
+    },
+    {
+      "questionRefId": "q2b3c4d5e",
+      "sectionRefId": "s46661c49",
+      "questionType": "DATETIME",
+      "questionText": "What time was the follow-up scheduled",
+      "answer": {
+        "value": "2024-04-16T14:30:00+01:00",
+        "notes": "Follow-up appointment confirmed with customer",
+        "metadata": {
+          "notApplicable": false
+        }
+      },
+      "score": {
+        "notApplicable": true
+      }
     }
   ]
 }

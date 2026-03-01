@@ -1,6 +1,4 @@
-# Schedule a historical metrics
-
-report in Amazon Connect
+# Schedule a historical metrics report in Amazon Connect
 
 Before you schedule a historical metrics report, here are a few things you need to
 know:
@@ -10,9 +8,7 @@ know:
 - Scheduling a report makes the report accessible by any other users in your
   contact center who have permissions to view saved reports.
 
-###### Anyone with Schedule permissions can create, edit, or delete the schedule of
-
-your report
+###### Anyone with Schedule permissions can create, edit, or delete the schedule of your report
 
 - After you publish a report, any user with **Saved reports -
   Schedule** permissions in their security profile can create,
@@ -47,9 +43,7 @@ your report
   after 5:15 PM, by which time the data for the last 15 minutes of the time
   range is included in the report.
 
-###### The time range of the scheduled report is independent of the time range in
-
-the historical report
+###### The time range of the scheduled report is independent of the time range in the historical report
 
 - The scheduled report uses the time range defined in the report schedule,
   not the time range of the historical metric report.
@@ -70,16 +64,30 @@ For example:
 - A scheduled report with **Generate this report** =
   **Daily** produces a report using trailing 24 hour
   intervals for the specified number of days.
+  - For example, to create a scheduled report for yesterday that generates a
+    report at 2:00PM EST every day apply the following settings:
+    - Generate this report **Daily**, running every
+      **1 Day**, starting at 2:00PM EST for the
+      previous **1 Days**.
+    - If today was November 10th, the report would be delivered at
+      2:00PM EST November 10th and contain data from 2:00 PM EST
+      November 9th to 2:00 PM EST November 10th. This 24 hour interval
+      will appear as two rows in the generated report for every run.
+      - Row 1: 2:00PM EST November 9th to midnight (00:00) November 10th
+      - Row 2: Midnight (00:00) November 10th to 2:00PM EST November 10th
 
-For example, to create a scheduled report for yesterday that generates a
-report at 2:00PM EST every day apply the following settings:
+  ![Settings to create a scheduled report for yesterday that generates a report at 2:00PM EST every day](images/metrics-scheduled-reports-historical-daily-2pm.png)
+  - To create a scheduled report for yesterday that generates only one row
+    for the 24 hour interval in each run, apply the following settings:
+    - Generate this report **Daily**, running every
+      **1 Day**, starting at 12:00 AM in your **required timezone** for the
+      previous **1 Days**.
+    - If today was November 10th, the report would be delivered at
+      12:00 AM EST November 10th and contain data from midnight (00:00)
+      November 9th to midnight (00:00) November 10th with 1 row for the
+      24 hour interval in each run.
 
-    + Generate this report **Daily**, running every
-     **1 Day**, starting at 2:00PM EST for the
-     previous **1 Days**.
-    + If today was November 10th, the report would be delivered at
-     2:00PM EST November 10th and contain data from midnight (00:00)
-     November 9th to midnight (00:00) November 10th.
+  ![Settings to create a scheduled report for yesterday that generates a report at 12:00AM EST every day](images/metrics-scheduled-reports-historical-daily-12am.png)
 
 - A scheduled report with **Generate this report** =
   **Hourly - - For the Previous 24 Hours** always
@@ -106,9 +114,7 @@ follows:
   the email manually using your messaging system. Amazon Connect doesn't
   provide an option to email the scheduled report automatically.
 
-## How to schedule a
-
-historical metrics report
+## How to schedule a historical metrics report
 
 1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/.
 2. Create a new report and save it, or open a saved report.
@@ -123,9 +129,7 @@ historical metrics report
    files.
 6. Choose **Create**.
 
-## How to delete a scheduled
-
-report
+## How to delete a scheduled report
 
 To get to the page where you can delete a scheduled report, you need to create
 another temporary scheduled report.
@@ -146,3 +150,15 @@ another temporary scheduled report.
    to delete.
 
 For instructions on deleting saved reports, see [How to delete saved reports](save-reports.md#how-to-delete-saved-reports "save-reports.md#how-to-delete-saved-reports").
+
+## Frequently Asked Questions
+
+1. My scheduled reports are missing data for a specific time period?
+
+Compare the data in the generated report (published to your S3 bucket) with the historical report for that time period. If you find discrepancies, contact AWS Support for assistance. 2. My scheduled report failed to generate due to cell limits?
+
+Reports have a 200,000 cell limit (data cells, not total rows \* columns in the report). To resolve this, you can:
+
+    * Reduce the number of metrics in your report
+    * Apply filters to narrow the data scope
+    * Split large reports into multiple smaller reports

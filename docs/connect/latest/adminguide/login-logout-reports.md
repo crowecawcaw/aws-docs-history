@@ -16,17 +16,14 @@ session that user was logged in to Amazon Connect.
   permissions](#loginlogout-report-permissions "#loginlogout-report-permissions")
 - [Generate a Login/Logout report](#loginlogout-report-generate "#loginlogout-report-generate")
 - [Edit a Saved Login/Logout Report](#loginlogout-report-edit "#loginlogout-report-edit")
-- [Download a Login/Logout report as a CSV
-  file](#loginlogout-report-downloadcsv "#loginlogout-report-downloadcsv")
+- [Download a Login/Logout report as a CSV file](#loginlogout-report-downloadcsv "#loginlogout-report-downloadcsv")
 - [Share a Login/Logout report](#loginlogout-report-share "#loginlogout-report-share")
 - [Schedule a Login/Logout report](#loginlogout-report-schedule "#loginlogout-report-schedule")
 - [Delete a Saved Login/Logout report](#loginlogout-report-delete "#loginlogout-report-delete")
 - [Not supported:
   Tag-based access control](#login-logout-tag-based-access-control "#login-logout-tag-based-access-control")
 
-## Why your Login/Logout report may appear
-
-incorrect
+## Why your Login/Logout report may appear incorrect
 
 You may observe that the data in your Login/Logout report appears incorrect. For
 example:
@@ -70,9 +67,7 @@ A few other reasons a report may appear incorrect:
   hierarchy. You can then use other filters to capture all of the login/logout
   data for your instance.
 
-## Required permissions to access the
-
-Login/Logout report
+## Required permissions to access the Login/Logout report
 
 Before you can generate a Login/Logout report, you need the following permissions assigned
 to your security profile: **Login/Logout report - View**.
@@ -130,9 +125,7 @@ the report.
    **Save as**. Provide a name for the report and choose
    **Save as**.
 
-## Download a Login/Logout report as a CSV
-
-file
+## Download a Login/Logout report as a CSV file
 
 When you have generated a report, you can download it as a comma-separated value (CSV)
 file so that you can use it other applications to work with the data, such as a
@@ -186,9 +179,7 @@ _scheduled_ Login/Logout reports work differently than Login/Logout reports you
 [generate](#loginlogout-report-generate "#loginlogout-report-generate") from the user interface
 for a specified time range.
 
-### Important things to
-
-know
+### Important things to know
 
 - When you schedule a report, it is automatically published to your
   organization. Anyone with appropriate permissions can view the report. Users
@@ -209,9 +200,7 @@ Wednesday and does not include any data for Wednesday.
   the email manually using your messaging system. Amazon Connect doesn’t provide an
   option to email the scheduled report automatically.
 
-### How to schedule a
-
-Login/Logout report
+### How to schedule a Login/Logout report
 
 1. If you already have a saved report to schedule open, skip to step 4.
    Otherwise, in the dashboard, choose **Analytics and
@@ -266,8 +255,6 @@ files created from a scheduled report are removed from your S3 bucket.
    **Delete** icon.
 4. Choose **Delete** again.
 
-## Not supported: Tag-based access
-
-control
+## Not supported: Tag-based access control
 
 Amazon Connect does not support tag-based access controls for login/logout reports.

@@ -32,9 +32,7 @@ This flow block is designed to be used in the following scenarios::
     keywords are case-sensitive).
   - In the [Send message](send-message.md "send-message.md") block, select an email template or type in a message to send the automated response.
 
-### Properties configuration
-
-in CheckContactAttributes
+### Properties configuration in CheckContactAttributes
 
 In the [Check contact
 attributes](check-contact-attributes.md "check-contact-attributes.md") block, for namespace, choose

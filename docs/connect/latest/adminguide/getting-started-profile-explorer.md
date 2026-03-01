@@ -1,6 +1,4 @@
-# Get started with Amazon Connect Customer Profiles Profile
-
-Explorer
+# Get started with Amazon Connect Customer Profiles Profile Explorer
 
 Get started with Profile explorer and learn the basics of the interface.
 

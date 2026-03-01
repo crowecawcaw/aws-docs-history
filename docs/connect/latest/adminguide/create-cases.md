@@ -1,15 +1,11 @@
-# Create a case in Amazon Connect Cases or a customer profile to
-
-document a customer's issue
+# Create a case in Amazon Connect Cases or a customer profile to document a customer's issue
 
 You can create a case either by choosing **+ Case** from the
 **Cases** page or by choosing **+ Connect
 case** directly from a customer profile. If you are not on active
 contact, you can still create a case directly from the customer profile.
 
-###### To create a case while on the **Customer Profile**
-
-page
+###### To create a case while on the **Customer Profile** page
 
 1. Choose **+ Profile** to create a customer profile, as
    shown in the following image.

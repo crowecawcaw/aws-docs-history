@@ -1,6 +1,4 @@
-# Batch enrollment in Amazon Connect Voice ID using
-
-audio data from prior calls
+# Batch enrollment in Amazon Connect Voice ID using audio data from prior calls
 
 ###### Note
 
@@ -20,8 +18,7 @@ To enroll customers programmatically, pass the following data to the API:
 
 1. The domain ID to specify the domain to associate recordings to.
 2. The location for the output file.
-3. An input file containing a list of speakers. See [Input and output file schema for the
-   Speaker Enrollment Job in Amazon Connect Voice ID](speaker-enrollment-job-schema.md "speaker-enrollment-job-schema.md").
+3. An input file containing a list of speakers. See [Input and output file schema for the Speaker Enrollment Job in Amazon Connect Voice ID](speaker-enrollment-job-schema.md "speaker-enrollment-job-schema.md").
 
 For each speaker the file must include:
 
@@ -49,8 +46,7 @@ For each speaker the file must include:
 
     You must have `iam:PassRole` permissions when making the call
     and providing the `dataAccessRole`. To enable confused deputy
-    protection for the `dataAccessRole`, see [Amazon Connect Voice ID cross-service confused deputy
-    prevention](cross-service-confused-deputy-prevention.md#voiceid-cross-service "cross-service-confused-deputy-prevention.md#voiceid-cross-service").
+    protection for the `dataAccessRole`, see [Amazon Connect Voice ID cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md#voiceid-cross-service "cross-service-confused-deputy-prevention.md#voiceid-cross-service").
 
 6.  Optionally, a fraud check skip flag in case you want to skip checks for
     fraud and voice spoofing on the enrollment audio.

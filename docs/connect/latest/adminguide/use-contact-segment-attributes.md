@@ -6,8 +6,7 @@ to use _contact segment attributes_.
 
 Contact segment attributes keep the values that remain specific to individual contact
 segments. (For a discussion about the difference between contact attributes and contact
-segment attributes, see [Contacts, contact chains, and contact
-attributes](contacts-contact-chains-attributes.md "contacts-contact-chains-attributes.md").)
+segment attributes, see [Contacts, contact chains, and contact attributes](contacts-contact-chains-attributes.md "contacts-contact-chains-attributes.md").)
 
 To implement contact segment attributes, you first create predefined attributes, and then
 use the [Set contact
@@ -21,14 +20,10 @@ can do this:
 
 ###### Contents
 
-- [Step 1: Create a predefined
-  attribute](#create-predefined-attribute "#create-predefined-attribute")
-- [Step 2: Attach a predefined attribute to
-  the contact segment](#attach-predefined-attribute "#attach-predefined-attribute")
+- [Step 1: Create a predefined attribute](#create-predefined-attribute "#create-predefined-attribute")
+- [Step 2: Attach a predefined attribute to the contact segment](#attach-predefined-attribute "#attach-predefined-attribute")
 
-## Step 1: Create a predefined
-
-attribute
+## Step 1: Create a predefined attribute
 
 1. Log in to the Amazon Connect admin website at https://`instance
 name`.my.connect.aws/. Use an **Admin** account,
@@ -55,9 +50,7 @@ select **Use in analytics for granular insights**.
     1. This feature is only available for instances that have unlimited AI
      capabilities enabled.
 
-## Step 2: Attach a predefined attribute to
-
-the contact segment
+## Step 2: Attach a predefined attribute to the contact segment
 
 The following image shows the properties panel of the [Set contact
 attributes](set-contact-attributes.md "set-contact-attributes.md")

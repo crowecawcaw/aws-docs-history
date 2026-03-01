@@ -1,6 +1,4 @@
-# Object type mapping for the
-
-standard case in Customer Profiles
+# Object type mapping for the standard case in Customer Profiles
 
 The topics in this section provide the standard case definition, and the
 object type mapping from external applications to the standard case.

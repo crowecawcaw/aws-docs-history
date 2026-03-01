@@ -1,6 +1,4 @@
-# Security profile permissions for
-
-forecasting, capacity planning, and scheduling in Amazon Connect
+# Security profile permissions for forecasting, capacity planning, and scheduling in Amazon Connect
 
 Assign the following security profile permissions as needed to use forecasting, capacity planning, and scheduling.
 

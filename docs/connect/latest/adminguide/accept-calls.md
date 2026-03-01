@@ -1,6 +1,4 @@
-# Accept customer calls using the Amazon Connect Contact Control
-
-Panel (CCP)
+# Accept customer calls using the Amazon Connect Contact Control Panel (CCP)
 
 1. Whenever you set your status in the CCP to **Available**,
    Amazon Connect can deliver calls to you, based on the settings in your [routing profile](routing-profiles.md "routing-profiles.md").

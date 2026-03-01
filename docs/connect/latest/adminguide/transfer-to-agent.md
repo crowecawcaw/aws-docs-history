@@ -1,6 +1,4 @@
-# Transfer contacts to a specific agent in
-
-Amazon Connect
+# Transfer contacts to a specific agent in Amazon Connect
 
 There are two ways to route contacts directly to an agent:
 
@@ -62,9 +60,7 @@ who doesn't have these permissions, the contact can never be handled.
    account. To do so, after you choose **By agent**, choose **Use
    attribute**.
 
-## Use contact attributes to route contacts
-
-to a specific agent
+## Use contact attributes to route contacts to a specific agent
 
 When you use contact attributes in a flow to route calls to an agent, the
 attribute value must be either the agent's user name, or the agent's user ID.

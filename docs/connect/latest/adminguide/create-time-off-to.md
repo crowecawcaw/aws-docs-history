@@ -4,9 +4,7 @@ Time off requests can be created by supervisors, managers, or agents in the publ
 Once created, time off requests are visible in both published and draft schedules.
 Edits to time off requests can only be done in published schedules.
 
-## Supervisor or manager initiated time off
-
-request
+## Supervisor or manager initiated time off request
 
 1. Supervisors or managers can create a time off request by choosing the
    requests icon and then selecting **Request Time

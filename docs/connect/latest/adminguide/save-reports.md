@@ -1,10 +1,8 @@
 # Save custom reports in Amazon Connect
 
 You can create custom real-time, historical, and login/logout reports that include
-only the metrics you're interested in. For instructions, see [Create a real-time metrics report for your
-contact center](create-real-time-report.md "create-real-time-report.md") and
-[Create a custom historical
-metrics report in Amazon Connect](create-historical-metrics-report.md "create-historical-metrics-report.md").
+only the metrics you're interested in. For instructions, see [Create a real-time metrics report for your contact center](create-real-time-report.md "create-real-time-report.md") and
+[Create a custom historical metrics report in Amazon Connect](create-historical-metrics-report.md "create-historical-metrics-report.md").
 
 After you create a report, you can:
 
@@ -17,9 +15,7 @@ After you create a report, you can:
   organization who has the [appropriate
   permissions](publish-reports.md#view-published-reports "publish-reports.md#view-published-reports") in their security profile can view the report.
 
-## Personal saved reports count towards
-
-quota
+## Personal saved reports count towards quota
 
 Personal saved reports count towards your service quota of reports per instance.
 For example, if you save a report every day, it will count towards your

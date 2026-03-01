@@ -125,8 +125,7 @@ contact information and interaction history.
 - Customize displayed contact fields
 - Access detailed contact information
 
-For more information about Customer Profiles CTR objects, see [Contact record templates in Amazon Connect
-Customer Profiles](ctr-contact-record-template.md "ctr-contact-record-template.md")
+For more information about Customer Profiles CTR objects, see [Contact record templates in Amazon Connect Customer Profiles](ctr-contact-record-template.md "ctr-contact-record-template.md")
 
 ## Cases
 
@@ -142,8 +141,7 @@ support interactions and case management details.
 - Customize displayed case fields
 - Access detailed case information
 
-For more information about Customer Profiles Case objects, see [Object type mapping for the
-standard case in Customer Profiles](object-type-mapping-standard-case.md "object-type-mapping-standard-case.md").
+For more information about Customer Profiles Case objects, see [Object type mapping for the standard case in Customer Profiles](object-type-mapping-standard-case.md "object-type-mapping-standard-case.md").
 
 ## Orders
 
@@ -159,8 +157,7 @@ purchase history and transaction details.
 - Customize displayed order fields
 - Access detailed order information
 
-For more information about Customer Profiles Order objects, see [Object type mapping for the
-standard order in Amazon Connect Customer Profiles](object-type-mapping-standard-order.md "object-type-mapping-standard-order.md")
+For more information about Customer Profiles Order objects, see [Object type mapping for the standard order in Amazon Connect Customer Profiles](object-type-mapping-standard-order.md "object-type-mapping-standard-order.md")
 
 ## Assets
 
@@ -176,5 +173,4 @@ customer-owned products and services.
 - Customize displayed asset fields
 - Access detailed asset information
 
-For more information about Customer Profiles Asset objects, see [Object type mapping for the
-standard asset in Customer Profiles](object-type-mapping-standard-asset.md "object-type-mapping-standard-asset.md")
+For more information about Customer Profiles Asset objects, see [Object type mapping for the standard asset in Customer Profiles](object-type-mapping-standard-asset.md "object-type-mapping-standard-asset.md")

@@ -1,6 +1,4 @@
-# Flow block in Amazon Connect: Hold customer or
-
-agent
+# Flow block in Amazon Connect: Hold customer or agent
 
 This topic defines the flow block for placing a customer or agent on hold, and
 resuming the call afterward.
@@ -10,8 +8,7 @@ resuming the call afterward.
 During a video call or screen sharing session, agents are able to see the
 customer's video or screen share even when the customer is on hold. It is the customer's
 responsibility to handle PII accordingly. If you want to change this behavior, you can build a
-custom CCP and communication widget. For more information, see [Integrate in-app, web, video calling, and screen
-sharing natively into your application](config-com-widget2.md "config-com-widget2.md").
+custom CCP and communication widget. For more information, see [Integrate in-app, web, video calling, and screen sharing natively into your application](config-com-widget2.md "config-com-widget2.md").
 
 ## Description
 
@@ -70,5 +67,4 @@ has two branches: **Success** and
 
 ## Samples flows
 
-[Sample secure customer data entry input
-in a call with a contact center agent](sample-secure-input-with-agent.md "sample-secure-input-with-agent.md")
+[Sample secure customer data entry input in a call with a contact center agent](sample-secure-input-with-agent.md "sample-secure-input-with-agent.md")

@@ -1,6 +1,4 @@
-# Sample flow in Amazon Connect for A/B contact distribution
-
-testing
+# Sample flow in Amazon Connect for A/B contact distribution testing
 
 ###### Note
 

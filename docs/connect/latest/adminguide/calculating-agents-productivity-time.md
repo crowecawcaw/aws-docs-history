@@ -1,6 +1,4 @@
-# Examples of Agent Adherence
-
-calculations in Amazon Connect
+# Examples of Agent Adherence calculations in Amazon Connect
 
 This topic shows two examples that illustrate how Agent Adherent and Non-Adherent
 Time are calculated in Amazon Connect. It also includes a third example that shows adherence
@@ -59,9 +57,7 @@ follows:
 - (Total Adherent Time: 105 Minutes / Total Scheduled Time: 180
   Minutes)
 
-## Example: Adherence with
-
-thresholds
+## Example: Adherence with thresholds
 
 The schedule: Agent C is scheduled for a break at 10:00 AM
 

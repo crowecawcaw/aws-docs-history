@@ -12,9 +12,7 @@ and install the Amazon Connect Client Application, and perform key configuration
 - [Step 3: Configure the Set recording and analytics behavior block](#configure-recording-block "#configure-recording-block")
 - [Configuration tips](#tips-sr "#tips-sr")
 
-## Step 1: Enable screen recording for your
-
-instance
+## Step 1: Enable screen recording for your instance
 
 ###### Important
 
@@ -45,8 +43,7 @@ existing bucket, select it from the **Name** list. 6. (Optional) To encrypt the 
 When you enable encryption, Amazon Connect uses the KMS key to encrypt any
 intermediate recording data while the service processes it. 7. When finished, choose **Save**.
 
-For more information about instance settings, see [Update settings for your Amazon Connect
-instance](update-instance-settings.md "update-instance-settings.md").
+For more information about instance settings, see [Update settings for your Amazon Connect instance](update-instance-settings.md "update-instance-settings.md").
 
 ## Step 2: Download and install the Amazon Connect Client Application
 

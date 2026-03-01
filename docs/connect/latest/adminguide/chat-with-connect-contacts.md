@@ -1,6 +1,4 @@
-# Use the Contact Control Panel (CCP) in
-
-Amazon Connect to chat with contacts
+# Use the Contact Control Panel (CCP) in Amazon Connect to chat with contacts
 
 When you set your status in the CCP to **Available**, Amazon Connect delivers
 calls or chats to you, based on the settings in your [routing profile](routing-profiles.md "routing-profiles.md"). An administrator can specify that up to 10 chat
@@ -11,8 +9,7 @@ You can't initiate chat conversations from the CCP.
 ###### Note
 
 IT Administrators: To enable customers and agents to send attachments, such as
-files, through the chat interface, see [Enable attachments in your CCP so customers and
-agents can share and upload files](enable-attachments.md "enable-attachments.md").
+files, through the chat interface, see [Enable attachments in your CCP so customers and agents can share and upload files](enable-attachments.md "enable-attachments.md").
 
 When a chat contact arrives, here's how you are notified:
 
@@ -42,9 +39,7 @@ following image, **John** is the name of the customer,
 
 ![The CCP, a connect chat, the transcript between customer and bot.](images/ccp-chat-agent.png)
 
-## What do the timers at the top of the chat
-
-tabs mean?
+## What do the timers at the top of the chat tabs mean?
 
 When you're in a chat conversation with a contact, you'll see two timers at the
 top of the chat tab. These timers tell you:
@@ -113,5 +108,4 @@ exactly what the message looks like before sending it.
 ###### Tip
 
 Developers: Enable this feature from the chat user interface. For
-instructions, see [Enable text formatting in Amazon Connect for your
-customer's chat experience](enable-text-formatting-chat.md "enable-text-formatting-chat.md").
+instructions, see [Enable text formatting in Amazon Connect for your customer's chat experience](enable-text-formatting-chat.md "enable-text-formatting-chat.md").

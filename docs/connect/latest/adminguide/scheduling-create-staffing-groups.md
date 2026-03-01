@@ -1,6 +1,4 @@
-# Create groups and rules for
-
-staffing and scheduling in Amazon Connect
+# Create groups and rules for staffing and scheduling in Amazon Connect
 
 A _staffing group_ is a group or team of agents who are skilled
 to take specific types of contacts.
@@ -17,8 +15,7 @@ forecast predicts, there should be a minimum of one agent during this time.
 If you don't have a shift start time rule, then the schedule is built using the
 predictions from the forecast.
 
-For a list of staffing group limits, see [Forecasting, capacity
-planning, and scheduling feature specifications](feature-limits.md#forecasting-cap-planning-scheduling-specs "feature-limits.md#forecasting-cap-planning-scheduling-specs").
+For a list of staffing group limits, see [Forecasting, capacity planning, and scheduling feature specifications](feature-limits.md#forecasting-cap-planning-scheduling-specs "feature-limits.md#forecasting-cap-planning-scheduling-specs").
 
 ## Example
 
@@ -32,9 +29,7 @@ groups in this case:
 2. Map the General Enquiry forecast group to multiple staffing groups
    that have agents who can take general enquiry contacts.
 
-## Important things to
-
-know
+## Important things to know
 
 - Every agent must be in a staffing group in order for a schedule to be
   generated for them. You can add and remove agents in between schedule
@@ -42,8 +37,7 @@ know
 - Even after an agent is in a staffing group, you can assign them their
   own shift profile by using the **Staff rules** tab. The
   agent-level shift profile overrides the profile set at the staffing
-  group level. For more information, see [Create staff rules for scheduling in
-  Amazon Connect](scheduling-create-staff-rules.md "scheduling-create-staff-rules.md").
+  group level. For more information, see [Create staff rules for scheduling in Amazon Connect](scheduling-create-staff-rules.md "scheduling-create-staff-rules.md").
 - If a user needs to view published agent schedules from the
   **Published** calendar view, then the user must be
   added to the staffing group as a supervisor.
@@ -116,8 +110,7 @@ Hours** to start at 9AM, even though the forecast would start it at
   - **Working time**: Specify the group's minimum
     and maximum working hours per day or week. This setting applies
     to all staff in the staffing group. You can override this
-    setting for individual staff. For instructions, see [Create staff rules for scheduling in
-    Amazon Connect](scheduling-create-staff-rules.md "scheduling-create-staff-rules.md").
+    setting for individual staff. For instructions, see [Create staff rules for scheduling in Amazon Connect](scheduling-create-staff-rules.md "scheduling-create-staff-rules.md").
   - **Minimum rest between shifts**: Specify the
     minimum number of hours of rest period a staff should receive
     between the end of one shift and start of next shift. This

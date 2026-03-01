@@ -1,6 +1,4 @@
-# Move a claimed phone number to
-
-multiple Amazon Connect instances across AWS Regions
+# Move a claimed phone number to multiple Amazon Connect instances across AWS Regions
 
 ###### Note
 

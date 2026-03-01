@@ -1,6 +1,4 @@
-# Keyboard shortcuts for the
-
-Amazon Connect flow designer
+# Keyboard shortcuts for the Amazon Connect flow designer
 
 The Amazon Connect flow designer includes keyboard shortcuts to
 help you use the designer efficiently.

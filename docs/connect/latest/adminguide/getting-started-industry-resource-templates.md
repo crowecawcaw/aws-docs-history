@@ -1,6 +1,4 @@
-# Getting started with industry
-
-resource templates
+# Getting started with industry resource templates
 
 Amazon Connect Customer Profiles provides industry resource templates to help you quickly set up your domain with
 calculated attributes, segments, and Profile Explorer layouts tailored to specific
@@ -14,9 +12,7 @@ Before you enable industry resource templates, ensure you have:
 - Appropriate permissions to create resources in your Customer Profiles
   domain
 
-## About industry resource
-
-templates
+## About industry resource templates
 
 When you enable an industry template, Customer Profiles automatically creates the
 following resources in your domain:
@@ -31,9 +27,7 @@ following resources in your domain:
 These resources are designed to help you quickly derive value from your customer data
 without having to manually create each resource.
 
-## Enable industry resource
-
-templates
+## Enable industry resource templates
 
 1. On the Customer Profiles homepage, locate the Industry templates
    section.
@@ -61,9 +55,7 @@ in the Industry templates section with the number of resources created.
 
 ![Successful creation banner appears.](images/enable-industry-resource-templates-4.png)
 
-## Resources created by industry
-
-templates
+## Resources created by industry templates
 
 ### Airline Industry Template
 
@@ -115,9 +107,7 @@ The airline template creates the following segments:
 - [Airline] Customers with completed flights in the past 30 days
 - [Airline] Dormant members
 
-#### Profile Explorer
-
-Layout
+#### Profile Explorer Layout
 
 A demo profile explorer layout is created with layout name:
 `DEMO-Airline-Layout` that consists of the following

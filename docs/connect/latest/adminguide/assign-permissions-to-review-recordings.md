@@ -1,6 +1,4 @@
-# Assign permissions to review
-
-past contact center conversations in Amazon Connect
+# Assign permissions to review past contact center conversations in Amazon Connect
 
 To access recordings and transcripts on the Amazon Connect admin website, you need security profile permissions to search for
 and view contacts on the **Contact search** page. You also need permissions to access:
@@ -15,16 +13,11 @@ and view contacts on the **Contact search** page. You also need permissions to a
 
 ###### Contents
 
-- [Permissions to
-  search and view contacts](#assign-permissions-to-search-and-view-contacts "#assign-permissions-to-search-and-view-contacts")
-- [Permissions to
-  access recordings and transcripts of agent interactions](#assign-permissions-to-access-recordings-transcripts "#assign-permissions-to-access-recordings-transcripts")
-- [Permissions to view automated interaction (IVR) recordings and
-  transcripts](#assign-permissions-to-view-automated-recordings-transcripts "#assign-permissions-to-view-automated-recordings-transcripts")
+- [Permissions to search and view contacts](#assign-permissions-to-search-and-view-contacts "#assign-permissions-to-search-and-view-contacts")
+- [Permissions to access recordings and transcripts of agent interactions](#assign-permissions-to-access-recordings-transcripts "#assign-permissions-to-access-recordings-transcripts")
+- [Permissions to view automated interaction (IVR) recordings and transcripts](#assign-permissions-to-view-automated-recordings-transcripts "#assign-permissions-to-view-automated-recordings-transcripts")
 
-## Permissions to
-
-search and view contacts
+## Permissions to search and view contacts
 
 Contacts and underlying recordings and transcripts are accessible through the
 **Contact search** and **Contact details**
@@ -52,12 +45,9 @@ For example:
   level groups can view contact records for contacts handled by all the groups below
   them, such as AgentGroup-1 and 2.
 
-For more information, see [Manage who can search for
-contacts and access detailed information](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
+For more information, see [Manage who can search for contacts and access detailed information](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
 
-## Permissions to
-
-access recordings and transcripts of agent interactions
+## Permissions to access recordings and transcripts of agent interactions
 
 Complete the following steps to assign permissions to access agent interactions
 for voice, chat and email channels.
@@ -90,8 +80,7 @@ example, with chat bots).
       been redacted.
 
     The redaction feature is provided as part of Contact Lens. For more
-    information, see [Use sensitive data redaction to protect
-    customer privacy using Contact Lens](sensitive-data-redaction.md "sensitive-data-redaction.md").
+    information, see [Use sensitive data redaction to protect customer privacy using Contact Lens](sensitive-data-redaction.md "sensitive-data-redaction.md").
     - **Manager monitor**: This permission allows users to
       monitor live conversations and listen to recordings.
 
@@ -141,9 +130,7 @@ example, with chat bots).
       (unredacted)**: Use this permission to grant access to
       transcripts for the above Automated Interaction Voice (IVR) Recordings.
 
-## Permissions to view automated interaction (IVR) recordings and
-
-transcripts
+## Permissions to view automated interaction (IVR) recordings and transcripts
 
 Assign the following permissions:
 
@@ -156,9 +143,7 @@ Assign the following permissions:
   download button appears next to the IVR recording on the **Contact details**
   page within Amazon Connect.
 
-### Access automated interaction (IVR) logs and
-
-transcripts
+### Access automated interaction (IVR) logs and transcripts
 
 Assign the following permissions:
 

@@ -29,22 +29,15 @@ see how it works while you're experiencing it.
 ###### Contents
 
 - [Sample inbound flow](sample-inbound-flow.md "sample-inbound-flow.md")
-- [Sample flow in Amazon Connect for A/B contact distribution
-  testing](sample-ab-test.md "sample-ab-test.md")
-- [Sample customer queue priority flow in
-  Amazon Connect](sample-customer-queue-priority.md "sample-customer-queue-priority.md")
+- [Sample flow in Amazon Connect for A/B contact distribution testing](sample-ab-test.md "sample-ab-test.md")
+- [Sample customer queue priority flow in Amazon Connect](sample-customer-queue-priority.md "sample-customer-queue-priority.md")
 - [Sample disconnect flow in Amazon Connect](sample-disconnect.md "sample-disconnect.md")
-- [Sample queue configurations flow in
-  Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
+- [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
 - [Sample queue customer flow in Amazon Connect](sample-queue-customer.md "sample-queue-customer.md")
 - [Sample queued callback flow in Amazon Connect](sample-queued-callback.md "sample-queued-callback.md")
-- [Sample interruptible queue flow with
-  callback in Amazon Connect](sample-interruptible-queue.md "sample-interruptible-queue.md")
-- [Sample Lambda integration flow in
-  Amazon Connect](sample-lambda-integration.md "sample-lambda-integration.md")
+- [Sample interruptible queue flow with callback in Amazon Connect](sample-interruptible-queue.md "sample-interruptible-queue.md")
+- [Sample Lambda integration flow in Amazon Connect](sample-lambda-integration.md "sample-lambda-integration.md")
 - [Sample recording behavior in Amazon Connect](sample-recording-behavior.md "sample-recording-behavior.md")
 - [Sample Screenpop flow in Amazon Connect](sample-note-for-screenpop.md "sample-note-for-screenpop.md")
-- [Sample secure customer data entry input
-  in a call with a contact center agent](sample-secure-input-with-agent.md "sample-secure-input-with-agent.md")
-- [Sample secure customer data entry
-  input in a call with no contact center agent](sample-secure-input-with-noagent.md "sample-secure-input-with-noagent.md")
+- [Sample secure customer data entry input in a call with a contact center agent](sample-secure-input-with-agent.md "sample-secure-input-with-agent.md")
+- [Sample secure customer data entry input in a call with no contact center agent](sample-secure-input-with-noagent.md "sample-secure-input-with-noagent.md")

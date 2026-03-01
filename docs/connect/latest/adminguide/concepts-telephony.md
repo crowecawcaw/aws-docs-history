@@ -106,12 +106,9 @@ numbers may be an attractive option for your business.
 ### Starting fresh with Amazon Connect
 
 In this case, simply select new numbers using the claim a number process. For
-instructions, see [Get a local toll-free or DID Amazon Connect phone
-number](get-connect-number.md "get-connect-number.md").
+instructions, see [Get a local toll-free or DID Amazon Connect phone number](get-connect-number.md "get-connect-number.md").
 
-### Migrating to Amazon Connect from another
-
-provider/platform
+### Migrating to Amazon Connect from another provider/platform
 
 If you're migrating to Amazon Connect from other platform, we recommend starting with a
 proof of concept, and migrating to Amazon Connect over time.
@@ -121,9 +118,7 @@ proof of concept, and migrating to Amazon Connect over time.
 - After fully converting, use the [porting process](port-phone-number.md "port-phone-number.md") to bring your numbers into Amazon Connect.
 - This gives you a fallback in case you have migration issues.
 
-### Maintaining two separate
-
-platforms
+### Maintaining two separate platforms
 
 In some cases, you may have more than one Contact Center platform requiring
 telephony. Here's an overview of how to configure this:

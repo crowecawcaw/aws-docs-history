@@ -1,6 +1,4 @@
-# Set up live media streaming of customer audio in
-
-Amazon Connect
+# Set up live media streaming of customer audio in Amazon Connect
 
 In Amazon Connect, you can capture customer audio during an interaction with your contact center by
 sending the audio to a Kinesis video stream. Depending on your settings, audio can be captured

@@ -1,6 +1,4 @@
-# Outbound calling restrictions in
-
-Amazon Connect
+# Outbound calling restrictions in Amazon Connect
 
 This topic explains restrictions that are in place for outbound calling with Amazon Connect.
 
@@ -14,9 +12,7 @@ This topic explains restrictions that are in place for outbound calling with Ama
 - [International calling
   restrictions](#restriction4 "#restriction4")
 
-## Use of toll-free numbers outside the country of
-
-origin
+## Use of toll-free numbers outside the country of origin
 
 Amazon Connect does not support the use of toll-free numbers for international
 calling. International calls from toll-free numbers can be flagged as spam by
@@ -136,9 +132,7 @@ the following steps:
   confirm that you meet the [eligibility
   criteria](#criteria-cr "#criteria-cr") described in this topic.
 
-#### Consequences for violating the calling criteria
-
-for China
+#### Consequences for violating the calling criteria for China
 
 Amazon Connect has a zero tolerance policy for calling into China.
 Amazon will suspend your use of Amazon Connect if you use the service

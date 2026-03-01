@@ -1,6 +1,4 @@
-# Claim phone numbers to Amazon Connect
-
-instances across multiple AWS Regions
+# Claim phone numbers to Amazon Connect instances across multiple AWS Regions
 
 ###### Note
 

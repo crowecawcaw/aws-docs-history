@@ -1,6 +1,4 @@
-# Countries that call centers using Amazon Connect can
-
-call by default
+# Countries that call centers using Amazon Connect can call by default
 
 The Region where your instance is created determines which countries you can call by
 default.
@@ -25,9 +23,7 @@ not be allowed by default:
   If you can not dial these Japan mobile numbers, you must submit a service quota
   increase request.
 
-## How to allow calling to additional
-
-countries
+## How to allow calling to additional countries
 
 Use the following instructions to allow calling to additional countries, or to
 limit the countries that you can call from.
@@ -56,10 +52,7 @@ limit the countries that you can call from.
 10. The Amazon Connect team will review your ticket and get back to
     you.
 
-## Instances created in US
-
-East, US West, Canada (Central) and AWS GovCloud
-(US-West)
+## Instances created in US East, US West, Canada (Central) and AWS GovCloud (US-West)
 
 You can call the following countries by default:
 
@@ -69,9 +62,7 @@ You can call the following countries by default:
 - Puerto Rico
 - United Kingdom
 
-## Instances created in Africa (Cape
-
-Town)
+## Instances created in Africa (Cape Town)
 
 You can call the following countries by default:
 
@@ -87,9 +78,7 @@ You can call the following countries by default:
 - United Kingdom
 - United States
 
-## Instances created in Asia Pacific
-
-(Singapore)
+## Instances created in Asia Pacific (Singapore)
 
 You can call the following countries by default:
 
@@ -99,9 +88,7 @@ You can call the following countries by default:
 - United States
 - United Kingdom
 
-## Instances created in Asia Pacific
-
-(Sydney)
+## Instances created in Asia Pacific (Sydney)
 
 You can call the following countries by default:
 
@@ -109,9 +96,7 @@ You can call the following countries by default:
 - New Zealand
 - United States
 
-## Instances created in Asia Pacific
-
-(Tokyo)
+## Instances created in Asia Pacific (Tokyo)
 
 You can call the following countries by default:
 
@@ -119,9 +104,7 @@ You can call the following countries by default:
 - Vietnam
 - United States
 
-## Instances created in EU (Frankfurt) and EU
-
-(London)
+## Instances created in EU (Frankfurt) and EU (London)
 
 You can call the following countries by default:
 

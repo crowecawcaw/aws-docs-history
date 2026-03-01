@@ -56,8 +56,7 @@ Amazon Connect includes a set of sample flows. For instructions that explain how
 [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample flow in Amazon Connect for A/B contact distribution
-  testing](sample-ab-test.md "sample-ab-test.md")
+- [Sample flow in Amazon Connect for A/B contact distribution testing](sample-ab-test.md "sample-ab-test.md")
 
 ## Scenarios
 

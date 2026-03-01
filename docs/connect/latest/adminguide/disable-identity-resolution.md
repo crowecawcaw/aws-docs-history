@@ -1,8 +1,6 @@
 # Disable Identity Resolution in Amazon Connect Customer Profiles
 
-## Disable machine
-
-learning-based
+## Disable machine learning-based
 
 You can disable machine learning-based matching when you no longer want it to
 automatically find similar profiles. If you have consolidation criteria, all

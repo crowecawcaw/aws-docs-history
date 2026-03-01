@@ -1,6 +1,4 @@
-# Create a rule in
-
-Contact Lens that creates a case
+# Create a rule in Contact Lens that creates a case
 
 ###### To create a rule that creates a case
 

@@ -8,15 +8,12 @@ than prescriptions.
 
 ###### Contents
 
-- [Amazon Connect preventative security best
-  practices](#bp-security-profiles "#bp-security-profiles")
+- [Amazon Connect preventative security best practices](#bp-security-profiles "#bp-security-profiles")
 - [Amazon Connect detective security best practices](#bp-security-detective "#bp-security-detective")
 - [Amazon Connect Chat security best practices](#bp-security-chat "#bp-security-chat")
 - [Amazon Connect WebRTC security best practices](#bp-webrtc-security "#bp-webrtc-security")
 
-## Amazon Connect preventative security best
-
-practices
+## Amazon Connect preventative security best practices
 
 - Ensure that all profile permissions are as restrictive as possible. Allow
   access to only those resources absolutely required for the user's role. For
@@ -31,8 +28,7 @@ practices
   appropriate for your use case.
 - Use the **Log in for emergency access** URL on the instance
   page of the AWS console only in emergency situations, not for daily use. For
-  more information, see [Emergency login to the Amazon Connect admin
-  website](emergency-admin-login.md "emergency-admin-login.md").
+  more information, see [Emergency login to the Amazon Connect admin website](emergency-admin-login.md "emergency-admin-login.md").
 
 ### Use service control policies (SCPs)
 
@@ -42,9 +38,7 @@ limits, on the actions that the account's administrator can delegate to users an
 roles in the affected accounts. You can use SCPs to protect critical resources
 associated with your Amazon Connect workload.
 
-#### Set a Service Control Policy to prevent the deletion
-
-critical resources
+#### Set a Service Control Policy to prevent the deletion critical resources
 
 If you’re using SAML 2.0-based authentication and delete the AWS IAM Role
 that is used for authenticating Amazon Connect users, users won't be able to log in to

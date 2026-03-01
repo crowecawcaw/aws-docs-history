@@ -1,6 +1,4 @@
-# Use alternate intent attributes in
-
-Amazon Lex
+# Use alternate intent attributes in Amazon Lex
 
 Usually you configure flows to branch on the winning Lex intent. However, in some
 situations, you might want to branch on an alternate intent. That is, what the customer

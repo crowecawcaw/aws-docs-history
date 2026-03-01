@@ -1,6 +1,4 @@
-# Automatically monitor and update cases in
-
-Amazon Connect Cases
+# Automatically monitor and update cases in Amazon Connect Cases
 
 You can easily set up case notifications and automation. You can create rules that
 automatically run whenever a case is created or updated. You can create rules that:
@@ -15,8 +13,7 @@ automatically run whenever a case is created or updated. You can create rules th
 
 ###### Tip
 
-A developer needs to enable this feature. For instructions, see [Allow Amazon Connect Cases to send
-updates to Contact Lens rules](cases-rules-integration-onboarding.md "cases-rules-integration-onboarding.md").
+A developer needs to enable this feature. For instructions, see [Allow Amazon Connect Cases to send updates to Contact Lens rules](cases-rules-integration-onboarding.md "cases-rules-integration-onboarding.md").
 
 ###### Contents
 

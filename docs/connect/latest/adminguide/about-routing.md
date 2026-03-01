@@ -85,9 +85,7 @@ adjustment.
   - Any routing age adjustments are applied relative to that contact
     enqueue time.
 
-## How routing works with multiple
-
-channels
+## How routing works with multiple channels
 
 When you set up a routing profile to handle multiple channels, you must specify
 whether agents can handle contacts while already on another channel. This is called
@@ -102,12 +100,9 @@ agent as follows:
    agent can be routed the next contact.
 
 For a detailed example of how Amazon Connect routes contacts when cross-channel concurrency
-is set up, see [Example of how a contact is routed
-with cross-channel concurrency](routing-profiles.md#example-routing-concurrency "routing-profiles.md#example-routing-concurrency").
+is set up, see [Example of how a contact is routed with cross-channel concurrency](routing-profiles.md#example-routing-concurrency "routing-profiles.md#example-routing-concurrency").
 
-## How routing works with
-
-manual assignment
+## How routing works with manual assignment
 
 When you set up a routing profile that has queues and channels listed for manual
 assignment, Amazon Connect does not automatically route these contacts.
@@ -124,7 +119,6 @@ See the following topics to learn more about routing:
 - [Queues: priority and
   delay examples](concepts-routing-profiles-priority.md "concepts-routing-profiles-priority.md").
 - [How Amazon Connect uses routing profiles](concepts-routing.md "concepts-routing.md")
-- [Queue-based routing to route customers to
-  a specific contact center agent](concepts-queue-based-routing.md "concepts-queue-based-routing.md")
+- [Queue-based routing to route customers to a specific contact center agent](concepts-queue-based-routing.md "concepts-queue-based-routing.md")
 - [Set up queue-based
   routing](set-up-queue-based-routing.md "set-up-queue-based-routing.md")

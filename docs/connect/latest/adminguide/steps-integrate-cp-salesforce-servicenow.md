@@ -1,16 +1,11 @@
-# Set up Amazon Connect
-
-integration with Salesforce, ServiceNow, Marketo, or Zendesk
+# Set up Amazon Connect integration with Salesforce, ServiceNow, Marketo, or Zendesk
 
 To provide periodic updates to Amazon Connect Customer Profiles, you can integrate with Salesforce,
 ServiceNow, Marketo, or Zendesk using Amazon AppFlow. You first set up the connection in
 Amazon Connect and the application of your choice, and then verify the
 integration.
 
-## Set up the
-
-connection in Amazon Connect and Salesforce, ServiceNow, Marketo, or
-Zendesk
+## Set up the connection in Amazon Connect and Salesforce, ServiceNow, Marketo, or Zendesk
 
 1. Open the Amazon Connect console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").

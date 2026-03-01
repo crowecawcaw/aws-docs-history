@@ -1,6 +1,4 @@
-# Comparison of enhanced contact
-
-monitoring (multi-party) and three-party functionality in Amazon Connect
+# Comparison of enhanced contact monitoring (multi-party) and three-party functionality in Amazon Connect
 
 This topic describes how the agent's experience differs when [enhanced contact monitoring](monitor-conversations.md "monitor-conversations.md") (multi-party) is
 enabled instead of the default three-party capability.

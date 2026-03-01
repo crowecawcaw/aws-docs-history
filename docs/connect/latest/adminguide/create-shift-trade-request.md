@@ -1,6 +1,4 @@
-# How agents create shift trade
-
-requests
+# How agents create shift trade requests
 
 ###### Tip
 

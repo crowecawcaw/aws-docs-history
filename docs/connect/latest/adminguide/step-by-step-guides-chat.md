@@ -1,15 +1,11 @@
-# Deploy step-by-step guides in Amazon Connect
-
-chats
+# Deploy step-by-step guides in Amazon Connect chats
 
 You can enable step-by-step Guides within Amazon Connect chats to create interactive,
 self-service experiences. This feature helps you resolve customer issues faster by
 gathering and transferring context to your agents. You can present the same guide that
 you built for your agents to customers for better configuration management.
 
-## Enable step-by-step Guides in
-
-Amazon Connect chats
+## Enable step-by-step Guides in Amazon Connect chats
 
 1. Ensure that you have enabled and configured [step-by-step Guides](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md") for
    agents. After you configure the guides, confirm that they pop up when a

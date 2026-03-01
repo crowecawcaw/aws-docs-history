@@ -27,31 +27,22 @@ handle time over a period of intervals in time in a time series chart.
 
 ###### Contents
 
-- [Enable access to the
-  dashboard](#enable-contact-lens-conversational-dashboards "#enable-contact-lens-conversational-dashboards")
+- [Enable access to the dashboard](#enable-contact-lens-conversational-dashboards "#enable-contact-lens-conversational-dashboards")
 - [Performance overview charts](#contact-lens-conversational-dashboard-performance-overview "#contact-lens-conversational-dashboard-performance-overview")
-- [Contact
-  categories](#contact-lens-conversational-dashboard-contact-categories "#contact-lens-conversational-dashboard-contact-categories")
-- [Movers and
-  shakers](#contact-lens-conversational-dashboard-movers-shakers "#contact-lens-conversational-dashboard-movers-shakers")
-- [Top
-  contact categories average handle time](#contact-lens-conversational-dashboard-top-contact-categories "#contact-lens-conversational-dashboard-top-contact-categories")
-- [Contact count
-  by queue](#contact-lens-conversational-dashboard-contact-count "#contact-lens-conversational-dashboard-contact-count")
-- [Contacts
-  handled and average handle time trend](#contact-lens-conversational-dashboard-contacts-handled "#contact-lens-conversational-dashboard-contacts-handled")
+- [Contact categories](#contact-lens-conversational-dashboard-contact-categories "#contact-lens-conversational-dashboard-contact-categories")
+- [Movers and shakers](#contact-lens-conversational-dashboard-movers-shakers "#contact-lens-conversational-dashboard-movers-shakers")
+- [Top contact categories average handle time](#contact-lens-conversational-dashboard-top-contact-categories "#contact-lens-conversational-dashboard-top-contact-categories")
+- [Contact count by queue](#contact-lens-conversational-dashboard-contact-count "#contact-lens-conversational-dashboard-contact-count")
+- [Contacts handled and average handle time trend](#contact-lens-conversational-dashboard-contacts-handled "#contact-lens-conversational-dashboard-contacts-handled")
 - [Dashboard functionality limitations](#contact-lens-conversational-dashboard-functionality-limitations "#contact-lens-conversational-dashboard-functionality-limitations")
 
-## Enable access to the
-
-dashboard
+## Enable access to the dashboard
 
 1. Ensure users are assigned the appropriate security profile
    permissions:
    - **Access metrics - Access permission** or the
      **Dashboard - Access permission**. For
-     information about the difference in behavior, see [Assign permissions to view dashboards
-     and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+     information about the difference in behavior, see [Assign permissions to view dashboards and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
    - **Contact Lens - conversational
      analytics**: This permission enables users to view data
      in the Contact Lens dashboard.
@@ -61,8 +52,7 @@ dashboard
    the following image.
 
 ![The Enable Contact Lens checkbox in the AWS console.](images/dashboards-enable-contact-lens-checkbox.png) 3. In your flow, enable Contact Lens conversational analytics so it
-analyzes your contacts. For instructions, see [Enable call recording and
-speech analytics](enable-analytics.md#enable-callrecording-speechanalytics "enable-analytics.md#enable-callrecording-speechanalytics").
+analyzes your contacts. For instructions, see [Enable call recording and speech analytics](enable-analytics.md#enable-callrecording-speechanalytics "enable-analytics.md#enable-callrecording-speechanalytics").
 
 ## Performance overview charts
 
@@ -83,9 +73,7 @@ This chart shows the following information:
   negative (red) compared to your benchmark.
 - There are no colors for contacts handled.
 
-## Contact
-
-categories
+## Contact categories
 
 The contact categories chart shows you Contact Category information. To see all
 data, click on the pop-out icon in the top right of the chart. To deep dive further
@@ -107,9 +95,7 @@ Search pre-filtered for that category along with the dashboard filters.
 
 ![The Contact categories chart.](images/conversational-analytics-dashboards-contact-categories.png)
 
-## Movers and
-
-shakers
+## Movers and shakers
 
 The movers and shakers chart shows you the categories with the highest percent
 change in distribution compared to your benchmark time range. In other words, it
@@ -151,9 +137,7 @@ filters.
 
 ![The Movers and shakers chart.](images/conversational-analytics-dashboards-movers-shakers.png)
 
-## Top
-
-contact categories average handle time
+## Top contact categories average handle time
 
 The top contact categories average handle time displays the prior AHT (using the
 "compare to" benchmark time range) to the current time range AHT for each of your
@@ -162,9 +146,7 @@ To see all data, click on the pop-out icon in the top right of the chart.
 
 ![The Top contact categories average handle time chart.](images/conversational-analytics-dashboards-top-contact-categories.png)
 
-## Contact count
-
-by queue
+## Contact count by queue
 
 ###### Note
 
@@ -179,9 +161,7 @@ dashboard.
 
 ![The Contact count by queue chart.](images/conversational-analytics-dashboards-contact-count.png)
 
-## Contacts
-
-handled and average handle time trend
+## Contacts handled and average handle time trend
 
 ###### Note
 

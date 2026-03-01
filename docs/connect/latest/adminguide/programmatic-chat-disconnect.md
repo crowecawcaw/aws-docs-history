@@ -1,6 +1,4 @@
-# Programmatically disconnect the chat
-
-session of an Amazon Connect communication widget
+# Programmatically disconnect the chat session of an Amazon Connect communication widget
 
 You can disconnect the chat session of a communication widget programmatically using
 'JavaScript by calling the `disconnect` method stored to the widget's
@@ -35,9 +33,7 @@ snippet:
 </script>
 ```
 
-## Implementation and use
-
-cases
+## Implementation and use cases
 
 Calling disconnect programmatically can be useful in multiple cases. It provides
 more control on when to terminate the conversation outside of manually clicking the

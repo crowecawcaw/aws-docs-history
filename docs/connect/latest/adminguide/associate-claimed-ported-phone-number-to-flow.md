@@ -1,6 +1,4 @@
-# Attach a claimed or ported
-
-phone number to a flow in Amazon Connect
+# Attach a claimed or ported phone number to a flow in Amazon Connect
 
 After you publish a flow, you can attach a [claimed](get-connect-number.md "get-connect-number.md") or [ported](port-phone-number.md "port-phone-number.md") phone number to it.
 When a contact calls the phone number that you associate with a flow, they are connected to

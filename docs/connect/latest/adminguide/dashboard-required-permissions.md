@@ -1,6 +1,4 @@
-# Assign permissions to view dashboards
-
-and reports in Amazon Connect
+# Assign permissions to view dashboards and reports in Amazon Connect
 
 The following security profile permissions control access to dashboards and reports in
 Amazon Connect. These permissions are in the **Analytics and Optimization**
@@ -32,18 +30,14 @@ When you select **Access metrics - Access**:
 
 You can also assign permissions for individual features:
 
-### Real-time metrics
-
-permission
+### Real-time metrics permission
 
 When you select only **Real-time metrics - Access**:
 
 - You can access only real-time metrics reports.
 - You cannot access other analytics pages or reports.
 
-### Historical metrics
-
-permission
+### Historical metrics permission
 
 When you select only **Historical metrics - Access**:
 

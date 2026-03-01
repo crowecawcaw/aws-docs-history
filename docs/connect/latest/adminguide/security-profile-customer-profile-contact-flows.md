@@ -1,6 +1,4 @@
-# Update Customer Profiles
-
-permissions for flows
+# Update Customer Profiles permissions for flows
 
 1. Go to the Security profiles page, choose the security profile you would
    like to edit, or choose **Add new security

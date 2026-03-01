@@ -1,6 +1,4 @@
-# Data model for conversational analytics segment streams to analyze chats in
-
-Contact Lens
+# Data model for conversational analytics segment streams to analyze chats in Contact Lens
 
 Conversational analytics segment streams for chat contacts are generated in
 JSON. Event JSON blobs are published to the associated stream for every contact
@@ -21,9 +19,7 @@ contact:
   session publishes one COMPLETED or FAILED event at the end of the
   session.
 
-## Common
-
-properties included in all events for chat contacts
+## Common properties included in all events for chat contacts
 
 Every event includes the following properties:
 
@@ -43,8 +39,7 @@ Type: String
 Valid values: `VOICE`, `CHAT`,
 `TASK`
 
-For more information about channels, see [Channels and concurrency for routing contacts
-in Amazon Connect](channels-and-concurrency.md "channels-and-concurrency.md").
+For more information about channels, see [Channels and concurrency for routing contacts in Amazon Connect](channels-and-concurrency.md "channels-and-concurrency.md").
 
 **AccountId**
 
@@ -131,9 +126,7 @@ Type: String
 
 Valid values: `PII`, `EntityType`
 
-## STARTED
-
-event
+## STARTED event
 
 `STARTED` events include only the common properties:
 
@@ -144,9 +137,7 @@ event
 - StreamingEventType: STARTED
 - StreamingSettings
 
-## SEGMENTS
-
-event
+## SEGMENTS event
 
 `SEGMENTS` events include the following properties:
 
@@ -236,9 +227,7 @@ object
 
 Required: No
 
-## COMPLETED
-
-event
+## COMPLETED event
 
 `COMPLETED` events include only the following common
 properties:
@@ -251,9 +240,7 @@ properties:
 - StreamingEventType: COMPLETED
 - StreamingSettings
 
-## FAILED
-
-event
+## FAILED event
 
 `FAILED` events include only the following common
 properties:

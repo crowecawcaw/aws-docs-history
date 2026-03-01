@@ -1,6 +1,4 @@
-# View an evaluation form audit trail in
-
-Amazon Connect
+# View an evaluation form audit trail in Amazon Connect
 
 1. Select the evaluation form that you want to research.
 
@@ -10,9 +8,7 @@ following image shows an example audit trail.
 
 ![An example audit trail for an evaluation.](images/evaluationforms-version.png) 3. Optionally, choose one of the forms to open it.
 
-## What do Active, Draft, and
-
-Locked mean?
+## What do Active, Draft, and Locked mean?
 
 An form is in one of the following states:
 

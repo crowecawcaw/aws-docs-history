@@ -1,6 +1,4 @@
-# Identify conferences and transfers by using
-
-Amazon Connect contact records
+# Identify conferences and transfers by using Amazon Connect contact records
 
 Contact records capture the events associated with a contact in your contact center. For
 every new contact, Amazon Connect creates a contact record and assigns a unique Contact ID to the
@@ -78,9 +76,7 @@ placed on hold by the recipient.
 The following sections explain how you can identify each of these types of calls in a
 contact record.
 
-## Contact records for consultative
-
-calls
+## Contact records for consultative calls
 
 Let's say customer calls Agent1. The agent doesn't transfer or consult with others.
 When call is disconnected, the contact record looks like the following sample (only the
@@ -199,17 +195,13 @@ are example use cases for how it can be extended.
 
 ## How to identify consultative calls
 
-1. [Step 1: Group all the legs associated
-   with the main contact](#step1-consultative-calls "#step1-consultative-calls")
-2. [Step 2: Identify relation between each
-   pair by using their Contact ID fields](#step2-consultative-calls "#step2-consultative-calls") (Previous Contact ID, Next
+1. [Step 1: Group all the legs associated with the main contact](#step1-consultative-calls "#step1-consultative-calls")
+2. [Step 2: Identify relation between each pair by using their Contact ID fields](#step2-consultative-calls "#step2-consultative-calls") (Previous Contact ID, Next
    Contact ID, Initial Contact ID and Contact ID). Examine additional fields in the
    contact record to identify the type of consultative operation: Consult /
    Transfer or Conference.
 
-### Step 1: Group all the legs associated
-
-with the main contact
+### Step 1: Group all the legs associated with the main contact
 
 This step helps you group all the calls that were initiated by a given initiator /
 caller. The fields of interest are Contact ID, Previous Contact ID, Next Contact ID,
@@ -224,9 +216,7 @@ legs it took to resolve the call. The workflow for this is as follows:
    the `ContactId` of the initiator contact record is related to
    this contact record.
 
-### Step 2: Identify relation between each
-
-pair by using their Contact ID fields
+### Step 2: Identify relation between each pair by using their Contact ID fields
 
 You can use following logic to identify consults versus transfers versus
 conferences. The logic uses timestamp fields noted in the contact record. All

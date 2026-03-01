@@ -1,7 +1,4 @@
-# Data
-
-model for conversational analytics segment streams to analyze voice contacts
-in Contact Lens
+# Data model for conversational analytics segment streams to analyze voice contacts in Contact Lens
 
 Real-time contact analysis segment streams are generated in JSON. Event JSON blobs are published to
 the associated stream for every contact that has real-time conversational
@@ -20,9 +17,7 @@ conversational analytics session for a voice contact:
   session publishes one COMPLETED or FAILED event at the end of the
   session.
 
-## Common
-
-properties included in all events for voice contacts
+## Common properties included in all events for voice contacts
 
 Every event includes the following properties:
 
@@ -41,8 +36,7 @@ Type: String
 Valid values: `VOICE`, `CHAT`,
 `TASK`
 
-For more information about channels, see [Channels and concurrency for routing contacts
-in Amazon Connect](channels-and-concurrency.md "channels-and-concurrency.md").
+For more information about channels, see [Channels and concurrency for routing contacts in Amazon Connect](channels-and-concurrency.md "channels-and-concurrency.md").
 
 **AccountId**
 
@@ -83,9 +77,7 @@ Type: String
 Valid values: `STARTED`, `SEGMENTS`,
 `COMPLETED`, `FAILED`
 
-## STARTED
-
-event
+## STARTED event
 
 `STARTED` events include only the common properties:
 
@@ -96,9 +88,7 @@ event
 - LanguageCode
 - EventType: STARTED
 
-## SEGMENTS
-
-event
+## SEGMENTS event
 
 `SEGMENTS` events include the following properties:
 
@@ -212,9 +202,7 @@ Type: [PostContactSummary](../APIReference/API_connect-contact-lens_PostContactS
 
 Required: No
 
-## COMPLETED
-
-event
+## COMPLETED event
 
 `COMPLETED` events include only the following common
 properties:
@@ -226,9 +214,7 @@ properties:
 - LanguageCode
 - EventType: COMPLETED
 
-## FAILED
-
-event
+## FAILED event
 
 `FAILED` events include only the following common
 properties:

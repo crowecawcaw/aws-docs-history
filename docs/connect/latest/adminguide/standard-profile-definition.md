@@ -1,6 +1,4 @@
-# Standard profile definition in
-
-the Amazon Connect Customer Profiles
+# Standard profile definition in the Amazon Connect Customer Profiles
 
 The following table lists all the fields in the Customer Profiles standard
 profile object.
@@ -62,18 +60,14 @@ with the search value.
 | Province               | String    | The province in which the customer<br>lives. |
 | State                  | String    | The state in which the customer lives.       |
 
-## EngagementPreferences
-
-data type
+## EngagementPreferences data type
 
 | Standard profile field | Data type                          | Description                                     |
 | ---------------------- | ---------------------------------- | ----------------------------------------------- |
 | Email                  | Array of ContactPreference objects | A list of email-related contact<br>preferences. |
 | Phone                  | Array of ContactPreference objects | A list of phone-related contact<br>preferences. |
 
-## ContactPreference data
-
-type
+## ContactPreference data type
 
 | Standard profile field | Data type | Description                                                        |
 | ---------------------- | --------- | ------------------------------------------------------------------ | ----------------- | ------------------- | ------------------- | ---------------- | -------------------- | -------------------- |

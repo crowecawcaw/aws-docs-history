@@ -1,6 +1,4 @@
-# Contacts, contact chains, and contact
-
-attributes
+# Contacts, contact chains, and contact attributes
 
 This topic explains how Amazon Connect organizes and tracks
 customer interactions while maintaining relevant contextual information throughout the

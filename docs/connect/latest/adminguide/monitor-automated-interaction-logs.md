@@ -1,6 +1,4 @@
-# Monitor automated interactions
-
-(IVR) in Amazon Connect
+# Monitor automated interactions (IVR) in Amazon Connect
 
 You can use automated interaction logs to review the automated portion of your
 customers' Amazon Connect experience . The interaction logs appear on the **Contact
@@ -13,9 +11,7 @@ details** page. They include the following information:
   maintain audio and system execution records of the interaction for compliance
   purposes.
 
-## Enable automated interaction
-
-logs
+## Enable automated interaction logs
 
 Complete the following steps to check that automated interaction logs are enabled
 for your Amazon Connect instance.
@@ -46,9 +42,7 @@ Lock](../../../AmazonS3/latest/userguide/object-lock.md "../../../AmazonS3/lates
    audio recording if available, on the **Contact details**
    page.
 
-## Permissions for automated
-
-interaction logs
+## Permissions for automated interaction logs
 
 To keep customer data secure, you can set up permissions to have granular control
 over who can access automated interaction logs. Access to automated interaction logs
@@ -63,9 +57,7 @@ are gated by the following security profile permissions:
   keypad inputs in response to IVR prompts, transcripts of Lex interactions,
   and more.
 
-## Navigate automated
-
-interactions logs and audio recording
+## Navigate automated interactions logs and audio recording
 
 The following image shows an example of an automated interaction log on the
 **Contact details** page on the Amazon Connect admin website.

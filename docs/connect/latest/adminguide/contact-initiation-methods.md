@@ -1,6 +1,4 @@
-# Contact initiation methods and flow types in
-
-your Amazon Connect contact center
+# Contact initiation methods and flow types in your Amazon Connect contact center
 
 Every contact in your Amazon Connect contact center is initiated by one of the following methods:
 
@@ -268,16 +266,13 @@ played.
 An email was initiated by the [Send message](send-message.md "send-message.md") block. For this initiation method the
 **Outbound whisper flow** type is played.
 
-## Override the default contact
-
-flows
+## Override the default contact flows
 
 For all of the initiation methods discussed in this topic, if you don't specify flows
 for **Agent whisper flow**, **Customer whisper flow**,
 **Customer queue flow**, or **Outbound whisper
 flow**, then the default flow of that type runs instead. For a list of
-default flows, see [Default flows in Amazon Connect for your contact
-center](contact-flow-default.md "contact-flow-default.md").
+default flows, see [Default flows in Amazon Connect for your contact center](contact-flow-default.md "contact-flow-default.md").
 
 To override the defaults and use your own flows, use the following blocks:
 
@@ -286,5 +281,4 @@ To override the defaults and use your own flows, use the following blocks:
 - [Set hold flow](set-hold-flow.md "set-hold-flow.md")
 - [Set whisper flow](set-whisper-flow.md "set-whisper-flow.md")
 
-For more information, see [Default flows in Amazon Connect for your contact
-center](contact-flow-default.md "contact-flow-default.md").
+For more information, see [Default flows in Amazon Connect for your contact center](contact-flow-default.md "contact-flow-default.md").

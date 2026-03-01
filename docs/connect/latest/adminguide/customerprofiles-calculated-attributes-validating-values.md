@@ -1,6 +1,4 @@
-# Validate
-
-calculated attribute values in Amazon Connect Customer Profiles using APIs
+# Validate calculated attribute values in Amazon Connect Customer Profiles using APIs
 
 There are two APIs, `GetCalculatedAttributeForProfile` and
 `ListCalculatedAttributesForProfile`, that are at the profile
@@ -31,9 +29,7 @@ calculated attribute is still being calculated. For example, if you want an aver
 over 30 days, only after 30 days have elapsed will the `IsDataPartial`
 field be set to false.
 
-## Retrieve a
-
-list of calculated attributes
+## Retrieve a list of calculated attributes
 
 **Use the AWS CLI**
 
@@ -65,9 +61,7 @@ Create a JSON file with the following contents:
 https://profile.`your-region`.amazonaws.com/domains/`your-domain-name`/profile/`your-profile-id`/calculated-attributes/
 ```
 
-## Retrieve a
-
-single calculated attribute
+## Retrieve a single calculated attribute
 
 **Use the AWS CLI**:
 

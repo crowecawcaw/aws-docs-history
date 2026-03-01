@@ -1,6 +1,4 @@
-# What is a customer profile in
-
-Amazon Connect?
+# What is a customer profile in Amazon Connect?
 
 A _customer profile_ is a record that stores contact history
 combined with information about customers, such as account number, additional
@@ -22,9 +20,7 @@ applications](integrate-external-apps-customer-profiles.md "integrate-external-a
 You can also add custom fields and objects to the customer profiles by using the
 [Amazon Connect Customer Profiles APIs](../../../customerprofiles/latest/APIReference/Welcome.md "../../../customerprofiles/latest/APIReference/Welcome.md").
 
-## How is customer profile data
-
-stored?
+## How is customer profile data stored?
 
 Amazon Connect stores contact history in unique customer profiles. It parses data ingested
 from external applications and stores it as customer profile attributes.

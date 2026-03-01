@@ -1,6 +1,4 @@
-# Review agent screen recordings in the Amazon Connect
-
-Client Application
+# Review agent screen recordings in the Amazon Connect Client Application
 
 Use screen recordings to identify areas for agent coaching (for example, long contact
 handle duration or non-compliance with business processes) by watching an agent's
@@ -15,14 +13,11 @@ Screen recordings are only available for Completed contacts.
 
 ###### Contents
 
-- [Step 1: Assign permissions to review screen
-  recordings in the Amazon Connect Client Application](#assign-permissions-sr "#assign-permissions-sr")
+- [Step 1: Assign permissions to review screen recordings in the Amazon Connect Client Application](#assign-permissions-sr "#assign-permissions-sr")
 - [Step 2: Review screen recordings](#review-sr-2 "#review-sr-2")
 - [Watch in Picture-in-picture mode](#picture-in-picture "#picture-in-picture")
 
-## Step 1: Assign permissions to review screen
-
-recordings in the Amazon Connect Client Application
+## Step 1: Assign permissions to review screen recordings in the Amazon Connect Client Application
 
 To allow users to review screen recordings, assign the following
 **Analytics and optimization** security profile permission:

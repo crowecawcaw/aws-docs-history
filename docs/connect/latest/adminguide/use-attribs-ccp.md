@@ -1,6 +1,4 @@
-# Display contact information to the agent in the Contact
-
-Control Panel (CCP)
+# Display contact information to the agent in the Contact Control Panel (CCP)
 
 You can use contact attributes to capture information about the contact and then present
 it to the agent through the Contact Control Panel (CCP). For example, you might want to do

@@ -1,6 +1,4 @@
-# Apply tag-based access controls to
-
-dashboards and reports in Amazon Connect
+# Apply tag-based access controls to dashboards and reports in Amazon Connect
 
 You can use resource tags and access control tags to apply granular access to users,
 queues, routing profiles, flows, flow modules, evaluation forms, and test cases on
@@ -12,21 +10,15 @@ by using the API or the Amazon Connect admin website for supported resources. Yo
 and access control tags before tag-based access control is applied to users, queues,
 routing profiles, flows, flow modules, evaluation forms, and test cases on analytics
 pages. For more information, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md") and
-[Apply tag-based access control in
-Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
+[Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
 
 ###### Contents
 
-- [How to enable tag-based access control for
-  dashboards and reports](#dashboard-tbac-enable "#dashboard-tbac-enable")
-- [Important things to know when using
-  tag-based access controls](#dashboard-tbac-limitations "#dashboard-tbac-limitations")
-- [How to transition to tag-based access
-  control](#dashboard-tbac-transition "#dashboard-tbac-transition")
+- [How to enable tag-based access control for dashboards and reports](#dashboard-tbac-enable "#dashboard-tbac-enable")
+- [Important things to know when using tag-based access controls](#dashboard-tbac-limitations "#dashboard-tbac-limitations")
+- [How to transition to tag-based access control](#dashboard-tbac-transition "#dashboard-tbac-transition")
 
-## How to enable tag-based access control for
-
-dashboards and reports
+## How to enable tag-based access control for dashboards and reports
 
 To apply tags to control access to users, queues, routing profiles, flows, flow
 modules, evaluation forms, and test cases metrics in dashboards and reports:
@@ -79,9 +71,7 @@ View**, **Test Cases - View**, \*\*Evaluation forms
 
 ![Security profile permissions showing View permissions for routing profiles, queues, users, test cases, evaluation forms, flows, flow modules, and bots.](images/dashboard-tbac-permissions.png)
 
-## Important things to know when using
-
-tag-based access controls
+## Important things to know when using tag-based access controls
 
 - The Dashboards support access controls on users, queues, routing profiles,
   flows, flow modules, evaluation forms, and test cases.
@@ -159,9 +149,7 @@ tag-based access controls
 | Self service AI performance summary                    | QUEUE         |
 | Test execution summary                                 | TEST_CASE     |
 
-## How to transition to tag-based access
-
-control
+## How to transition to tag-based access control
 
 If you open a saved report that you don't have permission to access anymore due to
 tag-based access control, or if groupings or filters that you don't have permissions

@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-Amazon AppIntegrations
+# Using service-linked roles for Amazon AppIntegrations
 
 Amazon AppIntegrations uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to Amazon AppIntegrations. Service-linked roles are predefined by Amazon AppIntegrations and
@@ -22,9 +20,7 @@ IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md 
 **Service-linked roles** column. Choose a **Yes** with a link to view the service-linked role documentation for that
 service.
 
-## Service-linked role permissions for
-
-Amazon AppIntegrations
+## Service-linked role permissions for Amazon AppIntegrations
 
 Amazon AppIntegrations uses the service-linked role named **AWSServiceRoleForAppIntegrations**
 which allows AppIntegrations to access AWS services and resources on your behalf.
@@ -118,9 +114,7 @@ JSON
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-## Creating a service-linked role for
-
-Amazon AppIntegrations
+## Creating a service-linked role for Amazon AppIntegrations
 
 You don't need to manually create a service-linked role. When you
 create a data or event integration using either the Connect AI agents, Customer Profiles, or Tasks widget in Amazon Connect in the AWS Management Console, the AWS CLI, or the AWS API, Amazon AppIntegrations
@@ -145,9 +139,7 @@ information, see [Creating a
 service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role") in the _IAM User Guide_. If you delete this
 service-linked role, you can use this same process to create the role again.
 
-## Editing a service-linked role for
-
-Amazon AppIntegrations
+## Editing a service-linked role for Amazon AppIntegrations
 
 Amazon AppIntegrations does not allow you to edit the AWSServiceRoleForAppIntegrations service-linked role. After you
 create a service-linked role, you cannot change the name of the role because various entities
@@ -155,9 +147,7 @@ might reference the role. However, you can edit the description of the role usin
 more information, see [Editing a
 service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-Amazon AppIntegrations
+## Deleting a service-linked role for Amazon AppIntegrations
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not
@@ -207,9 +197,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleFor
 service-linked role. For more information, see [Deleting a
 service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported regions for
-
-Amazon AppIntegrations service-linked roles
+## Supported regions for Amazon AppIntegrations service-linked roles
 
 Amazon AppIntegrations supports using service-linked roles in all of the regions where the service is available. For more information, see [AWS regions and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").
 

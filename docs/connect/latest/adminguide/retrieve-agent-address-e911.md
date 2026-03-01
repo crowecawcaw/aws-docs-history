@@ -1,6 +1,4 @@
-# Retrieve an agent's address from Amazon Connect
-
-when they call 911
+# Retrieve an agent's address from Amazon Connect when they call 911
 
 To retrieve an agent's validated address from the Amazon Connect, create an outbound
 whisper flow that calls a Lambda function. Code the Lambda function to retrieve the
@@ -17,9 +15,7 @@ illustration:
 3. [Add a task that sends
    notifications when an E911 call is placed](#connect-e911-notifications "#connect-e911-notifications").
 
-## Create an outbound whisper flow that
-
-relays the physical address
+## Create an outbound whisper flow that relays the physical address
 
 For outbound voice calls within Amazon Connect, an [outbound whisper flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types") usually specifies the whisper to be played to
 customer. However, in this case you need to configure an [outbound whisper flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types") to do the
@@ -50,8 +46,7 @@ attributes](set-contact-attributes.md "set-contact-attributes.md"), and [Call ph
 
 ![The properties page of an Invoke AWS Lambda function block.](images/e911-invoke-lambda-block.png)
 
-- Step 2: Attach the location received to a contact attribute (see [Format a physical address for
-  E911 to pass to Amazon Connect](connect-format-physical-address-e911.md "connect-format-physical-address-e911.md") for the
+- Step 2: Attach the location received to a contact attribute (see [Format a physical address for E911 to pass to Amazon Connect](connect-format-physical-address-e911.md "connect-format-physical-address-e911.md") for the
   required format).
 - Step 3: Update the call origination to the agent's phone number and
   continue with the outbound call.
@@ -78,9 +73,7 @@ agent in case the initial phone call was disconnected.
      number. For example, the origination number can the phone
      number of the security front desk.
 
-## Add a task that sends notifications
-
-when an E911 call is placed
+## Add a task that sends notifications when an E911 call is placed
 
 When an agent calls 911 it is important to notify in real time the appropriate
 people in your organization, such as corporate security or a human resources

@@ -1,6 +1,4 @@
-# Iframe permissions when granting
-
-third-party applications access to Amazon Connect
+# Iframe permissions when granting third-party applications access to Amazon Connect
 
 When configuring third-party applications through either the AWS Console's
 `onboarding` UI or API, you have the ability to specify
@@ -36,9 +34,7 @@ different browser implementations.
 | allow-storage-access-by-user-activation | Allows to use the Storage Access API to request access to<br>unpartitioned cookies.                                                                                                                                                             |
 | allow-popups-to-escape-sandbox          | Allows to open a new browsing context without forcing the<br>sandboxing flags upon it                                                                                                                                                           |
 
-## Sample
-
-Configuration
+## Sample Configuration
 
 Iframe permissions can be configured using a similar template to the
 following.

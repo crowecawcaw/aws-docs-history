@@ -1,6 +1,4 @@
-# Configure column layouts,
-
-colors, and data definitions in a view
+# Configure column layouts, colors, and data definitions in a view
 
 This topic explains how to configure column layouts, colors, and dynamic data
 fields in the Amazon Connect UI builder to customize views for contact center
@@ -24,9 +22,7 @@ You use the **Customize** panel to configure:
 - Sample data
 - Static data definitions
 
-## Configure global
-
-layouts and colors for a view
+## Configure global layouts and colors for a view
 
 To configure global settings, navigate to the **Customize**
 panel, and then choose the global settings icon, as shown in the following

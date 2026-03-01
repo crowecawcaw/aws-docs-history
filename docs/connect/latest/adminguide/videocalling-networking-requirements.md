@@ -1,6 +1,4 @@
-# Agent workstation requirements
-
-for app, web, and video calling in Amazon Connect
+# Agent workstation requirements for app, web, and video calling in Amazon Connect
 
 The Amazon Connect in-app, web, and video calling capabilities enable your
 customers to contact you without ever leaving your web or mobile application. The video

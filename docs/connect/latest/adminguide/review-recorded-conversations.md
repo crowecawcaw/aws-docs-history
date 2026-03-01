@@ -1,6 +1,4 @@
-# Review recorded conversations between agents
-
-and customers using Amazon Connect
+# Review recorded conversations between agents and customers using Amazon Connect
 
 Managers can review past conversations between agents and customers. To set this up, you
 need to [set up recording behavior](set-up-recordings.md "set-up-recordings.md"), assign managers
@@ -26,9 +24,7 @@ who can listen to recordings, and access the corresponding URLs that are generat
 For more information about this permission, see [Assign
 permissions](assign-permissions-to-review-recordings.md "assign-permissions-to-review-recordings.md").
 
-## Review recordings and transcripts of
-
-past agent conversations
+## Review recordings and transcripts of past agent conversations
 
 This section covers the steps that a manager takes to review past recordings and
 transcripts of past agent conversations. For chat contacts, the same transcript contains
@@ -61,9 +57,7 @@ following image.
 
 ![A sample chat transcript.](images/sample-chat-transcript.png)
 
-### Pause, rewind, or fast-forward
-
-a recording
+### Pause, rewind, or fast-forward a recording
 
 Use the following steps to pause, rewind, or fast-forward a voice recording.
 
@@ -81,9 +75,7 @@ to navigate the recording, as shown in the following image.
     3. Play, pause, skip backwards or forwards in 10 second
      increments.
 
-### Troubleshoot problems
-
-pausing, rewinding, or fast-forwarding
+### Troubleshoot problems pausing, rewinding, or fast-forwarding
 
 If you are unable to pause, rewind or fast-forward recordings on the **Contact search**
 page, one possible reason could be that your network is blocking HTTP range requests.
@@ -91,9 +83,7 @@ See [HTTP
 range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests " https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests") on the MDN Web Docs site. Work with your network
 administrator to unblock HTTP range requests.
 
-## Review recordings and transcripts of
-
-automated voice interactions (with IVR and bots)
+## Review recordings and transcripts of automated voice interactions (with IVR and bots)
 
 IVR recordings and logs enable you to monitor and improve your automated experiences
 to better resolve the needs of the end-customer and maintain audio and system execution
@@ -123,9 +113,7 @@ seeing additional details on which flow was executed), you can turn off the
 
 ![The location of the contact ID that you need to choose.](images/recordings-ivr-no-detail.png)
 
-###### Flow blocks available within the automated interaction logs and
-
-transcripts
+###### Flow blocks available within the automated interaction logs and transcripts
 
 You can view the following flow blocks within the Amazon Connect UI on the contact details
 page;
@@ -136,9 +124,7 @@ page;
 - [Loop prompts](loop-prompts.md "loop-prompts.md")
 - [Lamda functions](invoke-lambda-function-block.md "invoke-lambda-function-block.md")
 
-## Pause, rewind, or fast-forward a
-
-recording
+## Pause, rewind, or fast-forward a recording
 
 Use the following steps to pause, rewind, or fast-forward a voice recording.
 
@@ -156,9 +142,7 @@ navigate the recording, as shown in the following image.
     3. Play, pause, skip backwards or forwards in 10 second
      increments.
 
-## Troubleshoot problems
-
-pausing, rewinding, or fast-forwarding
+## Troubleshoot problems pausing, rewinding, or fast-forwarding
 
 If you are unable to pause, rewind or fast-forward recordings on the **Contact search**
 page, one possible reason could be that your network is blocking HTTP range requests.

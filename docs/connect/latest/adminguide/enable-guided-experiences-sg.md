@@ -1,6 +1,4 @@
-# Enable step-by-step guides in
-
-Amazon Connect
+# Enable step-by-step guides in Amazon Connect
 
 The following steps allow you to provide your users with the ability to create guided
 experiences, and allow agents to interact with the experiences.

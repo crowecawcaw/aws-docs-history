@@ -1,6 +1,4 @@
-# Upgrade your Contact Control Panel (CCP) when
-
-using the Amazon Connect Streams API
+# Upgrade your Contact Control Panel (CCP) when using the Amazon Connect Streams API
 
 ###### Note
 
@@ -37,12 +35,9 @@ Use the following steps to upgrade to the latest CCP.
    guide](https://amazon-connect.github.io/amazon-connect-salesforce-cti/docs/lightning/notices/ "https://amazon-connect.github.io/amazon-connect-salesforce-cti/docs/lightning/notices/") or the [Amazon Connect CTI Adapter for Salesforce Classic installation
    guide](https://amazon-connect.github.io/amazon-connect-salesforce-cti/docs/classic/notices/ "https://amazon-connect.github.io/amazon-connect-salesforce-cti/docs/classic/notices/").
 
-## Verify your network
+## Verify your network settings
 
-settings
-
-We highly recommend setting up your network to use [Option 1 (recommended): Replace Amazon EC2 and CloudFront IP range
-requirements with a domain allowlist](ccp-networking.md#option1 "ccp-networking.md#option1").
+We highly recommend setting up your network to use [Option 1 (recommended): Replace Amazon EC2 and CloudFront IP range requirements with a domain allowlist](ccp-networking.md#option1 "ccp-networking.md#option1").
 
 Using this option helps Amazon Connect Support to quickly troubleshoot any issues you have.
 Specifically, using **\*.telemetry.connect.{region}.amazonaws.com** passes more metrics to

@@ -1,6 +1,4 @@
-# Agent status in the Contact Control Panel
-
-(CCP)
+# Agent status in the Contact Control Panel (CCP)
 
 Agents have a status. It's manually set in the Contact Control Panel (CCP).
 
@@ -58,26 +56,19 @@ To identify how long an agent spent on ACW for a contact:
   time** captures the amount of time each contact spent in
   ACW.
 - In the agent event stream, you have to do some calculations. For more
-  information, see [Determine the contact center agent's ACW (After
-  Contact Work) time](determine-acw-time.md "determine-acw-time.md").
+  information, see [Determine the contact center agent's ACW (After Contact Work) time](determine-acw-time.md "determine-acw-time.md").
 
-## How do you know when an agent can handle
-
-another contact?
+## How do you know when an agent can handle another contact?
 
 The **Availability** metric tells you when agents are finished
 with a contact and ready to have another one routed to them.
 
-## What appears in the real-time metrics
-
-report?
+## What appears in the real-time metrics report?
 
 To find out what the agent status is in the real-time metrics report, look at the
 **Agent Activity** metric.
 
-## What appears in the agent event
-
-stream?
+## What appears in the agent event stream?
 
 In the agent event stream you'll see the **AgentStatus**, for
 example:
@@ -97,9 +88,7 @@ example:
 
 ```
 
-## "We couldn't find this agent. Use
-
-the agent's user name to identify them."
+## "We couldn't find this agent. Use the agent's user name to identify them."
 
 On occasion, in the **Contact summary** the
 **Agent** field may say **"We couldn't find this agent.

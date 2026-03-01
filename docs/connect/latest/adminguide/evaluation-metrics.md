@@ -1,7 +1,6 @@
 # Evaluation metrics in Amazon Connect
 
-You can view the following metrics on the [Agent performance evaluations
-dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md"). These metrics enable you
+You can view the following metrics on the [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md"). These metrics enable you
 to view aggregated agent performance, and get insights across agent cohorts and over
 time.
 
@@ -25,8 +24,7 @@ If the grouping does not contain evaluation form, section or question, then the 
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Agent performance evaluations
-  dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
+- Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 
 **Calculation logic**:
 
@@ -44,9 +42,7 @@ If the grouping does not contain evaluation form, section or question, then the 
 - Based on submitted evaluation timestamp.
 - Data for this metric is available starting from January 10, 2025 0:00:00 GMT.
 
-## Average weighted
-
-evaluation score
+## Average weighted evaluation score
 
 This metric provides the average weighted evaluation score for all submitted evaluations.
 Evaluations for calibrations are excluded from this metric.
@@ -69,8 +65,7 @@ then the average evaluation score is at an evaluation form level.
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Agent performance evaluations
-  dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
+- Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 
 **Calculation logic**:
 
@@ -88,9 +83,7 @@ then the average evaluation score is at an evaluation form level.
 - Based on submitted evaluation timestamp.
 - Data for this metric is available starting from January 10, 2025 0:00:00 GMT.
 
-## Automatic fails
-
-percent
+## Automatic fails percent
 
 This metric provides the percentage of performance evaluations with automatic fails.
 Evaluations for calibrations are excluded from this metric.
@@ -103,8 +96,7 @@ If a question is marked as an automatic fail, then the parent section and the fo
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Agent performance evaluations
-  dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
+- Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 
 **Calculation logic**:
 
@@ -139,8 +131,7 @@ Evaluations for calibrations are excluded from this metric.
 
 **How to access using the Amazon Connect admin website**:
 
-- Dashboard: [Agent performance evaluations
-  dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
+- Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 
 **Calculation logic**:
 

@@ -1,6 +1,4 @@
-# How machine learning Identity Resolution works
-
-in Amazon Connect
+# How machine learning Identity Resolution works in Amazon Connect
 
 This topic describes how Identity Resolution performs automatic profile matching, and if set
 up, how it automatically merges similar profiles.
@@ -48,9 +46,7 @@ A confidence score is a number between 0 and 1 that represents the
 confidence level of assigning profiles to a match group. A score of 1
 likely indicates an exact match.
 
-## Automatic merging of similar
-
-profiles
+## Automatic merging of similar profiles
 
 After the profiles are matched, the Identity Resolution Job can optionally merge similar
 profiles based on your criteria. If you delete or update criteria, the
@@ -74,9 +70,7 @@ manually by an agent in the Agent Workspace. Another profile is created
 using an S3 integration with FirstName “Peter”. If these profiles are
 automatically merged, the FirstName “John” will be preserved.
 
-### How the
-
-auto-merging process works
+### How the auto-merging process works
 
 - **All selected attributes in a
   consolidation criteria are connected with `AND`
@@ -168,17 +162,14 @@ number` are merged.
     object type, the timestamp on which the record was
     ingested into your Customer Profiles domain is used.
   - If you have custom object types, you need to add
-    timestamps. See [Missing timestamp for
-    profile conflicts](create-consolidation-criteria.md#missing-timestamp-for-profile-conflicts "create-consolidation-criteria.md#missing-timestamp-for-profile-conflicts") for more information.
+    timestamps. See [Missing timestamp for profile conflicts](create-consolidation-criteria.md#missing-timestamp-for-profile-conflicts "create-consolidation-criteria.md#missing-timestamp-for-profile-conflicts") for more information.
 
 - **Consolidation is a one-way process and
   cannot be undone**.
   - Choose your criteria carefully before starting the
-    consolidation process. For more information, see [Tips for creating
-    strong criteria](create-consolidation-criteria.md#tips-for-creating-consolidation-criteria "create-consolidation-criteria.md#tips-for-creating-consolidation-criteria").
+    consolidation process. For more information, see [Tips for creating strong criteria](create-consolidation-criteria.md#tips-for-creating-consolidation-criteria "create-consolidation-criteria.md#tips-for-creating-consolidation-criteria").
   - Use the [GetAutoMergingPreview](../../../customerprofiles/latest/APIReference/API_GetAutoMergingPreview.md "../../../customerprofiles/latest/APIReference/API_GetAutoMergingPreview.md") API to test the
     auto-merging settings of your Identity Resolution without merging your
     data.
 
-For an example that shows how criteria is applied, see [Example: How sample criteria are
-applied](create-consolidation-criteria.md#criteria-examples "create-consolidation-criteria.md#criteria-examples").
+For an example that shows how criteria is applied, see [Example: How sample criteria are applied](create-consolidation-criteria.md#criteria-examples "create-consolidation-criteria.md#criteria-examples").

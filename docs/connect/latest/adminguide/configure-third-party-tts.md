@@ -1,6 +1,4 @@
-# Configure third-party text-to-speech (TTS)
-
-providers
+# Configure third-party text-to-speech (TTS) providers
 
 Use the following instructions to configure a third-party text-to-speech (TTS)
 provider.
@@ -12,10 +10,8 @@ provider.
   about storing API keys as secrets in Secrets Manager, see [Create an AWS Secrets Manager
   secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md").
 - An Secrets Manager resource policy allowing Amazon Connect to retrieve the key. For more
-  information, see [Managing secrets and resource
-  policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
-- AWS KMS key permissions allowing decryption. For more information, see [Managing secrets and resource
-  policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
+  information, see [Managing secrets and resource policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
+- AWS KMS key permissions allowing decryption. For more information, see [Managing secrets and resource policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
 - Provider-specific model and voice values.
 
 ## Step 1: Open the contact flow
@@ -47,8 +43,7 @@ text-to-speech provider you want to use.
    and enter the ARN of the provider secret.
    - The secret must be in the same AWS Region.
    - AWS Secrets Manager and KMS policies must permit retrieval and decryption. For
-     more information, see [Managing secrets and resource
-     policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
+     more information, see [Managing secrets and resource policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
 
 4. Under **Language**, choose **Set manually**
    and choose a language that is supported by the provider voice.

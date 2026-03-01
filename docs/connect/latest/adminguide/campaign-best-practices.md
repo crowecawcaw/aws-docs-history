@@ -1,6 +1,4 @@
-# Best practices for Amazon Connect outbound campaigns using
-
-Pinpoint
+# Best practices for Amazon Connect outbound campaigns using Pinpoint
 
 ###### Important
 
@@ -243,8 +241,7 @@ The following best practices can help optimize agent efficiency by ensuring adeq
 hardware and network resources.
 
 - Ensure that agent workstations meet the minimum requirements. For more information, see
-  [Agent headset and workstation requirements for using
-  the Contact Control Panel (CCP)](ccp-agent-hardware.md "ccp-agent-hardware.md").
+  [Agent headset and workstation requirements for using the Contact Control Panel (CCP)](ccp-agent-hardware.md "ccp-agent-hardware.md").
 - Ensure that the agent has the CCP or agent workspace open and present on their desktop.
   This reduces the time spent bringing the screen to the front before greeting the
   caller.
@@ -297,9 +294,7 @@ of voicemail calls over live calls. However, the detection accuracy has limitati
 - PBX (private branch exchange) numbers with multiple levels of voicemail prompts are not
   supported.
 
-### The pros, cons, and best uses of Answering Machine
-
-Detection
+### The pros, cons, and best uses of Answering Machine Detection
 
 The use of Answering Machine Detection (AMD) may not comply with telemarketing laws. You
 are responsible for implementing AMD in a manner that is compliant with applicable laws, and

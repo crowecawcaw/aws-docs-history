@@ -12,8 +12,7 @@ contacts.
   remove tags in a flow, for example, if the tags aren't relevant to the
   segment anymore.
 - For more information about how to use tags to obtain a more detailed view
-  of your Amazon Connect usage, see [Set up granular billing for a detailed view of your Amazon Connect
-  usage](granular-billing.md "granular-billing.md").
+  of your Amazon Connect usage, see [Set up granular billing for a detailed view of your Amazon Connect usage](granular-billing.md "granular-billing.md").
 
 ## Supported channels
 

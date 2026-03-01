@@ -44,9 +44,7 @@ or use a [Set contact
 attributes](set-contact-attributes.md "set-contact-attributes.md")
 block.
 
-## How to find intents for Amazon Lex V1 bots, cross-Region
-
-bots, or dynamically set bots
+## How to find intents for Amazon Lex V1 bots, cross-Region bots, or dynamically set bots
 
 The **Intents** dropdown box does not list intents for Amazon Lex V1 bots, cross
 region bots, or if the bot ARN is dynamically set. For these intents, try the following

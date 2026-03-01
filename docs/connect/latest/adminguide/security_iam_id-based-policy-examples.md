@@ -1,6 +1,4 @@
-# Amazon Connect identity-based
-
-policy examples
+# Amazon Connect identity-based policy examples
 
 By default, IAM entities don't have permission to create or modify Amazon Connect
 resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An IAM
@@ -14,28 +12,17 @@ _IAM User Guide_.
 
 ###### Contents
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Allow IAM
-  users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Grant "View
-  User" permissions](#security_iam_id-based-policy-example-view-user-permissions "#security_iam_id-based-policy-example-view-user-permissions")
-- [Allow users to
-  integrate with external applications](#security_iam_id-based-policy-examples-integrate "#security_iam_id-based-policy-examples-integrate")
-- [Describe and
-  update Amazon Connect users based on tags](#security_iam_id-based-policy-examples-view-widget-tags "#security_iam_id-based-policy-examples-view-widget-tags")
-- [Create Amazon Connect users based on
-  tags](#connect-access-control-resources-example1 "#connect-access-control-resources-example1")
-- [Create and view Amazon AppIntegrations
-  resources](#appintegration-resources-example1 "#appintegration-resources-example1")
-- [Create and view Connect AI agents
-  Assistants](#wisdom-resources-example1 "#wisdom-resources-example1")
-- [Manage outbound campaigns
-  resources](#outboundcommunications-policy-example1 "#outboundcommunications-policy-example1")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Allow IAM users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Grant "View User" permissions](#security_iam_id-based-policy-example-view-user-permissions "#security_iam_id-based-policy-example-view-user-permissions")
+- [Allow users to integrate with external applications](#security_iam_id-based-policy-examples-integrate "#security_iam_id-based-policy-examples-integrate")
+- [Describe and update Amazon Connect users based on tags](#security_iam_id-based-policy-examples-view-widget-tags "#security_iam_id-based-policy-examples-view-widget-tags")
+- [Create Amazon Connect users based on tags](#connect-access-control-resources-example1 "#connect-access-control-resources-example1")
+- [Create and view Amazon AppIntegrations resources](#appintegration-resources-example1 "#appintegration-resources-example1")
+- [Create and view Connect AI agents Assistants](#wisdom-resources-example1 "#wisdom-resources-example1")
+- [Manage outbound campaigns resources](#outboundcommunications-policy-example1 "#outboundcommunications-policy-example1")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Connect resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -68,9 +55,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Allow IAM
-
-users to view their own permissions
+## Allow IAM users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -110,9 +95,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Grant "View
-
-User" permissions
+## Grant "View User" permissions
 
 When you create a user or [group](../../../IAM/latest/UserGuide/id.md#id_iam-groups "../../../IAM/latest/UserGuide/id.md#id_iam-groups") in your AWS account,
 you can associate an IAM policy with that group or user, which specifies the permissions
@@ -152,9 +135,7 @@ If you don't specify a user ARN or ID in your statement, you must also grant the
 permission to use all resources for the action using the \* wildcard for the
 `Resource` element.
 
-## Allow users to
-
-integrate with external applications
+## Allow users to integrate with external applications
 
 This example shows how you might create a policy that allows users to interact with
 their external application integrations.
@@ -187,9 +168,7 @@ JSON
 
 ```
 
-## Describe and
-
-update Amazon Connect users based on tags
+## Describe and update Amazon Connect users based on tags
 
 In an IAM policy, you can optionally specify conditions that control when a policy is
 in effect. For example, you can define a policy that allows users to update only an
@@ -231,9 +210,7 @@ This policy allows "describe user" and "update user" but only for those Amazon C
 tagged with tag "Department: Test" where "Department" is the tag key and "Test" is the
 tag value.
 
-## Create Amazon Connect users based on
-
-tags
+## Create Amazon Connect users based on tags
 
 The following sample policy allows the create actions for users with specific request
 tags.
@@ -265,9 +242,7 @@ JSON
 This policy allows "create user" and "tag resource" but the tag "Owner: TeamA" must
 be present in the requests.
 
-## Create and view Amazon AppIntegrations
-
-resources
+## Create and view Amazon AppIntegrations resources
 
 The following sample policy allows event integrations to be created, listed, and
 fetched.
@@ -292,9 +267,7 @@ JSON
 
 ```
 
-## Create and view Connect AI agents
-
-Assistants
+## Create and view Connect AI agents Assistants
 
 The following sample policy allows Connect AI agents assistants to be created, listed,
 fetched, and deleted.
@@ -344,9 +317,7 @@ JSON
 
 ```
 
-## Manage outbound campaigns
-
-resources
+## Manage outbound campaigns resources
 
 Onboarding permissions: The following sample policy allows Amazon Connect instances to be
 onboarded to outbound campaigns.

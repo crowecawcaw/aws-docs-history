@@ -1,6 +1,4 @@
-# Create an outbound campaign using
-
-event triggers
+# Create an outbound campaign using event triggers
 
 ###### Set up event triggers in the Amazon Connect admin website
 
@@ -20,9 +18,7 @@ settings.
 
 ![Final review screen for event-triggered campaign configuration with Publish button.](images/how-to-create-campaigns-using-event-triggers-4.png)
 
-## Create outbound campaigns with event
-
-triggers using APIs
+## Create outbound campaigns with event triggers using APIs
 
 ###### Amazon Connect Customer Profiles event trigger APIs
 

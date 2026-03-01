@@ -1,6 +1,4 @@
-# Ingest agent activities from
-
-third-party applications to evaluate agent performance
+# Ingest agent activities from third-party applications to evaluate agent performance
 
 You can import agent activities completed in third-party applications into Amazon Connect.
 These activities are imported as Amazon Connect tasks, which you can evaluate alongside work
@@ -15,12 +13,9 @@ accepted by the agent who completed the activity in the external application.
 
 Managers can then evaluate these external activities alongside native Amazon Connect
 interactions and back-office tasks. This gives managers a unified view of agent
-performance in the [Agent performance evaluations
-dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md").
+performance in the [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md").
 
-## How to ingest activities from third-party
-
-applications
+## How to ingest activities from third-party applications
 
 The following steps are typically performed by an IT admin.
 
@@ -81,8 +76,7 @@ references. These links enable managers to reference additional information
 that's not included with the task.
 
 - To enable managers to search for activities using these attributes, you
-  need to enable search on these attributes. For more information, see [Search for contacts in Amazon Connect by using custom
-  contact attributes or contact segment attributes](search-custom-attributes.md "search-custom-attributes.md").
+  need to enable search on these attributes. For more information, see [Search for contacts in Amazon Connect by using custom contact attributes or contact segment attributes](search-custom-attributes.md "search-custom-attributes.md").
 
 ###### Note
 

@@ -1,6 +1,4 @@
-# Investigate sentiment scores during contact
-
-conversations using Contact Lens
+# Investigate sentiment scores during contact conversations using Contact Lens
 
 ## What are sentiment scores?
 
@@ -13,9 +11,7 @@ identify which of their contacts to investigate.
 You can view a sentiment score for the entire conversation, as well as
 sentiment trend across whole contact.
 
-## How to investigate sentiment
-
-scores
+## How to investigate sentiment scores
 
 When working to improve your contact center, you may want to focus on the
 following:
@@ -44,12 +40,9 @@ up, and then back down at the end.
 
 ![Customer sentiment trend.](images/contact-lens-sentiment-trend.png)
 
-For more information, see [Search for sentiment score or evaluate
-sentiment shift](search-conversations.md#sentiment-search "search-conversations.md#sentiment-search").
+For more information, see [Search for sentiment score or evaluate sentiment shift](search-conversations.md#sentiment-search "search-conversations.md#sentiment-search").
 
-## How sentiment scores are
-
-determined
+## How sentiment scores are determined
 
 Amazon Connect Contact Lens analyzes the sentiment of each speaker turn in a
 conversation as positive, negative, or neutral. It then considers two factors

@@ -1,6 +1,4 @@
-# Case layouts for developers using Amazon Connect Cases
-
-APIs
+# Case layouts for developers using Amazon Connect Cases APIs
 
 This topic is intended for developers who are using the Amazon Connect Cases APIs.
 

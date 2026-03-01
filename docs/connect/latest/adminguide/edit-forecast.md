@@ -12,12 +12,9 @@ you can also remove the changes.
 ###### Contents
 
 - [How to edit a forecast](#howto-edit-forecast "#howto-edit-forecast")
-- [Important things to
-  know about using a CSV file to edit forecasts](#important-things-to-know-edit-forecast "#important-things-to-know-edit-forecast")
-- [How to edit a forecast using a CSV
-  upload](#howto-edit-forecast-csv "#howto-edit-forecast-csv")
-- [How to remove your forecast
-  edits](#howto-remove-forecast-edits "#howto-remove-forecast-edits")
+- [Important things to know about using a CSV file to edit forecasts](#important-things-to-know-edit-forecast "#important-things-to-know-edit-forecast")
+- [How to edit a forecast using a CSV upload](#howto-edit-forecast-csv "#howto-edit-forecast-csv")
+- [How to remove your forecast edits](#howto-remove-forecast-edits "#howto-remove-forecast-edits")
 
 ## How to edit a forecast
 
@@ -169,9 +166,7 @@ forecast.
 
 ![A forecast after edits have been saved.](images/forecasts-edit5.png)
 
-## Important things to
-
-know about using a CSV file to edit forecasts
+## Important things to know about using a CSV file to edit forecasts
 
 - The override data file be must a CSV file and it must be in the
   required format. If the file format and data don't meet the
@@ -221,9 +216,7 @@ Following are the requirements for imported data:
 - The following special characters are allowed in the CSV file: -, \_, .,
   (, and ). Space is allowed.
 
-## How to edit a forecast using a CSV
-
-upload
+## How to edit a forecast using a CSV upload
 
 1. Review [Important
    things to know about using CSV upload to edit forecasts](#important-things-to-know-edit-forecast "#important-things-to-know-edit-forecast") if
@@ -253,9 +246,7 @@ file. Amazon Connect retains only the last uploaded file. 5. Add override data, 
 upload it. Choose **Save** to confirm forecast
 override.
 
-## How to remove your forecast
-
-edits
+## How to remove your forecast edits
 
 1.  On the **Forecasts** page, choose the forecast you
     want to change, and then choose **Actions**,

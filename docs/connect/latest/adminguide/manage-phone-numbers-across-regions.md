@@ -1,6 +1,4 @@
-# Manage phone numbers across
-
-Regions using Amazon Connect APIs
+# Manage phone numbers across Regions using Amazon Connect APIs
 
 The topics in this section describe how to manage phone numbers across AWS Regions by using Amazon Connect APIs.
 

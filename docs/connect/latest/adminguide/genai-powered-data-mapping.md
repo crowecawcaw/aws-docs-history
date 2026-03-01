@@ -1,6 +1,4 @@
-# Generative AI powered data mapping in
-
-Amazon Connect
+# Generative AI powered data mapping in Amazon Connect
 
 Amazon Connect Customer Profiles provides a generative AI powered customer data mapping
 capability that significantly reduces the time needed to create unified profiles,
@@ -30,9 +28,7 @@ regions:
 - Europe (Frankfurt)
 - Europe (London)
 
-## Set up generative AI powered
-
-data mapping
+## Set up generative AI powered data mapping
 
 1. Open the Amazon Connect Customer Profiles console.
 2. On the **Data source integrations** tab, choose
@@ -46,8 +42,7 @@ an already existing mapping template or create one from scratch..
 ![Map data. Select the option to auto-generate data mapping, or select an already existing mapping template or create one from scratch.](images/genai-augmented-data-mapping-2.png) 5. Review mapping summary. Review the auto-generated mapping results
 summary that shows all the customer attributes. Make edits to ingestion
 keys and confirm before starting data ingestion. For more on field
-mappings and keys, see [Object type mapping
-definition details in Amazon Connect Customer Profiles](object-type-mapping-definition-details.md "object-type-mapping-definition-details.md").
+mappings and keys, see [Object type mapping definition details in Amazon Connect Customer Profiles](object-type-mapping-definition-details.md "object-type-mapping-definition-details.md").
 
 ![Review mapping summary. Review the auto-generated mapping results summary that shows all the customer attributes. Make edits to ingestion keys and confirm before starting data ingestion.](images/genai-augmented-data-mapping-3.png)
 
@@ -67,31 +62,22 @@ to maintain the right chronological order of the records. The system is able to
 generate the mapping for up to 120 attributes in less than 20 seconds after
 combining the prediction results.
 
-## Generative AI
-
-powered data mapping troubleshooting
+## Generative AI powered data mapping troubleshooting
 
 The following sections display the possible error messages that you may
 encounter. It also provides the cause and resolution for each issue.
 
-### Error: Could
-
-not parse object string into JSON
+### Error: Could not parse object string into JSON
 
 The object string in the request is not a valid JSON. Review the object
 string in the request and verify that it is valid JSON.
 
-### Error:
-
-Value at 'objects' failed to satisfy constraint: Member must have length
-less than or equal to 5
+### Error: Value at 'objects' failed to satisfy constraint: Member must have length less than or equal to 5
 
 There are too many objects in the request. Up to five objects are allowed
 in a request. Reduce the number of objects to five or less.
 
-### Error: Breached
-
-limit of 120 attributes
+### Error: Breached limit of 120 attributes
 
 Up to 120 attributes are allowed in a JSON object, including nested JSON
 attributes. Remove some attributes that don't need to be mapped from the
@@ -99,11 +85,7 @@ JSON object.
 
 ![Up to 120 attributes are allowed in a JSON object, including nested JSON attributes. Remove some attributes that don't need to be mapped from the JSON object.](images/genai-augmented-data-mapping-breached-limit.png)
 
-### Warning: We
-
-couldn't find a **unique key**, which distinguishes
-your data. We couldn't find a **profile key**, which
-identifies your profiles.
+### Warning: We couldn't find a **unique key**, which distinguishes your data. We couldn't find a **profile key**, which identifies your profiles.
 
 The model could not find a valid object type from given object. Change the
 input or use manual mapping approach as suggested.

@@ -1,6 +1,4 @@
-# Understanding IPv6 support in
-
-Amazon Connect Customer Profiles
+# Understanding IPv6 support in Amazon Connect Customer Profiles
 
 ## Public Connectivity
 

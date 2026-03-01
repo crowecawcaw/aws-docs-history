@@ -16,22 +16,17 @@ not, here's what you need:
 
 ###### Contents
 
-- [Step 1: Create an Amazon Lex
-  bot](#tutorial1-create-amazon-lex-bot "#tutorial1-create-amazon-lex-bot")
+- [Step 1: Create an Amazon Lex bot](#tutorial1-create-amazon-lex-bot "#tutorial1-create-amazon-lex-bot")
 - [Step 2: Add permissions to
   Amazon Lex bot](#tutorial1-add-permissions-for-bot "#tutorial1-add-permissions-for-bot")
 - [Step 3: Set up
   routing](#tutorial1-set-up-routing "#tutorial1-set-up-routing")
 - [Step 4: Create a contact
   flow](#tutorial1-create-contact-flow "#tutorial1-create-contact-flow")
-- [Step 5: Assign the contact
-  flow to the phone number](#tutorial1-assign-contact-flow-to-number "#tutorial1-assign-contact-flow-to-number")
-- [Step 6: Test a custom voice and chat
-  experience](#tutorial1-try-it "#tutorial1-try-it")
+- [Step 5: Assign the contact flow to the phone number](#tutorial1-assign-contact-flow-to-number "#tutorial1-assign-contact-flow-to-number")
+- [Step 6: Test a custom voice and chat experience](#tutorial1-try-it "#tutorial1-try-it")
 
-## Step 1: Create an Amazon Lex
-
-bot
+## Step 1: Create an Amazon Lex bot
 
 Bots provide an efficient way to offload repetitive tasks from your agents. This
 tutorial shows how to use the bot to find out why customers are calling the IT Help
@@ -50,9 +45,7 @@ This step has five parts to it.
   intents](#tutorial-lex-bot-intents "#tutorial-lex-bot-intents")
 - [Part 3: Build and test](#tutorial-lex-bot-build "#tutorial-lex-bot-build")
 
-### Part 1: Create an Amazon Lex
-
-bot
+### Part 1: Create an Amazon Lex bot
 
 This step assumes it's the first time you've opened the Amazon Lex console. If
 you've created a Amazon Lex bot before, your steps differ slightly from the ones in
@@ -93,12 +86,9 @@ this section.
 
 ![The Add language to bot page, the select language dropdown menu set to English.](images/tutorial1-bot-config2.png) 7. Choose **Done**.
 
-Go to [Part 2: Add intents to your Amazon Lex
-bot](#tutorial-lex-bot-intents "#tutorial-lex-bot-intents").
+Go to [Part 2: Add intents to your Amazon Lex bot](#tutorial-lex-bot-intents "#tutorial-lex-bot-intents").
 
-### Part 2: Add intents to your Amazon Lex
-
-bot
+### Part 2: Add intents to your Amazon Lex bot
 
 An intent is the action the user wants to perform. In this part, add two
 intents to the bot. Each intent represents a reason that users call the Help
@@ -125,12 +115,9 @@ following sample utterances:
     * **I can't access the internet**
     * **my email is down**
 
-When you're done, go to [Part 3: Build and test the Amazon Lex
-bot](#tutorial-lex-bot-build "#tutorial-lex-bot-build").
+When you're done, go to [Part 3: Build and test the Amazon Lex bot](#tutorial-lex-bot-build "#tutorial-lex-bot-build").
 
-### Part 3: Build and test the Amazon Lex
-
-bot
+### Part 3: Build and test the Amazon Lex bot
 
 Build and test your bot to make sure that it works as intended before you
 publish it.
@@ -150,12 +137,9 @@ looks like what's shown in the following image.
 
 ![The verification message from Amazon Lex, Intent NetworkIssue is fullfilled.](images/tutorial1-lex-custom-bot14.png)
 
-Go to [Step 2: Add permissions to Amazon Lex
-bot](#tutorial1-add-permissions-for-bot "#tutorial1-add-permissions-for-bot").
+Go to [Step 2: Add permissions to Amazon Lex bot](#tutorial1-add-permissions-for-bot "#tutorial1-add-permissions-for-bot").
 
-## Step 2: Add permissions to Amazon Lex
-
-bot
+## Step 2: Add permissions to Amazon Lex bot
 
 To use a bot in your flow, add it to your Amazon Connect instance.
 
@@ -351,9 +335,7 @@ successfully.
 If the flow doesn't save, double-check that all the branches are connected
 to blocks. That's the most common reason flows don't publish.
 
-## Step 5: Assign the contact
-
-flow to the phone number
+## Step 5: Assign the contact flow to the phone number
 
 1. On the navigation menu, go to **Channels**,
    **Phone Numbers**.
@@ -366,12 +348,9 @@ flow to the phone number
 ![The edit phone numbers page, the flow dropdown box, the flow you created.](images/tutorial1-assign-contact-flow-to-phone-number.png)
 
 Everything is all set up! Now you're ready to test your IT Help Desk. Continue on
-to [Step 6: Test a custom voice and chat
-experience](#tutorial1-try-it "#tutorial1-try-it").
+to [Step 6: Test a custom voice and chat experience](#tutorial1-try-it "#tutorial1-try-it").
 
-## Step 6: Test a custom voice and chat
-
-experience
+## Step 6: Test a custom voice and chat experience
 
 You're ready to try out the Amazon Lex bot, routing, and flow. The first step is to
 tell Amazon Connect which flow you want to test.
@@ -435,5 +414,4 @@ voice.
 ###### Tip
 
 If you don't want to keep the phone number that you claimed for testing,
-you can release it back to inventory. For instructions, see [Release a phone number from Amazon Connect back to
-inventory](release-phone-number.md "release-phone-number.md").
+you can release it back to inventory. For instructions, see [Release a phone number from Amazon Connect back to inventory](release-phone-number.md "release-phone-number.md").

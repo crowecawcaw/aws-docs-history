@@ -1,6 +1,4 @@
-# Barge into live voice and chat conversations between contact center agents and
-
-customers
+# Barge into live voice and chat conversations between contact center agents and customers
 
 ###### Tip
 

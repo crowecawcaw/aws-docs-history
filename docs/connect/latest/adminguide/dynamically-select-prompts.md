@@ -1,6 +1,4 @@
-# Dynamically select which prompts to play in
-
-Amazon Connect
+# Dynamically select which prompts to play in Amazon Connect
 
 You can dynamically select which prompt to play by using an attribute.
 

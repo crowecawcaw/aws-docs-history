@@ -1,6 +1,4 @@
-# Integrate in-app, web, video calling, and screen
-
-sharing natively into your application
+# Integrate in-app, web, video calling, and screen sharing natively into your application
 
 To integrate Amazon Connect in-app, web, video calling, and screen sharing with your
 application:
@@ -9,21 +7,17 @@ application:
 2. Then use the details returned by the API call to join the call using the
    Amazon Chime client library for [iOS](https://github.com/aws/amazon-chime-sdk-ios "https://github.com/aws/amazon-chime-sdk-ios"), [Android](https://github.com/aws/amazon-chime-sdk-android "https://github.com/aws/amazon-chime-sdk-android"), or
    [JavaScript](https://github.com/aws/amazon-chime-sdk-js "https://github.com/aws/amazon-chime-sdk-js").
-   For information about creating additional participants, see [Enable multi-user in-app, web, and video
-   calling](enable-multiuser-inapp.md "enable-multiuser-inapp.md").
+   For information about creating additional participants, see [Enable multi-user in-app, web, and video calling](enable-multiuser-inapp.md "enable-multiuser-inapp.md").
 
 See the following Github repository for sample applications: [amazon-connect-in-app-calling-examples](https://github.com/amazon-connect/amazon-connect-in-app-calling-examples "https://github.com/amazon-connect/amazon-connect-in-app-calling-examples").
 
 ###### Contents
 
-- [How a client device initiates an in-app or web
-  call](#diagram-option2 "#diagram-option2")
+- [How a client device initiates an in-app or web call](#diagram-option2 "#diagram-option2")
 - [Get started](#diagram-option2-gs "#diagram-option2-gs")
 - [Optional steps](#optional-steps "#optional-steps")
 
-## How a client device initiates an in-app or web
-
-call
+## How a client device initiates an in-app or web call
 
 The following diagram shows the sequence of events for a client device (mobile
 application or browser) to initiate an in-app or web call.
@@ -317,9 +311,7 @@ will receive the following error and cannot join until others leave.
   `MeetingSessionStatusCode.AudioCallAtCapacity` or
   `MeetingSessionStatusCode.AudioAuthenticationRejected`
 
-#### Participant removed from
-
-call
+#### Participant removed from call
 
 When a participant is removed from the call by the agent but the contact
 continues for other participants they will receive the following status

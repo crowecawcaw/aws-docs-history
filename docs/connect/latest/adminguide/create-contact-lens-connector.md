@@ -1,6 +1,4 @@
-# Create a Contact Lens connector
-
-to integrate with your external voice system
+# Create a Contact Lens connector to integrate with your external voice system
 
 This topic explains how to create a Contact Lens connector to integrate with
 your external voice system. Complete the following steps.

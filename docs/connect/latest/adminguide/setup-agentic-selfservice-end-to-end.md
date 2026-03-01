@@ -1,9 +1,8 @@
-# AI Message Streaming
+# How to set up your agentic self service chat experience end to end
 
 ###### Note
 
-Orchestration AI Agents require chat streaming to be enabled for chat contacts. Without chat streaming enabled, some messages will fail to render. See [Enable message streaming for AI-powered
-chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md").
+Orchestration AI Agents require chat streaming to be enabled for chat contacts. Without chat streaming enabled, some messages will fail to render. See [Enable message streaming for AI-powered chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md").
 
 ## What is AI Messaging Streaming?
 
@@ -15,8 +14,7 @@ With standard chat responses, customers wait while the AI generates its entire r
 
 ###### Note
 
-**Official Documentation**: For the complete technical reference, see [Enable message streaming for AI-powered
-chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md").
+**Official Documentation**: For the complete technical reference, see [Enable message streaming for AI-powered chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md").
 
 ### Benefits of Progressive Text Display
 

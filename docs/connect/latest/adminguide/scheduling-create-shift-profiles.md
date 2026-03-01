@@ -1,6 +1,4 @@
-# Create a template for an agent's
-
-weekly shift in Amazon Connect
+# Create a template for an agent's weekly shift in Amazon Connect
 
 Use shift profiles to create templates for weekly shifts. The template includes
 the days of the week worked, the earliest start time and the latest end times the

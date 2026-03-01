@@ -16,20 +16,14 @@ the _Amazon Connect API Reference Guide_.
 - [How to create prompts](#howto-prompts "#howto-prompts")
 - [Supported file types](#supported-file-types-for-prompts "#supported-file-types-for-prompts")
 - [Maximum length for prompts](#max-length-for-prompts "#max-length-for-prompts")
-- [Bulk upload of prompts not supported in UI, API,
-  or CLI](#bulk-upload-prompts "#bulk-upload-prompts")
-- [Add text-to-speech to prompts in flow blocks in
-  Amazon Polly](text-to-speech.md "text-to-speech.md")
+- [Bulk upload of prompts not supported in UI, API, or CLI](#bulk-upload-prompts "#bulk-upload-prompts")
+- [Add text-to-speech to prompts in flow blocks in Amazon Polly](text-to-speech.md "text-to-speech.md")
 - [Create dynamic text strings in
   Play prompt blocks](create-dynamic-text-strings.md "create-dynamic-text-strings.md")
-- [Dynamically select which prompts to play in
-  Amazon Connect](dynamically-select-prompts.md "dynamically-select-prompts.md")
-- [Set up prompts to play from an S3 bucket in
-  Amazon Connect](setup-prompts-s3.md "setup-prompts-s3.md")
-- [Choose the text-to-speech voice and language
-  for audio prompts in Amazon Connect](voice-for-audio-prompts.md "voice-for-audio-prompts.md")
-- [Use SSML tags to personalize text-to-speech in
-  Amazon Polly](ssml-prompt.md "ssml-prompt.md")
+- [Dynamically select which prompts to play in Amazon Connect](dynamically-select-prompts.md "dynamically-select-prompts.md")
+- [Set up prompts to play from an S3 bucket in Amazon Connect](setup-prompts-s3.md "setup-prompts-s3.md")
+- [Choose the text-to-speech voice and language for audio prompts in Amazon Connect](voice-for-audio-prompts.md "voice-for-audio-prompts.md")
+- [Use SSML tags to personalize text-to-speech in Amazon Polly](ssml-prompt.md "ssml-prompt.md")
 - [SSML tags in an Amazon Connect chat conversation](chat-and-ssml-tags.md "chat-and-ssml-tags.md")
 - [SSML tags supported by Amazon Connect](supported-ssml-tags.md "supported-ssml-tags.md")
 
@@ -93,9 +87,7 @@ quality audio. For more information, see the following Wikipedia article: [G.711
 
 Amazon Connect supports prompts that are less than 50 MB and less than 5 minutes long.
 
-## Bulk upload of prompts not supported in UI, API,
-
-or CLI
+## Bulk upload of prompts not supported in UI, API, or CLI
 
 Currently, bulk uploading of prompts is not supported through the Amazon Connect console or
 programmatically using the API or CLI.

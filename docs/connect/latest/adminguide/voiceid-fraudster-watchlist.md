@@ -1,6 +1,4 @@
-# Create and edit a fraudster watchlist
-
-in Amazon Connect Voice ID
+# Create and edit a fraudster watchlist in Amazon Connect Voice ID
 
 ###### Note
 
@@ -25,8 +23,7 @@ To add fraudsters to a specified fraudster watchlist, pass the following data to
 the API:
 
 1.  The domain ID to specify the domain to associate recordings to.
-2.  An input file containing a list of fraudsters. See [Input and output file schema for the
-    Fraudster Registration Job in Amazon Connect Voice ID](fraudster-registration-schema.md "fraudster-registration-schema.md").
+2.  An input file containing a list of fraudsters. See [Input and output file schema for the Fraudster Registration Job in Amazon Connect Voice ID](fraudster-registration-schema.md "fraudster-registration-schema.md").
 3.  The location for output file.
 4.  A KMS key to use when writing the output.
 5.  A role that Voice ID can assume. It must have access to the S3 bucket
@@ -45,8 +42,7 @@ the API:
 
     You must have `iam:PassRole` permissions when making the call
     and providing the `dataAccessRole`. To enable confused deputy
-    protection for the `dataAccessRole`, see [Amazon Connect Voice ID cross-service confused deputy
-    prevention](cross-service-confused-deputy-prevention.md#voiceid-cross-service "cross-service-confused-deputy-prevention.md#voiceid-cross-service").
+    protection for the `dataAccessRole`, see [Amazon Connect Voice ID cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md#voiceid-cross-service "cross-service-confused-deputy-prevention.md#voiceid-cross-service").
 
 6.  A watchlistId to register the fraudster to. If no watchlistId is
     specified, fraudsters are registered to the default watchlist for that

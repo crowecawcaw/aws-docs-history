@@ -1,14 +1,10 @@
-# Get a local toll-free or DID Amazon Connect phone
-
-number
+# Get a local toll-free or DID Amazon Connect phone number
 
 To place or receive calls in your Amazon Connect instance, you need to claim a DID or
 toll-free phone number. If you did not claim a phone number when you created your
 Amazon Connect instance, follow these steps to claim one now.
 
-## Claim a number for your contact
-
-center
+## Claim a number for your contact center
 
 1. Log in to the Amazon Connect admin website with an Admin account, or an account assigned to a
    security profile that has **Phone numbers - Claim**
@@ -44,9 +40,7 @@ numbers. 7. After you claim your numbers, [associate
 them with your flow(s)](associate-claimed-ported-phone-number-to-flow.md "associate-claimed-ported-phone-number-to-flow.md"). A flow defines the customer
 experience with your contact center from start to finish.
 
-## How many phone numbers you can
-
-claim
+## How many phone numbers you can claim
 
 There is a service quota for how many phone numbers you can have in each
 instance. For the default service quota, see [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md"). If you reach your quota,
@@ -57,9 +51,7 @@ If you need more phone numbers, you can request a service quota increase using
 the [Amazon Connect
 service quota increase form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-connect "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-connect").
 
-## Avoid being blocked from claiming
-
-or releasing too many numbers
+## Avoid being blocked from claiming or releasing too many numbers
 
 If you plan to claim and release numbers frequently,
 contact us for a service quota exception. Otherwise, it's possible you will be blocked from
@@ -77,9 +69,7 @@ day period you release 99, claim 99, and then release 99, you will have exceeded
 200% limit. At that point you are blocked from claiming any more numbers until you
 open an AWS support ticket.
 
-## API instructions for
-
-claiming phone numbers
+## API instructions for claiming phone numbers
 
 To claim a phone number programmatically:
 
@@ -111,9 +101,7 @@ number claiming process.
 You will not be billed for the phone number during the 1-day period if
 number claiming fails.
 
-## "We couldn't claim your
-
-number"
+## "We couldn't claim your number"
 
 Even if it's the first time you've claimed a phone number, it's possible to
 get this error message when you attempt to claim a number. All the issues that

@@ -82,9 +82,7 @@ Softphone calls are established to the agent’s browser with an encrypted WebSo
 connection using TLS. The audio media traffic to the browser is encrypted in transit
 using DTLS-SRTP.
 
-## Call recordings and screen
-
-recordings
+## Call recordings and screen recordings
 
 At the instance-level, by default the call recording and screen recording
 capabilities are available when an Amazon S3 bucket is created for them. You determine
@@ -121,15 +119,12 @@ voice, chat, and task channels.
 During a video call or screen sharing session, agents are able to see the
 customer's video or screen share even when the customer is on hold. It is the customer's
 responsibility to handle PII accordingly. If you want to change this behavior, you can build a
-custom CCP and communication widget. For more information, see [Integrate in-app, web, video calling, and screen
-sharing natively into your application](config-com-widget2.md "config-com-widget2.md").
+custom CCP and communication widget. For more information, see [Integrate in-app, web, video calling, and screen sharing natively into your application](config-com-widget2.md "config-com-widget2.md").
 
 You can limit access to the call and screen recordings based on user permissions.
 Recordings can be searched and played back within the Amazon Connect admin website.
 
-### Call recording and screen recording
-
-storage
+### Call recording and screen recording storage
 
 Call and screen recordings are stored in two phases:
 
@@ -143,9 +138,7 @@ KMS key that was configured when your instance was created.
 At all times, you maintain full control over the security of call recordings
 delivered to your Amazon S3 bucket.
 
-### Access to call recordings and screen
-
-recordings
+### Access to call recordings and screen recordings
 
 You can search for and listen to call recordings or view screen recordings in
 Amazon Connect. To determine which users can do this, assign them the appropriate
@@ -182,9 +175,7 @@ The following data stored by Amazon Connect is treated as sensitive:
 - All contact attributes
 - All contact references
 
-## Contact Lens real-time
-
-processing
+## Contact Lens real-time processing
 
 Content processed by Contact Lens in real-time is encrypted at rest and in
 transit. Data is encrypted with keys owned by Contact Lens.
@@ -193,9 +184,7 @@ Contact Lens persists data (transcript, category names, etc.) on the Amazon Conn
 side for a short period of time. This is to ensure that the API serves data
 continuously, for up to 24h after contact terminates.
 
-## Voiceprints and Voice ID audio
-
-recordings
+## Voiceprints and Voice ID audio recordings
 
 When you enable Amazon Connect Voice ID, it computes voiceprints out of your customer's
 speech for authenticating them in future, and stores the data. Similarly, when you
@@ -207,9 +196,7 @@ you must specify a `CustomerSpeakerId` for them. Since Voice ID stores
 biometric information for each speaker, we strongly recommend that you use an
 identifier that does not contain PII in the `CustomerSpeakerId` field.
 
-## Speaker and Fraudster
-
-Audio
+## Speaker and Fraudster Audio
 
 When you enable Amazon Connect Voice ID, it stores a compacted version of the audio (called
 utterances) that it aggregated while enrolling a speaker or registering a fraudster.
@@ -232,9 +219,7 @@ encrypted by instance specific keys.
 Any processing of task template resources in Amazon Connect is encrypted at rest and in
 transit. Data is encrypted with an AWS KMS key.
 
-## Forecasts, Capacity Plans, and
-
-Schedules
+## Forecasts, Capacity Plans, and Schedules
 
 When forecasts, capacity plans, and schedules are generated, they are always
 encrypted at rest and in transit. Data is encrypted with an AWS KMS key.

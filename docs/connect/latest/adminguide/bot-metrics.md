@@ -1,7 +1,6 @@
 # Amazon Connect bot metrics and analytics
 
-The following flow driven metrics are available on the [Flows and conversational bot performance
-dashboard](flows-performance-dashboard.md "flows-performance-dashboard.md") and the
+The following flow driven metrics are available on the [Flows and conversational bot performance dashboard](flows-performance-dashboard.md "flows-performance-dashboard.md") and the
 [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md").
 
 ## Average bot conversation time
@@ -170,9 +169,7 @@ It can be filtered on the following intent outcomes using metric level filter
 - Data for this metric is available starting from December 2, 2024 00:00:00
   GMT.
 
-## Percent bot conversations
-
-outcome
+## Percent bot conversations outcome
 
 This metric provides the percentage of total conversations that ended in the specific outcome type
 specified in the metric level filter

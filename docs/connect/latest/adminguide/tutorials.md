@@ -21,8 +21,6 @@ to print.
 
 ###### Contents
 
-- [Set up your Amazon Connect
-  instance](tutorial1-set-up-your-instance.md "tutorial1-set-up-your-instance.md")
-- [Test the sample voice and
-  chat experience in Amazon Connect](tutorial1-explore-voice-and-chat.md "tutorial1-explore-voice-and-chat.md")
+- [Set up your Amazon Connect instance](tutorial1-set-up-your-instance.md "tutorial1-set-up-your-instance.md")
+- [Test the sample voice and chat experience in Amazon Connect](tutorial1-explore-voice-and-chat.md "tutorial1-explore-voice-and-chat.md")
 - [Create an IT help desk in Amazon Connect](tutorial1-create-helpdesk.md "tutorial1-create-helpdesk.md")

@@ -28,9 +28,7 @@ analysis on contacts. Data streaming sends data to Amazon Kinesis.
    and create the stream.
 7. Choose **Save**.
 
-## Use server-side encryption for
-
-the Kinesis stream
+## Use server-side encryption for the Kinesis stream
 
 Amazon Connect supports streaming to Amazon Kinesis Data Streams and Firehose streams that have server-side
 encryption with a [customer managed key](../../../kms/latest/developerguide/concepts.md#key-mgmt "../../../kms/latest/developerguide/concepts.md#key-mgmt")
@@ -52,9 +50,7 @@ KMS key.
 To avoid missing data, update the permission of the KMS key before using a
 KMS key with Amazon Connect streaming.
 
-### Step 1: Obtain the ARN for the service-linked role
-
-of your Amazon Connect instance
+### Step 1: Obtain the ARN for the service-linked role of your Amazon Connect instance
 
 You can use the Amazon Connect console or the AWS CLI to obtain the ARN.
 

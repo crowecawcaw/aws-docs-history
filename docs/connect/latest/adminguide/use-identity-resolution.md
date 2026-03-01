@@ -1,6 +1,4 @@
-# Use Identity Resolution to consolidate similar profiles in
-
-Amazon Connect
+# Use Identity Resolution to consolidate similar profiles in Amazon Connect
 
 A _similar profile_ is when two or more profiles are determined to
 be for the same contact. There can be multiple profiles when customer records are

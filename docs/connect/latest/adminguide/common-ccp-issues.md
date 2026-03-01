@@ -15,8 +15,7 @@ issues.
 - [CCP browser microphone access](#microphone-access-issues "#microphone-access-issues")
 - [CCP initialization issues](#ccp-initialization-issues "#ccp-initialization-issues")
 - [CCP WebRTC issues](#ccp-webrtc-issues "#ccp-webrtc-issues")
-- [CCP audio issues on first
-  call after system reboot when using Windows 11](#ccp-windows-11-audio-issues-after-reboot "#ccp-windows-11-audio-issues-after-reboot")
+- [CCP audio issues on first call after system reboot when using Windows 11](#ccp-windows-11-audio-issues-after-reboot "#ccp-windows-11-audio-issues-after-reboot")
 - [CCP outbound configuration issues](#ccp-outbound-issues "#ccp-outbound-issues")
 - [CCP invalid number issues](#ccp-invalidnumber-issues "#ccp-invalidnumber-issues")
 - [One-way audio from customers](#ccp-oneway-issues "#ccp-oneway-issues")
@@ -108,9 +107,7 @@ The result is missed calls.
   result in latency or outages, we recommend also checking your agent
   networking connections.
 
-## CCP audio issues on first
-
-call after system reboot when using Windows 11
+## CCP audio issues on first call after system reboot when using Windows 11
 
 **Issue Description**
 
@@ -185,8 +182,7 @@ on the CCP.
   they are missing. For instructions, see [Set up outbound caller ID](queues-callerid.md "queues-callerid.md").
 - Ensure agents have the **Contact Control Panel (CCP) - Make
   outbound calls** permission in their security profile. For
-  instructions, see [Assign a security profile for Amazon Connect to a
-  contact center user](assign-security-profile.md "assign-security-profile.md").
+  instructions, see [Assign a security profile for Amazon Connect to a contact center user](assign-security-profile.md "assign-security-profile.md").
 
 ## CCP invalid number issues
 
@@ -208,8 +204,7 @@ The following image shows an example of a invalid number message on the CCP.
 - Check that the phone number dialed is in [E.164](https://www.itu.int/rec/T-REC-E.164/en "https://www.itu.int/rec/T-REC-E.164/en")
   format.
 - Check whether the phone number country you are calling is an allowed
-  destination for your Amazon Connect instance. See [Countries that call centers using Amazon Connect can
-  call by default](country-code-allow-list.md "country-code-allow-list.md").
+  destination for your Amazon Connect instance. See [Countries that call centers using Amazon Connect can call by default](country-code-allow-list.md "country-code-allow-list.md").
 - If the issues persist, contact AWS Support.
 
 ## One-way audio from customers
@@ -224,5 +219,4 @@ mic/speaker.
   exclusive-mode for a Windows audio playback device. For example, [Turning off Exclusive Mode in Windows 10 Home Edition](https://answers.microsoft.com/en-us/windows/forum/all/turning-off-exclusive-mode-in-windows-10-home/b724e917-aeec-4be4-b1aa-5ef655d85ded "https://answers.microsoft.com/en-us/windows/forum/all/turning-off-exclusive-mode-in-windows-10-home/b724e917-aeec-4be4-b1aa-5ef655d85ded").
 - To fix sound problems on a Mac, see [Change the sound input settings on Mac](https://support.apple.com/guide/mac-help/change-the-sound-input-settings-mchlp2567/mac "https://support.apple.com/guide/mac-help/change-the-sound-input-settings-mchlp2567/mac").
 
-To troubleshoot call quality issues, see [Troubleshoot audio quality issues by using
-QualityMetrics in the contact record](sop-audio-qa.md "sop-audio-qa.md").
+To troubleshoot call quality issues, see [Troubleshoot audio quality issues by using QualityMetrics in the contact record](sop-audio-qa.md "sop-audio-qa.md").

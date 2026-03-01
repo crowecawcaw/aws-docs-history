@@ -18,13 +18,11 @@ As part of this process you can also optionally:
 - [Before you begin](#ai-agent-requirements "#ai-agent-requirements")
 - [Step 1: Create a domain](#enable-ai-agents-step1 "#enable-ai-agents-step1")
 - [Step 2: Encrypt the domain](#enable-ai-agents-step-2 "#enable-ai-agents-step-2")
-- [Step 3: Create an integration (knowledge
-  base)](#enable-ai-agents-step-3 "#enable-ai-agents-step-3")
+- [Step 3: Create an integration (knowledge base)](#enable-ai-agents-step-3 "#enable-ai-agents-step-3")
 - [Step 4: Configure your flow for Connect AI agents](#enable-ai-agents-step4 "#enable-ai-agents-step4")
 - [What if I have multiple knowledge bases?](#multiple-knowledge-base-tips "#multiple-knowledge-base-tips")
 - [When was your knowledge base last updated?](#enable-ai-agents-tips "#enable-ai-agents-tips")
-- [Cross-region inference
-  service](#enable-ai-agents-cross-region-inference-service "#enable-ai-agents-cross-region-inference-service")
+- [Cross-region inference service](#enable-ai-agents-cross-region-inference-service "#enable-ai-agents-cross-region-inference-service")
 
 ## Supported content types
 
@@ -96,9 +94,7 @@ domain at any time by choosing a different domain.
 When you create a domain, you are prompted to provide a friendly domain name
 that's meaningful to you, such as your organization name.
 
-### (Optional) Create AWS KMS keys to
-
-encrypt the domain and the content
+### (Optional) Create AWS KMS keys to encrypt the domain and the content
 
 When you enable Connect AI agents, by default the domain and connection are encrypted with
 an AWS owned key. However, if you want to manage the keys, you can create or
@@ -309,9 +305,7 @@ these steps:
 
 ![Encryption settings interface with option to customize and select an AWS KMS key.](images/ai-agents-choose-kms-key.png) 3. Choose **Add domain**.
 
-## Step 3: Create an integration (knowledge
-
-base)
+## Step 3: Create an integration (knowledge base)
 
 1. On the **AI Agents** page, choose **Add
    integration**.
@@ -374,9 +368,7 @@ select a start date. The system defaults to ingesting all
 records. 7. Choose **Next** and follow the steps in the
 next section of this topic.
 
-#### Step 2: Select objects and
-
-fields
+#### Step 2: Select objects and fields
 
 ###### Tip
 
@@ -396,9 +388,7 @@ distinguish.
 By default, the system automatically selects all required
 fields. 3. Choose **Next**.
 
-#### Step 3: Review and add the
-
-integration
+#### Step 3: Review and add the integration
 
 - Review the settings for the integration. When finished, choose
   **Add integration**.
@@ -654,6 +644,10 @@ domain.
 
 ###### Note
 
+Web crawls have a default timeout of one hour and will be automatically stopped when this limit is reached.
+
+###### Note
+
 When selecting websites to crawl, you must adhere to the [Amazon Acceptable Use
 Policy](https://aws.amazon.com/aup/ "https://aws.amazon.com/aup/") and all other Amazon terms. Remember that you
 must only use the Web Crawler to index your own web pages, or web
@@ -745,24 +739,15 @@ the default KMS key or a Customer Managed Key (CMK). 5. Under **Sync scope**
 
 ![The review page showing all integration details for the Web Crawler configuration before final submission.](images/web-crawler-q-config-4.png) 8. Select **Add integration.** 9. The integration is added to your list.
 
-#### Incremental
-
-syncing
-
-Each time the Web Crawler runs, it retrieves content for all URLs
-that are reachable from the source URLs that match the scope and
-filters. For incremental syncs after the first sync of all content,
-Amazon Connect will update your knowledge base with new and
-modified content, and will remove old content that is no longer present.
-Occasionally, the crawler may not be able to distinguish if content was
-removed from the website; and in this case it will preserve old content
-in your knowledge base.
-
 Now with Orchestration Type AI Agent, you can bring your own Bedrock Knowledge Base to seamlessly work with Connect AI Agents.
 
 ###### Note
 
-The bedrock knowledge base integration type is only compatible with orchestration agent types.
+The Bedrock knowledge base integration type is only compatible with orchestration agent types.
+
+###### Note
+
+The Bedrock knowledge base integration is only available for on-contact calls and does not support off-contact manual search.
 
 1. Add new integration
 
@@ -821,9 +806,7 @@ To confirm the last date and time that your knowledge base was updated (meaning 
 change in the content available), use the [GetKnowledgeBase](../../../amazon-q-connect/latest/APIReference/API_GetKnowledgeBase.md "../../../amazon-q-connect/latest/APIReference/API_GetKnowledgeBase.md") API to reference
 `lastContentModificationTime`.
 
-## Cross-region inference
-
-service
+## Cross-region inference service
 
 Connect AI agents uses [cross-region
 inference](../../../bedrock/latest/userguide/cross-region-inference.md "../../../bedrock/latest/userguide/cross-region-inference.md") to automatically select the optimal AWS Region

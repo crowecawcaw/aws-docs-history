@@ -1,6 +1,4 @@
-# Access Amazon Connect Customer Profiles in the agent
-
-workspace
+# Access Amazon Connect Customer Profiles in the agent workspace
 
 After you enable Amazon Connect Customer Profiles, agents can begin interacting with customers
 and access [customer information](customer-profiles.md "customer-profiles.md")
@@ -9,12 +7,9 @@ to provide personalized service. This topic explains how to access the Amazon Co
 ###### Tip
 
 Make sure your agents have **Customer profiles** permissions in
-their security profile so they can access Customer Profiles. For more information, see [Security profile permissions
-for Amazon Connect Customer Profiles](assign-security-profile-customer-profile.md "assign-security-profile-customer-profile.md").
+their security profile so they can access Customer Profiles. For more information, see [Security profile permissions for Amazon Connect Customer Profiles](assign-security-profile-customer-profile.md "assign-security-profile-customer-profile.md").
 
-## Option 1: Use Customer
-
-Profiles with the CCP out-of-the-box
+## Option 1: Use Customer Profiles with the CCP out-of-the-box
 
 Customer Profiles is already embedded alongside the Contact Control Panel (CCP). Your agents
 can access the CCP, Customer Profiles, and Amazon Connect's Case management all in the same
@@ -40,9 +35,7 @@ Following is an example of what Customer Profiles looks like in the agent worksp
 
 ![The Customer Profiles tab and the CCP in the agent workspace.](images/customer-profiles-agent-app.png)
 
-## Option 2: Embed Customer
-
-Profiles into a custom agent workspace
+## Option 2: Embed Customer Profiles into a custom agent workspace
 
 When you embed your Contact Control Panel (CCP), you have the option of showing or
 hiding the pre-built CCP user interface. For example, you may want to develop a

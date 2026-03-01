@@ -1,6 +1,4 @@
-# Best practices for PCI
-
-compliance in Amazon Connect
+# Best practices for PCI compliance in Amazon Connect
 
 Following this list of best practices can help you ensure your Amazon Connect contact center is
 PCI-compliant.

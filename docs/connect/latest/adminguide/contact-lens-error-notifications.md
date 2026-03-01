@@ -1,6 +1,4 @@
-# Error notifications: When
-
-Contact Lens can't analyze a contact
+# Error notifications: When Contact Lens can't analyze a contact
 
 It's possible that Contact Lens can't analyze a contact file, even
 though analysis is enabled on the flow. When this happens, Contact Lens
@@ -10,9 +8,7 @@ Events are emitted on a
 [best effort](../../../eventbridge/latest/userguide/eb-service-event.md "../../../eventbridge/latest/userguide/eb-service-event.md")
 basis.
 
-## Subscribe to
-
-EventBridge notifications
+## Subscribe to EventBridge notifications
 
 To subscribe to these notifications, create a custom EventBridge rule that
 matches the following:

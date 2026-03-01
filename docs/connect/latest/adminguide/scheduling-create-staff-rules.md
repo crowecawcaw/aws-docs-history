@@ -1,6 +1,4 @@
-# Create staff rules for scheduling in
-
-Amazon Connect
+# Create staff rules for scheduling in Amazon Connect
 
 Use staff rules to specify optional details for individual agents and supervisors,
 such as their local time zone, start and end dates, and contract details.
@@ -17,8 +15,7 @@ employees to schedule for 20 hours per week.
 ###### Contents
 
 - [Create staff rules for individuals](#individual-rules "#individual-rules")
-- [Import time off balance for
-  individuals](#scheduling-upload-ic-timeoff "#scheduling-upload-ic-timeoff")
+- [Import time off balance for individuals](#scheduling-upload-ic-timeoff "#scheduling-upload-ic-timeoff")
 
 ## Create staff rules for individuals
 
@@ -70,13 +67,10 @@ details such as:
 7. Choose **Apply to Staff**. This saves the rules, and
    ensures they are applied during the next scheduling cycle.
 
-## Import time off balance for
-
-individuals
+## Import time off balance for individuals
 
 For the maximum file size that you can upload, see _File size per
-upload of agent time off data_ in [Forecasting, capacity
-planning, and scheduling feature specifications](feature-limits.md#forecasting-cap-planning-scheduling-specs "feature-limits.md#forecasting-cap-planning-scheduling-specs").
+upload of agent time off data_ in [Forecasting, capacity planning, and scheduling feature specifications](feature-limits.md#forecasting-cap-planning-scheduling-specs "feature-limits.md#forecasting-cap-planning-scheduling-specs").
 
 1. Log in to the Amazon Connect admin website with an account that has security profile
    permissions for **Scheduling**, **Schedule

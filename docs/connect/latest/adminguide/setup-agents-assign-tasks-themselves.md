@@ -1,14 +1,10 @@
-# Set up agents in Amazon Connect to assign
-
-tasks to themselves
+# Set up agents in Amazon Connect to assign tasks to themselves
 
 For an agent to be able receive a task, they need a quick connect created for them.
 With this quick connect, agents will be able to assign tasks to themselves, and other
 agents will be able to assign tasks to them.
 
-## Step 1: Create a quick connect for
-
-the agent
+## Step 1: Create a quick connect for the agent
 
 1. On the navigation menu, choose **Routing**,
    **Quick connects**, **Add a
@@ -32,9 +28,7 @@ The following image shows a quick connect for Jane Doe on the
 
 ![The quick connects page, a sample quick connect.](images/tasks-agent-quick-connect.png)
 
-## Step 2: Create a queue for the agent and
-
-associate the quick connect
+## Step 2: Create a queue for the agent and associate the quick connect
 
 1. After you create the quick connect, go to **Routing**,
    **Queues** and add a queue for the agent.
@@ -43,9 +37,7 @@ associate the quick connect
    the agent.
 3. Select the quick connect and then choose **Save**.
 
-## Step 3: Add the queue to the agent's
-
-routing profile
+## Step 3: Add the queue to the agent's routing profile
 
 1. Go to **Users**, **Routing profiles**
    and choose the agent's routing profile.

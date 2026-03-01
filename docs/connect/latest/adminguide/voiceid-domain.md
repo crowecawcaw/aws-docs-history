@@ -96,9 +96,7 @@ speaker, a `SPEAKER_EXPIRED` authentication decision is returned.
 
 To use the expired speaker again, they must be re-enrolled.
 
-## Speaker and fraudster
-
-identifiers
+## Speaker and fraudster identifiers
 
 Voice ID uses speaker identifiers to refer to and retrieve the voiceprints in a
 Voice ID domain. We recommend that you use identifiers that do not contain an

@@ -18,9 +18,7 @@ To enable attachment scanning you perform two steps:
   preferred scanning application](#lambda-scanning "#lambda-scanning").
 - [Add the scanner to your Amazon Connect instance](#add-attachment-scanner "#add-attachment-scanner").
 
-## Step 1: Create a Lambda function that handles
-
-scanning
+## Step 1: Create a Lambda function that handles scanning
 
 Create a Lambda function, using any runtime, and configure it. This function must
 be in the same AWS Region and account as your Amazon Connect instance.
@@ -78,9 +76,7 @@ following occurs:
 - Amazon Connect is unable to parse the response from the Lambda scanner.
 - Amazon Connect is unable to invoke the Lambda function.
 
-## Step 2: Add an attachment scanner to your
-
-Amazon Connect instance
+## Step 2: Add an attachment scanner to your Amazon Connect instance
 
 After you create a Lambda for attachment scanning, you need to add the Lambda to
 your Amazon Connect instance. Perform the following steps to add the Lambda.
@@ -98,6 +94,5 @@ your Amazon Connect instance. Perform the following steps to add the Lambda.
 scanning**, as shown in the following image.
 
 ![The attachments page, the enable attachments scanning option.](images/scanner.png) 5. Use the **Lambda Functions** drop-down box to select the
-Lambda function that you added in [Step 1: Create a Lambda function that handles
-scanning](#lambda-scanning "#lambda-scanning"). 6. Choose **Save**. Attachment scanning is now enabled for
+Lambda function that you added in [Step 1: Create a Lambda function that handles scanning](#lambda-scanning "#lambda-scanning"). 6. Choose **Save**. Attachment scanning is now enabled for
 your Amazon Connect instance.

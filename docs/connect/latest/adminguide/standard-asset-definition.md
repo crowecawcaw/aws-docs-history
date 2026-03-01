@@ -1,6 +1,4 @@
-# Standard asset definition in
-
-Amazon Connect Customer Profiles
+# Standard asset definition in Amazon Connect Customer Profiles
 
 The following table lists all the fields in the Customer Profiles standard
 asset object.

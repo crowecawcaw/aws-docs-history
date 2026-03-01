@@ -1,6 +1,4 @@
-# Set up application integration for
-
-Salesforce using Amazon AppFlow
+# Set up application integration for Salesforce using Amazon AppFlow
 
 If you integrate with Salesforce for event creation, Amazon Connect also uses Amazon AppFlow to put the
 data into EventBridge. This is because of how Salesforce sends events through the Amazon AppFlow APIs.
@@ -83,12 +81,9 @@ and then choose **Complete integration**.
 
 ![The Tasks page.](images/tasks-establish-connection-final.png)
 You're done! Next, add rules that tell Amazon Connect when to create a task and how to route
-it. For instructions, see [Create rules that generate tasks for third-party
-integrations in Amazon Connect](add-rules-task-creation.md "add-rules-task-creation.md").
+it. For instructions, see [Create rules that generate tasks for third-party integrations in Amazon Connect](add-rules-task-creation.md "add-rules-task-creation.md").
 
-## What to do when is a
-
-connection isn't successfully established
+## What to do when is a connection isn't successfully established
 
 A connection might fail to be established for Salesforce if you didn’t follow the
 instructions next to the check boxes to verify that it's compatible with

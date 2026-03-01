@@ -1,6 +1,4 @@
-# Use an existing directory for identity management in
-
-Amazon Connect
+# Use an existing directory for identity management in Amazon Connect
 
 If you are already using a Directory Service directory to manage users, you can use the same directory
 to manage user accounts in Amazon Connect. You can also create a new directory in Directory Service to use for

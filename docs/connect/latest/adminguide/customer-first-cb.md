@@ -26,9 +26,7 @@ first callback mode or customer first callback mode.
 - [Example contact records](#customer-first-callback-contact-lifecycle-contact-model "#customer-first-callback-contact-lifecycle-contact-model")
 - [Sample flows](#customer-first-callback-contact-lifecycle-sample-flows "#customer-first-callback-contact-lifecycle-sample-flows")
 
-## The
-
-lifecycle of a customer first callback
+## The lifecycle of a customer first callback
 
 The lifecycle for customer first callbacks is spread across three different contacts,
 as shown in the following diagram.
@@ -82,42 +80,28 @@ Following is a description of each contact.
 - When you set the final working queue for the callback at any point in the
   contact's lifecycle (step C1, C2, or C3), the following stages inherit it.
 
-## Metrics for
-
-customer first callbacks
+## Metrics for customer first callbacks
 
 You can access the following metrics in either the Queue performance dashboard or by
 using the [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
 API.
 
-- [Average queue
-  abandon time - customer first callback](metrics-definitions.md#average-queue-abandon-time-customer-first-callback "metrics-definitions.md#average-queue-abandon-time-customer-first-callback")
-- [Average queue answer
-  time - customer first callback](metrics-definitions.md#average-queue-answer-time-customer-first-callback "metrics-definitions.md#average-queue-answer-time-customer-first-callback")
-- [Average speed
-  of answer - customer first callback dialed](metrics-definitions.md#average-speed-of-answer-customer-first-callback-dialed "metrics-definitions.md#average-speed-of-answer-customer-first-callback-dialed")
+- [Average queue abandon time - customer first callback](metrics-definitions.md#average-queue-abandon-time-customer-first-callback "metrics-definitions.md#average-queue-abandon-time-customer-first-callback")
+- [Average queue answer time - customer first callback](metrics-definitions.md#average-queue-answer-time-customer-first-callback "metrics-definitions.md#average-queue-answer-time-customer-first-callback")
+- [Average speed of answer - customer first callback dialed](metrics-definitions.md#average-speed-of-answer-customer-first-callback-dialed "metrics-definitions.md#average-speed-of-answer-customer-first-callback-dialed")
 - [Average wait time after customer connection - customer first callback](metrics-definitions.md#average-wait-time-after-customer-connection-customer-first-callback "metrics-definitions.md#average-wait-time-after-customer-connection-customer-first-callback")
-- [Callback attempts - customer
-  first callback](metrics-definitions.md#callback-attempts-customer-first-callback "metrics-definitions.md#callback-attempts-customer-first-callback")
-- [Contact volume - agent first
-  callback](metrics-definitions.md#contact-volume-agent-first-callback "metrics-definitions.md#contact-volume-agent-first-callback")
-- [Contact volume - customer first
-  callback](metrics-definitions.md#contact-volume-customer-first-callback "metrics-definitions.md#contact-volume-customer-first-callback")
-- [Contacts abandoned -
-  customer first callback](metrics-definitions.md#contacts-abandoned-customer-first-callback "metrics-definitions.md#contacts-abandoned-customer-first-callback")
-- [Contacts handled - customer
-  first callback](metrics-definitions.md#contacts-handled-customer-first-callback "metrics-definitions.md#contacts-handled-customer-first-callback")
+- [Callback attempts - customer first callback](metrics-definitions.md#callback-attempts-customer-first-callback "metrics-definitions.md#callback-attempts-customer-first-callback")
+- [Contact volume - agent first callback](metrics-definitions.md#contact-volume-agent-first-callback "metrics-definitions.md#contact-volume-agent-first-callback")
+- [Contact volume - customer first callback](metrics-definitions.md#contact-volume-customer-first-callback "metrics-definitions.md#contact-volume-customer-first-callback")
+- [Contacts abandoned - customer first callback](metrics-definitions.md#contacts-abandoned-customer-first-callback "metrics-definitions.md#contacts-abandoned-customer-first-callback")
+- [Contacts handled - customer first callback](metrics-definitions.md#contacts-handled-customer-first-callback "metrics-definitions.md#contacts-handled-customer-first-callback")
 
-## Example
-
-contact records for customer first callbacks
+## Example contact records for customer first callbacks
 
 Following are example contact records to show what information is stored for the C2
 and C3 legs of a customer first callback.
 
-### Example
-
-C2 queued customer first callback contact record
+### Example C2 queued customer first callback contact record
 
 ```
 
@@ -146,9 +130,7 @@ QueueInfo : {
 }
 ```
 
-### Example
-
-C3 dialed customer first callback contact
+### Example C3 dialed customer first callback contact
 
 ```
 
@@ -197,9 +179,7 @@ QueueInfo : {
 }
 ```
 
-## Sample flows
-
-for customer first callbacks
+## Sample flows for customer first callbacks
 
 The following sample flows show how you can configure a flow for customer first
 callbacks.

@@ -1,6 +1,4 @@
-# Security profile permissions for
-
-outbound communications in Amazon Connect
+# Security profile permissions for outbound communications in Amazon Connect
 
 To enable agents to make outbound calls, assign **Make outbound calls**
 permissions to the agent's security profile as shown in the following image:

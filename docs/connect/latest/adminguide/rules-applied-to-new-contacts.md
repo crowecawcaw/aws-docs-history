@@ -1,6 +1,4 @@
-# Rules are applied to new
-
-contacts when Contact Lens analyzes conversations
+# Rules are applied to new contacts when Contact Lens analyzes conversations
 
 After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.
 

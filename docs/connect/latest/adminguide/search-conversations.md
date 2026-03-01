@@ -1,6 +1,4 @@
-# Search conversations analyzed by
-
-Contact Lens
+# Search conversations analyzed by Contact Lens
 
 You can search the analyzed and transcribed recordings based on:
 
@@ -26,9 +24,7 @@ contact** first.
 Chat transcripts are indexed for search when Contact Lens is enabled;
 they are not indexed for search if Contact Lens is not enabled.
 
-## Required permissions
-
-for searching conversations
+## Required permissions for searching conversations
 
 Before you can search conversations, you need the following permissions in
 your security profile. They allow you to do the type of search you want.
@@ -119,9 +115,7 @@ conversation you want to search. Note the following:
 
 You can enter up to 128 characters.
 
-## Search for sentiment score or evaluate
-
-sentiment shift
+## Search for sentiment score or evaluate sentiment shift
 
 With Contact Lens, you can search conversations for sentiment scores or
 sentiment shifts on a scale of -5 (most negative) to +5 (most positive). This
@@ -192,9 +186,7 @@ For information about how to use this metric, see [Investigate non-talk time](no
 
 ![The non-talk time filter, the duration and percentage options.](images/non-talk-time.png)
 
-## Search by response time for chat
-
-conversations
+## Search by response time for chat conversations
 
 You can search by the:
 
@@ -202,11 +194,9 @@ You can search by the:
 - Maximum response time of the agent or customer during the chat
 
 You specify whether the duration is less or greater than or equal to a
-specific time. For information about how to use this metric, see [Investigate response time during chats in
-Contact Lens](response-time.md "response-time.md").
+specific time. For information about how to use this metric, see [Investigate response time during chats in Contact Lens](response-time.md "response-time.md").
 
-For the supported minimum and maximum response times, see [Amazon Connect Rules feature
-specifications](feature-limits.md#rules-feature-specs "feature-limits.md#rules-feature-specs").
+For the supported minimum and maximum response times, see [Amazon Connect Rules feature specifications](feature-limits.md#rules-feature-specs "feature-limits.md#rules-feature-specs").
 
 The following image shows a search for contacts where the agent's average
 response time was greater than or equal to 1 minute.

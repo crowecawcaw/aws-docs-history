@@ -1,6 +1,4 @@
-# Troubleshoot no metrics or too few rows in a
-
-queues report in Amazon Connect
+# Troubleshoot no metrics or too few rows in a queues report in Amazon Connect
 
 It's possible to run a manually configured queues report and have no metrics
 returned, or fewer rows than expected.

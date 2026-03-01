@@ -1,6 +1,4 @@
-# Integrate your identity provider (IdP) with an
-
-Amazon Connect Global Resiliency SAML sign in endpoint
+# Integrate your identity provider (IdP) with an Amazon Connect Global Resiliency SAML sign in endpoint
 
 To enable your agents to sign in once and be logged into both AWS Regions to
 process contacts from the current active Region, you need to configure IAM
@@ -20,16 +18,14 @@ Console](../../../IAM/latest/UserGuide/id_roles_providers_enable-console-saml.md
 - To perform the steps in this topic, you'll need your instance ID.
   For instructions about how to find it, see [Find your Amazon Connect instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
 - You will also need to know the source Region of your Amazon Connect
-  instances. For instructions about how to find it, see [How to find the source
-  Region of your Amazon Connect instances](create-replica-connect-instance.md#how-to-find-source-region-of-instances "create-replica-connect-instance.md#how-to-find-source-region-of-instances").
+  instances. For instructions about how to find it, see [How to find the source Region of your Amazon Connect instances](create-replica-connect-instance.md#how-to-find-source-region-of-instances "create-replica-connect-instance.md#how-to-find-source-region-of-instances").
 - If you are embedding your Connect application within an iframe,
   you must ensure that your domain is present in the list of Approved
   Origins in both your source and replica instance in order for global
   sign-in to work.
 
 To configure Approved Origins at the instance level, follow the
-steps in [Use an allowlist for integrated applications in
-Amazon Connect](app-integration.md "app-integration.md").
+steps in [Use an allowlist for integrated applications in Amazon Connect](app-integration.md "app-integration.md").
 
 - Agents must be created already in _both_ your
   source and replica Amazon Connect instances and have the same username as the
@@ -41,8 +37,7 @@ Amazon Connect](app-integration.md "app-integration.md").
   agents attempt to sign in. Otherwise agent sign-in will fail with a
   `ResourceNotFoundException`. For information about
   how to setup your traffic distribution groups and associate agents
-  to them, see [Associate agents to Amazon Connect
-  instances across multiple AWS Regions](associate-agents-across-regions.md "associate-agents-across-regions.md").
+  to them, see [Associate agents to Amazon Connect instances across multiple AWS Regions](associate-agents-across-regions.md "associate-agents-across-regions.md").
 - When your agents federate into Amazon Connect with the new SAML sign-in
   URL, Amazon Connect Global Resiliency always attempts to log the agent into
   both your source and replica Regions / instances, no matter how
@@ -59,9 +54,7 @@ Amazon Connect](app-integration.md "app-integration.md").
 - You don't need to configure a relay state when using the
   personalized SAML sign-in URL with Amazon Connect Global Resiliency.
 
-## How to integrate your identity
-
-provider
+## How to integrate your identity provider
 
 1. When you create a replica of your Amazon Connect instance using the [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") API, a personalized SAML sign-in URL
    is generated for your Amazon Connect instances. The URL is generated in the

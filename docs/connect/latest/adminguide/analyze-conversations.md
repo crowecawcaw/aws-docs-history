@@ -1,6 +1,4 @@
-# Analyze conversations using conversational
-
-analytics in Amazon Connect Contact Lens
+# Analyze conversations using conversational analytics in Amazon Connect Contact Lens
 
 With Contact Lens conversational analytics, you can analyze conversations
 between customers and agents or customers and conversational AI, across voice and chat, using natural language
@@ -41,9 +39,7 @@ contacts.
 You can protect your customer's privacy by redacting sensitive data, such as name,
 address, and credit card information from transcripts and audio recordings.
 
-## Sample Contact details page for a
-
-call
+## Sample Contact details page for a call
 
 The following image shows the conversational analytics for a voice call. Notice
 that it includes **Talk time** metrics.
@@ -68,18 +64,14 @@ Notice that personally identifiable information (PII) has been [redacted from th
 
 ![The audio analysis and transcript for the contact.](images/contactlens-contactdetails-call2b.png)
 
-## Sample Contact details page for
-
-real-time chat analytics
+## Sample Contact details page for real-time chat analytics
 
 The following image shows the conversational analytics for a real-time chat.
 Notice that it includes Key highlights and customer sentiment.
 
 ![A contact details page with conversational analytics for a real-time chat.](images/contactlens-realtime-chat.png)
 
-## Sample Contact details page for
-
-post-chat analytics
+## Sample Contact details page for post-chat analytics
 
 The following image shows post-chat analytics. Notice that it includes chat
 response metrics, such as **Agent greeting time** (the time from

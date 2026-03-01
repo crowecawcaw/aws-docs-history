@@ -1,6 +1,4 @@
-# Additional properties of object
-
-types in Customer Profiles
+# Additional properties of object types in Customer Profiles
 
 A property type defines which key should be used to encrypt any data of the object
 type.

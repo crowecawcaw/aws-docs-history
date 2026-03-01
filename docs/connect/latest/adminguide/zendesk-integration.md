@@ -1,6 +1,4 @@
-# Embed the Amazon Connect Contact Control Panel (CCP) into
-
-Zendesk
+# Embed the Amazon Connect Contact Control Panel (CCP) into Zendesk
 
 To integrate Amazon Connect and Zendesk, you need:
 

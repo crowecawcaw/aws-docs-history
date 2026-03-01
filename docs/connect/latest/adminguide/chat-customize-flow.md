@@ -1,6 +1,4 @@
-# Customize chat flow experiences in Amazon Connect by
-
-integrating custom participants
+# Customize chat flow experiences in Amazon Connect by integrating custom participants
 
 You can integrate other solutions, such as bots, with Amazon Connect chat to create customized chat
 flow experiences.
@@ -68,9 +66,7 @@ inbound chat flow.
 If a contact is routed down the **Time Expired** branch, they are not
 disconnected from the contact. You must call the [DisconnectParticipant](../../../connect-participant/latest/APIReference/API_DisconnectParticipant.md "../../../connect-participant/latest/APIReference/API_DisconnectParticipant.md") API to disconnect the participant.
 
-## Activate timers for customers who are
-
-joined to a custom participant
+## Activate timers for customers who are joined to a custom participant
 
 You can activate timers on customers who are joined to custom participants, such as
 custom bots. This enables you to detect when a customer stops responding so you can then
@@ -103,9 +99,7 @@ For more information about chat timers, see [Set up chat timeouts for chat parti
 A timer begins for the customer after the custom participant establishes a
 connection to them using the [CreateParticipantConnection](../APIReference/API_connect-participant_CreateParticipantConnection.md "../APIReference/API_connect-participant_CreateParticipantConnection.md") API.
 
-### What happens when non-compatible
-
-participants join a chat with a custom participant
+### What happens when non-compatible participants join a chat with a custom participant
 
 Following is what happens when an agent or Lex bot participant joins a chat
 with a custom participant, and they are non-compatible
@@ -118,9 +112,7 @@ participants:
    needed). This effectively establishes a new "Idle session" for the new
    set of active participants on the chat.
 
-### Interaction with the Wait block
-
-timer
+### Interaction with the Wait block timer
 
 The idle timer does not impact how the [Wait](wait.md "wait.md") block works.
 

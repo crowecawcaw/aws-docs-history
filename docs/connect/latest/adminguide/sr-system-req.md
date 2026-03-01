@@ -1,6 +1,4 @@
-# System and network requirements for screen recording in
-
-Amazon Connect
+# System and network requirements for screen recording in Amazon Connect
 
 This topic provides the system requirements for using screen recording, and describes
 the detailed dataflow it uses in each platform.

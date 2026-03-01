@@ -1,19 +1,13 @@
-# Mapping Shopify
-
-objects to the standard order in Amazon Connect Customer Profiles
+# Mapping Shopify objects to the standard order in Amazon Connect Customer Profiles
 
 This topic lists which fields in Shopify objects map to fields in the
 standard order object in Customer Profiles.
 
-## Shopify-DraftOrder
-
-object
+## Shopify-DraftOrder object
 
 For a list of all the fields in a Shopify-DraftOrder object see [The DraftOrder object](https://shopify.dev/api/admin-rest/2021-10/resources/draftorder#resource_object "https://shopify.dev/api/admin-rest/2021-10/resources/draftorder#resource_object") in the Shopify documentation.
 
-## Mapping a
-
-Shopify-DraftOrder object to a standard order
+## Mapping a Shopify-DraftOrder object to a standard order
 
 A subset of the fields in the Shopify-DraftOrder object map to the
 standard order object in Customer Profiles.
@@ -89,9 +83,7 @@ and `ObjectTypeName` set to
 
 For a list of all the fields in a Shopify-Order object see [The Order object](https://shopify.dev/api/admin-rest/2021-10/resources/order#resource_object "https://shopify.dev/api/admin-rest/2021-10/resources/order#resource_object") in the Shopify documentation.
 
-## Mapping a
-
-Shopify-Order object to a standard order
+## Mapping a Shopify-Order object to a standard order
 
 A subset of the fields in the Shopify-Order object map to the standard
 order object in Customer Profiles.

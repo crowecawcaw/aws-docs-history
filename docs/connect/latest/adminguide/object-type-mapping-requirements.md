@@ -1,6 +1,4 @@
-# Object type mapping
-
-requirements in Customer Profiles
+# Object type mapping requirements in Customer Profiles
 
 The following information needs to be in your object type mapping so Customer Profiles can
 process the incoming data:

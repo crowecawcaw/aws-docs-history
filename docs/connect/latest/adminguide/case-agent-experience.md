@@ -1,6 +1,4 @@
-# Access Amazon Connect Cases in the agent
-
-application
+# Access Amazon Connect Cases in the agent application
 
 After you enable Amazon Connect Cases, you need to take steps to make the functionality
 available through the agent application. This topic explains your options.
@@ -8,12 +6,9 @@ available through the agent application. This topic explains your options.
 ###### Tip
 
 Make sure your agents have **Cases** permissions in their
-security profile so they can access Cases. For more information, see [Security profile permissions for Amazon Connect
-Cases](assign-security-profile-cases.md "assign-security-profile-cases.md").
+security profile so they can access Cases. For more information, see [Security profile permissions for Amazon Connect Cases](assign-security-profile-cases.md "assign-security-profile-cases.md").
 
-## Option 1: Use Cases with the CCP
-
-out-of-the-box
+## Option 1: Use Cases with the CCP out-of-the-box
 
 Cases is already embedded alongside the Contact Control Panel (CCP). Your
 agents will access the CCP and Cases in the same browser window using a link
@@ -29,9 +24,7 @@ name`.awsapps.com/connect/agent-app-v2/**
 
 For help finding your instance name, see [Find your Amazon Connect instance name](find-instance-name.md "find-instance-name.md").
 
-## Option 2: Embed Cases into a
-
-custom agent application
+## Option 2: Embed Cases into a custom agent application
 
 When you embed your Contact Control Panel (CCP), you have the option of showing or
 hiding the pre-built CCP user interface. For example, you may want to develop a

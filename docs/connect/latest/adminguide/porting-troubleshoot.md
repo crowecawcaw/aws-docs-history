@@ -1,6 +1,4 @@
-# Troubleshoot issues after porting phone
-
-numbers to Amazon Connect
+# Troubleshoot issues after porting phone numbers to Amazon Connect
 
 After you have ported your numbers to Amazon Connect, use the topics in this section to
 troubleshoot issues, or to release numbers you no longer need after porting.

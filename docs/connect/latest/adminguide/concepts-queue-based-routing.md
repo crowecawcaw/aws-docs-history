@@ -1,6 +1,4 @@
-# Queue-based routing to route customers to
-
-a specific contact center agent
+# Queue-based routing to route customers to a specific contact center agent
 
 In your business, you might want to route customers to specific agents based on
 certain criteria, such as the skill of the agent. This is called queue-based routing,

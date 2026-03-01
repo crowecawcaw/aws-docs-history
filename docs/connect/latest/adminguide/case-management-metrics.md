@@ -3,9 +3,7 @@
 The following case driven metrics are available on the Historical metrics reports. To
 access these metrics on a report, Cases needs to be [enabled](enable-cases.md "enable-cases.md") for your instance, and at least one [case template](case-templates.md "case-templates.md") is created.
 
-## Average case resolution
-
-time
+## Average case resolution time
 
 This metric measures the average amount of time spent to resolve a case during the provided time
 interval.
@@ -131,9 +129,7 @@ This metric measures the number of times cases have been resolved.
 - Can be filtered by case template and status.
 - Data for this metric is available starting from January 26, 2024 0:00:00 GMT.
 
-## Cases resolved on first
-
-contact
+## Cases resolved on first contact
 
 This metric measures the percent of cases that were resolved on the first contact (only including
 calls, chats, or email). Cases that have been reopened and subsequently closed in the

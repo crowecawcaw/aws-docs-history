@@ -1,6 +1,4 @@
-# Amazon
-
-AppIntegrations access requirements
+# Amazon AppIntegrations access requirements
 
 Use the following Amazon AppIntegrations access requirements to create and
 delete Shopify integrations with Amazon Connect Customer Profiles:

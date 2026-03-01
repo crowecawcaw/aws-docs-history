@@ -1,6 +1,4 @@
-# Emergency login to the Amazon Connect admin
-
-website
+# Emergency login to the Amazon Connect admin website
 
 As a best practice, users assigned to the Amazon Connect **Admin** security
 profile should always use their Amazon Connect instance URL to login:

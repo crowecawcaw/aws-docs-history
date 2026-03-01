@@ -84,10 +84,8 @@ Amazon Connect includes a set of sample flows. For instructions that explain how
 [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample customer queue priority flow in
-  Amazon Connect](sample-customer-queue-priority.md "sample-customer-queue-priority.md")
-- [Sample queue configurations flow in
-  Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
+- [Sample customer queue priority flow in Amazon Connect](sample-customer-queue-priority.md "sample-customer-queue-priority.md")
+- [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
 
 ## Scenarios
 

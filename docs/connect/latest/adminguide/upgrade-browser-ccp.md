@@ -1,6 +1,4 @@
-# Upgrade your Contact Control Panel (CCP) when your
-
-CCP URL ends with /ccp#
+# Upgrade your Contact Control Panel (CCP) when your CCP URL ends with /ccp#
 
 Upgrading to the latest CCP is easy. If you want, you can try out the latest CCP and
 then at a later date make the switch. Here's what you do:
@@ -20,12 +18,9 @@ then at a later date make the switch. Here's what you do:
 ![The Amazon Connect admin website, phone icon in top right corner.](images/upgradeccp-phone-icon.png) 4. After the upgrade happens, if you use the /ccp# URL, it resolves to
 **/ccp-v2**.
 
-## Verify your network
+## Verify your network settings
 
-settings
-
-We highly recommend setting up your network to use [Option 1 (recommended): Replace Amazon EC2 and CloudFront IP range
-requirements with a domain allowlist](ccp-networking.md#option1 "ccp-networking.md#option1").
+We highly recommend setting up your network to use [Option 1 (recommended): Replace Amazon EC2 and CloudFront IP range requirements with a domain allowlist](ccp-networking.md#option1 "ccp-networking.md#option1").
 
 Using this option helps Amazon Connect Support to quickly troubleshoot any issues you have.
 Specifically, using **\*.telemetry.connect.{region}.amazonaws.com** passes more metrics to
@@ -51,9 +46,7 @@ common tasks that agents perform. The images show both CCP versions in their def
 The chat tab appears on an agent's CCP only if their routing profile includes
 chat.
 
-### Set status, use chat, access quick connects
-
-and number pad
+### Set status, use chat, access quick connects and number pad
 
 ![The available status in earlier CCP, available status in latest CCP.](images/upgradeccp-status-available.png)
 
@@ -75,18 +68,14 @@ and number pad
 
 ![Miss a call in earlier CCP, miss a call in latest CCP.](images/upgradeccp-missed-call.png)
 
-### Make a call: When to use Quick
-
-connects
+### Make a call: When to use Quick connects
 
 ![Make a call in earlier CCP, Make a call in latest CCP using quick connect.](images/upgradeccp-make-call.png)
 
 - Use the **Quick connects** button to type a number or select
   a quick connect.
 
-### Make a call: When to use
-
-Number pad
+### Make a call: When to use Number pad
 
 ![Make a call in earlier CCP, Make a call in latest CCP using number pad.](images/upgradeccp-make-call2.png)
 
@@ -99,9 +88,7 @@ Number pad
 
 ![Make an outbound call in latest CCP.](images/upgradeccp-connected-outbound-call-latest.png)
 
-### Agent ends a call
-
-before being connected to the other party
+### Agent ends a call before being connected to the other party
 
 ![Agent ends call before being connected in earlier CCP, latest CCP.](images/upgradeccp-end-outbound-call-before-connecting.png)
 
@@ -110,9 +97,7 @@ before being connected to the other party
 2. If an agent ends a call before being connected, they are prompted to choose
    **Clear contact**.
 
-### Make another call while connected on a
-
-call
+### Make another call while connected on a call
 
 ![Make another call while connected on a call earlier CCP, latest CCP.](images/upgradeccp-another-call.png)
 
@@ -128,9 +113,7 @@ call
 
 - While on a call, only use **Number pad** to enter DTMF input.
 
-### Conference call scenario 1: Leaving a
-
-call when one party is on hold and the other is connected
+### Conference call scenario 1: Leaving a call when one party is on hold and the other is connected
 
 ![Leaving call earlier CCP, latest CCP.](images/upgradeccp-conference-call.png)
 
@@ -139,9 +122,7 @@ call when one party is on hold and the other is connected
 2. If instead you want to end the call, choose the **x** next to
    each party's number. This disconnects each party.
 
-### Conference call scenario 2: Leaving a
-
-call when the other parties are joined
+### Conference call scenario 2: Leaving a call when the other parties are joined
 
 ![Leaving call earlier CCP, latest CCP.](images/upgradeccp-leave-call-keep-others-joined.png)
 
@@ -150,9 +131,7 @@ call when the other parties are joined
 2. If instead you want to end the call, choose the **x** next to
    each party's number. This disconnects each party.
 
-### Conference call scenario 3: Leaving a
-
-call when the other parties are on hold
+### Conference call scenario 3: Leaving a call when the other parties are on hold
 
 ![Leaving call earlier CCP, latest CCP.](images/upgradeccp-on-hold.png)
 
@@ -161,9 +140,7 @@ call when the other parties are on hold
 2. If instead you want to end the call, choose the **x** next to
    each party's number. This disconnects each party.
 
-### Receive a queued
-
-callback
+### Receive a queued callback
 
 ![Receive a queued callback earlier CCP, latest CCP.](images/upgradeccp-receive-callback.png)
 

@@ -1,6 +1,4 @@
-# Set IP address restrictions and session timeouts
-
-in Amazon Connect
+# Set IP address restrictions and session timeouts in Amazon Connect
 
 ###### Note
 
@@ -155,9 +153,7 @@ restrictions on this user, you can [apply
 When a user's IP address is determined to be blocked by the instance, the user's
 session will be invalidated. A logout event is published in the [Login/Logout report](login-logout-reports.md "login-logout-reports.md").
 
-### What users experience when their IP address check
-
-fails
+### What users experience when their IP address check fails
 
 **Agents**
 
@@ -188,9 +184,7 @@ automatically logged out.
 
 ## Example IP address configurations
 
-### Example 1: IP addresses only defined in the allowed IP
-
-list
+### Example 1: IP addresses only defined in the allowed IP list
 
 - AllowedIps: [ `111.222.0.0/16` ]
 - BlockedIps: [ ]
@@ -200,9 +194,7 @@ Outcome:
 - Only IP addresses between `111.222.0.0` and
   `111.222.255.255` are allowed to access the instance.
 
-### Example 2: IP addresses only defined in the blocked IP
-
-list
+### Example 2: IP addresses only defined in the blocked IP list
 
 - AllowedIps: [ ]
 - BlockedIps: [`155.155.155.0/24` ]
@@ -212,9 +204,7 @@ Outcome:
 - All IP addresses are allowed, _except_ the IP address
   range `155.155.155.0 - 155.155.155.255` inclusive.
 
-### Example 3: IP addresses defined in both the allowed IP
-
-list and the blocked IP list
+### Example 3: IP addresses defined in both the allowed IP list and the blocked IP list
 
 - AllowedIps: [ `200.255.0.0/16` ]
 - BlockedIps: [`200.255.10.0/24, 200.255.40.50, 192.123.211.211`
@@ -231,9 +221,7 @@ Outcome:
 - `192.123.211.211` is effectively ignored since it is not within
   range of the Allowed range.
 
-### Example 4: No IP addresses defined in either the
-
-allowed IP list or the blocked IP list
+### Example 4: No IP addresses defined in either the allowed IP list or the blocked IP list
 
 - AllowedIps: [ ]
 - BlockedIps: [ ]

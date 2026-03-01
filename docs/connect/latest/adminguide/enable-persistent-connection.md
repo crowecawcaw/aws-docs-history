@@ -1,6 +1,4 @@
-# Enable persistent connection for Amazon Connect
-
-agents
+# Enable persistent connection for Amazon Connect agents
 
 When **Enable persistent connection** is selected for an agent, after
 a call ends the agent's softphone maintains its media connection to Amazon Connect for a few
@@ -11,9 +9,7 @@ call for this agent.
 
 This functionality doesn't apply to chats or tasks.
 
-## How to configure persistent connection
-
-for an agent
+## How to configure persistent connection for an agent
 
 1. Log in to the Amazon Connect admin website at https://`instance
 name`.my.connect.aws/. Use an Admin account, or an account with
@@ -34,9 +30,7 @@ a) select **Enable persistent connection** - to enable the feature
 
 b) deselect **Enable persistent connection** - to disable the feature 5. Choose **Save**.
 
-## Configure Persistent Connection using
-
-Bulk upload for new users
+## Configure Persistent Connection using Bulk upload for new users
 
 You can't use the CSV template to edit information for existing users. If you
 include duplicate users with different information in the CSV template, you will
@@ -71,9 +65,7 @@ information is correct for the new users, and then choose
 The media connection for agent softphone is created upon the first incoming or
 outbound call for the agent.
 
-### Does the softphone connection persist for the entire
-
-agent session?
+### Does the softphone connection persist for the entire agent session?
 
 If the agent makes or receives another call within a few minutes of a previous
 call ending, the softphone connection gets re-used to reduce call setup time for
@@ -88,23 +80,16 @@ Only the contact center administrator can enable or disable this feature for
 agents using steps mentioned above. Agents cannot disable persistent
 connection.
 
-### Are there any browser restrictions for using this
-
-feature?
+### Are there any browser restrictions for using this feature?
 
 This feature is available on supported versions of [Chrome and Edge](connect-supported-browsers.md "connect-supported-browsers.md"). It's not
 supported on Firefox.
 
-### Can this feature be used when VDI audio optimization is
-
-enabled?
+### Can this feature be used when VDI audio optimization is enabled?
 
 Yes.
 
-### Is this feature supported on custom Call Control Panels
-
-(CCPs)? Is there a change needed to the Call Control Panel (CCP) to use this
-feature?
+### Is this feature supported on custom Call Control Panels (CCPs)? Is there a change needed to the Call Control Panel (CCP) to use this feature?
 
 If your custom CCP uses the softphone from Amazon Connect embedded iframe (that is, if
 `allowFramedSoftphone` is passed as true to initiate the CCP

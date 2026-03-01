@@ -1,6 +1,4 @@
-# Set up Profile explorer in
-
-Amazon Connect Customer Profiles
+# Set up Profile explorer in Amazon Connect Customer Profiles
 
 Amazon Connect Customer Profiles Explorer is a dynamic, all-in-one dashboard that provides a comprehensive 360°
 view of your customers. It unifies fragmented customer data and allows organizations to
@@ -28,5 +26,4 @@ engage with their customers through this intuitive interface.
 - [Enable Profile explorer](enabling-profile-explorer.md "enabling-profile-explorer.md")
 - [Get started](getting-started-profile-explorer.md "getting-started-profile-explorer.md")
 - [Layout definition](layout-definition.md "layout-definition.md")
-- [Add Profile explorer to the
-  agent workspace](add-profileexplorer-to-agentworkspace.md "add-profileexplorer-to-agentworkspace.md")
+- [Add Profile explorer to the agent workspace](add-profileexplorer-to-agentworkspace.md "add-profileexplorer-to-agentworkspace.md")

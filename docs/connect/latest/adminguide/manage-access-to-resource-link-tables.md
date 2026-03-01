@@ -1,6 +1,4 @@
-# Manage access to Resource link
-
-tables
+# Manage access to Resource link tables
 
 In a cross-account access scenario in Lake Formation, in order to grant Select
 permission to a user, the user has to have Describe permission on the resource link

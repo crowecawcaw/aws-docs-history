@@ -20,9 +20,7 @@ Streams Documentation_ for information about how to include the Connect assistan
 
 For more information about the agent's experience using Connect AI agents, see [Search for content using Connect AI agents](search-for-answers.md "search-for-answers.md").
 
-## Security profile permissions for the
-
-Connect assistant
+## Security profile permissions for the Connect assistant
 
 Assign the following **Agent Applications** permission to the agent's
 security profile:

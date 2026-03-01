@@ -6,10 +6,7 @@ customers encounter when using SAML with Amazon Connect.
 If you're troubleshooting your integration with other identity providers such as Okta, PingIdentify, Azure AD, and more, see
 [Amazon Connect SSO Setup Workshop](https://catalog.workshops.aws/workshops/33e6d0e7-f927-4531-abb1-f28a86ba0872/en-US "https://catalog.workshops.aws/workshops/33e6d0e7-f927-4531-abb1-f28a86ba0872/en-US").
 
-## Error Message: Access Denied. Your
-
-account has been authenticated, but has not been onboarded to this
-application.
+## Error Message: Access Denied. Your account has been authenticated, but has not been onboarded to this application.
 
 ![The error message: access denied.](images/saml-troubleshooting-access-denied.png)
 
@@ -80,9 +77,7 @@ provider (IdP) is Azure Active Directory (Azure AD).
 
 ![a sample SAML Response.](images/saml-troubleshooting-saml-response.png)
 
-## Error Message: Access denied, Please
-
-contact your AWS account administrator for assistance.
+## Error Message: Access denied, Please contact your AWS account administrator for assistance.
 
 ![Error Message: Access denied.](images/saml-troubleshooting-access-denied-admin.png)
 

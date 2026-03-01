@@ -1,6 +1,4 @@
-# Search for completed and in-progress contacts in
-
-Amazon Connect
+# Search for completed and in-progress contacts in Amazon Connect
 
 ###### Note
 
@@ -18,17 +16,13 @@ contacts using the Amazon Connect admin website. For the APIs used to search for
 
 - [Important things to know](#important-contact-search "#important-contact-search")
 - [Key search features](#key-search-features "#key-search-features")
-- [Manage who can search for
-  contacts and access detailed information](#required-permissions-search-contacts "#required-permissions-search-contacts")
+- [Manage who can search for contacts and access detailed information](#required-permissions-search-contacts "#required-permissions-search-contacts")
 - [How to search for a contact](#how-to-search-contacts "#how-to-search-contacts")
-- [Additional fields: Add columns to your search
-  results](#additional-fields "#additional-fields")
+- [Additional fields: Add columns to your search results](#additional-fields "#additional-fields")
 - [Download search results](#download-search-results "#download-search-results")
 - [APIs to search contacts](#apis-search-contacts "#apis-search-contacts")
-- [Search for in-progress contacts in
-  Amazon Connect](search-in-progress-contacts.md "search-in-progress-contacts.md")
-- [Search for contacts in Amazon Connect by using custom
-  contact attributes or contact segment attributes](search-custom-attributes.md "search-custom-attributes.md")
+- [Search for in-progress contacts in Amazon Connect](search-in-progress-contacts.md "search-in-progress-contacts.md")
+- [Search for contacts in Amazon Connect by using custom contact attributes or contact segment attributes](search-custom-attributes.md "search-custom-attributes.md")
 
 ## Important things to know
 
@@ -136,9 +130,7 @@ result**, **Speaker actions**.
 
 ![The filter dropdown menu, filters for Voice ID.](images/voiceid-search-filters.png)
 
-## Manage who can search for
-
-contacts and access detailed information
+## Manage who can search for contacts and access detailed information
 
 Before users can search for contacts in Amazon Connect, or access detailed contact information,
 they need to be assigned to the **CallCenterManager** security profile,
@@ -173,8 +165,7 @@ permissions:
   For this permission, **All** = **View**
   since **View** is the only action granted.
 
-For more information about hierarchy groups, see [Organize agents into teams and groups for reporting
-and access by creating hierarchies](agent-hierarchy.md "agent-hierarchy.md").
+For more information about hierarchy groups, see [Organize agents into teams and groups for reporting and access by creating hierarchies](agent-hierarchy.md "agent-hierarchy.md").
 
 ###### Important
 
@@ -258,9 +249,7 @@ recorded, by default the search result will indicate so with an icon in the
 **Recording** column. You won't see this icon if you don't have
 permission to review the recordings.
 
-## Additional fields: Add columns to your search
-
-results
+## Additional fields: Add columns to your search results
 
 Use the options under **Additional fields** to add columns in your
 search results. These options are not used to filter your search.

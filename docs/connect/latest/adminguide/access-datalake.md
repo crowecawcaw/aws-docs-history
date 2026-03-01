@@ -8,16 +8,12 @@ launch directly from the AWS Management Console.
 There are two ways to access the analytics data lake and configure data to be
 shared:
 
-- [Option 1: Use the Amazon Connect
-  console](#option1-configure-data-to-be-shared "#option1-configure-data-to-be-shared")
-- [Option 2: Use CLI or
-  CloudShell](#option2-configure-data-to-be-shared "#option2-configure-data-to-be-shared")
+- [Option 1: Use the Amazon Connect console](#option1-configure-data-to-be-shared "#option1-configure-data-to-be-shared")
+- [Option 2: Use CLI or CloudShell](#option2-configure-data-to-be-shared "#option2-configure-data-to-be-shared")
   If you are unable to access the scheduling tables by using Option 1, try using
   Option 2.
 
-## Option 1: Use the Amazon Connect
-
-console
+## Option 1: Use the Amazon Connect console
 
 1. Open the Amazon Connect console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
@@ -38,9 +34,7 @@ select **Confirm**.
 
 ![The Amazon Connect analytics tools Add data share page.](images/access-datalake-configure-data-option1-3.png)
 
-## Option 2: Use CLI or
-
-CloudShell
+## Option 2: Use CLI or CloudShell
 
 1.  Generate the `generate Association api` request file by running
     the `aws connect batch-associate-analytics-data-set
@@ -52,8 +46,7 @@ CloudShell
          instance ID.
         * **DataSetID** – Enter the
          required tables. For more information about required tables, see
-         [Associate tables for the Amazon Connect analytics data
-         lake](datalake-tables.md "datalake-tables.md").
+         [Associate tables for the Amazon Connect analytics data lake](datalake-tables.md "datalake-tables.md").
         * **TargetAccountId** – Account
          ID to share data.
 

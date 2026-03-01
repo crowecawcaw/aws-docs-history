@@ -1,6 +1,4 @@
-# Update an Apple Messages for Business integration with
-
-Amazon Connect
+# Update an Apple Messages for Business integration with Amazon Connect
 
 You will need to update your Apple Messages for Business integration if you want to change the flow ID or
 other information.

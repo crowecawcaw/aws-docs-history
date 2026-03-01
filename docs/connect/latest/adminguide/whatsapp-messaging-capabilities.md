@@ -1,12 +1,9 @@
-# WhatsApp Business messaging capabilities and
-
-limitations with Amazon Connect
+# WhatsApp Business messaging capabilities and limitations with Amazon Connect
 
 The WhatsApp Business messaging integration provides the following capabilities:
 
 - Text messages
-- Interactive messages. For more information, see [Add Amazon Lex interactive messages for customers in
-  chat](interactive-messages.md "interactive-messages.md").
+- Interactive messages. For more information, see [Add Amazon Lex interactive messages for customers in chat](interactive-messages.md "interactive-messages.md").
 - Messages with rich link previews
 - Delivered and read receipts for business messages
 - Attachments

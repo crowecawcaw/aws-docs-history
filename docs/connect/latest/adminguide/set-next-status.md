@@ -1,6 +1,4 @@
-# Set your "Next status" in the Contact Control Panel
-
-(CCP)
+# Set your "Next status" in the Contact Control Panel (CCP)
 
 ###### Note
 
@@ -51,9 +49,7 @@ The following images show this workflow.
 2. The contact ends and the agent is still **Available** for
    new contacts to be routed to them.
 
-## Example 1: Set "Next status" while
-
-handling only ACW contacts
+## Example 1: Set "Next status" while handling only ACW contacts
 
 Let's say an agent is finishing after contact work (ACW) for one or more contacts,
 such as a voice contact or multiple chats. They are not on contact with
@@ -86,9 +82,7 @@ status to **Lunch**. Here's what happens next:
    **Close contact**.
 3. The agent is set to **Lunch**.
 
-## Example 2: Set "Next status" while
-
-managing some chats on contact and other chats in ACW
+## Example 2: Set "Next status" while managing some chats on contact and other chats in ACW
 
 Let's say an agent is managing two chats:
 

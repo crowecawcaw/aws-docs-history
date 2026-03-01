@@ -1,6 +1,4 @@
-# Pause and resume tasks in Amazon Connect
-
-Tasks
+# Pause and resume tasks in Amazon Connect Tasks
 
 You can pause and resume all tasks that aren't expired, disconnected, or scheduled for
 a later time. The benefit of pausing and resuming tasks is that it enables agents to
@@ -41,9 +39,7 @@ processes temporarily, and then resume them after the emergency has passed.
   dequeued, be sure to add a [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block to the flow to queue the
   task after resuming. Otherwise, the task will stay in a de-queued state.
 
-## How agents pause and resume
-
-tasks
+## How agents pause and resume tasks
 
 Agents can pause a task from their Contact Control Panel (CCP) or agent workspace
 by using the **Pause** button. To update the task, the agent must
@@ -99,9 +95,7 @@ new tasks are routed to them until the number of active tasks is lower than the
 **Maximum tasks per agent** limit in their routing
 profile.
 
-## Programmatically pause and
-
-resume tasks
+## Programmatically pause and resume tasks
 
 You can pause and resume tasks programmatically by using the [PauseContact](../APIReference/API_PauseContact.md "../APIReference/API_PauseContact.md") and [ResumeContact](../APIReference/API_ResumeContact.md "../APIReference/API_ResumeContact.md")
 APIs.
@@ -114,9 +108,7 @@ the pause and resume events. For example:
 - You may want to create a resume flow to update attributes on the task that
   may have changed while the task was Paused.
 
-## Configure a flow to pause and resume
-
-tasks
+## Configure a flow to pause and resume tasks
 
 Configure a [Set event flow](set-event-flow.md "set-event-flow.md")
 block to pause and resume tasks. The following image shows the
@@ -134,9 +126,7 @@ flows:
   attributes to make sure that agents are always working on the latest version
   of attributes.
 
-## New events in the contact event stream
-
-and agent event stream
+## New events in the contact event stream and agent event stream
 
 When tasks are paused and resumed, new events are generated for PAUSED and RESUMED
 in the contact event stream and agent event stream.
@@ -155,9 +145,7 @@ The following image shows an example of PAUSED tasks in the agent event stream.
 
 ![PAUSED events in the agent event stream.](images/tasks-aes.png)
 
-## Pause and resume task events in contact
-
-records
+## Pause and resume task events in contact records
 
 The following events are captured in the [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord") section of the contact records data model. You can
 use the [DescribeContact](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md") API to return task events.

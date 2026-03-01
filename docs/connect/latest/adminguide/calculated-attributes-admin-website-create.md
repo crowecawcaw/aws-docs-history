@@ -1,10 +1,7 @@
-# Create calculated
-
-attributes in Amazon Connect
+# Create calculated attributes in Amazon Connect
 
 1. Prerequisites: Ensure you have the necessary security profile
-   permissions. For more information, see [Update permissions
-   for calculated attributes in Amazon Connect Customer Profiles](security-profile-customer-profile-calc-attribs.md "security-profile-customer-profile-calc-attribs.md").
+   permissions. For more information, see [Update permissions for calculated attributes in Amazon Connect Customer Profiles](security-profile-customer-profile-calc-attribs.md "security-profile-customer-profile-calc-attribs.md").
 2. In Amazon Connect admin website, navigate to **Customer Profiles**,
    **Calculated attributes**, choose **Create
    attribute** in the **Calculated
@@ -57,8 +54,7 @@ oldest data will be replaced by newer data. Source timestamp cannot
 be changed after creation.
 
 ![The Customer profiles tab in the agent workspace, the Associate button.](images/calculated-attributes-admin-website-create-4.png) 6. Optionally, you can define criteria to include only relevant events in
-calculations. See [Set up event
-filters](calculated-attributes-admin-website-event-filters.md "calculated-attributes-admin-website-event-filters.md")
+calculations. See [Set up event filters](calculated-attributes-admin-website-event-filters.md "calculated-attributes-admin-website-event-filters.md")
 for more information. 7. Select **Create** to create the calculated
 attribute. 8. After a calculated attribute has been created successfully, a banner
 is displayed on the table view for using the calculated attribute in a

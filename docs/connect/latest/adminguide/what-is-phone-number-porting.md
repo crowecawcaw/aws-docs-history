@@ -1,6 +1,4 @@
-# What does it mean to port phone
-
-numbers to Amazon Connect?
+# What does it mean to port phone numbers to Amazon Connect?
 
 Porting a phone number is the process of moving a phone number from one
 telephony service provider, or carrier, to another. Many businesses and
@@ -11,9 +9,7 @@ If you port a phone number from your current carrier to Amazon Connect, you can 
 using the same phone number for your contact center. This helps to eliminate the
 need to update your business contact information.
 
-## Downtime and service disruption during
-
-the porting process
+## Downtime and service disruption during the porting process
 
 The porting process requires the losing carrier to remove your number from
 their systems, the winning carrier to add your number to their systems, and
@@ -25,19 +21,15 @@ communicate a two-hour porting window to resolve any issues that could
 arise.
 
 For detailed information about available porting dates and times, see
-[Region requirements for ordering and porting
-phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md") for your country or region.
+[Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md") for your country or region.
 
-## What happens to a number
-
-after it is ported
+## What happens to a number after it is ported
 
 As long as you continue to pay for the phone number, and do not release it
 from your Amazon Connect instance, it stays assigned to your account, and you are
 billed accordingly.
 
-To release a phone number, follow the steps in [Release a phone number from Amazon Connect back to
-inventory](release-phone-number.md "release-phone-number.md").
+To release a phone number, follow the steps in [Release a phone number from Amazon Connect back to inventory](release-phone-number.md "release-phone-number.md").
 
 When a phone number is released from your Amazon Connect instance:
 

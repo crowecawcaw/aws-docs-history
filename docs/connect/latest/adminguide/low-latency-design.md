@@ -1,6 +1,4 @@
-# Design your Amazon Connect contact center for low latency to
-
-help ensure call quality
+# Design your Amazon Connect contact center for low latency to help ensure call quality
 
 ###### Note
 

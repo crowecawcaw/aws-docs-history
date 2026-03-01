@@ -1,6 +1,4 @@
-# Set up forecasting, capacity planning, and scheduling
-
-in Amazon Connect
+# Set up forecasting, capacity planning, and scheduling in Amazon Connect
 
 ###### Tip
 

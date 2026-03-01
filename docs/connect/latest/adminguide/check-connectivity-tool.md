@@ -1,6 +1,4 @@
-# Validate connectivity to Amazon Connect with the
-
-Endpoint Test Utility
+# Validate connectivity to Amazon Connect with the Endpoint Test Utility
 
 To validate connectivity to Amazon Connect, or when your agents are
 experiencing problems with the Contact Control Panel (CCP), we recommend using the
@@ -22,9 +20,7 @@ The Amazon Connect Endpoint Test Utility performs the following checks:
   Additionally, you can download a bookmark specifically for the provided instance to make
   future tests easier to run.
 
-## Parameters to customize the
-
-Endpoint Test Utility
+## Parameters to customize the Endpoint Test Utility
 
 You can use the Endpoint Test Utility as is without any customizations. However,
 if you want to customize it, use the following URL parameters:

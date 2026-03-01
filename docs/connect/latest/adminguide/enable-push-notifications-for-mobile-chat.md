@@ -1,6 +1,4 @@
-# Enable push notifications for
-
-mobile chat
+# Enable push notifications for mobile chat
 
 Push notifications for mobile chat are configured through [AWS End User Messaging](../../../sms-voice/latest/userguide/what-is-service.md "../../../sms-voice/latest/userguide/what-is-service.md").
 You can enable push notifications for mobile chat on iOS or Android devices, allowing you to
@@ -9,9 +7,7 @@ application. You can enable this feature in your existing app integrated with th
 
 The following steps and resources will help you get started with integrating Amazon Connect push notifications into your native mobile applications:
 
-## Step 1: Obtain
-
-credentials from Apple's APNs and Google's FCM console
+## Step 1: Obtain credentials from Apple's APNs and Google's FCM console
 
 In order to set up Amazon Connect so that it can send push notifications to your
 apps, you first have to obtain credentials from Apple's APNs and Google's FCM console
@@ -25,10 +21,7 @@ that you provide, depend on which push notification system you use:
   through the Firebase console, see [Firebase Cloud
   Messaging](https://firebase.google.com/docs/cloud-messaging "https://firebase.google.com/docs/cloud-messaging").
 
-## Step 2: Create
-
-an AWS End User Messaging service application using the AWS console and enable
-the push notification channel for FCM or APNs
+## Step 2: Create an AWS End User Messaging service application using the AWS console and enable the push notification channel for FCM or APNs
 
 Before you can enable Amazon Connect to send push notifications, you first have to
 [create an AWS
@@ -82,9 +75,7 @@ enable or disable any of the push channels at a later time:
 
 6. Choose **Create application**.
 
-## Step 3: Associate the
-
-AWS End User Messaging application with an Amazon Connect instance
+## Step 3: Associate the AWS End User Messaging application with an Amazon Connect instance
 
 To enable push notifications on an [Amazon Connect
 instance](find-instance-arn.md "find-instance-arn.md"), you will need to associate an AWS End User Messaging application
@@ -95,9 +86,7 @@ or the [Amazon Connect SDK](https://aws.amazon.com/developer/tools/ "https://aws
 supported languages. This is a one-time onboarding step required for each integration
 between an AWS End User Messaging application and an Amazon Connect instance.
 
-## Step 4: Get device
-
-token with FCM or APNs SDK, and register it with Amazon Connect
+## Step 4: Get device token with FCM or APNs SDK, and register it with Amazon Connect
 
 You will need to fetch the device token and use it to register an end-user mobile
 device with an Amazon Connect chat contact to send push notifications for new
@@ -135,15 +124,11 @@ To register the device with a chat contact, we recommend that you do the followi
    flow. Once the API call is made, the device will stop receiving push
    notifications when a new message comes from the agent or system.
 
-## Step 5: Receive push
-
-notification on your mobile applications
+## Step 5: Receive push notification on your mobile applications
 
 Check out our [Amazon Connect Chat UI Examples](https://github.com/amazon-connect/amazon-connect-chat-ui-examples "https://github.com/amazon-connect/amazon-connect-chat-ui-examples") project and refer to our sample [iOS](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/iOS-WKWebView-sample "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/iOS-WKWebView-sample") and [Android](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/android-webview-sample "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/android-webview-sample") chat webview examples that showcase how to integrate Amazon Connect APIs to onboard and receive push notifications.
 
-## Monitor your usage for push
-
-notifications
+## Monitor your usage for push notifications
 
 To ensure the reliability, availability, and performance of your push notifications,
 it's crucial to monitor their usage. You can track this information through several

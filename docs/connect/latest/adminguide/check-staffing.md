@@ -78,5 +78,4 @@ configured. It has three branches: **True**,
 
 See these topics for scenarios that use this block:
 
-- [Transfer contacts to a specific agent in
-  Amazon Connect](transfer-to-agent.md "transfer-to-agent.md")
+- [Transfer contacts to a specific agent in Amazon Connect](transfer-to-agent.md "transfer-to-agent.md")

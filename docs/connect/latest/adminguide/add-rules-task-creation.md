@@ -1,6 +1,4 @@
-# Create rules that generate tasks for third-party
-
-integrations in Amazon Connect
+# Create rules that generate tasks for third-party integrations in Amazon Connect
 
 After you set up an external application to generate tasks automatically, you need to
 build rules that tell Amazon Connect when to create tasks, and how to route them.

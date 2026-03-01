@@ -1,6 +1,4 @@
-# Download real-time metrics for
-
-Amazon Connect
+# Download real-time metrics for Amazon Connect
 
 You can download the data included in your report as a comma-separated value (CSV)
 file so that you can use it with other applications. If there is no data for one of

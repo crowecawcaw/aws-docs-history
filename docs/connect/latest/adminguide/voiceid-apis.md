@@ -19,13 +19,10 @@ This section explains how to perform common scenarios using the Voice ID APIs.
   Association APIs](voiceid-integration-association-apis.md "voiceid-integration-association-apis.md")
 - [Speaker,
   watchlist, and fraudster management APIs](voiceid-speaker-fraudster-management-apis.md "voiceid-speaker-fraudster-management-apis.md")
-- [Batch enrollment in Amazon Connect Voice ID using
-  audio data from prior calls](voiceid-batch-enrollment.md "voiceid-batch-enrollment.md")
+- [Batch enrollment in Amazon Connect Voice ID using audio data from prior calls](voiceid-batch-enrollment.md "voiceid-batch-enrollment.md")
 - [File schema for Speaker
   Enrollment Job](speaker-enrollment-job-schema.md "speaker-enrollment-job-schema.md")
-- [Create and edit a fraudster watchlist
-  in Amazon Connect Voice ID](voiceid-fraudster-watchlist.md "voiceid-fraudster-watchlist.md")
+- [Create and edit a fraudster watchlist in Amazon Connect Voice ID](voiceid-fraudster-watchlist.md "voiceid-fraudster-watchlist.md")
 - [File schema for
   Fraudster Registration Job](fraudster-registration-schema.md "fraudster-registration-schema.md")
-- [Amazon Connect Streams APIs to integrate
-  Voice ID](voiceid-streams-apis.md "voiceid-streams-apis.md")
+- [Amazon Connect Streams APIs to integrate Voice ID](voiceid-streams-apis.md "voiceid-streams-apis.md")

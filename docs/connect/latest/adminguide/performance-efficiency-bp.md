@@ -1,6 +1,4 @@
-# Performance efficiency for Amazon Connect
-
-workloads
+# Performance efficiency for Amazon Connect workloads
 
 Performance eﬃciency includes the ability to use computing resources eﬃciently to meet
 system requirements, and to maintain that eﬃciency as demand changes and technologies
@@ -8,9 +6,7 @@ evolve. This section provides an overview of design principles, best practices, 
 questions surrounding performance efficiency for Amazon Connect workloads. You can ﬁnd
 prescriptive guidance on implementation in the [Performance Eﬃciency Pillar](https://d0.awsstatic.com/whitepapers/architecture/AWS-Performance-Efficiency-Pillar.pdf "                 https://d0.awsstatic.com/whitepapers/architecture/AWS-Performance-Efficiency-Pillar.pdf") whitepaper.
 
-## Architectural
-
-design
+## Architectural design
 
 There are two fundamental architectural design principles to consider when
 designing experiences for the contact center:
@@ -101,8 +97,7 @@ If you need to run load or scale testing, you can employ third-party or partner
 solutions to run load tests, or develop your own custom solution using the Amazon Connect
 [StartOutboundVoiceContact](../APIReference/API_StartOutboundVoiceContact.md "../APIReference/API_StartOutboundVoiceContact.md") API to generate calls combined with browser
 automation scripts to simulate agent behavior. Before to performing load tests,
-review and follow [Load and penetration / security testing
-policies for Amazon Connect](load-and-penetration-testing.md "load-and-penetration-testing.md").
+review and follow [Load and penetration / security testing policies for Amazon Connect](load-and-penetration-testing.md "load-and-penetration-testing.md").
 
 ## Agent enablement
 

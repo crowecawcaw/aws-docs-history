@@ -76,9 +76,7 @@ addresses from your Amazon Connect instance are included in the To or CC email a
 attributes, multiple inbound email contacts will be created in your Amazon Connect
 instance.
 
-## How email messages become email
-
-contacts
+## How email messages become email contacts
 
 For general email receiving in Amazon Connect, including webform based email, the [StartEmailContact](../APIReference/API_StartEmailContact.md "../APIReference/API_StartEmailContact.md") API exposes basic email fields on the request object.
 This object is used to populate email information and start an email contact in
@@ -119,9 +117,7 @@ bucket, and then getting data from that bucket to display it to the agent.
 
 ![A diagram that shows email message content stored in your S3 bucket.](images/email-concepts-translated.png)
 
-## Every email message is a unique
-
-email contact
+## Every email message is a unique email contact
 
 Amazon Connect email differs from voice, chat, and tasks.
 

@@ -1,6 +1,4 @@
-# Security profile permissions for Amazon Connect
-
-Voice ID
+# Security profile permissions for Amazon Connect Voice ID
 
 ###### Note
 

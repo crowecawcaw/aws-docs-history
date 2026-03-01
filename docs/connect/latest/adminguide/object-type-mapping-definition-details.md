@@ -1,6 +1,4 @@
-# Object type mapping
-
-definition details in Amazon Connect Customer Profiles
+# Object type mapping definition details in Amazon Connect Customer Profiles
 
 The object type mapping definition has two parts: the field definition and the key
 definition.
@@ -99,9 +97,7 @@ Keys definitions are used in two ways:
 - They allow you to use the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to search for the key value and find the
   profile.
 
-## Default search
-
-keys
+## Default search keys
 
 Default search keys, such as `_phone` and `_email`, are
 predefined by the [Standard

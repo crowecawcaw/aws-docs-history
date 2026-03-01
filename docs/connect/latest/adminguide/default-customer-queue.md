@@ -1,6 +1,4 @@
-# Default customer queue flow in Amazon Connect: queue
-
-message and music
+# Default customer queue flow in Amazon Connect: queue message and music
 
 This default flow is run when a customer is placed in a queue.
 
@@ -23,9 +21,7 @@ We recommend you create a new flow, and use it to check the channel and then rou
 the contact to the appropriate queue. For instructions specific to tasks, see [How to send tasks to a
 queue](tasks.md#example-enqueue-task "tasks.md#example-enqueue-task").
 
-## Change the default message a
-
-customer hears when they are put in queue
+## Change the default message a customer hears when they are put in queue
 
 The following steps show how to change the default message customers hear when
 they are put in a queue to wait for the next available agent.

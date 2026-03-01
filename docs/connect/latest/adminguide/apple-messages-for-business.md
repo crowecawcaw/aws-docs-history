@@ -13,9 +13,7 @@ Apple Messages for Business integration with Amazon Connect enables you to use t
 routing, and agent UI that you already use for [Amazon Connect
 Chat](web-and-mobile-chat.md "web-and-mobile-chat.md").
 
-## Prerequisites: Determine if
-
-Apple Messages for Business is the right channel for your use case
+## Prerequisites: Determine if Apple Messages for Business is the right channel for your use case
 
 In order to qualify as a business, make sure you meet the criteria listed in the
 [Apple Messages for Business documentation](https://register.apple.com/resources/messages/messaging-documentation/#qualifying-as-a-business "https://register.apple.com/resources/messages/messaging-documentation/#qualifying-as-a-business").
@@ -55,24 +53,20 @@ at the top of your **Messages for Business Account** page.
 For more information about registering with Apple, see the following articles on
 Apple's website: [Getting Started with Messages for Business](https://register.apple.com/resources/business-chat/BC-GettingStarted.pdf "https://register.apple.com/resources/business-chat/BC-GettingStarted.pdf") and [Messages for Business Policies and Best Practices](https://register.apple.com/resources/business-chat/BC-Policies_and_Best_Practices.pdf "https://register.apple.com/resources/business-chat/BC-Policies_and_Best_Practices.pdf").
 
-## Step 2: Gather required
-
-information
+## Step 2: Gather required information
 
 Gather the following information so you have it on hand when you open a support ticket
 in Step 3:
 
 1. **Apple Messages for Business Account ID**: After you’ve been approved by Apple Messages for Business,
    you will be issued an Apple Messages for Business Account ID. For information about locating your Apple Messages for Business Account ID, see
-   [Find your Apple Messages for Business Account ID for your
-   integration with Amazon Connect](find-apple-messages-for-business-account-id.md "find-apple-messages-for-business-account-id.md").
+   [Find your Apple Messages for Business Account ID for your integration with Amazon Connect](find-apple-messages-for-business-account-id.md "find-apple-messages-for-business-account-id.md").
 
 ###### Note
 
 Your Apple Messages for Business Account ID is a randomized string of numbers and letters. It is not the
 same as your Apple ID. 2. **Apple Token**: This is a unique ID that
-authenticates your account. For help locating your Apple token, see [Find your Apple token when integrating Apple
-Messages for Business with Amazon Connect](find-apple-token-id.md "find-apple-token-id.md"). 3. **Amazon Connect instance ARN**: This is the identifier
+authenticates your account. For help locating your Apple token, see [Find your Apple token when integrating Apple Messages for Business with Amazon Connect](find-apple-token-id.md "find-apple-token-id.md"). 3. **Amazon Connect instance ARN**: This is the identifier
 for the instance you want to link to your Apple business account. For
 information about locating your instance ID, see [Find your Amazon Connect instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
 
@@ -85,12 +79,9 @@ If your instance was created before **October
 is associated with your Amazon Connect instance. For more information about
 service-linked roles, see [Use service-linked roles and role permissions for Amazon Connect](connect-slr.md "connect-slr.md"). 4. **Amazon Connect flow ID**: This is the identifier for the
 flow you want to use for inbound chats. For information about locating your flow
-ID, see [Find the flow ID when integrating Apple Messages
-for Business with Amazon Connect](find-contact-flow-id.md "find-contact-flow-id.md").
+ID, see [Find the flow ID when integrating Apple Messages for Business with Amazon Connect](find-contact-flow-id.md "find-contact-flow-id.md").
 
-## Step 3: Link your Apple Messages for Business ID to
-
-Amazon Connect
+## Step 3: Link your Apple Messages for Business ID to Amazon Connect
 
 In this step you create an Amazon Connect support ticket to link your Apple Messages for Business ID to Amazon Connect.
 
@@ -152,9 +143,7 @@ your messages. For example:
 
 Additionally, pass the [Apple experience review](https://register.apple.com/resources/messages/messaging-documentation/xp-review "https://register.apple.com/resources/messages/messaging-documentation/xp-review").
 
-## Step 4: Create and Submit
-
-Experience Review Recording
+## Step 4: Create and Submit Experience Review Recording
 
 Record a demo experience for review by Amazon Connect and Apple Messages for Business. The video must accurately
 represent the user journey that occurs when the account is in production (all use

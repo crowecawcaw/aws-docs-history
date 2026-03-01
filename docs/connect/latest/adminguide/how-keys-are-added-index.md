@@ -1,6 +1,4 @@
-# How Customer Profiles adds keys to the index for
-
-lookups
+# How Customer Profiles adds keys to the index for lookups
 
 The following diagram shows how Customer Profiles processes the standard
 identifiers to determine whether to persist the key.

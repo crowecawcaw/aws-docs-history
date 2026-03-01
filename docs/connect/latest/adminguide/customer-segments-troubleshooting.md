@@ -1,30 +1,21 @@
-# Troubleshooting customer
+# Troubleshooting customer segments in Amazon Connect
 
-segments in Amazon Connect
-
-## The Customer segments option doesn't appear in the left navigation
-
-panel
+## The Customer segments option doesn't appear in the left navigation panel
 
 If a **Customer segments** option does not exist in Amazon Connect admin website
 left navigation panel, check if the user's security profiles has the
 **Customer segment - View** permission. For more
-information, see [Assign security
-profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md"). After the
+information, see [Assign security profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md"). After the
 permission is updated, refresh the Amazon Connect admin website page to reflect the change.
 
-## Export
-
-CSV button not available, or export job timed out
+## Export CSV button not available, or export job timed out
 
 Exporting a segment that contains more than 350,000 profiles is not supported
 in the Amazon Connect admin website. Alternatively, we recommend exporting this type of segment to an
 Amazon S3 bucket using the `CreateSegmentSnapshot` API through the command
 line reference (CLI) or SDK.
 
-## Error: You
-
-reached the limit of 60 unique attributes
+## Error: You reached the limit of 60 unique attributes
 
 This error occurs when the number of unique attributes in the segment
 definition exceeds the quota. The number of unique attributes are counted

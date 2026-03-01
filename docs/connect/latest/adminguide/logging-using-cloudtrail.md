@@ -56,9 +56,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Example: Amazon Connect log file
-
-entries
+## Example: Amazon Connect log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event
@@ -114,9 +112,7 @@ The following example shows a CloudTrail log entry that demonstrates the
 
 ```
 
-## Example: Amazon Connect Voice ID log file
-
-entries
+## Example: Amazon Connect Voice ID log file entries
 
 Just like Amazon Connect, Voice ID is integrated with CloudTrail. When enabled, the service emits
 events for the Voice ID API calls made by a user, role, or an AWS service. You can

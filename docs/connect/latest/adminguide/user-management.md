@@ -36,7 +36,7 @@ see [Add tags to resources in Amazon Connect](tagging.md "tagging.md"). 8. Choos
 means you're logged in with an Amazon Connect account that doesn't have
 the required security profile permissions.
 
-To fix this issue, log in with an account that is assigned to the Amazon Connect Admin security profile. Or, ask another Admin to help. 9. For information about adding agents, see [Configure agent settings in Amazon Connect](configure-agents.md "configure-agents.md") .
+To fix this issue, log in with an account that is assigned to the Amazon Connect Admin security profile. Or, ask another Admin to help. 9. For information about adding agents, see [Configure agent settings in Amazon Connect](configure-agents.md "configure-agents.md").
 
 ## Add users in bulk from a .csv file
 
@@ -116,9 +116,7 @@ management** page with the users that have been created.
 
 ![A banner that users have been created.](images/save-bulk-users-banner.png)
 
-## Required permissions for adding
-
-users
+## Required permissions for adding users
 
 Before you can add users to Amazon Connect, you need the following permissions
 assigned to your security profile: **Users - Create**. The

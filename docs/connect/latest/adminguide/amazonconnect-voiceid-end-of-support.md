@@ -1,6 +1,4 @@
-# Amazon Connect Voice ID end of
-
-support
+# Amazon Connect Voice ID end of support
 
 After careful consideration, we decided to end support for Amazon Connect Voice ID,
 effective May 20, 2026. Amazon Connect Voice ID will no longer accept new customers
@@ -31,8 +29,7 @@ Amazon Connect Voice ID domains, see [Manage Amazon Connect Voice ID domains](vo
 For a specific Voice ID domain, you can download data about enrolled callers using
 the `ListSpeakers` API and registered fraudsters using
 `ListFraudsters` API. For more information about speaker and fraudster
-management, see [Amazon Connect Voice ID speaker,
-watchlist, and fraudster management APIs](voiceid-speaker-fraudster-management-apis.md "voiceid-speaker-fraudster-management-apis.md"). You can ensure that all
+management, see [Amazon Connect Voice ID speaker, watchlist, and fraudster management APIs](voiceid-speaker-fraudster-management-apis.md "voiceid-speaker-fraudster-management-apis.md"). You can ensure that all
 your customer data on Voice ID is deleted by using the Voice ID
 `DeleteDomain` API. You need to perform this operation for every
 Voice ID domain in every AWS Region and every account.

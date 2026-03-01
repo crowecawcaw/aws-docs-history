@@ -1,6 +1,4 @@
-# Access third-party applications in the
-
-Amazon Connect agent workspace
+# Access third-party applications in the Amazon Connect agent workspace
 
 ## Important things to know
 
@@ -24,9 +22,7 @@ Amazon Connect agent workspace
   agent must also have access to the CCP in order for the application
   launcher to appear.
 
-## Use the app launcher to access
-
-third-party applications
+## Use the app launcher to access third-party applications
 
 Agents can access third-party applications in the agent workspace by using the
 apps launcher, shown in the following image. The apps launcher appears on the
@@ -41,9 +37,7 @@ in the idle state) or when they are on a contact (call, chat, or task). After an
 app is opened for a given contact, it stays open until that contact is
 closed.
 
-## Required security profile
-
-permissions to access third-party applications
+## Required security profile permissions to access third-party applications
 
 Agents need the following security profiles permissions to access third-party
 apps:
@@ -67,9 +61,7 @@ user clears the cookies on the browser.
 An agent can unpin the tab if they no longer want this app to always be open;
 they will still be able to open and close the app as needed.
 
-### Examples of apps pinned on the agent
-
-workspace
+### Examples of apps pinned on the agent workspace
 
 The following image shows an example of a third-party app named NoteTest
 that is pinned to the agent workspace.

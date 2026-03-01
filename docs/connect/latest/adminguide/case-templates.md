@@ -1,6 +1,4 @@
-# Create case templates to document customer issues in
-
-Amazon Connect Cases
+# Create case templates to document customer issues in Amazon Connect Cases
 
 _Case templates_ are forms that ensure agents collect and reference
 the right information for different types of customer issues. For example, you can
@@ -14,9 +12,7 @@ fields on the form, and the order of the fields.
 
 Cases are always created based on a template.
 
-## How case templates look in the agent
-
-application
+## How case templates look in the agent application
 
 In the agent application, the agent sees the case fields in a Z-formation: case
 fields are displayed in two columns from left to right, top to bottom.
@@ -57,8 +53,7 @@ Amazon Connect admin website.
 
 1. Log in to the Amazon Connect admin website with an **Admin** account, or an
    account assigned to a security profile that has permissions to create
-   templates. For a list of required permissions, see [Security profile permissions for Amazon Connect
-   Cases](assign-security-profile-cases.md "assign-security-profile-cases.md").
+   templates. For a list of required permissions, see [Security profile permissions for Amazon Connect Cases](assign-security-profile-cases.md "assign-security-profile-cases.md").
 2. Verify the quota for case templates and request an increase if needed. For
    more information, see [Amazon Connect Cases service quotas](amazon-connect-service-limits.md#cases-quotas "amazon-connect-service-limits.md#cases-quotas").
 3. Verify the [case fields](case-fields.md "case-fields.md") you want to add

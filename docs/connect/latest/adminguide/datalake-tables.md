@@ -1,6 +1,4 @@
-# Associate tables for the Amazon Connect analytics data
-
-lake
+# Associate tables for the Amazon Connect analytics data lake
 
 Configuration of data sharing creates a RAM invitation to the consumer
 account. [RAM](https://aws.amazon.com/ram/ "https://aws.amazon.com/ram/") is a service to help

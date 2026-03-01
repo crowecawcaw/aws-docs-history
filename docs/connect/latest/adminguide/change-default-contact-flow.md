@@ -1,6 +1,4 @@
-# Change a default flow in your Amazon Connect
-
-contact center
+# Change a default flow in your Amazon Connect contact center
 
 You can override the way the default flows work by editing them directly.
 
@@ -9,9 +7,7 @@ the default flow directly. You can make a copy of the default flow, assign a nam
 indicates it's a custom version, and then edit that one. This gives you more control
 over how your flows work.
 
-## Change how a default flow works in
-
-Amazon Connect
+## Change how a default flow works in Amazon Connect
 
 The following steps show how to change the default message customers hear when
 they are put in a queue to wait for the next available agent.
@@ -41,9 +37,7 @@ effect).
 
 ![The publish button on the flow designer.](images/customize-default-contact-flow4.png)
 
-## Copy a default flow before customizing
-
-it
+## Copy a default flow before customizing it
 
 Use the following steps to create a new flow based a current default.
 

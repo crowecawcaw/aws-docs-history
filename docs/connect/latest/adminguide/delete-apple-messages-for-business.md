@@ -1,6 +1,4 @@
-# Delete an Apple Messages for Business integration with
-
-Amazon Connect
+# Delete an Apple Messages for Business integration with Amazon Connect
 
 1. Open an [Support ticket](https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=customer-account&categoryCode=activation "https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=customer-account&categoryCode=activation").
 

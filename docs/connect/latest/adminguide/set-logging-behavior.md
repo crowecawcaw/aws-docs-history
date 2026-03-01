@@ -41,5 +41,4 @@ logging behavior, or disable it.
 
 See these topics for more information about flow logs:
 
-- [Use flow logs to track events in Amazon Connect
-  flows](about-contact-flow-logs.md "about-contact-flow-logs.md")
+- [Use flow logs to track events in Amazon Connect flows](about-contact-flow-logs.md "about-contact-flow-logs.md")

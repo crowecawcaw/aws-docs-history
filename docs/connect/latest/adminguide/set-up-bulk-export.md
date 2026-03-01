@@ -1,6 +1,4 @@
-# Set up bulk export for all of your unified customer
-
-profile data
+# Set up bulk export for all of your unified customer profile data
 
 ###### Note
 
@@ -24,19 +22,14 @@ strategies. For example, you may want to leverage the unified customer profile t
 
 ###### Contents
 
-- [Step 1: Set up a KMS key and S3
-  bucket](#enable-cpbulk-export "#enable-cpbulk-export")
+- [Step 1: Set up a KMS key and S3 bucket](#enable-cpbulk-export "#enable-cpbulk-export")
 - [Step 2: Create a bulk export job](#create-bulk-export-job "#create-bulk-export-job")
-- [Step 3: Check the status of a bulk
-  export job](#check-status-bulk-cp-export "#check-status-bulk-cp-export")
+- [Step 3: Check the status of a bulk export job](#check-status-bulk-cp-export "#check-status-bulk-cp-export")
 - [Step 4: View the exported data in S3](#view-bulk-cp-export "#view-bulk-cp-export")
 - [Update the bulk export job](#update-bulk-cp-export "#update-bulk-cp-export")
-- [Delete or cancel the bulk export job - not
-  supported](#delete-bulk-cp-export "#delete-bulk-cp-export")
+- [Delete or cancel the bulk export job - not supported](#delete-bulk-cp-export "#delete-bulk-cp-export")
 
-## Step 1: Set up a KMS key and S3
-
-bucket
+## Step 1: Set up a KMS key and S3 bucket
 
 To enable bulk export for your domain, you’ll need to setup the following
 resources:
@@ -49,9 +42,7 @@ resources:
 
 These steps are explained next.
 
-### Create a new KMS key or reuse an existing KMS
-
-key
+### Create a new KMS key or reuse an existing KMS key
 
 To set up a KMS key for bulk export, you must create or reuse an existing KMS
 key that is in the same AWS Region as the Amazon S3 bucket you plan on configuring
@@ -202,9 +193,7 @@ The following code sample shows how to call the [CreateDataIntegration](../APIRe
 }
 ```
 
-### Create a data integration
-
-association
+### Create a data integration association
 
 A data integration association represents the destination for where you want
 to export your data and a time range for choosing which data to export. You can
@@ -220,8 +209,7 @@ exported.
 ###### Note
 
 For the quota for **Concurrent bulk export jobs**, see
-[Amazon Connect Customer Profiles service
-quotas](amazon-connect-service-limits.md#customer-profiles-quotas "amazon-connect-service-limits.md#customer-profiles-quotas"). After a bulk export job
+[Amazon Connect Customer Profiles service quotas](amazon-connect-service-limits.md#customer-profiles-quotas "amazon-connect-service-limits.md#customer-profiles-quotas"). After a bulk export job
 completes or fails, it no longer counts towards the concurrency
 quota.
 
@@ -251,9 +239,7 @@ The following code sample shows how to call the [CreateDataIntegrationAssociatio
 }
 ```
 
-## Step 3: Check the status of a bulk
-
-export job
+## Step 3: Check the status of a bulk export job
 
 To view the status of your bulk export job, you can call the [ListDataIntegrationAssociations](../APIReference/API_connect-app-integrations_ListDataIntegrationAssociations.md "../APIReference/API_connect-app-integrations_ListDataIntegrationAssociations.md") API, or run the [list-data-integration-associations](../../../cli/latest/reference/appintegrations/list-data-integration-associations.md "../../../cli/latest/reference/appintegrations/list-data-integration-associations.md") CLI command.
 
@@ -306,9 +292,7 @@ aws appintegrations update-data-integration-association \
 --execution-configuration '`{"ExecutionMode": "ON_DEMAND", "OnDemandConfiguration": {"StartTime":"1715278292014", "EndTime":"1715364692014"}}`'
 ```
 
-## Delete or cancel the bulk export job - not
-
-supported
+## Delete or cancel the bulk export job - not supported
 
 You cannot delete or cancel bulk export. After an export job finishes, it no
 longer counts toward your export quota.

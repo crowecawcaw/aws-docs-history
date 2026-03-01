@@ -1,6 +1,4 @@
-# Documentation requirements
-
-for porting numbers to Amazon Connect
+# Documentation requirements for porting numbers to Amazon Connect
 
 The Letter of Authorization (LOA) is an industry standard document type used
 by carriers to authorize the transfer of a phone number from one carrier to
@@ -17,13 +15,10 @@ following:
 
 Additionally, regulations in some countries require a local business address
 and specific documentation to use a phone number. For country specific
-requirements, see [Region requirements for ordering and porting
-phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md"). If this is required, we will
+requirements, see [Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md"). If this is required, we will
 ask for this information to be submitted with the completed LOA.
 
-## Common reasons why carriers
-
-reject an LOA
+## Common reasons why carriers reject an LOA
 
 There are four common reasons that an LOA may be initially rejected by the
 losing carrier:

@@ -1,6 +1,4 @@
-# Integrate Amazon Connect Contact Lens with external
-
-voice systems
+# Integrate Amazon Connect Contact Lens with external voice systems
 
 Migrating a contact center from an external system to the cloud can be complicated. It
 requires moving many different components such as telephony, IVR, ACD, call recording, call
@@ -63,8 +61,7 @@ detail.
 
   If no agent is identified for a call, the replica call in
   Contact Lens terminates. No recording and conversation
-  analytics are produced. For more information, see [Provide call metadata for
-  Contact Lens integration](callmetadata-contactlens-integration.md "callmetadata-contactlens-integration.md").
+  analytics are produced. For more information, see [Provide call metadata for Contact Lens integration](callmetadata-contactlens-integration.md "callmetadata-contactlens-integration.md").
 
 - [Request
   service quota increases](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") for the following quotas in your Amazon Connect

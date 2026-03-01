@@ -1,6 +1,4 @@
-# Create a rule in
-
-Contact Lens that updates a case
+# Create a rule in Contact Lens that updates a case
 
 ###### To create a rule that updates a case
 

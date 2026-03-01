@@ -1,13 +1,10 @@
-# Create segments from imported
-
-files in Amazon Connect
+# Create segments from imported files in Amazon Connect
 
 ###### Note
 
 To access the segmentation builder experience in the Amazon Connect admin website, ensure that the
 appropriate security profiles permissions are configured. For more information,
-see [Assign security
-profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md").
+see [Assign security profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md").
 
 Customer segment import uses a CSV file containing profile data to create new
 profiles or update existing ones, which are then grouped into a segment. The CSV
@@ -22,14 +19,12 @@ segment:
 3. [Configure segment details](#configure-segment-details "#configure-segment-details")
 4. [Map customer attributes](#map-customer-attributes "#map-customer-attributes")
 5. [Set profile expiry](#set-profile-expiry "#set-profile-expiry")
-6. [Create and monitor segment
-   import](#create-monitor-segment-import "#create-monitor-segment-import")
+6. [Create and monitor segment import](#create-monitor-segment-import "#create-monitor-segment-import")
 
 ## Create a new segment
 
 1. To create a segment, ensure that you have created security profiles
-   permissions as a prerequisite. For more information, see [Assign security
-   profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md").
+   permissions as a prerequisite. For more information, see [Assign security profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md").
 2. In the Amazon Connect admin website, navigate to
 3. Choose **Create segment** and select **From
    file upload** from the dropdown
@@ -78,8 +73,7 @@ mapping:
 - Determines how CSV data populates standard profile objects.
 - Specifies which fields to index for profile assignment.
 
-For more information about object type mapping, see [Create and ingest customer data
-into Customer Profiles](customer-profiles-object-type-mappings.md "customer-profiles-object-type-mappings.md").
+For more information about object type mapping, see [Create and ingest customer data into Customer Profiles](customer-profiles-object-type-mappings.md "customer-profiles-object-type-mappings.md").
 
 Choose one of these options to map your CSV columns to Customer Profiles attributes:
 
@@ -100,8 +94,7 @@ Choose one of these options to map your CSV columns to Customer Profiles attribu
 
 1. Map each CSV column header to a profile attribute:
    - Use standard profile attributes. For a complete list, see
-     [Standard profile definition in
-     the Amazon Connect Customer Profiles](standard-profile-definition.md "standard-profile-definition.md").
+     [Standard profile definition in the Amazon Connect Customer Profiles](standard-profile-definition.md "standard-profile-definition.md").
    - Create custom attributes using the format:
      `Attributes.`attribute-name``.
 
@@ -143,9 +136,7 @@ Choose an expiry period that aligns with your data retention requirements.
 Consider whether the default 14-day period meets your business needs before
 selecting a custom date.
 
-## Create and monitor segment
-
-import
+## Create and monitor segment import
 
 ###### Create the segment
 

@@ -1,6 +1,4 @@
-# Sample secure customer data entry
-
-input in a call with no contact center agent
+# Sample secure customer data entry input in a call with no contact center agent
 
 ###### Note
 

@@ -1,6 +1,4 @@
-# Example: Programmatically
-
-integrate Amazon S3 with Amazon Connect Customer Profiles
+# Example: Programmatically integrate Amazon S3 with Amazon Connect Customer Profiles
 
 Using the Customer Profiles [PutIntegration](../../../customerprofiles/latest/APIReference/API_PutIntegration.md "../../../customerprofiles/latest/APIReference/API_PutIntegration.md") API, you can programmatically create integrations for
 S3, Salesforce, Marketo, and more.
@@ -63,9 +61,7 @@ To customize the JSON with your own values, follow these guidelines:
   example is for a CSV document with two columns: `colA` and
   `colB`.
 
-## Step 2: Call the PutIntegration
-
-API
+## Step 2: Call the PutIntegration API
 
 After you have created and customized the JSON file with your values, call the
 [PutIntegration](../../../customerprofiles/latest/APIReference/API_PutIntegration.md "../../../customerprofiles/latest/APIReference/API_PutIntegration.md") API, as shown in the following example:
@@ -89,9 +85,7 @@ example:
 }
 ```
 
-## Step 3: Call the Amazon AppFlow StartFlow
-
-API
+## Step 3: Call the Amazon AppFlow StartFlow API
 
 Use the flow URI to call the Amazon AppFlow [StartFlow](../../../appflow/1.0/APIReference/API_StartFlow.md "../../../appflow/1.0/APIReference/API_StartFlow.md") API. For
 example:

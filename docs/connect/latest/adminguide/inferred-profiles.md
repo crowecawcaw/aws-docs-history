@@ -18,5 +18,4 @@ standard object from the profile object, if available.
   do not have a target defined in the field definition.
 
 To learn more about Contact Records template types, as well as how to adjust the
-template used on your domain, see [Contact record
-template usage examples](ctr-contact-record-template.md#ctr-contact-record-template-usage-examples "ctr-contact-record-template.md#ctr-contact-record-template-usage-examples").
+template used on your domain, see [Contact record template usage examples](ctr-contact-record-template.md#ctr-contact-record-template-usage-examples "ctr-contact-record-template.md#ctr-contact-record-template-usage-examples").

@@ -1,6 +1,4 @@
-# Set up agent-to-agent transfers in
-
-Amazon Connect
+# Set up agent-to-agent transfers in Amazon Connect
 
 We recommend using these instructions to set up agent-to-agent voice, chat, and task
 transfers. You use a [Set working queue](set-working-queue.md "set-working-queue.md") block to transfer the contact to the
@@ -8,9 +6,7 @@ agent's queue. The **Set working queue** block supports an omnichannel
 experience, whereas the [Transfer to agent
 (beta)](transfer-to-agent-block.md "transfer-to-agent-block.md") block does not.
 
-## Step 1: Create the quick
-
-connect
+## Step 1: Create the quick connect
 
 Following are the instructions to add quick connects manually using the Amazon Connect admin website. To
 add quick connects programmatically, use the [CreateQuickConnect](../APIReference/API_CreateQuickConnect.md "../APIReference/API_CreateQuickConnect.md")
@@ -32,9 +28,7 @@ don't add one, you'll get an error when you try to save the quick
 connect. 3. To add more quick connects, choose **Add new**. 4. Choose **Save**. 5. Go to the next procedure to enable your agents to see the quick connects
 in the Contact Control Panel (CCP).
 
-###### Enable your agents to see the quick connects in the CCP when they transfer a
-
-contact
+###### Enable your agents to see the quick connects in the CCP when they transfer a contact
 
 1. After you create the quick connect, go to **Routing**,
    **Queues** and then choose the appropriate queue for
@@ -48,9 +42,7 @@ contact
 Agents see all of the quick connects for the queues in their routing
 profile.
 
-## Step 2: Set up the "Transfer to agent"
-
-flow
+## Step 2: Set up the "Transfer to agent" flow
 
 In this step, you create a flow that's type **Transfer to agent**
 and use a [Set working queue](set-working-queue.md "set-working-queue.md") block to transfer the contact to the agent.
@@ -83,8 +75,6 @@ and use a [Set working queue](set-working-queue.md "set-working-queue.md") block
    queue** block connecting to the **Transfer to
    queue** block.
 
-![The transfer to queue block on the flow designer.](images/agent-to-agent-transfer.png) 7. Save and publish this flow. 8. To show your agents how to transfer chats to another agent, see [Transfer a chat to an agent's queue, with all
-context preserved](transfer-chats.md "transfer-chats.md").
+![The transfer to queue block on the flow designer.](images/agent-to-agent-transfer.png) 7. Save and publish this flow. 8. To show your agents how to transfer chats to another agent, see [Transfer a chat to an agent's queue, with all context preserved](transfer-chats.md "transfer-chats.md").
 
-To show your agents how to transfer tasks to another agent, see [Transfer a task to another agent or queue in the
-Amazon Connect Contact Control Panel (CCP)](transfer-task.md "transfer-task.md").
+To show your agents how to transfer tasks to another agent, see [Transfer a task to another agent or queue in the Amazon Connect Contact Control Panel (CCP)](transfer-task.md "transfer-task.md").

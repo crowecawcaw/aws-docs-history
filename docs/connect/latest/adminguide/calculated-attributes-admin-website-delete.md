@@ -1,6 +1,4 @@
-# Delete calculated
-
-attributes in Amazon Connect
+# Delete calculated attributes in Amazon Connect
 
 1. To delete a calculated attribute, choose an attribute in the table by
    selecting the radio button next to the attribute that you would like to

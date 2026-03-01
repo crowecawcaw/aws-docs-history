@@ -1,15 +1,11 @@
-# Set up integration
-
-for Amazon Connect Cases
+# Set up integration for Amazon Connect Cases
 
 To update your Amazon Connect Cases data in Amazon Connect Customer Profiles and use features like
 calculated attributes, you can integrate using Amazon AppIntegrations. Start by setting up a
 Cases event stream to send system fields to an EventBridge bus, then use Amazon AppIntegrations to
 forward these events to Customer Profiles.
 
-## Stream data
-
-from Amazon Connect Cases to Event Bridge
+## Stream data from Amazon Connect Cases to Event Bridge
 
 1. Open the Amazon Connect console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
@@ -103,9 +99,7 @@ aws connectcases put-case-event-configuration --domain-id <YOUR_CASES_DOMAIN_ID>
 
 ![The Skip to Review and create button.](images/stream-data-from-connect-cases-to-event-bridge-8.png)
 
-## Ingest Event Bridge case data to Customer Profiles by using
-
-AppIntegrations
+## Ingest Event Bridge case data to Customer Profiles by using AppIntegrations
 
 1. Using the AWS CLI, create an Event Integration with AppIntegrations
    and record the ARN output.  This represents a source data that a
@@ -134,9 +128,7 @@ aws customer-profiles put-integration --region
 
 ```
 
-## Verify your Cases
-
-integration
+## Verify your Cases integration
 
 1. Create a case in Amazon Connect Cases.
 2. The event delivery should be almost instantaneous but allow a

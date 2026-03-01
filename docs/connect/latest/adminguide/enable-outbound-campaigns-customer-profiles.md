@@ -15,9 +15,7 @@
 2. When a Amazon Connect instance is created successfully, outbound campaigns and Customer Profiles
    is enabled by default.
 
-## Existing customers enable
-
-outbound campaigns
+## Existing customers enable outbound campaigns
 
 ###### To enable Amazon Connect Outbound campaigns
 
@@ -86,9 +84,7 @@ campaigns enabled**
    can claim and manage voice phone numbers for your contact center, set up call routing, and
    configure various voice-related features.
 
-## How to delete Outbound
-
-campaigns configuration
+## How to delete Outbound campaigns configuration
 
 You can delete the Outbound campaigns configuration by using the Outbound campaigns
 `DeleteConnectInstanceConfig` API. The option to toggle the Outbound campaigns

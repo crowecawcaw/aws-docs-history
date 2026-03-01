@@ -17,12 +17,10 @@ with a contact.
     guide to be played to the agent in this scenario.
   - **Flow at contact pause**: Specifies
     the flow to be invoked when a contact comes to paused state. For
-    more information, see [Pause and resume tasks in Amazon Connect
-    Tasks](concepts-pause-and-resume-tasks.md "concepts-pause-and-resume-tasks.md").
+    more information, see [Pause and resume tasks in Amazon Connect Tasks](concepts-pause-and-resume-tasks.md "concepts-pause-and-resume-tasks.md").
   - **Flow at contact resume**: Specifies
     the flow to be invoked when a contact comes to resume from paused
-    state. For more information, see [Pause and resume tasks in Amazon Connect
-    Tasks](concepts-pause-and-resume-tasks.md "concepts-pause-and-resume-tasks.md").
+    state. For more information, see [Pause and resume tasks in Amazon Connect Tasks](concepts-pause-and-resume-tasks.md "concepts-pause-and-resume-tasks.md").
 
 ## Supported channels
 
@@ -62,5 +60,4 @@ configured. It has the following branches: **Success** and
 
 See these topics for scenarios that use this block:
 
-- [Invoke a guide at the start of a contact in
-  Amazon Connect](how-to-invoke-a-flow-sg.md "how-to-invoke-a-flow-sg.md")
+- [Invoke a guide at the start of a contact in Amazon Connect](how-to-invoke-a-flow-sg.md "how-to-invoke-a-flow-sg.md")

@@ -1,6 +1,4 @@
-# Export your unified customer profile
-
-data
+# Export your unified customer profile data
 
 Amazon Connect Customer Profiles provides real-time data export of unified customer profiles to
 an Amazon Kinesis Data Stream. You can enable data streaming and automatically receive
@@ -43,9 +41,7 @@ settings.
 
 ![Real-time data export disable Kinesis data stream.](images/disable-real-time-export-1.png)
 
-## Real-time export Kinesis
-
-payload
+## Real-time export Kinesis payload
 
 **Sample output event in JSON**
 

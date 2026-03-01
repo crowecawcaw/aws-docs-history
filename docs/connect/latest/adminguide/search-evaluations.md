@@ -1,6 +1,4 @@
-# Search for contacts using evaluation forms in
-
-Amazon Connect
+# Search for contacts using evaluation forms in Amazon Connect
 
 1. Log in to Amazon Connect with a user account that has [permissions to access contact
    records](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts") and the **Evaluation forms - perform

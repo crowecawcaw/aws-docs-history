@@ -124,29 +124,22 @@ To override this default behavior, create a Lambda, and then use the [AWS Lambda
 function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") block to add it to your
 flows.
 
-## Sample CLI commands to create and manage AI
-
-agents
+## Sample CLI commands to create and manage AI agents
 
 This section provides several sample AWS CLI commands to help you create and
 manage AI agents.
 
 ###### Contents
 
-- [Create an AI agent that uses every
-  customized AI prompt version](#cli-ai-agents-sample1 "#cli-ai-agents-sample1")
+- [Create an AI agent that uses every customized AI prompt version](#cli-ai-agents-sample1 "#cli-ai-agents-sample1")
 - [Partially configure an AI agent](#cli-ai-agents-sample2 "#cli-ai-agents-sample2")
-- [Configure an AI prompt version for
-  manual searches](#cli-ai-agents-sample3 "#cli-ai-agents-sample3")
-- [Use AI agents to override the knowledge
-  base configuration](#cli-ai-agents-sample4 "#cli-ai-agents-sample4")
+- [Configure an AI prompt version for manual searches](#cli-ai-agents-sample3 "#cli-ai-agents-sample3")
+- [Use AI agents to override the knowledge base configuration](#cli-ai-agents-sample4 "#cli-ai-agents-sample4")
 - [Create AI agent versions](#cli-ai-agents-sample5 "#cli-ai-agents-sample5")
 - [Set AI agents for use with Connect AI agents](#cli-ai-agents-sample6 "#cli-ai-agents-sample6")
 - [Revert to system defaults](#cli-ai-agents-sample6b "#cli-ai-agents-sample6b")
 
-### Create an AI agent that uses every
-
-customized AI prompt version
+### Create an AI agent that uses every customized AI prompt version
 
 Connect AI agents uses the AI prompt version for its functionality if one is specified
 for an AI agent. Otherwise it defaults to the system behavior.
@@ -194,9 +187,7 @@ aws qconnect create-ai-agent \
   }'
 ```
 
-### Configure an AI prompt version for
-
-manual searches
+### Configure an AI prompt version for manual searches
 
 The manual search AI agent type only has one AI prompt version so there is no
 partial configuration possible.
@@ -218,9 +209,7 @@ aws qconnect create-ai-agent \
   }'
 ```
 
-### Use AI agents to override the knowledge
-
-base configuration
+### Use AI agents to override the knowledge base configuration
 
 You can use AI agents to configure which assistant associations Connect AI agents should
 use and how it should use them. The association supported for customization is
@@ -295,9 +284,7 @@ using the following format:
 After you have created AI prompt versions and AI agent versions for your use
 case, you can set them for use with Connect AI agents.
 
-#### Set AI agent versions in the Connect AI agents
-
-Assistant
+#### Set AI agent versions in the Connect AI agents Assistant
 
 You can set an AI agent version as the default to be used in the Connect AI agents
 Assistant.
@@ -315,9 +302,7 @@ aws qconnect update-assistant-ai-agent \
   }'
 ```
 
-#### Set
-
-AI agent versions in Connect AI agents sessions
+#### Set AI agent versions in Connect AI agents sessions
 
 You can also set an AI agent version for every distinct Connect AI agents session
 when creating or updating a session.

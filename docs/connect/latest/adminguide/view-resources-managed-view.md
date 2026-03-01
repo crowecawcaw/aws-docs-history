@@ -1,6 +1,4 @@
-# Set up AWS managed
-
-views for an agent's workspace in Amazon Connect
+# Set up AWS managed views for an agent's workspace in Amazon Connect
 
 Amazon Connect includes a set of views that you can add your agent's
 workspace. See the following for details on how to configure the different AWS managed views.

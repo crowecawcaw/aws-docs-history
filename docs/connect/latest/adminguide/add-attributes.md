@@ -1,6 +1,4 @@
-# Add attributes for personalizing quick responses in
-
-Amazon Connect
+# Add attributes for personalizing quick responses in Amazon Connect
 
 You can personalize quick responses by adding user-defined attributes. To do so, you use the
 Amazon Connect admin website to create responses that include [Amazon Connect contact

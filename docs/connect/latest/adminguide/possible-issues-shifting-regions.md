@@ -1,6 +1,4 @@
-# Tips for avoiding issues when
-
-shifting agents in your Amazon Connect instance across Regions
+# Tips for avoiding issues when shifting agents in your Amazon Connect instance across Regions
 
 - Whenever you update the traffic distribution for agents be sure to
   also update the traffic distribution for inbound voice contacts.

@@ -1,6 +1,4 @@
-# Enable live media streaming in your Amazon Connect
-
-instance
+# Enable live media streaming in your Amazon Connect instance
 
 Live media streaming (customer audio streams) is not enabled by default. You can
 enable customer audio streams from the settings page for your instance.
@@ -66,5 +64,4 @@ bottom of the page.
 After you enable live media streaming, add **Start media streaming**
 and **Stop media streaming** blocks to your flow. Configure those
 blocks to specify what audio you want to capture. For instructions and an example, see
-[Example flow for testing live media streaming
-in Amazon Connect](use-media-streams-blocks.md "use-media-streams-blocks.md").
+[Example flow for testing live media streaming in Amazon Connect](use-media-streams-blocks.md "use-media-streams-blocks.md").

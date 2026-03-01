@@ -1,6 +1,4 @@
-# Agent activity audit report in
-
-Amazon Connect
+# Agent activity audit report in Amazon Connect
 
 The agent activity audit is like a report version of the [agent event stream](agent-event-streams.md "agent-event-streams.md"). All of the data in this
 report is also in the agent event stream.
@@ -11,18 +9,14 @@ stream.
 
 ###### Contents
 
-- [Run the agent activity audit
-  report](#access-agent-activity-audit "#access-agent-activity-audit")
+- [Run the agent activity audit report](#access-agent-activity-audit "#access-agent-activity-audit")
 - [Status definitions](#agent-activity-status-definitions "#agent-activity-status-definitions")
-- [When is the status Agent
-  Disconnected, Contact Missed, or Rejected?](#rejected-missed-disconnected "#rejected-missed-disconnected")
+- [When is the status Agent Disconnected, Contact Missed, or Rejected?](#rejected-missed-disconnected "#rejected-missed-disconnected")
 - [Required
   permissions](#agent-activity-audit-permissions "#agent-activity-audit-permissions")
 - [Agent activity audit tag-based access control](agent-activity-audit-tag-based-access-control.md "agent-activity-audit-tag-based-access-control.md")
 
-## Run the agent activity audit
-
-report
+## Run the agent activity audit report
 
 For a list of required permissions to perform this procedure, see [Assign
 permissions](dashboard-required-permissions.md "dashboard-required-permissions.md").
@@ -83,9 +77,7 @@ If a status appears in your report but is not listed on this page, it is a
 custom status created by your organization. Contact your Amazon Connect
 admin to learn the definition.
 
-## When is the status Agent
-
-Disconnected, Contact Missed, or Rejected?
+## When is the status Agent Disconnected, Contact Missed, or Rejected?
 
 Following is a summary of when the **Status** column can be
 **Agent Disconnected**, **Contact
@@ -115,9 +107,7 @@ Missed**, or **Rejected**:
   - When anyone rejects an email contact, the status in the agent
     audit is **Rejected**.
 
-## Permissions required to view
-
-agent activity audit reports
+## Permissions required to view agent activity audit reports
 
 To view real-time metrics reports, you need to be assigned to a security
 profile that has either the **Access metrics - Access**

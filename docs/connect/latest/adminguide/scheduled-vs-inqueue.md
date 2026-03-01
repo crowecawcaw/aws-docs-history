@@ -1,6 +1,4 @@
-# How Initial delay affects Scheduled and In
-
-queue metrics in Amazon Connect
+# How Initial delay affects Scheduled and In queue metrics in Amazon Connect
 
 In the [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block, the
 **Initial delay** property affects when a callback is put in

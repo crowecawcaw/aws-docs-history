@@ -1,6 +1,4 @@
-# View Identity Resolution metrics in Amazon Connect
-
-Customer Profiles
+# View Identity Resolution metrics in Amazon Connect Customer Profiles
 
 Whenever Identity Resolution matches or merges profiles, metrics about the process are displayed
 on the Customer Profiles dashboard. You can review metric for the pass week on the

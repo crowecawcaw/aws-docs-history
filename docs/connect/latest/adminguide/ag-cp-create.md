@@ -1,6 +1,4 @@
-# Create a new customer profile in the Amazon Connect agent
-
-workspace
+# Create a new customer profile in the Amazon Connect agent workspace
 
 Let's say you're on a chat and there's no customer profile for the contact. You
 can create a new customer profile for them.

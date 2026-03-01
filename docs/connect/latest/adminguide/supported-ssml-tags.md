@@ -27,9 +27,7 @@ is processed.
 
 To learn more about the SSML tags, see [Supported SSML Tags](../../../polly/latest/dg/supportedtags.md "../../../polly/latest/dg/supportedtags.md") in the Amazon Polly Developer Guide.
 
-## Neural and Conversational Speaking
-
-Styles
+## Neural and Conversational Speaking Styles
 
 For the **Joanna** and **Matthew** neural
 voices, in American English (en-US), you can also specify a [Newscaster

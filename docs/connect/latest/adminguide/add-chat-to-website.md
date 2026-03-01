@@ -1,6 +1,4 @@
-# Add a chat user interface to your website hosted by
-
-Amazon Connect
+# Add a chat user interface to your website hosted by Amazon Connect
 
 To support your customers through chat, you can add a communications widget to your website that is
 hosted by Amazon Connect. You can configure the communications widget in the Amazon Connect admin website. You can customize the font
@@ -23,10 +21,8 @@ For more information, see [Amazon Connect service quotas](amazon-connect-service
   customizable](supported-snippet-fields.md "supported-snippet-fields.md")
 - [Supported browsers](#chat-widget-supported-browsers "#chat-widget-supported-browsers")
 - [Step 1: Customize your communications widget](#customize-chat-widget "#customize-chat-widget")
-- [Step 2: Specify the website domains where you
-  expect to display the communications widget](#chat-widget-domains "#chat-widget-domains")
-- [Step 3: Confirm and copy
-  communications widget code and security keys](#confirm-and-copy-chat-widget-script "#confirm-and-copy-chat-widget-script")
+- [Step 2: Specify the website domains where you expect to display the communications widget](#chat-widget-domains "#chat-widget-domains")
+- [Step 3: Confirm and copy communications widget code and security keys](#confirm-and-copy-chat-widget-script "#confirm-and-copy-chat-widget-script")
 - [Getting error messages?](#chat-widget-error-messages "#chat-widget-error-messages")
 - [Customize widget launch behavior
   and button icon](customize-widget-launch.md "customize-widget-launch.md")
@@ -40,10 +36,8 @@ For more information, see [Amazon Connect service quotas](amazon-connect-service
   for your chat widget](chat-widget-download-transcript.md "chat-widget-download-transcript.md")
 - [Download and customize our open
   source example](download-chat-example.md "download-chat-example.md")
-- [Start chats in your applications
-  by using Amazon Connect APIs](integrate-with-startchatcontact-api.md "integrate-with-startchatcontact-api.md")
-- [Send browser notifications to customers
-  when chat messages arrive](browser-notifications-chat.md "browser-notifications-chat.md")
+- [Start chats in your applications by using Amazon Connect APIs](integrate-with-startchatcontact-api.md "integrate-with-startchatcontact-api.md")
+- [Send browser notifications to customers when chat messages arrive](browser-notifications-chat.md "browser-notifications-chat.md")
 - [Programmatic chat
   disconnect](programmatic-chat-disconnect.md "programmatic-chat-disconnect.md")
 - [Pass custom properties to override the
@@ -66,8 +60,7 @@ The pre-built communications widget supports the following browser versions and 
 - Mozilla Firefox 81.0
 
 The communications widget supports browser notifications for desktop devices. For more
-information, see [Send browser notifications to customers
-when chat messages arrive](browser-notifications-chat.md "browser-notifications-chat.md").
+information, see [Send browser notifications to customers when chat messages arrive](browser-notifications-chat.md "browser-notifications-chat.md").
 
 ## Step 1: Customize your communications widget
 
@@ -163,9 +156,7 @@ to fit the 280x60 logo component space.
    customer's message bubbles by entering hex values ([HTML color codes](https://htmlcolorcodes.com/ "https://htmlcolorcodes.com/")).
 5. Choose **Save and continue**.
 
-## Step 2: Specify the website domains where you
-
-expect to display the communications widget
+## Step 2: Specify the website domains where you expect to display the communications widget
 
 1. Enter the website domains where you want to place the communications widget. Chat loads
    only on websites that you select in this step.
@@ -226,9 +217,7 @@ If you choose this option, in the next step you'll get a security key for all
 chat requests initiated on your websites. Ask your website administrator to set
 up your web servers to issue JWTs using this security key. 3. Choose **Save**.
 
-## Step 3: Confirm and copy
-
-communications widget code and security keys
+## Step 3: Confirm and copy communications widget code and security keys
 
 In this step, you confirm your selections and copy the code for the communications widget and
 embed it in your website. If you chose to use JWTs in [Step 2](#chat-widget-domains "#chat-widget-domains"), you can also copy the secret keys for

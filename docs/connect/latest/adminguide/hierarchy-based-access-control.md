@@ -1,6 +1,4 @@
-# Apply hierarchy-based access control in
-
-Amazon Connect
+# Apply hierarchy-based access control in Amazon Connect
 
 You can restrict access to contacts based on the agent hierarchy assigned to a user.
 You do this by using security profile permissions such as [Restrict contact access](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts"). In
@@ -12,14 +10,10 @@ This topic information about configuring hierarchy-based access controls.
 ###### Contents
 
 - [Overview](#hierarchy-based-access-control-background "#hierarchy-based-access-control-background")
-- [Apply hierarchy-based
-  access control using the API/SDK](#hierarchy-based-access-control-api-sdk "#hierarchy-based-access-control-api-sdk")
-- [Apply hierarchy-based
-  access control using the Amazon Connect admin website](#hierarchy-based-access-control-console "#hierarchy-based-access-control-console")
-- [Configuration
-  limitations](#hierarchy-based-access-control-config-limitations "#hierarchy-based-access-control-config-limitations")
-- [Best practices for applying
-  hierarchy-based access controls](#hierarchy-based-access-control-best-practices "#hierarchy-based-access-control-best-practices")
+- [Apply hierarchy-based access control using the API/SDK](#hierarchy-based-access-control-api-sdk "#hierarchy-based-access-control-api-sdk")
+- [Apply hierarchy-based access control using the Amazon Connect admin website](#hierarchy-based-access-control-console "#hierarchy-based-access-control-console")
+- [Configuration limitations](#hierarchy-based-access-control-config-limitations "#hierarchy-based-access-control-config-limitations")
+- [Best practices for applying hierarchy-based access controls](#hierarchy-based-access-control-best-practices "#hierarchy-based-access-control-best-practices")
 
 ## Overview
 
@@ -39,9 +33,7 @@ associated to them.
 After you apply hierarchy-based access control to users, they can access their
 hierarchy group and all of its descendants (beyond the child level).
 
-## Apply hierarchy-based
-
-access control using the API/SDK
+## Apply hierarchy-based access control using the API/SDK
 
 To use hierarchies to control access to resources within your AWS accounts, you
 need to provide the hierarchy's information in the condition element of an IAM
@@ -61,9 +53,7 @@ Following are the supported condition keys:
 Each key represents the ID of a given hierarchy group in a specific level of the
 user's hierarchy structure.
 
-## Apply hierarchy-based
-
-access control using the Amazon Connect admin website
+## Apply hierarchy-based access control using the Amazon Connect admin website
 
 To use hierarchies to control access to resources the Amazon Connect admin website, you configure the
 access control section within a given security profile.
@@ -86,9 +76,7 @@ enabling this configuration for a given user enables them to manage other
 users that either belong to the hierarchy group specified in the security
 profile or a child hierarchy group.
 
-## Configuration
-
-limitations
+## Configuration limitations
 
 Granular access control is configured on a security profile. Users can be
 assigned a maximum of two security profiles that enforce granular access control. In
@@ -114,9 +102,7 @@ default with your Amazon Connect instance. However, if you have an older instanc
 [Use service-linked roles for Amazon Connect](connect-slr.md "connect-slr.md") for
 instructions for how to enable service linked roles.
 
-## Best practices for applying
-
-hierarchy-based access controls
+## Best practices for applying hierarchy-based access controls
 
 - Review the [AWS shared
   responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/").

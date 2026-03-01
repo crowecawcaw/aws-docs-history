@@ -1,7 +1,4 @@
-# Automatically categorize contacts by matching
-
-conversations with natural language statements, or specific words and
-phrases
+# Automatically categorize contacts by matching conversations with natural language statements, or specific words and phrases
 
 Contact Lens conversational analytics enables you to automatically
 categorize contacts to identify top drivers, customer experience, and agent
@@ -25,17 +22,13 @@ contacts:
   customer sentiment score, queues, or any custom attributes that you have
   added to contacts, like customer loyalty information.
 
-## When to use words or
-
-phrases
+## When to use words or phrases
 
 Using specific words or phrases is useful when there is a well-defined
 list of words or phrases that you wish to detect, for example, monitoring
 agent script adherence or assessing customer interest in a product.
 
-## When to use natural
-
-language
+## When to use natural language
 
 Using natural language statements to match with contacts is useful when
 there are too many possible words or phrases or when you want to match with
@@ -43,20 +36,14 @@ context-specific criteria, for example, "The customer wanted to make a
 change to their subscription plan.", "The agent resolved all of the
 customer's issues."
 
-## Add rules to categorize
-
-contacts
+## Add rules to categorize contacts
 
 In this section:
 
-- [Step 1: Define
-  conditions](#add-category-rules-define-conditions "#add-category-rules-define-conditions")
-- [Step 2: Define
-  actions](#add-category-rules-define-actions "#add-category-rules-define-actions")
+- [Step 1: Define conditions](#add-category-rules-define-conditions "#add-category-rules-define-conditions")
+- [Step 2: Define actions](#add-category-rules-define-actions "#add-category-rules-define-actions")
 
-### Step 1: Define
-
-conditions
+### Step 1: Define conditions
 
 1. Log in to Amazon Connect with a user account that is assigned the
    **CallCenterManager** security profile, or
@@ -198,9 +185,7 @@ located in Seattle.
 
 ![A rule with multiple conditions.](images/contact-lens-add-category-rules-3.png)
 
-### Step 2: Define
-
-actions
+### Step 2: Define actions
 
 In addition to categorizing a contact, you can define what actions
 Amazon Connect should take:
@@ -216,9 +201,7 @@ Amazon Connect should take:
 5. [Create a rule that submits an automated
    evaluation](contact-lens-rules-submit-automated-evaluation.md "contact-lens-rules-submit-automated-evaluation.md")
 
-### Step 3: Review and
-
-save
+### Step 3: Review and save
 
 1. When done, choose **Save**.
 2. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.

@@ -1,6 +1,4 @@
-# Use generative AI-powered
-
-self-service with Connect AI agents
+# Use generative AI-powered self-service with Connect AI agents
 
 ###### Tip
 
@@ -88,9 +86,7 @@ Follow these steps to enable Connect AI agents for self-service:
 
 ![Contact routing based on ai agent tool selections for COMPLETE and TRIP_BOOKING paths.](images/generative-ai-powered-self-service-q-3.png)
 
-## Custom actions
-
-for self-service
+## Custom actions for self-service
 
 You can extend Connect AI agents's capabilities by adding custom tools. These tools
 can:
@@ -115,9 +111,7 @@ When adding a custom tool to your AI prompt:
 
 ![A custom tool named TRIP_BOOKING in the Check contact attributes block.](images/trip-booking.png)
 
-### Example: Disambiguate the
-
-customer intent
+### Example: Disambiguate the customer intent
 
 You can create a generative AI assistant that gathers information before
 routing to an agent. This requires:
@@ -125,8 +119,7 @@ routing to an agent. This requires:
 - No knowledge base configuration.
 - Simple instructions to collect information.
 - Step-by-step guides to present the information to the agents. For more
-  information, see [Display contact context in the agent
-  workspace when a contact begins in Amazon Connect](display-contact-attributes-sg.md "display-contact-attributes-sg.md").
+  information, see [Display contact context in the agent workspace when a contact begins in Amazon Connect](display-contact-attributes-sg.md "display-contact-attributes-sg.md").
 
 Following is an example tool definition for disambiguation. You can remove all
 default tools except CONVERSATION and add one new custom tool called
@@ -160,14 +153,11 @@ tools:
     - summary
 ```
 
-### Example:
-
-Recommend an action for a customer
+### Example: Recommend an action for a customer
 
 You can configure next best actions in Amazon Connect by using flows. You
 can also configure automated actions and create step-by-step guides to provide
-UI-based actions to customers. For more information, see [Step-by-step Guides to set up your
-Amazon Connect agent workspace](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md").  Connect AI agents saves the selected
+UI-based actions to customers. For more information, see [Step-by-step Guides to set up your Amazon Connect agent workspace](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md").  Connect AI agents saves the selected
 tool name as a Lex session attribute. The attribute can then be accessed by
 using the **Check contact attributes** flow block.  
 
@@ -197,8 +187,7 @@ wants to book a trip during a self-service chat interaction, you can:
   window.
 
 For more information about implementing step-by-step guides in chat, see
-[Deploy step-by-step guides in Amazon Connect
-chats](step-by-step-guides-chat.md "step-by-step-guides-chat.md").
+[Deploy step-by-step guides in Amazon Connect chats](step-by-step-guides-chat.md "step-by-step-guides-chat.md").
 
 ## FOLLOW_UP_QUESTION tool
 
@@ -240,9 +229,7 @@ questions before selecting the appropriate action.
 Collect required details for completing a task or answering a
 question.
 
-### Example FOLLOW_UP_QUESTION
-
-use case
+### Example FOLLOW_UP_QUESTION use case
 
 For a self-service bot designed to report fraud, you might define a tool named
 CONFIRM_SUBMISSION to collect specific information from the customer:
@@ -296,9 +283,7 @@ information step-by-step, as shown in the following sample:
       - message
 ```
 
-### Prompt
-
-instructions
+### Prompt instructions
 
 Add instructions to your prompt to guide your self-service bot on when to use
 the FOLLOW_UP_QUESTION tool. For example:
@@ -317,9 +302,7 @@ When using FOLLOW_UP_QUESTION:
    information
 ```
 
-### Example
-
-conversations
+### Example conversations
 
 Following are three example conversations that show the FOLLOW_UP_QUESTION
 tool in use.

@@ -1,6 +1,4 @@
-# Set up integration for
-
-external applications using Amazon AppFlow
+# Set up integration for external applications using Amazon AppFlow
 
 These integrations use Amazon AppFlow to provide periodic updates to Amazon Connect Customer Profiles. The below
 steps provide guidance on configuring a connector of your choosing using Amazon AppFlow,
@@ -53,9 +51,7 @@ create a Customer Profiles domain by following the steps below:
 4. Choose **Submit** and Customer Profiles will be get
    created using the Contact History information of your instance.
 
-### Set up an external
-
-application using Amazon AppFlow
+### Set up an external application using Amazon AppFlow
 
 You can add an external application integration to an Amazon Connect Customer
 Profiles domain by using Amazon AppFlow by following steps below. You must create a
@@ -126,10 +122,7 @@ For more information on the setup of external application and many other
 supported applications in Amazon AppFlow, see [Supported Amazon AppFlow source
 and destination applications](../../../appflow/latest/userguide/app-specific.md "../../../appflow/latest/userguide/app-specific.md").
 
-### Set up data mappings to
-
-define how external application data is mapped to a Customer
-Profile
+### Set up data mappings to define how external application data is mapped to a Customer Profile
 
 Once Amazon AppFlow integration has been set up, you need to set up data mappings
 in Customer Profiles to define how data from the external application will
@@ -167,17 +160,14 @@ destination, and content type, then choose
 various attributes from your data source object that helps
 distinguish your data from other data source objects. You can select
 attributes from unique, customer, product, case and order
-identifiers. For more information about identifiers, see [Standard identifiers for setting
-attributes on the key in Customer Profiles](standard-identifiers.md "standard-identifiers.md").
+identifiers. For more information about identifiers, see [Standard identifiers for setting attributes on the key in Customer Profiles](standard-identifiers.md "standard-identifiers.md").
 
 ![The Standard identifiers page.](images/customer-profiles-ea-mapping-step5.png) 6. Review and choose **Create Data Mapping**. The
 Data Mapping status will show as _Active_.
 
 ![Identifiers on the Step 6: Specify identifiers page.](images/customer-profiles-ea-mapping-step6.png)
 
-### Set up integrations to ingest
-
-your customer data from an external application
+### Set up integrations to ingest your customer data from an external application
 
 Once the data mapping set up is done for an external application, you will
 set up the Data source integration to ingest your customer data.
@@ -209,9 +199,7 @@ active state.
 
 ![Review and integrate page, add data source integration button.](images/customer-profiles-ea-data-source-integ-step6.png)
 
-### View the unified customer
-
-profile in Amazon Connect Customer Profile Agent CCP
+### View the unified customer profile in Amazon Connect Customer Profile Agent CCP
 
 Your agents will now be able to view customer data that has been imported
 from an external application by logging in to the Amazon Connect Agent CCP. For more

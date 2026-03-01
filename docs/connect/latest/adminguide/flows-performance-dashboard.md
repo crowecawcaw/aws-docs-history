@@ -1,6 +1,4 @@
-# Flows and conversational bot performance
-
-dashboard
+# Flows and conversational bot performance dashboard
 
 The flows and conversational bot performance dashboard helps you understand the
 performance of your automated experiences including flows, flow modules, and
@@ -10,41 +8,27 @@ and save reports to share across your organization.
 
 ###### Contents
 
-- [Enable
-  access to the dashboard](#how-to-enable-access-to-the-flows-performance-dashboard "#how-to-enable-access-to-the-flows-performance-dashboard")
+- [Enable access to the dashboard](#how-to-enable-access-to-the-flows-performance-dashboard "#how-to-enable-access-to-the-flows-performance-dashboard")
 - [What do "dropped" and "prior dropped" mean?](#dropped-prior "#dropped-prior")
-- [Examples of "Time range" and "Compare
-  to" configurations](#config-timerange-compareto "#config-timerange-compareto")
-- [Performance overview
-  chart](#flows-dashboard-performance-overview-chart "#flows-dashboard-performance-overview-chart")
-- [Comparison to
-  prior period charts](#flows-dashboard-comparison-to-prior-period-charts "#flows-dashboard-comparison-to-prior-period-charts")
-- [Failed bot intents movers and
-  shakers](#failed-bot-intents-movers "#failed-bot-intents-movers")
-- [Bot conversations and success rate over
-  time](#bot-success-rate "#bot-success-rate")
-- [Bot conversations overview
-  table](#bot-conversations-overview-table "#bot-conversations-overview-table")
+- [Examples of "Time range" and "Compare to" configurations](#config-timerange-compareto "#config-timerange-compareto")
+- [Performance overview chart](#flows-dashboard-performance-overview-chart "#flows-dashboard-performance-overview-chart")
+- [Comparison to prior period charts](#flows-dashboard-comparison-to-prior-period-charts "#flows-dashboard-comparison-to-prior-period-charts")
+- [Failed bot intents movers and shakers](#failed-bot-intents-movers "#failed-bot-intents-movers")
+- [Bot conversations and success rate over time](#bot-success-rate "#bot-success-rate")
+- [Bot conversations overview table](#bot-conversations-overview-table "#bot-conversations-overview-table")
 - [Bot intent overview table](#bot-intent-overview-table "#bot-intent-overview-table")
-- [Flow outcomes over time
-  comparison chart](#flow-outcomes-over-time-comparison-chart "#flow-outcomes-over-time-comparison-chart")
-- [Flow durations over time
-  comparison chart](#flow-duration-over-time-comparison-chart "#flow-duration-over-time-comparison-chart")
-- [Flows and Flow modules
-  overview tables](#flow-and-flow-module-overview-tables "#flow-and-flow-module-overview-tables")
-- [Dashboard functionality
-  limitations](#dashboard-functionality-limitations "#dashboard-functionality-limitations")
+- [Flow outcomes over time comparison chart](#flow-outcomes-over-time-comparison-chart "#flow-outcomes-over-time-comparison-chart")
+- [Flow durations over time comparison chart](#flow-duration-over-time-comparison-chart "#flow-duration-over-time-comparison-chart")
+- [Flows and Flow modules overview tables](#flow-and-flow-module-overview-tables "#flow-and-flow-module-overview-tables")
+- [Dashboard functionality limitations](#dashboard-functionality-limitations "#dashboard-functionality-limitations")
 
-## Enable
-
-access to the dashboard
+## Enable access to the dashboard
 
 Ensure users are assigned the appropriate security profile permissions:
 
 - **Access metrics - Access** permission or the
   **Dashboard - Access** permission. For information
-  about the difference in behavior, see [Assign permissions to view dashboards
-  and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+  about the difference in behavior, see [Assign permissions to view dashboards and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
 - **Flows - View**, **Flow modules -
   View**, and **Bot - View** permissions: These
   permissions are required to see data in your dashboard.
@@ -68,9 +52,7 @@ The following terms are used in this topic:
   time range selected from the **Compare to** dropdown must
   be a date in the past compared to your time range.
 
-## Examples of "Time range" and "Compare
-
-to" configurations
+## Examples of "Time range" and "Compare to" configurations
 
 Following are a few use cases that help explain how to configure the
 **Time range** and **Compare to**
@@ -124,9 +106,7 @@ Configure the dashboard as follows:
 
 ![Time range = Trailing, Time = Custom: Today (since 12am), Compare to = Prior week.](images/timerange4.png)
 
-## Performance overview
-
-chart
+## Performance overview chart
 
 The **Performance overview** chart provides aggregated metrics
 based on your filters. Each metric within the charts is compared to your "compare
@@ -160,9 +140,7 @@ The following metrics are displayed on this chart:
   flow duration for the specified start time and end time of selected flows
   where the flow outcome is disconnected participant.
 
-## Comparison to
-
-prior period charts
+## Comparison to prior period charts
 
 The **Top flows by dropped in flow rate** and **Top
 flows transferred to queue or agent rate** charts display the current
@@ -177,9 +155,7 @@ More icon.
 
 ![The Top flows by dropped in flow rate.](images/flows-dashboard-comparison-to-prior-period-charts.png)
 
-## Failed bot intents movers and
-
-shakers
+## Failed bot intents movers and shakers
 
 The **Failed bot intents movers and shakers** chart shows you the
 bot intents with the highest percent change in failed rate compared to your
@@ -203,9 +179,7 @@ The following metrics are displayed on this chart:
 - **Bot intents completed**: Count of bot intent triggers
   completed in the specified current time range.
 
-## Bot conversations and success rate over
-
-time
+## Bot conversations and success rate over time
 
 The **Bot conversations and success rate** over time trend is a
 time-series chart that displays the count of bot conversations (blue bars) and the
@@ -217,9 +191,7 @@ as shown in the following image.
 
 ![The Bot conversations and success rate over time chart, the Interval box.](images/bot-conversations-success-rate.png)
 
-## Bot conversations overview
-
-table
+## Bot conversations overview table
 
 The **Bot conversations** overview table displays a snapshot of
 bot conversation metrics aggregated over the selected time range. The following
@@ -281,9 +253,7 @@ The following metrics are displayed on this table:
   instead, before the original intent is categorized as a success or
   failed.
 
-## Flow outcomes over time
-
-comparison chart
+## Flow outcomes over time comparison chart
 
 The **Flow outcomes over time comparison** chart is a
 time-series chart that displays the breakdown of Flow outcome rate metrics for a
@@ -302,9 +272,7 @@ time range filter. For example:
 
 ![The Flow outcomes over time comparison chart.](images/flow-outcomes-over-time-comparison-chart.png)
 
-## Flow durations over time
-
-comparison chart
+## Flow durations over time comparison chart
 
 The **Flow durations over time comparison** chart is a
 time-series chart that displays the breakdown of Flow duration metrics for a single
@@ -325,9 +293,7 @@ For example:
 
 ![The Flow durations over time comparison chart.](images/flow-duration-over-time-comparison-chart.png)
 
-## Flows and Flow modules
-
-overview tables
+## Flows and Flow modules overview tables
 
 The **Flows** and **Flow modules** overview
 tables display a snapshot of metrics aggregated over the selected time range. The
@@ -354,9 +320,7 @@ The following metrics are displayed on these tables:
   average flow duration for the specified start time and end time with a
   specified mutually exclusive and exhaustive flow outcome.
 
-## Dashboard functionality
-
-limitations
+## Dashboard functionality limitations
 
 The following limitations apply to the Flows performance dashboard:
 

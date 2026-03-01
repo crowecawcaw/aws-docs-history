@@ -9,9 +9,7 @@ customer experience Amazon uses to orchestrate their customer care.
 For an online workshop that leverages a case study and includes hands-on labs, see
 [Introduction to Amazon Connect](https://catalog.workshops.aws/amazon-connect-introduction/en-US/introduction "https://catalog.workshops.aws/amazon-connect-introduction/en-US/introduction") by AWS Workshop Studio.
 
-## Customers: Omnichannel customer
-
-experience
+## Customers: Omnichannel customer experience
 
 Amazon Connect provides you with the following channels for interacting with your
 customers:
@@ -106,9 +104,7 @@ always live on your website.
        notifications, and creating analytics dashboards to monitor and
        track chat message activity.
 
-  For more information, see [Enable real-time chat message
-  streaming in
-  Amazon Connect](chat-message-streaming.md "chat-message-streaming.md").
+  For more information, see [Enable real-time chat message streaming in Amazon Connect](chat-message-streaming.md "chat-message-streaming.md").
 
 ### In-app, web, and video calling
 
@@ -212,8 +208,7 @@ customer satisfaction.
 - [Agent workspace](#connect-intro-aw "#connect-intro-aw")
 - [Step-by-step guides](#connect-intro-sg "#connect-intro-sg")
 - [Generative AI-powered agent assist](#connect-intro-ka "#connect-intro-ka")
-- [Generative AI-powered post-contact
-  summaries](#connect-intro-gen-acw "#connect-intro-gen-acw")
+- [Generative AI-powered post-contact summaries](#connect-intro-gen-acw "#connect-intro-gen-acw")
 - [Unified customer view](#connect-intro-uc "#connect-intro-uc")
 - [Case management](#connect-intro-cm "#connect-intro-cm")
 - [Efficient contact routing](#connect-intro-routing "#connect-intro-routing")
@@ -232,8 +227,7 @@ track and manage customer issues that require multiple interactions.
 
 You can also easily integrate other applications directly into the agent
 workspace, thus further increasing agent efficiency. For more information, see
-[Integrate third-party applications (3p apps) in the Amazon Connect
-agent workspace](3p-apps.md "3p-apps.md")
+[Integrate third-party applications (3p apps) in the Amazon Connect agent workspace](3p-apps.md "3p-apps.md")
 
 The following image shows the agent workspace with callouts indicating the
 features on the page.
@@ -285,9 +279,7 @@ when the agent is on a call.
 
 ![The agent application with an article displayed in it.](images/wisdom-concepts-intro2.png)
 
-### Generative AI-powered post-contact
-
-summaries
+### Generative AI-powered post-contact summaries
 
 To help agents perform their After contact work (ACW), Amazon Connect displays a [generative AI-powered
 post-contact summary](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md") on their CCP for voice contacts. The summary
@@ -343,24 +335,19 @@ can efficiently route customers to appropriately skilled agents by using [routin
 priority and routing to agents based on [agent skills](concepts-queue-based-routing.md "concepts-queue-based-routing.md"), [queue priorities](concepts-routing-profiles-priority.md "concepts-routing-profiles-priority.md"),
 contact attributes, and real-time metrics.
 
-## Supervisors: Analytics, insights, and
-
-optimization
+## Supervisors: Analytics, insights, and optimization
 
 Give your managers the actionable insights and capabilities they need to optimize
 operations and outcomes.
 
 ###### Contents
 
-- [Real-time and historical reports and
-  dashboards](#connect-intro-reporting "#connect-intro-reporting")
+- [Real-time and historical reports and dashboards](#connect-intro-reporting "#connect-intro-reporting")
 - [Real-time conversational analytics](#connect-intro-rtc "#connect-intro-rtc")
 - [Quality and performance management](#connect-intro-qa "#connect-intro-qa")
 - [Forecasting, capacity planning, and scheduling](#connect-intro-wfm "#connect-intro-wfm")
 
-### Real-time and historical reports and
-
-dashboards
+### Real-time and historical reports and dashboards
 
 Understanding your contact center at the most granular level is key to
 improving performance and lowering costs. Amazon Connect provides powerful analytics
@@ -520,7 +507,7 @@ The following image shows the plan output. It shows a week-by-week or
 month-by-month calculation. To switch from weekly to monthly view,
 select **Monthly** from the dropdown.
 
-![The Plan Outputs section of the capacity plan, the time frame dropdown menu.](/images/connect/latest/adminguide/images/wfm-capacity-planning-output3.png)
+![The Plan Outputs section of the capacity plan, the time frame dropdown menu.](images/wfm-capacity-planning-output3.png)
 
 - [Scheduling](scheduling.md "scheduling.md"): Contact center schedulers
   or managers need to create agent schedules for day-to-day workloads that
@@ -545,9 +532,7 @@ agent workspace.
 
 ![A sample schedule in the agent workspace.](images/wfm-scheduling-agent-view.png)
 
-## Administrators: Configuration and
-
-flexibility
+## Administrators: Configuration and flexibility
 
 Amazon Connect provides a simple, self-service UI that enables you to make changes in
 minutes, not months.
@@ -588,9 +573,7 @@ For a list of the telephony capabilities that Amazon Connect provides, see the [
 The telephony-as-a service model can scale up and down at a moment's notice
 and is proactively and continuously monitored by telephony experts.
 
-### Drag-and-drop workflow
-
-designer
+### Drag-and-drop workflow designer
 
 Amazon Connect flows provides a single drag-and-drop workflow designer you can use to
 create, personalize, and automate end-to-end customer and agent experiences

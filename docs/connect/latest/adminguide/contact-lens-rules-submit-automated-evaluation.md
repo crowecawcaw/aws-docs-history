@@ -1,13 +1,9 @@
-# Create a rule
-
-in Contact Lens that submits an automated evaluation
+# Create a rule in Contact Lens that submits an automated evaluation
 
 Contact Lens enables you to automatically fill and submit evaluations
 by using insights and metrics from conversational analytics.
 
-## Step 1: Configure automation on the
-
-evaluation form
+## Step 1: Configure automation on the evaluation form
 
 Before you can create a rule that submits an automated evaluation, you
 need to configure automation on the evaluation form. For detailed
@@ -29,9 +25,7 @@ specifies which contacts are automatically evaluated using the
 selected evaluation form. The following procedure provides
 instructions.
 
-## Step 2: Define a rule that specifies
-
-which contacts are automatically evaluated
+## Step 2: Define a rule that specifies which contacts are automatically evaluated
 
 You can trigger automated evaluations with two types of rules:
 
@@ -46,9 +40,7 @@ You can trigger automated evaluations with two types of rules:
   then you can trigger another evaluation form measuring
   _Agent sales performance_.
 
-### Trigger automated evaluations with a conversational analytics
-
-rule
+### Trigger automated evaluations with a conversational analytics rule
 
 This is the default rule type that is selected when you create a rule
 to submit an automated evaluation during form activation. You can also
@@ -94,9 +86,7 @@ the rule was added. Rules are applied when Amazon Connect conversational analyti
 
 You cannot apply rules to past, stored conversations.
 
-### Trigger automated evaluations with an evaluation forms
-
-rule
+### Trigger automated evaluations with an evaluation forms rule
 
 1. Go to the **Rules** page. Select
    **Create a rule**, **Evaluation

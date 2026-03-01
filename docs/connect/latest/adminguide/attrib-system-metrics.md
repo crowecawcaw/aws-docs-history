@@ -1,6 +1,4 @@
-# Use attributes in Amazon Connect to route based on number of
-
-contacts in a queue
+# Use attributes in Amazon Connect to route based on number of contacts in a queue
 
 Amazon Connect includes queue attributes that can help you define routing conditions in your flows
 based on real-time metrics about the queues and agents in your contact center. For example,
@@ -85,9 +83,7 @@ block to your flow.
 In the Get queue metrics block, dynamic attributes can only return metrics for one
 channel
 
-## Add a Check contact attributes block after the Get
-
-queue metrics block
+## Add a Check contact attributes block after the Get queue metrics block
 
 After a **Get queue metrics** block, add a [Check contact
 attributes](check-contact-attributes.md "check-contact-attributes.md") block

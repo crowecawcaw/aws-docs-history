@@ -1,6 +1,4 @@
-# Real-time Schedule
-
-Adherence in Amazon Connect
+# Real-time Schedule Adherence in Amazon Connect
 
 ###### Note
 
@@ -24,9 +22,7 @@ filter and sort. It also provides conditional formatting to help you
 proactively manage and optimize workforce performance.
 Following is a list of the real-time agent adherence metrics.
 
-## Real-Time agent adherence
-
-status
+## Real-Time agent adherence status
 
 This metric indicates whether an agent is adherent or non-adherent in near
 real-time. For a definition of schedule adherence, see [Schedule Adherence](schedule-adherence.md "schedule-adherence.md").

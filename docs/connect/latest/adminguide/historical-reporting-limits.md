@@ -1,6 +1,4 @@
-# Historical metrics report limits in
-
-Amazon Connect
+# Historical metrics report limits in Amazon Connect
 
 Historical metrics reports have the following limits:
 
@@ -24,9 +22,7 @@ Historical metrics reports have the following limits:
   you can return data for only three days at a time, but the data is available
   based on the retention period of contact records.
 
-###### The availability of historical metric data is based on the retention period
-
-of contact records
+###### The availability of historical metric data is based on the retention period of contact records
 
 - Historical metrics are based contact records. For the current retention
   period for contact records, see [Amazon Connect feature specifications](feature-limits.md "feature-limits.md").
@@ -35,7 +31,7 @@ of contact records
 
 - You can select up to 31 days in a single request.
 
-###### 200 cell limit
+###### 200k cell limit
 
 - There is a 200k cell limitation on historical metrics reports and
-  scheduled reports. This applies and it applies to number of cells with data (and not rows\*columns in the report).
+  scheduled reports. This applies to number of cells with data (and not rows\*columns in the report).

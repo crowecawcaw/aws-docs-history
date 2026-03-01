@@ -1,6 +1,4 @@
-# Reschedule contacts from the Contact details
-
-page in Amazon Connect
+# Reschedule contacts from the Contact details page in Amazon Connect
 
 On the **Contact details** page of an in-progress contact, you can
 reschedule a contact that was previously scheduled. This capability is currently
@@ -22,8 +20,7 @@ To reschedule contacts programmatically, use the [UpdateContactSchedule](../APIR
    access to contacts on the **Contact search** and
    **Contact details** pages within their own hierarchy
    group or any hierarchy groups below them. For more information about this
-   permissions, see [Manage who can search for
-   contacts and access detailed information](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
+   permissions, see [Manage who can search for contacts and access detailed information](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
 3. **Reschedule contact**: Enables a user to reschedule
    contacts on the **Analytics & Optimization** pages. The
    following image shows the **Contact Actions - Reschedule
@@ -31,9 +28,7 @@ To reschedule contacts programmatically, use the [UpdateContactSchedule](../APIR
 
 ![Security profiles permissions page, reschedule contact permission.](images/contact-details-contact-reschedule-permissions.png)
 
-## How to reschedule a
-
-contact
+## How to reschedule a contact
 
 1. Log in to Amazon Connect with a user account that has [permissions to access
    contact records](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").

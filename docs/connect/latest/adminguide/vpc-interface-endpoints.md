@@ -1,6 +1,4 @@
-# Amazon Connect and interface VPC endpoints
-
-(AWS PrivateLink)
+# Amazon Connect and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and a subset of endpoints in
 Amazon Connect by creating an interface VPC endpoint. Following are the supported
@@ -19,9 +17,7 @@ endpoints:
 
 For more information, see the [AWS PrivateLink Guide](../../../vpc/latest/privatelink.md "../../../vpc/latest/privatelink.md").
 
-## Creating an interface VPC endpoint for
-
-Amazon Connect
+## Creating an interface VPC endpoint for Amazon Connect
 
 You can create an interface endpoint using either the Amazon VPC console or the
 AWS Command Line Interface (AWS CLI). For more information, see [Create an interface
@@ -57,9 +53,7 @@ For more information, see [Control access to
 services using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the
 _AWS PrivateLink Guide_.
 
-### Example: VPC endpoint
-
-policy
+### Example: VPC endpoint policy
 
 The following VPC endpoint policy grants access to the listed Amazon Connect Voice ID
 actions for all principals on all resources.

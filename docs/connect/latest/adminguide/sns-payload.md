@@ -1,6 +1,4 @@
-# Use the Amazon SNS payload after enabling message streaming in
-
-Amazon Connect
+# Use the Amazon SNS payload after enabling message streaming in Amazon Connect
 
 After you’ve enabled message streaming successfully, you may need to filter the
 message to send it to the intended participant: agent, customer, or all.

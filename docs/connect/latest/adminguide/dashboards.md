@@ -1,6 +1,4 @@
-# Dashboards in Amazon Connect for getting contact center performance
-
-data
+# Dashboards in Amazon Connect for getting contact center performance data
 
 Understanding your contact center at the most granular level is key to improving
 performance and lowering costs. You can use the Amazon Connect visual dashboards to understand the
@@ -54,8 +52,7 @@ contact center performance.
    can access the dashboards they need and view the metrics:
    - **Access metrics - Access permission** or the
      **Dashboard - Access permission**. For information
-     about the difference in behavior, see [Assign permissions to view dashboards
-     and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+     about the difference in behavior, see [Assign permissions to view dashboards and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
    - Viewing the data on each dashboard requires the appropriate
      permissions. For example, to view flows data, you need **Flows -
      View** permissions. See the topics about each dashboard for
@@ -77,9 +74,7 @@ dashboard](dashboard-customize-widgets.md "dashboard-customize-widgets.md").
 
 ![A widget on a sample dashboard, the Actions icon to edit the widget.](images/dashboard-parts.png)
 
-## Specify time range and "Compare to"
-
-benchmark
+## Specify time range and "Compare to" benchmark
 
 All dashboards have the following required filters:
 

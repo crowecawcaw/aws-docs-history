@@ -1,6 +1,4 @@
-# Send browser notifications to customers
-
-when chat messages arrive
+# Send browser notifications to customers when chat messages arrive
 
 The communications widget supports browser notifications for your customers through their
 desktop devices. Specifically, your customers will receive a notification through their

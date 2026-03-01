@@ -1,6 +1,4 @@
-# Manage traffic distribution groups using Amazon Connect
-
-APIs
+# Manage traffic distribution groups using Amazon Connect APIs
 
 The topics in this section describe how to manage traffic distribution groups by using Amazon Connect APIs.
 

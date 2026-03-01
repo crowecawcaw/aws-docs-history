@@ -1,10 +1,6 @@
-# Troubleshoot issues with message
+# Troubleshoot issues with message streaming in Amazon Connect
 
-streaming in Amazon Connect
-
-## Messages are not getting published to
-
-SNS
+## Messages are not getting published to SNS
 
 When this happens, we recommend checking the information in [Step 1: Create a standard SNS topic](chat-message-streaming.md#step1-chat-streaming "chat-message-streaming.md#step1-chat-streaming"):
 
@@ -24,8 +20,7 @@ websocket. The flow begins only after that the connection acknowledgement
 event.
 
 Call [CreateParticipantConnection](../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md "../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md") after [StartContactStreaming](../APIReference/API_StartContactStreaming.md "../APIReference/API_StartContactStreaming.md") to mark `Customer` as connected; see
-[Step 3: Enable message streaming on the
-contact](chat-message-streaming.md#step3-chat-streaming "chat-message-streaming.md#step3-chat-streaming").
+[Step 3: Enable message streaming on the contact](chat-message-streaming.md#step3-chat-streaming "chat-message-streaming.md#step3-chat-streaming").
 This ensures messages are sent after you have confirmed that the customer is ready
 to receive them.
 

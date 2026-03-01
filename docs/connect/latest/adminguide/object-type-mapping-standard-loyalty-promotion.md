@@ -1,6 +1,4 @@
-# Object type
-
-mapping for the standard loyalty promotion
+# Object type mapping for the standard loyalty promotion
 
 The topics in this section provide the standard loyalty promotion
 definition.
@@ -9,5 +7,4 @@ using
 
 ###### Contents
 
-- [Customer Profiles
-  standard loyalty promotion object fields](standard-loyalty-promotion-object-fields.md "standard-loyalty-promotion-object-fields.md")
+- [Customer Profiles standard loyalty promotion object fields](standard-loyalty-promotion-object-fields.md "standard-loyalty-promotion-object-fields.md")

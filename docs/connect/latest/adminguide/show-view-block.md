@@ -80,10 +80,8 @@ by using the [ShowView](../APIReference/participant-actions-showview.md "../APIR
 
 - [Choose the view resource](#choose-viewresource "#choose-viewresource")
 - [How to use the Set manually option](#view-setmanually "#view-setmanually")
-- [How to use the Set dynamically
-  option](#view-setdynamically "#view-setdynamically")
-- [How to use the Set JSON
-  option](#show-view-block-example-json "#show-view-block-example-json")
+- [How to use the Set dynamically option](#view-setdynamically "#view-setdynamically")
+- [How to use the Set JSON option](#show-view-block-example-json "#show-view-block-example-json")
 - [This view has sensitive data](#showview-sensitive-data "#showview-sensitive-data")
 - [Flow block branches](#showview-branches "#showview-branches")
 - [Additional configuration tips](#showview-tips "#showview-tips")
@@ -98,8 +96,7 @@ image:
 ![The properties page of the Show view block.](images/show-view-block-form.png)
 
 Following is a brief description of these AWS managed views. For detailed
-information about each one, see [Set up AWS managed
-views for an agent's workspace in Amazon Connect](view-resources-managed-view.md "view-resources-managed-view.md"). Customer-managed views are
+information about each one, see [Set up AWS managed views for an agent's workspace in Amazon Connect](view-resources-managed-view.md "view-resources-managed-view.md"). Customer-managed views are
 also supported. For more information, see the [Customer-managed views](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/customer-managed-views-customer-managed-views--page "https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/customer-managed-views-customer-managed-views--page") documentation.
 
 - **Detail view**: Display information to agents and
@@ -155,9 +152,7 @@ rendered.
 
 ![The Next and Previous UI components set manually.](images/show-view-block-version2.png)
 
-### How to use the Set dynamically
-
-option
+### How to use the Set dynamically option
 
 1. On the **Properties** page, in the
    **View** section, choose **Form**
@@ -174,9 +169,7 @@ the step-by-step guide to show the customer's last name.
 
 ![A heading in the View UI template.](images/show-view-block-dynamic.png)
 
-### How to use the Set JSON
-
-option
+### How to use the Set JSON option
 
 This section walks through an example of how to use the **Set
 JSON** option.
@@ -425,9 +418,7 @@ The values of `Action` and the `Output` data are
 determined by which the component(s) the agent interacted with during
 their use of the view resource.
 
-#### How to use this data in different parts
-
-of flow
+#### How to use this data in different parts of flow
 
 - When the block receives a response back from the client
   application, to reference the output data in flows use ``$.Views.Action` and
@@ -464,8 +455,7 @@ situations:
 ## Flow log entry
 
 Amazon Connect flow logs provide you with real-time details about events in your flow as
-customers interact with it. For more information, see [Use flow logs to track events in Amazon Connect
-flows](about-contact-flow-logs.md "about-contact-flow-logs.md").
+customers interact with it. For more information, see [Use flow logs to track events in Amazon Connect flows](about-contact-flow-logs.md "about-contact-flow-logs.md").
 
 Following sample ShowView input (ingress log)
 
@@ -538,8 +528,7 @@ AWS-managed Views and how to run these flows for inbound media contacts.
 
 See the following topics to learn more about step-by-step guides and Views.
 
-- [Step-by-step Guides to set up your
-  Amazon Connect agent workspace](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md")
+- [Step-by-step Guides to set up your Amazon Connect agent workspace](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md")
 - Explore [how to implement sensitive data collection in Amazon Connect
   Chat](https://aws.amazon.com/blogs/contact-center/collecting-sensitive-information-with-amazon-connect-chat/ "https://aws.amazon.com/blogs/contact-center/collecting-sensitive-information-with-amazon-connect-chat/").
 - For step-by-step instructions about how to set up a customer-managed

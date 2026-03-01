@@ -1,6 +1,4 @@
-# Create
-
-a custom Amazon Connect Customer Profiles calculated attribute definition
+# Create a custom Amazon Connect Customer Profiles calculated attribute definition
 
 Using the Customer Profiles [CreateCalculatedAttributeDefinition](../../../customerprofiles/latest/APIReference/API_CreateCalculatedAttributeDefinition.md "../../../customerprofiles/latest/APIReference/API_CreateCalculatedAttributeDefinition.md") API, you can programmatically
 create your own calculated attribute based on a custom object type.
@@ -8,9 +6,7 @@ create your own calculated attribute based on a custom object type.
 In this topic we show how to create a calculated attribute using a custom JSON
 file.
 
-## Step 1: Create a JSON
-
-file
+## Step 1: Create a JSON file
 
 Create a JSON file with the following contents:
 
@@ -118,9 +114,7 @@ operators are supported.
   Calculated Attribute was created should be included in
   calculations.
 
-## Step 2: Call the
-
-CreateCalculatedAttributeDefinition API
+## Step 2: Call the CreateCalculatedAttributeDefinition API
 
 After you have created and customized the JSON file with your values, call the
 [CreateCalculatedAttributeDefinition](../../../customerprofiles/latest/APIReference/API_CreateCalculatedAttributeDefinition.md "../../../customerprofiles/latest/APIReference/API_CreateCalculatedAttributeDefinition.md") API, as shown in the following

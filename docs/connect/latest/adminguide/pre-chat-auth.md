@@ -1,6 +1,4 @@
-# Pre-chat authentication using the Amazon Connect StartChatContact
-
-API
+# Pre-chat authentication using the Amazon Connect StartChatContact API
 
 Customers who authenticate in your website or mobile application before starting a
 chat can be recognized as authenticated when a chat is initiated. You can do this by

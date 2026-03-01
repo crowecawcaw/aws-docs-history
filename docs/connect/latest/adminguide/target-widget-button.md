@@ -1,6 +1,4 @@
-# Target your Amazon Connect widget button and frame with
-
-CSS/JavaScript
+# Target your Amazon Connect widget button and frame with CSS/JavaScript
 
 The communication widget renders the open/close widget button and the widget frame
 directly on the host website. There are specific selectors that you can use to either

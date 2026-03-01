@@ -15,7 +15,6 @@ actions](../APIReference/analyticsdataset-api.md "../APIReference/analyticsdatas
 - [Access the data
   lake](access-datalake.md "access-datalake.md")
 - [Associate tables](datalake-tables.md "datalake-tables.md")
-- [Manage access to Resource link
-  tables](manage-access-to-resource-link-tables.md "manage-access-to-resource-link-tables.md")
+- [Manage access to Resource link tables](manage-access-to-resource-link-tables.md "manage-access-to-resource-link-tables.md")
 - [Data type definitions](data-type-definitions.md "data-type-definitions.md")
 - [Data retention](data-lake-data-retention.md "data-lake-data-retention.md")

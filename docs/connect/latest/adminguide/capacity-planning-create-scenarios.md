@@ -1,6 +1,4 @@
-# Create capacity planning
-
-scenarios in Amazon Connect
+# Create capacity planning scenarios in Amazon Connect
 
 A scenario has two parts:
 
@@ -22,8 +20,7 @@ A scenario has two parts:
 1. Before you can create a capacity plan, you must create and publish a
    long-term forecast. Amazon Connect uses the published long-term forecast as the input
    for creating the capacity plan. If you haven't yet created a forecast, see
-   [Getting started with
-   forecasting](forecasting.md#getting-started-forecasting "forecasting.md#getting-started-forecasting").
+   [Getting started with forecasting](forecasting.md#getting-started-forecasting "forecasting.md#getting-started-forecasting").
 2. Log in to the Amazon Connect admin website with an account that has security profile permissions
    for **Analytics**, **Capacity planning -
    Edit**.

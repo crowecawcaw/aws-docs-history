@@ -1,6 +1,4 @@
-# Use theme detection in Amazon Connect
-
-Contact Lens to discover issues with contacts
+# Use theme detection in Amazon Connect Contact Lens to discover issues with contacts
 
 Use theme detection to discover previously unknown or emerging contact themes from
 thousands of customer interactions. For example, you can spot common reasons for

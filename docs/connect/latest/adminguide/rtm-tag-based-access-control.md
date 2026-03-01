@@ -1,6 +1,4 @@
-# Real-time metrics tag-based access
-
-control in Amazon Connect
+# Real-time metrics tag-based access control in Amazon Connect
 
 You can use resource tags and access control tags to apply granular access to
 users, queues, and routing profiles for real-time metrics. For example, you can
@@ -11,22 +9,15 @@ You can configure tag-based access controls by using the Amazon Connect admin we
 
 ###### Contents
 
-- [Important things to
-  know](#rtm-tag-based-access-control-limitations "#rtm-tag-based-access-control-limitations")
+- [Important things to know](#rtm-tag-based-access-control-limitations "#rtm-tag-based-access-control-limitations")
 - [How to
   enable tag-based access control](#rtm-tag-based-access-control-how-to-enable "#rtm-tag-based-access-control-how-to-enable")
-- [How to view hundreds of agents, queues,
-  and routing profiles on the real-time metrics report](#view-tag-based-agents "#view-tag-based-agents")
-- [How to transition
-  to tag-based access control](#rtm-tag-based-access-control-transitioning "#rtm-tag-based-access-control-transitioning")
-- [Required security
-  profile permissions](#rtm-tag-based-access-control-permissions "#rtm-tag-based-access-control-permissions")
-- [Example report with tag-based access
-  controls applied](#example-tag-based-results "#example-tag-based-results")
+- [How to view hundreds of agents, queues, and routing profiles on the real-time metrics report](#view-tag-based-agents "#view-tag-based-agents")
+- [How to transition to tag-based access control](#rtm-tag-based-access-control-transitioning "#rtm-tag-based-access-control-transitioning")
+- [Required security profile permissions](#rtm-tag-based-access-control-permissions "#rtm-tag-based-access-control-permissions")
+- [Example report with tag-based access controls applied](#example-tag-based-results "#example-tag-based-results")
 
-## Important things to
-
-know
+## Important things to know
 
 - Amazon Connect can display up to 500 resources at a time on a real-time metrics
   table. For example, in an Agents table it can display up to 500 agents
@@ -46,8 +37,7 @@ know
     currently active. It does not select the first 500 active
     agents.
   - For instructions that explain how to view the status of
-    hundreds of agents when tagging is enabled, see [How to view hundreds of agents, queues,
-    and routing profiles on the real-time metrics report](#view-tag-based-agents "#view-tag-based-agents").
+    hundreds of agents when tagging is enabled, see [How to view hundreds of agents, queues, and routing profiles on the real-time metrics report](#view-tag-based-agents "#view-tag-based-agents").
 
 - You can filter and group tables only by the primary resource (agent,
   queue, or routing profile). You cannot filter and group tables by
@@ -62,16 +52,13 @@ know
 - The **Agent Adherence** table is not
   supported.
 
-## How to enable
-
-tag-based access control for real-time metrics
+## How to enable tag-based access control for real-time metrics
 
 1. Apply resource tags, for example, to agents, queues, and routing
    profiles. For a list of which resources support tagging, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md").
 2. Apply access control tags. In this step, you need to provide tag
    information in the condition element of an IAM policy. For more
-   information, see [Apply tag-based access control in
-   Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
+   information, see [Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
 
 ###### Note
 
@@ -80,12 +67,9 @@ before tag-based access control is applied to users for the agent
 activity audit report. 3. Assign the required security profile permissions to users who are
 going to view the real-time metrics reports with tagging enabled. They
 need permissions to access the reports, and permissions to access the
-resources. For more information, see [Required security
-profile permissions](#rtm-tag-based-access-control-permissions "#rtm-tag-based-access-control-permissions").
+resources. For more information, see [Required security profile permissions](#rtm-tag-based-access-control-permissions "#rtm-tag-based-access-control-permissions").
 
-## How to view hundreds of agents, queues,
-
-and routing profiles on the real-time metrics report
+## How to view hundreds of agents, queues, and routing profiles on the real-time metrics report
 
 Amazon Connect displays up to 500 resources at a time on the real-time metrics report.
 For agents in particular when tags are applied it's very likely that fewer than
@@ -106,9 +90,7 @@ tables. When tags are applied to agents, each table will likely display
 fewer than 500 agents because not all of them may be active at the same
 time.
 
-## How to transition
-
-to tag-based access control
+## How to transition to tag-based access control
 
 If you open a saved report that contains tables with users, queues, or routing
 profiles that you don't have access to anymore due to tag-based access control,
@@ -123,9 +105,7 @@ To view the data, perform one of the following steps:
   to.
 - Remove the groupings and non-primary filters from the table.
 
-## Required security
-
-profile permissions
+## Required security profile permissions
 
 To view real-time metrics reports that have tag-based access controls applied
 to them, you need to be assigned to a security profile that has permissions to:
@@ -134,9 +114,7 @@ to them, you need to be assigned to a security profile that has permissions to:
 - [Access the resources you want to
   view](#tag-access-resources "#tag-access-resources"), such as routing profiles, queues, and agents.
 
-### Permissions to access
-
-metrics
+### Permissions to access metrics
 
 You need one of the following **Analytics and
 Optimization** security profile permissions:
@@ -164,9 +142,7 @@ tag-based access controls are not currently applied.
 
 ![The Access metrics - Access permission on the security profiles page.](images/rtm-tag-based-access-control-perm-2.png)
 
-### Permissions to access
-
-resources
+### Permissions to access resources
 
 The following image shows an example of security profile permissions that
 grant users the ability to view routing profiles, queues, and Amazon Connect user
@@ -176,9 +152,7 @@ selected.
 
 ![The routing section and users and permissions section of the security profiles page.](images/rtm-tag-based-access-control-perm-3.png)
 
-## Example report with tag-based access
-
-controls applied
+## Example report with tag-based access controls applied
 
 Without tag-based access controls, all queues, routing profiles, and agents
 appear on the **Real-time metrics** page, as shown in the

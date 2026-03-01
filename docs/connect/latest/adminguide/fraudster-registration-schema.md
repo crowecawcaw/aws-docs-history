@@ -1,6 +1,4 @@
-# Input and output file schema for the
-
-Fraudster Registration Job in Amazon Connect Voice ID
+# Input and output file schema for the Fraudster Registration Job in Amazon Connect Voice ID
 
 ###### Note
 
@@ -62,9 +60,7 @@ Following is a description of each attribute of the input schema.
       channels, so this value is restricted to either
       **0** or **1**.
 
-## Output file
-
-schema
+## Output file schema
 
 Following is the schema of the output manifest file for Fraudster Registration
 Jobs:

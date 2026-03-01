@@ -1,6 +1,4 @@
-# How to set up S3 Object Lock for
-
-immutable call recordings
+# How to set up S3 Object Lock for immutable call recordings
 
 You can use Amazon S3 Object Lock in combination with your recording bucket to
 help prevent call recordings and IVR recordings from being deleted or overwritten for a
@@ -26,16 +24,12 @@ storage.
 - We strongly recommended you thoroughly test the policy in a non-production
   environment before implementing it in production.
 
-## Step 1: Create an S3 bucket with
-
-Object Lock enabled
+## Step 1: Create an S3 bucket with Object Lock enabled
 
 For a tutorial on creating a new S3 bucket with Object Lock enabled, see [Protect Data on Amazon S3 Against Accidental Deletion or Application
 Bugs Using S3 Versioning, S3 Object Lock, and S3 Replication](https://aws.amazon.com/getting-started/hands-on/protect-data-on-amazon-s3/ "https://aws.amazon.com/getting-started/hands-on/protect-data-on-amazon-s3/").
 
-## Step 1A: Enable Object Lock for an
-
-existing Amazon S3 bucket
+## Step 1A: Enable Object Lock for an existing Amazon S3 bucket
 
 For information about enabling Object Lock on an existing bucket, see [Enable Object Lock on an existing Amazon S3 bucket](../../../AmazonS3/latest/userguide/object-lock-configure.md#object-lock-configure-existing-bucket "../../../AmazonS3/latest/userguide/object-lock-configure.md#object-lock-configure-existing-bucket"), in the
 _Amazon S3 User Guide_.
@@ -51,9 +45,7 @@ _Amazon S3 User Guide_.
 **Name** dropdown box choose the bucket that you enable
 Object Lock for. 6. Choose **Save**.
 
-## Step 3: Test Object Lock is
-
-enabled
+## Step 3: Test Object Lock is enabled
 
 1. Make a test call to your contact center to generate a call
    recording.

@@ -1,6 +1,4 @@
-# Set up queue-based, or skills-based,
-
-routing in Amazon Connect
+# Set up queue-based, or skills-based, routing in Amazon Connect
 
 Here's an overview of the steps to set up queue-based routing:
 
@@ -19,7 +17,5 @@ Here's an overview of the steps to set up queue-based routing:
 For information about how routing works, and queue-based routing, see these
 topics:
 
-- [How routing works with multiple
-  channels](about-routing.md#routing-profile-channels-works "about-routing.md#routing-profile-channels-works")
-- [Queue-based routing to route customers to
-  a specific contact center agent](concepts-queue-based-routing.md "concepts-queue-based-routing.md")
+- [How routing works with multiple channels](about-routing.md#routing-profile-channels-works "about-routing.md#routing-profile-channels-works")
+- [Queue-based routing to route customers to a specific contact center agent](concepts-queue-based-routing.md "concepts-queue-based-routing.md")

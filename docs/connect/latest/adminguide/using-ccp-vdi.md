@@ -39,9 +39,7 @@ Amazon Connect. This results in a more streamlined agent experience and improves
 quality over challenging networks. To get started, you can use the [Amazon Connect open source libraries](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams") to create a new or update an existing agent
 user interface, such as a custom CCP.
 
-## Things to consider when designing your VDI
-
-environment
+## Things to consider when designing your VDI environment
 
 - **Location of your agents**—Ideally,
   there are as few hops as possible with the lowest round trip time between

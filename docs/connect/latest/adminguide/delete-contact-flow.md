@@ -1,6 +1,4 @@
-# Archive, delete, and restore flows in
-
-Amazon Connect
+# Archive, delete, and restore flows in Amazon Connect
 
 Flows and modules must be archived before you can delete them from your Amazon Connect
 instance. Archived flows and modules can be restored.

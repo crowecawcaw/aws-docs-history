@@ -73,10 +73,8 @@ next available agent.
 
 ![The Hide advance settings option on the User management page.](images/configure-agents-advanced-settings.png) 8. See the following topics:
 
-    * [Assign proficiencies to agents in your
-     Amazon Connect instance](assign-proficiencies-to-agents.md "assign-proficiencies-to-agents.md")
-    * [Organize agents into teams and groups for reporting
-     and access by creating hierarchies](agent-hierarchy.md "agent-hierarchy.md")
+    * [Assign proficiencies to agents in your Amazon Connect instance](assign-proficiencies-to-agents.md "assign-proficiencies-to-agents.md")
+    * [Organize agents into teams and groups for reporting and access by creating hierarchies](agent-hierarchy.md "agent-hierarchy.md")
 
 9. Under **Tags**, optionally add resource [tags](tagging.md "tagging.md") to identify, organize, search for, filter and
    control who can access this user.

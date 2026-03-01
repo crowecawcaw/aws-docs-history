@@ -1,6 +1,4 @@
-# Sample interruptible queue flow with
-
-callback in Amazon Connect
+# Sample interruptible queue flow with callback in Amazon Connect
 
 ###### Note
 

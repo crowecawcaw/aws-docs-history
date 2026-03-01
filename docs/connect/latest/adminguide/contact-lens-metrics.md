@@ -1,6 +1,4 @@
-# Conversational analytics metrics in
-
-Amazon Connect
+# Conversational analytics metrics in Amazon Connect
 
 The following metrics are derived from Contact Lens conversational
 analytics. These metrics are available only when [Contact Lens is enabled for your instance](enable-analytics.md#enable-cl "enable-analytics.md#enable-cl") and [conversational analytics](enable-analytics.md#enable-callrecording-speechanalytics "enable-analytics.md#enable-callrecording-speechanalytics")
@@ -42,9 +40,7 @@ conversation duration.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-## Average agent greeting
-
-time
+## Average agent greeting time
 
 This metric provides the average first response time of agents on chat,
 indicating how quickly they engage with customers after joining the chat.
@@ -72,9 +68,7 @@ indicating how quickly they engage with customers after joining the chat.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-## Average agent
-
-interruptions
+## Average agent interruptions
 
 This metric quantifies the average frequency of agent interruptions during
 customer interactions.
@@ -102,9 +96,7 @@ customer interactions.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-## Average agent
-
-interruption time
+## Average agent interruption time
 
 This metric measures the average of total agent interruption time while talking to a contact.
 
@@ -133,9 +125,7 @@ This metric measures the average of total agent interruption time while talking 
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-## Average agent talk
-
-time
+## Average agent talk time
 
 This metric measures the average time that was spent talking in a conversation by an agent.
 
@@ -163,9 +153,7 @@ This metric measures the average time that was spent talking in a conversation b
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-## Average conversation
-
-duration
+## Average conversation duration
 
 This metric measures the average conversation duration of voice contacts with agents.
 
@@ -195,9 +183,7 @@ This metric measures the average conversation duration of voice contacts with ag
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-## Average customer talk
-
-time
+## Average customer talk time
 
 This metric measures the average time that was spent talking in a
 conversation by a customer.

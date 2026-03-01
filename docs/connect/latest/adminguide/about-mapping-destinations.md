@@ -1,6 +1,4 @@
-# About mapping destinations in
-
-Amazon Connect
+# About mapping destinations in Amazon Connect
 
 A mapping destination is your mapping from a source to a standard definition
 that is already defined in Amazon Connect.

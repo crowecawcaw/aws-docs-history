@@ -1,6 +1,4 @@
-# Create overtime slots for contact center agents in
-
-Amazon Connect
+# Create overtime slots for contact center agents in Amazon Connect
 
 You can create overtime slots for specific activities. This feature applies to
 activities that aren't the **Work** sub-type. Activities with the

@@ -1,6 +1,4 @@
-# Customize widget launch behavior and button
-
-icon for your website hosted in Amazon Connect
+# Customize widget launch behavior and button icon for your website hosted in Amazon Connect
 
 To further customize how your website renders and launches the hosted widget icon, you
 can configure the launch behavior and hide the default icon. For example, you can
@@ -18,9 +16,7 @@ element that is rendered on your website.
 - [Enable chat session
   persistence across tabs](#chat-persistence-across-tabs "#chat-persistence-across-tabs")
 
-## How to configure custom launch behavior for
-
-the widget
+## How to configure custom launch behavior for the widget
 
 To pass custom launch behavior, use the following example code block and embed it
 in your widget. All of the fields shown in the following example are optional and
@@ -43,9 +39,7 @@ amazon_connect('customLaunchBehavior', {
 });
 ```
 
-## Supported options and
-
-constraints
+## Supported options and constraints
 
 The following table lists the supported custom launch behavior options. Fields are
 optional and any combination can be used.
@@ -165,9 +159,7 @@ buttonElem.addEventListener('click', function() {
 });
 ```
 
-### Launch a new chat in a browser
-
-window
+### Launch a new chat in a browser window
 
 The following example shows changes you would need to make in the widget to
 launch a new browser window and auto-launch chat in a full screen.
@@ -198,9 +190,7 @@ launch a new browser window and auto-launch chat in a full screen.
 </script>
 ```
 
-## Enable chat session persistence
-
-across tabs
+## Enable chat session persistence across tabs
 
 By default if a chat is opened in one tab and then the user opens a new tab and
 starts another chat, a new chat will start instead of connecting to the existing

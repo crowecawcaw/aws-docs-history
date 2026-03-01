@@ -1,6 +1,4 @@
-# Operational excellence in Amazon Connect
-
-workloads
+# Operational excellence in Amazon Connect workloads
 
 Operational excellence includes the ability to run and monitor systems to deliver
 business value and continually improve supporting processes and procedures. This section
@@ -66,8 +64,7 @@ For detailed information about porting your numbers, see [Port a current phone n
   measure latency to ensure it falls within acceptable range for your use
   case. Any deviations from your target agent and customer environments
   need to be measured and accounted for. For more information, including
-  use case testing instructions and criteria, see [Troubleshooting Issues with the Contact Control Panel
-  (CCP)](troubleshooting.md "troubleshooting.md").
+  use case testing instructions and criteria, see [Troubleshooting Issues with the Contact Control Panel (CCP)](troubleshooting.md "troubleshooting.md").
 
 ### Agent workstation
 
@@ -84,8 +81,7 @@ agents and contacts:
   correctly for CCP use.
 - Calculate PSTN latency for use cases that require agents and contacts
   to be in geographically distant locations
-- Review the [Troubleshooting Issues with the Contact Control Panel
-  (CCP)](troubleshooting.md "troubleshooting.md") section to create runbooks and
+- Review the [Troubleshooting Issues with the Contact Control Panel (CCP)](troubleshooting.md "troubleshooting.md") section to create runbooks and
   playbooks for your agents and supervisors to follow should they
   encounter issues.
 - Set up monitoring for your agent workstations and consider partner
@@ -129,9 +125,7 @@ workloads on AWS. Both Enterprise Support and Well-Architected Review with an
 AWS Solutions Architect are required to qualify for the Amazon Connect Service Level
 Agreement.
 
-### AWS well-architected
-
-review
+### AWS well-architected review
 
 Before any migration or implementation to Amazon Connect, follow our best practices by
 using the AWS Well-Architected Framework, Operational Excellence. The
@@ -212,8 +206,7 @@ must be managed by a single carrier. In situations where you use DIDs, load
 balance across numbers from multiple carriers, when possible, to increase
 reliability. Make sure that you handle all error paths in your flow
 appropriately, and implement the best practices, requirements, and
-recommendations located in [Troubleshooting Issues with the Contact Control Panel
-(CCP)](troubleshooting.md "troubleshooting.md").
+recommendations located in [Troubleshooting Issues with the Contact Control Panel (CCP)](troubleshooting.md "troubleshooting.md").
 
 If you’re forwarding your existing telephony provider’s phone numbers to
 Amazon Connect, ensure that the process to change the forward destination to an
@@ -231,9 +224,7 @@ provider.
 Amazon Connect throttling quotas are by account, and not instance. You should consider
 the following best practices when working with Amazon Connect APIs:
 
-#### Implement a caching/queuing
-
-solution
+#### Implement a caching/queuing solution
 
 To decrease API data query overhead and avoid throttling, you can use an
 intermediary database like Amazon DynamoDB to store API call results rather than
@@ -260,9 +251,7 @@ API action, like an Outbound API call, you can use this same concept in
 combination with Amazon Simple Queue Service to queue API requests Using AWS Lambda with
 SQS.
 
-#### Exponential back off and retry
-
-strategies
+#### Exponential back off and retry strategies
 
 You can run into situations where API throttling limits get exceeded. This
 can happen when the API calls fail and are retried repeatedly or made

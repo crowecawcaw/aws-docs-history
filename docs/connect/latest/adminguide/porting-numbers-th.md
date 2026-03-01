@@ -1,6 +1,4 @@
-# Things to know about Thailand number
-
-porting
+# Things to know about Thailand number porting
 
 Porting in Thailand differs from other countries. Instead of the number being able
 to directly moved to Amazon Connect, it’s necessary to route the calls from your current

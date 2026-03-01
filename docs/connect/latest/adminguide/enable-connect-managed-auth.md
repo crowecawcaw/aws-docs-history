@@ -1,6 +1,4 @@
-# Enable customer authentication for hosted
-
-communication widgets
+# Enable customer authentication for hosted communication widgets
 
 This topic explains how to set up authentication if you're using the Amazon Connect hosted
 communication widget for chat. You enable customer authentication for your Amazon Connect
@@ -14,9 +12,7 @@ for custom IAM policies](security-iam-amazon-connect-permissions.md "security-ia
 the permissions needed to access the **Customer authentication**
 page.
 
-## Enable customer authentication in your Amazon Connect
-
-instance
+## Enable customer authentication in your Amazon Connect instance
 
 1. Open the Amazon Connect console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
@@ -28,8 +24,7 @@ instance
 ![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. On the left navigation menu, choose **Applications**,
 **Customer Authentication**. If you don't see this
 option, it may not be available in your AWS Region. For information about
-where customer authentication is available, see [Customer authentication availability by
-Region](regions.md#customerauthentication_region "regions.md#customerauthentication_region"). 4. On the **Customer authentication** page, choose
+where customer authentication is available, see [Customer authentication availability by Region](regions.md#customerauthentication_region "regions.md#customerauthentication_region"). 4. On the **Customer authentication** page, choose
 **Create user pool in Amazon Cognito**. This opens the Amazon Cognito
 console. 5. Create a new user pool with your identity provider. For instructions, see
 [Getting started with user pools](../../../cognito/latest/developerguide/getting-started-user-pools.md "../../../cognito/latest/developerguide/getting-started-user-pools.md") in the _Amazon Cognito
@@ -53,8 +48,7 @@ user pool. 8. Continue to the next step: [Enable the authentication message](#en
 
 To enable the authentication message, add the authentication parameters snippet
 variable at the end of your snippet. For information about adding snippet variables,
-see [Supported widget snippet fields in Amazon Connect that are
-customizable](supported-snippet-fields.md "supported-snippet-fields.md"). The following code is an example of
+see [Supported widget snippet fields in Amazon Connect that are customizable](supported-snippet-fields.md "supported-snippet-fields.md"). The following code is an example of
 the authentication parameters snippet you need to add.
 
 ```

@@ -1,6 +1,4 @@
-# Amazon Connect Streams APIs to integrate
-
-Voice ID
+# Amazon Connect Streams APIs to integrate Voice ID
 
 ###### Note
 
@@ -28,5 +26,4 @@ applications.
   a customer.
   You can also use the Voice ID widget in the Contact Control Panel (CCP) if you
   don't want to build a custom agent interface. For more information about Voice ID
-  in the CCP, see [Enroll callers in Voice ID in the Contact Control Panel
-  (CCP)](use-voiceid.md "use-voiceid.md").
+  in the CCP, see [Enroll callers in Voice ID in the Contact Control Panel (CCP)](use-voiceid.md "use-voiceid.md").

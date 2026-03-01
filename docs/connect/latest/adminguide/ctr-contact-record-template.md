@@ -1,6 +1,4 @@
-# Contact record templates in Amazon Connect
-
-Customer Profiles
+# Contact record templates in Amazon Connect Customer Profiles
 
 A Contact Record serves as a profile object that captures essential meta-data from
 various contact events, such as phone calls or chats. It plays a vital role in
@@ -14,22 +12,14 @@ according to your business needs.
 
 ###### Contents
 
-- [Create inferred
-  profiles and auto-associate profiles (CTR-NoInferred)](#ctr-contact-record-template-no-inferred "#ctr-contact-record-template-no-inferred")
-- [Auto-associate
-  profiles only (CTR-AutoAssociateOnly)](#ctr-contact-record-template-auto-associate "#ctr-contact-record-template-auto-associate")
-- [Create inferred
-  profiles only (CTR)](#ctr-contact-record-template-inferred-only "#ctr-contact-record-template-inferred-only")
-- [Contact record
-  template usage examples](#ctr-contact-record-template-usage-examples "#ctr-contact-record-template-usage-examples")
-- [How to
-  update Contact Record type in the AWS Console](#ctr-contact-record-template-usage-examples-console "#ctr-contact-record-template-usage-examples-console")
-- [Automatically add names from email
-  contacts to a profile](#add-email-names-to-profile "#add-email-names-to-profile")
+- [Create inferred profiles and auto-associate profiles (CTR-NoInferred)](#ctr-contact-record-template-no-inferred "#ctr-contact-record-template-no-inferred")
+- [Auto-associate profiles only (CTR-AutoAssociateOnly)](#ctr-contact-record-template-auto-associate "#ctr-contact-record-template-auto-associate")
+- [Create inferred profiles only (CTR)](#ctr-contact-record-template-inferred-only "#ctr-contact-record-template-inferred-only")
+- [Contact record template usage examples](#ctr-contact-record-template-usage-examples "#ctr-contact-record-template-usage-examples")
+- [How to update Contact Record type in the AWS Console](#ctr-contact-record-template-usage-examples-console "#ctr-contact-record-template-usage-examples-console")
+- [Automatically add names from email contacts to a profile](#add-email-names-to-profile "#add-email-names-to-profile")
 
-## Create inferred
-
-profiles and auto-associate profiles (CTR-NoInferred)
+## Create inferred profiles and auto-associate profiles (CTR-NoInferred)
 
 **Description**
 
@@ -62,9 +52,7 @@ profiles
 
 ![The Contact Record CTR-NoInferred template diagram.](images/ctr-contact-record-template-no-inferred.png)
 
-## Auto-associate
-
-profiles only (CTR-AutoAssociateOnly)
+## Auto-associate profiles only (CTR-AutoAssociateOnly)
 
 **Description**
 
@@ -98,9 +86,7 @@ facilitating efficient customer management.
 
 ![The Contact Record CTR-AutoAssociateOnly template diagram.](images/ctr-contact-record-template-auto-associate.png)
 
-## Create inferred
-
-profiles only (CTR)
+## Create inferred profiles only (CTR)
 
 **Description**
 
@@ -128,9 +114,7 @@ ensure a more reliable representation of customer interactions.
 
 ![The Contact Record CTR template diagram.](images/ctr-contact-record-template-inferred-only.png)
 
-## Contact record
-
-template usage examples
+## Contact record template usage examples
 
 **Amazon Connect admin website**
 
@@ -186,9 +170,7 @@ your specific preferences or evolving business requirements.
 
 For information on using the API, see [PutProfileObjectType](../../../customerprofiles/latest/APIReference/API_PutProfileObjectType.md "../../../customerprofiles/latest/APIReference/API_PutProfileObjectType.md")
 
-## How to
-
-update Contact Record type in the AWS Console
+## How to update Contact Record type in the AWS Console
 
 1. In the Customer Profiles console, select **View Details** in the
    **Customer Profiles domain** section.
@@ -202,9 +184,7 @@ your Domain and choose **Save**.
 
 ![Select the desired Contact Record behavior you would like to apply to your Domain and choose Save.](images/ctr-contact-record-template-usage-examples-console-3.png)
 
-## Automatically add names from email
-
-contacts to a profile
+## Automatically add names from email contacts to a profile
 
 You can set up a flow to populate a name from an email contact to the
 customer's profile. Use the [Customer profiles](customer-profiles-block.md "customer-profiles-block.md") block, configured to use the

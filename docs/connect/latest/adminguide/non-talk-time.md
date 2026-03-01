@@ -1,6 +1,4 @@
-# Investigate non-talk time during calls using
-
-Amazon Connect Contact Lens
+# Investigate non-talk time during calls using Amazon Connect Contact Lens
 
 ## What is non-talk time?
 
@@ -13,9 +11,7 @@ The following image shows the location of non-talk time data on the
 
 ![The contact details page, the talk time section, the non-talk time data.](images/contact-lens-nontalk-time-overview.png)
 
-## How to investigate non-talk
-
-time
+## How to investigate non-talk time
 
 Non-talk time can help you identify calls that have gone poorly. This may be
 because:

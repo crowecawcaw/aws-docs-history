@@ -1,6 +1,4 @@
-# Optimize Amazon Connect audio for Amazon WorkSpaces cloud
-
-desktops
+# Optimize Amazon Connect audio for Amazon WorkSpaces cloud desktops
 
 Amazon Connect simplifies delivery of high-quality voice experiences for agents operating
 within Amazon WorkSpaces Virtual Desktop Infrastructure (VDI) environments. By leveraging
@@ -14,9 +12,7 @@ need to do the following:
   agent user interface, such as a custom Contact Control Panel (CCP).
 - Configure Amazon WorkSpaces to enable WebRTC redirection.
 
-## System
-
-requirements
+## System requirements
 
 This section describes the system requirements for using Amazon Connect with WorkSpaces
 WebRTC redirection.
@@ -57,9 +53,7 @@ DCV** and complete those instructions.
 - **Unsupported CCP Deployment**
   - Native CCP
 
-## Confirm media flows
-
-between agent machine and Amazon Connect during the call
+## Confirm media flows between agent machine and Amazon Connect during the call
 
 - Ensure DCV WebRTC browser extension is enabled and in Ready
   state.

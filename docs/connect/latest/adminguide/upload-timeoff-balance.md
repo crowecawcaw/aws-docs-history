@@ -1,6 +1,4 @@
-# Import an agent's time off balance to
-
-Amazon Connect
+# Import an agent's time off balance to Amazon Connect
 
 You can import or export a .csv file of an agent's time off balance. For example,
 you may download the time off balance from your HR system and then upload it to
@@ -10,14 +8,12 @@ Amazon Connect uses the time off balance to automatically approve or decline tim
 requests based on the agent's available net balance.
 
 For the maximum file size that you can upload, see _File size per upload
-of agent time off data_ in [Forecasting, capacity
-planning, and scheduling feature specifications](feature-limits.md#forecasting-cap-planning-scheduling-specs "feature-limits.md#forecasting-cap-planning-scheduling-specs").
+of agent time off data_ in [Forecasting, capacity planning, and scheduling feature specifications](feature-limits.md#forecasting-cap-planning-scheduling-specs "feature-limits.md#forecasting-cap-planning-scheduling-specs").
 
 ###### Tip
 
 **IT admins**: For the endpoints to add to your
-proxy exception list for this feature, see [Allow upload of time-off balances and allowances
-in Amazon Connect scheduling](ccp-networking.md#endpoints-scheduling "ccp-networking.md#endpoints-scheduling").
+proxy exception list for this feature, see [Allow upload of time-off balances and allowances in Amazon Connect scheduling](ccp-networking.md#endpoints-scheduling "ccp-networking.md#endpoints-scheduling").
 
 1. Log in to the Amazon Connect admin website with an account that has security profile permissions
    for **Scheduling**, **Schedule manager -
@@ -58,9 +54,7 @@ Choose **Download snapshot** to download the full set of the
 last uploaded time off balance and the net time off balance as of the time of
 download.
 
-## How the system
-
-calculates time off deductions
+## How the system calculates time off deductions
 
 When a staff's time off is approved, the following logic is used to calculate
 how many hours are deducted from both the staff's time off balance and the group
@@ -105,9 +99,7 @@ allowance balance:
       balance** as
       **Yes**.
 
-## Time off deduction logic
-
-examples
+## Time off deduction logic examples
 
 Workforce managers and supervisors can specify which shift activities, in
 addition to default work activities, will be counted towards their agents'

@@ -1,6 +1,4 @@
-# Humming sound in the agent's audio device: Verify
-
-the headset and browser sample rates
+# Humming sound in the agent's audio device: Verify the headset and browser sample rates
 
 This topic is for IT administrators who are experienced with investigating audio
 device issues.

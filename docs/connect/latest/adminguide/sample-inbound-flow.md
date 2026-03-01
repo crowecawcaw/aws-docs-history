@@ -1,6 +1,4 @@
-# Sample inbound flow in Amazon Connect for the first contact
-
-experience
+# Sample inbound flow in Amazon Connect for the first contact experience
 
 ###### Note
 
@@ -17,8 +15,7 @@ attributes](check-contact-attributes.md "check-contact-attributes.md") block to 
 is contacting you by phone or chat, or if it is a task, and to route them
 accordingly.
 
-- If the channel is chat or task, the contact is transferred to the [Sample queue configurations flow in
-  Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md").
+- If the channel is chat or task, the contact is transferred to the [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md").
 - If the channel is voice, then based on user input the contact is either
   transferred to the other sample flows or a sample follow-up agent task is
   created for this contact.

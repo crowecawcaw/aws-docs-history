@@ -13,9 +13,7 @@ another action, the dependent action is automatically chosen and must also be gr
 For example, if you add permission to edit users, we also add permission to view
 users.
 
-## Required permissions
-
-to create security profiles
+## Required permissions to create security profiles
 
 Before you can create a new security profile, you must be logged in with an Amazon Connect
 account that has **Security profiles - Create** permissions, as
@@ -26,9 +24,7 @@ shown in the following image.
 By default, the Amazon Connect **Admin** security profile has these
 permissions.
 
-## How to create
-
-security profiles
+## How to create security profiles
 
 1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/.
 2. Choose **Users**, **Security
@@ -42,9 +38,7 @@ security profiles
    for the resource and any dependent resources.
 6. Choose **Save**.
 
-## Tag-based access
-
-controls
+## Tag-based access controls
 
 You create a security profile with access control tags. Use these steps to create
 a security profile that enforces tag-based access controls.
@@ -65,8 +59,7 @@ resources that you have selected. 5. Choose **Save**.
 It is mandatory to specify both a resource type and an access control tag when
 configuring tag-based access controls. As a best practice, ensure that you have
 matching resource tags on a security profile that has tag-based access controls
-configured. To learn more about tag-based access controls in Amazon Connect, see [Apply tag-based access control in
-Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
+configured. To learn more about tag-based access controls in Amazon Connect, see [Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
 
 ## Tag security profiles
 

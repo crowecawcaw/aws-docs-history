@@ -1,12 +1,9 @@
-# Sample customer queue priority flow in
-
-Amazon Connect
+# Sample customer queue priority flow in Amazon Connect
 
 ###### Note
 
 This sample flow is available in previous Amazon Connect instances. In new instances, you
-can see this functionality in [Sample queue configurations flow in
-Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md").
+can see this functionality in [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md").
 
 Type: Flow (inbound)
 
@@ -22,9 +19,7 @@ block, there are two ways you can raise or lower a customer's priority:
   are routed first, when all contacts have the same queue priority value (such as
   5).
 
-## Option 1: Raise the
-
-priority
+## Option 1: Raise the priority
 
 - The **Get Customer Input** block prompts the customer to
   press 1 to move to the front of the queue. This block gets the customer's
@@ -34,9 +29,7 @@ priority
   This block changes their priority in the queue to 1, which is the highest
   priority.
 
-## Option 2: Change the
-
-routing age
+## Option 2: Change the routing age
 
 - The **Get Customer Input** block prompts the customer to
   press 2 to move behind existing contacts already in queue. This block gets

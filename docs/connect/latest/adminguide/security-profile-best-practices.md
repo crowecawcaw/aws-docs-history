@@ -1,6 +1,4 @@
-# Best practices for Amazon Connect and Contact
-
-Control Panel (CCP) security profiles
+# Best practices for Amazon Connect and Contact Control Panel (CCP) security profiles
 
 - Limit who has **Users - Edit or Create** permissions
 

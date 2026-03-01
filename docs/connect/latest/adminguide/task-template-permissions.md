@@ -1,6 +1,4 @@
-# Grant users permissions to create task
-
-templates in Amazon Connect
+# Grant users permissions to create task templates in Amazon Connect
 
 Assign the **Routing**, **Task templates**
 permissions to enable a user to create task templates.

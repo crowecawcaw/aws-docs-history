@@ -1,6 +1,4 @@
-# Customer Profiles
-
-standard air booking object fields
+# Customer Profiles standard air booking object fields
 
 The following table lists all the fields in the Customer Profiles standard
 air booking object.

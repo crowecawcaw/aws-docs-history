@@ -119,9 +119,7 @@ Filters meta data by instance. Includes the following metrics:
 - TasksBreachingConcurrencyQuota
 - ThrottledCalls
 
-### Instance ID, Participant, Stream Type, Type of
-
-Connection
+### Instance ID, Participant, Stream Type, Type of Connection
 
 Filters metric data by connection. Includes the following metrics:
 
@@ -261,9 +259,7 @@ This dimension limits the data to one of the following Voice ID operations:
 
 The Voice ID domain where the enrollment, authentication or registration is conducted.
 
-## Amazon AppIntegrations metrics sent to
-
-CloudWatch
+## Amazon AppIntegrations metrics sent to CloudWatch
 
 The `AWS/AppIntegrations` namespace includes the following metrics.
 
@@ -366,9 +362,7 @@ Unit: Milliseconds
 
 Valid Statistics: Maximum, Sum, Minimum, Average
 
-## Amazon AppIntegrations metric
-
-dimensions
+## Amazon AppIntegrations metric dimensions
 
 You can use the following dimensions to refine AppIntegrations [metrics](#appintegrations-metrics-cloudwatch "#appintegrations-metrics-cloudwatch").
 
@@ -380,9 +374,7 @@ You can use the following dimensions to refine AppIntegrations [metrics](#appint
 | IntegrationType | DataIntegration or EventIntegration     |
 | Region          | Region of the data or event integration |
 
-## Amazon Connect Customer Profiles
-
-metrics
+## Amazon Connect Customer Profiles metrics
 
 The `AWS/CustomerProfiles` namespace includes the following metrics.
 
@@ -405,9 +397,7 @@ Number of PutRecord attempts that encountered throttling exception.
 
 Unit: Count
 
-## Amazon Connect Customer Profiles
-
-metric dimensions
+## Amazon Connect Customer Profiles metric dimensions
 
 You can use the following dimensions to refine Customer Profiles [metrics](#customer-profiles-metrics-cloudwatch "#customer-profiles-metrics-cloudwatch").
 
@@ -417,9 +407,7 @@ You can use the following dimensions to refine Customer Profiles [metrics](#cust
 | DestinationType | Type of destination. Available value is: Kinesis                                  |
 | DestinationName | Name of destination. Kinesis Data Streaming name for DestinationType:<br>Kinesis. |
 
-## Use CloudWatch metrics to calculate
-
-concurrent call quota
+## Use CloudWatch metrics to calculate concurrent call quota
 
 ###### Important
 
@@ -447,9 +435,7 @@ For example, if **ConcurrentCalls** is 20 and
 **ConcurrentCallsPercentage** is 50, your quota usage is calculated as
 (20/0.5) = 40. Your total quota is 40 calls.
 
-## Use CloudWatch metrics to calculate
-
-concurrent active chats quota
+## Use CloudWatch metrics to calculate concurrent active chats quota
 
 Here's how to calculate your quota for concurrent active chats.
 
@@ -462,9 +448,7 @@ For example, if **ConcurrentActiveChats** is 1000 and
 **ConcurrentActiveChatsPercentage** is 50, your quota is calculated as
 (1000/50)\*100 = 2000. Your total quota is 2000 chats.
 
-## Use CloudWatch metrics to calculate
-
-concurrent task quota
+## Use CloudWatch metrics to calculate concurrent task quota
 
 Here's how to calculate your quota for concurrent tasks.
 
@@ -477,9 +461,7 @@ For example, if **ConcurrentTasks** is 20 and
 **ConcurrentTasksPercentage** is 50, your total quota is calculated as
 (20/50)\*100= 40. Your total quota is 40 tasks.
 
-## Use CloudWatch metrics to calculate
-
-concurrent email quota
+## Use CloudWatch metrics to calculate concurrent email quota
 
 Here's how to calculate your quota for concurrent email.
 

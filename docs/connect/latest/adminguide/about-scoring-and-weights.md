@@ -1,6 +1,4 @@
-# Use scoring and weights on agent evaluation
-
-forms in Amazon Connect
+# Use scoring and weights on agent evaluation forms in Amazon Connect
 
 By using _weights_, you can increase or decrease the impact of a
 question or section score on the overall evaluation score.

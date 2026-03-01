@@ -1,6 +1,4 @@
-# Managing secrets and resource
-
-policies
+# Managing secrets and resource policies
 
 When you [configure a third-party
 speech provider](configure-third-party-speech-providers.md "configure-third-party-speech-providers.md"), you will need to create a secret in Secrets Manager that contains the speech
@@ -26,9 +24,7 @@ provider's API key. Creating the secret is a two step process:
   only access your API key secret in context of a single specific instance, and can only access
   your KMS key in context of both that instance and the specific secret.
 
-## Example of a resource-based
-
-policy for Secrets Manager secrets
+## Example of a resource-based policy for Secrets Manager secrets
 
 The following is an example of a resource-based policy that you can attach to your
 secret.
@@ -61,9 +57,7 @@ secret.
 
 ```
 
-## Example of a resource-based policy for
-
-AWS KMS keys
+## Example of a resource-based policy for AWS KMS keys
 
 The following is an example of a resource-based policy that you can attach to your
 KMS key.
@@ -97,9 +91,7 @@ KMS key.
 
 ```
 
-## Attaching a resource-based
-
-policy to your Secrets Manager secret
+## Attaching a resource-based policy to your Secrets Manager secret
 
 To attach a resource-based policy to your secret, go to the Secrets Manager console
 within the AWS Management Console, navigate to your secret, choose **Edit
@@ -108,9 +100,7 @@ modify the resource policy directly on the page so that it looks similar to the 
 the resource policy through the AWS CLI's `put-resource-policy` command, or
 programmatically using the [PutResourcePolicy](../../../secretsmanager/latest/apireference/API_PutResourcePolicy.md "../../../secretsmanager/latest/apireference/API_PutResourcePolicy.md") API operation.
 
-## Attaching a resource-based policy to
-
-your KMS key
+## Attaching a resource-based policy to your KMS key
 
 To attach a resource-based policy to your KMS key, go to the AWS Key Management Service console within
 the AWS Management Console, navigate to your KMS key and edit your key policy to look like the [example](#example-resource-policy-kms-keys "#example-resource-policy-kms-keys"). You can also update the key

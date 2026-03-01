@@ -1,7 +1,4 @@
-# Enable real-time chat message
-
-streaming in
-Amazon Connect
+# Enable real-time chat message streaming in Amazon Connect
 
 Amazon Connect Chat provides [APIs](../APIReference/Welcome.md "../APIReference/Welcome.md") that enable you to subscribe
 to a real-time stream of chat messages. Using these APIs, you can:
@@ -15,12 +12,9 @@ to a real-time stream of chat messages. Using these APIs, you can:
 
 This page describes how to subscribe to an SNS endpoint for real-time streaming
 of chat messages in Amazon Connect. If you're trying to enable message streaming for
-conversational AI interactions in Amazon Connect, see [Enable message streaming for AI-powered
-chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md").
+conversational AI interactions in Amazon Connect, see [Enable message streaming for AI-powered chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md").
 
-## How the message streaming APIs
-
-work
+## How the message streaming APIs work
 
 The [Amazon Connect
 message streaming APIs](../APIReference/Welcome.md "../APIReference/Welcome.md") are triggered when certain events occur within an
@@ -54,8 +48,7 @@ Currently, the message streaming APIs only support standard SNS for
 real-time streaming of messages. They don't support [Amazon SNS FIFO
 (first in, first out) topics](../../../sns/latest/dg/sns-fifo-topics.md "../../../sns/latest/dg/sns-fifo-topics.md"). 3. After you create the topic, its Amazon Resource Name (ARN) is displayed in the
 **Details** section. Copy the topic ARN to the clipboard.
-You'll use the topic ARN in the next step, and in [Step 3: Enable message streaming on the
-contact](#step3-chat-streaming "#step3-chat-streaming").
+You'll use the topic ARN in the next step, and in [Step 3: Enable message streaming on the contact](#step3-chat-streaming "#step3-chat-streaming").
 
 The topic ARN looks similar to the following example:
 
@@ -190,9 +183,7 @@ the following topics:
    for calling other chat APIs required to enable streaming. This is described in
    the next steps.
 
-## Step 3: Enable message streaming on the
-
-contact
+## Step 3: Enable message streaming on the contact
 
 - Call [StartContactStreaming](../APIReference/API_StartContactStreaming.md "../APIReference/API_StartContactStreaming.md") to enable real-time message streaming to your
   SNS topic.

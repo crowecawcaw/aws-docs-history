@@ -1,6 +1,4 @@
-# Add a custom agent status to the Amazon Connect Contact Control
-
-Panel (CCP)
+# Add a custom agent status to the Amazon Connect Contact Control Panel (CCP)
 
 Agents are responsible for setting their status in the Contact Control Panel (CCP). In
 fact, the only time an agent's status changes is when they manually change it in the

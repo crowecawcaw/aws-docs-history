@@ -1,6 +1,4 @@
-# Enable time off for Amazon Connect contact center
-
-agents
+# Enable time off for Amazon Connect contact center agents
 
 You enable time off management for each staffing group. The following image shows
 the **Request management** section of the **Edit staffing
@@ -68,9 +66,7 @@ Requests that are not auto-approved are displayed as follows:
     + Agent application: Requests are displayed as **Awaiting
      Approval**.
 
-## Assign security profile permissions to
-
-agents so they can request time off
+## Assign security profile permissions to agents so they can request time off
 
 The agent's security profile needs to include the following permissions so
 they can access the **Time off** widget on their schedule:

@@ -7,12 +7,9 @@ This topic explains how to set up your outbound caller ID name and number.
 - [Outbound parameters: Set in queue](#set-callerID-name "#set-callerID-name")
 - [How outbound
   parameters are selected](#how-outbound-parameters-selected "#how-outbound-parameters-selected")
-- [How to set the caller ID number
-  dynamically](#using-dynamic-caller-id "#using-dynamic-caller-id")
-- [Use E.164 format for international phone
-  numbers](#international-calls-ccp "#international-calls-ccp")
-- [How to specify a custom caller ID
-  number using a block](#call-number-block-how-it-works "#call-number-block-how-it-works")
+- [How to set the caller ID number dynamically](#using-dynamic-caller-id "#using-dynamic-caller-id")
+- [Use E.164 format for international phone numbers](#international-calls-ccp "#international-calls-ccp")
+- [How to specify a custom caller ID number using a block](#call-number-block-how-it-works "#call-number-block-how-it-works")
 - [CNAM](#CNAM "#CNAM")
 - [Avoid labels like
   "spam"](#enroll-in-CNAM-services "#enroll-in-CNAM-services")
@@ -51,8 +48,7 @@ passed from the SIP header. For example,
   to be delivered to your customers. Depending on the country this
   will be up to 75% effective.
 - To guarantee your caller ID name is delivered to customers, see
-  [Optimize your reputation for outbound
-  calling in Amazon Connect](optimize-outbound-calling.md "optimize-outbound-calling.md") for information
+  [Optimize your reputation for outbound calling in Amazon Connect](optimize-outbound-calling.md "optimize-outbound-calling.md") for information
   about achieving it by using partner solutions.
 
 ### Outbound caller ID number
@@ -126,8 +122,7 @@ caller ID number based on the customer's account type.
 
 - Telecom regulations in various countries limit the telephone
   numbers that you can use to make outbound calls. If you set up a
-  number and you can't make outbound calls, check the [Amazon Connect Telecoms Country Coverage Guide](https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf "https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf") and [Region requirements for ordering and porting
-  phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md") to ensure that you
+  number and you can't make outbound calls, check the [Amazon Connect Telecoms Country Coverage Guide](https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf "https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf") and [Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md") to ensure that you
   have correct type of number.
 - Telecom regulations in certain countries require the carrier to
   identify the caller and block unidentifiable outbound calls. Make
@@ -183,9 +178,7 @@ country. We do not guarantee international reachability of any of these
 services, as access to the numbers is controlled by a caller's network
 access.
 
-## How outbound parameters are
-
-selected
+## How outbound parameters are selected
 
 If the call is placed with an external quick connect or quick connect number pad,
 the outbound caller ID and caller name depends on if the agent is on an active call
@@ -202,9 +195,7 @@ or not.
 You can override the outbound caller IDs in your agents' routing profiles by
 using the [Call phone number](call-phone-number.md "call-phone-number.md") block in a [custom outbound whisper flow](https://repost.aws/knowledge-center/connect-custom-outbound-whisper-flows "https://repost.aws/knowledge-center/connect-custom-outbound-whisper-flows").
 
-## How to set the caller ID number
-
-dynamically
+## How to set the caller ID number dynamically
 
 Use an attribute in the [Call phone number](call-phone-number.md "call-phone-number.md") block to set the caller ID number
 dynamically during the flow.
@@ -224,9 +215,7 @@ The value of the attribute must be a phone number from your instance in [E.164](
 For more information about setting the caller ID dynamically, see this AWS
 Support Knowledge Center article: [How can I set my Amazon Connect outbound caller ID dynamically based on country?](https://aws.amazon.com/premiumsupport/knowledge-center/connect-dynamic-outbound-caller-id/ "https://aws.amazon.com/premiumsupport/knowledge-center/connect-dynamic-outbound-caller-id/")
 
-## Use E.164 format for international phone
-
-numbers
+## Use E.164 format for international phone numbers
 
 Amazon Connect requires phone numbers in [E.164](https://www.itu.int/rec/T-REC-E.164/en "https://www.itu.int/rec/T-REC-E.164/en") format.
 
@@ -248,9 +237,7 @@ result in a breach of [Amazon Connect Service
 Terms and conditions](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/") for acceptable use which may result in your
 service being suspended.
 
-## How to specify a custom caller ID
-
-number using a [Call phone number](call-phone-number.md "call-phone-number.md") block
+## How to specify a custom caller ID number using a [Call phone number](call-phone-number.md "call-phone-number.md") block
 
 1. On the left navigation menu, choose **Routing**,
    **Flows**.
@@ -302,8 +289,7 @@ initiated, the flow ends and the agent is placed in an
 ## CNAM
 
 As part of changes within the US Public Telephone network and a move to
-alternative reputation mechanisms described in [Optimize your reputation for outbound
-calling in Amazon Connect](optimize-outbound-calling.md "optimize-outbound-calling.md"),
+alternative reputation mechanisms described in [Optimize your reputation for outbound calling in Amazon Connect](optimize-outbound-calling.md "optimize-outbound-calling.md"),
 as of March 31, 2023, Amazon Connect no longer sets CNAM configurations.
 
 We conducted research between January and March 2023, that showed CNAM was seen by
@@ -315,9 +301,6 @@ will continue to focus on supporting modern replacement mechanisms added to our
 marketplace, for example, [First Orion](https://firstorion.com/amazon-connect-integration/ "https://firstorion.com/amazon-connect-integration/") and
 Neustar.
 
-## How to avoid labels like "spam" and
+## How to avoid labels like "spam" and "telemarketer"
 
-"telemarketer"
-
-See the recommended steps in [Optimize your reputation for outbound
-calling in Amazon Connect](optimize-outbound-calling.md "optimize-outbound-calling.md").
+See the recommended steps in [Optimize your reputation for outbound calling in Amazon Connect](optimize-outbound-calling.md "optimize-outbound-calling.md").

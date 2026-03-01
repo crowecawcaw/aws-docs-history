@@ -1,6 +1,4 @@
-# Set the limit of maximum contacts in a queue
-
-using Amazon Connect
+# Set the limit of maximum contacts in a queue using Amazon Connect
 
 By default a queue can contain up to your [service quota](amazon-connect-service-limits.md "amazon-connect-service-limits.md") for voice, chat, tasks,
 and email:
@@ -87,16 +85,12 @@ instance**.
 - Queued callbacks: The next queued callback is routed down the error
   branch.
 
-## What happens if Maximum contacts in queue is set
-
-to 0
+## What happens if Maximum contacts in queue is set to 0
 
 If you set **Maximum contacts in queue** to 0 it renders the
 queue unusable. The behavior is the same as when a queue is full.
 
-## Queue maximum limit
-
-exceptions
+## Queue maximum limit exceptions
 
 There are times when you can add more contacts to a queue than the set
 **Maximum contacts in queue** limit.

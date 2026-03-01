@@ -1,6 +1,4 @@
-# Enable AI agents to retrieve information and complete
-
-actions with MCP tools
+# Enable AI agents to retrieve information and complete actions with MCP tools
 
 Amazon Connect supports Model Context Protocol (MCP), enabling AI agents for both end-customer
 self-service and employee assistance to use standardized tools for retrieving information

@@ -1,6 +1,4 @@
-# Troubleshoot audio quality issues by using
-
-`QualityMetrics` in the contact record
+# Troubleshoot audio quality issues by using `QualityMetrics` in the contact record
 
 ###### Important
 
@@ -80,9 +78,7 @@ on the participant channel.
   - Potential causes: This is typically a sign of a bandwidth issue or
     faulty hardware.
 
-## Analyze the impact on your agents and
-
-calls
+## Analyze the impact on your agents and calls
 
 We recommend using [QualityMetrics](ctr-data-model.md#ctr-qualitymetrics "ctr-data-model.md#ctr-qualitymetrics") data together with other fields on the contact
 record—such as [AgentHierarchyGroup](ctr-data-model.md#ctr-AgentHierarchyGroups "ctr-data-model.md#ctr-AgentHierarchyGroups") and [DeviceInfo](ctr-data-model.md#ctr-deviceinfo "ctr-data-model.md#ctr-deviceinfo")—to identify the impacted population and

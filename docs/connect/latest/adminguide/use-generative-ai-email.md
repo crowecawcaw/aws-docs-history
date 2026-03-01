@@ -1,6 +1,4 @@
-# Use generative AI-powered email conversation
-
-overviews and suggested responses
+# Use generative AI-powered email conversation overviews and suggested responses
 
 To help agents to handle emails more efficiently, they can use generative AI-powered
 email responses. The email AI agents help agents provide faster email responses and more
@@ -10,8 +8,7 @@ When an agent accepts an email contact that is [enabled](ai-agent-initial-setup.
 responses in their Connect assistant panel on the agent workspace:
 
 1. [Email conversation overview](#email-conversation-overview "#email-conversation-overview"). For example, it provides key information about the customer's purchase history.
-2. [Knowledge base and guide
-   recommendations](#knowledge-base-recommendations "#knowledge-base-recommendations"). For example, it recommends as refund resolution step-by-step guide.
+2. [Knowledge base and guide recommendations](#knowledge-base-recommendations "#knowledge-base-recommendations"). For example, it recommends as refund resolution step-by-step guide.
 3. [Generated email responses](#generated-email-responses "#generated-email-responses")
    These response types are shown in the following image.
 
@@ -34,9 +31,7 @@ conversation without having to read through the entire thread. The EmailOverview
 more weight on the current email message (contact) while maintaining context from the previous
 email messages in the conversation.
 
-## Knowledge base and guide
-
-recommendations
+## Knowledge base and guide recommendations
 
 The [EmailResponse agent](default-ai-system.md "default-ai-system.md") automatically suggests relevant content from your knowledge base to assist
 your agent with understanding how to handle the customer's issue. It
@@ -102,9 +97,7 @@ templates, and quick responses in generated responses.
 The EmailGenerativeAnswer and EmailQueryReformulation prompts are used to
 generate email responses.
 
-## Actions agents can take on all proactive
-
-responses
+## Actions agents can take on all proactive responses
 
 For all proactive responses shown when the agent accepts an email contact, the
 agent can:
@@ -155,8 +148,7 @@ practices:
 - Leverage email templates to ensure consistent formatting. For more
   information, see [Create message templates](create-message-templates1.md "create-message-templates1.md").
 - Maintain up-to-date knowledge base content to improve response quality.
-  For more information, see [Step 3: Create an integration (knowledge
-  base)](ai-agent-initial-setup.md#enable-ai-agents-step-3 "ai-agent-initial-setup.md#enable-ai-agents-step-3").
+  For more information, see [Step 3: Create an integration (knowledge base)](ai-agent-initial-setup.md#enable-ai-agents-step-3 "ai-agent-initial-setup.md#enable-ai-agents-step-3").
 - Use AI guardrails to ensure appropriate content generation. For more
   information, see [Create AI guardrails for Connect AI agents](create-ai-guardrails.md "create-ai-guardrails.md").
 - Monitor Connect AI agent performance through Amazon CloudWatch logs for:

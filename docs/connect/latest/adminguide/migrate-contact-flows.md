@@ -1,6 +1,4 @@
-# Migrate flows to an instance, Region, or environment
-
-in Amazon Connect
+# Migrate flows to an instance, Region, or environment in Amazon Connect
 
 Amazon Connect lets you efficiently migrate flows to another instance. For example, you might want
 to expand into new Regions, or move flows from your development environment to your

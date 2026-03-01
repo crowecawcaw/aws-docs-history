@@ -1,14 +1,9 @@
-# Enable contact
-
-analysis segment streams to analyze Contact Lens
-conversations
+# Enable contact analysis segment streams to analyze Contact Lens conversations
 
 Contact analysis segment streams are not enabled by default. This topic
 explains how to enable them.
 
-## Step 1: Create a Kinesis
-
-stream
+## Step 1: Create a Kinesis stream
 
 Create the data stream on the same account and Region where your Amazon Connect
 instance resides. For instructions, see [Step 1: Create a Data Stream](../../../streams/latest/dev/tutorial-stock-data-kplkcl-create-stream.md "../../../streams/latest/dev/tutorial-stock-data-kplkcl-create-stream.md") in the
@@ -22,9 +17,7 @@ streams, agent events, and contact records, it is much easier to manage
 and get data from the stream when you use a separate stream for each
 one. For more information, see the [Amazon Kinesis Data Streams Developer Guide](../../../streams/latest/dev/introduction.md "../../../streams/latest/dev/introduction.md").
 
-## Step 2: Set up server-side
-
-encryption for the Kinesis stream (optional but recommended)
+## Step 2: Set up server-side encryption for the Kinesis stream (optional but recommended)
 
 There are several ways you can do this.
 
@@ -59,9 +52,7 @@ ARN of the service-linked role, in the Amazon Connect console, go to
 **Overview**, **Distribution
 settings**, **Service-linked role**.
 
-## Step 3: Associate the Kinesis
-
-stream
+## Step 3: Associate the Kinesis stream
 
 Use the Amazon Connect [AssociateInstanceStorageConfig](../APIReference/API_AssociateInstanceStorageConfig.md "../APIReference/API_AssociateInstanceStorageConfig.md") API to associate the following
 resource types:
@@ -164,16 +155,11 @@ async function associate (): Promise <void> {
 associate().then(r => console.log('`Done`'));
 ```
 
-## Step 4: Enable
+## Step 4: Enable Contact Lens for your Amazon Connect instance
 
-Contact Lens for your Amazon Connect instance
+For instructions, see [Enable conversational analytics in Amazon Connect Contact Lens](enable-analytics.md "enable-analytics.md").
 
-For instructions, see [Enable conversational analytics in
-Amazon Connect Contact Lens](enable-analytics.md "enable-analytics.md").
-
-## Step 5 (Optional): Review a
-
-sample segment stream
+## Step 5 (Optional): Review a sample segment stream
 
 We recommend you review a [voice](sample-real-time-contact-analysis-segment-stream.md "sample-real-time-contact-analysis-segment-stream.md")
 or [chat](chat-sample-real-time-contact-analysis-segment-stream.md "chat-sample-real-time-contact-analysis-segment-stream.md") sample segment stream to familiarize yourself with what it

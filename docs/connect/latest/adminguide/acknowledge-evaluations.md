@@ -1,6 +1,4 @@
-# Acknowledge performance evaluations in
-
-Amazon Connect
+# Acknowledge performance evaluations in Amazon Connect
 
 When an agent performance evaluation is submitted, you can automatically notify the
 agent to review their evaluation. For example, you can set up a [rule to send an email](contact-lens-rules-email.md "contact-lens-rules-email.md") to the agent when an

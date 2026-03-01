@@ -1,6 +1,4 @@
-# Enable three-party call monitoring in
-
-Amazon Connect
+# Enable three-party call monitoring in Amazon Connect
 
 ###### Important
 

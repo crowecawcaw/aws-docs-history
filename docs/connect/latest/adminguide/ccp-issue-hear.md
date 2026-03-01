@@ -1,6 +1,4 @@
-# How to troubleshoot the agent's headset in the Contact Control
-
-Panel (CCP)
+# How to troubleshoot the agent's headset in the Contact Control Panel (CCP)
 
 Problems with the agent's headset are usually caused by two issues:
 
@@ -43,5 +41,4 @@ Streams_.
 
 You can also resolve the issue by using Firefox or Edge as your browser.
 
-For more information about solving audio problems, see [Troubleshooting Issues with the Contact Control Panel
-(CCP)](troubleshooting.md "troubleshooting.md").
+For more information about solving audio problems, see [Troubleshooting Issues with the Contact Control Panel (CCP)](troubleshooting.md "troubleshooting.md").

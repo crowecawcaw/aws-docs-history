@@ -29,9 +29,7 @@ of rotation without impacting production. This architecture allows you to perfor
 maintenance, release new features, and expand infrastructure without requiring any
 downtime.
 
-## Single-region telephony and softphone
-
-architecture
+## Single-region telephony and softphone architecture
 
 Amazon Connect is integrated with multiple telephony providers with redundant dedicated network
 paths to three or more AZs in every AWS Region where the service is

@@ -1,6 +1,4 @@
-# Troubleshoot call disconnects by using
-
-DisconnectDetails in the contact record
+# Troubleshoot call disconnects by using DisconnectDetails in the contact record
 
 This topic explains how to leverage the Amazon Connect [DisconnectDetails](ctr-data-model.md#ctr-disconnectdetails "ctr-data-model.md#ctr-disconnectdetails") in the contact record to troubleshoot call disconnect
 issues.
@@ -63,15 +61,12 @@ information:
     - All incoming audio, including the customer and anyone
       conferenced in, is stored in the left channel.
 
-  - [Download and review Amazon Connect Contact Control Panel
-    (CCP) logs](download-ccp-logs.md "download-ccp-logs.md"): The logs help provide
+  - [Download and review Amazon Connect Contact Control Panel (CCP) logs](download-ccp-logs.md "download-ccp-logs.md"): The logs help provide
     insights for a given call handled by an agent.
   - [Endpoint Test Utility](check-connectivity-tool.md "check-connectivity-tool.md") results: This browser based tool helps you validate agent
     workstation settings in a JSON format.
 
-## Step 4: Use
-
-`DisconnectDetails`
+## Step 4: Use `DisconnectDetails`
 
 When you're viewing the contact record for the affected contact, go to the [DisconnectDetails](ctr-data-model.md#ctr-disconnectdetails "ctr-data-model.md#ctr-disconnectdetails") section. It provides
 insights into a call getting disconnected ungracefully due to potential media

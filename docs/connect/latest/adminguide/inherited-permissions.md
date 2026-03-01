@@ -1,6 +1,4 @@
-# Inherited permissions for Amazon Connect and Contact
-
-Control Panel (CCP) security profiles
+# Inherited permissions for Amazon Connect and Contact Control Panel (CCP) security profiles
 
 Some security profiles included inherited permissions: when you give a user explicit
 permissions to **View** or **Edit** one resource type,
@@ -24,9 +22,7 @@ In this case, they also don't inherit permissions to **View** contact
 flows (the outbound whisper flow) and quick connects because those resources are
 optional.
 
-## List of inherited
-
-permissions
+## List of inherited permissions
 
 The following table lists permissions that are implicitly inherited when you
 assign dedicated permissions to a user.

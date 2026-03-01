@@ -1,10 +1,7 @@
-# Troubleshoot your network for call quality and disconnect
-
-problems
+# Troubleshoot your network for call quality and disconnect problems
 
 Network issues are the number one reason for call quality and disconnect problems in
-contact centers. Before reading this topic, we recommend that you review [Set up your network to use the Amazon Connect Contact Control Panel
-(CCP)](ccp-networking.md "ccp-networking.md") to verify that your
+contact centers. Before reading this topic, we recommend that you review [Set up your network to use the Amazon Connect Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md") to verify that your
 network is setup correctly for Amazon Connect.
 
 This topic explains how to investigate and fix underlying network problems.

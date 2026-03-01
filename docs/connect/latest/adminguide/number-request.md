@@ -1,6 +1,4 @@
-# Request numbers or international numbers for
-
-Amazon Connect
+# Request numbers or international numbers for Amazon Connect
 
 ###### Important
 
@@ -9,8 +7,7 @@ require:
 
 - A local office address.
 - Specific identification documents.
-  For identification requirements by country, see [Region requirements for ordering and porting
-  phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md").
+  For identification requirements by country, see [Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md").
 
 In most countries it takes 2-6 weeks for us to fulfill your request. In some
 cases it can take up to 60 days. If you need a number by a certain date, let us

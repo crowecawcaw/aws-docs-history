@@ -1,6 +1,4 @@
-# Store a value from a Lambda functions as a contact
-
-attribute in Amazon Connect
+# Store a value from a Lambda functions as a contact attribute in Amazon Connect
 
 Retrieve data from a system
 that your organization uses internally, such as an ordering system or
@@ -19,8 +17,7 @@ flow.
 
 ###### Tip
 
-For information about invoking a Lambda function from a flow, see [Grant Amazon Connect access to your AWS Lambda
-functions](connect-lambda-functions.md "connect-lambda-functions.md") The topic
+For information about invoking a Lambda function from a flow, see [Grant Amazon Connect access to your AWS Lambda functions](connect-lambda-functions.md "connect-lambda-functions.md") The topic
 also shows how to consume a Lambda function response.
 
 ###### To store an external value from a Lambda function as a contact attribute

@@ -1,6 +1,4 @@
-# Pass contact attributes to an agent in
-
-the Contact Control Panel (CCP) when a chat starts
+# Pass contact attributes to an agent in the Contact Control Panel (CCP) when a chat starts
 
 You can use [contact attributes](what-is-a-contact-attribute.md "what-is-a-contact-attribute.md") to
 capture information about the contact who is using the communications widget. Then, you can
@@ -12,12 +10,9 @@ welcome message. Or, you can use attributes specific to your business, such as
 account/member IDs, customer identifiers like names and emails, or other metadata
 associated with a contact.
 
-## How to pass contact
+## How to pass contact attributes into the communications widget
 
-attributes into the communications widget
-
-1. Enable security in the communications widget as described in [Add a chat user interface to your website hosted by
-   Amazon Connect](add-chat-to-website.md "add-chat-to-website.md"), if
+1. Enable security in the communications widget as described in [Add a chat user interface to your website hosted by Amazon Connect](add-chat-to-website.md "add-chat-to-website.md"), if
    you haven't already:
    1. In Step 2, under **Add security for your chat
       widget**, choose **Yes**.
@@ -67,9 +62,7 @@ Optionally, you can add the segmentAttributes string to [SegmentAttributeValue](
 standard Amazon Connect attributes. They can be accessed in flows. The contact
 attributes must follow the limitations set by the [StartChatContact](../APIReference/API_StartChatContact.md#connect-StartChatContact-request-SegmentAttributes "../APIReference/API_StartChatContact.md#connect-StartChatContact-request-SegmentAttributes") API.
 
-## Alternative method: Pass contact
-
-attributes directly from snippet code
+## Alternative method: Pass contact attributes directly from snippet code
 
 ###### Note
 
@@ -108,9 +101,7 @@ the flow block to add branching logic. The full path is
 
 ![Image showing a flow block branching to Valid and Invalid prompts.](images/flow-check-contact-attrib.png)
 
-## Things you need to
-
-know
+## Things you need to know
 
 - The communications widget has a 6144 bytes limit for the entire encoded token.
   Because JavaScript uses UTF-16 encoding, 2 bytes are used per character, so

@@ -1,6 +1,4 @@
-# Configuration data in the Amazon Connect
-
-data lake
+# Configuration data in the Amazon Connect data lake
 
 This topic details the content in the Amazon Connect data lake configuration
 tables. The tables list the column, type, and description of the content.
@@ -8,10 +6,8 @@ tables. The tables list the column, type, and description of the content.
 There are two ways to access the analytics data lake and configure data to be
 shared:
 
-- [Option 1: Use the Amazon Connect
-  console](access-datalake.md#option1-configure-data-to-be-shared "access-datalake.md#option1-configure-data-to-be-shared")
-- [Option 2: Use CLI or
-  CloudShell](access-datalake.md#option2-configure-data-to-be-shared "access-datalake.md#option2-configure-data-to-be-shared")
+- [Option 1: Use the Amazon Connect console](access-datalake.md#option1-configure-data-to-be-shared "access-datalake.md#option1-configure-data-to-be-shared")
+- [Option 2: Use CLI or CloudShell](access-datalake.md#option2-configure-data-to-be-shared "access-datalake.md#option2-configure-data-to-be-shared")
   If you are unable to access the scheduling tables by using Option 1, try using
   Option 2.
 

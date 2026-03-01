@@ -1,6 +1,4 @@
-# Set up queued callback by creating flows, queues, and
-
-routing profiles in Amazon Connect
+# Set up queued callback by creating flows, queues, and routing profiles in Amazon Connect
 
 You can allow your customers to maintain their position in queue without requiring them to
 stay on the call during high wait times, and get a callback from an available agent when
@@ -9,17 +7,12 @@ it's their turn.
 ###### Contents
 
 - [How callbacks keep their place in queue](#callback-how-it-works "#callback-how-it-works")
-- [Steps to set up queued
-  callbacks](#setup-queued-callback-overview "#setup-queued-callback-overview")
+- [Steps to set up queued callbacks](#setup-queued-callback-overview "#setup-queued-callback-overview")
 - [The routing process](#cb-routing "#cb-routing")
-- [How queued callbacks affect
-  queue limits](#queued-callback-limits "#queued-callback-limits")
-- [Create a flow for queued
-  callbacks](#queued-callback-contact-flow "#queued-callback-contact-flow")
-- [Callbacks from a chat, task, or email
-  contact](#queued-callback-chat-task "#queued-callback-chat-task")
-- [Learn more about queued
-  callbacks](#queued-callback-no-agents-available "#queued-callback-no-agents-available")
+- [How queued callbacks affect queue limits](#queued-callback-limits "#queued-callback-limits")
+- [Create a flow for queued callbacks](#queued-callback-contact-flow "#queued-callback-contact-flow")
+- [Callbacks from a chat, task, or email contact](#queued-callback-chat-task "#queued-callback-chat-task")
+- [Learn more about queued callbacks](#queued-callback-no-agents-available "#queued-callback-no-agents-available")
 
 ## How callbacks keep their place in queue
 
@@ -40,9 +33,7 @@ priority, the oldest call is pushed first across all queues with the same priori
 For example, if your original call arrived at 10:00 and left a callback request at
 10:05, Amazon Connect looks for the call start time of 10:00, not 10:05.
 
-## Steps to set up queued
-
-callbacks
+## Steps to set up queued callbacks
 
 Use the steps provided in the following overview to set up queued callback.
 
@@ -116,9 +107,7 @@ considered connected. 5. If the customer calls again while in the callback queue
 call and will be handled as usual. To avoid duplicate callback requests in a
 callback queue, see this blog: [Preventing duplicate callback requests in Amazon Connect](https://aws.amazon.com/blogs/contact-center/preventing-duplicate-callback-requests-in-amazon-connect/ "https://aws.amazon.com/blogs/contact-center/preventing-duplicate-callback-requests-in-amazon-connect/").
 
-## How queued callbacks affect
-
-queue limits
+## How queued callbacks affect queue limits
 
 - Queued callbacks count towards the queue size limit, but they are routed to
   the error branch. For example, if you have a queue that handles callbacks and
@@ -132,12 +121,9 @@ queue limits
   for incoming calls. This way, your agents only work on queued callbacks when the
   incoming call volume is low.
 
-## Create a flow for queued
+## Create a flow for queued callbacks
 
-callbacks
-
-To see what a flow looks like with queued callback, in new Amazon Connect instances see [Sample queue configurations flow in
-Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md").
+To see what a flow looks like with queued callback, in new Amazon Connect instances see [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md").
 In previous instances, see [Sample queued callback flow in Amazon Connect](sample-queued-callback.md "sample-queued-callback.md").
 
 The following procedure shows how to:
@@ -313,16 +299,12 @@ block, as shown in the following image.
     		 number.
 
 16. To save and test this flow, configure the other branches and add error
-    handling. To see an example of how this is done, see [Sample queue configurations flow in
-    Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md"). For previous instances, see
+    handling. To see an example of how this is done, see [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md"). For previous instances, see
     [Sample queued callback flow in Amazon Connect](sample-queued-callback.md "sample-queued-callback.md").
 17. For information about how callbacks appear in real-time metrics reports and
-    contact records, see [Queued callbacks in real-time metrics in
-    Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md").
+    contact records, see [Queued callbacks in real-time metrics in Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md").
 
-## Callbacks from a chat, task, or email
-
-contact
+## Callbacks from a chat, task, or email contact
 
 You can also configure the **Transfer to Callback** option in the
 [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block to
@@ -336,16 +318,11 @@ contact you through Amazon Connect chat to request a callback. This creates a mo
 customer experience. It shows how to configure this capability that allows customers to
 request callbacks from any channel, not just voice calls.
 
-## Learn more about queued
-
-callbacks
+## Learn more about queued callbacks
 
 See the following topics to learn more about queued callbacks:
 
-- [Queued callbacks in real-time metrics in
-  Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md")
-- [How Initial delay affects Scheduled and In
-  queue metrics in Amazon Connect](scheduled-vs-inqueue.md "scheduled-vs-inqueue.md")
+- [Queued callbacks in real-time metrics in Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md")
+- [How Initial delay affects Scheduled and In queue metrics in Amazon Connect](scheduled-vs-inqueue.md "scheduled-vs-inqueue.md")
 - [Failed callback attempts in Amazon Connect](failed-callback-attempt.md "failed-callback-attempt.md")
-- [Amazon Connect real-time metrics example for a
-  queued callback flow](queued-callback-example.md "queued-callback-example.md")
+- [Amazon Connect real-time metrics example for a queued callback flow](queued-callback-example.md "queued-callback-example.md")

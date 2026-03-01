@@ -138,9 +138,7 @@ _1#2#3\*4#_ as input. You could program the Lambda
 function to ignore the character before the \* character. So, the customer
 input would be interpreted as _1#2#4#_.
 
-## Problems with DTMF
-
-input?
+## Problems with DTMF input?
 
 Let's say you have the following scenario with two contacts flows, each one
 capturing DTMF input from customers:
@@ -183,10 +181,7 @@ Amazon Connect includes a set of sample flows. For instructions that explain how
 [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample secure customer data entry input
-  in a call with a contact center agent](sample-secure-input-with-agent.md "sample-secure-input-with-agent.md")
-- [Sample secure customer data entry
-  input in a call with no contact center agent](sample-secure-input-with-noagent.md "sample-secure-input-with-noagent.md")
-- [Sample queue configurations flow in
-  Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
+- [Sample secure customer data entry input in a call with a contact center agent](sample-secure-input-with-agent.md "sample-secure-input-with-agent.md")
+- [Sample secure customer data entry input in a call with no contact center agent](sample-secure-input-with-noagent.md "sample-secure-input-with-noagent.md")
+- [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
 - [Sample queued callback flow in Amazon Connect](sample-queued-callback.md "sample-queued-callback.md")

@@ -1,6 +1,4 @@
-# Enter a script in a Contact Lens rule
-
-for agents to follow
+# Enter a script in a Contact Lens rule for agents to follow
 
 Enter a script in a Contact Lens rule when you need agents to use exact
 wording in customer calls.

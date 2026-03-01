@@ -1,6 +1,4 @@
-# Set up
-
-tag-based-access controls on performance evaluations
+# Set up tag-based-access controls on performance evaluations
 
 Amazon Connect enables businesses to restrict access to specific performance
 evaluation forms, preventing unauthorized access to evaluation form templates and

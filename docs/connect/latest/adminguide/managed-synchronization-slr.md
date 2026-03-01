@@ -1,6 +1,4 @@
-# Using service-linked roles for Amazon Connect
-
-Managed Synchronization
+# Using service-linked roles for Amazon Connect Managed Synchronization
 
 Amazon Connect managed synchronization uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that
 is linked directly to Managed Synchronization. Service-linked roles are predefined by Managed Synchronization
@@ -22,9 +20,7 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 Choose a **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role
-
-permissions for Managed Synchronization
+## Service-linked role permissions for Managed Synchronization
 
 Managed Synchronization uses the service-linked role that is prefixed with
 **AWSServiceRoleForAmazonConnectSynchronization** which grants Amazon Connect Managed Synchronization read, write, update, and delete permission to access AWS resources on your behalf. The full name of the role in your
@@ -104,9 +100,7 @@ You must configure permissions to allow your users, groups, or roles to create, 
 or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-Managed Synchronization
+## Creating a service-linked role for Managed Synchronization
 
 You don't need to manually create a service-linked role. When you replicate an Amazon Connect
 instance by invoking the `ReplicateInstance` API, Managed Synchronization creates the
@@ -116,9 +110,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 the same process to recreate the role in your account. When you replicate the Amazon Connect
 instance again, Managed Synchronization creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-Managed Synchronization
+## Editing a service-linked role for Managed Synchronization
 
 Managed Synchronization does not allow you to edit the AWSServiceRoleForAmazonConnectSynchronization prefixed service-linked role.
 After you create a service-linked role, you cannot change the name of the role because
@@ -126,9 +118,7 @@ various entities might reference the role. However, you can edit the description
 role using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-Managed Synchronization
+## Deleting a service-linked role for Managed Synchronization
 
 If you no longer need to use a feature or service that requires a service-linked role,
 we recommend that you delete that role. That way you don’t have an unused entity that is
@@ -152,9 +142,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleFor
 service-linked role. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for
-
-Managed Synchronization service-linked roles
+## Supported Regions for Managed Synchronization service-linked roles
 
 Managed Synchronization supports using service-linked roles in all of the Regions where Amazon
 Connect Global Resiliency is available. For more information, see [Set up Amazon Connect Global Resiliency](setup-connect-global-resiliency.md "setup-connect-global-resiliency.md").

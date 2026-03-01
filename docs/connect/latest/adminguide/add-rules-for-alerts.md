@@ -1,7 +1,4 @@
-# Add real-time alerts to
-
-Contact Lens for supervisors based on keywords and phrases in a
-call
+# Add real-time alerts to Contact Lens for supervisors based on keywords and phrases in a call
 
 After you [enable real-time analytics](enable-analytics.md "enable-analytics.md")
 in your flow, you can add rules that automatically alert supervisors when a
@@ -28,9 +25,7 @@ The following image shows a sample real-time transcript.
 
 ![A sample real-time transcript.](images/contact-lens-real-time-transcript.png)
 
-## Add rules for real-time
-
-alerts for calls
+## Add rules for real-time alerts for calls
 
 1. Log in to Amazon Connect with a user account that is assigned the
    **CallCenterManager** security profile, or that

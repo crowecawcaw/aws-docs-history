@@ -1,6 +1,4 @@
-# List or export to a CSV the phone
-
-numbers claimed to your Amazon Connect instance
+# List or export to a CSV the phone numbers claimed to your Amazon Connect instance
 
 You can list the phone numbers claimed to your Amazon Connect instance by using the Amazon Connect admin website,
 or by using the [ListPhoneNumbersV2](../APIReference/API_ListPhoneNumbersV2.md "../APIReference/API_ListPhoneNumbersV2.md") API.

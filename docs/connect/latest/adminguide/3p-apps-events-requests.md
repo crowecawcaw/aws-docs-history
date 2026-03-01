@@ -1,6 +1,4 @@
-# Events and requests when granting
-
-third-party applications access to Amazon Connect
+# Events and requests when granting third-party applications access to Amazon Connect
 
 This topic lists the permissions you must explicitly give to third party
 applications to access Amazon Connect data.

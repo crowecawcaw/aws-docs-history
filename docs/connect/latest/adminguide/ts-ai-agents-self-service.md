@@ -5,16 +5,11 @@ functionality.
 
 ###### Contents
 
-- [Enable logging for
-  Connect AI agents self-service interactions](#viewing-logs-for-connect-ai-agents-self-service "#viewing-logs-for-connect-ai-agents-self-service")
-- [Customers are
-  unexpectedly receiving "Escalating to agent..."](#customers-unexpectedly-receiving-escalating-to-agent "#customers-unexpectedly-receiving-escalating-to-agent")
-- [Self-service chat or voice
-  call is unexpectedly terminating](#self-service-unexpectedly-terminating "#self-service-unexpectedly-terminating")
+- [Enable logging for Connect AI agents self-service interactions](#viewing-logs-for-connect-ai-agents-self-service "#viewing-logs-for-connect-ai-agents-self-service")
+- [Customers are unexpectedly receiving "Escalating to agent..."](#customers-unexpectedly-receiving-escalating-to-agent "#customers-unexpectedly-receiving-escalating-to-agent")
+- [Self-service chat or voice call is unexpectedly terminating](#self-service-unexpectedly-terminating "#self-service-unexpectedly-terminating")
 
-## Enable logging for
-
-Connect AI agents self-service interactions
+## Enable logging for Connect AI agents self-service interactions
 
 To troubleshoot self-service issues effectively, you need to view the logs for
 Connect AI agents self-service interactions. Use the following instructions to enable CloudWatch
@@ -51,9 +46,7 @@ format:
   adding a [Set logging behavior](set-logging-behavior.md "set-logging-behavior.md") flow block in your Amazon Connect
   flow.
 
-## Customers are
-
-unexpectedly receiving "Escalating to agent..."
+## Customers are unexpectedly receiving "Escalating to agent..."
 
 Unexpected agent escalation occurs when there's an error during the self-service
 bot interaction or when the model doesn't produce a valid `tool_use`
@@ -70,9 +63,7 @@ response for `SELF_SERVICE_PRE_PROCESS`.
    `parsed_response` field is populated, as this represents
    the response you'll receive from the model.
 
-### Known issue with Claude 3
-
-Haiku
+### Known issue with Claude 3 Haiku
 
 If you're using Claude 3 Haiku for self-service pre-processing, there's a
 known issue where it generates the `tool_use` JSON as text, resulting
@@ -87,9 +78,7 @@ adding this instruction:
 You MUST enclose the tool_use JSON in the <tool> tag
 ```
 
-## Self-service chat or voice
-
-call is unexpectedly terminating
+## Self-service chat or voice call is unexpectedly terminating
 
 This issue can occur due to timeouts or errors from Amazon Lex or incorrect Amazon Nova
 Pro configuration. These issues are described below.
@@ -119,9 +108,7 @@ com.amazonaws.services.lexruntimev2.model.ValidationException: Amazon Lex needs 
 - **General Amazon Lex errors**: Check Amazon Lex
   logs for any errors and address them accordingly.
 
-### Amazon Nova Pro
-
-configuration
+### Amazon Nova Pro configuration
 
 If you're using Amazon Nova Pro for your custom AI prompts, ensure that the
 tool_use examples follow [Python-compatible

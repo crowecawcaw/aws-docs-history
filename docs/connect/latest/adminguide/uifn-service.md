@@ -35,8 +35,7 @@ support case, provide the following information.
 - The required ID verification for your country. Most countries subscribe to
   [standard ID verification
   requirements](phone-number-requirements.md#uifn-requirements "phone-number-requirements.md#uifn-requirements") for ordering UIFN numbers. However, we recommend
-  checking [Region requirements for ordering and porting
-  phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md") for your country to be sure.
+  checking [Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md") for your country to be sure.
 
 For number portability, after you open a case, Amazon will provide you
 with _Service Provider Change Authorization and Designation of

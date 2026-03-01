@@ -1,6 +1,4 @@
-# Queue and agent performance dashboard in
-
-Amazon Connect
+# Queue and agent performance dashboard in Amazon Connect
 
 The **Queue and agent performance** dashboard helps you understand
 the performance of your queues and agents compared over configurable periods of time. It
@@ -18,36 +16,26 @@ This dashboard includes:
 
 ###### Contents
 
-- [Enable access to the
-  dashboard](#queue-performance-dashboard-enable-access "#queue-performance-dashboard-enable-access")
-- [Performance
-  overview chart](#queue-performance-dashboard-performance-overview "#queue-performance-dashboard-performance-overview")
+- [Enable access to the dashboard](#queue-performance-dashboard-enable-access "#queue-performance-dashboard-enable-access")
+- [Performance overview chart](#queue-performance-dashboard-performance-overview "#queue-performance-dashboard-performance-overview")
 - [Current queue overview](#current-queue-overview "#current-queue-overview")
 - [Current agent performance](#current-agent-perf-overview "#current-agent-perf-overview")
 - [Agent adherence](#agent-adherence-dashboard "#agent-adherence-dashboard")
 - [Trailing agent performance](#trailing-agent-performance "#trailing-agent-performance")
-- [Average queue answer time and contacts queued
-  trend](#avg-queue-answer "#avg-queue-answer")
-- [Contacts handled and
-  average handle time trend](#queue-performance-dashboard-contacts-handled "#queue-performance-dashboard-contacts-handled")
+- [Average queue answer time and contacts queued trend](#avg-queue-answer "#avg-queue-answer")
+- [Contacts handled and average handle time trend](#queue-performance-dashboard-contacts-handled "#queue-performance-dashboard-contacts-handled")
 - [Agent status drill down](#agent-status-drill-down "#agent-status-drill-down")
-- [Dashboard
-  functionality limitations](#queue-performance-dashboard-functionality-limitations "#queue-performance-dashboard-functionality-limitations")
+- [Dashboard functionality limitations](#queue-performance-dashboard-functionality-limitations "#queue-performance-dashboard-functionality-limitations")
 
-## Enable access to the
-
-dashboard
+## Enable access to the dashboard
 
 Ensure users are assigned the appropriate security profile permissions:
 
 - **Access metrics - Access permission** or the
   **Dashboard - Access permission**. For information
-  about the difference in behavior, see [Assign permissions to view dashboards
-  and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+  about the difference in behavior, see [Assign permissions to view dashboards and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
 
-## Performance
-
-overview chart
+## Performance overview chart
 
 The **Performance overview** chart that provides aggregated
 metrics based on your filters. Each metric within the chart is compared to your
@@ -181,9 +169,7 @@ shown in the following image.
 You can also change the metrics, configure thresholds, or re-order
 metrics.
 
-## Average queue answer time and contacts queued
-
-trend
+## Average queue answer time and contacts queued trend
 
 The **Average queue answer time and contacts queued trend** is a
 time-series chart that displays the count of contacts queued (blue bars) and the
@@ -206,9 +192,7 @@ This next image shows the same data, but with the addition of the
 
 ![An example of Average queue answer time with Contacts abandoned.](images/dashboard-contacts-abandoned.png)
 
-## Contacts handled and
-
-average handle time trend
+## Contacts handled and average handle time trend
 
 The **Contacts handled and average handle time trend** is a
 time-series chart that displays the count of contacts handled (blue bars) and the
@@ -243,9 +227,7 @@ Training, Lunch) as a secondary grouping.
 
 ![The Agent status drill down widget.](images/agent-status-drill-down.png)
 
-## Dashboard
-
-functionality limitations
+## Dashboard functionality limitations
 
 The following limitations apply to the Queue performance dashboard:
 

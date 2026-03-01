@@ -1,6 +1,4 @@
-# Enable message streaming for AI-powered
-
-chat
+# Enable message streaming for AI-powered chat
 
 Amazon Connect supports message streaming for AI-powered chat interactions. Responses from AI
 agents appear progressively as they're generated, improving the customer experience
@@ -24,9 +22,7 @@ The following are integration options, along with features of each option:
   For existing instances, you must enable message streaming manually using the API or
   through the console.
 
-## Enable message streaming using the
-
-API
+## Enable message streaming using the API
 
 Use the [UpdateInstanceAttribute](../APIReference/API_UpdateInstanceAttribute.md "../APIReference/API_UpdateInstanceAttribute.md") API to enable message streaming. Set the
 `MESSAGE_STREAMING` attribute to `true`.
@@ -40,9 +36,7 @@ aws connect update-instance-attribute \
 
 To opt out, set the attribute to `false`.
 
-## Enable message streaming using the
-
-console
+## Enable message streaming using the console
 
 For newly created instances, message streaming is enabled by default.
 
@@ -75,9 +69,7 @@ lex:RecognizeMessageAsync
 You must update the resource-based policy for each Amazon Lex bot alias used by
 the Amazon Connect instance.
 
-### When to update the bot's
-
-resource-based policy
+### When to update the bot's resource-based policy
 
 - **New instances** – Any newly
   associated Amazon Lex bot alias will have
@@ -88,9 +80,7 @@ resource-based policy
   streaming now, you must update the resource-based policy on all
   associated Amazon Lex bot aliases to include the new permission.
 
-### Example snippet for Lex bot alias
-
-resource-based policy
+### Example snippet for Lex bot alias resource-based policy
 
 ```
 {

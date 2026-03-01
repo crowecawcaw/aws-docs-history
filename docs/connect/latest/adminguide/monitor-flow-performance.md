@@ -1,6 +1,4 @@
-# Monitor flow performance with metrics in flow
-
-designer analytics mode
+# Monitor flow performance with metrics in flow designer analytics mode
 
 You can view near real-time and historical performance data directly in the flow
 designer to identify bottlenecks and optimize your published flows and modules. You can

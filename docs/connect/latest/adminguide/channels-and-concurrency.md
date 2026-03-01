@@ -1,6 +1,4 @@
-# Channels and concurrency for routing contacts
-
-in Amazon Connect
+# Channels and concurrency for routing contacts in Amazon Connect
 
 Agents can handle voice, chat, tasks and email in Amazon Connect. When you set up a routing
 profile to handle multiple channels, you have two options:
@@ -22,9 +20,7 @@ profile to handle multiple channels, you have two options:
    Even though it's evaluating multiple channels at the same time, First-In
    First-Out is still respected.
    For a detailed example of how Amazon Connect routes contacts when cross-channel concurrency is
-   set up, see [Example of how a contact is routed
-   with cross-channel concurrency](routing-profiles.md#example-routing-concurrency "routing-profiles.md#example-routing-concurrency").
+   set up, see [Example of how a contact is routed with cross-channel concurrency](routing-profiles.md#example-routing-concurrency "routing-profiles.md#example-routing-concurrency").
 
 To learn more about what the agent experiences in the Contact Control Panel when
-handling multiple chats, see [Use the Contact Control Panel (CCP) in
-Amazon Connect to chat with contacts](chat-with-connect-contacts.md "chat-with-connect-contacts.md").
+handling multiple chats, see [Use the Contact Control Panel (CCP) in Amazon Connect to chat with contacts](chat-with-connect-contacts.md "chat-with-connect-contacts.md").

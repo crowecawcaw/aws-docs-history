@@ -1,6 +1,4 @@
-# Set up consolidation criteria for
-
-Identity Resolution in Amazon Connect
+# Set up consolidation criteria for Identity Resolution in Amazon Connect
 
 ###### Note
 
@@ -31,9 +29,7 @@ You can specify up to:
 - 10 consolidation criteria
 - 20 attributes per criteria
 
-## Tips for creating
-
-strong criteria
+## Tips for creating strong criteria
 
 To improve the targeting of unique profiles and to avoid consolidating
 profiles that are not duplicates, we recommend the following steps:
@@ -65,21 +61,17 @@ profiles that are not duplicates, we recommend the following steps:
   - Phone number
   - Email
 
-## How to set up auto-merging
-
-criteria
+## How to set up auto-merging criteria
 
 Before setting up your consolidation criteria for automatic merging, or
-auto-merging, we recommend reviewing [How the
-auto-merging process works](how-identity-resolution-works.md#consolidation-criteria-how-it-works "how-identity-resolution-works.md#consolidation-criteria-how-it-works").
+auto-merging, we recommend reviewing [How the auto-merging process works](how-identity-resolution-works.md#consolidation-criteria-how-it-works "how-identity-resolution-works.md#consolidation-criteria-how-it-works").
 
 1. After you enable Identity Resolution, on the **Identity Resolution** page you'll
    have the option of setting up auto-merging criteria. Choose
    **Create consolidation criteria**.
 2. If you receive a **Missing timestamp** dialog box, we
    recommend adding new timestamp attributes to your custom object types
-   before continuing. See [Missing timestamp for
-   profile conflicts](#missing-timestamp-for-profile-conflicts "#missing-timestamp-for-profile-conflicts").
+   before continuing. See [Missing timestamp for profile conflicts](#missing-timestamp-for-profile-conflicts "#missing-timestamp-for-profile-conflicts").
 3. In the **Profile conflicts** section, choose how
    profile conflicts should be resolved when two or more records have
    conflicts.
@@ -87,9 +79,7 @@ auto-merging process works](how-identity-resolution-works.md#consolidation-crite
    or more criteria. We recommend including at least two or more attributes
    per criteria.
 
-## Missing timestamp for
-
-profile conflicts
+## Missing timestamp for profile conflicts
 
 The **Missing timestamp** message is displayed if you have
 custom object type mappings.
@@ -121,9 +111,7 @@ re-ingested using your updated object type and
 `Fields.sourceLastUpdatedTimestamp` will be parsed from
 it.
 
-## Example: How sample criteria are
-
-applied
+## Example: How sample criteria are applied
 
 In this example there are three criteria:
 

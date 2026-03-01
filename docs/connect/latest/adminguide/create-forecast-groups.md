@@ -4,9 +4,7 @@ Forecast groups are a way for you to combine different queues into one forecast.
 This enables you to create a forecast from aggregated data from multiple queues,
 instead of from just one queue.
 
-## Important things to
-
-know
+## Important things to know
 
 - Forecast groups are associated with a staffing group for scheduling
   purposes. Therefore, we recommend you group queues that share the same
@@ -31,9 +29,7 @@ queues are included in the training.
   time, no contact reaches the disabled queue, and thus stops impacting
   the forecast. Only the active queues contribute to the forecast.
 
-## How to create forecast
-
-groups
+## How to create forecast groups
 
 1. Log in to the Amazon Connect admin website with an account that has security profile
    permissions for **Analytics**, **Forecasting -

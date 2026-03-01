@@ -1,6 +1,4 @@
-# Use Contact Lens APIs for chat
-
-analytics
+# Use Contact Lens APIs for chat analytics
 
 Contact Lens includes two APIs that support conversational analytics. Use
 these APIs to build solutions that make your contact center more efficient.
@@ -29,9 +27,7 @@ customer doesn't need to repeat information they already provided. Use the
 entire transcript of the conversation up to a certain point, and share it with
 the new agent.
 
-## Highlight key parts of the
-
-conversation as labels, issues, action items, and outcomes
+## Highlight key parts of the conversation as labels, issues, action items, and outcomes
 
 With key highlights agents can quickly makes notes after the contact ends, and
 supervisors can quickly identify contacts for quality and agent performance

@@ -1,6 +1,4 @@
-# Integrate third-party applications (3p apps) in the Amazon Connect
-
-agent workspace
+# Integrate third-party applications (3p apps) in the Amazon Connect agent workspace
 
 Amazon Connect agent workspace is a single, intuitive application that provides
 your agents with the tools and step-by-step guidance they need to resolve issues
@@ -40,8 +38,7 @@ Guide](../../../agentworkspace/latest/devguide/getting-started.md "../../../agen
 - [Third-party application SSO Federation
   setup](3p-apps-sso.md "3p-apps-sso.md")
 
-- [Use screen pop functionality of
-  third-party applications in the Amazon Connect agent workspace](no-code-ui-builder-app-integration.md "no-code-ui-builder-app-integration.md")
+- [Use screen pop functionality of third-party applications in the Amazon Connect agent workspace](no-code-ui-builder-app-integration.md "no-code-ui-builder-app-integration.md")
 - [Workshop for building a third-party app](https://catalog.workshops.aws/amazon-connect-agent-empowerment/en-US/third-party-applications/test "https://catalog.workshops.aws/amazon-connect-agent-empowerment/en-US/third-party-applications/test")
 
 ## Requirements
@@ -73,9 +70,7 @@ JSON
 
 ```
 
-## How to integrate a third-party
-
-application
+## How to integrate a third-party application
 
 ###### Note
 

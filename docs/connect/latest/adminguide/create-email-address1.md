@@ -5,8 +5,7 @@ email addresses that customers can reply to, as well as outbound only (no-reply)
 addresses.
 
 For a list of the APIs used to create and manage email addresses programmatically, see
-[APIs to create and manage email
-addresses](#apis-manage-email-addresses1 "#apis-manage-email-addresses1").
+[APIs to create and manage email addresses](#apis-manage-email-addresses1 "#apis-manage-email-addresses1").
 
 You can create up to 100 email addresses.
 
@@ -42,9 +41,7 @@ name`.my.connect.aws/. Use an admin account, or an account with
    the agent workspace.
 6. Choose **Create**.
 
-## APIs to create and manage email
-
-addresses
+## APIs to create and manage email addresses
 
 For a list of all email address APIs, see [Email actions](../APIReference/email-api.md "../APIReference/email-api.md") in the
 _Amazon Connect API Reference Guide_.

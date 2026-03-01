@@ -1,6 +1,4 @@
-# Scheduling data in the Amazon Connect analytics data
-
-lake
+# Scheduling data in the Amazon Connect analytics data lake
 
 This topic details the content in the Amazon Connect data lake scheduling tables.
 The tables list the column, type, and description of the content.
@@ -8,32 +6,24 @@ The tables list the column, type, and description of the content.
 There are two ways to access the analytics data lake and configure data to be
 shared:
 
-- [Option 1: Use the Amazon Connect
-  console](access-datalake.md#option1-configure-data-to-be-shared "access-datalake.md#option1-configure-data-to-be-shared")
-- [Option 2: Use CLI or
-  CloudShell](access-datalake.md#option2-configure-data-to-be-shared "access-datalake.md#option2-configure-data-to-be-shared")
+- [Option 1: Use the Amazon Connect console](access-datalake.md#option1-configure-data-to-be-shared "access-datalake.md#option1-configure-data-to-be-shared")
+- [Option 2: Use CLI or CloudShell](access-datalake.md#option2-configure-data-to-be-shared "access-datalake.md#option2-configure-data-to-be-shared")
   If you are unable to access the scheduling tables by using Option 1, try using
   Option 2.
 
 ###### Contents
 
-- [Staff scheduling
-  profile](#data-lake-staff-scheduling-profile "#data-lake-staff-scheduling-profile")
+- [Staff scheduling profile](#data-lake-staff-scheduling-profile "#data-lake-staff-scheduling-profile")
 - [Shift activities](#data-lake-shift-activities "#data-lake-shift-activities")
 - [Shift profiles](#data-lake-shift-profiles "#data-lake-shift-profiles")
 - [Staffing groups](#data-lake-staffing-groups "#data-lake-staffing-groups")
-- [Staffing groups -
-  Forecast groups](#data-lake-staffing-groups-forecast-groups "#data-lake-staffing-groups-forecast-groups")
-- [Staffing groups -
-  Supervisors](#data-lake-staffing-groups-supervisors "#data-lake-staffing-groups-supervisors")
+- [Staffing groups - Forecast groups](#data-lake-staffing-groups-forecast-groups "#data-lake-staffing-groups-forecast-groups")
+- [Staffing groups - Supervisors](#data-lake-staffing-groups-supervisors "#data-lake-staffing-groups-supervisors")
 - [Staff shifts](#staff-shifts "#staff-shifts")
-- [Staff shift
-  activities](#data-lake-staff-shift-activities "#data-lake-staff-shift-activities")
-- [Staff timeoff balance
-  changes](#data-lake-staff-timeoff-balance-changes "#data-lake-staff-timeoff-balance-changes")
+- [Staff shift activities](#data-lake-staff-shift-activities "#data-lake-staff-shift-activities")
+- [Staff timeoff balance changes](#data-lake-staff-timeoff-balance-changes "#data-lake-staff-timeoff-balance-changes")
 - [Staff timeoffs](#data-lake-staff-timeoffs "#data-lake-staff-timeoffs")
-- [Staff timeoff
-  intervals](#data-lake-staff-timeoff-intervals "#data-lake-staff-timeoff-intervals")
+- [Staff timeoff intervals](#data-lake-staff-timeoff-intervals "#data-lake-staff-timeoff-intervals")
 - [Staff demand group](#data-lake-staff_demand_group "#data-lake-staff_demand_group")
 - [Staffing groups demand group](#data-lake-staffing-groups-demand-groups "#data-lake-staffing-groups-demand-groups")
 - [Staff shift activity allocation](#data-lake-staff-shift-activity-allocation "#data-lake-staff-shift-activity-allocation")
@@ -44,9 +34,7 @@ shared:
 - [Data schema](#data-lake-data-schema "#data-lake-data-schema")
 - [Sample queries](#data-lake-sample-queries "#data-lake-sample-queries")
 
-## Staff scheduling
-
-profile
+## Staff scheduling profile
 
 Table Name: `staff_scheduling_profile`
 
@@ -128,9 +116,7 @@ Composite Primary Key: `{instance_id, staffing_group_arn,
 | last_updated_timestamp             | Timestamp | The Timestamp when the Staffing Group was<br>created/updated/deleted.                                                                                                                                    |
 | data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
 
-## Staffing groups -
-
-Forecast groups
+## Staffing groups - Forecast groups
 
 Table Name: `staffing_group_forecast_groups`
 
@@ -152,9 +138,7 @@ table on `staffing_group_arn` and
 | last_updated_timestamp             | Timestamp | The Timestamp when the Staffing Group was created/updated.                                                                                                                                               |
 | data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
 
-## Staffing groups -
-
-Supervisors
+## Staffing groups - Supervisors
 
 Table Name: `staffing_group_supervisors`
 
@@ -196,9 +180,7 @@ Composite Primary Key: `{instance_id, shift_id, shift_version}`
 | last_updated_timestamp             | Timestamp | The Timestamp when the Shift was created/updated/deleted.                                                                                                                                                |
 | data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
 
-## Staff shift
-
-activities
+## Staff shift activities
 
 Table Name: `staff_shift_activities`
 
@@ -224,9 +206,7 @@ on `shift_id` and `shift_version`.
 | last_updated_timestamp             | Timestamp | The Timestamp when the Shift was created/updated.                                                                                                                                                        |
 | data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
 
-## Staff timeoff balance
-
-changes
+## Staff timeoff balance changes
 
 Table Name: `staff_timeoff_balance_changes`
 
@@ -272,9 +252,7 @@ Composite Primary Key: `{instance_id, timeoff_id, agent_arn,
 | last_updated_timestamp             | Timestamp | Timestamp when the Time Off was created/updated/deleted.                                                                                                                                                                                                                                                                                                                                                 |
 | data_lake_last_processed_timestamp | Timestamp | Timestamp, which shows the last time the record was touched<br>by the data lake. This can include transformation and backfill.<br>This field cannot be used to determine reliably data freshness.                                                                                                                                                                                                        |
 
-## Staff timeoff
-
-intervals
+## Staff timeoff intervals
 
 Table Name: `staff_timeoff_intervals`
 
@@ -463,9 +441,7 @@ model.
 
 ## Sample queries
 
-### 1. Query to get all the Scheduled Shift Activities
-
-of the Agents working on a specific Forecast Group
+### 1. Query to get all the Scheduled Shift Activities of the Agents working on a specific Forecast Group
 
 `SELECT * FROM agent_scheduled_shift_activities_view
  where forecast_group_name = 'AnyDepartmentForecastGroup'`
@@ -674,9 +650,7 @@ INNER JOIN latest_supervisor_names_view sn ON sn.staffing_group_arn = asgfg.staf
 WHERE (ssa.is_deleted = false) AND (COALESCE(ssa.activity_status, ' ') <> 'INACTIVE') AND (ssa.instance_id = 'YourAmazonConnectInstanceId')
 ```
 
-### 2. Query to get all the time off requests of the
-
-Agents in a specific Forecast Group
+### 2. Query to get all the time off requests of the Agents in a specific Forecast Group
 
 `SELECT * FROM agent_timeoff_report_view where forecast_group_name =
  'AnyDepartmentForecastGroup'`

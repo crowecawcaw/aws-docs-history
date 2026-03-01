@@ -30,17 +30,10 @@ supervisors and agents can view it.
    profile permissions to access scheduling features. For more information, see
    [Assign
    permissions](required-optimization-permissions.md "required-optimization-permissions.md").
-3. [Create staff rules for scheduling in
-   Amazon Connect](scheduling-create-staff-rules.md "scheduling-create-staff-rules.md")
-4. [Create daily activities in
-   Amazon Connect for an agent's shift in your contact center](scheduling-create-shift-activities.md "scheduling-create-shift-activities.md")
-5. [Create a template for an agent's
-   weekly shift in Amazon Connect](scheduling-create-shift-profiles.md "scheduling-create-shift-profiles.md")
-6. [Create groups and rules for
-   staffing and scheduling in Amazon Connect](scheduling-create-staffing-groups.md "scheduling-create-staffing-groups.md")
-7. [Generate, review, and publish a
-   schedule by using Schedule Manager in Amazon Connect](scheduling-publish-schedule.md "scheduling-publish-schedule.md")
+3. [Create staff rules for scheduling in Amazon Connect](scheduling-create-staff-rules.md "scheduling-create-staff-rules.md")
+4. [Create daily activities in Amazon Connect for an agent's shift in your contact center](scheduling-create-shift-activities.md "scheduling-create-shift-activities.md")
+5. [Create a template for an agent's weekly shift in Amazon Connect](scheduling-create-shift-profiles.md "scheduling-create-shift-profiles.md")
+6. [Create groups and rules for staffing and scheduling in Amazon Connect](scheduling-create-staffing-groups.md "scheduling-create-staffing-groups.md")
+7. [Generate, review, and publish a schedule by using Schedule Manager in Amazon Connect](scheduling-publish-schedule.md "scheduling-publish-schedule.md")
 
-To learn how supervisors and agents view schedules, see [How supervisors view
-published schedules using the Amazon Connect admin website](scheduling-view-schedule-supervisors.md "scheduling-view-schedule-supervisors.md") and [How agents view their schedule in
-the Amazon Connect agent workspace](scheduling-view-schedule-staff.md "scheduling-view-schedule-staff.md").
+To learn how supervisors and agents view schedules, see [How supervisors view published schedules using the Amazon Connect admin website](scheduling-view-schedule-supervisors.md "scheduling-view-schedule-supervisors.md") and [How agents view their schedule in the Amazon Connect agent workspace](scheduling-view-schedule-staff.md "scheduling-view-schedule-staff.md").

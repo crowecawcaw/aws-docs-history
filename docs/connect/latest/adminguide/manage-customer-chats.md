@@ -1,6 +1,4 @@
-# Manage Apple Messages for Business chats in your Amazon Connect
-
-instance
+# Manage Apple Messages for Business chats in your Amazon Connect instance
 
 When you integrate Apple Messages for Business with your Amazon Connect instance, messages from Apple Messages for Business behave exactly
 like any other chat messages arriving to your contact center.

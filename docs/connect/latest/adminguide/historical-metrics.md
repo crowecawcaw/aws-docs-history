@@ -41,19 +41,14 @@ report using a recurring schedule that you define.
 
 - [Apply tag-based access
   control](hm-tag-based-access-control.md "hm-tag-based-access-control.md")
-- [Create a custom historical
-  metrics report in Amazon Connect](create-historical-metrics-report.md "create-historical-metrics-report.md")
+- [Create a custom historical metrics report in Amazon Connect](create-historical-metrics-report.md "create-historical-metrics-report.md")
 - [Report
   limits](historical-reporting-limits.md "historical-reporting-limits.md")
-- [Schedule a historical metrics
-  report in Amazon Connect](schedule-historical-metrics-report.md "schedule-historical-metrics-report.md")
-- [Update a historical metrics
-  report](update-historical-metrics-report.md "update-historical-metrics-report.md")
-- [Download a historical metrics
-  report in Amazon Connect](download-historical-metrics-report.md "download-historical-metrics-report.md")
+- [Schedule a historical metrics report in Amazon Connect](schedule-historical-metrics-report.md "schedule-historical-metrics-report.md")
+- [Update a historical metrics report](update-historical-metrics-report.md "update-historical-metrics-report.md")
+- [Download a historical metrics report in Amazon Connect](download-historical-metrics-report.md "download-historical-metrics-report.md")
 - [Show agent queues in a Queues
   table](show-agent-queues.md "show-agent-queues.md")
 - [How many contacts
   in queue on a specific date](contacts-in-queue-on-specific-date.md "contacts-in-queue-on-specific-date.md")
-- [Agent activity audit report in
-  Amazon Connect](agent-activity-audit-report.md "agent-activity-audit-report.md")
+- [Agent activity audit report in Amazon Connect](agent-activity-audit-report.md "agent-activity-audit-report.md")

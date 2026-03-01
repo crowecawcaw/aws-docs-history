@@ -1,11 +1,8 @@
-# Set up application integration for Zendesk
-
-using Amazon EventBridge
+# Set up application integration for Zendesk using Amazon EventBridge
 
 ## Step 1: Enable the events connector for Amazon EventBridge
 
-If you don't already have the EventBridge connector for Zendesk enabled, you need to set it up first. Otherwise, go to [Step 2: Integrate Zendesk with Amazon Connect for task
-creation](#steps-integrate-zendesk "#steps-integrate-zendesk").
+If you don't already have the EventBridge connector for Zendesk enabled, you need to set it up first. Otherwise, go to [Step 2: Integrate Zendesk with Amazon Connect for task creation](#steps-integrate-zendesk "#steps-integrate-zendesk").
 
 1. Copy your AWS account number:
    1. In the Amazon EventBridge console, go to **Partner event
@@ -17,9 +14,7 @@ creation](#steps-integrate-zendesk "#steps-integrate-zendesk").
 
 2. Go to [Setting up the events connector for Amazon EventBridge](https://support.zendesk.com/hc/en-us/articles/360043496933-Setting-up-the-events-connector-for-Amazon-EventBridge "https://support.zendesk.com/hc/en-us/articles/360043496933-Setting-up-the-events-connector-for-Amazon-EventBridge") in the Zendesk Help and follow the instructions.
 
-## Step 2: Integrate Zendesk with Amazon Connect for task
-
-creation
+## Step 2: Integrate Zendesk with Amazon Connect for task creation
 
 ###### Note
 
@@ -95,12 +90,9 @@ listed, as shown in the following image.
 ![The tasks page showing the new Zendesk connection.](images/tasks-establish-connection-final2-zendesk.png)
 
 You're done! Next, add rules that tell Amazon Connect when to create a task and how to
-route it. For instructions, see [Create rules that generate tasks for third-party
-integrations in Amazon Connect](add-rules-task-creation.md "add-rules-task-creation.md").
+route it. For instructions, see [Create rules that generate tasks for third-party integrations in Amazon Connect](add-rules-task-creation.md "add-rules-task-creation.md").
 
-## What to do when is a
-
-connection isn't successfully established
+## What to do when is a connection isn't successfully established
 
 A connection might fail to create a task if you do not correctly select the
 **Support ticket** event type when setting up the connection in

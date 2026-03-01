@@ -71,9 +71,7 @@ example, a contact browsing your website to purchase an item or member of a
 financial institution who is already authenticated in the mobile app and wants to
 speak with an agent about a recent transaction.
 
-## Redirect voice contacts to
-
-chat
+## Redirect voice contacts to chat
 
 With Amazon Connect, you can allow agents to handle multiple chat conversations
 simultaneously where they would only able to handle one voice conversation. When you

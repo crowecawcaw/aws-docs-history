@@ -1,6 +1,4 @@
-# How Amazon Connect works with
-
-IAM
+# How Amazon Connect works with IAM
 
 Before you use IAM to manage access to Amazon Connect, you should understand what
 IAM features are available to use with Amazon Connect. To get a high-level view of how
@@ -9,16 +7,11 @@ Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Contents
 
-- [Amazon Connect
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Authorization based on
-  Amazon Connect tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Amazon Connect IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Amazon Connect identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Authorization based on Amazon Connect tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Amazon Connect IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Amazon Connect
-
-identity-based policies
+## Amazon Connect identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -161,12 +154,9 @@ Resources, and Condition Keys for Amazon Connect](../../../service-authorization
 
 ### Examples
 
-To view examples of Amazon Connect identity-based policies, see [Amazon Connect identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Connect identity-based policies, see [Amazon Connect identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Authorization based on
-
-Amazon Connect tags
+## Authorization based on Amazon Connect tags
 
 You can attach tags to Amazon Connect resources or pass tags in a request to
 Amazon Connect. To control access based on tags, you provide tag information in the
@@ -177,19 +167,14 @@ element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md 
 `aws:TagKeys` condition keys.
 
 To view an example identity-based policy for limiting access to a resource based on
-the tags on that resource, see [Describe and
-update Amazon Connect users based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-widget-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-widget-tags").
+the tags on that resource, see [Describe and update Amazon Connect users based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-widget-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-widget-tags").
 
-## Amazon Connect IAM
-
-roles
+## Amazon Connect IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with Amazon Connect
+### Using temporary credentials with Amazon Connect
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
@@ -197,9 +182,7 @@ calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIRefer
 
 Amazon Connect supports using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your
@@ -209,9 +192,7 @@ edit the permissions for service-linked roles.
 Amazon Connect supports service-linked roles. For details about creating or
 managing Amazon Connect service-linked roles, see [Use service-linked roles and role permissions for Amazon Connect](connect-slr.md "connect-slr.md").
 
-### Choosing an IAM role
-
-in Amazon Connect
+### Choosing an IAM role in Amazon Connect
 
 When you create a resource in Amazon Connect, you must choose a role to allow
 Amazon Connect to access Amazon EC2 on your behalf. If you have previously created a

@@ -1,6 +1,4 @@
-# How Contact Control Panel (CCP) leverages
-
-WebRTC
+# How Contact Control Panel (CCP) leverages WebRTC
 
 This advanced topic is for IT admins who may be interested in how Contact Control
 Panel (CCP) delivers voice calls. It also provides some networking details.
@@ -14,8 +12,7 @@ outbound calls and video conferences directly from their web browser.
 - [What is WebRTC?](#whatis-webrtc "#whatis-webrtc")
 - [Terminology](#ccp-leverages-webrtc-terminology "#ccp-leverages-webrtc-terminology")
 - [How WebRTC works](#how-webrtc-works "#how-webrtc-works")
-- [How STUN, TURN and ICE work
-  together](#how-stun-turn-ice-works "#how-stun-turn-ice-works")
+- [How STUN, TURN and ICE work together](#how-stun-turn-ice-works "#how-stun-turn-ice-works")
 - [Best practices](#webrtc-ccp-bp "#webrtc-ccp-bp")
 
 ## What is WebRTC?
@@ -108,9 +105,7 @@ audio and video data, Secure Real-time Transport Protocol (SRTP) for encrypting
 media streams to ensure privacy, and uses ICE, STUN, and TURN protocols to navigate
 and establish peer-to-peer connections across NAT gateways and firewalls.
 
-## How STUN, TURN and ICE work
-
-together
+## How STUN, TURN and ICE work together
 
 Let's consider the scenario where the agent CCP (Contact Control Panel) is peer A
 and Amazon Connect is peer B, using WebRTC for a two-way media stream (for example, a voice
@@ -156,8 +151,7 @@ WebRTC.
 - To ensure your business is able to successfully facilitate WebRTC
   connections and mitigate error behaviors, ensure you have allow-listed
   incoming UDP traffic on port 3478 (SEND/RECEIVE). For more information, see
-  [Option 1 (recommended): Replace Amazon EC2 and CloudFront IP range
-  requirements with a domain allowlist](ccp-networking.md#option1 "ccp-networking.md#option1"). In the table, see the
+  [Option 1 (recommended): Replace Amazon EC2 and CloudFront IP range requirements with a domain allowlist](ccp-networking.md#option1 "ccp-networking.md#option1"). In the table, see the
   row for `TurnNlb-*.elb.region.amazonaws.com`.
 - If you're using [Option 2 (not recommended): Allow IP address ranges](ccp-networking.md#option2 "ccp-networking.md#option2"), we
   recommend the following to mitigate error behaviors:

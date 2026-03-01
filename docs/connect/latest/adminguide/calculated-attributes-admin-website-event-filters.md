@@ -1,6 +1,4 @@
-# Set up event
-
-filters
+# Set up event filters
 
 Event filters allow you to filter the profile objects to be used in the
 calculated attribute. For example, an event filter might filter the customer's
@@ -28,8 +26,7 @@ filters. An event filter consists of the following components:
   to filter by. You can select attributes from objects stored in the
   Customer Profiles domain or use the field names defined in the object
   type definition. for more information about object type mappings, see
-  [Object type mapping
-  definition details in Amazon Connect Customer Profiles](object-type-mapping-definition-details.md "object-type-mapping-definition-details.md").
+  [Object type mapping definition details in Amazon Connect Customer Profiles](object-type-mapping-definition-details.md "object-type-mapping-definition-details.md").
 
 ###### Note
 

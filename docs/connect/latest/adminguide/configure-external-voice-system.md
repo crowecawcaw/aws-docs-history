@@ -1,6 +1,4 @@
-# Configure your external voice system
-
-for integration with Contact Lens
+# Configure your external voice system for integration with Contact Lens
 
 After you [create a Contact Lens
 connector](create-contact-lens-connector.md "create-contact-lens-connector.md") you need to configure your external voice system to point to the

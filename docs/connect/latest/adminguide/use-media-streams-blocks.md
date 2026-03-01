@@ -1,6 +1,4 @@
-# Example flow for testing live media streaming
-
-in Amazon Connect
+# Example flow for testing live media streaming in Amazon Connect
 
 Here's how you can set up a flow to test live media streaming:
 
@@ -30,5 +28,4 @@ but it is missing the **Stop media streaming** block.
 After the audio is successfully streamed to Kinesis Video Streams, the contact attributes are
 populated from the **Invoke AWS Lambda function** block. You can use
 the attributes to identify the location in the stream where the customer audio starts.
-For instructions, see [Contact attributes for live media streaming
-in Kinesis Video Streams](media-streaming-attributes.md "media-streaming-attributes.md").
+For instructions, see [Contact attributes for live media streaming in Kinesis Video Streams](media-streaming-attributes.md "media-streaming-attributes.md").

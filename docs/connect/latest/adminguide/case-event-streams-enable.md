@@ -3,9 +3,7 @@
 This topic explains how to set up and use case event streams. Some of the onboarding
 steps require you to call [Amazon Connect Cases APIs](../../../cases/latest/APIReference/Welcome.md "../../../cases/latest/APIReference/Welcome.md").
 
-## Step 1: Create an Amazon Connect instance
-
-and enable Customer Profiles
+## Step 1: Create an Amazon Connect instance and enable Customer Profiles
 
 1. Ensure you have an working Amazon Connect instance in one of the AWS Regions
    where Cases is available. See [Cases availability by Region](regions.md#cases_region "regions.md#cases_region").
@@ -15,18 +13,14 @@ Amazon Connect Cases requires Customer Profiles because each case must be
 associated with a customer profile from the Customer Profiles
 service.
 
-## Step 2: Add a Cases domain to
-
-your Amazon Connect instance
+## Step 2: Add a Cases domain to your Amazon Connect instance
 
 For instructions, see [Enable Cases using the Amazon Connect console](enable-cases.md "enable-cases.md").
 
 If you want to add a case domain using the API, see the [CreateDomain](../../../cases/latest/APIReference/API_CreateDomain.md "../../../cases/latest/APIReference/API_CreateDomain.md") API in the _Amazon Connect Cases API
 Reference_.
 
-## Step 3: Create a case
-
-template
+## Step 3: Create a case template
 
 [Create a case template](case-templates.md "case-templates.md"). In _Step 6:
 Test case event streams_, you'll use the template.
@@ -34,9 +28,7 @@ Test case event streams_, you'll use the template.
 If you want to create a case template using the API, see the [CreateTemplate](../../../cases/latest/APIReference/API_CreateTemplate.md "../../../cases/latest/APIReference/API_CreateTemplate.md") API in the _Amazon Connect Cases API
 Reference_.
 
-## Step 4: Enable case event streams
-
-and setup to receive events into an SQS queue
+## Step 4: Enable case event streams and setup to receive events into an SQS queue
 
 Run the following command to enable case event streams for your Cases domain.
 After this command runs, when cases are created or updated, an event is published to
@@ -105,9 +97,7 @@ aws events put-targets --rule case-events-to-sqs-queue --target "[{
 
 ```
 
-## Step 5: Test case event
-
-streams
+## Step 5: Test case event streams
 
 Use the Amazon Connect agent application to:
 
@@ -128,9 +118,7 @@ event (type: `CASE.UPDATED`) in your SQS queue. You can associate the
 contact to the case, and leave a comment on the case to get case events for those
 actions, too.
 
-## Step 6: Use cases for the case
-
-event streams
+## Step 6: Use cases for the case event streams
 
 Case event streams publish events every time a case is created, case is updated,
 contact is associated to the case, and comment is added on a case. You can use these
@@ -147,4 +135,4 @@ process events in the SQS to build custom applications such as sending emails to
 customer when their case is updated, automatically resolving any tasks linked to the
 case, and more. Similarly, you can use the Firehose target on the EventBridge to store the
 case events into an S3 bucket and then use the AWS Glue for ETL, Athena for ad-hoc
-analytics, and Quick Suite for dashboards.
+analytics, and Quick for dashboards.

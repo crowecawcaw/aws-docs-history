@@ -1,6 +1,4 @@
-# Download a historical metrics
-
-report in Amazon Connect
+# Download a historical metrics report in Amazon Connect
 
 You can download the data included in a report as a comma-separated value (CSV)
 file so you can use it with other applications. If there's no data for one of the
@@ -32,9 +30,7 @@ the desired format.
 
 ![Downloaded interval data in excel, next to image of the same data in a historical metrics report.](images/downloaded-hmr-interval-format.png)
 
-## Download all historical metric
-
-results
+## Download all historical metric results
 
 If you need to download more than a page or two of historical metrics, we
 recommend using the following steps:
@@ -44,5 +40,4 @@ recommend using the following steps:
 For example, you might schedule the Login/Logout report to run daily
 at midnight. 2. The full report is saved to your Amazon S3 bucket. 3. Go to your Amazon S3 bucket and download the report.
 
-To learn how scheduled reports work, see [Schedule a historical metrics
-report in Amazon Connect](schedule-historical-metrics-report.md "schedule-historical-metrics-report.md").
+To learn how scheduled reports work, see [Schedule a historical metrics report in Amazon Connect](schedule-historical-metrics-report.md "schedule-historical-metrics-report.md").

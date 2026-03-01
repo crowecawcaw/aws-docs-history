@@ -1,6 +1,4 @@
-# Undo and redo actions in the flow designer in
-
-Amazon Connect
+# Undo and redo actions in the flow designer in Amazon Connect
 
 You can undo and redo actions in the flow designer. Choose the undo and redo items on
 the toolbar. Or, with your cursor on the flow designer canvas, use the shortcut keys:

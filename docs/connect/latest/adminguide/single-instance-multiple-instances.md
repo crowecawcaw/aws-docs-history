@@ -1,10 +1,6 @@
-# Amazon Connect: Single Instance or Multiple
+# Amazon Connect: Single Instance or Multiple Instances?
 
-Instances?
-
-## Single instance of Amazon Connect (including single
-
-ACGR pair)
+## Single instance of Amazon Connect (including single ACGR pair)
 
 ### Best For
 

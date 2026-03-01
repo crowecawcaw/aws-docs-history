@@ -39,9 +39,7 @@ level configuration or and advanced metric using metric builder.
   metrics with metric primitives using mathematical operations and functions.
   Please see [custom metric primitives](metric-primitive-definitions.md "metric-primitive-definitions.md") for more information.
 
-### Service Level
-
-Configuration
+### Service Level Configuration
 
 - **Metric name**:- Enter a unique name
   (maximum 128 characters)
@@ -291,9 +289,7 @@ Important considerations:
   dashboards, those widgets will display an error message indicating that
   the metric is no longer available.
 
-## Add custom metric to dashboard
-
-widget
+## Add custom metric to dashboard widget
 
 Custom metrics that you create can be added to dashboard widgets to visualize and
 monitor your data. You can add custom metrics through the widget edit menu, from any

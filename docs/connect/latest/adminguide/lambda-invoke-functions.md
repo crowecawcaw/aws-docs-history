@@ -174,9 +174,7 @@ Your Lambda function must return a JSON response with the following structure:
 - Your function should return results within 30 seconds rather than processing
   asynchronously. Responses taking longer than 30 seconds will result in action failure
 
-## Step 2: Grant Outbound Campaigns access to your Lambda
-
-function
+## Step 2: Grant Outbound Campaigns access to your Lambda function
 
 1. Open the Amazon Connect console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose your instance name in the **Instance

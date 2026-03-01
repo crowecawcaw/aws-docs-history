@@ -1,6 +1,4 @@
-# Predictive Insights
-
-(Preview)
+# Predictive Insights (Preview)
 
 _Predictive Insights_ (Preview) is a feature of
 Amazon Connect Customer Profiles that uses artificial intelligence to generate personalized product and
@@ -43,9 +41,7 @@ predictive insights), Create (create recommendations), Delete (delete
 recommendations), and Edit (update recommendations) permissions with Predictive
 insights enabled.
 
-## Benefits of using Predictive
-
-Insights
+## Benefits of using Predictive Insights
 
 Using Predictive Insights provides several key benefits:
 
@@ -60,9 +56,7 @@ Using Predictive Insights provides several key benefits:
 The following sections provide guidance on how to match use-cases and assess data
 readiness for Predictive Insights.
 
-### Have you matched your use cases to Predictive
-
-Insights?
+### Have you matched your use cases to Predictive Insights?
 
 Predictive Insights personalization types can address the following use
 cases:
@@ -72,27 +66,21 @@ cases:
 - Recommending trending or popular items
 - Re-ordering items by relevance
 
-### Do you have enough item interaction
-
-data?
+### Do you have enough item interaction data?
 
 For all use cases and personalization types, you must have at minimum 1,000 item
 interactions for 25 unique users with at least two interactions each. For quality
 recommendations, we recommend that you have at minimum 50,000 item interactions from
 at least 1,000 users with two or more item interactions each.
 
-### Do you have a real-time event streaming
-
-architecture in place?
+### Do you have a real-time event streaming architecture in place?
 
 If you have the ability to stream real-time events to Connect Customer Profiles,
 you will be able to take advantage of real-time personalization. With some
 personalization types, Predictive Insights can learn from your user’s most recent
 activity and update recommendations as they use your application.
 
-### Is your data optimized for Predictive
-
-Insights?
+### Is your data optimized for Predictive Insights?
 
 We recommend you check for the following in your data:
 

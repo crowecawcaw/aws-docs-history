@@ -1,6 +1,4 @@
-# Host multiple participants on an ongoing customer
-
-service chat in the agent workspace or CCP
+# Host multiple participants on an ongoing customer service chat in the agent workspace or CCP
 
 You can add up to four additional participants to an ongoing customer service
 chat, for a total of six participants: you, the customer, and four other people. You
@@ -25,9 +23,7 @@ can use quick connects to add participants.
 - **AWS GovCloud (US-West)**: This feature
   is not available in the AWS GovCloud (US-West) Region.
 
-## Important things to
-
-know
+## Important things to know
 
 - This feature works for all supported forms of chat: chat/SMS,
   WhatsApp, and Apple Messages for Business.
@@ -47,9 +43,7 @@ know
   settings. For more information, see [UpdateInstanceAttribute](../APIReference/API_UpdateInstanceAttribute.md "../APIReference/API_UpdateInstanceAttribute.md") in the _Amazon Connect API Reference
   Guide_.
 
-## How to add participants to a
-
-multi-party chat
+## How to add participants to a multi-party chat
 
 The following image shows the contact and you (the agent) connected on a chat.
 The customer always appears at the top of the CCP.
@@ -82,9 +76,7 @@ to join the chat.
      is displayed when the second agent joins/accepts the chat on
      their end.
 
-## How to manage
-
-participants
+## How to manage participants
 
 The following image shows Agent2's CCP. From the perspective of Agent2, the
 customer and Agent1 are the other active participants.

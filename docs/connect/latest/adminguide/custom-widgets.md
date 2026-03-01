@@ -6,9 +6,7 @@ any predefined data.
 
 ![Add customer widgets in the Profile explorer layout.](images/custom-widgets-1.png)
 
-## Available custom
-
-components
+## Available custom components
 
 - [Table](#table-widget "#table-widget")
 - [Key value pair](#key-value-pair "#key-value-pair")
@@ -82,9 +80,7 @@ interaction and organization.
 
 ![Another custom table widget editing example.](images/table-features-2.png)
 
-### Example
-
-configuration
+### Example configuration
 
 ```
 {
@@ -161,9 +157,7 @@ attribute pairs such as:
 
 ![Another custom key value pair widget editing example.](images/key-value-pair-features-2.png)
 
-### Example
-
-configuration
+### Example configuration
 
 ```
 {
@@ -255,9 +249,7 @@ showcasing:
 
 ![Another custom key metric widget editing example.](images/key-metric-features-2.png)
 
-### Example
-
-configuration
+### Example configuration
 
 ```
 {
@@ -345,9 +337,7 @@ example**
 
 ![Negative sentiment widget editing example.](images/donut-chart-features-2.png)
 
-### Example
-
-configuration
+### Example configuration
 
 ```
 {

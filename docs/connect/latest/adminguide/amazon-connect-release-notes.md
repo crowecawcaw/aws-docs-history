@@ -15,9 +15,7 @@ Amazon Connect Cases now supports AWS Service Quotas, giving administrators a ce
 
 Amazon Connect Cases now supports larger, multi-line text fields with up to 4,100 characters. Administrators can use the Admin UI to select the appropriate configuration (single-line or multi-line) on a per-field basis, improving case documentation capabilities.
 
-### Amazon Connect now enables per-channel auto-accept and
-
-After Contact Work (ACW) timeouts
+### Amazon Connect now enables per-channel auto-accept and After Contact Work (ACW) timeouts
 
 You can now configure agents with auto-accept and after contact work timeout settings for chat, tasks,
 emails, and callbacks to optimize how agents spend their time. Previously, these settings were available
@@ -122,8 +120,7 @@ Amazon Connect now offers customers the ability to view status of agent screen r
 
 Customers can start using Amazon Connect screen recording status tracking by subscribing to Screen Recording Status Changed event type in Amazon EventBridge event bus.
 
-For more information, see [Set up and review agent screen recordings in Amazon Connect
-Contact Lens](agent-screen-recording.md "agent-screen-recording.md").
+For more information, see [Set up and review agent screen recordings in Amazon Connect Contact Lens](agent-screen-recording.md "agent-screen-recording.md").
 
 ### Store nested JSON object and looping arrays
 
@@ -153,8 +150,7 @@ For more information, see [Set up workspaces for your admin website users](amazo
 
 Amazon Connect dashboards now support filtering metrics based on custom business dimensions such as business divisions, product lines, or customer segments. Using predefined attributes, you can create business dimensions to filter metrics helping you customize the dashboards based on your unique business need. For example, if your queue handles contacts across product lines, you can filter metrics by product line to compare handle times and determine where agents need product training.
 
-For more information, see [Dashboards in Amazon Connect for getting contact center performance
-data](dashboards.md "dashboards.md").
+For more information, see [Dashboards in Amazon Connect for getting contact center performance data](dashboards.md "dashboards.md").
 
 ### Automated agent performance evaluations support 5 additional languages
 
@@ -166,8 +162,7 @@ For more information, see [Evaluate agent and self-service interaction performan
 
 Amazon Connect alerts on real-time metrics now provide the specific agents, queues, flows, or routing profiles that exceeded thresholds and triggered the alert. This enables managers to respond faster to customer experience and operational issues by eliminating the need to manually investigate the root cause of the alert. For example, alerts on elevated queue wait times now include the exact queues affected, so managers can reassign agents to those queues. These detailed alerts can be sent through email, tasks, and Amazon EventBridge.
 
-For more information, see [Create alerts on real-time metrics in
-Amazon Connect](rule-real-time-metrics.md "rule-real-time-metrics.md").
+For more information, see [Create alerts on real-time metrics in Amazon Connect](rule-real-time-metrics.md "rule-real-time-metrics.md").
 
 ### Multiple choice and date questions now possible in evaluation forms
 
@@ -192,8 +187,7 @@ so you can simplify case layouts and ensure agents capture the right information
 For example, you can show a Return Reason field only when the case involves a return,
 and limit Issue Type choices to hardware-related options when Issue Category is set to Hardware.
 
-For more information, see [Add case field conditions to a case template in
-Amazon Connect](case-field-conditions.md "case-field-conditions.md").
+For more information, see [Add case field conditions to a case template in Amazon Connect](case-field-conditions.md "case-field-conditions.md").
 
 ### Custom metrics
 
@@ -222,8 +216,7 @@ For more information, see [Evaluate agent and self-service interaction performan
 
 Amazon Connect now supports third-party speech providers for end-customer self-service, giving you greater flexibility in how you deliver voice experiences. You can integrate Deepgram for speech-to-text and ElevenLabs for text-to-speech directly within Amazon Connect, using them together with Amazon Connect's native speech capabilities, built-in orchestration, analytics, and compliance controls. This feature is available with Amazon Connect unlimited AI and in all commercial AWS regions where Amazon Connect is offered.
 
-For more information, see [Configure third-party speech-to-text (STT)
-providers](configure-third-party-stt.md "configure-third-party-stt.md").
+For more information, see [Configure third-party speech-to-text (STT) providers](configure-third-party-stt.md "configure-third-party-stt.md").
 
 ### Enhanced agent assistance capabilities
 
@@ -235,8 +228,7 @@ For more information, see [Create AI agents in Amazon Connect](create-ai-agents.
 
 Amazon Connect now enables businesses to restrict access to specific performance evaluation forms, preventing unauthorized access to evaluation form templates and completed evaluations. Businesses can provide managers access to modify or use only the evaluation form templates that are relevant to their business line or function, improving security and making it easier for managers to select the right form while completing evaluations. Additionally, both managers and agents can be restricted from viewing certain completed evaluations. For example, you can restrict agents from viewing test evaluations filled with a form template that is yet to be finalized.
 
-For more information, see [Assign security profile permissions for
-users to create and access evaluation forms](evaluation-forms-permissions.md "evaluation-forms-permissions.md").
+For more information, see [Assign security profile permissions for users to create and access evaluation forms](evaluation-forms-permissions.md "evaluation-forms-permissions.md").
 
 ### Simplified linking of related contacts to cases using flows
 
@@ -248,8 +240,7 @@ For more information, see [Flow block in Amazon Connect: Cases](cases-block.md "
 
 Amazon Connect now supports agent-initiated workflows, enabling agents to send interactive forms to collect sensitive data or share general policies and disclosures within customer chat conversations, increasing efficiency and improving customer experience. For example, when a customer needs to update their address, agents can now send a form that customers complete without leaving the chat interface.Agents can trigger these workflows at any point during a chat conversation, making interactions more dynamic and responsive to customer needs. By handling everything within the ongoing chat conversation, businesses can maintain security and compliance standards while helping customers get faster solutions.
 
-For more information, see [Enable agent-initated flows during active chat
-sessions](agent-initiated-flows.md "agent-initiated-flows.md").
+For more information, see [Enable agent-initated flows during active chat sessions](agent-initiated-flows.md "agent-initiated-flows.md").
 
 ### Agentic self-service with more natural, expressive, and adaptive voice interactions
 
@@ -261,8 +252,7 @@ For more information, see [this blog post](https://aws.amazon.com/blogs/aws/intr
 
 Amazon Connect now supports message processing that intercepts and processes chat messages before they reach any participant. This new capability enables automatic redaction of sensitive data and custom message processing, helping businesses maintain compliance and security standards while delivering personalized customer experiences.The built-in sensitive data redaction can automatically detect and remove sensitive information like credit card numbers and social security numbers across multiple languages, including English, French, Portuguese, German, Italian, and Spanish variants. You can choose to redact selected or all sensitive data entities, with options to replace them with generic or entity-specific placeholders (e.g., [PII] or [NAME]). Businesses can also integrate custom processors for use cases such as language translation or profanity filtering, ensuring compliant and effective communications for their specific business needs.
 
-For more information, see [Enable in-flight sensitive data redaction
-and message processing](redaction-message-processing.md "redaction-message-processing.md").
+For more information, see [Enable in-flight sensitive data redaction and message processing](redaction-message-processing.md "redaction-message-processing.md").
 
 ### Automated email responses using conditional keywords and phrases
 
@@ -284,8 +274,7 @@ For more information, see [Amazon Bedrock Knowledge Base configuration](../../..
 
 Amazon Connect now supports message streaming for AI-powered chat interactions. This new capability shows Connect AI agent responses as they're being generated, which reduces perceived wait times and improves the customer experience.When using Amazon Connect AI agents, customers see status updates like "One moment while I review your account" during processing, and watch responses appear progressively. This experience gives customers confidence their request is actively being worked on while AI agents reason, invoke tools, and craft comprehensive solutions.
 
-For more information, see [Enable message streaming for AI-powered
-chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md").
+For more information, see [Enable message streaming for AI-powered chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md").
 
 ### Model Context Protocol (MCP) support
 
@@ -321,8 +310,7 @@ For more information, see [Evaluate agent and self-service interaction performan
 
 Amazon Connect now provides analytics and monitoring capabilities for AI agents across self-service and agent assistance experiences. With this launch, you can measure and continuously improve AI agent performance and customer outcomes through easy to customize dashboards that provide key metrics like number of AI agent led interactions, hand-off rates, conversation turns, and average handle time. You can also compare AI agent performance across versions to identify optimal configurations and review insights to understand where AI agents are performing well and where improvements are needed. Additionally, with this launch, you can configure rules to trigger automated actions, such as sending alerts when self-service contacts are transferred to human agents with low sentiment scores. Amazon Connect also provides AI agent traces via APIs with detailed information such as request and response payloads and tool invocations, enabling you to easily understand AI agent actions and decision-making for faster troubleshooting.
 
-For more information, see [Dashboards in Amazon Connect for getting contact center performance
-data](dashboards.md "dashboards.md").
+For more information, see [Dashboards in Amazon Connect for getting contact center performance data](dashboards.md "dashboards.md").
 
 ### Business users can create custom UIs to adjust contact center configurations in real time
 
@@ -352,8 +340,7 @@ For more information, see [Set up email in Amazon Connect](setup-email-channel.m
 
 Amazon Connect now provides you with the ability to monitor which contacts are queued for callback. This feature enables you to search for contacts queued for callback and view additional details such as the customer’s phone number and duration of being queued within the Connect UI and APIs. You can now pro-actively route contacts to agents that are at risk of exceeding the callback timelines communicated to customers. Businesses can also identify customers that have already successfully connected with agents, and clear them from the callback queue to remove duplicative work.
 
-For more information, see [Search for in-progress contacts in
-Amazon Connect](search-in-progress-contacts.md "search-in-progress-contacts.md").
+For more information, see [Search for in-progress contacts in Amazon Connect](search-in-progress-contacts.md "search-in-progress-contacts.md").
 
 ### Amazon Lex extends wait & continue feature in 10 new languages
 
@@ -371,15 +358,13 @@ For more information, see [Scheduling in Amazon Connect](scheduling.md "scheduli
 
 Amazon Connect now offers the ability to maintain an open communication channel between your agents and Amazon Connect, helping reduce the time it takes to establish a connection with a customer. Contact center administrators can configure an agent’s user profile to maintain a persistent connection after a conversation ends, allowing for subsequent calls to connect faster. Amazon Connect persistent agent connection makes it easier to support compliance requirements with telemarketing laws such as the U.S. Telephone Consumer Protection Act (TCPA) for outbound campaigns’ calling by reducing the time it takes for a customer to connect with your agents.
 
-For more information, see [Enable persistent connection for Amazon Connect
-agents](enable-persistent-connection.md "enable-persistent-connection.md").
+For more information, see [Enable persistent connection for Amazon Connect agents](enable-persistent-connection.md "enable-persistent-connection.md").
 
 ### Conversational analytics for voice and chat bots
 
 Amazon Connect now provides conversational analytics for end-customer self-service interactions across voice and digital channels, helping you better understand and improve your customers' self-service experiences. This includes across PSTN/telephony, in-app and web-calling, web and mobile chat, SMS, WhatsApp Business messaging, and Apple Messages for Business.With this launch, Connect now provides rich conversational analytics across both human-agent interactions and end-customer self-service interactions. You can now automatically analyze the quality of automated self-service interactions including customer sentiment, redact sensitive data, discover top contact drivers and themes, identify compliance risks, and proactively identify areas for improvement through easy-to-customize dashboards. Connect’s conversational analytics also enables you to use semantic matching rules to categorize interactions based on customer behavior, keywords, sentiment, or issue types, such as billing inquiries or agent escalation requests.
 
-For more information, see [Enable persistent connection for Amazon Connect
-agents](enable-persistent-connection.md "enable-persistent-connection.md").
+For more information, see [Enable persistent connection for Amazon Connect agents](enable-persistent-connection.md "enable-persistent-connection.md").
 
 ### Outbound campaigns supports ring time configuration for unanswered calls
 
@@ -426,9 +411,7 @@ performance.
 
 For more information, see [Schedule Adherence](schedule-adherence.md "schedule-adherence.md").
 
-### Use granular permissions for conversation recordings
-
-and transcripts
+### Use granular permissions for conversation recordings and transcripts
 
 You can use granular permissions to manage access to conversation recordings and
 transcripts in the Amazon Connect admin website. You can separately configure access to recordings and transcripts,
@@ -447,20 +430,15 @@ rules to automatically send email or text notifications (using EventBridge) to s
 agents exceed adherence thresholds. For example, if agent adherence drops below 85% in a
 trailing 15-minute window, supervisors can receive an email alert.
 
-For more information, see [Set up schedule adherence
-notifications](schedule-adherence.md#schedule-adherence-notifications "schedule-adherence.md#schedule-adherence-notifications").
+For more information, see [Set up schedule adherence notifications](schedule-adherence.md#schedule-adherence-notifications "schedule-adherence.md#schedule-adherence-notifications").
 
-### Search for related items across all cases within a
-
-domain
+### Search for related items across all cases within a domain
 
 You can use the [SearchAllRelatedItems](../APIReference/API_connect-cases_SearchAllRelatedItems.md "../APIReference/API_connect-cases_SearchAllRelatedItems.md") API to search for related items across all cases within a
 domain. This is a global search operation that returns related items from multiple cases, unlike
 the case-specific [SearchRelatedItems](../APIReference/API_connect-cases_SearchRelatedItems.md "../APIReference/API_connect-cases_SearchRelatedItems.md") API.
 
-### Generative AI-powered email conversation overviews and
-
-suggested responses
+### Generative AI-powered email conversation overviews and suggested responses
 
 Amazon Connect provides agents with generative AI-powered email conversation overviews, suggested
 actions, and responses. This enables agents to handle emails more efficiently, so customers
@@ -475,9 +453,7 @@ For more information, see [Use generative AI-powered email
 conversation overviews and suggested responses](use-generative-ai-email.md "use-generative-ai-email.md"). Also see the [CreateSession](../APIReference/API_amazon-q-connect_CreateSession.md "../APIReference/API_amazon-q-connect_CreateSession.md")
 API for updates to support this feature, updates to data types such as [DataDetails](../APIReference/API_amazon-q-connect_DataDetails.md "../APIReference/API_amazon-q-connect_DataDetails.md"), and new data types such as [EmailGenerativeAnswerAIAgentConfiguration](../APIReference/API_amazon-q-connect_EmailGenerativeAnswerAIAgentConfiguration.md "../APIReference/API_amazon-q-connect_EmailGenerativeAnswerAIAgentConfiguration.md").
 
-### Amazon Connect makes it easier to get customer input on outbound
-
-calls
+### Amazon Connect makes it easier to get customer input on outbound calls
 
 Amazon Connect supports [Get customer input](get-customer-input.md "get-customer-input.md") and [Store customer input](store-customer-input.md "store-customer-input.md") flow
 blocks for outbound voice whisper flows. The **Get customer input block**
@@ -491,9 +467,7 @@ customer input** block to obtain customer consent for call recording as part of
 outbound calls placed by agents, and use it to trigger Amazon Connect Contact Lens recording and
 analytics.
 
-### Agent time-off balance data in the Amazon Connect analytics data
-
-lake
+### Agent time-off balance data in the Amazon Connect analytics data lake
 
 Agent time-off balance data is available in the Amazon Connect data lake, making it easier
 for you to generate reports and insights from this data. You access the latest and historical
@@ -505,8 +479,7 @@ each transaction's impact on the final 80-hour balance. This makes time-off mana
 eliminating the need for managers to manually reconcile balances and time-off
 transactions.
 
-For more information, see [Staff timeoff balance
-changes](data-lake-scheduling.md#data-lake-staff-timeoff-balance-changes "data-lake-scheduling.md#data-lake-staff-timeoff-balance-changes").
+For more information, see [Staff timeoff balance changes](data-lake-scheduling.md#data-lake-staff-timeoff-balance-changes "data-lake-scheduling.md#data-lake-staff-timeoff-balance-changes").
 
 ### Agent screen recording for ChromeOS devices
 
@@ -534,8 +507,7 @@ For more information, see [Set up email in Amazon Connect](setup-email-channel.m
 
 Amazon Connect can now automatically initiate follow-up evaluations to analyze specific situations identified during initial evaluations. For example, when an initial customer service evaluation detects customer interest in a product, Amazon Connect can automatically trigger a follow-up evaluation focused on the agent's sales performance. This enables managers to maintain consistent evaluation standards across agent cohorts and over time, while capturing deeper insights on specific scenarios such as sales opportunities, escalations, and other critical interaction moments.
 
-For more information, see [Enable persistent connection for Amazon Connect
-agents](enable-persistent-connection.md "enable-persistent-connection.md").
+For more information, see [Enable persistent connection for Amazon Connect agents](enable-persistent-connection.md "enable-persistent-connection.md").
 
 ### Copy and bulk edit of agent scheduling configuration
 
@@ -551,9 +523,7 @@ For more information, see [Metrics, dashboards, and reports in Amazon Connect](a
 
 ## September 2025 Updates
 
-### Dashboards support filtering and comparing metrics by any time
-
-range
+### Dashboards support filtering and comparing metrics by any time range
 
 Amazon Connect dashboards support selecting and comparing any time ranges. This enables you to focus
 on specific, relevant data and perform in-depth analysis up to a maximum of 35 days in the last
@@ -567,15 +537,12 @@ increasing contact volume and maintain service levels.
 For more information, see [Dashboards in Amazon Connect for getting contact center
 performance data](dashboards.md "dashboards.md").
 
-### Added two APIs: AssociateContactWithUser and
-
-ListRoutingProfileManualAssignmentQueues
+### Added two APIs: AssociateContactWithUser and ListRoutingProfileManualAssignmentQueues
 
 Use these APIs to programmatically assign queued contacts to available users and list the
 manual assignment queues associated with a routing profile: [AssociateContactWithUser](../APIReference/API_AssociateContactWithUser.md "../APIReference/API_AssociateContactWithUser.md") and [ListRoutingProfileManualAssignmentQueues](../APIReference/API_ListRoutingProfileManualAssignmentQueues.md "../APIReference/API_ListRoutingProfileManualAssignmentQueues.md").
 
-These APIs support the functionality described in [Access the Worklist app in the Amazon Connect agent
-workspace](worklist-app.md "worklist-app.md").
+These APIs support the functionality described in [Access the Worklist app in the Amazon Connect agent workspace](worklist-app.md "worklist-app.md").
 
 ### Customize service level calculations
 
@@ -589,12 +556,9 @@ out while waiting in queue, and exclude short abandons using a configurable time
 enables them to create a service level metric calculation that better aligns with their business
 operations.
 
-For more information, see [Create custom calculations of service level
-metrics](dashboard-customize-widgets.md#dashboard-custom-sl "dashboard-customize-widgets.md#dashboard-custom-sl").
+For more information, see [Create custom calculations of service level metrics](dashboard-customize-widgets.md#dashboard-custom-sl "dashboard-customize-widgets.md#dashboard-custom-sl").
 
-### Amazon Connect Contact Lens sensitive data redaction in 7
-
-additional languages
+### Amazon Connect Contact Lens sensitive data redaction in 7 additional languages
 
 Amazon Connect Contact Lens provides sensitive data redaction from voice and chat
 conversational analytics in French (France, Canada), Portuguese (Portugal, Brazil), Italian,
@@ -614,23 +578,15 @@ performance](monitor-flow-performance.md "monitor-flow-performance.md").
 
 Added the following metric definitions:
 
-- [Average queue
-  abandon time - customer first callback](metrics-definitions.md#average-queue-abandon-time-customer-first-callback "metrics-definitions.md#average-queue-abandon-time-customer-first-callback")
-- [Average queue answer
-  time - customer first callback](metrics-definitions.md#average-queue-answer-time-customer-first-callback "metrics-definitions.md#average-queue-answer-time-customer-first-callback")
-- [Average speed
-  of answer - customer first callback dialed](metrics-definitions.md#average-speed-of-answer-customer-first-callback-dialed "metrics-definitions.md#average-speed-of-answer-customer-first-callback-dialed")
+- [Average queue abandon time - customer first callback](metrics-definitions.md#average-queue-abandon-time-customer-first-callback "metrics-definitions.md#average-queue-abandon-time-customer-first-callback")
+- [Average queue answer time - customer first callback](metrics-definitions.md#average-queue-answer-time-customer-first-callback "metrics-definitions.md#average-queue-answer-time-customer-first-callback")
+- [Average speed of answer - customer first callback dialed](metrics-definitions.md#average-speed-of-answer-customer-first-callback-dialed "metrics-definitions.md#average-speed-of-answer-customer-first-callback-dialed")
 - [Average wait time after customer connection - customer first callback](metrics-definitions.md#average-wait-time-after-customer-connection-customer-first-callback "metrics-definitions.md#average-wait-time-after-customer-connection-customer-first-callback")
-- [Callback attempts - customer
-  first callback](metrics-definitions.md#callback-attempts-customer-first-callback "metrics-definitions.md#callback-attempts-customer-first-callback")
-- [Contact volume - agent first
-  callback](metrics-definitions.md#contact-volume-agent-first-callback "metrics-definitions.md#contact-volume-agent-first-callback")
-- [Contact volume - customer first
-  callback](metrics-definitions.md#contact-volume-customer-first-callback "metrics-definitions.md#contact-volume-customer-first-callback")
-- [Contacts abandoned -
-  customer first callback](metrics-definitions.md#contacts-abandoned-customer-first-callback "metrics-definitions.md#contacts-abandoned-customer-first-callback")
-- [Contacts handled - customer
-  first callback](metrics-definitions.md#contacts-handled-customer-first-callback "metrics-definitions.md#contacts-handled-customer-first-callback")
+- [Callback attempts - customer first callback](metrics-definitions.md#callback-attempts-customer-first-callback "metrics-definitions.md#callback-attempts-customer-first-callback")
+- [Contact volume - agent first callback](metrics-definitions.md#contact-volume-agent-first-callback "metrics-definitions.md#contact-volume-agent-first-callback")
+- [Contact volume - customer first callback](metrics-definitions.md#contact-volume-customer-first-callback "metrics-definitions.md#contact-volume-customer-first-callback")
+- [Contacts abandoned - customer first callback](metrics-definitions.md#contacts-abandoned-customer-first-callback "metrics-definitions.md#contacts-abandoned-customer-first-callback")
+- [Contacts handled - customer first callback](metrics-definitions.md#contacts-handled-customer-first-callback "metrics-definitions.md#contacts-handled-customer-first-callback")
 
 ### Use contact segment attributes
 
@@ -640,21 +596,16 @@ use contact segment attributes. Contact segment attributes enable you to central
 information with predetermined values and apply it to a unique contact record. This approach
 preserves accurate business context throughout customer journeys. It helps minimize data
 inconsistencies by enforcing standardized attribute values, and ensures reporting and analytics
-always reflect the true customer journey. For more information, see [Contacts, contact chains, and contact
-attributes](contacts-contact-chains-attributes.md "contacts-contact-chains-attributes.md") and [Use contact segment attributes](use-contact-segment-attributes.md "use-contact-segment-attributes.md").
+always reflect the true customer journey. For more information, see [Contacts, contact chains, and contact attributes](contacts-contact-chains-attributes.md "contacts-contact-chains-attributes.md") and [Use contact segment attributes](use-contact-segment-attributes.md "use-contact-segment-attributes.md").
 
-### New detailed disconnect reasons for improved call
-
-troubleshooting
+### New detailed disconnect reasons for improved call troubleshooting
 
 Amazon Connect offers expanded disconnect reasons to help you better understand why outbound calls
 failed to connect in your contact center. These enhanced reasons are based on standard telecom
 error codes that provide deeper call insights and enable faster troubleshooting. For more
 information, see DisconnectReason under [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord").
 
-### Use agent hierarchy filters to search for
-
-contacts
+### Use agent hierarchy filters to search for contacts
 
 You can search for contacts by using agent hierarchy filters on the **Contact
 search** page in the Amazon Connect admin website. You can drill-down into your hierarchy to review contacts
@@ -677,19 +628,15 @@ resolve it immediately.
 Supervisors and managers can enable manual assignment by updating agent configuration in
 routing and security profiles. Agents can then use the new worklist application in their agent
 workspace to manually assign themselves the next important chat, task, or email. For more
-information, see [Access the Worklist app in the Amazon Connect agent
-workspace](worklist-app.md "worklist-app.md").
+information, see [Access the Worklist app in the Amazon Connect agent workspace](worklist-app.md "worklist-app.md").
 
 ## August 2025 Updates
 
-### Contact Lens with external voice
-
-expanded to additional AWS Regions
+### Contact Lens with external voice expanded to additional AWS Regions
 
 Contact Lens with external voice is now supported in Asia Pacific (Tokyo),
 Asia Pacific (Sydney), Canada (Central), Europe (Frankfurt), and Europe (London).
-For more information, see [Integrate Amazon Connect Contact Lens with external
-voice systems](contact-lens-integration.md "contact-lens-integration.md") and [Conversational analytics availability by Region](regions.md#contactlens_region "regions.md#contactlens_region").
+For more information, see [Integrate Amazon Connect Contact Lens with external voice systems](contact-lens-integration.md "contact-lens-integration.md") and [Conversational analytics availability by Region](regions.md#contactlens_region "regions.md#contactlens_region").
 
 ### Multi-user web, in-app, and video calling
 
@@ -697,8 +644,7 @@ Amazon Connect supports multi-user web, in-app, and video calling, allowing mult
 the same session with an agent through a web browser or mobile application. Contact center
 customers and agents can dynamically add participants during a live call or multiple
 participants can join a scheduled session with the same agent. Participants can engage in audio,
-video, and screen sharing for a fully collaborative experience. For more information, see [Enable multi-user in-app, web, and video
-calling](enable-multiuser-inapp.md "enable-multiuser-inapp.md").
+video, and screen sharing for a fully collaborative experience. For more information, see [Enable multi-user in-app, web, and video calling](enable-multiuser-inapp.md "enable-multiuser-inapp.md").
 
 ### Recurring activities in agent schedules
 
@@ -708,9 +654,7 @@ meeting every Monday at 9 a.m. as a series that automatically gets added to agen
 These can be scheduled as individual recurring series for each agent or a shared recurring
 series across multiple agents. For more information, see [Forecasting, capacity planning, and scheduling in Amazon Connect](forecasting-capacity-planning-scheduling.md "forecasting-capacity-planning-scheduling.md").
 
-### Amazon Connect communications widget supports task
-
-and email forms for websites and applications
+### Amazon Connect communications widget supports task and email forms for websites and applications
 
 Amazon Connect provides out-of-the-box embedding of tasks and emails into your websites and
 applications using the contact form option in the communications widget. You can add the
@@ -724,12 +668,9 @@ The feature includes these capabilities:
 - Provide customers with flexible engagement options
 - Manage all engagements through existing Amazon Connect workflows
 
-For more information, see [Add the Amazon Connect widget to your website to accept
-chat, task, email, and web calling contacts](connect-widget-on-website.md "connect-widget-on-website.md").
+For more information, see [Add the Amazon Connect widget to your website to accept chat, task, email, and web calling contacts](connect-widget-on-website.md "connect-widget-on-website.md").
 
-### Amazon Connect Outbound Campaigns supports
-
-multi-profile campaigns and enhanced phone number retry sequencing
+### Amazon Connect Outbound Campaigns supports multi-profile campaigns and enhanced phone number retry sequencing
 
 Amazon Connect Outbound Campaigns supports account-based campaigns, enabling you to reach multiple
 people associated with the same account. For example, when calling about a joint bank account,
@@ -749,9 +690,7 @@ The feature includes these enhancements:
 This feature is available in all AWS Regions where Amazon Connect Outbound Campaigns is supported.
 For more information, see [Outbound Campaigns](outbound-campaigns.md "outbound-campaigns.md").
 
-### Use the GetContactMetrics API to retrieve real-time
-
-position in queue
+### Use the GetContactMetrics API to retrieve real-time position in queue
 
 You can use the [GetContactMetrics](../APIReference/API_GetContactMetrics.md "../APIReference/API_GetContactMetrics.md") API and
 the [Position in Queue](metrics-definitions.md#position-in-queue "metrics-definitions.md#position-in-queue") metric to retrieve
@@ -771,9 +710,7 @@ metric definition.
 
 ## July 2025 Updates
 
-### Enhancements to audio treatment while customers wait in
-
-queue
+### Enhancements to audio treatment while customers wait in queue
 
 You can configure flows to execute logic such as routing priority changes while continuing
 to play audio to customers waiting in queue. For example, when a customer is in queue listening
@@ -781,9 +718,7 @@ to music or instructions, you can periodically check metrics to determine whethe
 them to a different queue or conditionally offer a callback, without having the check itself
 cause any interruption to the music. For more information, see the [Loop prompts](loop-prompts.md "loop-prompts.md") block.
 
-### Enhanced third-party application
-
-support in agent workspace
+### Enhanced third-party application support in agent workspace
 
 The agent workspace supports new actions and workflows powered by third-party applications
 running in the background. This enhancement allows agents to perform various tasks without
@@ -803,23 +738,17 @@ US-West (Oregon), Africa (Cape town), Asia Pacific (Seoul), Asia Pacific (Singap
 Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), and Europe
 (London).
 
-For more information, see [Access third-party applications in the
-Amazon Connect agent workspace](3p-apps-agent-workspace.md "3p-apps-agent-workspace.md") in the Amazon Connect Administrator Guide and the
+For more information, see [Access third-party applications in the Amazon Connect agent workspace](3p-apps-agent-workspace.md "3p-apps-agent-workspace.md") in the Amazon Connect Administrator Guide and the
 [Amazon
 Connect Agent Workspace Developer Guide](../../../agentworkspace/latest/devguide/what-is-service.md "../../../agentworkspace/latest/devguide/what-is-service.md").
 
-### Apply Automatic fail to a section or the entire
-
-evaluation form
+### Apply Automatic fail to a section or the entire evaluation form
 
 You can configure an evaluation form so answering 0 to a specific question assigns a score
 of 0 to the section, the subsection, or the entire evaluation form. Previously this option
-assigned a score of 0 to the entire form. For more information, see [Step 5: Assign scores and ranges to
-answers](create-evaluation-forms.md#step-assignscores "create-evaluation-forms.md#step-assignscores") in [Create an evaluation form in Amazon Connect](create-evaluation-forms.md "create-evaluation-forms.md").
+assigned a score of 0 to the entire form. For more information, see [Step 5: Assign scores and ranges to answers](create-evaluation-forms.md#step-assignscores "create-evaluation-forms.md#step-assignscores") in [Create an evaluation form in Amazon Connect](create-evaluation-forms.md "create-evaluation-forms.md").
 
-### Direct signing of calls from US numbers to North American
-
-Numbering Plan (NANP) destinations
+### Direct signing of calls from US numbers to North American Numbering Plan (NANP) destinations
 
 All calls from US numbers (toll-free or direct-inward-dial) are marked and signed with
 STIR/SHAKEN attestation headers and attestation levels provided by Amazon Connect through AMCS LLC.
@@ -841,9 +770,7 @@ accuracy, and respond faster to demand fluctuations. For more information, see [
 Added the disconnect reason `CUSTOMER_NEVER_ARRIVED` to the contact record. For
 more information, see [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord").
 
-### Analytics dashboard in agent
-
-workspace
+### Analytics dashboard in agent workspace
 
 The agent workspace includes an out-of-box analytics dashboard that provides agents with
 insights into their individual performance metrics and queue status. Agents can view their
@@ -854,8 +781,7 @@ These insights help agents improve their performance and make data-driven decisi
 enhance customer experience. For example, agents can better time their breaks by monitoring
 queue volumes.
 
-For more information, see [Access the performance dashboard directly in
-the agent workspace](performance-dashboard-aw.md "performance-dashboard-aw.md").
+For more information, see [Access the performance dashboard directly in the agent workspace](performance-dashboard-aw.md "performance-dashboard-aw.md").
 
 In addition, there's a new widget on the **Queue and agent performance**
 dashboard: [Agent status drill down](queue-performance-dashboard.md#agent-status-drill-down "queue-performance-dashboard.md#agent-status-drill-down").
@@ -973,14 +899,11 @@ The following GIF shows how to navigate to the problematic blocks.
 
 ![A GIF that shows how to use Block Error Navigation.](images/GIF/block-error-navigation.gif)
 
-### Flow designer keyboard shortcuts and
-
-accessibility improvements
+### Flow designer keyboard shortcuts and accessibility improvements
 
 The flow designer includes a **Keyboard shortcuts** panel, which includes
 an expanded set of shortcuts for navigating through and editing flows. For more information, see
-[Keyboard shortcuts for the
-Amazon Connect flow designer](keyboard-shortcuts.md "keyboard-shortcuts.md").
+[Keyboard shortcuts for the Amazon Connect flow designer](keyboard-shortcuts.md "keyboard-shortcuts.md").
 
 The flow designer includes the following accessibility improvements: screen reader support,
 Reflow Mode, button-based movement, and high-contract lines. These are described below.
@@ -1040,13 +963,10 @@ entered on a view by a user more initiative and consistent with Amazon Connect w
 In addition, the UI builder contains a consistent look and feel with the rest of Amazon Connect by
 using [Cloudscape Design System](https://cloudscape.design/ "https://cloudscape.design/") components.
 
-For more information, see [Use the UI builder in Amazon Connect for resources
-in step-by-step guides](no-code-ui-builder.md "no-code-ui-builder.md"), especially the subtopic [Configure
+For more information, see [Use the UI builder in Amazon Connect for resources in step-by-step guides](no-code-ui-builder.md "no-code-ui-builder.md"), especially the subtopic [Configure
 dynamic fields](no-code-ui-builder-properties-dynamic-fields.md "no-code-ui-builder-properties-dynamic-fields.md").
 
-### Segment creation from imported files in Customer
-
-Profiles
+### Segment creation from imported files in Customer Profiles
 
 Amazon Connect Customer Profiles allows you to create customer segments from imported CSV files. This feature
 enables you to upload predefined customer lists, streamline targeted segment creation, and
@@ -1057,8 +977,7 @@ utilize them for multichannel outbound campaigns.
 - Configure profile expiry settings up to 90 days
 - Utilize unique identifiers to match and update existing profiles
 
-For more information, see [Create segments from imported
-files in Amazon Connect](customer-segments-imported-files.md "customer-segments-imported-files.md").
+For more information, see [Create segments from imported files in Amazon Connect](customer-segments-imported-files.md "customer-segments-imported-files.md").
 
 ### Additional chat metrics
 
@@ -1066,25 +985,20 @@ Added the following chat metrics to Amazon Connect. Each metric is available in 
 using the GetMetricDataV2 API.
 
 - [Average messages](metrics-definitions.md#average-messages "metrics-definitions.md#average-messages")
-- [Agent average contact
-  first response wait time](metrics-definitions.md#agent-average-contact-first-response-wait-time "metrics-definitions.md#agent-average-contact-first-response-wait-time")
-- [Average conversation close
-  time](metrics-definitions.md#average-conversation-close-time "metrics-definitions.md#average-conversation-close-time")
+- [Agent average contact first response wait time](metrics-definitions.md#agent-average-contact-first-response-wait-time "metrics-definitions.md#agent-average-contact-first-response-wait-time")
+- [Average conversation close time](metrics-definitions.md#average-conversation-close-time "metrics-definitions.md#average-conversation-close-time")
 - [Conversations abandoned](metrics-definitions.md#conversations-abandoned "metrics-definitions.md#conversations-abandoned")
 - [Average customer messages](metrics-definitions.md#average-customer-messages "metrics-definitions.md#average-customer-messages")
 - [Average customer response time](metrics-definitions.md#average-customer-response-time "metrics-definitions.md#average-customer-response-time")
 - [Average agent messages](metrics-definitions.md#average-agent-messages "metrics-definitions.md#average-agent-messages")
 - [Average agent message length](metrics-definitions.md#average-agent-message-length "metrics-definitions.md#average-agent-message-length")
-- [Average agent first response
-  time](metrics-definitions.md#average-agent-first-response-time "metrics-definitions.md#average-agent-first-response-time")
+- [Average agent first response time](metrics-definitions.md#average-agent-first-response-time "metrics-definitions.md#average-agent-first-response-time")
 - [Average agent response time](metrics-definitions.md#average-agent-response-time "metrics-definitions.md#average-agent-response-time")
 - [Average bot messages](metrics-definitions.md#average-bot-messages "metrics-definitions.md#average-bot-messages")
 
 Also added fields to the [Contact record](data-type-definitions.md#data-lake-contacts-record "data-type-definitions.md#data-lake-contacts-record") in the Amazon Connect data lake.
 
-### Create instance replication between Asia Pacific (Tokyo)
-
-and Asia Pacific (Osaka)
+### Create instance replication between Asia Pacific (Tokyo) and Asia Pacific (Osaka)
 
 You can maintain a synchronized instance in Asia Pacific (Osaka) that mirrors the
 channel configurations and service quotas of your Asia Pacific (Tokyo) environment. With a
@@ -1108,18 +1022,13 @@ work. This capability also improves the experience for agents as they now have v
 how their time is allocated. For more information, see [Create shift
 activities](scheduling-create-shift-activities.md "scheduling-create-shift-activities.md").
 
-### Ingest agent activities from third-party applications to
-
-evaluate agent performance
+### Ingest agent activities from third-party applications to evaluate agent performance
 
 You can integrate agent activities from third-party applications as Amazon Connect tasks. Managers
 can then evaluate these activities alongside work completed in Amazon Connect. This provides managers
-with a unified application for quality management. For more information, see [Ingest agent activities from
-third-party applications to evaluate agent performance](evaluations-external-activities.md "evaluations-external-activities.md").
+with a unified application for quality management. For more information, see [Ingest agent activities from third-party applications to evaluate agent performance](evaluations-external-activities.md "evaluations-external-activities.md").
 
-### Amazon Connect Customer Profiles Profile
-
-Explorer
+### Amazon Connect Customer Profiles Profile Explorer
 
 Amazon Connect Customer Profiles Profile Explorer is a feature that provides a unified, customizable view of
 customer information. Key features include:
@@ -1134,12 +1043,9 @@ Profile Explorer is available in the following AWS regions: US East (N. Virginia
 (Singapore), Asia Pacific (Sydney), Canada (Central), Europe (Frankfurt), and Europe (London).
 Note that AI summary is currently not available in Africa (Cape Town).
 
-For more information, see the [Set up Profile explorer in
-Amazon Connect Customer Profiles](customer-profiles-profile-explorer.md "customer-profiles-profile-explorer.md").
+For more information, see the [Set up Profile explorer in Amazon Connect Customer Profiles](customer-profiles-profile-explorer.md "customer-profiles-profile-explorer.md").
 
-### New quota: Maximum contacts in an agent queue per
-
-instance
+### New quota: Maximum contacts in an agent queue per instance
 
 A new quota has been introduced for the maximum number of contacts that can be queued at
 once in a single agent queue. The quota is set to 10 contacts per queue and applies to every
@@ -1148,9 +1054,7 @@ it's easier for you to change.) This is a resource-level quota and can be increa
 request. For more information, see [Amazon Connect service
 quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
 
-### Amazon Connect Customer Profiles enhanced calculated
-
-attributes
+### Amazon Connect Customer Profiles enhanced calculated attributes
 
 Amazon Connect Customer Profiles provides enhanced calculated attributes with the following improvements:
 
@@ -1171,8 +1075,7 @@ These features are available in US East (N. Virginia), US West (Oregon), Africa 
 Town), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Asia Pacific
 (Seoul), Canada (Central), Europe (Frankfurt), and Europe (London).
 
-For more information, see the [Create calculated
-attributes in Amazon Connect](calculated-attributes-admin-website-create.md "calculated-attributes-admin-website-create.md").
+For more information, see the [Create calculated attributes in Amazon Connect](calculated-attributes-admin-website-create.md "calculated-attributes-admin-website-create.md").
 
 ### Enhanced hold duration tracking for multiparty calls
 
@@ -1220,8 +1123,7 @@ You can deliver high-quality voice experiences in Omnissa Virtual Desktop Infras
 local desktop to Amazon Connect, simplifying the agent experience and improving audio quality by reducing
 network hops. Agents can simply log into their Omnissa remote desktop application (that is,
 Omnissa Horizon) and start accepting calls using your custom agent user interface. For more
-information, see [Optimize Amazon Connect audio for
-Omnissa cloud desktops](using-ccp-vdi-omnissa-step-by-step.md "using-ccp-vdi-omnissa-step-by-step.md").
+information, see [Optimize Amazon Connect audio for Omnissa cloud desktops](using-ccp-vdi-omnissa-step-by-step.md "using-ccp-vdi-omnissa-step-by-step.md").
 
 ### Agent hierarchy groups datatype in Analytics Data Lake
 
@@ -1230,16 +1132,12 @@ into your custom analytics and reporting workflows. You can join this with exist
 as Users to retrieve complete hierarchical information about your agents and their team
 assignments. For more information, see [Agent Hierarchy Groups](data-lake-configuration-data.md#agent-hierarchy-groups "data-lake-configuration-data.md#agent-hierarchy-groups").
 
-### Additional AWS Regions for WhatsApp Business
-
-messaging and SMS
+### Additional AWS Regions for WhatsApp Business messaging and SMS
 
 Amazon Connect supports WhatsApp Business messaging and SMS in additional Regions. For more
 information, see [Availability of Amazon Connect features by Region](regions.md "regions.md").
 
-### Access Contact Lens real-time dashboards in
-
-AWS GovCloud (US) Region
+### Access Contact Lens real-time dashboards in AWS GovCloud (US) Region
 
 You can access Amazon Connect Contact Lens real-time queue and agent performance dashboards,
 and flows performance dashboards in AWS GovCloud (US) Region, a secure cloud environment designed
@@ -1257,9 +1155,7 @@ rules](scheduling-create-staff-rules.md "scheduling-create-staff-rules.md").
 
 ## April 2025 Updates
 
-### Enhanced contact information in
-
-DescribeContact API
+### Enhanced contact information in DescribeContact API
 
 The DescribeContact API provides richer contact information, enabling more efficient
 contact center operations. The enhanced API response includes detailed insights such as
@@ -1269,9 +1165,7 @@ re-queuing disconnected chats based on specific disconnect reasons, helping main
 conversation continuity. For more information, see the [DescribeContact API](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md")
 documentation.
 
-### New metrics and dashboard drill downs for
-
-outbound campaigns
+### New metrics and dashboard drill downs for outbound campaigns
 
 Outbound campaigns provides enhanced reporting capabilities for outbound campaigns, including five new
 metrics and detailed dashboard drill downs. Contact Lens dashboards show campaign engagement metrics,
@@ -1281,9 +1175,7 @@ accessible through the [GetMetricDataV2 API](../APIReference/API_GetMetricDataV2
 [Zero-ETL data lake](data-lake-outbound-campaigns-data.md "data-lake-outbound-campaigns-data.md") for custom
 reporting. For more information, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
-### View real-time adherence on the Queue and agent performance
-
-dashboard
+### View real-time adherence on the Queue and agent performance dashboard
 
 You can view real-time agent adherence displayed in the **Agent
 adherence** widget on the **Queue and agent performance** dashboard.
@@ -1291,8 +1183,7 @@ Use the widget to apply filters on adherence status, duration, and percentage; s
 or percentage; and apply conditional formatting within the agent adherence widget on the queue
 and agent performance dashboard. For example, a supervisor can highlight agents who have been
 falling behind schedule for more than 5 minutes, quickly identify breaches, and notify the
-agents accordingly. For more information, see [Schedule Adherence for agent productivity in
-Amazon Connect](schedule-adherence.md "schedule-adherence.md").
+agents accordingly. For more information, see [Schedule Adherence for agent productivity in Amazon Connect](schedule-adherence.md "schedule-adherence.md").
 
 ### Remove agent schedules in bulk
 
@@ -1302,17 +1193,14 @@ day, or up to 30 days for a single agent. For example, remove all schedules for 
 the contact center is going to be closed, or remove future shifts for an agent who is no longer
 with the organization. For more information, see [Remove agent shifts](scheduling-remove-agent-shifts.md "scheduling-remove-agent-shifts.md").
 
-### Enforce granular access control by using
-
-agent hierarchies
+### Enforce granular access control by using agent hierarchies
 
 You can enforce granular access control based on a specific agent hierarchy. Assigning
 hierarchies to a user allows you to define organizational groups that a user belongs to and you
 can enable granular access controls by allowing users to only view metrics for agents within
 their hierarchy or a specific assigned hierarchy. For example, you can configure hierarchy
 groups and levels for a team, and only users assigned to a hierarchy group within that team will
-be able to see metrics for those agents. For more information, see [Apply hierarchy-based access control to
-dashboards and reports in Amazon Connect](dashboard-access-control.md "dashboard-access-control.md").
+be able to see metrics for those agents. For more information, see [Apply hierarchy-based access control to dashboards and reports in Amazon Connect](dashboard-access-control.md "dashboard-access-control.md").
 
 ### Track and meet service level agreements (SLAs) on cases
 
@@ -1325,9 +1213,7 @@ are not met. For more information, see [How SLAs work in Amazon Connect Cases](c
 
 ## March 2025 Updates
 
-### Enable or disable Contact Lens sentiment
-
-analysis
+### Enable or disable Contact Lens sentiment analysis
 
 In Amazon Connect Contact Lens, when you choose a language that is supported by sentiment
 analysis, and choose **Enable speech analytics** or **Enable chat
@@ -1346,9 +1232,7 @@ This update applies to keypad button presses. To configure wait times for voice 
 Amazon Lex, you use the [Get customer input](get-customer-input.md "get-customer-input.md")
 block. See _Configurable time-outs for voice input_ in the [Get customer input](get-customer-input.md "get-customer-input.md") topic.
 
-### Added 34 languages to Amazon Connect Contact Lens conversational
-
-analytics
+### Added 34 languages to Amazon Connect Contact Lens conversational analytics
 
 Amazon Connect Contact Lens added support for conversational analytics in 34 new languages including
 Afrikaans, Arabic (Modern Standard), Bengali, Bosnian, Bulgarian, Chinese (Cantonese), Croatian,
@@ -1359,21 +1243,16 @@ Sundanese, Telugu, Thai, Turkish, Ukrainian, Vietnamese, and Zulu.
 For more information, see the [Amazon Connect Contact Lens
 language table](supported-languages.md#supported-languages-contact-lens "supported-languages.md#supported-languages-contact-lens").
 
-### View agents' adherence to their work schedules in a
-
-calendar view
+### View agents' adherence to their work schedules in a calendar view
 
 You can view adherence breaches by agent and day, for up to 90 days in the past, alongside
 their shifts. You can filter out minimal adherence breaches. This visualization allows you to
 immediately spot adherence breaches across your team, prioritize the most critical incidents,
 compare with past agent behavior, and take steps to address concerns with the agent.
 
-For more information, see [How supervisors view
-published schedules using the Amazon Connect admin website](scheduling-view-schedule-supervisors.md "scheduling-view-schedule-supervisors.md").
+For more information, see [How supervisors view published schedules using the Amazon Connect admin website](scheduling-view-schedule-supervisors.md "scheduling-view-schedule-supervisors.md").
 
-### Process to enable outbound campaigns for the purpose of
-
-event-driven mass notifications
+### Process to enable outbound campaigns for the purpose of event-driven mass notifications
 
 Amazon Connect outbound campaigns supports event-driven mass notifications, such as severe weather warnings,
 evacuation notices, disaster response communications, or utility disruptions impacting many
@@ -1392,8 +1271,7 @@ feedback on being more empathetic towards angry customers"). Managers can then t
 acknowledgements, to confirm that agents are regularly reviewing the feedback on performance
 evaluations for improving their performance.
 
-For more information, see [Acknowledge performance evaluations in
-Amazon Connect](acknowledge-evaluations.md "acknowledge-evaluations.md").
+For more information, see [Acknowledge performance evaluations in Amazon Connect](acknowledge-evaluations.md "acknowledge-evaluations.md").
 
 ### Configure Connect AI agents directly from the Amazon Connect admin website
 
@@ -1404,9 +1282,7 @@ new products, adjust AI guardrails to filter inappropriate content, or refine AI
 
 For more information, see [Customize Connect AI agents](customize-connect-ai-agents.md "customize-connect-ai-agents.md").
 
-### Increased limit on number of routing criteria updates per
-
-queued contact
+### Increased limit on number of routing criteria updates per queued contact
 
 Previously, routing criteria could be updated only up to three times while a contact was in
 queue. You can now update the routing criteria on a queued contact an unlimited number of times.
@@ -1414,9 +1290,7 @@ However, if you update the routing criteria more than 3 times on a queued contac
 latest 3 updates will be stored on the contact record and used to calculate metrics such as Step
 Expired % and Step Contacts Queued. To learn more, see [RoutingCriteria](ctr-data-model.md#ctr-RoutingCriteria "ctr-data-model.md#ctr-RoutingCriteria") in the contact record documentation.
 
-### Dynamically update questions on an evaluation
-
-form
+### Dynamically update questions on an evaluation form
 
 You can create dynamic evaluation forms that automatically show or hide questions based on
 responses to previous questions, tailoring each evaluation to specific customer interaction
@@ -1430,15 +1304,12 @@ reduces manager effort in selecting the relevant evaluation form and determining
 evaluation questions are applicable to the interaction, helping managers perform evaluations
 faster and more accurately.
 
-For more information, see [Step 4: Conditionally enable
-questions](create-evaluation-forms.md#step-conditionally-enable-questions "create-evaluation-forms.md#step-conditionally-enable-questions") in [Create an evaluation
+For more information, see [Step 4: Conditionally enable questions](create-evaluation-forms.md#step-conditionally-enable-questions "create-evaluation-forms.md#step-conditionally-enable-questions") in [Create an evaluation
 form](create-evaluation-forms.md "create-evaluation-forms.md").
 
 ## February 2025 Updates
 
-### Updates to Amazon Connect Analytics data
-
-lake
+### Updates to Amazon Connect Analytics data lake
 
 Amazon Connect Analytics Data Lake provides a unified source for contact center data,
 including contact records, agent performance metrics, Contact Lens insights, and more. This
@@ -1453,8 +1324,7 @@ experience and operational efficiency.
 For more information, see [Amazon Connect data lake](data-lake.md "data-lake.md").
 
 There are updated tables for Contact records, Contact Evaluation records, Lex, and Outbound
-Campaigns. For tables of the latest fields, see [Data type definitions for the Amazon Connect
-data lake](data-type-definitions.md "data-type-definitions.md").
+Campaigns. For tables of the latest fields, see [Data type definitions for the Amazon Connect data lake](data-type-definitions.md "data-type-definitions.md").
 
 ### Allow agents to exchange shifts with each other
 
@@ -1466,12 +1336,9 @@ non-critical tasks, such as routine customer inquiries, while manually approving
 agents who handle sensitive customer segments, like healthcare or high-value enterprise
 accounts.
 
-For more information, see [Create shift trade
-groups](scheduling-create-shift-trade-groups.md "scheduling-create-shift-trade-groups.md") and [Set up shift exchange in Amazon Connect](shift-exchange.md "shift-exchange.md").
+For more information, see [Create shift trade groups](scheduling-create-shift-trade-groups.md "scheduling-create-shift-trade-groups.md") and [Set up shift exchange in Amazon Connect](shift-exchange.md "shift-exchange.md").
 
-### Released ListAnalyticsDataLakeDataSets
-
-API and update to preview APIs
+### Released ListAnalyticsDataLakeDataSets API and update to preview APIs
 
 Released the [ListAnalyticsDataLakeDataSets](../APIReference/API_ListAnalyticsDataLakeDataSets.md "../APIReference/API_ListAnalyticsDataLakeDataSets.md") API. Use this API to list the data lake datasets
 available to associate with for a given Amazon Connect instance.
@@ -1507,16 +1374,13 @@ time, to identify agent strengths and improvement opportunities. The dashboard a
 with insights into agent time allocation and contact handling efficiency, so you can drive
 improvements in agent productivity.
 
-For more information, see [Agent performance evaluations
-dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md").
+For more information, see [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md").
 
 ### Evaluations metrics
 
 There are now four evaluations metrics. For more information, see [Evaluation metrics](evaluation-metrics.md "evaluation-metrics.md").
 
-### Target multiple agent proficiencies in a single routing
-
-step
+### Target multiple agent proficiencies in a single routing step
 
 You can target up to four different combinations of agent proficiencies per routing step.
 By using up to three OR conditions, routing tries to match a contact with four different types
@@ -1525,12 +1389,9 @@ backup for a niche of banking skills consists of agents trained on account manag
 registration, and tax, then after an initial search for balance transfer agents, you can attempt
 a match across all four types of agents at the same time.
 
-For more information, see [How routing criteria
-works](set-routing-criteria.md#set-routing-criteria-how-it-works "set-routing-criteria.md#set-routing-criteria-how-it-works").
+For more information, see [How routing criteria works](set-routing-criteria.md#set-routing-criteria-how-it-works "set-routing-criteria.md#set-routing-criteria-how-it-works").
 
-### Configure which states an agent can be in when adhering to
-
-their schedule
+### Configure which states an agent can be in when adhering to their schedule
 
 You can choose which states an agent can be in when adhering to their schedule, making it
 easier for you to customize adherence tracking to match your unique operational needs. You can
@@ -1546,9 +1407,7 @@ dashboard (as opposed to only Productive/Non-productive).
 For more information, see [Create shift
 activities](scheduling-create-shift-activities.md "scheduling-create-shift-activities.md").
 
-### Create conditionally required fields in Amazon Connect
-
-Cases
+### Create conditionally required fields in Amazon Connect Cases
 
 You can create conditionally required fields to streamline case field population for agents
 and reduce data entry errors. You can configure case templates that prompt agents to enter
@@ -1571,9 +1430,7 @@ Also see the following APIs that are part of these release:
 - [ListCaseRules](../APIReference/API_connect-cases_ListCaseRules.md "../APIReference/API_connect-cases_ListCaseRules.md")
 - [UpdateCaseRule](../APIReference/API_connect-cases_UpdateCaseRule.md "../APIReference/API_connect-cases_UpdateCaseRule.md")
 
-### Automatically email agents about completed performance
-
-evaluations
+### Automatically email agents about completed performance evaluations
 
 You can send automatic email notifications to agents when their contacts are evaluated, so
 they can review the evaluations and improve their performance. Managers can create rules to send
@@ -1586,9 +1443,7 @@ email notifications](contact-lens-rules-email.md "contact-lens-rules-email.md").
 
 ## January 2025 Updates
 
-### Use Agent Workspace audio optimization for Citrix and
-
-Amazon WorkSpaces virtual desktops
+### Use Agent Workspace audio optimization for Citrix and Amazon WorkSpaces virtual desktops
 
 You can use Amazon Connect Agent Workspace to redirect audio from Citrix and Amazon WorkSpaces Virtual
 Desktop Infrastructure (VDI) environments to an agent's local device. Audio redirection improves
@@ -1596,17 +1451,13 @@ voice quality and reduces latency for voice calls handled on virtual desktops. I
 better experience for both end customers and agents. For more information, see [Use the agent workspace to optimize
 audio for Citrix, Amazon WorkSpaces, and Omnissa cloud desktops](optimize-audio-cdd.md "optimize-audio-cdd.md").
 
-### Screen recording available in
-
-AWS GovCloud (US-West)
+### Screen recording available in AWS GovCloud (US-West)
 
 Government and public sector customer can use the screen recording capabilities in the
 AWS GovCloud (US-West) Region. For more information about screen recording, see [Set up and review agent screen
 recordings](agent-screen-recording.md "agent-screen-recording.md").
 
-### Public preview of persistent agent connections
-
-for faster call handling
+### Public preview of persistent agent connections for faster call handling
 
 You can maintain an open communication channel between your agents and Amazon Connect to help reduce
 the time it takes to establish a connection with a customer. Contact center administrators can
@@ -1634,9 +1485,7 @@ sales volumes, customer retention, and more) into performance evaluations of ema
 providing managers with comprehensive insights on agent performance. For more information, see
 [Evaluate performance](evaluations.md "evaluations.md").
 
-### Dashboards provide configurable
-
-groupings and filters
+### Dashboards provide configurable groupings and filters
 
 You can define widget level filters and groupings, re-order and re-size columns, and delete
 or add new metrics. With these dashboards, you can view and compare real-time and historical
@@ -1661,9 +1510,7 @@ dashboard](queue-performance-dashboard.md "queue-performance-dashboard.md").
 
 ### December 2024 Updates
 
-#### Route to a specific range of agent
-
-proficiencies
+#### Route to a specific range of agent proficiencies
 
 Amazon Connect allows you to target a range of agent proficiency levels, such as from levels 1 to 3
 for French. You can ensure each contact is matched to an agent with the right skill level to
@@ -1671,20 +1518,15 @@ handle it, resulting in reduced contact transfers and lower handle times. You ca
 simpler contacts to new hires while reserving your tenured agents for the difficult contacts
 that require their knowledge and expertise. . For more information, see [Frequently asked questions](proficiency-routing.md#proficiency-routing-faq "proficiency-routing.md#proficiency-routing-faq").
 
-#### Exclude certain proficiencies during
-
-routing
+#### Exclude certain proficiencies during routing
 
 Amazon Connect allows you to exclude certain proficiencies from consideration when using routing
 criteria for routing. You can use this to exclude or reserve niche skills. For example, you can
 exclude dual-skilled Spanish and English speaking agents from English language contacts to
 reserve them for contacts in Spanish. You can include the dual-skilled agents when required by
-removing the exclusion condition.. For more information, see [How routing criteria
-works](set-routing-criteria.md#set-routing-criteria-how-it-works "set-routing-criteria.md#set-routing-criteria-how-it-works").
+removing the exclusion condition.. For more information, see [How routing criteria works](set-routing-criteria.md#set-routing-criteria-how-it-works "set-routing-criteria.md#set-routing-criteria-how-it-works").
 
-#### Delete queues and routing profiles by using the
-
-Amazon Connect admin website
+#### Delete queues and routing profiles by using the Amazon Connect admin website
 
 You can use the Amazon Connect admin website to permanently delete queues and routing profiles. For example, if
 your team set up sample queues to test a use case that is no longer needed, or you're
@@ -1692,9 +1534,7 @@ consolidating your routing profiles because you have reorganized agents, you can
 the unwanted resources by using the Amazon Connect admin website. For more information, see [Delete a queue](delete-queue.md "delete-queue.md") and [Delete a routing
 profile](delete-routing-profiles.md "delete-routing-profiles.md").
 
-#### Connect AI agents supports 64 languages for agent assistance
-
-capabilities
+#### Connect AI agents supports 64 languages for agent assistance capabilities
 
 Customer service agents can chat with Q for assistance in their native language and Q will
 provide answers, knowledge article links, and recommended step-by-step guides in that language.
@@ -1723,9 +1563,7 @@ prompted to sign in before being routed to an agent.
 
 For more information, see [Set up customer authentication](customer-auth.md "customer-auth.md").
 
-#### Agent schedule data in Analytics data
-
-lake
+#### Agent schedule data in Analytics data lake
 
 Published schedules data is provided in the Analytics data lake, which allows you to
 generate reports and insights. From agent schedules data in the Analytics data lake, you can
@@ -1733,12 +1571,9 @@ automate key operational use cases such as generating reports for paid and unpai
 payroll, generating summarized views of how many agents are scheduled to work and how many have
 time-off in a given time period.
 
-For more information, see [Scheduling data in the Amazon Connect analytics data
-lake](data-lake-scheduling.md "data-lake-scheduling.md").
+For more information, see [Scheduling data in the Amazon Connect analytics data lake](data-lake-scheduling.md "data-lake-scheduling.md").
 
-#### Configure holidays and other overrides to hours of
-
-operation
+#### Configure holidays and other overrides to hours of operation
 
 You can set up variations to standard day-of-the-week operating hours in advance. You can
 configure overrides by using the Amazon Connect admin website or APIs. During daily contact handling, Amazon Connect
@@ -1749,13 +1584,10 @@ your call center automatically reverts to standard hours of operation.
 For more information, see [Set overrides for extended, reduced, and holiday hours](hours-of-operation-overrides.md "hours-of-operation-overrides.md"). For a list of new APIs associated with this release, see
 [Hours of operation actions](../APIReference/hours-of-operation-api.md "../APIReference/hours-of-operation-api.md") in the _Amazon Connect API Reference_.
 
-#### Amazon Connect supports push notifications for mobile chat on
-
-iOS and Android devices
+#### Amazon Connect supports push notifications for mobile chat on iOS and Android devices
 
 Amazon Connect supports push notifications for mobile chat on iOS and Android devices, improving
-the customer experience and enabling faster issue resolution. For more information, see [Enable push notifications for
-mobile chat](enable-push-notifications-for-mobile-chat.md "enable-push-notifications-for-mobile-chat.md").
+the customer experience and enabling faster issue resolution. For more information, see [Enable push notifications for mobile chat](enable-push-notifications-for-mobile-chat.md "enable-push-notifications-for-mobile-chat.md").
 
 #### Configure tasks to expire up to 30 days from creation
 
@@ -1764,17 +1596,13 @@ days. For example, you can specify one issue to expire at 2 hours from creation 
 escalations, and specify another issue for mandatory training to stay active for 30 days. For
 more information, see [Create task templates in Amazon Connect](task-templates.md "task-templates.md").
 
-#### Track the originating agent when they create a task
-
-manually
+#### Track the originating agent when they create a task manually
 
 You can track the originating agent when they create a task manually from the agent
 workspace or Contact Control Panel (CCP). This capability allows supervisors to run analytics
 on how many tasks are created by an individual agent. For more information, see [Track who created a task](tasks.md#createdby-tasks "tasks.md#createdby-tasks").
 
-#### Provide callbacks for customers who use chat, tasks, and
-
-email
+#### Provide callbacks for customers who use chat, tasks, and email
 
 You can enable customers to request callbacks from chats, tasks, and email, in addition to
 voice calls. For example, if a customer reaches out after hours when no agent is available,
@@ -1782,9 +1610,7 @@ they can request a callback by sending a chat message or completing a webform re
 tasks. Callbacks allow your customers to get a call from an available agent during normal
 business hours, without requiring them to stay on the line. For more information, see [Set up queued callback](setup-queued-cb.md "setup-queued-cb.md").
 
-#### Collect sensitive customer data within
-
-chats without requiring the customer to switch channels
+#### Collect sensitive customer data within chats without requiring the customer to switch channels
 
 Amazon Connect makes it easier for you to collect sensitive customer data and deliver seamless
 transactional experiences within chats. You can support inline chat interactions such as
@@ -1792,9 +1618,7 @@ processing payments, updating customer information like address changes, or coll
 data like account details, without requiring the customer to switch channels or navigate to
 another page on your website. For more information, see the [Flow block in Amazon Connect: Show view](show-view-block.md "show-view-block.md") block.
 
-#### Proactive outbound engagement in the
-
-Amazon Connect admin website
+#### Proactive outbound engagement in the Amazon Connect admin website
 
 You can proactively engage your customers in a personalized manner. Amazon Connect includes
 features that help non-technical business users create customer segments using prompts and
@@ -1812,20 +1636,15 @@ Engage customers with timely, relevant communications by using their preferred c
 responding instantly to behaviors such as abandoned shopping carts or frequent visits to
 specific help pages.
 
-For more information, see [Use the segment AI assistant in
-Amazon Connect](customer-segments-ai-assistant.md "customer-segments-ai-assistant.md") and [Create an outbound campaign using
-event triggers](how-to-create-campaigns-using-event-triggers.md "how-to-create-campaigns-using-event-triggers.md").
+For more information, see [Use the segment AI assistant in Amazon Connect](customer-segments-ai-assistant.md "customer-segments-ai-assistant.md") and [Create an outbound campaign using event triggers](how-to-create-campaigns-using-event-triggers.md "how-to-create-campaigns-using-event-triggers.md").
 
-#### Generative AI-powered self-service with
-
-Connect AI agents
+#### Generative AI-powered self-service with Connect AI agents
 
 Connect AI agents, a generative-AI powered assistant for customer service, supports end-customer
 self-service interactions across Interactive Voice Response (IVR) and digital channels. With
 this launch, businesses can augment their existing self-service experiences with generative AI
 capabilities to create more personalized and dynamic experiences to improve customer
-satisfaction and first contact resolution. For more information, see [Use generative AI-powered
-self-service with Connect AI agents](generative-ai-powered-self-service.md "generative-ai-powered-self-service.md").
+satisfaction and first contact resolution. For more information, see [Use generative AI-powered self-service with Connect AI agents](generative-ai-powered-self-service.md "generative-ai-powered-self-service.md").
 
 #### AI guardrails for Connect AI agents
 
@@ -1836,9 +1655,7 @@ to filter harmful and inappropriate responses, redact sensitive personal informa
 incorrect information in the responses due to potential large language model (LLM)
 hallucination. For more information, see [Create AI guardrails for Connect AI agents](create-ai-guardrails.md "create-ai-guardrails.md").
 
-#### Built-in dashboards to analyze
-
-conversational AI bot performance
+#### Built-in dashboards to analyze conversational AI bot performance
 
 You can use built-in dashboards to monitor the performance of your conversational AI bots.
 This makes it easy for you to analyze and continuously improve your self-service and automated
@@ -1849,12 +1666,9 @@ navigate to the bot management page and make updates in a couple clicks to impro
 accuracy. These new capabilities make it easy for you analyze the performance of your
 conversational AI experiences, all within the Amazon Connect admin website.
 
-For more information, see [Flows and conversational bot performance
-dashboard](flows-performance-dashboard.md "flows-performance-dashboard.md").
+For more information, see [Flows and conversational bot performance dashboard](flows-performance-dashboard.md "flows-performance-dashboard.md").
 
-#### Create conversational AI bots by using
-
-the Amazon Connect admin website
+#### Create conversational AI bots by using the Amazon Connect admin website
 
 In just a few clicks you can create, edit, and continuously improve conversational AI bots
 for interactive voice response (IVR) and chatbot self-service experiences by using the Amazon Connect admin website
@@ -1871,9 +1685,7 @@ For more information, see [Create conversational AI bots in Amazon Connect](conn
 
 For a list of new metrics included in this release, see [Amazon Connect bot metrics and analytics](bot-metrics.md "bot-metrics.md").
 
-#### Record audio during IVR and other
-
-automated interactions
+#### Record audio during IVR and other automated interactions
 
 You can record audio when your customer engages with self-service interactive voice
 response (IVR) and other automated interactions. On the **Contact details**
@@ -1886,8 +1698,7 @@ customer shares their credit card or social security number. These new capabilit
 easy for you to monitor and audit the quality of your self-service experiences or to record
 interactions for compliance or policy purposes.
 
-For more information, see [Monitor automated interactions
-(IVR) in Amazon Connect](monitor-automated-interaction-logs.md "monitor-automated-interaction-logs.md").
+For more information, see [Monitor automated interactions (IVR) in Amazon Connect](monitor-automated-interaction-logs.md "monitor-automated-interaction-logs.md").
 
 #### Intraday forecast dashboards
 
@@ -1903,27 +1714,19 @@ wait times are impacted.
 
 This release includes a new metric: [Effective staffing](metrics-definitions.md#effective-staffing "metrics-definitions.md#effective-staffing").
 
-For more information, see [Intraday forecast performance
-dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md").
+For more information, see [Intraday forecast performance dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md").
 
-#### Automatically categorize your contacts using
-
-generative AI
+#### Automatically categorize your contacts using generative AI
 
 Amazon Connect Contact Lens allows you to automatically categorize your contacts using
 generative AI, making it easy to identify top drivers, customer experience, and agent behavior
 for your contacts. You can provide criteria to categorize contacts in natural language, such as
 _Did the customer try to make a payment on their balance?_.
 Contact Lens then automatically labels contacts that meet the match criteria, and
-provides relevant points from the conversation. For more information, see [Use Generative AI to
-semantically match contacts with natural language statements](natural-language-semantic-match.md "natural-language-semantic-match.md")
-and [Automatically categorize contacts by matching
-conversations with natural language statements, or specific words and
-phrases](rules.md "rules.md").
+provides relevant points from the conversation. For more information, see [Use Generative AI to semantically match contacts with natural language statements](natural-language-semantic-match.md "natural-language-semantic-match.md")
+and [Automatically categorize contacts by matching conversations with natural language statements, or specific words and phrases](rules.md "rules.md").
 
-#### Amazon Connect Contact Lens automates
-
-agent performance evaluations using generative AI
+#### Amazon Connect Contact Lens automates agent performance evaluations using generative AI
 
 Amazon Connect Contact Lens provides you with the ability to use generative AI to
 automatically fill and submit agent performance evaluations. Managers can specify their
@@ -1936,9 +1739,7 @@ across cohorts of agents over time.. For more information, see [Create an evalua
 You can integrate WhatsApp with Amazon Connect and enable customers to use WhatsApp to message your
 call centers. For more information, see [Set up WhatsApp Business messaging](whatsapp-integration.md "whatsapp-integration.md").
 
-#### Integrate Amazon Connect Contact Lens with
-
-on-premise voice systems
+#### Integrate Amazon Connect Contact Lens with on-premise voice systems
 
 You can integrate Amazon Connect Contact Lens with other voice systems for real-time and
 post-call analytics. Using Contact Lens with your existing voice system can help you
@@ -1946,8 +1747,7 @@ improve customer experience and agent performance. In addition, this can be a fi
 migrating to a cloud contact center. You can start with Contact Lens analytics and
 performance insights and then at a later date migrate your agents to Amazon Connect.
 
-For more information, see [Integrate Amazon Connect Contact Lens with external
-voice systems](contact-lens-integration.md "contact-lens-integration.md").
+For more information, see [Integrate Amazon Connect Contact Lens with external voice systems](contact-lens-integration.md "contact-lens-integration.md").
 
 ### November 2024 Updates
 
@@ -1967,26 +1767,20 @@ proactive and personalized email communications. For more information, see [Set 
 This release includes additional APIs. For more information, see [Email actions](../APIReference/email-api.md "../APIReference/email-api.md") in
 the _Amazon Connect API Reference Guide_.
 
-#### Amazon Connect Contact Lens launches calibrations
-
-for agent performance evaluations
+#### Amazon Connect Contact Lens launches calibrations for agent performance evaluations
 
 You can conduct calibration sessions to drive consistency and accuracy in how managers
 evaluate agent performance. Through calibrations, you can review differences in evaluations
 filled by different managers to align managers on evaluation best practices and identify
-opportunities to improve the evaluation form. For more information, see [Calibration sessions for
-performance evaluations](calibrations-performance-evaluations.md "calibrations-performance-evaluations.md").
+opportunities to improve the evaluation form. For more information, see [Calibration sessions for performance evaluations](calibrations-performance-evaluations.md "calibrations-performance-evaluations.md").
 
-#### Amazon Connect offers personalized and proactive engagement
-
-capabilities
+#### Amazon Connect offers personalized and proactive engagement capabilities
 
 Amazon Connect offers a set of capabilities to help you proactively address customer needs before
 they become potential issues, enabling better customer outcomes. You can initiate proactive
 outbound communications for real-time service updates, promotional offers, product usage tips,
 and appointment reminders at just the right moments throughout your customer’s experience from
-the right channel. For more information, see [Set up customer segments in
-Amazon Connect Customer Profiles](segmentation-admin-website.md "segmentation-admin-website.md") and [Set up Amazon Connect outbound campaigns](enable-outbound-campaigns.md "enable-outbound-campaigns.md").
+the right channel. For more information, see [Set up customer segments in Amazon Connect Customer Profiles](segmentation-admin-website.md "segmentation-admin-website.md") and [Set up Amazon Connect outbound campaigns](enable-outbound-campaigns.md "enable-outbound-campaigns.md").
 
 #### Create custom dashboards
 
@@ -2005,8 +1799,7 @@ when they make voice calls. For example, if a customer reaches out after hours w
 available, they can request a voice callback by sending a chat message or completing a webform
 request (which uses tasks). Callbacks allow your customers to get a voice call from an
 available agent during normal business hours, without requiring them to stay on the line. For
-more information, see [Callbacks from a chat, task, or email
-contact](setup-queued-cb.md#queued-callback-chat-task "setup-queued-cb.md#queued-callback-chat-task").
+more information, see [Callbacks from a chat, task, or email contact](setup-queued-cb.md#queued-callback-chat-task "setup-queued-cb.md#queued-callback-chat-task").
 
 #### Monitor Connect AI agents by using CloudWatch Logs
 
@@ -2021,11 +1814,10 @@ This makes it easier for you to generate reports and insights from this data. Fo
 can build dashboards that compare forecasts against actuals or view this data in conjunction
 with other data sets such as sales forecasts. You can also automate ingestion of this data in
 business intelligence tools. To generate these reports and insights, you can use Amazon Athena with
-Amazon Quick Suite or another business intelligence tool of your choice.
+Amazon Quick or another business intelligence tool of your choice.
 
 For more information about the content of the forecasting tables in the data lake, see
-[Forecasting data in the Amazon Connect analytics
-data lake](data-lake-forecasting-data.md "data-lake-forecasting-data.md").
+[Forecasting data in the Amazon Connect analytics data lake](data-lake-forecasting-data.md "data-lake-forecasting-data.md").
 
 #### Use screen sharing with web and video calls
 
@@ -2035,18 +1827,13 @@ guide the customer. For more information, see [Set up in-app, web, video calling
 screen sharing capabilities](inapp-calling.md "inapp-calling.md"). In addition, see the [StartScreenSharing](../APIReference/API_StartScreenSharing.md "../APIReference/API_StartScreenSharing.md")
 API.
 
-#### Amazon Connect Chat provides SDKs for iOS and
-
-Android
+#### Amazon Connect Chat provides SDKs for iOS and Android
 
 Amazon Connect Chat provides SDKs for iOS and Android, allowing you to deliver native in-app chat
 experiences that improve customer satisfaction and reduce operational costs. These SDKs provide
-pre-built components for network and session management. For more information, see [Integrate Amazon Connect chat into a mobile
-application](integrate-chat-with-mobile.md "integrate-chat-with-mobile.md").
+pre-built components for network and session management. For more information, see [Integrate Amazon Connect chat into a mobile application](integrate-chat-with-mobile.md "integrate-chat-with-mobile.md").
 
-#### Connect AI agents adds personalized guidance
-
-for agents
+#### Connect AI agents adds personalized guidance for agents
 
 Connect AI agents can recommend personalized guidance to agents using customer data from Amazon Connect and
 other third-party CRM systems. Connect AI agents detects the customer's intent from the real-time voice
@@ -2055,9 +1842,7 @@ what action they should take.
 
 For more information, see [Use Connect AI agents for real-time assistance](connect-ai-agent.md "connect-ai-agent.md").
 
-#### Added new configuration capabilities to metrics
-
-dashboards
+#### Added new configuration capabilities to metrics dashboards
 
 Three configuration capabilities have been added to the Amazon Connect metrics dashboards:
 
@@ -2065,14 +1850,11 @@ Three configuration capabilities have been added to the Amazon Connect metrics d
 - Color coded performance thresholds
 - Customizing Service Level and other metrics
 
-For more information, see [Dashboards in Amazon Connect for getting contact center performance
-data](dashboards.md "dashboards.md").
+For more information, see [Dashboards in Amazon Connect for getting contact center performance data](dashboards.md "dashboards.md").
 
 ### September 2024 Updates
 
-#### Send message flow block to initiate outbound SMS
-
-contacts
+#### Send message flow block to initiate outbound SMS contacts
 
 Amazon Connect supports the ability to initiate outbound SMS contacts, enabling
 businesses to help increase customer satisfaction by engaging customers on their preferred
@@ -2090,14 +1872,11 @@ Released the following enhancements for automated evaluations:
 - Automatically fill answers to evaluation form questions using additional contact metrics
   such as longest hold duration, number of holds, agent interaction, and hold time.
 
-For more information, see [Create a rule
-in Contact Lens that submits an automated evaluation](contact-lens-rules-submit-automated-evaluation.md "contact-lens-rules-submit-automated-evaluation.md").
+For more information, see [Create a rule in Contact Lens that submits an automated evaluation](contact-lens-rules-submit-automated-evaluation.md "contact-lens-rules-submit-automated-evaluation.md").
 
 ### August 2024 Updates
 
-#### Contact Lens supports additional
-
-languages
+#### Contact Lens supports additional languages
 
 Contact Lens can generate transcriptions in 10 more languages: Catalan (Spain),
 Danish (Denmark), Dutch (Netherlands), Finnish (Finland), Indonesian (Indonesia), Malay
@@ -2112,12 +1891,9 @@ support for 33 languages. For the complete list, see [AI features](supported-lan
 
 Use the Intraday forecast performance dashboard to view forecasts that are updated every
 15 minutes for queues that have a minimum of 5000 unique contacts per week, per queue-channel
-for last 4 weeks. For more information, see [Intraday forecast performance
-dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md").
+for last 4 weeks. For more information, see [Intraday forecast performance dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md").
 
-#### View an audit trail for changes to an agent performance
-
-evaluation
+#### View an audit trail for changes to an agent performance evaluation
 
 You can review the changes made to an agent performance evaluation when it is
 re-submitted. Previously the audit trail was available in an S3 bucket. Now it's available in
@@ -2128,9 +1904,7 @@ trail of who submitted the original evaluation, who re-submitted the evaluation,
 changes they made. You can this information to perform internal audits and improve consistency
 across evaluators. For more information, see [View an evaluation audit trail in Amazon Connect](evaluation-audit-trail.md "evaluation-audit-trail.md").
 
-#### Specify a flow that runs when a callback is
-
-created
+#### Specify a flow that runs when a callback is created
 
 You can specify a flow that runs when a callback is created for customers who want to
 maintain their position in queue. For example, you can specify a flow that sends an advance SMS
@@ -2138,9 +1912,7 @@ to notify the customer, updates contact attributes with the latest customer data
 on the call, or terminate the callback if the issue has already been resolved. For more
 information, see the **Set creation flow** parameter on the [Flow block in Amazon Connect: Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block.
 
-#### Updates to filter comparison operator and
-
-metric results dimension for the GetMetricDataV2 API
+#### Updates to filter comparison operator and metric results dimension for the GetMetricDataV2 API
 
 You can now use metric threshold comparison operator such as `LTE` (less than
 equal) and `LT` (less than) to explicitly include the threshold boundary
@@ -2152,24 +1924,19 @@ the request contained groupings attributes that were not defined in the filters.
 information, see the [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API
 documentation.
 
-#### Programmatically set routing criteria on a contact
-
-via the UpdateContactRoutingData API
+#### Programmatically set routing criteria on a contact via the UpdateContactRoutingData API
 
 You can now use the `UpdateContactRoutingData` API to programmatically update
 the routing criteria on a contact. Previously, you could only set the routing criteria on a
 contact using the Set routing criteria flow block in the Amazon Connect admin website. For
 more information, see the [UpdateContactRoutingData](../APIReference/API_UpdateContactRoutingData.md "../APIReference/API_UpdateContactRoutingData.md") API documentation.
 
-#### Amazon Connect supports audio optimization for Amazon WorkSpaces
-
-cloud desktops
+#### Amazon Connect supports audio optimization for Amazon WorkSpaces cloud desktops
 
 You can deliver high-quality voice experiences in Amazon WorkSpaces Virtual Desktop Infrastructure
 (VDI) environments. Amazon Connect automatically optimizes audio by redirecting media from your agent's
 local desktop to Amazon Connect, simplifying the agent experience and improving audio quality by
-reducing network hops. For more information, see [Optimize Amazon Connect audio for Amazon WorkSpaces cloud
-desktops](using-ccp-vdi-workspaces.md "using-ccp-vdi-workspaces.md").
+reducing network hops. For more information, see [Optimize Amazon Connect audio for Amazon WorkSpaces cloud desktops](using-ccp-vdi-workspaces.md "using-ccp-vdi-workspaces.md").
 
 ### July 2024 Updates
 
@@ -2187,17 +1954,12 @@ the Amazon Connect admin website. This enables you to evaluate contact quality a
 reviews, as well as review downloaded screen recordings with agents for coaching. This release
 also provides a new security profile permission—**Screen recording - Enable
 download button**—to manage who can download screen recordings. For more
-information, see [Review agent screen recordings in the Amazon Connect
-Client Application](review-screen-recordings.md "review-screen-recordings.md").
+information, see [Review agent screen recordings in the Amazon Connect Client Application](review-screen-recordings.md "review-screen-recordings.md").
 
-#### Updated
-
-`AmazonConnectSynchronizationServiceRolePolicy` service-linked role managed
-policy
+#### Updated `AmazonConnectSynchronizationServiceRolePolicy` service-linked role managed policy
 
 Updated the service-linked role managed policy with additional permissions for Managed
-Synchronization. For a description of the additional actions, see [Amazon Connect updates to AWS managed
-policies](security_iam_awsmanpol.md#security-iam-awsmanpol-updates "security_iam_awsmanpol.md#security-iam-awsmanpol-updates").
+Synchronization. For a description of the additional actions, see [Amazon Connect updates to AWS managed policies](security_iam_awsmanpol.md#security-iam-awsmanpol-updates "security_iam_awsmanpol.md#security-iam-awsmanpol-updates").
 
 #### Dashboard and metrics for outbound campaigns
 
@@ -2212,15 +1974,11 @@ human answered, voicemail).
 Following are new historical metrics for outbound campaigns:
 
 - [Average dials per minute](metrics-definitions.md#average-dials-per-minute "metrics-definitions.md#average-dials-per-minute")
-- [Average wait time after
-  customer connection](metrics-definitions.md#average-wait-time-after-customer-connection "metrics-definitions.md#average-wait-time-after-customer-connection")
-- [Campaign contacts abandoned after
-  X](metrics-definitions.md#campaign-contacts-abandoned-after-x "metrics-definitions.md#campaign-contacts-abandoned-after-x")
-- [Campaign contacts abandoned
-  after X rate](metrics-definitions.md#campaign-contacts-abandoned-after-x-rate "metrics-definitions.md#campaign-contacts-abandoned-after-x-rate")
+- [Average wait time after customer connection](metrics-definitions.md#average-wait-time-after-customer-connection "metrics-definitions.md#average-wait-time-after-customer-connection")
+- [Campaign contacts abandoned after X](metrics-definitions.md#campaign-contacts-abandoned-after-x "metrics-definitions.md#campaign-contacts-abandoned-after-x")
+- [Campaign contacts abandoned after X rate](metrics-definitions.md#campaign-contacts-abandoned-after-x-rate "metrics-definitions.md#campaign-contacts-abandoned-after-x-rate")
 - [Delivery attempts](metrics-definitions.md#delivery-attempts "metrics-definitions.md#delivery-attempts")
-- [Delivery attempt disposition
-  rate](metrics-definitions.md#delivery-attempt-disposition-rate "metrics-definitions.md#delivery-attempt-disposition-rate")
+- [Delivery attempt disposition rate](metrics-definitions.md#delivery-attempt-disposition-rate "metrics-definitions.md#delivery-attempt-disposition-rate")
 - [Human answered](metrics-definitions.md#human-answered "metrics-definitions.md#human-answered")
 
 #### Amazon Connect Client Application v2.0.1 is available
@@ -2228,9 +1986,7 @@ Following are new historical metrics for outbound campaigns:
 Released Amazon Connect Client Application v2.0.1. This version includes bug fixes and enhancements to improve the
 stability and monitoring of the application. To download the latest version, see [Amazon Connect Client Application](amazon-connect-client-app.md "amazon-connect-client-app.md").
 
-#### Faster generative AI-powered post-contact
-
-summaries for agents ACW
+#### Faster generative AI-powered post-contact summaries for agents ACW
 
 Enhancements to generative AI-powered post-contact summaries enable your users to access
 them within seconds after a voice contact ends. For example, agents can access post-contact
@@ -2238,12 +1994,9 @@ summaries on the CCP and use them to quickly complete after contact work (ACW). 
 supports only voice contacts on the CCP.
 
 These faster summaries are available by using APIs and Amazon Kinesis Data Streams, enabling you to
-integration with third-party agent workspace or CRM systems. For more information, see [View generative AI-powered post-contact summaries in
-Amazon Connect](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md").
+integration with third-party agent workspace or CRM systems. For more information, see [View generative AI-powered post-contact summaries in Amazon Connect](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md").
 
-#### More options for searching for resources on
-
-the Amazon Connect admin website
+#### More options for searching for resources on the Amazon Connect admin website
 
 You have more options for searching resources on the Amazon Connect admin website. The search options are
 available on pages that you use for managing (adding, editing) the following resources: users,
@@ -2278,9 +2031,7 @@ For more information, see [Set up shift rotation patterns in Amazon Connect](shi
 
 ### June 2024 Updates
 
-#### Updates to Routing Profiles and Queues
-
-Search APIs
+#### Updates to Routing Profiles and Queues Search APIs
 
 You can search for routing profiles by associated queues, and search for queues based on
 the routing profile they are assigned to by using the `SearchRoutingProfile` and
@@ -2289,9 +2040,7 @@ support granular access controls (using tags) over the associated resources. For
 information, see the [SearchRoutingProfile](../APIReference/API_SearchRoutingProfiles.md "../APIReference/API_SearchRoutingProfiles.md")
 and [SearchQueues](../APIReference/API_SearchQueues.md "../APIReference/API_SearchQueues.md") API documentation.
 
-#### New definitions for
-
-NextContactId and PreviousContactId
+#### New definitions for NextContactId and PreviousContactId
 
 `NextContactId` and `PreviousContactID` have new definitions. For
 more information, see [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord").
@@ -2299,25 +2048,20 @@ more information, see [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRec
 #### Amazon Connect outbound campaigns performance dashboard
 
 You can use the outbound campaigns performance dashboard to understand the performance of your
-outbound campaigns across voice contacts. For more information, see [Outbound campaigns
-performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md").
+outbound campaigns across voice contacts. For more information, see [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md").
 
-#### Route contact within a queue to a specific
-
-agent
+#### Route contact within a queue to a specific agent
 
 You can now offer a contact in a queue to a specific agent or set of agents based on user
 ID; if the agent is not available within a given period of time, you can expire off the routing
 criteria to instead offer the contact to any available agent in queue. For more information,
-see [Set up routing in Amazon Connect based on agent
-proficiencies](proficiency-routing.md "proficiency-routing.md").
+see [Set up routing in Amazon Connect based on agent proficiencies](proficiency-routing.md "proficiency-routing.md").
 
 #### Connect AI agents recommends step-by-step guides
 
 Connect AI agents, a generative-AI powered assistant for contact center agents, recommends
 step-by-step guides in real-time. Agents use step-by-step guides to quickly take action to
-resolve customer issues. For more information, see [Integrate Connect AI agents with step-by-step
-guides](integrate-guides-with-ai-agents.md "integrate-guides-with-ai-agents.md").
+resolve customer issues. For more information, see [Integrate Connect AI agents with step-by-step guides](integrate-guides-with-ai-agents.md "integrate-guides-with-ai-agents.md").
 
 In addition, see the following new APIs that are part of this release:
 
@@ -2335,8 +2079,7 @@ your agents with a more streamlined user experience.
 
 With this launch, you can also easily build and embed third-party applications that have a
 consistent look and feel with the agent workspace by using Cloudscape Design System components.
-For more information, see [Access third-party applications in the
-Amazon Connect agent workspace](3p-apps-agent-workspace.md "3p-apps-agent-workspace.md").
+For more information, see [Access third-party applications in the Amazon Connect agent workspace](3p-apps-agent-workspace.md "3p-apps-agent-workspace.md").
 
 ### May 2024 Updates
 
@@ -2376,9 +2119,7 @@ Time (EST) on November 3, 2024.
 Time zone support in forecasts simplifies the day-to-day experience for managers. For more
 information, see [Set the forecast time zone](set-forecast-timezone.md "set-forecast-timezone.md").
 
-#### Updated `AmazonConnectServiceLinkedRolePolicy`
-
-service-linked role managed policy
+#### Updated `AmazonConnectServiceLinkedRolePolicy` service-linked role managed policy
 
 Updated the service-linked role managed policy with the Connect AI agents API action
 `wisdom:ListContentAssociations`. For a description of the additional action, see
@@ -2413,8 +2154,7 @@ You can configure rules to automatically create a task, send an email, or genera
 Amazon EventBridge event whenever a flow or flow module metric breaches the threshold you define. For
 example, you can create a rule to assign a task to a contact center administrator whenever the
 dropped rate (that is, a percentage of contacts that dropped from a flow) for your inbound
-welcome flow exceeds 10% over a trailing 4 hour window. For more information, see [Create alerts on real-time metrics in
-Amazon Connect](rule-real-time-metrics.md "rule-real-time-metrics.md").
+welcome flow exceeds 10% over a trailing 4 hour window. For more information, see [Create alerts on real-time metrics in Amazon Connect](rule-real-time-metrics.md "rule-real-time-metrics.md").
 
 #### New Amazon Connect Cases APIs
 
@@ -2424,14 +2164,11 @@ working with attachments, see [Enable attachments](enable-attachments.md "enable
 [Uploading Attached Files](../APIReference/working-with-acps-api.md#uploading-attachments-connect-service "../APIReference/working-with-acps-api.md#uploading-attachments-connect-service"). To view the attached file APIs, see [Files
 actions](../APIReference/files-api.md "../APIReference/files-api.md").
 
-#### Amazon Connect Contact Lens provides
-
-generative AI-powered agent performance evaluations (Preview)
+#### Amazon Connect Contact Lens provides generative AI-powered agent performance evaluations (Preview)
 
 Amazon Connect Contact Lens provides managers with generative AI-powered recommendations for
 answers to questions in agent evaluation forms, enabling them to perform evaluations faster and
-more accurately. For more information, see [Evaluate agent performance in
-Amazon Connect using generative AI](generative-ai-performance-evaluations.md "generative-ai-performance-evaluations.md").
+more accurately. For more information, see [Evaluate agent performance in Amazon Connect using generative AI](generative-ai-performance-evaluations.md "generative-ai-performance-evaluations.md").
 
 #### New metrics available on the Historical metrics page
 
@@ -2465,16 +2202,12 @@ the Amazon Connect admin website. For a description of each metric, see [Metric 
 
 ### April 2024 Updates
 
-#### New definitions for
-
-NextContactId and PreviousContactId
+#### New definitions for NextContactId and PreviousContactId
 
 `NextContactId` and `PreviousContactID` have new definitions. For
 more information, see [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord").
 
-#### Use screen recording with multiple agents connecting to the same desktop
-
-in your environment
+#### Use screen recording with multiple agents connecting to the same desktop in your environment
 
 You can enable agent screen recording when your VDI environment is configured to allow
 multiple agents to connect concurrently to the same Windows instance (multi-session VDI). This
@@ -2484,9 +2217,7 @@ when using Amazon Connect in a multi-session VDI environment.
 To use this update, download the latest version of the screen recording client
 application. For the download location, see [Amazon Connect Client Application](amazon-connect-client-app.md "amazon-connect-client-app.md").
 
-#### Voice contacts rejected by an agent have a state of
-
-`REJECTED`
+#### Voice contacts rejected by an agent have a state of `REJECTED`
 
 Voice contacts rejected by an agent used to have a state of `ERROR` for Contact
 State in the Agent Event Stream. Now they have a state of `REJECTED`, which is the
@@ -2495,34 +2226,24 @@ agent.
 
 ### March 2024 Updates
 
-#### Contact Lens enables you to
-
-automatically fill and submit evaluations
+#### Contact Lens enables you to automatically fill and submit evaluations
 
 Contact Lens enables you to automatically fill and submit evaluations, using
 insights and metrics from conversational analytics. For more information on creating a rule
-that submits an automated evaluation, see [Create a rule
-in Contact Lens that submits an automated evaluation](contact-lens-rules-submit-automated-evaluation.md "contact-lens-rules-submit-automated-evaluation.md").
+that submits an automated evaluation, see [Create a rule in Contact Lens that submits an automated evaluation](contact-lens-rules-submit-automated-evaluation.md "contact-lens-rules-submit-automated-evaluation.md").
 
-#### Amazon Connect allows you to create rich, interactive chat
-
-experiences for customers using step-by-step guides
+#### Amazon Connect allows you to create rich, interactive chat experiences for customers using step-by-step guides
 
 Amazon Connect allows you to create rich, interactive chat experiences for customers using
 step-by-step guides, that help resolve issues faster and improve the customer experience. For
-more information, see [Deploy step-by-step guides in Amazon Connect
-chats](step-by-step-guides-chat.md "step-by-step-guides-chat.md").
+more information, see [Deploy step-by-step guides in Amazon Connect chats](step-by-step-guides-chat.md "step-by-step-guides-chat.md").
 
-#### Amazon Connect agent workspace supports third-party applications in
-
-general availability
+#### Amazon Connect agent workspace supports third-party applications in general availability
 
 The Amazon Connect agent workspace now supports third-party applications in general availability.
 Agents can use Amazon Connect's native agent applications (Q in Connect, Cases, Customer Profiles, and Step-by-step
 Guides) alongside internal or custom-built agent applications, all within a unified agent
-workspace. For more information, see [Integrate third-party applications (3p apps) in the Amazon Connect
-agent workspace](3p-apps.md "3p-apps.md"), [Use screen pop functionality of
-third-party applications in the Amazon Connect agent workspace](no-code-ui-builder-app-integration.md "no-code-ui-builder-app-integration.md"), the [Agent Workspace developer
+workspace. For more information, see [Integrate third-party applications (3p apps) in the Amazon Connect agent workspace](3p-apps.md "3p-apps.md"), [Use screen pop functionality of third-party applications in the Amazon Connect agent workspace](no-code-ui-builder-app-integration.md "no-code-ui-builder-app-integration.md"), the [Agent Workspace developer
 guide](../../../agentworkspace/latest/devguide/what-is-service.md "../../../agentworkspace/latest/devguide/what-is-service.md"), the [Amazon Connect API reference
 guide](../APIReference/API_CreateSecurityProfile.md "../APIReference/API_CreateSecurityProfile.md"), and the [Amazon AppIntegrations API
 reference](../../../appintegrations/latest/APIReference/API_CreateApplication.md "../../../appintegrations/latest/APIReference/API_CreateApplication.md").
@@ -2537,8 +2258,7 @@ summaries to help supervisors improve the customer experience by getting faster 
 reviewing contacts, saving time on quality and compliance reviews, and more quickly identifying
 opportunities to improve agent performance.
 
-For more information, see [View generative AI-powered post-contact summaries in
-Amazon Connect](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md").
+For more information, see [View generative AI-powered post-contact summaries in Amazon Connect](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md").
 
 #### Hierarchy-based access control (Preview)
 
@@ -2548,8 +2268,7 @@ to, and you can restrict users from accessing others outside their hierarchy by 
 granular permissions. For example, you can configure hierarchy groups and levels for a BPO,
 such as Acme Corp, and only users assigned to hierarchy groups under Acme Corp will be able to
 see or edit these users. To learn more about using agent hierarchies to enforce granular access
-controls for users, see the [Apply hierarchy-based access control in
-Amazon Connect](hierarchy-based-access-control.md "hierarchy-based-access-control.md").
+controls for users, see the [Apply hierarchy-based access control in Amazon Connect](hierarchy-based-access-control.md "hierarchy-based-access-control.md").
 
 ### February 2024 Updates
 
@@ -2562,8 +2281,7 @@ Amazon Connect Cases provides the following metrics for case management:
 - [Cases created](metrics-definitions.md#cases-created "metrics-definitions.md#cases-created")
 - [Cases reopened](metrics-definitions.md#cases-reopened "metrics-definitions.md#cases-reopened")
 - [Cases resolved](metrics-definitions.md#cases-resolved "metrics-definitions.md#cases-resolved")
-- [Cases resolved on first
-  contact](metrics-definitions.md#cases-resolved-on-first-contact "metrics-definitions.md#cases-resolved-on-first-contact")
+- [Cases resolved on first contact](metrics-definitions.md#cases-resolved-on-first-contact "metrics-definitions.md#cases-resolved-on-first-contact")
 - [Current cases](metrics-definitions.md#current-cases "metrics-definitions.md#current-cases")
 
 These metrics give you insights into case volumes and performance. You can view new
@@ -2590,28 +2308,21 @@ times, do-not-call times, maximum contact attempts) while programmatically using
 predictive dialer with machine learning (ML)–powered answering machine detection. This helps
 increase live-party connections.
 
-#### Barge for chat: Managers can join ongoing chats between agents
-
-and customers
+#### Barge for chat: Managers can join ongoing chats between agents and customers
 
 Managers can join and participate in ongoing chats between agents and customers, ensuring
 that even the most complex customer issues are resolved quickly and accurately. For more
-information, see [Barge into live voice and chat conversations between contact center agents and
-customers](monitor-barge.md "monitor-barge.md"). Also see
+information, see [Barge into live voice and chat conversations between contact center agents and customers](monitor-barge.md "monitor-barge.md"). Also see
 updates to the [MonitorContact](../APIReference/API_MonitorContact.md "../APIReference/API_MonitorContact.md") and [SendEvent](../../../connect-participant/latest/APIReference/API_SendEvent.md "../../../connect-participant/latest/APIReference/API_SendEvent.md") APIs.
 
-#### GetRecommendations and QueryAssistant APIs will be discontinued
-
-starting June 1, 2024
+#### GetRecommendations and QueryAssistant APIs will be discontinued starting June 1, 2024
 
 Two Amazon Q in Connect APIs—[GetRecommendations](../../../amazon-q-connect/latest/APIReference/API_GetRecommendations.md "../../../amazon-q-connect/latest/APIReference/API_GetRecommendations.md") and [QueryAssistant](../../../amazon-q-connect/latest/APIReference/API_QueryAssistant.md "../../../amazon-q-connect/latest/APIReference/API_QueryAssistant.md")—will be discontinued starting June 1, 2024. To receive
 generative responses after March 1, 2024, you will need to create a new Assistant in the
 Amazon Connect console and integrate the Amazon Q in Connect JavaScript library
 (amazon-q-connectjs) into your applications.
 
-#### High-quality voice experiences for agents using Citrix
-
-Virtual Desktop Infrastructure (VDI) environments.
+#### High-quality voice experiences for agents using Citrix Virtual Desktop Infrastructure (VDI) environments.
 
 Amazon Connect allows you to deliver high-quality voice experiences when your agents use Citrix
 Virtual Desktop Infrastructure (VDI) environments. Your agents can leverage the Citrix remote
@@ -2619,13 +2330,10 @@ desktop application to offload audio processing to the agent’s local device an
 automatically redirect audio to Amazon Connect, resulting in a simpler agent experience and improved
 audio quality over challenging networks. For more information, see [Citrix VDI with Amazon Connect audio optimization](scenario-deployment-approaches.md#vdi-citrix "scenario-deployment-approaches.md#vdi-citrix").
 
-#### Granular access controls using resource tags
-
-for historical metrics reports
+#### Granular access controls using resource tags for historical metrics reports
 
 You can apply granular permissions to resource metrics that are included in historical
-metrics reports. For more information, see [Apply granular access control to
-historical metrics reports in Amazon Connect](hm-tag-based-access-control.md "hm-tag-based-access-control.md").
+metrics reports. For more information, see [Apply granular access control to historical metrics reports in Amazon Connect](hm-tag-based-access-control.md "hm-tag-based-access-control.md").
 
 ### December 2023 Updates
 
@@ -2638,9 +2346,7 @@ Expanded AWS Regions to support: US East (N. Virginia), US-West (Oregon), Africa
 (Capetown), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific
 (Tokyo), Canada (Central), Europe (Frankfurt), and Europe (London).
 
-#### Amazon Connect provides granular access controls using resource tags
-
-configured for hours of operation and prompts in the Amazon Connect admin website
+#### Amazon Connect provides granular access controls using resource tags configured for hours of operation and prompts in the Amazon Connect admin website
 
 Provide granular access controls using resource tags configured for hours of operation and
 prompts in the Amazon Connect admin website. For example, you can tag hours of operation with
@@ -2652,9 +2358,7 @@ play within call flows. For example, you can tag celebrity prompts with
 `Department:Insurance`, and then only let administrators from your insurance line
 of business access those prompts.
 
-#### Amazon Connect provides an API to programmatically update the
-
-priority of contacts
+#### Amazon Connect provides an API to programmatically update the priority of contacts
 
 Programmatically update the priority of contacts, such as voice calls, callbacks, chats,
 and tasks, in addition to the existing [Change routing
@@ -2662,25 +2366,18 @@ priority/age](change-routing-priority.md "change-routing-priority.md") flow bloc
 position in a queue directly from your custom monitoring dashboards. For more information, see
 the [UpdateContactRoutingData](../APIReference/API_UpdateContactRoutingData.md "../APIReference/API_UpdateContactRoutingData.md") API.
 
-#### Route contacts according to the proficiency of
-
-agents
+#### Route contacts according to the proficiency of agents
 
 You create and use agent proficiencies for routing a contact to the best available agent
 in a queue. Each proficiency indicates an agent’s level of expertise in an predefined attribute
 such as language fluency, skillset, or customer issue types they support. For more information,
-see [Set up routing in Amazon Connect based on agent
-proficiencies](proficiency-routing.md "proficiency-routing.md").
+see [Set up routing in Amazon Connect based on agent proficiencies](proficiency-routing.md "proficiency-routing.md").
 
-#### Added Amazon Connect Cloudformation
-
-resources
+#### Added Amazon Connect Cloudformation resources
 
 Added [AWS::Connect::PredefinedAttribute](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.md") and [AWS::Connect::User UserProficiency](../../../AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userproficiency.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userproficiency.md") Cloudformation resources.
 
-#### Amazon Connect Contact Lens provides an API to
-
-programmatically search for contacts
+#### Amazon Connect Contact Lens provides an API to programmatically search for contacts
 
 Programmatically search for contacts using filters such as contact attributes (time range,
 agent, channel, queue, etc.) and keywords within a conversation. Using this API, you can build
@@ -2696,9 +2393,7 @@ on an external input. For more information, see [Concepts: Pause and
 resume tasks](concepts-pause-and-resume-tasks.md "concepts-pause-and-resume-tasks.md"). Also see the [PauseContact](../APIReference/API_PauseContact.md "../APIReference/API_PauseContact.md")
 and [ResumeContact](../APIReference/API_ResumeContact.md "../APIReference/API_ResumeContact.md") APIs.
 
-#### Manage your cases and set up escalation workflows using
-
-the rules designer in the Amazon Connect UI
+#### Manage your cases and set up escalation workflows using the rules designer in the Amazon Connect UI
 
 you can create rules to automatically create a task, update a case, or send email alerts
 to a manager whenever a case is created or updated. In addition, you can create rules
@@ -2706,18 +2401,11 @@ leveraging Amazon Connect Contact Lens to automatically create a case for post-c
 follow-up, such as when negative customer sentiment or specific key words are detected in a
 conversation.
 
-For more information, see [Automatically monitor and update cases in
-Amazon Connect Cases](create-alerts-on-cases.md "create-alerts-on-cases.md"), [Allow Amazon Connect Cases to send
-updates to Contact Lens rules](cases-rules-integration-onboarding.md "cases-rules-integration-onboarding.md"), [Create a rule in
-Contact Lens that creates a case](contact-lens-rules-create-case.md "contact-lens-rules-create-case.md"),
-[Create a rule in
-Contact Lens that ends associated tasks from a case](contact-lens-rules-ends-tasks.md "contact-lens-rules-ends-tasks.md"),
-and [Create a rule in
-Contact Lens that updates a case](contact-lens-rules-update-case.md "contact-lens-rules-update-case.md").
+For more information, see [Automatically monitor and update cases in Amazon Connect Cases](create-alerts-on-cases.md "create-alerts-on-cases.md"), [Allow Amazon Connect Cases to send updates to Contact Lens rules](cases-rules-integration-onboarding.md "cases-rules-integration-onboarding.md"), [Create a rule in Contact Lens that creates a case](contact-lens-rules-create-case.md "contact-lens-rules-create-case.md"),
+[Create a rule in Contact Lens that ends associated tasks from a case](contact-lens-rules-ends-tasks.md "contact-lens-rules-ends-tasks.md"),
+and [Create a rule in Contact Lens that updates a case](contact-lens-rules-update-case.md "contact-lens-rules-update-case.md").
 
-#### Get a more granular view of your Amazon Connect bill and
-
-usage
+#### Get a more granular view of your Amazon Connect bill and usage
 
 You can get detailed billing reports in AWS Cost Explorer and AWS Cost & Usage
 Reports by using cost allocation tags (key:value pairs) to aggregate the data. You can gain
@@ -2725,19 +2413,15 @@ more insights into your Amazon Connect bill and better organize your bill by lin
 business/departments (for example, support, banking, sales, claims), types of issues, phone
 numbers, environments, and more.
 
-For more information, see [Set up granular billing for a detailed view of your Amazon Connect
-usage](granular-billing.md "granular-billing.md"). Also see [TagContact](../APIReference/API_TagContact.md "../APIReference/API_TagContact.md") and
+For more information, see [Set up granular billing for a detailed view of your Amazon Connect usage](granular-billing.md "granular-billing.md"). Also see [TagContact](../APIReference/API_TagContact.md "../APIReference/API_TagContact.md") and
 [UntagContact](../APIReference/API_UntagContact.md "../APIReference/API_UntagContact.md") in the _Amazon Connect API Reference_.
 
-#### Customer Profiles calculated attributes
-
-that turn customer data into actionable insights
+#### Customer Profiles calculated attributes that turn customer data into actionable insights
 
 Amazon Connect Customer Profiles enables contact center managers to create calculated attributes that turn
 customer behavior data (contacts, orders, web visits) into actionable customer insights such as
 a customer’s preferred channel to drive dynamic routing, personalize IVRs, and provide agents
-with more relevant customer context. For more information, see the [Getting
-started with calculated attributes in Amazon Connect Customer Profiles](customerprofiles-calculated-attributes-admin-website.md "customerprofiles-calculated-attributes-admin-website.md") documentation.
+with more relevant customer context. For more information, see the [Getting started with calculated attributes in Amazon Connect Customer Profiles](customerprofiles-calculated-attributes-admin-website.md "customerprofiles-calculated-attributes-admin-website.md") documentation.
 
 #### Contacts Answered/Abandoned in X
 
@@ -2747,26 +2431,20 @@ where X is a time range that you specify.
 
 ### November 2023 Updates
 
-#### Customer Profiles provides a generative AI
-
-powered customer data mapping capability
+#### Customer Profiles provides a generative AI powered customer data mapping capability
 
 Customer Profiles provides a generative AI powered customer data mapping capability that significantly
 reduces the time needed to create unified profiles, which allows you to create more
-personalized customer experiences more efficiently. For more information, see [Generative AI powered data mapping in
-Amazon Connect](genai-powered-data-mapping.md "genai-powered-data-mapping.md").
+personalized customer experiences more efficiently. For more information, see [Generative AI powered data mapping in Amazon Connect](genai-powered-data-mapping.md "genai-powered-data-mapping.md").
 
-#### UI builder for step-by-step
-
-guides
+#### UI builder for step-by-step guides
 
 This feature allows you to create and manage the UI pages shown to agents in step-by-step
 guides. Using a drag-and-drop interface you are able to define static and dynamic content for
 the agent’s UI. This includes layouts, styles, and dynamic data, which enables you to control
 the look and feel of your agent’s experience. With this capability, you are able define what
 gets displayed in your agent’s UI during the step-by-step guided experience. For more
-information, see the [Use the UI builder in Amazon Connect for resources
-in step-by-step guides](no-code-ui-builder.md "no-code-ui-builder.md")
+information, see the [Use the UI builder in Amazon Connect for resources in step-by-step guides](no-code-ui-builder.md "no-code-ui-builder.md")
 documentation.
 
 #### Added Connect AI agents
@@ -2782,9 +2460,7 @@ relevant documents and articles.
 
 For more information, see [Use Connect AI agents for real-time assistance](connect-ai-agent.md "connect-ai-agent.md") and the [Connect AI agents API Reference](../../../amazon-q-connect/latest/APIReference/Welcome.md "../../../amazon-q-connect/latest/APIReference/Welcome.md").
 
-#### Amazon Connect Contact Lens provides real-time
-
-conversational analytics for chat
+#### Amazon Connect Contact Lens provides real-time conversational analytics for chat
 
 Contact Lens provides real-time conversational analytics for chat, extending the
 machine learning-powered post-contact analytics (for example, sentiment analysis, automated
@@ -2794,13 +2470,10 @@ help them resolve customer issues faster. For example, managers can get a real-t
 when customer sentiment for a chat contact turns negative, allowing them to join the
 in-progress contact and help resolve the customer issue.
 
-For more information, see [Analyze conversations using conversational
-analytics in Amazon Connect Contact Lens](analyze-conversations.md "analyze-conversations.md"). In addition, see the [ListRealtimeContactAnalysisSegmentsV2](../APIReference/API_ListRealtimeContactAnalysisSegmentsV2.md "../APIReference/API_ListRealtimeContactAnalysisSegmentsV2.md") action in the _Amazon Connect
+For more information, see [Analyze conversations using conversational analytics in Amazon Connect Contact Lens](analyze-conversations.md "analyze-conversations.md"). In addition, see the [ListRealtimeContactAnalysisSegmentsV2](../APIReference/API_ListRealtimeContactAnalysisSegmentsV2.md "../APIReference/API_ListRealtimeContactAnalysisSegmentsV2.md") action in the _Amazon Connect
 API Reference_.
 
-#### Amazon Connect Contact Lens provides
-
-generative AI-powered post-contact summaries (Preview)
+#### Amazon Connect Contact Lens provides generative AI-powered post-contact summaries (Preview)
 
 Contact Lensprovides generative AI-powered post-contact summaries, enabling contact center managers to more
 efficiently monitor and help improve contact quality and agent performance.
@@ -2813,12 +2486,9 @@ This enables managers to help reduce the overall time spent on evaluating contac
 agent performance, as they no longer have to read long contact transcripts or listen to call
 recordings.
 
-For more information, see [View generative AI-powered post-contact summaries in
-Amazon Connect](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md").
+For more information, see [View generative AI-powered post-contact summaries in Amazon Connect](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md").
 
-#### Amazon Connect supports in-app, web, and video
-
-calling
+#### Amazon Connect supports in-app, web, and video calling
 
 The Amazon Connect in-app, web, and video calling capabilities enable your customers to contact you
 without ever leaving your web or mobile application. You can use these capabilities to pass
@@ -2826,8 +2496,7 @@ contextual information to Amazon Connect. This enables you to personalize the cu
 on attributes such as the customer's profile or other information, like actions previously
 taken within the app.
 
-For more information, see [Set up in-app, web, video calling, and screen sharing
-capabilities](inapp-calling.md "inapp-calling.md").
+For more information, see [Set up in-app, web, video calling, and screen sharing capabilities](inapp-calling.md "inapp-calling.md").
 In addition, see the [StartWebRTCContact](../APIReference/API_StartWebRTCContact.md "../APIReference/API_StartWebRTCContact.md") action in the _Amazon Connect API
 Reference_.
 
@@ -2854,9 +2523,7 @@ Guide](../APIReference/Welcome.md "../APIReference/Welcome.md").
 - `ListFlowAssociations`
 - `SendChatIntegrationEvent`
 
-#### Analytics data lake
-
-(Preview)
+#### Analytics data lake (Preview)
 
 You can use Analytics data lake as a central location to query various types of data from
 Amazon Connect. This data includes contact records and Contact Lens conversational analytics.
@@ -2866,15 +2533,12 @@ reports or run SQL queries.
 For more information, see [Access Amazon Connect data lake](access-datalake.md "access-datalake.md"). In addition, see new actions in the [Analytics data lake
 actions](../APIReference/analyticsdataset-api.md "../APIReference/analyticsdataset-api.md") topic in the _Amazon Connect API Reference_.
 
-#### Added metrics to the `GetMetricDataV2`
-
-action
+#### Added metrics to the `GetMetricDataV2` action
 
 Added the following agent and contact performance metrics to the [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") action:
 
 - [After contact work time](metrics-definitions.md#after-contact-work-time "metrics-definitions.md#after-contact-work-time")
-- [Agent interaction and hold
-  time](metrics-definitions.md#agent-interaction-and-hold-time "metrics-definitions.md#agent-interaction-and-hold-time")
+- [Agent interaction and hold time](metrics-definitions.md#agent-interaction-and-hold-time "metrics-definitions.md#agent-interaction-and-hold-time")
 - [Agent interaction time](metrics-definitions.md#agent-interaction-time "metrics-definitions.md#agent-interaction-time")
 - [Contact flow time](metrics-definitions.md#contact-flow-time "metrics-definitions.md#contact-flow-time")
 - [Contact handle time](metrics-definitions.md#contact-handle-time "metrics-definitions.md#contact-handle-time")
@@ -2882,8 +2546,7 @@ Added the following agent and contact performance metrics to the [GetMetricDataV
 - [Contacts hold customer disconnect](metrics-definitions.md#contacts-hold-customer-disconnect "metrics-definitions.md#contacts-hold-customer-disconnect")
 - [Contacts put on hold](metrics-definitions.md#contacts-put-on-hold "metrics-definitions.md#contacts-put-on-hold")
 - [Customer hold time](metrics-definitions.md#customer-hold-time "metrics-definitions.md#customer-hold-time")
-- [Contacts transferred out
-  external](metrics-definitions.md#contacts-transferred-out-external "metrics-definitions.md#contacts-transferred-out-external")
+- [Contacts transferred out external](metrics-definitions.md#contacts-transferred-out-external "metrics-definitions.md#contacts-transferred-out-external")
 - [Contacts transferred out internal](metrics-definitions.md#contacts-transferred-out-internal "metrics-definitions.md#contacts-transferred-out-internal")
 - [Agent answer rate](metrics-definitions.md#agent-answer-rate "metrics-definitions.md#agent-answer-rate")
 - [Agent idle time](metrics-definitions.md#agent-idle-time "metrics-definitions.md#agent-idle-time")
@@ -2902,35 +2565,26 @@ You can access more customer information, including orders, cases, assets, custo
 attributes, and calculated attributes through the Customer Profiles Flow block. For more
 information, see [Flow block in Amazon Connect: Customer profiles](customer-profiles-block.md "customer-profiles-block.md").
 
-#### View and manage applied service quotas for
-
-Amazon Connect using AWS Service Quotas
+#### View and manage applied service quotas for Amazon Connect using AWS Service Quotas
 
 Service Quotas allows you to view both default and applied quota values for resources used
 by each of your Amazon Connect instances. When requesting a quota increase, Service Quotas allows you to
 indicate both the Amazon Connect quota and desired value. For quotas that support resource level
 adjustability you can also specify your Amazon Connect instance. For more information, see [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
 
-#### Added an action to
-
-`AmazonConnectServiceLinkedRolePolicy`
+#### Added an action to `AmazonConnectServiceLinkedRolePolicy`
 
 Updated `AmazonConnectServiceLinkedRolePolicy` with an action for Connect AI agents.
-For a description of the additional action, see [Amazon Connect updates to AWS managed
-policies](security_iam_awsmanpol.md#security-iam-awsmanpol-updates "security_iam_awsmanpol.md#security-iam-awsmanpol-updates").
+For a description of the additional action, see [Amazon Connect updates to AWS managed policies](security_iam_awsmanpol.md#security-iam-awsmanpol-updates "security_iam_awsmanpol.md#security-iam-awsmanpol-updates").
 
-#### Amazon Connect provides a
-
-Contact Lens conversational analytics dashboard
+#### Amazon Connect provides a Contact Lens conversational analytics dashboard
 
 Amazon Connect provides a pre-built Contact Lens conversational analytics dashboard that
 enables customers to understand why customers are contacting, the trends of contact drivers
 over time, and the performance of each of those call drivers (for example, average handle time
 for call driver “where’s my stuff?”). For more information, see [Contact Lens conversational analytics dashboard](contact-lens-conversational-analytics-dashboard.md "contact-lens-conversational-analytics-dashboard.md").
 
-#### Amazon Connect provides a pre-built queue
-
-performance dashboard
+#### Amazon Connect provides a pre-built queue performance dashboard
 
 Amazon Connect provides a pre-built queue performance dashboard that helps contact center managers
 analyze, track, and improve contact center performance. This dashboard enables managers to view
@@ -2939,9 +2593,7 @@ periods (for example, week over week), a summary chart, and a time series graph.
 information, see [Queue performance
 dashboard](queue-performance-dashboard.md "queue-performance-dashboard.md").
 
-#### Amazon Connect prompts configuration page provides CloudTrail
-
-coverage
+#### Amazon Connect prompts configuration page provides CloudTrail coverage
 
 The prompts configuration user interface has been updated to make it more efficient for
 you to manage prompts. In addition, when you add, update or delete a prompt from the Amazon Connect admin website, a
@@ -2951,9 +2603,7 @@ support line. To investigate, you can leverage AWS CloudTrail to answer question
 this recording?" and "when was this prompt changed?" For more information about the new prompts
 page, see [Create prompts in Amazon Connect](prompts.md "prompts.md").
 
-#### Amazon Connect enables integration with your
-
-preferred file scanning application to detect malware
+#### Amazon Connect enables integration with your preferred file scanning application to detect malware
 
 You can integrate Amazon Connect with your preferred file scanning application to detect malware or
 other unwanted content in attachments before they can be shared in a chat or uploaded to a
@@ -2961,41 +2611,30 @@ case. This capability provides an additional layer of protection for your custom
 organization by preventing malicious files from being shared and downloaded. For more
 information, see [Set up attachment scanning in Amazon Connect](setup-attachment-scanning.md "setup-attachment-scanning.md").
 
-#### Amazon Connect outbound campaigns voice
-
-dialing API
+#### Amazon Connect outbound campaigns voice dialing API
 
 You can create contacts for all high-volume voice outreach by using the [BatchPutContact](../APIReference/API_BatchPutContact.md "../APIReference/API_BatchPutContact.md") API. This API makes it easier for you to track
 outcomes of all campaign calls by using the Amazon Connect
 [contact record](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord").
 
-#### Amazon Connect Cases supports author name on
-
-comments
+#### Amazon Connect Cases supports author name on comments
 
 You can programmatically add and view author comments by using the [CreateRelatedItem](../../../cases/latest/APIReference/API_CreateRelatedItem.md "../../../cases/latest/APIReference/API_CreateRelatedItem.md") and [SearchRelatedItems](../../../cases/latest/APIReference/API_SearchRelatedItems.md "../../../cases/latest/APIReference/API_SearchRelatedItems.md") APIs.
 
-#### Updated
-
-`AmazonConnectCampaignsServiceLinkedRolePolicy` service-linked role managed
-policy
+#### Updated `AmazonConnectCampaignsServiceLinkedRolePolicy` service-linked role managed policy
 
 Updated the service-linked role managed policy for outbound campaigns. For a description of the
 additional actions, see [Amazon Connect updates to AWS
 managed policies](security_iam_awsmanpol.md#security-iam-awsmanpol-updates "security_iam_awsmanpol.md#security-iam-awsmanpol-updates").
 
-#### Added Create persistent chat association flow block and
-
-CreatePersistentContactAssociation API
+#### Added Create persistent chat association flow block and CreatePersistentContactAssociation API
 
 You can set up a chat to be persistent either when the chat session is initially created
 or at any time during the lifetime of the chat. To set up persistent chat after the chat
 session has started, use the new [CreatePersistentContactAssociation](../APIReference/API_CreatePersistentContactAssociation.md "../APIReference/API_CreatePersistentContactAssociation.md") API or include the new [Create
 persistent contact association](create-persistent-contact-association-block.md "create-persistent-contact-association-block.md") block in your flow.
 
-#### Optimization to how the CCP detects and handles stale
-
-WebSocket connections
+#### Optimization to how the CCP detects and handles stale WebSocket connections
 
 When an agent initializes the CCP, a WebSocket connection is opened and it is used during
 subsequent contact handling. If that agent experiences poor network conditions, this may result
@@ -3008,21 +2647,15 @@ wifi or losing power to their local machine), allowing the backend to run the ch
 flow. Before this optimization, it could take up to 10 minutes to run any chat disconnect
 flows.
 
-#### Added new service-linked role policy and
-
-service-linked role
+#### Added new service-linked role policy and service-linked role
 
 Added `AmazonConnectSynchronizationServiceRolePolicy` service-linked role
 policy and `AWSServiceRoleForAmazonConnectSynchronization` service-linked role for
 managed synchronization. The policy and role provide access to read, create, update, and delete
 Amazon Connect resources and is used to automatically synchronize AWS resources across AWS regions.
-For more information, see [AWS managed policy:
-AmazonConnectSynchronizationServiceRolePolicy](security_iam_awsmanpol.md#amazonconnectsynchronizationservicerolepolicy "security_iam_awsmanpol.md#amazonconnectsynchronizationservicerolepolicy") and [Using service-linked roles for Amazon Connect
-Managed Synchronization](managed-synchronization-slr.md "managed-synchronization-slr.md").
+For more information, see [AWS managed policy: AmazonConnectSynchronizationServiceRolePolicy](security_iam_awsmanpol.md#amazonconnectsynchronizationservicerolepolicy "security_iam_awsmanpol.md#amazonconnectsynchronizationservicerolepolicy") and [Using service-linked roles for Amazon Connect Managed Synchronization](managed-synchronization-slr.md "managed-synchronization-slr.md").
 
-#### Added Contact Lens conversational analytics metrics
-
-to the GetMetricDataV2 API
+#### Added Contact Lens conversational analytics metrics to the GetMetricDataV2 API
 
 You can analyze aggregate agent and contact performance using Contact Lens
 conversational analytics metrics in the [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md"). The following new metrics were added:
@@ -3034,8 +2667,7 @@ percent**. For descriptions of these metrics, see [Metric definitions in Amazon 
 
 Amazon Connect Global Resiliency customers can use the [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") API to copy configuration information for resources
 such as users, routing profiles, queues, and flows across AWS Regions. The API
-also automatically matches the service quotas for these resources across AWS Regions as part of the replication process. For more information, see [Create a replica of your existing
-Amazon Connect instance](create-replica-connect-instance.md "create-replica-connect-instance.md").
+also automatically matches the service quotas for these resources across AWS Regions as part of the replication process. For more information, see [Create a replica of your existing Amazon Connect instance](create-replica-connect-instance.md "create-replica-connect-instance.md").
 
 Added the [BatchGetFlowAssociation](../APIReference/API_BatchGetFlowAssociation.md "../APIReference/API_BatchGetFlowAssociation.md") API. Use this API to obtain a list of
 flow-associations for the resource identifiers provided in the API request. For example, you
@@ -3043,24 +2675,18 @@ can list which phone numbers are associated with which flows in an Amazon Connec
 
 ### October 2023 Updates
 
-#### Added actions to
-
-`AmazonConnectServiceLinkedRolePolicy`
+#### Added actions to `AmazonConnectServiceLinkedRolePolicy`
 
 Updated `AmazonConnectServiceLinkedRolePolicy` with actions for Amazon Connect Customer Profiles. For
-a description of the additional actions, see [Amazon Connect updates to AWS managed
-policies](security_iam_awsmanpol.md#security-iam-awsmanpol-updates "security_iam_awsmanpol.md#security-iam-awsmanpol-updates").
+a description of the additional actions, see [Amazon Connect updates to AWS managed policies](security_iam_awsmanpol.md#security-iam-awsmanpol-updates "security_iam_awsmanpol.md#security-iam-awsmanpol-updates").
 
 #### Third-party applications preview
 
 You can integrate third-party applications into the agent workspace. For more information,
-see [Integrate third-party applications (3p apps) in the Amazon Connect
-agent workspace](3p-apps.md "3p-apps.md") and the [Amazon Connect agent workspace
+see [Integrate third-party applications (3p apps) in the Amazon Connect agent workspace](3p-apps.md "3p-apps.md") and the [Amazon Connect agent workspace
 third-party developer guide](../../../agentworkspace/latest/devguide/what-is-service.md "../../../agentworkspace/latest/devguide/what-is-service.md").
 
-#### Added actions to
-
-`AmazonConnectServiceLinkedRolePolicy`
+#### Added actions to `AmazonConnectServiceLinkedRolePolicy`
 
 ###### Note
 
@@ -3068,32 +2694,25 @@ In November 2023 we released Amazon Q. It includes real-time agent assist functi
 along with generative AI-powered recommended responses, actions, and links to more information.
 
 Updated `AmazonConnectServiceLinkedRolePolicy` with actions for
-Amazon Connect Wisdom. For a description of the additional actions, see [Amazon Connect updates to AWS managed
-policies](security_iam_awsmanpol.md#security-iam-awsmanpol-updates "security_iam_awsmanpol.md#security-iam-awsmanpol-updates").
+Amazon Connect Wisdom. For a description of the additional actions, see [Amazon Connect updates to AWS managed policies](security_iam_awsmanpol.md#security-iam-awsmanpol-updates "security_iam_awsmanpol.md#security-iam-awsmanpol-updates").
 
 #### Added the UpdatePhoneNumberMetadata API
 
 Use the [UpdatePhoneNumberMetadata](../APIReference/API_UpdatePhoneNumberMetadata.md "../APIReference/API_UpdatePhoneNumberMetadata.md") to update the metadata for a phone number,
 such as the phone number description.
 
-#### Add as many as four access control tags to a
-
-single security profile
+#### Add as many as four access control tags to a single security profile
 
 Adding additional access control tags will make a given security profile more restrictive.
 For example, if you add four access control tags like `BPO:AcmeCorp`,
 `Specialty:Claims`, `Department:Billing`, and `City:NewYork`,
 the user would only be able to see resources containing all four of these tags. For more
-information, see [Apply tag-based access control in
-Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
+information, see [Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
 
-#### Added actions to
-
-`AmazonConnectServiceLinkedRolePolicy`
+#### Added actions to `AmazonConnectServiceLinkedRolePolicy`
 
 Updated `AmazonConnectServiceLinkedRolePolicy` with actions for Amazon Connect Customer Profiles. For
-a description of the additional actions, see [Amazon Connect updates to AWS managed
-policies](security_iam_awsmanpol.md#security-iam-awsmanpol-updates "security_iam_awsmanpol.md#security-iam-awsmanpol-updates").
+a description of the additional actions, see [Amazon Connect updates to AWS managed policies](security_iam_awsmanpol.md#security-iam-awsmanpol-updates "security_iam_awsmanpol.md#security-iam-awsmanpol-updates").
 
 #### CTI Adapter upgrade for third-party cookies
 
@@ -3103,12 +2722,9 @@ Chrome and all supported browsers. For more information, see [Amazon Connect CTI
 #### Create and customize up to 15 communications widgets
 
 You can create and customize up to 15 communications widgets per Amazon Connect instance. For more
-information, see [Add a chat user interface to your website hosted by
-Amazon Connect](add-chat-to-website.md "add-chat-to-website.md").
+information, see [Add a chat user interface to your website hosted by Amazon Connect](add-chat-to-website.md "add-chat-to-website.md").
 
-#### Access the trailing 90 days of historical agent and
-
-contact metrics
+#### Access the trailing 90 days of historical agent and contact metrics
 
 You can access the trailing 90 days of historical agent and contact metrics (for example,
 [Service level X](metrics-definitions.md#service-level "metrics-definitions.md#service-level"), [Average handle time](metrics-definitions.md#average-handle-time "metrics-definitions.md#average-handle-time")) by using the [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API. You can also make requests spanning up to 35
@@ -3119,16 +2735,12 @@ In addition, added the following metrics to the `GetMetricDataV2` API. These
 metrics are not available in Amazon Connect admin website.
 
 - [Abandonment rate](metrics-definitions.md#abandonment-rate "metrics-definitions.md#abandonment-rate")
-- [Agent non-response
-  without customer abandons](metrics-definitions.md#agent-non-response-without-customer-abandons "metrics-definitions.md#agent-non-response-without-customer-abandons")
-- [Average customer hold time all
-  contacts](metrics-definitions.md#average-customer-hold-time-all-contacts "metrics-definitions.md#average-customer-hold-time-all-contacts")
+- [Agent non-response without customer abandons](metrics-definitions.md#agent-non-response-without-customer-abandons "metrics-definitions.md#agent-non-response-without-customer-abandons")
+- [Average customer hold time all contacts](metrics-definitions.md#average-customer-hold-time-all-contacts "metrics-definitions.md#average-customer-hold-time-all-contacts")
 - [Average resolution time](metrics-definitions.md#average-resolution-time "metrics-definitions.md#average-resolution-time")
 - [Contacts resolved in X seconds](metrics-definitions.md#contacts-resolved "metrics-definitions.md#contacts-resolved")
 
-#### Added actions to
-
-`AmazonConnectServiceLinkedRolePolicy`
+#### Added actions to `AmazonConnectServiceLinkedRolePolicy`
 
 ###### Note
 
@@ -3136,8 +2748,7 @@ In November 2023 we released Amazon Q. It includes real-time agent assist functi
 along with generative AI-powered recommended responses, actions, and links to more information.
 
 Updated `AmazonConnectServiceLinkedRolePolicy` with actions for
-Amazon Connect Wisdom. For a description of the additional actions, see [Amazon Connect updates to AWS managed
-policies](security_iam_awsmanpol.md#security-iam-awsmanpol-updates "security_iam_awsmanpol.md#security-iam-awsmanpol-updates").
+Amazon Connect Wisdom. For a description of the additional actions, see [Amazon Connect updates to AWS managed policies](security_iam_awsmanpol.md#security-iam-awsmanpol-updates "security_iam_awsmanpol.md#security-iam-awsmanpol-updates").
 
 ### September 2023 Updates
 
@@ -3151,8 +2762,7 @@ improvements. For more information, see [Amazon Connect Client Application](amaz
 Added a new security profile permission: View my contacts. On the **Contact
 search** page, agents who have this permission can access the contacts that they've
 handled. If you're using Contact Lens, agents can also review the analyzed recording and
-transcripts of the contact. For more information, see [Assign permissions to use
-Contact Lens conversational analytics in Amazon Connect](permissions-for-contact-lens.md "permissions-for-contact-lens.md").
+transcripts of the contact. For more information, see [Assign permissions to use Contact Lens conversational analytics in Amazon Connect](permissions-for-contact-lens.md "permissions-for-contact-lens.md").
 
 #### Streams API upgrade for third-party cookies
 
@@ -3165,8 +2775,7 @@ You can create rules that automatically send emails or tasks to managers based o
 values of real-time metrics. This enables you to alert managers on contact center operations
 that could potentially impact the end-customer experience.
 
-For more information, see [Create alerts on real-time metrics in
-Amazon Connect](rule-real-time-metrics.md "rule-real-time-metrics.md").
+For more information, see [Create alerts on real-time metrics in Amazon Connect](rule-real-time-metrics.md "rule-real-time-metrics.md").
 
 #### "Maximum contacts in queue" includes all channels
 
@@ -3176,19 +2785,16 @@ that number is reached, regardless of the distribution of contacts. For example,
 value to 50, and the first 50 contacts are chats, then voice calls are not routed to this
 queue.
 
-For more information, see [Set the limit of maximum contacts in a queue
-using Amazon Connect](set-maximum-queue-limit.md "set-maximum-queue-limit.md").
+For more information, see [Set the limit of maximum contacts in a queue using Amazon Connect](set-maximum-queue-limit.md "set-maximum-queue-limit.md").
 
 #### Manage contacts from the Contact details page
 
 On the **Contact details** page of an in-progress contact, you can manage
-a contact by transferring, rescheduling, or ending the contact. For more information, see [Manage contacts from the Contact details page in
-Amazon Connect](manage-contacts-admin.md "manage-contacts-admin.md").
+a contact by transferring, rescheduling, or ending the contact. For more information, see [Manage contacts from the Contact details page in Amazon Connect](manage-contacts-admin.md "manage-contacts-admin.md").
 
 #### Upload file attachments to cases
 
-Agents can upload file attachments to cases. For more information, see [Enable attachments in your CCP so customers and
-agents can share and upload files](enable-attachments.md "enable-attachments.md"). For a list of supported
+Agents can upload file attachments to cases. For more information, see [Enable attachments in your CCP so customers and agents can share and upload files](enable-attachments.md "enable-attachments.md"). For a list of supported
 file types, see [Amazon Connect feature specifications](feature-limits.md "feature-limits.md").
 
 In addition, when agents leave comments on cases, their name is included.
@@ -3196,12 +2802,9 @@ In addition, when agents leave comments on cases, their name is included.
 #### Search for in-progress contacts
 
 You can search for in-progress contacts on the **Contact search** page.
-For more information, see [Search for in-progress contacts in
-Amazon Connect](search-in-progress-contacts.md "search-in-progress-contacts.md").
+For more information, see [Search for in-progress contacts in Amazon Connect](search-in-progress-contacts.md "search-in-progress-contacts.md").
 
-#### Subscribe to the Contact Data Updated event in the contact event
-
-stream
+#### Subscribe to the Contact Data Updated event in the contact event stream
 
 You can subscribe to an event type called `CONTACT_DATA_UPDATED`. The
 `Contact` object includes an `UpdatedProperties` field. This enables you
@@ -3210,14 +2813,11 @@ on the contact record. In addition, hierarchy groups information in the `AgentIn
 object is included for `CONTACT_DATA_UPDATED`, `CONNECTED_TO_AGENT`, and
 `DISCONNECTED` event types. For more information, see [Contact events data model](contact-events.md#contact-events-data-model "contact-events.md#contact-events-data-model").
 
-#### APIs to programmatically configure views in step-by-step
-
-guides
+#### APIs to programmatically configure views in step-by-step guides
 
 Amazon Connect provides APIs to programmatically create and manage view resources used in
 step-by-step guides. View resources define what gets displayed in your agent’s UI during a
-step-by-step guide. For more information, see the [Views: UI templates to customize an agent's
-workspace in Amazon Connect](view-resources-sg.md "view-resources-sg.md") documentation.
+step-by-step guide. For more information, see the [Views: UI templates to customize an agent's workspace in Amazon Connect](view-resources-sg.md "view-resources-sg.md") documentation.
 
 #### Support for UIFN in more than 60 countries
 
@@ -3229,9 +2829,7 @@ countries as you need, with a requirement of at least 5 countries. For more info
 
 ### August 2023 Updates
 
-#### Voice dialing for outbound campaigns, no agents
-
-required
+#### Voice dialing for outbound campaigns, no agents required
 
 You can use Amazon Connect outbound campaigns for high-volume outreach with no agents required. A
 new dialer type called "Agentless" makes it easier to proactively communicate with your
@@ -3245,15 +2843,11 @@ Amazon Connect Cases supports nine additional languages. You can view the Amazon
 interface in any language supported by Amazon Connect regardless of your AWS Region. For more
 information, see [Amazon Connect Cases](supported-languages.md#supported-languages-cases "supported-languages.md#supported-languages-cases").
 
-#### Granular access controls using resource
-
-tags for the agent activity audit report
+#### Granular access controls using resource tags for the agent activity audit report
 
 You can apply granular permissions to the agent activity audit report in the Amazon Connect
 historical metrics UI using resource tagging and tag-based access controls. For more
-information, see [Agent activity
-audit tag-based access control in Amazon Connect](agent-activity-audit-tag-based-access-control.md "agent-activity-audit-tag-based-access-control.md") and [Apply tag-based access control in
-Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
+information, see [Agent activity audit tag-based access control in Amazon Connect](agent-activity-audit-tag-based-access-control.md "agent-activity-audit-tag-based-access-control.md") and [Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
 
 #### Enhanced user bulk edit
 
@@ -3261,17 +2855,12 @@ You can update up to 100 user records on the Amazon Connect admin website in les
 take to make bulk updates. This enhancement is especially useful during contact surges when you
 may need to change the routing profile for many agents. For more information, see [Edit users in bulk in Amazon Connect](edit-users-in-bulk.md "edit-users-in-bulk.md").
 
-#### Amazon Connect scheduling supports agent group
-
-activities
+#### Amazon Connect scheduling supports agent group activities
 
 Amazon Connect scheduling allows contact center managers to more efficiently create and manage
-activities for groups of agents. For more information, see [Add shift activities in
-draft or published schedules in Amazon Connect](scheduling-shift-activities-calendar-view.md "scheduling-shift-activities-calendar-view.md").
+activities for groups of agents. For more information, see [Add shift activities in draft or published schedules in Amazon Connect](scheduling-shift-activities-calendar-view.md "scheduling-shift-activities-calendar-view.md").
 
-#### GA for global sign-in and agent distribution
-
-capabilities
+#### GA for global sign-in and agent distribution capabilities
 
 Released the following Amazon Connect Global Resiliency capabilities for general availability:
 global sign-in and agent distribution across Amazon Connect Regions. This release includes:
@@ -3289,8 +2878,7 @@ global sign-in and agent distribution across Amazon Connect Regions. This releas
   contacts from their current active Region without needing to know which Region is active at
   any given time.
 
-For more information, see [Set up your agent's experience with
-Amazon Connect Global Resiliency](overview-agent-distribution.md "overview-agent-distribution.md"). Also see the following new APIs:
+For more information, see [Set up your agent's experience with Amazon Connect Global Resiliency](overview-agent-distribution.md "overview-agent-distribution.md"). Also see the following new APIs:
 
 - [AssociateTrafficDistributionGroupUser](../APIReference/API_AssociateTrafficDistributionGroupUser.md "../APIReference/API_AssociateTrafficDistributionGroupUser.md")
 - [DisassociateTrafficDistributionGroupUser](../APIReference/API_DisassociateTrafficDistributionGroupUser.md "../APIReference/API_DisassociateTrafficDistributionGroupUser.md")
@@ -3304,9 +2892,7 @@ following topic:
 
 - [AWS::Connect::TrafficDistributionGroup](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-trafficdistributiongroup.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-trafficdistributiongroup.md")
 
-#### 100 rows on real-time metrics
-
-tables
+#### 100 rows on real-time metrics tables
 
 You can now view up to 100 rows in the real-time metrics tables on the **Real-time
 metrics** page. Previously, the maximum was 50 rows. For more information about
@@ -3320,8 +2906,7 @@ smaller arrow next to the header text. For more information about real-time metr
 #### Route based on time since last inbound contact
 
 Added an option to specify that selected agents with this routing profile will not have
-their routing order impacted by outbound contacts. For more information, see [Create a routing profile in Amazon Connect to link queues to
-agents](routing-profiles.md "routing-profiles.md").
+their routing order impacted by outbound contacts. For more information, see [Create a routing profile in Amazon Connect to link queues to agents](routing-profiles.md "routing-profiles.md").
 
 ### July 2023 Updates
 
@@ -3335,8 +2920,7 @@ block.
 
 ![A block with a custom name.](images/set-custom-flow-block-name-1.gif)
 
-For more information, see [Customize the name of a flow block in
-Amazon Connect](set-custom-flow-block-name.md "set-custom-flow-block-name.md").
+For more information, see [Customize the name of a flow block in Amazon Connect](set-custom-flow-block-name.md "set-custom-flow-block-name.md").
 
 #### Archive, restore, and delete flows and modules
 
@@ -3345,23 +2929,20 @@ This makes it easier to manage flows and modules that are not in use or no longe
 example, flows used only during certain times of the year can be archived when not in use and
 then unarchived when needed. When a flow or module has been archived, you can then permanently
 delete it so it is no longer available within your list of flows and modules. For more
-information, see [Archive, delete, and restore flows in
-Amazon Connect](delete-contact-flow.md "delete-contact-flow.md").
+information, see [Archive, delete, and restore flows in Amazon Connect](delete-contact-flow.md "delete-contact-flow.md").
 
 #### Undo and redo actions in the flow designer
 
 You can undo and redo actions in the flow designer. Choose the undo and redo items on the
 toolbar. Or, with your cursor on the flow designer canvas, use the shortcut keys: Ctrl+Z to
-undo, Ctrl+Y to redo. For more information, see [Undo and redo actions in the flow designer in
-Amazon Connect](undo-redo-history.md "undo-redo-history.md").
+undo, Ctrl+Y to redo. For more information, see [Undo and redo actions in the flow designer in Amazon Connect](undo-redo-history.md "undo-redo-history.md").
 
 #### Add notes to a flow block
 
 To add notes to a block, on the toolbar choose Annotation. Or, with your cursor on the
 flow designer canvas, use the shortcut keys: Ctrl + Alt +N. A yellow box opens for you to type
 up to 1000 characters. This enables you to leave comments that others can view. For more
-information, see [Add comments to a flow block in the flow designer
-in Amazon Connect](add-notes-to-block.md "add-notes-to-block.md").
+information, see [Add comments to a flow block in the flow designer in Amazon Connect](add-notes-to-block.md "add-notes-to-block.md").
 
 The following GIF shows how to move notes around the flow designer and attach them to a
 block.
@@ -3391,13 +2972,9 @@ like the customer's credit card number to do a Lambda data dip. For more informa
 You can import time off balances for your users. You can also set the group allowance for
 time off by hour, for each calendar day, for specific time off activities. Amazon Connect uses the time
 off balance to automatically approve or decline time off requests based on the agent's
-available net balance and the group allowance for time off. For more information, see [Import an agent's time off balance to
-Amazon Connect](upload-timeoff-balance.md "upload-timeoff-balance.md") and [Set group allowance for time off in
-Amazon Connect](config-group-allowance-to.md "config-group-allowance-to.md").
+available net balance and the group allowance for time off. For more information, see [Import an agent's time off balance to Amazon Connect](upload-timeoff-balance.md "upload-timeoff-balance.md") and [Set group allowance for time off in Amazon Connect](config-group-allowance-to.md "config-group-allowance-to.md").
 
-#### Schedule flexible days and shift activities based
-
-on shift length
+#### Schedule flexible days and shift activities based on shift length
 
 The following scheduling functionality has been released:
 
@@ -3410,18 +2987,14 @@ The following scheduling functionality has been released:
   that are compliant to agent's contracts and regional labor laws, thereby saving time for
   schedulers.
 
-For more information, see [Create a template for an agent's
-weekly shift in Amazon Connect](scheduling-create-shift-profiles.md "scheduling-create-shift-profiles.md").
+For more information, see [Create a template for an agent's weekly shift in Amazon Connect](scheduling-create-shift-profiles.md "scheduling-create-shift-profiles.md").
 
-#### Amazon Connect Customer Profiles supports rule-based matching and
-
-merging
+#### Amazon Connect Customer Profiles supports rule-based matching and merging
 
 Amazon Connect Customer Profiles supports rule-based resolution to match and merge similar profiles into unified
 ones. This enables you to enhance customer service by granting agents and automated systems
 access to relevant customer information. As a result, interactions become faster and more
-personalized for customers. For more information, see [Use Identity Resolution to consolidate similar profiles in
-Amazon Connect](use-identity-resolution.md "use-identity-resolution.md").
+personalized for customers. For more information, see [Use Identity Resolution to consolidate similar profiles in Amazon Connect](use-identity-resolution.md "use-identity-resolution.md").
 
 #### Released Amazon Connect Client Application v1.0.1.33
 
@@ -3436,9 +3009,7 @@ tracking case activities and resolution ownership. Agents can associate a case w
 an individual agent for resolution. Agents can view and filter cases assigned to their queue,
 and managers can directly assign cases to individual agents. For more information, see [Set up a case assignment in Amazon Connect Cases](case-assignment.md "case-assignment.md").
 
-#### Contact Lens
-
-Conversational Analytics metrics in the API
+#### Contact Lens Conversational Analytics metrics in the API
 
 You can analyze aggregate agent and contact performance using Contact Lens
 Conversational Analytics metrics in the [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API. The list of metrics include Average contact duration, Average
@@ -3446,9 +3017,7 @@ conversation duration, Average greeting time agent, Average holds, Average inter
 Average interruption time agent, Average non-talk time, Average talk time, Average talk time
 agent, and Average talk time customer. For more information, see [Metric definitions in Amazon Connect](metrics-definitions.md "metrics-definitions.md") and [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md").
 
-#### Amazon Connect Wisdom supports real-time recommendations for chat
-
-conversations
+#### Amazon Connect Wisdom supports real-time recommendations for chat conversations
 
 ###### Note
 
@@ -3458,9 +3027,7 @@ along with generative AI-powered recommended responses, actions, and links to mo
 Amazon Connect Wisdom delivers ML-powered, real-time recommended information to help chat
 agents quickly solve customer needs.
 
-#### Delete queues and routing profiles
-
-programmatically
+#### Delete queues and routing profiles programmatically
 
 You can delete queues and routing profiles programmatically. For more information, see the
 following topics:
@@ -3478,29 +3045,22 @@ topics:
 
 ### June 2023 Updates
 
-#### Agents can change their audio device settings in
-
-the CCP and agent workspace
+#### Agents can change their audio device settings in the CCP and agent workspace
 
 You can configure the Contact Control Panel (CCP) or agent workspace to enable agents to
 select their preferred device for microphone input and audio output, such as voice media and
 new contact notifications. For more information, see [How to use the CCP to change your
 audio device settings](audio-device-settings.md "audio-device-settings.md").
 
-#### Amazon Connect Chat: New interactive message
-
-types
+#### Amazon Connect Chat: New interactive message types
 
 Amazon Connect Chat supports new interactive message types: quick replies and
 carousels. With quick replies, customers are presented with a list of response options (for
 example, **Yes**, **No**) that they can easily click to
 reply. Carousels present a set of interactive messages in a horizontally-scrolling format. Your
-customers can scroll through them and select the best option. For more information, see [Add Amazon Lex interactive messages for customers in
-chat](interactive-messages.md "interactive-messages.md").
+customers can scroll through them and select the best option. For more information, see [Add Amazon Lex interactive messages for customers in chat](interactive-messages.md "interactive-messages.md").
 
-#### GetMetricDataV2 API: Region availability and new
-
-functionality
+#### GetMetricDataV2 API: Region availability and new functionality
 
 The [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API is available in the AWS GovCloud (US-West)
 Region. GetMetricDataV2 is now released in all AWS Regions where Amazon Connect is
@@ -3513,41 +3073,31 @@ performance over time. For example, you can identify the number of contacts that
 disconnected by an agent versus disconnected by a customer hanging up. For more information,
 see [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md").
 
-#### Search for existing tags within an Amazon Connect
-
-instance
+#### Search for existing tags within an Amazon Connect instance
 
 Amazon Connect provides the ability to search for existing tags within an instance, both
 programmatically via API and within the UI. When tagging resources, you can search from
 pre-existing key:value pairs before creating new ones. For more information, see the [SearchResourceTags](../APIReference/API_SearchResourceTags.md "../APIReference/API_SearchResourceTags.md") API.
 
-#### Added screen recording capabilities to
-
-Contact Lens
+#### Added screen recording capabilities to Contact Lens
 
 Amazon Connect Contact Lens provides screen recording capabilities, making it easy for you to
 help agents improve their performance. With screen recording, you can identify areas for agent
 coaching (for example, long contact handle duration or non-compliance with business processes)
 by not only listening to customer calls or reviewing chat transcripts, but also watching the
-agent's actions while they are handling a contact. For more information, see [Set up and review agent screen recordings in Amazon Connect
-Contact Lens](agent-screen-recording.md "agent-screen-recording.md").
+agent's actions while they are handling a contact. For more information, see [Set up and review agent screen recordings in Amazon Connect Contact Lens](agent-screen-recording.md "agent-screen-recording.md").
 
-#### Amazon Connect scheduling allows agents to manage
-
-time off requests
+#### Amazon Connect scheduling allows agents to manage time off requests
 
 Amazon Connect scheduling allows contact center agents to manage their time off requests in a
 self-serve manner. For more information, see [Create a time off request in Amazon Connect](create-time-off-to.md "create-time-off-to.md").
 
-#### Real-time data export of unified customer profiles to
-
-an Amazon Kinesis Data Stream
+#### Real-time data export of unified customer profiles to an Amazon Kinesis Data Stream
 
 Amazon Connect Customer Profiles supports real-time data export of unified customer profiles to an Amazon Kinesis
 Data Stream. Companies can enable data streaming and automatically receive data for new
 profiles and updates to existing profiles into their Amazon Kinesis Data Stream. For more
-information, see [Export your unified customer profile
-data](set-up-real-time-export.md "set-up-real-time-export.md").
+information, see [Export your unified customer profile data](set-up-real-time-export.md "set-up-real-time-export.md").
 
 ### May 2023 Updates
 
@@ -3555,8 +3105,7 @@ data](set-up-real-time-export.md "set-up-real-time-export.md").
 
 Contact Lens provides a machine learning powered capability for businesses to help
 identify top contact drivers by grouping customer conversations into themes. For more
-information, see [Use theme detection in Amazon Connect
-Contact Lens to discover issues with contacts](use-theme-detection.md "use-theme-detection.md").
+information, see [Use theme detection in Amazon Connect Contact Lens to discover issues with contacts](use-theme-detection.md "use-theme-detection.md").
 
 #### New APIs for managing prompts
 
@@ -3569,12 +3118,9 @@ _Amazon Connect API Reference Guide_. Also see [AWS::Connect::Prompt](../../../A
 
 Amazon Connect Contact Lens provides supervisor alerts on agent performance. This enables you
 to identify which contacts (for example, those with an evaluation score less < 50%) that
-require supervisors follow-up with agents on their team. For more information, see [Notify supervisors and agents about
-performance evaluations](create-evaluation-rules.md "create-evaluation-rules.md").
+require supervisors follow-up with agents on their team. For more information, see [Notify supervisors and agents about performance evaluations](create-evaluation-rules.md "create-evaluation-rules.md").
 
-#### Interactive messages: Rich formatting in chat
-
-titles and subtitles
+#### Interactive messages: Rich formatting in chat titles and subtitles
 
 You can add rich formatting to the titles and subtitles of your chat messages. For
 example, you can add links, italics, bold, numbered lists, and bulleted lists. You use [markdown](https://commonmark.org/help/ " https://commonmark.org/help/") to format your text. For more
@@ -3599,22 +3145,16 @@ To manage evaluation forms programmatically, see the [Evaluation](../APIReferenc
 _Amazon Connect API Reference_. To create a shared template for evaluation forms,
 see the AWS::Connect::EvaluationForm resource in the _CloudFormation User Guide_.
 
-#### New API: Use `CreateParticipant` to customize chat flow
-
-experiences
+#### New API: Use `CreateParticipant` to customize chat flow experiences
 
 Added the [CreateParticipant](../APIReference/API_CreateParticipant.md "../APIReference/API_CreateParticipant.md") API which you can use to customize chat flow
-experiences. You use it to integrate custom participants. For more information, see [Customize chat flow experiences in Amazon Connect by
-integrating custom participants](chat-customize-flow.md "chat-customize-flow.md").
+experiences. You use it to integrate custom participants. For more information, see [Customize chat flow experiences in Amazon Connect by integrating custom participants](chat-customize-flow.md "chat-customize-flow.md").
 
-#### Customer Profiles displays case information in the agent
-
-workspace
+#### Customer Profiles displays case information in the agent workspace
 
 Using Amazon Connect Customer Profiles inside the agent workspace, agents can see cases from
 third-party case management solutions and Amazon Connect Cases inside a particular customer
-profile. For more information, see [Use Amazon Connect Customer Profiles](customer-profiles.md "customer-profiles.md") and [Access Amazon Connect Customer Profiles in the agent
-workspace](customer-profile-access.md "customer-profile-access.md").
+profile. For more information, see [Use Amazon Connect Customer Profiles](customer-profiles.md "customer-profiles.md") and [Access Amazon Connect Customer Profiles in the agent workspace](customer-profile-access.md "customer-profile-access.md").
 
 #### Added Cross-channel concurrency
 
@@ -3622,26 +3162,20 @@ You can configure an agent's routing profile to receive contacts from multiple c
 the same time. For example, while an agent is on a voice contact, they can be offered contacts
 from any other channels enabled in the routing profile, such as chats and tasks.
 
-For more information, see [Create a routing profile in Amazon Connect to link queues to
-agents](routing-profiles.md "routing-profiles.md"). Also see the [CrossChannelBehavior](../APIReference/API_CrossChannelBehavior.md "../APIReference/API_CrossChannelBehavior.md") API.
+For more information, see [Create a routing profile in Amazon Connect to link queues to agents](routing-profiles.md "routing-profiles.md"). Also see the [CrossChannelBehavior](../APIReference/API_CrossChannelBehavior.md "../APIReference/API_CrossChannelBehavior.md") API.
 
 #### Set Voice ID block supports fraud watchlist ID
 
 Updated the [Set Voice ID block](set-voice-id.md "set-voice-id.md") so it supports fraud watchlist ID for fraud detection.
 
-#### Search, sort, and filter published
-
-agent schedules
+#### Search, sort, and filter published agent schedules
 
 Schedulers can quickly search, sort, and filter agent schedules from within the published
-schedule calendar. For more information, see [How supervisors view
-published schedules using the Amazon Connect admin website](scheduling-view-schedule-supervisors.md "scheduling-view-schedule-supervisors.md").
+schedule calendar. For more information, see [How supervisors view published schedules using the Amazon Connect admin website](scheduling-view-schedule-supervisors.md "scheduling-view-schedule-supervisors.md").
 
 ### March 2023 Updates
 
-#### Added Wisdom support for Microsoft SharePoint
-
-Online
+#### Added Wisdom support for Microsoft SharePoint Online
 
 ###### Note
 
@@ -3659,16 +3193,12 @@ Inside the out-of-the-box Amazon Connect agent workspace, you can create workflo
 that walk agents through custom UI pages that suggest what to do at a given moment during a
 customer interaction. You can create guides that help agents identify customer issues and
 recommend subsequent actions, as well as surface screen-pops and forms for submitting
-transactions and disposition codes. For more information, see [Step-by-step Guides to set up your
-Amazon Connect agent workspace](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md").
+transactions and disposition codes. For more information, see [Step-by-step Guides to set up your Amazon Connect agent workspace](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md").
 
-#### Added support for nested JSON in Invoke AWS
-
-Lambda function flow block
+#### Added support for nested JSON in Invoke AWS Lambda function flow block
 
 The Invoke AWS Lambda function flow block supports JSON responses. For more
-information, see [Flow block in Amazon Connect: AWS Lambda
-function](invoke-lambda-function-block.md "invoke-lambda-function-block.md").
+information, see [Flow block in Amazon Connect: AWS Lambda function](invoke-lambda-function-block.md "invoke-lambda-function-block.md").
 
 #### Added Show View flow block
 
@@ -3680,8 +3210,7 @@ end applications. For more information, see [Flow block in Amazon Connect: Show 
 You can assign a shift profile to individual agents. This is useful to do when, for
 example, you have part-time agents who are in the same staffing group as your full-time agents,
 but they require their own shift profile. For more information, see the **Associate to
-shift profile** option described in [Create staff rules for scheduling in
-Amazon Connect](scheduling-create-staff-rules.md "scheduling-create-staff-rules.md").
+shift profile** option described in [Create staff rules for scheduling in Amazon Connect](scheduling-create-staff-rules.md "scheduling-create-staff-rules.md").
 
 #### Added support for multiple fraudster watchlists
 
@@ -3690,18 +3219,13 @@ You can create and manage custom watchlists to be evaluated against for known fr
 detection. For more information, see [Known fraudster
 detection](voice-id.md#fraud-detection "voice-id.md#fraud-detection"), and see new actions in the [Amazon Connect Voice ID API Reference](../../../voiceid/latest/APIReference/Welcome.md "../../../voiceid/latest/APIReference/Welcome.md").
 
-#### Search and sort schedules in the
-
-Schedule Manager
+#### Search and sort schedules in the Schedule Manager
 
 Schedulers can quickly search for schedule names using partial keywords or sort the
 schedule list based on start date, end date, creation date, or updated date. For more
-information, see [Search and sort a
-schedule](scheduling-publish-schedule.md#scheduling-manager-search-sort "scheduling-publish-schedule.md#scheduling-manager-search-sort").
+information, see [Search and sort a schedule](scheduling-publish-schedule.md#scheduling-manager-search-sort "scheduling-publish-schedule.md#scheduling-manager-search-sort").
 
-#### Added the ability to configure multiple IAM roles that
-
-can be assigned to a single user when using SAML 2.0
+#### Added the ability to configure multiple IAM roles that can be assigned to a single user when using SAML 2.0
 
 You can configure multiple IAM roles that can be assigned to a single user when using SAML
 2.0 which enables you to support user access from multiple identity providers simultaneously.
@@ -3709,13 +3233,10 @@ For example, if you are migrating identity providers, you can configure multiple
 associated to a single user and that user will be able to access Amazon Connect from either provider. To
 learn more about configuring IAM roles for SAML 2.0 in Amazon Connect, see the [Configure SAML with IAM for Amazon Connect](configure-saml.md "configure-saml.md") documentation.
 
-#### Added panel template for interactive chat
-
-messages
+#### Added panel template for interactive chat messages
 
 With a panel template, you can present customers with up to 10 choices under one question
-in a chat message. For more information, see [Add Amazon Lex interactive messages for customers in
-chat](interactive-messages.md "interactive-messages.md").
+in a chat message. For more information, see [Add Amazon Lex interactive messages for customers in chat](interactive-messages.md "interactive-messages.md").
 
 #### Added `GetMetricDataV2` API
 
@@ -3730,10 +3251,7 @@ attempts](metrics-definitions.md#callback-attempts "metrics-definitions.md#callb
 
 ### February 2023 Updates
 
-#### Added new attribute type
-
-`ENHANCED_CONTACT_MONITORING` to the Describe, List, and Update Instance Attribute
-APIs
+#### Added new attribute type `ENHANCED_CONTACT_MONITORING` to the Describe, List, and Update Instance Attribute APIs
 
 This release updates the APIs: `DescribeInstanceAttribute`,
 `ListInstanceAttributes`, and `UpdateInstanceAttribute`. You can use it
@@ -3746,9 +3264,7 @@ information, see [DescribeInstanceAttribute](../APIReference/API_DescribeInstanc
 For more information, see the [DeleteDomain](../../../cases/latest/APIReference/API_DeleteDomain.md "../../../cases/latest/APIReference/API_DeleteDomain.md") API
 in the _Amazon Connect Cases API Reference Guide_.
 
-#### Added `RelatedContactId` to
-
-`StartTaskContact` API
+#### Added `RelatedContactId` to `StartTaskContact` API
 
 You can link together an unlimited number of task contacts using the
 `RelatedContactID` parameter supported in the `StartTaskContact` API.
@@ -3757,13 +3273,9 @@ Guide_.
 
 #### Amazon Connect Cases integrates with AWS PrivateLink
 
-For more information, see [Creating an interface VPC endpoint for
-Amazon Connect](vpc-interface-endpoints.md#vpc-endpoint-create "vpc-interface-endpoints.md#vpc-endpoint-create").
+For more information, see [Creating an interface VPC endpoint for Amazon Connect](vpc-interface-endpoints.md#vpc-endpoint-create "vpc-interface-endpoints.md#vpc-endpoint-create").
 
-#### Added support for more
-
-granular access controls (using resource tags) to view real-time metrics for agents, queues,
-and routing profiles
+#### Added support for more granular access controls (using resource tags) to view real-time metrics for agents, queues, and routing profiles
 
 You can enable more granular access controls for real-time metrics by configuring resource
 tags and access control tags within security profiles in the Amazon Connect admin website. For more
@@ -3771,19 +3283,14 @@ information, see [Real-time tag-based access
 control](rtm-tag-based-access-control.md "rtm-tag-based-access-control.md") and [Tag based access control in
 Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
 
-#### Added support to provide more
-
-granular permissions to metrics reports, including new permissions for real-time metrics,
-historical metrics, and agent activity audit
+#### Added support to provide more granular permissions to metrics reports, including new permissions for real-time metrics, historical metrics, and agent activity audit
 
 You can configure more granular permissions to metrics and reports from within security
 profiles in the Amazon Connect admin website. For more information, see [Permissions required to
 view real-time metrics reports](dashboard-required-permissions.md "dashboard-required-permissions.md") and [Agent activity audit
 permissions](agent-activity-audit-permissions.md "agent-activity-audit-permissions.md").
 
-#### Added support to provide visibility into an
-
-agent’s next activity
+#### Added support to provide visibility into an agent’s next activity
 
 You can view an agent’s next activity in the real-time metrics agent table in the Amazon Connect
 real-time metrics UI and by using the public API. For more information, see the [NextStatus API reference](../APIReference/API_UserData.md#connect-Type-UserData-NextStatus "../APIReference/API_UserData.md#connect-Type-UserData-NextStatus").
@@ -3792,8 +3299,7 @@ real-time metrics UI and by using the public API. For more information, see the 
 
 You can use Amazon S3 Object Lock in combination with your call recording bucket
 to help prevent call recordings from being deleted or overwritten for a fixed amount of time,
-or indefinitely. For more information, see [How to set up S3 Object Lock for
-immutable call recordings](s3-object-lock-call-recordings.md "s3-object-lock-call-recordings.md").
+or indefinitely. For more information, see [How to set up S3 Object Lock for immutable call recordings](s3-object-lock-call-recordings.md "s3-object-lock-call-recordings.md").
 
 #### CloudFormation templates for instance management
 
@@ -3832,9 +3338,7 @@ receipts in your chat user interface](message-receipts.md "message-receipts.md")
 data types in the _Amazon Connect Participant Service API Reference
 Guide_.
 
-#### Updates to GetCurrentMetricData and
-
-GetCurrentUserData
+#### Updates to GetCurrentMetricData and GetCurrentUserData
 
 For the [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API, added support for routing profile filter,
 sort criteria, and grouping by routing profiles. For the [GetCurrentUserData](../APIReference/API_GetCurrentUserData.md "../APIReference/API_GetCurrentUserData.md") API, added support for routing profiles, user
@@ -3854,9 +3358,7 @@ participants](setup-chat-timeouts.md "setup-chat-timeouts.md").
 Amazon Connect now supports Microsoft Edge Chromium. For more information about
 supported browsers, see [Browsers supported by Amazon Connect.](connect-supported-browsers.md "connect-supported-browsers.md")
 
-#### Amazon Connect supports JSON as a content type
-
-for chat messages
+#### Amazon Connect supports JSON as a content type for chat messages
 
 By supporting JSON as a content type, Amazon Connect provides you with a way to pass
 additional information over chat to provide rich personalized experiences. For example,
@@ -3866,33 +3368,25 @@ capabilities, and passing customer metadata to a third party bot. For more infor
 Guide_, and [SendMessage](../../../connect-participant/latest/APIReference/API_SendMessage.md "../../../connect-participant/latest/APIReference/API_SendMessage.md") in the _Amazon Connect Participant Service
 API Reference Guide_.
 
-#### Added topic on Amazon Connect availability by
-
-Region
+#### Added topic on Amazon Connect availability by Region
 
 For more information, see [Availability of Amazon Connect services by
 Region](regions.md "regions.md").
 
-#### Contact Lens granular data
-
-redaction
+#### Contact Lens granular data redaction
 
 When you set up Contact Lens sensitive data redaction, you can choose which
 entities you want to redact, and how you want the redaction to appear in the transcript. For
 more information, see [Enable redaction of
 sensitive data](enable-analytics.md#enable-redaction "enable-analytics.md#enable-redaction").
 
-#### Additional Contact Lens language support
-
-and Region availability
+#### Additional Contact Lens language support and Region availability
 
 Contact Lens now [supports the following languages](supported-languages.md#supported-languages-contact-lens "supported-languages.md#supported-languages-contact-lens"): English - New Zealand, English - South Africa. It
 is also [available in the
 following Regions](enable-analytics.md#regions-contactlens "enable-analytics.md#regions-contactlens"): Africa (Cape Town), Asia Pacific (Seoul), Asia Pacific (Singapore).
 
-#### Released Barge to allow contact center managers to
-
-join ongoing calls
+#### Released Barge to allow contact center managers to join ongoing calls
 
 Barge allows managers to join and participate in an ongoing customer service call between
 a contact center agent and customer. After joining the call, a manager can speak with the
@@ -3905,9 +3399,7 @@ conversations](monitor-barge.md "monitor-barge.md").
 You can assign the user hierarchy in the .csv file when you add users in bulk. For more
 information, see [Add users in bulk](user-management.md "user-management.md").
 
-#### Granular access controls using resource
-
-tags for users, security profiles, routing profiles, and queues
+#### Granular access controls using resource tags for users, security profiles, routing profiles, and queues
 
 You can now enable more granular access controls for security profiles, users, routing
 profiles, and queues by configuring resource tags within the Amazon Connect console. You can add
@@ -3916,9 +3408,7 @@ tags within security profiles to enforce granular permissions. For more informat
 Amazon Connect](tagging.md "tagging.md") and [Tag based access controls in
 Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
 
-#### Bulk user import now includes agent hierarchy
-
-and tags
+#### Bulk user import now includes agent hierarchy and tags
 
 Amazon Connect now allows you to configure hierarchies and resource tags for users in bulk. You can
 now assign agent hierarchies and resource tags to each agent using the CSV bulk upload template
@@ -3937,15 +3427,11 @@ Released a set of Rules APIs that enable you to programmatically create and mana
 For more information, see [Rules actions](../APIReference/rules-api.md "../APIReference/rules-api.md") in the _Amazon Connect
 API Reference_.
 
-#### Search contacts by agent's first or last name is
-
-available in AWS GovCloud
+#### Search contacts by agent's first or last name is available in AWS GovCloud
 
 ### November 2022 Updates
 
-#### Create step-by-step guides for your
-
-agents
+#### Create step-by-step guides for your agents
 
 Inside the out-of-the-box Connect agent workspace, you can now create workflows that walk
 agents through custom UI pages that suggest what to do at a given moment during a customer
@@ -3954,9 +3440,7 @@ subsequent actions, as well as surface screen-pops and forms for submitting tran
 disposition codes. For more information, see [Agent Workspace guided
 experience](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md").
 
-#### GA for Forecasting, capacity planning, and
-
-scheduling
+#### GA for Forecasting, capacity planning, and scheduling
 
 Amazon Connect provides a set of services powered by machine learning that help you optimize your
 contact center by offering the following:
@@ -3969,9 +3453,7 @@ contact center by offering the following:
 For more information, see [Forecasting,
 capacity planning, and scheduling](forecasting-capacity-planning-scheduling.md "forecasting-capacity-planning-scheduling.md").
 
-#### Released Contact Lens evaluation forms for
-
-preview
+#### Released Contact Lens evaluation forms for preview
 
 You can create evaluation forms, and then make them available to managers to review
 conversations alongside contact details, recordings, transcripts, and summaries, without the
@@ -3979,9 +3461,7 @@ need to switch applications. Conversational analytics automatically pre-populate
 scores for criteria like script adherence, sensitive data collection, and customer greetings.
 For more information, see [Evaluate performance (Preview)](evaluations.md "evaluations.md").
 
-#### Released Contact Lens conversational
-
-analytics capabilities for Amazon Connect chat
+#### Released Contact Lens conversational analytics capabilities for Amazon Connect chat
 
 Amazon Connect Contact Lens provides conversational analytics capabilities for Amazon Connect chat,
 extending the machine learning powered analytics to better assess chat contacts. For more
@@ -4011,9 +3491,7 @@ You can view and delete all saved reports in your instance, including reports th
 not created by you or that are not currently published. For more information, see [Manage
 saved reports (admin)](manage-saved-reports-admin.md "manage-saved-reports-admin.md").
 
-#### Search for profiles using multiple search
-
-keys
+#### Search for profiles using multiple search keys
 
 In addition to searching for profiles with a single search key (i.e., a key-values(s)
 pair), the SearchProfiles API has been enhanced to support searching for profiles using
@@ -4026,9 +3504,7 @@ that match the search criteria. For more information, see the [SearchProfiles](.
 In addition to deleting quick connects programmatically, you can now delete them using the
 Amazon Connect console. For more information, see [Delete quick connects](quick-connects-delete.md "quick-connects-delete.md").
 
-#### Added DismissUserContact
-
-API
+#### Added DismissUserContact API
 
 Added a new API for programmatically clearing the notifications agents receive after they
 have missed or rejected a contact, making them eligible to be routed new contacts. This API can
@@ -4037,9 +3513,7 @@ the contact or is handling After Contact Work. For more information, see the [Di
 
 ### October 2022 Updates
 
-#### Add secondary email address and mobile number to
-
-user accounts
+#### Add secondary email address and mobile number to user accounts
 
 For more information, see [Add users to Amazon Connect](user-management.md "user-management.md").
 
@@ -4066,9 +3540,7 @@ and efficiency, while meeting international regulatory requirements. For more in
 [Set up Amazon Connect Global
 Resiliency](setup-connect-global-resiliency.md "setup-connect-global-resiliency.md").
 
-#### Added Ctrl+Shift+F to search flow block titles and
-
-metadata
+#### Added Ctrl+Shift+F to search flow block titles and metadata
 
 Press **Ctrl+Shift+F** to display a search box in the flow designer, and
 then search the block titles and metadata. To hide the search box, go to
@@ -4088,9 +3560,7 @@ see [Amazon Connect Cases](cases.md "cases.md") and [Amazon Connect Cases API Re
 
 ### September 2022 Updates
 
-#### Searching for a contact? Choose from a list of
-
-categories
+#### Searching for a contact? Choose from a list of categories
 
 When you search a contact and filter results by Contact Lens categories, you can
 pick from a list of categories, rather than manually typing the name of a category.
@@ -4158,9 +3628,7 @@ options:
 
 ![The updated user interface in the block Property pages showing configuration options.](images/Sidepanel.gif)
 
-#### Search for Amazon Connect users by first name, last name,
-
-login, and more
+#### Search for Amazon Connect users by first name, last name, login, and more
 
 You can search for Amazon Connect users by first name, last name, user login, agent hierarchy,
 security profile, and routing profile. For example, you can search for all Amazon Connect users who have
@@ -4176,9 +3644,7 @@ dashboard](visualize-queue-dashboard.md "visualize-queue-dashboard.md").
 
 ### August 2022 Updates
 
-#### Contact search: Apply "Match any" or "Match all" to
-
-Contact Lens category searches
+#### Contact search: Apply "Match any" or "Match all" to Contact Lens category searches
 
 When you search for contacts, and filter by Contact Lens categories, you can apply
 **Match any** or **Match all** to the search. For example,
@@ -4203,25 +3669,19 @@ information, see [Schedule Adherence](schedule-adherence.md "schedule-adherence.
 
 ### July 2022 Updates
 
-#### Search for contacts by using the agent's first or last
-
-name
+#### Search for contacts by using the agent's first or last name
 
 You can search for contacts using the agent's first or last name. The filter name is
 **Agent**.
 
-##### Search contacts by agent's first or last
-
-name
+##### Search contacts by agent's first or last name
 
 The following image shows the Agent filter, and the option to choose agents by
 name.
 
 ![The Agent filter, and the option to choose agents by name.](images/contact-search-agent-name.png)
 
-##### Required permissions to "Agent" search
-
-filter
+##### Required permissions to "Agent" search filter
 
 To use the **Agent** filter on the **Contact search**
 page, in your Amazon Connect security profile you must have **Users - View**
@@ -4241,9 +3701,7 @@ following image:
 
 ![The Agent filter when it isn't visible.](images/release-notes-contact-search2.png)
 
-#### Released updates for rich text format
-
-rendering
+#### Released updates for rich text format rendering
 
 On the **Contact Search** and **Contact Detail** pages,
 you can now view chat transcripts that have rich text formatting, such as bold or italic font,
@@ -4251,9 +3709,7 @@ bullet points, numbered lists, and hyperlinks. For more information about gettin
 Amazon Connect Chat, see [Set up your customer's chat
 experience](enable-chat-in-app.md "enable-chat-in-app.md").
 
-#### View call transcript using the CCP or agent
-
-application
+#### View call transcript using the CCP or agent application
 
 Agents can view call unredacted transcripts in the CCP and agent application. For more
 information, see [View a call transcript during
@@ -4261,9 +3717,7 @@ ACW](view-call-transcript-ccp.md "view-call-transcript-ccp.md").
 
 ### June 2022 Updates
 
-#### Support for Lex intent confidence scores and
-
-sentiment analysis
+#### Support for Lex intent confidence scores and sentiment analysis
 
 You can further personalize the automated self-service customer experience using Amazon Lex
 intent confidence scores and sentiment analysis as a branch within your flows. For more
@@ -4295,9 +3749,7 @@ filters.
 #### New contact transferred related metrics
 
 We upgraded the existing [Contacts transferred in](metrics-definitions.md#contacts-transferred-in "metrics-definitions.md#contacts-transferred-in") and [Contacts transferred out](metrics-definitions.md#contacts-transferred-out "metrics-definitions.md#contacts-transferred-out") metrics to have consistent definitions. We added
-[Contacts transferred in by
-agent](metrics-definitions.md#contacts-transferred-in-by-agent "metrics-definitions.md#contacts-transferred-in-by-agent") and [Contacts transferred out by
-agent](metrics-definitions.md#contacts-transferred-out-by-agent "metrics-definitions.md#contacts-transferred-out-by-agent") for more granular contact transferred related metrics.
+[Contacts transferred in by agent](metrics-definitions.md#contacts-transferred-in-by-agent "metrics-definitions.md#contacts-transferred-in-by-agent") and [Contacts transferred out by agent](metrics-definitions.md#contacts-transferred-out-by-agent "metrics-definitions.md#contacts-transferred-out-by-agent") for more granular contact transferred related metrics.
 
 #### Changes to real-time metrics agent tables
 
@@ -4381,9 +3833,7 @@ Amazon Connect provides an API to programmatically change the current status of 
 **Offline** or a custom status such as **Lunch** or
 **Break** and should not be routed contacts. For more information, see [PutUserStatus](../APIReference/API_PutUserStatus.md "../APIReference/API_PutUserStatus.md") in the [Amazon Connect API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
-#### New API to search for users by name, agent hierarchies, and
-
-tags
+#### New API to search for users by name, agent hierarchies, and tags
 
 Added API to search for user records in your Amazon Connect instance. This new API provides a
 programmatic and flexible way to search for users by first name, last name, username, routing
@@ -4409,10 +3859,8 @@ agent, and caller, and another participant.)
 
 For more information, see the following topics:
 
-- [Comparison of enhanced contact
-  monitoring (multi-party) and three-party functionality in Amazon Connect](three-party-multi-party-comparison.md "three-party-multi-party-comparison.md")
-- [Enable enhanced multi-party contact monitoring
-  in Amazon Connect](monitor-conversations.md "monitor-conversations.md")
+- [Comparison of enhanced contact monitoring (multi-party) and three-party functionality in Amazon Connect](three-party-multi-party-comparison.md "three-party-multi-party-comparison.md")
+- [Enable enhanced multi-party contact monitoring in Amazon Connect](monitor-conversations.md "monitor-conversations.md")
 
 For information about new functionality on the existing Connection and Contact API in
 Amazon Connect Streams, see the [Amazon Connect
@@ -4429,8 +3877,7 @@ following contact blocks that play prompts: [Get customer input](get-customer-in
 [Store customer input](store-customer-input.md "store-customer-input.md").
 
 For more information, see the [Play prompt](play.md "play.md") block. For
-information about the policy required for Amazon Connect to access the Amazon S3 bucket, see [Set up prompts to play from an S3 bucket in
-Amazon Connect](setup-prompts-s3.md "setup-prompts-s3.md").
+information about the policy required for Amazon Connect to access the Amazon S3 bucket, see [Set up prompts to play from an S3 bucket in Amazon Connect](setup-prompts-s3.md "setup-prompts-s3.md").
 
 #### CloudTrail support for queues and routing profiles
 
@@ -4479,16 +3926,14 @@ see the `ChatDurationInMinutes` parameter in the [StartChatContact](../APIRefere
 
 Improve the accuracy of speech recognition for product names, brand names, and
 domain-specific terminology, by expanding and tailoring the vocabulary of the speech-to-text
-engine in Contact Lens. For more information, see [Add custom vocabularies to
-Contact Lens using the Amazon Connect admin website](add-custom-vocabulary.md "add-custom-vocabulary.md").
+engine in Contact Lens. For more information, see [Add custom vocabularies to Contact Lens using the Amazon Connect admin website](add-custom-vocabulary.md "add-custom-vocabulary.md").
 
 ### December 2021 Updates
 
 #### Communications widgets support browser notifications
 
 The communications widget supports browser notifications for desktop devices. For more information,
-see [Send browser notifications to customers
-when chat messages arrive](browser-notifications-chat.md "browser-notifications-chat.md").
+see [Send browser notifications to customers when chat messages arrive](browser-notifications-chat.md "browser-notifications-chat.md").
 
 #### Ingest data into Customer Profiles from Segment and Shopify
 
@@ -4507,12 +3952,9 @@ interactions. For more information, see [Agent training guide](agent-user-guide.
 
 Amazon Connect Contact Lens provides the option for you to view key highlights. The highlights
 show only those lines where Contact Lens has identified an issue, outcome, or action
-item in the transcript. For more information, see [View key highlights of customer conversations in
-the Contact Control Panel (CCP)](key-highlights.md "key-highlights.md").
+item in the transcript. For more information, see [View key highlights of customer conversations in the Contact Control Panel (CCP)](key-highlights.md "key-highlights.md").
 
-#### Released Identity Resolution to consolidate similar
-
-profiles
+#### Released Identity Resolution to consolidate similar profiles
 
 Amazon Connect Customer Profiles offers Identity Resolution, a feature that is designed to automatically detect similar customer
 profiles by comparing name, email address, phone number, date of birth, and address. For
@@ -4530,26 +3972,20 @@ customer profiles at no charge, helping contact center managers personalize the 
 experience. In new instances, Customer Profiles is enabled by default. For more information, see [Step 4:
 Data Storage](amazon-connect-instances.md#get-started-data-storage "amazon-connect-instances.md#get-started-data-storage") in the _Create an Amazon Connect instance_ topic.
 
-#### Added modular flows to help you create common
-
-functions
+#### Added modular flows to help you create common functions
 
 Flow modules are reusable sections of a flow. You can create them to extract repeatable
 logic across your flows, and create common functions. For more information, see [Flow modules
 for reusable functions](contact-flow-modules.md "contact-flow-modules.md").
 
-#### New APIs to archive/unarchive and delete contact
-
-flows
+#### New APIs to archive/unarchive and delete contact flows
 
 Added new APIs that provide a programmatic and flexible way to manage your library of
 flows at scale. For example, flows used only during certain times of the year can be archived
 when not in use and then unarchived when needed. You can now also delete a flow so it is no
 longer available for use. For more information, see the [Amazon Connect API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
-#### Search contacts by custom contact
-
-attributes
+#### Search contacts by custom contact attributes
 
 Added support for searching contacts by custom contact attributes (also called
 user-defined attributes). For more information, see [Search by custom contact
@@ -4602,9 +4038,7 @@ by agent**. For more information, see [Metrics definitions](metrics-definitions.
 You can subscribe to a real-time stream of chat messages. For more information, see [Enable
 real-time chat message streaming](chat-message-streaming.md "chat-message-streaming.md").
 
-#### Released `HoursOfOperation` APIs for General
-
-Availability
+#### Released `HoursOfOperation` APIs for General Availability
 
 Released the Amazon Connect `HoursOfOperation` APIs for general availability (GA). Also
 launched CloudFormation support for Users, User Hierarchies, and Hours of Operation. For more
@@ -4676,21 +4110,17 @@ and faster to manage Amazon Connect instances. For more information, see [Create
 Released for ungated preview new APIs for managing hours of operation and agent status.
 For more information, see [Amazon Connect Service API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
-#### Contact Lens: Build rules that generate tasks
-
-and EventBridge events
+#### Contact Lens: Build rules that generate tasks and EventBridge events
 
 Contact Lens rules now allow you to automatically generate tasks and EventBridge events
 based on uttered keywords, sentiment scores, customer attributes, and other criteria. For more
-information, see [Create Contact Lens rules
-using the Amazon Connect admin website](build-rules-for-contact-lens.md "build-rules-for-contact-lens.md").
+information, see [Create Contact Lens rules using the Amazon Connect admin website](build-rules-for-contact-lens.md "build-rules-for-contact-lens.md").
 
 #### Networking: Allow AWS Global Accelerator
 
 When using SAML Sign-In to your Amazon Connect instance, you now need to add the AWS
 Global Accelerator domain, **\*. awsglobalaccelerator.com**, to your allow
-list. For more information, see [Set up your network to use the Amazon Connect Contact Control Panel
-(CCP)](ccp-networking.md "ccp-networking.md").
+list. For more information, see [Set up your network to use the Amazon Connect Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md").
 
 ### July 2021 Updates
 
@@ -4702,8 +4132,7 @@ feature that lets agents pause new contacts being routed to them while they fini
 current contacts. When all their slots are cleared, Amazon Connect automatically sets agents to the next
 status, such as **Lunch**.
 
-For details about how agents use this feature, see [Set your "Next status" in the Contact Control Panel
-(CCP)](set-next-status.md "set-next-status.md").
+For details about how agents use this feature, see [Set your "Next status" in the Contact Control Panel (CCP)](set-next-status.md "set-next-status.md").
 
 ##### Metrics: No changes due to "Next status"
 
@@ -4721,9 +4150,7 @@ status**. Here's what you'll see in the real-time metrics report:
 NPT increments only when the agent actually enters the non-productive status, such as
 **Lunch**.
 
-##### Agent event stream has new NextAgentStatus
-
-field
+##### Agent event stream has new NextAgentStatus field
 
 When an agent sets their status to **Next status**, Amazon Connect populates a
 new `NextAgentStatus` field with the next status selected by the agent.
@@ -4779,9 +4206,7 @@ If you are handling state change logic yourself from Amazon Connect Streams, you
 make additional changes explained in the [Amazon Connect
 Streams README](https://github.com/amazon-connect/amazon-connect-streams/blob/master/README.md "https://github.com/amazon-connect/amazon-connect-streams/blob/master/README.md").
 
-#### Contact search: To search contacts by Agent login
-
-requires Users - View permissions in your security profile
+#### Contact search: To search contacts by Agent login requires Users - View permissions in your security profile
 
 To use the **Agent** filter on the **Contact search**
 page, in your Amazon Connect security profile you must have **Users - View**
@@ -4865,12 +4290,9 @@ to your search results.
 Added identity resolution APIs to Customer Profiles. For more information, see the [GetMatches](../../../customerprofiles/latest/APIReference/API_GetMatches.md "../../../customerprofiles/latest/APIReference/API_GetMatches.md") and [MergeProfiles](../../../customerprofiles/latest/APIReference/API_MergeProfiles.md "../../../customerprofiles/latest/APIReference/API_MergeProfiles.md") APIs in the Amazon Connect Customer Profiles API
 reference.
 
-#### Contact Lens: Use category tags to navigate
+#### Contact Lens: Use category tags to navigate transcript
 
-transcript
-
-For more information, see [Tap or click category tags to navigate
-through transcript](turn-by-turn-transcript.md#category-navigation "turn-by-turn-transcript.md#category-navigation").
+For more information, see [Tap or click category tags to navigate through transcript](turn-by-turn-transcript.md#category-navigation "turn-by-turn-transcript.md#category-navigation").
 
 #### Fixes for chat metrics
 
@@ -4943,8 +4365,7 @@ list:**
 - {myInstanceName}.my.connect.aws/api
 - \*.static.connect.aws
 
-For more information, see [Set up your network to use the Amazon Connect Contact Control Panel
-(CCP)](ccp-networking.md "ccp-networking.md").
+For more information, see [Set up your network to use the Amazon Connect Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md").
 
 ##### Schedule for domain change
 
@@ -4967,31 +4388,24 @@ query up to three days of data at a time, for the past 35 days.
 Added a communications widget that you can customize and secure so it can only be launched from
 your widget. For more information, see [Set up your customer's chat experience in Amazon Connect](enable-chat-in-app.md "enable-chat-in-app.md").
 
-Provided an open source example. For more information, see [Customize chat with the Amazon Connect open source
-example](download-chat-example.md "download-chat-example.md").
+Provided an open source example. For more information, see [Customize chat with the Amazon Connect open source example](download-chat-example.md "download-chat-example.md").
 
 #### Amazon Connect Endpoint Test Utility
 
 To help you validate connectivity to Amazon Connect, or troubleshoot when your agents are
 experiencing problems with the Contact Control Panel (CCP), we've added the Amazon Connect Endpoint Test
-Utility. For more information, see [Validate connectivity to Amazon Connect with the
-Endpoint Test Utility](check-connectivity-tool.md "check-connectivity-tool.md").
+Utility. For more information, see [Validate connectivity to Amazon Connect with the Endpoint Test Utility](check-connectivity-tool.md "check-connectivity-tool.md").
 
 ### February 2021 Updates
 
-#### Contact Lens: Availability of real-time
-
-analytics
+#### Contact Lens: Availability of real-time analytics
 
 Contact Lens real-time analytics is available in Europe (London), Europe
 (Frankfurt), and Asia (Tokyo). For more information, see [Conversational analytics features by Region](regions.md#regions-contactlens "regions.md#regions-contactlens").
 
-#### Ingest data into Customer Profiles using
+#### Ingest data into Customer Profiles using Amazon S3
 
-Amazon S3
-
-Added the ability to create and ingest data from Amazon S3. For more information, see [Create and ingest customer data
-into Customer Profiles](customer-profiles-object-type-mappings.md "customer-profiles-object-type-mappings.md").
+Added the ability to create and ingest data from Amazon S3. For more information, see [Create and ingest customer data into Customer Profiles](customer-profiles-object-type-mappings.md "customer-profiles-object-type-mappings.md").
 
 #### Disconnect reason in contact record stream
 
@@ -5003,16 +4417,13 @@ flow, or it expired. For more information, see [ContactTraceRecord](ctr-data-mod
 
 #### Custom service levels
 
-Added the ability to create custom service levels. For details, see [New metric groupings and
-categories](#metrics-changes-custom-service-levels "#metrics-changes-custom-service-levels").
+Added the ability to create custom service levels. For details, see [New metric groupings and categories](#metrics-changes-custom-service-levels "#metrics-changes-custom-service-levels").
 
 #### Metrics updates
 
 The following updates were released in February 2021.
 
-##### New metric groupings and
-
-categories
+##### New metric groupings and categories
 
 With the release of custom service level metrics, we also made the following
 changes:
@@ -5026,9 +4437,7 @@ changes:
 
 Following is more information about these changes.
 
-##### Real-time metrics: New Contact Service Level
-
-category
+##### Real-time metrics: New Contact Service Level category
 
 A new category of metrics appears on the **Table settings** page:
 **Contact Service Level**.
@@ -5064,9 +4473,7 @@ historical metrics report, as shown in the following image.
 
 ![The Add Custom SL option.](images/hmr-csl-group.png)
 
-##### The order of the metric columns on the
-
-historical metrics reports has changed
+##### The order of the metric columns on the historical metrics reports has changed
 
 The order of the metric columns on the historical metrics reports matches the updated
 grouping scheme and order of the metrics on the **Table settings**
@@ -5100,9 +4507,7 @@ The maximum duration for a custom service level is 7 days. That's because in Ama
 
 ![The Custom Service Level duration dropdown list.](images/metrics-custom-servicelevels.png)
 
-##### Group by channel in a historical
-
-metrics report
+##### Group by channel in a historical metrics report
 
 ###### To group by channel on historical metrics reports
 
@@ -5123,8 +4528,7 @@ image.
 #### CCP: Change your audio settings
 
 Added the ability to change audio settings from the Contact Control Panel (CCP). This
-applies to organizations using a customized CCP. For more information, see [Change your audio device settings in the CCP or
-agent workspace](audio-device-settings.md "audio-device-settings.md").
+applies to organizations using a customized CCP. For more information, see [Change your audio device settings in the CCP or agent workspace](audio-device-settings.md "audio-device-settings.md").
 
 #### Queue APIs (Preview)
 
@@ -5147,8 +4551,7 @@ information, see [Amazon Connect Service API Reference](../APIReference/Welcome.
 
 #### Chat: Support for attachments
 
-Added support for chat attachments. For more information, see [Enable attachments in your CCP so customers and
-agents can share and upload files](enable-attachments.md "enable-attachments.md").
+Added support for chat attachments. For more information, see [Enable attachments in your CCP so customers and agents can share and upload files](enable-attachments.md "enable-attachments.md").
 
 Added the following APIs:
 
@@ -5158,8 +4561,7 @@ Added the following APIs:
 
 #### Configurable DTMF timeouts for Lex bots
 
-For more information, see [Configurable fields
-for DTMF input](get-customer-input.md#get-customer-input-configurable-dtmf "get-customer-input.md#get-customer-input-configurable-dtmf").
+For more information, see [Configurable fields for DTMF input](get-customer-input.md#get-customer-input-configurable-dtmf "get-customer-input.md#get-customer-input-configurable-dtmf").
 
 #### Tasks
 
@@ -5197,14 +4599,12 @@ Reference](../../../customerprofiles/latest/APIReference/Welcome.md "../../../cu
 #### Real-time analytics using Contact Lens
 
 Added real-time analytics for Contact Lens so you can detect and resolve customer
-issues more proactively while the call is in progress. For more information, see [Analyze conversations using conversational
-analytics in Amazon Connect Contact Lens](analyze-conversations.md "analyze-conversations.md") and the [Amazon Connect Contact Lens API Reference](../../../contact-lens/latest/APIReference/Welcome.md "../../../contact-lens/latest/APIReference/Welcome.md").
+issues more proactively while the call is in progress. For more information, see [Analyze conversations using conversational analytics in Amazon Connect Contact Lens](analyze-conversations.md "analyze-conversations.md") and the [Amazon Connect Contact Lens API Reference](../../../contact-lens/latest/APIReference/Welcome.md "../../../contact-lens/latest/APIReference/Welcome.md").
 
 #### Amazon Connect Voice ID (Preview)
 
 Added Amazon Connect Voice ID (Preview), which provides for real-time caller authentication. For
-more information, see [Use real-time caller authentication with Voice ID in
-Amazon Connect](voice-id.md "voice-id.md").
+more information, see [Use real-time caller authentication with Voice ID in Amazon Connect](voice-id.md "voice-id.md").
 
 #### Amazon Connect Wisdom (Preview)
 
@@ -5226,8 +4626,7 @@ Added support for using Amazon Connect with Apple Messages for Business. For mor
 #### Telephony call metadata attributes
 
 - Added call attributes to improve fraud detection and routing. For more information, see
-  [Telephony call metadata attributes
-  (call attributes)](connect-attrib-list.md#telephony-call-metadata-attributes "connect-attrib-list.md#telephony-call-metadata-attributes").
+  [Telephony call metadata attributes (call attributes)](connect-attrib-list.md#telephony-call-metadata-attributes "connect-attrib-list.md#telephony-call-metadata-attributes").
 
 #### View historical changes
 
@@ -5241,8 +4640,7 @@ Added support for using Amazon Connect with Apple Messages for Business. For mor
 
 #### Chat
 
-- Added interactive message templates. For more information, see [Add Amazon Lex interactive messages for customers in
-  chat](interactive-messages.md "interactive-messages.md").
+- Added interactive message templates. For more information, see [Add Amazon Lex interactive messages for customers in chat](interactive-messages.md "interactive-messages.md").
 
 #### APIs
 
@@ -5268,12 +4666,9 @@ The following updates were released in October 2020:
 
 - Released the following real-time metrics:
 
-      + [Average agent callback
-       connecting time](metrics-definitions.md#average-agent-callback-connecting-time "metrics-definitions.md#average-agent-callback-connecting-time")
-      + [Average agent incoming
-       connecting time](metrics-definitions.md#average-agent-incoming-connecting-time "metrics-definitions.md#average-agent-incoming-connecting-time")
-      + [Average agent outbound
-       connecting time](metrics-definitions.md#average-agent-outbound-connecting-time "metrics-definitions.md#average-agent-outbound-connecting-time")
+      + [Average agent callback connecting time](metrics-definitions.md#average-agent-callback-connecting-time "metrics-definitions.md#average-agent-callback-connecting-time")
+      + [Average agent incoming connecting time](metrics-definitions.md#average-agent-incoming-connecting-time "metrics-definitions.md#average-agent-incoming-connecting-time")
+      + [Average agent outbound connecting time](metrics-definitions.md#average-agent-outbound-connecting-time "metrics-definitions.md#average-agent-outbound-connecting-time")
 
   Released the following historical metrics:
 
@@ -5281,22 +4676,16 @@ The following updates were released in October 2020:
       + [Agent callback connecting time](metrics-definitions.md#agent-callback-connecting-time "metrics-definitions.md#agent-callback-connecting-time")
       + [Agent incoming connecting time](metrics-definitions.md#agent-incoming-connecting-time "metrics-definitions.md#agent-incoming-connecting-time")
       + [Agent outbound connecting time](metrics-definitions.md#agent-outbound-connecting-time "metrics-definitions.md#agent-outbound-connecting-time")
-      + [Average agent API connecting
-       time](metrics-definitions.md#average-agent-api-connecting-time "metrics-definitions.md#average-agent-api-connecting-time")
-      + [Average agent callback
-       connecting time](metrics-definitions.md#average-agent-callback-connecting-time "metrics-definitions.md#average-agent-callback-connecting-time")
-      + [Average agent incoming
-       connecting time](metrics-definitions.md#average-agent-incoming-connecting-time "metrics-definitions.md#average-agent-incoming-connecting-time")
-      + [Average agent outbound
-       connecting time](metrics-definitions.md#average-agent-outbound-connecting-time "metrics-definitions.md#average-agent-outbound-connecting-time")
+      + [Average agent API connecting time](metrics-definitions.md#average-agent-api-connecting-time "metrics-definitions.md#average-agent-api-connecting-time")
+      + [Average agent callback connecting time](metrics-definitions.md#average-agent-callback-connecting-time "metrics-definitions.md#average-agent-callback-connecting-time")
+      + [Average agent incoming connecting time](metrics-definitions.md#average-agent-incoming-connecting-time "metrics-definitions.md#average-agent-incoming-connecting-time")
+      + [Average agent outbound connecting time](metrics-definitions.md#average-agent-outbound-connecting-time "metrics-definitions.md#average-agent-outbound-connecting-time")
 
 - In real-time metrics reports, added one-click drill-downs. These allow you to drill down
-  into queue and routing profile data in one click. For more information, see [Use pre-filtered tables for Routing profiles
-  and Queues tables in Amazon Connect](one-click-drill-downs.md "one-click-drill-downs.md").
+  into queue and routing profile data in one click. For more information, see [Use pre-filtered tables for Routing profiles and Queues tables in Amazon Connect](one-click-drill-downs.md "one-click-drill-downs.md").
 - Added the **Restrict contact access** permission which enables you to
   manage a user's access to results on the **Contact search** page based on
-  their agent hierarchy group. For more information, see [Search for completed and in-progress contacts in
-  Amazon Connect](contact-search.md "contact-search.md").
+  their agent hierarchy group. For more information, see [Search for completed and in-progress contacts in Amazon Connect](contact-search.md "contact-search.md").
 - Added **ContactDetails** and **References** to the
   contact record. For more information, see [Data model for Amazon Connect contact records](ctr-data-model.md "ctr-data-model.md").
 
@@ -5364,8 +4753,7 @@ The following updates were released in August 2020:
 #### Amazon Connect Contact Lens
 
 - Updated the security profile permissions for the redaction feature. For more
-  information, see [Assign permissions to use
-  Contact Lens conversational analytics in Amazon Connect](permissions-for-contact-lens.md "permissions-for-contact-lens.md").
+  information, see [Assign permissions to use Contact Lens conversational analytics in Amazon Connect](permissions-for-contact-lens.md "permissions-for-contact-lens.md").
 
 ### July 2020 Updates
 
@@ -5384,8 +4772,7 @@ The following updates were released in July 2020:
 
 - Updated Contact Lens for general availability. This feature lets you analyze
   customer-agent conversations, by using speech transcription, natural language processing, and
-  intelligent search capabilities. For more information, see [Analyze conversations using conversational
-  analytics in Amazon Connect Contact Lens](analyze-conversations.md "analyze-conversations.md").
+  intelligent search capabilities. For more information, see [Analyze conversations using conversational analytics in Amazon Connect Contact Lens](analyze-conversations.md "analyze-conversations.md").
 
 #### Metrics
 
@@ -5421,9 +4808,7 @@ report, choose **Routing profiles grouped by channels**.
 
 ![The Groupings tab, the Queues grouped by channels option.](images/rtm-group-by-channel.png) 4. Choose **Apply**. 5. The table shows a column for **Channel**.
 
-##### Group by queue in historical
-
-metrics reports
+##### Group by queue in historical metrics reports
 
 In the historical metrics report, when you group or filter metrics by
 **Queue**, the results for the following metrics aren't accurate:
@@ -5443,9 +4828,7 @@ in place of results for these metrics, and the cells are inactive (gray).
 
 ![The Agent on contact time and Agent idle time columns on a historical metrics report.](images/hmr-null-metrics.png)
 
-##### Effect of queue grouping
-
-on saved and scheduled reports
+##### Effect of queue grouping on saved and scheduled reports
 
 If the **Queue** grouping or filter is used on the following reports,
 note these effects:
@@ -5456,9 +4839,7 @@ note these effects:
 - **Scheduled reports**. These reports continue to run successfully, but
   no results are returned for these metrics.
 
-##### Agent on contact time (not
-
-supported in queue grouping as of June, 2020)
+##### Agent on contact time (not supported in queue grouping as of June, 2020)
 
 On historical metrics reports when an agent handles multiple chats concurrently,
 **Agent on contact time** shows wall clock time: the amount of time spent
@@ -5468,9 +4849,7 @@ contact.
 In addition, no results are returned when you use the **Queue** grouping
 or filter with **Agent on contact time**.
 
-##### Agent idle time (not supported in queue
-
-grouping as of June, 2020
+##### Agent idle time (not supported in queue grouping as of June, 2020
 
 The **Agent idle time** metric divides the idle time into each queue
 associated with the agent. When contacts are grouped or filtered by
@@ -5479,9 +4858,7 @@ the how the agent is working. Because of this, Amazon Connect doesn't show **Age
 idle time** when you apply the **Queue** grouping or filter to your
 report.
 
-##### Occupancy (not supported in queue grouping as
-
-of June, 2020)
+##### Occupancy (not supported in queue grouping as of June, 2020)
 
 With the addition of chat, the **Occupancy** metric is now defined as
 the percentage of time that an agent was active on contacts. This percentage is calculated as
@@ -5510,11 +4887,9 @@ Occupancy no longer appears on the **Dashboard** page.
     those sent by the agent. Previously, the unread message count only included messages sent
     by the customer.
 
-- Published instructions for upgrading to the latest CCP. For more information, see [Upgrade to the latest Amazon Connect Contact Control Panel
-  (CCP).](upgrade-to-latest-ccp.md "upgrade-to-latest-ccp.md").
+- Published instructions for upgrading to the latest CCP. For more information, see [Upgrade to the latest Amazon Connect Contact Control Panel (CCP).](upgrade-to-latest-ccp.md "upgrade-to-latest-ccp.md").
 - Published a training video that explains how to use the CCP. For more information, see
-  [Training video: How to use the Contact Center Panel
-  (CCP) in Amazon Connect](ccp-video-training.md "ccp-video-training.md").
+  [Training video: How to use the Contact Center Panel (CCP) in Amazon Connect](ccp-video-training.md "ccp-video-training.md").
 
 #### Flows
 
@@ -5562,8 +4937,7 @@ The following updates were released in March 2020:
 
 #### Networking
 
-- Updated softphone requirements in [Set up your network to use the Amazon Connect Contact Control Panel
-  (CCP)](ccp-networking.md "ccp-networking.md").
+- Updated softphone requirements in [Set up your network to use the Amazon Connect Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md").
 
 ### February 2020 Update
 
@@ -5591,8 +4965,7 @@ The following updates were released in January 2020:
 The following updates were made to the updated Contact Control Panel (ccp-v2):
 
 - Agents can now transfer a contact by double-clicking a quick connect. For more
-  information, see [Transfer calls to a quick connect or external phone
-  number using the Contact Control Panel (CCP)](transfers.md "transfers.md").
+  information, see [Transfer calls to a quick connect or external phone number using the Contact Control Panel (CCP)](transfers.md "transfers.md").
 - The number pad now retains the previously selected country flag so agents don't need to
   select it every time.
 - All strings in the CCP user interface are now localized in available languages.
@@ -5603,8 +4976,7 @@ The following updates were made to the updated Contact Control Panel (ccp-v2):
 
 #### Networking
 
-- Updated [Set up your network to use the Amazon Connect Contact Control Panel
-  (CCP)](ccp-networking.md "ccp-networking.md") to include
+- Updated [Set up your network to use the Amazon Connect Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md") to include
   requirements for the updated Contact Control Panel (ccp-v2).
 
 ### December 2019 Update
@@ -5614,8 +4986,7 @@ The following update was released in December 2019:
 #### Monitoring
 
 - Added Contact Lens for preview. This feature enables you search conversations for
-  keywords, sentiment scores, and non-talk time. For more information, see [Analyze conversations using conversational
-  analytics in Amazon Connect Contact Lens](analyze-conversations.md "analyze-conversations.md").
+  keywords, sentiment scores, and non-talk time. For more information, see [Analyze conversations using conversational analytics in Amazon Connect Contact Lens](analyze-conversations.md "analyze-conversations.md").
 - Added logging of Amazon Connect API calls with AWS CloudTrail. For more information, see [Log Amazon Connect API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 ### November 2019 Update
@@ -5628,9 +4999,7 @@ The following updates were released in November 2019:
 
 #### November 2019
 
-##### Name changes for "Missed" and "Agent
-
-status" and "On call"
+##### Name changes for "Missed" and "Agent status" and "On call"
 
 The following real-time metrics were renamed:
 
@@ -5666,9 +5035,7 @@ For **On call**, the name change to **On Contact**
 applies to the Real-time metrics UI only. You can continue using `AGENTS_ON_CALL`
 with the `GetCurrentMetricData` API to retrieve data for this metric.
 
-##### Label updates for "Agent activity" and
-
-"Contact state"
+##### Label updates for "Agent activity" and "Contact state"
 
 Labels are the values returned in a report. For example, in the following image
 **Available** and **Basic Routing Profile** are labels.
@@ -5742,8 +5109,7 @@ Updated the following flow blocks for chat:
 #### Live Media Streaming
 
 - Added that you can capture customer audio for the entire interaction with your contact
-  center. For more information, see [Set up live media streaming of customer audio in
-  Amazon Connect](customer-voice-streams.md "customer-voice-streams.md").
+  center. For more information, see [Set up live media streaming of customer audio in Amazon Connect](customer-voice-streams.md "customer-voice-streams.md").
 
 #### API
 
@@ -5753,8 +5119,7 @@ Updated the following flow blocks for chat:
 
 #### Contact Control Panel (CCP)
 
-- Updated the CCP so it supports chat. For more information, see [Agent training guide for the Contact Control Panel (CCP)
-  and agent workspace in Amazon Connect](agent-user-guide.md "agent-user-guide.md").
+- Updated the CCP so it supports chat. For more information, see [Agent training guide for the Contact Control Panel (CCP) and agent workspace in Amazon Connect](agent-user-guide.md "agent-user-guide.md").
 
 ### October 2019 Update
 
@@ -5831,8 +5196,7 @@ The following updates were released in March 2019:
 - Improved the error messages you might encounter when running real-time metrics reports.
   For example, if you manually configure a real-time metrics report to contain more than 100
   queues, we'll display this message: "You've hit the maximum limit of 100 queues. Please
-  reconfigure your report to contain no more than 100 queues." To learn more, see [Troubleshoot no metrics or too few rows in a
-  queues report in Amazon Connect](troubleshoot-rtm.md "troubleshoot-rtm.md")
+  reconfigure your report to contain no more than 100 queues." To learn more, see [Troubleshoot no metrics or too few rows in a queues report in Amazon Connect](troubleshoot-rtm.md "troubleshoot-rtm.md")
 
 #### Contact Control Panel
 
@@ -6059,8 +5423,7 @@ The following updates were released in July 2018:
 - [Add an Amazon Lex bot to Amazon Connect](amazon-lex.md "amazon-lex.md")
 - [User Management
   APIs](../APIReference.md "../APIReference.md")
-- [Set up a flow to manage contacts in a queue in
-  Amazon Connect](queue-to-queue-transfer.md "queue-to-queue-transfer.md")
+- [Set up a flow to manage contacts in a queue in Amazon Connect](queue-to-queue-transfer.md "queue-to-queue-transfer.md")
 
 #### General
 
@@ -6118,8 +5481,7 @@ The following updates were released in June 2018:
   phone number from your instance to display as the caller ID in an outbound whisper flow. For
   more information, see [Outbound caller ID number](queues-callerid.md#using-call-number-block "queues-callerid.md#using-call-number-block").
 - Released contact attributes for system metrics, including a new **Get
-  metrics** block in flows. For more information, see [Use attributes in Amazon Connect to route based on number of
-  contacts in a queue](attrib-system-metrics.md "attrib-system-metrics.md").
+  metrics** block in flows. For more information, see [Use attributes in Amazon Connect to route based on number of contacts in a queue](attrib-system-metrics.md "attrib-system-metrics.md").
 
 #### Metrics and Reporting
 

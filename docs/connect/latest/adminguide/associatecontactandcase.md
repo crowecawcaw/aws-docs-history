@@ -1,6 +1,4 @@
-# Associate a contact with a case in
-
-Amazon Connect
+# Associate a contact with a case in Amazon Connect
 
 You can associate the contact to an existing case, such that the contact will
 appear on the activity feed of the case with indicator

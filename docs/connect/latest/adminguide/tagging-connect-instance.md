@@ -1,6 +1,4 @@
-# Tagging an Amazon Connect
-
-instance
+# Tagging an Amazon Connect instance
 
 Instance Tagging provides the ability for you to tag Amazon Connect instances and
 build tailored authorization through tag-based access control (TBAC). To help you manage
@@ -16,9 +14,7 @@ you to identify and manage your resources. Amazon Connect, allows you to add tag
 your instances directly from the AWS console, or by utilizing public
 APIs.
 
-## Tagging Amazon Connect
-
-instances at creation
+## Tagging Amazon Connect instances at creation
 
 1. Open the Amazon Connect console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
@@ -61,15 +57,11 @@ instance.
 
 ![Choose save to add your tags to your instance.](images/tag-existing-instance-4.png)
 
-## Tagging an Amazon Connect
-
-instance using the API
+## Tagging an Amazon Connect instance using the API
 
 To tag Amazon Connect instances using the public APIs, see [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") and [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md").
 
-## Sample IAM policies
-
-for scenarios with and without instance tags
+## Sample IAM policies for scenarios with and without instance tags
 
 For TBAC on instances, you can define IAM policies based on instance tags and
 assign them to IAM roles to control access to specific instances. The following are
@@ -141,9 +133,7 @@ JSON
 
 ```
 
-## Additional information
-
-about instance tagging
+## Additional information about instance tagging
 
 **Replicating instances:** When you create a [replica of your existing Amazon Connect instance](create-replica-connect-instance.md "create-replica-connect-instance.md") to another region using the [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") API, tags from the source instance will not be
 automatically tagged to the newly replicated instance. You will have to tag the

@@ -55,8 +55,7 @@ When configuring properties to get a case:
   take the **Error** branch.
 
 You can either use attribute in the Cases namespace or set manually. If
-you set manually, see to the syntax in [How to persist fields throughout the
-flow](#cases-persist-fields "#cases-persist-fields").
+you set manually, see to the syntax in [How to persist fields throughout the flow](#cases-persist-fields "#cases-persist-fields").
 
 - To get cases for a given customer, add a [Customer profiles](customer-profiles-block.md "customer-profiles-block.md") block to the flow before
   creating the case. The following image shows the flow designer with a
@@ -102,8 +101,7 @@ set to **Profile ARN**.
   fields that you want to use in the other blocks.
 
 You can either use attribute in the Cases namespace or set manually. If
-you set manually, see to the syntax in [How to persist fields throughout the
-flow](#cases-persist-fields "#cases-persist-fields").
+you set manually, see to the syntax in [How to persist fields throughout the flow](#cases-persist-fields "#cases-persist-fields").
 
 - The **Get case** properties show the options for the
   single-select field type.
@@ -201,8 +199,7 @@ When configuring properties to update a case:
 
 You can either use an attribute in the Cases namespace, or set the
 **Request** field manually. If you set manually, see
-the syntax in [How to persist fields throughout the
-flow](#cases-persist-fields "#cases-persist-fields").
+the syntax in [How to persist fields throughout the flow](#cases-persist-fields "#cases-persist-fields").
 
 - Contacts can be routed down the following branches:
   - **Success**: The case was updated, and the
@@ -237,8 +234,7 @@ When configuring properties to create a case:
   - **Current contact** is the contact on which the current flow is being executed.
   - **Related contact** is the contact that is [related](chat-persistence.md#relatedcontactid "chat-persistence.md#relatedcontactid") to this contact.
 
-- You must provide a case template. For more information, see [Create case templates to document customer issues in
-  Amazon Connect Cases](case-templates.md "case-templates.md").
+- You must provide a case template. For more information, see [Create case templates to document customer issues in Amazon Connect Cases](case-templates.md "case-templates.md").
 - Fields that are required appear in the **Required**
   fields section. You must assign values to them to create a case.
 - You must specify the customer to create a case.
@@ -269,8 +265,7 @@ When configuring properties to create a case:
   Request fields section.
 
 You can either use attribute in the Cases namespace or set manually. If
-you set manually, see to the syntax in [How to persist fields throughout the
-flow](#cases-persist-fields "#cases-persist-fields").
+you set manually, see to the syntax in [How to persist fields throughout the flow](#cases-persist-fields "#cases-persist-fields").
 
 - You can specify that a contact should be linked to case. If you link the
   contact to the case, then the contact and a link to contact details appear
@@ -300,9 +295,7 @@ delayed**.
 
 ![The Create case block with the Case Reason box set to Set manually or Shipment delayed.](images/cases-block-create-case-properties.png)
 
-## How to persist fields throughout the
-
-flow
+## How to persist fields throughout the flow
 
 Let's say you want customers to be able to call into your contact center and get
 the status of their case without ever talking to an agent. You want the IVR to read

@@ -1,6 +1,4 @@
-# Set up integration for
-
-featured applications in Amazon Connect
+# Set up integration for featured applications in Amazon Connect
 
 These integrations use Amazon Connect featured applications to provide periodic updates to
 Amazon Connect Customer Profiles.
@@ -24,9 +22,7 @@ When automatic bulk ingestion is enabled, Customer Profiles does the following:
 You can use the [CreateIntegrationWorkflowRequest](../../../customerprofiles/latest/APIReference/CreateIntegrationWorkflowRequest .md "../../../customerprofiles/latest/APIReference/CreateIntegrationWorkflowRequest .md") API to call your own batch
 size.
 
-### Why am I asked to select or create an
-
-IAM role?
+### Why am I asked to select or create an IAM role?
 
 For Salesforce, Marketo, and ServiceNow, Customer Profiles helps improve the historical
 ingestion of these sources by using your IAM role to create several
@@ -44,12 +40,9 @@ The role created in the console is only usable by the domain it was
 created on. This is because Amazon Connect limits the access of the role to only the
 KMS key used by the domain.
 
-For more information, see [Grant least privilege access to your
-Customer Profiles execution role](#grant-least-privilege-cp "#grant-least-privilege-cp").
+For more information, see [Grant least privilege access to your Customer Profiles execution role](#grant-least-privilege-cp "#grant-least-privilege-cp").
 
-## Grant least privilege access to your
-
-Customer Profiles execution role
+## Grant least privilege access to your Customer Profiles execution role
 
 If you want to create your own IAM role, we recommend using the permissions
 shown in the following code to limit the role to the least permissions needed.
@@ -150,16 +143,12 @@ JSON
 
 ```
 
-## Monitor your Customer Profiles
-
-integrations
+## Monitor your Customer Profiles integrations
 
 After your connection is established, if it stops working, delete the
 integration and then re-establish it.
 
-## What to do if objects aren't
-
-being sent
+## What to do if objects aren't being sent
 
 If an object fails to be sent, choose **Flow details** to
 learn more about what's gone wrong.

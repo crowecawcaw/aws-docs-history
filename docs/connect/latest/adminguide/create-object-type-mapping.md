@@ -1,6 +1,4 @@
-# Create an object type mapping in Amazon Connect
-
-Customer Profiles
+# Create an object type mapping in Amazon Connect Customer Profiles
 
 An object type mapping tells Customer Profiles how to ingest a specific type of data from a
 source application—such as Salesforce, Zendesk, or S3—into a unified
@@ -22,9 +20,7 @@ The object type mapping provides Customer Profiles with the following informatio
   Reference](../../../customerprofiles/latest/APIReference/Welcome.md "../../../customerprofiles/latest/APIReference/Welcome.md").
   This topic explains how to create a mapping using the Amazon Connect console.
 
-## Create a data mapping using the
-
-Amazon Connect console
+## Create a data mapping using the Amazon Connect console
 
 Amazon Connect provides a no-code experience for mapping customer data from homegrown
 and third-party applications with Amazon S3, Salesforce, ServiceNow, Zendesk, and
@@ -35,9 +31,7 @@ what the custom profile object looks like. This mapping defines how fields from
 your data can be used to either populate fields in the standard profile or how
 they can be used to assign the data to a specific profile.
 
-### Step 1: Set up data
-
-mapping
+### Step 1: Set up data mapping
 
 1. Open the Amazon Connect console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
@@ -67,8 +61,7 @@ meta-data of the object type. 6. In the **Data source** section:
 
 
     For more information about supported mapping destinations,
-     see [About mapping destinations in
-     Amazon Connect](about-mapping-destinations.md "about-mapping-destinations.md").
+     see [About mapping destinations in Amazon Connect](about-mapping-destinations.md "about-mapping-destinations.md").
     4. In the **Additional options** section,
      you can choose when to opt out of creating new profiles, and
      how long to retain them. These options help you manage
@@ -132,9 +125,7 @@ _\-]+[a-zA-Z0-9]+)*$/`
   information to your agents, do not ingest custom attributes at
   this time.
 
-### Step 3: Specify
-
-identifiers
+### Step 3: Specify identifiers
 
 On the **Specify identifiers** page, complete the
 following sections. Depending on what data you're mapping, it's possible not
@@ -151,8 +142,7 @@ standard orders, standard cases, or save them for searching your
 profile, asset, case, or order. If you would like these keys to be
 usable for searching and matching, you must rename your key. For more
 information on the `LOOKUP_ONLY` standard identifier, see
-[Standard identifiers for setting
-attributes on the key in Customer Profiles](standard-identifiers.md "standard-identifiers.md").
+[Standard identifiers for setting attributes on the key in Customer Profiles](standard-identifiers.md "standard-identifiers.md").
 
 - **Unique identifier**: You must have a unique
   identifier for your data in order to avoid an error when it is

@@ -10,8 +10,7 @@ state.
   task is stalled, for example, because of a missing approval or waiting on an
   external input.
 - For more information how pausing and resuming tasks works in Amazon Connect, see
-  [Pause and resume tasks in Amazon Connect
-  Tasks](concepts-pause-and-resume-tasks.md "concepts-pause-and-resume-tasks.md").
+  [Pause and resume tasks in Amazon Connect Tasks](concepts-pause-and-resume-tasks.md "concepts-pause-and-resume-tasks.md").
 
 ## Supported channels
 

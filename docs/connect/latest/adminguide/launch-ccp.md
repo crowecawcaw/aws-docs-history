@@ -21,8 +21,7 @@ contacts, there are a few things you need to do:
 - Configure permissions for the agents. By default, agents assigned to the Agent
   security profile can access the CCP and make outbound calls. But you can create
   a custom security profile and add additional permissions. For more information,
-  see [Security profiles for Amazon Connect and Contact Control
-  Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md").
+  see [Security profiles for Amazon Connect and Contact Control Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md").
 - Give agents the URL the CCP.
 - Provide agents with their user name and password so that they can log in to
   the CCP.
@@ -31,8 +30,7 @@ contacts, there are a few things you need to do:
 
 Agents can use the CCP with a softphone on their computer, or a desk phone. If they're
 using a softphone, they must use Chrome, Edge, or Firefox for their web browser. For
-more information, see [Grant microphone access in Chrome, Firefox, or
-Edge](amazon-connect-contact-control-panel.md#accessing-microphone "amazon-connect-contact-control-panel.md#accessing-microphone").
+more information, see [Grant microphone access in Chrome, Firefox, or Edge](amazon-connect-contact-control-panel.md#accessing-microphone "amazon-connect-contact-control-panel.md#accessing-microphone").
 
 ###### Note
 

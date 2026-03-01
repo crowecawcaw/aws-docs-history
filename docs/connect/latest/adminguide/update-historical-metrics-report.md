@@ -1,6 +1,4 @@
-# Update a historical metrics
-
-report
+# Update a historical metrics report
 
 After you save a report, you can update it at any time.
 

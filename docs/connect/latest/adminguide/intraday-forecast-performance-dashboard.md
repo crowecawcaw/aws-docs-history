@@ -1,6 +1,4 @@
-# Intraday forecast performance
-
-dashboard
+# Intraday forecast performance dashboard
 
 The Intraday forecast performance dashboard provides forecasts for:
 
@@ -12,35 +10,26 @@ The Intraday forecast performance dashboard provides forecasts for:
 
 ###### Contents
 
-- [Enable
-  access to the dashboard](#intraday-forecast-performance-dashboard-enable-access "#intraday-forecast-performance-dashboard-enable-access")
-- [Performance
-  overview chart](#intraday-forecast-performance-dashboard-performance-overview "#intraday-forecast-performance-dashboard-performance-overview")
-- [Comparison trend
-  graphs](#intraday-forecast-comparison-trend-graphs "#intraday-forecast-comparison-trend-graphs")
-- [Comparison against short
-  term forecasts](#intraday-forecast-comparison-shortterm "#intraday-forecast-comparison-shortterm")
+- [Enable access to the dashboard](#intraday-forecast-performance-dashboard-enable-access "#intraday-forecast-performance-dashboard-enable-access")
+- [Performance overview chart](#intraday-forecast-performance-dashboard-performance-overview "#intraday-forecast-performance-dashboard-performance-overview")
+- [Comparison trend graphs](#intraday-forecast-comparison-trend-graphs "#intraday-forecast-comparison-trend-graphs")
+- [Comparison against short term forecasts](#intraday-forecast-comparison-shortterm "#intraday-forecast-comparison-shortterm")
 - [Daily projection chart](#intraday-forecast-daily-projection "#intraday-forecast-daily-projection")
 
-## Enable
-
-access to the dashboard
+## Enable access to the dashboard
 
 Ensure users are assigned the appropriate **Analytics and
 Optimization** security profile permissions:
 
 - **Access metrics - Access permission** or the
   **Dashboard - Access permission**. For information
-  about the difference in behavior, see [Assign permissions to view dashboards
-  and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+  about the difference in behavior, see [Assign permissions to view dashboards and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
 - **Forecasting - View**. If you don't see this permission
   on the security profiles page, ask your Administrator to [enable
   forecasting, capacity planning, and scheduling](enable-forecasting-capacity-planning-scheduling.md "enable-forecasting-capacity-planning-scheduling.md") in the AWS
   console.
 
-## Performance
-
-overview chart
+## Performance overview chart
 
 The **Intraday trailing performance overview** chart that
 provides aggregated metrics based on your filters. Each metric in the chart is
@@ -60,9 +49,7 @@ This chart shows the following information:
 - The colors that appear for the metrics indicate positive (green) or
   negative (red) compared to your benchmark.
 
-## Comparison trend
-
-graphs
+## Comparison trend graphs
 
 The Intraday performance dashboard displays the following three trend graphs,
 which cover different metrics:
@@ -87,9 +74,7 @@ trend graph.
 
 ![The Contact volume trend graph.](images/intraday-perf-trend-graph.png)
 
-## Comparison against short
-
-term forecasts
+## Comparison against short term forecasts
 
 You can compare **Average handle time** and **Contact
 volume** against published short term forecasts.

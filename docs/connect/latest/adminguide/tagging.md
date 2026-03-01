@@ -65,9 +65,7 @@ AWS SDK.
 To learn more about tagging, including best practices, see [Tagging AWS resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") in the
 _AWS General Reference_.
 
-## Tag metadata are removed only when the Amazon Connect instance is
-
-deleted
+## Tag metadata are removed only when the Amazon Connect instance is deleted
 
 Amazon Connect retains tag metadata for resources even after the resource is deleted. The
 metadata is retained as long as the Amazon Connect instance is active.
@@ -92,8 +90,7 @@ control access to your Voice ID domain based on the tags you've assigned to it, 
 pair must be attached to the domain, in order to allow given actions for it.
 
 For more detailed information on tag-based access control in the Amazon Connect console, see
-[Apply tag-based access control in
-Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
+[Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
 
 For more detailed information on tag-based access control in IAM, see [Controlling access
 to AWS resources using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the _IAM User Guide_

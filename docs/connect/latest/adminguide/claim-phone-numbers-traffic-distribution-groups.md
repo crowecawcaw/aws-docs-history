@@ -1,6 +1,4 @@
-# Claim phone
-
-numbers to traffic distribution groups using Amazon Connect
+# Claim phone numbers to traffic distribution groups using Amazon Connect
 
 ###### Note
 
@@ -71,8 +69,7 @@ multiple AWS Regions:
    the same phone number details.)The phone number can be used by follow-up operations only after its
    status is `CLAIMED`.
 
-For a description of possible statuses, see [Phone number statuses
-defined](#claim-phone-number-status "#claim-phone-number-status"). 6. Repeat steps 3-5 for all phone numbers you need to claim to your
+For a description of possible statuses, see [Phone number statuses defined](#claim-phone-number-status "#claim-phone-number-status"). 6. Repeat steps 3-5 for all phone numbers you need to claim to your
 traffic distribution group. 7. Perform the following steps to associate flows to phone numbers. Do
 them in both Regions where the traffic distribution group operates.
 
@@ -98,9 +95,7 @@ flows to support your traffic distribution configuration.
     	2. A list of flow ARNs is returned. Use these flow ARNs
     	 to associate a flow to a phone number; call the [AssociatePhoneNumberContactFlow](../APIReference/API_AssociatePhoneNumberContactFlow.md "../APIReference/API_AssociatePhoneNumberContactFlow.md") API.
 
-## Why a ClaimPhoneNumber call
-
-fails
+## Why a ClaimPhoneNumber call fails
 
 Your [ClaimPhoneNumber](../APIReference/API_ClaimPhoneNumber.md "../APIReference/API_ClaimPhoneNumber.md") API call will fail with a
 `ResourceNotFoundException` in the following cases:
@@ -118,9 +113,7 @@ Your [ClaimPhoneNumber](../APIReference/API_ClaimPhoneNumber.md "../APIReference
 - The endpoint you are calling is not in the same Region where the
   traffic distribution group was created.
 
-## Phone number statuses
-
-defined
+## Phone number statuses defined
 
 Following is a description of phone number statuses:
 

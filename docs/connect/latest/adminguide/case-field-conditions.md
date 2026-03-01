@@ -1,6 +1,4 @@
-# Add case field conditions to a case template in
-
-Amazon Connect
+# Add case field conditions to a case template in Amazon Connect
 
 Case field conditions in Amazon Connect make your case templates more dynamic and user-friendly.
 There are three types of case field conditions: Conditionally required, Hidden field

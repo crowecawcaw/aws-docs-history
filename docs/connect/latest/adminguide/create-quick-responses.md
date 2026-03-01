@@ -1,6 +1,4 @@
-# Create quick responses for use with chat and email
-
-contacts in Amazon Connect
+# Create quick responses for use with chat and email contacts in Amazon Connect
 
 Quick responses provide contact center agents with pre-written responses in English that they
 can use during chat and email contacts. Quick responses are especially useful for answering common
@@ -16,8 +14,7 @@ so that agents can quickly access relevant content.
 By default, CCP enables agents to search quick responses. Custom builders can use [Amazon Connect Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams") to programmatically
 implement quick response search in their implementations of CCP.
 
-For information about how agents search for quick responses, see [Search for quick responses to customers in the
-Contact Control Panel (CCP)](search-qr-ccp.md "search-qr-ccp.md").
+For information about how agents search for quick responses, see [Search for quick responses to customers in the Contact Control Panel (CCP)](search-qr-ccp.md "search-qr-ccp.md").
 
 ###### Tip
 

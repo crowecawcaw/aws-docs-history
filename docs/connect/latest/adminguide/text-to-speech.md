@@ -1,6 +1,4 @@
-# Add text-to-speech to prompts in flow blocks in
-
-Amazon Polly
+# Add text-to-speech to prompts in flow blocks in Amazon Polly
 
 You can enter text-to-speech prompts in the following flow blocks:
 
@@ -9,9 +7,7 @@ You can enter text-to-speech prompts in the following flow blocks:
 - [Play prompt](play.md "play.md")
 - [Store customer input](store-customer-input.md "store-customer-input.md")
 
-## Amazon Polly converts
-
-text-to-speech
+## Amazon Polly converts text-to-speech
 
 To convert text-to-speech, Amazon Connect uses Amazon Polly, a service that converts text into
 lifelike speech using SSML.

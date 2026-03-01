@@ -1,6 +1,4 @@
-# Use real-time recommendations from
-
-Connect AI agents
+# Use real-time recommendations from Connect AI agents
 
 This topic explains how agents who are using Connect AI agents in the agent workspace can
 interact with real-time recommendations that are generated for chats and emails. If

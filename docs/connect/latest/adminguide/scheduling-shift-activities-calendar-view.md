@@ -1,6 +1,4 @@
-# Add shift activities in
-
-draft or published schedules in Amazon Connect
+# Add shift activities in draft or published schedules in Amazon Connect
 
 Amazon Connect scheduling allows contact center managers, supervisors, and schedulers to
 insert activities into agent schedules, both draft and published. For example,
@@ -17,9 +15,7 @@ into an agent's schedule.
   and it will replace it for the whole shift.
 - A work activity cannot be replaced with a non-work activity.
 
-## Add a shift
-
-activity
+## Add a shift activity
 
 1. Log in to the Amazon Connect admin website with an account that has security profile
    permissions for **Scheduling**, **Schedule
@@ -105,9 +101,7 @@ long running actions, such as adding a shift activity with optimization. The
 **Actions log** does not track all changes made to
 schedules.
 
-## Edit a shift
-
-activity
+## Edit a shift activity
 
 1.  From an agent's shift, choose the activity, select
     **Edit**, and then select the activity name to open
@@ -148,9 +142,7 @@ activity
 
     ![Displays the edit shift activity menu.](images/scheduling-edit-shift-activities.png)
 
-## Remove a
-
-shift activity
+## Remove a shift activity
 
 1. From an agent's shift, choose the activity, select
    **Remove**, and then select the activity name to

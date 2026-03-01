@@ -1,13 +1,9 @@
-# Mapping Shopify objects to the
-
-standard profile object in Amazon Connect Customer Profiles
+# Mapping Shopify objects to the standard profile object in Amazon Connect Customer Profiles
 
 This topic lists which fields in Shopify objects map to fields in the
 standard profile object in Amazon Connect Customer Profiles.
 
-## Shopify-Customer
-
-object
+## Shopify-Customer object
 
 Following is a list of all the fields in a Shopify-Customer
 object.
@@ -61,9 +57,7 @@ object.
 - updated_at
 - verified_email
 
-## Mapping a
-
-Shopify-Customer object to a standard profile
+## Mapping a Shopify-Customer object to a standard profile
 
 A subset of the fields in the Shopify-Customer object map to the
 standard profile object in Customer Profiles.

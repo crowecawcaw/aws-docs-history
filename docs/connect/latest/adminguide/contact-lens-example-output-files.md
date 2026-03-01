@@ -1,6 +1,4 @@
-# Example Contact Lens
-
-conversational analytics output files for a call
+# Example Contact Lens conversational analytics output files for a call
 
 The following sections provide examples of the output that results when
 Contact Lens conversational analytics detects issues, matches categories,

@@ -1,6 +1,4 @@
-# Build customer segments in
-
-Amazon Connect
+# Build customer segments in Amazon Connect
 
 ###### Note
 
@@ -10,18 +8,15 @@ Amazon Connect
 
 - To navigate to the segmentation builder experience in the Amazon Connect admin website, you
   need security profiles permissions for this feature. For more
-  information, see [Assign security
-  profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md").
+  information, see [Assign security profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md").
 - Before building segments, we recommend your Customer Profiles domain
   setup data integrations to populate profiles in your Customer Profiles
   Domain. For more information on how to configure data integrations with
-  Customer Profiles, see [Integrate external
-  applications with Amazon Connect Customer Profiles](integrate-external-apps-customer-profiles.md "integrate-external-apps-customer-profiles.md").
+  Customer Profiles, see [Integrate external applications with Amazon Connect Customer Profiles](integrate-external-apps-customer-profiles.md "integrate-external-apps-customer-profiles.md").
 - Segments can include events you captured using Calculated Attributes.
   For more information on how to configure custom Calculated Attributes
   and review the default Calculated Attributes Customer Profiles offers,
-  see [Set up calculated attributes in
-  Amazon Connect Customer Profiles](customerprofiles-calculated-attributes.md "customerprofiles-calculated-attributes.md").
+  see [Set up calculated attributes in Amazon Connect Customer Profiles](customerprofiles-calculated-attributes.md "customerprofiles-calculated-attributes.md").
   Amazon Connect provides two ways to build customer segments: 1/ Define segments through
   Spark SQL (Beta; requires Data store to be enabled); 2/ Define segments through
   audience groups and filters (Classic Segmentation). For both, you can use natural
@@ -112,13 +107,10 @@ An audience group consists of these components:
 
 A customer segment has to have at least one audience group, but you can
 optionally create a second audience group, and then create a relationship
-(AND/OR/EXCLUDE) between the two audience groups. See [Step 5: Add
-the second audience group (optional)](#step-5-add-the-second-audience-group-optional "#step-5-add-the-second-audience-group-optional") for more
+(AND/OR/EXCLUDE) between the two audience groups. See [Step 5: Add the second audience group (optional)](#step-5-add-the-second-audience-group-optional "#step-5-add-the-second-audience-group-optional") for more
 details about the relationship.
 
-## Creating a customer
-
-segment
+## Creating a customer segment
 
 The following steps describe creating and configuring a customer segment:
 
@@ -128,27 +120,20 @@ The following steps describe creating and configuring a customer segment:
 - Step 4: Choose and configure the filter groups (optional)
 - Step 5: Add audience group 2 (optional)
 
-### Step 1: Build a new
-
-segment
+### Step 1: Build a new segment
 
 1. To create a segment, ensure that you have created security
    profiles permissions as a prerequisite. For more information,
-   see [Assign security
-   profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md"). In addition, to best visualize the membership of your segment,
+   see [Assign security profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md"). In addition, to best visualize the membership of your segment,
    we recommend data ingestion prior to segment creation. To ingest
-   profiles through S3 or external applications, see [Create and ingest customer data
-   into Customer Profiles](customer-profiles-object-type-mappings.md "customer-profiles-object-type-mappings.md")
-   or [Integrate external
-   applications with Amazon Connect Customer Profiles](integrate-external-apps-customer-profiles.md "integrate-external-apps-customer-profiles.md").
+   profiles through S3 or external applications, see [Create and ingest customer data into Customer Profiles](customer-profiles-object-type-mappings.md "customer-profiles-object-type-mappings.md")
+   or [Integrate external applications with Amazon Connect Customer Profiles](integrate-external-apps-customer-profiles.md "integrate-external-apps-customer-profiles.md").
 2. Choose **Create a segment** in the Customer
    segment table view.
 
 ![The Create a segment button.](images/step-1-build-a-new-segment-1.png)
 
-### Step 2:
-
-Specify a name and description
+### Step 2: Specify a name and description
 
 - For **Name**, enter a name for the
   customer segment to make it easy to recognize later.
@@ -166,9 +151,7 @@ segment by using Customer Profiles APIs.
 
 ![A Segment name section.](images/step-2-configure-specify-name-and-description-1.png)
 
-### Step 3: Choose the starting audiences to include in audience group
-
-1
+### Step 3: Choose the starting audiences to include in audience group 1
 
 You'll first choose how you want to define the starting audience for the
 audience group.
@@ -233,9 +216,7 @@ following call sequence:
 
 ![An Estimated audience section.](images/step-3-choose-the-starting-audiences-to-include-in-audience-group-2.png)
 
-### Step 4:
-
-Choose and apply audience filters (optional)
+### Step 4: Choose and apply audience filters (optional)
 
 After you’ve chosen your starting audiences, you can further refine the
 audiences by applying conditional logic to attributes. Segments supports
@@ -251,15 +232,13 @@ attributes.
    1. **Calculated attributes** -
       Filter the audience based on one of calculated attributes.
 
-   See [Set up calculated attributes in
-   Amazon Connect Customer Profiles](customerprofiles-calculated-attributes.md "customerprofiles-calculated-attributes.md")
+   See [Set up calculated attributes in Amazon Connect Customer Profiles](customerprofiles-calculated-attributes.md "customerprofiles-calculated-attributes.md")
    to learn about the default Calculated Attributes and how to
    configure custom Calculated Attributes. 2. **Standard attributes** -
    Filter the audience based on one of standard profile
    attributes.
 
-   See [Standard profile definition in
-   the Amazon Connect Customer Profiles](standard-profile-definition.md "standard-profile-definition.md") for the
+   See [Standard profile definition in the Amazon Connect Customer Profiles](standard-profile-definition.md "standard-profile-definition.md") for the
    list of standard profile attributes. 3. **Custom attributes** -
    Filter the audience based on one of custom profile
    attributes.
@@ -310,8 +289,7 @@ When you specify a filter for a calculated attribute, you can override
 the time period of the calculated attribute definition. For example, the
 filter `Frequent caller is true for the event time period of 60
  days` will override the _Frequent caller_
-[Default calculated
-attributes in Amazon Connect Customer Profiles](customerprofiles-default-calculated-attributes.md "customerprofiles-default-calculated-attributes.md") to
+[Default calculated attributes in Amazon Connect Customer Profiles](customerprofiles-default-calculated-attributes.md "customerprofiles-default-calculated-attributes.md") to
 evaluate the value within the past 60 days instead of the [time period
 configured in the calculated attribute definition](customerprofiles-calculated-attributes-apis.md "customerprofiles-calculated-attributes-apis.md"). This
 override is specific to the segment, and does not affect the calculated
@@ -357,9 +335,7 @@ groups.
 1. When you’re finished setting up the audience group,
    choose **Create segment**.
 
-### Step 5: Add
-
-the second audience group (optional)
+### Step 5: Add the second audience group (optional)
 
 Optionally add the second audience group and define a relationship with
 audience group 1. When you create a customer segment by using the Amazon Connect admin website, you
@@ -386,10 +362,8 @@ how the two audience groups are connected:
    group 1.
 
 ![The AND, OR, or EXCLUDE options.](images/step-5-add-the-second-audience-group-optional-1.png) 2. Choose the starting audience in Audience group 2. For reference,
-see [Step 3: Choose the starting audiences to include in audience group
-1](#step-3-choose-the-starting-audiences-to-include-in-audience-group "#step-3-choose-the-starting-audiences-to-include-in-audience-group"). 3. (Optional) Choose the filters by which you want to narrow down
-your segments. For reference, see [Step 4:
-Choose and apply audience filters (optional)](#step-4-choose-and-apply-audience-filters-optional "#step-4-choose-and-apply-audience-filters-optional") 4. When you finish setting up the segment, choose **Create segment**. Segment is created and
+see [Step 3: Choose the starting audiences to include in audience group 1](#step-3-choose-the-starting-audiences-to-include-in-audience-group "#step-3-choose-the-starting-audiences-to-include-in-audience-group"). 3. (Optional) Choose the filters by which you want to narrow down
+your segments. For reference, see [Step 4: Choose and apply audience filters (optional)](#step-4-choose-and-apply-audience-filters-optional "#step-4-choose-and-apply-audience-filters-optional") 4. When you finish setting up the segment, choose **Create segment**. Segment is created and
 you can now use the segment in outbound campaigns or flows.
 
 ![A message that the segment was successfully created.](images/step-5-add-the-second-audience-group-optional-2.png)

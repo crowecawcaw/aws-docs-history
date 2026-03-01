@@ -34,8 +34,6 @@ _in_ the cloud:
 - [Compliance validation in Amazon Connect](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon Connect](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon Connect](infrastructure-security.md "infrastructure-security.md")
-- [Cross-service confused deputy
-  prevention in AWS](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention in AWS](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Security Best Practices for Amazon Connect](security-best-practices.md "security-best-practices.md")
-- [Set IP address restrictions and session timeouts
-  in Amazon Connect](authentication-profiles.md "authentication-profiles.md")
+- [Set IP address restrictions and session timeouts in Amazon Connect](authentication-profiles.md "authentication-profiles.md")

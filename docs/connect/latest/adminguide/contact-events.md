@@ -27,19 +27,12 @@ gracefully. Your applications should:
 - [Contact timestamps](#contact-timestamps "#contact-timestamps")
 - [Subscribe to Amazon Connect contact events](#subscribe-contact-events "#subscribe-contact-events")
 - [Sample to stop streaming an event type](#stop-streaming-event "#stop-streaming-event")
-- [Sample contact event for when a voice call is
-  connected to an agent](#sample-contact-event "#sample-contact-event")
-- [Sample contact event for when a
-  voice call is disconnected](#sample-contact-event-call-disconnected "#sample-contact-event-call-disconnected")
-- [Sample event for when contact properties are
-  updated](#sample-updated-event "#sample-updated-event")
-- [Sample contact event for when
-  a voice call is connected to an agent using routing criteria](#sample-routing-criteria-event-connected "#sample-routing-criteria-event-connected")
-- [Sample event for when routing step expires
-  on a contact](#sample-routing-step-expires "#sample-routing-step-expires")
-- [Sample contact event
-  for when a voice call is connected to an agent provided by the customer using
-  routing criteria](#sample-contact-event-voice-call-routing-criteria "#sample-contact-event-voice-call-routing-criteria")
+- [Sample contact event for when a voice call is connected to an agent](#sample-contact-event "#sample-contact-event")
+- [Sample contact event for when a voice call is disconnected](#sample-contact-event-call-disconnected "#sample-contact-event-call-disconnected")
+- [Sample event for when contact properties are updated](#sample-updated-event "#sample-updated-event")
+- [Sample contact event for when a voice call is connected to an agent using routing criteria](#sample-routing-criteria-event-connected "#sample-routing-criteria-event-connected")
+- [Sample event for when routing step expires on a contact](#sample-routing-step-expires "#sample-routing-step-expires")
+- [Sample contact event for when a voice call is connected to an agent provided by the customer using routing criteria](#sample-contact-event-voice-call-routing-criteria "#sample-contact-event-voice-call-routing-criteria")
 
 ## Contact events data model
 
@@ -334,8 +327,7 @@ Valid values:
   results in a new contact record being created.
 - CALLBACK: The customer was contacted as part of a callback
   flow. For more information about the InitiationMethod in this
-  scenario, see [Queued callbacks in real-time metrics in
-  Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md").
+  scenario, see [Queued callbacks in real-time metrics in Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md").
 - API: The contact was initiated with Amazon Connect by API. This could
   be an outbound contact you created and queued to an agent, using
   the [StartOutboundVoiceContact](../APIReference/API_StartOutboundVoiceContact.md "../APIReference/API_StartOutboundVoiceContact.md") API, or it could be a
@@ -1186,9 +1178,7 @@ event from Amazon Connect to EventBridge.
 }
 ```
 
-## Sample contact event for when a voice call is
-
-connected to an agent
+## Sample contact event for when a voice call is connected to an agent
 
 ```
 {
@@ -1246,9 +1236,7 @@ connected to an agent
 }
 ```
 
-## Sample contact event for when a
-
-voice call is disconnected
+## Sample contact event for when a voice call is disconnected
 
 The following sample event shows a contact that has a user-defined tag with
 **Dept** as the key. Note that `queueInfo` is not
@@ -1315,9 +1303,7 @@ included in events received by EventBridge when `initiationMethod` is
 }
 ```
 
-## Sample event for when contact properties are
-
-updated
+## Sample event for when contact properties are updated
 
 ```
 {
@@ -1389,9 +1375,7 @@ updated
 }
 ```
 
-## Sample contact event for when
-
-a voice call is connected to an agent using routing criteria
+## Sample contact event for when a voice call is connected to an agent using routing criteria
 
 ```
 {
@@ -1467,9 +1451,7 @@ a voice call is connected to an agent using routing criteria
 
 ```
 
-## Sample event for when routing step expires
-
-on a contact
+## Sample event for when routing step expires on a contact
 
 ```
 {
@@ -1551,10 +1533,7 @@ on a contact
 
 ```
 
-## Sample contact event
-
-for when a voice call is connected to an agent provided by the customer using
-routing criteria
+## Sample contact event for when a voice call is connected to an agent provided by the customer using routing criteria
 
 ```
 {

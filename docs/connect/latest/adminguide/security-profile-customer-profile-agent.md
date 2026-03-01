@@ -1,6 +1,4 @@
-# Update Customer Profiles permissions
-
-for agents
+# Update Customer Profiles permissions for agents
 
 Assign the following **Customer profiles** permissions as needed
 to the agent's security profile:

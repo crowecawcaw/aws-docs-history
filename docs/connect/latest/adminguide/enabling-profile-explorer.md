@@ -6,15 +6,11 @@ and viewing access.
 
 ###### Contents
 
-- [Enable administrators to
-  define a layout](#enable-administrators-define-layout "#enable-administrators-define-layout")
-- [Enable users to view Profile
-  Explorer](#enable-users-view-profile-explorer "#enable-users-view-profile-explorer")
+- [Enable administrators to define a layout](#enable-administrators-define-layout "#enable-administrators-define-layout")
+- [Enable users to view Profile Explorer](#enable-users-view-profile-explorer "#enable-users-view-profile-explorer")
 - [Verify Setup](#verify-setup "#verify-setup")
 
-## Enable administrators to
-
-define a layout
+## Enable administrators to define a layout
 
 Administrators need specific permissions to create and edit Profile explorer
 layouts:
@@ -30,9 +26,7 @@ layouts:
 
 ![Add permissions to allow users to create, edit, and view profile explorer layouts.](images/enable-administrators-define-layout-1.png)
 
-## Enable users to view Profile
-
-Explorer
+## Enable users to view Profile Explorer
 
 Users need appropriate permissions to access and interact with Profile explorer
 layout:

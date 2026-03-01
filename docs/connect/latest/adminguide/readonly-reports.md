@@ -35,9 +35,7 @@ and Metrics.
 2. Anyone who already has a shared link to the report will now be able to make
    changes to it. You don't need to send them a new link to the report.
 
-## What users see when they view a read-only
-
-report
+## What users see when they view a read-only report
 
 Users can still make changes to the report settings but they won't be able to save
 them to the report. The **Save** button on the report page is

@@ -1,12 +1,9 @@
-# Manage customer segments in
-
-Amazon Connect
+# Manage customer segments in Amazon Connect
 
 You can use the Amazon Connect admin website to create, view, copy, and perform other management tasks
 for customer segments. If you open a customer segment to view its settings, you can
 also quickly create a campaign that uses the segment. For more information on
-creating segments, see [Build customer segments in
-Amazon Connect](customer-segments-building-segments.md "customer-segments-building-segments.md") in the Amazon Connect
+creating segments, see [Build customer segments in Amazon Connect](customer-segments-building-segments.md "customer-segments-building-segments.md") in the Amazon Connect
 Developer Guide.
 
 ###### To manage customer segments
@@ -32,8 +29,7 @@ Developer Guide.
       profile permission to perform this action.
    3. **Export CSV** — Choose this option to
       export the customer segment to a file on your computer. For more
-      information, see [Export customer segments to a
-      CSV file in Amazon Connect](customer-segments-exporting-segments.md "customer-segments-exporting-segments.md"). The
+      information, see [Export customer segments to a CSV file in Amazon Connect](customer-segments-exporting-segments.md "customer-segments-exporting-segments.md"). The
       Amazon Connect user needs the
       **CustomerProfiles.Segments.Export** security
       profile permission to perform this action.

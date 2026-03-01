@@ -1,6 +1,4 @@
-# Sample queue configurations flow in
-
-Amazon Connect
+# Sample queue configurations flow in Amazon Connect
 
 ###### Note
 
@@ -85,8 +83,6 @@ BasicQueue, which was set at the beginning of the flow.
 ![The transfer to callback queue tab, minimum time between attempts is 10 minutes.](images/sample-queue-configurations-transfer-to-queue-block.png)
 For information about queued callbacks, see the following topics:
 
-- [Set up queued callback by creating flows, queues, and
-  routing profiles in Amazon Connect](setup-queued-cb.md "setup-queued-cb.md")
+- [Set up queued callback by creating flows, queues, and routing profiles in Amazon Connect](setup-queued-cb.md "setup-queued-cb.md")
 - [Flow block in Amazon Connect: Transfer to queue](transfer-to-queue.md "transfer-to-queue.md")
-- [Queued callbacks in real-time metrics in
-  Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md")
+- [Queued callbacks in real-time metrics in Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md")

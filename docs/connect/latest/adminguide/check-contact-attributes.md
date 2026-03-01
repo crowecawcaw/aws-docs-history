@@ -1,6 +1,4 @@
-# Flow block in Amazon Connect: Check contact
-
-attributes
+# Flow block in Amazon Connect: Check contact attributes
 
 This topic defines the flow block for branching based on a comparison to the value of
 a contact attribute.
@@ -40,9 +38,7 @@ is configured to check whether the contact is a
 
 ![The properties page of the Check contact attributes block.](images/check-contact-attributes-properties.png)
 
-### Conditions to check can be
-
-dynamic
+### Conditions to check can be dynamic
 
 You can check conditions like the following:
 
@@ -138,16 +134,12 @@ Amazon Connect includes a set of sample flows. For instructions that explain how
 [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample inbound flow in Amazon Connect for the first contact
-  experience](sample-inbound-flow.md "sample-inbound-flow.md")
-- [Sample interruptible queue flow with
-  callback in Amazon Connect](sample-interruptible-queue.md "sample-interruptible-queue.md")
+- [Sample inbound flow in Amazon Connect for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
+- [Sample interruptible queue flow with callback in Amazon Connect](sample-interruptible-queue.md "sample-interruptible-queue.md")
 
 ## Scenarios
 
 See these topics for scenarios that use this block:
 
-- [How to reference contact attributes in
-  Amazon Connect](how-to-reference-attributes.md "how-to-reference-attributes.md")
-- [Personalize a contact's experience based on
-  how they contact your contact center](use-channel-contact-attribute.md "use-channel-contact-attribute.md")
+- [How to reference contact attributes in Amazon Connect](how-to-reference-attributes.md "how-to-reference-attributes.md")
+- [Personalize a contact's experience based on how they contact your contact center](use-channel-contact-attribute.md "use-channel-contact-attribute.md")

@@ -53,12 +53,9 @@ this by:
 
 Chat conversations do not include a default whisper. You need to include a
 **Set whisper flow** block for the default agent or
-customer whispers to play. For instructions, see [Set the default whisper flow in
-Amazon Connect for a chat conversation](set-default-whisper-flow-for-chat.md "set-default-whisper-flow-for-chat.md").
+customer whispers to play. For instructions, see [Set the default whisper flow in Amazon Connect for a chat conversation](set-default-whisper-flow-for-chat.md "set-default-whisper-flow-for-chat.md").
 
-### How the Set whisper flow block
-
-works
+### How the Set whisper flow block works
 
 - For inbound conversations (voice or chat), the **Set whisper
   flow** block specifies the whisper to be played to the

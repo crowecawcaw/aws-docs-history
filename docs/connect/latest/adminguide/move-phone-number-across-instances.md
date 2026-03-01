@@ -1,6 +1,4 @@
-# Move an Amazon Connect phone number
-
-across instances
+# Move an Amazon Connect phone number across instances
 
 You can move a phone number from one Amazon Connect instance or traffic distribution group
 to another Amazon Connect instance or traffic distribution group in the same AWS account
@@ -18,10 +16,8 @@ Amazon Connect supports the following scenarios for migrating phone numbers:
 ###### Contents
 
 - [Important things to know](#move-number-important "#move-number-important")
-- [Self-move: same Region and
-  AWS account](#move-number-same-region-account "#move-number-same-region-account")
-- [Different Regions and/or
-  AWS account](#move-number-different-region-account "#move-number-different-region-account")
+- [Self-move: same Region and AWS account](#move-number-same-region-account "#move-number-same-region-account")
+- [Different Regions and/or AWS account](#move-number-different-region-account "#move-number-different-region-account")
 
 ## Important things to know
 
@@ -56,9 +52,7 @@ performed by AWS Support.
 AWS Support will request that you acknowledge and understand the above
 information before they schedule your phone number migration.
 
-## Self-move: same Region and
-
-AWS account
+## Self-move: same Region and AWS account
 
 When both Amazon Connect instances are in the same Region and AWS account, you can
 move the phone number yourself by using the [ListPhoneNumbersV2](../APIReference/API_ListPhoneNumbersV2.md "../APIReference/API_ListPhoneNumbersV2.md") and [UpdatePhoneNumber](../APIReference/API_UpdatePhoneNumber.md "../APIReference/API_UpdatePhoneNumber.md") APIs.
@@ -72,9 +66,7 @@ AWS CLI version](../../../cli/latest/userguide/cli-chap-troubleshooting.md "../.
 For instructions and sample CLI commands, see [How
 do I migrate phone numbers from one Amazon Connect instance to another?](https://repost.aws/knowledge-center/connect-migrate-phone-number "https://repost.aws/knowledge-center/connect-migrate-phone-number")
 
-## Different Regions and/or
-
-AWS account
+## Different Regions and/or AWS account
 
 When the old and new Amazon Connect instances are located in different Regions, but the
 same AWS account, complete the following steps to create a single AWS Support

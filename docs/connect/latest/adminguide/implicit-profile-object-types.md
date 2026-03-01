@@ -1,6 +1,4 @@
-# Implicit profile object types in
-
-Amazon Connect Customer Profiles
+# Implicit profile object types in Amazon Connect Customer Profiles
 
 You can use any object type that matches the name of a template ID (as returned by
 the [ListProfileObjectTypeTemplates](../../../customerprofiles/latest/APIReference/API_ListProfileObjectTypeTemplates.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjectTypeTemplates.md") API) without explicitly defining it. The

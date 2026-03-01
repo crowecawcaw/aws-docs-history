@@ -1,6 +1,4 @@
-# Apply granular access control to
-
-historical metrics reports in Amazon Connect
+# Apply granular access control to historical metrics reports in Amazon Connect
 
 You can use resource tags and access control tags to apply granular access to
 users, queues, and routing profiles for historical metrics. For example, you can
@@ -9,21 +7,16 @@ historical metrics.
 
 Amazon Connect also supports tag-based access controls for real-time metrics and the agent
 activity audit, but it does not support dashboards and the login/logout report. For
-more information, see [Real-time metrics tag-based access
-control in Amazon Connect](rtm-tag-based-access-control.md "rtm-tag-based-access-control.md") and [Agent activity
-audit tag-based access control in Amazon Connect](agent-activity-audit-tag-based-access-control.md "agent-activity-audit-tag-based-access-control.md").
+more information, see [Real-time metrics tag-based access control in Amazon Connect](rtm-tag-based-access-control.md "rtm-tag-based-access-control.md") and [Agent activity audit tag-based access control in Amazon Connect](agent-activity-audit-tag-based-access-control.md "agent-activity-audit-tag-based-access-control.md").
 
 Tag-based access controls enable you to configure granular access to specific
 resources based on assigned resource tags. You can configure tag-based access
 controls by using the API or the Amazon Connect admin website for supported resources. You must configure
 resource tags and access control tags before tag-based access control is applied to
 users, queues, and routing profiles for real-time metrics. For more information, see
-[Add tags to resources in Amazon Connect](tagging.md "tagging.md") and [Apply tag-based access control in
-Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
+[Add tags to resources in Amazon Connect](tagging.md "tagging.md") and [Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
 
-## How to enable tag-based
-
-access control for historical metrics reports
+## How to enable tag-based access control for historical metrics reports
 
 To apply tags to control access to users, queues, and routing profiles metrics
 in historical metrics reports:
@@ -66,9 +59,7 @@ historical metrics:
   agent queues.
 - Access to the homepage service level dashboard is disabled.
 
-## How to transition to tag-based access
-
-control
+## How to transition to tag-based access control
 
 If you open a saved report containing tables with users, queues, or routing
 profiles that you don't have access to anymore due to tag-based access control,

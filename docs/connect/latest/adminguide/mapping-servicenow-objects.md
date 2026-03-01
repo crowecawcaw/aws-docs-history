@@ -1,13 +1,9 @@
-# Mapping ServiceNow objects to
-
-the standard profile object in Amazon Connect Customer Profiles
+# Mapping ServiceNow objects to the standard profile object in Amazon Connect Customer Profiles
 
 This topic lists which fields in ServiceNow objects map to fields in the
 standard profile object in Amazon Connect Customer Profiles.
 
-## Servicenow-sys_user
-
-object
+## Servicenow-sys_user object
 
 Following is a list of all the fields in a Servicenow-sys_user
 object
@@ -73,9 +69,7 @@ object
 - web_service_access_only
 - zip
 
-## Mapping
-
-Servicenow-sys_users to a standard profile object
+## Mapping Servicenow-sys_users to a standard profile object
 
 A subset of the fields in the Servicenow-sys_users object map to the
 standard profile object in Customer Profiles.

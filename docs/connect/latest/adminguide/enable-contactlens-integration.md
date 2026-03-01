@@ -1,6 +1,4 @@
-# Enable Amazon Connect Contact Lens
-
-integration
+# Enable Amazon Connect Contact Lens integration
 
 After you create a Contact Lens connector, you need to enable the integration
 by assigning users security profile permissions so they can access it on the

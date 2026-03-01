@@ -526,9 +526,7 @@ For more information please refer to the:
 
 **Supported Statistics:** SUM
 
-## Metric level filters supported per metric
-
-primitive category
+## Metric level filters supported per metric primitive category
 
 | Metric Category                                                                          | Metric Level Filter Key                                                                                                                                                                                                                                                             | Metric Level Filter Key Description                                                                                                                                                                                                                                                                            | Metric Level Filter Values                                                                                                                                                                                        |
 | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -570,9 +568,7 @@ primitive category
 | ValidationTestType (Represented as \*_Contact Source_<br>• in the custom metric builder) | Represents the testing and simulation type. This field remains empty for non-simulated contacts. You can use this attribute in the analytics dashboard to filter out actual customer contacts or to identify whether a contact is simulated within your contact record object.      | Please refer to \*_connect:ValidationTestType_<br>• table row in the<br>[SegmentAttributes](connect-attrib-list.md#attribs-segment-attributes "connect-attrib-list.md#attribs-segment-attributes")<br>section for valid list of values.                                                                        |
 | Subtype                                                                                  | Represents the subtype of the channel used for the contact.                                                                                                                                                                                                                         | Please refer to \*_connect:Subtype_<br>• table row in the<br>[SegmentAttributes](connect-attrib-list.md#attribs-segment-attributes "connect-attrib-list.md#attribs-segment-attributes")<br>section for valid list of values.                                                                                   |
 
-## Groupings supported per metric primitive
-
-category
+## Groupings supported per metric primitive category
 
 | Metric Category                                      | Grouping Key                | Grouping Dashboard Display Name |
 | ---------------------------------------------------- | --------------------------- | ------------------------------- |
@@ -637,13 +633,9 @@ category
 | Subtypes                                             | Subtype                     | Please refer to connect:Subtype table row in the [SegmentAttributes](connect-attrib-list.md#attribs-segment-attributes "connect-attrib-list.md#attribs-segment-attributes") section for valid list of values.                                                                                                                                                                                                                                                                                                                                                                                       |
 | ValidationTestTypes                                  | Contact source              | Please refer to connect:ValidationTestType table row in the [SegmentAttributes](connect-attrib-list.md#attribs-segment-attributes "connect-attrib-list.md#attribs-segment-attributes") section for valid list of values.                                                                                                                                                                                                                                                                                                                                                                            |
 
-## Guidelines for Metric Primitive creation
+## Guidelines for Metric Primitive creation and usage with out-of-the-box metrics
 
-and usage with out-of-the-box metrics
-
-### Creating Custom Metric from
-
-Primitives
+### Creating Custom Metric from Primitives
 
 **Each metric primitive can use the same metric-level filter
 only once**
@@ -736,9 +728,7 @@ Both of these count toward the 10-element limit:
   Metric_2)
 - **Constants/numbers** (e.g., 100, 0.5)
 
-### Guidelines for using custom
-
-metrics with out-of-the-box metrics
+### Guidelines for using custom metrics with out-of-the-box metrics
 
 A custom metric can only be added to a dashboard widget if the metric's underlying
 primitives support ALL filters and groupings applied to that widget.

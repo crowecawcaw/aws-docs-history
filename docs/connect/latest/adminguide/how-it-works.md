@@ -36,9 +36,7 @@ elements:
   - Defines data retrieval parameters
   - Controls data binding for components
 
-## Example layout component
-
-definition
+## Example layout component definition
 
 The following is a sample JSON structure for a dashboard table
 component:
@@ -82,9 +80,7 @@ Profiles data dynamically within your components.
 For components like Key Value Pairs and Key Metrics, you can
 access:
 
-#### Standard profile
-
-information
+#### Standard profile information
 
 ```
 {{Customer.<StandardProfileInfo>}}
@@ -107,13 +103,9 @@ Example usage:
 - `{{Customer.CalculatedAttributes._cases_count}}`
 - `{{Customer.CalculatedAttributes._new_customer}}`
 
-### Tabular data support
+### Tabular data support syntax
 
-syntax
-
-#### Calculated
-
-Attributes
+#### Calculated Attributes
 
 ```
 {{Customer.CalculatedAttributes.DisplayName}}

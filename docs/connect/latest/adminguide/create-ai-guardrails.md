@@ -10,10 +10,8 @@ Amazon Connect admin website.
 
 - [Important things to know](#important-ai-guardrail "#important-ai-guardrail")
 - [How to create an AI guardrail](#create-ai-guardrail "#create-ai-guardrail")
-- [Change the default blocked
-  message](#change-default-blocked-message "#change-default-blocked-message")
-- [Sample CLI commands to configure
-  AI guardrail policies](#guardrail-policy-configurations "#guardrail-policy-configurations")
+- [Change the default blocked message](#change-default-blocked-message "#change-default-blocked-message")
+- [Sample CLI commands to configure AI guardrail policies](#guardrail-policy-configurations "#guardrail-policy-configurations")
 
 ## Important things to know
 
@@ -90,9 +88,7 @@ When selecting from the versions dropdown,
 **Latest:Published** always returns the saved state of
 the AI guardrail.
 
-## Change the default blocked
-
-message
+## Change the default blocked message
 
 This section explains how to access the AI guardrail builder and editor in the
 Amazon Connect admin website, using the example of changing the blocked message that is displayed to
@@ -129,16 +125,12 @@ model response, scroll to the **Blocked messaging**
 section. 6. Enter the block message text that you want to be displayed, choose
 **Save**, and then **Publish**.
 
-## Sample CLI commands to configure
-
-AI guardrail policies
+## Sample CLI commands to configure AI guardrail policies
 
 Following are examples of how to configure the AI guardrail policies by using the
 AWS CLI.
 
-### Block undesirable
-
-topics
+### Block undesirable topics
 
 Use the following sample AWS CLI command to block undesirable topics.
 
@@ -163,9 +155,7 @@ aws qconnect update-ai-guardrail
 }
 ```
 
-### Filter harmful
-
-and inappropriate content
+### Filter harmful and inappropriate content
 
 Use the following sample AWS CLI command to filter harmful and
 inappropriate content.
@@ -190,9 +180,7 @@ aws qconnect update-ai-guardrail
 }
 ```
 
-### Filter harmful and
-
-inappropriate words
+### Filter harmful and inappropriate words
 
 Use the following sample AWS CLI command to filter harmful and inappropriate
 words. 

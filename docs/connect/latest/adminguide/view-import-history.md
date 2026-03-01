@@ -1,6 +1,4 @@
-# View the import history for your Amazon Connect quick
-
-responses
+# View the import history for your Amazon Connect quick responses
 
 Amazon Connect retains import history for the lifetime of your knowledge base. To delete that
 history, you must use the [DeleteKnowledgeBase](../../../amazon-q-connect/latest/APIReference/API_DeleteKnowledgeBase.md "../../../amazon-q-connect/latest/APIReference/API_DeleteKnowledgeBase.md") action to delete the knowledge base.

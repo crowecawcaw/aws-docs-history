@@ -1,6 +1,4 @@
-# Troubleshoot an agent's workstation for call quality and
-
-disconnect problems
+# Troubleshoot an agent's workstation for call quality and disconnect problems
 
 Before you read this topic, we recommend that you confirm your agent's workstation
 meets the [minimum hardware requirements](ccp-agent-hardware.md "ccp-agent-hardware.md") for

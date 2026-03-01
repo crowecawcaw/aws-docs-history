@@ -1,6 +1,4 @@
-# Case event payload and schema in
-
-Amazon Connect Cases
+# Case event payload and schema in Amazon Connect Cases
 
 When you request to include case data in the event payload, the data reflects the
 version of the case after that particular edit.
@@ -12,9 +10,7 @@ information), case event schema reflect the customizations made to the case obje
 shown in the following examples (for example, see how customer-specific UUIDs are being
 use as JSON properties).
 
-## Example case event payload for the case
-
-resource
+## Example case event payload for the case resource
 
 ```
 // Given the limits on the "includedData" configuration
@@ -74,9 +70,7 @@ resource
 }
 ```
 
-## Example case event payload for the
-
-related-item resource
+## Example case event payload for the related-item resource
 
 ```
 // Given the limits on the "includedData" configuration
@@ -126,9 +120,7 @@ related-item resource
 }
 ```
 
-## Example
-
-case event payload for the case resource performed by custom entity
+## Example case event payload for the case resource performed by custom entity
 
 ```
 // Given the limits on the "includedData" configuration

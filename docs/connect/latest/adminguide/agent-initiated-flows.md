@@ -1,6 +1,4 @@
-# Enable agent-initated flows during active chat
-
-sessions
+# Enable agent-initated flows during active chat sessions
 
 Agent-initiated workflows are interactive workflows that agents can trigger during active
 chat sessions with customers. This feature enables agents to send forms for data
@@ -16,9 +14,7 @@ Agent-initiated flows provides the following benefits:
 - Enable agents to provide real-time assistance during form completion
 - Support sensitive data collection through Show View blocks with [sensitive data configuration options](https://aws.amazon.com/about-aws/whats-new/2024/12/amazon-connect-collect-sensitive-customer-data-chats/ "https://aws.amazon.com/about-aws/whats-new/2024/12/amazon-connect-collect-sensitive-customer-data-chats/")
 
-## Where you can use agent-initiated
-
-flows
+## Where you can use agent-initiated flows
 
 You can use agent-initiated flows in chat channels, including:
 
@@ -42,9 +38,7 @@ Voice and other channels are not currently supported.
   Association**](create-persistent-contact-association-block.md "create-persistent-contact-association-block.md"), [**Get Customer Input**](get-customer-input.md "get-customer-input.md")
 - Limited to 10 Agent-initiated flows per Chat
 
-## Security profile permissions for
-
-agent-initiated flows
+## Security profile permissions for agent-initiated flows
 
 Before you can create agent-initiated flows, you must have permissions in your
 security profile.
@@ -56,9 +50,7 @@ The required permissions are:
 
 ![Security profile permissions for agent-initiated flows](images/agent-initiated-flows-security-profile.png)
 
-## Create Quick Connect for
-
-agent-initiated flow
+## Create Quick Connect for agent-initiated flow
 
 1. On the navigation menu, choose **Routing**, **Quick
    connects**.
@@ -70,9 +62,7 @@ agent-initiated flow
 
 ![Create Quick Connect for agent-initiated flow](images/agent-initiated-flows-quick-connect-config.png)
 
-## Associate Quick Connect with
-
-queue
+## Associate Quick Connect with queue
 
 1. On the navigation menu, choose **Routing**,
    **Queues**.

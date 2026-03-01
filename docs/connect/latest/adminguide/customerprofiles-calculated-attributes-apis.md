@@ -1,6 +1,4 @@
-# Amazon Connect Customer Profiles calculated
-
-attributes APIs
+# Amazon Connect Customer Profiles calculated attributes APIs
 
 You can use the following Customer Profiles calculated attribute APIs
 

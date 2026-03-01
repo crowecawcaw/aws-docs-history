@@ -1,6 +1,4 @@
-# Add custom vocabularies to
-
-Contact Lens using the Amazon Connect admin website
+# Add custom vocabularies to Contact Lens using the Amazon Connect admin website
 
 You can improve the accuracy of speech recognition for product names, brand names,
 and domain-specific terminology, by expanding and tailoring the vocabulary of the
@@ -9,9 +7,7 @@ speech-to-text engine in Contact Lens.
 This topic explains how to add custom vocabularies using the Amazon Connect admin website. You can also
 add them using the [CreateVocabulary](../APIReference/API_CreateVocabulary.md "../APIReference/API_CreateVocabulary.md") and [AssociateDefaultVocabulary](../APIReference/API_AssociateDefaultVocabulary.md "../APIReference/API_AssociateDefaultVocabulary.md") APIs.
 
-## Things to know about custom
-
-vocabularies
+## Things to know about custom vocabularies
 
 - You must set a vocabulary as the **default** for it
   to be applied to the analyses to generate transcripts. The following
@@ -115,9 +111,7 @@ If you attempt to upload a vocabulary that does not validate, it results in a
 phrases to the **Phrase** column, and separate them with spaces
 instead of hyphens, it will fail.
 
-## Download and view a custom
-
-vocabulary
+## Download and view a custom vocabulary
 
 To view a custom vocabulary that has been uploaded, you download and open the
 file. Only files in the **Ready** state can be downloaded and

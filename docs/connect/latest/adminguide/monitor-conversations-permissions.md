@@ -1,6 +1,4 @@
-# Assign permissions to monitor live
-
-conversations in the Amazon Connect Contact Control Panel (CCP)
+# Assign permissions to monitor live conversations in the Amazon Connect Contact Control Panel (CCP)
 
 For managers to monitor live conversations, you assign them the
 **CallCenterManager** and **Agent** security
@@ -38,5 +36,4 @@ outbound calls**.
 
 These permissions are needed so they can monitor the conversation through the
 Contact Control Panel. 5. Choose **Save**.
-Next, show your managers how to monitor conversations. Continue to [Listen to live conversations or read live
-chats in Amazon Connect](monitor-conversations-howto.md "monitor-conversations-howto.md").
+Next, show your managers how to monitor conversations. Continue to [Listen to live conversations or read live chats in Amazon Connect](monitor-conversations-howto.md "monitor-conversations-howto.md").

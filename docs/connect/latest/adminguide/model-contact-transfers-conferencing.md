@@ -1,6 +1,4 @@
-# Model contact transfers and
-
-conferencing in Amazon Connect
+# Model contact transfers and conferencing in Amazon Connect
 
 This topic is for developers who have integrated their external voice system with
 Amazon Connect Contact Lens.

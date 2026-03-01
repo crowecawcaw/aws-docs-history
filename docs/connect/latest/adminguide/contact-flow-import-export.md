@@ -1,6 +1,4 @@
-# Import and export flows between flow designers
-
-in Amazon Connect
+# Import and export flows between flow designers in Amazon Connect
 
 Use the procedures described in this topic to import/export a flows from the previous flow
 designer to the new one, from one instance to another, or from one Region to another as you
@@ -26,8 +24,7 @@ offline flow configuration into flow designer, follow these update steps:
 - If you rely on an offline data store for your flow configuration as your
   source of truth, please ensure you update your flows configuration to the new
   format before the **03/31/2026** deadline.
-  To migrate tens or hundreds of flows, use the APIs described in [Migrate flows to an instance, Region, or environment
-  in Amazon Connect](migrate-contact-flows.md "migrate-contact-flows.md").
+  To migrate tens or hundreds of flows, use the APIs described in [Migrate flows to an instance, Region, or environment in Amazon Connect](migrate-contact-flows.md "migrate-contact-flows.md").
 
 The flow import/export feature is currently in Beta status. Updates and improvements that
 we make could result in issues in future releases importing flows that are exported during
@@ -98,9 +95,7 @@ folder that contains only exported flows.
 7. To save the imported flow, choose **Save**. To publish,
    choose **Save and Publish**.
 
-## Resolve resources in imported
-
-flows
+## Resolve resources in imported flows
 
 When you create a flow, the resources you include in the flow, such as queues and
 voice prompts, are referenced within the flow using the name of the resource and the

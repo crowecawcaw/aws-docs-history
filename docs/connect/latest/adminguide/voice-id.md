@@ -1,6 +1,4 @@
-# Use real-time caller authentication with Voice ID in
-
-Amazon Connect
+# Use real-time caller authentication with Voice ID in Amazon Connect
 
 ###### Note
 
@@ -66,12 +64,9 @@ property in the [Set Voice ID](set-voice-id.md "set-voice-id.md") block. 2. Voic
 it with the enrolled voiceprint corresponding to the claimed identity, and
 returns an authentication result.
 
-For more information about the agent's experience, see [Enroll callers in Voice ID in the Contact Control Panel
-(CCP)](use-voiceid.md "use-voiceid.md").
+For more information about the agent's experience, see [Enroll callers in Voice ID in the Contact Control Panel (CCP)](use-voiceid.md "use-voiceid.md").
 
-## How much speech is needed for enrollment and
-
-authentication
+## How much speech is needed for enrollment and authentication
 
 - Enrollment: 30 seconds of customer net speech (speech that excludes any
   silence) to create a voiceprint and enroll a customer.
@@ -87,8 +82,7 @@ already consented for biometrics. Using stored audio recordings in your S3 bucke
 JSON input file that provides the speaker identifier and a link to the audio recordings,
 you can invoke the Voice ID batch APIs.
 
-For more information, see [Batch enrollment in Amazon Connect Voice ID using
-audio data from prior calls](voiceid-batch-enrollment.md "voiceid-batch-enrollment.md").
+For more information, see [Batch enrollment in Amazon Connect Voice ID using audio data from prior calls](voiceid-batch-enrollment.md "voiceid-batch-enrollment.md").
 
 ## Known fraudster detection
 

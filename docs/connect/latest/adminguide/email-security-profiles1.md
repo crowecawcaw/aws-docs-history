@@ -1,6 +1,4 @@
-# Security profiles do not affect agent
-
-authorization for viewing an email thread
+# Security profiles do not affect agent authorization for viewing an email thread
 
 Any user with the following permission in their security profile has access to read
 emails that they handle or emails that are part of a thread where they are a

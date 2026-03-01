@@ -13,12 +13,9 @@
 Resetting the user's password will immediately log them out of the Contact
 Control Panel. 5. Communicate the new password to the user.
 
-## Reset your own lost or forgotten Amazon Connect
+## Reset your own lost or forgotten Amazon Connect admin password
 
-admin password
-
-- See [Emergency login to the Amazon Connect admin
-  website](emergency-admin-login.md "emergency-admin-login.md").
+- See [Emergency login to the Amazon Connect admin website](emergency-admin-login.md "emergency-admin-login.md").
 
 ## Reset your own agent or manager password
 
@@ -32,9 +29,7 @@ and need a new one.
 3. A message will be sent to your email address with a link that you can use
    to reset your password.
 
-## Reset your own lost or forgotten AWS
-
-password
+## Reset your own lost or forgotten AWS password
 
 - To reset the password you used when you first created your AWS account,
   see [Resetting a Lost or Forgotten Root User Password](../../../IAM/latest/UserGuide/id_credentials_access-keys_retrieve.md#reset-root-password "../../../IAM/latest/UserGuide/id_credentials_access-keys_retrieve.md#reset-root-password") in the

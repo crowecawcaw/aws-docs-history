@@ -1,6 +1,4 @@
-# Design a flow to use contact
-
-attributes in a rule in Contact Lens
+# Design a flow to use contact attributes in a rule in Contact Lens
 
 You can have up to 5 contact attributes in a rule.
 

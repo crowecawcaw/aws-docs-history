@@ -66,9 +66,7 @@ available.
 - Europe (London)
 - AWS GovCloud (US-West)
 
-## Agent workspace third-party
-
-applications
+## Agent workspace third-party applications
 
 - US East (N. Virginia)
 - US West (Oregon)
@@ -199,9 +197,7 @@ applications
 
 \* Self-service post-contact conversational analytics in not available in Canada (Central) or Europe (London).
 
-## Customer authentication availability by
-
-Region
+## Customer authentication availability by Region
 
 - US East (N. Virginia)
 - US West (Oregon)
@@ -229,9 +225,7 @@ Region
 | Europe (Frankfurt)       | eu-central-1   | profile.eu-central-1.amazonaws.com<br>profile.eu-central-1.api.aws                                                                                 | HTTPS<br>HTTPS                   |
 | Europe (London)          | eu-west-2      | profile.eu-west-2.amazonaws.com<br>profile.eu-west-2.api.aws                                                                                       | HTTPS<br>HTTPS                   |
 
-## Customer Profiles calculated attributes
-
-API availability by Region
+## Customer Profiles calculated attributes API availability by Region
 
 The calculated attributes API is available in the following AWS Regions:
 
@@ -246,9 +240,7 @@ The calculated attributes API is available in the following AWS Regions:
 - Europe (Frankfurt)
 - Europe (London)
 
-## Forecasting, capacity planning, and
-
-scheduling
+## Forecasting, capacity planning, and scheduling
 
 - US East (N. Virginia)
 - US West (Oregon)
@@ -273,8 +265,7 @@ scheduling
 - US West (Oregon)
 - Asia Pacific (Tokyo) Region
 - Asia Pacific (Osaka) Region - This Region is for replicas only. For more information,
-  see the Note at the top of [Create a replica of your existing
-  Amazon Connect instance](create-replica-connect-instance.md "create-replica-connect-instance.md").
+  see the Note at the top of [Create a replica of your existing Amazon Connect instance](create-replica-connect-instance.md "create-replica-connect-instance.md").
 - Europe (Frankfurt)
 - Europe (London)
 

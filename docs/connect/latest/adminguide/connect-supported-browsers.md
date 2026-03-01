@@ -8,28 +8,24 @@ Support](https://aws.amazon.com/premiumsupport/?icmpid=docs_connect_browsers_pre
 Before you work with Amazon Connect, verify that your browser is supported using the following
 table.
 
-| Browser                 | Version                                                                                                                                                                                                                                                                                                                                                           | How to check your version                                                                                                                                                                                                                                         |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Google Chrome           | Latest three versions                                                                                                                                                                                                                                                                                                                                             | Open Chrome and type chrome://version in your address bar. The<br>version is in the Google Chrome field at the top of the<br>results.<br>Please see [Google Chrome update on third-party cookies](#chrome-issue "#chrome-issue").                                 |
-| Microsoft Edge Chromium | Latest three versions                                                                                                                                                                                                                                                                                                                                             | Open Edge. On the menu, choose **Help and<br>feedback\*<br>• and then choose **About Microsoft<br>Edge**. The version number is listed in the<br>**About\*<br>• section.                                                                                          |
-| Mozilla Firefox         | Latest three versions                                                                                                                                                                                                                                                                                                                                             | Open Firefox. On the menu, choose the Help icon and then choose<br>**About Firefox**. The version number is listed<br>under the Firefox name.<br>Please see [Firefox Enhanced Tracking Protection<br>updates](#browsers-firefox-issue "#browsers-firefox-issue"). |
-| Mozilla Firefox ESR     | Versions are supported until their Firefox [end-of-life date](https://support.mozilla.org/en-US/kb/firefox-esr-release-cycle "https://support.mozilla.org/en-US/kb/firefox-esr-release-cycle"). For details, see the [Firefox ESR release calendar](https://wiki.mozilla.org/Release_Management/Calendar "https://wiki.mozilla.org/Release_Management/Calendar"). | Open Firefox. On the menu, choose the Help icon and then choose<br>**About Firefox**. The version number is listed<br>under the Firefox name.                                                                                                                     |
+| Browser                 | Version                                                                                                                                                                                                                                                                                                                                                           | How to check your version                                                                                                                                                                                                                                      |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Google Chrome           | Latest three versions                                                                                                                                                                                                                                                                                                                                             | Open Chrome and type chrome://version in your address bar. The<br>version is in the Google Chrome field at the top of the<br>results.<br>Please see [Google Chrome update on third-party cookies](#chrome-issue "#chrome-issue").                              |
+| Microsoft Edge Chromium | Latest three versions                                                                                                                                                                                                                                                                                                                                             | Open Edge. On the menu, choose **Help and<br>feedback\*<br>• and then choose **About Microsoft<br>Edge**. The version number is listed in the<br>**About\*<br>• section.                                                                                       |
+| Mozilla Firefox         | Latest three versions                                                                                                                                                                                                                                                                                                                                             | Open Firefox. On the menu, choose the Help icon and then choose<br>**About Firefox**. The version number is listed<br>under the Firefox name.<br>Please see [Firefox Enhanced Tracking Protection updates](#browsers-firefox-issue "#browsers-firefox-issue"). |
+| Mozilla Firefox ESR     | Versions are supported until their Firefox [end-of-life date](https://support.mozilla.org/en-US/kb/firefox-esr-release-cycle "https://support.mozilla.org/en-US/kb/firefox-esr-release-cycle"). For details, see the [Firefox ESR release calendar](https://wiki.mozilla.org/Release_Management/Calendar "https://wiki.mozilla.org/Release_Management/Calendar"). | Open Firefox. On the menu, choose the Help icon and then choose<br>**About Firefox**. The version number is listed<br>under the Firefox name.                                                                                                                  |
 
 Safari is not supported.
 
-For more requirements, see [Agent headset and workstation requirements for using
-the Contact Control Panel (CCP)](ccp-agent-hardware.md "ccp-agent-hardware.md").
+For more requirements, see [Agent headset and workstation requirements for using the Contact Control Panel (CCP)](ccp-agent-hardware.md "ccp-agent-hardware.md").
 
 ## Browsers on mobile devices
 
 The Amazon Connect console, Contact Control Panel (CCP), and agent workspace do not support
 mobile browsers. However, your agents can forward the audio portion of the call to
-their mobile device. For instructions, see [Forward calls in the Amazon Connect CCP to a
-mobile device (iPhone, Android)](forward-calls-to-mobile-device.md "forward-calls-to-mobile-device.md").
+their mobile device. For instructions, see [Forward calls in the Amazon Connect CCP to a mobile device (iPhone, Android)](forward-calls-to-mobile-device.md "forward-calls-to-mobile-device.md").
 
-## Supported browsers and mobile OS for in-app, web,
-
-and video calling capabilities
+## Supported browsers and mobile OS for in-app, web, and video calling capabilities
 
 - Amazon Chime SDK for iOS and Android:
   - iOS version 13 and later
@@ -55,12 +51,10 @@ for JavaScript application](https://aws.github.io/amazon-chime-sdk-js/modules/am
 documentation on [Voice Focus and WebAudio Best Practice](https://aws.github.io/amazon-chime-sdk-component-library-react/?path=/docs/sdk-providers-voicefocusprovider--page#voice-focus-and-webaudio-best-practice "https://aws.github.io/amazon-chime-sdk-component-library-react/?path=/docs/sdk-providers-voicefocusprovider--page#voice-focus-and-webaudio-best-practice") to implement Voice Focus
 and Echo Reduction.
 
-For more information, see [Set up in-app, web, video calling, and screen sharing
-capabilities](inapp-calling.md "inapp-calling.md").
+For more information, see [Set up in-app, web, video calling, and screen sharing capabilities](inapp-calling.md "inapp-calling.md").
 
 The communications widget supports browser notifications for desktop devices. For more
-information, see [Send browser notifications to customers
-when chat messages arrive](browser-notifications-chat.md "browser-notifications-chat.md").
+information, see [Send browser notifications to customers when chat messages arrive](browser-notifications-chat.md "browser-notifications-chat.md").
 
 ## Google Chrome update on third-party cookies
 
@@ -77,9 +71,7 @@ when they use the CCP. Amazon Connect relies on third-party cookies to facilitat
 authentication. Ensure that third-party cookies are enabled in your agents'
 browser settings to avoid any authentication issues while using the CCP.
 
-## Firefox Enhanced Tracking Protection
-
-updates
+## Firefox Enhanced Tracking Protection updates
 
 As of February 2024, Firefox prevents the Amazon Connect CCP from being embedded in another
 application. As a result, agents are prevents from handling contacts. This is
@@ -97,9 +89,7 @@ the following steps:
 
 ![The Privacy & Security page in Firefox.](images/cross-site-cookies.png)
 
-## Firefox browser guidance for Microphone
-
-Access
+## Firefox browser guidance for Microphone Access
 
 The Amazon Connect CCP conforms to Firefox microphone usage guidance, and only has access
 to connect to the user's microphone when the CCP tab is in focus. This may lead to
@@ -109,9 +99,7 @@ focused on a different tab or application.
 - Agents must focus on the CCP or Agent Workspace Firefox browser tab when
   they accept and connect to a voice contact.
 
-## Optimize performance for Flow Designer for a
-
-multiple GPU system on Windows
+## Optimize performance for Flow Designer for a multiple GPU system on Windows
 
 If you're using Flow Designer on a Windows system with dual GPUs, you might notice
 that animations in Firefox feel less smooth compared to Chrome. This happens

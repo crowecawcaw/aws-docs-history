@@ -19,9 +19,7 @@ also use custom domains.
 - **Custom domains**. You can specify up to 5
   custom domains that have been [onboarded to Amazon SES](../../../ses/latest/dg/creating-identities.md#just-verify-domain-proc "../../../ses/latest/dg/creating-identities.md#just-verify-domain-proc").
 
-## Step 1: Move Amazon SES into production
-
-mode
+## Step 1: Move Amazon SES into production mode
 
 Amazon Connect uses Amazon SES for sending and receiving emails. If you have a new Amazon SES
 instance, you need to take it out of sandbox mode. For instructions, see [Request
@@ -31,10 +29,8 @@ _Amazon SES Developer Guide_.
 After you move Amazon SES into production mode, if you already enabled email when you
 created your Amazon Connect instance, skip to these topics:
 
-- [(Optional) Step 3: Use your own custom email
-  domains](#use-custom-email "#use-custom-email")
-- [Step 5: Configure a CORS policy on
-  your attachments bucket](#config-email-attachments-cors1 "#config-email-attachments-cors1")
+- [(Optional) Step 3: Use your own custom email domains](#use-custom-email "#use-custom-email")
+- [Step 5: Configure a CORS policy on your attachments bucket](#config-email-attachments-cors1 "#config-email-attachments-cors1")
 
 ## Step 2: Get a default Amazon Connect email domain
 
@@ -56,9 +52,7 @@ You cannot change this email address.
 
 ![The Add email domain box, the Amazon Connect email domain option.](images/email-add-email-domain.png)
 
-## (Optional) Step 3: Use your own custom email
-
-domains
+## (Optional) Step 3: Use your own custom email domains
 
 You can import up to five custom domains that have been [onboarded
 to Amazon SES](../../../ses/latest/dg/creating-identities.md#just-verify-domain-proc "../../../ses/latest/dg/creating-identities.md#just-verify-domain-proc").
@@ -72,9 +66,7 @@ to choose custom domains that have been [verified by Amazon SES](../../../ses/la
 
 ![The Use custom email domain option.](images/email-add-custom-domain.png)
 
-## Step 4: Enable email and create an Amazon S3
-
-bucket for storing email and attachments
+## Step 4: Enable email and create an Amazon S3 bucket for storing email and attachments
 
 These steps apply only if you already created an Amazon Connect instance but didn't enable
 email.
@@ -115,9 +107,7 @@ bucket for email messages and attachments.
 
 ![The Amazon S3 bucket to store emails and attachments.](images/email-s3-bucket.png)
 
-## Step 5: Configure a CORS policy on
-
-your attachments bucket
+## Step 5: Configure a CORS policy on your attachments bucket
 
 To allow customers and agents to upload and download files, update your
 cross-origin resource sharing (CORS) policy to allow `PUT` and

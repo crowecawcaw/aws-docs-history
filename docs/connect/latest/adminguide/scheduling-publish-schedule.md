@@ -1,6 +1,4 @@
-# Generate, review, and publish a
-
-schedule by using Schedule Manager in Amazon Connect
+# Generate, review, and publish a schedule by using Schedule Manager in Amazon Connect
 
 Amazon Connect is designed to generate the least number of shifts for agents based on the
 forecasted demand pattern and configured constraints to hit the optimization
@@ -61,10 +59,8 @@ Schedulers can:
 Staff (agents) and supervisors specified in the staffing groups can now
 view the schedule. See the following topics to learn about their experience:
 
-    * [How supervisors view
-     published schedules using the Amazon Connect admin website](scheduling-view-schedule-supervisors.md "scheduling-view-schedule-supervisors.md")
-    * [How agents view their schedule in
-     the Amazon Connect agent workspace](scheduling-view-schedule-agents.md "scheduling-view-schedule-agents.md")
+    * [How supervisors view published schedules using the Amazon Connect admin website](scheduling-view-schedule-supervisors.md "scheduling-view-schedule-supervisors.md")
+    * [How agents view their schedule in the Amazon Connect agent workspace](scheduling-view-schedule-agents.md "scheduling-view-schedule-agents.md")
 
 ## Edit a schedule
 
@@ -103,9 +99,7 @@ configuration.
    regenerate, choose **Actions**, and select
    **Regenerate schedules**.
 
-## Search and sort a
-
-schedule
+## Search and sort a schedule
 
 Managers and supervisors can search and sort schedules from within the
 schedule manager. Schedulers can search for schedule names using partial

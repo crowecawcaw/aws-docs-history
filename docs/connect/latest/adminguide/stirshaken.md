@@ -54,9 +54,7 @@ calls:
   - Cannot verify the calling party's identity
   - Cannot verify legitimate use of the number
 
-## Requirements for A-level
-
-attestation
+## Requirements for A-level attestation
 
 Your calls receive A-level attestation if you are subject to AWS Service Terms
 or are a customer of an authorized AWS Solution Provider/Distribution Seller AND
@@ -67,9 +65,7 @@ any of these conditions are met:
 - Third-party number mapped to your account with validated
   documentation.
 
-## Requirements for B-level
-
-attestation
+## Requirements for B-level attestation
 
 Your calls receive B-level attestation if:
 
@@ -77,9 +73,7 @@ Your calls receive B-level attestation if:
   A-level attestation.
 - We have NOT notified you that we have successfully validated the information you provided.
 
-## Examples of calls that receive C-level
-
-attestation
+## Examples of calls that receive C-level attestation
 
 All calls that don't receive A- or B-level attestation receive C-level attestation.
 

@@ -1,14 +1,10 @@
-# Set up integration for
-
-Segment to provide periodic updates to Amazon Connect Customer Profiles
+# Set up integration for Segment to provide periodic updates to Amazon Connect Customer Profiles
 
 To provide periodic updates to Amazon Connect Customer Profiles, you can integrate with Segment using
 Amazon AppFlow. You first set up the connection in Amazon Connect and Segment, and then verify the
 Segment integration.
 
-## Set up the connection in Amazon Connect
-
-and Segment
+## Set up the connection in Amazon Connect and Segment
 
 1. Open the Amazon Connect console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
@@ -124,9 +120,7 @@ currently available for this type of integration.
 To see what data is being sent, choose the integration and+ then
 choose **View objects** .
 
-## Verify your
-
-Segment integration
+## Verify your Segment integration
 
 To perform this step you need the following prerequisites:
 
@@ -163,16 +157,12 @@ with your integration. To troubleshoot:
 If these are working, contact Support for assistance investigating
 the issue.
 
-## Monitor your Customer Profiles
-
-integrations
+## Monitor your Customer Profiles integrations
 
 After your connection is established, if it stops working, delete the
 integration and then re-establish it.
 
-## What to do if objects
-
-aren't being sent
+## What to do if objects aren't being sent
 
 If an object fails to be sent, choose **Flow details** to
 learn more about what's gone wrong.

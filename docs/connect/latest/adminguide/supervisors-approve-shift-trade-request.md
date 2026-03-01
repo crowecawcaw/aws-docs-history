@@ -1,6 +1,4 @@
-# How supervisors
-
-approve shift trade requests
+# How supervisors approve shift trade requests
 
 A supervisor can manually approve, decline, or cancel any trade request that
 is not complete.

@@ -20,10 +20,8 @@ Each form can contain multiple sections and questions.
 - [Step 1: Create an evaluation form with a title](#step-title "#step-title")
 - [Step 2: Add sections and questions](#step-sections "#step-sections")
 - [Step 3: Add answers](#step-answers "#step-answers")
-- [Step 4: Conditionally enable
-  questions](#step-conditionally-enable-questions "#step-conditionally-enable-questions")
-- [Step 5: Assign scores and ranges to
-  answers](#step-assignscores "#step-assignscores")
+- [Step 4: Conditionally enable questions](#step-conditionally-enable-questions "#step-conditionally-enable-questions")
+- [Step 5: Assign scores and ranges to answers](#step-assignscores "#step-assignscores")
 - [Step 6: Enable automated evaluations](#step-automate "#step-automate")
 - [Step 7: Preview the evaluation form](#step-preview "#step-preview")
 - [Step 8: Assign weights for final score](#step-weights "#step-weights")
@@ -120,9 +118,7 @@ performing an evaluation.
 
 ![The option to mark a question "not applicable".](images/evaluationforms-questionscoring-not-applicable.png)
 
-## Step 4: Conditionally enable
-
-questions
+## Step 4: Conditionally enable questions
 
 Evaluation forms can have questions that are conditionally enabled or disabled,
 based on answers to other questions. For example, you can configure a follow-up
@@ -186,9 +182,7 @@ For the default limit of the **Number of evaluation questions that can
 be answered automatically on a contact using generative AI**, see
 [Contact Lens service quotas](amazon-connect-service-limits.md#contactlens-quotas "amazon-connect-service-limits.md#contactlens-quotas").
 
-## Step 5: Assign scores and ranges to
-
-answers
+## Step 5: Assign scores and ranges to answers
 
 1. Go to the top of the form. Choose the **Scoring** tab,
    and then select the **Enable scoring** checkbox.
@@ -259,8 +253,7 @@ evaluations:
   agent properly greet the customer (Yes/ No)?), and _Multiple selection_
   questions (for example, what parts of the greeting script did the agent state correctly?)
   can be automatically answered using contact categories defined with rules. For more
-  information, see [Create Contact Lens rules
-  using the Amazon Connect admin website](build-rules-for-contact-lens.md "build-rules-for-contact-lens.md").
+  information, see [Create Contact Lens rules using the Amazon Connect admin website](build-rules-for-contact-lens.md "build-rules-for-contact-lens.md").
 - **Generative AI**: Both _Single
   selection_ and _Text field_ questions can
   be automatically answered using generative AI.
@@ -279,9 +272,7 @@ generative AI cannot be used to automate evaluations of self-service
 Following are examples of each type of automation for each type of
 question.
 
-###### Example automation for a Single selection question using Contact Lens
-
-categories
+###### Example automation for a Single selection question using Contact Lens categories
 
 - The following image shows that the answer to the evaluation question is
   yes when Contact Lens has categorized the contact with a label
@@ -297,9 +288,7 @@ categories
 For information about setting up contact categories, see [Automatically categorize
 contacts](rules.md "rules.md").
 
-###### Example automation for an _optional_ Single selection
-
-question using contact categories
+###### Example automation for an _optional_ Single selection question using contact categories
 
 - The following image shows example automation of an optional Single
   selection question. The first check is whether the question is applicable or
@@ -321,9 +310,7 @@ account.
 For information about setting up contact categories, see [Automatically categorize
 contacts](rules.md "rules.md").
 
-###### Example automation for an _optional_ Single selection
-
-question using Generative AI
+###### Example automation for an _optional_ Single selection question using Generative AI
 
 - The following image show example automation using Generative AI.
   Generative AI will automatically answer the evaluation question by
@@ -331,14 +318,11 @@ question using Generative AI
   instructions of the evaluation question, and using it to analyze the
   conversation transcript. Using complete sentences to phrase the evaluation
   question and clearly specifying the evaluation criteria within the
-  instructions improves accuracy of generative AI. For information, see [Evaluate agent performance in
-  Amazon Connect using generative AI](generative-ai-performance-evaluations.md "generative-ai-performance-evaluations.md").
+  instructions improves accuracy of generative AI. For information, see [Evaluate agent performance in Amazon Connect using generative AI](generative-ai-performance-evaluations.md "generative-ai-performance-evaluations.md").
 
 ![A question section, the generative AI Contact Lens option.](images/evaluationforms-automation-genai.png)
 
-###### Example automation for a Multiple selection question using Contact Lens
-
-categories
+###### Example automation for a Multiple selection question using Contact Lens categories
 
 - Multiple selection questions can be used to capture answer reasoning for a
   single select question. It can also be used to trigger conditional questions, by
@@ -385,8 +369,7 @@ start an evaluation from within the Amazon Connect admin website.
    toggle is shown in the following image.
 
 ![The Enable fully automated evaluations toggle set to On.](images/evaluationforms-automation4.png) 3. Activate the evaluation form. 4. Upon activation you will be asked to create a rule in Contact Lens
-that submits an automated evaluation. For more information, see [Create a rule
-in Contact Lens that submits an automated evaluation](contact-lens-rules-submit-automated-evaluation.md "contact-lens-rules-submit-automated-evaluation.md"). The
+that submits an automated evaluation. For more information, see [Create a rule in Contact Lens that submits an automated evaluation](contact-lens-rules-submit-automated-evaluation.md "contact-lens-rules-submit-automated-evaluation.md"). The
 rule enables you to specify which contacts should be automatically evaluated
 using the evaluation form.
 

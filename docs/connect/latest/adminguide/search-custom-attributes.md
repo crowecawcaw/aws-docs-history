@@ -1,6 +1,4 @@
-# Search for contacts in Amazon Connect by using custom
-
-contact attributes or contact segment attributes
+# Search for contacts in Amazon Connect by using custom contact attributes or contact segment attributes
 
 You can create search filters based on custom contact attributes (also called [user-defined contact attributes](connect-attrib-list.md#user-defined-attributes "connect-attrib-list.md#user-defined-attributes")) or contact
 segment attributes.
@@ -12,20 +10,13 @@ made by customers who purchased homeowners insurance.
 
 ###### Contents
 
-- [Required permissions to
-  configure searchable contact attributes](#permissions-search-custom-attributes "#permissions-search-custom-attributes")
-- [Configure searchable custom
-  contact attributes](#configure-search-custom-attributes "#configure-search-custom-attributes")
-- [Edit, add, or remove contact
-  attributes](#edit-add-remove-attribute-keys "#edit-add-remove-attribute-keys")
-- [Filter contact search results
-  on contact attributes](#howto-search-for-custom-attributes "#howto-search-for-custom-attributes")
-- [Filter contact search results on
-  contact segment attributes](#filter-contact-search-segment "#filter-contact-search-segment")
+- [Required permissions to configure searchable contact attributes](#permissions-search-custom-attributes "#permissions-search-custom-attributes")
+- [Configure searchable custom contact attributes](#configure-search-custom-attributes "#configure-search-custom-attributes")
+- [Edit, add, or remove contact attributes](#edit-add-remove-attribute-keys "#edit-add-remove-attribute-keys")
+- [Filter contact search results on contact attributes](#howto-search-for-custom-attributes "#howto-search-for-custom-attributes")
+- [Filter contact search results on contact segment attributes](#filter-contact-search-segment "#filter-contact-search-segment")
 
-## Required permissions to
-
-configure searchable contact attributes
+## Required permissions to configure searchable contact attributes
 
 By default, a custom attribute isn't indexed until someone with appropriate
 permissions, such as an admin or manager, specifies it should be searchable. You
@@ -52,9 +43,7 @@ Assign the following permissions to their security profile:
 
 ![The search customer contact attributes page.](images/contact-search-custom-attributes-configuration-page.png)
 
-## Configure searchable custom
-
-contact attributes
+## Configure searchable custom contact attributes
 
 1. On the **Contact search** page, choose **Add
    filter**, **Custom contact attribute**. Only
@@ -75,9 +64,7 @@ You must type the exact key name. It is case sensitive. 4. When finished, choose
 
 Your users will be able to search on these keys for any future contacts.
 
-## Edit, add, or remove contact
-
-attributes
+## Edit, add, or remove contact attributes
 
 To edit, add, or remove keys, choose **Attribute**,
 **Settings**. If you don't see the
@@ -86,9 +73,7 @@ permissions.
 
 ![The add filter tab, the settings gear in the upper right corner of the page.](images/contact-search-custom-attributes-settings.png)
 
-## Filter contact search results
-
-on contact attributes
+## Filter contact search results on contact attributes
 
 Users who have the **Contact attributes** permission in their
 security profile can find contacts by using the contact attribute filters.
@@ -105,9 +90,7 @@ security profile can find contacts by using the contact attribute filters.
    just added. In the **Attribute value box**, enter the value
    you want to find.
 
-## Filter contact search results on
-
-contact segment attributes
+## Filter contact search results on contact segment attributes
 
 After you create predefined attributes and attached them to a contact segment
 (explained in [Use contact segment attributes](use-contact-segment-attributes.md "use-contact-segment-attributes.md")), you can filter contact search

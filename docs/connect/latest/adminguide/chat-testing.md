@@ -16,8 +16,7 @@ to it and then call that number.
 
 Call latency significantly impacts the quality of your customer's experience.
 For guidance about designing your contact center for optimal call
-quality and then testing latency, see [Design your Amazon Connect contact center for low latency to
-help ensure call quality](low-latency-design.md "low-latency-design.md").
+quality and then testing latency, see [Design your Amazon Connect contact center for low latency to help ensure call quality](low-latency-design.md "low-latency-design.md").
 
 ## Test chat
 
@@ -53,12 +52,10 @@ goes to the same instance of the CCP that you already have open.
 The test environment uses the BasicQueue and Basic Routing Profile. The
 Basic Routing Profile is set up for 2 chats. If you want to test what it's
 like to have more than two chats, change the Basic Routing Profile to 5
-chats. For instructions, see [Create a routing profile in Amazon Connect to link queues to
-agents](routing-profiles.md "routing-profiles.md").
+chats. For instructions, see [Create a routing profile in Amazon Connect to link queues to agents](routing-profiles.md "routing-profiles.md").
 
 To learn more about what the agent experiences when managing chat
-conversations, see [Use the Contact Control Panel (CCP) in
-Amazon Connect to chat with contacts](chat-with-connect-contacts.md "chat-with-connect-contacts.md").
+conversations, see [Use the Contact Control Panel (CCP) in Amazon Connect to chat with contacts](chat-with-connect-contacts.md "chat-with-connect-contacts.md").
 
 ## Test tasks
 
@@ -86,9 +83,7 @@ queue you want to assign the example tasks to.
 
 ![A quick connect for Jane Doe.](images/test-tasks-quick-connect-setup.png)
 
-###### Step 2: Make the quick connect visible in the CCP by assigning it to a
-
-queue
+###### Step 2: Make the quick connect visible in the CCP by assigning it to a queue
 
 1. After you create the quick connect, go to **Routing**,
    **Queues** and then choose the appropriate queue for the

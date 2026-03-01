@@ -1,6 +1,4 @@
-# Things to know before porting a
-
-phone number to Amazon Connect
+# Things to know before porting a phone number to Amazon Connect
 
 The topics in this section explain which numbers can be ported, how long it takes,
 and what fees you might incur.

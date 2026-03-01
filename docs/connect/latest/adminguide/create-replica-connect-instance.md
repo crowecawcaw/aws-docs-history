@@ -1,6 +1,4 @@
-# Create a replica of your existing
-
-Amazon Connect instance
+# Create a replica of your existing Amazon Connect instance
 
 ###### Note
 
@@ -38,14 +36,11 @@ resources across AWS Regions.
 - [Find the
   source Region of your instance](#how-to-find-source-region-of-instances "#how-to-find-source-region-of-instances")
 
-## Important things to
-
-know
+## Important things to know
 
 - Before running [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md"):
   - Make sure you have the minimum required IAM permissions to
-    create an instance. See [Required permissions for using
-    custom IAM policies to manage access to the Amazon Connect console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md").
+    create an instance. See [Required permissions for using custom IAM policies to manage access to the Amazon Connect console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md").
   - Update your flows to replace any hardcoded Regions with a
     `$.AwsRegion` or `$['AwsRegion']`
     parameter. At flow runtime, these parameters are replaced with
@@ -121,9 +116,7 @@ resource.
 - Running [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") does not synchronize Lambda functions or
   Amazon Lex bots, or other third-party / integrations you may have.
 
-## Characteristics of the replica
-
-instance
+## Characteristics of the replica instance
 
 - The replica Amazon Connect instance is created in the same AWS
   account as your existing Amazon Connect instance.
@@ -151,9 +144,7 @@ instance
 - The replica instance has the same instance ID as the Amazon Connect instance it
   is replicated from.
 
-## What resources are mirrored in the replica
-
-instance
+## What resources are mirrored in the replica instance
 
 [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") mirrors the following Amazon Connect
 resources across AWS Regions.
@@ -211,9 +202,7 @@ After initial replication, configuration changes are replicated
 bidirectionally between replicated instances in near real-time. If this fails,
 Amazon Connect Global Resiliency attempts to sync updates within 30 minutes.
 
-## What to do after the replica
-
-instance is created
+## What to do after the replica instance is created
 
 After your replica Amazon Connect instance is created, you need to configure it:
 
@@ -235,9 +224,7 @@ Contact AWS Support for help with the following activities:
 - To understand mirroring status beyond what's available in the CloudTrail
   logs and audit trail in the Amazon Connect admin website.
 
-## Why a ReplicateInstance call
-
-fails
+## Why a ReplicateInstance call fails
 
 A [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") API call fails with an
 `InvalidRequestException` in the following cases:
@@ -250,9 +237,7 @@ A [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/
 5. The instance does not have SAML enabled.
 6. There is a resource name conflict.
 
-## How to find the source
-
-Region of your Amazon Connect instances
+## How to find the source Region of your Amazon Connect instances
 
 If you forget which Region is your source Region for your Amazon Connect instances,
 perform the following steps to find it:

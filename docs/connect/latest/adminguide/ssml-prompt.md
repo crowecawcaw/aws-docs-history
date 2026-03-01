@@ -1,6 +1,4 @@
-# Use SSML tags to personalize text-to-speech in
-
-Amazon Polly
+# Use SSML tags to personalize text-to-speech in Amazon Polly
 
 When you add a prompt to a flow, you can use SSML tags to provide a more personalized
 experience for your customers. SSML tags are a way to control how Amazon Polly generates speech

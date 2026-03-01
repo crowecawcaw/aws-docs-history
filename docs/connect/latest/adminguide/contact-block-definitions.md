@@ -1,6 +1,4 @@
-# Flow block definitions in the flow designer in
-
-Amazon Connect
+# Flow block definitions in the flow designer in Amazon Connect
 
 Use flow blocks to create flows in the flow designer. Drag flow blocks and drop them onto
 a canvas to arrange a flow.

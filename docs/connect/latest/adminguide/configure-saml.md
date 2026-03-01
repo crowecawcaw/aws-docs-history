@@ -11,8 +11,7 @@ a single sign-on experience without having to provide separate credentials for A
 Before you begin, note the following:
 
 - These instructions do not apply to Amazon Connect Global Resiliency deployments. For
-  information that applies to Amazon Connect Global Resiliency, see [Integrate your identity provider (IdP) with an
-  Amazon Connect Global Resiliency SAML sign in endpoint](integrate-idp.md "integrate-idp.md").
+  information that applies to Amazon Connect Global Resiliency, see [Integrate your identity provider (IdP) with an Amazon Connect Global Resiliency SAML sign in endpoint](integrate-idp.md "integrate-idp.md").
 - Choosing SAML 2.0-based authentication as the identity management method for
   your Amazon Connect instance requires the configuration of [AWS Identity and Access Management
   federation](../../../IAM/latest/UserGuide/id_roles_providers_enable-console-saml.md "../../../IAM/latest/UserGuide/id_roles_providers_enable-console-saml.md").
@@ -89,9 +88,7 @@ with your Amazon Connect instance:
    successful, they are redirected to your Amazon Connect instance. The IAM role is used to
    federate with AWS, which allows access to Amazon Connect.
 
-## Select SAML 2.0-based authentication during
-
-instance creation
+## Select SAML 2.0-based authentication during instance creation
 
 When you are creating your Amazon Connect instance, select the SAML 2.0-based authentication
 option for identity management. On the second step, when you create the administrator
@@ -104,9 +101,7 @@ profile.
 You can log in to your Amazon Connect instance, through your IdP, using the administrator
 account to add additional users.
 
-## Enable SAML federation between your identity
-
-provider and AWS
+## Enable SAML federation between your identity provider and AWS
 
 To enable SAML-based authentication for Amazon Connect, you must create an identity provider in
 the IAM console. For more information, see [Enabling SAML 2.0
@@ -135,9 +130,7 @@ federation_. Then create a policy to assign permissions to your
 Amazon Connect instance. Permissions start on step 9 of the _To create a role
 for SAML-based federation_ procedure.
 
-###### To create a policy for assigning permissions to the IAM role for SAML
-
-federation
+###### To create a policy for assigning permissions to the IAM role for SAML federation
 
     1. On
      the **Attach permissions policy**
@@ -265,8 +258,7 @@ federation
 5. For Amazon Connect, leave the **Application Start URL** blank.
 6. Override the Application Consumer Service (ACS) URL in your identity provider
    to use the regional endpoint that coincides with the AWS Region of your Amazon Connect
-   instance. For more information, see [Configure the identity provider to use
-   regional SAML endpoints](#regionally-isolated-saml "#regionally-isolated-saml").
+   instance. For more information, see [Configure the identity provider to use regional SAML endpoints](#regionally-isolated-saml "#regionally-isolated-saml").
 7. Configure the relay state of your identity provider to point to your Amazon Connect
    instance. The URL to use for the relay state is comprised as follows:
 
@@ -293,9 +285,7 @@ _178c75e4-b3de-4839-a6aa-e321ab3f3770_.
 
 arn:aws:connect:us-east-1:450725743157:instance/_178c75e4-b3de-4839-a6aa-e321ab3f3770_
 
-## Configure the identity provider to use
-
-regional SAML endpoints
+## Configure the identity provider to use regional SAML endpoints
 
 To provide the best availability we recommend using the regional SAML endpoint that
 coincides with your Amazon Connect instance instead of the default global endpoint.
@@ -382,8 +372,7 @@ account's approved origins. For example, perform the steps in the following orde
 
 1. In the Amazon Connect console add
    https://`your-custom-website`.com to your approved
-   origins. For instructions, see [Use an allowlist for integrated applications in
-   Amazon Connect](app-integration.md "app-integration.md").
+   origins. For instructions, see [Use an allowlist for integrated applications in Amazon Connect](app-integration.md "app-integration.md").
 2. In your identity provider configure your relay state to `https://`your-region`.console.aws.amazon.com/connect/federate/instance-id?destination=https%3A%2F%2F`your-custom-website.com``
 3. When your agents log in they are taken directly to
    https://`your-custom-website`.com.

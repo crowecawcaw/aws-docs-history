@@ -1,14 +1,10 @@
-# Set up integration for
-
-Shopify to provide periodic updates to Amazon Connect Customer Profiles
+# Set up integration for Shopify to provide periodic updates to Amazon Connect Customer Profiles
 
 To provide periodic updates to Amazon Connect Customer Profiles, you can integrate with Shopify using
 Amazon AppIntegrations. You first set up the connection in Amazon Connect and Shopify, and then
 verify the Shopify integration.
 
-## Set up the connection in Amazon Connect
-
-and Shopify
+## Set up the connection in Amazon Connect and Shopify
 
 1. Open the Amazon Connect console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
@@ -137,9 +133,7 @@ choose **View objects**. 13. Go to the next step to use the API to set up **webh
 subscriptions** so events can start flowing into this
 integration.
 
-## Set up webhook
-
-subscriptions
+## Set up webhook subscriptions
 
 1. Use the following URL to make sure your app has the required
    permissions:
@@ -254,9 +248,7 @@ Request Body:
 You're now all set to receive events from your Shopify store. Next, verify
 your Shopify integration.
 
-## Verify your
-
-Shopify integration
+## Verify your Shopify integration
 
 1. Sign in as Admin to your Shopify Store.
 2. In the left navigation menu, choose
@@ -281,16 +273,12 @@ Shopify integration
       If these are working, contact Support for assistance investigating
       the issue.
 
-## Monitor your Customer Profiles
-
-integrations
+## Monitor your Customer Profiles integrations
 
 After your connection is established, if it stops working, delete the
 integration and then re-establish it.
 
-## What to do if objects
-
-aren't being sent
+## What to do if objects aren't being sent
 
 If an object fails to be sent, choose **Flow details** to
 learn more about what's gone wrong.

@@ -1,6 +1,4 @@
-# Set up your agent's experience with
-
-Amazon Connect Global Resiliency
+# Set up your agent's experience with Amazon Connect Global Resiliency
 
 Amazon Connect Global Resiliency enables you to provide a global experience for agents with
 global sign-in, agent distribution API, and Agent Workspace enhancements. With this

@@ -1,6 +1,4 @@
-# Enable
-
-authentication for Apple Messages for Business
+# Enable authentication for Apple Messages for Business
 
 To begin the setup process, first navigate to your Identity Provider.
 
@@ -36,9 +34,7 @@ You must select **Don't generate a client secret**  when
 configuring the Amazon Cognito app client. Only Amazon Cognito app clients without client secrets
 are supported.
 
-## Configure your Amazon Cognito app client with the Apple Messages for Business
-
-Portal
+## Configure your Amazon Cognito app client with the Apple Messages for Business Portal
 
 On **Integrated OAuth2 Authentication**, configure your Amazon Cognito
 app client client ID as the **Client Identifier** and your Amazon Cognito
@@ -47,9 +43,7 @@ endpoint](../../../cognito/latest/developerguide/authorization-endpoint.md "../.
 
 ![Customer authentication for Amazon Cognito user pools.](images/configuring-your-cognito-app-client-with-the-apple-messages-for-business-portal.png)
 
-## Configure your user pools
-
-with Amazon Connect
+## Configure your user pools with Amazon Connect
 
 On the **Customer authentication** page on the Amazon Connect console
 associate the user pool that will be used for the authentication.
@@ -66,13 +60,10 @@ instance of Amazon Connect.** is displayed, then see [Enable Customer Profiles 
 
 ![Enable customer profiles in the Amazon Connect console.](images/apple-messages-for-business-configuring-amazon-connect-customer-profiles.png)
 
-### Grant Customer Profile permission(s) to security profiles
-
-(optional)
+### Grant Customer Profile permission(s) to security profiles (optional)
 
 To grant users (agent, admin) permissions to view/edit/publish Customer
-Profiles in Agent Workspace, see [Update Customer Profiles permissions
-for agents](security-profile-customer-profile-agent.md "security-profile-customer-profile-agent.md"). After
+Profiles in Agent Workspace, see [Update Customer Profiles permissions for agents](security-profile-customer-profile-agent.md "security-profile-customer-profile-agent.md"). After
 permission(s) are granted to security profile(s), users should be able to access
 the features in the Agent Workspace.
 
@@ -81,5 +72,4 @@ permissions](security-profile-list.md#customerprofiles-permissions-list "securit
 
 ## Configure the Authenticate Customer flow block
 
-For instructions, see [Flow block in Amazon Connect: Authenticate
-Customer](authenticate-customer.md "authenticate-customer.md").
+For instructions, see [Flow block in Amazon Connect: Authenticate Customer](authenticate-customer.md "authenticate-customer.md").

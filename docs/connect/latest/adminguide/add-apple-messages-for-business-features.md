@@ -20,9 +20,7 @@ can set up the channel for you:
 
 To learn more about enabling Message Suggest, see [Apple’s Message Suggest FAQs](https://register.apple.com/resources/business-chat/faq/business-chat-suggest-faqs.html "https://register.apple.com/resources/business-chat/faq/business-chat-suggest-faqs.html").
 
-## Embed Apple Messages for Business
-
-buttons
+## Embed Apple Messages for Business buttons
 
 To embed Apple Messages for Business buttons on your website or mobile app, do the following:
 
@@ -43,8 +41,7 @@ The Messages for Business button must contain the following, at minimum:
 Authentication allows customers to sign in to your Identity Provider(s) of choice
 during a chat conversation. The authentication feature leverages the OAuth2 and OIDC
 framework to verify the identity of the customer upon successful sign in. for more
-information, see [Enable
-authentication for Apple Messages for Business](enabling-authentication-for-apple-messages-for-business.md "enabling-authentication-for-apple-messages-for-business.md").
+information, see [Enable authentication for Apple Messages for Business](enabling-authentication-for-apple-messages-for-business.md "enabling-authentication-for-apple-messages-for-business.md").
 
 ## Start a chat from a URL
 
@@ -79,9 +76,7 @@ credit card question for the billing department:
 
 - `https://bcrw.apple.com/urn:biz:22222222-dddd-4444-bbbb-777777777777?biz-intent-id=account_question&biz-group-id=billing_department&body=Order%20additional%20credit%20card`.
 
-## Add list pickers, time pickers,
-
-forms, attachments, and quick replies
+## Add list pickers, time pickers, forms, attachments, and quick replies
 
 A list picker prompts your customer to select an item, such as a product or the
 reason for their inquiry. A time picker prompts your customer to choose an available
@@ -90,8 +85,7 @@ to select a simple, inline response. Forms allow you to create rich, multiple pa
 interactive flows for customers.
 
 For information about how to set up list pickers, time pickers, forms, and quick
-replies, see [Add Amazon Lex interactive messages for customers in
-chat](interactive-messages.md "interactive-messages.md").
+replies, see [Add Amazon Lex interactive messages for customers in chat](interactive-messages.md "interactive-messages.md").
 
 For information about how to enable attachments, see [Enable attachments to share files using
 chat](enable-attachments.md "enable-attachments.md").
@@ -113,8 +107,7 @@ the payment.
 To learn more about Apple Pay, see [Apple Pay for
 developers](https://developer.apple.com/apple-pay/ "https://developer.apple.com/apple-pay/").
 
-For information about how to set up Apple Pay using Connect, see [Add Amazon Lex interactive messages for customers in
-chat](interactive-messages.md "interactive-messages.md").
+For information about how to set up Apple Pay using Connect, see [Add Amazon Lex interactive messages for customers in chat](interactive-messages.md "interactive-messages.md").
 
 ## iMessage Apps
 
@@ -131,8 +124,7 @@ a detailed map and location pin:
 
 ![Image of an iMessage app sent using an Apple CIM with a detailed map and location pin.](images/imessage-apps-1.png)
 
-For information about how to set iMessage Apps using Amazon Connect, see [Add Amazon Lex interactive messages for customers in
-chat](interactive-messages.md "interactive-messages.md").
+For information about how to set iMessage Apps using Amazon Connect, see [Add Amazon Lex interactive messages for customers in chat](interactive-messages.md "interactive-messages.md").
 
 ## Use rich links for URLs
 
@@ -140,9 +132,7 @@ Rich links show an inline preview of a URL that contains an image or video. Unli
 normal URLs, customers can view the image or video preview immediately in a chat
 without choosing a "Tap to Load Preview" message.
 
-### Requirements for using rich links in
-
-Amazon Connect
+### Requirements for using rich links in Amazon Connect
 
 To use rich links in Amazon Connect chat messages, your URL and images must meet the
 following requirements:
@@ -162,9 +152,7 @@ URL.
 
 ![A URL sent in a chat message.](images/abc-rich-link.png)
 
-## Use Apple Messages for Business contact attributes in
-
-contact flows
+## Use Apple Messages for Business contact attributes in contact flows
 
 Contact attributes enable you to store temporary information about the contact so
 you can use it in the flow.

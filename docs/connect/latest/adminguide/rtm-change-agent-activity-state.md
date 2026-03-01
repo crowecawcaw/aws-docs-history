@@ -1,6 +1,4 @@
-# Change the "Agent activity" status
-
-in a metrics report in the Contact Control Panel (CCP)
+# Change the "Agent activity" status in a metrics report in the Contact Control Panel (CCP)
 
 Agents manually set their status in the Contact Control Panel (CCP). However, on
 the real-time metrics report, managers can manually change the **Agent
@@ -42,9 +40,7 @@ status_, as shown in the following image.
 The Real-time metrics report does not display who changed the agent's
 status.
 
-## Required
-
-permissions to change an agent's activity status
+## Required permissions to change an agent's activity status
 
 For someone such as a manager to be able to change an agent's activity status,
 they need to be assigned a security profile that has the following permissions:

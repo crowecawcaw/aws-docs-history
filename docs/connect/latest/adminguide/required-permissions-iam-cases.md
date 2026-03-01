@@ -1,6 +1,4 @@
-# Required permissions for using custom
-
-IAM policies to manage Amazon Connect Cases
+# Required permissions for using custom IAM policies to manage Amazon Connect Cases
 
 If you're using custom IAM policies to manage access to the Amazon Connect Cases, your
 users need some or all of the permissions listed in this article, depending on the tasks
@@ -11,9 +9,7 @@ they need to do.
 There are two options for granting users IAM permissions to view Cases
 domain details on the Amazon Connect console.
 
-### Option 1: Minimum required IAM
-
-permissions
+### Option 1: Minimum required IAM permissions
 
 To view Cases domain details in the Amazon Connect console, users must have the
 following IAM permissions:
@@ -68,10 +64,7 @@ Note the following:
 - `connect:ListIntegrationAssociations` action supports the
   `instance` resource type. See the table in [Actions defined by Amazon Connect](../../../service-authorization/latest/reference/list_amazonconnect.md#amazonconnect-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonconnect.md#amazonconnect-actions-as-permissions").
 
-### Option 2: Update the existing
-
-Amazon Connect policy with `cases:GetDomain` and
-`profile:SearchProfiles`
+### Option 2: Update the existing Amazon Connect policy with `cases:GetDomain` and `profile:SearchProfiles`
 
 Include the [AmazonConnectReadOnlyAccess](security-iam-amazon-connect-permissions.md#amazonconnectreadonlyaccesspolicy "security-iam-amazon-connect-permissions.md#amazonconnectreadonlyaccesspolicy") policy, and add
 `cases:GetDomain`, as shown in the following example.
@@ -100,9 +93,7 @@ JSON
 There are two options for granting users IAM permissions to onboard to
 Cases using the Amazon Connect console.
 
-### Option 1: Minimum required
-
-permissions
+### Option 1: Minimum required permissions
 
 To onboard to Cases by using the Amazon Connect console, users must have the
 following IAM permissions:
@@ -197,16 +188,13 @@ Note the following:
   API to search for customer profiles to validate against, and then
   associate the profile with the case.
 
-### Option 2: Use a combination of
-
-existing policies
+### Option 2: Use a combination of existing policies
 
 The following combination of policies will also work:
 
 - **AmazonConnect_FullAccess** policy
 - `iam:PutRolePolicy` to modify the service-linked role. For
-  an example, see [AWS managed policy:
-  AmazonConnect_FullAccess policy](security-iam-amazon-connect-permissions.md#amazonconnectfullaccesspolicy "security-iam-amazon-connect-permissions.md#amazonconnectfullaccesspolicy").
+  an example, see [AWS managed policy: AmazonConnect_FullAccess policy](security-iam-amazon-connect-permissions.md#amazonconnectfullaccesspolicy "security-iam-amazon-connect-permissions.md#amazonconnectfullaccesspolicy").
 - The following IAM policy:
 
 JSON

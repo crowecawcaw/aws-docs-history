@@ -1,6 +1,4 @@
-# List of available contact attributes in Amazon Connect and their
-
-JSONPath references
+# List of available contact attributes in Amazon Connect and their JSONPath references
 
 The following tables describe the contact attributes available in Amazon Connect.
 
@@ -15,8 +13,7 @@ The JSONPath reference for each attribute is provided so you can [create dynamic
 - [Agent attributes](#attribs-agent "#attribs-agent")
 - [Queue attributes](#attribs-system-metrics-table "#attribs-system-metrics-table")
 - [Contact Metric attributes](#attribs-contact-metrics-table "#attribs-contact-metrics-table")
-- [Telephony call metadata attributes
-  (call attributes)](#telephony-call-metadata-attributes "#telephony-call-metadata-attributes")
+- [Telephony call metadata attributes (call attributes)](#telephony-call-metadata-attributes "#telephony-call-metadata-attributes")
 - [Chat initial message attributes](#chat-initial-message-attributes "#chat-initial-message-attributes")
 - [Email attributes](#email-attribs "#email-attribs")
 - [Media streams attributes](#media-stream-attribs "#media-stream-attribs")
@@ -73,7 +70,7 @@ by a customer.
 | Customer Endpoint type               | The type of the customer endpoint. Valid value is<br>TELEPHONE_NUMBER.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | System | $.CustomerEndpoint.Type                                                                                                                  |
 | Queue Outbound Caller ID number      | The outbound caller ID number defined for the queue. This can be useful<br>for reverting the caller ID after setting a custom caller ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | System | $.Queue.OutboundCallerId.Address                                                                                                         |
 | Queue Outbound Caller ID number type | The type of the outbound caller ID number. Valid value is<br>TELEPHONE_NUMBER.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | System | $.Queue.OutboundCallerId.Type                                                                                                            |
-| Tags                                 | The tags used to organize, track, or control access for this resource.<br>For more information about tags, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md") and [Set up granular billing for a detailed view of your Amazon Connect<br>usage](granular-billing.md "granular-billing.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | System | $.Tags                                                                                                                                   |
+| Tags                                 | The tags used to organize, track, or control access for this resource.<br>For more information about tags, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md") and [Set up granular billing for a detailed view of your Amazon Connect usage](granular-billing.md "granular-billing.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | System | $.Tags                                                                                                                                   |
 
 ## Segment attributes
 
@@ -115,8 +112,7 @@ The following table lists the Views attributes available in Amazon Connect.
 
 The following table lists the Capabilities attributes available in Amazon Connect. These
 attributes support the screen and video sharing capabilities. For more information, see
-[Set up in-app, web, video calling, and screen sharing
-capabilities](inapp-calling.md "inapp-calling.md").
+[Set up in-app, web, video calling, and screen sharing capabilities](inapp-calling.md "inapp-calling.md").
 
 | Attribute                        | Description                                                                        | Type         | JSONPath Reference                  |
 | -------------------------------- | ---------------------------------------------------------------------------------- | ------------ | ----------------------------------- |
@@ -192,9 +188,7 @@ these attributes.
 | Estimated Wait Time | An estimate, in seconds, of how long the current contact will wait in queue before being connected to an agent.                              | System | $.Metrics.Contact.EstimatedWaitTime |
 | Position in Queue   | The position of the contact in a queue while accounting for the<br>channel (voice, chat, task, or email) and whether a routing step is used. | System | $.Metrics.Contact.PositionInQueue   |
 
-## Telephony call metadata attributes
-
-(call attributes)
+## Telephony call metadata attributes (call attributes)
 
 Telephony metadata provides additional information related to call origination from
 telephony carriers.
@@ -296,8 +290,7 @@ For example, if the function returns a contact ID, reference the attribute with
 `$.LambdaInvocation.ResultData.ContactId`. When referencing a contact ID
 returned from Amazon Connect, the JSONPath is `$.ContactId`.
 
-For more information about using attributes in Lambda functions, see [Grant Amazon Connect access to your AWS Lambda
-functions](connect-lambda-functions.md "connect-lambda-functions.md").
+For more information about using attributes in Lambda functions, see [Grant Amazon Connect access to your AWS Lambda functions](connect-lambda-functions.md "connect-lambda-functions.md").
 
 These attributes are not included in contact records, not passed to the next Lambda
 invocation, and not passed to the CCP for screenpop information. However, they can be passed

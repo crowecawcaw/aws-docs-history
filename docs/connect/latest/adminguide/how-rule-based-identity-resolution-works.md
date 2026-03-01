@@ -1,13 +1,9 @@
-# How rule-based Identity Resolution works
-
-in Amazon Connect
+# How rule-based Identity Resolution works in Amazon Connect
 
 This topic describes how rule-based Identity Resolution performs automatic profile matching and how
 it automatically merges similar profiles.
 
-## Automatic profile
-
-matching
+## Automatic profile matching
 
 To identify similar profiles, the rule-based Identity Resolution uses a list of
 [matching rule attributes](../../../customerprofiles/latest/APIReference/API_MatchingRule.md "../../../customerprofiles/latest/APIReference/API_MatchingRule.md") to match each profile. Up to 15
@@ -22,48 +18,39 @@ profile:
 
 - **AccountNumber**
 - **Address.Address**: All
-  addresses specified in the [Attribute Type
-  Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
+  addresses specified in the [Attribute Type Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
   reviewed for similarity, including Address, BusinessAddress,
   MaillingAddress, and ShippingAddress
 - **Address.City**: All addresses
-  specified in the [Attribute Type
-  Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
+  specified in the [Attribute Type Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
   reviewed for similarity, including Address, BusinessAddress,
   MaillingAddress, and ShippingAddress
 - **Address.Country**: All
-  addresses specified in the [Attribute Type
-  Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
+  addresses specified in the [Attribute Type Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
   reviewed for similarity, including Address, BusinessAddress,
   MaillingAddress, and ShippingAddress
 - **Address.County**: All addresses
-  specified in the [Attribute Type
-  Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
+  specified in the [Attribute Type Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
   reviewed for similarity, including Address, BusinessAddress,
   MaillingAddress, and ShippingAddress
 - **Address.PostalCode**: All
-  addresses specified in the [Attribute Type
-  Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
+  addresses specified in the [Attribute Type Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
   reviewed for similarity, including Address, BusinessAddress,
   MaillingAddress, and ShippingAddress
 - **Address.State**: All addresses
-  specified in the [Attribute Type
-  Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
+  specified in the [Attribute Type Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
   reviewed for similarity, including Address, BusinessAddress,
   MaillingAddress, and ShippingAddress
 - **Address.Province**: All
-  addresses specified in the [Attribute Type
-  Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
+  addresses specified in the [Attribute Type Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
   reviewed for similarity, including Address, BusinessAddress,
   MaillingAddress, and ShippingAddress
 - **PhoneNumber**: The phone
-  numbers specified in the [Attribute Type
-  Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
+  numbers specified in the [Attribute Type Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
   reviewed for similarity, including PhoneNumber, HomePhoneNumber,
   and MobilePhoneNumber.
 - **EmailAddress**: All email
-  addresses specified in the [Attribute Type
-  Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
+  addresses specified in the [Attribute Type Selector](#rule-based-attribute-type-selector "#rule-based-attribute-type-selector") are
   reviewed for similarity, including EmailAddress,
   BusinessEmailAddress, and PersonalEmailAddress
 - **BirthDate**
@@ -79,9 +66,7 @@ Matching rules are processed by priority. For example, the first rule
 should be the most optimized rule you want to define and should be used
 to achieve the most accurate result.
 
-### Attribute Type
-
-Selector
+### Attribute Type Selector
 
 The Attribute Types Selector holds vital configuration information for
 rule-based identity resolution, facilitating profile matching. This allows you
@@ -151,9 +136,7 @@ no longer change the rule-based matching configuration.
 The rule is ready to use. You can change the rule a day after
 the status is in an **ACTIVE** state.
 
-### How the
-
-auto-matching process works
+### How the auto-matching process works
 
 After you create a new Amazon Connect Customer Profiles domain with the rule-based matching rule,
 the rule-based Identity Resolution will match similar profiles based on the
@@ -228,9 +211,7 @@ data is ingested. For example, If you configure rules 1 and 2, rule
 2 might be processed before rule 1. The processing order might
 change, but the end result will always be the same.
 
-## Automatic
-
-merging of similar profiles
+## Automatic merging of similar profiles
 
 After the profiles are matched, the Identity Resolution Job can optionally merge similar
 profiles based on the [MaxAllowedRuleLevelForMerging](../../../customerprofiles/latest/APIReference/API_RuleBasedMatchingRequest.md "../../../customerprofiles/latest/APIReference/API_RuleBasedMatchingRequest.md") you specify in the rule-based matching

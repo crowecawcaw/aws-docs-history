@@ -1,6 +1,4 @@
-# Embed the Amazon Connect Contact Control Panel (CCP) into
-
-Salesforce
+# Embed the Amazon Connect Contact Control Panel (CCP) into Salesforce
 
 The core functionality of the Amazon Connect CTI Adapter provides a WebRTC browser-based Contact
 Control Panel (CCP) within Salesforce. The Amazon Connect CTI integration consists of two components:

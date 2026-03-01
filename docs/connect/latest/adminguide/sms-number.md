@@ -1,6 +1,4 @@
-# Request an SMS-enabled phone number through
-
-AWS End User Messaging SMS
+# Request an SMS-enabled phone number through AWS End User Messaging SMS
 
 ###### Important
 
@@ -17,9 +15,7 @@ Identities (OIDs).
 For instructions about procuring a number for SMS messaging, see [Requesting a phone number](../../../sms-voice/latest/userguide/phone-numbers-request.md "../../../sms-voice/latest/userguide/phone-numbers-request.md") in the _AWS End User Messaging SMS User
 Guide_.
 
-## Best practices for requesting SMS
-
-numbers
+## Best practices for requesting SMS numbers
 
 - Each type of OID has a different registration process and the leasing
   costs vary. Review the pricing here: [AWS End User Messaging SMS pricing](https://aws.amazon.com/pinpoint/pricing/#Numbers "https://aws.amazon.com/pinpoint/pricing/#Numbers").

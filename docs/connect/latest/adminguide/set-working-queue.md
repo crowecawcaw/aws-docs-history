@@ -65,14 +65,11 @@ Amazon Connect includes a set of sample flows. For instructions that explain how
 that describe the sample flows which include this block.
 
 - [Sample queue customer flow in Amazon Connect](sample-queue-customer.md "sample-queue-customer.md")
-- [Sample queue configurations flow in
-  Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
+- [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
 
 ## Scenarios
 
 See these topics for scenarios that use this block:
 
-- [Set up agent-to-agent transfers in
-  Amazon Connect](setup-agent-to-agent-transfers.md "setup-agent-to-agent-transfers.md")
-- [Transfer contacts to a specific agent in
-  Amazon Connect](transfer-to-agent.md "transfer-to-agent.md")
+- [Set up agent-to-agent transfers in Amazon Connect](setup-agent-to-agent-transfers.md "setup-agent-to-agent-transfers.md")
+- [Transfer contacts to a specific agent in Amazon Connect](transfer-to-agent.md "transfer-to-agent.md")

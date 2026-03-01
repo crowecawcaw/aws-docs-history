@@ -1,15 +1,11 @@
-# Use pre-filtered tables for Routing profiles
-
-and Queues tables in Amazon Connect
+# Use pre-filtered tables for Routing profiles and Queues tables in Amazon Connect
 
 In real-time metrics reports, for **Routing profiles** and
 **Queues** tables, you can open pre-filtered tables that
 display the associated queues, routing profiles, or agents. These one-click filters
 provide a way for you to drill into the performance data.
 
-## Example 1: Queues table ->
-
-Routing profiles table -> Agents table
+## Example 1: Queues table -> Routing profiles table -> Agents table
 
 For example, at a **Queues** table, choose the dropdown and
 then choose **View routing profiles**, as shown in the
@@ -26,9 +22,7 @@ profile_.
 
 ![The queues table with a box around queue name A, the routing profiles table for queue name A.](images/rtm-quick-filter-routing-profiles.png)
 
-## Example 2: Queues table ->
-
-Agents table
+## Example 2: Queues table -> Agents table
 
 At the **Queues** table, choose **View
 agents**. Below the **Queues** table, an
@@ -38,9 +32,7 @@ associated with different routing profiles.
 
 ![The queues table, view agents option, the agents table.](images/rtm-quick-filter-queues-agents.png)
 
-## Example 3: Queues table ->
-
-Steps table
+## Example 3: Queues table -> Steps table
 
 At the **Queues** table, choose **View
 Steps**. Below the **Queues** table, a

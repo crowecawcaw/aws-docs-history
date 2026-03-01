@@ -1,6 +1,4 @@
-# Block agents from creating tasks in the Amazon Connect Contact
-
-Control Panel (CCP)
+# Block agents from creating tasks in the Amazon Connect Contact Control Panel (CCP)
 
 To block agents from being able to create tasks, assign the **Contact Control
 Panel (CCP)**, **Restrict task creation** permission. By

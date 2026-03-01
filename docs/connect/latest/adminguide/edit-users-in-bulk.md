@@ -44,9 +44,7 @@ for all of the selected users:
    the **User management** page, performing other create, edit,
    and delete tasks on user records.
 
-## Perform other edit tasks while a batch of bulk
-
-edits is being processed
+## Perform other edit tasks while a batch of bulk edits is being processed
 
 After saving an update for a group of users, you can either make additional
 changes on the **Bulk edit** page (for example, [edit other user details](#edit-other-user-details "#edit-other-user-details") such as contact
@@ -123,9 +121,7 @@ rather than choosing and opening each record individually.
 
 ![The edit dialog box.](images/user-management-bulk-single-edit.png)
 
-## Edit user settings
-
-programmatically
+## Edit user settings programmatically
 
 You can change the following values programmatically across selected users. The
 users are changed to the same value.

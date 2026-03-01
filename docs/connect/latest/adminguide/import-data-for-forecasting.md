@@ -1,6 +1,4 @@
-# Import historical data for forecasting
-
-in Amazon Connect
+# Import historical data for forecasting in Amazon Connect
 
 Amazon Connect requires sufficient historical data to learn the contact pattern and make
 good forecasts. By default, it uses historical contact data in Amazon Connect for
@@ -34,15 +32,12 @@ If you have more than one year of historical data in Amazon Connect, you can cho
 skip data import and start [creating
 forecasts](create-forecasts.md "create-forecasts.md").
 
-## Important things to
-
-know
+## Important things to know
 
 - The data file must be a CSV file and it must be in the required
   format. If the file format and data don't meet the requirements, the
   upload does not work. We recommend downloading and using the template
-  provided through the Amazon Connect admin website (see step 4 in [How to import historical
-  data](#how-import-data-for-forecasting "#how-import-data-for-forecasting")) to help you
+  provided through the Amazon Connect admin website (see step 4 in [How to import historical data](#how-import-data-for-forecasting "#how-import-data-for-forecasting")) to help you
   prepare the historical data.
 
 The following image shows an example of the CSV template. There are
@@ -113,9 +108,7 @@ that has been opened with Excel.
 
 ![Example data in an CSV file, opened in Excel.](images/wfm-forecasting-import-table.png)
 
-## How to import historical
-
-data
+## How to import historical data
 
 1. Log in to the Amazon Connect admin website with an account that has security profile
    permissions for **Analytics**, **Forecasting -
@@ -142,9 +135,7 @@ Notepad. It indicates the error is in Row 2, the QueueId is not valid.
 **Status** = **Complete** and
 **Date uploaded** = today.
 
-## Delete imported historical
-
-data
+## Delete imported historical data
 
 You can delete previously imported historical data in Amazon Connect.
 

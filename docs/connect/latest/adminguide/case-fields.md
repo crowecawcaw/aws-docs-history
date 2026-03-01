@@ -20,8 +20,7 @@ There are two types of case fields:
 
 1. Log in to the Amazon Connect admin website with an **Admin** account, or an
    account assigned to a security profile that has permissions to create
-   fields. For a list of required permissions, see [Security profile permissions for Amazon Connect
-   Cases](assign-security-profile-cases.md "assign-security-profile-cases.md").
+   fields. For a list of required permissions, see [Security profile permissions for Amazon Connect Cases](assign-security-profile-cases.md "assign-security-profile-cases.md").
 2. Verify the quota for case fields and request an increase if needed. For
    more information, see [Amazon Connect Cases service quotas](amazon-connect-service-limits.md#cases-quotas "amazon-connect-service-limits.md#cases-quotas").
 3. On the left navigation menu, choose **Agent
@@ -97,9 +96,7 @@ manager**. The field comes with two options,
 **Open** and **Closed**, which cannot
 be changed.
 
-#### Active/inactive field
-
-options
+#### Active/inactive field options
 
 Single-select case fields can be active or inactive.
 

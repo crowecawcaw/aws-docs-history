@@ -16,10 +16,7 @@ include these CCP events:
 
 ###### Contents
 
-- [Enable agent event streams to report agent
-  activity in Amazon Connect](agent-event-streams-enable.md "agent-event-streams-enable.md")
+- [Enable agent event streams to report agent activity in Amazon Connect](agent-event-streams-enable.md "agent-event-streams-enable.md")
 - [Sample agent event stream in Amazon Connect](sample-agent-event-stream.md "sample-agent-event-stream.md")
-- [Determine the contact center agent's ACW (After
-  Contact Work) time](determine-acw-time.md "determine-acw-time.md")
-- [Agent event streams data model in
-  Amazon Connect](agent-event-stream-model.md "agent-event-stream-model.md")
+- [Determine the contact center agent's ACW (After Contact Work) time](determine-acw-time.md "determine-acw-time.md")
+- [Agent event streams data model in Amazon Connect](agent-event-stream-model.md "agent-event-stream-model.md")

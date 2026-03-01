@@ -1,6 +1,4 @@
-# Mapping
-
-ServiceNow objects to the standard case in Amazon Connect Customer Profiles
+# Mapping ServiceNow objects to the standard case in Amazon Connect Customer Profiles
 
 This topic lists which fields in ServiceNow objects map to fields in the
 standard case in Amazon Connect Customer Profiles.
@@ -77,9 +75,7 @@ Following is list of all the fields in a Servicenow-task object.
 - work_notes_list
 - work_start
 
-## Mapping Servicenow-task
-
-to a standard case
+## Mapping Servicenow-task to a standard case
 
 A subset of the fields in the Servicenow-task object map to the
 standard case in Customer Profiles.
@@ -114,9 +110,7 @@ using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API
 `ObjectTypeName` set to
 `Servicenow-task`.
 
-## Servicenow-incident
-
-object
+## Servicenow-incident object
 
 Following is a list of all the fields in a Servicenow-incident object.
 
@@ -144,9 +138,7 @@ Following is a list of all the fields in a Servicenow-incident object.
 - severity
 - subcategory
 
-## Mapping Servicenow-incident to
-
-a standard case
+## Mapping Servicenow-incident to a standard case
 
 A subset of the fields in the Servicenow-incident object map to the
 standard case in Customer Profiles.

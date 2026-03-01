@@ -1,6 +1,4 @@
-# Set up in-app, web, video calling, and screen sharing
-
-capabilities
+# Set up in-app, web, video calling, and screen sharing capabilities
 
 The Amazon Connect in-app, web, and video calling capabilities enable your customers
 to contact you without ever leaving your web or mobile application. You can use these
@@ -13,12 +11,9 @@ other information, like actions previously taken within the app.
 - During a video call or screen sharing session, agents are able to see the
   customer's video or screen share even when the customer is on hold. It is the customer's
   responsibility to handle PII accordingly. If you want to change this behavior, you can build a
-  custom CCP and communication widget. For more information, see [Integrate in-app, web, video calling, and screen
-  sharing natively into your application](config-com-widget2.md "config-com-widget2.md").
+  custom CCP and communication widget. For more information, see [Integrate in-app, web, video calling, and screen sharing natively into your application](config-com-widget2.md "config-com-widget2.md").
 
-## Communication widget: Configure chat, voice, and video all in
-
-one place
+## Communication widget: Configure chat, voice, and video all in one place
 
 To set up in-app, web, and video calling, you use the **Communication
 widgets** page. It supports chat, voice, video, and screen sharing. The
@@ -37,12 +32,9 @@ For example, to help close a mortgage transaction, you can have the agent and th
 customer, the customer's spouse, a translator, and even a supervisor (that is, another
 agent) on the call to help resolve any issues quickly.
 
-To learn how to enable multi-user web, in-app and video calling, see [Enable multi-user in-app, web, and video
-calling](enable-multiuser-inapp.md "enable-multiuser-inapp.md").
+To learn how to enable multi-user web, in-app and video calling, see [Enable multi-user in-app, web, and video calling](enable-multiuser-inapp.md "enable-multiuser-inapp.md").
 
-## How to set up in-app, web, video calling, and screen
-
-sharing
+## How to set up in-app, web, video calling, and screen sharing
 
 There are two ways to embed Amazon Connect in-app, web, and video calling, and
 screen sharing onto your website or mobile application:

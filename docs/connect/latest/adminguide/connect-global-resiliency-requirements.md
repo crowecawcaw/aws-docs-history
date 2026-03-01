@@ -1,6 +1,4 @@
-# Amazon Connect Global Resiliency
-
-requirements
+# Amazon Connect Global Resiliency requirements
 
 If you have decided that Amazon Connect Global Resiliency is the appropriate deployment for
 you, ensure you adhere to the following pre-requisites before onboarding:

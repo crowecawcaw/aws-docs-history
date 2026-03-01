@@ -76,9 +76,7 @@ following:
    [Set recording and analytics
    behavior](set-recording-behavior.md "set-recording-behavior.md") in it.
 
-###### To set up human readable logs that contain key interaction points with
-
-Amazon Lex
+###### To set up human readable logs that contain key interaction points with Amazon Lex
 
 1. Log in to the Amazon Connect console.
 2. On the navigation menu, choose **Flows**.

@@ -1,6 +1,4 @@
-# Create a rule in
-
-Contact Lens that ends associated tasks from a case
+# Create a rule in Contact Lens that ends associated tasks from a case
 
 ###### To create a rule that ends associated tasks
 

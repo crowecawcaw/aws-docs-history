@@ -1,6 +1,4 @@
-# Configure third-party speech-to-text (STT)
-
-providers
+# Configure third-party speech-to-text (STT) providers
 
 Use the following instructions to configure a third-party speech-to-text (STT)
 provider.
@@ -12,10 +10,8 @@ provider.
   about storing API keys as secrets in Secrets Manager, see [Create an AWS Secrets Manager
   secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md").
 - An Secrets Manager resource policy allowing Amazon Connect to retrieve the secret. For more
-  information, see [Managing secrets and resource
-  policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
-- AWS KMS key permissions allowing decryption. For more information, see [Managing secrets and resource
-  policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
+  information, see [Managing secrets and resource policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
+- AWS KMS key permissions allowing decryption. For more information, see [Managing secrets and resource policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
 - A provider model ID and Secrets Manager ARN.
 
 ## Step 1: Open the speech model configuration panel
@@ -61,8 +57,7 @@ speech-to-text provider.
    provider API key.
    - The secret must be in the same Region as your Amazon Connect instance.
    - Secrets Manager and KMS key policies must permit Amazon Connect to access and decrypt the
-     key. For more information, see [Managing secrets and resource
-     policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
+     key. For more information, see [Managing secrets and resource policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
 
 3. Choose **Continue** to save your changes.
 

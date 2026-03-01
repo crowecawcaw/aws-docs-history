@@ -1,6 +1,4 @@
-# Set up an Amazon Connect knowledge base to store quick
-
-responses
+# Set up an Amazon Connect knowledge base to store quick responses
 
 You must create an [Amazon Connect knowledge base](connect-ai-agent.md "connect-ai-agent.md") to
 store quick responses. You can use the Amazon Connect admin website to create the knowledge base with a single click.

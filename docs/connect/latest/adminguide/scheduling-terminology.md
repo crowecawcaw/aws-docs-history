@@ -1,6 +1,4 @@
-# Key terminology for scheduling your agents
-
-in Amazon Connect
+# Key terminology for scheduling your agents in Amazon Connect
 
 This topic provides important terms to know when scheduling agents in your contact
 center.
@@ -13,9 +11,7 @@ schedule is for.
 Only schedulers can view and adjust draft schedules. Agents or their
 supervisors cannot view these schedules until published.
 
-## Overtime / Time off /
-
-Voluntary time off
+## Overtime / Time off / Voluntary time off
 
 - Requesting overtime to agents allows your contact center to handle a
   contact surge or agent shortages without hiring more employees.

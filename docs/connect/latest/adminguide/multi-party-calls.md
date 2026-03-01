@@ -1,6 +1,4 @@
-# Host multiple participants on an ongoing
-
-customer service call in the Contact Control Panel (CCP)
+# Host multiple participants on an ongoing customer service call in the Contact Control Panel (CCP)
 
 You can add up to four additional participants to an ongoing customer service
 call, for a total of six participants: you, the caller, and four other people. You
@@ -24,9 +22,7 @@ video calling](enable-multiuser-inapp.md "enable-multiuser-inapp.md").
 IT admins: For important information about enabling this feature, see [Enable enhanced multi-party contact
 monitoring](monitor-conversations.md "monitor-conversations.md").
 
-## Important things to know
-
-about hosting multi-party calls
+## Important things to know about hosting multi-party calls
 
 - If the primary agent leaves the call, you must have at least three
   participants on the call in order to add more participants.
@@ -43,9 +39,7 @@ about hosting multi-party calls
 
 ![The CCP, multiple participants on hold, one on call.](images/ccp-multiparty-join-third-person.png)
 
-## How to add participants to
-
-a multi-party call
+## How to add participants to a multi-party call
 
 The following image shows the contact and you (the agent) on a call. The
 customer always appears at the top.
@@ -80,9 +74,7 @@ such as you, the caller, and another agent or external party. It is
 not available when you have more than three parties on the
 call.
 
-## How to manage
-
-participants
+## How to manage participants
 
 Every agent on a call can mute, hold, or disconnect individual
 participants.

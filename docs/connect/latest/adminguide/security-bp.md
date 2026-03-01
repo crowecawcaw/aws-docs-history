@@ -1,6 +1,4 @@
-# Design principles for developing a secure contact center
-
-in Amazon Connect
+# Design principles for developing a secure contact center in Amazon Connect
 
 Security includes the ability to protect information, systems, and assets while
 delivering business value through risk assessments and mitigation strategies. This
@@ -16,9 +14,7 @@ requirements relative to the following core security areas:
 
 ![A diagram showing the core security areas to implement in Amazon Connect.](images/architecture/securityjourney.png)
 
-### Understanding the AWS Security
-
-Model
+### Understanding the AWS Security Model
 
 When you move computer systems and data to the cloud, security
 responsibilities become shared between you and AWS. AWS is responsible for
@@ -52,8 +48,7 @@ made, review network requirements for Amazon Connect and ports and protocols tha
 need to allow. Additionally, to reduce the blast radius use the domain allow
 list or allowed IP address ranges for your Amazon Connect instance.
 
-For more information, see [Set up your network to use the Amazon Connect Contact Control Panel
-(CCP)](ccp-networking.md "ccp-networking.md").
+For more information, see [Set up your network to use the Amazon Connect Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md").
 
 ### AWS services integration
 
@@ -113,8 +108,7 @@ performed.
 IAM Administrative access should be limited to approved personnel within
 your organization. IAM administrators should also understand what IAM
 features are available to use with Amazon Connect. For IAM best practices, see [Security best practices in
-IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_. Also see [Amazon Connect identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_. Also see [Amazon Connect identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ### Amazon Connect Service Administrator Best Practices
 
@@ -124,8 +118,7 @@ permissions so they can access the features needed to do their job.
 Administrators should start with a minimum set of permissions and grant
 additional permissions as necessary.
 
-[Security profiles for Amazon Connect and Contact Control
-Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md") help you manage who can access
+[Security profiles for Amazon Connect and Contact Control Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md") help you manage who can access
 the Amazon Connect dashboard and Contact Control Panel, and who can perform specific
 tasks. Review the granular permissions granted within the default security
 profiles available natively. Custom security profiles can be set up to meet
@@ -230,9 +223,7 @@ Amazon Connect using open standard TLS encryption.
 You can specify AWS KMS keys to be used for encryption including bring your own key
 (BYOK). Additionally, you can use key management options within Amazon S3.
 
-### Protecting Data Using Client-Side
-
-Encryption
+### Protecting Data Using Client-Side Encryption
 
 Your use case may require encryption of sensitive data that is collected by
 flows. For example, to gather appropriate personal information to customize the

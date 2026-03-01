@@ -25,8 +25,7 @@ API Gateway and Step Functions further enhance the abilities of Lambda.
 
 For more information, see:
 
-- [Grant Amazon Connect access to your AWS Lambda
-  functions](connect-lambda-functions.md "connect-lambda-functions.md")
+- [Grant Amazon Connect access to your AWS Lambda functions](connect-lambda-functions.md "connect-lambda-functions.md")
 
 ## Storage
 
@@ -61,7 +60,7 @@ For more information, see:
 Amazon Connect tracks all interactions using [contact
 records](about-contact-states.md#ctr-events "about-contact-states.md#ctr-events"). Contact records are used for real-time and historical metrics
 reports. You can also use Amazon Kinesis to stream them to an AWS database like Amazon Redshift or
-Amazon Athena for BI analysis (Quick Suite, or a third party such as Tableau). There are
+Amazon Athena for BI analysis (Quick, or a third party such as Tableau). There are
 AWS CloudFormation templates available to set up this functionality for Amazon Redshift and Athena.
 
 To perform analysis on your flow logs, you can set up an Amazon Kinesis stream to stream
@@ -74,17 +73,14 @@ For more information, see:
 - [Develop live media streaming in Amazon Connect](access-media-stream-data.md "access-media-stream-data.md")
 - Blog post: [Recovering abandoned calls with Amazon Connect](https://aws.amazon.com/blogs/contact-center/recovering-abandoned-calls-with-amazon-connect/ "https://aws.amazon.com/blogs/contact-center/recovering-abandoned-calls-with-amazon-connect/")
 
-## Machine Learning (ML) and Artificial Intelligence
-
-(AI)
+## Machine Learning (ML) and Artificial Intelligence (AI)
 
 Amazon Connect uses the following services for ML/AI:
 
 - Amazon Lex—Lets you create a chatbot to use as Interactive Voice
   Response (IVR). For more information, see [Add an Amazon Lex bot to Amazon Connect](amazon-lex.md "amazon-lex.md").
 - Amazon Polly—Provides text-to-speech in all flows. For more information,
-  see [Add text-to-speech to prompts in flow blocks in
-  Amazon Polly](text-to-speech.md "text-to-speech.md") and
+  see [Add text-to-speech to prompts in flow blocks in Amazon Polly](text-to-speech.md "text-to-speech.md") and
   [SSML tags supported by Amazon Connect](supported-ssml-tags.md "supported-ssml-tags.md").
 - Amazon Transcribe—Grabs conversation recordings from Amazon S3, and transcribes them
   to text so you can review them.

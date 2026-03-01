@@ -1,6 +1,4 @@
-# Optimize your reputation for outbound
-
-calling in Amazon Connect
+# Optimize your reputation for outbound calling in Amazon Connect
 
 In the contact center industry one of the most difficult tasks is understanding why
 customers don't answer calls when you dial out. Is the customer deliberately not
@@ -10,9 +8,7 @@ it's impossible to know but there are things you can do about it.
 This topic provides recommended steps you can take to improve your call answer rates
 for outbound calling.
 
-## Step 1: Know your
-
-customer's preferred contact method
+## Step 1: Know your customer's preferred contact method
 
 One of the biggest mistakes that contact centers make is not knowing whether the
 customer wants to be contacted by telephone call. When the customer engaged with
@@ -30,9 +26,7 @@ your calls increases the call answer rate by 30%.
 Amazon Connect partners with solutions providers like [First
 Orion](https://firstorion.com/amazon-connect-branded-calling-now-available/ "https://firstorion.com/amazon-connect-branded-calling-now-available/") and Neustar to offer branded calling services.
 
-## Step 3: Select caller IDs that mean something
-
-to your customer
+## Step 3: Select caller IDs that mean something to your customer
 
 Not every contact center is the same. What works for some might not work for
 others. But there are correlations in how successful outbound campaigns are based on
@@ -48,12 +42,9 @@ IDs:
 - **Mobile numbers**. Where countries permit
   this, it may be possible to use a virtual mobile number to dial out from a
   contact center. For a list of countries where Amazon Connect supports mobile numbers,
-  see [Region requirements for ordering and porting
-  phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md").
+  see [Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md").
 
-## Step 4: Make sure your campaign is calling
-
-valid numbers
+## Step 4: Make sure your campaign is calling valid numbers
 
 Maintaining accurate customer contact information is essential for successful
 outbound calling operations. Amazon Connect's detailed disconnect reasons help
@@ -77,9 +68,7 @@ In addition, there are regulations such as TCPA (in the US) and OFCOM (in the UK
 that provide guidance on when not to call end customers. We strongly recommend that
 you abide by such regulations.
 
-## Step 6: Manage and monitor the reputation of
-
-your caller IDs
+## Step 6: Manage and monitor the reputation of your caller IDs
 
 For US-based operations, registering your business numbers with services like Free
 Caller Registry is essential for managing your caller ID reputation. Amazon
@@ -100,9 +89,7 @@ important factors:
 If your caller ID has been flagged, switching to a new phone number is typically
 the fastest way to restore connectivity.
 
-## Step 7: Use multiple numbers as a
-
-callerID
+## Step 7: Use multiple numbers as a callerID
 
 Today, outbound contact centers typically embrace an intelligent, more efficient
 manner of dialing.
@@ -124,9 +111,7 @@ while others provide no opportunities for redress. You might need to research th
 common apps in your region or those used by your customer base and work with these
 services directly.
 
-## Step 9: Add messaging to your outreach strategy to
-
-let customers know who you are
+## Step 9: Add messaging to your outreach strategy to let customers know who you are
 
 It's inevitable that you'll end up with a list of unanswered calls that you
 weren't able to connect. There are a variety of creative ways to use SMS with
@@ -140,9 +125,7 @@ prospects. Here are some ideas to increase answer rates with your prospects.
 3. Re-engage with prospects with promotional offers or discounts that
    resonates with your prospects.
 
-## Step 10: Validate your outbound calling
-
-strategy
+## Step 10: Validate your outbound calling strategy
 
 Data-driven decisions and continuous improvement are key to delivering business
 value through your outbound calling strategy. Treat each operational change as an

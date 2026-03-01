@@ -1,6 +1,4 @@
-# Listen to live conversations or read live
-
-chats in Amazon Connect
+# Listen to live conversations or read live chats in Amazon Connect
 
 Before you can listen to live conversations or read live chats, the Amazon Connect
 admin needs to [enable](monitor-conversations.md "monitor-conversations.md") the feature, [assign you permissions](monitor-conversations-permissions.md "monitor-conversations-permissions.md"), and

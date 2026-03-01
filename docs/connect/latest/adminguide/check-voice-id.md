@@ -149,7 +149,5 @@ check for:
 
 See the following topics for more information about this block:
 
-- [Use real-time caller authentication with Voice ID in
-  Amazon Connect](voice-id.md "voice-id.md")
-- [Enroll callers in Voice ID in the Contact Control Panel
-  (CCP)](use-voiceid.md "use-voiceid.md")
+- [Use real-time caller authentication with Voice ID in Amazon Connect](voice-id.md "voice-id.md")
+- [Enroll callers in Voice ID in the Contact Control Panel (CCP)](use-voiceid.md "use-voiceid.md")

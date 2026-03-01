@@ -24,9 +24,7 @@ The status is **Complete** for successfully published
 forecasts. When publish fails, the status is **Publish
 failed**.
 
-## Download the last published
-
-forecast
+## Download the last published forecast
 
 1. Log in to the Amazon Connect admin website with an account that has security profile
    permissions for **Analytics**, **Forecasting -

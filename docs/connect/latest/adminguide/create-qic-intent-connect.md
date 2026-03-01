@@ -1,6 +1,4 @@
-# Create an Connect AI agents intent from an Amazon Connect
-
-instance
+# Create an Connect AI agents intent from an Amazon Connect instance
 
 You can use the generative AI capabilities powered by Connect AI agents for your bot by enabling the
 [AMAZON.QinConnectIntent](../../../lexv2/latest/dg/built-in-intent-qinconnect.md "../../../lexv2/latest/dg/built-in-intent-qinconnect.md") in your bot. This is an Amazon Lex built-in intent.

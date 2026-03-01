@@ -1,6 +1,4 @@
-# Use service-linked roles for outbound campaigns in
-
-Amazon Connect
+# Use service-linked roles for outbound campaigns in Amazon Connect
 
 Amazon Connect outbound campaigns uses AWS Identity and Access Management service-linked roles. When an Amazon Connect instance is enabled to
 use outbound campaigns, it creates a unique service linked role that allows it to perform actions on
@@ -18,9 +16,7 @@ services that have **Yes** in the **Service-Linked Role**
 column. Choose a **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role permissions for
-
-outbound campaigns
+## Service-linked role permissions for outbound campaigns
 
 Outbound campaigns uses the service-linked role prefixed
 `AWSServiceRoleForConnectCampaigns`—Grants outbound campaigns permission to
@@ -115,9 +111,7 @@ service-linked role. That way you don’t have an unused entity that is not acti
 monitored or maintained. However, you must clean up the resources for your
 service-linked role before you can manually delete it.
 
-###### To delete outbound campaigns resources used by the
-
-`AWSServiceRoleForConnectCampaigns`
+###### To delete outbound campaigns resources used by the `AWSServiceRoleForConnectCampaigns`
 
 - Delete all campaigns setup for the AWS account.
 
@@ -128,9 +122,7 @@ service-linked role before you can manually delete it.
   information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
   _IAM User Guide_.
 
-## Supported Regions for outbound campaigns service-linked
-
-roles
+## Supported Regions for outbound campaigns service-linked roles
 
 Outbound campaigns supports using service-linked roles in all of the Regions where the
 service is available. For more information, see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md#connect_region "../../../general/latest/gr/rande.md#connect_region").

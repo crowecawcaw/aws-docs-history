@@ -1,6 +1,4 @@
-# Data in flow logs stored in an Amazon CloudWatch log
-
-group
+# Data in flow logs stored in an Amazon CloudWatch log group
 
 Log entries for flows include details about the block associated with the log entry,
 the contact ID, and the action taken after the steps in the block were completed. Any

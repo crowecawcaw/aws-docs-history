@@ -1,6 +1,4 @@
-# Delete a routing profile from an Amazon Connect
-
-instance
+# Delete a routing profile from an Amazon Connect instance
 
 There are three ways to delete a routing profile from your Amazon Connect instance:
 

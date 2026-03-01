@@ -1,6 +1,4 @@
-# Associate a Contact Lens
-
-connector with a flow
+# Associate a Contact Lens connector with a flow
 
 After you have [configured](configure-external-voice-system.md "configure-external-voice-system.md")
 your external SBC to point to the Contact Lens integration connector host,
@@ -22,8 +20,7 @@ be invoked when the Contact Lens connector receives call audio.
    shown in the following image.
 
 For a list of blocks you can use in a Contact Lens integration, see
-[Supported flow blocks
-for Contact Lens integration](contactlens-integration-supportedflowblocks.md "contactlens-integration-supportedflowblocks.md").
+[Supported flow blocks for Contact Lens integration](contactlens-integration-supportedflowblocks.md "contactlens-integration-supportedflowblocks.md").
 
 ![The properties page of the Set recording behavior and analytics block.](images/contactlens-connector-setblock.png)
 

@@ -1,6 +1,4 @@
-# Sample secure customer data entry input
-
-in a call with a contact center agent
+# Sample secure customer data entry input in a call with a contact center agent
 
 ###### Note
 

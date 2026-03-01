@@ -1,6 +1,4 @@
-# When, what, and where for contact recordings
-
-in Amazon Connect
+# When, what, and where for contact recordings in Amazon Connect
 
 This topic explains when conversations are recorded, where recordings are stored, and
 how to access them. It also provides best practices for managing recordings and
@@ -8,20 +6,13 @@ transcripts.
 
 ###### Contents
 
-- [When is a conversation
-  recorded?](#when-conversation-recorded "#when-conversation-recorded")
-- [Where are recordings and transcripts
-  stored?](#where-are-recordings-stored "#where-are-recordings-stored")
-- [When are recordings
-  available?](#when-are-recordings-available "#when-are-recordings-available")
-- [Prevent agents from accessing
-  recordings](#recording-prevent-access "#recording-prevent-access")
-- [Headset requirements for listening
-  to recordings](#recording-headset-requirements "#recording-headset-requirements")
+- [When is a conversation recorded?](#when-conversation-recorded "#when-conversation-recorded")
+- [Where are recordings and transcripts stored?](#where-are-recordings-stored "#where-are-recordings-stored")
+- [When are recordings available?](#when-are-recordings-available "#when-are-recordings-available")
+- [Prevent agents from accessing recordings](#recording-prevent-access "#recording-prevent-access")
+- [Headset requirements for listening to recordings](#recording-headset-requirements "#recording-headset-requirements")
 
-## When is a conversation
-
-recorded?
+## When is a conversation recorded?
 
 - The call recording feature has options for choosing whether to record the customer and system audio during IVR interactions
   or any combination of customer, agent, or both during agent interactions.
@@ -41,9 +32,7 @@ recorded?
 - If a participant mutes their own microphone, for example, to consult with a
   someone sitting next to them, their side-bar conversation is not recorded.
 
-## Where are recordings and transcripts
-
-stored?
+## Where are recordings and transcripts stored?
 
 Agents and contacts are stored on separate, stereo audio channels.
 
@@ -91,9 +80,7 @@ for your search on the [Contact search](search-recordings.md "search-recordings.
 page, you can find the correct recording by referring to the audio file on the
 contact record.
 
-## When are recordings
-
-available?
+## When are recordings available?
 
 When the recording for an agent interaction is enabled, the recording is placed in
 your S3 bucket shortly after the contact is disconnected. When IVR recording is
@@ -118,18 +105,13 @@ successfully to your bucket, make sure you enable the notification for
 _s3:ObjectCreated:Put_ and
 _s3:ObjectCreated:CompleteMultipartUpload_ event types.
 
-## Prevent agents from accessing
-
-recordings
+## Prevent agents from accessing recordings
 
 To prevent agents from accessing recordings outside of their agent hierarchy,
 assign them the **Restrict contact access** security profile
-permission. For more information, see [Assign permissions to review
-past contact center conversations in Amazon Connect](assign-permissions-to-review-recordings.md "assign-permissions-to-review-recordings.md").
+permission. For more information, see [Assign permissions to review past contact center conversations in Amazon Connect](assign-permissions-to-review-recordings.md "assign-permissions-to-review-recordings.md").
 
-## Headset requirements for listening
-
-to recordings
+## Headset requirements for listening to recordings
 
 You need to use an output device (headset or other device) that supports stereo
 output so you can hear both the agent and customer audio.

@@ -69,8 +69,7 @@ Example:
 ## Additional resources
 
 - [StartChatContact API](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md")
-- [Sample inbound flow in Amazon Connect for the first contact
-  experience](sample-inbound-flow.md "sample-inbound-flow.md")
+- [Sample inbound flow in Amazon Connect for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
 - [Example chat scenario](web-and-mobile-chat.md#example-chat-scenario "web-and-mobile-chat.md#example-chat-scenario")
 - [Flow block in Amazon Connect: Set working queue](set-working-queue.md "set-working-queue.md")
 - [Flow block in Amazon Connect: Transfer to queue](transfer-to-queue.md "transfer-to-queue.md")

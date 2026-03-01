@@ -6,9 +6,7 @@ tab, and the dropdown menu where you choose the time zone.
 
 ![The forecasting time zone tab on the Forecasting page.](images/wfm-forecasting-timezone.png)
 
-## Important things to
-
-know
+## Important things to know
 
 - To edit the forecast time zone, you must have security profile
   permissions for **Analytics, Forecast and schedule interval -
@@ -22,9 +20,7 @@ know
   - The forecasts are automatically adjusted for daylight savings
     if the selected time zone observes daylight savings.
 
-## Forecast time zones on the Amazon Connect admin website and in
-
-downloads
+## Forecast time zones on the Amazon Connect admin website and in downloads
 
 - **Short-term forecasts**: You can view
   short-term forecasts in the selected time zone after updating the time

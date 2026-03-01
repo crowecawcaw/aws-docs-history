@@ -1,6 +1,4 @@
-# Delete Customer Profiles or stop
-
-integrations
+# Delete Customer Profiles or stop integrations
 
 ###### Note
 

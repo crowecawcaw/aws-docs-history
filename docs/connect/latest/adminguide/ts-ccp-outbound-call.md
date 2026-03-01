@@ -1,6 +1,4 @@
-# Problem using the CCP: Agents can't make outbound
-
-calls in the Contact Control Panel (CCP)
+# Problem using the CCP: Agents can't make outbound calls in the Contact Control Panel (CCP)
 
 This topic is for experienced IT administrators who need to investigate why agents in
 their contact center can't make outbound calls.

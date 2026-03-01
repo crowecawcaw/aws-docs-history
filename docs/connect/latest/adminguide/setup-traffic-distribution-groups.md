@@ -1,6 +1,4 @@
-# Create traffic distribution groups for your Amazon Connect
-
-instance
+# Create traffic distribution groups for your Amazon Connect instance
 
 You can create a traffic distribution group for your existing Amazon Connect instance by using the [CreateTrafficDistributionGroup](../APIReference/API_CreateTrafficDistributionGroup.md "../APIReference/API_CreateTrafficDistributionGroup.md") API.
 
@@ -52,9 +50,7 @@ Following is a description of the traffic distribution group statuses:
 - `UPDATE_IN_PROGRESS`: Traffic distribution group update is
   in progress.
 
-## Why a
-
-CreateTrafficDistributionGroup call fails
+## Why a CreateTrafficDistributionGroup call fails
 
 A [CreateTrafficDistributionGroup](../APIReference/API_CreateTrafficDistributionGroup.md "../APIReference/API_CreateTrafficDistributionGroup.md") API call fails with an
 `InvalidRequestException` in the following cases:

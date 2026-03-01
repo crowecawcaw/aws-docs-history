@@ -1,6 +1,4 @@
-# Flow block in Amazon Connect: Set customer queue
-
-flow
+# Flow block in Amazon Connect: Set customer queue flow
 
 This topic defines the flow block for specifying the flow to invoke when a customer is
 transferred to a queue.

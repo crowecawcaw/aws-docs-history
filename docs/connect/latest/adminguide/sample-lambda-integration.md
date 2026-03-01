@@ -1,6 +1,4 @@
-# Sample Lambda integration flow in
-
-Amazon Connect
+# Sample Lambda integration flow in Amazon Connect
 
 ###### Note
 
@@ -32,5 +30,4 @@ fun fact. Here's how it works:
    flow**, and then starts the **Transfer flow**
    block.
 6. If the transfer fails, it plays a prompt and then disconnects the contact.
-   For more information about using attributes, see [Store a value from a Lambda functions as a contact
-   attribute in Amazon Connect](attribs-with-lambda.md "attribs-with-lambda.md").
+   For more information about using attributes, see [Store a value from a Lambda functions as a contact attribute in Amazon Connect](attribs-with-lambda.md "attribs-with-lambda.md").

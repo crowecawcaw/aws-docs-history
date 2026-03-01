@@ -1,6 +1,4 @@
-# Customer Profiles
-
-standard air segment object fields
+# Customer Profiles standard air segment object fields
 
 The following table lists all the fields in the Customer Profiles standard
 air segment object.

@@ -23,8 +23,7 @@ you delete it:
 ## Delete your instance
 
 You must have the appropriate AWS permissions to delete an Amazon Connect. If your
-organization is using IAM, see [Required permissions for using
-custom IAM policies to manage access to the Amazon Connect console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md").
+organization is using IAM, see [Required permissions for using custom IAM policies to manage access to the Amazon Connect console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md").
 
 1. Open the Amazon Connect console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
@@ -37,9 +36,7 @@ custom IAM policies to manage access to the Amazon Connect console](security-iam
 ![The Amazon Connect virtual contact center instances page, the delete button.](images/instance-delete.png) 4. When prompted, enter the name of the instance and then choose
 **Delete**.
 
-## Error message: "Region Unsupported. Amazon Connect is
-
-not available in [Region]"
+## Error message: "Region Unsupported. Amazon Connect is not available in [Region]"
 
 If you get this error message, it means that you selected a Region in the
 AWS Management Console that is not the Region in which you created the Amazon Connect instance, and Amazon Connect

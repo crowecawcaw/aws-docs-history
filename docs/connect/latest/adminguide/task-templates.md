@@ -4,9 +4,7 @@ Task templates make it easy for agents to capture the right information to creat
 complete a [task](tasks.md "tasks.md"). All the fields they need to create a given
 type of task are provided for them.
 
-## Important things to know before you
-
-create your first template
+## Important things to know before you create your first template
 
 - When you publish your first template, your agents will be prompted to
   select a template when they create a new task. Agents must select one of the
@@ -44,9 +42,7 @@ create your first template
    the template. This information is not displayed to agents; it's for your
    own use.
 
-### Step 2: Add fields, task assignment,
-
-schedule, and expiry
+### Step 2: Add fields, task assignment, schedule, and expiry
 
 1. In the **Fields** section, choose the **Add
    field** dropdown, and then select the type of field you
@@ -143,9 +139,7 @@ the agent can opt to assign the task to themselves.
 
 ![The CCP, no option to assign a task to others, but agent can assign the task to themselves.](images/task-templates-create-task-ccp.png)
 
-## "No data" message in the Assign to
-
-dropdown
+## "No data" message in the Assign to dropdown
 
 Let's say that in the **Task assignment** section, you choose to
 allow agents to assign the task to another agent. To set up for this scenario, you

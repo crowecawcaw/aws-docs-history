@@ -1,7 +1,4 @@
-# Example Contact Lens
-
-output files for a chat analyzed by Contact Lens conversational
-analytics
+# Example Contact Lens output files for a chat analyzed by Contact Lens conversational analytics
 
 This section shows an example schema for a chat conversation that has been
 analyzed by Contact Lens conversational analytics. The example shows inferred

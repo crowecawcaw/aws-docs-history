@@ -1,6 +1,4 @@
-# Search for in-progress contacts in
-
-Amazon Connect
+# Search for in-progress contacts in Amazon Connect
 
 For a contact that is handled by an agent, a contact is considered **In
 Progress** until the agent completes After Contact Work. For a contact that
@@ -9,28 +7,19 @@ until the contact is disconnected.
 
 ###### Contents
 
-- [Permissions needed to search for
-  in-progress contacts](#permissions-inprogress "#permissions-inprogress")
-- [Contact states supported by Contact
-  search](#contactstates-inprogress "#contactstates-inprogress")
-- [How to search for in-progress
-  contacts](#howto-search-inprogress "#howto-search-inprogress")
-- [Filter contacts by using timestamp
-  types](#filter-by-timestamp "#filter-by-timestamp")
+- [Permissions needed to search for in-progress contacts](#permissions-inprogress "#permissions-inprogress")
+- [Contact states supported by Contact search](#contactstates-inprogress "#contactstates-inprogress")
+- [How to search for in-progress contacts](#howto-search-inprogress "#howto-search-inprogress")
+- [Filter contacts by using timestamp types](#filter-by-timestamp "#filter-by-timestamp")
 - [View in progress contacts](#view-inprogress-contacts "#view-inprogress-contacts")
 - [Review real-time transcripts](#review-realtime-transcripts "#review-realtime-transcripts")
 
-## Permissions needed to search for
-
-in-progress contacts
+## Permissions needed to search for in-progress contacts
 
 The permissions needed to search for in-progress contacts are the same as those
-for searching for completed contacts. For more information, see [Manage who can search for
-contacts and access detailed information](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
+for searching for completed contacts. For more information, see [Manage who can search for contacts and access detailed information](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
 
-## Contact states supported by Contact
-
-search
+## Contact states supported by Contact search
 
 The ability to search for in-progress contacts varies by channel (see [Contact events data model](contact-events.md#contact-events-data-model "contact-events.md#contact-events-data-model")
 for reference):
@@ -49,9 +38,7 @@ for reference):
 - **Tasks** and **Email**: You can search for all in-progress after they are
   initiated.
 
-## How to search for in-progress
-
-contacts
+## How to search for in-progress contacts
 
 1. Log in to Amazon Connect with a user account that has [permissions to access
    contact records](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
@@ -63,9 +50,7 @@ contacts
 
 ![The in progress filter.](images/contact-search-in-progress-filter.png)
 
-## Filter contacts by using timestamp
-
-types
+## Filter contacts by using timestamp types
 
 You can search for contacts in a particular contact state using
 **Timestamp type** within the **Time range**
@@ -103,9 +88,7 @@ results to view details of an in-progress contact.
 
 ![View an in-progress contact.](images/contact-search-in-progress-view.png)
 
-### Important things to
-
-know
+### Important things to know
 
 - The **Contact details** page for an in-progress
   contact shows data available at the time **Contact

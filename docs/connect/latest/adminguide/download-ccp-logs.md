@@ -1,6 +1,4 @@
-# Download and review Amazon Connect Contact Control Panel
-
-(CCP) logs
+# Download and review Amazon Connect Contact Control Panel (CCP) logs
 
 This topic is for IT admins and developers who need to troubleshoot issues with an
 agent's Contact Control Panel (CCP).
@@ -16,9 +14,7 @@ the same way you rename any other file on your computer. You can't customize
 the file name before the file is
 downloaded.
 
-## Review CCP logs using Amazon Connect CCP Log
-
-Parser
+## Review CCP logs using Amazon Connect CCP Log Parser
 
 After downloading the agent's CCP logs, you can use the Amazon Connect CCP Log Parser to
 troubleshoot further and get a better view of the errors and verbose details on how
@@ -68,5 +64,4 @@ metrics:
 
 ![The CCP Log Parser WebRTC Metrics section showing media stream conditions during a call.](images/log-parser-5.png)
 
-For instructions about troubleshooting call quality issues, see [Troubleshoot audio quality issues by using
-QualityMetrics in the contact record](sop-audio-qa.md "sop-audio-qa.md").
+For instructions about troubleshooting call quality issues, see [Troubleshoot audio quality issues by using QualityMetrics in the contact record](sop-audio-qa.md "sop-audio-qa.md").

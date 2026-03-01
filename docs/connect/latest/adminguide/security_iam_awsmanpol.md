@@ -24,9 +24,7 @@ function policies, see [AWS
 managed policies for job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User
 Guide_.
 
-## AWS managed policy:
-
-AmazonConnect_FullAccess
+## AWS managed policy: AmazonConnect_FullAccess
 
 To allow full read/write access to Amazon Connect, you must attach two policies to your IAM
 users, groups, or roles. Attach the `AmazonConnect_FullAccess` policy and a
@@ -77,12 +75,9 @@ When you use `AmazonConnect_FullAccess` policy, note the following:
 - Assign users additional privileges to attach other AWS resources like Amazon Polly,
   Live Media Streaming, Data Streaming, and Lex bots to their Amazon Connect instances.
 
-For more information and detailed permissions, see [Required permissions for using
-custom IAM policies to manage access to the Amazon Connect console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md").
+For more information and detailed permissions, see [Required permissions for using custom IAM policies to manage access to the Amazon Connect console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md").
 
-## AWS managed policy:
-
-AmazonConnectReadOnlyAccess
+## AWS managed policy: AmazonConnectReadOnlyAccess
 
 To allow read-only access, you can attach the
 `AmazonConnectReadOnlyAccess` policy.
@@ -90,9 +85,7 @@ To allow read-only access, you can attach the
 To view the permissions for this policy, see [AmazonConnectReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonConnectReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonConnectReadOnlyAccess.md") in the _AWS Managed Policy
 Reference_.
 
-## AWS managed policy:
-
-AmazonConnectServiceLinkedRolePolicy
+## AWS managed policy: AmazonConnectServiceLinkedRolePolicy
 
 This policy is attached to the service-linked role named
 `AWSServiceRoleForAmazonConnect` to allow Amazon Connect to perform
@@ -102,9 +95,7 @@ associated with those features.
 To view the permissions for this policy, see [AmazonConnectServiceLinkedRolePolicy](../../../aws-managed-policy/latest/reference/AmazonConnectServiceLinkedRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonConnectServiceLinkedRolePolicy.md") in the _AWS Managed Policy
 Reference_.
 
-## AWS managed policy:
-
-AmazonConnectCampaignsServiceLinkedRolePolicy
+## AWS managed policy: AmazonConnectCampaignsServiceLinkedRolePolicy
 
 The `AmazonConnectCampaignsServiceLinkedRolePolicy` role permissions
 policy allows Amazon Connect outbound campaigns to perform various actions on specified
@@ -115,9 +106,7 @@ resources associated with those features.
 To view the permissions for this policy, see [AmazonConnectCampaignsServiceLinkedRolePolicy](../../../aws-managed-policy/latest/reference/AmazonConnectCampaignsServiceLinkedRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonConnectCampaignsServiceLinkedRolePolicy.md") in the _AWS Managed
 Policy Reference_.
 
-## AWS managed policy:
-
-AmazonConnectVoiceIDFullAccess
+## AWS managed policy: AmazonConnectVoiceIDFullAccess
 
 To allow full access to Amazon Connect Voice ID, you must attach two policies to your users,
 groups, or roles. Attach the `AmazonConnectVoiceIDFullAccess` policy and a
@@ -198,9 +187,7 @@ included in the managed policy.
 
 For more about creating domains and KMS keys, see [Get started enabling Voice ID in Amazon Connect](enable-voiceid.md "enable-voiceid.md") and [Encryption at rest in Amazon Connect](encryption-at-rest.md "encryption-at-rest.md").
 
-## AWS managed policy:
-
-CustomerProfilesServiceLinkedRolePolicy
+## AWS managed policy: CustomerProfilesServiceLinkedRolePolicy
 
 The `CustomerProfilesServiceLinkedRolePolicy` role permissions policy
 allows Amazon Connect to perform various actions on specified resources. As you
@@ -211,9 +198,7 @@ service-linked role to access the resources associated with those features.
 To view the permissions for this policy, see [CustomerProfilesServiceLinkedRolePolicy](../../../aws-managed-policy/latest/reference/CustomerProfilesServiceLinkedRolePolicy.md "../../../aws-managed-policy/latest/reference/CustomerProfilesServiceLinkedRolePolicy.md") in the _AWS Managed Policy
 Reference_.
 
-## AWS managed policy:
-
-AmazonConnectSynchronizationServiceRolePolicy
+## AWS managed policy: AmazonConnectSynchronizationServiceRolePolicy
 
 The `AmazonConnectSynchronizationServiceRolePolicy` permissions policy
 allows Amazon Connect Managed Synchronization to perform various actions on
@@ -224,9 +209,7 @@ these resources.
 To view the permissions for this policy, see [AmazonConnectSynchronizationServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonConnectSynchronizationServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonConnectSynchronizationServiceRolePolicy.md") in the _AWS Managed
 Policy Reference_.
 
-## Amazon Connect updates to AWS managed
-
-policies
+## Amazon Connect updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Connect since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

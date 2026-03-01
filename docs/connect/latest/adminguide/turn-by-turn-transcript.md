@@ -1,6 +1,4 @@
-# Navigate transcripts and audio in Amazon Connect
-
-Contact Lens
+# Navigate transcripts and audio in Amazon Connect Contact Lens
 
 Supervisors are often required to review the contacts for many agents, for quality
 assurance purposes. The turn-by-turn transcript and sentiment data helps you quickly
@@ -53,9 +51,7 @@ or action item was identified.
 You don't need to configure key highlights. It works out-of-the-box without
 any training of the machine learning model.
 
-## Turn on autoscroll to synchronize the transcript
-
-and audio
+## Turn on autoscroll to synchronize the transcript and audio
 
 For voice contacts, use **Autoscroll** to jump around the
 audio or transcript, and the two always stay in sync. For example:
@@ -84,9 +80,7 @@ For example, where you see red emojis for customer turns and then a green
 emoji, you might choose the timestamp to jump to that specific point of the
 conversation to check how that agent helped the customer.
 
-## Tap or click category tags to navigate
-
-through transcript
+## Tap or click category tags to navigate through transcript
 
 When you tap or click on the category tags, Contact Lens auto-navigates
 to the corresponding point-of-interests in the transcript. There are also

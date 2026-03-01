@@ -1,6 +1,4 @@
-# Enable agent event streams to report agent
-
-activity in Amazon Connect
+# Enable agent event streams to report agent activity in Amazon Connect
 
 Agent event streams are not enabled by default. Before you can enable agent event
 streams in Amazon Connect, create a data stream in Amazon Kinesis Data Streams. Then, choose the Kinesis stream as the

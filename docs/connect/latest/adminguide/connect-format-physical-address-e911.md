@@ -1,6 +1,4 @@
-# Format a physical address for
-
-E911 to pass to Amazon Connect
+# Format a physical address for E911 to pass to Amazon Connect
 
 This topic explains how to format a physical address so it can be passed to
 Amazon Connect.

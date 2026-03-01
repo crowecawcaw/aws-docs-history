@@ -1,6 +1,4 @@
-# Update settings for your Amazon Connect
-
-instance
+# Update settings for your Amazon Connect instance
 
 To update the instance settings:
 
@@ -62,8 +60,7 @@ If you enabled chat barge-in before the release of multi-party chats
 in December 2024, you need to toggle this setting off and then on to
 enable multi-party chats.
 
-For more information, see [Barge into live voice and chat conversations between contact center agents and
-customers](monitor-barge.md "monitor-barge.md"). 7. Choose **Save**.
+For more information, see [Barge into live voice and chat conversations between contact center agents and customers](monitor-barge.md "monitor-barge.md"). 7. Choose **Save**.
 
 ## Update data storage
 
@@ -87,8 +84,7 @@ customers](monitor-barge.md "monitor-barge.md"). 7. Choose **Save**.
   instance level. Now all chat transcripts will be stored here.
   - **Live media streaming**: Choose
     **Edit** to enable live media streaming, choose
-    **Edit**. For more information, see [Set up live media streaming of customer audio in
-    Amazon Connect](customer-voice-streams.md "customer-voice-streams.md").
+    **Edit**. For more information, see [Set up live media streaming of customer audio in Amazon Connect](customer-voice-streams.md "customer-voice-streams.md").
   - **Exported reports**: Choose
     **Edit**, specify the bucket and KMS key for
     exported reports, and then choose **Save**.
@@ -96,16 +92,14 @@ customers](monitor-barge.md "monitor-barge.md"). 7. Choose **Save**.
     **Edit**, then **Enable Attachments
     sharing** to enable file sharing for both agents and
     customers. For more information about this option and additional
-    steps, see [Enable attachments in your CCP so customers and
-    agents can share and upload files](enable-attachments.md "enable-attachments.md").
+    steps, see [Enable attachments in your CCP so customers and agents can share and upload files](enable-attachments.md "enable-attachments.md").
 
   ###### Important
 
   If you choose **Enable Attachments sharing**
   for your instance, you must configure a CORS policy on your
   attachments bucket. If you don't do this, the email channel will
-  not work for your instance. For instructions, see [Step 5: Configure a CORS policy on
-  your attachments bucket](enable-email1.md#config-email-attachments-cors1 "enable-email1.md#config-email-attachments-cors1").
+  not work for your instance. For instructions, see [Step 5: Configure a CORS policy on your attachments bucket](enable-email1.md#config-email-attachments-cors1 "enable-email1.md#config-email-attachments-cors1").
   - **Contact evaluations**: Choose
     **Edit**, specify the bucket and KMS key for
     performance evaluations, and then choose **Save**.
@@ -136,12 +130,9 @@ customers](monitor-barge.md "monitor-barge.md"). 7. Choose **Save**.
   If you choose **Enable Attachments sharing**
   for your instance, you must configure a CORS policy on your
   attachments bucket. If you don't do this, the email channel will
-  not work for your instance. For instructions, see [Step 5: Configure a CORS policy on
-  your attachments bucket](enable-email1.md#config-email-attachments-cors1 "enable-email1.md#config-email-attachments-cors1").
+  not work for your instance. For instructions, see [Step 5: Configure a CORS policy on your attachments bucket](enable-email1.md#config-email-attachments-cors1 "enable-email1.md#config-email-attachments-cors1").
 
-## Update data streaming
-
-options
+## Update data streaming options
 
 1. In the navigation pane, choose **Data streaming**.
 2. Choose **Enable data streaming**. For more information,
@@ -165,8 +156,7 @@ options
 1. In the navigation pane, choose **Analytics
    tools**.
 2. Choose **Enable Contact Lens**. For more
-   information, see [Analyze conversations using conversational
-   analytics in Amazon Connect Contact Lens](analyze-conversations.md "analyze-conversations.md").
+   information, see [Analyze conversations using conversational analytics in Amazon Connect Contact Lens](analyze-conversations.md "analyze-conversations.md").
 3. Choose **Save**.
 
 ## Update flow settings
@@ -177,11 +167,9 @@ options
 3. (Optional) To integrate with Amazon Lex, select a Lex bot. For more
    information, see [Create conversational AI bots in Amazon Connect](connect-conversational-ai-bots.md "connect-conversational-ai-bots.md").
 4. (Optional) To integrate with AWS Lambda, select a Lambda function. For more
-   information, see [Grant Amazon Connect access to your AWS Lambda
-   functions](connect-lambda-functions.md "connect-lambda-functions.md").
+   information, see [Grant Amazon Connect access to your AWS Lambda functions](connect-lambda-functions.md "connect-lambda-functions.md").
 5. (Optional) To enable flow logs, choose **Enable flow
-   logs**. For more information, see [Use flow logs to track events in Amazon Connect
-   flows](about-contact-flow-logs.md "about-contact-flow-logs.md").
+   logs**. For more information, see [Use flow logs to track events in Amazon Connect flows](about-contact-flow-logs.md "about-contact-flow-logs.md").
 6. (Optional) To use the best available voice from Amazon Polly, choose
    **Use the best available voice**. For more information,
    see [Amazon Polly best sounding voice](text-to-speech.md#amazon-polly-best-sounding-voice "text-to-speech.md#amazon-polly-best-sounding-voice").

@@ -1,6 +1,4 @@
-# Access the performance dashboard directly in
-
-the agent workspace
+# Access the performance dashboard directly in the agent workspace
 
 You can enable users to view queue and agent performance metrics through the agent
 workspace. Agents can view their own metrics for the queues and contacts they work on.
@@ -19,8 +17,7 @@ For example:
 
 You can customize what metrics and widgets appear on the agent's dashboard. You then
 integrate your customized dashboard as a third-party app into the agent workspace. For
-an overview of steps, see [Integrate a published dashboard into the
-agent workspace](integrate-published-dashboard.md "integrate-published-dashboard.md").
+an overview of steps, see [Integrate a published dashboard into the agent workspace](integrate-published-dashboard.md "integrate-published-dashboard.md").
 
 The following image shows an example of the **Agent workspace performance
 dashboard** as it appears in the agent workspace. Notice it appears on the
@@ -58,9 +55,7 @@ access the **Agent workspace performance dashboard**:
     **Access**: Grants access to all the tabs on
     the **Dashboards and reports** page.
 
-## View the Agent workspace performance
-
-dashboard
+## View the Agent workspace performance dashboard
 
 1.  Access the agent workspace using the following URL:
 

@@ -1,6 +1,4 @@
-# Set the hours of operation and time zone for a
-
-queue using Amazon Connect
+# Set the hours of operation and time zone for a queue using Amazon Connect
 
 This topic explains how to set hours of operating by using the Amazon Connect admin website. To set hours
 programmatically, see [Hours of operations actions](../APIReference/hours-of-operation-api.md "../APIReference/hours-of-operation-api.md").
@@ -27,9 +25,7 @@ contact to the appropriate queue.
 - [Set overrides for extended, reduced, and holiday hours](hours-of-operation-overrides.md "hours-of-operation-overrides.md")
 - [View calendar that illustrates effective hours of operation](view-hours-of-operation-calendar.md "view-hours-of-operation-calendar.md")
 
-## How many hours of operation and overrides can I
-
-create?
+## How many hours of operation and overrides can I create?
 
 To view your quota of **Hours of operation per
 instance**, open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
@@ -104,16 +100,11 @@ report.
 
 For more information, see these topics:
 
-- [Add a custom agent status to the Amazon Connect Contact Control
-  Panel (CCP)](agent-custom.md "agent-custom.md")
-- [Agent status in the Contact Control Panel
-  (CCP)](metrics-agent-status.md "metrics-agent-status.md")
-- [Change the "Agent activity" status
-  in a metrics report in the Contact Control Panel (CCP)](rtm-change-agent-activity-state.md "rtm-change-agent-activity-state.md")
+- [Add a custom agent status to the Amazon Connect Contact Control Panel (CCP)](agent-custom.md "agent-custom.md")
+- [Agent status in the Contact Control Panel (CCP)](metrics-agent-status.md "metrics-agent-status.md")
+- [Change the "Agent activity" status in a metrics report in the Contact Control Panel (CCP)](rtm-change-agent-activity-state.md "rtm-change-agent-activity-state.md")
 
-## What happens during daylight saving
-
-time
+## What happens during daylight saving time
 
 Amazon Connect uses the timezone to determine whether daylight saving time is in effect for
 the queues, and **adjusts automatically** for all

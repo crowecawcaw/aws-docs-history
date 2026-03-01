@@ -1,6 +1,4 @@
-# View calculated
-
-attributes in Amazon Connect
+# View calculated attributes in Amazon Connect
 
 1. Log in to the Amazon Connect admin website at https://`instance
 name`.my.connect.aws/. Use an Admin account, or an

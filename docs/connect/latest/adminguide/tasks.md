@@ -39,9 +39,7 @@ Amazon Connect provides different ways for you to create tasks:
 For example, you can configure a rule in Amazon Connect to automatically create a
 task when a new case is created in Salesforce.
 
-For more information, see [Set up application integration to create
-tasks in Amazon Connect](integrate-external-apps-tasks.md "integrate-external-apps-tasks.md") and [Create rules that generate tasks for third-party
-integrations in Amazon Connect](add-rules-task-creation.md "add-rules-task-creation.md"). 2. You can integrate with your homegrown or business-specific applications to
+For more information, see [Set up application integration to create tasks in Amazon Connect](integrate-external-apps-tasks.md "integrate-external-apps-tasks.md") and [Create rules that generate tasks for third-party integrations in Amazon Connect](add-rules-task-creation.md "add-rules-task-creation.md"). 2. You can integrate with your homegrown or business-specific applications to
 create tasks using Amazon Connect APIs.
 
 For more information, see the [StartTaskContact](../APIReference/API_StartTaskContact.md "../APIReference/API_StartTaskContact.md")
@@ -75,9 +73,7 @@ Or, update the **Loop prompts** block in the default flow so
 the **Error** branch doesn't terminate; instead perform another
 action on the contact.
 
-## Supported flow
-
-types
+## Supported flow types
 
 You can use tasks in the following flow types:
 
@@ -87,9 +83,7 @@ You can use tasks in the following flow types:
 - Transfer to queue flow
 - Transfer to agent flow
 
-## Supported contact
-
-blocks
+## Supported contact blocks
 
 You can use tasks in the following flow blocks:
 
@@ -173,9 +167,7 @@ For information about how `PreviousContactID` and
 `RelatedContactId` are modeled in contact records, see [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord") in the
 contact records data model.
 
-## Agents can link tasks to outbound
-
-contacts
+## Agents can link tasks to outbound contacts
 
 While agents are **actively working on a task**, the
 **Number pad** appears on the Contact Control Panel (CCP). If
@@ -188,9 +180,7 @@ available while the agent works on a task.
 
 ![The number pad on the CCP.](images/tasks-linked-outboundcall.png)
 
-## Link task to contact by
-
-using the Create task block
+## Link task to contact by using the Create task block
 
 The Create task block enables you to automatically link the task to the current
 contact.
@@ -220,9 +210,7 @@ available.
 You can also set this value
 manually for tasks that are created through the [StartTaskContact](../APIReference/API_StartTaskContact.md "../APIReference/API_StartTaskContact.md") API.
 
-## Agents can assign tasks to
-
-themselves
+## Agents can assign tasks to themselves
 
 When contact center supervisors create task templates, they can configure them to
 allow agents to self-assign tasks. Agents assign tasks to themselves by using the
@@ -242,9 +230,7 @@ list of required permissions, see [Tasks page](security-iam-amazon-connect-permi
 If your instance was created before October 2018, for information about how to
 configure your service-linked roles (SLR), see [For instances created before October 2018](connect-slr.md#migrate-slr "connect-slr.md#migrate-slr").
 
-## Track tasks in real-time and historical metrics
-
-reports
+## Track tasks in real-time and historical metrics reports
 
 You can track the status of all tasks in real-time and historical metrics reports,
 just like you track contacts in other channels. For example, you can track:
@@ -262,22 +248,17 @@ just like you track contacts in other channels. For example, you can track:
 
 The following data is captured in the contact data model.
 
-### Metrics that don't apply to tasks and have
-
-a value of 0 on the report
+### Metrics that don't apply to tasks and have a value of 0 on the report
 
 - [Average agent interaction time](metrics-definitions.md#average-agent-interaction-time "metrics-definitions.md#average-agent-interaction-time")
 - [Average customer hold time](metrics-definitions.md#average-customer-hold-time "metrics-definitions.md#average-customer-hold-time")
-- [Agent interaction and hold
-  time](metrics-definitions.md#agent-interaction-and-hold-time "metrics-definitions.md#agent-interaction-and-hold-time") -
+- [Agent interaction and hold time](metrics-definitions.md#agent-interaction-and-hold-time "metrics-definitions.md#agent-interaction-and-hold-time") -
   historical
 - [Agent interaction time](metrics-definitions.md#agent-interaction-time "metrics-definitions.md#agent-interaction-time") - historical
 - [Average agent interaction time](metrics-definitions.md#average-agent-interaction-time "metrics-definitions.md#average-agent-interaction-time")
 - [Average customer hold time](metrics-definitions.md#average-customer-hold-time "metrics-definitions.md#average-customer-hold-time")
 
-### Manage tasks to custom service levels
-
-(SL)
+### Manage tasks to custom service levels (SL)
 
 While voice and chats may have short service level times based on seconds or
 minutes, you may have some tasks with service levels that are hours or days. You
@@ -352,9 +333,6 @@ Summary** also displays **Scheduled time**.
 ## More information
 
 - [Amazon Connect feature specifications](feature-limits.md "feature-limits.md")
-- [Accept a task assigned in the Contact Control Panel
-  (CCP)](accept-task.md "accept-task.md")
-- [Create a new task in the Contact Control Panel
-  (CCP)](create-task.md "create-task.md")
-- [Transfer a task to another agent or queue in the
-  Amazon Connect Contact Control Panel (CCP)](transfer-task.md "transfer-task.md")
+- [Accept a task assigned in the Contact Control Panel (CCP)](accept-task.md "accept-task.md")
+- [Create a new task in the Contact Control Panel (CCP)](create-task.md "create-task.md")
+- [Transfer a task to another agent or queue in the Amazon Connect Contact Control Panel (CCP)](transfer-task.md "transfer-task.md")

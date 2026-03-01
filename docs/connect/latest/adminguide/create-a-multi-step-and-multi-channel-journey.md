@@ -18,8 +18,7 @@ or Guided Campaign Builder to create a single-channel with step-by-step guidance
    **Voice setup** option to define the details.
 7. You can choose Agent assisted voice or automated voice and complete the channel
    configuration. Please refer to details on
-   [Outbound campaigns channel
-   configurations](how-to-create-campaigns.md#create-campaigns-channel-configurations "how-to-create-campaigns.md#create-campaigns-channel-configurations").
+   [Outbound campaigns channel configurations](how-to-create-campaigns.md#create-campaigns-channel-configurations "how-to-create-campaigns.md#create-campaigns-channel-configurations").
 
 ## Delivery guardrails
 
@@ -111,9 +110,7 @@ the active communication times to each channel. Select the day of the week to co
 can add multiple active communication times for each day, if desired. Select the time frame
 during which Amazon Connect Outbound campaigns can send communications on the given day.
 
-#### Exceptions to communication time
-
-(optional)
+#### Exceptions to communication time (optional)
 
 **Exceptions to communication time** is an optional set of specific calendar days for which
 you do not want communications sent. If exceptions are included in the Journey, then active

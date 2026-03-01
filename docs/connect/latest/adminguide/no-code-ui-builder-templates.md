@@ -1,6 +1,4 @@
-# UI builder templates to get
-
-started quickly
+# UI builder templates to get started quickly
 
 The UI builder includes templates that you can use to pre-populate your
 canvas with components. To access the templates:

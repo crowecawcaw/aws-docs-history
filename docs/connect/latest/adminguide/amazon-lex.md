@@ -24,8 +24,7 @@ To follow along with this walkthrough, you need the following:
 You can also use Amazon Lex to power interactive messages for Amazon Connect chat. Interactive messages
 are rich messages that present a prompt and pre-configured display options that a customer can
 select from. These messages are powered by Amazon Lex and configured through Amazon Lex using a
-Lambda. For more information, see [Add Amazon Lex interactive messages for customers in
-chat](interactive-messages.md "interactive-messages.md").
+Lambda. For more information, see [Add Amazon Lex interactive messages for customers in chat](interactive-messages.md "interactive-messages.md").
 
 ## Create an Amazon Lex bot
 

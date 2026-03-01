@@ -107,8 +107,7 @@ For email templates:
     	To use a message variable, choose the name of an existing attribute
     	 from the **Attribute finder**. Amazon Connect drops it into your
     	 message. You can copy and paste it to the location that you want. For
-    	 more information, see [Add personalized content to message
-    	 templates](personalize-templates.md "personalize-templates.md").
+    	 more information, see [Add personalized content to message templates](personalize-templates.md "personalize-templates.md").
 
 
 

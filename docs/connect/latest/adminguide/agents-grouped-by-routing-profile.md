@@ -1,6 +1,4 @@
-# List agents grouped by routing
-
-profile in Amazon Connect
+# List agents grouped by routing profile in Amazon Connect
 
 This topic shows you how to display a list of agents grouped by routing profile in
 your Amazon Connect contact center.

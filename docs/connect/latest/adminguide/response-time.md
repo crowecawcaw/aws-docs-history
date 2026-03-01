@@ -1,6 +1,4 @@
-# Investigate response time during chats in
-
-Contact Lens
+# Investigate response time during chats in Contact Lens
 
 Use the response time metric to understand the responsiveness of the agent or
 customer during a chat contact.
@@ -33,5 +31,4 @@ for chat conversations. Note that **Agent greeting time** = after
 the agent joined the chat, how long until they sent the first response.
 
 ![The contact details page, chat metrics.](images/contactlens-contactdetails-chat1b.png)
-For more information, see [Search by response time for chat
-conversations](search-conversations.md#response-time-search "search-conversations.md#response-time-search").
+For more information, see [Search by response time for chat conversations](search-conversations.md#response-time-search "search-conversations.md#response-time-search").

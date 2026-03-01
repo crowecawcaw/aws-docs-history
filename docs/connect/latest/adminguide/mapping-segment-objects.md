@@ -1,13 +1,9 @@
-# Mapping Segment objects to the
-
-standard profile object in Amazon Connect Customer Profiles
+# Mapping Segment objects to the standard profile object in Amazon Connect Customer Profiles
 
 This topic lists which fields in Segment objects map to fields in the
 standard profile object in Amazon Connect Customer Profiles.
 
-## Segment-Identify
-
-object
+## Segment-Identify object
 
 Following is a list of all the fields in a Segment-Identify
 object.
@@ -42,9 +38,7 @@ object.
 - traits.username
 - traits.website
 
-## Mapping a
-
-Segment-Identify to a standard profile object
+## Mapping a Segment-Identify to a standard profile object
 
 A subset of the fields in the Segment-Identify object map to the
 standard profile object in Customer Profiles.

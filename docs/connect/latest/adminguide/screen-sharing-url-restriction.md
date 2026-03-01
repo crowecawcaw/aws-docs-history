@@ -1,6 +1,4 @@
-# Enable URL restriction for screen
-
-sharing
+# Enable URL restriction for screen sharing
 
 You can manage the URLs that your customers and agents are allowed to share during the
 contact. This enables you to achieve enhanced security and privacy. When a customer or
@@ -52,9 +50,7 @@ the following steps.
 
 ![The Predefined attributes page.](images/screen-sharing-restricted-urls.png)
 
-## Step 2: Add script to your website
-
-list
+## Step 2: Add script to your website list
 
 You need to embed a script into your website so the URL of the page can be exposed
 to the capturing application. You get the capture handler from a file on the

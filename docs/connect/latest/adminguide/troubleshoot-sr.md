@@ -1,6 +1,4 @@
-# Download the Amazon Connect Client Application log files for
-
-troubleshooting
+# Download the Amazon Connect Client Application log files for troubleshooting
 
 When you open an AWS Support ticket for issues with screen recordings, include the
 log files for Amazon Connect Client Application and shared worker from the agent desktop.

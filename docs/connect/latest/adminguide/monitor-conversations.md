@@ -1,6 +1,4 @@
-# Enable enhanced multi-party contact monitoring
-
-in Amazon Connect
+# Enable enhanced multi-party contact monitoring in Amazon Connect
 
 Enhanced contact monitoring applies to voice calls and all supported types of chats:
 chat/SMS, WhatsApp, and Apple Messages for Business.
@@ -48,9 +46,7 @@ The total number of participants on the chat would look like this:
 6. Supervisor who can monitor the chat but not barge in
 7. Supervisor who can monitor the chat but not barge in
 
-## Important things to
-
-know
+## Important things to know
 
 - New events are added to the agent event stream when you choose
   **Enhanced contact monitoring capabilities** on the
@@ -77,8 +73,7 @@ previous agent event stream.
   Supervisors have a ParticipantRole of 'SUPERVISOR' in the transcript.
 - The initiation method for the contact where the agent is invited is
   TRANSFER. For information about how to distinguish in reporting how often a
-  participant is being invited instead of being transferred to, see [Identify conferences and transfers by using
-  Amazon Connect contact records](identify-conferences-transfers.md "identify-conferences-transfers.md").
+  participant is being invited instead of being transferred to, see [Identify conferences and transfers by using Amazon Connect contact records](identify-conferences-transfers.md "identify-conferences-transfers.md").
 - This feature is only available in CCPv2. That is, the URL to access the
   CCP is https://`instance
 name`.my.connect.aws/ccp-v2/ and the URL to access the agent
@@ -86,8 +81,7 @@ name`.my.connect.aws/ccp-v2/ and the URL to access the agent
 name`.my.connect.aws/agent-app-v2/. It's also available in
   custom CCP using Amazon Connect Streams.js.
 - Before enabling the multi-party calls, if you are using
-  Contact Lens or planning to do so in the future, see [Multi-party calls and
-  conversational analytics](enable-analytics.md#multiparty-calls-contactlens "enable-analytics.md#multiparty-calls-contactlens"). Contact Lens
+  Contact Lens or planning to do so in the future, see [Multi-party calls and conversational analytics](enable-analytics.md#multiparty-calls-contactlens "enable-analytics.md#multiparty-calls-contactlens"). Contact Lens
   supports calls with up to 2 participants. We recommend that you disable
   Contact Lens in the [Set recording and analytics
   behavior](set-recording-behavior.md "set-recording-behavior.md") block for contacts that
@@ -98,9 +92,7 @@ name`.my.connect.aws/agent-app-v2/. It's also available in
   user interface. Instead, use the [UpdateInstanceAttribute](../APIReference/API_UpdateInstanceAttribute.md "../APIReference/API_UpdateInstanceAttribute.md") API or contact
   AWS Support.
 
-## How to enable enhanced multi-party
-
-contact monitoring
+## How to enable enhanced multi-party contact monitoring
 
 1. In the Amazon Connect console, on the menu pane, choose
    **Telephony**.

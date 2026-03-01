@@ -158,9 +158,7 @@ You can define up to 8 custom branches for your module.
 
 ### Accessing module related attributes
 
-As part of custom blocks module enhancement, a new namespace Module is introduced for you to access module inputs within a module, output and results from flows or modules that were calling the module. You can store these attributes using [Flow block in Amazon Connect: Set contact
-attributes](set-contact-attributes.md "set-contact-attributes.md") block or directly use these attributes via JSONPath reference. See [List of available contact attributes in Amazon Connect and their
-JSONPath references](connect-attrib-list.md "connect-attrib-list.md") documentation on details of module attributes.
+As part of custom blocks module enhancement, a new namespace Module is introduced for you to access module inputs within a module, output and results from flows or modules that were calling the module. You can store these attributes using [Flow block in Amazon Connect: Set contact attributes](set-contact-attributes.md "set-contact-attributes.md") block or directly use these attributes via JSONPath reference. See [List of available contact attributes in Amazon Connect and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md") documentation on details of module attributes.
 
 ### Example custom block module
 

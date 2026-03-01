@@ -1,6 +1,4 @@
-# Phone numbers that you can port to
-
-Amazon Connect
+# Phone numbers that you can port to Amazon Connect
 
 Not all phone numbers can be ported. The ability to port a specific phone
 number depends on several factors. For example:
@@ -12,14 +10,11 @@ number depends on several factors. For example:
   To find out if a phone number that you currently own—whether local,
   mobile, or toll-free—can be ported to Amazon Connect:
 
-1. See if your country or region supports number porting: [Region requirements for ordering and porting
-   phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md").
+1. See if your country or region supports number porting: [Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md").
 2. Then get started by [submitting an Amazon Connect
    support ticket for number verification](about-porting.md#step1-porting "about-porting.md#step1-porting").
 
-## Porting numbers purchased
-
-from other contact center providers
+## Porting numbers purchased from other contact center providers
 
 In most cases, you can port numbers that were purchased from other contact
 center providers. Confirm with your current contact center provider who
@@ -32,9 +27,7 @@ Because of Telecom regulations in various countries or regions, the short
 phone number will need to be evaluated on a case-by-case basis. To verify if
 your phone number can be ported to Amazon Connect, [submit an Amazon Connect support ticket](about-porting.md#step1-porting "about-porting.md#step1-porting").
 
-## Port a number to one EU Region
-
-only
+## Port a number to one EU Region only
 
 The Amazon Connect Regions of EU-CENTRAL-1 and EU-WEST-2 are symmetrical European
 Regions that offer the same carrier coverage for telephony. If a phone
@@ -47,9 +40,7 @@ assistance.
 
 The same is true for the North America Regions of US-EAST-1 and US-WEST-2.
 
-## Port a subset of numbers from a
-
-block
+## Port a subset of numbers from a block
 
 If you have a block of numbers, in some instances Amazon Connect can port a subset
 or portion of your phone numbers. In other cases, it is required by the

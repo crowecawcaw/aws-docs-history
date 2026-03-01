@@ -1,6 +1,4 @@
-# Configure an out-of-the-box communication widget in
-
-Amazon Connect
+# Configure an out-of-the-box communication widget in Amazon Connect
 
 Use this option to create communication widgets for desktop and mobile [browsers](connect-supported-browsers.md#browsers-inapp "connect-supported-browsers.md#browsers-inapp"). At the end of this procedure, Amazon Connect
 generates a custom HTML code snippet that you copy into your website's source
@@ -30,8 +28,7 @@ options to allow web calling, video, and screen sharing for customers.
 video and screen sharing experiences for your customers. The previous image
 shows options that customers can see agent video, turn on their video, and
 allow agents and customers to share their screens. For information about
-setting restrictions on screen sharing, see [Enable URL restriction for screen
-sharing](screen-sharing-url-restriction.md "screen-sharing-url-restriction.md"). 4. Choose **Save and continue**.
+setting restrictions on screen sharing, see [Enable URL restriction for screen sharing](screen-sharing-url-restriction.md "screen-sharing-url-restriction.md"). 4. Choose **Save and continue**.
 
 ## Step 2: Customize widget
 
@@ -97,16 +94,13 @@ Choose **Add domain** to add up to 50 domains.
    skip**.
 
 We recommend choosing **Yes** for the ability to verify
-the user is authenticated. For more information, see [Personalize the customer experience for in-app,
-web, and video calling in Amazon Connect](optional-widget-steps.md "optional-widget-steps.md"). 3. Choose **Save and continue**.
+the user is authenticated. For more information, see [Personalize the customer experience for in-app, web, and video calling in Amazon Connect](optional-widget-steps.md "optional-widget-steps.md"). 3. Choose **Save and continue**.
 
 Success! Your widget has been created. Copy the generated code and paste
 it on each page of your website where you want the communications widget to
 appear.
 
-## Enable your agents for in-app, web, and video-calling,
-
-and screen sharing
+## Enable your agents for in-app, web, and video-calling, and screen sharing
 
 To enable agents to use video calling and screen sharing, assign the **Contact Control Panel (CCP)**, **Video calls -
 Access** permissions to their security profile.
@@ -121,9 +115,7 @@ For custom agent desktops, there are no changes required for the Amazon Connect 
 permissions to have video calls and screen sharing, and follow the guide below on
 how to integrate video calling into your agent desktop.
 
-## How a client device initiates an in-app or web
-
-call
+## How a client device initiates an in-app or web call
 
 The following diagram shows the sequence of events for a client device (mobile
 application or browser) to initiate an in-app or web call.
@@ -145,7 +137,5 @@ application or browser) to initiate an in-app or web call.
 For additional information about requirements for in-app, web, and video calling
 capabilities, see the following topics:
 
-- [Agent workstation requirements
-  for app, web, and video calling in Amazon Connect](videocalling-networking-requirements.md "videocalling-networking-requirements.md")
-- [Supported browsers and mobile OS for in-app, web,
-  and video calling capabilities](connect-supported-browsers.md#browsers-inapp "connect-supported-browsers.md#browsers-inapp")
+- [Agent workstation requirements for app, web, and video calling in Amazon Connect](videocalling-networking-requirements.md "videocalling-networking-requirements.md")
+- [Supported browsers and mobile OS for in-app, web, and video calling capabilities](connect-supported-browsers.md#browsers-inapp "connect-supported-browsers.md#browsers-inapp")

@@ -1,6 +1,4 @@
-# How agents receive and
-
-approve shift trade requests
+# How agents receive and approve shift trade requests
 
 To view trade offers, agents go to their schedule calendar, and click or tap
 on the request drawer, as shown in the following image.
@@ -36,9 +34,7 @@ the **Notice period** specified for your [shift trade group](scheduling-create-s
 passed before the trade was completed. No further actions can be taken on that
 shift.
 
-## Why a shift trade request may
-
-be Failed
+## Why a shift trade request may be Failed
 
 A shift trade request may have a status of **Failed**.
 The Info icon provides a brief description why, such as **Shift

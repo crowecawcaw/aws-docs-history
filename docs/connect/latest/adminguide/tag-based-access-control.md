@@ -1,14 +1,10 @@
-# Apply tag-based access control in
-
-Amazon Connect
+# Apply tag-based access control in Amazon Connect
 
 You use tag-based access controls to configure granular access to specific resources
 based on assigned resource tags. You can configure tag-based access controls by using
 the API/SDK or the Amazon Connect admin website for supported resources.
 
-## Apply tag-based access control
-
-using the API/SDK
+## Apply tag-based access control using the API/SDK
 
 To use tags to control access to resources within your AWS accounts, you need to
 provide tag information in the condition element of an IAM policy. For example, to
@@ -22,9 +18,7 @@ For more detailed information on tag-based access control, see [Controlling
 access to AWS resources using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the _IAM User
 Guide_.
 
-## Apply tag-based access control
-
-using the Amazon Connect admin website
+## Apply tag-based access control using the Amazon Connect admin website
 
 A _resource_ tag is a custom metadata label that you can add to
 a resource in order to make it easier to identify, organize, and find in a search.
@@ -52,9 +46,7 @@ you've assigned to it, you would specify the routing profile as an access contro
 resource, and then specify which tag _Key:value_ pair you would
 like to enable access to.
 
-## Configuration
-
-limitations
+## Configuration limitations
 
 Access control tags are configured on a security profile. You can configure up to
 4 access control tags on a single security profile. Adding additional access control
@@ -82,9 +74,7 @@ available by default with your Amazon Connect instance. However if you have an o
 instance, refer to [Use service-linked roles for
 Amazon Connect](connect-slr.md "connect-slr.md") for instructions for how to enable service linked roles.
 
-## Best practices for
-
-applying tag-based access controls
+## Best practices for applying tag-based access controls
 
 Applying tag-based access controls is an advanced configuration feature that is
 supported by Amazon Connect and that follows the AWS shared responsibility model. It is
@@ -112,8 +102,7 @@ when applying tag-based access controls within the Amazon Connect console. If yo
 disable access to these resources, users with tag-based access controls on a
 particular resource that view these pages may see an unrestricted list of users,
 security profiles, routing profiles, queues, flows, or flow modules. For more
-information on how to manage permissions, see [List of security profile permissions in
-Amazon Connect](security-profile-list.md "security-profile-list.md").
+information on how to manage permissions, see [List of security profile permissions in Amazon Connect](security-profile-list.md "security-profile-list.md").
 
 | Modules                         | Permission to disable access  |
 | ------------------------------- | ----------------------------- |

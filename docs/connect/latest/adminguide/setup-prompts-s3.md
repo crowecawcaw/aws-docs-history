@@ -1,6 +1,4 @@
-# Set up prompts to play from an S3 bucket in
-
-Amazon Connect
+# Set up prompts to play from an S3 bucket in Amazon Connect
 
 When you configure prompts on the [Get customer input](get-customer-input.md "get-customer-input.md"), [Loop prompts](loop-prompts.md "loop-prompts.md"), [Play prompt](play.md "play.md"), or [Store customer input](store-customer-input.md "store-customer-input.md") blocks, you can choose an S3 bucket as
 the source location. You can store as many voice prompts as needed in an S3 bucket and

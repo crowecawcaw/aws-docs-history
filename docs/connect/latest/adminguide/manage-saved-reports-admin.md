@@ -1,6 +1,4 @@
-# Manage saved reports as an admin in
-
-Amazon Connect
+# Manage saved reports as an admin in Amazon Connect
 
 You can view and delete all saved reports in your instance, including reports that
 were not created by you or that are not currently published.

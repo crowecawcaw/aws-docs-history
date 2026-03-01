@@ -1,6 +1,4 @@
-# Add the Amazon Connect widget to your website to accept
-
-chat, task, email, and web calling contacts
+# Add the Amazon Connect widget to your website to accept chat, task, email, and web calling contacts
 
 The topics in this section explain how to create and customize a communications widget for
 your website. You'll create a contact form that determines the behavior for contacts created
@@ -9,12 +7,9 @@ through your widget, and then customize the widget's appearance and functionalit
 ###### Contents
 
 - [Step 1: Create a contact form for your widget](#create-web-form "#create-web-form")
-- [Step 2: Customize your communications
-  widget](#customize-communications-widget "#customize-communications-widget")
-- [Step 3: Specify the website domains
-  where you expect to display the communications widget](#communications-widget-domains "#communications-widget-domains")
-- [Step 4: Confirm and copy
-  communications widget code and security keys](#confirm-and-copy-communications-widget-script "#confirm-and-copy-communications-widget-script")
+- [Step 2: Customize your communications widget](#customize-communications-widget "#customize-communications-widget")
+- [Step 3: Specify the website domains where you expect to display the communications widget](#communications-widget-domains "#communications-widget-domains")
+- [Step 4: Confirm and copy communications widget code and security keys](#confirm-and-copy-communications-widget-script "#confirm-and-copy-communications-widget-script")
 
 ## Step 1: Create a contact form for your widget
 
@@ -44,8 +39,7 @@ for contacts created through your widget.
           + StartChatContact
 
       Both Email and Task can be used in a contact form. To create a pre-chat
-      form for chat contacts, see [Add a chat user interface to your website hosted by
-      Amazon Connect](add-chat-to-website.md "add-chat-to-website.md").
+      form for chat contacts, see [Add a chat user interface to your website hosted by Amazon Connect](add-chat-to-website.md "add-chat-to-website.md").
 
     - There are many style options for the View components, allowing you to
       customize the form to fit your environment.
@@ -68,9 +62,7 @@ The following components are supported for form linking:
 
 6. Once your View is ready, select **Publish**.
 
-## Step 2: Customize your communications
-
-widget
+## Step 2: Customize your communications widget
 
 In this step, you customize the experience of the communications widget for your
 customers.
@@ -144,9 +136,7 @@ The banner must be in .svg, .jpg or .png format. The image can be 280px (width) 
   2: Add a bucket policy](# "#") in the Setting permissions for website
   access topic.
 
-## Step 3: Specify the website domains
-
-where you expect to display the communications widget
+## Step 3: Specify the website domains where you expect to display the communications widget
 
 1. Enter the website domains where you want to place the communications widget.
    The widget loads only on websites that you select in this step.
@@ -208,9 +198,7 @@ If you choose this option, in the next step you'll get a security key for all
 contact requests initiated on your websites. Ask your website administrator to
 set up your web servers to issue JWTs using this security key. 3. Choose **Save**.
 
-## Step 4: Confirm and copy
-
-communications widget code and security keys
+## Step 4: Confirm and copy communications widget code and security keys
 
 In this step, you confirm your selections and copy the code for the communications
 widget and embed it in your website. If you chose to use JWTs in [Step 3](#communications-widget-domains "#communications-widget-domains"), you can also copy the secret

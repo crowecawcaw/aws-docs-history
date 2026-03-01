@@ -9,8 +9,7 @@ To do this you can configure both idle timeouts and auto-close timeouts using th
 ###### Tip
 
 This topic is about setting up chat timeouts for customer-agent conversations. If you're looking for information about configuring chat timeouts for when customers are interacting with Lex, see the
-[Configurable
-time-outs for chat input during a Lex interaction](get-customer-input.md#get-customer-input-configurable-timeouts-chat "get-customer-input.md#get-customer-input-configurable-timeouts-chat") section of the [Flow block in Amazon Connect: Get customer input](get-customer-input.md "get-customer-input.md") block.
+[Configurable time-outs for chat input during a Lex interaction](get-customer-input.md#get-customer-input-configurable-timeouts-chat "get-customer-input.md#get-customer-input-configurable-timeouts-chat") section of the [Flow block in Amazon Connect: Get customer input](get-customer-input.md "get-customer-input.md") block.
 
 ###### You can set four different types of timers.
 
@@ -125,9 +124,7 @@ To use the chat timeout feature, we recommend that you do the following:
    the chat (at the beginning of the flow) or right before routing the contact to a
    queue.
 
-## Customize the customer's chat user interface for a
-
-disconnect event
+## Customize the customer's chat user interface for a disconnect event
 
 To customize your customer's chat user interface for a disconnect event, see the
 following methods in the [ChatJS](https://github.com/amazon-connect/amazon-connect-chatjs "https://github.com/amazon-connect/amazon-connect-chatjs"):

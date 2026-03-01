@@ -1,6 +1,4 @@
-# Use the segment AI assistant in
-
-Amazon Connect
+# Use the segment AI assistant in Amazon Connect
 
 Amazon Connect Customer Profiles supports generative AI-powered segmentation, enabling non-technical
 business users to build audiences using natural language queries ([segment AI assistant](#generating-a-segment-by-prompt "#generating-a-segment-by-prompt")), and to
@@ -35,9 +33,7 @@ segmentation workflow:
   align with the organization's specific business objectives and comply
   with its data usage policies.
 
-## Inspiration Cards for
-
-Segment Creation
+## Inspiration Cards for Segment Creation
 
 Inspiration Cards are an AI-powered feature on the **Customer
 segments** page. They simplify and enhance the segment creation
@@ -88,9 +84,7 @@ attributes.
 7. Your selected segment idea is populated in the segment builder, ready
    for your review and refinement.
 
-## Generate a segment by using
-
-natural language prompts
+## Generate a segment by using natural language prompts
 
 The segment AI assistant offers a guided approach to creating segments using
 natural language prompts, which simplifies the process of creating complex
@@ -151,9 +145,7 @@ criteria. Always adhere to data protection regulations and company policies
 when describing segments. Ensure that your prompts and descriptions do not
 contain any sensitive or personal information. 
 
-## Provide feedback on
-
-generated segments
+## Provide feedback on generated segments
 
 After a segment is generated, users are encouraged to evaluate the feature's
 performance and provide feedback. This feedback mechanism helps improve the
@@ -241,9 +233,7 @@ error.
 Remember, this error is typically temporary, and following the provided
 instructions should allow you to successfully create your desired segment.
 
-## Known
-
-limitations
+## Known limitations
 
 Understanding the data processing lifecycle is crucial for effective use of
 the segment AI assistant. This section outlines what business users can expect

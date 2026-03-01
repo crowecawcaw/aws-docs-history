@@ -46,8 +46,7 @@ It has the following properties:
   - **Default** - A customer contact.
   - **Bot** - A custom participant, such as a
     third-party bot. For more information about using this option, see
-    [Customize chat flow experiences in Amazon Connect by
-    integrating custom participants](chat-customize-flow.md "chat-customize-flow.md").
+    [Customize chat flow experiences in Amazon Connect by integrating custom participants](chat-customize-flow.md "chat-customize-flow.md").
 
 - **Timeout**: Run this branch if the customer hasn't sent
   a message after a specified amount of time. Maximum is 7 days.

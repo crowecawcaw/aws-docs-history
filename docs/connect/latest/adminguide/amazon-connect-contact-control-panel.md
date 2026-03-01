@@ -1,6 +1,4 @@
-# Provide agents with access to the
-
-Amazon Connect Contact Control Panel (CCP)
+# Provide agents with access to the Amazon Connect Contact Control Panel (CCP)
 
 ###### Note
 
@@ -20,11 +18,9 @@ contacts. But before agents can access the CCP and handle contacts, there are a 
 things you need to do:
 
 1. Ensure your network meets the requirements for using the CCP. For more information
-   see [Set up your network to use the Amazon Connect Contact Control Panel
-   (CCP)](ccp-networking.md "ccp-networking.md").
+   see [Set up your network to use the Amazon Connect Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md").
 2. Ensure agents have the appropriate headsets and workstations. For more information
-   see [Agent headset and workstation requirements for using
-   the Contact Control Panel (CCP)](ccp-agent-hardware.md "ccp-agent-hardware.md").
+   see [Agent headset and workstation requirements for using the Contact Control Panel (CCP)](ccp-agent-hardware.md "ccp-agent-hardware.md").
 3. Create a user name and password for agents to log into the CCP, by [adding agents to your instance](user-management.md "user-management.md").
 4. At minimum, [assign them the
    Agent security profile](assign-security-profile.md "assign-security-profile.md"). This grants them
@@ -35,12 +31,9 @@ things you need to do:
 We recommend telling agents to bookmark the URL to the CCP so they can readily
 access it. 6. Train your agents on the CCP:
 
-    * Watch [Training video: How to use the Contact Center Panel
-     (CCP) in Amazon Connect](ccp-video-training.md "ccp-video-training.md")
+    * Watch [Training video: How to use the Contact Center Panel (CCP) in Amazon Connect](ccp-video-training.md "ccp-video-training.md")
 
-## Agent workspace: Everything in one
-
-place
+## Agent workspace: Everything in one place
 
 Want your agents to handle contacts and access customer profiles, cases, and
 knowledge all in one place? Use the [agent
@@ -58,9 +51,7 @@ name`.my.connect.aws/agent-app-v2/**
 
 For help finding your instance name, see [Find your Amazon Connect instance name](find-instance-name.md "find-instance-name.md").
 
-## Grant microphone access in Chrome, Firefox, or
-
-Edge
+## Grant microphone access in Chrome, Firefox, or Edge
 
 If agents experience problems with their microphone, they may need to grant microphone
 access in their browser. Choose one of the following articles to get the steps
@@ -88,8 +79,7 @@ You can also resolve the issue by using Firefox or Edge as your browser.
 **Agents**: Contact your manager or the technical support
 provided by your company.
 
-**Amazon Connect Administrators**: See [Troubleshooting Issues with the Contact Control Panel
-(CCP)](troubleshooting.md "troubleshooting.md") for detailed
+**Amazon Connect Administrators**: See [Troubleshooting Issues with the Contact Control Panel (CCP)](troubleshooting.md "troubleshooting.md") for detailed
 troubleshooting steps. Or, log in to the [AWS Management Console](https://console.aws.amazon.com/console "https://console.aws.amazon.com/console") (https://console.aws.amazon.com/console)
 using your AWS account. In the upper right corner of the page, choose
 **Support**, and open a support ticket.

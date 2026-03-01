@@ -1,7 +1,4 @@
-# Add real-time alerts to
-
-Contact Lens for supervisors based on keywords and phrases in a
-chat
+# Add real-time alerts to Contact Lens for supervisors based on keywords and phrases in a chat
 
 After you [enable real-time analytics](enable-analytics.md "enable-analytics.md")
 in your flow, you can add rules that automatically alert supervisors when a
@@ -26,9 +23,7 @@ situation and assess the appropriate action. The transcript also eliminates the
 need for customers to repeat themselves if they are transferred to another
 agent.
 
-## Add rules for real-time
-
-alerts for chats
+## Add rules for real-time alerts for chats
 
 1. Log in to Amazon Connect with a user account that is assigned the
    **CallCenterManager** security profile, or that

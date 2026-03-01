@@ -22,6 +22,5 @@ operations team members.
 - [Load and penetration /
   security testing](load-and-penetration-testing.md "load-and-penetration-testing.md")
 - [Reliability in Amazon Connect](reliability-bp.md "reliability-bp.md")
-- [Performance efficiency for Amazon Connect
-  workloads](performance-efficiency-bp.md "performance-efficiency-bp.md")
+- [Performance efficiency for Amazon Connect workloads](performance-efficiency-bp.md "performance-efficiency-bp.md")
 - [Cost optimization for Amazon Connect workloads](cost-optimization-bp.md "cost-optimization-bp.md")

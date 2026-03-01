@@ -22,8 +22,7 @@ handle time. Amazon Connect uses historical metrics to create the forecast.
   minutes**. Intraday forecasts are generated for queues that have a
   minimum of 5000 unique contacts per week, per queue-channel for last 4 weeks. If
   less data than that is available, intraday forecasts are not available for those
-  queues. For more information about intraday forecasts, see [Intraday forecast performance
-  dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md").
+  queues. For more information about intraday forecasts, see [Intraday forecast performance dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md").
 
 ###### Note
 
@@ -45,9 +44,7 @@ Only the most current forecast is available. Because the forecast is updated eve
 day, if you want to keep the current day's forecast, you must download it before
 Amazon Connect overwrites it.
 
-## Getting started with
-
-forecasting
+## Getting started with forecasting
 
 Use the following steps to create a forecast and then share it with other people
 in your organization.

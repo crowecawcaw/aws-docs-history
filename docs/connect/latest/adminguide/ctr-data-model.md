@@ -12,9 +12,7 @@ This article describes the data model for Amazon Connect contact records. Contac
 records capture the events associated with a contact in your contact center. Real-time and
 historical metrics are based on the data captured in the contact records.
 
-## Important things to
-
-know
+## Important things to know
 
 - We continually release new features that result in the addition of new fields
   to the contact records data model. Any changes we make to the data model are
@@ -43,8 +41,7 @@ contains new data than previous copies. Then use the
 - For information about when a contact record is created (and thus can be
   exported or used for data reporting), see [Events in the contact record](about-contact-states.md#ctr-events "about-contact-states.md#ctr-events").
 - For a list of all contact attributes, including telephony call and case
-  attributes, see [List of available contact attributes in Amazon Connect and their
-  JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
+  attributes, see [List of available contact attributes in Amazon Connect and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
 - In the past we referred to _contact records_ as
   _Contact Trace Records (CTR)_. Now we use the term
   _contact record_ only. There is no difference between the
@@ -888,8 +885,7 @@ Length: 1-256
 
 **InitiationMethod**
 
-Indicates how the contact was initiated. For more information, see [Contact initiation methods and flow types in
-your Amazon Connect contact center](contact-initiation-methods.md "contact-initiation-methods.md").
+Indicates how the contact was initiated. For more information, see [Contact initiation methods and flow types in your Amazon Connect contact center](contact-initiation-methods.md "contact-initiation-methods.md").
 
 Valid values:
 
@@ -904,8 +900,7 @@ Valid values:
   callback flow.
 
 For more information about the InitiationMethod in this
-scenario, see [Queued callbacks in real-time metrics in
-Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md").
+scenario, see [Queued callbacks in real-time metrics in Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md").
 
 - `API`: The contact was initiated with Amazon Connect by API.
   This could be an outbound contact you created and queued to an
@@ -1461,8 +1456,7 @@ Length: 1-128
 ## DisconnectDetails
 
 Information about the call disconnect experience. For information about how to use
-this data to troubleshoot call disconnects, see [Troubleshoot call disconnects by using
-DisconnectDetails in the contact record](troubleshoot-call-disconnects.md "troubleshoot-call-disconnects.md").
+this data to troubleshoot call disconnects, see [Troubleshoot call disconnects by using DisconnectDetails in the contact record](troubleshoot-call-disconnects.md "troubleshoot-call-disconnects.md").
 
 **PotentialDisconnectIssue**
 
@@ -1678,8 +1672,7 @@ how the customer sounded to the agent.
 ###### Note
 
 CustomerQualityMetrics is available for in-app and web voice calls only. For
-information about in-app and web calling, see [Set up in-app, web, video calling, and screen sharing
-capabilities](inapp-calling.md "inapp-calling.md").
+information about in-app and web calling, see [Set up in-app, web, video calling, and screen sharing capabilities](inapp-calling.md "inapp-calling.md").
 
 **Audio**
 
