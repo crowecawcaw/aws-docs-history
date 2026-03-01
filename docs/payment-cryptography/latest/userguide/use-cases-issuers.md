@@ -1,9 +1,8 @@
-# Issuers and issuer processors
-
-Issuer use cases typically consist of a few parts. This section is organized by function (such as working with pins). In a production system, the keys are typically
-scoped to a given card bin and are created during bin setup rather than inline as shown here.
+# Network specific functions
 
 ###### Topics
 
-- [General Functions](use-cases-issuers.md "use-cases-issuers.md")
-- [Network specific functions](use-cases-issuers.md "use-cases-issuers.md")
+- [Visa specific functions](use-cases-issuers.networkfunctions.md "use-cases-issuers.networkfunctions.md")
+- [Mastercard specific functions](use-cases-issuers.networkfunctions.md "use-cases-issuers.networkfunctions.md")
+- [American Express specific functions](use-cases-issuers.networkfunctions.md "use-cases-issuers.networkfunctions.md")
+- [JCB specific functions](use-cases-issuers.networkfunctions.md "use-cases-issuers.networkfunctions.md")

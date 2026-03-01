@@ -5,10 +5,8 @@
 - [Export symmetric keys](keys-export.md#keys-export-symmetric "keys-export.md#keys-export-symmetric")
   - [Export keys using asymmetric techniques (TR-34)](keys-export.md#keys-export-tr34 "keys-export.md#keys-export-tr34")
   - [Export keys using asymmetric techniques (ECDH)](keys-export.md#keys-export-ecdh "keys-export.md#keys-export-ecdh")
-  - [Export keys using asymmetric techniques (RSA
-    Wrap)](keys-export.md#keys-export-rsawrap "keys-export.md#keys-export-rsawrap")
-  - [Export symmetric keys using a pre-established key
-    exchange key (TR-31)](keys-export.md#keys-export-tr31 "keys-export.md#keys-export-tr31")
+  - [Export keys using asymmetric techniques (RSA Wrap)](keys-export.md#keys-export-rsawrap "keys-export.md#keys-export-rsawrap")
+  - [Export symmetric keys using a pre-established key exchange key (TR-31)](keys-export.md#keys-export-tr31 "keys-export.md#keys-export-tr31")
 
 - [Export DUKPT Initial Keys (IPEK/IK)](keys-export.md#keys-export-ipek "keys-export.md#keys-export-ipek")
 - [Specify key block headers for export](keys-export.md#keys-export-optionalheaders "keys-export.md#keys-export-optionalheaders")
@@ -65,11 +63,9 @@ All certificates are in base64 encoding.
 }`
 ```
 
-2. ###### \*\*Import the AWS Payment Cryptography certificate to your receiving
-   system\*\*
+2. ###### **Import the AWS Payment Cryptography certificate to your receiving system**
 
-Import the certificate chain from step 1 to your receiving system. 3. ###### **Set up your receiving system's
-certificates**
+Import the certificate chain from step 1 to your receiving system. 3. ###### **Set up your receiving system's certificates**
 
 To protect the transmitted payload, the sending party (KDH) encrypts it. Your
 receiving system (typically your HSM or your partner's HSM) needs to generate a public
@@ -217,8 +213,7 @@ certificate signed by your account's CA that is specific to AWS Payment Cryptogr
 With many HSMs, you need to install, load, or trust the public certificate
 generated in step 1 to establish keys. This could include the entire certificate
 chain or just the root certificate, depending on the HSM. Consult your HSM documentation for
-specific instructions. 4. ###### **Generate ECC key pair on source system and provide certificate
-chain to AWS Payment Cryptography**
+specific instructions. 4. ###### **Generate ECC key pair on source system and provide certificate chain to AWS Payment Cryptography**
 
 In ECDH, each party generates a key pair and agrees on a common key. For AWS Payment Cryptography to
 derive the key, it needs the counterparty's public key in X.509 public key format.
@@ -293,9 +288,7 @@ Finally, import the key from AWS Payment Cryptography using standard
 TR-31 commands. Specify the ECDH derived key as the KBPK and use the TR-31 key block that was
 previously exported from AWS Payment Cryptography.
 
-### Export keys using asymmetric techniques (RSA
-
-Wrap)
+### Export keys using asymmetric techniques (RSA Wrap)
 
 When TR-34 isn't available, you can use RSA wrap/unwrap for key exchange. Like TR-34,
 this method uses RSA asymmetric cryptography to encrypt symmetric keys. However, RSA wrap
@@ -308,13 +301,11 @@ doesn't include:
 
 You can use RSA wrap to export TDES and AES-128 keys.
 
-1. ###### \*\*Create an RSA key and certificate on your receiving
-   system\*\*
+1. ###### **Create an RSA key and certificate on your receiving system**
 
 Create or identify an RSA key for receiving the wrapped key. We require keys to be
 in X.509 certificate format. Make sure the certificate is signed by a root certificate
-that you can import into AWS Payment Cryptography. 2. ###### **Import the root public certificate to
-AWS Payment Cryptography**
+that you can import into AWS Payment Cryptography. 2. ###### **Import the root public certificate to AWS Payment Cryptography**
 
 Use **import-key** with the `--key-material` option
 to import the certificate
@@ -420,9 +411,7 @@ We output the wrapped key in hexBinary format. You might need to convert the
 format if your system requires a different binary representation, such as
 base64.
 
-### Export symmetric keys using a pre-established key
-
-exchange key (TR-31)
+### Export symmetric keys using a pre-established key exchange key (TR-31)
 
 When exchanging multiple keys or supporting key rotation, you typically first exchange
 an initial key encryption key (KEK) using paper key components or, with AWS Payment Cryptography, using

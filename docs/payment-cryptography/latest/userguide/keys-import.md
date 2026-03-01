@@ -11,10 +11,8 @@ that you've upgraded to the [latest version](../../../cli/latest/userguide/getti
 - [Importing symmetric keys](keys-import.md#keys-import-symmetric "keys-import.md#keys-import-symmetric")
   - [Import keys using asymmetric techniques (TR-34)](keys-import.md#keys-import-tr34 "keys-import.md#keys-import-tr34")
   - [Import keys using asymmetric techniques (ECDH)](keys-import.md#keys-import-ecdh "keys-import.md#keys-import-ecdh")
-  - [Import keys using asymmetric techniques (RSA
-    Unwrap)](keys-import.md#keys-import-rsaunwrap "keys-import.md#keys-import-rsaunwrap")
-  - [Import symmetric keys using a pre-established key
-    exchange key (TR-31)](keys-import.md#keys-import-tr31 "keys-import.md#keys-import-tr31")
+  - [Import keys using asymmetric techniques (RSA Unwrap)](keys-import.md#keys-import-rsaunwrap "keys-import.md#keys-import-rsaunwrap")
+  - [Import symmetric keys using a pre-established key exchange key (TR-31)](keys-import.md#keys-import-tr31 "keys-import.md#keys-import-tr31")
 
 - [Importing asymmetric (RSA, ECC) public keys](keys-import.md#keys-import-asymmetric "keys-import.md#keys-import-asymmetric")
   - [Importing RSA public keys](keys-import.md#keys-import-rsapublickey "keys-import.md#keys-import-rsapublickey")
@@ -71,13 +69,11 @@ value.
 }`
 ```
 
-2. ###### \*\*Install public certificate on key source
-   system\*\*
+2. ###### **Install public certificate on key source system**
 
 With most HSMs, you need to install, load, or trust the public certificate
 generated in step 1 to export keys using it. This could include the entire certificate
-chain or just the root certificate from step 1, depending on the HSM. 3. ###### **Generate key pair on source system and provide certificate
-chain to AWS Payment Cryptography**
+chain or just the root certificate from step 1, depending on the HSM. 3. ###### **Generate key pair on source system and provide certificate chain to AWS Payment Cryptography**
 
 To ensure integrity of the transmitted payload, the sending party (Key
 Distribution Host or KDH) signs it. Generate a public key for this purpose and create
@@ -154,8 +150,7 @@ from step 4 for `key-material`, and the leaf certificate from step 3 for
 }`
 ```
 
-6. ###### \*\*Use imported key for cryptographic operations or subsequent
-   import\*\*
+6. ###### **Use imported key for cryptographic operations or subsequent import**
 
 If the imported KeyUsage was TR31_K0_KEY_ENCRYPTION_KEY, you can use this key for
 subsequent key imports using TR-31. For other key types (such as
@@ -253,8 +248,7 @@ signed by your account's CA that is specific to AWS Payment Cryptography in a sp
 
 With many HSMs, you need to install, load, or trust the public certificate
 generated in step 1 to export keys using it. This could include the entire certificate
-chain or just the root certificate from step 1, depending on the HSM. Consult your HSM documentation for more information. 4. ###### **Generate ECC key pair on source system and provide certificate
-chain to AWS Payment Cryptography**
+chain or just the root certificate from step 1, depending on the HSM. Consult your HSM documentation for more information. 4. ###### **Generate ECC key pair on source system and provide certificate chain to AWS Payment Cryptography**
 
 In ECDH, each party generates a key pair and agrees on a common key. For AWS Payment Cryptography to derive
 the key, it needs the counterparty's public key in X.509 public key format.
@@ -349,17 +343,14 @@ from step 4 for `key-material`, and the leaf certificate from step 3 for
  }`
 ```
 
-8. ###### \*\*Use imported key for cryptographic operations or subsequent
-   import\*\*
+8. ###### **Use imported key for cryptographic operations or subsequent import**
 
 If the imported KeyUsage was TR31_K0_KEY_ENCRYPTION_KEY, you can use this key for
 subsequent key imports using TR-31. For other key types (such as
 TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY), you can use the key directly for cryptographic
 operations.
 
-### Import keys using asymmetric techniques (RSA
-
-Unwrap)
+### Import keys using asymmetric techniques (RSA Unwrap)
 
 Overview: AWS Payment Cryptography supports RSA wrap/unwrap for key exchange when TR-34 isn't
 feasible. Like TR-34, this technique uses RSA asymmetric cryptography to encrypt symmetric
@@ -398,8 +389,7 @@ short-lived and intended only for this purpose.
 }`
 ```
 
-2. ###### \*\*Install public certificate on key source
-   system\*\*
+2. ###### **Install public certificate on key source system**
 
 With many HSMs, you need to install, load, or trust the public certificate (and/or
 its root) generated in step 1 to export keys using it. 3. ###### **Export key from source system**
@@ -485,8 +475,7 @@ doesn't use key blocks.
 }`
 ```
 
-5. ###### \*\*Use imported key for cryptographic operations or subsequent
-   import\*\*
+5. ###### **Use imported key for cryptographic operations or subsequent import**
 
 If the imported `KeyUsage` was
 `TR31_K0_KEY_ENCRYPTION_KEY` or `TR31_K1_KEY_BLOCK_PROTECTION_KEY`, you can use this key for subsequent key
@@ -494,9 +483,7 @@ imports using TR-31. If the key type was any other type (such as
 `TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY`), you can use the key directly
 for cryptographic operations.
 
-### Import symmetric keys using a pre-established key
-
-exchange key (TR-31)
+### Import symmetric keys using a pre-established key exchange key (TR-31)
 
 ![AWS Payment Cryptography symmetric key import process](images/keyimport-process-wk-import.png)
 
@@ -627,8 +614,7 @@ Use the following command to import the root certificate:
 }`
 ```
 
-2. ###### \*\*Import Public Key Certificate into
-   AWS Payment Cryptography\*\*
+2. ###### **Import Public Key Certificate into AWS Payment Cryptography**
 
 You can now import a public key. As TR-34 and ECDH rely on passing the leaf certificate at run-time,
 this option is only used when encrypting data using a public key from another system. KeyUsage will be
@@ -777,8 +763,7 @@ Use the following command to import an intermediate certificate:
 }`
 ```
 
-3. ###### \*\*Import Public Key Certificate(Leaf) into
-   AWS Payment Cryptography\*\*
+3. ###### **Import Public Key Certificate(Leaf) into AWS Payment Cryptography**
 
 Although you can import a leaf ECC certificate, there is currently no defined functions in
 AWS Payment Cryptography for it besides storage. This is because when using ECDH functions,

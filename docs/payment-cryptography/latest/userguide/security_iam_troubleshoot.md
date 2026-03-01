@@ -1,6 +1,4 @@
-# Troubleshooting AWS Payment Cryptography identity and
-
-access
+# Troubleshooting AWS Payment Cryptography identity and access
 
 Topics will be added to this section as IAM-related issues that are specific to
 AWS Payment Cryptography are identified. For general troubleshooting content on IAM topics, refer to the

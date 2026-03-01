@@ -1,6 +1,4 @@
-# AWS Payment Cryptography identity-based policy
-
-examples
+# AWS Payment Cryptography identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify AWS Payment Cryptography
 resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An IAM
@@ -14,22 +12,14 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the AWS Payment Cryptography
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Ability to
-  access all aspects of AWS Payment Cryptography](#security_iam_id-based-policy-examples-basicpermission "#security_iam_id-based-policy-examples-basicpermission")
-- [Ability
-  to call APIs using specified keys](#security_iam_id-based-policy-examples-generate-verify-one-key "#security_iam_id-based-policy-examples-generate-verify-one-key")
-- [Ability to
-  specifically deny a resource](#security_iam_id-based-policy-examples-explicit-deny "#security_iam_id-based-policy-examples-explicit-deny")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the AWS Payment Cryptography console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Ability to access all aspects of AWS Payment Cryptography](#security_iam_id-based-policy-examples-basicpermission "#security_iam_id-based-policy-examples-basicpermission")
+- [Ability to call APIs using specified keys](#security_iam_id-based-policy-examples-generate-verify-one-key "#security_iam_id-based-policy-examples-generate-verify-one-key")
+- [Ability to specifically deny a resource](#security_iam_id-based-policy-examples-explicit-deny "#security_iam_id-based-policy-examples-explicit-deny")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS Payment Cryptography resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -62,9 +52,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the AWS Payment Cryptography
-
-console
+## Using the AWS Payment Cryptography console
 
 To access the AWS Payment Cryptography console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the AWS Payment Cryptography resources
@@ -80,9 +68,7 @@ You don't need to allow minimum console permissions for users that are making ca
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
 the API operation that you're trying to perform.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -122,9 +108,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Ability to
-
-access all aspects of AWS Payment Cryptography
+## Ability to access all aspects of AWS Payment Cryptography
 
 ###### Warning
 
@@ -154,9 +138,7 @@ JSON
 
 ```
 
-## Ability
-
-to call APIs using specified keys
+## Ability to call APIs using specified keys
 
 In this example, you want to grant an IAM user in your AWS account access to one
 of your AWS Payment Cryptography key, `arn:aws:payment-cryptography:us-east-2:111122223333:key/kwapwa6qaifllw2h` and then use this resource
@@ -188,9 +170,7 @@ JSON
 
 ```
 
-## Ability to
-
-specifically deny a resource
+## Ability to specifically deny a resource
 
 ###### Warning
 

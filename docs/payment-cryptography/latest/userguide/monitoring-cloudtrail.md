@@ -17,10 +17,8 @@ To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../aws
 - [AWS Payment Cryptography information in CloudTrail](#service-name-info-in-cloudtrail "#service-name-info-in-cloudtrail")
 - [Control plane events in CloudTrail](#management-events-in-cloud-trail "#management-events-in-cloud-trail")
 - [Data events in CloudTrail](#data-events-in-cloud-trail "#data-events-in-cloud-trail")
-- [Understanding AWS Payment Cryptography Control Plane log
-  file entries](#understanding-controlplane-entries "#understanding-controlplane-entries")
-- [Understanding AWS Payment Cryptography Data plane log file
-  entries](#understanding-dataplane-entries "#understanding-dataplane-entries")
+- [Understanding AWS Payment Cryptography Control Plane log file entries](#understanding-controlplane-entries "#understanding-controlplane-entries")
+- [Understanding AWS Payment Cryptography Data plane log file entries](#understanding-dataplane-entries "#understanding-dataplane-entries")
 
 ## AWS Payment Cryptography information in CloudTrail
 
@@ -98,9 +96,7 @@ recommend subscribing to key and alias events to ensure that you receive all eve
 
 Additional charges apply for data events. For more information, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
 
-## Understanding AWS Payment Cryptography Control Plane log
-
-file entries
+## Understanding AWS Payment Cryptography Control Plane log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single
@@ -253,9 +249,7 @@ enabling Multi-Region key replication.
 }`
 ```
 
-## Understanding AWS Payment Cryptography Data plane log file
-
-entries
+## Understanding AWS Payment Cryptography Data plane log file entries
 
 Data plane events can optionally be configured and function similarly to control plane
 logs but are typically much higher volumes. Given the sensitive nature of some inputs and

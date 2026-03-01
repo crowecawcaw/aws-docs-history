@@ -7,14 +7,10 @@ Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [AWS Payment Cryptography
-  Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Authorization based on AWS Payment Cryptography
-  tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [AWS Payment Cryptography Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Authorization based on AWS Payment Cryptography tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
 
-## AWS Payment Cryptography
-
-Identity-based policies
+## AWS Payment Cryptography Identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied. AWS Payment Cryptography
@@ -109,12 +105,9 @@ below:
 
 ### Examples
 
-To view examples of AWS Payment Cryptography identity-based policies, see [AWS Payment Cryptography identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Payment Cryptography identity-based policies, see [AWS Payment Cryptography identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Authorization based on AWS Payment Cryptography
-
-tags
+## Authorization based on AWS Payment Cryptography tags
 
 You can attach tags to AWS Payment Cryptography resources or pass tags in a request to
 AWS Payment Cryptography. To control access based on tags, you provide tag information in the

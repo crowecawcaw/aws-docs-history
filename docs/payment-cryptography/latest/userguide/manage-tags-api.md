@@ -10,12 +10,9 @@ permissions. For details, see [Controlling access to tags](tag-permissions.md "t
 ###### Topics
 
 - [CreateKey: Add tags to a new key](#tagging-keys-create-key "#tagging-keys-create-key")
-- [TagResource: Add or change tags for a
-  key](#tagging-keys-tag-resource "#tagging-keys-tag-resource")
-- [ListResourceTags: Get the tags for a
-  key](#tagging-keys-list-resource-tags "#tagging-keys-list-resource-tags")
-- [UntagResource: Delete tags from a
-  key](#tagging-keys-untag-resource "#tagging-keys-untag-resource")
+- [TagResource: Add or change tags for a key](#tagging-keys-tag-resource "#tagging-keys-tag-resource")
+- [ListResourceTags: Get the tags for a key](#tagging-keys-list-resource-tags "#tagging-keys-list-resource-tags")
+- [UntagResource: Delete tags from a key](#tagging-keys-untag-resource "#tagging-keys-untag-resource")
 
 ## CreateKey: Add tags to a new key
 
@@ -46,9 +43,7 @@ When this command is successful, it returns a `Key` object with
 information about the new key. However, the `Key` does not include
 tags. To get the tags, use the [ListResourceTags](#tagging-keys-list-resource-tags "#tagging-keys-list-resource-tags") operation.
 
-## TagResource: Add or change tags for a
-
-key
+## TagResource: Add or change tags for a key
 
 The [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") operation adds
 one or more tags to a key. You cannot use this operation to add or edit tags in a
@@ -82,9 +77,7 @@ The command will return http/200 with no content. To see your changes, use `List
  --tags '[{"Key":"Project","Value":"Noe"}]'`
 ```
 
-## ListResourceTags: Get the tags for a
-
-key
+## ListResourceTags: Get the tags for a key
 
 The [ListResourceTags](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md")
 operation gets the tags for a key. The `ResourceArn` (keyArn or keyAlias) parameter is required. You
@@ -111,9 +104,7 @@ For example, the following command gets the tags for an example key.
 
 ```
 
-## UntagResource: Delete tags from a
-
-key
+## UntagResource: Delete tags from a key
 
 The [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md") operation
 deletes tags from a key. To identify the tags to delete, specify the tag keys. You

@@ -15,8 +15,7 @@ command. For more information, see [How Multi-Region key replication works](keys
 
 ###### Examples
 
-- [Creating a 3KEY TDES base derivation
-  key](#3des-deriv-mrr-example "#3des-deriv-mrr-example")
+- [Creating a 3KEY TDES base derivation key](#3des-deriv-mrr-example "#3des-deriv-mrr-example")
 - [Creating a 2KEY TDES key for CVV/CVV2](#cvvkey-example "#cvvkey-example")
 - [Creating an HMAC key](#hmac-example "#hmac-example")
 - [Creating an AES-256 key](#aes-example "#aes-example")
@@ -25,9 +24,7 @@ command. For more information, see [How Multi-Region key replication works](keys
 - [Creating a PIN Verification Value (PVV) Key](#pvv-example "#pvv-example")
 - [Creating an asymmetric ECC key](#ECDH-example "#ECDH-example")
 
-## Creating a 3KEY TDES base derivation
-
-key
+## Creating a 3KEY TDES base derivation key
 
 ###### Example
 

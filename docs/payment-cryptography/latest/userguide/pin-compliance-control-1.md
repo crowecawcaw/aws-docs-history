@@ -1,6 +1,4 @@
-# Control Objective 1: PINs used in transactions governed by these requirements are processed using equipment
-
-and methodologies that ensure they are kept secure.
+# Control Objective 1: PINs used in transactions governed by these requirements are processed using equipment and methodologies that ensure they are kept secure.
 
 _Requirement 1:_ HSMs used by AWS Payment Cryptography were assessed as part of our PCI PIN assessment. For customers
 using the service, Requirement 1-3 and 1-4 are “In Place” relative to the HSM managed by the service. The findings for

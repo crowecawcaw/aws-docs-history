@@ -1,21 +1,12 @@
-# Verify an EMV ARQC and generate an ARPC
+# Generate or verify a CVV2 for a specific card
 
-[ARQC](terminology.md#terms.arqc "terminology.md#terms.arqc") (Authorization Request Cryptogram) is a cryptogram generated
-by an EMV (chip) card and used to validate the transaction details as well as the use of an authorized card. It incorporates data from the card, terminal and the transaction itself.
-
-At validation time on the backend, the same inputs are provided to AWS Payment Cryptography, the cryptogram is internally re-created and this is compared against the value provided with the transaction.
-In this sense, it is similar to a MAC. [EMV 4.4 Book 2](https://www.emvco.com/specifications/?post_id=80377 "https://www.emvco.com/specifications/?post_id=80377") defines three aspects of this function -
-key derivation methods (known as common session key - CSK) to generate one-time transaction keys, a minimum payload and methods for generating a response (ARPC).
-
-Individual card schemes may specify additional transactional fields to incorporate or the order those fields appear. Other (generally deprecated) scheme specific derivation schemes exist as well
-and are covered elsewhere in this documentation.
-
-For more information, see [VerifyCardValidationData](../DataAPIReference/API_VerifyCardValidationData.md "../DataAPIReference/API_VerifyCardValidationData.md") in the API guide.
+[CVV2](terminology.md#terms.cvv2 "terminology.md#terms.cvv2") is a value that is traditionally provided on the back of a card and is used for online purchases. For virtual cards, it might also be displayed on an app or a screen.
+Cryptographically, it is the same as CVV1 but with a different service code value.
 
 ## Create the key
 
 ```
-`$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{DeriveKey=true}' --tags='[{"Key":"KEY_PURPOSE","Value":"CVN18"},{"Key":"CARD_BIN","Value":"12345678"}]'`
+`$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_C0_CARD_VERIFICATION_KEY,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Generate=true,Verify=true}' --tags='[{"Key":"KEY_PURPOSE","Value":"CVV2"},{"Key":"CARD_BIN","Value":"12345678"}]'`
 ```
 
 The response echoes back the request parameters, including an ARN for subsequent calls as well as a Key Check Value (KCV).
@@ -23,9 +14,9 @@ The response echoes back the request parameters, including an ARN for subsequent
 ```
 `{
  "Key": {
- "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu",
  "KeyAttributes": {
- "KeyUsage": "TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS",
+ "KeyUsage": "TR31_C0_CARD_VERIFICATION_KEY",
  "KeyClass": "SYMMETRIC_KEY",
  "KeyAlgorithm": "TDES_2KEY",
  "KeyModesOfUse": {
@@ -33,46 +24,74 @@ The response echoes back the request parameters, including an ARN for subsequent
  "Decrypt": false,
  "Wrap": false,
  "Unwrap": false,
- "Generate": false,
+ "Generate": true,
  "Sign": false,
- "Verify": false,
- "DeriveKey": true,
+ "Verify": true,
+ "DeriveKey": false,
  "NoRestrictions": false
  }
  },
- "KeyCheckValue": "08D7B4",
+ "KeyCheckValue": "AEA5CD",
  "KeyCheckValueAlgorithm": "ANSI_X9_24",
  "Enabled": true,
  "Exportable": true,
  "KeyState": "CREATE_COMPLETE",
  "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
- "CreateTimestamp": "2024-03-07T06:41:46.648000-07:00",
- "UsageStartTimestamp": "2024-03-07T06:41:46.626000-07:00"
+ "CreateTimestamp": "2023-06-05T06:41:46.648000-07:00",
+ "UsageStartTimestamp": "2023-06-05T06:41:46.626000-07:00"
  }
  }`
 ```
 
-Take note of the `KeyArn` that represents the key, for example _arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk_. You need that in the next step.
+Take note of the `KeyArn` that represents the key, for example _arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu_. You need that in the next step.
 
-## Generate an ARQC
-
-The ARQC is generated exclusively by an EMV card. As such, AWS Payment Cryptography has no facility for generating such a payload. For test purposes, a
-number of libraries are available online that can generate an appropriate payload as well as known values that are generally provided by the various schemes.
-
-## Validate an ARQC
+## Generate a CVV2
 
 ###### Example
 
-If AWS Payment Cryptography is able to validate the ARQC, an http/200 is returned. An ARPC (response) can optionally be provided and in included in the response after the ARQC is validated.
+In this example, we will generate a [CVV2](terminology.md#terms.cvv2 "terminology.md#terms.cvv2") for a given PAN with
+inputs of `PAN` and card expiration date.
+
+For all available parameters see [CardVerificationValue2](../DataAPIReference/API_CardVerificationValue2.md "../DataAPIReference/API_CardVerificationValue2.md") in the API reference guide.
 
 ```
-`$` `aws payment-cryptography-data verify-auth-request-cryptogram --auth-request-cryptogram 61EDCC708B4C97B4 --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk --major-key-derivation-mode EMV_OPTION_A --transaction-data 00000000170000000000000008400080008000084016051700000000093800000B1F2201030000000000000000000000000000000000000000000000000000008000000000000000 --session-key-derivation-attributes='{"EmvCommon":{"ApplicationTransactionCounter":"000B", "PanSequenceNumber":"01","PrimaryAccountNumber":"9137631040001422"}}' --auth-response-attributes='{"ArpcMethod2":{"CardStatusUpdate":"12345678"}}'`
+`$` `aws payment-cryptography-data generate-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu --primary-account-number=171234567890123 --generation-attributes CardVerificationValue2='{CardExpiryDate=1127}'`
+
+```
+
+```
+
+                     `{
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu",
+ "KeyCheckValue": "AEA5CD",
+ "ValidationData": "321"
+ }`
+
+```
+
+## Validate a CVV2
+
+###### Example
+
+In this example, we will verify a [CVV2](terminology.md#terms.cvv2 "terminology.md#terms.cvv2") for a given PAN with
+inputs of an CVK, `PAN`and card expiration date and the CVV provided during the transaction to validate.
+
+For all available parameters see, [CardVerificationValue2](../DataAPIReference/API_CardVerificationValue2.md "../DataAPIReference/API_CardVerificationValue2.md") in the API reference guide.
+
+###### Note
+
+CVV2 and the other inputs are user entered values. As such, it is not necessarily a sign of an issue that this periodically fails to validate.
+
+```
+`$` `aws payment-cryptography-data verify-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu --primary-account-number=171234567890123 --verification-attributes CardVerificationValue2='{CardExpiryDate=1127} --validation-data 321`
+
 ```
 
 ```
 `{
- "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk",
- "KeyCheckValue": "08D7B4",
- "AuthResponseValue":"2263AC85"
-}`
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu",
+ "KeyCheckValue": "AEA5CD",
+ "ValidationData": "801"
+ }`
+
 ```
