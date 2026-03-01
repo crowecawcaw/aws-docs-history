@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Step B: Install (Kickstart) the Operating
-
-System Software
+# Step B: Install (Kickstart) the Operating System Software
 
 You must install a configured operating system from an `.iso` file onto each physical machine that will be running AWS Elemental software. Doing so is referred to as “kickstarting the system”.
 

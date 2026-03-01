@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Step b: Generate a License
-
-Activation Key File
+# Step b: Generate a License Activation Key File
 
 The operating system that you installed on your virtual machine (VM) has a utility you can use to
 generate an activation key file.

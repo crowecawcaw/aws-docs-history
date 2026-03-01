@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Installing AWS Elemental Server Node-locked Licenses on
-
-Qualified Hardware
+# Installing AWS Elemental Server Node-locked Licenses on Qualified Hardware
 
 This section is for IT administrators who perform the first-time installation of
 AWS Elemental Server software on a hardware unit that is considered qualified hardware.

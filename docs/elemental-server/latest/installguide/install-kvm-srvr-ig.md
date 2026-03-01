@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Installing AWS Elemental Server Node-locked Licenses on a
-
-Kernel-Based Virtual Machine (KVM)
+# Installing AWS Elemental Server Node-locked Licenses on a Kernel-Based Virtual Machine (KVM)
 
 This section is for IT administrators who perform first-time installation of
 AWS Elemental Server software on a KVM (kernel-based virtual machine).
@@ -51,11 +49,9 @@ Installation consists of four parts:
 
 ###### Topics
 
-- [Step A: Prepare Hardware and Download
-  Files](install-kvm-srvr-ig-prep.md "install-kvm-srvr-ig-prep.md")
+- [Step A: Prepare Hardware and Download Files](install-kvm-srvr-ig-prep.md "install-kvm-srvr-ig-prep.md")
 - [Step B: Deploy the VM](install-kvm-srvr-ig-install-vm.md "install-kvm-srvr-ig-install-vm.md")
 - [Step C: Enable CPU Passthrough](install-kvm-srvr-ig-passthrough.md "install-kvm-srvr-ig-passthrough.md")
 - [Step D: Install the AWS Elemental Software](install-kvm-srvr-ig-install-sw.md "install-kvm-srvr-ig-install-sw.md")
 - [Step E: Set-up Licensing](install-kvm-srvr-ig-licensing.md "install-kvm-srvr-ig-licensing.md")
-- [Step F: Complete Node
-  Configuration](install-kvm-srvr-ig-complete.md "install-kvm-srvr-ig-complete.md")
+- [Step F: Complete Node Configuration](install-kvm-srvr-ig-complete.md "install-kvm-srvr-ig-complete.md")
