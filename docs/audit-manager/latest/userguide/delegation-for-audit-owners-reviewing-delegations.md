@@ -1,6 +1,4 @@
-# Finding and reviewing
-
-the delegations that you've sent in AWS Audit Manager
+# Finding and reviewing the delegations that you've sent in AWS Audit Manager
 
 You can access a list of your delegations at any time by choosing
 **Delegations** in the left navigation pane of Audit Manager. The delegations page
@@ -14,9 +12,7 @@ the delegate might have left for you.
 ## Prerequisites
 
 Make sure your IAM identity has appropriate permissions to view a delegation in
-AWS Audit Manager. Two suggested policies that grant these permissions are [Allow users full administrator access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+AWS Audit Manager. Two suggested policies that grant these permissions are [Allow users full administrator access to AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 

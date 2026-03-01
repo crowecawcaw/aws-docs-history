@@ -1,6 +1,4 @@
-# Identity-based policy examples
-
-for AWS Audit Manager
+# Identity-based policy examples for AWS Audit Manager
 
 By default, users and roles don't have permission to create or modify Audit Manager
 resources. To grant users permission to perform actions on the
@@ -14,38 +12,24 @@ For details about actions and resource types defined by AWS Audit Manager, inclu
 
 ###### Contents
 
-- [Policy best
-  practices](security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices "security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices")
-- [Allow the minimum
-  permissions required to enable Audit Manager](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console")
-- [Allow users full administrator access to
-  AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2")
-  - [Example 1 (Managed
-    policy, AWSAuditManagerAdministratorAccess)](security_iam_id-based-policy-examples.md#full-administrator-access-managed-policy "security_iam_id-based-policy-examples.md#full-administrator-access-managed-policy")
+- [Policy best practices](security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices "security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices")
+- [Allow the minimum permissions required to enable Audit Manager](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console")
+- [Allow users full administrator access to AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2")
+  - [Example 1 (Managed policy, AWSAuditManagerAdministratorAccess)](security_iam_id-based-policy-examples.md#full-administrator-access-managed-policy "security_iam_id-based-policy-examples.md#full-administrator-access-managed-policy")
   - [Example 2 (Assessment report destination permissions)](security_iam_id-based-policy-examples.md#full-administrator-access-assessment-report-destination "security_iam_id-based-policy-examples.md#full-administrator-access-assessment-report-destination")
-  - [Example 3
-    (Permissions to enable evidence finder)](security_iam_id-based-policy-examples.md#full-administrator-access-enable-evidence-finder "security_iam_id-based-policy-examples.md#full-administrator-access-enable-evidence-finder")
-  - [Example 4
-    (Permissions to disable evidence finder)](security_iam_id-based-policy-examples.md#full-administrator-access-disable-evidence-finder "security_iam_id-based-policy-examples.md#full-administrator-access-disable-evidence-finder")
+  - [Example 3 (Permissions to enable evidence finder)](security_iam_id-based-policy-examples.md#full-administrator-access-enable-evidence-finder "security_iam_id-based-policy-examples.md#full-administrator-access-enable-evidence-finder")
+  - [Example 4 (Permissions to disable evidence finder)](security_iam_id-based-policy-examples.md#full-administrator-access-disable-evidence-finder "security_iam_id-based-policy-examples.md#full-administrator-access-disable-evidence-finder")
 
-- [Allow users management access to
-  AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access")
+- [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access")
 - [Allow users read-only access to AWS Audit Manager](security_iam_id-based-policy-examples.md#read-only "security_iam_id-based-policy-examples.md#read-only")
-- [Allow
-  users to view their own permissions](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-own-permissions "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-own-permissions")
-- [Allow AWS Audit Manager to send notifications to Amazon SNS
-  topics](security_iam_id-based-policy-examples.md#sns-access "security_iam_id-based-policy-examples.md#sns-access")
-  - [Example 1 (Permissions for the SNS
-    topic)](security_iam_id-based-policy-examples.md#sns-topic-permissions "security_iam_id-based-policy-examples.md#sns-topic-permissions")
-  - [Example 2 (Permissions for the KMS key
-    that's attached to the SNS topic)](security_iam_id-based-policy-examples.md#sns-key-permissions "security_iam_id-based-policy-examples.md#sns-key-permissions")
+- [Allow users to view their own permissions](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-own-permissions "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-own-permissions")
+- [Allow AWS Audit Manager to send notifications to Amazon SNS topics](security_iam_id-based-policy-examples.md#sns-access "security_iam_id-based-policy-examples.md#sns-access")
+  - [Example 1 (Permissions for the SNS topic)](security_iam_id-based-policy-examples.md#sns-topic-permissions "security_iam_id-based-policy-examples.md#sns-topic-permissions")
+  - [Example 2 (Permissions for the KMS key that's attached to the SNS topic)](security_iam_id-based-policy-examples.md#sns-key-permissions "security_iam_id-based-policy-examples.md#sns-key-permissions")
 
-- [Allow users to run search queries in
-  evidence finder](security_iam_id-based-policy-examples.md#evidence-finder-query-access "security_iam_id-based-policy-examples.md#evidence-finder-query-access")
+- [Allow users to run search queries in evidence finder](security_iam_id-based-policy-examples.md#evidence-finder-query-access "security_iam_id-based-policy-examples.md#evidence-finder-query-access")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Audit Manager resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -78,9 +62,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Allow the minimum
-
-permissions required to enable Audit Manager
+## Allow the minimum permissions required to enable Audit Manager
 
 This example shows how you might allow accounts without an administrator role to
 enable AWS Audit Manager.
@@ -161,23 +143,16 @@ You don't need to allow minimum console permissions for users that are making
 calls only to the AWS CLI or the AWS API. Instead, allow access to only the actions
 that match the API operation that you're trying to perform.
 
-## Allow users full administrator access to
-
-AWS Audit Manager
+## Allow users full administrator access to AWS Audit Manager
 
 The following example policies grant full administrator access to AWS Audit Manager.
 
-- [Example 1 (Managed
-  policy, AWSAuditManagerAdministratorAccess)](#full-administrator-access-managed-policy "#full-administrator-access-managed-policy")
+- [Example 1 (Managed policy, AWSAuditManagerAdministratorAccess)](#full-administrator-access-managed-policy "#full-administrator-access-managed-policy")
 - [Example 2 (Assessment report destination permissions)](#full-administrator-access-assessment-report-destination "#full-administrator-access-assessment-report-destination")
-- [Example 3
-  (Permissions to enable evidence finder)](#full-administrator-access-enable-evidence-finder "#full-administrator-access-enable-evidence-finder")
-- [Example 4
-  (Permissions to disable evidence finder)](#full-administrator-access-disable-evidence-finder "#full-administrator-access-disable-evidence-finder")
+- [Example 3 (Permissions to enable evidence finder)](#full-administrator-access-enable-evidence-finder "#full-administrator-access-enable-evidence-finder")
+- [Example 4 (Permissions to disable evidence finder)](#full-administrator-access-disable-evidence-finder "#full-administrator-access-disable-evidence-finder")
 
-### Example 1 (Managed
-
-policy, `AWSAuditManagerAdministratorAccess`)
+### Example 1 (Managed policy, `AWSAuditManagerAdministratorAccess`)
 
 The [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") policy includes the ability to
 enable and disable Audit Manager, the ability to change Audit Manager settings, and the ability to
@@ -227,9 +202,7 @@ JSON
 
 ```
 
-### Example 3
-
-(Permissions to enable evidence finder)
+### Example 3 (Permissions to enable evidence finder)
 
 The following permission policy is required if you want to enable and use the
 evidence finder feature. This policy statement allows Audit Manager to create a CloudTrail Lake
@@ -265,9 +238,7 @@ JSON
 
 ```
 
-### Example 4
-
-(Permissions to disable evidence finder)
+### Example 4 (Permissions to disable evidence finder)
 
 This example policy grants permission to disable the evidence finder feature
 in Audit Manager. This involves deleting the event data store that was created when you
@@ -299,9 +270,7 @@ JSON
 
 ```
 
-## Allow users management access to
-
-AWS Audit Manager
+## Allow users management access to AWS Audit Manager
 
 This example shows how you might allow non-administrator management access to
 AWS Audit Manager.
@@ -478,9 +447,7 @@ JSON
 
 ```
 
-## Allow
-
-users to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -520,9 +487,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Allow AWS Audit Manager to send notifications to Amazon SNS
-
-topics
+## Allow AWS Audit Manager to send notifications to Amazon SNS topics
 
 The policies in this example grant Audit Manager permissions to send notifications to an
 existing Amazon SNS topic.
@@ -540,9 +505,7 @@ you use the [`aws:SourceArn`](../../../IAM/latest/UserGuide/reference_policies_c
 keys in the policy. You can use these global condition context keys to help prevent
 the [confused deputy scenario](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 
-### Example 1 (Permissions for the SNS
-
-topic)
+### Example 1 (Permissions for the SNS topic)
 
 This policy statement allows Audit Manager to publish events to the specified SNS
 topic. Any request to publish to the specified SNS topic must satisfy the policy
@@ -618,9 +581,7 @@ condition key, with the `StringLike` condition operator:
     }
 ```
 
-### Example 2 (Permissions for the KMS key
-
-that's attached to the SNS topic)
+### Example 2 (Permissions for the KMS key that's attached to the SNS topic)
 
 This policy statement allows Audit Manager to use the KMS key to [generate the data key](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") that it uses to encrypt an SNS topic. Any
 request to use the KMS key for the specified operation must satisfy the policy
@@ -699,9 +660,7 @@ condition key, with the `StringLike` condition operator:
     }
 ```
 
-## Allow users to run search queries in
-
-evidence finder
+## Allow users to run search queries in evidence finder
 
 The following policy grants permissions to perform queries on a CloudTrail Lake event
 data store. This permission policy is required if you want to use the evidence

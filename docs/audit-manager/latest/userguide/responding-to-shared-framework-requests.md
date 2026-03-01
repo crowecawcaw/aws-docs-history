@@ -1,6 +1,4 @@
-# Responding to share requests in
-
-AWS Audit Manager
+# Responding to share requests in AWS Audit Manager
 
 This tutorial describes the actions to take when you receive a share request for a
 custom framework. Audit Manager notifies you when you receive a share request. You also receive a
@@ -14,15 +12,11 @@ Before you get started, we recommend that you first learn more about Audit Manag
 
 ###### Tasks
 
-- [Step 1: Check your
-  received request notifications](#responding-to-shared-framework-requests-step-1 "#responding-to-shared-framework-requests-step-1")
+- [Step 1: Check your received request notifications](#responding-to-shared-framework-requests-step-1 "#responding-to-shared-framework-requests-step-1")
 - [Step 2: Take action on the request](#responding-to-shared-framework-requests-step-2 "#responding-to-shared-framework-requests-step-2")
-- [Step 3: View a history of
-  your received requests](#responding-to-shared-framework-requests-step-3 "#responding-to-shared-framework-requests-step-3")
+- [Step 3: View a history of your received requests](#responding-to-shared-framework-requests-step-3 "#responding-to-shared-framework-requests-step-3")
 
-### Step 1: Check your
-
-received request notifications
+### Step 1: Check your received request notifications
 
 Start by checking your share request notifications. The **Received
 requests** tab displays a list of the share requests that you’ve received from
@@ -111,9 +105,7 @@ across AWS Regions. After taking action on a cross-Region share request, we reco
 that you check back later to confirm that the share request was successfully accepted or
 declined.
 
-### Step 3: View a history of
-
-your received requests
+### Step 3: View a history of your received requests
 
 After you accept or decline a shared framework, you can return to the **Share requests** page to see your share request history. You can
 filter this list as needed. For example, you can apply filters to display only requests

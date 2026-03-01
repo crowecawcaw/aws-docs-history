@@ -17,10 +17,8 @@ route table.
 ###### Topics
 
 - [Key points](#control-data-sources-api-key-points "#control-data-sources-api-key-points")
-- [Supported API calls for custom
-  control data sources](#apis-for-custom-control-data-sources "#apis-for-custom-control-data-sources")
-- [API calls used in the AWS License Manager standard
-  framework](#apis-in-license-manager-framework "#apis-in-license-manager-framework")
+- [Supported API calls for custom control data sources](#apis-for-custom-control-data-sources "#apis-for-custom-control-data-sources")
+- [API calls used in the AWS License Manager standard framework](#apis-in-license-manager-framework "#apis-in-license-manager-framework")
 - [Additional resources](#using-api-calls-additional-resources "#using-api-calls-additional-resources")
 
 ## Key points
@@ -34,8 +32,7 @@ return in a single response, the results can be broken into more manageable piec
 the use of _pagination_. This divides the results into
 "pages" of data, making the responses easier to handle.
 
-Some of the [Supported API calls for custom
-control data sources](#apis-for-custom-control-data-sources "#apis-for-custom-control-data-sources") are paginated. This means that
+Some of the [Supported API calls for custom control data sources](#apis-for-custom-control-data-sources "#apis-for-custom-control-data-sources") are paginated. This means that
 they return partial results at first, and require subsequent requests to return the entire
 result set. For example, the Amazon RDS [DescribeDBInstances](../../../AmazonRDS/latest/APIReference/API_DescribeDBInstances.md "../../../AmazonRDS/latest/APIReference/API_DescribeDBInstances.md") operation returns up to 100 instances at a time, and
 subsequent requests are needed to return the next page of results.
@@ -53,9 +50,7 @@ Audit Manager handles API call pagination for you automatically. If you create a
 that uses a paginated API call as a data source, you don’t need to specify any pagination
 parameters.
 
-## Supported API calls for custom
-
-control data sources
+## Supported API calls for custom control data sources
 
 In your custom controls, you can use any of the following API calls as a data source.
 Audit Manager can then use these API calls to collect evidence about your AWS usage.
@@ -173,9 +168,7 @@ Audit Manager can then use these API calls to collect evidence about your AWS us
 | [waf_ListRules](../../../waf/latest/APIReference/API_waf_ListRules.md "../../../waf/latest/APIReference/API_waf_ListRules.md")                                                                                                                                                                 | Retrieve a list of the [RuleSummary](../../../waf/latest/APIReference/API_waf_RuleSummary.md "../../../waf/latest/APIReference/API_waf_RuleSummary.md") objects<br>for your AWS account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | [waf_ListWebAcls](../../../waf/latest/APIReference/API_waf_ListWebACLs.md "../../../waf/latest/APIReference/API_waf_ListWebACLs.md")                                                                                                                                                           | Retrieve a list of the [WebACLSummary](../../../waf/latest/APIReference/API_waf_WebACLSummary.md "../../../waf/latest/APIReference/API_waf_WebACLSummary.md")<br>objects for your AWS account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
-## API calls used in the AWS License Manager standard
-
-framework
+## API calls used in the AWS License Manager standard framework
 
 In the [AWS License Manager](Licensemanager.md "Licensemanager.md") standard
 framework, Audit Manager uses a custom activity called `GetLicenseManagerSummary` to
@@ -208,8 +201,7 @@ licenses_.
 
 ## Additional resources
 
-- To find help with evidence collection issues for this data source type, see [My assessment isn’t collecting configuration data
-  evidence for an AWS API call](evidence-collection-issues.md#no-evidence-from-aws-api-calls "evidence-collection-issues.md#no-evidence-from-aws-api-calls").
+- To find help with evidence collection issues for this data source type, see [My assessment isn’t collecting configuration data evidence for an AWS API call](evidence-collection-issues.md#no-evidence-from-aws-api-calls "evidence-collection-issues.md#no-evidence-from-aws-api-calls").
 - To create a custom control using this data source type, see [Creating a custom control in AWS Audit Manager](create-controls.md "create-controls.md").
 - To create a custom framework that uses your custom control, see [Creating a custom framework in AWS Audit Manager](custom-frameworks.md "custom-frameworks.md").
 - To add your custom control to an existing custom framework, see [Editing a custom framework in AWS Audit Manager](edit-custom-frameworks.md "edit-custom-frameworks.md").

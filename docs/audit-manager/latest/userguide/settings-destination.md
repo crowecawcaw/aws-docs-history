@@ -1,6 +1,4 @@
-# Configuring your default assessment report
-
-destination
+# Configuring your default assessment report destination
 
 When you generate an assessment report, Audit Manager publishes the report to the S3 bucket of
 your choice. This S3 bucket is referred to as an [assessment report destination](concepts.md#assessment-report-destination "concepts.md#assessment-report-destination"). You can choose the S3 bucket that
@@ -8,9 +6,7 @@ Audit Manager stores your assessment reports in.
 
 ## Prerequisites
 
-### Configuration tips
-
-for your assessment report destination
+### Configuration tips for your assessment report destination
 
 To ensure the successful generation of your assessment report, we
 recommend that you use the following configurations for your assessment
@@ -129,9 +125,7 @@ Audit Manager API.
 
 Audit Manager console
 
-###### To update your default assessment report destination on the Audit Manager
-
-console
+###### To update your default assessment report destination on the Audit Manager console
 
 1. From the **Assessment** settings tab, go to
    the **Assessment report destination**
@@ -144,9 +138,7 @@ console
 
 AWS CLI
 
-###### To update your default assessment report destination in the
-
-AWS CLI
+###### To update your default assessment report destination in the AWS CLI
 
 Run the [update-settings](../../../cli/latest/reference/auditmanager/update-settings.md "../../../cli/latest/reference/auditmanager/update-settings.md") command and use the
 `--default-assessment-reports-destination` parameter
@@ -161,16 +153,12 @@ aws auditmanager update-settings --default-assessment-reports-destination destin
 
 Audit Manager API
 
-###### To update your default assessment report destination using the
-
-API
+###### To update your default assessment report destination using the API
 
 Call the [UpdateSettings](../APIReference/API_UpdateSettings.md "../APIReference/API_UpdateSettings.md") operation and use the [defaultAssessmentReportsDestination](../APIReference/API_UpdateSettings.md#auditmanager-UpdateSettings-request-defaultAssessmentReportsDestination "../APIReference/API_UpdateSettings.md#auditmanager-UpdateSettings-request-defaultAssessmentReportsDestination") parameter to
 specify an S3 bucket.
 
-## Additional
-
-resources
+## Additional resources
 
 - [Creating a
   bucket](../../../AmazonS3/latest/user-guide/create-bucket.md "../../../AmazonS3/latest/user-guide/create-bucket.md")

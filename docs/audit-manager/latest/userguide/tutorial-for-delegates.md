@@ -1,6 +1,4 @@
-# Tutorial for Delegates: Reviewing a control
-
-set
+# Tutorial for Delegates: Reviewing a control set
 
 This tutorial describes how to review a control set that was shared with you by an audit
 owner in AWS Audit Manager.
@@ -15,9 +13,7 @@ fall under your area of expertise.
 
 ## Prerequisites
 
-###### Before you start this tutorial, make sure that you first meet the following
-
-conditions:
+###### Before you start this tutorial, make sure that you first meet the following conditions:
 
 - Your AWS account is set up. To complete this tutorial, you must use both your
   AWS account and the Audit Manager console. For more information, see [Setting up AWS Audit Manager with the recommended settings](setting-up.md "setting-up.md").
@@ -29,15 +25,11 @@ conditions:
 ###### Tasks
 
 - [Step 1: Review your notifications](#delegate-tutorial-step1 "#delegate-tutorial-step1")
-- [Step 2: Review the control set and related
-  evidence](#delegate-tutorial-step2 "#delegate-tutorial-step2")
+- [Step 2: Review the control set and related evidence](#delegate-tutorial-step2 "#delegate-tutorial-step2")
 - [Step 3. Add manual evidence (optional)](#delegate-tutorial-step3 "#delegate-tutorial-step3")
-- [Step 4. Add a comment for a control
-  (optional)](#delegate-tutorial-step4 "#delegate-tutorial-step4")
-- [Step 5: Mark a control as reviewed
-  (optional)](#delegate-tutorial-step5 "#delegate-tutorial-step5")
-- [Step 6. Submit the reviewed control set back to
-  the audit owner](#delegate-tutorial-step6 "#delegate-tutorial-step6")
+- [Step 4. Add a comment for a control (optional)](#delegate-tutorial-step4 "#delegate-tutorial-step4")
+- [Step 5: Mark a control as reviewed (optional)](#delegate-tutorial-step5 "#delegate-tutorial-step5")
+- [Step 6. Submit the reviewed control set back to the audit owner](#delegate-tutorial-step6 "#delegate-tutorial-step6")
 
 ### Step 1: Review your notifications
 
@@ -65,9 +57,7 @@ control sets that have been delegated to you for review.
 You can also subscribe to an SNS topic to receive email alerts when a control set is
 assigned to you for review. For more information, see [Notifications in AWS Audit Manager](notifications.md "notifications.md").
 
-### Step 2: Review the control set and related
-
-evidence
+### Step 2: Review the control set and related evidence
 
 The next step is to review the control sets that the audit owner delegated to you. By
 examining the controls and their evidence, you can determine if any additional action is
@@ -102,8 +92,7 @@ evidence to demonstrate compliance, or leaving a comment about that control.
    collected.
 3. Choose the name of an evidence folder to open it. From here, you can review a
    summary of all the evidence that was gathered on that date. To understand this
-   information, see [Reviewing an evidence folder in
-   AWS Audit Manager](review-evidence-folders-detail.md "review-evidence-folders-detail.md").
+   information, see [Reviewing an evidence folder in AWS Audit Manager](review-evidence-folders-detail.md "review-evidence-folders-detail.md").
 4. From the evidence folder summary page, navigate to the
    **Evidence** table. Under the **Time** column,
    choose a line item to open and review details of the evidence that was collected at
@@ -121,9 +110,7 @@ There are several ways to add manual evidence to a control. You can import a fil
 from Amazon S3, upload a file from your browser, or enter a text response. For instructions
 for each method, see [Adding manual evidence in AWS Audit Manager](upload-evidence.md "upload-evidence.md").
 
-### Step 4. Add a comment for a control
-
-(optional)
+### Step 4. Add a comment for a control (optional)
 
 You can add comments for any controls that you review. These comments are visible to
 the audit owner. For example, you can leave a comment to provide a status update and
@@ -143,9 +130,7 @@ confirm that you remediated any issues with that control.
    appears under the **Previous comments** section of the page, along
    with any other comments regarding this control.
 
-### Step 5: Mark a control as reviewed
-
-(optional)
+### Step 5: Mark a control as reviewed (optional)
 
 Changing the status of a control is optional. However, we recommend that you change
 the status of each control to **Reviewed** as you complete your review
@@ -168,9 +153,7 @@ submit the controls to the audit owner.
 5. In the pop-up window that appears, choose **Update control
    status** to confirm that you finished reviewing the control.
 
-### Step 6. Submit the reviewed control set back to
-
-the audit owner
+### Step 6. Submit the reviewed control set back to the audit owner
 
 When you're done reviewing all controls, submit the control set back to the audit
 owner to let them know you finished your review.

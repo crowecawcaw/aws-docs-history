@@ -34,24 +34,18 @@ To create and manage controls in Audit Manager, follow the procedures that are o
 - [Reviewing a control in AWS Audit Manager](control-library-review-controls.md "control-library-review-controls.md")
   - [Reviewing a common control](control-library-review-common-controls.md "control-library-review-common-controls.md")
   - [Reviewing a core control](control-library-review-core-controls.md "control-library-review-core-controls.md")
-  - [Reviewing a standard
-    control](control-library-review-standard-controls.md "control-library-review-standard-controls.md")
+  - [Reviewing a standard control](control-library-review-standard-controls.md "control-library-review-standard-controls.md")
   - [Reviewing a custom control](control-library-review-custom-controls.md "control-library-review-custom-controls.md")
 
 - [Creating a custom control in AWS Audit Manager](create-controls.md "create-controls.md")
-  - [Creating a custom control from scratch in
-    AWS Audit Manager](customize-control-from-scratch.md "customize-control-from-scratch.md")
-  - [Making an editable copy of a control in
-    AWS Audit Manager](customize-control-from-existing.md "customize-control-from-existing.md")
+  - [Creating a custom control from scratch in AWS Audit Manager](customize-control-from-scratch.md "customize-control-from-scratch.md")
+  - [Making an editable copy of a control in AWS Audit Manager](customize-control-from-existing.md "customize-control-from-existing.md")
 
 - [Editing a custom control in AWS Audit Manager](edit-controls.md "edit-controls.md")
-- [Changing how often a control collects
-  evidence](change-evidence-collection-frequency.md "change-evidence-collection-frequency.md")
+- [Changing how often a control collects evidence](change-evidence-collection-frequency.md "change-evidence-collection-frequency.md")
 - [Deleting a custom control in AWS Audit Manager](delete-controls.md "delete-controls.md")
-- [Supported data source types for automated
-  evidence](control-data-sources.md "control-data-sources.md")
+- [Supported data source types for automated evidence](control-data-sources.md "control-data-sources.md")
   - [AWS Config Rules supported by AWS Audit Manager](control-data-sources-config.md "control-data-sources-config.md")
   - [AWS Security Hub CSPM controls supported by AWS Audit Manager](control-data-sources-ash.md "control-data-sources-ash.md")
   - [AWS API calls supported by AWS Audit Manager](control-data-sources-api.md "control-data-sources-api.md")
-  - [AWS CloudTrail event names supported by
-    AWS Audit Manager](control-data-sources-cloudtrail.md "control-data-sources-cloudtrail.md")
+  - [AWS CloudTrail event names supported by AWS Audit Manager](control-data-sources-cloudtrail.md "control-data-sources-cloudtrail.md")

@@ -9,20 +9,16 @@ Follow the steps on this page to change your delegated administrator.
 ###### Contents
 
 - [Prerequisites](change-delegated-admin.md#change-delegated-admin-prerequisites "change-delegated-admin.md#change-delegated-admin-prerequisites")
-  - [Before you remove the current
-    account](change-delegated-admin.md#before-you-remove "change-delegated-admin.md#before-you-remove")
+  - [Before you remove the current account](change-delegated-admin.md#before-you-remove "change-delegated-admin.md#before-you-remove")
   - [Before you add the new account](change-delegated-admin.md#before-you-add "change-delegated-admin.md#before-you-add")
 
 - [Procedure](change-delegated-admin.md#change-delegated-admin-procedure "change-delegated-admin.md#change-delegated-admin-procedure")
 - [Next steps](change-delegated-admin.md#change-delegated-admin-next-steps "change-delegated-admin.md#change-delegated-admin-next-steps")
-- [Additional
-  resources](change-delegated-admin.md#change-delegated-admin-additional-resources "change-delegated-admin.md#change-delegated-admin-additional-resources")
+- [Additional resources](change-delegated-admin.md#change-delegated-admin-additional-resources "change-delegated-admin.md#change-delegated-admin-additional-resources")
 
 ## Prerequisites
 
-### Before you remove the current
-
-account
+### Before you remove the current account
 
 Before you remove the current delegated administrator account, keep in mind
 the following considerations:
@@ -88,9 +84,7 @@ delegated administrator account.
 
 Audit Manager console
 
-###### To change the current delegated administrator on the Audit Manager
-
-console
+###### To change the current delegated administrator on the Audit Manager console
 
 1. (Optional) If the current delegated administrator (account A)
    enabled evidence finder, perform the following cleanup task:
@@ -116,9 +110,7 @@ console
 
 AWS CLI
 
-###### To change the current delegated administrator in the
-
-AWS CLI
+###### To change the current delegated administrator in the AWS CLI
 
 First, run the [deregister-organization-admin-account](../../../cli/latest/reference/auditmanager/deregister-organization-admin-account.md "../../../cli/latest/reference/auditmanager/deregister-organization-admin-account.md") command using the
 `--admin-account-id` parameter to specify the account
@@ -144,9 +136,7 @@ aws auditmanager register-organization-admin-account --admin-account-id `4444555
 
 Audit Manager API
 
-###### To change the current delegated administrator using the
-
-API
+###### To change the current delegated administrator using the API
 
 First, call the [DeregisterOrganizationAdminAccount](../APIReference/API_DeregisterOrganizationAdminAccount.md "../APIReference/API_DeregisterOrganizationAdminAccount.md") operation and use
 the [adminAccountId](../APIReference/API_DeregisterOrganizationAdminAccount.md#auditmanager-DeregisterOrganizationAdminAccount-request-adminAccountId "../APIReference/API_DeregisterOrganizationAdminAccount.md#auditmanager-DeregisterOrganizationAdminAccount-request-adminAccountId") parameter to specify the account ID of
@@ -165,11 +155,8 @@ language-specific AWS SDKs.
 
 To remove your delegated administrator account, see [Removing a delegated administrator](remove-delegated-admin.md "remove-delegated-admin.md").
 
-## Additional
-
-resources
+## Additional resources
 
 - [Creating and
   managing an organization](../../../organizations/latest/userguide/orgs_manage_org.md "../../../organizations/latest/userguide/orgs_manage_org.md")
-- [Troubleshooting delegated administrator and
-  AWS Organizations issues](delegated-admin-issues.md "delegated-admin-issues.md")
+- [Troubleshooting delegated administrator and AWS Organizations issues](delegated-admin-issues.md "delegated-admin-issues.md")

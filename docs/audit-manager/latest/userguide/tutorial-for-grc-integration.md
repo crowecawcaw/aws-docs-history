@@ -1,6 +1,4 @@
-# Integrating Audit Manager
-
-evidence into your GRC system
+# Integrating Audit Manager evidence into your GRC system
 
 As an enterprise customer, you likely have resources across multiple data centers,
 including other cloud vendors and on-premises environments. To collect evidence from these
@@ -31,13 +29,10 @@ uses the GRC application.
 
 - [Step 1: Enable Audit Manager](#tutorial-for-grc-integration-step1 "#tutorial-for-grc-integration-step1")
 - [Step 2: Set up permissions](#tutorial-for-grc-integration-step2 "#tutorial-for-grc-integration-step2")
-- [Step 3. Map your enterprise controls to
-  Audit Manager controls](#tutorial-for-grc-integration-step3 "#tutorial-for-grc-integration-step3")
-- [Step 4. Keep your control mappings
-  updated](#tutorial-for-grc-integration-step4 "#tutorial-for-grc-integration-step4")
+- [Step 3. Map your enterprise controls to Audit Manager controls](#tutorial-for-grc-integration-step3 "#tutorial-for-grc-integration-step3")
+- [Step 4. Keep your control mappings updated](#tutorial-for-grc-integration-step4 "#tutorial-for-grc-integration-step4")
 - [Step 5: Create an assessment](#tutorial-for-grc-integration-step5 "#tutorial-for-grc-integration-step5")
-- [Step 6. Start collecting
-  evidence](#tutorial-for-grc-integration-step6 "#tutorial-for-grc-integration-step6")
+- [Step 6. Start collecting evidence](#tutorial-for-grc-integration-step6 "#tutorial-for-grc-integration-step6")
 
 ## Prerequisites
 
@@ -242,9 +237,7 @@ JSON
 
 [Show moreShow less](# "#")
 
-## Step 3. Map your enterprise controls to
-
-Audit Manager controls
+## Step 3. Map your enterprise controls to Audit Manager controls
 
 ### Who completes this step
 
@@ -329,9 +322,7 @@ When you specify a control set in step 2 of the framework creation procedure,
 include the standard controls that map to your enterprise controls. 2. Repeat this task for all of your enterprise controls until you have included all
 of the corresponding standard controls in your custom framework.
 
-## Step 4. Keep your control mappings
-
-updated
+## Step 4. Keep your control mappings updated
 
 ### Who completes this step
 
@@ -443,9 +434,7 @@ aws auditmanager list-assessments --status ACTIVE
 2. In the response, identify the assessment that you want to store in the GRC
    application, and take note of the `assessmentId`.
 
-## Step 6. Start collecting
-
-evidence
+## Step 6. Start collecting evidence
 
 ###### Who completes this step
 

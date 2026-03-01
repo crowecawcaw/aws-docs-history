@@ -1,7 +1,6 @@
 # Creating an assessment in AWS Audit Manager
 
-This topic builds on the [Tutorial for Audit Owners: Creating an
-assessment](tutorial-for-audit-owners.md "tutorial-for-audit-owners.md"). You'll find detailed instructions on this page that
+This topic builds on the [Tutorial for Audit Owners: Creating an assessment](tutorial-for-audit-owners.md "tutorial-for-audit-owners.md"). You'll find detailed instructions on this page that
 show you how to create an assessment from a framework. Follow these steps to create an assessment
 and start the ongoing collection of evidence.
 
@@ -12,8 +11,7 @@ Before you start this tutorial, make sure that you meet the following conditions
 - You completed all the prerequisites that are described in [Setting up AWS Audit Manager with the recommended settings](setting-up.md "setting-up.md"). You must use your AWS account and the Audit Manager console to
   complete this tutorial.
 - Your IAM identity has appropriate permissions to create and manage an assessment in
-  Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-  AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+  Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 
@@ -206,5 +204,4 @@ that you can view, edit, or continue working on it.
 
 ## Additional resources
 
-For solutions to assessment issues in Audit Manager, see [Troubleshooting assessment and evidence
-collection issues](evidence-collection-issues.md "evidence-collection-issues.md").
+For solutions to assessment issues in Audit Manager, see [Troubleshooting assessment and evidence collection issues](evidence-collection-issues.md "evidence-collection-issues.md").

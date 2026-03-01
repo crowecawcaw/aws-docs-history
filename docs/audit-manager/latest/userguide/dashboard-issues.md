@@ -6,16 +6,11 @@ Audit Manager.
 ###### Topics
 
 - [There isn't any data on my dashboard](#dashboard-no-data "#dashboard-no-data")
-- [The CSV download option
-  isn't available](#dashboard-download-option-unavailable "#dashboard-download-option-unavailable")
-- [I don't see the downloaded
-  file when trying to download a CSV file](#dashboard-cant-find-downloaded-file "#dashboard-cant-find-downloaded-file")
-- [A specific control or control domain
-  is missing from the dashboard](#dashboard-no-control-domain "#dashboard-no-control-domain")
-- [I see similar or duplicate controls appearing under the same control
-  domain](#dashboard-similar-or-duplicate-controls-in-the-same-control-domain "#dashboard-similar-or-duplicate-controls-in-the-same-control-domain")
-- [The daily snapshot shows varying
-  amounts of evidence each day. Is this normal?](#dashboard-varying-evidence "#dashboard-varying-evidence")
+- [The CSV download option isn't available](#dashboard-download-option-unavailable "#dashboard-download-option-unavailable")
+- [I don't see the downloaded file when trying to download a CSV file](#dashboard-cant-find-downloaded-file "#dashboard-cant-find-downloaded-file")
+- [A specific control or control domain is missing from the dashboard](#dashboard-no-control-domain "#dashboard-no-control-domain")
+- [I see similar or duplicate controls appearing under the same control domain](#dashboard-similar-or-duplicate-controls-in-the-same-control-domain "#dashboard-similar-or-duplicate-controls-in-the-same-control-domain")
+- [The daily snapshot shows varying amounts of evidence each day. Is this normal?](#dashboard-varying-evidence "#dashboard-varying-evidence")
 
 ## There isn't any data on my dashboard
 
@@ -31,17 +26,13 @@ If the numbers in the daily snapshot widget display a zero (0), this indicates
 that your active assessments (or your selected assessment) have no non-compliant
 evidence.
 
-## The CSV download option
-
-isn't available
+## The CSV download option isn't available
 
 This option is available for individual assessments only. Make sure that you
 applied an [Assessment filter](dashboard.md#dashboard-assessment-filters "dashboard.md#dashboard-assessment-filters") to the dashboard, then try again.
 Keep in mind that you can only download one CSV file at a time.
 
-## I don't see the downloaded
-
-file when trying to download a CSV file
+## I don't see the downloaded file when trying to download a CSV file
 
 If a control domain contains a large number of controls, there might be a short
 delay while Audit Manager generates the CSV file. After the file is generated, it downloads
@@ -53,9 +44,7 @@ browser. In addition, check your recent downloads folder. Files download into th
 default location that's determined by your browser. If this doesn't resolve your
 issue, try downloading the file using a different browser.
 
-## A specific control or control domain
-
-is missing from the dashboard
+## A specific control or control domain is missing from the dashboard
 
 This likely means that your active assessments (or specified assessment) don't
 have any relevant data for that control or control domain.
@@ -71,9 +60,7 @@ criteria are met:
 A control is displayed within a domain only if it collected evidence on the date
 at the top of the dashboard.
 
-## I see similar or duplicate controls appearing under the same control
-
-domain
+## I see similar or duplicate controls appearing under the same control domain
 
 This issue can occur if your assessments collect evidence from different versions
 of the same standard control.
@@ -134,9 +121,7 @@ that whenever there’s an update to the underlying data sources for a common or
 control, Audit Manager automatically applies the same update to all related standard
 controls.
 
-## The daily snapshot shows varying
-
-amounts of evidence each day. Is this normal?
+## The daily snapshot shows varying amounts of evidence each day. Is this normal?
 
 Not all evidence is collected on a daily basis. The controls in Audit Manager assessments
 are mapped to different data sources, and each one can have a different evidence

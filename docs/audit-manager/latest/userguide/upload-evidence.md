@@ -48,12 +48,9 @@ to choose from.
   following resources. Keep in mind you can only use one method at a time.
   - [Importing manual evidence files from Amazon S3](import-from-s3.md "import-from-s3.md")
   - [Uploading manual evidence files from your browser](upload-from-computer.md "upload-from-computer.md")
-  - [Entering free-form text responses as manual
-    evidence](enter-text-response.md "enter-text-response.md")
+  - [Entering free-form text responses as manual evidence](enter-text-response.md "enter-text-response.md")
 
-- To learn which file formats you can use, see [Supported file formats for manual
-  evidence](supported-manual-evidence-files.md "supported-manual-evidence-files.md").
+- To learn which file formats you can use, see [Supported file formats for manual evidence](supported-manual-evidence-files.md "supported-manual-evidence-files.md").
 - To learn more about the different types of evidence in Audit Manager, see [evidence](concepts.md#evidence "concepts.md#evidence") in the _Concepts and terminology_
   section of this guide.
-- For troubleshooting assistance, see [I can’t
-  upload manual evidence to a control](control-issues.md#cannot-upload-manual-evidence "control-issues.md#cannot-upload-manual-evidence").
+- For troubleshooting assistance, see [I can’t upload manual evidence to a control](control-issues.md#cannot-upload-manual-evidence "control-issues.md#cannot-upload-manual-evidence").

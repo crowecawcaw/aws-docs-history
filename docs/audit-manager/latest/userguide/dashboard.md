@@ -126,8 +126,7 @@ The following sections cover the different components of the dashboard.
 
 - [Assessment filter](#dashboard-assessment-filters "#dashboard-assessment-filters")
 - [Daily snapshot](#dashboard-daily-snapshot "#dashboard-daily-snapshot")
-- [Controls with non-compliant evidence grouped by
-  control domain](#dashboard-controls-by-domain "#dashboard-controls-by-domain")
+- [Controls with non-compliant evidence grouped by control domain](#dashboard-controls-by-domain "#dashboard-controls-by-domain")
 
 ### Assessment filter
 
@@ -173,9 +172,7 @@ specified. You can choose the name of the assessment to open it.
 
 ![Screenshot of the daily snapshot widget when an assessment filter is applied.](images/dashboard-daily_snapshot_with_assessment_filter_applied-console.png)
 
-### Controls with non-compliant evidence grouped by
-
-control domain
+### Controls with non-compliant evidence grouped by control domain
 
 You can use this widget to identify which controls have the most non-compliant evidence.
 

@@ -1,6 +1,4 @@
-# Enabling the recommended features and
-
-AWS services for AWS Audit Manager
+# Enabling the recommended features and AWS services for AWS Audit Manager
 
 Now that you have enabled AWS Audit Manager, it's time to set up the recommended features and
 integrations to get the most out of the service.
@@ -12,17 +10,13 @@ features and enable the following AWS services.
 
 ###### Tasks
 
-- [Set up recommended Audit Manager
-  features](#setup-recommendations-features "#setup-recommendations-features")
-- [Set up recommended integrations
-  with other AWS services](#setup-recommendations-services "#setup-recommendations-services")
+- [Set up recommended Audit Manager features](#setup-recommendations-features "#setup-recommendations-features")
+- [Set up recommended integrations with other AWS services](#setup-recommendations-services "#setup-recommendations-services")
   - [Enable and set up AWS Config](#config-recommendations "#config-recommendations")
   - [Enable and set up AWS Security Hub CSPM](#securityhub-recommendations "#securityhub-recommendations")
   - [Enable and set up AWS Organizations](#enabling-orgs "#enabling-orgs")
 
-## Set up recommended Audit Manager
-
-features
+## Set up recommended Audit Manager features
 
 After you enable Audit Manager, we recommend that you enable the evidence finder feature.
 
@@ -40,9 +34,7 @@ perform a narrow search to target evidence for a specific control or resource ID
 After you define your filters, you can group and then preview the matching search
 results before creating an assessment report.
 
-## Set up recommended integrations
-
-with other AWS services
+## Set up recommended integrations with other AWS services
 
 For an optimal experience in Audit Manager, we strongly recommend that you enable the
 following AWS services:
@@ -91,8 +83,7 @@ controls.
 **Tasks to integrate AWS Config with Audit Manager**
 
 - [Step 1: Enable AWS Config](#enabling-config "#enabling-config")
-- [Step 2: Configure your AWS Config settings for use
-  with Audit Manager](#set-up-config "#set-up-config")
+- [Step 2: Configure your AWS Config settings for use with Audit Manager](#set-up-config "#set-up-config")
 
 #### Step 1: Enable AWS Config
 
@@ -101,9 +92,7 @@ You can enable AWS Config using the AWS Config console or API. For instructions,
 with AWS Config](../../../config/latest/developerguide/getting-started.md "../../../config/latest/developerguide/getting-started.md") in the _AWS Config Developer
 Guide_.
 
-#### Step 2: Configure your AWS Config settings for use
-
-with Audit Manager
+#### Step 2: Configure your AWS Config settings for use with Audit Manager
 
 After you enable AWS Config, make sure that you also [enable AWS Config rules](../../../config/latest/developerguide/setting-up-aws-config-rules-with-console.md "../../../config/latest/developerguide/setting-up-aws-config-rules-with-console.md") or [deploy
 a conformance pack](../../../config/latest/developerguide/conformance-pack-console.md "../../../config/latest/developerguide/conformance-pack-console.md") for the compliance standard that's related to
@@ -147,10 +136,8 @@ those controls.
 **Tasks to integrate AWS Security Hub CSPM with Audit Manager**
 
 - [Step 1: Enable AWS Security Hub CSPM](#enabling-securityhub "#enabling-securityhub")
-- [Step 2: Configure your Security Hub CSPM settings
-  for use with Audit Manager](#set-up-securityhub "#set-up-securityhub")
-- [Step 3: Configure the Organizations settings
-  for your organization](#set-up-securityhub-orgs "#set-up-securityhub-orgs")
+- [Step 2: Configure your Security Hub CSPM settings for use with Audit Manager](#set-up-securityhub "#set-up-securityhub")
+- [Step 3: Configure the Organizations settings for your organization](#set-up-securityhub-orgs "#set-up-securityhub-orgs")
 
 #### Step 1: Enable AWS Security Hub CSPM
 
@@ -159,9 +146,7 @@ instructions, see [Setting up
 AWS Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub CSPM User
 Guide_.
 
-#### Step 2: Configure your Security Hub CSPM settings
-
-for use with Audit Manager
+#### Step 2: Configure your Security Hub CSPM settings for use with Audit Manager
 
 After you enable Security Hub CSPM, make sure that you also do the following:
 
@@ -191,9 +176,7 @@ using Security Hub CSPM as a data source type, see [AWS Security Hub CSPM contro
 information about Audit Manager pricing, see [AWS Audit Manager
 Pricing](https://aws.amazon.com/audit-manager/pricing/ "https://aws.amazon.com/audit-manager/pricing/").
 
-#### Step 3: Configure the Organizations settings
-
-for your organization
+#### Step 3: Configure the Organizations settings for your organization
 
 If you use AWS Organizations and you want to collect Security Hub CSPM evidence from your
 member accounts, you must also perform the following steps in Security Hub CSPM.
@@ -234,32 +217,23 @@ enable AWS Organizations, the following settings are required.
 
 **Tasks to integrate AWS Organizations with Audit Manager**
 
-- [Step 1: Create or join an
-  organization](#enabling-orgs-create "#enabling-orgs-create")
-- [Step 2: Enable all
-  features in your organization](#enabling-orgs-enable-all-features "#enabling-orgs-enable-all-features")
-- [Step 3: Specify a delegated
-  administrator for Audit Manager](#enabling-orgs-designate "#enabling-orgs-designate")
+- [Step 1: Create or join an organization](#enabling-orgs-create "#enabling-orgs-create")
+- [Step 2: Enable all features in your organization](#enabling-orgs-enable-all-features "#enabling-orgs-enable-all-features")
+- [Step 3: Specify a delegated administrator for Audit Manager](#enabling-orgs-designate "#enabling-orgs-designate")
 
-#### Step 1: Create or join an
-
-organization
+#### Step 1: Create or join an organization
 
 If your AWS account isn't part of an organization, you can create or
 join an organization. For instructions, see [Creating and
 managing an organization](../../../organizations/latest/userguide/orgs_manage_org.md "../../../organizations/latest/userguide/orgs_manage_org.md") in the _AWS Organizations User
 Guide_.
 
-#### Step 2: Enable all
-
-features in your organization
+#### Step 2: Enable all features in your organization
 
 Next, you must enable all features in your organization. For instructions,
 see [Enabling all features in your organization](../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md "../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md") in the _AWS Organizations User Guide_.
 
-#### Step 3: Specify a delegated
-
-administrator for Audit Manager
+#### Step 3: Specify a delegated administrator for Audit Manager
 
 We recommend that you enable Audit Manager using an Organizations management account, and
 then specify a delegated administrator. After that, you can use the
@@ -275,6 +249,5 @@ To add or change a delegated administrator after you enable Audit Manager, see
 Now that you have set up Audit Manager with the recommended settings, you're ready to get
 started with using the service.
 
-- To get started with your first assessment, see [Tutorial for Audit Owners: Creating an
-  assessment](tutorial-for-audit-owners.md "tutorial-for-audit-owners.md").
+- To get started with your first assessment, see [Tutorial for Audit Owners: Creating an assessment](tutorial-for-audit-owners.md "tutorial-for-audit-owners.md").
 - To update your settings in the future, see [Reviewing and configuring your AWS Audit Manager settings](console-settings.md "console-settings.md").

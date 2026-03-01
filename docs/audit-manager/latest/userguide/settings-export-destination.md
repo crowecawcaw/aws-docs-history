@@ -1,6 +1,4 @@
-# Configuring your default export
-
-destination for evidence finder
+# Configuring your default export destination for evidence finder
 
 When you run queries in evidence finder, you can export your search results into a
 comma-separated values (CSV) file. Use this setting to choose the default S3 bucket
@@ -13,16 +11,13 @@ the export files to it. More specifically, the bucket policy must include an
 `s3:PutObject` action and the bucket ARN, and list CloudTrail as the
 service principal.
 
-- For an example permission policy that you can use, see [Resource-based policy
-  examples for AWS Audit Manager](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
+- For an example permission policy that you can use, see [Resource-based policy examples for AWS Audit Manager](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
 - For instructions to attach this policy to your S3 bucket, see [Adding a bucket
   policy by using the Amazon S3 console](../../../AmazonS3/latest/userguide/add-bucket-policy.md "../../../AmazonS3/latest/userguide/add-bucket-policy.md").
 - For more tips, see [configuration tips for your export
   destination](evidence-finder-settings.md#settings-export-destination-tips "evidence-finder-settings.md#settings-export-destination-tips") on this page.
 
-### Configuration tips for your
-
-export destination
+### Configuration tips for your export destination
 
 To ensure a successful file export, we recommend that you verify the
 following configurations for your export destination.
@@ -115,9 +110,7 @@ Audit Manager API.
 
 Audit Manager console
 
-###### To update your export destination settings on the Audit Manager
-
-console
+###### To update your export destination settings on the Audit Manager console
 
 1. From the **Evidence finder** settings tab, go
    to the **Export destination** section.

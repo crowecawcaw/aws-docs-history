@@ -27,11 +27,11 @@ Follow these steps to browse your files in the download center.
      to reload the table. Each row in the assessment reports table shows the name of the
      report, its creation date, and one of the following statuses:
 
-   | Status          | Description                                                                                                                                                                                                                                                                               |
-   | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **In progress** | Audit Manager is generating the assessment report.                                                                                                                                                                                                                                        |
-   | **Ready**       | The assessment report is available for you to download.                                                                                                                                                                                                                                   |
-   | **Error**       | The assessment report failed to generate. In this case, Audit Manager displays a<br>message that describes the error.<br>For information about how to resolve these errors, see [Troubleshooting assessment report<br>issues](assessment-report-issues.md "assessment-report-issues.md"). |
+   | Status          | Description                                                                                                                                                                                                                                                                            |
+   | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | **In progress** | Audit Manager is generating the assessment report.                                                                                                                                                                                                                                     |
+   | **Ready**       | The assessment report is available for you to download.                                                                                                                                                                                                                                |
+   | **Error**       | The assessment report failed to generate. In this case, Audit Manager displays a<br>message that describes the error.<br>For information about how to resolve these errors, see [Troubleshooting assessment report issues](assessment-report-issues.md "assessment-report-issues.md"). |
 
 4. Choose the **Exports** tab to view the CSV exports that are available to
    download.
@@ -100,12 +100,9 @@ Guide_.
 
 ## Additional resources
 
-- [Configuring your default export
-  destination for evidence finder](settings-export-destination.md "settings-export-destination.md")
-- [Configuring your default assessment report
-  destination](settings-destination.md "settings-destination.md")
-- [Troubleshooting assessment report
-  issues](assessment-report-issues.md "assessment-report-issues.md")
+- [Configuring your default export destination for evidence finder](settings-export-destination.md "settings-export-destination.md")
+- [Configuring your default assessment report destination](settings-destination.md "settings-destination.md")
+- [Troubleshooting assessment report issues](assessment-report-issues.md "assessment-report-issues.md")
 - [Troubleshooting CSV export issues](evidence-finder-issues.md#csv-exports "evidence-finder-issues.md#csv-exports")
 - [Downloading an object from Amazon S3](../../../AmazonS3/latest/userguide/download-objects.md "../../../AmazonS3/latest/userguide/download-objects.md")
 - [Deleting Amazon S3 objects](../../../AmazonS3/latest/userguide/DeletingObjects.md "../../../AmazonS3/latest/userguide/DeletingObjects.md")

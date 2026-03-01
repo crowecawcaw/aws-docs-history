@@ -8,6 +8,5 @@ here.
 
 - [Reviewing a common control](control-library-review-common-controls.md "control-library-review-common-controls.md")
 - [Reviewing a core control](control-library-review-core-controls.md "control-library-review-core-controls.md")
-- [Reviewing a standard
-  control](control-library-review-standard-controls.md "control-library-review-standard-controls.md")
+- [Reviewing a standard control](control-library-review-standard-controls.md "control-library-review-standard-controls.md")
 - [Reviewing a custom control](control-library-review-custom-controls.md "control-library-review-custom-controls.md")

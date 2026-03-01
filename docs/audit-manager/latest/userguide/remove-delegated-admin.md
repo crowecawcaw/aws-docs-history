@@ -61,9 +61,7 @@ delegated administrator account.
 
 Audit Manager console
 
-###### To remove the current delegated administrator on the Audit Manager
-
-console
+###### To remove the current delegated administrator on the Audit Manager console
 
 1. (Optional) If the current delegated administrator enabled
    evidence finder, perform the following cleanup task:
@@ -92,9 +90,7 @@ CloudTrail Lake to manually [delete the event data store](../../../awscloudtrail
 store remains in their account and continues to incur CloudTrail Lake storage
 charges.
 
-###### To remove the current delegated administrator in the
-
-AWS CLI
+###### To remove the current delegated administrator in the AWS CLI
 
 Run the [deregister-organization-admin-account](../../../cli/latest/reference/auditmanager/deregister-organization-admin-account.md "../../../cli/latest/reference/auditmanager/deregister-organization-admin-account.md") command and use
 the `--admin-account-id` parameter to specify the account
@@ -109,9 +105,7 @@ aws auditmanager deregister-organization-admin-account --admin-account-id `11112
 
 Audit Manager API
 
-###### To remove the current delegated administrator using the
-
-API
+###### To remove the current delegated administrator using the API
 
 Call the [DeregisterOrganizationAdminAccount](../APIReference/API_DeregisterOrganizationAdminAccount.md "../APIReference/API_DeregisterOrganizationAdminAccount.md") operation and use
 the [adminAccountId](../APIReference/API_DeregisterOrganizationAdminAccount.md#auditmanager-DeregisterOrganizationAdminAccount-request-adminAccountId "../APIReference/API_DeregisterOrganizationAdminAccount.md#auditmanager-DeregisterOrganizationAdminAccount-request-adminAccountId") parameter to specify the account ID of
@@ -122,9 +116,6 @@ _Audit Manager API Reference_. This includes
 information about how to use this operation and parameter in one of the
 language-specific AWS SDKs.
 
-## Additional
+## Additional resources
 
-resources
-
-- [Troubleshooting delegated administrator and
-  AWS Organizations issues](delegated-admin-issues.md "delegated-admin-issues.md")
+- [Troubleshooting delegated administrator and AWS Organizations issues](delegated-admin-issues.md "delegated-admin-issues.md")

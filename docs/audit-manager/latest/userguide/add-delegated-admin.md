@@ -78,11 +78,8 @@ To change your delegated administrator account, see [Changing a delegated admini
 
 To remove your delegated administrator account, see [Removing a delegated administrator](remove-delegated-admin.md "remove-delegated-admin.md").
 
-## Additional
-
-resources
+## Additional resources
 
 - [Creating and
   managing an organization](../../../organizations/latest/userguide/orgs_manage_org.md "../../../organizations/latest/userguide/orgs_manage_org.md")
-- [Troubleshooting delegated administrator and
-  AWS Organizations issues](delegated-admin-issues.md "delegated-admin-issues.md")
+- [Troubleshooting delegated administrator and AWS Organizations issues](delegated-admin-issues.md "delegated-admin-issues.md")

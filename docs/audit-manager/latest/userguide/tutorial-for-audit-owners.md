@@ -1,6 +1,4 @@
-# Tutorial for Audit Owners: Creating an
-
-assessment
+# Tutorial for Audit Owners: Creating an assessment
 
 This tutorial provides an introduction to AWS Audit Manager. In this tutorial, you create an
 assessment using the [AWS Audit Manager Sample Framework](Sample.md "Sample.md"). By creating an
@@ -17,16 +15,12 @@ legal counsel or compliance experts.
 
 ## Prerequisites
 
-###### Before you start this tutorial, make sure that you meet the following
-
-conditions:
+###### Before you start this tutorial, make sure that you meet the following conditions:
 
 - You completed all the prerequisites that are described in [Setting up AWS Audit Manager with the recommended settings](setting-up.md "setting-up.md"). You must use your AWS account and the AWS Audit Manager console
   to complete this tutorial.
 - Your IAM identity is granted with the appropriate permissions to create and manage
-  an assessment in AWS Audit Manager. Two suggested policies that grant these permissions are [Allow users full administrator access to
-  AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2") and [Allow users management access to
-  AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+  an assessment in AWS Audit Manager. Two suggested policies that grant these permissions are [Allow users full administrator access to AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 - You're familiar with Audit Manager terminology and functionality. For a general overview, see
   [What is AWS Audit Manager?](what-is.md "what-is.md") and [Understanding AWS Audit Manager concepts and terminology](concepts.md "concepts.md").
 
@@ -144,8 +138,7 @@ introduced in this tutorial. You can do so by reviewing the following resources:
     an assessment](complete-assessment.md "complete-assessment.md") or [delete an
     assessment](delete-assessment.md "delete-assessment.md")
 
-- **[Using the framework library to manage frameworks in
-  AWS Audit Manager](framework-library.md "framework-library.md") –** Introduces the framework
+- **[Using the framework library to manage frameworks in AWS Audit Manager](framework-library.md "framework-library.md") –** Introduces the framework
   library and explains how to [create a custom
   framework](custom-frameworks.md "custom-frameworks.md") for your own specific compliance needs.
 - **[Using the control library to manage controls in AWS Audit Manager](control-library.md "control-library.md") –** Introduces the control library

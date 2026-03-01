@@ -1,6 +1,4 @@
-# AWS Generative AI Best Practices
-
-Framework v2
+# AWS Generative AI Best Practices Framework v2
 
 ###### Note
 
@@ -35,18 +33,13 @@ the _Amazon SageMaker AI User Guide_.
 
 ###### Topics
 
-- [What are AWS generative AI
-  best practices for Amazon Bedrock?](#what-are-aws-generative-ai-best-practices "#what-are-aws-generative-ai-best-practices")
-- [Using this framework to
-  support your audit preparation](#framework-aws-generative-ai-best-practices "#framework-aws-generative-ai-best-practices")
-- [Manually verifying prompts in
-  Amazon Bedrock](#manual-prompt-verification "#manual-prompt-verification")
+- [What are AWS generative AI best practices for Amazon Bedrock?](#what-are-aws-generative-ai-best-practices "#what-are-aws-generative-ai-best-practices")
+- [Using this framework to support your audit preparation](#framework-aws-generative-ai-best-practices "#framework-aws-generative-ai-best-practices")
+- [Manually verifying prompts in Amazon Bedrock](#manual-prompt-verification "#manual-prompt-verification")
 - [Next steps](#next-steps-aws-generative-ai-best-practices "#next-steps-aws-generative-ai-best-practices")
 - [Additional resources](#resources-aws-generative-ai-best-practices "#resources-aws-generative-ai-best-practices")
 
-## What are AWS generative AI
-
-best practices for Amazon Bedrock?
+## What are AWS generative AI best practices for Amazon Bedrock?
 
 Generative AI refers to a branch of AI that focuses on enabling machines to generate
 content. Generative AI models are designed to create outputs that closely resemble the
@@ -115,9 +108,7 @@ that you’ve implemented mechanisms for the following:
 - Implementing end-to-end encryption for input and output data of the AI models to
   minimum industry standards (_Secure_)
 
-## Using this framework to
-
-support your audit preparation
+## Using this framework to support your audit preparation
 
 ###### Note
 
@@ -168,9 +159,7 @@ compliant with generative AI best practices. Moreover, they can't guarantee that
 pass an audit about your generative AI usage. AWS Audit Manager doesn't automatically check
 procedural controls that require manual evidence collection.
 
-## Manually verifying prompts in
-
-Amazon Bedrock
+## Manually verifying prompts in Amazon Bedrock
 
 You might have different sets of prompts that you need to evaluate against specific
 models. In this case, you can use the `InvokeModel` operation to evaluate each
@@ -304,8 +293,7 @@ list of standard controls that it contains, see [Reviewing a framework in AWS Au
 For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
 
 For instructions on how to customize this framework to support your specific
-requirements, see [Making an editable copy of an
-existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
 
 ## Additional resources
 

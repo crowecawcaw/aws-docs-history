@@ -84,8 +84,7 @@ to a custom framework in Audit Manager.
 
 ## Additional resources
 
-- To find help with issues for this data source type, see [My
-  assessment isn’t collecting compliance check evidence from AWS Config](evidence-collection-issues.md#no-evidence-from-config "evidence-collection-issues.md#no-evidence-from-config") and [AWS Config integration issues](control-issues.md#config-rule-integration.title "control-issues.md#config-rule-integration.title").
+- To find help with issues for this data source type, see [My assessment isn’t collecting compliance check evidence from AWS Config](evidence-collection-issues.md#no-evidence-from-config "evidence-collection-issues.md#no-evidence-from-config") and [AWS Config integration issues](control-issues.md#config-rule-integration.title "control-issues.md#config-rule-integration.title").
 - To create a custom control using this data source type, see [Creating a custom control in AWS Audit Manager](create-controls.md "create-controls.md").
 - To create a custom framework that uses your custom control, see [Creating a custom framework in AWS Audit Manager](custom-frameworks.md "custom-frameworks.md").
 - To add your custom control to an existing custom framework, see [Editing a custom framework in AWS Audit Manager](edit-custom-frameworks.md "edit-custom-frameworks.md").

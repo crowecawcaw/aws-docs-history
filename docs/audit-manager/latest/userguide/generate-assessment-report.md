@@ -20,12 +20,9 @@ download center in Audit Manager.
 For more information about assessment reports and how to manage them, see the following
 resources.
 
-- [Adding evidence to an assessment
-  report](generate-assessment-report-include-evidence.md "generate-assessment-report-include-evidence.md")
-- [Removing evidence from an
-  assessment report](generate-assessment-report-remove-evidence.md "generate-assessment-report-remove-evidence.md")
-- [Generating an assessment
-  report](generate-assessment-report-generation-steps.md "generate-assessment-report-generation-steps.md")
+- [Adding evidence to an assessment report](generate-assessment-report-include-evidence.md "generate-assessment-report-include-evidence.md")
+- [Removing evidence from an assessment report](generate-assessment-report-remove-evidence.md "generate-assessment-report-remove-evidence.md")
+- [Generating an assessment report](generate-assessment-report-generation-steps.md "generate-assessment-report-generation-steps.md")
 - [Downloading an
   assessment report](download-center.md#download-a-file "download-center.md#download-a-file")
 - [Navigating an assessment report and exploring its contents](assessment-reports.md "assessment-reports.md")
@@ -33,7 +30,5 @@ resources.
   an assessment report](../APIReference/API_ValidateAssessmentReportIntegrity.md "../APIReference/API_ValidateAssessmentReportIntegrity.md")
 - [Deleting an assessment report](download-center.md#delete-assessment-report-steps "download-center.md#delete-assessment-report-steps")
 - [Generating assessment reports from your evidence finder search results](exporting-search-results-from-evidence-finder.md#generate-one-time-report-from-search-results "exporting-search-results-from-evidence-finder.md#generate-one-time-report-from-search-results")
-- [Configuring your default assessment report
-  destination](settings-destination.md "settings-destination.md")
-- [Troubleshooting assessment report
-  issues](assessment-report-issues.md "assessment-report-issues.md")
+- [Configuring your default assessment report destination](settings-destination.md "settings-destination.md")
+- [Troubleshooting assessment report issues](assessment-report-issues.md "assessment-report-issues.md")

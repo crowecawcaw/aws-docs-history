@@ -8,10 +8,8 @@ reports the results as compliance check evidence.
 ###### Contents
 
 - [Key points](control-data-sources-ash.md#using-security-hub-controls "control-data-sources-ash.md#using-security-hub-controls")
-- [Supported Security Hub CSPM
-  controls](control-data-sources-ash.md#security-hub-controls-for-custom-control-data-sources "control-data-sources-ash.md#security-hub-controls-for-custom-control-data-sources")
-- [Additional
-  resources](control-data-sources-ash.md#using-security-hub-controls-additional-resources "control-data-sources-ash.md#using-security-hub-controls-additional-resources")
+- [Supported Security Hub CSPM controls](control-data-sources-ash.md#security-hub-controls-for-custom-control-data-sources "control-data-sources-ash.md#security-hub-controls-for-custom-control-data-sources")
+- [Additional resources](control-data-sources-ash.md#using-security-hub-controls-additional-resources "control-data-sources-ash.md#using-security-hub-controls-additional-resources")
 
 ## Key points
 
@@ -445,9 +443,7 @@ from Security Hub CSPM.
 }
 ```
 
-## Supported Security Hub CSPM
-
-controls
+## Supported Security Hub CSPM controls
 
 The following Security Hub CSPM controls are currently supported by Audit Manager. You can use any of the
 following standard-specific control ID keywords when you set up a data source for a custom
@@ -849,12 +845,9 @@ control.
 | AWS Foundational Security Best Practices | WAF.11                                                                        | [WAF.11](../../../securityhub/latest/userguide/waf-controls.md#waf-11 "../../../securityhub/latest/userguide/waf-controls.md#waf-11")                                                               |
 | AWS Foundational Security Best Practices | WAF.12                                                                        | [WAF.12](../../../securityhub/latest/userguide/waf-controls.md#waf-12 "../../../securityhub/latest/userguide/waf-controls.md#waf-12")                                                               |
 
-## Additional
+## Additional resources
 
-resources
-
-- To find help with evidence collection issues for this data source type, see [My assessment isn’t collecting compliance check evidence
-  from AWS Security Hub CSPM](evidence-collection-issues.md#no-evidence-from-security-hub "evidence-collection-issues.md#no-evidence-from-security-hub").
+- To find help with evidence collection issues for this data source type, see [My assessment isn’t collecting compliance check evidence from AWS Security Hub CSPM](evidence-collection-issues.md#no-evidence-from-security-hub "evidence-collection-issues.md#no-evidence-from-security-hub").
 - To create a custom control using this data source type, see [Creating a custom control in AWS Audit Manager](create-controls.md "create-controls.md").
 - To create a custom framework that uses your custom control, see [Creating a custom framework in AWS Audit Manager](custom-frameworks.md "custom-frameworks.md").
 - To add your custom control to an existing custom framework, see [Editing a custom framework in AWS Audit Manager](edit-custom-frameworks.md "edit-custom-frameworks.md").

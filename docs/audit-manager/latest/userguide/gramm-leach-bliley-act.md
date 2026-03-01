@@ -61,5 +61,4 @@ list of standard controls that it contains, see [Reviewing a framework in AWS Au
 For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
 
 For instructions on how to customize this framework to support your specific
-requirements, see [Making an editable copy of an
-existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").

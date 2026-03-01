@@ -6,8 +6,7 @@ or the AWS Command Line Interface (AWS CLI).
 ## Prerequisites
 
 Make sure your IAM identity has appropriate permissions to view controls in
-AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 
@@ -127,5 +126,4 @@ control](delete-controls.md "delete-controls.md") that you no longer need.
 
 - [Reviewing a common control](control-library-review-common-controls.md "control-library-review-common-controls.md")
 - [Reviewing a core control](control-library-review-core-controls.md "control-library-review-core-controls.md")
-- [Reviewing a standard
-  control](control-library-review-standard-controls.md "control-library-review-standard-controls.md")
+- [Reviewing a standard control](control-library-review-standard-controls.md "control-library-review-standard-controls.md")

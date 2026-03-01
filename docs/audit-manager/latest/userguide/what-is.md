@@ -86,8 +86,7 @@ If you're a first-time user of Audit Manager, we recommend that you start with t
 
 1. [Understanding AWS Audit Manager concepts and terminology](concepts.md "concepts.md") – Learn about the key concepts and
    terms used in Audit Manager, such as assessments, frameworks, and controls.
-2. [Understanding how AWS Audit Manager collects
-   evidence](how-evidence-is-collected.md "how-evidence-is-collected.md") –
+2. [Understanding how AWS Audit Manager collects evidence](how-evidence-is-collected.md "how-evidence-is-collected.md") –
    Learn about how Audit Manager gathers evidence for a resource assessment.
 3. [Setting up AWS Audit Manager with the recommended settings](setting-up.md "setting-up.md") – Learn about the setup
    requirements for Audit Manager.

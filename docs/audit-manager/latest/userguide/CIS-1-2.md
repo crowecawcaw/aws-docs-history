@@ -97,9 +97,7 @@ compliant with CIS AWS Benchmark best practices. Moreover, they can't guarantee 
 you'll pass a CIS audit. AWS Audit Manager doesn't automatically check procedural controls that
 require manual evidence collection.
 
-### Prerequisites for using these
-
-frameworks
+### Prerequisites for using these frameworks
 
 Many controls in the CIS AWS Benchmark v1.2 frameworks use AWS Config as a data source
 type. To support these controls, you must [enable AWS Config](../../../config/latest/developerguide/getting-started.md "../../../config/latest/developerguide/getting-started.md") on all
@@ -149,8 +147,7 @@ the list of standard controls that they contain, see [Reviewing a framework in A
 For instructions on how to create an assessment using these frameworks, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
 
 For instructions on how to customize these frameworks to support your specific
-requirements, see [Making an editable copy of an
-existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
 
 ## Additional resources
 

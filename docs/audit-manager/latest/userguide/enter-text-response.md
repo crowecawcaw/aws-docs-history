@@ -1,6 +1,4 @@
-# Entering free-form text responses as manual
-
-evidence
+# Entering free-form text responses as manual evidence
 
 You can provide additional context and supporting information for an assessment control by
 entering free-form text and saving that text as evidence. This allows you to manually document
@@ -19,8 +17,7 @@ and save it as manual evidence for the control.
   control status](change-assessment-control-status.md "change-assessment-control-status.md") to either _under review_ or
   _reviewed_.
 - Make sure your IAM identity has appropriate permissions to manage an assessment in
-  AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-  AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+  AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 

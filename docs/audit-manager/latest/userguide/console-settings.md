@@ -38,16 +38,12 @@ outlined here.
   - [Disabling AWS Audit Manager](disable.md "disable.md")
 
 - **Assessment settings**
-  - [Configuring your default audit
-    owners](settings-default-audit-owner.md "settings-default-audit-owner.md")
-  - [Configuring your default assessment report
-    destination](settings-destination.md "settings-destination.md")
+  - [Configuring your default audit owners](settings-default-audit-owner.md "settings-default-audit-owner.md")
+  - [Configuring your default assessment report destination](settings-destination.md "settings-destination.md")
   - [Configuring your Audit Manager notifications](settings-notifications.md "settings-notifications.md")
 
 - **Evidence finder settings**
   - [Enabling evidence finder](evidence-finder-settings-enable.md "evidence-finder-settings-enable.md")
-  - [Confirming the status of evidence
-    finder](confirm-status-of-evidence-finder.md "confirm-status-of-evidence-finder.md")
-  - [Configuring your default export
-    destination for evidence finder](settings-export-destination.md "settings-export-destination.md")
+  - [Confirming the status of evidence finder](confirm-status-of-evidence-finder.md "confirm-status-of-evidence-finder.md")
+  - [Configuring your default export destination for evidence finder](settings-export-destination.md "settings-export-destination.md")
   - [Disabling evidence finder](evidence-finder-settings-disable.md "evidence-finder-settings-disable.md")

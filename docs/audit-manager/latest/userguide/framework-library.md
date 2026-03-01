@@ -1,6 +1,4 @@
-# Using the framework library to manage frameworks in
-
-AWS Audit Manager
+# Using the framework library to manage frameworks in AWS Audit Manager
 
 You can find and manage frameworks in the framework library in AWS Audit Manager.
 
@@ -47,21 +45,15 @@ here.
 - [Finding the available frameworks in AWS Audit Manager](access-frameworks.md "access-frameworks.md")
 - [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md")
 - [Creating a custom framework in AWS Audit Manager](custom-frameworks.md "custom-frameworks.md")
-  - [Creating a custom framework from
-    scratch in AWS Audit Manager](create-custom-frameworks-from-scratch.md "create-custom-frameworks-from-scratch.md")
-  - [Making an editable copy of an
-    existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md")
+  - [Creating a custom framework from scratch in AWS Audit Manager](create-custom-frameworks-from-scratch.md "create-custom-frameworks-from-scratch.md")
+  - [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md")
 
 - [Editing a custom framework in AWS Audit Manager](edit-custom-frameworks.md "edit-custom-frameworks.md")
 - [Deleting a custom framework in AWS Audit Manager](delete-custom-framework.md "delete-custom-framework.md")
 - [Sharing a custom framework in AWS Audit Manager](share-custom-framework.md "share-custom-framework.md")
-  - [Framework sharing concepts
-    and terminology](share-custom-framework-concepts-and-terminology.md "share-custom-framework-concepts-and-terminology.md")
-  - [Sending request to share a custom framework in
-    AWS Audit Manager](framework-sharing.md "framework-sharing.md")
-  - [Responding to share requests in
-    AWS Audit Manager](responding-to-shared-framework-requests.md "responding-to-shared-framework-requests.md")
-  - [Deleting share requests in
-    AWS Audit Manager](deleting-shared-framework-requests.md "deleting-shared-framework-requests.md")
+  - [Framework sharing concepts and terminology](share-custom-framework-concepts-and-terminology.md "share-custom-framework-concepts-and-terminology.md")
+  - [Sending request to share a custom framework in AWS Audit Manager](framework-sharing.md "framework-sharing.md")
+  - [Responding to share requests in AWS Audit Manager](responding-to-shared-framework-requests.md "responding-to-shared-framework-requests.md")
+  - [Deleting share requests in AWS Audit Manager](deleting-shared-framework-requests.md "deleting-shared-framework-requests.md")
 
 - [Supported frameworks in AWS Audit Manager](framework-overviews.md "framework-overviews.md")

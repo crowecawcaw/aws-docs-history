@@ -1,6 +1,4 @@
-# Submitting a
-
-reviewed control set back to the audit owner
+# Submitting a reviewed control set back to the audit owner
 
 After reviewing the control set, adding comments or additional evidence, and updating
 the status of individual controls, you reach an important step – submitting the reviewed
@@ -12,9 +10,7 @@ and recommendations into the overall assessment.
 
 Make sure your IAM identity has appropriate permissions to submit the reviewed
 control set back to the audit owner in AWS Audit Manager. Two suggested policies that grant these
-permissions are [Allow users full administrator access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+permissions are [Allow users full administrator access to AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 

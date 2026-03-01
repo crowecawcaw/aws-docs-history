@@ -6,7 +6,7 @@ Security (CIS) v7.1 Implementation Group 1.
 ###### Note
 
 For information about CIS v8 IG1and the AWS Audit Manager framework that supports this
-standard, see [CIS Critical Security Controls version 8.0, IG1](CIS-controls-v8.md "CIS-controls-v8.md") .
+standard, see [CIS Critical Security Controls version 8.0, IG1](CIS-controls-v8.md "CIS-controls-v8.md").
 
 ###### Topics
 
@@ -96,8 +96,7 @@ list of standard controls that it contains, see [Reviewing a framework in AWS Au
 For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
 
 For instructions on how to customize this framework to support your specific
-requirements, see [Making an editable copy of an
-existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
 
 ## Additional resources
 

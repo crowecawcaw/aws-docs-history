@@ -32,8 +32,6 @@ cloud and security _in_ the cloud:
 - [Compliance validation for AWS Audit Manager](compliance.md "compliance.md")
 - [Understanding resilience in AWS Audit Manager](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS Audit Manager](infrastructure-security.md "infrastructure-security.md")
-- [AWS Audit Manager and interface VPC endpoints
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [AWS Audit Manager and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Logging and monitoring in AWS Audit Manager](security-logging-and-monitoring.md "security-logging-and-monitoring.md")
-- [Understanding configuration and vulnerability
-  analysis in AWS Audit Manager](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
+- [Understanding configuration and vulnerability analysis in AWS Audit Manager](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")

@@ -1,6 +1,4 @@
-# Viewing your notifications
-
-for incoming delegation requests
+# Viewing your notifications for incoming delegation requests
 
 When an audit owner requests your assistance with reviewing a control set, you receive a
 notification that informs you of the control set that they delegated to you.
@@ -8,9 +6,7 @@ notification that informs you of the control set that they delegated to you.
 ## Prerequisites
 
 Make sure your IAM identity has appropriate permissions to view notifications in
-AWS Audit Manager. Two suggested policies that grant these permissions are [Allow users full administrator access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+AWS Audit Manager. Two suggested policies that grant these permissions are [Allow users full administrator access to AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 
@@ -38,5 +34,4 @@ delegated to you for review. For more information, see [Notifications in AWS Aud
 ## Next steps
 
 When you're ready to start reviewing the controls that were delegated to you, see
-[Reviewing the
-delegated control set and its related evidence](delegation-for-delegates-reviewing-control-set-and-evidence.md "delegation-for-delegates-reviewing-control-set-and-evidence.md").
+[Reviewing the delegated control set and its related evidence](delegation-for-delegates-reviewing-control-set-and-evidence.md "delegation-for-delegates-reviewing-control-set-and-evidence.md").

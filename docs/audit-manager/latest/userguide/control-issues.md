@@ -5,38 +5,21 @@ Audit Manager.
 
 ###### General issues
 
-- [I can’t see any
-  controls or control sets in my assessment](#cannot-view-controls "#cannot-view-controls")
-- [I can’t
-  upload manual evidence to a control](#cannot-upload-manual-evidence "#cannot-upload-manual-evidence")
-- [What does
-  it mean if a control says “Replacement available”?](#control-replacement-available "#control-replacement-available")
+- [I can’t see any controls or control sets in my assessment](#cannot-view-controls "#cannot-view-controls")
+- [I can’t upload manual evidence to a control](#cannot-upload-manual-evidence "#cannot-upload-manual-evidence")
+- [What does it mean if a control says “Replacement available”?](#control-replacement-available "#control-replacement-available")
 
-###### AWS Config
+###### AWS Config integration issues
 
-integration issues
+- [I need to use multiple AWS Config rules as a data source for a single control](#need-to-use-multiple-rules "#need-to-use-multiple-rules")
+- [The custom rule option is unavailable when I’m configuring a control data source](#custom-rule-option-unavailable "#custom-rule-option-unavailable")
+- [The custom rule option is available, but no rules appear in the dropdown list](#no-custom-rules-displayed "#no-custom-rules-displayed")
+- [Some custom rules are available, but I can’t see the rule that I want to use](#custom-rule-missing "#custom-rule-missing")
+- [I can’t see the managed rule that I want to use](#managed-rule-missing "#managed-rule-missing")
+- [I want to share a custom framework, but it has controls that use custom AWS Config rules as a data source. Can the recipient collect evidence for these controls?](#shared-frameworks-with-custom-aws-config-rules "#shared-frameworks-with-custom-aws-config-rules")
+- [What happens when a custom rule is updated in AWS Config? Do I need to take any action in Audit Manager?](#a-rule-is-updated "#a-rule-is-updated")
 
-- [I need to
-  use multiple AWS Config rules as a data source for a single control](#need-to-use-multiple-rules "#need-to-use-multiple-rules")
-- [The
-  custom rule option is unavailable when I’m configuring a control data
-  source](#custom-rule-option-unavailable "#custom-rule-option-unavailable")
-- [The custom
-  rule option is available, but no rules appear in the dropdown list](#no-custom-rules-displayed "#no-custom-rules-displayed")
-- [Some custom
-  rules are available, but I can’t see the rule that I want to use](#custom-rule-missing "#custom-rule-missing")
-- [I can’t see the
-  managed rule that I want to use](#managed-rule-missing "#managed-rule-missing")
-- [I want to share a custom framework, but it
-  has controls that use custom AWS Config rules as a data source. Can the recipient
-  collect evidence for these controls?](#shared-frameworks-with-custom-aws-config-rules "#shared-frameworks-with-custom-aws-config-rules")
-- [What happens when
-  a custom rule is updated in AWS Config? Do I need to take any action in
-  Audit Manager?](#a-rule-is-updated "#a-rule-is-updated")
-
-## I can’t see any
-
-controls or control sets in my assessment
+## I can’t see any controls or control sets in my assessment
 
 In short, to view the controls for an assessment, you must be specified as an
 audit owner for that assessment. Moreover, you need the necessary IAM permissions
@@ -53,16 +36,13 @@ IAM identity, see [Adding Permissions to a User](../../../IAM/latest/UserGuide/i
 removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _IAM
 User Guide_.
 
-## I can’t
-
-upload manual evidence to a control
+## I can’t upload manual evidence to a control
 
 If you can't manually upload evidence to a control, it's likely because the
 control is in _inactive_ status.
 
 To upload manual evidence to a control, you must first change the control status
-to either _Under review_ or _Reviewed_. For instructions, see [Changing the status of an assessment control
-in AWS Audit Manager](change-assessment-control-status.md "change-assessment-control-status.md").
+to either _Under review_ or _Reviewed_. For instructions, see [Changing the status of an assessment control in AWS Audit Manager](change-assessment-control-status.md "change-assessment-control-status.md").
 
 ###### Important
 
@@ -72,9 +52,7 @@ uploads to fail for that control. If you need to upload a large amount of manual
 evidence to a single control, upload your evidence in batches across several
 days.
 
-## What does
-
-it mean if a control says “Replacement available”?
+## What does it mean if a control says “Replacement available”?
 
 ![Screenshot of the pop-up message that prompts you to recreate your assessment.](images/troubleshooting-control-replacement-available-console.png)
 
@@ -83,22 +61,16 @@ available for one or more of the standard controls in your custom framework. We
 recommend that you replace these controls so that you can benefit from the improved
 evidence sources that Audit Manager now provides.
 
-For instructions on how to proceed, see [On my custom framework details page, I’m prompted to
-recreate my custom framework](framework-issues.md#recreate-framework-post-common-controls "framework-issues.md#recreate-framework-post-common-controls").
+For instructions on how to proceed, see [On my custom framework details page, I’m prompted to recreate my custom framework](framework-issues.md#recreate-framework-post-common-controls "framework-issues.md#recreate-framework-post-common-controls").
 
-## I need to
-
-use multiple AWS Config rules as a data source for a single control
+## I need to use multiple AWS Config rules as a data source for a single control
 
 You can use a combination of managed rules and custom rules for a single control.
 To do this, define multiple evidence sources for the control, and select your
 preferred rule type for each one. You can define up to 100 customer managed data
 sources for a single custom control.
 
-## The
-
-custom rule option is unavailable when I’m configuring a control data
-source
+## The custom rule option is unavailable when I’m configuring a control data source
 
 This means that you don't have permissions to view custom rules for your
 AWS account or organization. More specifically, you don't have permissions to
@@ -107,9 +79,7 @@ perform the [DescribeConfigRules](../../../config/latest/APIReference/API_Descri
 To resolve this issue, contact your AWS administrator for help. If you're an
 AWS administrator, you can provide permissions for your users or groups by [managing your IAM policies](../../../IAM/latest/UserGuide/access_policies_manage.md "../../../IAM/latest/UserGuide/access_policies_manage.md").
 
-## The custom
-
-rule option is available, but no rules appear in the dropdown list
+## The custom rule option is available, but no rules appear in the dropdown list
 
 This means that no custom rules are enabled and available for use in your
 AWS account or organization.
@@ -122,9 +92,7 @@ Guide_.
 If you're expecting to see a custom rule, check the following troubleshooting
 item.
 
-## Some custom
-
-rules are available, but I can’t see the rule that I want to use
+## Some custom rules are available, but I can’t see the rule that I want to use
 
 If you can’t see the custom rule that you’re expecting to find, this could be due
 to one of the following issues.
@@ -176,9 +144,7 @@ rules.
 
 ![The same rule that's found in the managed rule dropdown list in the Audit Manager console.](images/control_data_source-managed_rule-console.png)
 
-## I can’t see the
-
-managed rule that I want to use
+## I can’t see the managed rule that I want to use
 
 Before you select a rule from the dropdown list in the Audit Manager console, make sure
 that you selected **Managed rule** as the rule type.
@@ -222,10 +188,7 @@ the dropdown list.
 
 ![A managed rule identifier as shown in the Audit Manager console.](images/ruleidentifier-console.png)
 
-## I want to share a custom framework, but it
-
-has controls that use custom AWS Config rules as a data source. Can the recipient
-collect evidence for these controls?
+## I want to share a custom framework, but it has controls that use custom AWS Config rules as a data source. Can the recipient collect evidence for these controls?
 
 Yes, the recipient can collect evidence for these controls, but a few steps are
 needed to achieve this.
@@ -246,10 +209,7 @@ must create the same custom rules in their instance of AWS Config. After the rec
 We recommend that you communicate with the recipient to let them know if any
 custom rules need to be created in their instance of AWS Config.
 
-## What happens when
-
-a custom rule is updated in AWS Config? Do I need to take any action in
-Audit Manager?
+## What happens when a custom rule is updated in AWS Config? Do I need to take any action in Audit Manager?
 
 ###### For rule updates within your AWS environment
 

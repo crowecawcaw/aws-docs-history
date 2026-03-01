@@ -10,14 +10,11 @@ store in CloudTrail Lake for this functionality.
 
 ## Prerequisites
 
-### Required permissions to
-
-enable evidence finder
+### Required permissions to enable evidence finder
 
 To enable evidence finder, you need permissions to create and manage an event
 data store in CloudTrail Lake. To use the feature, you need permissions to perform
-CloudTrail Lake queries. For an example permission policy that you can use, see [Example 3
-(Permissions to enable evidence finder)](security_iam_id-based-policy-examples.md#full-administrator-access-enable-evidence-finder "security_iam_id-based-policy-examples.md#full-administrator-access-enable-evidence-finder").
+CloudTrail Lake queries. For an example permission policy that you can use, see [Example 3 (Permissions to enable evidence finder)](security_iam_id-based-policy-examples.md#full-administrator-access-enable-evidence-finder "security_iam_id-based-policy-examples.md#full-administrator-access-enable-evidence-finder").
 
 If you need help with permissions, contact your AWS administrator. If you’re
 an AWS administrator, you can copy the required permission statement and
@@ -25,9 +22,7 @@ an AWS administrator, you can copy the required permission statement and
 
 ## Procedure
 
-### Requesting to enable evidence
-
-finder
+### Requesting to enable evidence finder
 
 You can complete this task using the Audit Manager console, the AWS Command Line Interface (AWS CLI), or
 the Audit Manager API.
@@ -39,9 +34,7 @@ search for evidence.
 
 Audit Manager console
 
-###### To request to enable evidence finder on the Audit Manager
-
-console
+###### To request to enable evidence finder on the Audit Manager console
 
 1. Open the AWS Audit Manager console at [https://console.aws.amazon.com/auditmanager/home](https://console.aws.amazon.com/auditmanager/home "https://console.aws.amazon.com/auditmanager/home").
 2. From the **Evidence finder** settings
@@ -82,12 +75,9 @@ in one of the language-specific AWS SDKs.
 ## Next steps
 
 After you've requested to enable evidence finder, you can check the status of your
-request. For instructions, see [Confirming the status of evidence
-finder](confirm-status-of-evidence-finder.md "confirm-status-of-evidence-finder.md").
+request. For instructions, see [Confirming the status of evidence finder](confirm-status-of-evidence-finder.md "confirm-status-of-evidence-finder.md").
 
-## Additional
-
-resources
+## Additional resources
 
 - [Evidence finder](evidence-finder.md "evidence-finder.md")
 - [Troubleshooting evidence finder issues](evidence-finder-issues.md "evidence-finder-issues.md")

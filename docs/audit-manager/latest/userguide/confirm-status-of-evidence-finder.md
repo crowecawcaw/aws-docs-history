@@ -1,6 +1,4 @@
-# Confirming the status of evidence
-
-finder
+# Confirming the status of evidence finder
 
 After you submit your request to enable evidence finder, it takes up to 10 minutes to
 enable the feature and create an event data store. As soon as the event data store is
@@ -25,9 +23,7 @@ AWS CLI, or the Audit Manager API.
 
 Audit Manager console
 
-###### To see the current status of evidence finder on the Audit Manager
-
-console
+###### To see the current status of evidence finder on the Audit Manager console
 
 1. Open the AWS Audit Manager console at [https://console.aws.amazon.com/auditmanager/home](https://console.aws.amazon.com/auditmanager/home "https://console.aws.amazon.com/auditmanager/home").
 2. In the left navigation pane, choose
@@ -92,9 +88,7 @@ backfill.
 
 Audit Manager API
 
-###### To see the current status of evidence finder using the
-
-API
+###### To see the current status of evidence finder using the API
 
 Call the [GetSettings](../APIReference/API_GetSettings.md "../APIReference/API_GetSettings.md") operation with the `attribute`
 parameter set to `EVIDENCE_FINDER_ENABLEMENT`. This
@@ -141,11 +135,8 @@ recommend waiting seven days until the event data store is backfilled with your 
 evidence data. You can use evidence finder in the meantime, but not all data might
 be available until the backfill is complete.
 
-To get started with evidence finder, see [Searching for evidence in evidence
-finder](search-for-evidence-in-evidence-finder.md "search-for-evidence-in-evidence-finder.md").
+To get started with evidence finder, see [Searching for evidence in evidence finder](search-for-evidence-in-evidence-finder.md "search-for-evidence-in-evidence-finder.md").
 
-## Additional
-
-resources
+## Additional resources
 
 - [Troubleshooting evidence finder issues](evidence-finder-issues.md "evidence-finder-issues.md")

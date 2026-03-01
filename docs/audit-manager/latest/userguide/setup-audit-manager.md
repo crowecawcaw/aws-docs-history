@@ -140,5 +140,4 @@ Output example:
 
 After you enable Audit Manager, we recommend that you set up some recommended features and
 integrations for an optimal experience. For more information, see
-[Enabling the recommended features and
-AWS services for AWS Audit Manager](setup-recommendations.md "setup-recommendations.md").
+[Enabling the recommended features and AWS services for AWS Audit Manager](setup-recommendations.md "setup-recommendations.md").

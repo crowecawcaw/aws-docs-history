@@ -1,6 +1,4 @@
-# Cross-service confused deputy
-
-prevention
+# Cross-service confused deputy prevention
 
 The confused deputy problem is a security issue where an entity that doesn't have
 permission to perform an action can coerce a more-privileged entity to perform the
@@ -44,9 +42,7 @@ specify all of your Audit Manager resources in your SNS topic access policy.
   characters (`*`) for the unknown portions of the ARN. For example,
   `arn:aws:`servicename`:*:`123456789012`:*`.
 
-## Audit Manager confused deputy
-
-support
+## Audit Manager confused deputy support
 
 Audit Manager provides confused deputy support in the following scenarios. These policy
 examples show how you can use the `aws:SourceArn` and

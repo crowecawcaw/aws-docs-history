@@ -29,8 +29,6 @@ knowledge, and maintain a comprehensive and well-informed audit process within A
 
 ###### Audit owner tasks
 
-- [Delegating a control
-  set for review in AWS Audit Manager](delegation-for-audit-owners-delegating-a-control-set.md "delegation-for-audit-owners-delegating-a-control-set.md")
-- [Finding and reviewing
-  the delegations that you've sent in AWS Audit Manager](delegation-for-audit-owners-reviewing-delegations.md "delegation-for-audit-owners-reviewing-delegations.md")
+- [Delegating a control set for review in AWS Audit Manager](delegation-for-audit-owners-delegating-a-control-set.md "delegation-for-audit-owners-delegating-a-control-set.md")
+- [Finding and reviewing the delegations that you've sent in AWS Audit Manager](delegation-for-audit-owners-reviewing-delegations.md "delegation-for-audit-owners-reviewing-delegations.md")
 - [Deleting your completed delegations in AWS Audit Manager](delegation-for-audit-owners-cancel-delegations.md "delegation-for-audit-owners-cancel-delegations.md")

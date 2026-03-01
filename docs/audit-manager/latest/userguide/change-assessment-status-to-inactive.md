@@ -1,6 +1,4 @@
-# Changing the status of an assessment to
-
-inactive in AWS Audit Manager
+# Changing the status of an assessment to inactive in AWS Audit Manager
 
 When you no longer need to collect evidence for an assessment, you can change the assessment
 status to _Inactive_. When the status of an assessment changes
@@ -21,8 +19,7 @@ The following procedure assumes that you have previously created an assessment, 
 current status is active.
 
 Make sure your IAM identity has appropriate permissions to manage an assessment in
-AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 

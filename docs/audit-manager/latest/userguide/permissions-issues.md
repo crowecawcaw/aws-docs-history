@@ -1,32 +1,23 @@
-# Troubleshooting permission and access
-
-issues
+# Troubleshooting permission and access issues
 
 You can use the information on this page to resolve common permission issues in
 Audit Manager.
 
 ###### Topics
 
-- [I followed the Audit Manager setup procedure,
-  but I don't have enough IAM privileges](#insufficient-iam-privileges "#insufficient-iam-privileges")
-- [I specified someone as an audit owner,
-  but they still don’t have full access to the assessment. Why is this?](#audit-owner-missing-access "#audit-owner-missing-access")
+- [I followed the Audit Manager setup procedure, but I don't have enough IAM privileges](#insufficient-iam-privileges "#insufficient-iam-privileges")
+- [I specified someone as an audit owner, but they still don’t have full access to the assessment. Why is this?](#audit-owner-missing-access "#audit-owner-missing-access")
 - [I can't perform an action in Audit Manager](#cannot-perform-action "#cannot-perform-action")
-- [I want to allow people outside
-  of my AWS account to access my Audit Manager resources](#want-to-allow-access-to-resources "#want-to-allow-access-to-resources")
-- [I see an Access Denied error, despite
-  having the required Audit Manager permissions](#access-denied-due-to-scp "#access-denied-due-to-scp")
+- [I want to allow people outside of my AWS account to access my Audit Manager resources](#want-to-allow-access-to-resources "#want-to-allow-access-to-resources")
+- [I see an Access Denied error, despite having the required Audit Manager permissions](#access-denied-due-to-scp "#access-denied-due-to-scp")
 - [Additional resources](#permissions-see-also "#permissions-see-also")
 
-## I followed the Audit Manager setup procedure,
-
-but I don't have enough IAM privileges
+## I followed the Audit Manager setup procedure, but I don't have enough IAM privileges
 
 The user, role, or group that you use to access Audit Manager must have the required
 permissions. Moreover, your identity-based policy shouldn't be too restrictive.
 Otherwise, the console won't function as intended. This guide provides an example
-policy that you can use to [Allow the minimum
-permissions required to enable Audit Manager](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console"). Depending on
+policy that you can use to [Allow the minimum permissions required to enable Audit Manager](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console"). Depending on
 your use case, you might need broader, less restrictive permissions. For example, we
 recommend that audit owners have [administrator access](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md"). This is so that they can modify Audit Manager settings and
 manage resources such as assessments, frameworks, controls, and assessment reports.
@@ -41,9 +32,7 @@ specific requirements. If you need help with IAM permissions, contact your
 administrator or [AWS
 Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## I specified someone as an audit owner,
-
-but they still don’t have full access to the assessment. Why is this?
+## I specified someone as an audit owner, but they still don’t have full access to the assessment. Why is this?
 
 Specifying someone as an audit owner alone doesn't provide them with full access
 to an assessment. Audit owners must also have the necessary IAM permissions to
@@ -65,9 +54,7 @@ error.
 To resolve this issue, you must contact your administrator for assistance. Your
 administrator is the person that provided you with your sign-in credentials.
 
-## I want to allow people outside
-
-of my AWS account to access my Audit Manager resources
+## I want to allow people outside of my AWS account to access my Audit Manager resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant
@@ -84,9 +71,7 @@ To learn more, consult the following:
 - To learn the difference between using roles and resource-based policies for cross-account access, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
   _IAM User Guide_.
 
-## I see an Access Denied error, despite
-
-having the required Audit Manager permissions
+## I see an Access Denied error, despite having the required Audit Manager permissions
 
 If your account is a part of an organization, it’s possible that the `Access
  Denied` error is caused by a [service
@@ -142,20 +127,11 @@ To resolve this issue, we recommend that you take the following steps:
 The following pages contain troubleshooting guidance for other issues that can be
 caused by missing permissions:
 
-- [I can’t see any
-  controls or control sets in my assessment](control-issues.md#cannot-view-controls "control-issues.md#cannot-view-controls")
-- [The
-  custom rule option is unavailable when I’m configuring a control data
-  source](control-issues.md#custom-rule-option-unavailable "control-issues.md#custom-rule-option-unavailable")
-- [I get an access denied error when I try to generate a
-  report](assessment-report-issues.md#assessment-report-access-denied-error "assessment-report-issues.md#assessment-report-access-denied-error")
-- [I get an access denied error when I try to generate an
-  assessment report using my delegated administrator account](delegated-admin-issues.md#delegated-admin-access-denied-error "delegated-admin-issues.md#delegated-admin-access-denied-error")
-- [I can't
-  enable evidence finder](evidence-finder-issues.md#cannot-enable-evidence-finder "evidence-finder-issues.md#cannot-enable-evidence-finder")
-- [I can't
-  disable evidence finder](evidence-finder-issues.md#cannot-disable-evidence-finder "evidence-finder-issues.md#cannot-disable-evidence-finder")
-- [My search query
-  fails](evidence-finder-issues.md#cannot-start-query "evidence-finder-issues.md#cannot-start-query")
-- [I specified an Amazon SNS topic in Audit Manager, but I'm
-  not receiving any notifications](notification-issues.md#missing-notifications "notification-issues.md#missing-notifications")
+- [I can’t see any controls or control sets in my assessment](control-issues.md#cannot-view-controls "control-issues.md#cannot-view-controls")
+- [The custom rule option is unavailable when I’m configuring a control data source](control-issues.md#custom-rule-option-unavailable "control-issues.md#custom-rule-option-unavailable")
+- [I get an access denied error when I try to generate a report](assessment-report-issues.md#assessment-report-access-denied-error "assessment-report-issues.md#assessment-report-access-denied-error")
+- [I get an access denied error when I try to generate an assessment report using my delegated administrator account](delegated-admin-issues.md#delegated-admin-access-denied-error "delegated-admin-issues.md#delegated-admin-access-denied-error")
+- [I can't enable evidence finder](evidence-finder-issues.md#cannot-enable-evidence-finder "evidence-finder-issues.md#cannot-enable-evidence-finder")
+- [I can't disable evidence finder](evidence-finder-issues.md#cannot-disable-evidence-finder "evidence-finder-issues.md#cannot-disable-evidence-finder")
+- [My search query fails](evidence-finder-issues.md#cannot-start-query "evidence-finder-issues.md#cannot-start-query")
+- [I specified an Amazon SNS topic in Audit Manager, but I'm not receiving any notifications](notification-issues.md#missing-notifications "notification-issues.md#missing-notifications")

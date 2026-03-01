@@ -33,11 +33,7 @@ standard frameworks are not eligible for sharing and learn more, see [Framework 
 To learn more about how to share custom frameworks in Audit Manager, see the following
 resources.
 
-- [Framework sharing concepts
-  and terminology](share-custom-framework-concepts-and-terminology.md "share-custom-framework-concepts-and-terminology.md")
-- [Sending request to share a custom framework in
-  AWS Audit Manager](framework-sharing.md "framework-sharing.md")
-- [Responding to share requests in
-  AWS Audit Manager](responding-to-shared-framework-requests.md "responding-to-shared-framework-requests.md")
-- [Deleting share requests in
-  AWS Audit Manager](deleting-shared-framework-requests.md "deleting-shared-framework-requests.md")
+- [Framework sharing concepts and terminology](share-custom-framework-concepts-and-terminology.md "share-custom-framework-concepts-and-terminology.md")
+- [Sending request to share a custom framework in AWS Audit Manager](framework-sharing.md "framework-sharing.md")
+- [Responding to share requests in AWS Audit Manager](responding-to-shared-framework-requests.md "responding-to-shared-framework-requests.md")
+- [Deleting share requests in AWS Audit Manager](deleting-shared-framework-requests.md "deleting-shared-framework-requests.md")

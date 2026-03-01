@@ -63,9 +63,7 @@ This control describes what's expected to be applied within your organization.
 However, it doesn't describe how to apply it for the systems and workloads that you're
 running, regardless of where they are.
 
-## Using these frameworks to support your audit
-
-preparation
+## Using these frameworks to support your audit preparation
 
 You can use the CIS AWS Benchmark v1.4.0 frameworks in AWS Audit Manager to help you prepare
 for CIS audits. You can also customize these frameworks and their controls to support
@@ -115,8 +113,7 @@ the list of standard controls that they contain, see [Reviewing a framework in A
 For instructions on how to create an assessment using these frameworks, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
 
 For instructions on how to customize these frameworks to support your specific
-requirements, see [Making an editable copy of an
-existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
 
 ## Additional resources
 

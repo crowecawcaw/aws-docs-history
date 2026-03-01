@@ -1,6 +1,4 @@
-# Marking a control as
-
-reviewed in AWS Audit Manager
+# Marking a control as reviewed in AWS Audit Manager
 
 You can indicate your review progress by updating the status of individual controls
 within a control set.
@@ -13,9 +11,7 @@ controls back to the audit owner.
 ## Prerequisites
 
 Make sure your IAM identity has appropriate permissions to update an assessment
-control status in AWS Audit Manager. Two suggested policies that grant these permissions are [Allow users full administrator access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+control status in AWS Audit Manager. Two suggested policies that grant these permissions are [Allow users full administrator access to AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 
@@ -37,10 +33,7 @@ AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "s
 9. In the pop-up window that appears, choose **Update control
    status** to confirm that you finished reviewing the control.
 
-## Next
-
-steps
+## Next steps
 
 To complete the delegation process, see
-[Submitting a
-reviewed control set back to the audit owner](delegation-for-delegates-submitting-back-to-audit-owner.md "delegation-for-delegates-submitting-back-to-audit-owner.md").
+[Submitting a reviewed control set back to the audit owner](delegation-for-delegates-submitting-back-to-audit-owner.md "delegation-for-delegates-submitting-back-to-audit-owner.md").

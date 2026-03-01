@@ -10,15 +10,12 @@ supports this standard, see [HIPAA Security Rule: Feb 2003](HIPAA.md "HIPAA.md")
 
 ###### Topics
 
-- [What is HIPAA and the HIPAA Final Omnibus
-  Security Rule?](#what-is-HIPAA-omnibus-rule "#what-is-HIPAA-omnibus-rule")
+- [What is HIPAA and the HIPAA Final Omnibus Security Rule?](#what-is-HIPAA-omnibus-rule "#what-is-HIPAA-omnibus-rule")
 - [Using this framework](#framework-HIPAA "#framework-HIPAA")
 - [Next steps](#next-steps-HIPAA-omnibus-rule "#next-steps-HIPAA-omnibus-rule")
 - [Additional resources](#resources-HIPAA-omnibus-rule "#resources-HIPAA-omnibus-rule")
 
-## What is HIPAA and the HIPAA Final Omnibus
-
-Security Rule?
+## What is HIPAA and the HIPAA Final Omnibus Security Rule?
 
 HIPAA is legislation that helps US workers to retain health insurance coverage when
 they change or lose jobs. The legislation also seeks to encourage electronic health
@@ -100,8 +97,7 @@ list of standard controls that it contains, see [Reviewing a framework in AWS Au
 For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
 
 For instructions on how to customize this framework to support your specific
-requirements, see [Making an editable copy of an
-existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
 
 ## Additional resources
 

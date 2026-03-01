@@ -35,31 +35,23 @@ here.
 - [Reviewing an assessment in AWS Audit Manager](review-assessment.md "review-assessment.md")
   - [Reviewing assessment details in AWS Audit Manager](review-assessments.md "review-assessments.md")
   - [Reviewing an assessment control in AWS Audit Manager](review-controls.md "review-controls.md")
-  - [Reviewing an evidence folder in
-    AWS Audit Manager](review-evidence-folders-detail.md "review-evidence-folders-detail.md")
+  - [Reviewing an evidence folder in AWS Audit Manager](review-evidence-folders-detail.md "review-evidence-folders-detail.md")
   - [Reviewing evidence in AWS Audit Manager](review-evidence.md "review-evidence.md")
 
 - [Editing an assessment in AWS Audit Manager](edit-assessment.md "edit-assessment.md")
-  - [Changing the status of an assessment control
-    in AWS Audit Manager](change-assessment-control-status.md "change-assessment-control-status.md")
-  - [Changing the status of an assessment to
-    inactive in AWS Audit Manager](change-assessment-status-to-inactive.md "change-assessment-status-to-inactive.md")
+  - [Changing the status of an assessment control in AWS Audit Manager](change-assessment-control-status.md "change-assessment-control-status.md")
+  - [Changing the status of an assessment to inactive in AWS Audit Manager](change-assessment-status-to-inactive.md "change-assessment-status-to-inactive.md")
 
 - [Adding manual evidence in AWS Audit Manager](upload-evidence.md "upload-evidence.md")
   - [Importing manual evidence files from Amazon S3](import-from-s3.md "import-from-s3.md")
   - [Uploading manual evidence files from your browser](upload-from-computer.md "upload-from-computer.md")
-  - [Entering free-form text responses as manual
-    evidence](enter-text-response.md "enter-text-response.md")
-  - [Supported file formats for manual
-    evidence](supported-manual-evidence-files.md "supported-manual-evidence-files.md")
+  - [Entering free-form text responses as manual evidence](enter-text-response.md "enter-text-response.md")
+  - [Supported file formats for manual evidence](supported-manual-evidence-files.md "supported-manual-evidence-files.md")
 
 - [Preparing an assessment report in AWS Audit Manager](generate-assessment-report.md "generate-assessment-report.md")
-  - [Adding evidence to an assessment
-    report](generate-assessment-report-include-evidence.md "generate-assessment-report-include-evidence.md")
-  - [Removing evidence from an
-    assessment report](generate-assessment-report-remove-evidence.md "generate-assessment-report-remove-evidence.md")
-  - [Generating an assessment
-    report](generate-assessment-report-generation-steps.md "generate-assessment-report-generation-steps.md")
+  - [Adding evidence to an assessment report](generate-assessment-report-include-evidence.md "generate-assessment-report-include-evidence.md")
+  - [Removing evidence from an assessment report](generate-assessment-report-remove-evidence.md "generate-assessment-report-remove-evidence.md")
+  - [Generating an assessment report](generate-assessment-report-generation-steps.md "generate-assessment-report-generation-steps.md")
   - [Downloading an
     assessment report from the download center](download-center.md#download-a-file "download-center.md#download-a-file")
   - [Navigating an assessment report and exploring its contents](assessment-reports.md "assessment-reports.md")

@@ -1,6 +1,4 @@
-# Resource-based policy
-
-examples for AWS Audit Manager
+# Resource-based policy examples for AWS Audit Manager
 
 ## Amazon S3 bucket policy
 

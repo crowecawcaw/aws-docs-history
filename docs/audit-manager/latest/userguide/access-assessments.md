@@ -18,8 +18,7 @@ If you haven’t created an assessment yet, you won’t see any results when you
 steps.
 
 Make sure your IAM identity has appropriate permissions to view an assessment in
-AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 
@@ -72,5 +71,4 @@ assessment](delete-assessment.md "delete-assessment.md"), or [create an assessme
 
 ## Additional resources
 
-For solutions to assessment issues in Audit Manager, see [Troubleshooting assessment and evidence
-collection issues](evidence-collection-issues.md "evidence-collection-issues.md").
+For solutions to assessment issues in Audit Manager, see [Troubleshooting assessment and evidence collection issues](evidence-collection-issues.md "evidence-collection-issues.md").

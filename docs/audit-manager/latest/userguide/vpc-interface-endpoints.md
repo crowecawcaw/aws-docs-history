@@ -1,6 +1,4 @@
-# AWS Audit Manager and interface VPC endpoints
-
-(AWS PrivateLink)
+# AWS Audit Manager and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and AWS Audit Manager by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you to
@@ -15,18 +13,14 @@ For more information, see [Interface VPC
 endpoints (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for AWS Audit Manager VPC
-
-endpoints
+## Considerations for AWS Audit Manager VPC endpoints
 
 Before you set up an interface VPC endpoint for AWS Audit Manager, ensure that you review [Interface endpoint
 properties and limitations](../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations") in the _Amazon VPC User Guide_.
 
 AWS Audit Manager supports making calls to all of its API actions from your VPC.
 
-## Creating an interface VPC endpoint for
-
-AWS Audit Manager
+## Creating an interface VPC endpoint for AWS Audit Manager
 
 You can create a VPC endpoint for the AWS Audit Manager service using either the Amazon VPC console
 or the AWS Command Line Interface (AWS CLI). For more information, see [Creating an

@@ -1,6 +1,4 @@
-# Generating an assessment
-
-report
+# Generating an assessment report
 
 When you're ready to generate your assessment report, follow these steps.
 
@@ -10,8 +8,7 @@ Before you can generate an assessment report, you must add at least one piece of
 to your assessment report. You can either add an entire evidence folder, or you can add
 individual evidence items from within a folder.
 
-To ensure that your assessment report is generated successfully, review our [Configuration tips
-for your assessment report destination](settings-destination.md#settings-assessment-report-destination-tips "settings-destination.md#settings-assessment-report-destination-tips").
+To ensure that your assessment report is generated successfully, review our [Configuration tips for your assessment report destination](settings-destination.md#settings-assessment-report-destination-tips "settings-destination.md#settings-assessment-report-destination-tips").
 
 ## Procedure
 
@@ -34,9 +31,7 @@ page of the Audit Manager console.
     * Alternatively, you can go to your assessment report destination S3 bucket and download
      the assessment report from there.
 
-## Next
-
-steps
+## Next steps
 
 After you generate an assessment report, you can learn more about the following:
 
@@ -53,9 +48,6 @@ After you generate an assessment report, you can learn more about the following:
 - **Generate assessment reports from evidence finder**
   – Learn how to [generate assessment reports from your evidence finder search results](viewing-search-results-in-evidence-finder.md#generate-one-time-report-from-search-results "viewing-search-results-in-evidence-finder.md#generate-one-time-report-from-search-results").
 
-## Additional
+## Additional resources
 
-resources
-
-To find answers to common questions and issues, see [Troubleshooting assessment report
-issues](assessment-report-issues.md "assessment-report-issues.md") in the _Troubleshooting_ section of this guide.
+To find answers to common questions and issues, see [Troubleshooting assessment report issues](assessment-report-issues.md "assessment-report-issues.md") in the _Troubleshooting_ section of this guide.

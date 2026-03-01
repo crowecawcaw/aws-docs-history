@@ -1,6 +1,4 @@
-# NIST Cybersecurity Framework
-
-v1.1
+# NIST Cybersecurity Framework v1.1
 
 AWS Audit Manager provides a prebuilt framework that supports the NIST Cybersecurity Framework
 (CSF) v1.1.
@@ -12,15 +10,12 @@ AWS Audit Manager provides a prebuilt framework that supports the NIST Cybersecu
 
 ###### Topics
 
-- [What is the NIST Cybersecurity
-  Framework?](#what-is-NIST-Cybersecurity-Framework-v1-1 "#what-is-NIST-Cybersecurity-Framework-v1-1")
+- [What is the NIST Cybersecurity Framework?](#what-is-NIST-Cybersecurity-Framework-v1-1 "#what-is-NIST-Cybersecurity-Framework-v1-1")
 - [Using this framework](#framework-NIST-Cybersecurity-Framework-v1-1 "#framework-NIST-Cybersecurity-Framework-v1-1")
 - [Next steps](#next-steps-NIST-Cybersecurity-Framework-v1-1 "#next-steps-NIST-Cybersecurity-Framework-v1-1")
 - [Additional resources](#resources-NIST-Cybersecurity-Framework-v1-1 "#resources-NIST-Cybersecurity-Framework-v1-1")
 
-## What is the NIST Cybersecurity
-
-Framework?
+## What is the NIST Cybersecurity Framework?
 
 The [National Institute of Standards and Technology
 (NIST)](https://www.nist.gov/ "https://www.nist.gov/") was founded in 1901 and is now part of the U.S. Department of Commerce.
@@ -96,8 +91,7 @@ list of standard controls that it contains, see [Reviewing a framework in AWS Au
 For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
 
 For instructions on how to customize this framework to support your specific
-requirements, see [Making an editable copy of an
-existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
 
 ## Additional resources
 

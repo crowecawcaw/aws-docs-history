@@ -1,6 +1,4 @@
-# Creating a custom framework from
-
-scratch in AWS Audit Manager
+# Creating a custom framework from scratch in AWS Audit Manager
 
 When your organization's compliance requirements don't align with the pre-built standard
 frameworks that are available in AWS Audit Manager, you can create your own custom framework from
@@ -12,8 +10,7 @@ specific needs.
 ## Prerequisites
 
 Make sure your IAM identity has appropriate permissions to create a custom framework
-in AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+in AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 
@@ -96,8 +93,6 @@ To revisit your custom framework at a later date, see [Finding the available fra
 steps to locate your custom framework so that you can then view, edit, share, or delete
 it.
 
-## Additional
-
-resources
+## Additional resources
 
 For solutions to framework issues in Audit Manager, see [Troubleshooting framework issues](framework-issues.md "framework-issues.md").

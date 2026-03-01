@@ -20,8 +20,7 @@ If you haven’t created an assessment yet, you won’t see any results when you
 steps.
 
 Make sure your IAM identity has appropriate permissions to view an assessment in
-AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 Keep in mind that it takes up to 24 hours for an assessment to start collecting automated
 evidence. If your assessment has no evidence yet, you won’t see any results when you follow
@@ -98,5 +97,4 @@ In this section, you can review the following information:
 
 ## Additional resources
 
-- For solutions to evidence issues in Audit Manager, see [Troubleshooting assessment and evidence
-  collection issues](evidence-collection-issues.md "evidence-collection-issues.md").
+- For solutions to evidence issues in Audit Manager, see [Troubleshooting assessment and evidence collection issues](evidence-collection-issues.md "evidence-collection-issues.md").

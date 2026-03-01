@@ -42,9 +42,7 @@ v3.2.1 and v4.0. These updates are broken into three categories:
    content, including combining, separating, and renumbering of requirements to align
    content.
 
-## Using this framework to support your audit
-
-preparation
+## Using this framework to support your audit preparation
 
 ###### Note
 
@@ -98,8 +96,7 @@ list of standard controls that it contains, see [Reviewing a framework in AWS Au
 For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
 
 For instructions on how to customize this framework to support your specific
-requirements, see [Making an editable copy of an
-existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
 
 ## Additional resources
 

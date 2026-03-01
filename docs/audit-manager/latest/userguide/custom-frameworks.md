@@ -31,7 +31,5 @@ your GRC requirements.
 For instructions on how to create a custom framework, see the following
 resources.
 
-- [Creating a custom framework from
-  scratch in AWS Audit Manager](create-custom-frameworks-from-scratch.md "create-custom-frameworks-from-scratch.md")
-- [Making an editable copy of an
-  existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md")
+- [Creating a custom framework from scratch in AWS Audit Manager](create-custom-frameworks-from-scratch.md "create-custom-frameworks-from-scratch.md")
+- [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md")

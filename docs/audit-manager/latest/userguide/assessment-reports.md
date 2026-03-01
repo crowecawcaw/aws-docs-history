@@ -12,11 +12,9 @@ provides the selected evidence details as an output that you can share with your
 
 ###### Contents
 
-- [Understanding the assessment report
-  folder structure](assessment-reports.md#assessment-report-folder-structure "assessment-reports.md#assessment-report-folder-structure")
+- [Understanding the assessment report folder structure](assessment-reports.md#assessment-report-folder-structure "assessment-reports.md#assessment-report-folder-structure")
 - [Navigating an assessment report](assessment-reports.md#assessment-report-how-to-navigate "assessment-reports.md#assessment-report-how-to-navigate")
-- [Reviewing the sections of an assessment
-  report](assessment-reports.md#assessment-report-sections "assessment-reports.md#assessment-report-sections")
+- [Reviewing the sections of an assessment report](assessment-reports.md#assessment-report-sections "assessment-reports.md#assessment-report-sections")
   - [Cover page](assessment-reports.md#assessment-report-cover-page "assessment-reports.md#assessment-report-cover-page")
   - [Overview page](assessment-reports.md#assessment-report-overview "assessment-reports.md#assessment-report-overview")
     - [Report summary](assessment-reports.md#assessment-report-overview-summary "assessment-reports.md#assessment-report-overview-summary")
@@ -33,9 +31,7 @@ provides the selected evidence details as an output that you can share with your
 - [Validating an assessment report](assessment-reports.md#assessment-report-integrity "assessment-reports.md#assessment-report-integrity")
 - [Additional resources](assessment-reports.md#troubleshooting-assessment-reports "assessment-reports.md#troubleshooting-assessment-reports")
 
-## Understanding the assessment report
-
-folder structure
+## Understanding the assessment report folder structure
 
 When you download an assessment report, Audit Manager produces a zip folder. This contains your
 assessment report and related evidence files in nested subfolders.
@@ -87,9 +83,7 @@ The breadcrumb navigation at the top of each page shows your current location in
 assessment report as you browse controls and evidence. Select the hyperlinked TOC to
 navigate back to the TOC at any time.
 
-## Reviewing the sections of an assessment
-
-report
+## Reviewing the sections of an assessment report
 
 Use the following information to learn more about each section of an assessment
 report.
@@ -268,6 +262,5 @@ To validate the integrity of an assessment report, use the [ValidateAssessmentRe
 
 ## Additional resources
 
-To find answers to common questions and issues, see [Troubleshooting assessment report
-issues](assessment-report-issues.md "assessment-report-issues.md") in the
+To find answers to common questions and issues, see [Troubleshooting assessment report issues](assessment-report-issues.md "assessment-report-issues.md") in the
 _Troubleshooting_ section of this guide.

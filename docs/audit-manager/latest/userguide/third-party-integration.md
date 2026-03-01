@@ -15,14 +15,10 @@ those products.
 
 ###### Topics
 
-- [Understanding how third-party integrations
-  work with Audit Manager](#understanding-grc-integrations "#understanding-grc-integrations")
-- [Third-party GRC partner products that integrate
-  with Audit Manager](#supported-grc-integrations "#supported-grc-integrations")
+- [Understanding how third-party integrations work with Audit Manager](#understanding-grc-integrations "#understanding-grc-integrations")
+- [Third-party GRC partner products that integrate with Audit Manager](#supported-grc-integrations "#supported-grc-integrations")
 
-## Understanding how third-party integrations
-
-work with Audit Manager
+## Understanding how third-party integrations work with Audit Manager
 
 GRC partners can use the Audit Manager public APIs to integrate their products with Audit Manager. With
 this integration in place, you can map the enterprise controls in your GRC environment to
@@ -65,9 +61,7 @@ following points:
 If you have a compliance solution and you’re interested in integrating with Audit Manager, email
 `auditmanager-partners@amazon.com`.
 
-## Third-party GRC partner products that integrate
-
-with Audit Manager
+## Third-party GRC partner products that integrate with Audit Manager
 
 The following third party GRC products can ingest evidence from Audit Manager.
 

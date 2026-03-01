@@ -15,8 +15,7 @@ The following procedure assumes that you have previously created at least one as
 and it is in an active state.
 
 Make sure your IAM identity has appropriate permissions to edit an assessment in
-AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 
@@ -133,16 +132,12 @@ following day.
 ## Next steps
 
 When you no longer need to collect evidence for a specific assessment control, you can
-change the status of that control. For instructions, see [Changing the status of an assessment control
-in AWS Audit Manager](change-assessment-control-status.md "change-assessment-control-status.md").
+change the status of that control. For instructions, see [Changing the status of an assessment control in AWS Audit Manager](change-assessment-control-status.md "change-assessment-control-status.md").
 
 When you no longer need to collect evidence for the entire assessment, you can change the
-assessment status to inactive. For instructions, see [Changing the status of an assessment to
-inactive in AWS Audit Manager](change-assessment-status-to-inactive.md "change-assessment-status-to-inactive.md").
+assessment status to inactive. For instructions, see [Changing the status of an assessment to inactive in AWS Audit Manager](change-assessment-status-to-inactive.md "change-assessment-status-to-inactive.md").
 
 ## Additional resources
 
-- For solutions to assessment issues in Audit Manager, see [Troubleshooting assessment and evidence
-  collection issues](evidence-collection-issues.md "evidence-collection-issues.md").
-- For information about why it's no longer possible to edit services in scope, see [I can't edit the
-  services in scope for my assessment](evidence-collection-issues.md#unable-to-edit-services "evidence-collection-issues.md#unable-to-edit-services") in the _Troubleshooting_ section of this guide.
+- For solutions to assessment issues in Audit Manager, see [Troubleshooting assessment and evidence collection issues](evidence-collection-issues.md "evidence-collection-issues.md").
+- For information about why it's no longer possible to edit services in scope, see [I can't edit the services in scope for my assessment](evidence-collection-issues.md#unable-to-edit-services "evidence-collection-issues.md#unable-to-edit-services") in the _Troubleshooting_ section of this guide.

@@ -25,8 +25,7 @@ If you haven’t created an assessment yet, you won’t see any results when you
 steps.
 
 Make sure your IAM identity has appropriate permissions to view an assessment in
-AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 
@@ -155,12 +154,10 @@ Audit Manager tracks the following user activity in changelogs:
 
 ## Next steps
 
-To continue reviewing your assessment, follow the steps in [Reviewing an evidence folder in
-AWS Audit Manager](review-evidence-folders-detail.md "review-evidence-folders-detail.md").
+To continue reviewing your assessment, follow the steps in [Reviewing an evidence folder in AWS Audit Manager](review-evidence-folders-detail.md "review-evidence-folders-detail.md").
 This page will guide you through the evidence folders and show you how to understand the
 information that you see.
 
 ## Additional resources
 
-- [I can’t see any
-  controls or control sets in my assessment](control-issues.md#cannot-view-controls "control-issues.md#cannot-view-controls")
+- [I can’t see any controls or control sets in my assessment](control-issues.md#cannot-view-controls "control-issues.md#cannot-view-controls")

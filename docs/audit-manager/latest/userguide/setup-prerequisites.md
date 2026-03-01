@@ -11,8 +11,7 @@ enable Audit Manager.
 
 1. [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 2. [Create a user with administrative access](#create-an-admin "#create-an-admin")
-3. [Add the required permissions to access and enable
-   Audit Manager](#attach-IAM "#attach-IAM")
+3. [Add the required permissions to access and enable Audit Manager](#attach-IAM "#attach-IAM")
 
 ###### Important
 
@@ -78,9 +77,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Add the required permissions to access and enable
-
-Audit Manager
+## Add the required permissions to access and enable Audit Manager
 
 You must give users the required permissions to enable Audit Manager. For users who need
 full access to Audit Manager, use the [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") managed policy. This is an AWS

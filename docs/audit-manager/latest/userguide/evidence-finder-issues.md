@@ -5,44 +5,27 @@ Audit Manager.
 
 ###### General evidence finder issues
 
-- [I can't
-  enable evidence finder](#cannot-enable-evidence-finder "#cannot-enable-evidence-finder")
-- [I enabled
-  evidence finder, but I don't see past evidence in my search results](#cannot-see-past-evidence "#cannot-see-past-evidence")
-- [I can't
-  disable evidence finder](#cannot-disable-evidence-finder "#cannot-disable-evidence-finder")
-- [My search query
-  fails](#cannot-start-query "#cannot-start-query")
-- [I see that a
-  control domain is marked as “outdated”. What does this mean?](#outdated-control-domains "#outdated-control-domains")
+- [I can't enable evidence finder](#cannot-enable-evidence-finder "#cannot-enable-evidence-finder")
+- [I enabled evidence finder, but I don't see past evidence in my search results](#cannot-see-past-evidence "#cannot-see-past-evidence")
+- [I can't disable evidence finder](#cannot-disable-evidence-finder "#cannot-disable-evidence-finder")
+- [My search query fails](#cannot-start-query "#cannot-start-query")
+- [I see that a control domain is marked as “outdated”. What does this mean?](#outdated-control-domains "#outdated-control-domains")
 
 ###### Evidence finder assessment report issues
 
-- [I can’t generate multiple assessment
-  reports from my search results](#cannot-generate-multiple-reports-from-search-results "#cannot-generate-multiple-reports-from-search-results")
-- [I can't include specific evidence from my
-  search results](#cannot-add-individual-evidence "#cannot-add-individual-evidence")
-- [Not all of my evidence finder results
-  are included in the assessment report](#not-all-results-present-in-report "#not-all-results-present-in-report")
-- [I
-  want to generate an assessment report from my search results, but my query
-  statement is failing](#querystatement-exceptions "#querystatement-exceptions")
+- [I can’t generate multiple assessment reports from my search results](#cannot-generate-multiple-reports-from-search-results "#cannot-generate-multiple-reports-from-search-results")
+- [I can't include specific evidence from my search results](#cannot-add-individual-evidence "#cannot-add-individual-evidence")
+- [Not all of my evidence finder results are included in the assessment report](#not-all-results-present-in-report "#not-all-results-present-in-report")
+- [I want to generate an assessment report from my search results, but my query statement is failing](#querystatement-exceptions "#querystatement-exceptions")
 - [Additional resources](#evidence-finder-assessment-report-see-also "#evidence-finder-assessment-report-see-also")
 
-###### Evidence finder CSV export
+###### Evidence finder CSV export issues
 
-issues
+- [My CSV export failed](#export-checklist "#export-checklist")
+- [I can't export specific evidence from my search results](#cannot-include-individual-evidence "#cannot-include-individual-evidence")
+- [I can’t export multiple CSV files at once](#cannot-export-multiple-files-from-search-results "#cannot-export-multiple-files-from-search-results")
 
-- [My CSV export
-  failed](#export-checklist "#export-checklist")
-- [I
-  can't export specific evidence from my search results](#cannot-include-individual-evidence "#cannot-include-individual-evidence")
-- [I can’t export multiple CSV files at
-  once](#cannot-export-multiple-files-from-search-results "#cannot-export-multiple-files-from-search-results")
-
-## I can't
-
-enable evidence finder
+## I can't enable evidence finder
 
 Common reasons why you can't enable evidence finder include the following
 situations:
@@ -71,9 +54,7 @@ again.
 Re-enabling evidence finder isn't currently supported. If you
 previously disabled evidence finder, you can't enable it again.
 
-## I enabled
-
-evidence finder, but I don't see past evidence in my search results
+## I enabled evidence finder, but I don't see past evidence in my search results
 
 When you enable evidence finder, it takes up to 7 days for all of your past
 evidence data to become available.
@@ -83,12 +64,9 @@ years’ worth of evidence data. This means that if you use evidence finder
 immediately after you enable it, not all results are available until the backfill is
 complete.
 
-For instructions on how to check the status of the data backfill, see [Confirming the status of evidence
-finder](confirm-status-of-evidence-finder.md "confirm-status-of-evidence-finder.md").
+For instructions on how to check the status of the data backfill, see [Confirming the status of evidence finder](confirm-status-of-evidence-finder.md "confirm-status-of-evidence-finder.md").
 
-## I can't
-
-disable evidence finder
+## I can't disable evidence finder
 
 This could be caused by one of the following reasons.
 
@@ -110,8 +88,7 @@ store to support evidence finder queries. You can't disable evidence
 finder while the event data store is being created.
 
 To proceed, wait until the event data store is created, and try again.
-For more information, see [Confirming the status of evidence
-finder](confirm-status-of-evidence-finder.md "confirm-status-of-evidence-finder.md").
+For more information, see [Confirming the status of evidence finder](confirm-status-of-evidence-finder.md "confirm-status-of-evidence-finder.md").
 
 **You already requested to disable evidence finder**
 
@@ -122,12 +99,9 @@ get an error message.
 
 In this case, no action is needed. Wait for the event data store to be
 deleted. As soon as this is complete, evidence finder is disabled. For
-more information, see [Confirming the status of evidence
-finder](confirm-status-of-evidence-finder.md "confirm-status-of-evidence-finder.md").
+more information, see [Confirming the status of evidence finder](confirm-status-of-evidence-finder.md "confirm-status-of-evidence-finder.md").
 
-## My search query
-
-fails
+## My search query fails
 
 A failed search query could be caused by one of the following reasons.
 
@@ -202,9 +176,7 @@ specific data source and service.
 SELECT * FROM $EDS_ID WHERE eventTime > '2022-10-27 22:05:00.000' AND eventTime < '2022-11-03 22:05:00.000' AND eventData.service IN ('dynamodb') AND eventData.dataSource IN ('AWS API calls')
 ```
 
-###### Example 5: Explore compliant evidence by data source and control
-
-domain
+###### Example 5: Explore compliant evidence by data source and control domain
 
 This example finds compliant evidence for specific control
 domains, where the evidence comes from a data source that isn't AWS
@@ -220,9 +192,7 @@ The [StartQuery](../../../awscloudtrail/latest/APIReference/API_StartQuery.md ".
 complete list of possible errors and descriptions, see [StartQuery Errors](../../../awscloudtrail/latest/APIReference/API_StartQuery.md#API_StartQuery_Errors "../../../awscloudtrail/latest/APIReference/API_StartQuery.md#API_StartQuery_Errors") in the _AWS CloudTrail
 API Reference._
 
-## I see that a
-
-control domain is marked as “outdated”. What does this mean?
+## I see that a control domain is marked as “outdated”. What does this mean?
 
 When you apply a control domain filter in evidence finder, you might notice that
 some available control domains are described as **Outdated**.
@@ -247,9 +217,7 @@ managed sources](concepts.md#aws-managed-source "concepts.md#aws-managed-source"
 underlying data sources for a common or core control, Audit Manager automatically applies the
 same update to all related standard controls.
 
-## I can’t generate multiple assessment
-
-reports from my search results
+## I can’t generate multiple assessment reports from my search results
 
 This error is caused by running too many CloudTrail Lake queries at the same time.
 
@@ -271,9 +239,7 @@ in the Audit Manager console. After your reports are complete, return to your gr
 in evidence finder. You can then continue to get the results and generate an
 assessment report for each line item.
 
-## I can't include specific evidence from my
-
-search results
+## I can't include specific evidence from my search results
 
 All of your search results are included in the assessment report. You can't
 selectively add individual rows from your set of search results.
@@ -282,9 +248,7 @@ If you only want to include specific search results in the assessment report, we
 recommend that you [edit your current search filters](search-for-evidence-in-evidence-finder.md#editing-a-search "search-for-evidence-in-evidence-finder.md#editing-a-search"). This way, you can narrow down your
 results to target only the evidence that you want to include in the report.
 
-## Not all of my evidence finder results
-
-are included in the assessment report
+## Not all of my evidence finder results are included in the assessment report
 
 When you generate an assessment report, there are limits for how much evidence you
 can add. The limit is based on the AWS Region of your assessment, the Region of
@@ -305,10 +269,7 @@ To prevent this issue, we recommend that you [edit your current search filters](
 results by targeting a smaller amount of evidence. If needed, you can repeat this
 method and generate multiple assessment reports instead of one larger report.
 
-## I
-
-want to generate an assessment report from my search results, but my query
-statement is failing
+## I want to generate an assessment report from my search results, but my query statement is failing
 
 If you're using the [CreateAssessmentReport](../APIReference/API_CreateAssessmentReport.md "../APIReference/API_CreateAssessmentReport.md") API and your query statement returns a
 validation exception, check the table below for guidance on how to fix it.
@@ -369,12 +330,9 @@ SELECT eventJson FROM `12345678-abcd-1234-abcd-123456789012` WHERE eventData.ass
 The following page contains general troubleshooting guidance about assessment
 reports:
 
-- [Troubleshooting assessment report
-  issues](assessment-report-issues.md "assessment-report-issues.md")
+- [Troubleshooting assessment report issues](assessment-report-issues.md "assessment-report-issues.md")
 
-## My CSV export
-
-failed
+## My CSV export failed
 
 Your CSV export might fail for a number of reasons. You can troubleshoot this
 issue by checking the most frequent causes.
@@ -393,14 +351,12 @@ complete**
 
 If you use evidence finder immediately after you enable it, and the
 [evidence backfill](evidence-finder.md#understanding-evidence-finder "evidence-finder.md#understanding-evidence-finder") is still in progress, there may be some
-results that aren't available. To check the backfill status, see [Confirming the status of evidence
-finder](confirm-status-of-evidence-finder.md "confirm-status-of-evidence-finder.md").
+results that aren't available. To check the backfill status, see [Confirming the status of evidence finder](confirm-status-of-evidence-finder.md "confirm-status-of-evidence-finder.md").
 
 **Your search query succeeded**
 
 Audit Manager can't export the results of a failed query. To troubleshoot a
-failed query, see [My search query
-fails](#cannot-start-query "#cannot-start-query").
+failed query, see [My search query fails](#cannot-start-query "#cannot-start-query").
 
 After you've confirmed that you meet the prerequisites, use the following
 checklist to check for potential issues:
@@ -463,9 +419,7 @@ their CSV exports—continue to use the old KMS key. If the IAM identity
 that’s exporting the CSV file doesn’t have permissions to use the old KMS key,
 you can grant permissions at the key policy level.
 
-## I
-
-can't export specific evidence from my search results
+## I can't export specific evidence from my search results
 
 All of your search results are included in the results.
 
@@ -473,9 +427,7 @@ If you want to include only specific evidence in the CSV file, we recommend that
 you [edit your current search filters](search-for-evidence-in-evidence-finder.md#editing-a-search "search-for-evidence-in-evidence-finder.md#editing-a-search"). This way, you can narrow your results
 to target only the evidence that you want to export.
 
-## I can’t export multiple CSV files at
-
-once
+## I can’t export multiple CSV files at once
 
 This error is caused by running too many CloudTrail Lake queries at the same time.
 

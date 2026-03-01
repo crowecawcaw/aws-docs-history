@@ -1,6 +1,4 @@
-# Searching for evidence in evidence
-
-finder
+# Searching for evidence in evidence finder
 
 You can use evidence finder to perform targeted searches and quickly surface relevant
 evidence for review.
@@ -16,8 +14,7 @@ Make sure that you completed the steps to enable evidence finder in your Audit M
 instructions, see [Enabling evidence finder](evidence-finder-settings-enable.md "evidence-finder-settings-enable.md").
 
 In addition, make sure that you have permissions to perform search queries in evidence
-finder. For an example permission policy that you can use, see [Allow users to run search queries in
-evidence finder](security_iam_id-based-policy-examples.md#evidence-finder-query-access "security_iam_id-based-policy-examples.md#evidence-finder-query-access").
+finder. For an example permission policy that you can use, see [Allow users to run search queries in evidence finder](security_iam_id-based-policy-examples.md#evidence-finder-query-access "security_iam_id-based-policy-examples.md#evidence-finder-query-access").
 
 ## Procedure
 
@@ -130,13 +127,10 @@ query.
 ## Next steps
 
 After your search is finished, you can view the results that matched your search criteria.
-For instructions, see [Viewing results in evidence
-finder](viewing-search-results-in-evidence-finder.md "viewing-search-results-in-evidence-finder.md").
+For instructions, see [Viewing results in evidence finder](viewing-search-results-in-evidence-finder.md "viewing-search-results-in-evidence-finder.md").
 
 ## Additional resources
 
-- [Filter and grouping options for evidence
-  finder](evidence-finder-filters-and-groups.md "evidence-finder-filters-and-groups.md")
-- [Example use cases for evidence
-  finder](example-use-cases-for-evidence-finder.md "example-use-cases-for-evidence-finder.md")
+- [Filter and grouping options for evidence finder](evidence-finder-filters-and-groups.md "evidence-finder-filters-and-groups.md")
+- [Example use cases for evidence finder](example-use-cases-for-evidence-finder.md "example-use-cases-for-evidence-finder.md")
 - [Troubleshooting evidence finder issues](evidence-finder-issues.md "evidence-finder-issues.md")

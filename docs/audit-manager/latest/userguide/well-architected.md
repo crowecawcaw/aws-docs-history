@@ -5,15 +5,12 @@ Framework v10.
 
 ###### Topics
 
-- [What is the AWS Well-Architected
-  Framework?](#what-is-well-architected "#what-is-well-architected")
+- [What is the AWS Well-Architected Framework?](#what-is-well-architected "#what-is-well-architected")
 - [Using this framework](#framework-well-architected "#framework-well-architected")
 - [Next steps](#next-steps-well-architected "#next-steps-well-architected")
 - [Additional resources](#resources-aws-foundational-security-best-practices "#resources-aws-foundational-security-best-practices")
 
-## What is the AWS Well-Architected
-
-Framework?
+## What is the AWS Well-Architected Framework?
 
 [AWS
 Well-Architected](https://aws.amazon.com/architecture/well-architected/ "https://aws.amazon.com/architecture/well-architected/") is a framework that can help you to build secure,
@@ -70,8 +67,7 @@ list of standard controls that it contains, see [Reviewing a framework in AWS Au
 For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
 
 For instructions on how to customize this framework to support your specific
-requirements, see [Making an editable copy of an
-existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
 
 ## Additional resources
 

@@ -7,8 +7,7 @@ materials.
 ## Prerequisites
 
 - The maximum supported size for a single manual evidence file is 100 MB.
-- You must use one of the [Supported file formats for manual
-  evidence](supported-manual-evidence-files.md "supported-manual-evidence-files.md").
+- You must use one of the [Supported file formats for manual evidence](supported-manual-evidence-files.md "supported-manual-evidence-files.md").
 - Each AWS account can manually upload up to 100 evidence files to a control each day.
   Exceeding this daily quota causes any additional manual uploads to fail for that control. If
   you need to upload a large amount of manual evidence to a single control, upload your
@@ -18,8 +17,7 @@ materials.
   control status](change-assessment-control-status.md "change-assessment-control-status.md") to either _under review_ or
   _reviewed_.
 - Make sure your IAM identity has appropriate permissions to manage an assessment in
-  AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-  AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+  AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 
@@ -173,5 +171,4 @@ assessment report. For more information, see [Preparing an assessment report in 
 
 ## Additional resources
 
-To learn which file formats you can use, see [Supported file formats for manual
-evidence](supported-manual-evidence-files.md "supported-manual-evidence-files.md").
+To learn which file formats you can use, see [Supported file formats for manual evidence](supported-manual-evidence-files.md "supported-manual-evidence-files.md").

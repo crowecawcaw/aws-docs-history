@@ -1,20 +1,15 @@
-# Example use cases for evidence
-
-finder
+# Example use cases for evidence finder
 
 Evidence finder can help you with several use cases. This page provides some examples and
 suggests the search filters that you can use in each scenario.
 
 ###### Topics
 
-- [Use case 1: Find non-compliant evidence and organize
-  delegations](#use-case-find-non-compliant-evidence "#use-case-find-non-compliant-evidence")
+- [Use case 1: Find non-compliant evidence and organize delegations](#use-case-find-non-compliant-evidence "#use-case-find-non-compliant-evidence")
 - [Use case 2: Identify compliant evidence](#use-case-find-compliant-evidence "#use-case-find-compliant-evidence")
 - [Use case 3: Perform a quick preview of evidence resources](#use-case-evidence-preview "#use-case-evidence-preview")
 
-## Use case 1: Find non-compliant evidence and organize
-
-delegations
+## Use case 1: Find non-compliant evidence and organize delegations
 
 This use case is ideal if you’re a compliance officer, a data protection officer, or a GRC
 professional who oversees audit preparation.
@@ -52,8 +47,7 @@ Service category | `<AWS service category that you're focusing on>`
 ```
 
 After you find the evidence that you need, follow the steps to generate an assessment
-report from your search results. For instructions, see [Generating an assessment report
-from your search results](exporting-search-results-from-evidence-finder.md#generate-one-time-report-from-search-results "exporting-search-results-from-evidence-finder.md#generate-one-time-report-from-search-results"). You can share this report with
+report from your search results. For instructions, see [Generating an assessment report from your search results](exporting-search-results-from-evidence-finder.md#generate-one-time-report-from-search-results "exporting-search-results-from-evidence-finder.md#generate-one-time-report-from-search-results"). You can share this report with
 your partner team, who can use it as a remediation checklist.
 
 ## Use case 2: Identify compliant evidence

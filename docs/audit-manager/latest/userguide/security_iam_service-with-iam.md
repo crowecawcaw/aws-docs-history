@@ -21,9 +21,7 @@ To get a high-level view of how AWS Audit Manager and other AWS services work wi
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for AWS Audit Manager
+## Identity-based policies for AWS Audit Manager
 
 **Supports identity-based policies:**
 
@@ -46,25 +44,20 @@ This policy grants full administration access in Audit Manager. Administrators c
 this policy to any existing role or user, or create a new role with this
 policy.
 
-###
-
-Recommended policies for user personas in AWS Audit Manager
+### Recommended policies for user personas in AWS Audit Manager
 
 AWS Audit Manager enables you to maintain the segregation of duties among different
 users and for different audits by using different IAM policies. The two personas
 in Audit Manager and their recommended policies are defined as follows.
 
-| Persona         | Description and recommended policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Audit owner** | • This persona must have the necessary permissions<br>to manage assessments in AWS Audit Manager.<br>• The recommended policy to use for this persona is<br>the managed policy named [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md"). You<br>can use this policy as a starting point, and scope<br>down these permissions as needed to fit your<br>requirements.                                                                        |
-| **Delegate**    | • This persona can access the delegated control sets<br>in an assessment. They can update the control<br>status, add comments, submit a control set for<br>review, and add evidence to the assessment<br>report.<br>• The recommended policy to use for this persona is<br>the following example policy: [Allow users management access to<br>AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access"). You can use<br>this policy as a starting point, and make changes as<br>necessary to fit your requirements. |
+| Persona         | Description and recommended policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Audit owner** | • This persona must have the necessary permissions<br>to manage assessments in AWS Audit Manager.<br>• The recommended policy to use for this persona is<br>the managed policy named [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md"). You<br>can use this policy as a starting point, and scope<br>down these permissions as needed to fit your<br>requirements.                                                                     |
+| **Delegate**    | • This persona can access the delegated control sets<br>in an assessment. They can update the control<br>status, add comments, submit a control set for<br>review, and add evidence to the assessment<br>report.<br>• The recommended policy to use for this persona is<br>the following example policy: [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access"). You can use<br>this policy as a starting point, and make changes as<br>necessary to fit your requirements. |
 
-###
+### Identity-based policy examples for AWS Audit Manager
 
-Identity-based policy examples for AWS Audit Manager
-
-To view examples of Audit Manager identity-based policies, see [Identity-based policy examples
-for AWS Audit Manager](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Audit Manager identity-based policies, see [Identity-based policy examples for AWS Audit Manager](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies within AWS Audit Manager
 
@@ -91,12 +84,9 @@ policies for the following two scenarios:
   more information, see [Step 3: Specify audit owners](create-assessments.md#choose-audit-owners "create-assessments.md#choose-audit-owners") and [Step 3: Edit audit owners](edit-assessment.md#edit-choose-audit-owners "edit-assessment.md#edit-choose-audit-owners").
 - When a control set of an assessment is delegated, a resource-based policy
   is attached to the control set with the principal as the delegate. For more
-  information, see [Delegating a control
-  set for review in AWS Audit Manager](delegation-for-audit-owners-delegating-a-control-set.md "delegation-for-audit-owners-delegating-a-control-set.md").
+  information, see [Delegating a control set for review in AWS Audit Manager](delegation-for-audit-owners-delegating-a-control-set.md "delegation-for-audit-owners-delegating-a-control-set.md").
 
-## Policy
-
-actions for AWS Audit Manager
+## Policy actions for AWS Audit Manager
 
 **Supports policy actions:**
 
@@ -135,12 +125,9 @@ action.
 "Action": "auditmanager:Get*"
 ```
 
-To view examples of Audit Manager identity-based policies, see [Identity-based policy examples
-for AWS Audit Manager](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Audit Manager identity-based policies, see [Identity-based policy examples for AWS Audit Manager](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for AWS Audit Manager
+## Policy resources for AWS Audit Manager
 
 **Supports policy resources:**
 
@@ -277,9 +264,7 @@ see [AWS global
 condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
 _IAM User Guide_.
 
-## Access control lists (ACLs) in
-
-AWS Audit Manager
+## Access control lists (ACLs) in AWS Audit Manager
 
 **Supports ACLs:**
 
@@ -288,9 +273,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with AWS Audit Manager
+## Attribute-based access control (ABAC) with AWS Audit Manager
 
 **Supports ABAC (tags in policies):**
 
@@ -309,9 +292,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 
 For more information about tagging AWS Audit Manager resources, see [Tagging AWS Audit Manager resources](tagging.md "tagging.md").
 
-## Using temporary
-
-credentials with AWS Audit Manager
+## Using temporary credentials with AWS Audit Manager
 
 **Supports temporary credentials:**
 
@@ -323,9 +304,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access
-
-sessions for AWS Audit Manager
+## Forward access sessions for AWS Audit Manager
 
 **Supports forward access sessions (FAS):**
 
@@ -334,9 +313,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AWS Audit Manager
+## Service roles for AWS Audit Manager
 
 **Supports service roles:**
 
@@ -352,9 +329,7 @@ Changing the permissions for a service role might break AWS Audit Manager
 functionality. Edit service roles only when Audit Manager provides guidance to do
 so.
 
-## Service-linked
-
-roles for AWS Audit Manager
+## Service-linked roles for AWS Audit Manager
 
 **Supports service-linked roles:**
 

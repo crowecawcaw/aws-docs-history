@@ -22,8 +22,7 @@ enabling you to write code in various programming languages. For more informatio
 - **AWS CloudFormation**
 
 Create Audit Manager resources using AWS CloudFormation, which allows you to define and deploy your
-auditing infrastructure as code. For more information, see [Creating AWS Audit Manager resources with
-AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").
+auditing infrastructure as code. For more information, see [Creating AWS Audit Manager resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").
 
 - **Third-party integrations**
 
@@ -34,5 +33,4 @@ see [Integrations with third-party GRC products](third-party-integration.md "thi
 - **Integrations with your own GRC system**
 
 Incorporate Audit Manager evidence into your own GRC system, allowing you to send evidence
-directly from Audit Manager into your GRC application. For more information, see [Integrating Audit Manager
-evidence into your GRC system](tutorial-for-grc-integration.md "tutorial-for-grc-integration.md").
+directly from Audit Manager into your GRC application. For more information, see [Integrating Audit Manager evidence into your GRC system](tutorial-for-grc-integration.md "tutorial-for-grc-integration.md").

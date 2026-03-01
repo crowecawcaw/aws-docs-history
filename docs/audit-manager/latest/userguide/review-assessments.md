@@ -27,8 +27,7 @@ If you haven’t created an assessment yet, you won’t see any results when you
 steps.
 
 Make sure your IAM identity has appropriate permissions to view an assessment in
-AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 
@@ -105,8 +104,7 @@ The evidence is grouped by evidence folders, which are organized based on the da
 were created.
 
 You can browse these folders and select which evidence you want to include in your
-assessment report. For instructions on how to add evidence to an assessment report, see [Adding evidence to an assessment
-report](generate-assessment-report-include-evidence.md "generate-assessment-report-include-evidence.md").
+assessment report. For instructions on how to add evidence to an assessment report, see [Adding evidence to an assessment report](generate-assessment-report-include-evidence.md "generate-assessment-report-include-evidence.md").
 
 In this section, you can review the following information:
 
@@ -159,8 +157,7 @@ is listed, Audit Manager can collect evidence about your S3 buckets. The exact e
 collected is determined by a control's [data source](concepts.md#control-data-source "concepts.md#control-data-source"). For instance, if the data source type is AWS Config, and
 the data source mapping is an AWS Config rule (such as
 `s3-bucket-public-write-prohibited`), Audit Manager collects the result of that rule
-evaluation as evidence. For more information, see [What's the
-difference between a service in scope and a data source type?](evidence-collection-issues.md#data-source-vs-service-in-scope "evidence-collection-issues.md#data-source-vs-service-in-scope")
+evaluation as evidence. For more information, see [What's the difference between a service in scope and a data source type?](evidence-collection-issues.md#data-source-vs-service-in-scope "evidence-collection-issues.md#data-source-vs-service-in-scope")
 in this guide.
 
 If your assessment was created in the console from a standard framework, Audit Manager selected
@@ -220,9 +217,6 @@ the assessment control details and explain the information that you see there.
 
 ## Additional resources
 
-- [On my assessment details page, I’m prompted to recreate
-  my assessment](evidence-collection-issues.md#recreate-assessment-post-common-controls "evidence-collection-issues.md#recreate-assessment-post-common-controls")
-- [I can’t see any
-  controls or control sets in my assessment](control-issues.md#cannot-view-controls "control-issues.md#cannot-view-controls")
-- [I can't see the
-  services in scope for my assessment](evidence-collection-issues.md#unable-to-view-services "evidence-collection-issues.md#unable-to-view-services")
+- [On my assessment details page, I’m prompted to recreate my assessment](evidence-collection-issues.md#recreate-assessment-post-common-controls "evidence-collection-issues.md#recreate-assessment-post-common-controls")
+- [I can’t see any controls or control sets in my assessment](control-issues.md#cannot-view-controls "control-issues.md#cannot-view-controls")
+- [I can't see the services in scope for my assessment](evidence-collection-issues.md#unable-to-view-services "evidence-collection-issues.md#unable-to-view-services")

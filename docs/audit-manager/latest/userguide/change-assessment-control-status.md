@@ -1,6 +1,4 @@
-# Changing the status of an assessment control
-
-in AWS Audit Manager
+# Changing the status of an assessment control in AWS Audit Manager
 
 You can change the status of an assessment control within your active assessment. Updating a
 control's status enables you to track its progress and indicate when you have reviewed it,
@@ -12,8 +10,7 @@ The following procedure assumes that you have previously created an assessment, 
 current status is active.
 
 Make sure your IAM identity has appropriate permissions to manage an assessment in
-AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 
@@ -113,5 +110,4 @@ language-specific AWS SDKs.
 
 ## Next steps
 
-When you're ready to change the status of the assessment, see [Changing the status of an assessment to
-inactive in AWS Audit Manager](change-assessment-status-to-inactive.md "change-assessment-status-to-inactive.md").
+When you're ready to change the status of the assessment, see [Changing the status of an assessment to inactive in AWS Audit Manager](change-assessment-status-to-inactive.md "change-assessment-status-to-inactive.md").

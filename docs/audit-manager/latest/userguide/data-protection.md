@@ -65,8 +65,7 @@ You can delete individual Audit Manager resources at any time. For instructions,
 - [Deleting a custom framework in AWS Audit Manager](delete-custom-framework.md "delete-custom-framework.md")
   - See also: [DeleteAssessmentFramework](../APIReference/API_DeleteAssessmentFramework.md "../APIReference/API_DeleteAssessmentFramework.md") in the _AWS Audit Manager API Reference_
 
-- [Deleting share requests in
-  AWS Audit Manager](deleting-shared-framework-requests.md "deleting-shared-framework-requests.md")
+- [Deleting share requests in AWS Audit Manager](deleting-shared-framework-requests.md "deleting-shared-framework-requests.md")
   - See also: [DeleteAssessmentFrameworkShare](../APIReference/API_DeleteAssessmentFrameworkShare.md "../APIReference/API_DeleteAssessmentFrameworkShare.md") in the _AWS Audit Manager API Reference_
 
 - [Deleting an assessment report](download-center.md#delete-assessment-report-steps "download-center.md#delete-assessment-report-steps")

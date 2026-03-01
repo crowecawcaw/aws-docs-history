@@ -1,49 +1,30 @@
-# Troubleshooting assessment and evidence
-
-collection issues
+# Troubleshooting assessment and evidence collection issues
 
 You can use the information on this page to resolve common assessment and evidence
 collection issues in Audit Manager.
 
 ###### Evidence collection issues
 
-- [I created an
-  assessment but I can’t see any evidence yet](#no-evidence-yet "#no-evidence-yet")
-- [My assessment isn’t collecting compliance check evidence
-  from AWS Security Hub CSPM](#no-evidence-from-security-hub "#no-evidence-from-security-hub")
-- [My
-  assessment isn’t collecting compliance check evidence from AWS Config](#no-evidence-from-config "#no-evidence-from-config")
-- [My assessment isn’t collecting user activity evidence from
-  AWS CloudTrail](#no-evidence-from-cloudtrail "#no-evidence-from-cloudtrail")
-- [My assessment isn’t collecting configuration data
-  evidence for an AWS API call](#no-evidence-from-aws-api-calls "#no-evidence-from-aws-api-calls")
-- [A
-  common control isn’t collecting any automated evidence](#manual-common-control "#manual-common-control")
-- [My evidence is generated at different intervals, and I'm
-  not sure how often it’s being collected](#evidence-collection-frequency "#evidence-collection-frequency")
-- [I disabled and then re-enabled Audit Manager,
-  and now my pre-existing assessments are no longer collecting evidence](#no-evidence-from-preexisting-assessments-after-reregistering "#no-evidence-from-preexisting-assessments-after-reregistering")
-- [On my assessment details page, I’m prompted to recreate
-  my assessment](#recreate-assessment-post-common-controls "#recreate-assessment-post-common-controls")
-- [What’s the
-  difference between a data source and an evidence source?](#data-source-vs-evidence-source "#data-source-vs-evidence-source")
+- [I created an assessment but I can’t see any evidence yet](#no-evidence-yet "#no-evidence-yet")
+- [My assessment isn’t collecting compliance check evidence from AWS Security Hub CSPM](#no-evidence-from-security-hub "#no-evidence-from-security-hub")
+- [My assessment isn’t collecting compliance check evidence from AWS Config](#no-evidence-from-config "#no-evidence-from-config")
+- [My assessment isn’t collecting user activity evidence from AWS CloudTrail](#no-evidence-from-cloudtrail "#no-evidence-from-cloudtrail")
+- [My assessment isn’t collecting configuration data evidence for an AWS API call](#no-evidence-from-aws-api-calls "#no-evidence-from-aws-api-calls")
+- [A common control isn’t collecting any automated evidence](#manual-common-control "#manual-common-control")
+- [My evidence is generated at different intervals, and I'm not sure how often it’s being collected](#evidence-collection-frequency "#evidence-collection-frequency")
+- [I disabled and then re-enabled Audit Manager, and now my pre-existing assessments are no longer collecting evidence](#no-evidence-from-preexisting-assessments-after-reregistering "#no-evidence-from-preexisting-assessments-after-reregistering")
+- [On my assessment details page, I’m prompted to recreate my assessment](#recreate-assessment-post-common-controls "#recreate-assessment-post-common-controls")
+- [What’s the difference between a data source and an evidence source?](#data-source-vs-evidence-source "#data-source-vs-evidence-source")
 
 ###### Assessment issues
 
-- [My assessment
-  creation failed](#assessment-creation-failed "#assessment-creation-failed")
-- [What
-  happens if I remove an in-scope account from my organization?](#what-happens-if-account-is-removed "#what-happens-if-account-is-removed")
-- [I can't see the
-  services in scope for my assessment](#unable-to-view-services "#unable-to-view-services")
-- [I can't edit the
-  services in scope for my assessment](#unable-to-edit-services "#unable-to-edit-services")
-- [What's the
-  difference between a service in scope and a data source type?](#data-source-vs-service-in-scope "#data-source-vs-service-in-scope")
+- [My assessment creation failed](#assessment-creation-failed "#assessment-creation-failed")
+- [What happens if I remove an in-scope account from my organization?](#what-happens-if-account-is-removed "#what-happens-if-account-is-removed")
+- [I can't see the services in scope for my assessment](#unable-to-view-services "#unable-to-view-services")
+- [I can't edit the services in scope for my assessment](#unable-to-edit-services "#unable-to-edit-services")
+- [What's the difference between a service in scope and a data source type?](#data-source-vs-service-in-scope "#data-source-vs-service-in-scope")
 
-## I created an
-
-assessment but I can’t see any evidence yet
+## I created an assessment but I can’t see any evidence yet
 
 If you can't see any evidence, it's likely that you either didn't wait at least 24
 hours after you created the assessment or that there's a configuration error.
@@ -62,9 +43,7 @@ We recommend that you check the following:
 If you still can't see evidence in your assessment and it's not due to one of
 these issues, check the other potential causes that are described on this page.
 
-## My assessment isn’t collecting compliance check evidence
-
-from AWS Security Hub CSPM
+## My assessment isn’t collecting compliance check evidence from AWS Security Hub CSPM
 
 If you don't see compliance check evidence for an AWS Security Hub CSPM control, this could be
 due to one of the following issues.
@@ -93,8 +72,7 @@ for that control as expected.
 
 To fix this issue, [update the custom control](../APIReference/API_UpdateControl.md "../APIReference/API_UpdateControl.md") and revise the
 `keywordValue`. The correct format of a Security Hub CSPM keyword
-varies. For accuracy, reference the list of [Supported Security Hub CSPM
-controls](control-data-sources-ash.md#security-hub-controls-for-custom-control-data-sources "control-data-sources-ash.md#security-hub-controls-for-custom-control-data-sources") .
+varies. For accuracy, reference the list of [Supported Security Hub CSPM controls](control-data-sources-ash.md#security-hub-controls-for-custom-control-data-sources "control-data-sources-ash.md#security-hub-controls-for-custom-control-data-sources").
 
 **`AuditManagerSecurityHubFindingsReceiver`
 Amazon EventBridge rule is missing**
@@ -126,10 +104,7 @@ if other instances of the same rules already exist. As a result, to
 prevent evidence duplication, Audit Manager doesn’t support evidence collection
 from the service-linked rules.
 
-## I disabled a security
-
-control in Security Hub CSPM. Does Audit Manager collect compliance check evidence for that security
-control?
+## I disabled a security control in Security Hub CSPM. Does Audit Manager collect compliance check evidence for that security control?
 
 Audit Manager doesn't collect evidence for disabled security controls.
 
@@ -142,10 +117,7 @@ assessment accurately reflects the active security controls and findings that ar
 relevant to your environment, excluding any controls that you intentionally
 disabled.
 
-## I set the status of
-
-a finding to `Suppressed` in Security Hub CSPM. Does Audit Manager collect compliance
-check evidence about that finding?
+## I set the status of a finding to `Suppressed` in Security Hub CSPM. Does Audit Manager collect compliance check evidence about that finding?
 
 Audit Manager collects evidence for security controls that have suppressed findings.
 
@@ -158,9 +130,7 @@ This approach ensures that your Audit Manager assessment accurately represents t
 from Security Hub CSPM, while also providing visibility into any suppressed findings that may
 require further review or consideration in an audit.
 
-## My
-
-assessment isn’t collecting compliance check evidence from AWS Config
+## My assessment isn’t collecting compliance check evidence from AWS Config
 
 If you don't see compliance check evidence for an AWS Config rule, this could be due
 to one of the following issues.
@@ -253,9 +223,7 @@ As a workaround, you can navigate to the rule in the AWS Config console
 and [manually re-evaluate the rule](../../../config/latest/developerguide/evaluating-your-resources.md#evaluating-your-resources-console "../../../config/latest/developerguide/evaluating-your-resources.md#evaluating-your-resources-console"). This invokes a new
 evaluation of all of the resources that pertain to that rule.
 
-## My assessment isn’t collecting user activity evidence from
-
-AWS CloudTrail
+## My assessment isn’t collecting user activity evidence from AWS CloudTrail
 
 When you use the Audit Manager API to create a custom control, you can specify a CloudTrail event
 name as a [data
@@ -275,9 +243,7 @@ event is written as `serviceprefix_ActionName`. For example,
 `cloudtrail_StartLogging`. For accuracy, review the AWS service
 prefix and action names in the [Service Authorization Reference](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md").
 
-## My assessment isn’t collecting configuration data
-
-evidence for an AWS API call
+## My assessment isn’t collecting configuration data evidence for an AWS API call
 
 When you use the Audit Manager API to create a custom control, you can specify an AWS API
 call as a [data
@@ -295,9 +261,7 @@ control](../APIReference/API_UpdateControl.md "../APIReference/API_UpdateControl
 call is written as `serviceprefix_ActionName`. For example,
 `iam_ListGroups`. For accuracy, reference the list of [AWS API calls supported by AWS Audit Manager](control-data-sources-api.md "control-data-sources-api.md").
 
-## A
-
-common control isn’t collecting any automated evidence
+## A common control isn’t collecting any automated evidence
 
 When you review a common control, you might see the following message:
 **This common control doesn’t collect automated evidence from core
@@ -349,9 +313,7 @@ more of your active assessment controls, you’ll benefit from these updates
 automatically. No further set up is needed from your side, and you’ll start to
 collect automated evidence that supports the common control.
 
-## My evidence is generated at different intervals, and I'm
-
-not sure how often it’s being collected
+## My evidence is generated at different intervals, and I'm not sure how often it’s being collected
 
 The controls in Audit Manager assessments are mapped to various data sources. Each data
 source has a different evidence collection frequency. As a result, there’s no
@@ -373,13 +335,9 @@ Regardless of the evidence collection frequency, new evidence is collected
 automatically for as long as the assessment is active. For more information, see
 [Evidence collection frequency](how-evidence-is-collected.md#frequency "how-evidence-is-collected.md#frequency").
 
-To learn more, see [Supported data source types for automated
-evidence](control-data-sources.md "control-data-sources.md") and [Changing how often a control collects
-evidence](change-evidence-collection-frequency.md "change-evidence-collection-frequency.md").
+To learn more, see [Supported data source types for automated evidence](control-data-sources.md "control-data-sources.md") and [Changing how often a control collects evidence](change-evidence-collection-frequency.md "change-evidence-collection-frequency.md").
 
-## I disabled and then re-enabled Audit Manager,
-
-and now my pre-existing assessments are no longer collecting evidence
+## I disabled and then re-enabled Audit Manager, and now my pre-existing assessments are no longer collecting evidence
 
 When you disable Audit Manager and choose not to delete your data, your existing
 assessments move into a dormant state and stop collecting evidence. This means that
@@ -389,9 +347,7 @@ available. However, they don't automatically resume evidence collection.
 To start collecting evidence again for a pre-existing assessment, [edit the assessment](edit-assessment.md "edit-assessment.md") and choose **Save**
 without making any changes.
 
-## On my assessment details page, I’m prompted to recreate
-
-my assessment
+## On my assessment details page, I’m prompted to recreate my assessment
 
 ![Screenshot of the pop-up message that prompts you to recreate your assessment.](images/troubleshooting-recreate-assessment-post-common-controls-console.png)
 
@@ -413,9 +369,7 @@ evidence that’s available from AWS managed sources. If you take no action, you
 assessment continues to use the old framework and control definitions to collect
 evidence exactly as it did before.
 
-## What’s the
-
-difference between a data source and an evidence source?
+## What’s the difference between a data source and an evidence source?
 
 An _evidence source_ determines where evidence is
 collected from. This can be an individual data source, or a predefined grouping of
@@ -430,9 +384,7 @@ exactly to collect evidence data from:
 - [Data source mapping](concepts.md#control-data-source "concepts.md#control-data-source") (for example, a specific AWS Config rule such
   as `s3-bucket-public-write-prohibited`)
 
-## My assessment
-
-creation failed
+## My assessment creation failed
 
 If your assessment creation fails, this could be due to one of the following issues.
 
@@ -458,9 +410,7 @@ To resolve this issue, you can take one of the following actions:
 
 This restriction helps ensure that evidence collection doesn't conflict between multiple assessments and that audit results remain accurate and consistent.
 
-## What
-
-happens if I remove an in-scope account from my organization?
+## What happens if I remove an in-scope account from my organization?
 
 When an in-scope account is removed from your organization, Audit Manager no longer
 collects evidence for that account and it will be removed from all assessments where
@@ -468,9 +418,7 @@ the account is in scope. Removing a member account from all assessments will als
 reduce the total number of unique accounts in scope, allowing you to add a new
 account from your organization.
 
-## I can't see the
-
-services in scope for my assessment
+## I can't see the services in scope for my assessment
 
 If you don't see the **AWS services** tab, this means that the
 services in scope are managed for you by Audit Manager. When you create a new assessment,
@@ -491,9 +439,7 @@ the scope as needed to reflect the correct services. This ensures that your
 assessment collects accurate and comprehensive evidence about all of the relevant
 services in your AWS environment.
 
-## I can't edit the
-
-services in scope for my assessment
+## I can't edit the services in scope for my assessment
 
 The [Editing an assessment in AWS Audit Manager](edit-assessment.md "edit-assessment.md") workflow no
 longer has an **Edit services** step. This is because Audit Manager now
@@ -514,9 +460,7 @@ the scope as needed to reflect the correct services. This ensures that your
 assessment collects accurate and comprehensive evidence about all of the relevant
 services in your AWS environment.
 
-## What's the
-
-difference between a service in scope and a data source type?
+## What's the difference between a service in scope and a data source type?
 
 A [service in scope](concepts.md#service-in-scope "concepts.md#service-in-scope") is an
 AWS service that's included in the scope of your assessment. When a service is in

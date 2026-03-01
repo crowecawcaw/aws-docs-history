@@ -35,9 +35,7 @@ AWS Artifact](https://aws.amazon.com/artifact/getting-started/ "https://aws.amaz
 
 You can download the PCI DSS standard from the [PCI Security Standards Council Document Library](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss "https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss").
 
-## Using this framework to support your audit
-
-preparation
+## Using this framework to support your audit preparation
 
 You can use the _PCI DSS V3.2.1_ framework to help
 you prepare for audits. This framework includes a prebuilt collection of controls with
@@ -84,8 +82,7 @@ list of standard controls that it contains, see [Reviewing a framework in AWS Au
 For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
 
 For instructions on how to customize this framework to support your specific
-requirements, see [Making an editable copy of an
-existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
 
 ## Additional resources
 

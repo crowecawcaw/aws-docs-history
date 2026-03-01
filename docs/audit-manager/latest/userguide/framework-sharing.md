@@ -1,6 +1,4 @@
-# Sending request to share a custom framework in
-
-AWS Audit Manager
+# Sending request to share a custom framework in AWS Audit Manager
 
 This tutorial describes how to share your custom frameworks across AWS accounts and
 AWS Regions.
@@ -24,8 +22,7 @@ conditions:
   the custom framework.
 - The recipient is not an AWS Organizations management account.
 - Your IAM identity has appropriate permissions to share a custom framework in
-  AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-  AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+  AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ###### Tip
 
@@ -38,16 +35,12 @@ framework to another AWS Region under your account. You need this information fo
 
 ###### Tasks
 
-- [Step 1: Identify the
-  custom framework that you want to share](#framework-sharing-step-1 "#framework-sharing-step-1")
+- [Step 1: Identify the custom framework that you want to share](#framework-sharing-step-1 "#framework-sharing-step-1")
 - [Step 2: Send a share request](#framework-sharing-step-2 "#framework-sharing-step-2")
 - [Step 3: View your sent requests](#framework-sharing-step-3 "#framework-sharing-step-3")
-- [Step 4 (Optional):
-  Revoke the share request](#framework-sharing-step-4 "#framework-sharing-step-4")
+- [Step 4 (Optional): Revoke the share request](#framework-sharing-step-4 "#framework-sharing-step-4")
 
-### Step 1: Identify the
-
-custom framework that you want to share
+### Step 1: Identify the custom framework that you want to share
 
 Start by identifying the custom framework that you want to share. You can find a
 list of all available custom frameworks on the **Framework
@@ -88,9 +81,7 @@ recipient has 120 days to respond to the share request before it expires.
    - If your framework has controls that use custom AWS Config rules as a data source, we
      recommend that you contact the recipient to let them know. The recipient can then
      create and enable the same AWS Config rules in their instance of AWS Config. For more
-     information, see [My shared framework has controls that
-     use custom AWS Config rules as a data source. Can the recipient collect evidence for
-     these controls?](framework-issues.md#framework-sharing-custom-config-rules "framework-issues.md#framework-sharing-custom-config-rules").
+     information, see [My shared framework has controls that use custom AWS Config rules as a data source. Can the recipient collect evidence for these controls?](framework-issues.md#framework-sharing-custom-config-rules "framework-issues.md#framework-sharing-custom-config-rules").
 
 3. Enter `agree` and then choose **Agree** to
    proceed.
@@ -151,9 +142,7 @@ It can take up to 15 minutes to process a share request. As a result, if an erro
 when sending your share request to the recipient, the _Failed_ status might not display immediately. We recommend that you check
 back later to confirm that your share request was sent successfully.
 
-### Step 4 (Optional):
-
-Revoke the share request
+### Step 4 (Optional): Revoke the share request
 
 If you need to cancel an active share request before it’s due to expire, you can
 revoke the request at any time. This step is optional. If you take no action, the
@@ -180,9 +169,7 @@ that you check back later to confirm that the share request was revoked successf
 
 ## Next steps
 
-### Resending a share request for an updated
-
-framework
+### Resending a share request for an updated framework
 
 You might send a share request for a custom framework and then update the same
 framework afterwards. If you do this, the share request isn't automatically updated to

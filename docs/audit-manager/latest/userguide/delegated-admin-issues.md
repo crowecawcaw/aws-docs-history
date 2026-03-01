@@ -1,28 +1,18 @@
-# Troubleshooting delegated administrator and
-
-AWS Organizations issues
+# Troubleshooting delegated administrator and AWS Organizations issues
 
 You can use the information on this page to resolve common delegated administrator
 issues in Audit Manager.
 
 ###### Topics
 
-- [I can't set up Audit Manager with my delegated
-  administrator account](#delegated-admin-setup "#delegated-admin-setup")
-- [When I create an assessment,
-  I can't see the accounts from my organization under Accounts in scope](#cannot-see-accounts-from-organization "#cannot-see-accounts-from-organization")
-- [I get an access denied error when I try to generate an
-  assessment report using my delegated administrator account](#delegated-admin-access-denied-error "#delegated-admin-access-denied-error")
-- [What happens in Audit Manager if I unlink a
-  member account from my organization?](#delegated-admin-unlink-account "#delegated-admin-unlink-account")
-- [What happens if I relink a member
-  account to my organization?](#delegated-admin-relink-account "#delegated-admin-relink-account")
-- [What happens if I migrate a member
-  account from one organization to another?](#delegated-admin-migrate-account "#delegated-admin-migrate-account")
+- [I can't set up Audit Manager with my delegated administrator account](#delegated-admin-setup "#delegated-admin-setup")
+- [When I create an assessment, I can't see the accounts from my organization under Accounts in scope](#cannot-see-accounts-from-organization "#cannot-see-accounts-from-organization")
+- [I get an access denied error when I try to generate an assessment report using my delegated administrator account](#delegated-admin-access-denied-error "#delegated-admin-access-denied-error")
+- [What happens in Audit Manager if I unlink a member account from my organization?](#delegated-admin-unlink-account "#delegated-admin-unlink-account")
+- [What happens if I relink a member account to my organization?](#delegated-admin-relink-account "#delegated-admin-relink-account")
+- [What happens if I migrate a member account from one organization to another?](#delegated-admin-migrate-account "#delegated-admin-migrate-account")
 
-## I can't set up Audit Manager with my delegated
-
-administrator account
+## I can't set up Audit Manager with my delegated administrator account
 
 Although multiple delegated administrators are supported in AWS Organizations, Audit Manager allows
 only one delegated administrator. If you attempt to designate multiple delegated
@@ -39,9 +29,7 @@ administrator in Audit Manager. Make sure that you register the delegated admini
 account in Organizations first, and then [add the same
 account as a delegated administrator](add-delegated-admin.md "add-delegated-admin.md") in Audit Manager.
 
-## When I create an assessment,
-
-I can't see the accounts from my organization under _Accounts in scope_
+## When I create an assessment, I can't see the accounts from my organization under _Accounts in scope_
 
 If you want your Audit Manager assessment to include multiple accounts from your
 organization, you must specify a delegated administrator.
@@ -62,9 +50,7 @@ Some issues to keep in mind:
   setting up Audit Manager. To learn how to review and change your encryption settings,
   see [Configuring your data encryption settings](settings-KMS.md "settings-KMS.md").
 
-## I get an _access denied_ error when I try to generate an
-
-assessment report using my delegated administrator account
+## I get an _access denied_ error when I try to generate an assessment report using my delegated administrator account
 
 You will get an `access denied` error if your assessment was created by
 a delegated administrator account that the KMS key that's specified in your Audit Manager
@@ -105,9 +91,7 @@ KMS key. If the IAM identity that’s generating the assessment report doesn’t
 have permissions to use the old KMS key, you can grant permissions at the key
 policy level.
 
-## What happens in Audit Manager if I unlink a
-
-member account from my organization?
+## What happens in Audit Manager if I unlink a member account from my organization?
 
 When you unlink a member account from an organization, Audit Manager receives a
 notification about this event. Audit Manager then automatically removes that AWS account
@@ -119,9 +103,7 @@ When Audit Manager removes an unlinked member account from the _accounts in scop
 this change. Moreover, the unlinked member account isn't notified that Audit Manager is no
 longer enabled on their account.
 
-## What happens if I relink a member
-
-account to my organization?
+## What happens if I relink a member account to my organization?
 
 When you relink a member account to your organization, that account isn't
 automatically added to the scope of your existing Audit Manager assessments. However, the
@@ -133,9 +115,7 @@ the _accounts in scope_ of your assessments.
 - For new assessments, you can add the relinked account during assessment
   setup. For instructions, see [Step 2: Specify AWS accounts in scope](create-assessments.md#specify-accounts "create-assessments.md#specify-accounts").
 
-## What happens if I migrate a member
-
-account from one organization to another?
+## What happens if I migrate a member account from one organization to another?
 
 If a member account has Audit Manager enabled in organization 1 and then migrates to
 organization 2, Audit Manager is not enabled for organization 2 as a result.

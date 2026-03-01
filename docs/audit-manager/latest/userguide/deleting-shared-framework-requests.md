@@ -1,6 +1,4 @@
-# Deleting share requests in
-
-AWS Audit Manager
+# Deleting share requests in AWS Audit Manager
 
 When you no longer need a share request, you can delete it from your Audit Manager environment.
 This enables you to clean up your workspace and focus on the requests that are relevant to
@@ -15,8 +13,7 @@ The following procedure assumes that you have previously sent or received a shar
 request. You can't delete share requests that have a status of _active_ or _replicating_.
 
 Make sure your IAM identity has appropriate permissions to delete a share request in
-AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 

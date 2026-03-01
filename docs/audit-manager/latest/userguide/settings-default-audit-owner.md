@@ -1,6 +1,4 @@
-# Configuring your default audit
-
-owners
+# Configuring your default audit owners
 
 You can use this setting to specify the default [audit owner](concepts.md#audit-owner "concepts.md#audit-owner")s who have primary access to your assessments in Audit Manager.
 
@@ -48,9 +46,7 @@ Call the [UpdateSettings](../APIReference/API_UpdateSettings.md "../APIReference
 owners. Note that `roleType` can only be
 `PROCESS_OWNER`.
 
-## Additional
-
-resources
+## Additional resources
 
 - For more information about audit owners, see [Audit
   owners](concepts.md#audit-owner "concepts.md#audit-owner") in the _Concepts and

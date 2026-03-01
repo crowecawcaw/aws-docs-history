@@ -1,6 +1,4 @@
-# Creating a custom control from scratch in
-
-AWS Audit Manager
+# Creating a custom control from scratch in AWS Audit Manager
 
 When your organization's compliance requirements don't align with the pre-built standard
 controls that are available in AWS Audit Manager, you can create your own custom control from
@@ -12,8 +10,7 @@ needs.
 ## Prerequisites
 
 Make sure your IAM identity has appropriate permissions to create a custom control
-in AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+in AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 To successfully collect evidence from AWS Config and Security Hub CSPM, make sure that you do the
 following:
@@ -161,8 +158,7 @@ this step.
 ###### Tip
 
 For information about automated data source types and troubleshooting tips,
-see [Supported data source types for automated
-evidence](control-data-sources.md "control-data-sources.md").
+see [Supported data source types for automated evidence](control-data-sources.md "control-data-sources.md").
 
 If you need to validate your data source setup with an expert, choose
 **Manual data source** for now. That way, you can create the

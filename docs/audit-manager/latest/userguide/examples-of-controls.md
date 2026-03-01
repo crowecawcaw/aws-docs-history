@@ -42,21 +42,14 @@ evidence.
 
 ###### Topics
 
-- [Automated controls that use AWS Security Hub CSPM as a data
-  source type](#automated-security-hub "#automated-security-hub")
-- [Automated controls that use AWS Config as a data source
-  type](#automated-config "#automated-config")
-- [Automated controls that use AWS API calls as a data source
-  type](#automated-api "#automated-api")
-- [Automated controls that use AWS CloudTrail as a data source
-  type](#automated-cloudtrail "#automated-cloudtrail")
+- [Automated controls that use AWS Security Hub CSPM as a data source type](#automated-security-hub "#automated-security-hub")
+- [Automated controls that use AWS Config as a data source type](#automated-config "#automated-config")
+- [Automated controls that use AWS API calls as a data source type](#automated-api "#automated-api")
+- [Automated controls that use AWS CloudTrail as a data source type](#automated-cloudtrail "#automated-cloudtrail")
 - [Manual controls](#manual "#manual")
-- [Controls with mixed data source types (automated and
-  manual)](#mixed "#mixed")
+- [Controls with mixed data source types (automated and manual)](#mixed "#mixed")
 
-## Automated controls that use AWS Security Hub CSPM as a data
-
-source type
+## Automated controls that use AWS Security Hub CSPM as a data source type
 
 This example shows a control that uses AWS Security Hub CSPM as a data source type. This is a
 standard control taken from the [AWS
@@ -120,9 +113,7 @@ When your AWS Config settings are in line with the control, mark the control as 
 then share this report with auditors to demonstrate that the control is working as
 intended.
 
-## Automated controls that use AWS Config as a data source
-
-type
+## Automated controls that use AWS Config as a data source type
 
 This example shows a control that uses AWS Config as a data source type. This is a
 standard control taken from the [AWS Control Tower Guardrails
@@ -192,9 +183,7 @@ you can mark the control as _Reviewed_ and add the evidence
 to your assessment report. You can then share this report with auditors to demonstrate that
 the control is working as intended.
 
-## Automated controls that use AWS API calls as a data source
-
-type
+## Automated controls that use AWS API calls as a data source type
 
 This example shows a custom control that uses AWS API calls as a data source type.
 Audit Manager uses this control to generate evidence that can help to bring your AWS environment in
@@ -265,9 +254,7 @@ When you’re satisfied that the password policies of your IAM principals are in
 with the custom control, you can mark the control as _Reviewed_ and add the evidence to your assessment report. You can then share
 this report with auditors to demonstrate that the control is working as intended.
 
-## Automated controls that use AWS CloudTrail as a data source
-
-type
+## Automated controls that use AWS CloudTrail as a data source type
 
 This example shows a control that uses AWS CloudTrail as a data source type. This is a
 standard control taken from the [HIPAA Security Rule 2003
@@ -411,9 +398,7 @@ When you’re satisfied that you’re in line with the control, you can mark it 
 then share this report with auditors to demonstrate that the control is working as
 intended.
 
-## Controls with mixed data source types (automated and
-
-manual)
+## Controls with mixed data source types (automated and manual)
 
 In many cases, a combination of automated and manual evidence is needed to satisfy a
 control. Although Audit Manager can provide automated evidence that’s relevant to the control, you

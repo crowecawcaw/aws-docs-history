@@ -1,6 +1,4 @@
-# Reviewing an evidence folder in
-
-AWS Audit Manager
+# Reviewing an evidence folder in AWS Audit Manager
 
 As your assessment collects evidence, Audit Manager organizes it into folders for your convenience.
 When you need to review an evidence folder, you'll find the information organized into several
@@ -14,8 +12,7 @@ sections.
   - [Evidence table](review-evidence-folders-detail.md#review-evidence-folders-summary-evidence "review-evidence-folders-detail.md#review-evidence-folders-summary-evidence")
 
 - [Next steps](review-evidence-folders-detail.md#review-evidence-folders-detail-next-steps "review-evidence-folders-detail.md#review-evidence-folders-detail-next-steps")
-- [Additional
-  resources](review-evidence-folders-detail.md#review-evidence-folders-detail-additional-resources "review-evidence-folders-detail.md#review-evidence-folders-detail-additional-resources")
+- [Additional resources](review-evidence-folders-detail.md#review-evidence-folders-detail-additional-resources "review-evidence-folders-detail.md#review-evidence-folders-detail-additional-resources")
 
 ## Prerequisites
 
@@ -24,8 +21,7 @@ If you haven’t created an assessment yet, you won’t see any results when you
 steps.
 
 Make sure your IAM identity has appropriate permissions to view an assessment in
-AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 Keep in mind that it takes up to 24 hours for an assessment to start collecting automated
 evidence. If your assessment has no evidence yet, you won’t see any results when you follow
@@ -110,9 +106,6 @@ steps in [Reviewing evidence in AWS Audit Manager](review-evidence.md "review-ev
 guide you through the evidence details and how to interpret the information that you see
 there.
 
-## Additional
+## Additional resources
 
-resources
-
-- For solutions to evidence issues in Audit Manager, see [Troubleshooting assessment and evidence
-  collection issues](evidence-collection-issues.md "evidence-collection-issues.md").
+- For solutions to evidence issues in Audit Manager, see [Troubleshooting assessment and evidence collection issues](evidence-collection-issues.md "evidence-collection-issues.md").

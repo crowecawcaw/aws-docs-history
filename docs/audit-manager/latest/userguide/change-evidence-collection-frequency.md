@@ -1,6 +1,4 @@
-# Changing how often a control collects
-
-evidence
+# Changing how often a control collects evidence
 
 AWS Audit Manager can collect evidence from various data sources. The frequency of evidence
 collection depends on the type of data source that the control uses.
@@ -30,9 +28,7 @@ for each control data source type, and how to change it (if applicable).
 - For **AWS CloudTrail**, Audit Manager collects evidence continuously
   from CloudTrail. You can’t change the frequency for this evidence type.
 
-## Configuration snapshots
-
-from AWS API calls
+## Configuration snapshots from AWS API calls
 
 ###### Note
 
@@ -42,9 +38,7 @@ collection frequency for a standard control.
 If a custom control uses AWS API calls as a data source type, you can change the
 evidence collection frequency in Audit Manager by following these steps.
 
-###### To change the evidence collection frequency for a custom control with an API call
-
-data source
+###### To change the evidence collection frequency for a custom control with an API call data source
 
 1. Open the AWS Audit Manager console at [https://console.aws.amazon.com/auditmanager/home](https://console.aws.amazon.com/auditmanager/home "https://console.aws.amazon.com/auditmanager/home").
 2. In the navigation pane, choose **Control library**, and then
@@ -75,9 +69,7 @@ data source
 After you edit a control, the changes take effect at 00:00 UTC the following day in
 all active assessments that include the control.
 
-## Compliance checks from
-
-AWS Config
+## Compliance checks from AWS Config
 
 ###### Note
 
@@ -100,9 +92,7 @@ To learn more about the triggers for AWS Config Rules, see [Trigger types](../..
 For instructions on how to manage AWS Config Rules, see [Managing your AWS Config
 rules](../../../config/latest/developerguide/evaluate-config_manage-rules.md "../../../config/latest/developerguide/evaluate-config_manage-rules.md").
 
-## Compliance checks from
-
-Security Hub CSPM
+## Compliance checks from Security Hub CSPM
 
 ###### Note
 
@@ -125,9 +115,7 @@ To learn more, see [Schedule for
 running security checks](../../../securityhub/latest/userguide/securityhub-standards-schedule.md "../../../securityhub/latest/userguide/securityhub-standards-schedule.md") in the _AWS Security Hub CSPM User
 Guide_.
 
-## User activity logs from
-
-AWS CloudTrail
+## User activity logs from AWS CloudTrail
 
 ###### Note
 

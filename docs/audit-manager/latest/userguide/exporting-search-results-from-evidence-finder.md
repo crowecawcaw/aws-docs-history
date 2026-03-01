@@ -1,6 +1,4 @@
-# Exporting your search results
-
-from evidence finder
+# Exporting your search results from evidence finder
 
 After you've reviewed your search results, you can generate an assessment report based on
 those results. Alternatively, you can export your evidence finder search results in a CSV file.
@@ -15,14 +13,11 @@ search results](viewing-search-results-in-evidence-finder.md "viewing-search-res
 
 ###### Contents
 
-- [Generating an assessment report
-  from your search results](exporting-search-results-from-evidence-finder.md#generate-one-time-report-from-search-results "exporting-search-results-from-evidence-finder.md#generate-one-time-report-from-search-results")
+- [Generating an assessment report from your search results](exporting-search-results-from-evidence-finder.md#generate-one-time-report-from-search-results "exporting-search-results-from-evidence-finder.md#generate-one-time-report-from-search-results")
 - [Exporting your search results into a CSV file](exporting-search-results-from-evidence-finder.md#export-search-results "exporting-search-results-from-evidence-finder.md#export-search-results")
   - [Viewing your results after you've exported them](exporting-search-results-from-evidence-finder.md#viewing-results-after-export "exporting-search-results-from-evidence-finder.md#viewing-results-after-export")
 
-### Generating an assessment report
-
-from your search results
+### Generating an assessment report from your search results
 
 After you're satisfied with the search results, you can generate an assessment
 report.
@@ -108,8 +103,7 @@ the bucket ARN, and list CloudTrail as the service principal. We provide an [exa
 on how to attach this policy to your S3 bucket, see [Adding a bucket policy by using the
 Amazon S3 console](../../../AmazonS3/latest/userguide/add-bucket-policy.md "../../../AmazonS3/latest/userguide/add-bucket-policy.md").
 
-For more tips, see [Configuration tips for your
-export destination](settings-export-destination.md#settings-export-destination-tips "settings-export-destination.md#settings-export-destination-tips"). If you encounter any issues when
+For more tips, see [Configuration tips for your export destination](settings-export-destination.md#settings-export-destination-tips "settings-export-destination.md#settings-export-destination-tips"). If you encounter any issues when
 exporting a CSV file, see [csv-exports](evidence-finder-issues.md#csv-exports "evidence-finder-issues.md#csv-exports").
 
 ###### To export your search results (first-run experience)
@@ -189,5 +183,4 @@ All Buckets
 ## Additional resources
 
 - [Troubleshooting evidence finder issues](evidence-finder-issues.md "evidence-finder-issues.md")
-- [Configuring your default export
-  destination for evidence finder](settings-export-destination.md "settings-export-destination.md")
+- [Configuring your default export destination for evidence finder](settings-export-destination.md "settings-export-destination.md")

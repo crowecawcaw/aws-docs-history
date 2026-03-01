@@ -1,6 +1,4 @@
-# Viewing results in evidence
-
-finder
+# Viewing results in evidence finder
 
 After your search is finished, you can view the results that matched your search criteria.
 
@@ -123,13 +121,10 @@ manual evidence details are included in the assessment report.
 ## Next steps
 
 After you review your search results, you can generate an assessment report from them or
-export them as a CSV file. For instructions, see [Exporting your search results
-from evidence finder](exporting-search-results-from-evidence-finder.md "exporting-search-results-from-evidence-finder.md").
+export them as a CSV file. For instructions, see [Exporting your search results from evidence finder](exporting-search-results-from-evidence-finder.md "exporting-search-results-from-evidence-finder.md").
 
 ## Additional resources
 
-- [Filter and grouping options for evidence
-  finder](evidence-finder-filters-and-groups.md "evidence-finder-filters-and-groups.md")
-- [Example use cases for evidence
-  finder](example-use-cases-for-evidence-finder.md "example-use-cases-for-evidence-finder.md")
+- [Filter and grouping options for evidence finder](evidence-finder-filters-and-groups.md "evidence-finder-filters-and-groups.md")
+- [Example use cases for evidence finder](example-use-cases-for-evidence-finder.md "example-use-cases-for-evidence-finder.md")
 - [Troubleshooting evidence finder issues](evidence-finder-issues.md "evidence-finder-issues.md")

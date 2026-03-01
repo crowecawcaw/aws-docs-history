@@ -1,6 +1,4 @@
-# Making an editable copy of an
-
-existing framework in AWS Audit Manager
+# Making an editable copy of an existing framework in AWS Audit Manager
 
 Instead of creating a custom framework from scratch, you can use an existing framework
 as a starting point and make an editable copy. When you do this, the existing framework
@@ -13,8 +11,7 @@ framework or a custom framework.
 ## Prerequisites
 
 Make sure your IAM identity has appropriate permissions to create a custom framework
-in AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+in AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 

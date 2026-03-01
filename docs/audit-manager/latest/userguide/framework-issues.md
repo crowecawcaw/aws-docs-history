@@ -5,26 +5,17 @@ Audit Manager.
 
 ###### General framework issues
 
-- [On my custom framework details page, I’m prompted to
-  recreate my custom framework](#recreate-framework-post-common-controls "#recreate-framework-post-common-controls")
-- [I can’t make
-  a copy of my custom framework](#cannot-use-custom-framework "#cannot-use-custom-framework")
+- [On my custom framework details page, I’m prompted to recreate my custom framework](#recreate-framework-post-common-controls "#recreate-framework-post-common-controls")
+- [I can’t make a copy of my custom framework](#cannot-use-custom-framework "#cannot-use-custom-framework")
 
 ###### Framework sharing issues
 
-- [My sent
-  share request status displays as Failed](#framework-sharing-error "#framework-sharing-error")
-- [My
-  share request has a blue dot next to it. What does this mean?](#framework-sharing-blue-dot "#framework-sharing-blue-dot")
-- [My shared framework has controls that
-  use custom AWS Config rules as a data source. Can the recipient collect evidence for
-  these controls?](#framework-sharing-custom-config-rules "#framework-sharing-custom-config-rules")
-- [I updated a custom rule that's used in a
-  shared framework. Do I need to take any action?](#framework-sharing-what-happens-when-a-rule-is-updated "#framework-sharing-what-happens-when-a-rule-is-updated")
+- [My sent share request status displays as Failed](#framework-sharing-error "#framework-sharing-error")
+- [My share request has a blue dot next to it. What does this mean?](#framework-sharing-blue-dot "#framework-sharing-blue-dot")
+- [My shared framework has controls that use custom AWS Config rules as a data source. Can the recipient collect evidence for these controls?](#framework-sharing-custom-config-rules "#framework-sharing-custom-config-rules")
+- [I updated a custom rule that's used in a shared framework. Do I need to take any action?](#framework-sharing-what-happens-when-a-rule-is-updated "#framework-sharing-what-happens-when-a-rule-is-updated")
 
-## On my custom framework details page, I’m prompted to
-
-recreate my custom framework
+## On my custom framework details page, I’m prompted to recreate my custom framework
 
 ![Screenshot of the pop-up message that prompts you to recreate your assessment.](images/troubleshooting-recreate-framework-post-common-controls-console.png)
 
@@ -135,20 +126,15 @@ you just removed with the latest control definition.
 11. On the **Review and save** page, choose
     **Save changes**.
 
-## I can’t make
-
-a copy of my custom framework
+## I can’t make a copy of my custom framework
 
 If the **Make a copy** button is unavailable on the framework
 details page, this means that you need to replace some of the controls in your
 custom framework.
 
-For instructions on how to proceed, see [On my custom framework details page, I’m prompted to
-recreate my custom framework](#recreate-framework-post-common-controls "#recreate-framework-post-common-controls").
+For instructions on how to proceed, see [On my custom framework details page, I’m prompted to recreate my custom framework](#recreate-framework-post-common-controls "#recreate-framework-post-common-controls").
 
-## My sent
-
-share request status displays as _Failed_
+## My sent share request status displays as _Failed_
 
 If you try to share a custom framework and the operation fails, we recommend that
 you check the following:
@@ -170,9 +156,7 @@ you check the following:
    disabling keys](../../../kms/latest/developerguide/enabling-keys.md "../../../kms/latest/developerguide/enabling-keys.md") in the _AWS Key Management Service
    Developer Guide_.
 
-## My
-
-share request has a blue dot next to it. What does this mean?
+## My share request has a blue dot next to it. What does this mean?
 
 A blue dot notification indicates that a share request needs your attention.
 
@@ -240,10 +224,7 @@ items with a blue dot.
 find the **All statuses** dropdown list and select
 **Expiring**.
 
-## My shared framework has controls that
-
-use custom AWS Config rules as a data source. Can the recipient collect evidence for
-these controls?
+## My shared framework has controls that use custom AWS Config rules as a data source. Can the recipient collect evidence for these controls?
 
 Yes, your recipient can collect evidence for these controls, but a few steps are
 needed to achieve this.
@@ -266,9 +247,7 @@ source.
 We recommend that you communicate with the recipient to let them know if any
 custom AWS Config rules should be created in their instance of AWS Config.
 
-## I updated a custom rule that's used in a
-
-shared framework. Do I need to take any action?
+## I updated a custom rule that's used in a shared framework. Do I need to take any action?
 
 ###### For rule updates within your AWS environment
 

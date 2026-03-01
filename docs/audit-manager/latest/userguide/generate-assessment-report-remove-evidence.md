@@ -1,6 +1,4 @@
-# Removing evidence from an
-
-assessment report
+# Removing evidence from an assessment report
 
 If you need to remove evidence from an assessment report, follow these steps. You can
 either remove an entire evidence folder, or you can remove specific evidence items from within a
@@ -45,12 +43,8 @@ folder.
 
 ## Next steps
 
-When you're ready to generate an assessment report, see [Generating an assessment
-report](generate-assessment-report-generation-steps.md "generate-assessment-report-generation-steps.md").
+When you're ready to generate an assessment report, see [Generating an assessment report](generate-assessment-report-generation-steps.md "generate-assessment-report-generation-steps.md").
 
-## Additional
+## Additional resources
 
-resources
-
-To find answers to common questions and issues, see [Troubleshooting assessment report
-issues](assessment-report-issues.md "assessment-report-issues.md") in the _Troubleshooting_ section of this guide.
+To find answers to common questions and issues, see [Troubleshooting assessment report issues](assessment-report-issues.md "assessment-report-issues.md") in the _Troubleshooting_ section of this guide.

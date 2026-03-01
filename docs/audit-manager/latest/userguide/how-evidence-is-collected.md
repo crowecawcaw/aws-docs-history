@@ -1,6 +1,4 @@
-# Understanding how AWS Audit Manager collects
-
-evidence
+# Understanding how AWS Audit Manager collects evidence
 
 Each active assessment in AWS Audit Manager automatically collects evidence from a range of data
 sources. In each assessment, you define which AWS accounts Audit Manager will collect evidence for,
@@ -73,8 +71,7 @@ below.
 
 - **User activity** — Audit Manager collects this evidence
   type from AWS CloudTrail in a continual manner. This frequency is continual because user
-  activity can happen at any time of the day. For more information, see [AWS CloudTrail event names supported by
-  AWS Audit Manager](control-data-sources-cloudtrail.md "control-data-sources-cloudtrail.md").
+  activity can happen at any time of the day. For more information, see [AWS CloudTrail event names supported by AWS Audit Manager](control-data-sources-cloudtrail.md "control-data-sources-cloudtrail.md").
 - **Configuration data** — Audit Manager collects this
   evidence type using a describe API call to another AWS service such as Amazon EC2, Amazon S3, or
   IAM. You can choose which API actions to call. You also set the frequency as daily,

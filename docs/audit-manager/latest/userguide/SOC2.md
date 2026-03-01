@@ -35,9 +35,7 @@ and compliance. There are five AWS SOC reports:
 - AWS SOC 3 Security, Availability & Confidentiality Report, [publicly
   available as a whitepaper](https://d1.awsstatic.com/whitepapers/compliance/AWS_SOC3.pdf "https://d1.awsstatic.com/whitepapers/compliance/AWS_SOC3.pdf").
 
-## Using this framework to support your audit
-
-preparation
+## Using this framework to support your audit preparation
 
 You can use this framework to help you prepare for audits. This framework includes a
 prebuilt collection of controls with descriptions and testing procedures. These controls
@@ -82,8 +80,7 @@ list of standard controls that it contains, see [Reviewing a framework in AWS Au
 For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
 
 For instructions on how to customize this framework to support your specific
-requirements, see [Making an editable copy of an
-existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
 
 ## Additional resources
 

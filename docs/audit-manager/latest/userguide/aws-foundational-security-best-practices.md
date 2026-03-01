@@ -1,22 +1,16 @@
-# AWS Foundational Security Best
-
-Practices
+# AWS Foundational Security Best Practices
 
 AWS Audit Manager provides a prebuilt standard framework that supports the AWS Foundational
 Security Best Practices.
 
 ###### Topics
 
-- [What is the AWS
-  Foundational Security Best Practices standard?](#what-is-aws-foundational-security-best-practices "#what-is-aws-foundational-security-best-practices")
+- [What is the AWS Foundational Security Best Practices standard?](#what-is-aws-foundational-security-best-practices "#what-is-aws-foundational-security-best-practices")
 - [Using this framework](#framework-aws-foundational-security-best-practices "#framework-aws-foundational-security-best-practices")
 - [Next steps](#next-steps-aws-foundational-security-best-practices "#next-steps-aws-foundational-security-best-practices")
-- [Additional
-  resources](#resources-aws-foundational-security-best-practices "#resources-aws-foundational-security-best-practices")
+- [Additional resources](#resources-aws-foundational-security-best-practices "#resources-aws-foundational-security-best-practices")
 
-## What is the AWS
-
-Foundational Security Best Practices standard?
+## What is the AWS Foundational Security Best Practices standard?
 
 The AWS Foundational Security Best Practices standard is a set of controls that
 detect when your deployed accounts and resources deviate from security best
@@ -32,9 +26,7 @@ is assigned a category that reflects the security function that it applies to. F
 information, see [Control categories](../../../securityhub/latest/userguide/control-categories.md "../../../securityhub/latest/userguide/control-categories.md") in the _AWS Security Hub CSPM
 User Guide_.
 
-## Using this
-
-framework
+## Using this framework
 
 You can use the AWS Foundational Security Best Practices framework to help you
 prepare for audits. This framework includes a prebuilt collection of controls with
@@ -78,12 +70,9 @@ list of standard controls that it contains, see [Reviewing a framework in AWS Au
 For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
 
 For instructions on how to customize this framework to support your specific
-requirements, see [Making an editable copy of an
-existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
 
-## Additional
-
-resources
+## Additional resources
 
 - [AWS Foundational Security Best Practices standard](../../../securityhub/latest/userguide/securityhub-standards-fsbp.md "../../../securityhub/latest/userguide/securityhub-standards-fsbp.md") in
   the _AWS Security Hub CSPM User Guide_

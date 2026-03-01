@@ -1,6 +1,4 @@
-# Adding evidence to an assessment
-
-report
+# Adding evidence to an assessment report
 
 Before you can generate an assessment report, you must add at least one piece of evidence
 to your assessment report. You can either add an entire evidence folder, or you can add specific
@@ -45,19 +43,12 @@ To include evidence in an assessment report, follow these steps.
      report by navigating back to your assessment and choosing the **Assessment report
      selection** tab.
 
-## Next
+## Next steps
 
-steps
+If you need to remove evidence from an assessment report, see [Removing evidence from an assessment report](generate-assessment-report-remove-evidence.md "generate-assessment-report-remove-evidence.md").
 
-If you need to remove evidence from an assessment report, see [Removing evidence from an
-assessment report](generate-assessment-report-remove-evidence.md "generate-assessment-report-remove-evidence.md").
+When you're ready to generate an assessment report, see [Generating an assessment report](generate-assessment-report-generation-steps.md "generate-assessment-report-generation-steps.md").
 
-When you're ready to generate an assessment report, see [Generating an assessment
-report](generate-assessment-report-generation-steps.md "generate-assessment-report-generation-steps.md").
+## Additional resources
 
-## Additional
-
-resources
-
-To find answers to common questions and issues, see [Troubleshooting assessment report
-issues](assessment-report-issues.md "assessment-report-issues.md") in the _Troubleshooting_ section of this guide.
+To find answers to common questions and issues, see [Troubleshooting assessment report issues](assessment-report-issues.md "assessment-report-issues.md") in the _Troubleshooting_ section of this guide.

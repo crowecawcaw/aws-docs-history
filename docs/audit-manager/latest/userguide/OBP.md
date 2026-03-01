@@ -9,15 +9,12 @@ accounts and resources deviate from security best practices.
 
 ###### Topics
 
-- [What is the AWS Foundational Security Best Practices
-  standard?](#what-is-OBP "#what-is-OBP")
+- [What is the AWS Foundational Security Best Practices standard?](#what-is-OBP "#what-is-OBP")
 - [Using this framework](#framework-OBP "#framework-OBP")
 - [Next steps](#next-steps-OBP "#next-steps-OBP")
 - [Additional resources](#resources-operational-best-practices "#resources-operational-best-practices")
 
-## What is the AWS Foundational Security Best Practices
-
-standard?
+## What is the AWS Foundational Security Best Practices standard?
 
 You can use the _AWS Foundational Security Best
 Practices_ standard to evaluate your accounts and workloads and quickly
@@ -65,8 +62,7 @@ list of standard controls that it contains, see [Reviewing a framework in AWS Au
 For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
 
 For instructions on how to customize this framework to support your specific
-requirements, see [Making an editable copy of an
-existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
 
 ## Additional resources
 

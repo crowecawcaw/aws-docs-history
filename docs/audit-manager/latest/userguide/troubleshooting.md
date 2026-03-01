@@ -16,16 +16,12 @@ assistance.
 
 ###### Topics
 
-- [Troubleshooting assessment and evidence
-  collection issues](evidence-collection-issues.md "evidence-collection-issues.md")
-- [Troubleshooting assessment report
-  issues](assessment-report-issues.md "assessment-report-issues.md")
+- [Troubleshooting assessment and evidence collection issues](evidence-collection-issues.md "evidence-collection-issues.md")
+- [Troubleshooting assessment report issues](assessment-report-issues.md "assessment-report-issues.md")
 - [Troubleshooting control and control set issues](control-issues.md "control-issues.md")
 - [Troubleshooting dashboard issues](dashboard-issues.md "dashboard-issues.md")
-- [Troubleshooting delegated administrator and
-  AWS Organizations issues](delegated-admin-issues.md "delegated-admin-issues.md")
+- [Troubleshooting delegated administrator and AWS Organizations issues](delegated-admin-issues.md "delegated-admin-issues.md")
 - [Troubleshooting evidence finder issues](evidence-finder-issues.md "evidence-finder-issues.md")
 - [Troubleshooting framework issues](framework-issues.md "framework-issues.md")
 - [Troubleshooting notification issues](notification-issues.md "notification-issues.md")
-- [Troubleshooting permission and access
-  issues](permissions-issues.md "permissions-issues.md")
+- [Troubleshooting permission and access issues](permissions-issues.md "permissions-issues.md")

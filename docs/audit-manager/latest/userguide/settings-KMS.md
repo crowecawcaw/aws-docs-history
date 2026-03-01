@@ -34,9 +34,7 @@ KMS key, grant permissions at the key policy level.
 
 Audit Manager console
 
-###### To update your data encryption settings on the Audit Manager
-
-console
+###### To update your data encryption settings on the Audit Manager console
 
 1. From the **General** settings tab, go to the
    **Data encryption** section.

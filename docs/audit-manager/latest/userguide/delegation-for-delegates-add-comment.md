@@ -7,9 +7,7 @@ audit owner.
 
 Make sure your IAM identity has appropriate permissions to add comments to an
 assessment control in AWS Audit Manager. Two suggested policies that grant these permissions are
-[Allow users full administrator access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+[Allow users full administrator access to AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 
@@ -31,5 +29,4 @@ AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "s
 
 ## Next steps
 
-When you've finished reviewing the control, follow the steps in [Marking a control as
-reviewed in AWS Audit Manager](delegation-for-delegates-changing-control-status.md "delegation-for-delegates-changing-control-status.md").
+When you've finished reviewing the control, follow the steps in [Marking a control as reviewed in AWS Audit Manager](delegation-for-delegates-changing-control-status.md "delegation-for-delegates-changing-control-status.md").

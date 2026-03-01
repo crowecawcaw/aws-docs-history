@@ -16,9 +16,7 @@ To use evidence finder, you must enable this feature from your Audit Manager set
 
 ## Key points
 
-### Understanding how evidence finder works with CloudTrail
-
-Lake
+### Understanding how evidence finder works with CloudTrail Lake
 
 Evidence finder uses [AWS CloudTrail Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") querying and
 storage capability. Before you start using evidence finder, it's helpful to understand a little
@@ -58,12 +56,8 @@ To get started, enable evidence finder from your Audit Manager settings. For ins
 
 ## Additional resources
 
-- [Searching for evidence in evidence
-  finder](search-for-evidence-in-evidence-finder.md "search-for-evidence-in-evidence-finder.md")
-- [Viewing results in evidence
-  finder](viewing-search-results-in-evidence-finder.md "viewing-search-results-in-evidence-finder.md")
-- [Filter and grouping options for evidence
-  finder](evidence-finder-filters-and-groups.md "evidence-finder-filters-and-groups.md")
-- [Example use cases for evidence
-  finder](example-use-cases-for-evidence-finder.md "example-use-cases-for-evidence-finder.md")
+- [Searching for evidence in evidence finder](search-for-evidence-in-evidence-finder.md "search-for-evidence-in-evidence-finder.md")
+- [Viewing results in evidence finder](viewing-search-results-in-evidence-finder.md "viewing-search-results-in-evidence-finder.md")
+- [Filter and grouping options for evidence finder](evidence-finder-filters-and-groups.md "evidence-finder-filters-and-groups.md")
+- [Example use cases for evidence finder](example-use-cases-for-evidence-finder.md "example-use-cases-for-evidence-finder.md")
 - [Troubleshooting evidence finder issues](evidence-finder-issues.md "evidence-finder-issues.md")

@@ -1,6 +1,4 @@
-# Scenarios for
-
-Audit Manager using AWS SDKs
+# Scenarios for Audit Manager using AWS SDKs
 
 The following code examples show you how to implement common scenarios in Audit Manager
 with AWS SDKs. These scenarios show you how to accomplish specific tasks by calling multiple functions

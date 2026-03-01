@@ -1,6 +1,4 @@
-# Delegating a control
-
-set for review in AWS Audit Manager
+# Delegating a control set for review in AWS Audit Manager
 
 When you need assistance from a subject matter expert, you can choose the AWS account
 that you want to help you, and then delegate a control set to them for review.
@@ -43,9 +41,7 @@ JSON
 ## Prerequisites
 
 Make sure your IAM identity has appropriate permissions to create a delegation in
-AWS Audit Manager. Two suggested policies that grant these permissions are [Allow users full administrator access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+AWS Audit Manager. Two suggested policies that grant these permissions are [Allow users full administrator access to AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 
@@ -91,10 +87,8 @@ You can use either of the following procedures to delegate a control set.
    pane of the AWS Audit Manager console.
    After you delegate a control set for review, the delegate receives a notification and
    can then begin to review the control set. This process that delegates follow is described
-   in [Understanding the different delegation tasks for
-   delegates](delegation-for-delegates.md "delegation-for-delegates.md").
+   in [Understanding the different delegation tasks for delegates](delegation-for-delegates.md "delegation-for-delegates.md").
 
 ## Next steps
 
-To revisit your delegation at a later date, see [Finding and reviewing
-the delegations that you've sent in AWS Audit Manager](delegation-for-audit-owners-reviewing-delegations.md "delegation-for-audit-owners-reviewing-delegations.md").
+To revisit your delegation at a later date, see [Finding and reviewing the delegations that you've sent in AWS Audit Manager](delegation-for-audit-owners-reviewing-delegations.md "delegation-for-audit-owners-reviewing-delegations.md").

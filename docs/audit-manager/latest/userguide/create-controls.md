@@ -52,7 +52,5 @@ from:
 
 For instructions on how to create a custom control, see the following resources.
 
-- [Creating a custom control from scratch in
-  AWS Audit Manager](customize-control-from-scratch.md "customize-control-from-scratch.md")
-- [Making an editable copy of a control in
-  AWS Audit Manager](customize-control-from-existing.md "customize-control-from-existing.md")
+- [Creating a custom control from scratch in AWS Audit Manager](customize-control-from-scratch.md "customize-control-from-scratch.md")
+- [Making an editable copy of a control in AWS Audit Manager](customize-control-from-existing.md "customize-control-from-existing.md")

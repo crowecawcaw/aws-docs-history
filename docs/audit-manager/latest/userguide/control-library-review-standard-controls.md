@@ -1,6 +1,4 @@
-# Reviewing a standard
-
-control
+# Reviewing a standard control
 
 You can review the details of a standard control by using the Audit Manager console, the Audit Manager
 API, or the AWS Command Line Interface (AWS CLI).
@@ -8,8 +6,7 @@ API, or the AWS Command Line Interface (AWS CLI).
 ## Prerequisites
 
 Make sure your IAM identity has appropriate permissions to view controls in
-AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 
@@ -120,8 +117,7 @@ You can add a standard control to any of your custom frameworks. For instruction
 [Creating a custom framework in AWS Audit Manager](custom-frameworks.md "custom-frameworks.md").
 
 You can also customize any standard control so that it meets your needs. For
-instructions, see [Making an editable copy of a control in
-AWS Audit Manager](customize-control-from-existing.md "customize-control-from-existing.md").
+instructions, see [Making an editable copy of a control in AWS Audit Manager](customize-control-from-existing.md "customize-control-from-existing.md").
 
 ## Additional resources
 

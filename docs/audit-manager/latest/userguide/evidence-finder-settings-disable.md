@@ -9,9 +9,7 @@ CloudTrail Lake that was created when you enabled evidence finder.
 
 ## Prerequisites
 
-### Required permissions to
-
-disable evidence finder
+### Required permissions to disable evidence finder
 
 To disable evidence finder, you need permissions to delete an event data store
 in CloudTrail Lake. For an example policy that you can use, see [Permissions to disable evidence finder](security_iam_id-based-policy-examples.md#full-administrator-access-disable-evidence-finder "security_iam_id-based-policy-examples.md#full-administrator-access-disable-evidence-finder").
@@ -64,8 +62,6 @@ _Audit Manager API Reference_. This includes
 information about how to use this operation and parameter in one of the
 language-specific AWS SDKs.
 
-## Additional
-
-resources
+## Additional resources
 
 - [Troubleshooting evidence finder issues](evidence-finder-issues.md "evidence-finder-issues.md")

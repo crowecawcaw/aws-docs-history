@@ -6,8 +6,7 @@ AWS Command Line Interface (AWS CLI).
 ## Prerequisites
 
 Make sure your IAM identity has appropriate permissions to view frameworks in AWS Audit Manager.
-Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 
@@ -142,7 +141,5 @@ If you're reviewing a custom framework, you can also [edit](edit-custom-framewor
 
 ## Additional resources
 
-- [On my custom framework details page, I’m prompted to
-  recreate my custom framework](framework-issues.md#recreate-framework-post-common-controls "framework-issues.md#recreate-framework-post-common-controls")
-- [I can’t make
-  a copy of my custom framework](framework-issues.md#cannot-use-custom-framework "framework-issues.md#cannot-use-custom-framework")
+- [On my custom framework details page, I’m prompted to recreate my custom framework](framework-issues.md#recreate-framework-post-common-controls "framework-issues.md#recreate-framework-post-common-controls")
+- [I can’t make a copy of my custom framework](framework-issues.md#cannot-use-custom-framework "framework-issues.md#cannot-use-custom-framework")

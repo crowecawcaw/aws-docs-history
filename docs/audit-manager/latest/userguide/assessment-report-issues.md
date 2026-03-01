@@ -1,30 +1,19 @@
-# Troubleshooting assessment report
-
-issues
+# Troubleshooting assessment report issues
 
 You can use the information on this page to resolve common assessment report issues in
 Audit Manager.
 
 ###### Topics
 
-- [My assessment report failed to
-  generate](#assessment-report-checklist "#assessment-report-checklist")
-- [I followed the checklist above, and my
-  assessment report still failed to generate](#assessment-report-failed "#assessment-report-failed")
-- [I get an access denied error when I try to generate a
-  report](#assessment-report-access-denied-error "#assessment-report-access-denied-error")
-- [I’m unable to unzip the assessment
-  report](#cannot-unzip-assessment-report "#cannot-unzip-assessment-report")
-- [When I choose an evidence name
-  in a report, I’m not redirected to the evidence details](#cannot-open-evidence-detail-links "#cannot-open-evidence-detail-links")
-- [My assessment report generation is stuck
-  in In progress status, and I'm not sure how
-  this impacts my billing](#assessment-report-billing "#assessment-report-billing")
+- [My assessment report failed to generate](#assessment-report-checklist "#assessment-report-checklist")
+- [I followed the checklist above, and my assessment report still failed to generate](#assessment-report-failed "#assessment-report-failed")
+- [I get an access denied error when I try to generate a report](#assessment-report-access-denied-error "#assessment-report-access-denied-error")
+- [I’m unable to unzip the assessment report](#cannot-unzip-assessment-report "#cannot-unzip-assessment-report")
+- [When I choose an evidence name in a report, I’m not redirected to the evidence details](#cannot-open-evidence-detail-links "#cannot-open-evidence-detail-links")
+- [My assessment report generation is stuck in In progress status, and I'm not sure how this impacts my billing](#assessment-report-billing "#assessment-report-billing")
 - [Additional resources](#assessment-report-see-also "#assessment-report-see-also")
 
-## My assessment report failed to
-
-generate
+## My assessment report failed to generate
 
 Your assessment report might have failed to generate for a number of reasons. You
 can start to troubleshoot this issue by checking the most frequent causes. Use the
@@ -47,8 +36,7 @@ following checklist to get started.
    can change either the KMS key or the S3 bucket so that they’re
    both in the same Region as your assessment. For instructions on how
    to change the KMS key, see [Configuring your data encryption settings](settings-KMS.md "settings-KMS.md"). For instructions on how to
-   change the S3 bucket, see [Configuring your default assessment report
-   destination](settings-destination.md "settings-destination.md").
+   change the S3 bucket, see [Configuring your default assessment report destination](settings-destination.md "settings-destination.md").
 
 2. Check the permissions of the S3 bucket that you’re using as the assessment
    report destination:
@@ -66,15 +54,12 @@ following checklist to get started.
    and your S3 bucket policy requires SSE, ensure that the bucket
    policy allows [SSE-S3](../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md "../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md"). For instructions on how to change the
    KMS key, see [Configuring your data encryption settings](settings-KMS.md "settings-KMS.md"). For instructions on how to
-   change the S3 bucket, see [Configuring your default assessment report
-   destination](settings-destination.md "settings-destination.md").
+   change the S3 bucket, see [Configuring your default assessment report destination](settings-destination.md "settings-destination.md").
 
 If you’re still unable to successfully generate an assessment report, review the
 following issues on this page.
 
-## I followed the checklist above, and my
-
-assessment report still failed to generate
+## I followed the checklist above, and my assessment report still failed to generate
 
 Audit Manager limits how much evidence you can add to an assessment report. The limit is
 based on the AWS Region of your assessment, the Region of the S3 bucket that's
@@ -95,9 +80,7 @@ As a workaround, you can generate multiple assessment reports rather than one
 larger assessment report. By doing this, you can export evidence from your
 assessment into more manageable-sized batches.
 
-## I get an _access denied_ error when I try to generate a
-
-report
+## I get an _access denied_ error when I try to generate a report
 
 You will get an `access denied` error if your assessment was created by
 a delegated administrator account that the KMS key that's specified in your Audit Manager
@@ -139,9 +122,7 @@ KMS key. If the IAM identity that’s generating the assessment report doesn’t
 have permissions to use the old KMS key, you can grant permissions at the key
 policy level.
 
-## I’m unable to unzip the assessment
-
-report
+## I’m unable to unzip the assessment report
 
 If you can't unzip the assessment report on Windows, it's likely that Windows
 Explorer can't extract it because its file path has several nested folders or long
@@ -154,9 +135,7 @@ location. You can then try again to unzip it from there. Alternatively, you can 
 try shortening the name of the zip file or extracting it to a different location
 that has a shorter file path.
 
-## When I choose an evidence name
-
-in a report, I’m not redirected to the evidence details
+## When I choose an evidence name in a report, I’m not redirected to the evidence details
 
 This issue might happen if you’re interacting with the assessment report in a
 browser, or using the default PDF reader that’s installed on your operating system.
@@ -172,10 +151,7 @@ you install and use Adobe Acrobat Reader, which you can download at the [Adobe w
 also available, but Adobe Acrobat Reader has been proven to work consistently and
 reliably with Audit Manager assessment reports.
 
-## My assessment report generation is stuck
-
-in _In progress_ status, and I'm not sure how
-this impacts my billing
+## My assessment report generation is stuck in _In progress_ status, and I'm not sure how this impacts my billing
 
 Assessment report generation has no impact on billing. You're only billed based on
 the evidence that your assessments collect. For more information about pricing, see
@@ -187,12 +163,7 @@ Pricing](https://aws.amazon.com/audit-manager/pricing/ "https://aws.amazon.com/a
 The following pages contain troubleshooting guidance about generating an
 assessment report from evidence finder:
 
-- [I can’t generate multiple assessment
-  reports from my search results](evidence-finder-issues.md#cannot-generate-multiple-reports-from-search-results "evidence-finder-issues.md#cannot-generate-multiple-reports-from-search-results")
-- [I can't include specific evidence from my
-  search results](evidence-finder-issues.md#cannot-add-individual-evidence "evidence-finder-issues.md#cannot-add-individual-evidence")
-- [Not all of my evidence finder results
-  are included in the assessment report](evidence-finder-issues.md#not-all-results-present-in-report "evidence-finder-issues.md#not-all-results-present-in-report")
-- [I
-  want to generate an assessment report from my search results, but my query
-  statement is failing](evidence-finder-issues.md#querystatement-exceptions "evidence-finder-issues.md#querystatement-exceptions")
+- [I can’t generate multiple assessment reports from my search results](evidence-finder-issues.md#cannot-generate-multiple-reports-from-search-results "evidence-finder-issues.md#cannot-generate-multiple-reports-from-search-results")
+- [I can't include specific evidence from my search results](evidence-finder-issues.md#cannot-add-individual-evidence "evidence-finder-issues.md#cannot-add-individual-evidence")
+- [Not all of my evidence finder results are included in the assessment report](evidence-finder-issues.md#not-all-results-present-in-report "evidence-finder-issues.md#not-all-results-present-in-report")
+- [I want to generate an assessment report from my search results, but my query statement is failing](evidence-finder-issues.md#querystatement-exceptions "evidence-finder-issues.md#querystatement-exceptions")

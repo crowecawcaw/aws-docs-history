@@ -1,6 +1,4 @@
-# Reviewing the
-
-delegated control set and its related evidence
+# Reviewing the delegated control set and its related evidence
 
 You can assist audit owners by reviewing the control sets that they have delegated to
 you.
@@ -13,9 +11,7 @@ comment](delegation-for-delegates-add-comment.md "delegation-for-delegates-add-c
 ## Prerequisites
 
 Make sure your IAM identity has appropriate permissions to view a control set in
-AWS Audit Manager. Two suggested policies that grant these permissions are [Allow users full administrator access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2") and [Allow users management access to
-AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+AWS Audit Manager. Two suggested policies that grant these permissions are [Allow users full administrator access to AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
 ## Procedure
 
@@ -50,8 +46,7 @@ AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "s
    evidence gathered on that date.
    - This summary includes the total number of compliance check issues that were
      reported directly from AWS Security Hub CSPM, AWS Config, or both.
-   - To learn more about this information, see [Reviewing an evidence folder in
-     AWS Audit Manager](review-evidence-folders-detail.md "review-evidence-folders-detail.md").
+   - To learn more about this information, see [Reviewing an evidence folder in AWS Audit Manager](review-evidence-folders-detail.md "review-evidence-folders-detail.md").
 
 4. From the evidence folder summary page, navigate to the
    **Evidence** table. Under the **Time** column,

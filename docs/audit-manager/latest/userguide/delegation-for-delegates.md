@@ -1,6 +1,4 @@
-# Understanding the different delegation tasks for
-
-delegates
+# Understanding the different delegation tasks for delegates
 
 As a delegate in AWS Audit Manager, you play an important role in supporting audit owners during
 the assessment process. While [audit owners](concepts.md#audit-owner "concepts.md#audit-owner") are
@@ -38,12 +36,8 @@ reviewed controls back to the audit owner.
 
 ###### Delegate tasks
 
-- [Viewing your notifications
-  for incoming delegation requests](delegation-for-delegates-viewing-notifications.md "delegation-for-delegates-viewing-notifications.md")
-- [Reviewing the
-  delegated control set and its related evidence](delegation-for-delegates-reviewing-control-set-and-evidence.md "delegation-for-delegates-reviewing-control-set-and-evidence.md")
+- [Viewing your notifications for incoming delegation requests](delegation-for-delegates-viewing-notifications.md "delegation-for-delegates-viewing-notifications.md")
+- [Reviewing the delegated control set and its related evidence](delegation-for-delegates-reviewing-control-set-and-evidence.md "delegation-for-delegates-reviewing-control-set-and-evidence.md")
 - [Adding comments about a control during a control set review](delegation-for-delegates-add-comment.md "delegation-for-delegates-add-comment.md")
-- [Marking a control as
-  reviewed in AWS Audit Manager](delegation-for-delegates-changing-control-status.md "delegation-for-delegates-changing-control-status.md")
-- [Submitting a
-  reviewed control set back to the audit owner](delegation-for-delegates-submitting-back-to-audit-owner.md "delegation-for-delegates-submitting-back-to-audit-owner.md")
+- [Marking a control as reviewed in AWS Audit Manager](delegation-for-delegates-changing-control-status.md "delegation-for-delegates-changing-control-status.md")
+- [Submitting a reviewed control set back to the audit owner](delegation-for-delegates-submitting-back-to-audit-owner.md "delegation-for-delegates-submitting-back-to-audit-owner.md")

@@ -1,6 +1,4 @@
-# AWS CloudTrail event names supported by
-
-AWS Audit Manager
+# AWS CloudTrail event names supported by AWS Audit Manager
 
 You can use Audit Manager to capture AWS CloudTrail [management events](../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md#cloudtrail-concepts-management-events "../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md#cloudtrail-concepts-management-events") and [global service events](../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md#cloudtrail-concepts-global-service-events "../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md#cloudtrail-concepts-global-service-events") as evidence for audits. When you create or edit a custom
 control, you can specify one or more CloudTrail event names as a data source mapping for evidence
@@ -34,8 +32,7 @@ As an exception to the above, the following CloudTrail events aren't supported b
 
 ## Additional resources
 
-- To find help with evidence collection issues for this data source type, see [My assessment isn’t collecting user activity evidence from
-  AWS CloudTrail](evidence-collection-issues.md#no-evidence-from-cloudtrail "evidence-collection-issues.md#no-evidence-from-cloudtrail").
+- To find help with evidence collection issues for this data source type, see [My assessment isn’t collecting user activity evidence from AWS CloudTrail](evidence-collection-issues.md#no-evidence-from-cloudtrail "evidence-collection-issues.md#no-evidence-from-cloudtrail").
 - To create a custom control using this data source type, see [Creating a custom control in AWS Audit Manager](create-controls.md "create-controls.md").
 - To create a custom framework that uses your custom control, see [Creating a custom framework in AWS Audit Manager](custom-frameworks.md "custom-frameworks.md").
 - To add your custom control to an existing custom framework, see [Editing a custom framework in AWS Audit Manager](edit-custom-frameworks.md "edit-custom-frameworks.md").

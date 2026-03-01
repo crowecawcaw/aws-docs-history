@@ -298,8 +298,7 @@ see [AWS CloudTrail event names supported by AWS Audit Manager](control-data-sou
 ###### Note
 
 For more information about the specific API calls that Audit Manager can describe,
-see [Supported API calls for custom
-control data sources](control-data-sources-api.md#apis-for-custom-control-data-sources "control-data-sources-api.md#apis-for-custom-control-data-sources").
+see [Supported API calls for custom control data sources](control-data-sources-api.md#apis-for-custom-control-data-sources "control-data-sources-api.md#apis-for-custom-control-data-sources").
 
 To view the full permissions details of the service-linked role
 `AWSServiceRoleForAuditManager`, see [AWSAuditManagerServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSAuditManagerServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerServiceRolePolicy.md") in the _AWS
@@ -328,9 +327,7 @@ various entities might reference the role. However, you can edit the description
 role using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-###### To allow an IAM entity to edit the description of the `AWSServiceRoleForAuditManager`
-
-service-linked role
+###### To allow an IAM entity to edit the description of the `AWSServiceRoleForAuditManager` service-linked role
 
 Add the following statement to the permissions policy for the IAM entity that needs to
 edit the description of a service-linked role.
@@ -458,9 +455,7 @@ The status of the deletion task can be `NOT_STARTED`,
 `FAILED`. If the deletion fails, the call returns the
 reason that it failed so that you can troubleshoot.
 
-### Tips for deleting the Audit Manager service-linked
-
-role
+### Tips for deleting the Audit Manager service-linked role
 
 The deletion process for the Audit Manager service-linked role might fail if Audit Manager is using
 the role or has associated resources. This can happen in the following

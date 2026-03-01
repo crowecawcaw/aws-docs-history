@@ -1,6 +1,4 @@
-# Framework sharing concepts
-
-and terminology
+# Framework sharing concepts and terminology
 
 If you learn about the following key concepts, you can get more out of the AWS Audit Manager
 custom framework sharing feature.
@@ -191,10 +189,7 @@ in mind the following points:
 
 ## Additional resources
 
-- [Sending request to share a custom framework in
-  AWS Audit Manager](framework-sharing.md "framework-sharing.md")
-- [Responding to share requests in
-  AWS Audit Manager](responding-to-shared-framework-requests.md "responding-to-shared-framework-requests.md")
-- [Deleting share requests in
-  AWS Audit Manager](deleting-shared-framework-requests.md "deleting-shared-framework-requests.md")
+- [Sending request to share a custom framework in AWS Audit Manager](framework-sharing.md "framework-sharing.md")
+- [Responding to share requests in AWS Audit Manager](responding-to-shared-framework-requests.md "responding-to-shared-framework-requests.md")
+- [Deleting share requests in AWS Audit Manager](deleting-shared-framework-requests.md "deleting-shared-framework-requests.md")
 - [Troubleshooting framework issues](framework-issues.md "framework-issues.md")

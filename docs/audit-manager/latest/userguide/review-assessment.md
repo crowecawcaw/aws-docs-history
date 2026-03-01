@@ -34,6 +34,5 @@ outlined here.
 
 - [Reviewing assessment details in AWS Audit Manager](review-assessments.md "review-assessments.md")
 - [Reviewing an assessment control in AWS Audit Manager](review-controls.md "review-controls.md")
-- [Reviewing an evidence folder in
-  AWS Audit Manager](review-evidence-folders-detail.md "review-evidence-folders-detail.md")
+- [Reviewing an evidence folder in AWS Audit Manager](review-evidence-folders-detail.md "review-evidence-folders-detail.md")
 - [Reviewing evidence in AWS Audit Manager](review-evidence.md "review-evidence.md")
