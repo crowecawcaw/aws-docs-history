@@ -34,9 +34,7 @@ This architecture enables you to build an automotive call center solution as par
     experience with Contact Lens real time analysis to give guidelines to agents in live
     calls.
 
-## Enhanced Automotive Call Center Architecture
-
-Diagram
+## Enhanced Automotive Call Center Architecture Diagram
 
 ![Reference architecture diagram showing how to build an automotive call center solution to enhance customer service and loyalty operations, including service (hCall) and concierge (cCall) call services using Amazon Connect.](images/automotive-call-center-architecture-2.png)
 
@@ -51,7 +49,7 @@ Diagram
 5. Query **Amazon S3** sentiment analysis, call matrix, and
    product feedback data with **Amazon Athena**. Visualize
    dashboards that shows business metrics, monitoring of key performance indicators using
-   **Quick Suite** to convert data into insights.
+   **Quick** to convert data into insights.
 6. Monitor customer and product feedback, customer sentiments, and market trends from call center data. Feedback insights go into development and production processes, product roadmap of an original equipment manufacturer (OEM).
 7. Forward hCall and cCall to call center agent if customer wants to talk to a human
    agent. Present case ID, vehicle data, customer profile, **Amazon Connect** Contact Lens insights, and call summary, along with voice call to the
