@@ -2,9 +2,7 @@ This guide provides documentation for Wickr IO Integrations. If you're
 using AWS Wickr, see [AWS Wickr
 Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# Develop a custom Wickr IO integration on
-
-AWS Wickr
+# Develop a custom Wickr IO integration on AWS Wickr
 
 **High Level Overview**
 

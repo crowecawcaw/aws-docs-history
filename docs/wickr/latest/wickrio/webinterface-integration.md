@@ -59,9 +59,7 @@ The "Authorization" header is encoded - NOT encrypted - thus HTTP basic authenti
 only effective over secure connections. Always use the Web Interface REST API over HTTPS when
 communicating over insecure networks.
 
-## Web Interface Integration
-
-Installation
+## Web Interface Integration Installation
 
 This section shows the steps to add a Wickr IO Web Interface integration. The following
 steps will create a Wickr IO Bot with the Web Interface integration. This integration will
@@ -265,9 +263,7 @@ system or addressable and downloadable using a specific URL. If the file is loca
 Wickr IO system, it must be located where the Wickr IO client running on the Docker image can
 access it.
 
-### Sending a single message to
-
-multiple recipients
+### Sending a single message to multiple recipients
 
 To send a message to one or more recipients, the HTTP POST message should contain a JSON
 body with the following format:
@@ -286,9 +282,7 @@ The "users" field may contain an array of 1 or more users to send the message to
 message will be sent to each user on a separate 1-to-1 conversation. So, if the POST message
 contains 5 users then 5 messages will be sent, using the text from the "message" field.
 
-### Sending a message with
-
-Burn-on-Read
+### Sending a message with Burn-on-Read
 
 When sending a message, you can also set the specific burn on read (BOR) value for the
 message. The following format shows how to set the BOR value to 10 seconds:
@@ -301,9 +295,7 @@ message. The following format shows how to set the BOR value to 10 seconds:
 }
 ```
 
-### Sending a message to a
-
-Secure Room
+### Sending a message to a Secure Room
 
 If you want to send a message to a secure room or a group conversation you will need to get
 the vGroupID associated with the room. The vGroupID will be returned when you create the
@@ -333,9 +325,7 @@ The Wickr IO client supports three different ways to send files.
 Please make sure to use the correct API endpoint, since the first two methods use a
 different endpoint than the third method.
 
-### Send Files Residing on the
-
-Wickr IO Client
+### Send Files Residing on the Wickr IO Client
 
 To send files that are directly accessible by the Wickr IO client you will send an HTTP
 POST message to the following URI:
@@ -406,9 +396,7 @@ room.
 }
 ```
 
-### Send Files Passed in the REST API
-
-Request
+### Send Files Passed in the REST API Request
 
 This is a new endpoint for the Web Interface integration as of the v5.60 version.
 
@@ -777,9 +765,7 @@ TTL values:
 }
 ```
 
-### Group Conversation
-
-APIs
+### Group Conversation APIs
 
 This section describes the APIs associated with group conversations. Using these APIs you
 can create, get or delete group conversations that the client is a part of.
@@ -788,9 +774,7 @@ can create, get or delete group conversations that the client is a part of.
 
 These APIs are only available in versions 4.35 and newer of the Wickr IO client.
 
-#### Create Group
-
-Conversation API
+#### Create Group Conversation API
 
 This API will create a new group conversation. To create a group conversation, send an
 HTTP POST command using the following URI:
@@ -823,9 +807,7 @@ of a successful response:
 }
 ```
 
-#### Get Group Conversations
-
-API
+#### Get Group Conversations API
 
 This API will return a list of group conversations that are known by the Wickr IO
 client. To get a list of group conversations send an HTTP GET to the following URI:
@@ -853,9 +835,7 @@ format of the response will look like the following:
 }
 ```
 
-#### Get Group Conversation
-
-API
+#### Get Group Conversation API
 
 To get the details of a specific group conversation, send a HTTP GET command using the
 following URI with the vGroupID of the specific group conversation:
@@ -881,9 +861,7 @@ specified conversation. The format of the response will look like the following:
 }
 ```
 
-#### Delete Group
-
-Conversation API
+#### Delete Group Conversation API
 
 In order to delete a group conversation, you will need to have the vGroupID associated
 with that conversation. You can use the get group conversations API to get the list of

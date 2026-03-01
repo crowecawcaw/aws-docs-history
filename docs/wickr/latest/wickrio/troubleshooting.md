@@ -9,10 +9,8 @@ Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wick
 - [Setting up Wickr IO Docker container](#troubleshooting-docker-container "#troubleshooting-docker-container")
 - [Provisioning Wickr IO client](#troubleshooting-provisioning "#troubleshooting-provisioning")
 - [Start bot client failures](#troubleshooting-failures "#troubleshooting-failures")
-- [Wickr IO command line
-  interface](#troubleshooting-command-line-interface "#troubleshooting-command-line-interface")
-- [Client and Integration compatibility
-  issues](#troubleshooting-compatibility-issues "#troubleshooting-compatibility-issues")
+- [Wickr IO command line interface](#troubleshooting-command-line-interface "#troubleshooting-command-line-interface")
+- [Client and Integration compatibility issues](#troubleshooting-compatibility-issues "#troubleshooting-compatibility-issues")
 - [Deploying custom Integrations](#troubleshooting-deploying-integrations "#troubleshooting-deploying-integrations")
 - [Other issues](#troubleshooting-other-issues "#troubleshooting-other-issues")
 - [Upgrading bots](#upgrading-bots "#upgrading-bots")
@@ -181,9 +179,7 @@ commands that can help you diagnose any client issues.
   if there is any issue starting the client. For more information on logging details, see [Wickr IO clients
   logging](../wickrioguide/logging.md "../wickrioguide/logging.md").
 
-## Wickr IO command line
-
-interface
+## Wickr IO command line interface
 
 **_Wickr IO client is not running._**
 
@@ -213,9 +209,7 @@ This action will output a lot of debug information with this option enabled.
 
 ![Turn debug on.](images/wickr-debug.png)
 
-## Client and Integration compatibility
-
-issues
+## Client and Integration compatibility issues
 
 With the release of new Wickr IO Docker images containing changes to the Wickr IO Add-on
 APIs, when you upgrade your container to use the new version, it is possible there will be

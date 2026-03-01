@@ -33,9 +33,7 @@ The following shows the format of a location type message in 1:1 conversations:
 
 ```
 
-## Group and Room conversation
-
-messages
+## Group and Room conversation messages
 
 The following shows the format of location type message in group or room conversation
 conversations:

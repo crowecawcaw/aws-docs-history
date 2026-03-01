@@ -34,8 +34,7 @@ into your own applications. The REST API provides the same commands to interact 
 BroadcastBot as the other methods of interacting with the BroadcastBot. Details of the REST APIs
 are described in [BroadcastBot REST API](#broadcastbot-rest-api "#broadcastbot-rest-api").
 
-The Wickr IO BroadcastBot is a public integration. See [Broadcast Bot Installation](#broadcastbot-pro-installation "#broadcastbot-pro-installation") or [Broadcast Bot Enterprise
-Installation](#broadcastbot-enterprise-installation "#broadcastbot-enterprise-installation") for details on installation and configuration of the specific Wickr Docker images.
+The Wickr IO BroadcastBot is a public integration. See [Broadcast Bot Installation](#broadcastbot-pro-installation "#broadcastbot-pro-installation") or [Broadcast Bot Enterprise Installation](#broadcastbot-enterprise-installation "#broadcastbot-enterprise-installation") for details on installation and configuration of the specific Wickr Docker images.
 
 ## Broadcast Bot Installation
 
@@ -215,9 +214,7 @@ Enter command:
 For assistance in starting and running the BroadcastBot Docker image please contact
 wickr-support@amazon.com.
 
-## Broadcast Bot Enterprise
-
-Installation
+## Broadcast Bot Enterprise Installation
 
 This section describes the requirements and configuration of the BroadcastBot for Wickr
 Enterprise networks.
