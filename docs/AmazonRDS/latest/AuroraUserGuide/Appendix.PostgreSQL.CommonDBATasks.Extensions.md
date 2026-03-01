@@ -1,6 +1,4 @@
-# Working
-
-with the supported foreign data wrappers for Amazon Aurora PostgreSQL
+# Working with the supported foreign data wrappers for Amazon Aurora PostgreSQL
 
 A foreign data wrapper (FDW) is a specific type of extension that provides access to external data. For example, the
 `oracle_fdw` extension allows your Aurora PostgreSQL DB instance
@@ -10,8 +8,7 @@ Following, you can find information about several supported PostgreSQL foreign d
 
 ###### Topics
 
-- [Using the log_fdw
-  extension to access the DB log using SQL](CHAP_PostgreSQL.Extensions.md "CHAP_PostgreSQL.Extensions.md")
+- [Using the log_fdw extension to access the DB log using SQL](CHAP_PostgreSQL.Extensions.md "CHAP_PostgreSQL.Extensions.md")
 - [Using the postgres_fdw extension to access external data](postgresql-commondbatasks-fdw.md "postgresql-commondbatasks-fdw.md")
 - [Working with MySQL databases by using the mysql_fdw extension](postgresql-mysql-fdw.md "postgresql-mysql-fdw.md")
 - [Working with Oracle databases by using the oracle_fdw extension](postgresql-oracle-fdw.md "postgresql-oracle-fdw.md")

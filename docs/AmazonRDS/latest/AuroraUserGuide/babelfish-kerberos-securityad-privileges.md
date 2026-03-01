@@ -1,10 +1,6 @@
-# Utilizing privileges of AD
+# Utilizing privileges of AD security group membership
 
-security group membership
-
-## Inheriting
-
-server-level privileges
+## Inheriting server-level privileges
 
 AD users that are members of given AD security group will inherit server-level
 privileges granted to the mapped Windows group login. For example, consider the
@@ -30,9 +26,7 @@ Babelfish.
 To perform server-level DDLs, Windows login for individual AD user must
 exist. For more information, see [Limitations](babelfish-kerberos-securityad-limitations.md "babelfish-kerberos-securityad-limitations.md").
 
-## Inheriting
-
-database-level privileges
+## Inheriting database-level privileges
 
 To grant the database level privileges, a database user has to be created and
 mapped with Windows group login. AD users which are members of given AD security

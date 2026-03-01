@@ -1,6 +1,4 @@
-# Migrating a snapshot of an RDS for PostgreSQL DB instance to an Aurora PostgreSQL DB
-
-cluster
+# Migrating a snapshot of an RDS for PostgreSQL DB instance to an Aurora PostgreSQL DB cluster
 
 To create an Aurora PostgreSQL DB cluster, you can migrate a DB snapshot of an
 RDS for PostgreSQL DB instance. The new Aurora PostgreSQL DB cluster is populated with the data from
@@ -69,8 +67,7 @@ actions necessary to create both the DB cluster and the primary instance.
       an existing VPC, then you can use that VPC with your Aurora PostgreSQL DB
       cluster by choosing your VPC identifier, for example
       `vpc-a464d1c1`. For information about creating a VPC,
-      see [Tutorial: Create a VPC for use with a
-      DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
+      see [Tutorial: Create a VPC for use with a DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
 
     Otherwise, you can choose to have Amazon RDS create a VPC for you
     by choosing **Create new VPC**.

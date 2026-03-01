@@ -10,8 +10,7 @@ and helps you to access them across multiple DB instances and AWS Regions. For d
 
 ###### Topics
 
-- [Overview of backing up and restoring an Aurora DB
-  cluster](Aurora.Managing.md "Aurora.Managing.md")
+- [Overview of backing up and restoring an Aurora DB cluster](Aurora.Managing.md "Aurora.Managing.md")
 - [Retaining automated backups](Aurora.Managing.Backups.md "Aurora.Managing.Backups.md")
 - [Understanding Amazon Aurora backup storage usage](aurora-storage-backup.md "aurora-storage-backup.md")
 - [Creating a DB cluster snapshot](USER_CreateSnapshotCluster.md "USER_CreateSnapshotCluster.md")

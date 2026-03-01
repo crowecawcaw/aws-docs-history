@@ -22,9 +22,7 @@ March 1, 2025.
 
 For more information, see [Amazon Aurora pricing](https://aws.amazon.com/rds/aurora/pricing/ "https://aws.amazon.com/rds/aurora/pricing/").
 
-## Avoiding charges for
-
-Amazon RDS Extended Support
+## Avoiding charges for Amazon RDS Extended Support
 
 You can avoid being charged for RDS Extended Support by preventing Aurora from
 creating or restoring an Aurora DB cluster or a global cluster

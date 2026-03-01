@@ -40,15 +40,12 @@ size solves the problem.
 
 ###### Topics
 
-- [Turn on the Performance
-  Schema if it isn't turned on](#ams-states.sort-index.actions.enable-pfs "#ams-states.sort-index.actions.enable-pfs")
+- [Turn on the Performance Schema if it isn't turned on](#ams-states.sort-index.actions.enable-pfs "#ams-states.sort-index.actions.enable-pfs")
 - [Identify the problem queries](#ams-states.sort-index.actions.identify "#ams-states.sort-index.actions.identify")
 - [Examine the explain plans for filesort usage](#ams-states.sort-index.actions.plan "#ams-states.sort-index.actions.plan")
 - [Increase the sort buffer size](#ams-states.sort-index.actions.increasebuffersize "#ams-states.sort-index.actions.increasebuffersize")
 
-### Turn on the Performance
-
-Schema if it isn't turned on
+### Turn on the Performance Schema if it isn't turned on
 
 Performance Insights reports thread states only if Performance Schema instruments
 aren't turned on. When Performance Schema instruments are turned on, Performance

@@ -3,12 +3,9 @@
 Babelfish for Aurora PostgreSQL supports linked servers by using the PostgreSQL `tds_fdw`
 extension in version 3.1.0. To work with linked servers, you must install the
 `tds_fdw` extension. For more information about the `tds_fdw`
-extension, see [Working
-with the supported foreign data wrappers for Amazon Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Extensions.md "Appendix.PostgreSQL.CommonDBATasks.Extensions.md").
+extension, see [Working with the supported foreign data wrappers for Amazon Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Extensions.md "Appendix.PostgreSQL.CommonDBATasks.Extensions.md").
 
-## Installing the `tds_fdw`
-
-extension
+## Installing the `tds_fdw` extension
 
 You can install `tds_fdw` extension using the following methods.
 
@@ -97,8 +94,7 @@ To enforce connection encryption
   For more information about SSL/TLS configuration for RDS for SQL Server, see [Using
   SSL with a Microsoft SQL Server DB instance](../UserGuide/SQLServer.Concepts.General.SSL.md "../UserGuide/SQLServer.Concepts.General.SSL.md")
 - If the target linked server is a Babelfish for Aurora PostgreSQL cluster, set `babelfishpg_tds.tds_ssl_encrypt = on` and `ssl = on` for the target server.
-  For more information about SSL/TLS, see [Babelfish SSL settings and client
-  connections](babelfish-configuration.md#babelfish-ssl "babelfish-configuration.md#babelfish-ssl").
+  For more information about SSL/TLS, see [Babelfish SSL settings and client connections](babelfish-configuration.md#babelfish-ssl "babelfish-configuration.md#babelfish-ssl").
 
 ## Adding Babelfish as a linked server from SQL Server
 

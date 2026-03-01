@@ -1,6 +1,4 @@
-# Setting up Kerberos authentication using
-
-Active Directory security groups for Babelfish
+# Setting up Kerberos authentication using Active Directory security groups for Babelfish
 
 Starting from Babelfish version 4.2.0, you can setup Kerberos authentication for
 Babelfish with Active Directory security groups. The following are prerequisites to
@@ -11,8 +9,7 @@ complete for setting up Kerberos authentication using Active Directory:
   view the status of the domain membership in the console or by running the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") AWS CLI command.
 
 The status of the DB instance should be kerberos-enabled. For more information on
-understanding domain membership, see [Understanding Domain
-membership](postgresql-kerberos-managing.md#postgresql-kerberos-managing.understanding "postgresql-kerberos-managing.md#postgresql-kerberos-managing.understanding").
+understanding domain membership, see [Understanding Domain membership](postgresql-kerberos-managing.md#postgresql-kerberos-managing.understanding "postgresql-kerberos-managing.md#postgresql-kerberos-managing.understanding").
 
 - Verify mappings between NetBIOS domain name and DNS domain name using the
   following query:
@@ -26,12 +23,9 @@ SELECT netbios_domain_name, fq_domain_name FROM babelfish_domain_mapping;
   works as expected. The connection using Kerberos authentication as an Active
   Directory user should be successful. If you face any issues, see [Frequently occurring errors](babelfish-active-directory.md#babelfish-active-directory-errors "babelfish-active-directory.md#babelfish-active-directory-errors").
 
-## Setting up the pg_ad_mapping
+## Setting up the pg_ad_mapping extension
 
-extension
-
-You must follow all the steps mentioned at [Setting up the pg_ad_mapping
-extension](AD.Security.md#AD.Security.Groups.Setup "AD.Security.md#AD.Security.Groups.Setup") . To verify that the extension is
+You must follow all the steps mentioned at [Setting up the pg_ad_mapping extension](AD.Security.md#AD.Security.Groups.Setup "AD.Security.md#AD.Security.Groups.Setup") . To verify that the extension is
 installed, run the following query from TDS endpoint:
 
 ```

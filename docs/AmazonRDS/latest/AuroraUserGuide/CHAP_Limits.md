@@ -164,5 +164,4 @@ such as partitioning of large tables.
 
 The maximum table space ID for Aurora MySQL is 2147483647. If you frequently
 create and drop tables, make sure to be aware of your table space IDs and
-plan to use logical dumps. For more information, see [Logical migration from MySQL to Amazon Aurora MySQL by using
-mysqldump](AuroraMySQL.Migrating.ExtMySQL.md "AuroraMySQL.Migrating.ExtMySQL.md").
+plan to use logical dumps. For more information, see [Logical migration from MySQL to Amazon Aurora MySQL by using mysqldump](AuroraMySQL.Migrating.ExtMySQL.md "AuroraMySQL.Migrating.ExtMySQL.md").

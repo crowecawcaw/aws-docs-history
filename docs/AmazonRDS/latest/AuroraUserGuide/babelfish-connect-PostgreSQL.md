@@ -1,17 +1,12 @@
-# Using a PostgreSQL client to connect to
-
-your DB cluster
+# Using a PostgreSQL client to connect to your DB cluster
 
 You can use a PostgreSQL client to connect to Babelfish on the PostgreSQL
 port. Starting with version 5.1.0, the Babelfish server enforces end-to-end
 connection encryption by default. Update your application to work with
 SSL/TLS certificates. For more information about configuring SSL/TLS certificates,
-see [Securing Aurora PostgreSQL data with
-SSL/TLS](AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL "AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL").
+see [Securing Aurora PostgreSQL data with SSL/TLS](AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL "AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL").
 
-## Using psql to connect to the DB
-
-cluster
+## Using psql to connect to the DB cluster
 
 You can download the PostgreSQL client from the [PostgreSQL](https://www.postgresql.org/download/ "https://www.postgresql.org/download/") website.
 Follow the instructions specific to your operating system version to install
@@ -62,9 +57,7 @@ For more information about using the psql client to query an Aurora PostgreSQL
 cluster, see [the
 PostgreSQL documentation](https://www.postgresql.org/docs/14/app-psql.html "https://www.postgresql.org/docs/14/app-psql.html").
 
-## Using pgAdmin to connect to the DB
-
-cluster
+## Using pgAdmin to connect to the DB cluster
 
 You can use the pgAdmin client to access your data in native PostgreSQL
 dialect.

@@ -1,6 +1,4 @@
-# Connecting to
-
-Babelfish via PostgreSQL endpoint on the PostgreSQL port
+# Connecting to Babelfish via PostgreSQL endpoint on the PostgreSQL port
 
 You can utilize group logins created from the TDS port to connect through PostgreSQL
 port as well. To connect through PostgreSQL port, you need to specify the AD user's name
@@ -11,13 +9,9 @@ format.
 PostgreSQL uses case-sensitive comparisons by default for usernames. For Aurora
 PostgreSQL to interpret Kerberos usernames as case-insensitive, you must set the
 krb_caseins_users parameter as true in the custom Babelfish cluster parameter group.
-This parameter is set to false by default. For more information, see [Configuring your Aurora PostgreSQL DB cluster for case-insensitive user
-names](postgresql-kerberos-setting-up.md#postgresql-kerberos-setting-up.create-logins.set-case-insentive "postgresql-kerberos-setting-up.md#postgresql-kerberos-setting-up.create-logins.set-case-insentive").
+This parameter is set to false by default. For more information, see [Configuring your Aurora PostgreSQL DB cluster for case-insensitive user names](postgresql-kerberos-setting-up.md#postgresql-kerberos-setting-up.create-logins.set-case-insentive "postgresql-kerberos-setting-up.md#postgresql-kerberos-setting-up.create-logins.set-case-insentive").
 
-## Behavior differences
-
-between T-SQL and PostgreSQL endpoints when an AD user is part of multiple
-groups
+## Behavior differences between T-SQL and PostgreSQL endpoints when an AD user is part of multiple groups
 
 Consider that AD user user1 is part of two AD security groups
 [corp\accounts-group] and [corp\sales-group] and DB admin has set the user mapping

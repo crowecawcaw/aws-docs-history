@@ -1,7 +1,4 @@
-# Migrating data
-
-from an RDS for PostgreSQL DB instance to an Aurora PostgreSQL DB cluster using an Aurora read
-replica
+# Migrating data from an RDS for PostgreSQL DB instance to an Aurora PostgreSQL DB cluster using an Aurora read replica
 
 You can use an RDS for PostgreSQL DB instance as the basis for a new Aurora PostgreSQL DB cluster by using an Aurora
 read replica for the migration process. The Aurora read replica option is available only for migrating within the same AWS Region and
@@ -15,17 +12,12 @@ or a higher minor version in the PostgreSQL version 11 family.
 
 ###### Topics
 
-- [Overview of
-  migrating data by using an Aurora read replica](#AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica.Intro "#AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica.Intro")
+- [Overview of migrating data by using an Aurora read replica](#AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica.Intro "#AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica.Intro")
 - [Preparing to migrate data by using an Aurora read replica](#AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica.Prepare "#AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica.Prepare")
-- [Creating an Aurora read
-  replica](#AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica.Create "#AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica.Create")
-- [Promoting an
-  Aurora read replica](#AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica.Promote "#AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica.Promote")
+- [Creating an Aurora read replica](#AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica.Create "#AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica.Create")
+- [Promoting an Aurora read replica](#AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica.Promote "#AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica.Promote")
 
-## Overview of
-
-migrating data by using an Aurora read replica
+## Overview of migrating data by using an Aurora read replica
 
 Migrating from an RDS for PostgreSQL DB instance to an Aurora PostgreSQL DB cluster is a
 multistep procedure. First, you create an Aurora read replica of your source
@@ -85,8 +77,7 @@ already has an Aurora read replica or if it has a cross-Region read replica.
 ###### Note
 
 When preparing to migrate data to Aurora PostgreSQL, it's important to identify and handle
-unlogged tables appropriately. For more information, see [Handling unlogged tables
-during migration](aurora-postgresql-unlogged-tables.md#aurora-postgresql-unlogged-tables-migration "aurora-postgresql-unlogged-tables.md#aurora-postgresql-unlogged-tables-migration").
+unlogged tables appropriately. For more information, see [Handling unlogged tables during migration](aurora-postgresql-unlogged-tables.md#aurora-postgresql-unlogged-tables-migration "aurora-postgresql-unlogged-tables.md#aurora-postgresql-unlogged-tables-migration").
 
 During the migration process using Aurora read replica, updates made to the source RDS for PostgreSQL DB instance are
 asynchronously replicated to the Aurora read replica of the Replica cluster. The process
@@ -104,9 +95,7 @@ that your instance has sufficient storage capacity by checking values for the me
 For more information about monitoring your RDS instance, see
 [Monitoring](../UserGuide/CHAP_Monitoring.md "../UserGuide/CHAP_Monitoring.md") in the _Amazon RDS User Guide_.
 
-## Creating an Aurora read
-
-replica
+## Creating an Aurora read replica
 
 You can create an Aurora read replica for an RDS for PostgreSQL DB instance by using
 the AWS Management Console or the AWS CLI. The option to create an Aurora read replica using the
@@ -115,9 +104,7 @@ available only if there's an Aurora PostgreSQL version that is the same as the
 RDS for PostgreSQL version or a higher minor version in the same major version
 family.
 
-###### To create an Aurora read replica from a source PostgreSQL DB
-
-instance
+###### To create an Aurora read replica from a source PostgreSQL DB instance
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
@@ -136,19 +123,19 @@ you can't change these at this time.
 
 | Option                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **DB instance class**           | Choose a DB instance class that meets the processing and memory requirements primary<br>instance in the DB cluster. For more information, see [Amazon Aurora DB instance classes](Concepts.md "Concepts.md").                                                                                                                                                                                                                                                                                                  |
+| **DB instance class**           | Choose a DB instance class that meets the processing and memory requirements primary<br>instance in the DB cluster. For more information, see [Amazon AuroraDB instance classes](Concepts.md "Concepts.md").                                                                                                                                                                                                                                                                                                   |
 | **Multi-AZ deployment**         | Not available during the migration                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | **DB instance identifier**      | Enter the name that you want to give to the DB<br>instance. This identifier is used in the endpoint<br>address for the primary instance of the new DB<br>cluster.<br>The DB instance identifier has the following<br>constraints:<br>• It must contain 1–63 alphanumeric<br>characters or hyphens.<br>• Its first character must be a letter.<br>• It can't end with a hyphen or contain two<br>consecutive hyphens.<br>• It must be unique for all DB instances for<br>each AWS account, for each AWS Region. |
 | **Virtual Private Cloud (VPC)** | Choose the VPC to host the DB cluster. Choose<br>\*_Create new VPC_<br>• to have Amazon RDS<br>create a VPC for you. For more information, see<br>[DB cluster prerequisites](Aurora.md#Aurora.CreateInstance.Prerequisites "Aurora.md#Aurora.CreateInstance.Prerequisites").                                                                                                                                                                                                                                   |
 | **DB subnet group**             | Choose the DB subnet group to use for the DB<br>cluster. Choose \*_Create new DB Subnet<br>Group_<br>• to have Amazon RDS create a DB subnet<br>group for you. For more information, see [DB cluster prerequisites](Aurora.md#Aurora.CreateInstance.Prerequisites "Aurora.md#Aurora.CreateInstance.Prerequisites").                                                                                                                                                                                            |
-| **Public accessibility**        | Choose **Yes\*<br>• to give the DB cluster<br>a public IP address; otherwise, choose<br>**No\*\*. The instances in your DB cluster<br>can be a mix of both public and private DB<br>instances. For more information about hiding<br>instances from public access, see [Hiding a DB cluster in a VPC from<br>the internet](USER_VPC.md#USER_VPC.Hiding "USER_VPC.md#USER_VPC.Hiding").                                                                                                                          |
-| **Availability zone**           | Determine if you want to specify a particular<br>Availability Zone. For more information about<br>Availability Zones, see [Regions and<br>Availability Zones](Concepts.md "Concepts.md").                                                                                                                                                                                                                                                                                                                      |
+| **Public accessibility**        | Choose **Yes\*<br>• to give the DB cluster<br>a public IP address; otherwise, choose<br>**No\*\*. The instances in your DB cluster<br>can be a mix of both public and private DB<br>instances. For more information about hiding<br>instances from public access, see [Hiding a DB cluster in a VPC from the internet](USER_VPC.md#USER_VPC.Hiding "USER_VPC.md#USER_VPC.Hiding").                                                                                                                             |
+| **Availability zone**           | Determine if you want to specify a particular<br>Availability Zone. For more information about<br>Availability Zones, see [Regions and Availability Zones](Concepts.md "Concepts.md").                                                                                                                                                                                                                                                                                                                         |
 | **VPC security groups**         | Choose one or more VPC security groups to<br>secure network access to the DB cluster. Choose<br>**Create new VPC security group**<br>to have Amazon RDS create a VPC security group for you.<br>For more information, see [DB cluster prerequisites](Aurora.md#Aurora.CreateInstance.Prerequisites "Aurora.md#Aurora.CreateInstance.Prerequisites").                                                                                                                                                           |
 | **Database port**               | Specify the port for applications and<br>utilities to use to access the database. Aurora<br>PostgreSQL DB clusters default to the default<br>PostgreSQL port, 5432. Firewalls at some companies<br>block connections to this port. If your company<br>firewall blocks the default port, choose another<br>port for the new DB cluster.                                                                                                                                                                         |
 | **DB parameter group**          | Choose a DB parameter group for the Aurora<br>PostgreSQL DB cluster. Aurora has a default DB<br>parameter group you can use, or you can create your<br>own DB parameter group. For more information about<br>DB parameter groups, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").                                                                                                                                                                   |
 | **DB cluster parameter group**  | Choose a DB cluster parameter group for the<br>Aurora PostgreSQL DB cluster. Aurora has a default DB<br>cluster parameter group you can use, or you can<br>create your own DB cluster parameter group. For more<br>information about DB cluster parameter groups, see<br>[Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").                                                                                                                                |
 | **Encryption**                  | Choose **Enable encryption**<br>for your new Aurora DB cluster to be encrypted at<br>rest. If you choose **Enable<br>encryption**, also choose a KMS key<br>as the \*_AWS KMS key_<br>• value.                                                                                                                                                                                                                                                                                                                 |
-| **Priority**                    | Choose a failover priority for the DB cluster.<br>If you don't choose a value, the default is<br>**tier-1**. This priority<br>determines the order in which Aurora Replicas are<br>promoted when recovering from a primary instance<br>failure. For more information, see [Fault tolerance for an Aurora DB<br>cluster](Concepts.md#Aurora.Managing.FaultTolerance "Concepts.md#Aurora.Managing.FaultTolerance").                                                                                              |
+| **Priority**                    | Choose a failover priority for the DB cluster.<br>If you don't choose a value, the default is<br>**tier-1**. This priority<br>determines the order in which Aurora Replicas are<br>promoted when recovering from a primary instance<br>failure. For more information, see [Fault tolerance for an Aurora DB cluster](Concepts.md#Aurora.Managing.FaultTolerance "Concepts.md#Aurora.Managing.FaultTolerance").                                                                                                 |
 | **Backup retention period**     | Choose the length of time, 1–35 days,<br>for Aurora to retain backup copies of the<br>database. Backup copies can be used for<br>point-in-time restores (PITR) of your database down<br>to the second.                                                                                                                                                                                                                                                                                                         |
 | **Enhanced monitoring**         | Choose \*_Enable enhanced<br>monitoring_<br>• to enable gathering metrics<br>in real time for the operating system that your DB<br>cluster runs on. For more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md").                                                                                                                                                                                                                                       |
 | **Monitoring<br>Role**          | Only available if you chose **Enable<br>enhanced monitoring**. The AWS Identity and Access Management<br>(IAM) role to use for Enhanced Monitoring. For<br>more information, see [Setting up and enabling Enhanced Monitoring](USER_Monitoring.OS.md "USER_Monitoring.OS.md").                                                                                                                                                                                                                                 |
@@ -319,9 +306,7 @@ parameters:
   For more information, see [`CreateDBInstance`](../APIReference/API_CreateDBInstance.md "../APIReference/API_CreateDBInstance.md")
   in the _Amazon RDS API Reference_.
 
-## Promoting an
-
-Aurora read replica
+## Promoting an Aurora read replica
 
 The migration to Aurora PostgreSQL isn't complete until you promote the Replica cluster, so don't delete
 the RDS for PostgreSQL source DB instance just yet.
@@ -330,8 +315,7 @@ Before promoting the Replica cluster, make sure that the RDS for PostgreSQL DB
 instance doesn't have any in-process transactions or other activity writing to
 the database. When the replica lag on the Aurora read replica reaches zero (0), you
 can promote the Replica cluster. For more information about monitoring replica lag,
-see [Monitoring Aurora PostgreSQL
-replication](AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring "AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring") and [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
+see [Monitoring Aurora PostgreSQL replication](AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring "AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring") and [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
 
 ###### To promote an Aurora read replica to an Aurora DB cluster
 

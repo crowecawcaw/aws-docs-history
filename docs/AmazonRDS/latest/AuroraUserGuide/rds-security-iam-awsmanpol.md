@@ -176,8 +176,7 @@ in the _AWS Managed Policy Reference Guide_.
 
 You can't attach the `AmazonRDSServiceRolePolicy` policy to your IAM
 entities. This policy is attached to a service-linked role that allows Amazon RDS to perform
-actions on your behalf. For more information, see [Service-linked role permissions for
-Amazon Aurora](UsingWithRDS.IAM.md#service-linked-role-permissions "UsingWithRDS.IAM.md#service-linked-role-permissions").
+actions on your behalf. For more information, see [Service-linked role permissions for Amazon Aurora](UsingWithRDS.IAM.md#service-linked-role-permissions "UsingWithRDS.IAM.md#service-linked-role-permissions").
 
 ## AWS managed policy: AmazonRDSPreviewServiceRolePolicy
 

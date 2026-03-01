@@ -91,8 +91,7 @@ aws rds modify-db-cluster-parameter-group --db-cluster-parameter-group-name pq-e
 If you perform this step, specify the option
 `--db-cluster-parameter-group-name `my_cluster_parameter_group`` in the subsequent`create-db-cluster` statement. Substitute the name of your own parameter group.
 If you omit this step, you create the parameter group and associate it with the cluster later, as described in
-[Turning parallel query on and
-off in Aurora MySQL](aurora-mysql-parallel-query-enabling.md "aurora-mysql-parallel-query-enabling.md"). 3. Follow the general AWS CLI procedure in [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md"). 4. Specify the following set of options:
+[Turning parallel query on and off in Aurora MySQL](aurora-mysql-parallel-query-enabling.md "aurora-mysql-parallel-query-enabling.md"). 3. Follow the general AWS CLI procedure in [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md"). 4. Specify the following set of options:
 
     * For the `--engine` option, use `aurora-mysql`. These values produce parallel query clusters that
      are compatible with MySQL 5.7 or 8.0.
@@ -106,9 +105,7 @@ off in Aurora MySQL](aurora-mysql-parallel-query-enabling.md "aurora-mysql-paral
 
     The following code example shows how. Substitute your own value for each of
      the environment variables such as `$CLUSTER_ID`. This example also specifies the `--manage-master-user-password` option to generate the master user password and manage it in Secrets Manager.
-     For more information, see [Password management with
-     Amazon Aurora
-     and AWS Secrets Manager](rds-secrets-manager.md "rds-secrets-manager.md").
+     For more information, see [Password management with Amazon Aurora and AWS Secrets Manager](rds-secrets-manager.md "rds-secrets-manager.md").
      Alternatively, you can use the `--master-password` option to specify and manage the password yourself.
 
 

@@ -1,287 +1,268 @@
-# Altering tables in Amazon Aurora using Fast DDL
+# Managing performance and scaling for Amazon Aurora MySQL
 
-Amazon Aurora includes optimizations to run an `ALTER TABLE` operation in place,
-nearly instantaneously. The operation completes without requiring the table to be copied
-and without having a material impact on other DML statements. Because the operation
-doesn't consume temporary storage for a table copy, it makes DDL statements practical
-even for large tables on small instance classes.
+## Scaling Aurora MySQL DB instances
 
-Aurora MySQL version 3 is compatible with the MySQL 8.0 feature called instant DDL. Aurora MySQL version 2 uses a different
-implementation called Fast DDL.
+You can scale Aurora MySQL DB instances in two ways, instance scaling and read
+scaling. For more information about read scaling, see
+[Read scaling](Aurora.Managing.md#Aurora.Managing.Performance.ReadScaling "Aurora.Managing.md#Aurora.Managing.Performance.ReadScaling").
 
-###### Topics
-
-- [Instant DDL (Aurora MySQL version 3)](#AuroraMySQL.mysql80-instant-ddl "#AuroraMySQL.mysql80-instant-ddl")
-- [Fast DDL (Aurora MySQL version 2)](#AuroraMySQL.Managing.FastDDL-v2 "#AuroraMySQL.Managing.FastDDL-v2")
-
-## Instant DDL (Aurora MySQL version 3)
-
-The optimization performed by Aurora MySQL version 3 to improve the efficiency of
-some DDL operations is called instant DDL.
-
-Aurora MySQL version 3 is compatible with the instant DDL from community MySQL 8.0. You perform an
-instant DDL operation by using the clause `ALGORITHM=INSTANT` with the `ALTER TABLE` statement.
-For syntax and usage details about instant DDL, see
-[ALTER TABLE](https://dev.mysql.com/doc/refman/8.0/en/alter-table.html "https://dev.mysql.com/doc/refman/8.0/en/alter-table.html")
-and [Online DDL Operations](https://dev.mysql.com/doc/refman/8.0/en/innodb-online-ddl-operations.html "https://dev.mysql.com/doc/refman/8.0/en/innodb-online-ddl-operations.html")
-in the MySQL documentation.
-
-The following examples demonstrate the instant DDL feature. The `ALTER TABLE` statements
-add columns and change default column values. The examples include both regular and
-virtual columns, and both regular and partitioned tables. At each step, you can see the results by issuing
-`SHOW CREATE TABLE` and `DESCRIBE` statements.
-
-```
-mysql> CREATE TABLE t1 (a INT, b INT, KEY(b)) PARTITION BY KEY(b) PARTITIONS 6;
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> ALTER TABLE t1 RENAME TO t2, ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> ALTER TABLE t2 ALTER COLUMN b SET DEFAULT 100, ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.00 sec)
-
-mysql> ALTER TABLE t2 ALTER COLUMN b DROP DEFAULT, ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> ALTER TABLE t2 ADD COLUMN c ENUM('a', 'b', 'c'), ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> ALTER TABLE t2 MODIFY COLUMN c ENUM('a', 'b', 'c', 'd', 'e'), ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> ALTER TABLE t2 ADD COLUMN (d INT GENERATED ALWAYS AS (a + 1) VIRTUAL), ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> ALTER TABLE t2 ALTER COLUMN a SET DEFAULT 20,
-    ->   ALTER COLUMN b SET DEFAULT 200, ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> CREATE TABLE t3 (a INT, b INT) PARTITION BY LIST(a)(
-    ->   PARTITION mypart1 VALUES IN (1,3,5),
-    ->   PARTITION MyPart2 VALUES IN (2,4,6)
-    -> );
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> ALTER TABLE t3 ALTER COLUMN a SET DEFAULT 20, ALTER COLUMN b SET DEFAULT 200, ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> CREATE TABLE t4 (a INT, b INT) PARTITION BY RANGE(a)
-    ->   (PARTITION p0 VALUES LESS THAN(100), PARTITION p1 VALUES LESS THAN(1000),
-    ->   PARTITION p2 VALUES LESS THAN MAXVALUE);
-Query OK, 0 rows affected (0.05 sec)
-
-mysql> ALTER TABLE t4 ALTER COLUMN a SET DEFAULT 20,
-    ->   ALTER COLUMN b SET DEFAULT 200, ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.01 sec)
-
-/* Sub-partitioning example */
-mysql> CREATE TABLE ts (id INT, purchased DATE, a INT, b INT)
-    ->   PARTITION BY RANGE( YEAR(purchased) )
-    ->     SUBPARTITION BY HASH( TO_DAYS(purchased) )
-    ->     SUBPARTITIONS 2 (
-    ->       PARTITION p0 VALUES LESS THAN (1990),
-    ->       PARTITION p1 VALUES LESS THAN (2000),
-    ->       PARTITION p2 VALUES LESS THAN MAXVALUE
-    ->    );
-Query OK, 0 rows affected (0.10 sec)
-
-mysql> ALTER TABLE ts ALTER COLUMN a SET DEFAULT 20,
-    ->   ALTER COLUMN b SET DEFAULT 200, ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.01 sec)
-
-```
-
-## Fast DDL (Aurora MySQL version 2)
-
-Fast DDL in Aurora MySQL is an optimization designed to improve the performance of
-certain schema changes, such as adding or dropping columns, by reducing downtime and
-resource usage. It allows these operations to be completed more efficiently compared to
-traditional DDL methods.
-
-###### Important
-
-Currently, you must enable Aurora lab mode to use Fast DDL. For information about
-enabling lab mode, see [Amazon Aurora MySQL lab mode](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md").
-
-The Fast DDL optimization was initially introduced in lab mode on Aurora MySQL
-version 2 to enhance the efficiency of certain DDL operations. In Aurora MySQL version
-3, lab mode has been discontinued, and Fast DDL has been replaced by the MySQL 8.0
-Instant DDL feature.
-
-In MySQL, many data definition language (DDL) operations have a significant
-performance impact.
-
-For example, suppose that you use an `ALTER TABLE` operation to add a column to a table.
-Depending on the algorithm specified for the operation, this operation can involve the
-following:
-
-- Creating a full copy of the table
-- Creating a temporary table to process concurrent data manipulation language
-  (DML) operations
-- Rebuilding all indexes for the table
-- Applying table locks while applying concurrent DML changes
-- Slowing concurrent DML throughput
-
-This performance impact can be particularly challenging in environments with large
-tables or high transaction volumes. Fast DDL helps mitigate these challenges by
-optimizing schema changes, which enables quicker and less resource-intensive
-operations.
-
-### Fast DDL limitations
-
-Currently, Fast DDL has the following limitations:
-
-- Fast DDL only supports adding nullable columns, without default values, to
-  the end of an existing table.
-- Fast DDL doesn't work for partitioned tables.
-- Fast DDL doesn't work for InnoDB tables that use the REDUNDANT row
-  format.
-- Fast DDL doesn't work for tables with full-text search indexes.
-- If the maximum possible record size for the DDL operation is too large, Fast DDL is not used. A record size is too
-  large if it is greater than half the page size. The maximum size of a record is computed by adding the maximum sizes
-  of all columns. For variable sized columns, according to InnoDB standards, extern bytes are not included for
-  computation.
-
-### Fast DDL syntax
-
-```
-ALTER TABLE `tbl_name` ADD COLUMN `col_name` `column_definition`
-```
-
-This statement takes the following options:
-
-- `tbl_name` — The name of
-  the table to be modified.
-- `col_name` — The name of
-  the column to be added.
-- `col_definition` — The
-  definition of the column to be added.
+You can scale your Aurora MySQL DB cluster by modifying the DB instance class for
+each DB instance in the DB cluster. Aurora MySQL supports several DB instance classes
+optimized for Aurora. Don't use db.t2 or db.t3 instance classes for larger Aurora
+clusters of size greater than 40 TB. For the specifications of the DB
+instance classes supported by Aurora MySQL,
+see [Amazon AuroraDB instance classes](Concepts.md "Concepts.md").
 
 ###### Note
 
-You must specify a nullable column definition without a default value. Otherwise, Fast DDL isn't used.
+We recommend using the T DB instance classes only for development and test servers, or other non-production servers. For
+more details on the T instance classes, see [Using T instance classes for development and testing](AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.T2Medium "AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.T2Medium").
 
-### Fast DDL examples
+## Maximum connections to an Aurora MySQL DB instance
 
-The following examples demonstrate the speedup from Fast DDL operations. The first SQL example runs `ALTER TABLE`
-statements on a large table without using Fast DDL. This operation takes substantial time. A CLI example shows how to enable
-Fast DDL for the cluster. Then another SQL example runs the same `ALTER TABLE` statements on an identical table.
-With Fast DDL enabled, the operation is very fast.
+The maximum number of connections allowed to an Aurora MySQL DB instance is determined by
+the `max_connections` parameter in the instance-level parameter group for
+the DB instance.
 
-This example uses the `ORDERS` table from the TPC-H benchmark, containing 150 million rows. This cluster
-intentionally uses a relatively small instance class, to demonstrate how long `ALTER TABLE` statements can take
-when you can't use Fast DDL. The example creates a clone of the original table containing identical data. Checking the
-`aurora_lab_mode` setting confirms that the cluster can't use Fast DDL, because lab mode isn't
-enabled. Then `ALTER TABLE ADD COLUMN` statements take substantial time to add new columns at the end of the
-table.
+The following table lists the resulting default value of
+`max_connections` for each DB instance class available to Aurora MySQL. You
+can increase the maximum number of connections to your Aurora MySQL DB instance by scaling
+the instance up to a DB instance class with more memory, or by setting a larger
+value for the `max_connections` parameter in the DB parameter group for your instance, up to 16,000.
 
-```
-`mysql>` create table orders_regular_ddl like orders;
-`Query OK, 0 rows affected (0.06 sec)`
+###### Tip
 
-`mysql>` insert into orders_regular_ddl select * from orders;
-`Query OK, 150000000 rows affected (1 hour 1 min 25.46 sec)`
+If your applications frequently open and close connections, or keep a large number of long-lived connections open, we recommend that you use Amazon RDS Proxy.
+RDS Proxy is a fully managed, highly available database proxy that uses connection pooling to share database connections securely and efficiently. To learn more
+about RDS Proxy, see [Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md").
 
-`mysql>` select @@aurora_lab_mode;
-`+-------------------+
-| @@aurora_lab_mode |
-+-------------------+
-| 0 |
-+-------------------+`
+For details about how Aurora Serverless v2 instances handle this parameter, see
+[Maximum connections for Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.max-connections "aurora-serverless-v2.md#aurora-serverless-v2.max-connections").
 
-`mysql>` ALTER TABLE orders_regular_ddl ADD COLUMN o_refunded boolean;
-`Query OK, 0 rows affected **(40 min 31.41 sec)**`
+| Instance class  | max_connections default value |
+| --------------- | ----------------------------- |
+| db.t2.small     | 45                            |
+| db.t2.medium    | 90                            |
+| db.t3.small     | 45                            |
+| db.t3.medium    | 90                            |
+| db.t3.large     | 135                           |
+| db.t4g.medium   | 90                            |
+| db.t4g.large    | 135                           |
+| db.r3.large     | 1000                          |
+| db.r3.xlarge    | 2000                          |
+| db.r3.2xlarge   | 3000                          |
+| db.r3.4xlarge   | 4000                          |
+| db.r3.8xlarge   | 5000                          |
+| db.r4.large     | 1000                          |
+| db.r4.xlarge    | 2000                          |
+| db.r4.2xlarge   | 3000                          |
+| db.r4.4xlarge   | 4000                          |
+| db.r4.8xlarge   | 5000                          |
+| db.r4.16xlarge  | 6000                          |
+| db.r5.large     | 1000                          |
+| db.r5.xlarge    | 2000                          |
+| db.r5.2xlarge   | 3000                          |
+| db.r5.4xlarge   | 4000                          |
+| db.r5.8xlarge   | 5000                          |
+| db.r5.12xlarge  | 6000                          |
+| db.r5.16xlarge  | 6000                          |
+| db.r5.24xlarge  | 7000                          |
+| db.r6g.large    | 1000                          |
+| db.r6g.xlarge   | 2000                          |
+| db.r6g.2xlarge  | 3000                          |
+| db.r6g.4xlarge  | 4000                          |
+| db.r6g.8xlarge  | 5000                          |
+| db.r6g.12xlarge | 6000                          |
+| db.r6g.16xlarge | 6000                          |
+| db.r6i.large    | 1000                          |
+| db.r6i.xlarge   | 2000                          |
+| db.r6i.2xlarge  | 3000                          |
+| db.r6i.4xlarge  | 4000                          |
+| db.r6i.8xlarge  | 5000                          |
+| db.r6i.12xlarge | 6000                          |
+| db.r6i.16xlarge | 6000                          |
+| db.r6i.24xlarge | 7000                          |
+| db.r6i.32xlarge | 7000                          |
+| db.r7g.large    | 1000                          |
+| db.r7g.xlarge   | 2000                          |
+| db.r7g.2xlarge  | 3000                          |
+| db.r7g.4xlarge  | 4000                          |
+| db.r7g.8xlarge  | 5000                          |
+| db.r7g.12xlarge | 6000                          |
+| db.r7g.16xlarge | 6000                          |
+| db.r7i.large    | 1000                          |
+| db.r7i.xlarge   | 2000                          |
+| db.r7i.2xlarge  | 3000                          |
+| db.r7i.4xlarge  | 4000                          |
+| db.r7i.8xlarge  | 5000                          |
+| db.r7i.12xlarge | 6000                          |
+| db.r7i.16xlarge | 6000                          |
+| db.r7i.24xlarge | 7000                          |
+| db.r7i.48xlarge | 8000                          |
+| db.r8g.large    | 1000                          |
+| db.r8g.xlarge   | 2000                          |
+| db.r8g.2xlarge  | 3000                          |
+| db.r8g.4xlarge  | 4000                          |
+| db.r8g.8xlarge  | 5000                          |
+| db.r8g.12xlarge | 6000                          |
+| db.r8g.16xlarge | 6000                          |
+| db.r8g.24xlarge | 7000                          |
+| db.r8g.48xlarge | 8000                          |
+| db.x2g.large    | 2000                          |
+| db.x2g.xlarge   | 3000                          |
+| db.x2g.2xlarge  | 4000                          |
+| db.x2g.4xlarge  | 5000                          |
+| db.x2g.8xlarge  | 6000                          |
+| db.x2g.12xlarge | 7000                          |
+| db.x2g.16xlarge | 7000                          |
 
-`mysql>` ALTER TABLE orders_regular_ddl ADD COLUMN o_coverletter varchar(512);
-`Query OK, 0 rows affected **(40 min 44.45 sec)**`
+###### Tip
 
-```
+The `max_connections` parameter calculation uses log base 2 (distinct from natural logarithm) and the `DBInstanceClassMemory` value in bytes for the selected Aurora MySQL instance class. The parameter accepts only integer values, with decimal portions truncated from calculations. The formula implements connection limits as follows:
 
-This example does the same preparation of a large table as the previous example.
-However, you can't simply enable lab mode within an interactive
-SQL session. That setting must be enabled in a custom parameter group.
-Doing so requires switching out of the `mysql` session and running
-some AWS CLI commands or using the AWS Management Console.
+- 1000 connection increment for larger R3, R4, and R5 instances
+- 45 connection increment for T2 and T3 instance memory variants
+  Example: For db.r6g.large, while the formula calculates 1069.2, the system implements 1000 to maintain consistent incremental patterns.
 
-```
-`mysql>` create table orders_fast_ddl like orders;
-`Query OK, 0 rows affected (0.02 sec)`
+If you create a new parameter group to customize your own default for the connection limit, you'll see that the default
+connection limit is derived using a formula based on the `DBInstanceClassMemory` value. As shown in the preceding
+table, the formula produces connection limits that increase by 1000 as the memory doubles between progressively larger R3, R4,
+and R5 instances, and by 45 for different memory sizes of T2 and T3 instances.
 
-`mysql>` insert into orders_fast_ddl select * from orders;
-`Query OK, 150000000 rows affected (58 min 3.25 sec)`
+See [Specifying DB parameters](USER_ParamValuesRef.md "USER_ParamValuesRef.md") for more details on how
+`DBInstanceClassMemory` is calculated.
 
-`mysql>` set aurora_lab_mode=1;
-`ERROR 1238 (HY000): Variable 'aurora_lab_mode' is a read only variable`
+Aurora MySQL and RDS for MySQL DB instances have different amounts of memory overhead. Therefore, the
+`max_connections` value can be different for Aurora MySQL and RDS for MySQL DB instances that use the same instance
+class. The values in the table only apply to Aurora MySQL DB instances.
 
-```
+###### Note
 
-Enabling lab mode for the cluster requires some work with a parameter group.
-This AWS CLI example uses a cluster parameter group, to ensure that all DB instances
-in the cluster use the same value for the lab mode setting.
+The much lower connectivity limits for T2 and T3 instances are because with Aurora, those instance classes are intended
+only for development and test scenarios, not for production workloads.
 
-```
-`$` aws rds create-db-cluster-parameter-group \
-  --db-parameter-group-family aurora5.7 \
-    --db-cluster-parameter-group-name lab-mode-enabled-57 --description 'TBD'
-`$` aws rds describe-db-cluster-parameters \
-  --db-cluster-parameter-group-name lab-mode-enabled-57 \
-    --query '*[*].[ParameterName,ParameterValue]' \
-      --output text | grep aurora_lab_mode
-`aurora_lab_mode 0`
-`$` aws rds modify-db-cluster-parameter-group \
-  --db-cluster-parameter-group-name lab-mode-enabled-57 \
-    --parameters ParameterName=aurora_lab_mode,ParameterValue=1,ApplyMethod=pending-reboot
-`{
- "DBClusterParameterGroupName": "lab-mode-enabled-57"
-}`
+The default connection limits are tuned for systems that use the default values for other major memory consumers, such as the
+buffer pool and query cache. If you change those other settings for your cluster, consider adjusting the connection limit to
+account for the increase or decrease in available memory on the DB instances.
 
-# Assign the custom parameter group to the cluster that's going to use Fast DDL.
-`$` aws rds modify-db-cluster --db-cluster-identifier tpch100g \
-  --db-cluster-parameter-group-name lab-mode-enabled-57
-`{
- "DBClusterIdentifier": "tpch100g",
- "DBClusterParameterGroup": "lab-mode-enabled-57",
- "Engine": "aurora-mysql",
- "EngineVersion": "5.7.mysql_aurora.2.10.2",
- "Status": "available"
-}`
+## Temporary storage limits for Aurora MySQL
 
-# Reboot the primary instance for the cluster tpch100g:
-`$` aws rds reboot-db-instance --db-instance-identifier instance-2020-12-22-5208
-`{
- "DBInstanceIdentifier": "instance-2020-12-22-5208",
- "DBInstanceStatus": "rebooting"
-}`
+Aurora MySQL stores tables and indexes in the Aurora storage subsystem. Aurora MySQL uses
+separate temporary or local storage for nonpersistent temporary files and non-InnoDB
+temporary tables. Local storage also includes files that are used for such purposes as
+sorting large datasets during query processing or for index build operations. It doesn't
+include InnoDB temporary tables.
 
-`$` aws rds describe-db-clusters --db-cluster-identifier tpch100g \
-  --query '*[].[DBClusterParameterGroup]' --output text
-`lab-mode-enabled-57`
+For more information on temporary tables in Aurora MySQL version 3, see [New temporary table behavior in Aurora MySQL version 3](ams3-temptable-behavior.md "ams3-temptable-behavior.md"). For
+more information on temporary tables in version 2, see [Temporary tablespace behavior in Aurora MySQL version 2](AuroraMySQL.md#AuroraMySQL.TempTables57 "AuroraMySQL.md#AuroraMySQL.TempTables57").
 
-`$` aws rds describe-db-cluster-parameters \
-  --db-cluster-parameter-group-name lab-mode-enabled-57 \
-    --query '*[*].{ParameterName:ParameterName,ParameterValue:ParameterValue}' \
-      --output text | grep aurora_lab_mode
-`aurora_lab_mode 1`
+The data and temporary files on these volumes are lost when starting and stopping the
+DB instance, and during host replacement.
 
-```
+These local storage volumes are backed by Amazon Elastic Block Store (EBS) and can be extended by using a larger DB instance class. For more
+information about storage, see [Amazon Aurora storage](Aurora.Overview.md "Aurora.Overview.md").
 
-The following example shows the remaining steps after the parameter group change takes effect. It tests the
-`aurora_lab_mode` setting to make sure that the cluster can use Fast DDL. Then it runs `ALTER
- TABLE` statements to add columns to the end of another large table. This time, the statements finish very quickly.
+Local storage is also used for importing data from Amazon S3 using `LOAD DATA FROM
+ S3` or `LOAD XML FROM S3`, and for exporting data to S3 using
+SELECT INTO OUTFILE S3. For more information on importing from and exporting to S3, see
+the following:
 
-```
-`mysql>` select @@aurora_lab_mode;
-`+-------------------+
-| @@aurora_lab_mode |
-+-------------------+
-| 1 |
-+-------------------+`
+- [Loading data into an Amazon Aurora MySQL DB cluster from text files in an Amazon S3 bucket](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md")
+- [Saving data from an Amazon Aurora MySQL DB cluster into text files in an Amazon S3 bucket](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md")
 
-`mysql>` ALTER TABLE orders_fast_ddl ADD COLUMN o_refunded boolean;
-`Query OK, 0 rows affected **(1.51 sec)**`
+Aurora MySQL uses separate permanent storage for error logs, general logs, slow query
+logs, and audit logs for most of the Aurora MySQL DB instance classes (not including
+burstable-performance instance class types such as db.t2, db.t3, and db.t4g). The data
+on this volume is retained when starting and stopping the DB instance, and during host
+replacement.
 
-`mysql>` ALTER TABLE orders_fast_ddl ADD COLUMN o_coverletter varchar(512);
-`Query OK, 0 rows affected **(0.40 sec)**`
+This permanent storage volume is also backed by Amazon EBS and has a fixed size according
+to the DB instance class. It can't be extended by using a larger DB instance
+class.
 
-```
+The following table shows the maximum amount of temporary and permanent storage
+available for each Aurora MySQL DB instance class. For more information on DB instance
+class support for Aurora, see [Amazon AuroraDB instance classes](Concepts.md "Concepts.md").
+
+| DB instance class | Maximum temporary/local storage available (GiB) | Additional maximum storage available for log files (GiB) |
+| ----------------- | ----------------------------------------------- | -------------------------------------------------------- |
+| db.x2g.16xlarge   | 1280                                            | 500                                                      |
+| db.x2g.12xlarge   | 960                                             | 500                                                      |
+| db.x2g.8xlarge    | 640                                             | 500                                                      |
+| db.x2g.4xlarge    | 320                                             | 500                                                      |
+| db.x2g.2xlarge    | 160                                             | 60                                                       |
+| db.x2g.xlarge     | 80                                              | 60                                                       |
+| db.x2g.large      | 40                                              | 60                                                       |
+| db.r8g.48xlarge   | 3840                                            | 500                                                      |
+| db.r8g.24xlarge   | 1920                                            | 500                                                      |
+| db.r8g.16xlarge   | 1280                                            | 500                                                      |
+| db.r8g.12xlarge   | 960                                             | 500                                                      |
+| db.r8g.8xlarge    | 640                                             | 500                                                      |
+| db.r8g.4xlarge    | 320                                             | 500                                                      |
+| db.r8g.2xlarge    | 160                                             | 60                                                       |
+| db.r8g.xlarge     | 80                                              | 60                                                       |
+| db.r8g.large      | 32                                              | 60                                                       |
+| db.r7i.48xlarge   | 3840                                            | 500                                                      |
+| db.r7i.24xlarge   | 1920                                            | 500                                                      |
+| db.r7i.16xlarge   | 1280                                            | 500                                                      |
+| db.r7i.12xlarge   | 960                                             | 500                                                      |
+| db.r7i.8xlarge    | 640                                             | 500                                                      |
+| db.r7i.4xlarge    | 320                                             | 500                                                      |
+| db.r7i.2xlarge    | 160                                             | 60                                                       |
+| db.r7i.xlarge     | 80                                              | 60                                                       |
+| db.r7i.large      | 32                                              | 60                                                       |
+| db.r7g.16xlarge   | 1280                                            | 500                                                      |
+| db.r7g.12xlarge   | 960                                             | 500                                                      |
+| db.r7g.8xlarge    | 640                                             | 500                                                      |
+| db.r7g.4xlarge    | 320                                             | 500                                                      |
+| db.r7g.2xlarge    | 160                                             | 60                                                       |
+| db.r7g.xlarge     | 80                                              | 60                                                       |
+| db.r7g.large      | 32                                              | 60                                                       |
+| db.r6i.32xlarge   | 2560                                            | 500                                                      |
+| db.r6i.24xlarge   | 1920                                            | 500                                                      |
+| db.r6i.16xlarge   | 1280                                            | 500                                                      |
+| db.r6i.12xlarge   | 960                                             | 500                                                      |
+| db.r6i.8xlarge    | 640                                             | 500                                                      |
+| db.r6i.4xlarge    | 320                                             | 500                                                      |
+| db.r6i.2xlarge    | 160                                             | 60                                                       |
+| db.r6i.xlarge     | 80                                              | 60                                                       |
+| db.r6i.large      | 32                                              | 60                                                       |
+| db.r6g.16xlarge   | 1280                                            | 500                                                      |
+| db.r6g.12xlarge   | 960                                             | 500                                                      |
+| db.r6g.8xlarge    | 640                                             | 500                                                      |
+| db.r6g.4xlarge    | 320                                             | 500                                                      |
+| db.r6g.2xlarge    | 160                                             | 60                                                       |
+| db.r6g.xlarge     | 80                                              | 60                                                       |
+| db.r6g.large      | 32                                              | 60                                                       |
+| db.r5.24xlarge    | 1920                                            | 500                                                      |
+| db.r5.16xlarge    | 1280                                            | 500                                                      |
+| db.r5.12xlarge    | 960                                             | 500                                                      |
+| db.r5.8xlarge     | 640                                             | 500                                                      |
+| db.r5.4xlarge     | 320                                             | 500                                                      |
+| db.r5.2xlarge     | 160                                             | 60                                                       |
+| db.r5.xlarge      | 80                                              | 60                                                       |
+| db.r5.large       | 32                                              | 60                                                       |
+| db.r4.16xlarge    | 1280                                            | 500                                                      |
+| db.r4.8xlarge     | 640                                             | 500                                                      |
+| db.r4.4xlarge     | 320                                             | 500                                                      |
+| db.r4.2xlarge     | 160                                             | 60                                                       |
+| db.r4.xlarge      | 80                                              | 60                                                       |
+| db.r4.large       | 32                                              | 60                                                       |
+| db.t4g.large      | 32                                              | –                                                        |
+| db.t4g.medium     | 32                                              | –                                                        |
+| db.t3.large       | 32                                              | –                                                        |
+| db.t3.medium      | 32                                              | –                                                        |
+| db.t3.small       | 32                                              | –                                                        |
+| db.t2.medium      | 32                                              | –                                                        |
+| db.t2.small       | 32                                              | –                                                        |
+
+###### Important
+
+These values represent the theoretical maximum amount of free storage on each DB instance. The actual local storage available to you might be
+lower. Aurora uses some local storage for its management processes, and the DB instance uses some local storage even before you load any data.
+You can monitor the temporary storage available for a specific DB instance with the `FreeLocalStorage` CloudWatch metric, described in
+[Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.md "Aurora.AuroraMonitoring.md"). You can check the amount of free storage
+at the present time. You can also chart the amount of free storage over time. Monitoring the free storage over time helps you to determine
+whether the value is increasing or decreasing, or to find the minimum, maximum, or average values.
+
+(This doesn't apply to Aurora Serverless v2.)

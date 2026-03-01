@@ -1,6 +1,4 @@
-# Restoring an
-
-Aurora DB cluster or a global cluster with Amazon RDS Extended Support
+# Restoring an Aurora DB cluster or a global cluster with Amazon RDS Extended Support
 
 When you restore an Aurora DB cluster or a global cluster, select **Enable
 RDS Extended Support** in the console, or use the Extended Support option in the AWS CLI or the
@@ -20,16 +18,11 @@ AWS CLI or the RDS API.
 
 ###### Topics
 
-- [RDS Extended Support
-  behavior](#extended-support-restoring-db-instance-behavior "#extended-support-restoring-db-instance-behavior")
-- [Considerations
-  for RDS Extended Support](#extended-support-restoring-db-instance-considerations "#extended-support-restoring-db-instance-considerations")
-- [Restore an Aurora DB cluster DB cluster or a global cluster with
-  RDS Extended Support](#extended-support-restoring-db-instance-restore "#extended-support-restoring-db-instance-restore")
+- [RDS Extended Support behavior](#extended-support-restoring-db-instance-behavior "#extended-support-restoring-db-instance-behavior")
+- [Considerations for RDS Extended Support](#extended-support-restoring-db-instance-considerations "#extended-support-restoring-db-instance-considerations")
+- [Restore an Aurora DB cluster DB cluster or a global cluster with RDS Extended Support](#extended-support-restoring-db-instance-restore "#extended-support-restoring-db-instance-restore")
 
-## RDS Extended Support
-
-behavior
+## RDS Extended Support behavior
 
 The following table summarizes what happens when a major engine version of an
 Aurora DB cluster or a global cluster that you are restoring has reached the Aurora end of
@@ -44,9 +37,7 @@ standard support.
 RDS API, the RDS Extended Support status appears as `open-source-rds-extended-support`
 or `open-source-rds-extended-support-disabled`.
 
-## Considerations
-
-for RDS Extended Support
+## Considerations for RDS Extended Support
 
 Before restoring an Aurora DB cluster or a global cluster,
 consider the following items:
@@ -76,9 +67,7 @@ you manually upgrade your database.
 
 For more information, see [Amazon Aurora versions](Aurora.md "Aurora.md").
 
-## Restore an Aurora DB cluster DB cluster or a global cluster with
-
-RDS Extended Support
+## Restore an Aurora DB cluster DB cluster or a global cluster with RDS Extended Support
 
 You can restore an Aurora DB cluster or a global cluster with an RDS Extended Support version
 using the AWS Management Console, the AWS CLI, or the RDS API.

@@ -1,6 +1,4 @@
-# Getting information from the Babelfish
-
-system catalog
+# Getting information from the Babelfish system catalog
 
 You can obtain information about the database objects that are stored in your
 Babelfish cluster by querying many of the same system views as used in SQL
@@ -61,9 +59,7 @@ on the T-SQL port.
 
 ```
 
-## SQL Server system
-
-catalogs available in Babelfish
+## SQL Server system catalogs available in Babelfish
 
 In the following table you can find the SQL Server views currently implemented in
 Babelfish. For more information about the system catalogs in SQL Server, see

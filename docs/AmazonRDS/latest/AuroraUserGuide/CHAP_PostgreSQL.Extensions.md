@@ -1,6 +1,4 @@
-# Using the log_fdw
-
-extension to access the DB log using SQL
+# Using the log_fdw extension to access the DB log using SQL
 
 Aurora PostgreSQL DB cluster
 supports the `log_fdw` extension, which you can use to access
@@ -23,8 +21,7 @@ parameter. There are only two options for this parameter, `stderr` and `csvlog`
 Amazon Aurora generates both `stderr` and `csvlog` logs.
 This can affect the storage capacity on your DB cluster, so you need to be aware
 of the other parameters that affect log handling. For more information, see
-[Setting the log
-destination (stderr, csvlog)](USER_LogAccess.Concepts.PostgreSQL.overview.md#USER_LogAccess.Concepts.PostgreSQL.Log_Format "USER_LogAccess.Concepts.PostgreSQL.overview.md#USER_LogAccess.Concepts.PostgreSQL.Log_Format").
+[Setting the log destination (stderr, csvlog)](USER_LogAccess.Concepts.PostgreSQL.overview.md#USER_LogAccess.Concepts.PostgreSQL.Log_Format "USER_LogAccess.Concepts.PostgreSQL.overview.md#USER_LogAccess.Concepts.PostgreSQL.Log_Format").
 
 One benefit of generating `csvlog` logs is that the `log_fdw`
 extension lets you build foreign tables with the data neatly split into

@@ -6,17 +6,13 @@ setting up and tearing down all the DB instances each time that you use the clus
 
 ###### Topics
 
-- [Overview of stopping and starting an Aurora DB
-  cluster](#aurora-cluster-start-stop-overview "#aurora-cluster-start-stop-overview")
+- [Overview of stopping and starting an Aurora DB cluster](#aurora-cluster-start-stop-overview "#aurora-cluster-start-stop-overview")
 - [Limitations for stopping and starting Aurora DB clusters](#aurora-cluster-stop-limitations "#aurora-cluster-stop-limitations")
 - [Stopping an Aurora DB cluster](#aurora-cluster-stop "#aurora-cluster-stop")
-- [Possible operations while an Aurora DB cluster is
-  stopped](#aurora-cluster-stopped "#aurora-cluster-stopped")
+- [Possible operations while an Aurora DB cluster is stopped](#aurora-cluster-stopped "#aurora-cluster-stopped")
 - [Starting an Aurora DB cluster](#aurora-cluster-start "#aurora-cluster-start")
 
-## Overview of stopping and starting an Aurora DB
-
-cluster
+## Overview of stopping and starting an Aurora DB cluster
 
 During periods where you don't need an Aurora DB cluster, you can stop all instances in that
 cluster at once. You can start the cluster again anytime you need to use it. Starting
@@ -122,9 +118,7 @@ with the following parameter:
 - `DBClusterIdentifier` –
   the name of the Aurora cluster.
 
-## Possible operations while an Aurora DB cluster is
-
-stopped
+## Possible operations while an Aurora DB cluster is stopped
 
 While an Aurora cluster is stopped, you can do a point-in-time restore to any point within
 your specified automated backup retention window. For details about doing a

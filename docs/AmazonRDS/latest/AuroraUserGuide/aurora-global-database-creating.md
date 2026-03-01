@@ -13,15 +13,13 @@ to create your Aurora global database. To do so, see
 
 The steps for creating an Aurora global database begin by signing in to an AWS Region that supports the Aurora
 global database feature. For a complete list, see
-[Supported
-Regions and DB engines for Aurora global databases](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+[Supported Regions and DB engines for Aurora global databases](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
 
 One of the following steps is choosing a virtual private cloud (VPC) based on Amazon VPC for
 your Aurora DB cluster. To use your own VPC, we recommend that you create it in advance
 so it's available for you to choose. At the same time, create any related subnets,
 and as needed a subnet group and security group. To learn how, see
-[Tutorial: Create a VPC for use with a
-DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
+[Tutorial: Create a VPC for use with a DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
 
 For general information about creating an Aurora DB cluster, see [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
 
@@ -38,9 +36,7 @@ For general information about creating an Aurora DB cluster, see [Creating an Am
 
 3. Continue creating your Aurora global database by using the steps from the following procedures.
 
-### Creating a global
-
-database using Aurora MySQL
+### Creating a global database using Aurora MySQL
 
 The following steps apply to all versions of Aurora MySQL.
 
@@ -100,9 +96,7 @@ replica node is **Available**, as shown following.
 When your primary DB cluster is available, create the Aurora global database by adding
 a secondary cluster to it. To do this, follow the steps in [Adding an AWS Region to an Amazon Aurora global database](aurora-global-database-attaching.md "aurora-global-database-attaching.md").
 
-### Creating a global
-
-database using Aurora PostgreSQL
+### Creating a global database using Aurora PostgreSQL
 
 ###### To create an Aurora global database using Aurora PostgreSQL
 
@@ -166,9 +160,7 @@ The AWS CLI commands in the procedures following accomplish the following tasks:
    [Adding an AWS Region to an Amazon Aurora global database](aurora-global-database-attaching.md "aurora-global-database-attaching.md").
    Follow the procedure for your Aurora database engine.
 
-### Creating a global database using
-
-Aurora MySQL
+### Creating a global database using Aurora MySQL
 
 ###### To create an Aurora global database using Aurora MySQL
 

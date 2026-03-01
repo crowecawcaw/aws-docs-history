@@ -1,6 +1,4 @@
-# Viewing DB cluster
-
-metrics in the CloudWatch console and AWS CLI
+# Viewing DB cluster metrics in the CloudWatch console and AWS CLI
 
 Following, you can find details about how to view metrics for your DB instance using CloudWatch. For information on
 monitoring metrics for your DB instance's operating system in real time using CloudWatch Logs, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md").
@@ -54,8 +52,7 @@ The following example filters on the **db.t3.medium** class and graphs the
 
 ![Filter metrics](images/rds-monitoring-03.png)
 You can find details about how to analyze resource usage for
-Aurora PostgreSQL using CloudWatch metrics. For more information, see [Using Amazon CloudWatch metrics to analyze
-resource usage for Aurora PostgreSQL](AuroraPostgreSQL_AnayzeResourceUsage.md "AuroraPostgreSQL_AnayzeResourceUsage.md")
+Aurora PostgreSQL using CloudWatch metrics. For more information, see [Using Amazon CloudWatch metrics to analyze resource usage for Aurora PostgreSQL](AuroraPostgreSQL_AnayzeResourceUsage.md "AuroraPostgreSQL_AnayzeResourceUsage.md")
 
 To obtain metric information by using the AWS CLI, use the CloudWatch command [`list-metrics`](../../../cli/latest/reference/cloudwatch/list-metrics.md "../../../cli/latest/reference/cloudwatch/list-metrics.md"). In the following
 example, you list all metrics in the `AWS/RDS` namespace.

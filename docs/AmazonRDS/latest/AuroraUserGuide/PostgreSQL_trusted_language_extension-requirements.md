@@ -8,8 +8,7 @@ The following are requirements for setting up and using the TLE development kit.
   and higher versions only.
   - If you need to upgrade your Aurora PostgreSQL DB
     cluster,
-    see [Upgrading Amazon Aurora PostgreSQL DB
-    clusters](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
+    see [Upgrading Amazon Aurora PostgreSQL DB clusters](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
   - If you don't yet have an Aurora DB cluster
     running
     PostgreSQL, you can create one. For more information, see
@@ -72,9 +71,7 @@ You can avoid specifying the `--region` argument when you use CLI commands by co
 with your default AWS Region. For more information, see [Configuration
 basics](../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config "../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config") in the _AWS Command Line Interface User Guide_.
 
-###### To create a custom DB parameter group and use it with your
-
-Aurora PostgreSQL DB cluster
+###### To create a custom DB parameter group and use it with your Aurora PostgreSQL DB cluster
 
 1. Use the [create-db-parameter-group](../../../cli/latest/reference/rds/create-db-parameter-group.md "../../../cli/latest/reference/rds/create-db-parameter-group.md") AWS CLI
    command to create a custom DB parameter group based on aurora-postgresql14
@@ -129,6 +126,5 @@ aws rds modify-db-instance ^
 
 To continue setting up your system for Trusted Language Extensions, see [Setting up Trusted Language Extensions in your Aurora PostgreSQL DB cluster](PostgreSQL_trusted_language_extension-setting-up.md "PostgreSQL_trusted_language_extension-setting-up.md").
 
-For more information, see [DB parameter groups for
-Amazon Aurora DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md")
+For more information, see [DB parameter groups for Amazon Aurora DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md")
 .

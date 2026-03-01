@@ -5,20 +5,17 @@ describe configuring and managing DB cluster parameter groups.
 
 ###### Topics
 
-- [Amazon Aurora DB cluster and DB instance
-  parameters](#Aurora.Managing.ParameterGroups "#Aurora.Managing.ParameterGroups")
-- [Creating a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
+- [Amazon Aurora DB cluster and DB instance parameters](#Aurora.Managing.ParameterGroups "#Aurora.Managing.ParameterGroups")
+- [Creating a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
 - [Associating a DB cluster parameter group with a DB cluster in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
-- [Modifying parameters in a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
-- [Resetting parameters in a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
-- [Copying a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
-- [Listing DB cluster parameter groups in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
-- [Viewing parameter values for a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
-- [Deleting a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
+- [Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
+- [Resetting parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
+- [Copying a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
+- [Listing DB cluster parameter groupsin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
+- [Viewing parameter values for a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
+- [Deleting a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
 
-## Amazon Aurora DB cluster and DB instance
-
-parameters
+## Amazon Aurora DB cluster and DB instance parameters
 
 Aurora uses a two-level system of configuration settings:
 
@@ -65,10 +62,10 @@ command or the [ResetDBParameterGroup](../APIReference/API_ResetDBParameterGroup
 
 The DB cluster and DB instance parameters available to you in Aurora vary depending on database engine compatibility.
 
-| Database engine   | Parameters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Aurora MySQL      | See [Aurora MySQL configuration parameters](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md").<br>For Aurora Serverless clusters, see additional details in<br>[Working with parameter groups for Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.parameter-groups "aurora-serverless-v2.md#aurora-serverless-v2.parameter-groups")<br>and<br>[Parameter groups for<br>Aurora Serverless v1](aurora-serverless-v1.md#aurora-serverless.parameter-groups "aurora-serverless-v1.md#aurora-serverless.parameter-groups").            |
-| Aurora PostgreSQL | See [Amazon Aurora PostgreSQL<br>parameters](AuroraPostgreSQL.Reference.md "AuroraPostgreSQL.Reference.md").<br>For Aurora Serverless clusters, see additional details in<br>[Working with parameter groups for Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.parameter-groups "aurora-serverless-v2.md#aurora-serverless-v2.parameter-groups")<br>and<br>[Parameter groups for<br>Aurora Serverless v1](aurora-serverless-v1.md#aurora-serverless.parameter-groups "aurora-serverless-v1.md#aurora-serverless.parameter-groups"). |
+| Database engine   | Parameters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Aurora MySQL      | See [Aurora MySQL configuration parameters](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md").<br>For Aurora Serverless clusters, see additional details in<br>[Working with parameter groups for Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.parameter-groups "aurora-serverless-v2.md#aurora-serverless-v2.parameter-groups")<br>and<br>[Parameter groups for Aurora Serverless v1](aurora-serverless-v1.md#aurora-serverless.parameter-groups "aurora-serverless-v1.md#aurora-serverless.parameter-groups").         |
+| Aurora PostgreSQL | See [Amazon Aurora PostgreSQL parameters](AuroraPostgreSQL.Reference.md "AuroraPostgreSQL.Reference.md").<br>For Aurora Serverless clusters, see additional details in<br>[Working with parameter groups for Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.parameter-groups "aurora-serverless-v2.md#aurora-serverless-v2.parameter-groups")<br>and<br>[Parameter groups for Aurora Serverless v1](aurora-serverless-v1.md#aurora-serverless.parameter-groups "aurora-serverless-v1.md#aurora-serverless.parameter-groups"). |
 
 ###### Note
 
@@ -83,5 +80,4 @@ your workload isn't interrupted when Aurora Serverless v2 instances scale down.
 
 To learn more about Aurora Serverless configuration settings and which settings you can modify,
 see [Working with parameter groups for Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.parameter-groups "aurora-serverless-v2.md#aurora-serverless-v2.parameter-groups")
-and [Parameter groups for
-Aurora Serverless v1](aurora-serverless-v1.md#aurora-serverless.parameter-groups "aurora-serverless-v1.md#aurora-serverless.parameter-groups").
+and [Parameter groups for Aurora Serverless v1](aurora-serverless-v1.md#aurora-serverless.parameter-groups "aurora-serverless-v1.md#aurora-serverless.parameter-groups").

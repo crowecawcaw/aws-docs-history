@@ -1,6 +1,4 @@
-# Mapping T-SQL group logins with
-
-AD security group
+# Mapping T-SQL group logins with AD security group
 
 You need to explicitly provision T-SQL Windows Group Login for each AD security group
 that requires access to the database server. An AD user, who is part of at least one
@@ -21,22 +19,19 @@ provision this security group in Babelfish, you must use the format
   accounts-group@CORP.EXAMPLE.COM
   Admin can now proceed to create the mapping between AD security group and T-SQL login
   from PostgreSQL endpoint via following psql command. For more information on the
-  function usage, see [Using functions from the
-  pg_ad_mapping extension](AD.Security.md#AD.Security.Groups.functions "AD.Security.md#AD.Security.Groups.functions").
+  function usage, see [Using functions from the pg_ad_mapping extension](AD.Security.md#AD.Security.Groups.functions "AD.Security.md#AD.Security.Groups.functions").
 
 ###### Note
 
 T-SQL login should be specified in login_name@FQDN format while adding the
 mapping. Weights are ignored when connecting through TDS endpoint. For more
-information about usage of weights, see [Connecting to
-Babelfish via PostgreSQL endpoint on the PostgreSQL port](babelfish-kerberos-securityad-connect-pgendpoint.md "babelfish-kerberos-securityad-connect-pgendpoint.md").
+information about usage of weights, see [Connecting to Babelfish via PostgreSQL endpoint on the PostgreSQL port](babelfish-kerberos-securityad-connect-pgendpoint.md "babelfish-kerberos-securityad-connect-pgendpoint.md").
 
 ```
 postgres=>select pgadmap_set_mapping('accounts-group', 'accounts-group@CORP.EXAMPLE.COM', <SID>, <Weight>);
 ```
 
-For information on retrieving SID of AD security group, see [Retrieving Active Directory Group SID in
-PowerShell](AD.Security.md#AD.Security.Groups.retrieving "AD.Security.md#AD.Security.Groups.retrieving").
+For information on retrieving SID of AD security group, see [Retrieving Active Directory Group SID in PowerShell](AD.Security.md#AD.Security.Groups.retrieving "AD.Security.md#AD.Security.Groups.retrieving").
 
 The following table shows a sample mapping from AD security groups to T-SQL
 logins:

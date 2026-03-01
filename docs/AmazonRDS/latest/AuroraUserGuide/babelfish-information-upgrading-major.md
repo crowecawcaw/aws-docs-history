@@ -1,12 +1,9 @@
-# Upgrading Babelfish
-
-to a new major version
+# Upgrading Babelfish to a new major version
 
 For a major version upgrade, you need to first upgrade your Babelfish for
 Aurora PostgreSQL DB cluster to a version that supports the major version upgrade. To achieve
 this, apply patch updates or minor version upgrades to your DB cluster. For more
-information,see [Upgrading
-Babelfish to a new minor version](babelfish-information-upgrading-minor.md "babelfish-information-upgrading-minor.md").
+information,see [Upgrading Babelfish to a new minor version](babelfish-information-upgrading-minor.md "babelfish-information-upgrading-minor.md").
 
 The following table shows Aurora PostgreSQL version and Babelfish version that
 can support a major version upgrade.
@@ -46,9 +43,7 @@ can support a major version upgrade.
 | 13.8 (1.4.0)                  | 14.6 (2.3.0)                                                                                                                                                                                                                                                                              |
 | 13.7 (1.3.0)                  | 14.6 (2.3.0)                                                                                                                                                                                                                                                                              |
 
-## Before upgrading
-
-Babelfish to a new major version
+## Before upgrading Babelfish to a new major version
 
 An upgrade might involve brief outages. For that reason, we recommend that you
 perform or schedule upgrades during your maintenance window or during other
@@ -57,15 +52,13 @@ periods of low usage.
 ###### Before you perform a major version upgrade
 
 1. Identify the Babelfish version of your existing Aurora PostgreSQL
-   DB cluster by using the commands outlined in [Identifying your version of
-   Babelfish](babelfish-information-identify-version.md "babelfish-information-identify-version.md"). The
+   DB cluster by using the commands outlined in [Identifying your version of Babelfish](babelfish-information-identify-version.md "babelfish-information-identify-version.md"). The
    Aurora PostgreSQL version and Babelfish version information is
    handled by PostgreSQL, so follow the steps detailed in the [To use the PostgreSQL port to query for version information](babelfish-information-identify-version.md#apg-version-info-psql "babelfish-information-identify-version.md#apg-version-info-psql")
    procedure to get the details.
 2. Verify if your version supports the major version upgrade. For the
    list of versions that support the major version upgrade feature, see
-   [Upgrading
-   Babelfish to a new minor version](babelfish-information-upgrading-minor.md "babelfish-information-upgrading-minor.md") and perform
+   [Upgrading Babelfish to a new minor version](babelfish-information-upgrading-minor.md "babelfish-information-upgrading-minor.md") and perform
    the necessary pre-upgrade tasks.
 
 For example, if your Babelfish version is running on an
@@ -79,12 +72,10 @@ Aurora PostgreSQL version, Babelfish version, and restore all data to
 the state before the upgrade. For more information, see [Creating a DB cluster snapshot](USER_CreateSnapshotCluster.md "USER_CreateSnapshotCluster.md"). Be sure to keep your
 existing custom DB cluster parameter group to use again if you decide to
 restore this cluster to its pre-upgraded state. For more information,
-see [Restoring from a DB cluster snapshot](aurora-restore-snapshot.md "aurora-restore-snapshot.md") and [Parameter group
-considerations](aurora-restore-snapshot.md#aurora-restore-snapshot.Parameters "aurora-restore-snapshot.md#aurora-restore-snapshot.Parameters"). 4. Prepare a custom DB cluster parameter group for the target
+see [Restoring from a DB cluster snapshot](aurora-restore-snapshot.md "aurora-restore-snapshot.md") and [Parameter group considerations](aurora-restore-snapshot.md#aurora-restore-snapshot.Parameters "aurora-restore-snapshot.md#aurora-restore-snapshot.Parameters"). 4. Prepare a custom DB cluster parameter group for the target
 Aurora PostgreSQL DB version. Duplicate the settings for the
 Babelfish parameters from your current Babelfish for Aurora PostgreSQL DB
-cluster. To find a list of all Babelfish parameters, see [DB cluster parameter group settings for
-Babelfish](babelfish-configuration.md "babelfish-configuration.md"). For a major version
+cluster. To find a list of all Babelfish parameters, see [DB cluster parameter group settings for Babelfish](babelfish-configuration.md "babelfish-configuration.md"). For a major version
 upgrade, the following parameters require the same settings as the
 source DB cluster. For the upgrade to succeed, all the settings must be
 the same.
@@ -117,19 +108,14 @@ specifying the `--region` in the command. To learn more
 about using the AWS CLI, see [Quick
 setup](../../../cli/latest/userguide/getting-started-quickstart.md "../../../cli/latest/userguide/getting-started-quickstart.md") in the _AWS Command Line Interface User Guide_.
 
-## Performing major
-
-version upgrade
+## Performing major version upgrade
 
 1. Upgrade Aurora PostgreSQL DB cluster to a new major version. For more
-   information, see [Upgrading the
-   Aurora PostgreSQL engine to a new major version](USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.Manual "USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.Manual").
+   information, see [Upgrading the Aurora PostgreSQL engine to a new major version](USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.Manual "USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.Manual").
 2. Reboot the writer instance of the cluster, so that the parameter
    settings can take effect.
 
-## After upgrading
-
-to a new major version
+## After upgrading to a new major version
 
 After a major version upgrade to a new Aurora PostgreSQL version, the
 `IDENTITY` value in tables with an `IDENTITY` column
@@ -140,8 +126,7 @@ won't negatively affect the functions of your Babelfish DB cluster.
 However, if you want, you can reset the sequence object based on the maximum
 value of the column. To do so, connect to the T-SQL port on your
 Babelfish writer instance using `sqlcmd` or another SQL Server
-client. For more information, see [Using a SQL Server client to connect
-to your DB cluster](babelfish-connect-sqlserver.md "babelfish-connect-sqlserver.md").
+client. For more information, see [Using a SQL Server client to connect to your DB cluster](babelfish-connect-sqlserver.md "babelfish-connect-sqlserver.md").
 
 ```
 sqlcmd -S `bfish-db.cluster-123456789012`.`aws-region`.rds.amazonaws.com,1433 -U
@@ -151,8 +136,7 @@ sqlcmd -S `bfish-db.cluster-123456789012`.`aws-region`.rds.amazonaws.com,1433 -U
 When connected, use the following SQL command to generate statements that you
 can use to seed the associated sequence object. This SQL command works for both
 single database and multiple database Babelfish configurations. For more
-information about these two deployment models, see [Using Babelfish with a single database or
-multiple databases](babelfish-architecture.md#babelfish-single_vs_multi_db "babelfish-architecture.md#babelfish-single_vs_multi_db").
+information about these two deployment models, see [Using Babelfish with a single database or multiple databases](babelfish-architecture.md#babelfish-single_vs_multi_db "babelfish-architecture.md#babelfish-single_vs_multi_db").
 
 ```
 DECLARE @schema_prefix NVARCHAR(200) = ''
@@ -194,17 +178,14 @@ SELECT setval(pg_get_serial_sequence('northwind_dbo.suppliers', 'supplierid'),(s
 
 Run the statements one by one to reset the sequence values.
 
-## Example: Upgrading the
-
-Babelfish DB cluster to a major release
+## Example: Upgrading the Babelfish DB cluster to a major release
 
 In this example, you can find the series of AWS CLI commands that explains how
 to upgrade an Aurora PostgreSQL 13.6.4 DB cluster running Babelfish version
 1.2.2 to Aurora PostgreSQL 14.6. First, you create a custom DB cluster parameter
 group for Aurora PostgreSQL 14. Next, you modify the parameter values to match those
 of your Aurora PostgreSQL version 13 source. Finally, you perform the upgrade by
-modifying the source cluster. For more information, see [DB cluster parameter group settings for
-Babelfish](babelfish-configuration.md "babelfish-configuration.md").
+modifying the source cluster. For more information, see [DB cluster parameter group settings for Babelfish](babelfish-configuration.md "babelfish-configuration.md").
 In that topic, you can also find information about using the AWS Management Console to
 perform the upgrade.
 
@@ -235,7 +216,7 @@ in the AWS Region. You see output similar to the following.
 }
 ```
 
-For more information, see [Creating a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For more information, see [Creating a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 Use the [modify-db-cluster-parameter-group](../../../cli/latest/reference/rds/modify-db-cluster-parameter-group.md "../../../cli/latest/reference/rds/modify-db-cluster-parameter-group.md") CLI command to modify the
 settings so that they match the source cluster.

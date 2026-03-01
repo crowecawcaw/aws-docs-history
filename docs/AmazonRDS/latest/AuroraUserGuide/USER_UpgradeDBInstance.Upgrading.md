@@ -1,6 +1,4 @@
-# Upgrading
-
-PostgreSQL extensions
+# Upgrading PostgreSQL extensions
 
 Upgrading your Aurora PostgreSQL DB cluster to a new major or minor version doesn't
 upgrade the PostgreSQL extensions at the same time. For most extensions, you upgrade the
@@ -19,9 +17,7 @@ roles, see [Security with Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraP
 
 ###### Note
 
-For information about updating the PostGIS extension, see [Managing spatial data with the
-PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md") ([Step 6: Upgrade the
-PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update "Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update")).
+For information about updating the PostGIS extension, see [Managing spatial data with the PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md") ([Step 6: Upgrade the PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update "Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update")).
 
 To update the `pg_repack` extension, drop the extension and then create
 the new version in the upgraded DB instance. For more information, see [pg_repack installation](https://reorg.github.io/pg_repack/ "https://reorg.github.io/pg_repack/") in the

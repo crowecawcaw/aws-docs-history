@@ -1,6 +1,4 @@
-# Viewing SQL statistics in the Performance
-
-Insights dashboard
+# Viewing SQL statistics in the Performance Insights dashboard
 
 In the Performance Insights dashboard, SQL statistics are available in the **Top SQL** tab of the **Database
 load** chart.

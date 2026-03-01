@@ -40,8 +40,7 @@ aws rds create-db-cluster-snapshot \
     --db-cluster-snapshot-identifier `my-db-cluster-snapshot`
 ```
 
-For more information on backing up DB clusters, see [Overview of backing up and restoring an Aurora DB
-cluster](Aurora.Managing.md "Aurora.Managing.md").
+For more information on backing up DB clusters, see [Overview of backing up and restoring an Aurora DB cluster](Aurora.Managing.md "Aurora.Managing.md").
 
 ## Restoring a DB cluster that uses Aurora PostgreSQL Limitless Database
 

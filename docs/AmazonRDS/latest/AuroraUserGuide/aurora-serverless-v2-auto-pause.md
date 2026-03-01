@@ -82,8 +82,7 @@ features or settings, the Aurora Serverless v2 instances won't automatically pau
   14.12, or 13.15.
 - If you're using Aurora MySQL, the database engine must be running version 3.08.0 or higher.
 - For the full list of engine versions and AWS Regions where this feature is available, see
-  [Supported
-  Regions and Aurora DB engines for Aurora Serverless v2](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+  [Supported Regions and Aurora DB engines for Aurora Serverless v2](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
 - When an Aurora Serverless v2 instance resumes, its capacity might be lower than it was when the instance was
   paused. For details, see [Differences in auto-pause behavior between Aurora Serverless v2 and Aurora Serverless v1](#auto-pause-differences "#auto-pause-differences").
 

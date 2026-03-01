@@ -26,25 +26,17 @@ Blue/Green Deployments](../UserGuide/blue-green-deployments-overview.md "../User
 
 ###### Topics
 
-- [Region
-  and version availability](#blue-green-deployments-region-version-availability "#blue-green-deployments-region-version-availability")
+- [Region and version availability](#blue-green-deployments-region-version-availability "#blue-green-deployments-region-version-availability")
 - [Benefits of using Amazon RDS Blue/Green Deployments](#blue-green-deployments-benefits "#blue-green-deployments-benefits")
 - [Workflow of a blue/green deployment](#blue-green-deployments-major-steps "#blue-green-deployments-major-steps")
-- [Authorizing access to Amazon Aurora
-  blue/green deployment operations](blue-green-deployments-authorizing-access.md "blue-green-deployments-authorizing-access.md")
-- [Limitations and considerations for
-  Amazon Aurora
-  blue/green deployments](blue-green-deployments-considerations.md "blue-green-deployments-considerations.md")
-- [Best practices for Amazon Aurora
-  blue/green deployments](blue-green-deployments-best-practices.md "blue-green-deployments-best-practices.md")
+- [Authorizing access to Amazon Aurora blue/green deployment operations](blue-green-deployments-authorizing-access.md "blue-green-deployments-authorizing-access.md")
+- [Limitations and considerations for Amazon Aurora blue/green deployments](blue-green-deployments-considerations.md "blue-green-deployments-considerations.md")
+- [Best practices for Amazon Aurora blue/green deployments](blue-green-deployments-best-practices.md "blue-green-deployments-best-practices.md")
 
-## Region
-
-and version availability
+## Region and version availability
 
 Feature availability and support varies across specific versions of each database engine,
-and across AWS Regions. For more information, see [Supported Regions and Aurora DB engines for Blue/Green
-Deployments](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+and across AWS Regions. For more information, see [Supported Regions and Aurora DB engines for Blue/Green Deployments](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
 
 ## Benefits of using Amazon RDS Blue/Green Deployments
 
@@ -114,8 +106,7 @@ databases after switchover. To enable write operations for Aurora MySQL, set the
 `read_only` parameter to `0`, then reboot the DB instance. For
 Aurora PostgreSQL, set the `default_transaction_read_only` parameter to
 `off` at the session level. 5. When ready, switch over to transition the staging environment to be the new production
-environment. For instructions, see [Switching a blue/green deployment in
-Amazon Aurora](blue-green-deployments-switching.md "blue-green-deployments-switching.md").
+environment. For instructions, see [Switching a blue/green deployment in Amazon Aurora](blue-green-deployments-switching.md "blue-green-deployments-switching.md").
 
 The switchover results in downtime. The downtime is usually under one minute, but it can be longer depending
 on your workload.

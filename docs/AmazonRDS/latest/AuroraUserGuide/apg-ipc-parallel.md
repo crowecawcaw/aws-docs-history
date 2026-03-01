@@ -131,23 +131,15 @@ query execution and resource allocation.
 
 ###### Topics
 
-- [Analyze query plans for inefficient
-  parallelism](#apg-ipc-parallel-analyze-plans "#apg-ipc-parallel-analyze-plans")
+- [Analyze query plans for inefficient parallelism](#apg-ipc-parallel-analyze-plans "#apg-ipc-parallel-analyze-plans")
 - [Monitor parallel query usage](#apg-ipc-parallel-monitor "#apg-ipc-parallel-monitor")
-- [Review and adjust parallel query
-  settings](#apg-ipc-parallel-adjust-settings "#apg-ipc-parallel-adjust-settings")
-- [Optimize resource
-  allocation](#apg-ipc-parallel-optimize-resources "#apg-ipc-parallel-optimize-resources")
-- [Investigate connection
-  management](#apg-ipc-parallel-connection-management "#apg-ipc-parallel-connection-management")
-- [Review and optimize maintenance
-  operations](#apg-ipc-parallel-maintenance "#apg-ipc-parallel-maintenance")
-- [Utilize Query Plan
-  Management (QPM)](#apg-ipc-parallel-query-plan-management "#apg-ipc-parallel-query-plan-management")
+- [Review and adjust parallel query settings](#apg-ipc-parallel-adjust-settings "#apg-ipc-parallel-adjust-settings")
+- [Optimize resource allocation](#apg-ipc-parallel-optimize-resources "#apg-ipc-parallel-optimize-resources")
+- [Investigate connection management](#apg-ipc-parallel-connection-management "#apg-ipc-parallel-connection-management")
+- [Review and optimize maintenance operations](#apg-ipc-parallel-maintenance "#apg-ipc-parallel-maintenance")
+- [Utilize Query Plan Management (QPM)](#apg-ipc-parallel-query-plan-management "#apg-ipc-parallel-query-plan-management")
 
-### Analyze query plans for inefficient
-
-parallelism
+### Analyze query plans for inefficient parallelism
 
 Parallel query execution can often lead to system instability, CPU spikes, and
 unpredictable query performance variance. It's crucial to thoroughly analyze whether
@@ -177,8 +169,7 @@ If disabling parallelism yields better or more consistent results, consider
 disabling it for specific queries at the session level using SET commands. For a
 broader impact, you might want to disable parallelism at the instance level by
 adjusting the relevant parameters in your cluster or instance parameter group.
-For more information, see [Amazon Aurora PostgreSQL
-parameters](AuroraPostgreSQL.Reference.md "AuroraPostgreSQL.Reference.md").
+For more information, see [Amazon Aurora PostgreSQL parameters](AuroraPostgreSQL.Reference.md "AuroraPostgreSQL.Reference.md").
 
 ### Monitor parallel query usage
 
@@ -219,9 +210,7 @@ This query returns the number of distinct leader processes that have launched
 parallel queries. A high number here indicates that multiple sessions are running
 parallel queries concurrently, which can increase demand on CPU and memory.
 
-### Review and adjust parallel query
-
-settings
+### Review and adjust parallel query settings
 
 Review the following parameters to ensure they align with your workload:
 
@@ -240,9 +229,7 @@ SHOW max_parallel_workers_per_gather;
 
 ```
 
-### Optimize resource
-
-allocation
+### Optimize resource allocation
 
 Monitor CPU utilization and consider adjusting the number of vCPUs if consistently
 high and if your application benefits from parallel queries. Ensure adequate memory
@@ -266,17 +253,13 @@ process.
 Consider increasing vCPUs or tuning memory parameters if your workload is heavily
 parallelized.
 
-### Investigate connection
-
-management
+### Investigate connection management
 
 If experiencing connection exhaustion, review application connection pooling
 strategies. Consider implementing connection pooling at the application level if not
 already in use.
 
-### Review and optimize maintenance
-
-operations
+### Review and optimize maintenance operations
 
 Coordinate index creation and other maintenance tasks to prevent resource
 contention. Consider scheduling these operations during off-peak hours. Avoid
@@ -284,19 +267,15 @@ scheduling heavy maintenance (e.g., parallel index builds) during periods of hig
 user query load. These operations can consume parallel workers and impact
 performance for regular queries.
 
-### Utilize Query Plan
-
-Management (QPM)
+### Utilize Query Plan Management (QPM)
 
 In Aurora PostgreSQL, the Query Plan Management (QPM) feature is designed to ensure
 plan adaptability and stability, regardless of database environment changes that
-might cause query plan regression. For more information, see [Overview of Aurora PostgreSQL query
-plan management](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").QPM provides some control over
+might cause query plan regression. For more information, see [Overview of Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").QPM provides some control over
 the optimizer. Review approved plans in QPM to ensure they align with current
 parallelism settings. Update or remove outdated plans that may be forcing suboptimal
 parallel execution.
 
-You can also fix the plans using pg_hint_plan. For more information, see [Fixing plans
-using pg_hint_plan](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan"). You can use the
+You can also fix the plans using pg_hint_plan. For more information, see [Fixing plans using pg_hint_plan](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan"). You can use the
 hint named `Parallel` to enforce parallel execution. For more
 information, see the [Hints for parallel plans](https://github.com/ossc-db/pg_hint_plan/blob/master/docs/hint_table.md#hints-for-parallel-plans "https://github.com/ossc-db/pg_hint_plan/blob/master/docs/hint_table.md#hints-for-parallel-plans").

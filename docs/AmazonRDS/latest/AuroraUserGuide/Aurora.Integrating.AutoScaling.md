@@ -152,9 +152,7 @@ Authorization: AUTHPARAMS
 }
 ```
 
-### Defining a scaling policy for an Aurora
-
-DB cluster
+### Defining a scaling policy for an Aurora DB cluster
 
 A target-tracking scaling policy configuration is represented by a JSON block that the metrics and target values
 are defined in. You can save a scaling policy configuration as a JSON block in a text file. You use that text file
@@ -165,18 +163,12 @@ The following options are available for defining a target-tracking scaling polic
 
 ###### Topics
 
-- [Using a predefined
-  metric](#Aurora.Integrating.AutoScaling.AddCode.DefineScalingPolicy.Predefined "#Aurora.Integrating.AutoScaling.AddCode.DefineScalingPolicy.Predefined")
-- [Using a custom
-  metric](#Aurora.Integrating.AutoScaling.AddCode.DefineScalingPolicy.Custom "#Aurora.Integrating.AutoScaling.AddCode.DefineScalingPolicy.Custom")
-- [Using
-  cooldown periods](#Aurora.Integrating.AutoScaling.AddCode.DefineScalingPolicy.Cooldown "#Aurora.Integrating.AutoScaling.AddCode.DefineScalingPolicy.Cooldown")
-- [Disabling scale-in
-  activity](#Aurora.Integrating.AutoScaling.AddCode.DefineScalingPolicy.ScaleIn "#Aurora.Integrating.AutoScaling.AddCode.DefineScalingPolicy.ScaleIn")
+- [Using a predefined metric](#Aurora.Integrating.AutoScaling.AddCode.DefineScalingPolicy.Predefined "#Aurora.Integrating.AutoScaling.AddCode.DefineScalingPolicy.Predefined")
+- [Using a custom metric](#Aurora.Integrating.AutoScaling.AddCode.DefineScalingPolicy.Custom "#Aurora.Integrating.AutoScaling.AddCode.DefineScalingPolicy.Custom")
+- [Using cooldown periods](#Aurora.Integrating.AutoScaling.AddCode.DefineScalingPolicy.Cooldown "#Aurora.Integrating.AutoScaling.AddCode.DefineScalingPolicy.Cooldown")
+- [Disabling scale-in activity](#Aurora.Integrating.AutoScaling.AddCode.DefineScalingPolicy.ScaleIn "#Aurora.Integrating.AutoScaling.AddCode.DefineScalingPolicy.ScaleIn")
 
-#### Using a predefined
-
-metric
+#### Using a predefined metric
 
 By using predefined metrics, you can quickly define a target-tracking scaling policy for an Aurora DB cluster
 that works well with both target tracking and dynamic scaling in Aurora Auto Scaling.
@@ -213,9 +205,7 @@ adjust the Aurora DB cluster based on an average CPU utilization of 40 percent a
 }
 ```
 
-#### Using a custom
-
-metric
+#### Using a custom metric
 
 By using custom metrics, you can define a target-tracking scaling policy that meets your custom requirements.
 You can define a custom metric based on any Aurora metric that changes in proportion to scaling.
@@ -248,9 +238,7 @@ across all Aurora Replicas in an Aurora DB cluster named `my-db-cluster`.
 }
 ```
 
-#### Using
-
-cooldown periods
+#### Using cooldown periods
 
 You can specify a value, in seconds, for `ScaleOutCooldown` to add a cooldown period for scaling
 out your Aurora DB cluster. Similarly, you can add a value, in seconds, for `ScaleInCooldown` to add a
@@ -279,9 +267,7 @@ of 5 minutes.
 }
 ```
 
-#### Disabling scale-in
-
-activity
+#### Disabling scale-in activity
 
 You can prevent the target-tracking scaling policy configuration from scaling in your Aurora DB cluster by
 disabling scale-in activity. Disabling scale-in activity prevents the scaling policy from deleting Aurora
@@ -309,9 +295,7 @@ configuration disables scale-in activity for the scaling policy.
 }
 ```
 
-### Applying a scaling policy to an Aurora DB
-
-cluster
+### Applying a scaling policy to an Aurora DB cluster
 
 After registering your Aurora DB cluster with Application Auto Scaling and defining a scaling policy, you apply the scaling policy
 to the registered Aurora DB cluster. To apply a scaling policy to an Aurora DB cluster, you can use the AWS CLI or the

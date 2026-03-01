@@ -1,7 +1,4 @@
-# Limitations and considerations for
-
-Amazon Aurora
-blue/green deployments
+# Limitations and considerations for Amazon Aurora blue/green deployments
 
 Blue/green deployments in Amazon RDS require careful consideration of factors such as
 replication slots, resource management, instance sizing, and potential impacts on database
@@ -12,8 +9,7 @@ database environment.
 ###### Topics
 
 - [Limitations for blue/green deployments](#blue-green-deployments-limitations "#blue-green-deployments-limitations")
-- [Aurora Global Database limitations for
-  blue/green deployments](#blue-green-deployments-limitations-agd "#blue-green-deployments-limitations-agd")
+- [Aurora Global Database limitations for blue/green deployments](#blue-green-deployments-limitations-agd "#blue-green-deployments-limitations-agd")
 - [Considerations for blue/green deployments](#blue-green-deployments-consider "#blue-green-deployments-consider")
 
 ## Limitations for blue/green deployments
@@ -22,16 +18,11 @@ The following limitations apply to blue/green deployments.
 
 ###### Topics
 
-- [General limitations for blue/green
-  deployments](#blue-green-deployments-limitations-general "#blue-green-deployments-limitations-general")
-- [Aurora MySQL limitations for
-  blue/green deployments](#blue-green-deployments-limitations-mysql "#blue-green-deployments-limitations-mysql")
-- [Aurora PostgreSQL
-  limitations for blue/green deployments](#blue-green-deployments-limitations-postgres-logical "#blue-green-deployments-limitations-postgres-logical")
+- [General limitations for blue/green deployments](#blue-green-deployments-limitations-general "#blue-green-deployments-limitations-general")
+- [Aurora MySQL limitations for blue/green deployments](#blue-green-deployments-limitations-mysql "#blue-green-deployments-limitations-mysql")
+- [Aurora PostgreSQL limitations for blue/green deployments](#blue-green-deployments-limitations-postgres-logical "#blue-green-deployments-limitations-postgres-logical")
 
-### General limitations for blue/green
-
-deployments
+### General limitations for blue/green deployments
 
 The following general limitations apply to blue/green deployments:
 
@@ -64,9 +55,7 @@ The following general limitations apply to blue/green deployments:
   - Aurora Serverless v1 DB clusters
   - CloudFormation
 
-### Aurora MySQL limitations for
-
-blue/green deployments
+### Aurora MySQL limitations for blue/green deployments
 
 The following limitations apply to Aurora MySQL blue/green deployments:
 
@@ -80,9 +69,7 @@ The following limitations apply to Aurora MySQL blue/green deployments:
 - Blue/green deployments don't support the AWS JDBC Driver for MySQL. For more information,
   see [Known Limitations](https://github.com/awslabs/aws-mysql-jdbc?tab=readme-ov-file#known-limitations "https://github.com/awslabs/aws-mysql-jdbc?tab=readme-ov-file#known-limitations") on GitHub.
 
-### Aurora PostgreSQL
-
-limitations for blue/green deployments
+### Aurora PostgreSQL limitations for blue/green deployments
 
 The following limitations apply to Aurora PostgreSQL blue/green
 deployments.
@@ -133,8 +120,7 @@ deployments.
     `apg_plan_mgmt.capture_plan_baselines` parameter set to
     `off` on all green databases to avoid primary key conflicts if an
     identical plan is captured in the blue environment. For more information, see
-    [Overview of Aurora PostgreSQL query
-    plan management](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").
+    [Overview of Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").
   - The `pglogical` and `pgactive` extensions must be
     disabled on the blue environment when you create a blue/green deployment. After
     you switch over the green environment to be the new production environment, you
@@ -145,9 +131,7 @@ deployments.
     parameter groups for both the blue and the green DB instances. For more information, see
     [Setting up the pgAudit extension](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md").
 
-#### Logical replication-specific
-
-limitations for blue/green deployments
+#### Logical replication-specific limitations for blue/green deployments
 
 PostgreSQL has certain restrictions related to logical replication, which translate to
 limitations when creating blue/green deployments for Aurora PostgreSQL DB clusters.
@@ -164,9 +148,7 @@ deployments for Aurora PostgreSQL. For more information, see [Restrictions](http
 | Refreshing materialized views breaks replication.                                                                                                                                                                     | Refreshing materialized views in the blue environment<br>breaks replication to the green environment. Refrain from refreshing<br>materialized views in the blue environment. After a switchover, you can<br>manually refresh them using the [REFRESH MATERIALIZED VIEW](https://www.postgresql.org/docs/current/sql-refreshmaterializedview.html "https://www.postgresql.org/docs/current/sql-refreshmaterializedview.html") command, or schedule a refresh.                   |
 | UPDATE and DELETE operations aren't permitted on tables that don't have a<br>primary key.                                                                                                                             | Before you create a blue/green deployment, make sure that all tables have<br>a primary key or use `REPLICA IDENTITY FULL`. However, only use<br>`REPLICA IDENTITY FULL` if no primary or unique key exists, as it<br>affects replication performance. For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/logical-replication-restrictions.html "https://www.postgresql.org/docs/current/logical-replication-restrictions.html"). |
 
-## Aurora Global Database limitations for
-
-blue/green deployments
+## Aurora Global Database limitations for blue/green deployments
 
 In addition to the above stated general and engine specific limitations, the following limitations apply for blue/green deployments for Aurora Global Database:
 
@@ -207,8 +189,7 @@ updates:
   the new resource IDs after switchover. For more information, see [Monitoring Amazon Aurora API calls in AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 - If you use Database Activity Streams for resources in the blue environment, adjust your application to
   monitor database events for the new stream after switchover. For more information, see
-  [Supported
-  Regions and Aurora DB engines for database activity streams](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+  [Supported Regions and Aurora DB engines for database activity streams](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
 - If you use the Performance Insights API, adjust the resource IDs in calls to the API
   after switchover. For more information, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 
@@ -223,8 +204,7 @@ contain the data from before the switchover.
 - If you authenticate to your DB cluster using [IAM database authentication](UsingWithRDS.md "UsingWithRDS.md"), make sure that
   the IAM policy used for database access has both the blue and the green databases
   listed under the `Resource` element of the policy. This is required in order
-  to connect to the green database after switchover. For more information, see [Creating and using an IAM policy for
-  IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+  to connect to the green database after switchover. For more information, see [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
 - If you want to restore a manual DB cluster snapshot for a DB cluster that was part of a
   blue/green deployment, make sure you restore the correct DB cluster snapshot by examining the
   time when the snapshot was taken. For more information, see [Restoring from a DB cluster snapshot](aurora-restore-snapshot.md "aurora-restore-snapshot.md").
@@ -263,4 +243,4 @@ environment:
   switchover, blue environment tags replace all tags in the green environment. Apply all
   necessary tags to the blue environment before you create the blue/green deployment, or
   reapply required tags to the new production environment after switchover. For more
-  information about tags, see [Tagging Amazon Aurora and Amazon RDS resources](USER_Tagging.md "USER_Tagging.md").
+  information about tags, see [Tagging Amazon Aurora andAmazon RDS resources](USER_Tagging.md "USER_Tagging.md").

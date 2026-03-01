@@ -1,8 +1,7 @@
 # Sharing encrypted snapshots
 
 You can share DB cluster snapshots that have been encrypted "at rest" using the AES-256 encryption algorithm, as described in
-[Encrypting Amazon Aurora
-resources](Overview.md "Overview.md").
+[Encrypting Amazon Aurora resources](Overview.md "Overview.md").
 
 The following restrictions apply to sharing encrypted snapshots:
 

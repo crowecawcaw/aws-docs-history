@@ -32,18 +32,15 @@ authentication method, but not both. For more information about IAM authenticati
 - [Limitations of Kerberos authentication for Aurora MySQL](aurora-mysql-kerberos.md#aurora-mysql-kerberos.limitations "aurora-mysql-kerberos.md#aurora-mysql-kerberos.limitations")
 - [Setting up Kerberos authentication for Aurora MySQL DB clusters](aurora-mysql-kerberos-setting-up.md "aurora-mysql-kerberos-setting-up.md")
   - [Step 1: Create a directory using AWS Managed Microsoft AD](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-directory "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-directory")
-  - [Step 2: (Optional) Create a trust for an on-premises Active
-    Directory](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-trust "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-trust")
+  - [Step 2: (Optional) Create a trust for an on-premises Active Directory](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-trust "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-trust")
   - [Step 3: Create an IAM role for use by Amazon Aurora](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.CreateIAMRole "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.CreateIAMRole")
   - [Step 4: Create and configure users](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-users "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-users")
   - [Step 5: Create or modify an Aurora MySQL DB cluster](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-modify "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-modify")
-  - [Step 6: Create Aurora MySQL users that use Kerberos
-    authentication](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-logins "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-logins")
+  - [Step 6: Create Aurora MySQL users that use Kerberos authentication](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-logins "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-logins")
     - [Modifying an existing Aurora MySQL login](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos.modify-login "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos.modify-login")
 
   - [Step 7: Configure a MySQL client](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.configure-client "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.configure-client")
-  - [Step 8: (Optional) Configure case-insensitive username
-    comparison](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.case-insensitive "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.case-insensitive")
+  - [Step 8: (Optional) Configure case-insensitive username comparison](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.case-insensitive "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.case-insensitive")
 
 - [Connecting to Aurora MySQL with Kerberos authentication](aurora-mysql-kerberos-connecting.md "aurora-mysql-kerberos-connecting.md")
   - [Using the Aurora MySQL Kerberos login to connect to the DB cluster](aurora-mysql-kerberos-connecting.md#aurora-mysql-kerberos-connecting.login "aurora-mysql-kerberos-connecting.md#aurora-mysql-kerberos-connecting.login")
@@ -78,8 +75,7 @@ created your directory and the name of the IAM role that you created.
 
 If you modify an existing Aurora MySQL DB cluster to use Kerberos authentication, set the domain and IAM role parameters for the
 DB cluster. Locate the DB cluster in the same VPC as the domain directory. 5. Use the Amazon RDS primary user credentials to connect to the Aurora MySQL DB cluster. Create
-the database user in Aurora MySQL by using the instructions in [Step 6: Create Aurora MySQL users that use Kerberos
-authentication](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-logins "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-logins").
+the database user in Aurora MySQL by using the instructions in [Step 6: Create Aurora MySQL users that use Kerberos authentication](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-logins "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-logins").
 
 Users that you create this way can log in to the Aurora MySQL DB cluster using Kerberos authentication. For more
 information, see [Connecting to Aurora MySQL with Kerberos authentication](aurora-mysql-kerberos-connecting.md "aurora-mysql-kerberos-connecting.md").
@@ -104,8 +100,7 @@ For information about AWS Region support, see [Kerberos authentication with Auro
   AD domains owned by different accounts in the same AWS Region.
 
 You can also use your own on-premises Active Directory. For more information, see
-[Step 2: (Optional) Create a trust for an on-premises Active
-Directory](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-trust "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-trust").
+[Step 2: (Optional) Create a trust for an on-premises Active Directory](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-trust "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-trust").
 
 - When using Kerberos to authenticate a user connecting to the Aurora MySQL cluster from MySQL clients or from drivers on
   the Windows operating system, by default the character case of the database username must match the case of the user in
@@ -113,8 +108,7 @@ Directory](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.
   username must be `Admin`.
 
 However, you can now use case-insensitive username comparison with the `authentication_kerberos` plugin.
-For more information, see [Step 8: (Optional) Configure case-insensitive username
-comparison](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.case-insensitive "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.case-insensitive").
+For more information, see [Step 8: (Optional) Configure case-insensitive username comparison](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.case-insensitive "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.case-insensitive").
 
 - You must reboot the reader DB instances after turning on the feature to install the
   `authentication_kerberos` plugin.

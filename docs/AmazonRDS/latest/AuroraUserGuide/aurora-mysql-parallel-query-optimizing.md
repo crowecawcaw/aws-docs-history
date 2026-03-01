@@ -110,9 +110,7 @@ higher.
 After you upgrade an earlier parallel query cluster to Aurora MySQL 2.09 or higher, you turn on parallel query in the upgraded
 cluster. Parallel query is turned off by default in these versions, and the procedure for enabling it is different. The hash
 join optimization is also turned off by default and must be turned on separately. Thus, make sure that you turn on these
-settings again after the upgrade. For instructions on doing so, see [Turning parallel query on and
-off in Aurora MySQL](aurora-mysql-parallel-query-enabling.md "aurora-mysql-parallel-query-enabling.md") and [Turning on hash join for
-parallel query clusters](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join "aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join").
+settings again after the upgrade. For instructions on doing so, see [Turning parallel query on and off in Aurora MySQL](aurora-mysql-parallel-query-enabling.md "aurora-mysql-parallel-query-enabling.md") and [Turning on hash join for parallel query clusters](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join "aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join").
 
 In particular, you turn on parallel query by using the configuration parameters `aurora_parallel_query=ON` and
 `aurora_disable_hash_join=OFF` instead of `aurora_pq_supported` and `aurora_pq`. The

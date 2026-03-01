@@ -8,8 +8,7 @@ support different machine learning use cases.
 - [Requirements for using Aurora machine learning with Aurora MySQL](mysql-ml.md#aurora-ml-prereqs "mysql-ml.md#aurora-ml-prereqs")
 - [Region and version availability](mysql-ml.md#aurora-ml-availability "mysql-ml.md#aurora-ml-availability")
 - [Supported features and limitations of Aurora machine learning with Aurora MySQL](mysql-ml.md#aurora-ml-limitations "mysql-ml.md#aurora-ml-limitations")
-- [Setting up your Aurora MySQL DB cluster to use
-  Aurora machine learning](mysql-ml.md#aurora-ml-setting-up-access "mysql-ml.md#aurora-ml-setting-up-access")
+- [Setting up your Aurora MySQL DB cluster to use Aurora machine learning](mysql-ml.md#aurora-ml-setting-up-access "mysql-ml.md#aurora-ml-setting-up-access")
   - [Setting up your Aurora MySQL DB cluster to use Amazon Bedrock](mysql-ml.md#aurora-ml-setup-bedrock "mysql-ml.md#aurora-ml-setup-bedrock")
   - [Setting up your Aurora MySQL DB cluster to use Amazon Comprehend](mysql-ml.md#aurora-ml-setting-up-access-comprehend "mysql-ml.md#aurora-ml-setting-up-access-comprehend")
   - [Setting up your Aurora MySQL DB cluster to use SageMaker AI](mysql-ml.md#aurora-ml-setting-up-access-sagemaker "mysql-ml.md#aurora-ml-setting-up-access-sagemaker")
@@ -24,8 +23,7 @@ support different machine learning use cases.
 - [Using Amazon Comprehend with your Aurora MySQL DB cluster](mysql-ml.md#using-amazon-comprehend-for-sentiment-detection "mysql-ml.md#using-amazon-comprehend-for-sentiment-detection")
 - [Using SageMaker AI with your Aurora MySQL DB cluster](mysql-ml.md#using-amazon-sagemaker-to-run-your-own-ml-models "mysql-ml.md#using-amazon-sagemaker-to-run-your-own-ml-models")
   - [Character set requirement for SageMaker AI functions that return strings](mysql-ml.md#note-character-set-of-ml-functions-return-type "mysql-ml.md#note-character-set-of-ml-functions-return-type")
-  - [Exporting data to Amazon S3 for
-    SageMaker AI model training (Advanced)](mysql-ml.md#exporting-data-to-s3-for-model-training "mysql-ml.md#exporting-data-to-s3-for-model-training")
+  - [Exporting data to Amazon S3 for SageMaker AI model training (Advanced)](mysql-ml.md#exporting-data-to-s3-for-model-training "mysql-ml.md#exporting-data-to-s3-for-model-training")
 
 - [Performance considerations for using Aurora machine learning with Aurora MySQL](mysql-ml.md#aurora-ml-performance "mysql-ml.md#aurora-ml-performance")
   - [Model and prompt](mysql-ml.md#ml-model-prompt "mysql-ml.md#ml-model-prompt")
@@ -70,8 +68,7 @@ the following requirements and prerequisites.
 
       + Set up the Amazon SageMaker AI services with the same SageMaker AI training models and endpoints. These must also use the same
        names.
-      + Create the IAM roles as detailed in [Setting up your Aurora MySQL DB cluster to use
-       Aurora machine learning](#aurora-ml-setting-up-access "#aurora-ml-setting-up-access").
+      + Create the IAM roles as detailed in [Setting up your Aurora MySQL DB cluster to use Aurora machine learning](#aurora-ml-setting-up-access "#aurora-ml-setting-up-access").
       + Add the ARN of the IAM role to the custom DB cluster parameter group for each Aurora MySQL DB cluster in every
        AWS Region.
 
@@ -83,8 +80,7 @@ the following requirements and prerequisites.
 Feature availability and support varies across specific versions of each Aurora database engine, and across
 AWS Regions.
 
-- For information on version and Region availability for Amazon Comprehend and Amazon SageMaker AI with Aurora MySQL, see [Aurora machine learning
-  with Aurora MySQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.amy "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.amy").
+- For information on version and Region availability for Amazon Comprehend and Amazon SageMaker AI with Aurora MySQL, see [Aurora machine learning with Aurora MySQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.amy "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.amy").
 - Amazon Bedrock is supported only on Aurora MySQL version 3.06 and higher.
 
 For information on Region availability for Amazon Bedrock, see [Model
@@ -121,9 +117,7 @@ When using Aurora MySQL with Aurora machine learning, the following limitations 
 
   To learn more about these algorithms, see [Choose an Algorithm](../../../sagemaker/latest/dg/algorithms-choose.md "../../../sagemaker/latest/dg/algorithms-choose.md") in the _Amazon SageMaker AI Developer Guide_.
 
-## Setting up your Aurora MySQL DB cluster to use
-
-Aurora machine learning
+## Setting up your Aurora MySQL DB cluster to use Aurora machine learning
 
 In the following topics, you can find separate setup procedures for each of these Aurora machine learning services.
 
@@ -746,9 +740,7 @@ long enough. For example, a query with a `DISTINCT` clause creates a temporary
 table. Thus, the SageMaker AI function result might be truncated due to the way strings are handled
 internally during a query.
 
-### Exporting data to Amazon S3 for
-
-SageMaker AI model training (Advanced)
+### Exporting data to Amazon S3 for SageMaker AI model training (Advanced)
 
 We recommend that you get started with Aurora machine learning and SageMaker AI by using some of the provided algorithms, and that
 the data scientists on your team provide you with the SageMaker AI endpoints that you can use with your SQL code.

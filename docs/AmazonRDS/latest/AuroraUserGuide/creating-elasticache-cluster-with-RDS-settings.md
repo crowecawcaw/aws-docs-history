@@ -1,6 +1,4 @@
-# Creating an Amazon ElastiCache cache using
-
-Aurora DB cluster settings
+# Creating an Amazon ElastiCache cache using Aurora DB cluster settings
 
 ElastiCache is a fully managed, in-memory caching service that provides microsecond read and
 write latencies that support flexible, real-time use cases. ElastiCache can help you accelerate
@@ -20,19 +18,10 @@ Redis OSS](../../../AmazonElastiCache/latest/red-ug/SelectEngine.md "../../../Am
 
 ###### Topics
 
-- [Overview of
-  ElastiCache cache creation with Aurora DB
-  cluster
-  settings](#creating-elasticache-cluster-with-RDS-settings-overview "#creating-elasticache-cluster-with-RDS-settings-overview")
-- [Creating an
-  ElastiCache cache with settings from an Aurora DB
-  cluster](#creating-elasticache-cluster-with-RDS-settings-new-DB "#creating-elasticache-cluster-with-RDS-settings-new-DB")
+- [Overview of ElastiCache cache creation with Aurora DB cluster settings](#creating-elasticache-cluster-with-RDS-settings-overview "#creating-elasticache-cluster-with-RDS-settings-overview")
+- [Creating an ElastiCache cache with settings from an Aurora DB cluster](#creating-elasticache-cluster-with-RDS-settings-new-DB "#creating-elasticache-cluster-with-RDS-settings-new-DB")
 
-## Overview of
-
-ElastiCache cache creation with Aurora DB
-cluster
-settings
+## Overview of ElastiCache cache creation with Aurora DB cluster settings
 
 You can create an ElastiCache cache from Amazon RDS using the same configuration settings as a
 newly created or existing Aurora DB cluster.
@@ -55,9 +44,7 @@ settings from the associated Aurora DB cluster:
 You can also set the cache configuration settings according to your
 requirements.
 
-###
-
-Setting up ElastiCache in your applications
+### Setting up ElastiCache in your applications
 
 Your applications must be set up to utilize ElastiCache cache. You can also optimize and
 improve cache performance by setting up your applications to use caching strategies
@@ -74,10 +61,7 @@ depending on your requirements.
 - You might incur costs associated with backup storage, data transfer within or across regions, or use of AWS Outposts.
   For pricing details, see [Amazon ElastiCache pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/elasticache/pricing/").
 
-## Creating an
-
-ElastiCache cache with settings from an Aurora DB
-cluster
+## Creating an ElastiCache cache with settings from an Aurora DB cluster
 
 You can create an ElastiCache cache for your Aurora DB
 clusters with

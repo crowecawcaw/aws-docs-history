@@ -1,7 +1,4 @@
-# Password management with
-
-Amazon Aurora
-and AWS Secrets Manager
+# Password management with Amazon Aurora and AWS Secrets Manager
 
 Amazon Aurora
 integrates with Secrets Manager to manage master user passwords for your DB clusters.
@@ -9,30 +6,22 @@ integrates with Secrets Manager to manage master user passwords for your DB clus
 ###### Topics
 
 - [Region and version availability](#rds-secrets-manager-availability "#rds-secrets-manager-availability")
-- [Limitations for Secrets Manager integration with
-  Amazon Aurora](#rds-secrets-manager-limitations "#rds-secrets-manager-limitations")
+- [Limitations for Secrets Manager integration with Amazon Aurora](#rds-secrets-manager-limitations "#rds-secrets-manager-limitations")
 - [Overview of managing master user passwords with AWS Secrets Manager](#rds-secrets-manager-overview "#rds-secrets-manager-overview")
 - [Benefits of managing master user passwords with Secrets Manager](#rds-secrets-manager-benefits "#rds-secrets-manager-benefits")
 - [Permissions required for Secrets Manager integration](#rds-secrets-manager-permissions "#rds-secrets-manager-permissions")
-- [Enforcing Aurora
-  management of the master user password in AWS Secrets Manager](#rds-secrets-manager-auth "#rds-secrets-manager-auth")
-- [Managing the master user password for a
-  DB cluster with Secrets Manager](#rds-secrets-manager-db-cluster "#rds-secrets-manager-db-cluster")
-- [Rotating the master user password secret for
-  a DB cluster](#rds-secrets-manager-rotate-db-cluster "#rds-secrets-manager-rotate-db-cluster")
-- [Viewing the details about a secret for
-  a DB cluster](#rds-secrets-manager-view-db-cluster "#rds-secrets-manager-view-db-cluster")
+- [Enforcing Aurora management of the master user password in AWS Secrets Manager](#rds-secrets-manager-auth "#rds-secrets-manager-auth")
+- [Managing the master user password for a DB cluster with Secrets Manager](#rds-secrets-manager-db-cluster "#rds-secrets-manager-db-cluster")
+- [Rotating the master user password secret for a DB cluster](#rds-secrets-manager-rotate-db-cluster "#rds-secrets-manager-rotate-db-cluster")
+- [Viewing the details about a secret for a DB cluster](#rds-secrets-manager-view-db-cluster "#rds-secrets-manager-view-db-cluster")
 
 ## Region and version availability
 
 Feature availability and support varies across specific versions of each database engine and
 across AWS Regions. For more information about version and Region availability with
-Secrets Manager integration with Amazon Aurora, see [Supported
-Regions and Aurora DB engines for Secrets Manager integration](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+Secrets Manager integration with Amazon Aurora, see [Supported Regions and Aurora DB engines for Secrets Manager integration](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
 
-## Limitations for Secrets Manager integration with
-
-Amazon Aurora
+## Limitations for Secrets Manager integration with Amazon Aurora
 
 Managing master user passwords with Secrets Manager isn't supported for the following features:
 
@@ -130,9 +119,7 @@ in Secrets Manager must have permissions to perform the following operation:
 
 - `secretsmanager:RotateSecret`
 
-## Enforcing Aurora
-
-management of the master user password in AWS Secrets Manager
+## Enforcing Aurora management of the master user password in AWS Secrets Manager
 
 You can use IAM condition keys to enforce Aurora management of the master user
 password in AWS Secrets Manager. The following policy doesn't allow users to create or restore DB
@@ -172,9 +159,7 @@ this prevents the user from applying any further modifications to existing clust
 
 For more information about using condition keys in IAM policies, see [Policy condition keys for Aurora](security_iam_service-with-iam.md#UsingWithRDS.IAM.Conditions "security_iam_service-with-iam.md#UsingWithRDS.IAM.Conditions") and [Example policies: Using condition keys](UsingWithRDS.IAM.Conditions.md "UsingWithRDS.IAM.Conditions.md").
 
-## Managing the master user password for a
-
-DB cluster with Secrets Manager
+## Managing the master user password for a DB cluster with Secrets Manager
 
 You can configure Aurora
 management of the master user password in Secrets Manager when you perform the following actions:
@@ -193,8 +178,7 @@ Follow the instructions for creating or modifying a DB cluster with the RDS cons
 In the RDS console, you can modify any DB instance to specify the master user password management settings
 for the entire DB cluster.
 
-- [Restoring an Amazon Aurora MySQL DB cluster from an Amazon S3
-  bucket](AuroraMySQL.Migrating.ExtMySQL.md#AuroraMySQL.Migrating.ExtMySQL.S3.Restore "AuroraMySQL.Migrating.ExtMySQL.md#AuroraMySQL.Migrating.ExtMySQL.S3.Restore")
+- [Restoring an Amazon Aurora MySQL DB cluster from an Amazon S3 bucket](AuroraMySQL.Migrating.ExtMySQL.md#AuroraMySQL.Migrating.ExtMySQL.S3.Restore "AuroraMySQL.Migrating.ExtMySQL.md#AuroraMySQL.Migrating.ExtMySQL.S3.Restore")
   When you use the RDS console to perform one of these operations, you can specify that the
   master user password is managed by Aurora in Secrets Manager.
   To do so when you are creating or restoring
@@ -298,9 +282,7 @@ Aurora is managing the database credentials
 for a DB cluster, you can't change the KMS key that is used to encrypt the
 secret.
 
-## Rotating the master user password secret for
-
-a DB cluster
+## Rotating the master user password secret for a DB cluster
 
 When Aurora
 rotates a master user password secret, Secrets Manager generates a new secret version for the
@@ -358,9 +340,7 @@ operation and setting the `RotateMasterUserPassword`
 parameter to `true`. You must set the `ApplyImmediately`
 parameter to `true` when you rotate the master password.
 
-## Viewing the details about a secret for
-
-a DB cluster
+## Viewing the details about a secret for a DB cluster
 
 You can retrieve your secrets using the console ([https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/")) or the AWS CLI ([get-secret-value](../../../cli/latest/reference/secretsmanager/get-secret-value.md "../../../cli/latest/reference/secretsmanager/get-secret-value.md") Secrets Manager command).
 

@@ -1,6 +1,4 @@
-# Overview of PostgreSQL logical
-
-replication with Aurora
+# Overview of PostgreSQL logical replication with Aurora
 
 By using PostgreSQL's logical replication feature with your Aurora PostgreSQL DB
 cluster, you can replicate and synchronize individual tables rather than the entire
@@ -47,8 +45,7 @@ versions:
 
 In addition to the native PostgreSQL logical replication feature introduced in
 PostgreSQL 10, Aurora PostgreSQL also supports the `pglogical` extension. For
-more information, see [Using pglogical to synchronize
-data across instances](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
+more information, see [Using pglogical to synchronize data across instances](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
 
 For more information about PostgreSQL logical replication, see [Logical
 replication](https://www.postgresql.org/docs/current/logical-replication.html "https://www.postgresql.org/docs/current/logical-replication.html") and [Logical decoding concepts](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html "https://www.postgresql.org/docs/current/logicaldecoding-explanation.html") in the PostgreSQL documentation.

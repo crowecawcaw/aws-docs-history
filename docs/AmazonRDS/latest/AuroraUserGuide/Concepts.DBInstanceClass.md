@@ -1,170 +1,153 @@
-# Supported DB engines for DB instance classes
+# Determining DB instance class support in AWS Regions
 
-The following tables show the supported DB instance classes for the Amazon Aurora DB engines.
+To determine the DB instance classes supported by each DB engine in a specific
+AWS Region, you can take one of several approaches. You can use the AWS Management Console, the [Amazon RDS Pricing](https://aws.amazon.com/rds/pricing/ "https://aws.amazon.com/rds/pricing/") page, or the [describe-orderable-db-instance-options](../../../cli/latest/reference/rds/describe-orderable-db-instance-options.md "../../../cli/latest/reference/rds/describe-orderable-db-instance-options.md") AWS CLI command.
 
-**db.serverless – Aurora Serverless v2 instance class with automatic capacity scaling**
+###### Note
 
-| Instance class | Aurora MySQL                                                                                                                                                              | Aurora PostgreSQL                                                                                                                                                         |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| db.serverless  | See [Supported<br>Regions and Aurora DB engines for Aurora Serverless v2](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md"). | See [Supported<br>Regions and Aurora DB engines for Aurora Serverless v2](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md"). |
+When you perform operations with the AWS Management Console, it automatically shows the supported DB
+instance classes for a specific DB engine, DB engine version, and AWS Region. Examples
+of the operations that you can perform include creating and modifying a DB
+instance.
 
-**db.x2g – memory-optimized instance classes powered by AWS Graviton2 processors**
+###### Contents
 
-| Instance class  | Aurora MySQL                                                                                                                 | Aurora PostgreSQL                                                                                                            |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| db.x2g.16xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
-| db.x2g.12xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
-| db.x2g.8xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
-| db.x2g.4xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
-| db.x2g.2xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
-| db.x2g.xlarge   | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
-| db.x2g.large    | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
+- [Using the Amazon RDS pricing page to determine DB instance class support in AWS Regions](Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.RegionSupportAurora.PricingPage "Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.RegionSupportAurora.PricingPage")
+- [Using the AWS CLI to determine DB instance class support in AWS Regions](Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.RegionSupportAurora.CLI "Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.RegionSupportAurora.CLI")
+  - [Listing the DB instance classes that are supported by a specific DB engine version in an AWS Region](Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.RegionSupportAurora.CLI.Example1 "Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.RegionSupportAurora.CLI.Example1")
+  - [Listing the DB engine versions that support a specific DB instance class in an AWS Region](Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.RegionSupportAurora.CLI.Example2 "Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.RegionSupportAurora.CLI.Example2")
 
-**db.r6gd – Optimized Reads instance classes powered by AWS Graviton2 processors**
+## Using the Amazon RDS pricing page to determine DB instance class support in AWS Regions
 
-| Instance class   | Aurora MySQL | Aurora PostgreSQL                                                  |
-| ---------------- | ------------ | ------------------------------------------------------------------ |
-| db.r6gd.16xlarge | No           | 17.4 and higher, 16.1 and higher, 15.4 and higher, 14.9 and higher |
-| db.r6gd.12xlarge | No           | 17.4 and higher, 16.1 and higher, 15.4 and higher, 14.9 and higher |
-| db.r6gd.8xlarge  | No           | 17.4 and higher, 16.1 and higher, 15.4 and higher, 14.9 and higher |
-| db.r6gd.4xlarge  | No           | 17.4 and higher, 16.1 and higher, 15.4 and higher, 14.9 and higher |
-| db.r6gd.2xlarge  | No           | 17.4 and higher, 16.1 and higher, 15.4 and higher, 14.9 and higher |
-| db.r6gd.xlarge   | No           | 17.4 and higher, 16.1 and higher, 15.4 and higher, 14.9 and higher |
+You can use the [Amazon Aurora Pricing](https://aws.amazon.com/rds/pricing/ "https://aws.amazon.com/rds/pricing/")
+page to determine the DB instance classes supported by each DB engine in a specific
+AWS Region.
 
-**db.r6id – Optimized Reads instance classes**
+###### To use the pricing page to determine the DB instance classes supported by each engine in a Region
 
-| Instance class   | Aurora MySQL | Aurora PostgreSQL                                                  |
-| ---------------- | ------------ | ------------------------------------------------------------------ |
-| db.r6id.32xlarge | No           | 17.4 and higher, 16.1 and higher, 15.4 and higher, 14.9 and higher |
-| db.r6id.24xlarge | No           | 17.4 and higher, 16.1 and higher, 15.4 and higher, 14.9 and higher |
+1. Go to [Amazon Aurora Pricing](https://aws.amazon.com/rds/aurora/pricing/ "https://aws.amazon.com/rds/aurora/pricing/").
+2. Choose an Amazon Aurora engine in the **AWS Pricing Calculator** section.
+3. In **Choose a Region**, choose an AWS Region.
+4. In **Cluster Configuration Option**, choose a configuration option.
+5. Use the section for compatible instances to view the supported DB instance classes.
+6. (Optional) Choose other options in the calculator, and then choose **Save and view summary**
+   or **Save and add service**.
 
-**db.r8g – memory-optimized instance classes powered by AWS Graviton4 processors**
+## Using the AWS CLI to determine DB instance class support in AWS Regions
 
-| Instance class  | Aurora MySQL      | Aurora PostgreSQL                                                                     |
-| --------------- | ----------------- | ------------------------------------------------------------------------------------- |
-| db.r8g.48xlarge | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
-| db.r8g.24xlarge | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
-| db.r8g.16xlarge | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
-| db.r8g.12xlarge | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
-| db.r8g.8xlarge  | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
-| db.r8g.4xlarge  | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
-| db.r8g.2xlarge  | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
-| db.r8g.xlarge   | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
-| db.r8g.large    | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+You can use the AWS CLI to determine which DB instance classes are supported for
+specific DB engines and DB engine versions in an AWS Region.
 
-**db.r8gd – optimized reads instance classes powered by AWS Graviton4 processors**
+To use the AWS CLI examples following, enter valid values for the DB engine, DB engine
+version, DB instance class, and AWS Region. The following table shows the valid DB
+engine values.
 
-| Instance class   | Aurora MySQL | Aurora PostgreSQL                                                      |
-| ---------------- | ------------ | ---------------------------------------------------------------------- |
-| db.r8gd.48xlarge | No           | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and<br>higher |
-| db.r8gd.24xlarge | No           | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and<br>higher |
-| db.r8gd.16xlarge | No           | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and<br>higher |
-| db.r8gd.12xlarge | No           | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and<br>higher |
-| db.r8gd.8xlarge  | No           | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and<br>higher |
-| db.r8gd.4xlarge  | No           | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and<br>higher |
-| db.r8gd.2xlarge  | No           | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and<br>higher |
-| db.r8g.xlarge    | No           | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and<br>higher |
+| Engine name                                    | Engine value in CLI commands | More information about versions                                                                                                                                                                                                                                                                                                                                                         |
+| ---------------------------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MySQL 5.7-compatible and 8.0-compatible Aurora | `aurora-mysql`               | [Database engine updates for Amazon Aurora MySQL version 2](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md")<br>and [Database engine updates for Amazon Aurora MySQL version 3](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md")<br>in the _Release Notes for Aurora MySQL_ |
+| Aurora PostgreSQL                              | `aurora-postgresql`          | [_Release Notes for Aurora PostgreSQL_](../AuroraPostgreSQLReleaseNotes/Welcome.md "../AuroraPostgreSQLReleaseNotes/Welcome.md")                                                                                                                                                                                                                                                        |
 
-**db.r7g – memory-optimized instance classes powered by AWS Graviton3 processors**
+For information about AWS Region names, see [AWS Regions](Concepts.md#Concepts.RegionsAndAvailabilityZones.Regions "Concepts.md#Concepts.RegionsAndAvailabilityZones.Regions").
 
-| Instance class  | Aurora MySQL                         | Aurora PostgreSQL                                                                    |
-| --------------- | ------------------------------------ | ------------------------------------------------------------------------------------ |
-| db.r7g.16xlarge | 2.12.0 and higher, 3.03.1 and higher | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.7 and higher, 13.10 and higher |
-| db.r7g.12xlarge | 2.12.0 and higher, 3.03.1 and higher | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.7 and higher, 13.10 and higher |
-| db.r7g.8xlarge  | 2.12.0 and higher, 3.03.1 and higher | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.7 and higher, 13.10 and higher |
-| db.r7g.4xlarge  | 2.12.0 and higher, 3.03.1 and higher | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.7 and higher, 13.10 and higher |
-| db.r7g.2xlarge  | 2.12.0 and higher, 3.03.1 and higher | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.7 and higher, 13.10 and higher |
-| db.r7g.xlarge   | 2.12.0 and higher, 3.03.1 and higher | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.7 and higher, 13.10 and higher |
-| db.r7g.large    | 2.12.0 and higher, 3.03.1 and higher | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.7 and higher, 13.10 and higher |
+The following examples demonstrate how to determine DB instance class support in an
+AWS Region using the [describe-orderable-db-instance-options](../../../cli/latest/reference/rds/describe-orderable-db-instance-options.md "../../../cli/latest/reference/rds/describe-orderable-db-instance-options.md") AWS CLI command.
 
-**db.r7i – memory-optimized instance classes**
+###### Topics
 
-| Instance class  | Aurora MySQL      | Aurora PostgreSQL                                                                     |
-| --------------- | ----------------- | ------------------------------------------------------------------------------------- |
-| db.r7i.48xlarge | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
-| db.r7i.24xlarge | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
-| db.r7i.16xlarge | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
-| db.r7i.12xlarge | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
-| db.r7i.8xlarge  | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
-| db.r7i.4xlarge  | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
-| db.r7i.2xlarge  | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
-| db.r7i.xlarge   | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
-| db.r7i.large    | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+- [Listing the DB instance classes that are supported by a specific DB engine version in an AWS Region](#Concepts.DBInstanceClass.RegionSupportAurora.CLI.Example1 "#Concepts.DBInstanceClass.RegionSupportAurora.CLI.Example1")
+- [Listing the DB engine versions that support a specific DB instance class in an AWS Region](#Concepts.DBInstanceClass.RegionSupportAurora.CLI.Example2 "#Concepts.DBInstanceClass.RegionSupportAurora.CLI.Example2")
 
-**db.r6g – memory-optimized instance classes powered by AWS Graviton2 processors**
+### Listing the DB instance classes that are supported by a specific DB engine version in an AWS Region
 
-| Instance class  | Aurora MySQL                                                                                                                 | Aurora PostgreSQL                                                                                                            |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| db.r6g.16xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
-| db.r6g.12xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
-| db.r6g.8xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
-| db.r6g.4xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
-| db.r6g.2xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
-| db.r6g.xlarge   | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
-| db.r6g.large    | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
+To list the DB instance classes that are supported by a specific DB engine version
+in an AWS Region, run the following command.
 
-**db.r6i – memory-optimized instance classes**
+For Linux, macOS, or Unix:
 
-| Instance class  | Aurora MySQL                                                                                                                 | Aurora PostgreSQL                                                                                    |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| db.r6i.32xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
-| db.r6i.24xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
-| db.r6i.16xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
-| db.r6i.12xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
-| db.r6i.8xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
-| db.r6i.4xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
-| db.r6i.2xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
-| db.r6i.xlarge   | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
-| db.r6i.large    | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
+```
+aws rds describe-orderable-db-instance-options --engine `engine` --engine-version `version` \
+    --query "OrderableDBInstanceOptions[].{DBInstanceClass:DBInstanceClass,SupportedEngineModes:SupportedEngineModes[0]}" \
+    --output table \
+    --region `region`
+```
 
-**db.r5 – memory-optimized instance classes**
+For Windows:
 
-| Instance class | Aurora MySQL                                                                                                                 | Aurora PostgreSQL                                                                                                                                |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| db.r5.24xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | [All<br>currently available versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
-| db.r5.16xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | [All<br>currently available versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
-| db.r5.12xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | [All<br>currently available versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
-| db.r5.8xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | [All<br>currently available versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
-| db.r5.4xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | [All<br>currently available versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
-| db.r5.2xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | [All<br>currently available versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
-| db.r5.xlarge   | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | [All<br>currently available versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
-| db.r5.large    | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | [All<br>currently available versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
+```
+aws rds describe-orderable-db-instance-options --engine `engine` --engine-version `version` ^
+    --query "OrderableDBInstanceOptions[].{DBInstanceClass:DBInstanceClass,SupportedEngineModes:SupportedEngineModes[0]}" ^
+    --output table ^
+    --region `region`
+```
 
-**db.r4 – memory-optimized instance classes**
+The output also shows the engine modes that are supported for each DB instance
+class.
 
-| Instance class | Aurora MySQL                                    | Aurora PostgreSQL                                                                                                                                |
-| -------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| db.r4.16xlarge | All 2.x versions; not supported in 3.x versions | [All<br>supported 11 and 12 versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
-| db.r4.8xlarge  | All 2.x versions; not supported in 3.x versions | [All<br>supported 11 and 12 versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
-| db.r4.4xlarge  | All 2.x versions; not supported in 3.x versions | [All<br>supported 11 and 12 versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
-| db.r4.2xlarge  | All 2.x versions; not supported in 3.x versions | [All<br>supported 11 and 12 versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
-| db.r4.xlarge   | All 2.x versions; not supported in 3.x versions | [All<br>supported 11 and 12 versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
-| db.r4.large    | All 2.x versions; not supported in 3.x versions | [All<br>supported 11 and 12 versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
+For example, the following command lists the supported DB instance classes for
+version 13.6 of the Aurora PostgreSQL DB engine in US East (N. Virginia).
 
-**db.t4g – burstable-performance instance classes powered by AWS Graviton2 processors**
+For Linux, macOS, or Unix:
 
-| Instance class | Aurora MySQL                                                                                                                 | Aurora PostgreSQL                                                                                                      |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| db.t4g.2xlarge | No                                                                                                                           | No                                                                                                                     |
-| db.t4g.xlarge  | No                                                                                                                           | No                                                                                                                     |
-| db.t4g.large   | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.7 and higher, 11.12 and higher |
-| db.t4g.medium  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.7 and higher, 11.12 and higher |
-| db.t4g.small   | No                                                                                                                           | No                                                                                                                     |
+```
+aws rds describe-orderable-db-instance-options --engine aurora-postgresql --engine-version 15.3 \
+    --query "OrderableDBInstanceOptions[].{DBInstanceClass:DBInstanceClass,SupportedEngineModes:SupportedEngineModes[0]}" \
+    --output table \
+    --region us-east-1
+```
 
-**db.t3 – burstable-performance instance classes**
+For Windows:
 
-| Instance class | Aurora MySQL                                                                                                                 | Aurora PostgreSQL                                                                                                      |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| db.t3.2xlarge  | No                                                                                                                           | No                                                                                                                     |
-| db.t3.xlarge   | No                                                                                                                           | No                                                                                                                     |
-| db.t3.large    | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.7 and higher, 11.12 and higher |
-| db.t3.medium   | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.7 and higher, 11.12 and higher |
-| db.t3.small    | All 2.x versions; not supported in 3.x versions                                                                              | No                                                                                                                     |
-| db.t3.micro    | No                                                                                                                           | No                                                                                                                     |
+```
+aws rds describe-orderable-db-instance-options --engine aurora-postgresql --engine-version 15.3 ^
+    --query "OrderableDBInstanceOptions[].{DBInstanceClass:DBInstanceClass,SupportedEngineModes:SupportedEngineModes[0]}"  ^
+    --output table ^
+    --region us-east-1
+```
 
-**db.t2 – burstable-performance instance classes**
+### Listing the DB engine versions that support a specific DB instance class in an AWS Region
 
-| Instance class | Aurora MySQL                                    | Aurora PostgreSQL |
-| -------------- | ----------------------------------------------- | ----------------- |
-| db.t2.medium   | All 2.x versions; not supported in 3.x versions | No                |
-| db.t2.small    | All 2.x versions; not supported in 3.x versions | No                |
+To list the DB engine versions that support a specific DB instance class in an
+AWS Region, run the following command.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds describe-orderable-db-instance-options --engine `engine` --db-instance-class `DB_instance_class` \
+    --query "OrderableDBInstanceOptions[].{EngineVersion:EngineVersion,SupportedEngineModes:SupportedEngineModes[0]}" \
+    --output table \
+    --region `region`
+```
+
+For Windows:
+
+```
+aws rds describe-orderable-db-instance-options --engine `engine` --db-instance-class `DB_instance_class` ^
+    --query "OrderableDBInstanceOptions[].{EngineVersion:EngineVersion,SupportedEngineModes:SupportedEngineModes[0]}" ^
+    --output table ^
+    --region `region`
+```
+
+The output also shows the engine modes that are supported for each DB engine
+version.
+
+For example, the following command lists the DB engine versions of the
+Aurora PostgreSQL DB engine that support the db.r5.large DB instance class in
+US East (N. Virginia).
+
+For Linux, macOS, or Unix:
+
+```
+aws rds describe-orderable-db-instance-options --engine aurora-postgresql --db-instance-class db.r7g.large \
+    --query "OrderableDBInstanceOptions[].{EngineVersion:EngineVersion,SupportedEngineModes:SupportedEngineModes[0]}" \
+    --output table \
+    --region us-east-1
+```
+
+For Windows:
+
+```
+aws rds describe-orderable-db-instance-options --engine aurora-postgresql --db-instance-class db.r7g.large ^
+    --query "OrderableDBInstanceOptions[].{EngineVersion:EngineVersion,SupportedEngineModes:SupportedEngineModes[0]}" ^
+    --output table ^
+    --region us-east-1
+```

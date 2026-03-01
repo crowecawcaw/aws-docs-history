@@ -1,4 +1,4 @@
-# Monitoring threats with Amazon GuardDuty RDS Protection for Amazon Aurora
+# Monitoring threats with Amazon GuardDuty RDS Protectionfor Amazon Aurora
 
 Amazon GuardDuty is a threat detection service that helps protect your accounts, containers, workloads, and
 the data within your AWS environment. Using machine learning (ML) models, and anomaly and threat

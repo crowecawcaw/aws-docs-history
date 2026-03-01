@@ -10,16 +10,12 @@ To analyze and troubleshoot the performance of your databases at scale, use [Clo
 
 ###### Topics
 
-- [Overview of Amazon Aurora
-  and Amazon CloudWatch](#cw-metrics-overview "#cw-metrics-overview")
-- [Viewing DB cluster
-  metrics in the CloudWatch console and AWS CLI](metrics_dimensions.md "metrics_dimensions.md")
+- [Overview of Amazon Aurora and Amazon CloudWatch](#cw-metrics-overview "#cw-metrics-overview")
+- [Viewing DB cluster metrics in the CloudWatch console and AWS CLI](metrics_dimensions.md "metrics_dimensions.md")
 - [Exporting Performance Insights metrics to CloudWatch](PI_metrics_export_CW.md "PI_metrics_export_CW.md")
 - [Creating CloudWatch alarms to monitor Amazon Aurora](creating_alarms.md "creating_alarms.md")
 
-## Overview of Amazon Aurora
-
-and Amazon CloudWatch
+## Overview of Amazon Aurora and Amazon CloudWatch
 
 By default, Amazon Aurora automatically sends metric data to
 CloudWatch in 1-minute periods. For example, the `CPUUtilization` metric records the percentage of CPU utilization for a DB instance over

@@ -55,7 +55,7 @@ amount of memory for the DB instance class. From this, the calculation
 subtracts memory reserved for the operating system and the RDS
 processes that manage the instance. Therefore, the number is always
 somewhat lower than the memory figures shown in the instance class
-tables in [Amazon Aurora DB instance classes](Concepts.md "Concepts.md"). The exact value
+tables in [Amazon AuroraDB instance classes](Concepts.md "Concepts.md"). The exact value
 depends on a combination of factors. These include instance class,
 DB engine, and whether it applies to an RDS instance or an instance
 that's part of an Aurora cluster.

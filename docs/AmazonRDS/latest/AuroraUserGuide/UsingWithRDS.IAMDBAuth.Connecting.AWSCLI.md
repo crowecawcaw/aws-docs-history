@@ -1,7 +1,4 @@
-# Connecting to
-
-your DB cluster using IAM authentication from the command line: AWS CLI and psql
-client
+# Connecting to your DB cluster using IAM authentication from the command line: AWS CLI and psql client
 
 You can connect from the command line to an Aurora PostgreSQL DB cluster with the
 AWS CLI and psql command line tool as described following.
@@ -10,12 +7,9 @@ AWS CLI and psql command line tool as described following.
 
 The following are prerequisites for connecting to your DB cluster using IAM authentication:
 
-- [Enabling and disabling IAM database
-  authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Creating and using an IAM policy for
-  IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Creating a database account using
-  IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
+- [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
+- [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
+- [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
 
 ###### Note
 
@@ -86,12 +80,10 @@ the SSL certificate.
 - `sslrootcert` – The full path to the SSL certificate file that
   contains the public key
 
-For more information, see [Securing Aurora PostgreSQL data with
-SSL/TLS](AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL "AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL").
+For more information, see [Securing Aurora PostgreSQL data with SSL/TLS](AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL "AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL").
 
 To download an SSL certificate, see
-[Using SSL/TLS to encrypt a connection to a DB
-cluster](UsingWithRDS.md "UsingWithRDS.md").
+[Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.md "UsingWithRDS.md").
 
 - `dbname` – The database that you want to
   access

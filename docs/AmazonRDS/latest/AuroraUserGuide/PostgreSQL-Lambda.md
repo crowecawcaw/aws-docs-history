@@ -1,6 +1,4 @@
-# Invoking an AWS Lambda function from an
-
-Aurora PostgreSQL DB cluster
+# Invoking an AWS Lambda function from an Aurora PostgreSQL DB cluster
 
 AWS Lambda is an event-driven compute service that lets you run code without provisioning or managing servers. It's available for use
 with many AWS services, including Aurora PostgreSQL.
@@ -26,8 +24,7 @@ the _AWS Lambda Developer Guide_.
 - [Step 1: Configure your Aurora PostgreSQL DB cluster for outbound connections to AWS Lambda](#PostgreSQL-Lambda-network "#PostgreSQL-Lambda-network")
 - [Step 2: Configure IAM for your Aurora PostgreSQL DB cluster and AWS Lambda](#PostgreSQL-Lambda-access "#PostgreSQL-Lambda-access")
 - [Step 3: Install the aws_lambda extension for an Aurora PostgreSQL DB cluster](#PostgreSQL-Lambda-install-extension "#PostgreSQL-Lambda-install-extension")
-- [Step 4: Use Lambda helper functions with your
-  Aurora PostgreSQL DB cluster (Optional)](#PostgreSQL-Lambda-specify-function "#PostgreSQL-Lambda-specify-function")
+- [Step 4: Use Lambda helper functions with your Aurora PostgreSQL DB cluster (Optional)](#PostgreSQL-Lambda-specify-function "#PostgreSQL-Lambda-specify-function")
 - [Step 5: Invoke a Lambda function from your Aurora PostgreSQL DB cluster](#PostgreSQL-Lambda-invoke "#PostgreSQL-Lambda-invoke")
 - [Step 6: Grant other users permission to invoke Lambda functions](#PostgreSQL-Lambda-grant-users-permissions "#PostgreSQL-Lambda-grant-users-permissions")
 - [Examples: Invoking Lambda functions from your Aurora PostgreSQL DB cluster](PostgreSQL-Lambda-examples.md "PostgreSQL-Lambda-examples.md")
@@ -158,9 +155,7 @@ add the `aws_lambda` PostgreSQL extension to your Aurora PostgreSQL DB cluster. 
 provides your Aurora PostgreSQL DB cluster with the ability to call
 Lambda functions from PostgreSQL.
 
-###### To install the `aws_lambda` extension in your
-
-Aurora PostgreSQL DB cluster
+###### To install the `aws_lambda` extension in your Aurora PostgreSQL DB cluster
 
 Use the PostgreSQL `psql` command-line or the pgAdmin tool to connect to your
 Aurora PostgreSQL DB cluster .
@@ -188,9 +183,7 @@ CREATE EXTENSION`
 The `aws_lambda` extension is installed in your Aurora PostgreSQL DB cluster's primary
 DB instance. You can now create convenience structures for invoking your Lambda functions.
 
-## Step 4: Use Lambda helper functions with your
-
-Aurora PostgreSQL DB cluster (Optional)
+## Step 4: Use Lambda helper functions with your Aurora PostgreSQL DB cluster (Optional)
 
 You can use the helper functions in the `aws_commons` extension to prepare entities that you can more easily invoke from PostgreSQL. To do this,
 you need to have the following information about your Lambda functions:
@@ -275,7 +268,7 @@ The response looks as follows.
 (1 row)`
 ```
 
-If your invocation attempt doesn't succeed, see [Lambda function error messages](PostgreSQL-Lambda-errors.md "PostgreSQL-Lambda-errors.md") .
+If your invocation attempt doesn't succeed, see [Lambda function error messages](PostgreSQL-Lambda-errors.md "PostgreSQL-Lambda-errors.md").
 
 ## Step 6: Grant other users permission to invoke Lambda functions
 

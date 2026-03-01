@@ -15,10 +15,8 @@ Following, you can learn how Aurora Serverless v1 works.
 - [Autoscaling for Aurora Serverless v1](#aurora-serverless.how-it-works.auto-scaling "#aurora-serverless.how-it-works.auto-scaling")
 - [Timeout action for capacity changes](#aurora-serverless.how-it-works.timeout-action "#aurora-serverless.how-it-works.timeout-action")
 - [Pause and resume for Aurora Serverless v1](#aurora-serverless.how-it-works.pause-resume "#aurora-serverless.how-it-works.pause-resume")
-- [Determining the maximum number of database connections for
-  Aurora Serverless v1](#aurora-serverless.max-connections "#aurora-serverless.max-connections")
-- [Parameter groups for
-  Aurora Serverless v1](#aurora-serverless.parameter-groups "#aurora-serverless.parameter-groups")
+- [Determining the maximum number of database connections for Aurora Serverless v1](#aurora-serverless.max-connections "#aurora-serverless.max-connections")
+- [Parameter groups for Aurora Serverless v1](#aurora-serverless.parameter-groups "#aurora-serverless.parameter-groups")
 - [Logging for Aurora Serverless v1](#aurora-serverless.logging "#aurora-serverless.logging")
 - [Aurora Serverless v1 and maintenance](#aurora-serverless.maintenance "#aurora-serverless.maintenance")
 - [Aurora Serverless v1 and failover](#aurora-serverless.failover "#aurora-serverless.failover")
@@ -194,9 +192,7 @@ number of ACUs depends on how much Aurora scaled the cluster up or down before p
 If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In
 this case, Aurora restores the DB cluster from the snapshot when there is a request to connect to it.
 
-## Determining the maximum number of database connections for
-
-Aurora Serverless v1
+## Determining the maximum number of database connections for Aurora Serverless v1
 
 The following examples are for an Aurora Serverless v1 DB cluster that's compatible with MySQL 5.7. You can use a MySQL
 client or the query editor, if you've configured access to it. For more information, see [Running queries in the query editor](query-editor.md#query-editor.running "query-editor.md#query-editor.running").
@@ -325,9 +321,7 @@ If you've configured the cluster to pause after a certain amount of time idle, i
 90
 ```
 
-## Parameter groups for
-
-Aurora Serverless v1
+## Parameter groups for Aurora Serverless v1
 
 When you create your Aurora Serverless v1 DB cluster, you choose a specific Aurora DB engine
 and an associated DB cluster parameter group. Unlike provisioned Aurora DB clusters, an
@@ -509,8 +503,7 @@ performed and if any maintenance is pending for your Aurora Serverless v1 DB clu
 ![Maintenance window for an example Aurora Serverless v1 DB cluster, no pending maintenance](images/aurora-serverless-maintenance-window.png)
 
 You can set the maintenance window when you create the Aurora Serverless v1 DB cluster, and you can modify the window later. For
-more information, see [Adjusting the preferred DB cluster
-maintenance window](USER_UpgradeDBInstance.md#AdjustingTheMaintenanceWindow.Aurora "USER_UpgradeDBInstance.md#AdjustingTheMaintenanceWindow.Aurora").
+more information, see [Adjusting the preferred DB cluster maintenance window](USER_UpgradeDBInstance.md#AdjustingTheMaintenanceWindow.Aurora "USER_UpgradeDBInstance.md#AdjustingTheMaintenanceWindow.Aurora").
 
 Maintenance windows are used for scheduled major version upgrades. Minor version upgrades and patches are applied immediately
 during scaling. Scaling happens according to your setting for `TimeoutAction`:
@@ -551,5 +544,4 @@ multiple AZs. Your data remains available even if outages affect the DB instance
 The cluster volume for an Aurora Serverless v1 cluster is always encrypted. You can choose the encryption key, but you can't
 disable encryption. To copy or share a snapshot of an Aurora Serverless v1 cluster, encrypt the snapshot using your own
 AWS KMS key. For more information, see [DB cluster snapshot copying](aurora-copy-snapshot.md "aurora-copy-snapshot.md").
-To learn more about encryption and Amazon Aurora, see [Encrypting an Amazon Aurora DB
-cluster](Overview.md#Overview.Encryption.Enabling "Overview.md#Overview.Encryption.Enabling")
+To learn more about encryption and Amazon Aurora, see [Encrypting an Amazon Aurora DB cluster](Overview.md#Overview.Encryption.Enabling "Overview.md#Overview.Encryption.Enabling")

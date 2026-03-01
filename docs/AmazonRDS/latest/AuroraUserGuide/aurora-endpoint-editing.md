@@ -2,8 +2,7 @@
 
 You can edit the properties of a custom endpoint to change which DB instances are
 associated with the endpoint. You can also change an endpoint between a static list and an
-exclusion list. If you need more details about these endpoint properties, see [Membership rules for custom
-endpoints](Aurora.Endpoints.Custom.md#Aurora.Endpoints.Custom.Membership "Aurora.Endpoints.Custom.md#Aurora.Endpoints.Custom.Membership").
+exclusion list. If you need more details about these endpoint properties, see [Membership rules for custom endpoints](Aurora.Endpoints.Custom.md#Aurora.Endpoints.Custom.Membership "Aurora.Endpoints.Custom.md#Aurora.Endpoints.Custom.Membership").
 
 You can continue connecting to and using a custom endpoint while the changes from an
 edit action are in progress.

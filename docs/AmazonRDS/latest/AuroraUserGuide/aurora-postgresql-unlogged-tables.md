@@ -1,6 +1,4 @@
-# Working with unlogged tables in
-
-Aurora PostgreSQL
+# Working with unlogged tables in Aurora PostgreSQL
 
 Amazon Aurora PostgreSQL supports unlogged tables that are crash-safe and maintain data
 integrity even after writer instance failures or failovers. In standard PostgreSQL, unlogged
@@ -28,9 +26,7 @@ When using unlogged tables in Aurora PostgreSQL, consider the following:
 
 `cannot access temporary or unlogged relations during recovery.`
 
-## Creating unlogged
-
-tables
+## Creating unlogged tables
 
 To create an unlogged table in Aurora PostgreSQL, add the UNLOGGED keyword in your CREATE
 TABLE statement:
@@ -47,9 +43,7 @@ CREATE UNLOGGED TABLE staging_sales_data (
 
 ```
 
-## Handling unlogged tables
-
-during migration
+## Handling unlogged tables during migration
 
 When preparing to migrate data to Aurora PostgreSQL, it's important to identify and handle
 unlogged tables appropriately. Unlogged tables are not WAL-logged and are excluded from
@@ -81,9 +75,7 @@ ALTER TABLE `table_name` SET LOGGED;
 This operation rewrites the entire table and places an exclusive lock on it until
 completion. For large tables, this may result in significant downtime.
 
-## Converting unlogged tables
-
-to logged tables
+## Converting unlogged tables to logged tables
 
 When you need to convert an unlogged table back to a logged table, you can use the
 following command:
@@ -97,9 +89,7 @@ ALTER TABLE `table_name` SET LOGGED;
 This operation rewrites the entire table and places an exclusive lock on it until the
 operation completes. For large tables, this can result in significant downtime.
 
-## Unlogged tables and
-
-logical replication
+## Unlogged tables and logical replication
 
 Unlogged tables are generally not included in logical replication because logical
 replication relies on the WAL to capture and transfer changes. By default, changes to

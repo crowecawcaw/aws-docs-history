@@ -20,8 +20,7 @@ For IPv6 support, additional network configuration is required:
 ###### Topics
 
 - [Getting information about your subnets](#rds-proxy-network-prereqs.subnet-info "#rds-proxy-network-prereqs.subnet-info")
-- [Planning for IP address
-  capacity](#rds-proxy-network-prereqs.plan-ip-address "#rds-proxy-network-prereqs.plan-ip-address")
+- [Planning for IP address capacity](#rds-proxy-network-prereqs.plan-ip-address "#rds-proxy-network-prereqs.plan-ip-address")
 
 ## Getting information about your subnets
 
@@ -103,9 +102,7 @@ $ aws rds describe-db-instances --db-instance-identifier `my_instance_id` --quer
 
 ```
 
-## Planning for IP address
-
-capacity
+## Planning for IP address capacity
 
 RDS Proxy automatically adjusts its capacity based on the configuration of DB instances
 registered with it. For provisioned instances, this is determined by the instance

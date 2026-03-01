@@ -1,6 +1,4 @@
-# AWS CLI examples for custom endpoints for
-
-Amazon Aurora
+# AWS CLI examples for custom endpoints for Amazon Aurora
 
 The following tutorial uses AWS CLI examples with Unix shell syntax to show how you
 might define a cluster with several "small" DB instances and a few
@@ -45,9 +43,7 @@ The larger instances are reserved for specialized kinds of reporting queries. To
 it unlikely for them to be promoted to the primary instance, the following example changes
 their promotion tier to the lowest priority. This example specifies the
 `--manage-master-user-password` option to generate the master user password
-and manage it in Secrets Manager. For more information, see [Password management with
-Amazon Aurora
-and AWS Secrets Manager](rds-secrets-manager.md "rds-secrets-manager.md"). Alternatively, you can use the
+and manage it in Secrets Manager. For more information, see [Password management with Amazon Aurora and AWS Secrets Manager](rds-secrets-manager.md "rds-secrets-manager.md"). Alternatively, you can use the
 `--master-password` option to specify and manage the password
 yourself.
 

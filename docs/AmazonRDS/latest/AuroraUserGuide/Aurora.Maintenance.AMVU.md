@@ -1,6 +1,4 @@
-# Using AWS Organizations upgrade rollout policy
-
-for automatic minor version upgrades
+# Using AWS Organizations upgrade rollout policy for automatic minor version upgrades
 
 Aurora supports AWS Organizations upgrade rollout policy to manage automatic minor version upgrades across
 multiple database resources and AWS accounts. This policy helps you implement a controlled upgrade strategy for your clusters by:
@@ -107,6 +105,6 @@ Some considerations to keep in mind:
   for subsequent environments or use the validation period to resolve issues before upgrades proceed to the
   next upgrade order.
 
-For more information about tagging RDS resources, see [Tagging Amazon Aurora and Amazon RDS resources](USER_Tagging.md "USER_Tagging.md").
+For more information about tagging RDS resources, see [Tagging Amazon Aurora andAmazon RDS resources](USER_Tagging.md "USER_Tagging.md").
 For detailed instructions on setting up and using upgrade rollout policy,
 see [Getting started with AWS Organizations](../../../organizations/latest/userguide/orgs_getting-started.md "../../../organizations/latest/userguide/orgs_getting-started.md") in the _AWS Organizations User Guide_.

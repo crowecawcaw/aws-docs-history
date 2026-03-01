@@ -1,6 +1,6 @@
 # Rotating the query logs
 
-The following stored procedures rotate MySQL logs to backup tables. For more information, see [Aurora MySQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md").
+The following stored procedures rotate MySQL logs to backup tables. For more information, see [AuroraMySQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md").
 
 ###### Topics
 

@@ -11,39 +11,33 @@ parameter group for your Aurora PostgreSQL DB cluster.
 For more information, see
 [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
-| Parameter                | Default                      | Description                                                                                                                                                                                                                                                                                                                                    |
-| ------------------------ | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| log_destination          | stderr                       | Sets the output format for the log. The default is<br>`stderr` but you can also specify comma-separated<br>value (CSV) by adding `csvlog` to the setting. For more<br>information, see [Setting the log<br>destination (stderr, csvlog)](#USER_LogAccess.Concepts.PostgreSQL.Log_Format "#USER_LogAccess.Concepts.PostgreSQL.Log_Format").     |
-| log_filename             | postgresql.log.%Y-%m-%d-%H%M | Specifies the pattern for the log file name. In addition to the default, this parameter<br>supports `postgresql.log.%Y-%m-%d` and<br>`postgresql.log.%Y-%m-%d-%H` for the filename<br>pattern. For Aurora PostgreSQL version 17.4 and later, you can't modify this parameter.                                                                  |
-| log_line_prefix          | %t:%r:%u@%d:[%p]:            | Defines the prefix for each log line that gets written to<br>`stderr`, to note the time (%t), remote host (%r),<br>user (%u), database (%d), and process ID (%p).                                                                                                                                                                              |
-| log_rotation_age         | 60                           | Minutes after which log file is automatically rotated. You can<br>change this value within the range of 1 and 1440 minutes. For more<br>information, see [Setting log file<br>rotation](#USER_LogAccess.Concepts.PostgreSQL.log_rotation "#USER_LogAccess.Concepts.PostgreSQL.log_rotation").                                                  |
-| log_rotation_size        | –                            | The size (kB) at which the log is automatically rotated.<br>You can change this value within the<br>range of 50,000 to 1,000,000 kilobytes. To learn more,<br>see [Setting log file<br>rotation](#USER_LogAccess.Concepts.PostgreSQL.log_rotation "#USER_LogAccess.Concepts.PostgreSQL.log_rotation").                                         |
-| rds.log_retention_period | 4320                         | PostgreSQL logs that are older than the specified number of<br>minutes are deleted. The default value of 4320 minutes deletes log<br>files after 3 days. For more information, see [Setting<br>the log retention period](#USER_LogAccess.Concepts.PostgreSQL.log_retention_period "#USER_LogAccess.Concepts.PostgreSQL.log_retention_period"). |
+| Parameter                | Default                      | Description                                                                                                                                                                                                                                                                                                                                 |
+| ------------------------ | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| log_destination          | stderr                       | Sets the output format for the log. The default is<br>`stderr` but you can also specify comma-separated<br>value (CSV) by adding `csvlog` to the setting. For more<br>information, see [Setting the log destination (stderr, csvlog)](#USER_LogAccess.Concepts.PostgreSQL.Log_Format "#USER_LogAccess.Concepts.PostgreSQL.Log_Format").     |
+| log_filename             | postgresql.log.%Y-%m-%d-%H%M | Specifies the pattern for the log file name. In addition to the default, this parameter<br>supports `postgresql.log.%Y-%m-%d` and<br>`postgresql.log.%Y-%m-%d-%H` for the filename<br>pattern. For Aurora PostgreSQL version 17.4 and later, you can't modify this parameter.                                                               |
+| log_line_prefix          | %t:%r:%u@%d:[%p]:            | Defines the prefix for each log line that gets written to<br>`stderr`, to note the time (%t), remote host (%r),<br>user (%u), database (%d), and process ID (%p).                                                                                                                                                                           |
+| log_rotation_age         | 60                           | Minutes after which log file is automatically rotated. You can<br>change this value within the range of 1 and 1440 minutes. For more<br>information, see [Setting log file rotation](#USER_LogAccess.Concepts.PostgreSQL.log_rotation "#USER_LogAccess.Concepts.PostgreSQL.log_rotation").                                                  |
+| log_rotation_size        | –                            | The size (kB) at which the log is automatically rotated.<br>You can change this value within the<br>range of 50,000 to 1,000,000 kilobytes. To learn more,<br>see [Setting log file rotation](#USER_LogAccess.Concepts.PostgreSQL.log_rotation "#USER_LogAccess.Concepts.PostgreSQL.log_rotation").                                         |
+| rds.log_retention_period | 4320                         | PostgreSQL logs that are older than the specified number of<br>minutes are deleted. The default value of 4320 minutes deletes log<br>files after 3 days. For more information, see [Setting the log retention period](#USER_LogAccess.Concepts.PostgreSQL.log_retention_period "#USER_LogAccess.Concepts.PostgreSQL.log_retention_period"). |
 
 To identify application issues, you can look for query failures, login failures,
 deadlocks, and fatal server errors in the log. For example, suppose that you converted a
 legacy application from Oracle to Aurora PostgreSQL, but not all queries converted
 correctly. These incorrectly formatted queries generate error messages that you can find
 in the logs to help identify problems. For more information about logging queries, see
-[Turning on query
-logging for your Aurora PostgreSQL DB cluster](USER_LogAccess.Concepts.PostgreSQL.md "USER_LogAccess.Concepts.PostgreSQL.md").
+[Turning on query logging for your Aurora PostgreSQL DB cluster](USER_LogAccess.Concepts.PostgreSQL.md "USER_LogAccess.Concepts.PostgreSQL.md") .
 
 In the following topics, you can find information about how to set various parameters
 that control the basic details for your PostgreSQL logs.
 
 ###### Topics
 
-- [Setting
-  the log retention period](#USER_LogAccess.Concepts.PostgreSQL.log_retention_period "#USER_LogAccess.Concepts.PostgreSQL.log_retention_period")
-- [Setting log file
-  rotation](#USER_LogAccess.Concepts.PostgreSQL.log_rotation "#USER_LogAccess.Concepts.PostgreSQL.log_rotation")
-- [Setting the log
-  destination (stderr, csvlog)](#USER_LogAccess.Concepts.PostgreSQL.Log_Format "#USER_LogAccess.Concepts.PostgreSQL.Log_Format")
+- [Setting the log retention period](#USER_LogAccess.Concepts.PostgreSQL.log_retention_period "#USER_LogAccess.Concepts.PostgreSQL.log_retention_period")
+- [Setting log file rotation](#USER_LogAccess.Concepts.PostgreSQL.log_rotation "#USER_LogAccess.Concepts.PostgreSQL.log_rotation")
+- [Setting the log destination (stderr, csvlog)](#USER_LogAccess.Concepts.PostgreSQL.Log_Format "#USER_LogAccess.Concepts.PostgreSQL.Log_Format")
 - [Understanding the log_line_prefix parameter](#USER_LogAccess.Concepts.PostgreSQL.Log_Format.log-line-prefix "#USER_LogAccess.Concepts.PostgreSQL.Log_Format.log-line-prefix")
 
-## Setting
-
-the log retention period
+## Setting the log retention period
 
 The `rds.log_retention_period` parameter specifies how long your
 Aurora PostgreSQL DB cluster
@@ -82,9 +76,7 @@ happens, you see a message similar to the following:
 The oldest PostgreSQL log files were deleted due to local storage constraints.
 ```
 
-## Setting log file
-
-rotation
+## Setting log file rotation
 
 Aurora creates new log files every hour by default. The timing is
 controlled by the `log_rotation_age` parameter. This parameter has a
@@ -116,9 +108,7 @@ If you set `log_rotation_age` parameter to less than
 
 For more information, see [`log_rotation_age`](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ROTATION-AGE "https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ROTATION-AGE") and [`log_rotation_size`](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ROTATION-SIZE "https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ROTATION-SIZE") in the PostgreSQL documentation.
 
-## Setting the log
-
-destination (`stderr`, `csvlog`)
+## Setting the log destination (`stderr`, `csvlog`)
 
 By default, Aurora PostgreSQL generates logs in standard error (stderr) format.
 This format is the default setting for the `log_destination` parameter.

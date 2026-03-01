@@ -27,8 +27,7 @@ through the interface endpoint, associate a security group with the endpoint net
 Performance Insights API currently supports VPC endpoints in AWS Regions that support Performance Insights.
 For information about Performance Insights availability,
 see
-[Supported
-Regions and Aurora DB engines for Performance Insights](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+[Supported Regions and Aurora DB engines for Performance Insights](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
 
 ## Create an interface endpoint for Performance Insights
 
@@ -41,9 +40,7 @@ If you enable private DNS for the interface endpoint, you can make API requests 
 Performance Insights using its default Regional DNS name. For example,
 `pi.us-east-1.amazonaws.com`.
 
-## Creating a VPC endpoint policy for
-
-Performance Insights API
+## Creating a VPC endpoint policy for Performance Insights API
 
 An endpoint policy is an IAM resource that you can attach to an interface endpoint.
 The default endpoint policy allows full access to Performance Insights through the interface endpoint.

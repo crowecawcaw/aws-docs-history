@@ -18,9 +18,7 @@ because Aurora PostgreSQL 12 hadn't reached Aurora end of standard support yet. 
 charge you for RDS Extended Support for this database until March 1, 2025, which is when Aurora
 standard support ends for Aurora PostgreSQL 12.
 
-###### To view the enrollment of your Aurora DB clusters or global
-
-clusters in RDS Extended Support
+###### To view the enrollment of your Aurora DB clusters or global clusters in RDS Extended Support
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").

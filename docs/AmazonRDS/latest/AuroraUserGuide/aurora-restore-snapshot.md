@@ -29,12 +29,9 @@ authorized AWS accounts to directly restore a DB cluster from the snapshot inste
 taking a copy of it and restoring from that. For more information, see [Sharing a DB cluster snapshot](aurora-share-snapshot.md "aurora-share-snapshot.md").
 
 For information about restoring an Aurora DB cluster or a global cluster with an RDS Extended Support version,
-see [Restoring an
-Aurora DB cluster or a global cluster with Amazon RDS Extended Support](extended-support-restoring-db-instance.md "extended-support-restoring-db-instance.md").
+see [Restoring an Aurora DB cluster or a global cluster with Amazon RDS Extended Support](extended-support-restoring-db-instance.md "extended-support-restoring-db-instance.md").
 
-## Parameter group
-
-considerations
+## Parameter group considerations
 
 We recommend that you retain the DB parameter group and DB cluster parameter group for
 any DB cluster snapshots you create, so that you can associate your restored DB cluster

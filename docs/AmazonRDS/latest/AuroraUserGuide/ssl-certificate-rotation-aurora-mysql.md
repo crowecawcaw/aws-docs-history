@@ -1,6 +1,4 @@
-# Updating applications to connect to
-
-Aurora MySQL DB clusters using new TLS certificates
+# Updating applications to connect to Aurora MySQL DB clusters using new TLS certificates
 
 As of January 13, 2023, Amazon RDS has published new Certificate Authority (CA) certificates
 for connecting to your Aurora DB clusters using Transport Layer Security (TLS). Following,
@@ -24,26 +22,18 @@ rotate the certificates on your DB clusters. We strongly recommend testing these
 procedures in a development or staging environment before implementing them in your
 production environments.
 
-For more information about certificate rotation, see [Rotating your SSL/TLS
-certificate](UsingWithRDS.md "UsingWithRDS.md"). For more information about
-downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB
-cluster](UsingWithRDS.md "UsingWithRDS.md"). For information about using TLS with Aurora MySQL DB
+For more information about certificate rotation, see [Rotating your SSL/TLS certificate](UsingWithRDS.md "UsingWithRDS.md"). For more information about
+downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.md "UsingWithRDS.md"). For information about using TLS with Aurora MySQL DB
 clusters, see [TLS connections to Aurora MySQL DB clusters](AuroraMySQL.md#AuroraMySQL.Security.SSL "AuroraMySQL.md#AuroraMySQL.Security.SSL").
 
 ###### Topics
 
-- [Determining
-  whether any applications are connecting to your Aurora MySQL DB cluster using
-  TLS](#ssl-certificate-rotation-aurora-mysql.determining-server "#ssl-certificate-rotation-aurora-mysql.determining-server")
+- [Determining whether any applications are connecting to your Aurora MySQL DB cluster using TLS](#ssl-certificate-rotation-aurora-mysql.determining-server "#ssl-certificate-rotation-aurora-mysql.determining-server")
 - [Determining whether a client requires certificate verification to connect](#ssl-certificate-rotation-aurora-mysql.determining-client "#ssl-certificate-rotation-aurora-mysql.determining-client")
 - [Updating your application trust store](#ssl-certificate-rotation-aurora-mysql.updating-trust-store "#ssl-certificate-rotation-aurora-mysql.updating-trust-store")
-- [Example Java code
-  for establishing TLS connections](#ssl-certificate-rotation-aurora-mysql.java-example "#ssl-certificate-rotation-aurora-mysql.java-example")
+- [Example Java code for establishing TLS connections](#ssl-certificate-rotation-aurora-mysql.java-example "#ssl-certificate-rotation-aurora-mysql.java-example")
 
-## Determining
-
-whether any applications are connecting to your Aurora MySQL DB cluster using
-TLS
+## Determining whether any applications are connecting to your Aurora MySQL DB cluster using TLS
 
 If you are using Aurora MySQL version 2 (compatible with MySQL 5.7) and the Performance
 Schema is enabled, run the following query to check if connections are using TLS. For
@@ -143,11 +133,9 @@ When you update the trust store, you can retain older certificates in addition t
 You can update the trust store for applications that use JDBC for TLS
 connections.
 
-For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB
-cluster](UsingWithRDS.md "UsingWithRDS.md").
+For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.md "UsingWithRDS.md").
 
-For sample scripts that import certificates, see [Sample
-script for importing certificates into your trust store](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script").
+For sample scripts that import certificates, see [Sample script for importing certificates into your trust store](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script").
 
 If you are using the mysql JDBC driver in an application, set the following properties in the application.
 
@@ -166,9 +154,7 @@ When you start the application, set the following properties.
 java -Djavax.net.ssl.trustStore=`/path_to_truststore/MyTruststore.jks` -Djavax.net.ssl.trustStorePassword=`my_truststore_password` `com.companyName.MyApplication`
 ```
 
-## Example Java code
-
-for establishing TLS connections
+## Example Java code for establishing TLS connections
 
 The following code example shows how to set up the SSL connection that validates the server certificate using JDBC.
 
@@ -207,5 +193,4 @@ public class MySQLSSLTest {
 
 After you have determined that your database connections use TLS and have
 updated your application trust store, you can update your database to use the
-rds-ca-rsa2048-g1 certificates. For instructions, see step 3 in [Updating
-your CA certificate by modifying your DB instance](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating") .
+rds-ca-rsa2048-g1 certificates. For instructions, see step 3 in [Updating your CA certificate by modifying your DB instance](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating") .

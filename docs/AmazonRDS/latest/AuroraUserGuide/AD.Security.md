@@ -1,6 +1,4 @@
-# Using AD security groups for Aurora PostgreSQL access
-
-control
+# Using AD security groups for Aurora PostgreSQL access control
 
 From Aurora PostgreSQL 14.10 and 15.5 versions, Aurora PostgreSQL access control can be managed
 using AWS Directory Service for Microsoft Active Directory (AD) security groups. Earlier
@@ -50,14 +48,11 @@ April 2025.
 
 - Managing a DB cluster in a Domain. For more information, see [Managing a DB cluster in a Domain](postgresql-kerberos-managing.md "postgresql-kerberos-managing.md").
 
-## Setting up the pg_ad_mapping
-
-extension
+## Setting up the pg_ad_mapping extension
 
 Aurora PostgreSQL is now providing `pg_ad_mapping` extension to manage the
 mapping between AD security groups and DB roles in Aurora PostgreSQL cluster. For more
-information about the functions provided by `pg_ad_mapping`, see [Using functions from the
-pg_ad_mapping extension](#AD.Security.Groups.functions "#AD.Security.Groups.functions").
+information about the functions provided by `pg_ad_mapping`, see [Using functions from the pg_ad_mapping extension](#AD.Security.Groups.functions "#AD.Security.Groups.functions").
 
 To set up the `pg_ad_mapping` extension on your Aurora PostgreSQL DB cluster,
 you first add `pg_ad_mapping` to the shared libraries on the custom DB
@@ -173,9 +168,7 @@ CREATE EXTENSION pg_ad_mapping;
 `labdb=>` `\q`
 ```
 
-## Retrieving Active Directory Group SID in
-
-PowerShell
+## Retrieving Active Directory Group SID in PowerShell
 
 A security identifier (SID) is used to uniquely identify a security principal or
 security group. Whenever a security group or account is created in Active Directory a
@@ -196,9 +189,7 @@ S-1-5-21-3168537779-1985441202-1799118680-1612`
 
 ```
 
-## Mapping DB role with AD security
-
-group
+## Mapping DB role with AD security group
 
 You need to explicitly provision the AD security groups in the database as a
 PostgreSQL DB role. An AD user, who is part of at least one provisioned AD security
@@ -238,8 +229,7 @@ DB role.
 `admin=>``select pgadmap_set_mapping(`'accounts-group'`, `'accounts-role'`, `<SID>`, `<Weight>`);`
 ```
 
-For information on retrieving SID of AD security group, see [Retrieving Active Directory Group SID in
-PowerShell](#AD.Security.Groups.retrieving "#AD.Security.Groups.retrieving").
+For information on retrieving SID of AD security group, see [Retrieving Active Directory Group SID in PowerShell](#AD.Security.Groups.retrieving "#AD.Security.Groups.retrieving").
 
 There might be cases where an AD user belongs to multiple groups, in that case, AD
 user will inherit the privileges of the DB role, which was provisioned with the highest
@@ -333,9 +323,7 @@ back to the actual AD user.
 
 - Microsoft Entra ID known as Azure Active Directory isn't supported.
 
-## Using functions from the
-
-`pg_ad_mapping` extension
+## Using functions from the `pg_ad_mapping` extension
 
 `pg_ad_mapping` extension provided support to the following
 functions:
@@ -358,12 +346,12 @@ weight)
 
 #### Arguments
 
-| Parameter    | Description                                                                                                                                                                                                                                                                                 |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ad_group     | Name of AD Group. Value cannot be null or empty<br>string.                                                                                                                                                                                                                                  |
-| db_role      | Database role to be mapped to the specified AD Group. Value<br>cannot be null or empty string.                                                                                                                                                                                              |
-| ad_group_sid | Security identifier that is used to uniquely identify the AD<br>group. Value starts with 'S-1-' and cannot be null or empty<br>string. For more information, see [Retrieving Active Directory Group SID in<br>PowerShell](#AD.Security.Groups.retrieving "#AD.Security.Groups.retrieving"). |
-| weight       | Weight associated with the database role. The role with<br>highest weight gets precedence when user is a member of multiple<br>groups. Default value of weight is 1.                                                                                                                        |
+| Parameter    | Description                                                                                                                                                                                                                                                                              |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ad_group     | Name of AD Group. Value cannot be null or empty<br>string.                                                                                                                                                                                                                               |
+| db_role      | Database role to be mapped to the specified AD Group. Value<br>cannot be null or empty string.                                                                                                                                                                                           |
+| ad_group_sid | Security identifier that is used to uniquely identify the AD<br>group. Value starts with 'S-1-' and cannot be null or empty<br>string. For more information, see [Retrieving Active Directory Group SID in PowerShell](#AD.Security.Groups.retrieving "#AD.Security.Groups.retrieving"). |
+| weight       | Weight associated with the database role. The role with<br>highest weight gets precedence when user is a member of multiple<br>groups. Default value of weight is 1.                                                                                                                     |
 
 #### Return type
 
@@ -402,12 +390,12 @@ pgadmap_read_mapping()
 
 #### Return type
 
-| Parameter    | Description                                                                                                                                                                                                                                                                                                          |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ad_group_sid | Security identifier that is used to uniquely identify the AD<br>group. Value starts with 'S-1-' and cannot be null or empty<br>string. For more information, see [Retrieving Active Directory Group SID in<br>PowerShell](#AD.Security.Groups.retrieving "#AD.Security.Groups.retrieving").accounts-role@example.com |
-| db_role      | Database role to be mapped to the specified AD Group. Value<br>cannot be null or empty string.                                                                                                                                                                                                                       |
-| weight       | Weight associated with the database role. The role with<br>highest weight gets precedence when user is a member of multiple<br>groups. Default value of weight is 1.                                                                                                                                                 |
-| ad_group     | Name of AD Group. Value cannot be null or empty<br>string.                                                                                                                                                                                                                                                           |
+| Parameter    | Description                                                                                                                                                                                                                                                                                                       |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ad_group_sid | Security identifier that is used to uniquely identify the AD<br>group. Value starts with 'S-1-' and cannot be null or empty<br>string. For more information, see [Retrieving Active Directory Group SID in PowerShell](#AD.Security.Groups.retrieving "#AD.Security.Groups.retrieving").accounts-role@example.com |
+| db_role      | Database role to be mapped to the specified AD Group. Value<br>cannot be null or empty string.                                                                                                                                                                                                                    |
+| weight       | Weight associated with the database role. The role with<br>highest weight gets precedence when user is a member of multiple<br>groups. Default value of weight is 1.                                                                                                                                              |
+| ad_group     | Name of AD Group. Value cannot be null or empty<br>string.                                                                                                                                                                                                                                                        |
 
 #### Usage notes
 

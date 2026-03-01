@@ -228,8 +228,7 @@ The inability to scale greater than 128 ACUs can happen for one of two reasons:
        [Creating a blue/green deployment in Amazon Aurora](blue-green-deployments-creating.md "blue-green-deployments-creating.md").
     2. Confirm that you can set the maximum capacity for the staging (green) environment to 256 ACUs.
     3. Switch over to the green environment. For more information, see
-       [Switching a blue/green deployment in
-       Amazon Aurora](blue-green-deployments-switching.md "blue-green-deployments-switching.md").
+       [Switching a blue/green deployment in Amazon Aurora](blue-green-deployments-switching.md "blue-green-deployments-switching.md").
     4. Delete the original DB cluster.
 
   ###### Note
@@ -481,9 +480,7 @@ a DB instance running the PostgreSQL database engine](../UserGuide/USER_ConnectT
 For more information about connecting to Aurora DB clusters in general, see
 [Connecting to an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
 
-### Supported cipher suites for connections to
-
-Aurora Serverless v2 DB clusters
+### Supported cipher suites for connections to Aurora Serverless v2 DB clusters
 
 By using configurable cipher suites, you can have more control over the security of your
 database connections. You can specify a list of cipher suites that you want to allow to secure
@@ -496,8 +493,7 @@ as Aurora MySQL provisioned DB clusters. For information about these cipher suit
 
 Aurora Serverless v2 DB clusters that are based on Aurora PostgreSQL support the same cipher
 suites as Aurora PostgreSQL provisioned DB clusters. For information about these cipher suites,
-see [Configuring
-cipher suites for connections to Aurora PostgreSQL DB clusters](AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites "AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites").
+see [Configuring cipher suites for connections to Aurora PostgreSQL DB clusters](AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites "AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites").
 
 ## Viewing Aurora Serverless v2 writers and readers
 

@@ -1,6 +1,4 @@
-# Using Blue/Green Deployments for Amazon Aurora Global
-
-Database
+# Using Blue/Green Deployments for Amazon Aurora Global Database
 
 Amazon RDS Blue/Green Deployments provide a capability for testing database changes safely.
 For your global database, blue/green deployments allow you to perform upgrades and maintenance operations with minimal downtime.
@@ -29,8 +27,7 @@ your applications to access the new production environment without requiring any
 ## How Blue/Green Deployments work with Aurora Global Database
 
 For details on how to create, view, switch, and delete
-a Blue/Green Deployment, see [Using Amazon Aurora Blue/Green Deployments
-for database updates](blue-green-deployments.md "blue-green-deployments.md"). You can use this for major or minor version upgrades, database performance improvements through parameter updates, and adoption of new database features, with minimal downtime.
+a Blue/Green Deployment, see [Using Amazon Aurora Blue/Green Deployments for database updates](blue-green-deployments.md "blue-green-deployments.md"). You can use this for major or minor version upgrades, database performance improvements through parameter updates, and adoption of new database features, with minimal downtime.
 
 A representation of how a blue/green deployment for Aurora Global Database with one secondary region looks before and after a blue/green switchover is shown below.
 
@@ -48,6 +45,5 @@ When you initiate a global failover during an RDS blue/green switchover, the tar
 rolls back to the blue environment or rolls forward to the green environment before the global failover occurs.
 
 For information on creating, viewing, switching, and deleting blue/green deployments, see
-[Using Amazon Aurora Blue/Green Deployments
-for database updates](blue-green-deployments.md "blue-green-deployments.md").
+[Using Amazon Aurora Blue/Green Deployments for database updates](blue-green-deployments.md "blue-green-deployments.md").
 Follow the same workflow for Global Databases, with specific instructions noted in the relevant steps.

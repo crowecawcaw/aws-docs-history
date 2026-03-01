@@ -73,8 +73,7 @@ metacommand.
 You can verify that the grant has occurred by using the `psql` metacommand as shown in the following
 example. Only the `pgtle_admin` and `postgres` roles are shown
 in the output. For more information, see
-[Understanding PostgreSQL roles and
-permissions](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
+[Understanding PostgreSQL roles and permissions](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
 
 ```
 `labdb=>` `\du`

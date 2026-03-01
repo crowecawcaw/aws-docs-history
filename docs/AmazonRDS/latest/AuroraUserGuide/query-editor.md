@@ -16,8 +16,7 @@ The SQL that you can run is subject to the Data API limitations. For more inform
 
 The query editor is available for Aurora DB clusters using Aurora MySQL and
 Aurora PostgreSQL engine versions that support Data API, and in the AWS Regions where
-Data API is available. For more information, see [Supported
-Regions and Aurora DB engines for RDS Data API](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+Data API is available. For more information, see [Supported Regions and Aurora DB engines for RDS Data API](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
 
 ## Authorizing access to the query editor
 

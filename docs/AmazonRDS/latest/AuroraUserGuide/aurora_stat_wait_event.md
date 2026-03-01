@@ -1,8 +1,7 @@
 # aurora_stat_wait_event
 
 Lists all supported wait events for Aurora PostgreSQL. For information about Aurora PostgreSQL
-wait events, see [Amazon Aurora PostgreSQL wait
-events](AuroraPostgreSQL.Reference.md "AuroraPostgreSQL.Reference.md").
+wait events, see [Amazon Aurora PostgreSQL wait events](AuroraPostgreSQL.Reference.md "AuroraPostgreSQL.Reference.md").
 
 ## Syntax
 

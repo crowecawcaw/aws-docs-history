@@ -25,24 +25,16 @@ _IAM User Guide_.
 ###### Topics
 
 - [Aurora identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Resource-based
-  policies within Aurora](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Resource-based policies within Aurora](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
 - [Policy actions for Aurora](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")
-- [Policy
-  resources for Aurora](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")
+- [Policy resources for Aurora](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")
 - [Policy condition keys for Aurora](#UsingWithRDS.IAM.Conditions "#UsingWithRDS.IAM.Conditions")
-- [Access control lists (ACLs) in
-  Aurora](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")
-- [Attribute-based access control
-  (ABAC) in policies with Aurora tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Using temporary
-  credentials with Aurora](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")
-- [Forward access sessions
-  for Aurora](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")
-- [Service roles for
-  Aurora](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")
-- [Service-linked
-  roles for Aurora](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")
+- [Access control lists (ACLs) in Aurora](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")
+- [Attribute-based access control (ABAC) in policies with Aurora tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Using temporary credentials with Aurora](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")
+- [Forward access sessions for Aurora](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")
+- [Service roles for Aurora](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")
+- [Service-linked roles for Aurora](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")
 
 ## Aurora identity-based policies
 
@@ -59,17 +51,12 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
-
-Identity-based policy examples for Aurora
+### Identity-based policy examples for Aurora
 
 To view examples of Aurora identity-based policies,
-see [Identity-based policy
-examples for Amazon Aurora](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+see [Identity-based policy examples for Amazon Aurora](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based
-
-policies within Aurora
+## Resource-based policies within Aurora
 
 **Supports resource-based policies:** No.
 
@@ -121,9 +108,7 @@ action.
 To see a list of Aurora actions, see [Actions Defined by Amazon RDS](../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions") in the
 _Service Authorization Reference_.
 
-## Policy
-
-resources for Aurora
+## Policy resources for Aurora
 
 **Supports policy resources:** Yes.
 
@@ -202,18 +187,14 @@ To see a list of Aurora condition keys, see [Condition Keys for Amazon RDS](../.
 in the _Service Authorization Reference_. To learn with which actions and
 resources you can use a condition key, see [Actions Defined by Amazon RDS](../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions").
 
-## Access control lists (ACLs) in
-
-Aurora
+## Access control lists (ACLs) in Aurora
 
 **Supports access control lists (ACLs):** No
 
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) in policies with Aurora tags
+## Attribute-based access control (ABAC) in policies with Aurora tags
 
 **Supports attribute-based access control (ABAC) tags in policies:** Yes
 
@@ -232,12 +213,9 @@ For more information about tagging
 Aurora resources, see
 [Specifying conditions: Using custom tags](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
 To view an example identity-based policy for limiting access to a resource based on
-the tags on that resource, see [Grant permission for actions on a resource with a specific tag with two
-different values](security_iam_id-based-policy-examples-create-and-modify-examples.md#security_iam_id-based-policy-examples-grant-permissions-tags "security_iam_id-based-policy-examples-create-and-modify-examples.md#security_iam_id-based-policy-examples-grant-permissions-tags").
+the tags on that resource, see [Grant permission for actions on a resource with a specific tag with two different values](security_iam_id-based-policy-examples-create-and-modify-examples.md#security_iam_id-based-policy-examples-grant-permissions-tags "security_iam_id-based-policy-examples-create-and-modify-examples.md#security_iam_id-based-policy-examples-grant-permissions-tags").
 
-## Using temporary
-
-credentials with Aurora
+## Using temporary credentials with Aurora
 
 **Supports temporary credentials:** Yes.
 
@@ -247,18 +225,14 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access sessions
-
-for Aurora
+## Forward access sessions for Aurora
 
 **Supports forward access sessions:** Yes.
 
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Aurora
+## Service roles for Aurora
 
 **Supports service roles:** Yes.
 
@@ -273,9 +247,7 @@ Aurora functionality.
 Edit service roles only when Aurora
 provides guidance to do so.
 
-## Service-linked
-
-roles for Aurora
+## Service-linked roles for Aurora
 
 **Supports service-linked roles:** Yes.
 
@@ -284,5 +256,4 @@ Service-linked roles appear in your AWS account and are owned by the service. An
 but not edit the permissions for service-linked roles.
 
 For details about using Aurora service-linked roles,
-see [Using service-linked roles for
-Amazon Aurora](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
+see [Using service-linked roles for Amazon Aurora](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").

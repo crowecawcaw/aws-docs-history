@@ -1,6 +1,4 @@
-# Working with extensions and
-
-foreign data wrappers
+# Working with extensions and foreign data wrappers
 
 To extend the functionality to your Aurora PostgreSQL-Compatible Edition DB cluster, you can install
 and use various PostgreSQL _extensions_. For example, if your use case calls for intensive
@@ -19,8 +17,7 @@ In some cases, rather than installing an extension, you might add a specific _mo
 of `shared_preload_libraries` in your Aurora PostgreSQL DB cluster's custom DB cluster parameter group.
 Typically, the default DB cluster parameter group loads only the `pg_stat_statements`, but several
 other modules are available to add to the list. For example, you can add scheduling capability by adding the
-`pg_cron` module, as detailed in [Scheduling maintenance with the PostgreSQL pg_cron
-extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md"). As another example, you can log query execution plans by
+`pg_cron` module, as detailed in [Scheduling maintenance with the PostgreSQL pg_cron extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md"). As another example, you can log query execution plans by
 loading the `auto_explain` module. To learn more, see
 [Logging execution plans
 of queries](https://aws.amazon.com/premiumsupport/knowledge-center/rds-postgresql-tune-query-performance/# "https://aws.amazon.com/premiumsupport/knowledge-center/rds-postgresql-tune-query-performance/#") in the AWS knowledge center.
@@ -38,15 +35,11 @@ FDWs available for Aurora PostgreSQL. For simplicity's sake, these are all refer
 listings of extensions that you can use with the currently available Aurora PostgreSQL versions, see [Extension
 versions for Amazon Aurora PostgreSQL](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") in the _Release Notes for Aurora PostgreSQL_.
 
-- [Managing large objects with the lo
-  module](PostgreSQL_large_objects_lo_extension.md "PostgreSQL_large_objects_lo_extension.md")
-- [Managing spatial data with the
-  PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
+- [Managing large objects with the lo module](PostgreSQL_large_objects_lo_extension.md "PostgreSQL_large_objects_lo_extension.md")
+- [Managing spatial data with the PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
 - [Managing PostgreSQL partitions with the pg_partman extension](PostgreSQL_Partitions.md "PostgreSQL_Partitions.md")
-- [Scheduling maintenance with the PostgreSQL pg_cron
-  extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md")
+- [Scheduling maintenance with the PostgreSQL pg_cron extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md")
 - [Using pgAudit to log database activity](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-- [Using pglogical to synchronize
-  data across instances](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
+- [Using pglogical to synchronize data across instances](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
 - [Working with Oracle databases by using the oracle_fdw extension](postgresql-oracle-fdw.md "postgresql-oracle-fdw.md")
 - [Working with SQL Server databases by using the tds_fdw extension](postgresql-tds-fdw.md "postgresql-tds-fdw.md")

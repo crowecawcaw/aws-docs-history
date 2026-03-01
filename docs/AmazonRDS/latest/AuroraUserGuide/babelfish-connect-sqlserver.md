@@ -1,6 +1,4 @@
-# Using a SQL Server client to connect
-
-to your DB cluster
+# Using a SQL Server client to connect to your DB cluster
 
 You can use a SQL Server client to connect with Babelfish on the TDS port.
 As of Babelfish 2.1.0 and higher releases, you can use the SSMS Object
@@ -27,12 +25,9 @@ Explorer or the SSMS Query Editor to connect to your Babelfish cluster.
 
 ![Connecting to a Babelfish database with SSMS if Object Explorer doesn't work.](images/babelfish_connect_ssms.png)
 For more information about interoperability and behavioral differences between SQL
-Server and Babelfish, see [Differences between Babelfish for Aurora PostgreSQL and SQL
-Server](babelfish-compatibility.md "babelfish-compatibility.md").
+Server and Babelfish, see [Differences between Babelfish for Aurora PostgreSQL and SQL Server](babelfish-compatibility.md "babelfish-compatibility.md").
 
-## Using sqlcmd to connect to the DB
-
-cluster
+## Using sqlcmd to connect to the DB cluster
 
 You can connect to and interact with an Aurora PostgreSQL DB cluster that supports
 Babelfish by only using version 19.1 and earlier SQL Server
@@ -53,17 +48,13 @@ The options are as follows:
 - `-d` is the name of your Babelfish database.
 
 After connecting, you can use many of the same commands that you use with SQL
-Server. For some examples, see [Getting information from the Babelfish
-system catalog](babelfish-query-database.md "babelfish-query-database.md").
+Server. For some examples, see [Getting information from the Babelfish system catalog](babelfish-query-database.md "babelfish-query-database.md").
 
-## Using SSMS to connect to the DB
-
-cluster
+## Using SSMS to connect to the DB cluster
 
 You can connect to an Aurora PostgreSQL DB cluster running Babelfish by
 using Microsoft SQL Server Management Studio (SSMS). SSMS includes a variety of
-tools, including the SQL Server Import amd Export Wizard discussed in [Migrating a SQL Server database to
-Babelfish for Aurora PostgreSQL](babelfish-migration.md "babelfish-migration.md"). For
+tools, including the SQL Server Import amd Export Wizard discussed in [Migrating a SQL Server database to Babelfish for Aurora PostgreSQL](babelfish-migration.md "babelfish-migration.md"). For
 more information about SSMS, see [Download SQL Server Management Studio (SSMS)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16 "https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16") in the Microsoft
 documentation. To configure SSL/TLS, see [Using SSL with a Microsoft SQL Server DB instance](../UserGuide/SQLServer.Concepts.General.SSL.md "../UserGuide/SQLServer.Concepts.General.SSL.md").
 

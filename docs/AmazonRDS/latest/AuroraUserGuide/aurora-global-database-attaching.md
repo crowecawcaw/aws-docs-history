@@ -24,8 +24,7 @@ setting is a database parameter that affects how the server handles identifier c
 sensitivity. For more information about database parameters, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 We recommend that when you create a secondary cluster, you use the same DB engine version for the primary and
-secondary. If necessary, upgrade the primary to be the same version as the secondary. For more information, see [Patch level
-compatibility for managed cross-Region switchovers and failovers](aurora-global-database-upgrade.md#aurora-global-database-upgrade.minor.incompatibility "aurora-global-database-upgrade.md#aurora-global-database-upgrade.minor.incompatibility").
+secondary. If necessary, upgrade the primary to be the same version as the secondary. For more information, see [Patch level compatibility for managed cross-Region switchovers and failovers](aurora-global-database-upgrade.md#aurora-global-database-upgrade.minor.incompatibility "aurora-global-database-upgrade.md#aurora-global-database-upgrade.minor.incompatibility").
 
 ###### To add an AWS Region to an Aurora global database
 
@@ -44,8 +43,7 @@ as the primary Aurora DB cluster.
 
 ###### Note
 
-Babelfish for Aurora PostgreSQL global databases works in secondary regions only if the parameters that control Babelfish preferences are turned on in those regions. For more information, see [DB cluster parameter group settings for
-Babelfish](babelfish-configuration.md "babelfish-configuration.md")
+Babelfish for Aurora PostgreSQL global databases works in secondary regions only if the parameters that control Babelfish preferences are turned on in those regions. For more information, see [DB cluster parameter group settings for Babelfish](babelfish-configuration.md "babelfish-configuration.md")
 
 ![The Add a region page for an Aurora global database.](images/aurora-global-db-create-apg-6-add-region.png) 6. Complete the remaining fields for the secondary Aurora cluster in the new AWS
 Region. These are the same configuration options as for any Aurora DB cluster instance, except for the

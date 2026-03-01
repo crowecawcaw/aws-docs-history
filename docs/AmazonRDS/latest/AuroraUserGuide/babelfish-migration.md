@@ -1,28 +1,19 @@
-# Migrating a SQL Server database to
-
-Babelfish for Aurora PostgreSQL
+# Migrating a SQL Server database to Babelfish for Aurora PostgreSQL
 
 You can use Babelfish for Aurora PostgreSQL to migrate an SQL Server database to an Amazon Aurora PostgreSQL
-DB cluster. Before migrating, review [Using Babelfish with a single database or
-multiple databases](babelfish-architecture.md#babelfish-single_vs_multi_db "babelfish-architecture.md#babelfish-single_vs_multi_db").
+DB cluster. Before migrating, review [Using Babelfish with a single database or multiple databases](babelfish-architecture.md#babelfish-single_vs_multi_db "babelfish-architecture.md#babelfish-single_vs_multi_db").
 
 ###### Topics
 
-- [Overview of the migration
-  process](#babelfish-migration.process-summary "#babelfish-migration.process-summary")
-- [Evaluating and handling
-  differences between SQL Server and Babelfish](#babelfish-migration.assessing-the-source "#babelfish-migration.assessing-the-source")
-- [Import/export tools for
-  migrating from SQL Server to Babelfish](#babelfish-migration.import-export-tools "#babelfish-migration.import-export-tools")
+- [Overview of the migration process](#babelfish-migration.process-summary "#babelfish-migration.process-summary")
+- [Evaluating and handling differences between SQL Server and Babelfish](#babelfish-migration.assessing-the-source "#babelfish-migration.assessing-the-source")
+- [Import/export tools for migrating from SQL Server to Babelfish](#babelfish-migration.import-export-tools "#babelfish-migration.import-export-tools")
 
-## Overview of the migration
-
-process
+## Overview of the migration process
 
 The following summary lists the steps required to successfully migrate your SQL
 Server application and make it work with Babelfish. For information about the
-tools you can use for the export and import processes and for more detail, see [Import/export tools for
-migrating from SQL Server to Babelfish](#babelfish-migration.import-export-tools "#babelfish-migration.import-export-tools"). To load the data, we
+tools you can use for the export and import processes and for more detail, see [Import/export tools for migrating from SQL Server to Babelfish](#babelfish-migration.import-export-tools "#babelfish-migration.import-export-tools"). To load the data, we
 recommend using AWS DMS with an Aurora PostgreSQL DB cluster as the target endpoint.
 
 1. Create a new Aurora PostgreSQL DB cluster with Babelfish turned on. To
@@ -30,18 +21,15 @@ recommend using AWS DMS with an Aurora PostgreSQL DB cluster as the target endpo
 
 To import the various SQL artifacts exported from your SQL Server
 database, connect to the Babelfish cluster using a SQL Server tool
-such as [sqlcmd](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15"). For more information, see [Using a SQL Server client to connect
-to your DB cluster](babelfish-connect-sqlserver.md "babelfish-connect-sqlserver.md"). 2. On the SQL Server database that you want to migrate, export the data
+such as [sqlcmd](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15"). For more information, see [Using a SQL Server client to connect to your DB cluster](babelfish-connect-sqlserver.md "babelfish-connect-sqlserver.md"). 2. On the SQL Server database that you want to migrate, export the data
 definition language (DDL). The DDL is SQL code that describes database
 objects that contain user data (such as tables, indexes, and views) and
 user-written database code (such as stored procedures, user-defined
 functions, and triggers).
 
-For more information, see [Using SQL Server
-Management Studio (SSMS) to migrate to Babelfish](#babelfish-migration.import-export-tools.ssms "#babelfish-migration.import-export-tools.ssms"). 3. Run an assessment tool to evaluate the scope of any changes that you might
+For more information, see [Using SQL Server Management Studio (SSMS) to migrate to Babelfish](#babelfish-migration.import-export-tools.ssms "#babelfish-migration.import-export-tools.ssms"). 3. Run an assessment tool to evaluate the scope of any changes that you might
 need to make so that Babelfish can effectively support the
-application running on SQL Server. For more information, see [Evaluating and handling
-differences between SQL Server and Babelfish](#babelfish-migration.assessing-the-source "#babelfish-migration.assessing-the-source"). 4. Review the AWS DMS target endpoint limitations and update the DDL script as
+application running on SQL Server. For more information, see [Evaluating and handling differences between SQL Server and Babelfish](#babelfish-migration.assessing-the-source "#babelfish-migration.assessing-the-source"). 4. Review the AWS DMS target endpoint limitations and update the DDL script as
 necessary. For more information, see Limitations to using a PostgreSQL
 target endpoint with Babelfish tables in [Using Babelfish for Aurora PostgreSQL as a target](../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.PostgreSQL.Babelfish "../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.PostgreSQL.Babelfish"). 5. On your new Babelfish DB cluster, run the DDL within your specified
 T-SQL database to create only the schemas, user-defined data types, and
@@ -53,8 +41,7 @@ AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.md#CHA
 support the application on your Babelfish cluster. 8. Reconfigure your client application to connect to the Babelfish
 endpoint instead of your SQL Server database. For more information, see
 [Connecting to a Babelfish DB cluster](babelfish-connect.md "babelfish-connect.md"). 9. Modify your application as needed and retest. For more information, see
-[Differences between Babelfish for Aurora PostgreSQL and SQL
-Server](babelfish-compatibility.md "babelfish-compatibility.md").
+[Differences between Babelfish for Aurora PostgreSQL and SQL Server](babelfish-compatibility.md "babelfish-compatibility.md").
 
 You still need to assess your client-side SQL queries. The schemas generated from
 your SQL Server instance convert only the server-side SQL code. We recommend that
@@ -98,9 +85,7 @@ client applications to use the Babelfish TDS port.
 AWS DMS now supports replicating data from Babelfish. For more
 information, see [AWS DMS now supports Babelfish for Aurora PostgreSQL as a source](https://aws.amazon.com/about-aws/whats-new/2024/06/aws-dms-babelfish-aurora-postgresql-source/ "https://aws.amazon.com/about-aws/whats-new/2024/06/aws-dms-babelfish-aurora-postgresql-source/").
 
-## Evaluating and handling
-
-differences between SQL Server and Babelfish
+## Evaluating and handling differences between SQL Server and Babelfish
 
 For best results, we recommend that you evaluate the generated DDL/DML and the
 client query code before actually migrating your SQL Server database application to
@@ -145,9 +130,7 @@ assessment:
 
 ![Using SSMS Generate script wizard to set the advance scripting options.](images/Babelfish-advanced-scripting-options.png) 4. Perform the remaining steps in the wizard to generate the file.
 
-## Import/export tools for
-
-migrating from SQL Server to Babelfish
+## Import/export tools for migrating from SQL Server to Babelfish
 
 We recommend that you use AWS DMS as the primary tool for migrating from SQL Server to
 Babelfish. However, Babelfish supports several other ways to migrate
@@ -169,9 +152,7 @@ data using SQL Server tools that includes the following.
   `-C`, `-T`, `-G`, `-K`,
   `-R`, `-V`, and `-h`.
 
-### Using SQL Server
-
-Management Studio (SSMS) to migrate to Babelfish
+### Using SQL Server Management Studio (SSMS) to migrate to Babelfish
 
 We recommend generating separate files for each of the specific object types.
 You can use the Generate Scripts wizard in SSMS for each set of DDL statements

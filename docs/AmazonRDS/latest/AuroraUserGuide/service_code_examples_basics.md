@@ -1,6 +1,4 @@
-# Basic examples for
-
-Aurora using AWS SDKs
+# Basic examples for Aurora using AWS SDKs
 
 The following code examples show how to use the basics of Amazon Aurora with AWS
 SDKs.

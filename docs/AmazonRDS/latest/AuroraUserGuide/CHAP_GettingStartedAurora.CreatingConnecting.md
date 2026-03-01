@@ -22,10 +22,8 @@ The following diagram shows the configuration when the tutorial is complete.
 This tutorial allows you to create your resources by using one of the following methods:
 
 1. Use the AWS Management Console ‐
-   [Step 1: Create
-   an EC2 instance](#CHAP_GettingStarted.Creating.AuroraPostgreSQL.EC2 "#CHAP_GettingStarted.Creating.AuroraPostgreSQL.EC2")and
-   [Step 2: Create an
-   Aurora PostgreSQL DB cluster](#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster "#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster")
+   [Step 1: Create an EC2 instance](#CHAP_GettingStarted.Creating.AuroraPostgreSQL.EC2 "#CHAP_GettingStarted.Creating.AuroraPostgreSQL.EC2")and
+   [Step 2: Create an Aurora PostgreSQL DB cluster](#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster "#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster")
 2. Use CloudFormation to create the database instance and EC2 instance ‐
    [(Optional) Create VPC, EC2 instance, and Aurora PostgreSQL cluster using CloudFormation](#CHAP_GettingStartedAurora.CFN.PostgreSQL "#CHAP_GettingStartedAurora.CFN.PostgreSQL")
    The first method uses **Easy create** to create a private Aurora PostgreSQL DB cluster with the AWS Management Console.
@@ -40,15 +38,11 @@ For information, see [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md
 ###### Topics
 
 - [Prerequisites](#CHAP_GettingStarted.Prerequisites.AuroraPostgreSQL "#CHAP_GettingStarted.Prerequisites.AuroraPostgreSQL")
-- [Step 1: Create
-  an EC2 instance](#CHAP_GettingStarted.Creating.AuroraPostgreSQL.EC2 "#CHAP_GettingStarted.Creating.AuroraPostgreSQL.EC2")
-- [Step 2: Create an
-  Aurora PostgreSQL DB cluster](#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster "#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster")
+- [Step 1: Create an EC2 instance](#CHAP_GettingStarted.Creating.AuroraPostgreSQL.EC2 "#CHAP_GettingStarted.Creating.AuroraPostgreSQL.EC2")
+- [Step 2: Create an Aurora PostgreSQL DB cluster](#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster "#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster")
 - [(Optional) Create VPC, EC2 instance, and Aurora PostgreSQL cluster using CloudFormation](#CHAP_GettingStartedAurora.CFN.PostgreSQL "#CHAP_GettingStartedAurora.CFN.PostgreSQL")
-- [Step 3: Connect to an Aurora PostgreSQL
-  DB cluster](#CHAP_GettingStartedAurora.AuroraPostgreSQL.Connect "#CHAP_GettingStartedAurora.AuroraPostgreSQL.Connect")
-- [Step 4: Delete the EC2
-  instance and DB cluster](#CHAP_GettingStartedAurora.Deleting.AuroraPostgreSQL "#CHAP_GettingStartedAurora.Deleting.AuroraPostgreSQL")
+- [Step 3: Connect to an Aurora PostgreSQL DB cluster](#CHAP_GettingStartedAurora.AuroraPostgreSQL.Connect "#CHAP_GettingStartedAurora.AuroraPostgreSQL.Connect")
+- [Step 4: Delete the EC2 instance and DB cluster](#CHAP_GettingStartedAurora.Deleting.AuroraPostgreSQL "#CHAP_GettingStartedAurora.Deleting.AuroraPostgreSQL")
 - [(Optional) Delete the EC2 instance and DB cluster created with CloudFormation](#CHAP_GettingStartedAurora.DeletingCFN.AuroraPostgreSQL "#CHAP_GettingStartedAurora.DeletingCFN.AuroraPostgreSQL")
 - [(Optional) Connect your DB cluster to a Lambda function](#CHAP_GettingStartedAurora.ComputeConnect.AuroraPostgreSQL "#CHAP_GettingStartedAurora.ComputeConnect.AuroraPostgreSQL")
 
@@ -59,9 +53,7 @@ Before you begin, complete the steps in the following sections:
 - [Sign up for an AWS account](CHAP_SettingUp_Aurora.md#sign-up-for-aws "CHAP_SettingUp_Aurora.md#sign-up-for-aws")
 - [Create a user with administrative access](CHAP_SettingUp_Aurora.md#create-an-admin "CHAP_SettingUp_Aurora.md#create-an-admin")
 
-## Step 1: Create
-
-an EC2 instance
+## Step 1: Create an EC2 instance
 
 Create an Amazon EC2 instance that you will use to connect to your database.
 
@@ -151,14 +143,12 @@ need when you connect using SSH:
 
 
 
-    ![EC2 key pair name on Details tab of Instance page.](images/easy-create-ec2-key-pair.png)
+    ![EC2 key pair name on Details tab of Instance page.](/images/AmazonRDS/latest/AuroraUserGuide/images/easy-create-ec2-key-pair.png)
 
 8. Wait until the **Instance state** for your EC2 instance has a status
    of **Running** before continuing.
 
-## Step 2: Create an
-
-Aurora PostgreSQL DB cluster
+## Step 2: Create an Aurora PostgreSQL DB cluster
 
 In this example, you use **Easy create** to create an Aurora PostgreSQL DB cluster
 with a db.t4g.large DB instance class.
@@ -189,7 +179,7 @@ _optional_**.
 Select **Connect to an EC2 compute resource**. Choose the
 EC2 instance you created previously.
 
-![Set up EC2 connection option.](images/EC2_RDS_Setup_Conn-EasyCreate.png) 11. Open **View default settings for Easy create**.
+![Set up EC2 connection option.](/images/AmazonRDS/latest/AuroraUserGuide/images/EC2_RDS_Setup_Conn-EasyCreate.png) 11. Open **View default settings for Easy create**.
 
 ![Easy create default settings.](images/easy-create-view-default-settings-aurora-postgresql.png)
 
@@ -302,9 +292,7 @@ After the stack creation process completes, view the stacks with names _BastionS
 to note the information you need to connect to the database. For more information, see
 [Viewing CloudFormation stack data and resources on the AWS Management Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md").
 
-## Step 3: Connect to an Aurora PostgreSQL
-
-DB cluster
+## Step 3: Connect to an Aurora PostgreSQL DB cluster
 
 You can use any standard PostgreSQL client application to connect to the DB cluster. In this example, you
 connect to the Aurora PostgreSQL DB cluster using the psql command line client.
@@ -385,14 +373,12 @@ Type "help" for help.
 postgres=>
 ```
 
-For more information about connecting to an Aurora PostgreSQL DB cluster, see [Connecting to an Amazon Aurora PostgreSQL
-DB cluster](Aurora.md#Aurora.Connecting.AuroraPostgreSQL "Aurora.md#Aurora.Connecting.AuroraPostgreSQL"). If you can't connect to your DB cluster, see
+For more information about connecting to an Aurora PostgreSQL DB cluster, see [Connecting to an Amazon Aurora PostgreSQL DB cluster](Aurora.md#Aurora.Connecting.AuroraPostgreSQL "Aurora.md#Aurora.Connecting.AuroraPostgreSQL"). If you can't connect to your DB cluster, see
 [Can't connect to Amazon RDS DB instance](CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting "CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting").
 
 For security, it is a best practice to use encrypted connections. Only use an unencrypted PostgreSQL
 connection when the client and server are in the same VPC and the network is trusted. For information about
-using encrypted connections, see [Securing Aurora PostgreSQL data with
-SSL/TLS](AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL "AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL"). 6. Run SQL commands.
+using encrypted connections, see [Securing Aurora PostgreSQL data with SSL/TLS](AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL "AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL"). 6. Run SQL commands.
 
 For example, the following SQL command shows the current date and time:
 
@@ -400,9 +386,7 @@ For example, the following SQL command shows the current date and time:
 SELECT CURRENT_TIMESTAMP;
 ```
 
-## Step 4: Delete the EC2
-
-instance and DB cluster
+## Step 4: Delete the EC2 instance and DB cluster
 
 After you connect to and explore the sample EC2 instance and DB cluster that you created, delete them so
 you're no longer charged for them.

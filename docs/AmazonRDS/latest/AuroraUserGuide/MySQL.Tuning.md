@@ -12,7 +12,5 @@ DevOps Guru proactive insights detect known problematic conditions on your Auro
 
 ###### Topics
 
-- [The InnoDB history list length increased
-  significantly](proactive-insights.md "proactive-insights.md")
-- [Database is creating temporary tables on
-  disk](proactive-insights.md "proactive-insights.md")
+- [The InnoDB history list length increased significantly](proactive-insights.md "proactive-insights.md")
+- [Database is creating temporary tables on disk](proactive-insights.md "proactive-insights.md")

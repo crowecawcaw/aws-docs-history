@@ -39,6 +39,5 @@ databases and your other AWS solutions, your goal is to maintain the following:
 - [Monitoring Amazon Aurora events](working-with-events.md "working-with-events.md")
 - [Monitoring Amazon Aurora log files](USER_LogAccess.md "USER_LogAccess.md")
 - [Monitoring Amazon Aurora API calls in AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
-- [Monitoring Amazon Aurora with Database Activity
-  Streams](DBActivityStreams.md "DBActivityStreams.md")
-- [Monitoring threats with Amazon GuardDuty RDS Protection for Amazon Aurora](guard-duty-rds-protection.md "guard-duty-rds-protection.md")
+- [Monitoring Amazon Aurora with Database Activity Streams](DBActivityStreams.md "DBActivityStreams.md")
+- [Monitoring threats with Amazon GuardDuty RDS Protectionfor Amazon Aurora](guard-duty-rds-protection.md "guard-duty-rds-protection.md")

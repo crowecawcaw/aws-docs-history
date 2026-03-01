@@ -25,11 +25,9 @@ The following advice about best practices can help you avoid common mistakes tha
 benchmarking. However, this topic doesn't cover the step-by-step process of performing benchmarks and
 doing performance tuning. Those procedures vary depending on your workload and the Aurora features that you
 use. For detailed information, consult performance-related documentation such as
-[Managing performance and scaling for Aurora DB
-clusters](Aurora.Managing.md "Aurora.Managing.md"),
+[Managing performance and scaling for Aurora DB clusters](Aurora.Managing.md "Aurora.Managing.md"),
 [Amazon Aurora MySQL performance enhancements](Aurora.AuroraMySQL.md#Aurora.AuroraMySQL.Performance "Aurora.AuroraMySQL.md#Aurora.AuroraMySQL.Performance"),
-[Performance and scaling for
-Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md"),
+[Performance and scaling for Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md"),
 and [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 
 The information in this topic applies mainly to applications where your organization writes the code and
@@ -256,8 +254,7 @@ workload with a dataset that's big enough to draw accurate conclusions.
 
 You can use several techniques to import either physical or logical backup data to Aurora. For details, see
 [Migrating data to an Amazon Aurora MySQL DB cluster](AuroraMySQL.md "AuroraMySQL.md") or
-[Migrating data to Amazon Aurora with PostgreSQL
-compatibility](AuroraPostgreSQL.md "AuroraPostgreSQL.md") depending on the
+[Migrating data to Amazon Aurora with PostgreSQL compatibility](AuroraPostgreSQL.md "AuroraPostgreSQL.md") depending on the
 database engine you're using in the proof of concept.
 
 Experiment with the ETL tools and technologies that you're considering. See which one best meets your
@@ -324,13 +321,11 @@ instances in the cluster, and you can adjust the page cache size setting for eac
 
 You start with one of the default parameter sets, and apply changes to only the parameters that you need to
 fine-tune. For details about working with parameter groups, see
-[Amazon Aurora DB cluster and DB instance
-parameters](USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups "USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups"). For
+[Amazon Aurora DB cluster and DB instance parameters](USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups "USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups"). For
 the configuration settings that are or aren't applicable to Aurora clusters, see
 [Aurora MySQL configuration parameters](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md")
 or
-[Amazon Aurora PostgreSQL
-parameters](AuroraPostgreSQL.Reference.md "AuroraPostgreSQL.Reference.md")
+[Amazon Aurora PostgreSQL parameters](AuroraPostgreSQL.Reference.md "AuroraPostgreSQL.Reference.md")
 depending on your database engine.
 
 ## 9. Connect to Aurora
@@ -592,11 +587,9 @@ and AWS Identity and Access Management (IAM) authentication.
 
 At this point, you should understand the procedures and best practices for running benchmark tests with Aurora.
 You might find you need to do additional performance tuning. For details, see
-[Managing performance and scaling for Aurora DB
-clusters](Aurora.Managing.md "Aurora.Managing.md"),
+[Managing performance and scaling for Aurora DB clusters](Aurora.Managing.md "Aurora.Managing.md"),
 [Amazon Aurora MySQL performance enhancements](Aurora.AuroraMySQL.md#Aurora.AuroraMySQL.Performance "Aurora.AuroraMySQL.md#Aurora.AuroraMySQL.Performance"),
-[Performance and scaling for
-Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md"),
+[Performance and scaling for Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md"),
 and [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md"). If you do additional
 tuning, make sure that you're familiar with the metrics that you gathered during the proof of concept.
 For a next step, you might create new clusters with different choices for configuration settings, database

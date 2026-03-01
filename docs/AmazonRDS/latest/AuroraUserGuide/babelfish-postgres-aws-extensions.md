@@ -22,19 +22,15 @@ Before you can load the `aws_s3` or the `aws_lambda` extensions, you
 grant the needed privileges to your Babelfish DB cluster.
 
 The procedure following uses the `psql` PostgreSQL command line tool to
-connect to the DB cluster. For more information, see [Using psql to connect to the DB
-cluster](babelfish-connect-PostgreSQL.md#babelfish-connect-psql "babelfish-connect-PostgreSQL.md#babelfish-connect-psql"). You
-can also use pgAdmin. For details, see [Using pgAdmin to connect to the DB
-cluster](babelfish-connect-PostgreSQL.md#babelfish-connect-pgadmin "babelfish-connect-PostgreSQL.md#babelfish-connect-pgadmin").
+connect to the DB cluster. For more information, see [Using psql to connect to the DB cluster](babelfish-connect-PostgreSQL.md#babelfish-connect-psql "babelfish-connect-PostgreSQL.md#babelfish-connect-psql"). You
+can also use pgAdmin. For details, see [Using pgAdmin to connect to the DB cluster](babelfish-connect-PostgreSQL.md#babelfish-connect-pgadmin "babelfish-connect-PostgreSQL.md#babelfish-connect-pgadmin").
 
 This procedure loads both `aws_s3` and `aws_lambda`, one
 after the other. You don't need to load both if you want to use only one of
 these extensions. The `aws_commons` extension is required by each, and
 it's loaded by default as shown in the output.
 
-###### To set up your Babelfish DB cluster with privileges for the Aurora PostgreSQL
-
-extensions
+###### To set up your Babelfish DB cluster with privileges for the Aurora PostgreSQL extensions
 
 1. Connect to your Babelfish DB cluster. Use the name for the "master" user (-U) that you
    specified when you created the Babelfish DB cluster. The default
@@ -121,12 +117,10 @@ following one-time steps.
    - To import data from Amazon S3, the Babelfish DB cluster needs permission to access the
      bucket. We recommend using an AWS Identity and Access Management (IAM) role and attaching
      an IAM policy to that role for your cluster. To do so, follow the
-     steps in [Using an IAM role to access an
-     Amazon S3 bucket](USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.ARNRole "USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.ARNRole").
+     steps in [Using an IAM role to access an Amazon S3 bucket](USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.ARNRole "USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.ARNRole").
    - To export data from your Babelfish DB cluster, your cluster must be granted
      access to the Amazon S3 bucket. As with importing, we recommend using an
-     IAM role and policy. To do so, follow the steps in [Setting up access to an Amazon S3
-     bucket](postgresql-s3-export-access-bucket.md "postgresql-s3-export-access-bucket.md").
+     IAM role and policy. To do so, follow the steps in [Setting up access to an Amazon S3 bucket](postgresql-s3-export-access-bucket.md "postgresql-s3-export-access-bucket.md").
 
 You can now use Amazon S3 with the `aws_s3` extension with your Babelfish
 DB cluster.
@@ -142,10 +136,9 @@ refer to that table as `database_schema_tableA` in the
 `aws_s3` function:
 
     * For an example of using an `aws_s3` function to import data,
-     see [Importing data from Amazon S3 to your Aurora PostgreSQL DB cluster](USER_PostgreSQL.S3Import.md "USER_PostgreSQL.S3Import.md").
+     see [Importing data from Amazon S3 to your Aurora PostgreSQL DB cluster](USER_PostgreSQL.S3Import.md "USER_PostgreSQL.S3Import.md") .
     * For examples of using `aws_s3` functions to export data, see
-     [Exporting query data using the
-     aws\_s3.query\_export\_to\_s3 function](postgresql-s3-export-examples.md "postgresql-s3-export-examples.md").
+     [Exporting query data using the aws\_s3.query\_export\_to\_s3 function](postgresql-s3-export-examples.md "postgresql-s3-export-examples.md").
 
 2. Make sure to reference Babelfish tables using PostgreSQL naming when using the
    `aws_s3` extension and Amazon S3, as shown in the following table.
@@ -241,8 +234,7 @@ Currently, Babelfish doesn't support JSON. If your function returns JSON, you us
 preceding is stored in Lambda as `my-function`.
 
 1. Connect to your Babelfish DB cluster using the `psql` client (or the pgAdmin client). For more information, see
-   [Using psql to connect to the DB
-   cluster](babelfish-connect-PostgreSQL.md#babelfish-connect-psql "babelfish-connect-PostgreSQL.md#babelfish-connect-psql").
+   [Using psql to connect to the DB cluster](babelfish-connect-PostgreSQL.md#babelfish-connect-psql "babelfish-connect-PostgreSQL.md#babelfish-connect-psql").
 2. Create the wrapper. This example uses PostgreSQL's procedural language for SQL, `PL/pgSQL`. To learn more,
    see [PL/pgSQL–SQL Procedural Language](https://www.postgresql.org/docs/13/plpgsql.html "https://www.postgresql.org/docs/13/plpgsql.html").
 
@@ -288,8 +280,7 @@ port (5433).
     (1 row)`
     ```
     2. To invoke (call) this function from the TDS port, connect to the port using the SQL Server `sqlcmd` command line client. For details,
-     see [Using a SQL Server client to connect
-     to your DB cluster](babelfish-connect-sqlserver.md "babelfish-connect-sqlserver.md").
+     see [Using a SQL Server client to connect to your DB cluster](babelfish-connect-sqlserver.md "babelfish-connect-sqlserver.md").
      When connected, run the following:
 
 
@@ -309,8 +300,7 @@ port (5433).
     ```
 
 To learn more about using Lambda with Aurora PostgreSQL,
-see [Invoking an AWS Lambda function from an
-Aurora PostgreSQL DB cluster](PostgreSQL-Lambda.md "PostgreSQL-Lambda.md"). For more information about working with Lambda functions, see
+see [Invoking an AWS Lambda function from an Aurora PostgreSQL DB cluster](PostgreSQL-Lambda.md "PostgreSQL-Lambda.md") . For more information about working with Lambda functions, see
 [Getting started with Lambda](../../../lambda/latest/dg/getting-started.md "../../../lambda/latest/dg/getting-started.md")
 in the _AWS Lambda Developer Guide._
 

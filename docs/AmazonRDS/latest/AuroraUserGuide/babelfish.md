@@ -4,8 +4,7 @@ Babelfish for Aurora PostgreSQL extends your Aurora PostgreSQL DB cluster with t
 connections from SQL Server clients. With Babelfish, applications that were
 originally built for SQL Server can work directly with Aurora PostgreSQL with few code changes
 compared to a traditional migration and without changing database drivers. For more
-information about migrating, see [Migrating a SQL Server database to
-Babelfish for Aurora PostgreSQL](babelfish-migration.md "babelfish-migration.md").
+information about migrating, see [Migrating a SQL Server database to Babelfish for Aurora PostgreSQL](babelfish-migration.md "babelfish-migration.md").
 
 Babelfish provides an additional endpoint for an Aurora PostgreSQL database cluster
 that allows it to understand the SQL Server wire-level protocol and commonly used SQL Server
@@ -24,8 +23,7 @@ protocols at the following ports:
 - SQL Server dialect (T-SQL), clients connect to port 1433.
 - PostgreSQL dialect (PL/pgSQL), clients connect to port 5432.
   Babelfish runs the Transact-SQL (T-SQL) language with some differences. For more
-  information, see [Differences between Babelfish for Aurora PostgreSQL and SQL
-  Server](babelfish-compatibility.md "babelfish-compatibility.md").
+  information, see [Differences between Babelfish for Aurora PostgreSQL and SQL Server](babelfish-compatibility.md "babelfish-compatibility.md").
 
 In the following sections, you can find information about setting up and using a
 Babelfish for Aurora PostgreSQL DB cluster.
@@ -35,15 +33,11 @@ Babelfish for Aurora PostgreSQL DB cluster.
 - [Babelfish limitations](babelfish-limitations.md "babelfish-limitations.md")
 - [Understanding Babelfish architecture and configuration](babelfish-understanding-overview-howitworks.md "babelfish-understanding-overview-howitworks.md")
 - [Creating a Babelfish for Aurora PostgreSQL DB cluster](babelfish-create.md "babelfish-create.md")
-- [Migrating a SQL Server database to
-  Babelfish for Aurora PostgreSQL](babelfish-migration.md "babelfish-migration.md")
-- [Database authentication with
-  Babelfish for Aurora PostgreSQL](babelfish-db-authentication.md "babelfish-db-authentication.md")
+- [Migrating a SQL Server database to Babelfish for Aurora PostgreSQL](babelfish-migration.md "babelfish-migration.md")
+- [Database authentication with Babelfish for Aurora PostgreSQL](babelfish-db-authentication.md "babelfish-db-authentication.md")
 - [Connecting to a Babelfish DB cluster](babelfish-connect.md "babelfish-connect.md")
-- [Working with
-  Babelfish](working-with-babelfish-usage-notes-features.md "working-with-babelfish-usage-notes-features.md")
+- [Working with Babelfish](working-with-babelfish-usage-notes-features.md "working-with-babelfish-usage-notes-features.md")
 - [Troubleshooting Babelfish](babelfish-troubleshooting.md "babelfish-troubleshooting.md")
 - [Turning off Babelfish](babelfish-remove.md "babelfish-remove.md")
 - [Managing Babelfish for Aurora PostgreSQL version updates](babelfish-information.md "babelfish-information.md")
-- [Babelfish for Aurora PostgreSQL
-  reference](USER_AuroraPostgreSQL_Babelfish_Reference.md "USER_AuroraPostgreSQL_Babelfish_Reference.md")
+- [Babelfish for Aurora PostgreSQL reference](USER_AuroraPostgreSQL_Babelfish_Reference.md "USER_AuroraPostgreSQL_Babelfish_Reference.md")

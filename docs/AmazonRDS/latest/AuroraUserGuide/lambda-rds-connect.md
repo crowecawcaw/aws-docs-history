@@ -12,7 +12,7 @@ You can set up the connection between your Lambda function and your DB cluster t
 and resiliency. Often, Lambda functions make frequent, short database connections that benefit from connection
 pooling that RDS Proxy offers. You can take advantage of any AWS Identity and Access Management (IAM) authentication that you already have
 for Lambda functions, instead of managing database credentials in your Lambda application code. For more
-information, see [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").
+information, see [Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md").
 
 When you use the console to connect with an existing proxy, Amazon RDS updates the proxy security group to allow
 connections from your DB cluster and
@@ -38,9 +38,7 @@ DB cluster, you can also use the in-console guided wizard. To open the wizard, d
 ###### Topics
 
 - [Overview of automatic connectivity with a Lambda function](#lambda-rds-connect-overview "#lambda-rds-connect-overview")
-- [Automatically connecting
-  a Lambda function and an Aurora DB
-  cluster](#lambda-rds-connect-connecting "#lambda-rds-connect-connecting")
+- [Automatically connecting a Lambda function and an Aurora DB cluster](#lambda-rds-connect-connecting "#lambda-rds-connect-connecting")
 - [Viewing connected compute resources](#lambda-rds-connect-viewing "#lambda-rds-connect-viewing")
 
 ## Overview of automatic connectivity with a Lambda function
@@ -106,9 +104,7 @@ in the following table.
 | Either of the following conditions apply:<br>• There is no security group associated with the DB cluster with a name that<br>matches the pattern `rds-lambda-`n`` or if the<br>`TargetHealth` of an associated proxy is<br>`AVAILABLE`.<br>• There are one or more security groups associated with the DB cluster<br>with a name that matches the pattern<br>`rds-lambda-`n`` or if the<br>`TargetHealth` of an associated proxy is `AVAILABLE`.<br>However, Amazon RDS can't use any of these security groups for the connection with the<br>Lambda function or proxy.<br>Amazon RDS can't use a security group that doesn't have one inbound rule with the VPC<br>security group of the Lambda function or proxy as the source. Amazon RDS also can't use a<br>security group that has been modified.                                                                             | There are one or more security groups associated with the Lambda function with a<br>name that matches the pattern `lambda-rds-`n`` or<br>`lambda-rdsproxy-`n``.<br>A security group that matches the pattern hasn't been modified. This security<br>group has only one outbound rule with the VPC security group of the DB instance or<br>proxy as the destination.                                                                                                                                                                                                                                                                                                                                                 | There are one or more security groups associated with the proxy with a name that<br>matches the pattern `rdsproxy-lambda-`n``.<br>A security group that matches the pattern hasn't been modified. This security<br>group has inbound and outbound rules with the VPC security group of the DB cluster and<br>the Lambda function.                                                                                                                                                                                                                                                                                                                            | [RDS action: create new security groups](#rds-lam-action-create-new-security-groups "#rds-lam-action-create-new-security-groups")                                                                                                                                                 |
 | Either of the following conditions apply:<br>• There is no security group associated with the DB cluster with a name that<br>matches the pattern `rds-lambda-`n`` or if the<br>`TargetHealth` of an associated proxy is<br>`AVAILABLE`.<br>• There are one or more security groups associated with the DB cluster<br>with a name that matches the pattern<br>`rds-lambda-`n`` or if the<br>`TargetHealth` of an associated proxy is `AVAILABLE`.<br>However, Amazon RDS can't use any of these security groups for the connection with the<br>Lambda function or proxy.<br>Amazon RDS can't use a security group that doesn't have one inbound rule with the VPC<br>security group of the Lambda function or proxy as the source. Amazon RDS also can't use a<br>security group that has been modified.                                                                             | Either of the following conditions apply:<br>• There is no security group associated with the Lambda function with a name that<br>matches the pattern `lambda-rds-`n`` or<br>`lambda-rdsproxy-`n``.<br>• There are one or more security groups associated with the Lambda function with<br>a name that matches the pattern<br>`lambda-rds-`n`` or<br>`lambda-rdsproxy-`n``. However, Amazon RDS<br>can't use any of these security groups for the connection with the DB<br>DB cluster.<br>Amazon RDS can't use a security group that doesn't have one outbound rule with the VPC<br>security group of the DB cluster or proxy as the source. Amazon RDS also can't use a<br>security group that has been modified. | Either of the following conditions apply:<br>• There is no security group associated with the proxy with a name that matches<br>the pattern `rdsproxy-lambda-`n``.<br>• There are one or more security groups associated with the proxy with a name<br>that matches `rdsproxy-lambda-`n``. However,<br>Amazon RDS can't use any of these security groups for the connection with the<br>DB cluster or Lambda function.<br>Amazon RDS can't use a security group that doesn't have inbound and outbound<br>rules with the VPC security group of the DB cluster and the Lambda function. Amazon RDS<br>also can't use a security group that has been modified. | [RDS action: create new security groups](#rds-lam-action-create-new-security-groups "#rds-lam-action-create-new-security-groups")                                                                                                                                                 |
 
-######
-
-RDS action: create new security groups
+###### RDS action: create new security groups
 
 Amazon RDS takes the following actions:
 
@@ -130,10 +126,7 @@ Amazon RDS associates the valid, existing Lambda security group with the Lambda 
 function to send traffic to the DB cluster
 or send traffic through a proxy.
 
-## Automatically connecting
-
-a Lambda function and an Aurora DB
-cluster
+## Automatically connecting a Lambda function and an Aurora DB cluster
 
 You can use the Amazon RDS console to automatically connect a Lambda function to your DB cluster. This simplifies the process of setting up a connection
 between these resources.

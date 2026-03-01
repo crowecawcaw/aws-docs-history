@@ -1,6 +1,4 @@
-# Troubleshooting for
-
-Amazon Aurora
+# Troubleshooting for Amazon Aurora
 
 Use the following sections to help troubleshoot problems you have with DB instances in
 Amazon RDS and Amazon Aurora.
@@ -9,12 +7,9 @@ Amazon RDS and Amazon Aurora.
 
 - [Can't connect to Amazon RDS DB instance](#CHAP_Troubleshooting.Connecting "#CHAP_Troubleshooting.Connecting")
 - [Amazon RDS security issues](#CHAP_Troubleshooting.Security "#CHAP_Troubleshooting.Security")
-- [Resetting the DB instance owner
-  password](#CHAP_Troubleshooting.ResetPassword "#CHAP_Troubleshooting.ResetPassword")
-- [Amazon RDS DB instance outage or
-  reboot](#CHAP_Troubleshooting.Reboots "#CHAP_Troubleshooting.Reboots")
-- [Amazon RDS DB parameter changes not taking
-  effect](#CHAP_Troubleshooting.Parameters "#CHAP_Troubleshooting.Parameters")
+- [Resetting the DB instance owner password](#CHAP_Troubleshooting.ResetPassword "#CHAP_Troubleshooting.ResetPassword")
+- [Amazon RDS DB instance outage or reboot](#CHAP_Troubleshooting.Reboots "#CHAP_Troubleshooting.Reboots")
+- [Amazon RDS DB parameter changes not taking effect](#CHAP_Troubleshooting.Parameters "#CHAP_Troubleshooting.Parameters")
 - [Freeable memory issues in Amazon Aurora](#Troubleshooting.FreeableMemory "#Troubleshooting.FreeableMemory")
 - [Amazon Aurora MySQL replication issues](#CHAP_Troubleshooting.MySQL "#CHAP_Troubleshooting.MySQL")
   For information about debugging problems using the Amazon RDS API, see [Troubleshooting applications on Aurora](APITroubleshooting.md "APITroubleshooting.md").
@@ -41,8 +36,7 @@ for **Source** to allow access to the DB instance from the
 IP address detected in your browser.
 
 For more information about setting up security groups, see
-[Provide access to the DB cluster in the VPC by
-creating a security group](CHAP_SettingUp_Aurora.md#CHAP_SettingUp_Aurora.SecurityGroup "CHAP_SettingUp_Aurora.md#CHAP_SettingUp_Aurora.SecurityGroup").
+[Provide access to the DB cluster in the VPC by creating a security group](CHAP_SettingUp_Aurora.md#CHAP_SettingUp_Aurora.SecurityGroup "CHAP_SettingUp_Aurora.md#CHAP_SettingUp_Aurora.SecurityGroup").
 
 ###### Note
 
@@ -56,8 +50,7 @@ aren't permitted. This is the Automatic Private IP Addressing Range
 
 To make the instance publicly accessible, modify it and choose
 **Yes** under **Public accessibility**.
-For more information, see [Hiding a DB cluster in a VPC from
-the internet](USER_VPC.md#USER_VPC.Hiding "USER_VPC.md#USER_VPC.Hiding").
+For more information, see [Hiding a DB cluster in a VPC from the internet](USER_VPC.md#USER_VPC.Hiding "USER_VPC.md#USER_VPC.Hiding").
 
 - **Port** – The port that you specified when you
   created the DB instance can't be used to send or receive communications
@@ -120,9 +113,7 @@ the internet](USER_VPC.md#USER_VPC.Hiding "USER_VPC.md#USER_VPC.Hiding").
 
 For more information, see [Working with a DB cluster in a VPC](USER_VPC.md "USER_VPC.md").
 
-### Testing a connection to a DB
-
-instance
+### Testing a connection to a DB instance
 
 You can test your connection to a DB instance using common Linux or Microsoft
 Windows tools.
@@ -164,9 +155,7 @@ configured.
 Amazon RDS doesn't accept internet control message protocol (ICMP) traffic,
 including ping.
 
-### Troubleshooting
-
-connection authentication
+### Troubleshooting connection authentication
 
 In some cases, you can connect to your DB instance but you get authentication
 errors. In these cases, you might want to reset the master user password for the DB
@@ -183,10 +172,7 @@ For information about creating users, see [Creating an IAM user in your
 AWS account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md"). For information about creating users in AWS IAM Identity Center, see [Manage
 identities in IAM Identity Center](../../../singlesignon/latest/userguide/manage-your-identity-source-sso.md "../../../singlesignon/latest/userguide/manage-your-identity-source-sso.md").
 
-### Error message
-
-"failed to retrieve account attributes, certain console functions may be
-impaired."
+### Error message "failed to retrieve account attributes, certain console functions may be impaired."
 
 You can get this error for several reasons. It might be because your account is
 missing permissions, or your account hasn't been properly set up. If your
@@ -197,9 +183,7 @@ needs to provide the necessary roles to your account. For more information, see
 [the IAM
 documentation](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md").
 
-## Resetting the DB instance owner
-
-password
+## Resetting the DB instance owner password
 
 If you get locked out of your DB cluster, you can log in as the
 master user. Then you can reset the credentials for other administrative users or roles.
@@ -211,9 +195,7 @@ You can change the DB instance password by using the Amazon RDS console,
 the AWS CLI command [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md"), or by using the [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") API operation.
 For more information about modifying a DB instance in a DB cluster, see [Modifying a DB instance in a DB cluster](Aurora.md#Aurora.Modifying.Instance "Aurora.md#Aurora.Modifying.Instance").
 
-## Amazon RDS DB instance outage or
-
-reboot
+## Amazon RDS DB instance outage or reboot
 
 A DB instance outage can occur when a DB instance is rebooted. It can also occur when
 the DB instance is put into a state that prevents access to it, and when the database is
@@ -248,9 +230,7 @@ take effect until the DB instance associated with the parameter group is reboote
 change requires a manual reboot. The DB instance isn't automatically rebooted
 during the maintenance window.
 
-## Amazon RDS DB parameter changes not taking
-
-effect
+## Amazon RDS DB parameter changes not taking effect
 
 In some cases, you might change a parameter in a DB parameter group but don't see the
 changes take effect. If so, you likely need to reboot the DB instance associated with
@@ -264,8 +244,7 @@ failover if the DB instance is in a Multi-AZ deployment. The requirement to rebo
 DB instance after a static parameter change helps mitigate the risk of a parameter
 misconfiguration affecting an API call. An example of this is calling
 `ModifyDBInstance` to change the DB instance class. For more information,
-see [Modifying parameters in a DB parameter group
-in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+see [Modifying parameters in a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 ## Freeable memory issues in Amazon Aurora
 
@@ -283,7 +262,7 @@ You use the `FreeableMemory` metric in Amazon CloudWatch to monitor the freeable
 memory. For more information, see [Monitoring tools for Amazon Aurora](MonitoringOverview.md "MonitoringOverview.md").
 
 If your DB instance consistently runs low on freeable memory or uses swap space,
-consider scaling up to a larger DB instance class. For more information, see [Amazon Aurora DB instance classes](Concepts.md "Concepts.md").
+consider scaling up to a larger DB instance class. For more information, see [Amazon AuroraDB instance classes](Concepts.md "Concepts.md").
 
 You can also change the memory settings. For example, on Aurora MySQL
 , you might adjust the size of the
@@ -321,19 +300,12 @@ diagnose and correct these.
 
 ###### Topics
 
-- [Diagnosing and resolving lag
-  between read replicas](#CHAP_Troubleshooting.MySQL.ReplicaLag "#CHAP_Troubleshooting.MySQL.ReplicaLag")
-- [Diagnosing and resolving a
-  MySQL read replication
-  failure](#CHAP_Troubleshooting.MySQL.RR "#CHAP_Troubleshooting.MySQL.RR")
-- [Replication stopped
-  error](#CHAP_Troubleshooting.MySQL.ReplicationStopped "#CHAP_Troubleshooting.MySQL.ReplicationStopped")
-- [Read replica
-  replication fails to initialize metadata structure](#CHAP_Troubleshooting.MySQL.ReadReplicas.ReplicationErrorMetadata "#CHAP_Troubleshooting.MySQL.ReadReplicas.ReplicationErrorMetadata")
+- [Diagnosing and resolving lag between read replicas](#CHAP_Troubleshooting.MySQL.ReplicaLag "#CHAP_Troubleshooting.MySQL.ReplicaLag")
+- [Diagnosing and resolving a MySQL read replication failure](#CHAP_Troubleshooting.MySQL.RR "#CHAP_Troubleshooting.MySQL.RR")
+- [Replication stopped error](#CHAP_Troubleshooting.MySQL.ReplicationStopped "#CHAP_Troubleshooting.MySQL.ReplicationStopped")
+- [Read replica replication fails to initialize metadata structure](#CHAP_Troubleshooting.MySQL.ReadReplicas.ReplicationErrorMetadata "#CHAP_Troubleshooting.MySQL.ReadReplicas.ReplicationErrorMetadata")
 
-### Diagnosing and resolving lag
-
-between read replicas
+### Diagnosing and resolving lag between read replicas
 
 After you create a MySQL read
 replica and the replica is available, Amazon RDS first replicates the changes made to the
@@ -351,9 +323,7 @@ REPLICA STATUS Statement](https://dev.mysql.com/doc/refman/8.0/en/show-replica-s
 When the `AuroraBinlogReplicaLag` metric reaches 0,
 the replica has caught up to the source DB instance. If the
 `AuroraBinlogReplicaLag` metric returns -1, replication might not be
-active. To troubleshoot a replication error, see [Diagnosing and resolving a
-MySQL read replication
-failure](#CHAP_Troubleshooting.MySQL.RR "#CHAP_Troubleshooting.MySQL.RR"). A
+active. To troubleshoot a replication error, see [Diagnosing and resolving a MySQL read replication failure](#CHAP_Troubleshooting.MySQL.RR "#CHAP_Troubleshooting.MySQL.RR"). A
 `AuroraBinlogReplicaLag` value of -1 can also mean that the
 `Seconds_Behind_Master` value can't be determined or is
 `NULL`.
@@ -429,10 +399,7 @@ PROMPT> mysqldump ^
     database_name `table1 table2` > /dev/null
 ```
 
-### Diagnosing and resolving a
-
-MySQL read replication
-failure
+### Diagnosing and resolving a MySQL read replication failure
 
 Amazon RDS monitors the replication status of your read replicas. RDS updates the
 **Replication State** field of the read replica instance to
@@ -508,9 +475,7 @@ If a replication error is fixed, the **Replication
 State** changes to **replicating**. For more
 information, see [Troubleshooting a MySQL read replica problem](../UserGuide/USER_ReadRepl.md "../UserGuide/USER_ReadRepl.md").
 
-### Replication stopped
-
-error
+### Replication stopped error
 
 When you call the `mysql.rds_skip_repl_error` command, you might
 receive an error message stating that replication is down or disabled.
@@ -540,9 +505,7 @@ hours.
 CALL mysql.rds_set_configuration('binlog retention hours', 48);
 ```
 
-### Read replica
-
-replication fails to initialize metadata structure
+### Read replica replication fails to initialize metadata structure
 
 When you attempted to start replication, you received the following error message:
 

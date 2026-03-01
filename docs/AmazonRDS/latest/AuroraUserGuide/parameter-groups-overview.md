@@ -15,19 +15,13 @@ buffers.
 
 ###### Topics
 
-- [Default and custom parameter
-  groups](#parameter-groups-overview.custom "#parameter-groups-overview.custom")
-- [Static and dynamic DB cluster
-  parameters](#parameter-groups-overview.db-cluster "#parameter-groups-overview.db-cluster")
-- [Static and dynamic DB instance
-  parameters](#parameter-groups-overview.db-instance "#parameter-groups-overview.db-instance")
+- [Default and custom parameter groups](#parameter-groups-overview.custom "#parameter-groups-overview.custom")
+- [Static and dynamic DB cluster parameters](#parameter-groups-overview.db-cluster "#parameter-groups-overview.db-cluster")
+- [Static and dynamic DB instance parameters](#parameter-groups-overview.db-instance "#parameter-groups-overview.db-instance")
 - [Character set parameters](#parameter-groups-overview.char-sets "#parameter-groups-overview.char-sets")
-- [Supported parameters and parameter
-  values](#parameter-groups-overview.supported "#parameter-groups-overview.supported")
+- [Supported parameters and parameter values](#parameter-groups-overview.supported "#parameter-groups-overview.supported")
 
-## Default and custom parameter
-
-groups
+## Default and custom parameter groups
 
 If you create a DB instance without specifying a DB parameter group, the DB instance uses a
 default DB parameter group. Likewise, if you create an Aurora DB cluster without
@@ -72,9 +66,7 @@ an existing parameter group's custom
 parameters and values in a new parameter
 group.
 
-## Static and dynamic DB cluster
-
-parameters
+## Static and dynamic DB cluster parameters
 
 DB cluster parameters are either static or dynamic. They differ in the
 following ways:
@@ -107,9 +99,7 @@ Check the `DBClusterParameterGroupStatus` value for the primary DB instance in
 the output. If the value is `pending-reboot`, then reboot the DB instances of the
 DB cluster.
 
-## Static and dynamic DB instance
-
-parameters
+## Static and dynamic DB instance parameters
 
 DB instance parameters are either static or dynamic. They differ as follows:
 
@@ -153,14 +143,11 @@ ALTER DATABASE `database_name` CHARACTER SET `character_set_name` COLLATE `colla
 For more information about changing the character set or collation values for a
 database, check the documentation for your DB engine.
 
-## Supported parameters and parameter
-
-values
+## Supported parameters and parameter values
 
 To determine the supported parameters for your DB engine, view the parameters in the
 DB parameter group and DB cluster parameter group used by the DB instance or DB cluster. For more
-information, see [Viewing parameter values for a
-DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md") and [Viewing parameter values for a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+information, see [Viewing parameter values for a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md") and [Viewing parameter values for a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 In many cases, you can specify integer and Boolean parameter values using expressions,
 formulas, and functions. Functions can include a mathematical log expression. However,

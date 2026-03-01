@@ -1,6 +1,4 @@
-# Preparing for Amazon Aurora MySQL-Compatible Edition version 2 end of
-
-standard support
+# Preparing for Amazon Aurora MySQL-Compatible Edition version 2 end of standard support
 
 Amazon Aurora MySQL-Compatible Edition version 2 (with MySQL 5.7 compatibility) is planned to reach the end of
 standard support on October 31, 2024. We recommend that you upgrade all clusters running
@@ -9,8 +7,7 @@ higher before Aurora MySQL version 2 reaches the end of its standard support per
 October 31, 2024, Amazon RDS will automatically enroll your databases into [Amazon RDS Extended Support](extended-support.md "extended-support.md"). If you're running Amazon Aurora MySQL version
 2 (with MySQL 5.7 compatibility) in an Aurora Serverless version 1 cluster, this doesn't apply
 to you. If you want to upgrade your Aurora Serverless version 1 clusters to Aurora MySQL version
-3, see [Upgrade path for
-Aurora Serverless v1 DB clusters](#Aurora-Upgrade-Serverlessv1-Clusters "#Aurora-Upgrade-Serverlessv1-Clusters").
+3, see [Upgrade path for Aurora Serverless v1 DB clusters](#Aurora-Upgrade-Serverlessv1-Clusters "#Aurora-Upgrade-Serverlessv1-Clusters").
 
 You can find upcoming end-of-support dates for Aurora MySQL major versions in [_Release calendar for
 Aurora MySQL major versions_](../AuroraMySQLReleaseNotes/AuroraMySQL.md#AuroraMySQL.release-calendars.major "../AuroraMySQLReleaseNotes/AuroraMySQL.md#AuroraMySQL.release-calendars.major").
@@ -161,11 +158,9 @@ minimize the required changes needed. For more information, see [Troubleshooting
 To learn more about the methods, planning, testing, and troubleshooting of Aurora MySQL
 major version upgrades, be sure to thoroughly read [Upgrading the major version of an Amazon Aurora MySQL DB cluster](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md"), including [Troubleshooting for Aurora MySQL in-place upgrade](AuroraMySQL.Upgrading.md "AuroraMySQL.Upgrading.md"). Also, note that some
 instance types aren't supported for Aurora MySQL version 3. For more information, see
-[Amazon Aurora DB instance classes](Concepts.md "Concepts.md").
+[Amazon AuroraDB instance classes](Concepts.md "Concepts.md").
 
-## Upgrade path for
-
-Aurora Serverless v1 DB clusters
+## Upgrade path for Aurora Serverless v1 DB clusters
 
 Upgrading between major versions requires more extensive planning and testing than for
 a minor version. The process can take substantial time. We want to look at the upgrade

@@ -4,8 +4,7 @@ By using Amazon Aurora machine learning with your Aurora PostgreSQL DB cluster, 
 
 Aurora machine learning is supported in certain AWS Regions and for specific versions of Aurora PostgreSQL only. Before
 trying to set up Aurora machine learning, check availability for your Aurora PostgreSQL version and your Region. For
-details, see [Aurora
-machine learning with Aurora PostgreSQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.apg "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.apg").
+details, see [Aurora machine learning with Aurora PostgreSQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.apg "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.apg").
 
 ###### Topics
 
@@ -15,8 +14,7 @@ machine learning with Aurora PostgreSQL](Concepts.Aurora_Fea_Regions_DB-eng.Feat
 - [Using Amazon Bedrock with your Aurora PostgreSQL DB cluster](#postgresql-using-bedrock "#postgresql-using-bedrock")
 - [Using Amazon Comprehend with your Aurora PostgreSQL DB cluster](#postgresql-using-comprehend "#postgresql-using-comprehend")
 - [Using SageMaker AI with your Aurora PostgreSQL DB cluster](#postgresql-using-sagemaker "#postgresql-using-sagemaker")
-- [Exporting data to Amazon S3 for SageMaker AI model
-  training (Advanced)](#postgresql-export-to-s3 "#postgresql-export-to-s3")
+- [Exporting data to Amazon S3 for SageMaker AI model training (Advanced)](#postgresql-export-to-s3 "#postgresql-export-to-s3")
 - [Performance considerations for using Aurora machine learning with Aurora PostgreSQL](#postgresql-ml-best-practice "#postgresql-ml-best-practice")
 - [Monitoring Aurora machine learning](#postgresql-ml-monitoring "#postgresql-ml-monitoring")
 
@@ -31,8 +29,7 @@ following requirements and prerequisites.
   in a different Region.
 - If your Aurora PostgreSQL DB cluster is in a different virtual public cloud (VPC) based on the Amazon VPC service than your Amazon Comprehend and SageMaker AI
   services, the VPC's Security group needs to allow outbound connections to the target Aurora machine learning service. For more
-  information, see [Enabling network
-  communication from Amazon Aurora to other AWS services](AuroraMySQL.Integrating.Authorizing.md "AuroraMySQL.Integrating.Authorizing.md").
+  information, see [Enabling network communication from Amazon Aurora to other AWS services](AuroraMySQL.Integrating.Authorizing.md "AuroraMySQL.Integrating.Authorizing.md").
 - For SageMaker AI, the machine learning components that you want to use for inferences must be set up and ready to use. During the
   configuration process for your Aurora PostgreSQL DB cluster, you need to have the Amazon Resource Name (ARN) of the SageMaker AI
   endpoint available. The data scientists on your team are likely best able to handle working with SageMaker AI to prepare the
@@ -78,18 +75,14 @@ for each of these Aurora machine learning services.
 
 ###### Topics
 
-- [Setting up Aurora PostgreSQL
-  to use Amazon Bedrock](postgresql-ml.md#postgresql-ml-setting-up-apg-br "postgresql-ml.md#postgresql-ml-setting-up-apg-br")
-- [Setting up Aurora PostgreSQL
-  to use Amazon Comprehend](postgresql-ml.md#postgresql-ml-setting-up-apg-cmp "postgresql-ml.md#postgresql-ml-setting-up-apg-cmp")
+- [Setting up Aurora PostgreSQL to use Amazon Bedrock](postgresql-ml.md#postgresql-ml-setting-up-apg-br "postgresql-ml.md#postgresql-ml-setting-up-apg-br")
+- [Setting up Aurora PostgreSQL to use Amazon Comprehend](postgresql-ml.md#postgresql-ml-setting-up-apg-cmp "postgresql-ml.md#postgresql-ml-setting-up-apg-cmp")
 - [Setting up Aurora PostgreSQL to use Amazon SageMaker AI](postgresql-ml.md#postgresql-ml-setting-up-apg-sagemaker "postgresql-ml.md#postgresql-ml-setting-up-apg-sagemaker")
   - [Setting up Aurora PostgreSQL to use Amazon S3 for SageMaker AI (Advanced)](postgresql-ml.md#postgresql-ml-setting-up-apg-sagemaker-advanced-option-s3 "postgresql-ml.md#postgresql-ml-setting-up-apg-sagemaker-advanced-option-s3")
 
 - [Installing the Aurora machine learning extension](postgresql-ml.md#postgresql-ml-aws_ml-install "postgresql-ml.md#postgresql-ml-aws_ml-install")
 
-### Setting up Aurora PostgreSQL
-
-to use Amazon Bedrock
+### Setting up Aurora PostgreSQL to use Amazon Bedrock
 
 In the procedure following, you first create the IAM role and policy that gives your Aurora PostgreSQL
 permission to use Amazon Bedrock on the cluster's behalf. You then attach the policy to an IAM
@@ -138,9 +131,7 @@ Current IAM roles for this cluster listing, as shown following.
 The IAM setup for Amazon Bedrock is complete. Continue setting up your Aurora PostgreSQL to work with
 Aurora machine learning by installing the extension as detailed in [Installing the Aurora machine learning extension](#postgresql-ml-aws_ml-install "#postgresql-ml-aws_ml-install")
 
-### Setting up Aurora PostgreSQL
-
-to use Amazon Comprehend
+### Setting up Aurora PostgreSQL to use Amazon Comprehend
 
 In the procedure following, you first create the IAM role and policy that gives your Aurora PostgreSQL
 permission to use Amazon Comprehend on the cluster's behalf. You then attach the policy to an IAM
@@ -233,8 +224,7 @@ as for integrating support for SageMaker AI, as follows.
 3. Add the ARN of the role to your custom DB cluster parameter group
    for your Aurora DB cluster.
 
-For basic usage information, see [Exporting data to Amazon S3 for SageMaker AI model
-training (Advanced)](#postgresql-export-to-s3 "#postgresql-export-to-s3").
+For basic usage information, see [Exporting data to Amazon S3 for SageMaker AI model training (Advanced)](#postgresql-export-to-s3 "#postgresql-export-to-s3").
 
 ### Installing the Aurora machine learning extension
 
@@ -464,7 +454,7 @@ For more information on optimizing your function calls, see [Performance conside
 ## Using SageMaker AI with your Aurora PostgreSQL DB cluster
 
 After setting up your SageMaker AI environment and integrating with Aurora PostgreSQL as outlined in
-[Setting up Aurora PostgreSQL to use Amazon SageMaker AI](#postgresql-ml-setting-up-apg-sagemaker "#postgresql-ml-setting-up-apg-sagemaker") ,
+[Setting up Aurora PostgreSQL to use Amazon SageMaker AI](#postgresql-ml-setting-up-apg-sagemaker "#postgresql-ml-setting-up-apg-sagemaker"),
 you can invoke operations by using the `aws_sagemaker.invoke_endpoint` function.
 The `aws_sagemaker.invoke_endpoint` function connects only to a model
 endpoint in the same AWS Region. If your database instance has replicas in multiple AWS Regions
@@ -504,9 +494,7 @@ The inputs and outputs of this function are as follows.
   MB message size limit.
 - `model_output` – The SageMaker AI model's output as text.
 
-### Creating a user-defined function to
-
-invoke a SageMaker AI model
+### Creating a user-defined function to invoke a SageMaker AI model
 
 Create a separate user-defined function to call
 `aws_sagemaker.invoke_endpoint` for each of your SageMaker AI models. Your
@@ -560,15 +548,12 @@ Note the following:
   or `NUMERIC`. For more information about these types, see [Data types](https://www.postgresql.org/docs/current/datatype.html "https://www.postgresql.org/docs/current/datatype.html") in the
   PostgreSQL documentation.
 - Specify `PARALLEL SAFE` to enable parallel query processing. For more
-  information, see [Improving response times with parallel query
-  processing](#postgresql-using-sagemaker-example-parallel "#postgresql-using-sagemaker-example-parallel").
+  information, see [Improving response times with parallel query processing](#postgresql-using-sagemaker-example-parallel "#postgresql-using-sagemaker-example-parallel").
 - Specify `COST 5000` to estimate the cost of running the function. Use a
   positive number giving the estimated run cost for the function, in units of
   `cpu_operator_cost`.
 
-### Passing an array as input to a
-
-SageMaker AI model
+### Passing an array as input to a SageMaker AI model
 
 The `aws_sagemaker.invoke_endpoint` function can have up to 100 input
 parameters, which is the limit for PostgreSQL functions. If the SageMaker AI model requires more
@@ -588,9 +573,7 @@ AS $$
 $$ LANGUAGE SQL PARALLEL SAFE COST 5000;
 ```
 
-### Specifying batch size when invoking a
-
-SageMaker AI model
+### Specifying batch size when invoking a SageMaker AI model
 
 The following example creates a user-defined function for a SageMaker AI model that sets the
 batch size default to NULL. The function also allows you to provide a different batch size
@@ -623,9 +606,7 @@ Note the following:
   call to `aws_sagemaker.invoke_endpoint`. For the `amount`
   parameter in this example, a NULL value is converted to 0.0.
 
-### Invoking a SageMaker AI model that has
-
-multiple outputs
+### Invoking a SageMaker AI model that has multiple outputs
 
 The following example creates a user-defined function for a SageMaker AI model that returns
 multiple outputs. Your function needs to cast the output of the
@@ -656,9 +637,7 @@ and cast the output of `aws_sagemaker.invoke_endpoint` to your composite type.
 The caller can extract the individual fields either by name or with PostgreSQL ".\*"
 notation.
 
-## Exporting data to Amazon S3 for SageMaker AI model
-
-training (Advanced)
+## Exporting data to Amazon S3 for SageMaker AI model training (Advanced)
 
 We recommend that you become familiar with Aurora machine learning and SageMaker AI by using the provided algorithms
 and examples rather than trying to train your own models. For more information,
@@ -690,10 +669,8 @@ considerations to note when working with Aurora machine learning from Aurora Pos
 ###### Topics
 
 - [Understanding batch mode and Aurora machine learning functions](#postgresql-ml-batch-mode "#postgresql-ml-batch-mode")
-- [Improving response times with parallel query
-  processing](#postgresql-using-sagemaker-example-parallel "#postgresql-using-sagemaker-example-parallel")
-- [Using materialized views
-  and materialized columns](#postgresql-using-sagemaker-example-materialized "#postgresql-using-sagemaker-example-materialized")
+- [Improving response times with parallel query processing](#postgresql-using-sagemaker-example-parallel "#postgresql-using-sagemaker-example-parallel")
+- [Using materialized views and materialized columns](#postgresql-using-sagemaker-example-materialized "#postgresql-using-sagemaker-example-materialized")
 
 ### Understanding batch mode and Aurora machine learning functions
 
@@ -714,9 +691,7 @@ batch-mode function call.
 Your user-defined function must be a `LANGUAGE SQL` function and should
 specify `PARALLEL SAFE` and `COST 5000`.
 
-#### Function migration from the
-
-SELECT statement to the FROM clause
+#### Function migration from the SELECT statement to the FROM clause
 
 Usually, an `aws_ml` function that is eligible for batch-mode execution is
 automatically migrated by Aurora to the `FROM` clause.
@@ -762,12 +737,9 @@ migration in a session, use query plan management to save the resulting plan as 
 `approved` plan. At runtime, query plan management enforces the
 `approved` plan with its `apg_enable_function_migration` setting.
 This enforcement occurs regardless of the `apg_enable_function_migration` GUC
-parameter setting. For more information, see [Managing query execution plans for
-Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+parameter setting. For more information, see [Managing query execution plans for Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
 
-#### Using the max_rows_per_batch
-
-parameter
+#### Using the max_rows_per_batch parameter
 
 Both the `aws_comprehend.detect_sentiment` and the
 `aws_sagemaker.invoke_endpoint` functions have
@@ -823,9 +795,7 @@ To reduce the number of batch mode calls to the ML service when you use a
 `LIMIT` in your user-defined function, set the
 `max_rows_per_batch` parameter to a smaller value.
 
-### Improving response times with parallel query
-
-processing
+### Improving response times with parallel query processing
 
 To get results as fast as possible from a large number of rows, you can
 combine parallel query processing with batch mode processing. You can use parallel query
@@ -883,9 +853,7 @@ WHERE id < 100;
 For more information about controlling parallel query, see [Parallel plans](https://www.postgresql.org/docs/current/parallel-plans.html "https://www.postgresql.org/docs/current/parallel-plans.html")
 in the PostgreSQL documentation.
 
-### Using materialized views
-
-and materialized columns
+### Using materialized views and materialized columns
 
 When you invoke an AWS service such as SageMaker AI or Amazon Comprehend from your database, your account is
 charged according to the pricing policy of that service. To minimize charges to your

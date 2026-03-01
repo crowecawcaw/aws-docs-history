@@ -49,17 +49,12 @@ the main partition but keeping historical data for analysis.
 
 ###### Topics
 
-- [Overview of the PostgreSQL pg_partman
-  extension](#PostgreSQL_Partitions.pg_partman "#PostgreSQL_Partitions.pg_partman")
+- [Overview of the PostgreSQL pg_partman extension](#PostgreSQL_Partitions.pg_partman "#PostgreSQL_Partitions.pg_partman")
 - [Enabling the pg_partman extension](#PostgreSQL_Partitions.enable "#PostgreSQL_Partitions.enable")
-- [Configuring partitions using the
-  create_parent function](#PostgreSQL_Partitions.create_parent "#PostgreSQL_Partitions.create_parent")
-- [Configuring partition maintenance using
-  the run_maintenance_proc function](#PostgreSQL_Partitions.run_maintenance_proc "#PostgreSQL_Partitions.run_maintenance_proc")
+- [Configuring partitions using the create_parent function](#PostgreSQL_Partitions.create_parent "#PostgreSQL_Partitions.create_parent")
+- [Configuring partition maintenance using the run_maintenance_proc function](#PostgreSQL_Partitions.run_maintenance_proc "#PostgreSQL_Partitions.run_maintenance_proc")
 
-## Overview of the PostgreSQL pg_partman
-
-extension
+## Overview of the PostgreSQL pg_partman extension
 
 You can use the PostgreSQL `pg_partman` extension to automate the creation
 and maintenance of table partitions. For more general information, see [PG Partition Manager](https://github.com/pgpartman/pg_partman "https://github.com/pgpartman/pg_partman") in the
@@ -171,9 +166,7 @@ CREATE INDEX idx_org_id     ON  data_mart.events(org_id);
 CREATE INDEX idx_event_type ON  data_mart.events(event_type);
 ```
 
-## Configuring partitions using the
-
-create_parent function
+## Configuring partitions using the create_parent function
 
 After you enable the `pg_partman` extension, use the
 `create_parent` function to configure partitions inside the partition
@@ -206,9 +199,7 @@ The parameters are as follows:
 
 For a complete description of the `create_parent` function, see [Creation Functions](https://github.com/pgpartman/pg_partman/blob/master/doc/pg_partman.md#user-content-creation-functions "https://github.com/pgpartman/pg_partman/blob/master/doc/pg_partman.md#user-content-creation-functions") in the `pg_partman` documentation.
 
-## Configuring partition maintenance using
-
-the run_maintenance_proc function
+## Configuring partition maintenance using the run_maintenance_proc function
 
 You can run partition maintenance operations to automatically create new partitions,
 detach partitions, or remove old partitions. Partition maintenance relies on the
@@ -237,12 +228,10 @@ Following, you can find a step-by-step explanation of the preceding example:
 1. Modify the parameter group associated with your DB instance and add
    `pg_cron` to the `shared_preload_libraries` parameter
    value. This change requires a DB instance restart for it to take effect. For
-   more information, see [Modifying parameters in a DB parameter group
-   in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+   more information, see [Modifying parameters in a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 2. Run the command `CREATE EXTENSION pg_cron;` using an account that
    has the `rds_superuser` permissions. Doing this enables the
-   `pg_cron` extension. For more information, see [Scheduling maintenance with the PostgreSQL pg_cron
-   extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md").
+   `pg_cron` extension. For more information, see [Scheduling maintenance with the PostgreSQL pg_cron extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md").
 3. Run the command `UPDATE partman.part_config` to adjust the
    `pg_partman` settings for the `data_mart.events`
    table.

@@ -1,21 +1,15 @@
-# Best practices for Amazon Aurora
-
-blue/green deployments
+# Best practices for Amazon Aurora blue/green deployments
 
 The following are best practices for blue/green deployments.
 
 ###### Topics
 
-- [General best practices for
-  blue/green deployments](#blue-green-deployments-best-practices-general "#blue-green-deployments-best-practices-general")
+- [General best practices for blue/green deployments](#blue-green-deployments-best-practices-general "#blue-green-deployments-best-practices-general")
 - [Aurora MySQL best practices for blue/green deployments](#blue-green-deployments-best-practices-mysql "#blue-green-deployments-best-practices-mysql")
-- [Aurora PostgreSQL best
-  practices for blue/green deployments](#blue-green-deployments-best-practices-postgres "#blue-green-deployments-best-practices-postgres")
+- [Aurora PostgreSQL best practices for blue/green deployments](#blue-green-deployments-best-practices-postgres "#blue-green-deployments-best-practices-postgres")
 - [Aurora Global Database best practices for blue/green deployments](#blue-green-deployments-best-practices-agd "#blue-green-deployments-best-practices-agd")
 
-## General best practices for
-
-blue/green deployments
+## General best practices for blue/green deployments
 
 Consider the following general best practices when you create a blue/green
 deployment.
@@ -58,9 +52,7 @@ DB cluster.
     unexpected shutdown or crash occurs with the temporary parameter value, rebuild the
     green environment to avoid undetected data corruption. For more information, see [Configuring how frequently the log buffer is flushed](AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.Flush "AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.Flush").
 
-## Aurora PostgreSQL best
-
-practices for blue/green deployments
+## Aurora PostgreSQL best practices for blue/green deployments
 
 Consider the following best practices when you create a blue/green deployment from an
 Aurora PostgreSQL DB cluster.
@@ -79,19 +71,16 @@ Aurora PostgreSQL DB cluster.
     overflow files using the `pg_stat_replication_slots` system view.
 
 - Update all of your PostgreSQL extensions to the latest version before you create a
-  blue/green deployment. For more information, see [Upgrading
-  PostgreSQL extensions](USER_UpgradeDBInstance.Upgrading.md "USER_UpgradeDBInstance.Upgrading.md").
+  blue/green deployment. For more information, see [Upgrading PostgreSQL extensions](USER_UpgradeDBInstance.Upgrading.md "USER_UpgradeDBInstance.Upgrading.md").
 - If you’re using the `aws_s3` extension, give the green DB cluster access to
   Amazon S3 through an IAM role after the green environment is created. This allows the
   import and export commands to continue functioning after switchover. For instructions,
-  see [Setting up access to an Amazon S3
-  bucket](postgresql-s3-export-access-bucket.md "postgresql-s3-export-access-bucket.md").
+  see [Setting up access to an Amazon S3 bucket](postgresql-s3-export-access-bucket.md "postgresql-s3-export-access-bucket.md").
 - If you specify a higher engine version for the green environment, run the
   `ANALYZE` operation on all databases to refresh the
   `pg_statistic` table. Optimizer statistics aren't transferred during a
   major version upgrade, so you must regenerate all statistics to avoid performance
-  issues. For additional best practices during major version upgrades, see [Performing a major
-  version upgrade](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md").
+  issues. For additional best practices during major version upgrades, see [Performing a major version upgrade](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md").
 - Avoid configuring triggers as `ENABLE REPLICA` or `ENABLE
 ALWAYS` if the trigger is used on the source to manipulate data. Otherwise, the
   replication system propagates changes and executes the trigger, which leads to
@@ -116,8 +105,7 @@ ALWAYS` if the trigger is used on the source to manipulate data. Otherwise, the
   resuming regular index maintenance and cleanup.
   - Replica lag can occur if the blue and green DB instances are undersized for the
     workload. Ensure that your DB instances are not reaching their resource limits for the
-    instance type. For more information, see [Using Amazon CloudWatch metrics to analyze
-    resource usage for Aurora PostgreSQL](AuroraPostgreSQL_AnayzeResourceUsage.md "AuroraPostgreSQL_AnayzeResourceUsage.md").
+    instance type. For more information, see [Using Amazon CloudWatch metrics to analyze resource usage for Aurora PostgreSQL](AuroraPostgreSQL_AnayzeResourceUsage.md "AuroraPostgreSQL_AnayzeResourceUsage.md").
 
 - Slow replication can cause senders and receivers to restart often, which delays
   synchronization. To ensure that they remain active, disable timeouts by setting the
@@ -127,8 +115,7 @@ ALWAYS` if the trigger is used on the source to manipulate data. Otherwise, the
 - Review the performance of your UPDATE and DELETE statements and evaluate whether
   creating an index on the column used in the WHERE clause can optimize these queries.
   This can enhance performance when the operations are replayed in the green environment.
-  For more information, see [Check predicate filters for queries that
-  generate waits](apg-waits.md#apg-waits.iodatafileread.actions.filters "apg-waits.md#apg-waits.iodatafileread.actions.filters").
+  For more information, see [Check predicate filters for queries that generate waits](apg-waits.md#apg-waits.iodatafileread.actions.filters "apg-waits.md#apg-waits.iodatafileread.actions.filters").
 - If you're using triggers, make sure they don't interfere with the creating,
   updating, and dropping of `pg_catalog.pg_publication`,
   `pg_catalog.pg_subscription`, and
@@ -145,8 +132,7 @@ ALWAYS` if the trigger is used on the source to manipulate data. Otherwise, the
       + babelfishpg\_tsql.migration\_mode
       + babelfishpg\_tsql.server\_collation\_name
 
-  For more information about these parameters, see [DB cluster parameter group settings for
-  Babelfish](babelfish-configuration.md "babelfish-configuration.md").
+  For more information about these parameters, see [DB cluster parameter group settings for Babelfish](babelfish-configuration.md "babelfish-configuration.md").
 
 ## Aurora Global Database best practices for blue/green deployments
 

@@ -1,6 +1,4 @@
-# Essential concepts for
-
-Aurora PostgreSQL tuning
+# Essential concepts for Aurora PostgreSQL tuning
 
 Before you tune your Aurora PostgreSQL database, make sure to learn what wait events are
 and why they occur. Also review the basic memory and disk architecture of Aurora PostgreSQL.
@@ -9,16 +7,11 @@ wikibook.
 
 ###### Topics
 
-- [Aurora PostgreSQL wait
-  events](#AuroraPostgreSQL.Tuning.concepts.waits "#AuroraPostgreSQL.Tuning.concepts.waits")
-- [Aurora PostgreSQL
-  memory](#AuroraPostgreSQL.Tuning.concepts.memory "#AuroraPostgreSQL.Tuning.concepts.memory")
-- [Aurora PostgreSQL
-  processes](#AuroraPostgreSQL.Tuning.concepts.processes "#AuroraPostgreSQL.Tuning.concepts.processes")
+- [Aurora PostgreSQL wait events](#AuroraPostgreSQL.Tuning.concepts.waits "#AuroraPostgreSQL.Tuning.concepts.waits")
+- [Aurora PostgreSQL memory](#AuroraPostgreSQL.Tuning.concepts.memory "#AuroraPostgreSQL.Tuning.concepts.memory")
+- [Aurora PostgreSQL processes](#AuroraPostgreSQL.Tuning.concepts.processes "#AuroraPostgreSQL.Tuning.concepts.processes")
 
-## Aurora PostgreSQL wait
-
-events
+## Aurora PostgreSQL wait events
 
 A _wait event_ indicates a resource for which a session is
 waiting. For example, the wait event `Client:ClientRead` occurs when
@@ -47,22 +40,16 @@ the most to total wait time. If you can determine the causes of the top wait eve
 sometimes make changes that improve performance. For example, if your session is waiting on a
 row that has been locked by another session, you can end the locking session.
 
-## Aurora PostgreSQL
-
-memory
+## Aurora PostgreSQL memory
 
 Aurora PostgreSQL memory is divided into shared and local.
 
 ###### Topics
 
-- [Shared memory in
-  Aurora PostgreSQL](#AuroraPostgreSQL.Tuning.concepts.shared "#AuroraPostgreSQL.Tuning.concepts.shared")
-- [Local memory in
-  Aurora PostgreSQL](#AuroraPostgreSQL.Tuning.concepts.local "#AuroraPostgreSQL.Tuning.concepts.local")
+- [Shared memory in Aurora PostgreSQL](#AuroraPostgreSQL.Tuning.concepts.shared "#AuroraPostgreSQL.Tuning.concepts.shared")
+- [Local memory in Aurora PostgreSQL](#AuroraPostgreSQL.Tuning.concepts.local "#AuroraPostgreSQL.Tuning.concepts.local")
 
-### Shared memory in
-
-Aurora PostgreSQL
+### Shared memory in Aurora PostgreSQL
 
 Aurora PostgreSQL allocates shared memory when the instance starts. Shared memory
 is divided into multiple subareas. Following, you can find a description of the
@@ -70,14 +57,10 @@ most important ones.
 
 ###### Topics
 
-- [Shared
-  buffers](#AuroraPostgreSQL.Tuning.concepts.buffer-pool "#AuroraPostgreSQL.Tuning.concepts.buffer-pool")
-- [Write ahead log (WAL)
-  buffers](#AuroraPostgreSQL.Tuning.concepts.WAL "#AuroraPostgreSQL.Tuning.concepts.WAL")
+- [Shared buffers](#AuroraPostgreSQL.Tuning.concepts.buffer-pool "#AuroraPostgreSQL.Tuning.concepts.buffer-pool")
+- [Write ahead log (WAL) buffers](#AuroraPostgreSQL.Tuning.concepts.WAL "#AuroraPostgreSQL.Tuning.concepts.WAL")
 
-#### Shared
-
-buffers
+#### Shared buffers
 
 The _shared buffer pool_ is an Aurora PostgreSQL memory
 area that holds all pages that are or were being used by application
@@ -98,9 +81,7 @@ implemented by a clock sweep algorithm.
 The `shared_buffers` parameter determines how much memory the
 server dedicates to caching data.
 
-#### Write ahead log (WAL)
-
-buffers
+#### Write ahead log (WAL) buffers
 
 A _write-ahead log (WAL) buffer_ holds transaction data
 that Aurora PostgreSQL later writes to persistent storage. Using the WAL
@@ -116,23 +97,17 @@ writes transaction data to the WAL file.
 The `wal_level` parameter determines how much information is
 written to the WAL.
 
-### Local memory in
-
-Aurora PostgreSQL
+### Local memory in Aurora PostgreSQL
 
 Every backend process allocates local memory for query processing.
 
 ###### Topics
 
-- [Work
-  memory area](#AuroraPostgreSQL.Tuning.concepts.local.work_mem "#AuroraPostgreSQL.Tuning.concepts.local.work_mem")
+- [Work memory area](#AuroraPostgreSQL.Tuning.concepts.local.work_mem "#AuroraPostgreSQL.Tuning.concepts.local.work_mem")
 - [Maintenance work memory area](#AuroraPostgreSQL.Tuning.concepts.local.maintenance_work_mem "#AuroraPostgreSQL.Tuning.concepts.local.maintenance_work_mem")
-- [Temporary buffer
-  area](#AuroraPostgreSQL.Tuning.concepts.temp "#AuroraPostgreSQL.Tuning.concepts.temp")
+- [Temporary buffer area](#AuroraPostgreSQL.Tuning.concepts.temp "#AuroraPostgreSQL.Tuning.concepts.temp")
 
-#### Work
-
-memory area
+#### Work memory area
 
 The _work memory area_ holds temporary data for queries
 that performs sorts and hashes. For example, a query with an `ORDER
@@ -157,9 +132,7 @@ amount of memory to be used by maintenance operations. The default value is
 64 MB. A database session can only run one maintenance operation at a
 time.
 
-#### Temporary buffer
-
-area
+#### Temporary buffer area
 
 The _temporary buffer area_ caches temporary tables for
 each database session.
@@ -172,24 +145,17 @@ temporary buffers used by each session. Before the first use of temporary
 tables within a session, you can change the `temp_buffers`
 value.
 
-## Aurora PostgreSQL
-
-processes
+## Aurora PostgreSQL processes
 
 Aurora PostgreSQL uses multiple processes.
 
 ###### Topics
 
-- [Postmaster
-  process](#AuroraPostgreSQL.Tuning.concepts.postmaster "#AuroraPostgreSQL.Tuning.concepts.postmaster")
-- [Backend
-  processes](#AuroraPostgreSQL.Tuning.concepts.backend "#AuroraPostgreSQL.Tuning.concepts.backend")
-- [Background
-  processes](#AuroraPostgreSQL.Tuning.concepts.vacuum "#AuroraPostgreSQL.Tuning.concepts.vacuum")
+- [Postmaster process](#AuroraPostgreSQL.Tuning.concepts.postmaster "#AuroraPostgreSQL.Tuning.concepts.postmaster")
+- [Backend processes](#AuroraPostgreSQL.Tuning.concepts.backend "#AuroraPostgreSQL.Tuning.concepts.backend")
+- [Background processes](#AuroraPostgreSQL.Tuning.concepts.vacuum "#AuroraPostgreSQL.Tuning.concepts.vacuum")
 
-### Postmaster
-
-process
+### Postmaster process
 
 The _postmaster process_ is the first process started when
 you start Aurora PostgreSQL. The postmaster process has the following primary
@@ -200,18 +166,14 @@ responsibilities:
   authenticate them before allowing the database to service
   requests
 
-### Backend
-
-processes
+### Backend processes
 
 If the postmaster authenticates a client request, the postmaster forks a new
 backend process, also called a postgres process. One client process connects to
 exactly one backend process. The client process and the backend process
 communicate directly without intervention by the postmaster process.
 
-### Background
-
-processes
+### Background processes
 
 The postmaster process forks several processes that perform different backend
 tasks. Some of the more important include the following:

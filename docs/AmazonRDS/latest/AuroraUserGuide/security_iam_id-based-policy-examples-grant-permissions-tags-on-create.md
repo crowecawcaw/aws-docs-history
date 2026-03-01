@@ -1,7 +1,4 @@
-#
-
-Grant permission to tag Aurora
-resources during creation
+# Grant permission to tag Aurora resources during creation
 
 Some RDS API operations allow you to specify tags when you create the resource. You can use resource tags
 to implement attribute-based control (ABAC). For more information, see [What is ABAC for AWS?](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md")

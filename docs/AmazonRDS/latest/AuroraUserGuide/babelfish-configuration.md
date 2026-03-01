@@ -1,6 +1,4 @@
-# DB cluster parameter group settings for
-
-Babelfish
+# DB cluster parameter group settings for Babelfish
 
 When you create an Aurora PostgreSQL DB cluster and choose **Turn on
 Babelfish**, a DB cluster parameter group is created for you
@@ -63,7 +61,7 @@ following parameters are turned on in those regions.
 | babelfishpg_tds.tds_debug_log_level                     | An integer that sets the logging level in TDS; 0 turns off logging.<br>(Default: 1) (Allowable: 0, 1, 2, 3)                                                                                                                                                                                                                                                                                                     | dynamic    | true          |
 | babelfishpg_tds.listen_addresses                        | A string that sets the host name or IP address or addresses to<br>listen for TDS on. This parameter can't be modified after the<br>Babelfish DB cluster is created. (Default: \<br>• ) (Allowable: null)                                                                                                                                                                                                        | –          | false         |
 | babelfishpg_tds.port                                    | An integer that specifies the TCP port used for requests in SQL<br>Server syntax. (Default: 1433) (Allowable:<br>1–65535)                                                                                                                                                                                                                                                                                       | static     | true          |
-| babelfishpg_tds.tds_ssl_encrypt                         | A boolean that turns encryption on (0) or off (1) for data<br>traversing the TDS listener port. For detailed information about using<br>SSL for client connections, see [Babelfish SSL settings and client<br>connections](#babelfish-ssl "#babelfish-ssl"). (Default: 0) (Allowable: 0,<br>1)                                                                                                                  | dynamic    | true          |
+| babelfishpg_tds.tds_ssl_encrypt                         | A boolean that turns encryption on (0) or off (1) for data<br>traversing the TDS listener port. For detailed information about using<br>SSL for client connections, see [Babelfish SSL settings and client connections](#babelfish-ssl "#babelfish-ssl"). (Default: 0) (Allowable: 0,<br>1)                                                                                                                     | dynamic    | true          |
 | babelfishpg_tds.tds_ssl_max_protocol_version            | A string that specifies the highest SSL/TLS protocol version to use<br>for the TDS session. (Default: 'TLSv1.2') (Allowable: 'TLSv1',<br>'TLSv1.1', 'TLSv1.2')                                                                                                                                                                                                                                                  | dynamic    | true          |
 | babelfishpg_tds.tds_ssl_min_protocol_version            | A string that specifies the minimum SSL/TLS protocol version to use<br>for the TDS session. (Default: 'TLSv1.2' from Aurora PostgreSQL version 16,<br>'TLSv1' for versions older than Aurora PostgreSQL version 16) (Allowable:<br>'TLSv1', 'TLSv1.1', 'TLSv1.2')                                                                                                                                               | dynamic    | true          |
 | babelfishpg_tds.unix_socket_directories                 | A string that identifies the TDS server Unix socket directory. This<br>parameter can't be modified after the Babelfish DB cluster<br>is created. (Default: /tmp) (Allowable: null)                                                                                                                                                                                                                              | –          | false         |
@@ -75,9 +73,7 @@ following parameters are turned on in those regions.
 | rds.babelfish_status                                    | A string that sets the state of Babelfish functionality.<br>When this parameter is set to `datatypesonly`,<br>Babelfish is turned off but SQL Server data types are still<br>available. (Default: off) (Allowable: on, off,<br>datatypesonly)                                                                                                                                                                   | static     | true          |
 | unix_socket_permissions                                 | An integer that sets the TDS server Unix socket permissions. This<br>parameter can't be modified after the Babelfish DB cluster<br>is created. (Default: 0700) (Allowable: 0–511)                                                                                                                                                                                                                               | –          | false         |
 
-## Babelfish SSL settings and client
-
-connections
+## Babelfish SSL settings and client connections
 
 To require SSL/TLS connections to your Babelfish for Aurora PostgreSQL DB cluster, use the
 `rds.force_ssl` parameter.

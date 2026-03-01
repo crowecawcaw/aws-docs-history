@@ -15,5 +15,4 @@ Before you can create or connect to a DB cluster, make sure to complete the task
 
 - [Creating and connecting to an Aurora MySQL DB cluster](CHAP_GettingStartedAurora.CreatingConnecting.md "CHAP_GettingStartedAurora.CreatingConnecting.md")
 - [Creating and connecting to an Aurora PostgreSQL DB cluster](CHAP_GettingStartedAurora.CreatingConnecting.md "CHAP_GettingStartedAurora.CreatingConnecting.md")
-- [Tutorial: Create a web server and an
-  Amazon Aurora DB cluster](TUT_WebAppWithRDS.md "TUT_WebAppWithRDS.md")
+- [Tutorial: Create a web server and an Amazon Aurora DB cluster](TUT_WebAppWithRDS.md "TUT_WebAppWithRDS.md")

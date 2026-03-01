@@ -16,8 +16,7 @@ use the available hooks from a SQL API to build out the functions of your extens
 should register any hooks with `pg_tle`. For some hooks, you might also need
 to set various configuration parameters. For example, the `passcode` check
 hook can be set to on, off, or require. For more information about specific requirements
-for available `pg_tle` hooks, see [Hooks reference for
-Trusted Language Extensions for PostgreSQL](PostgreSQL_trusted_language_extension-hooks-reference.md "PostgreSQL_trusted_language_extension-hooks-reference.md").
+for available `pg_tle` hooks, see [Hooks reference for Trusted Language Extensions for PostgreSQL](PostgreSQL_trusted_language_extension-hooks-reference.md "PostgreSQL_trusted_language_extension-hooks-reference.md").
 
 ## Example: Creating an extension that uses a PostgreSQL hook
 

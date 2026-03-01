@@ -36,9 +36,7 @@ You can use local write forwarding for your applications that have occasional wr
 In the console, you can enable or disable write forwarding when you create or modify a
 secondary DB cluster.
 
-#### Enabling or disabling write forwarding
-
-when creating a secondary DB cluster
+#### Enabling or disabling write forwarding when creating a secondary DB cluster
 
 When you create a new secondary DB cluster, you enable write forwarding by selecting the
 **Turn on global write forwarding** check box under **Read replica write forwarding**.
@@ -367,8 +365,7 @@ For more information about the `apg_write_forward.consistency_mode` parameter se
 
 Common causes for longer wait times include the following:
 
-- Increased replica lag, as measured by the Amazon CloudWatch `ReplicaLag` metric. For more information about this metric, see [Monitoring Aurora PostgreSQL
-  replication](AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring "AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring").
+- Increased replica lag, as measured by the Amazon CloudWatch `ReplicaLag` metric. For more information about this metric, see [Monitoring Aurora PostgreSQL replication](AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring "AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring").
 - Increased load on the primary Region's writer node or on the secondary node.
 
 **Actions**

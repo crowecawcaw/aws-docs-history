@@ -17,10 +17,8 @@ Region, see [Recovering an Amazon Aurora global database from an unplanned outag
 
 ###### Topics
 
-- [Modifying an Amazon Aurora global
-  database](aurora-global-database-modifying.md "aurora-global-database-modifying.md")
-- [Modifying parameters for an Aurora global
-  database](aurora-global-database-modifying.md "aurora-global-database-modifying.md")
+- [Modifying an Amazon Aurora global database](aurora-global-database-modifying.md "aurora-global-database-modifying.md")
+- [Modifying parameters for an Aurora global database](aurora-global-database-modifying.md "aurora-global-database-modifying.md")
 - [Removing a cluster from an Amazon Aurora global database](aurora-global-database-detaching.md "aurora-global-database-detaching.md")
 - [Deleting an Amazon Aurora global database](aurora-global-database-deleting.md "aurora-global-database-deleting.md")
 - [Tagging Amazon Aurora Global Database resources](aurora-global-database-tagging.md "aurora-global-database-tagging.md")

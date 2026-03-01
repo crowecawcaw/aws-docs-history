@@ -1,6 +1,4 @@
-# Monitoring an Amazon Aurora global
-
-database
+# Monitoring an Amazon Aurora global database
 
 When you create the Aurora DB clusters that make up your Aurora global database, you can choose many options that let you monitor your
 DB cluster's performance. These options include the following:
@@ -51,14 +49,11 @@ have different capacity.
 
 To learn more about using Performance Insights, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 
-## Monitoring Aurora global databases with Database Activity
-
-Streams
+## Monitoring Aurora global databases with Database Activity Streams
 
 By using the Database Activity Streams feature, you can monitor and set alarms for auditing activity in the DB clusters in your global database.
 You start a database activity stream on each DB cluster separately. Each cluster delivers audit data to its own Kinesis stream within its own AWS Region.
-For more information, see [Monitoring Amazon Aurora with Database Activity
-Streams](DBActivityStreams.md "DBActivityStreams.md").
+For more information, see [Monitoring Amazon Aurora with Database Activity Streams](DBActivityStreams.md "DBActivityStreams.md").
 
 ## Monitoring Aurora MySQL-based global databases
 

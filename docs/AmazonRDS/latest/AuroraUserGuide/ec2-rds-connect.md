@@ -13,9 +13,7 @@ If you want to connect to an EC2 instance that isn't in the same VPC as the Auro
 ###### Topics
 
 - [Overview of automatic connectivity with an EC2 instance](#ec2-rds-connect-overview "#ec2-rds-connect-overview")
-- [Automatically connecting
-  an EC2 instance and an Aurora DB
-  cluster](#ec2-rds-connect-connecting "#ec2-rds-connect-connecting")
+- [Automatically connecting an EC2 instance and an Aurora DB cluster](#ec2-rds-connect-connecting "#ec2-rds-connect-connecting")
 - [Viewing connected compute resources](#ec2-rds-connect-viewing "#ec2-rds-connect-viewing")
 - [Connecting to a DB instance that is running a specific DB engine](#ec2-rds-Connect-DBEngine "#ec2-rds-Connect-DBEngine")
 
@@ -59,9 +57,7 @@ described in the following table.
 | There are one or more security groups associated with the DB cluster with a name that matches the pattern<br>`rds-ec2-`n``. A security group that matches the pattern hasn't<br>been modified. This security group has only one inbound rule with the VPC security group of the EC2<br>instance as the source.                                                                                                                                                                                                                                                                                                                                                                                                            | A valid EC2 security group for the connection exists, but it is not associated<br>with the EC2 instance. This security group has a name that matches the pattern<br>`ec2-rds-`n``. It hasn't been modified. It has<br>only one outbound rule with the VPC security group of the DB<br>cluster as the source.                                                                                                                                                                                                                                                                                                                     | [RDS action: associate EC2 security group](#rds-action-associate-ec2-security-group "#rds-action-associate-ec2-security-group")                                                                                                                  |
 | Either of the following conditions apply:<br>• There is no security group associated with the DB cluster with a name that matches the pattern<br>`rds-ec2-`n``.<br>• There are one or more security groups associated with the DB cluster with a name that matches the pattern<br>`rds-ec2-`n``. However,<br>Amazon RDS can't use any of these security groups for the<br>connection with the EC2 instance.<br>Amazon RDS can't use a security group that<br>doesn't have one inbound rule with the VPC security group of the EC2 instance as the source.<br>Amazon RDS also can't use security group that has been modified.                                                                                             | There are one or more security groups associated with the EC2 instance with a name<br>that matches the pattern `ec2-rds-`n``. A security<br>group that matches the pattern hasn't been modified. This security group has only one<br>outbound rule with the VPC security group of the DB cluster as the<br>source.                                                                                                                                                                                                                                                                                                               | [RDS action: create new security groups](#rds-action-create-new-security-groups "#rds-action-create-new-security-groups")                                                                                                                        |
 
-###### RDS
-
-action: create new security groups
+###### RDS action: create new security groups
 
 Amazon RDS takes the following actions:
 
@@ -74,19 +70,14 @@ Amazon RDS takes the following actions:
   security group is associated with the EC2 instance and allows the EC2 instance to send
   traffic to the DB cluster.
 
-######
-
-RDS action: associate EC2 security group
+###### RDS action: associate EC2 security group
 
 Amazon RDS
 associates the valid, existing EC2 security group with the EC2 instance. This security group allows the EC2
 instance to send traffic to the DB
 cluster.
 
-## Automatically connecting
-
-an EC2 instance and an Aurora DB
-cluster
+## Automatically connecting an EC2 instance and an Aurora DB cluster
 
 Before setting up a connection between an EC2 instance and an Aurora DB cluster, make sure you meet the
 requirements described in [Overview of automatic connectivity with an EC2 instance](#ec2-rds-connect-overview "#ec2-rds-connect-overview").
@@ -138,9 +129,7 @@ For more information, see [Creating an Amazon Aurora DB cluster](Aurora.md "Auro
 
 - You can set up connectivity between an existing database and a compute resource.
 
-For more information, see [Automatically connecting
-an EC2 instance and an Aurora DB
-cluster](#ec2-rds-connect-connecting "#ec2-rds-connect-connecting").
+For more information, see [Automatically connecting an EC2 instance and an Aurora DB cluster](#ec2-rds-connect-connecting "#ec2-rds-connect-connecting").
 
 The listed compute resources don't include ones that were connected to the database manually. For example,
 you can allow a compute resource to access a database manually by adding a rule to the VPC security group
@@ -180,5 +169,4 @@ For information about connecting to a DB instance that is running a specific DB
 engine, follow the instructions for your DB engine:
 
 - [Connecting to an Amazon Aurora MySQL DB cluster](Aurora.md#Aurora.Connecting.AuroraMySQL "Aurora.md#Aurora.Connecting.AuroraMySQL")
-- [Connecting to an Amazon Aurora PostgreSQL
-  DB cluster](Aurora.md#Aurora.Connecting.AuroraPostgreSQL "Aurora.md#Aurora.Connecting.AuroraPostgreSQL")
+- [Connecting to an Amazon Aurora PostgreSQL DB cluster](Aurora.md#Aurora.Connecting.AuroraPostgreSQL "Aurora.md#Aurora.Connecting.AuroraPostgreSQL")

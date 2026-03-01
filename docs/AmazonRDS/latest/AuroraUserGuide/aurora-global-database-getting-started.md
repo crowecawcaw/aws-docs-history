@@ -3,8 +3,7 @@
 To get started with Aurora Global Database, first decide which Aurora DB engine you want to
 use and in which AWS Regions. Only specific versions of the Aurora MySQL and Aurora PostgreSQL
 database engines in certain AWS Regions support Aurora Global Database. For the complete
-list, see [Supported
-Regions and DB engines for Aurora global databases](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+list, see [Supported Regions and DB engines for Aurora global databases](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
 
 You can create an Aurora Global Database in one of the following ways:
 

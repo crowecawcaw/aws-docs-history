@@ -8,8 +8,7 @@ Aurora MySQL DB clusters that have tables with millions of rows and analytic que
 
 - [Overview of parallel query for Aurora MySQL](#aurora-mysql-parallel-query-overview "#aurora-mysql-parallel-query-overview")
 - [Creating a parallel query DB cluster in Aurora MySQL](aurora-mysql-parallel-query-creating-cluster.md "aurora-mysql-parallel-query-creating-cluster.md")
-- [Turning parallel query on and
-  off in Aurora MySQL](aurora-mysql-parallel-query-enabling.md "aurora-mysql-parallel-query-enabling.md")
+- [Turning parallel query on and off in Aurora MySQL](aurora-mysql-parallel-query-enabling.md "aurora-mysql-parallel-query-enabling.md")
 - [Optimizing parallel query in Aurora MySQL](aurora-mysql-parallel-query-optimizing.md "aurora-mysql-parallel-query-optimizing.md")
 - [Verifying which statements use parallel query for Aurora MySQL](aurora-mysql-parallel-query-verifying.md "aurora-mysql-parallel-query-verifying.md")
 - [Monitoring parallel query for Aurora MySQL](aurora-mysql-parallel-query-monitoring.md "aurora-mysql-parallel-query-monitoring.md")
@@ -108,8 +107,7 @@ configuration setting names and default values are different in these newer vers
 
 The DB instances in your cluster must use the `db.r*` instance classes.
 
-Make sure that hash join optimization is turned on for your cluster. To learn how, see [Turning on hash join for
-parallel query clusters](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join "aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join").
+Make sure that hash join optimization is turned on for your cluster. To learn how, see [Turning on hash join for parallel query clusters](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join "aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join").
 
 To customize parameters such as `aurora_parallel_query` and `aurora_disable_hash_join`,
 you must have a custom parameter group that you use with your cluster. You can

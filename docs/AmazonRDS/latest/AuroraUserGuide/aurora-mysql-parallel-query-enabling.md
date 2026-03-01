@@ -1,6 +1,4 @@
-# Turning parallel query on and
-
-off in Aurora MySQL
+# Turning parallel query on and off in Aurora MySQL
 
 When parallel query is turned on, Aurora MySQL determines whether to use it at runtime for each query. In the case of joins,
 unions, subqueries, and so on, Aurora MySQL determines whether to use parallel query at runtime for each query block. For details,
@@ -55,25 +53,18 @@ You can turn on hash join for parallel query clusters, turn parallel query on an
 
 ###### Contents
 
-- [Turning on hash join for
-  parallel query clusters](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join "aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join")
-- [Turning on and turning off
-  parallel query using the console](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-console "aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-console")
-- [Turning on and turning off
-  parallel query using the CLI](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-cli "aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-cli")
+- [Turning on hash join for parallel query clusters](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join "aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join")
+- [Turning on and turning off parallel query using the console](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-console "aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-console")
+- [Turning on and turning off parallel query using the CLI](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-cli "aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-cli")
 - [Overriding the parallel query optimizer](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling.aurora_pq_force "aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling.aurora_pq_force")
 
-## Turning on hash join for
-
-parallel query clusters
+## Turning on hash join for parallel query clusters
 
 Parallel query is typically used for the kinds of resource-intensive queries that benefit from the hash join optimization.
 Thus, it's helpful to make sure that hash joins are turned on for clusters where you plan to use parallel query. For
 information about how to use hash joins effectively, see [Optimizing large Aurora MySQL join queries with hash joins](AuroraMySQL.BestPractices.md#Aurora.BestPractices.HashJoin "AuroraMySQL.BestPractices.md#Aurora.BestPractices.HashJoin").
 
-## Turning on and turning off
-
-parallel query using the console
+## Turning on and turning off parallel query using the console
 
 You can turn on or turn off parallel query at the DB instance level or the DB cluster
 level by working with parameter groups.
@@ -90,9 +81,7 @@ level by working with parameter groups.
    using a cluster parameter group. Doing so makes sure that all DB instances in the cluster have the same settings for
    parallel query and associated features such as hash join.
 
-## Turning on and turning off
-
-parallel query using the CLI
+## Turning on and turning off parallel query using the CLI
 
 You can modify the parallel query parameter by using the `modify-db-cluster-parameter-group`
 or `modify-db-parameter-group` command. Choose the appropriate command depending on whether

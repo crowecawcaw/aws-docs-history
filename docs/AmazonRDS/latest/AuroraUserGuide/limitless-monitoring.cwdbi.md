@@ -22,8 +22,7 @@ create a DB cluster. Settings for Database Insights apply to all DB instances in
      KMS key. Performance Insights encrypts all
      potentially sensitive data using your KMS key. Data is
      encrypted in flight and at rest. For more information, see
-     [Encrypting Amazon Aurora
-     resources](Overview.md "Overview.md").
+     [Encrypting Amazon Aurora resources](Overview.md "Overview.md").
 
 5. Choose **Create database**.
 
@@ -136,8 +135,7 @@ create a DB cluster. Settings for Database Insights apply to all DB instances in
      KMS key. Performance Insights encrypts all
      potentially sensitive data using your KMS key. Data is
      encrypted in flight and at rest. For more information, see
-     [Encrypting Amazon Aurora
-     resources](Overview.md "Overview.md").
+     [Encrypting Amazon Aurora resources](Overview.md "Overview.md").
 
 5. Choose **Continue**.
 6. For **Scheduling of Modifications**, choose **Apply immediately**. If you

@@ -16,8 +16,7 @@ If you are using the standard IAM authentication, follow these instructions:
 
 5. Create a new database user in your database that matches the IAM user or role name you want to use for authentication.
 6. Ensure the database user is configured with IAM authentication plugin at the database.
-   See [Creating a database account using
-   IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+   See [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
 7. Update the IAM policy to grant the `rds-db:connect` permission to the IAM user or role, as described in [Creating an IAM policy for end-to-end IAM authentication](rds-proxy-iam-setup.md#rds-proxy-iam-setup-e2e-steps "rds-proxy-iam-setup.md#rds-proxy-iam-setup-e2e-steps").
 8. Ensure your proxy is configured to use IAM authentication as the default authentication scheme.
    With end-to-end IAM authentication, you don't need to manage database credentials in Secrets Manager secrets, as IAM

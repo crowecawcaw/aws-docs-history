@@ -14,8 +14,7 @@ from MySQL 8.0 Community Edition. There are two types of temporary tables that c
 
 - [Storage engine for internal (implicit) temporary tables](#ams3-temptable-behavior-engine "#ams3-temptable-behavior-engine")
 - [Limiting the size of internal, in-memory temporary tables](#ams3-temptable-behavior-limit "#ams3-temptable-behavior-limit")
-- [Mitigating fullness issues for internal temporary tables on Aurora
-  Replicas](#ams3-temptable-behavior-mitigate "#ams3-temptable-behavior-mitigate")
+- [Mitigating fullness issues for internal temporary tables on Aurora Replicas](#ams3-temptable-behavior-mitigate "#ams3-temptable-behavior-mitigate")
 - [Optimizing the temptable_max_mmap parameter on Aurora MySQL DB instances](#ams-optimize-temptable_max_mmap "#ams-optimize-temptable_max_mmap")
 - [User-created (explicit) temporary tables on reader DB instances](#ams3-temptable-behavior.user "#ams3-temptable-behavior.user")
 - [Temporary table creation errors and mitigation](#ams3-temptable-behavior.errors "#ams3-temptable-behavior.errors")
@@ -304,9 +303,7 @@ mysql> WITH RECURSIVE cte (n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM cte WHERE
 **ERROR 1114 (HY000): The table '/rdsdbdata/tmp/#sqlfd\_8\_2' is full**
 ```
 
-## Mitigating fullness issues for internal temporary tables on Aurora
-
-Replicas
+## Mitigating fullness issues for internal temporary tables on Aurora Replicas
 
 To avoid size limitation issues for temporary tables, set the `temptable_max_ram` and
 `temptable_max_mmap` parameters to a combined value that can fit the requirements of your workload.

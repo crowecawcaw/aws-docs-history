@@ -1,6 +1,4 @@
-# Supported features in
-
-Amazon Aurora by AWS Region and Aurora DB engine
+# Supported features in Amazon Aurora by AWS Region and Aurora DB engine
 
 Aurora MySQL- and PostgreSQL-compatible database engines support several Amazon Aurora and
 Amazon RDS features and options. The support varies across specific versions of each database
@@ -15,8 +13,7 @@ Amazon RDS Proxy, are supported by both Amazon Aurora and Amazon RDS.
 
 ###### Supported Regions and DB engines
 
-- [Table
-  conventions](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.TableConventions "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.TableConventions")
+- [Table conventions](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.TableConventions "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.TableConventions")
 - [Blue/Green Deployments](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md")
 - [Aurora cluster configurations](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md")
 - [Database activity streams](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md")
@@ -37,9 +34,7 @@ Amazon RDS Proxy, are supported by both Amazon Aurora and Amazon RDS.
 - [Aurora PostgreSQL Limitless Database](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md")
 - [Engine-native features](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md")
 
-## Table
-
-conventions
+## Table conventions
 
 The tables in the feature sections use the following patterns to specify version
 numbers and level of support:

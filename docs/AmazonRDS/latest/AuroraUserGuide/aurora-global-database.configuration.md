@@ -29,8 +29,7 @@ The Aurora DB clusters that make up an Aurora global database have the following
 
 For information about which combinations of Aurora DB engine, engine version, and AWS Region you can use with
 Aurora Global Database, see
-[Supported
-Regions and DB engines for Aurora global databases](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+[Supported Regions and DB engines for Aurora global databases](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
 
 - **Naming requirements** – The names you choose for each of your Aurora DB clusters must be unique, across all AWS Regions. You can't
   use the same name for different Aurora DB clusters even though they're in different Regions.

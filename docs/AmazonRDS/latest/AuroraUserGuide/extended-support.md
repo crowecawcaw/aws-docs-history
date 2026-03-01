@@ -44,12 +44,8 @@ the RDS end of Extended Support dates, see [Release calendar for Aurora MySQL ma
 - [Overview of Amazon RDS Extended Support](extended-support-overview.md "extended-support-overview.md")
 - [Amazon RDS Extended Support charges](extended-support-charges.md "extended-support-charges.md")
 - [Versions with Amazon RDS Extended Support](extended-support-versions.md "extended-support-versions.md")
-- [Amazon Aurora and customer
-  responsibilities with Amazon RDS Extended Support](extended-support-responsibilities.md "extended-support-responsibilities.md")
-- [Creating an
-  Aurora DB cluster or a global cluster with Amazon RDS Extended Support](extended-support-creating-db-instance.md "extended-support-creating-db-instance.md")
+- [Amazon Aurora and customer responsibilities with Amazon RDS Extended Support](extended-support-responsibilities.md "extended-support-responsibilities.md")
+- [Creating an Aurora DB cluster or a global cluster with Amazon RDS Extended Support](extended-support-creating-db-instance.md "extended-support-creating-db-instance.md")
 - [Viewing the enrollment of your Aurora DB clusters or global clusters in Amazon RDS Extended Support](extended-support-viewing.md "extended-support-viewing.md")
-- [Viewing support dates for engine
-  versions in Amazon RDS Extended Support](extended-support-viewing-support-dates.md "extended-support-viewing-support-dates.md")
-- [Restoring an
-  Aurora DB cluster or a global cluster with Amazon RDS Extended Support](extended-support-restoring-db-instance.md "extended-support-restoring-db-instance.md")
+- [Viewing support dates for engine versions in Amazon RDS Extended Support](extended-support-viewing-support-dates.md "extended-support-viewing-support-dates.md")
+- [Restoring an Aurora DB cluster or a global cluster with Amazon RDS Extended Support](extended-support-restoring-db-instance.md "extended-support-restoring-db-instance.md")

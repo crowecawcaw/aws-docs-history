@@ -1,14 +1,10 @@
-# Using Amazon CloudWatch metrics to analyze
-
-resource usage for Aurora PostgreSQL
+# Using Amazon CloudWatch metrics to analyze resource usage for Aurora PostgreSQL
 
 Aurora automatically sends metric data to CloudWatch in 1-minute periods. You can analyze
 resource usage for Aurora PostgreSQL using CloudWatch metrics. You can evaluate the network throughput
 and the network usage with the metrics.
 
-##
-
-Evaluating network throughput with CloudWatch
+## Evaluating network throughput with CloudWatch
 
 When your system usage approaches the resource limits for your instance type, the
 processing can slow down.
@@ -63,14 +59,11 @@ the graph display.
 
 ![Logs Insights page and the graph display.](images/AurPG-CW-LogsInsights.png)
 
-## Evaluating DB instance usage for Aurora PostgreSQL with CloudWatch
-
-metrics
+## Evaluating DB instance usage for Aurora PostgreSQL with CloudWatch metrics
 
 You can use CloudWatch metrics to watch your instance throughput and discover if your
 instance class provides sufficient resources for your applications. For information
-about your DB instance class limits, go to [Hardware specifications for DB instance
-classes for Aurora](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md") and locate the specifications for
+about your DB instance class limits, go to [Hardware specifications for DB instance classesfor Aurora](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md") and locate the specifications for
 your DB instance class to find your network performance.
 
 If your DB instance usage is near the instance class limit, then performance may

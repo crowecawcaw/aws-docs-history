@@ -5,8 +5,7 @@ To avoid errors, use a MySQL client with version 8.0.26 or higher on Unix platfo
 ## Using the Aurora MySQL Kerberos login to connect to the DB cluster
 
 To connect to Aurora MySQL with Kerberos authentication, you log in as a database user that you created using the
-instructions in [Step 6: Create Aurora MySQL users that use Kerberos
-authentication](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-logins "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-logins").
+instructions in [Step 6: Create Aurora MySQL users that use Kerberos authentication](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-logins "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-logins").
 
 At a command prompt, connect to one of the endpoints associated with your Aurora MySQL DB cluster. When you're prompted
 for the password, enter the Kerberos password associated with that username.

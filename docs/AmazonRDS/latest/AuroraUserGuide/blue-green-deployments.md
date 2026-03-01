@@ -1,6 +1,4 @@
-# Using Amazon Aurora Blue/Green Deployments
-
-for database updates
+# Using Amazon Aurora Blue/Green Deployments for database updates
 
 A blue/green deployment copies a production database environment to a separate,
 synchronized staging environment. By using Amazon Aurora Blue/Green Deployments, you
@@ -27,6 +25,5 @@ Guide_.
 - [Overview of Amazon Aurora Blue/Green Deployments](blue-green-deployments-overview.md "blue-green-deployments-overview.md")
 - [Creating a blue/green deployment in Amazon Aurora](blue-green-deployments-creating.md "blue-green-deployments-creating.md")
 - [Viewing a blue/green deployment in Amazon Aurora](blue-green-deployments-viewing.md "blue-green-deployments-viewing.md")
-- [Switching a blue/green deployment in
-  Amazon Aurora](blue-green-deployments-switching.md "blue-green-deployments-switching.md")
+- [Switching a blue/green deployment in Amazon Aurora](blue-green-deployments-switching.md "blue-green-deployments-switching.md")
 - [Deleting a blue/green deployment in Amazon Aurora](blue-green-deployments-deleting.md "blue-green-deployments-deleting.md")

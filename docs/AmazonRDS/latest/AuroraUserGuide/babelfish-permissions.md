@@ -1,6 +1,4 @@
-# Managing permissions and access control in
-
-Babelfish for Aurora PostgreSQL
+# Managing permissions and access control in Babelfish for Aurora PostgreSQL
 
 In Babelfish for Aurora PostgreSQL, you can manage permissions and access control for databases, schemas,
 and objects. The following tables will outline the specific SQL commands for granting
@@ -31,9 +29,7 @@ commands.
 | Allow login to only CREATE/DROP/ALTER any database                                                                                                                                            | Add login to dbcreator fixed server role                   | ALTER SERVER ROLE dbcreator ADD MEMBER `login`                             | Only those databases can be altered on which dbcreator login has<br>access.                                  | Version 4.5 and higher, 5.1 and higher |
 | Allow login to only CREATE/ALTER/DROP any login                                                                                                                                               | Add login to securityadmin fixed server role               | ALTER SERVER ROLE securityadmin ADD MEMBER `login`                         | None                                                                                                         | Version 4.5 and higher, 5.1 and higher |
 
-## Unsupported use cases
-
-with the workarounds
+## Unsupported use cases with the workarounds
 
 The following table explains the use cases that aren't supported in Babelfish,
 but which can be achieved using a workaround.

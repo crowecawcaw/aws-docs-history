@@ -2725,8 +2725,7 @@ If your DB cluster has a high rollback segment history list length (HLL), it can
 complete its purge of undo log records, leading to extended downtime during the major version upgrade process. If the precheck
 detects that the HLL on your DB cluster is high, it raises a warning. While this doesn't block your upgrade from proceeding, we
 recommend that you closely monitor the HLL on your DB cluster. Keeping it at low levels reduces the downtime required during a major
-version upgrade. For more information on monitoring HLL, see [The InnoDB history list length increased
-significantly](proactive-insights.md "proactive-insights.md").
+version upgrade. For more information on monitoring HLL, see [The InnoDB history list length increased significantly](proactive-insights.md "proactive-insights.md").
 
 **Example output:**
 

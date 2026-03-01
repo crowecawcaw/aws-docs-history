@@ -32,8 +32,7 @@ The following limitations currently apply to Babelfish for Aurora PostgreSQL:
       + `pgcrypto`
       + Query plan management using `apg_plan_mgmt`
 
-  To learn more about PostgreSQL extensions, see [Working with extensions and
-  foreign data wrappers](Appendix.PostgreSQL.md "Appendix.PostgreSQL.md").
+  To learn more about PostgreSQL extensions, see [Working with extensions and foreign data wrappers](Appendix.PostgreSQL.md "Appendix.PostgreSQL.md").
 
 - The open source [jTDS
   driver](https://github.com/milesibastos/jTDS/ "https://github.com/milesibastos/jTDS/") that is designed as an alternative to the Microsoft JDBC driver

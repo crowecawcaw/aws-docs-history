@@ -1,6 +1,4 @@
-# Managing an Aurora PostgreSQL DB cluster in an Active Directory
-
-domain
+# Managing an Aurora PostgreSQL DB cluster in an Active Directory domain
 
 You can use the console, the CLI, or the RDS API to manage your DB cluster and
 its relationship with your Microsoft Active Directory. For example, you can associate an
@@ -24,9 +22,7 @@ membership's directory ID for the `--domain` option.
   [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") CLI command. Specify the domain identifier of the
   new domain for the `--domain` option.
 
-## Understanding Domain
-
-membership
+## Understanding Domain membership
 
 After you create or modify your DB cluster, the DB instances become members of the domain. You can view
 the status of the domain membership in the console or by running the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md")

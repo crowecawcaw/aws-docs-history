@@ -1,6 +1,4 @@
-# Using Babelfish product version
-
-parameter
+# Using Babelfish product version parameter
 
 A new Grand Unified Configuration (GUC) parameter called
 `babelfishpg_tds.product_version` is introduced from Babelfish
@@ -20,13 +18,11 @@ Syntax
 - Build Version: A number between 0 and 65535.
 - Revision: 0 and any positive number.
 
-## Configuring Babelfish product
-
-version parameter
+## Configuring Babelfish product version parameter
 
 You must use the cluster parameter group to set the
 babelfishpg_tds.product_version parameter in the console. For more information on
-how to modify the DB cluster parameter, see [Modifying parameters in a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+how to modify the DB cluster parameter, see [Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 When you set the product version parameter to an invalid value, the change will
 not take effect. Although the console might show you the new value, the parameter
@@ -52,9 +48,7 @@ aws rds modify-db-cluster-parameter-group ^
 
 ```
 
-## Affected queries and
-
-parameter
+## Affected queries and parameter
 
 | Query/Parameter                              | Result                                                                                  | Effective time                                 |
 | -------------------------------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------- |
@@ -64,9 +58,7 @@ parameter
 | VERSION tokens in PRELOGIN Response Message  | Server returns PRELOGIN messages with user defined SQL Server<br>version                | Takes effect when a user creates a new session |
 | SQLServerVersion in LoginAck when using JDBC | DatabaseMetaData.getDatabaseProductVersion() returns user<br>defined SQL Server version | Takes effect when a user creates a new session |
 
-## Interface with babelfishpg_tsql.version
-
-parameter
+## Interface with babelfishpg_tsql.version parameter
 
 You can set the output of the @@VERSION using the parameters
 babelfishpg_tsql.version and babelfishpg_tds.product_version. The following examples

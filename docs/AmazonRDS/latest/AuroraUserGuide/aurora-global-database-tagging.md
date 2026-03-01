@@ -2,7 +2,7 @@
 
 With the Aurora Global Database feature, you can apply RDS tags to resources at different levels within a global
 database. If you aren't familiar with how tags are used with AWS or Aurora resources, see
-[Tagging Amazon Aurora and Amazon RDS resources](USER_Tagging.md "USER_Tagging.md") before applying tags within your global database.
+[Tagging Amazon Aurora andAmazon RDS resources](USER_Tagging.md "USER_Tagging.md") before applying tags within your global database.
 
 ###### Note
 

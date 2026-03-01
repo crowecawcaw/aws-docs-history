@@ -1,6 +1,4 @@
-# Database is creating temporary tables on
-
-disk
+# Database is creating temporary tables on disk
 
 Your recent on-disk temporary table usage increased significantly, up to `percentage`. The database is
 creating around `number` temporary tables per second. This might impact performance and increase disk
@@ -10,8 +8,7 @@ operations on `db-instance`.
 
 - [Supported engine versions](#proactive-insights.temp-tables.context.supported "#proactive-insights.temp-tables.context.supported")
 - [Context](#proactive-insights.temp-tables.context "#proactive-insights.temp-tables.context")
-- [Likely causes for this
-  issue](#proactive-insights.temp-tables.causes "#proactive-insights.temp-tables.causes")
+- [Likely causes for this issue](#proactive-insights.temp-tables.causes "#proactive-insights.temp-tables.causes")
 - [Actions](#proactive-insights.temp-tables.actions "#proactive-insights.temp-tables.actions")
 - [Relevant metrics](#proactive-insights.temp-tables.metrics "#proactive-insights.temp-tables.metrics")
 
@@ -26,9 +23,7 @@ in memory, where it can be processed by the TempTable or MEMORY storage engine, 
 information, see [Internal Temporary Table
 Use in MySQL](https://dev.mysql.com/doc/refman/5.6/en/internal-temporary-tables.html "https://dev.mysql.com/doc/refman/5.6/en/internal-temporary-tables.html") in the _MySQL Reference Manual_.
 
-## Likely causes for this
-
-issue
+## Likely causes for this issue
 
 An increase in on-disk temporary tables indicates the use of complex queries. If the configured memory is insufficient to
 store temporary tables in memory, Aurora MySQL creates the tables on disk. This can impact performance and increase disk operations.

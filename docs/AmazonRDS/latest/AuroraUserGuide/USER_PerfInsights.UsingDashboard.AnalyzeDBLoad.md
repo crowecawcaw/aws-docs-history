@@ -7,8 +7,7 @@ in the **Top dimensions** table. You can use this information to tune your queri
 
 - [Overview of the Top SQL tab](#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL "#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL")
 - [Accessing more SQL text in the Performance Insights dashboard](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")
-- [Viewing SQL statistics in the Performance
-  Insights dashboard](USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.md "USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.md")
+- [Viewing SQL statistics in the Performance Insights dashboard](USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.md "USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.md")
 
 ## Overview of the Top SQL tab
 

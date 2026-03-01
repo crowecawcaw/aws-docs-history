@@ -23,12 +23,9 @@ procedures in a development or staging environment before implementing them in y
 production environments.
 
 For more information about certificate rotation, see
-[Rotating your SSL/TLS
-certificate](UsingWithRDS.md "UsingWithRDS.md").
-For more information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB
-cluster](UsingWithRDS.md "UsingWithRDS.md"). For information about
-using SSL/TLS with PostgreSQL DB clusters, see [Securing Aurora PostgreSQL data with
-SSL/TLS](AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL "AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL").
+[Rotating your SSL/TLS certificate](UsingWithRDS.md "UsingWithRDS.md").
+For more information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.md "UsingWithRDS.md"). For information about
+using SSL/TLS with PostgreSQL DB clusters, see [Securing Aurora PostgreSQL data with SSL/TLS](AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL "AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL").
 
 ###### Topics
 
@@ -120,11 +117,9 @@ When you update the trust store, you can retain older certificates in addition t
 
 You can update the trust store for applications that use JDBC for SSL/TLS connections.
 
-For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB
-cluster](UsingWithRDS.md "UsingWithRDS.md").
+For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.md "UsingWithRDS.md").
 
-For sample scripts that import certificates, see [Sample
-script for importing certificates into your trust store](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script").
+For sample scripts that import certificates, see [Sample script for importing certificates into your trust store](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script").
 
 ## Using SSL/TLS connections for different types of applications
 
@@ -165,5 +160,4 @@ For information about using `psycopg2`, see the [psycopg2 documentation](https:/
 
 After you have determined that your database connections use SSL/TLS and have
 updated your application trust store, you can update your database to use the
-rds-ca-rsa2048-g1 certificates. For instructions, see step 3 in [Updating
-your CA certificate by modifying your DB instance](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating") .
+rds-ca-rsa2048-g1 certificates. For instructions, see step 3 in [Updating your CA certificate by modifying your DB instance](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating") .

@@ -1,68 +1,61 @@
-# Upgrading the minor version or patch level of an Aurora MySQL DB cluster
+# Using zero-downtime patching
 
-You can use the following methods to upgrade the minor version of a DB cluster or to patch a DB cluster:
+Performing upgrades for Aurora MySQL DB clusters involves the possibility of an outage when the database is shut down and while
+it's being upgraded. By default, if you start the upgrade while the database is busy, you lose all the connections and
+transactions that the DB cluster is processing. If you wait until the database is idle to perform the upgrade, you might have to
+wait a long time.
 
-- [Upgrading Aurora MySQL by modifying the engine version](AuroraMySQL.Updates.Patching.md "AuroraMySQL.Updates.Patching.md")
-  (for Aurora MySQL version 2 and 3)
-- [Enabling automatic upgrades between minor Aurora MySQL versions](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
+The zero-downtime patching (ZDP) feature attempts, on a best-effort basis, to preserve client connections through an Aurora MySQL
+upgrade. If ZDP completes successfully, application sessions are preserved and the database engine restarts while the upgrade is in
+progress. The database engine restart can cause a drop in throughput lasting for a few seconds to approximately one minute.
 
-For information about how zero-downtime patching can reduce interruptions during the upgrade process, see
-[Using zero-downtime patching](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md").
+ZDP doesn't apply to the following:
 
-For information about performing a minor version upgrade for your Aurora MySQL DB cluster, see the following topics.
+- Operating system (OS) patches and upgrades
+- Major version upgrades
+  ZDP is available for all supported Aurora MySQL versions and DB instance classes.
 
-###### Topics
+ZDP isn't supported for Aurora Serverless v1 or Aurora global databases.
 
-- [Before performing a minor version upgrade](#USER_UpgradeDBInstance.PostgreSQL.BeforeMinor "#USER_UpgradeDBInstance.PostgreSQL.BeforeMinor")
-- [Minor version upgrade prechecks for Aurora MySQL](#AuroraMySQL.minor-upgrade-prechecks "#AuroraMySQL.minor-upgrade-prechecks")
-- [Upgrading Aurora MySQL by modifying the engine version](AuroraMySQL.Updates.Patching.md "AuroraMySQL.Updates.Patching.md")
-- [Enabling automatic upgrades between minor Aurora MySQL versions](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
-- [Using zero-downtime patching](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
-- [Alternative blue/green upgrade
-  technique](#AuroraMySQL.UpgradingMinor.BlueGreen "#AuroraMySQL.UpgradingMinor.BlueGreen")
+###### Note
 
-## Before performing a minor version upgrade
+We recommend using the T DB instance classes only for development and test servers, or other non-production servers. For more
+details on the T instance classes, see [Using T instance classes for development and testing](AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.T2Medium "AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.T2Medium").
 
-We recommend that you perform the following actions to reduce the downtime during a minor version upgrade:
+You can see metrics of important attributes during ZDP in the MySQL error log. You can also see information about when Aurora MySQL
+uses ZDP or chooses not to use ZDP on the **Events** page in the AWS Management Console.
 
-- The Aurora DB cluster maintenance should be performed during a period of low traffic. Use Performance Insights to identify these time periods in order to configure the maintenance windows correctly.
-  For more information on Performance Insights, see [Monitoring DB load with Performance Insights on Amazon RDS](../UserGuide/USER_PerfInsights.md "../UserGuide/USER_PerfInsights.md").
-  For more information on DB cluster maintenance window, [Adjusting the preferred DB cluster
-  maintenance window](USER_UpgradeDBInstance.md#AdjustingTheMaintenanceWindow.Aurora "USER_UpgradeDBInstance.md#AdjustingTheMaintenanceWindow.Aurora").
-- Use AWS SDKs that support exponential backoff and jitter as a best practice.
-  For more information, see [Exponential Backoff And Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/ "https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/").
+In Aurora MySQL, Aurora can perform a zero-downtime patch whether or not binary log replication is enabled. If binary log replication is enabled,
+Aurora MySQL automatically drops the connection to the binlog target during a ZDP operation. Aurora MySQL automatically reconnects to the binlog target and
+resumes replication after the restart finishes.
 
-## Minor version upgrade prechecks for Aurora MySQL
+ZDP also works in combination with the reboot enhancements in Aurora MySQL. Patching the writer DB instance automatically patches readers at the same
+time. After performing the patch, Aurora restores the connections on both the writer and reader DB instances.
 
-When you start a minor version upgrade, Amazon Aurora runs prechecks automatically.
+ZDP might not complete successfully under the following conditions:
 
-These prechecks are mandatory. You can't choose to skip them. The prechecks provide the following benefits:
+- Long-running queries or transactions are in progress. If Aurora can perform ZDP in this case, any open transactions are canceled but their
+  connections are retained.
+- Temporary tables, user locks, or table locks are in use, for example while data definition language (DDL) statements run. Aurora drops these
+  connections.
+- Pending parameter changes exist.
+  If no suitable time window for performing ZDP becomes available because of one or more of these conditions, patching reverts to the standard behavior.
 
-- They enable you to avoid unplanned downtime during the upgrade.
-- If there are incompatibilities, Amazon Aurora prevents the upgrade and provides a log for you to learn about them. You
-  can then use the log to prepare your database for the upgrade by reducing the incompatibilities. For detailed
-  information about removing incompatibilities, see [Preparing
-  your installation for upgrade](https://dev.mysql.com/doc/refman/8.0/en/upgrade-prerequisites.html "https://dev.mysql.com/doc/refman/8.0/en/upgrade-prerequisites.html") in the MySQL documentation.
+Although connections remain intact following a successful ZDP operation, some variables and features are reinitialized. The following kinds of information
+aren't preserved through a restart caused by zero-downtime patching:
 
-The prechecks run before the DB instance is stopped for the upgrade, meaning that they don't cause any downtime when
-they run. If the prechecks find an incompatibility, Aurora automatically cancels the upgrade before the DB instance is
-stopped. Aurora also generates an event for the incompatibility. For more information about Amazon Aurora events, see
-[Working with Amazon RDS event notification](USER_Events.md "USER_Events.md").
+- Global variables. Aurora restores session variables, but it doesn't restore global variables after the restart.
+- Status variables. In particular, the uptime value reported by the engine status is reset after a restart that uses the ZDR or
+  ZDP mechanisms.
+- `LAST_INSERT_ID`.
+- In-memory `auto_increment` state for tables. The in-memory auto-increment state is reinitialized. For more
+  information about auto-increment values, see
+  [MySQL Reference Manual](https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html#innodb-auto-increment-initialization "https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html#innodb-auto-increment-initialization").
+- Diagnostic information from `INFORMATION_SCHEMA` and `PERFORMANCE_SCHEMA` tables. This diagnostic
+  information also appears in the output of commands such as `SHOW PROFILE` and `SHOW PROFILES`.
+  The following activities related to zero-downtime restart are reported on the **Events** page:
 
-Aurora records detailed information about each incompatibility in the log file `PrePatchCompatibility.log`. In
-most cases, the log entry includes a link to the MySQL documentation for correcting the incompatibility. For more
-information about viewing log files, see [Viewing and listing database log files](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md").
-
-Due to the nature of the prechecks, they analyze the objects in your database. This analysis results in resource
-consumption and increases the time for the upgrade to complete.
-
-## Alternative blue/green upgrade
-
-technique
-
-In some situations, your top priority is to perform an immediate switchover from the old
-cluster to an upgraded one. In such situations, you can use a multistep process that runs the
-old and new clusters side-by-side. Here, you replicate data from the old cluster to the new
-one until you are ready for the new cluster to take over. For details, see
-[Using Amazon Aurora Blue/Green Deployments
-for database updates](blue-green-deployments.md "blue-green-deployments.md").
+- Attempting to upgrade the database with zero downtime.
+- Attempting to upgrade the database with zero downtime finished. The event reports how long the process took. The event also
+  reports how many connections were preserved during the restart and how many connections were dropped. You can consult the
+  database error log to see more details about what happened during the restart.

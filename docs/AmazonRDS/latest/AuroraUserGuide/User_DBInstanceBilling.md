@@ -6,16 +6,14 @@ Amazon RDS provisioned instances in an Amazon Aurora cluster are billed based on
   instance (for example, db.t2.small or db.m4.large). Pricing is listed on a per-hour
   basis, but bills are calculated down to the second and show times in decimal form.
   RDS usage is billed in 1-second increments, with a minimum of 10 minutes. For more
-  information, see [Amazon Aurora DB instance classes](Concepts.md "Concepts.md").
+  information, see [Amazon AuroraDB instance classes](Concepts.md "Concepts.md").
 - Storage (per GiB per month) – Storage capacity that you have provisioned to your DB instance. If you scale your provisioned
-  storage capacity within the month, your bill is prorated. For more information, see [Amazon Aurora
-  storage](Aurora.Overview.md "Aurora.Overview.md").
+  storage capacity within the month, your bill is prorated. For more information, see [Amazon Aurora storage](Aurora.Overview.md "Aurora.Overview.md").
 - Input/output (I/O) requests (per 1 million requests) – Total number of storage I/O requests that you have made in a billing
   cycle, for the Aurora Standard DB cluster
   configuration only.
 
-For more information on Amazon Aurora I/O billing, see [Storage configurations for Amazon Aurora DB
-clusters](Aurora.Overview.md#aurora-storage-type "Aurora.Overview.md#aurora-storage-type").
+For more information on Amazon Aurora I/O billing, see [Storage configurations for Amazon Aurora DB clusters](Aurora.Overview.md#aurora-storage-type "Aurora.Overview.md#aurora-storage-type").
 
 - Backup storage (per GiB per month) – _Backup storage_ is the storage that is associated with automated database backups and any
   active database snapshots that you have taken. Increasing your backup retention

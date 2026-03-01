@@ -1,290 +1,374 @@
-# Amazon Aurora tutorials
+# Tutorial: Create a VPC for use with a DB cluster (dual-stack mode)
 
-and sample code
+A common scenario includes a DB cluster
+in a virtual private cloud (VPC) based on the Amazon VPC service. This VPC shares data with a public Amazon EC2 instance
+that is running in the same VPC.
 
-The AWS documentation includes several tutorials that guide you through common
-Amazon Aurora
-use cases. Many of these tutorials show you how to use
-Amazon Aurora
-with other AWS services. In addition, you can access sample code in .
+In this tutorial, you create the VPC for this scenario that works with a database
+running in dual-stack mode. Dual-stack mode to enable connection over the IPv6 addressing protocol.
+For more information about IP addressing, see [Amazon Aurora IP addressing](USER_VPC.md#USER_VPC.IP_addressing "USER_VPC.md#USER_VPC.IP_addressing").
 
-###### Note
+Dual-stack network clusters are supported in
+most regions. For more information see
+[Availability of dual-stack network DB clusters](USER_VPC.md#USER_VPC.IP_addressing.dual-stack-availability "USER_VPC.md#USER_VPC.IP_addressing.dual-stack-availability").
+To see the limitations of dual-stack mode, see [Limitations for dual-stack network DB clusters](USER_VPC.md#USER_VPC.IP_addressing.dual-stack-limitations "USER_VPC.md#USER_VPC.IP_addressing.dual-stack-limitations").
 
-You can find more tutorials at the [AWS Database Blog](https://aws.amazon.com/blogs/database/ "https://aws.amazon.com/blogs/database/").
-For information about training, see [AWS Training and Certification](https://www.aws.training/ "https://www.aws.training/").
+The following diagram shows this scenario.
 
-###### Topics
+![VPC scenario for dual-stack mode](images/con-VPC-sec-grp-dual-stack-aurora.png)
+For information about other scenarios, see [Scenarios for accessing a DB cluster in a VPC](USER_VPC.md "USER_VPC.md").
 
-- [Tutorials in this guide](#CHAP_Tutorials.ThisGuide "#CHAP_Tutorials.ThisGuide")
-- [Tutorials in other AWS guides](#CHAP_Tutorials.OtherGuides "#CHAP_Tutorials.OtherGuides")
-- [Tutorials and sample code in GitHub](#CHAP_Tutorials.GitHub "#CHAP_Tutorials.GitHub")
-- [AWS Database Cookbook](#aws-db-cookbook-overview "#aws-db-cookbook-overview")
-- [AWS workshop and lab content portal for
-  Amazon Aurora PostgreSQL](#CHAP_Tutorials_postgreslabs "#CHAP_Tutorials_postgreslabs")
-- [AWS workshop and lab content portal for
-  Amazon Aurora MySQL](#CHAP_Tutorials_sqllabs "#CHAP_Tutorials_sqllabs")
-- [Using this service with an AWS SDK](#sdk-general-information-section "#sdk-general-information-section")
+Your DB cluster needs to be available only to your Amazon EC2 instance, and not to the
+public internet. Thus, you create a VPC with both public and private subnets. The Amazon EC2
+instance is hosted in the public subnet, so that it can reach the public internet. The DB
+cluster is hosted in a private subnet. The Amazon EC2 instance can connect to the
+DB cluster because it's hosted within the same VPC. However, the DB cluster is
+not available to the public internet, providing greater security.
 
-## Tutorials in this guide
+This tutorial configures an additional public and private subnet in a separate Availability Zone. These subnets
+aren't used by the tutorial. An RDS DB subnet group requires a subnet in at least two Availability Zones.
 
-The following tutorials in this guide show you how to perform common tasks with
-Amazon Aurora:
+The additional subnet makes it easy to configure more than one Aurora DB instance.
 
-- [Tutorial: Create a VPC for use with a
-  DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md")
+To create a DB cluster that uses dual-stack mode, specify **Dual-stack mode**
+for the **Network type** setting. You can also modify a DB cluster with the
+same setting. For more information about creating a DB cluster, see [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md"). For more information about modifying a DB cluster, see [Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
 
-Learn how to include a DB cluster in a virtual
-private cloud (VPC) based on the Amazon VPC service. In this case, the VPC
-shares data with a web server that is running on an Amazon EC2 instance in the same
-VPC.
+This tutorial describes configuring a VPC for Amazon Aurora DB clusters.
+For more information about Amazon VPC, see [Amazon VPC User Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md").
 
-- [Tutorial: Create a VPC for use with a DB
-  cluster (dual-stack mode)](CHAP_Tutorials.md "CHAP_Tutorials.md")
+## Create a VPC with private and public subnets
 
-Learn how to include a DB cluster in a virtual
-private cloud (VPC) based on the Amazon VPC service. In this case, the VPC shares
-data with an Amazon EC2 instance in the same VPC. In this tutorial, you create the
-VPC for this scenario that works with a database running in dual-stack mode.
+Use the following procedure to create a VPC with both public and private subnets.
 
-- [Tutorial: Create a web server and an
-  Amazon Aurora DB cluster](TUT_WebAppWithRDS.md "TUT_WebAppWithRDS.md")
+###### To create a VPC and subnets
 
-Learn how to install an Apache web server with PHP and create a MySQL database. The web server runs on an Amazon EC2
-instance using Amazon Linux, and the MySQL database is
-an Aurora MySQL DB cluster.
-Both the Amazon EC2 instance and the DB cluster
-run in an Amazon VPC.
-
-- [Tutorial: Restore an Amazon Aurora DB cluster from a DB cluster snapshot](tut-restore-cluster.md "tut-restore-cluster.md")
-
-Learn how to restore a DB cluster from a DB cluster snapshot.
-
-- [Tutorial: Use tags to specify which Aurora DB clusters to stop](Tagging.Aurora.md "Tagging.Aurora.md")
-
-Learn how to use tags to specify which Aurora DB clusters to stop.
-
-- [Tutorial: Log DB instance state changes using
-  Amazon EventBridge](rds-cloud-watch-events.md#log-rds-instance-state "rds-cloud-watch-events.md#log-rds-instance-state")
-
-Learn how to log a DB instance state change using Amazon EventBridge and AWS Lambda.
-
-## Tutorials in other AWS guides
-
-The following tutorials in other AWS guides show you how to perform common tasks with
-Amazon Aurora:
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the upper-right corner of the AWS Management Console, choose the Region to create your
+   VPC in. This example uses the US East (Ohio) Region.
+3. In the upper-left corner, choose **VPC dashboard**. To begin
+   creating a VPC, choose **Create VPC**.
+4. For **Resources to create** under **VPC settings**, choose
+   **VPC and more**.
+5. For the remaining **VPC settings**, set these values:
+   - **Name tag auto-generation** – `tutorial-dual-stack`
+   - **IPv4 CIDR block** – `10.0.0.0/16`
+   - **IPv6 CIDR block** – **Amazon-provided IPv6 CIDR block**
+   - **Tenancy** – **Default**
+   - **Number of Availability Zones (AZs)** – **2**
+   - **Customize AZs** – Keep the default values.
+   - **Number of public subnet** – **2**
+   - **Number of private subnets** – **2**
+   - **Customize subnets CIDR blocks** – Keep the default values.
+   - **NAT gateways ($)** – **None**
+   - **Egress only internet gateway** – **No**
+   - **VPC endpoints** – **None**
+   - **DNS options** – Keep the default values.
 
 ###### Note
 
-Some of the tutorials use Amazon RDS DB instances, but they can be adapted to use Aurora DB clusters.
-
-- [Tutorial: Aurora Serverless](../../../appsync/latest/devguide/tutorial-rds-resolvers.md "../../../appsync/latest/devguide/tutorial-rds-resolvers.md") in the _AWS AppSync Developer Guide_
-
-Learn how to use AWS AppSync to provide a data source for running SQL commands
-against Aurora Serverless DB clusters with the Data API enabled. You can use
-AWS AppSync resolvers to run SQL statements against the Data API with GraphQL
-queries, mutations, and subscriptions.
-
-- [Tutorial: Rotating a Secret for an AWS Database](../../../secretsmanager/latest/userguide/tutorials_db-rotate.md "../../../secretsmanager/latest/userguide/tutorials_db-rotate.md") in the _AWS Secrets Manager User Guide_
-
-Learn how to create a secret for an AWS database and configure the secret to rotate on a schedule. You trigger one
-rotation manually, and then confirm that the new version of the secret continues to provide access.
-
-- [Tutorials and samples](../../../elasticbeanstalk/latest/dg/tutorials.md "../../../elasticbeanstalk/latest/dg/tutorials.md") in the _AWS Elastic Beanstalk Developer Guide_
-
-Learn how to deploy applications that use Amazon RDS databases with AWS Elastic Beanstalk.
-
-- [Using Data from an Amazon RDS Database to Create an Amazon ML Datasource](../../../machine-learning/latest/dg/using-amazon-rds-with-amazon-ml.md "../../../machine-learning/latest/dg/using-amazon-rds-with-amazon-ml.md") in the _Amazon Machine Learning Developer Guide_
-
-Learn how to create an Amazon Machine Learning (Amazon ML) datasource object from data stored in a MySQL DB instance.
-
-- [Manually Enabling Access to an Amazon RDS Instance in a VPC](../../../quicksight/latest/user/rds-vpc-access.md "../../../quicksight/latest/user/rds-vpc-access.md") in the _Amazon Quick Suite User Guide_
-
-Learn how to enable Quick Suite access to an Amazon RDS DB instance in a VPC.
-
-## Tutorials and sample code in GitHub
-
-The following tutorials and sample code in GitHub show you how to perform common tasks with
-Amazon Aurora:
-
-- [Creating an Aurora Serverless v2 lending library](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/aurora_rest_lending_library "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/aurora_rest_lending_library")
-
-Learn how to create a lending library application where patrons can borrow and return books. The example uses
-Aurora Serverless v2 and AWS SDK for Python (Boto3).
-
-- [Creating an Amazon Aurora item tracker application with a Spring REST API that queries Aurora Serverless v2 data using
-  SDK for Java 2.x](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/Creating_Spring_RDS_Rest "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/Creating_Spring_RDS_Rest")
-
-Learn how to create a Spring REST API that queries Aurora Serverless v2 data. It's for use by a React application using
-SDK for Java 2.x.
-
-- [Creating
-  an Amazon Aurora item tracker application that queries Aurora Serverless v2 data using AWS SDK for PHP](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/cross_service/aurora_item_tracker "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/cross_service/aurora_item_tracker")
-
-Learn how to create an application that uses the `RdsDataClient` of the Data API and Aurora Serverless v2 to
-track and report on work items. The example uses AWS SDK for PHP.
-
-- [Creating an Amazon Aurora item tracker application that queries Aurora Serverless v2 data using
-  AWS SDK for Python (Boto3)](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/aurora_item_tracker "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/aurora_item_tracker")
-
-Learn how to create an application that uses the `RdsDataClient` of the Data API and Aurora Serverless v2 to
-track and report on work items. The example uses AWS SDK for Python (Boto3).
-
-## AWS Database Cookbook
-
-The [AWS DB Cookbook](https://github.com/aws-samples/sample-aws-database-cookbook/ "https://github.com/aws-samples/sample-aws-database-cookbook/") is a comprehensive database guide that teaches you how to build, deploy, and manage high-performing, cost-effective database solutions on AWS. Step-by-step tutorials guide you through creating production-ready applications and deploying the apps with CloudFormation templates. You'll learn essential AWS services as you build infrastructure, implement networking, develop serverless architectures, manage databases, and integrate generative AI. Learn AWS best practices that help you create secure, scalable solutions while optimizing costs. Whether you're new to AWS or an experienced professional, the AWS DB Cookbook helps you develop skills to solve common database challenges and implement enterprise-ready solutions. The cookbook includes the following sections:
-
-- [Getting started with AWS for DB applications](https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/1_Getting_Started_with_AWS "https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/1_Getting_Started_with_AWS") – Learn AWS fundamentals like how to set up your account and Jupyter Notebook environment.
-- [Database fundamentals](https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/2_Your_First_Database_on_AWS "https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/2_Your_First_Database_on_AWS") – Explore essential database concepts and compare AWS database services to choose the right solution for your workloads.
-- [Serverless web app with Amazon Aurora](https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/3_Building_Your_First_Serverless_Web_App_with_Aurora "https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/3_Building_Your_First_Serverless_Web_App_with_Aurora") – Build an end-to-end retail application with Amazon Aurora PostgreSQL that handles inventory, orders, and customer data.
-- [Monitoring and observability](https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/4_Operational_Excellence_Best_Practices_for_Aurora "https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/4_Operational_Excellence_Best_Practices_for_Aurora") – Set up performance tracking and configure alerts to identify potential database issues before they impact your applications.
-- [Scaling with Amazon Aurora](https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/5_Scaling_for_Success_Growing_with_Aurora "https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/5_Scaling_for_Success_Growing_with_Aurora") – Learn to build resilient multi-Region deployments with Aurora DSQL, and how to scale your databases up for more processing power or out across multiple instances for greater capacity.
-- [Optimization performance and cost](https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/6_Optimizing_Performance_and_Cost "https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/6_Optimizing_Performance_and_Cost") – Optimize your database performance and reduce costs with proven tuning strategies.
-- [Journey to AWS purpose-built databases](https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/7_Break_Free_from_Everything_in_One_Database_Trap_A_Journey_to_Purpose_Built_AWS_Databases "https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/7_Break_Free_from_Everything_in_One_Database_Trap_A_Journey_to_Purpose_Built_AWS_Databases") – Build a secure, reliable infrastructure that scales your generative AI solutions and data-driven applications from prototype to enterprise deployment.
-- [GenAI applications with RAG](https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/8_Building_Your_First_GenAI_Application_with_AWS_Data_Foundations "https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/8_Building_Your_First_GenAI_Application_with_AWS_Data_Foundations") – Build an intelligent search system for insurance and healthcare documents that uses Retrieval Augmented Generation (RAG) to deliver accurate, context-aware results.
-
-## AWS workshop and lab content portal for
-
-Amazon Aurora PostgreSQL
-
-The following collection of workshops and other hands-on content helps you to gain an understanding of the
-Amazon Aurora PostgreSQL features and capabilities:
-
-- [Creating a New Aurora Cluster Manually](https://catalog.workshops.aws/apgimmday/en-US/1-prereq/create-aurora-cluster "https://catalog.workshops.aws/apgimmday/en-US/1-prereq/create-aurora-cluster")
-
-Learn how to create an Amazon Aurora PostgreSQL cluster manually.
-
-- [Configure Cloud9 and Initialize Database](https://catalog.workshops.aws/apgimmday/en-US/1-prereq/cloud9-client "https://catalog.workshops.aws/apgimmday/en-US/1-prereq/cloud9-client")
-
-Learn how to configure Cloud9 and initialize the PostgreSQL database.
-
-- [Fast Cloning](https://catalog.workshops.aws/apgimmday/en-US/manageability/fast-cloning "https://catalog.workshops.aws/apgimmday/en-US/manageability/fast-cloning")
-
-Learn how to create an Aurora fast clone.
-
-- [Query Plan Management](https://catalog.workshops.aws/apgimmday/en-US/performance-and-scalability/query-plan-mgmt "https://catalog.workshops.aws/apgimmday/en-US/performance-and-scalability/query-plan-mgmt")
-
-Learn how to control execution plans for a set of statements using query plan management.
-
-- [Cluster Cache Management](https://catalog.workshops.aws/apgimmday/en-US/high-availability-and-durability/cluster-cache-mgmt "https://catalog.workshops.aws/apgimmday/en-US/high-availability-and-durability/cluster-cache-mgmt")
-
-Learn about Cluster Cache Management feature in Aurora PostgreSQL.
-
-- [Database Activity Streaming](https://catalog.workshops.aws/apgimmday/en-US/monitoring-and-security/db-activity-stream "https://catalog.workshops.aws/apgimmday/en-US/monitoring-and-security/db-activity-stream")
-
-Learn how to monitor and audit your database activity with this feature.
-
-- [Using Performance Insights](https://catalog.workshops.aws/apgimmday/en-US/monitoring-and-security/perf-insights "https://catalog.workshops.aws/apgimmday/en-US/monitoring-and-security/perf-insights")
-
-Learn how to monitor and tune your DB instance using Performance insights.
-
-- [Performance Monitoring with RDS Tools](https://catalog.us-east-1.prod.workshops.aws/workshops/31babd91-aa9a-4415-8ebf-ce0a6556a216/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/31babd91-aa9a-4415-8ebf-ce0a6556a216/en-US")
-
-Learn how to use AWS and Postgres tools(Cloudwatch, Enhanced Monitoring, Slow Query Logs, Performance Insights, PostgreSQL Catalog Views)
-to understand performance issues and identify ways to improve performance of your database.
-
-- [Auto Scaling Read Replicas](https://catalog.workshops.aws/apgimmday/en-US/performance-and-scalability/load-data-auto-scale "https://catalog.workshops.aws/apgimmday/en-US/performance-and-scalability/load-data-auto-scale")
-
-Learn how Aurora read replica auto scaling works in practice using a load generator script.
-
-- [Testing Fault Tolerance](https://catalog.workshops.aws/apgimmday/en-US/high-availability-and-durability/fault-tolerance "https://catalog.workshops.aws/apgimmday/en-US/high-availability-and-durability/fault-tolerance")
-
-Learn how a DB cluster can tolerate a failure.
-
-- [Aurora Global Database](https://catalog.workshops.aws/apgimmday/en-US/high-availability-and-durability/aurora-global-db "https://catalog.workshops.aws/apgimmday/en-US/high-availability-and-durability/aurora-global-db")
-
-Learn about Aurora Global Database.
-
-- [Using Machine Learning](https://catalog.workshops.aws/apgimmday/en-US/generative-ai/aurora-pg-ml "https://catalog.workshops.aws/apgimmday/en-US/generative-ai/aurora-pg-ml")
-
-Learn about Aurora Machine Learning.
-
-- [Aurora Serverless v2](https://catalog.workshops.aws/apgimmday/en-US/performance-and-scalability/aurora-serverless-v2 "https://catalog.workshops.aws/apgimmday/en-US/performance-and-scalability/aurora-serverless-v2")
-
-Learn about Aurora Serverless v2.
-
-- [Trusted Language Extensions for Aurora PostgreSQL](https://catalog.workshops.aws/apgimmday/en-US/developer-productivity/trustedlanguageextension "https://catalog.workshops.aws/apgimmday/en-US/developer-productivity/trustedlanguageextension")
-
-Learn how to build high-performance extensions that run safely on Aurora PostgreSQL.
-
-## AWS workshop and lab content portal for
-
-Amazon Aurora MySQL
-
-The following collection of workshops and other hands-on content helps you to gain an understanding of the
-Amazon Aurora MySQL features and capabilities:
-
-- [Creating an Aurora Cluster](https://catalog.workshops.aws/awsauroramysql/en-US/provisioned/create/ "https://catalog.workshops.aws/awsauroramysql/en-US/provisioned/create/")
-
-Learn how to create an Amazon Aurora MySQL cluster manually.
-
-- [Creating a Cloud9 Cloud-based IDE environment to connect to your database](https://catalog.workshops.aws/awsauroramysql/en-US/prereqs/connect "https://catalog.workshops.aws/awsauroramysql/en-US/prereqs/connect")
-
-Learn how to configure Cloud9 and initialize the MySQL database.
-
-- [Fast Cloning](https://catalog.workshops.aws/awsauroramysql/en-US/provisioned/clone/ "https://catalog.workshops.aws/awsauroramysql/en-US/provisioned/clone/")
-
-Learn how to create an Aurora fast clone.
-
-- [Backtrack a Cluster](https://catalog.workshops.aws/awsauroramysql/en-US/provisioned/backtrack/ "https://catalog.workshops.aws/awsauroramysql/en-US/provisioned/backtrack/")
-
-Learn how to backtrack a DB cluster.
-
-- [Using Performance Insights](https://catalog.workshops.aws/awsauroramysql/en-US/provisioned/pi/ "https://catalog.workshops.aws/awsauroramysql/en-US/provisioned/pi/")
-
-Learn how to monitor and tune your DB instance using Performance insights.
-
-- [Performance Monitoring with RDS Tools](https://catalog.workshops.aws/awsauroramysql/en-US/provisioned/perfobserve/ "https://catalog.workshops.aws/awsauroramysql/en-US/provisioned/perfobserve/")
-
-Learn how to use AWS and SQL tools to understand performance issues and identify ways to improve performance of your database.
-
-- [Analyze Query Performance](https://catalog.workshops.aws/awsauroramysql/en-US/provisioned/perfanalyze/ "https://catalog.workshops.aws/awsauroramysql/en-US/provisioned/perfanalyze/")
-
-Learn how to troubleshoot SQL performance related issues using different tools.
-
-- [Auto Scaling Read Replicas](https://catalog.workshops.aws/awsauroramysql/en-US/provisioned/autoscale/ "https://catalog.workshops.aws/awsauroramysql/en-US/provisioned/autoscale/")
-
-Learn how auto scaling read replicas work.
-
-- [Testing Fault Tolerance](https://catalog.workshops.aws/awsauroramysql/en-US/provisioned/ft/ "https://catalog.workshops.aws/awsauroramysql/en-US/provisioned/ft/")
-
-Learn about high availability and fault tolerance features in Aurora MySQL.
-
-- [Aurora Global Database](https://catalog.workshops.aws/awsauroramysql/en-US/global "https://catalog.workshops.aws/awsauroramysql/en-US/global")
-
-Learn about Aurora Global Database.
-
-- [Aurora Serverless v2](https://catalog.workshops.aws/awsauroramysql/en-US/sv2 "https://catalog.workshops.aws/awsauroramysql/en-US/sv2")
-
-Learn about Aurora Serverless v2.
-
-- [Using Machine Learning](https://catalog.workshops.aws/awsauroramysql/en-US/ml "https://catalog.workshops.aws/awsauroramysql/en-US/ml")
-
-Learn about Aurora Machine Learning.
-
-## Using this service with an AWS SDK
-
-AWS software development kits (SDKs) are available for many popular programming languages. Each SDK provides an API, code examples, and documentation that
-make it easier for developers to build applications in their preferred language.
-
-| SDK documentation                                                                         | Code examples                                                                                                                                                                           |
-| ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [AWS SDK for C++](../../../sdk-for-cpp.md "../../../sdk-for-cpp.md")                      | [AWS SDK for C++ code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp")                          |
-| [AWS CLI](../../../cli.md "../../../cli.md")                                              | [AWS CLI code examples](../../../code-library/latest/ug/cli_2_code_examples.md "../../../code-library/latest/ug/cli_2_code_examples.md")                                                |
-| [AWS SDK for Go](../../../sdk-for-go.md "../../../sdk-for-go.md")                         | [AWS SDK for Go code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2")                         |
-| [AWS SDK for Java](../../../sdk-for-java.md "../../../sdk-for-java.md")                   | [AWS SDK for Java code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2")                   |
-| [AWS SDK for JavaScript](../../../sdk-for-javascript.md "../../../sdk-for-javascript.md") | [AWS SDK for JavaScript code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3") |
-| [AWS SDK for Kotlin](../../../sdk-for-kotlin.md "../../../sdk-for-kotlin.md")             | [AWS SDK for Kotlin code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin")                 |
-| [AWS SDK for .NET](../../../sdk-for-net.md "../../../sdk-for-net.md")                     | [AWS SDK for .NET code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3")               |
-| [AWS SDK for PHP](../../../sdk-for-php.md "../../../sdk-for-php.md")                      | [AWS SDK for PHP code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php")                          |
-| [AWS Tools for PowerShell](../../../powershell.md "../../../powershell.md")               | [AWS Tools for PowerShell code examples](../../../code-library/latest/ug/powershell_5_code_examples.md "../../../code-library/latest/ug/powershell_5_code_examples.md")                 |
-| [AWS SDK for Python (Boto3)](../../../pythonsdk.md "../../../pythonsdk.md")               | [AWS SDK for Python (Boto3) code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python")         |
-| [AWS SDK for Ruby](../../../sdk-for-ruby.md "../../../sdk-for-ruby.md")                   | [AWS SDK for Ruby code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby")                       |
-| [AWS SDK for Rust](../../../sdk-for-rust.md "../../../sdk-for-rust.md")                   | [AWS SDK for Rust code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1")                   |
-| [AWS SDK for SAP ABAP](../../../sdk-for-sapabap.md "../../../sdk-for-sapabap.md")         | [AWS SDK for SAP ABAP code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap")           |
-| [AWS SDK for Swift](../../../sdk-for-swift.md "../../../sdk-for-swift.md")                | [AWS SDK for Swift code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift")                    |
-
-For examples specific to this service, see [Code examples for Aurora using AWS SDKs](service_code_examples.md "service_code_examples.md").
-
-###### Example availability
-
-Can't find what you need? Request a code example by using the **Provide feedback** link at the bottom of this page.
+Amazon RDS requires at least two subnets in two different Availability Zones to support
+Multi-AZ DB instance deployments. This tutorial creates a Single-AZ deployment, but
+the requirement makes it easy to convert to a Multi-AZ DB instance deployment in the
+future. 6. Choose **Create VPC**.
+
+## Create a VPC security group for a public Amazon EC2 instance
+
+Next, you create a security group for public access. To connect to public EC2 instances in
+your VPC, add inbound rules to your VPC security group that allow traffic to connect
+from the internet.
+
+###### To create a VPC security group
+
+1.  Open the Amazon VPC console at
+    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2.  Choose **VPC Dashboard**, choose **Security
+    Groups**, and then choose **Create security
+    group**.
+3.  On the **Create security group** page, set these values:
+    - **Security group name:**
+      `tutorial-dual-stack-securitygroup`
+    - **Description:**
+      `Tutorial Dual-Stack Security Group`
+    - **VPC:** Choose the VPC that you created earlier, for
+      example: **vpc-`identifier` (tutorial-dual-stack-vpc)**
+
+4.  Add inbound rules to the security group.
+    1. Determine the IP address to use to connect to EC2 instances in your VPC using Secure Shell
+       (SSH).
+
+    An example of an Internet Protocol version 4 (IPv4) address is `203.0.113.25/32`. An
+    example of an Internet Protocol version 6 (IPv6) address range is `2001:db8:1234:1a00::/64`.
+
+    In many cases, you might connect through an internet service provider
+    (ISP) or from behind your firewall without a static IP address. If so,
+    find the range of IP addresses used by client computers.
+
+    ###### Warning
+
+    If you use `0.0.0.0/0` for IPv4 or `::0` for
+    IPv6, you make it possible for all IP addresses to access your
+    public instances using SSH. This approach is acceptable for a short
+    time in a test environment, but it's unsafe for production
+    environments. In production, authorize only a specific IP address or
+    range of addresses to access your instances. 2. In the **Inbound rules** section, choose **Add rule**. 3. Set the following values for your new inbound rule to allow Secure
+    Shell (SSH) access to your Amazon EC2 instance. If you do this, you can
+    connect to your EC2 instance to install SQL clients and other
+    applications. Specify an IP address so you can access your EC2
+    instance:
+
+        * **Type:**
+        `SSH`
+        * **Source:** The IP address or range from step
+         a. An example of an IPv4 IP address is
+         `203.0.113.25/32`. An example of an IPv6 IP
+         address is `2001:DB8::/32`.
+
+5.  Choose **Create security group** to create the security
+    group.
+
+Note the security group ID because you need it later in this tutorial.
+
+## Create a VPC security group for a private DB cluster
+
+To keep your DB cluster private, create a second security group for
+private access. To connect to private DB clusters in your VPC, add
+inbound rules to your VPC security group. These allow traffic from your Amazon EC2 instance
+only.
+
+###### To create a VPC security group
+
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. Choose **VPC Dashboard**, choose **Security
+   Groups**, and then choose **Create security
+   group**.
+3. On the **Create security group** page, set these
+   values:
+   - **Security group name:**
+     `tutorial-dual-stack-db-securitygroup`
+   - **Description:**
+     `Tutorial Dual-Stack DB Instance Security Group`
+   - **VPC:** Choose the VPC that you created earlier, for
+     example: **vpc-`identifier` (tutorial-dual-stack-vpc)**
+
+4. Add inbound rules to the security group:
+   1. In the **Inbound rules** section, choose **Add rule**.
+   2. Set the following values for your new inbound rule to allow MySQL
+      traffic on port 3306 from your Amazon EC2 instance. If you do, you can
+      connect from your EC2 instance to your DB cluster. Doing
+      this means that you can send data from your EC2 instance
+      to your database.
+      - **Type:**
+        **MySQL/Aurora**
+      - **Source:** The identifier of the
+        **tutorial-dual-stack-securitygroup** security
+        group that you created previously in this tutorial, for example
+        **sg-9edd5cfb**.
+
+5. To create the security group, choose **Create security group**.
+
+## Create a DB subnet group
+
+A _DB subnet group_ is a collection of subnets that
+you create in a VPC and that you then designate for your DB
+clusters. By using a DB
+subnet group, you can specify a particular VPC when creating DB
+clusters. To create a
+DB subnet group that is `DUAL` compatible, all subnets must be
+`DUAL` compatible. To be `DUAL` compatible, a subnet must have
+an IPv6 CIDR associated with it.
+
+###### To create a DB subnet group
+
+1. Identify the private subnets for your database in the VPC.
+   1. Open the Amazon VPC console at
+      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+   2. Choose **VPC Dashboard**, and then choose **Subnets**.
+   3. Note the subnet IDs of the subnets named
+      **tutorial-dual-stack-subnet-private1-us-west-2a** and
+      **tutorial-dual-stack-subnet-private2-us-west-2b**.
+
+   You will need the subnet IDs when you create your DB subnet group.
+
+2. Open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+
+Make sure that you connect to the Amazon RDS console, not to the Amazon VPC
+console. 3. In the navigation pane, choose **Subnet groups**. 4. Choose **Create DB subnet group**. 5. On the **Create DB subnet group** page, set these values
+in **Subnet group details**:
+
+    * **Name:** `tutorial-dual-stack-db-subnet-group`
+    * **Description:** `Tutorial Dual-Stack DB Subnet Group`
+    * **VPC:** **tutorial-dual-stack-vpc (vpc-`identifier`)**
+
+6. In the **Add subnets** section, choose values for the
+   **Availability Zones** and **Subnets**
+   options.
+
+For this tutorial, choose **us-east-2a** and **us-east-2b**
+for the **Availability Zones**. For **Subnets**, choose the private subnets you
+identified in the previous step. 7. Choose **Create**.
+
+Your new DB subnet group appears in the DB subnet groups list on the RDS console. You
+can choose the DB subnet group to see its details. These include the supported
+addressing protocols and all of the subnets associated with the group and the network
+type supported by the DB subnet group.
+
+## Create an Amazon EC2 instance in dual-stack mode
+
+To create an Amazon EC2 instance, follow the instructions in [Launch an instance using the new launch instance wizard](../../../AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.md "../../../AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.md")
+in the _Amazon EC2 User Guide_.
+
+On the **Configure Instance Details** page, set these values
+and keep the other values as their defaults:
+
+- **Network** – Choose an
+  existing VPC with both public and private subnets, such as
+  **tutorial-dual-stack-vpc**
+  (vpc-`identifier`) created in [Create a VPC with private and public subnets](#CHAP_Tutorials.CreateVPCDualStack.VPCAndSubnets "#CHAP_Tutorials.CreateVPCDualStack.VPCAndSubnets").
+- **Subnet** – Choose an existing public subnet,
+  such as **subnet-`identifier` | tutorial-dual-stack-subnet-public1-us-east-2a | us-east-2a**
+  created in [Create a VPC security group for a public Amazon EC2 instance](#CHAP_Tutorials.CreateVPCDualStack.SecurityGroupEC2 "#CHAP_Tutorials.CreateVPCDualStack.SecurityGroupEC2").
+- **Auto-assign Public IP** – Choose
+  **Enable**.
+- **Auto-assign IPv6 IP** – Choose
+  **Enable**.
+- **Firewall (security groups)** – Choose
+  **Select an existing security group**.
+- **Common security groups** – Choose an existing
+  security group, such as the `tutorial-securitygroup` created in [Create a VPC security group for a public Amazon EC2 instance](#CHAP_Tutorials.CreateVPCDualStack.SecurityGroupEC2 "#CHAP_Tutorials.CreateVPCDualStack.SecurityGroupEC2"). Make
+  sure that the security group that you choose includes inbound rules for Secure
+  Shell (SSH) and HTTP access.
+
+## Create a DB cluster in dual-stack mode
+
+In this step, you create a DB cluster
+that runs in dual-stack mode.
+
+###### To create a DB instance
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the upper-right corner of the console, choose the AWS Region where you want to create the
+   DB cluster.
+   This example uses the US East (Ohio) Region.
+3. In the navigation pane, choose **Databases**.
+4. Choose **Create database**.
+5. On the **Create database** page, make sure that the
+   **Standard create** option is chosen, and then
+   choose the Aurora MySQL DB engine type.
+6. In the **Connectivity** section, set these values:
+   - **Network type** – Choose **Dual-stack
+     mode**.
+
+   ![Network type section in the console with Dual-stack mode selected](images/dual-stack-mode.png)
+   - **Virtual private cloud (VPC)** – Choose an
+     existing VPC with both public and private subnets, such as
+     **tutorial-dual-stack-vpc**
+     (vpc-`identifier`) created in [Create a VPC with private and public subnets](#CHAP_Tutorials.CreateVPCDualStack.VPCAndSubnets "#CHAP_Tutorials.CreateVPCDualStack.VPCAndSubnets").
+
+   The VPC must have subnets in different Availability Zones.
+   - **DB subnet group** – Choose a DB subnet group for the
+     VPC, such as
+     **tutorial-dual-stack-db-subnet-group** created in
+     [Create a DB subnet group](#CHAP_Tutorials.CreateVPCDualStack.DBSubnetGroup "#CHAP_Tutorials.CreateVPCDualStack.DBSubnetGroup").
+   - **Public access** – Choose **No**.
+   - **VPC security group (firewall)** – Select **Choose existing**.
+   - **Existing VPC security groups** – Choose an existing VPC
+     security group that is configured for private access, such as
+     **tutorial-dual-stack-db-securitygroup** created in [Create a VPC security group for a private DB cluster](#CHAP_Tutorials.CreateVPCDualStack.SecurityGroupDB "#CHAP_Tutorials.CreateVPCDualStack.SecurityGroupDB").
+
+   Remove other security groups, such as the default security group, by
+   choosing the **X** associated with each.
+   - **Availability Zone** – Choose **us-west-2a**.
+
+   To avoid cross-AZ traffic, make sure the DB instance and the EC2 instance are in the same Availability Zone.
+
+7. For the remaining sections, specify your DB cluster settings. For information about each setting, see
+   [Settings for Aurora DB clusters](Aurora.md#Aurora.CreateInstance.Settings "Aurora.md#Aurora.CreateInstance.Settings").
+
+## Connect to your Amazon EC2 instance and DB cluster
+
+After you create your Amazon EC2 instance and DB cluster
+in dual-stack mode, you can connect to each one using the IPv6 protocol. To connect to an Amazon EC2 instance using the IPv6 protocol,
+follow the instructions in [Connect to your Linux instance](../../../AWSEC2/latest/UserGuide/AccessingInstances.md "../../../AWSEC2/latest/UserGuide/AccessingInstances.md")
+in the _Amazon EC2 User Guide_.
+
+To connect to your Aurora MySQL DB cluster from the Amazon EC2 instance, follow the instructions in
+[Connect to an Aurora MySQL DB cluster](CHAP_GettingStartedAurora.CreatingConnecting.md#CHAP_GettingStartedAurora.Aurora.Connect "CHAP_GettingStartedAurora.CreatingConnecting.md#CHAP_GettingStartedAurora.Aurora.Connect").
+
+## Deleting the VPC
+
+After you create the VPC and other resources for this tutorial, you can delete them if they are no longer needed.
+
+If you added resources in the VPC that you created for this tutorial, you might need
+to delete these before you can delete the VPC. Examples of resources are Amazon EC2 instances
+or DB clusters. For more information, see [Delete your
+VPC](../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting "../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting") in the _Amazon VPC User Guide_.
+
+###### To delete a VPC and related resources
+
+1. Delete the DB subnet group:
+   1. Open the Amazon RDS console at
+      [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+   2. In the navigation pane, choose **Subnet groups**.
+   3. Select the DB subnet group to delete, such as
+      **tutorial-db-subnet-group**.
+   4. Choose **Delete**, and then choose **Delete** in the confirmation window.
+
+2. Note the VPC ID:
+   1. Open the Amazon VPC console at
+      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+   2. Choose **VPC Dashboard**, and then choose **VPCs**.
+   3. In the list, identify the VPC you created, such as **tutorial-dual-stack-vpc**.
+   4. Note the **VPC ID** value of the VPC that you
+      created. You need this VPC ID in subsequent steps.
+
+3. Delete the security groups:
+   1. Open the Amazon VPC console at
+      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+   2. Choose **VPC Dashboard**, and then choose **Security
+      Groups**.
+   3. Select the security group for the Amazon RDS DB instance, such as
+      **tutorial-dual-stack-db-securitygroup**.
+   4. For **Actions**, choose **Delete security
+      groups**, and then choose **Delete** on
+      the confirmation page.
+   5. On the **Security Groups** page, select the security group for the Amazon EC2 instance, such as
+      **tutorial-dual-stack-securitygroup**.
+   6. For **Actions**, choose **Delete security
+      groups**, and then choose **Delete** on
+      the confirmation page.
+
+4. Delete the NAT gateway:
+   1. Open the Amazon VPC console at
+      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+   2. Choose **VPC Dashboard**, and then choose **NAT Gateways**.
+   3. Select the NAT gateway of the VPC that you created. Use the VPC ID to
+      identify the correct NAT gateway.
+   4. For **Actions**, choose **Delete NAT
+      gateway**.
+   5. On the confirmation page, enter `delete`, and then choose **Delete**.
+
+5. Delete the VPC:
+   1. Open the Amazon VPC console at
+      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+   2. Choose **VPC Dashboard**, and then choose **VPCs**.
+   3. Select the VPC that you want to delete, such as
+      **tutorial-dual-stack-vpc**.
+   4. For **Actions**, choose **Delete
+      VPC**.
+
+   The confirmation page shows other resources that are associated with the VPC that
+   will also be deleted, including the subnets associated with it. 5. On the confirmation page, enter `delete`, and then choose **Delete**.
+
+6. Release the Elastic IP addresses:
+   1. Open the Amazon EC2 console at
+      [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+   2. Choose **EC2 Dashboard**, and then choose **Elastic IPs**.
+   3. Select the Elastic IP address that you want to release.
+   4. For **Actions**, choose **Release Elastic IP
+      addresses**.
+   5. On the confirmation page, choose **Release**.

@@ -15,17 +15,12 @@ We recommend that you automate monitoring tasks as much as possible.
 
 ###### Topics
 
-- [Amazon Aurora cluster status and
-  recommendations](#MonitoringOverview.tools.automated.rds "#MonitoringOverview.tools.automated.rds")
+- [Amazon Aurora cluster status and recommendations](#MonitoringOverview.tools.automated.rds "#MonitoringOverview.tools.automated.rds")
 - [Amazon CloudWatch metrics for Amazon Aurora](#MonitoringOverview.tools.automated.integrated "#MonitoringOverview.tools.automated.integrated")
-- [Amazon RDS Performance
-  Insights and operating-system monitoring](#MonitoringOverview.tools.automated.metrics.rds "#MonitoringOverview.tools.automated.metrics.rds")
-- [Integrated
-  services](#MonitoringOverview.tools.automated.integrated.events-logs-streams "#MonitoringOverview.tools.automated.integrated.events-logs-streams")
+- [Amazon RDS Performance Insights and operating-system monitoring](#MonitoringOverview.tools.automated.metrics.rds "#MonitoringOverview.tools.automated.metrics.rds")
+- [Integrated services](#MonitoringOverview.tools.automated.integrated.events-logs-streams "#MonitoringOverview.tools.automated.integrated.events-logs-streams")
 
-### Amazon Aurora cluster status and
-
-recommendations
+### Amazon Aurora cluster status and recommendations
 
 You can use the following automated tools to watch
 Amazon Aurora and report when something is wrong:
@@ -55,9 +50,7 @@ Amazon CloudWatch for additional monitoring capabilities.
     Amazon Aurora metric over a specific time period. You can then perform one or
     more actions based on the value of the metric relative to a threshold that you set.
 
-### Amazon RDS Performance
-
-Insights and operating-system monitoring
+### Amazon RDS Performance Insights and operating-system monitoring
 
 You can use the following automated tools to monitor Amazon Aurora performance:
 
@@ -66,9 +59,7 @@ You can use the following automated tools to monitor Amazon Aurora performance:
 - **Amazon RDS Enhanced Monitoring** – Look at metrics in real time
   for the operating system. For more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md").
 
-### Integrated
-
-services
+### Integrated services
 
 The following AWS services are integrated with Amazon Aurora:
 
@@ -81,8 +72,7 @@ The following AWS services are integrated with Amazon Aurora:
   see [Monitoring Amazon Aurora API calls in AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 - _Database Activity Streams_ is an Amazon Aurora feature that provides a near-real-time
   stream of the activity in your DB cluster. For more
-  information, see [Monitoring Amazon Aurora with Database Activity
-  Streams](DBActivityStreams.md "DBActivityStreams.md").
+  information, see [Monitoring Amazon Aurora with Database Activity Streams](DBActivityStreams.md "DBActivityStreams.md").
 - _DevOps Guru for RDS_ is a capability of Amazon DevOps Guru that applies machine learning to
   Performance Insights metrics for Amazon Aurora databases. For more information, see [Analyzing Aurora performance anomalies with Amazon DevOps Guru for Amazon RDS](devops-guru-for-rds.md "devops-guru-for-rds.md").
 

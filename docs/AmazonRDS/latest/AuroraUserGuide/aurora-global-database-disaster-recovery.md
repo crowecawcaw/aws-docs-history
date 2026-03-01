@@ -93,8 +93,7 @@ primary and secondary DB clusters have the same major and minor engine versions.
 engine versions, the patch levels might need to be identical or the patch levels can be different. For a list
 of engines and engine versions that allow these operations between primary and secondary clusters with
 different patch levels, see
-[Patch level
-compatibility for managed cross-Region switchovers and failovers](aurora-global-database-upgrade.md#aurora-global-database-upgrade.minor.incompatibility "aurora-global-database-upgrade.md#aurora-global-database-upgrade.minor.incompatibility").
+[Patch level compatibility for managed cross-Region switchovers and failovers](aurora-global-database-upgrade.md#aurora-global-database-upgrade.minor.incompatibility "aurora-global-database-upgrade.md#aurora-global-database-upgrade.minor.incompatibility").
 Before you begin the switchover, check the engine versions in your global cluster to make sure that they
 support managed cross-Region switchover, and upgrade them if needed.
 
@@ -112,7 +111,7 @@ clusters are assuming their new roles.
 ###### Note
 
 To manage replication slots for Aurora PostgreSQL after performing a switchover, see
-[Managing logical slots for Aurora PostgreSQL](AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Logical.Configure.managing-logical-slots "AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Logical.Configure.managing-logical-slots") .
+[Managing logical slots for Aurora PostgreSQL](AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Logical.Configure.managing-logical-slots "AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Logical.Configure.managing-logical-slots").
 
 To optimize application availability, we recommend that you do the following before using this feature:
 
@@ -139,8 +138,7 @@ For more information about CloudWatch metrics for Aurora, see
     parameter group from the secondary might be configured differently than for the primary. If so, modify
     the promoted secondary DB cluster's parameter group to conform to your primary cluster's
     settings. To learn how, see
-    [Modifying parameters for an Aurora global
-    database](aurora-global-database-modifying.md "aurora-global-database-modifying.md").
+    [Modifying parameters for an Aurora global database](aurora-global-database-modifying.md "aurora-global-database-modifying.md").
   - **Configure monitoring tools and options, such as Amazon CloudWatch Events and alarms**
     – Configure the promoted DB cluster with the same logging ability, alarms, and so on as needed
     for the global database. As with parameter groups, configuration for these features isn't inherited
@@ -153,8 +151,7 @@ For more information about CloudWatch metrics for Aurora, see
     global database integrates with AWS services, such as AWS Secrets Manager, AWS Identity and Access Management, Amazon S3, and AWS Lambda, make
     sure to configure your integrations with these services as needed. For more information about
     integrating Aurora global databases with IAM, Amazon S3 and Lambda, see
-    [Using Amazon Aurora global databases with other AWS
-    services](aurora-global-database-interop.md "aurora-global-database-interop.md"). To
+    [Using Amazon Aurora global databases with other AWS services](aurora-global-database-interop.md "aurora-global-database-interop.md"). To
     learn more about Secrets Manager, see
     [How
     to automate replication of secrets in AWS Secrets Manager across AWS Regions](https://aws.amazon.com/blogs/security/how-to-automate-replication-of-secrets-in-aws-secrets-manager-across-aws-regions/ "https://aws.amazon.com/blogs/security/how-to-automate-replication-of-secrets-in-aws-secrets-manager-across-aws-regions/").
@@ -273,7 +270,7 @@ database's existing replication topology is maintained.
 ###### Note
 
 To manage replication slots for Aurora PostgreSQL after performing a failover, see
-[Managing logical slots for Aurora PostgreSQL](AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Logical.Configure.managing-logical-slots "AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Logical.Configure.managing-logical-slots") .
+[Managing logical slots for Aurora PostgreSQL](AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Logical.Configure.managing-logical-slots "AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Logical.Configure.managing-logical-slots").
 
 ###### Note
 
@@ -282,8 +279,7 @@ primary and secondary DB clusters have the same major and minor engine versions.
 engine versions, the patch levels might need to be identical or the patch levels can be different. For a
 list of engines and engine versions that allow these operations between primary and secondary clusters with
 different patch levels, see
-[Patch level
-compatibility for managed cross-Region switchovers and failovers](aurora-global-database-upgrade.md#aurora-global-database-upgrade.minor.incompatibility "aurora-global-database-upgrade.md#aurora-global-database-upgrade.minor.incompatibility").
+[Patch level compatibility for managed cross-Region switchovers and failovers](aurora-global-database-upgrade.md#aurora-global-database-upgrade.minor.incompatibility "aurora-global-database-upgrade.md#aurora-global-database-upgrade.minor.incompatibility").
 Before you begin the failover, check the engine versions in your global cluster to make sure that they
 support managed cross-Region switchover, and upgrade them if needed. If your engine versions
 require identical patch levels but are running different patch levels, you can perform the failover manually
@@ -358,8 +354,7 @@ following:
   take over the primary role, the parameter group from the secondary might be configured differently than
   for the primary. If so, modify the promoted secondary DB cluster's parameter group to conform to your
   primary cluster's settings. To learn how, see
-  [Modifying parameters for an Aurora global
-  database](aurora-global-database-modifying.md "aurora-global-database-modifying.md").
+  [Modifying parameters for an Aurora global database](aurora-global-database-modifying.md "aurora-global-database-modifying.md").
 - **Configure monitoring tools and options, such as Amazon CloudWatch Events and alarms**
   – Configure the promoted DB cluster with the same logging ability, alarms, and so on as needed for
   the global database. As with parameter groups, configuration for these features isn't inherited from
@@ -371,8 +366,7 @@ following:
   Global Database integrates with other AWS services, such as AWS Secrets Manager, AWS Identity and Access Management, Amazon S3, and AWS Lambda,
   you need to make sure these are configured as required for access from any secondary Regions. For more
   information about integrating Aurora global databases with IAM, Amazon S3 and Lambda, see
-  [Using Amazon Aurora global databases with other AWS
-  services](aurora-global-database-interop.md "aurora-global-database-interop.md"). To learn
+  [Using Amazon Aurora global databases with other AWS services](aurora-global-database-interop.md "aurora-global-database-interop.md"). To learn
   more about Secrets Manager, see
   [How
   to automate replication of secrets in AWS Secrets Manager across AWS Regions](https://aws.amazon.com/blogs/security/how-to-automate-replication-of-secrets-in-aws-secrets-manager-across-aws-regions/ "https://aws.amazon.com/blogs/security/how-to-automate-replication-of-secrets-in-aws-secrets-manager-across-aws-regions/").
@@ -634,7 +628,7 @@ Parameter groups can't be edited directly. Instead, you do the following:
     * Apply the modified DB cluster parameter group to your Aurora DB cluster.
 
 For more information, see
-[Modifying parameters in a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+[Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 To set the `rds.global_db_rpo` parameter, use the
 [modify-db-cluster-parameter-group](../../../cli/latest/reference/rds/modify-db-cluster-parameter-group.md "../../../cli/latest/reference/rds/modify-db-cluster-parameter-group.md")
@@ -741,7 +735,7 @@ The command returns output similar to the following for all `user` parameters. t
 ```
 
 To learn more about viewing parameters of the cluster parameter group, see
-[Viewing parameter values for a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+[Viewing parameter values for a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 ### Disabling the recovery point objective
 
@@ -761,7 +755,7 @@ AWS Management Console, the AWS CLI, or the RDS API.
    **Reset parameters**.
 
 For more information on how to reset a parameter with the console, see
-[Modifying parameters in a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+[Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 To reset the `rds.global_db_rpo` parameter, use the
 [reset-db-cluster-parameter-group](../../../cli/latest/reference/rds/reset-db-cluster-parameter-group.md "../../../cli/latest/reference/rds/reset-db-cluster-parameter-group.md")

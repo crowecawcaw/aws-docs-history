@@ -1,6 +1,4 @@
-# Enabling network
-
-communication from Amazon Aurora to other AWS services
+# Enabling network communication from Amazon Aurora to other AWS services
 
 To use certain other AWS services with Amazon Aurora, the network configuration of
 your Aurora DB cluster must allow outbound connections to endpoints for those services.
@@ -9,13 +7,10 @@ The following operations require this network configuration.
 - Invoking AWS Lambda functions. To learn about this feature, see
   [Invoking a Lambda function with an Aurora MySQL native function](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md").
 - Accessing files from Amazon S3. To learn about this feature, see
-  [Loading data into an Amazon Aurora MySQL DB cluster from
-  text files in an Amazon S3 bucket](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md")
-  and [Saving data from an Amazon Aurora MySQL DB cluster into text files in an Amazon S3
-  bucket](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md").
+  [Loading data into an Amazon Aurora MySQL DB cluster from text files in an Amazon S3 bucket](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md")
+  and [Saving data from an Amazon Aurora MySQL DB cluster into text files in an Amazon S3 bucket](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md").
 - Accessing AWS KMS endpoints. AWS KMS access is required to use database activity streams with Aurora MySQL. To learn about
-  this feature, see [Monitoring Amazon Aurora with Database Activity
-  Streams](DBActivityStreams.md "DBActivityStreams.md").
+  this feature, see [Monitoring Amazon Aurora with Database Activity Streams](DBActivityStreams.md "DBActivityStreams.md").
 - Accessing SageMaker AI endpoints. SageMaker AI access is required to use SageMaker AI machine learning with Aurora MySQL. To learn about
   this feature, see [Using Amazon Aurora machine learning with Aurora MySQL](mysql-ml.md "mysql-ml.md").
   Aurora returns the following error messages if it can't connect to a service

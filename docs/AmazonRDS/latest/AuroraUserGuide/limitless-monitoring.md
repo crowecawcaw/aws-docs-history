@@ -1,16 +1,33 @@
-# Monitoring Aurora PostgreSQL Limitless Database
+# Monitoring Aurora PostgreSQL Limitless Database with Amazon CloudWatch Logs
 
-You can use Amazon CloudWatch, Enhanced Monitoring, and Performance Insights to monitor Aurora PostgreSQL Limitless Database. There are also new statistics functions and views, and wait events, for Aurora PostgreSQL Limitless Database
-that you can use for monitoring and diagnostics.
+Exporting PostgreSQL logs to CloudWatch Logs is required as part of enabling Aurora PostgreSQL Limitless Database. You can access and analyze these logs in CloudWatch Logs Insights, similar to
+accessing PostgreSQL logs for a standard Aurora PostgreSQL DB cluster. For more information, see
+[Analyzing PostgreSQL logs using CloudWatch Logs Insights](AuroraPostgreSQL.CloudWatch.md "AuroraPostgreSQL.CloudWatch.md").
 
-###### Topics
+The log group name for the DB cluster is the same as in Aurora PostgreSQL:
 
-- [Monitoring Aurora PostgreSQL Limitless Database with Amazon CloudWatch](limitless-monitoring.md "limitless-monitoring.md")
-- [Monitoring Aurora PostgreSQL Limitless Database with CloudWatch Database Insights](limitless-monitoring.md "limitless-monitoring.md")
-- [Monitoring Aurora PostgreSQL Limitless Database with Amazon CloudWatch Logs](limitless-monitoring.md "limitless-monitoring.md")
-- [Monitoring Aurora PostgreSQL Limitless Database with Enhanced Monitoring](limitless-monitoring.md "limitless-monitoring.md")
-- [Monitoring Aurora PostgreSQL Limitless Database with Performance Insights](limitless-monitoring.md "limitless-monitoring.md")
-- [Monitoring Aurora PostgreSQL Limitless Database with Amazon GuardDuty RDS Protection](limitless-monitoring.md "limitless-monitoring.md")
-- [Functions and views for Aurora PostgreSQL Limitless Database](limitless-monitoring-fns-views.md "limitless-monitoring-fns-views.md")
-- [Wait events for Aurora PostgreSQL Limitless Database](limitless-monitoring-waits.md "limitless-monitoring-waits.md")
-- [Building for efficiency with functions](limitless-performance-functions.md "limitless-performance-functions.md")
+```
+/aws/rds/cluster/`DB_cluster_ID`/postgresql
+```
+
+The log group name for the DB shard group takes the following form:
+
+```
+/aws/rds/cluster/`DB_cluster_ID`/`DB_shard_group_ID`/postgresql
+```
+
+There are log streams for each node (router or shard). Their names have the following form:
+
+```
+[DistributedTransactionRouter|DataAccessShard]/`node_cluster_serial_ID`-`node_instance_serial_ID`/`n`
+```
+
+For example:
+
+- Router – `DistributedTransactionRouter/6-6.2`
+- Shard – `DataAccessShard/22-22.0`
+
+###### Note
+
+You can't view PostgreSQL log files for the DB shard group directly in the RDS console, AWS CLI, or RDS API as you can for the DB cluster. You must
+use CloudWatch Logs Insights to view them.

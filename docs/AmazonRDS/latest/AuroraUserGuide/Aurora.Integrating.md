@@ -36,11 +36,10 @@ Aurora Auto Scaling only scales a DB cluster if the DB cluster is in the availab
 
 When Aurora Auto Scaling adds a new Aurora Replica, the new Aurora Replica is the same DB
 instance class as the one used by the primary instance. For more information about DB
-instance classes, see [Amazon Aurora DB instance classes](Concepts.md "Concepts.md"). Also, the promotion tier for new Aurora
+instance classes, see [Amazon AuroraDB instance classes](Concepts.md "Concepts.md"). Also, the promotion tier for new Aurora
 Replicas is set to the last priority, which is 15 by default. This means that during a
 failover, a replica with a better priority, such as one created manually, would be
-promoted first. For more information, see [Fault tolerance for an Aurora DB
-cluster](Concepts.md#Aurora.Managing.FaultTolerance "Concepts.md#Aurora.Managing.FaultTolerance").
+promoted first. For more information, see [Fault tolerance for an Aurora DB cluster](Concepts.md#Aurora.Managing.FaultTolerance "Concepts.md#Aurora.Managing.FaultTolerance").
 
 Aurora Auto Scaling only removes Aurora Replicas that it created.
 
@@ -219,7 +218,7 @@ instance detail page.
 | ---------------------------------- | ---------------------------- |
 | application-autoscaling:resourceId | cluster:mynewcluster-cluster |
 
-For more information on Amazon RDS resource tags, see [Tagging Amazon Aurora and Amazon RDS resources](USER_Tagging.md "USER_Tagging.md").
+For more information on Amazon RDS resource tags, see [Tagging Amazon Aurora andAmazon RDS resources](USER_Tagging.md "USER_Tagging.md").
 
 ## Aurora Auto Scaling and Performance Insights
 

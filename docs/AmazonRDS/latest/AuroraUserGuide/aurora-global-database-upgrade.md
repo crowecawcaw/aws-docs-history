@@ -6,16 +6,14 @@ the process.
 
 We recommend that you upgrade the primary and secondary DB clusters to the same version. You can only perform a managed cross-Region database failover
 on an Aurora global database if the primary and secondary DB clusters have the same major, minor, and patch level engine versions. However, the patch levels can be different,
-depending on the minor engine version. For more information, see [Patch level
-compatibility for managed cross-Region switchovers and failovers](#aurora-global-database-upgrade.minor.incompatibility "#aurora-global-database-upgrade.minor.incompatibility").
+depending on the minor engine version. For more information, see [Patch level compatibility for managed cross-Region switchovers and failovers](#aurora-global-database-upgrade.minor.incompatibility "#aurora-global-database-upgrade.minor.incompatibility").
 
 ## Major version upgrades
 
 When you perform a major version upgrade of an Amazon Aurora global database, you upgrade
 the global database cluster instead the individual clusters that it contains.
 
-To learn how to upgrade an Aurora PostgreSQL global database to a higher major version, see [Major upgrades for
-global databases](USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.GlobalDB "USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.GlobalDB").
+To learn how to upgrade an Aurora PostgreSQL global database to a higher major version, see [Major upgrades for global databases](USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.GlobalDB "USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.GlobalDB").
 
 ###### Note
 
@@ -76,8 +74,7 @@ When planning a minor version upgrade for your global database, consider the fol
 - The managed capability is supported only for Aurora PostgreSQL global clusters.
 
 You can upgrade each cluster in your global cluster topology individually. If you choose this approach, upgrade all secondary clusters before upgrading the primary cluster. When upgrading, ensure your primary and secondary DB clusters are upgraded to the same minor version and patch level. To update the patch level, apply all pending maintenance actions on the secondary cluster. To learn how to upgrade an Aurora PostgreSQL global database to a higher minor version, see
-[How to perform minor
-version upgrades and apply patches](USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor "USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor").
+[How to perform minor version upgrades and apply patches](USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor "USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor").
 
 ### Minor version upgrades for Aurora MySQL global database
 
@@ -88,12 +85,9 @@ Before you perform the upgrade, review the following considerations:
 - Upgrading the minor version of a secondary cluster doesn't affect availability or usage of the primary cluster in any way.
 - A secondary cluster must have at least one DB instance to perform a minor upgrade.
 - If you upgrade an Aurora MySQL global database to version 2.11.\*, you must upgrade your primary and secondary DB clusters to exactly the same version, including the patch level.
-- To support managed cross-Region switchovers or failovers, you might need to upgrade your primary and secondary DB clusters to the exact same version, including the patch level. This requirement applies to Aurora MySQL and some Aurora PostgreSQL versions. For a list of versions that allow switchovers and failovers between clusters running different patch levels, see [Patch level
-  compatibility for managed cross-Region switchovers and failovers](#aurora-global-database-upgrade.minor.incompatibility "#aurora-global-database-upgrade.minor.incompatibility").
+- To support managed cross-Region switchovers or failovers, you might need to upgrade your primary and secondary DB clusters to the exact same version, including the patch level. This requirement applies to Aurora MySQL and some Aurora PostgreSQL versions. For a list of versions that allow switchovers and failovers between clusters running different patch levels, see [Patch level compatibility for managed cross-Region switchovers and failovers](#aurora-global-database-upgrade.minor.incompatibility "#aurora-global-database-upgrade.minor.incompatibility").
 
-### Patch level
-
-compatibility for managed cross-Region switchovers and failovers
+### Patch level compatibility for managed cross-Region switchovers and failovers
 
 If your Aurora Global Database is running one of the following minor engine
 versions, you can perform managed cross-Region switchovers or failovers

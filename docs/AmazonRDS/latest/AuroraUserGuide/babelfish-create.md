@@ -11,9 +11,7 @@ In an Aurora PostgreSQL cluster, the `babelfish_db` database name is
 reserved for Babelfish. Creating your own "babelfish_db" database
 on a Babelfish for Aurora PostgreSQL prevents Aurora from successfully provisioning Babelfish.
 
-###### To create a cluster with Babelfish running with the
-
-AWS Management Console
+###### To create a cluster with Babelfish running with the AWS Management Console
 
 1. Open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/"), and choose **Create
    database**.
@@ -70,8 +68,7 @@ following:
      parameter group. If you use an existing group, make sure to
      modify the group before creating the cluster and add values for
      Babelfish parameters. For information about
-     Babelfish parameters, see [DB cluster parameter group settings for
-     Babelfish](babelfish-configuration.md "babelfish-configuration.md").
+     Babelfish parameters, see [DB cluster parameter group settings for Babelfish](babelfish-configuration.md "babelfish-configuration.md").
 
 
     If you use an existing group, provide the group name in the
@@ -95,8 +92,7 @@ following:
       installation). Multiple database mode doesn't consolidate
       multiple databases that don't originate from a single SQL
       Server installation. For information about migrating multiple
-      databases, see [Using Babelfish with a single database or
-      multiple databases](babelfish-architecture.md#babelfish-single_vs_multi_db "babelfish-architecture.md#babelfish-single_vs_multi_db").
+      databases, see [Using Babelfish with a single database or multiple databases](babelfish-architecture.md#babelfish-single_vs_multi_db "babelfish-architecture.md#babelfish-single_vs_multi_db").
 
 ###### Note
 
@@ -115,8 +111,7 @@ or have Aurora create a new group for you with default settings. 18. For **Failo
 for the instance. If you don't choose a value, the default is
 `tier-1`. This priority determines the order in which
 replicas are promoted when recovering from a primary instance failure.
-For more information, see [Fault tolerance for an Aurora DB
-cluster](Concepts.md#Aurora.Managing.FaultTolerance "Concepts.md#Aurora.Managing.FaultTolerance"). 19. For **Backup retention period**, choose the length of
+For more information, see [Fault tolerance for an Aurora DB cluster](Concepts.md#Aurora.Managing.FaultTolerance "Concepts.md#Aurora.Managing.FaultTolerance"). 19. For **Backup retention period**, choose the length of
 time (1–35 days) that Aurora retains backup copies of the
 database. You can use backup copies for point-in-time restores (PITR) of
 your database down to the second. The default retention period is seven
@@ -131,8 +126,7 @@ When restoring a DB cluster from a snapshot, it does not restore as a
 Babelfish for Aurora PostgreSQL DB cluster. You need to turn on the parameters that
 control Babelfish preferences in the DB cluster parameter group to
 enable Babelfish again. For more information on the
-Babelfish parameters, see [DB cluster parameter group settings for
-Babelfish](babelfish-configuration.md "babelfish-configuration.md"). 21. Choose **Enable encryption** to turn on encryption at
+Babelfish parameters, see [DB cluster parameter group settings for Babelfish](babelfish-configuration.md "babelfish-configuration.md"). 21. Choose **Enable encryption** to turn on encryption at
 rest (Aurora storage encryption) for this DB cluster. 22. Choose **Enable Performance Insights** to turn on
 Amazon RDS Performance Insights. 23. Choose **Enable Enhanced monitoring** to start
 gathering metrics in real time for the operating system that your DB
@@ -174,9 +168,7 @@ Babelfish, do the following:
 - Modify the parameter group, adding the parameter that turns on
   Babelfish.
 
-###### To create an Aurora PostgreSQL DB
-
-cluster with Babelfish using the AWS CLI
+###### To create an Aurora PostgreSQL DB cluster with Babelfish using the AWS CLI
 
 The examples that follow use the default Master username,
 `postgres`. Replace as needed with the username that you
@@ -258,9 +250,7 @@ aws rds create-db-cluster ^
 
 This example specifies the `--manage-master-user-password`
 option to generate the master user password and manage it in Secrets Manager. For
-more information, see [Password management with
-Amazon Aurora
-and AWS Secrets Manager](rds-secrets-manager.md "rds-secrets-manager.md"). Alternatively, you can use
+more information, see [Password management with Amazon Aurora and AWS Secrets Manager](rds-secrets-manager.md "rds-secrets-manager.md"). Alternatively, you can use
 the `--master-password` option to specify and manage the
 password yourself. 4. Explicitly create the primary instance for your DB cluster. Use the
 name of the cluster that you created in step 3 for the

@@ -1,98 +1,95 @@
-# Example: Logical
+# Setting up logical replication for your Aurora PostgreSQL DB cluster
 
-replication using Aurora PostgreSQL and AWS Database Migration Service
+Setting up logical replication requires `rds_superuser` privileges. Your
+Aurora PostgreSQL DB cluster must be configured to use a custom DB cluster parameter group
+so that you can set the necessary parameters as detailed in the procedure following. For
+more information, see [DB cluster parameter groups for Amazon Aurora DB clusters](USER_WorkingWithDBClusterParamGroups.md "USER_WorkingWithDBClusterParamGroups.md").
 
-You can use the AWS Database Migration Service (AWS DMS) to replicate a database or a portion of a database.
-Use AWS DMS to migrate your data from an Aurora PostgreSQL database to another open source or
-commercial database. For more information about AWS DMS, see the [AWS Database Migration Service User Guide](../../../dms/latest/userguide.md "../../../dms/latest/userguide.md").
+###### To set up PostgreSQL logical replication for an Aurora PostgreSQL DB cluster
 
-The following example shows how to set up logical replication from an Aurora PostgreSQL
-database as the publisher and then use AWS DMS for migration. This example uses the same
-publisher and subscriber that were created in [Example: Using
-logical replication with Aurora PostgreSQL DB clusters](AuroraPostgreSQL.Replication.Logical.md "AuroraPostgreSQL.Replication.Logical.md").
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose your Aurora PostgreSQL DB cluster.
+3. Open the **Configuration** tab. Among the Instance details,
+   find the **Parameter group** link with **DB cluster
+   parameter group** for **Type**.
+4. Choose the link to open the custom parameters associated with your
+   Aurora PostgreSQL DB cluster.
+5. In the **Parameters** search field, type `rds` to
+   find the `rds.logical_replication` parameter. The default value for
+   this parameter is `0`, meaning that it's turned off by default.
+6. Choose **Edit parameters** to access the property values, and
+   then choose `1` from the selector to turn on the feature. Depending
+   on your expected usage, you might also need to change the settings for the
+   following parameters. However, in many cases, the default values are sufficient.
+   - `max_replication_slots` – Set this parameter to a
+     value that's at least equal to your planned total number of logical
+     replication publications and subscriptions. If you are using AWS DMS, this
+     parameter should equal at least your planned change data capture tasks
+     from the cluster, plus logical replication publications and
+     subscriptions.
+   - `max_wal_senders` and
+     `max_logical_replication_workers` – Set these
+     parameters to a value that's at least equal to the number of
+     logical replication slots that you intend to be active, or the number of
+     active AWS DMS tasks for change data capture. Leaving a logical
+     replication slot inactive prevents the vacuum from removing obsolete
+     tuples from tables, so we recommend that you monitor replication slots
+     and remove inactive slots as needed.
+   - `max_worker_processes` – Set this parameter to a
+     value that's at least equal to the total of the
+     `max_logical_replication_workers`,
+     `autovacuum_max_workers`, and
+     `max_parallel_workers` values. On small DB instance
+     classes, background worker processes can affect application workloads,
+     so monitor the performance of your database if you set
+     `max_worker_processes` higher than the default value.
+     (The default value is the result of
+     `GREATEST(${DBInstanceVCPU*2},8}`, which means that, by
+     default, this is either 8 or twice the CPU equivalent of the DB instance
+     class, whichever is greater).
 
-To set up logical replication with AWS DMS, you need details about your publisher and
-subscriber from Amazon RDS. In particular, you need details about the publisher's writer
-DB instance and the subscriber's DB instance.
+###### Note
 
-Get the following information for the publisher's writer DB instance:
+You can modify parameter values in a customer-created DB parameter group.
+you can't change the parameter values in a default DB parameter
+group. 7. Choose **Save changes**. 8. Reboot the writer instance of your Aurora PostgreSQL DB cluster so that your
+changes takes effect. In the Amazon RDS console, choose the primary DB instance of
+the cluster and choose **Reboot** from the
+**Actions** menu. 9. When the instance is available, you can verify that logical replication is
+turned on, as follows.
 
-- The virtual private cloud (VPC) identifier
-- The subnet group
-- The Availability Zone (AZ)
-- The VPC security group
-- The DB instance ID
-  Get the following information for the subscriber's DB instance:
+    1. Use `psql` to connect to the writer instance of your
+     Aurora PostgreSQL DB cluster.
 
-- The DB instance ID
-- The source engine
 
-###### To use AWS DMS for logical replication with Aurora PostgreSQL
 
-1. Prepare the publisher database to work with AWS DMS.
+    ```
+    psql --host=`your-db-cluster-instance-1`.`aws-region`.rds.amazonaws.com --port=5432 --username=`postgres` --password --dbname=`labdb`
+    ```
+    2. Verify that logical replication has been enabled by using the
+     following command.
 
-To do this, PostgreSQL 10.x and later databases require that you apply AWS DMS
-wrapper functions to the publisher database. For details on this and later
-steps, see the instructions in [Using PostgreSQL version 10.x and later as a source for AWS DMS](../../../dms/latest/userguide/CHAP_Source.md#CHAP_Source.PostgreSQL.v10 "../../../dms/latest/userguide/CHAP_Source.md#CHAP_Source.PostgreSQL.v10") in
-the _AWS Database Migration Service User Guide._ 2. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2"). At top right, choose the same AWS Region in which the
-publisher and subscriber are located. 3. Create an AWS DMS replication instance.
 
-Choose values that are the same as for your publisher's writer DB
-instance. These include the following settings:
 
-    * For **VPC**, choose the same VPC as for the writer DB
-     instance.
-    * For **Replication Subnet Group**, choose a subnet
-     group with the same values as the writer DB instance. Create a new one
-     if necessary.
-    * For **Availability zone**, choose the same zone as
-     for the writer DB instance.
-    * For **VPC Security Group**, choose the same group as
-     for the writer DB instance.
+    ```
+    `labdb=>` `SHOW rds.logical_replication;`
+     `rds.logical_replication
+    -------------------------
+     on
+    (1 row)`
+    ```
+    3. Verify that the `wal_level` is set to `logical`.
 
-4. Create an AWS DMS endpoint for the source.
 
-Specify the publisher as the source endpoint by using the following settings:
 
-    * For **Endpoint type**, choose **Source
-     endpoint**.
-    * Choose **Select RDS DB Instance**.
-    * For **RDS Instance**, choose the DB identifier of the
-     publisher's writer DB instance.
-    * For **Source engine**, choose
-     **postgres**.
+    ```
+    `labdb=>` `SHOW wal_level;`
+     `wal_level
+    -----------
+     logical
+    (1 row)`
+    ```
 
-5. Create an AWS DMS endpoint for the target.
-
-Specify the subscriber as the target endpoint by using the following
-settings:
-
-    * For **Endpoint type**, choose **Target
-     endpoint**.
-    * Choose **Select RDS DB Instance**.
-    * For **RDS Instance**, choose the DB identifier of the
-     subscriber DB instance.
-    * Choose a value for **Source engine**. For example, if
-     the subscriber is an RDS PostgreSQL database, choose
-     **postgres**. If the subscriber is an Aurora PostgreSQL
-     database, choose **aurora-postgresql**.
-
-6. Create an AWS DMS database migration task.
-
-You use a database migration task to specify what database tables to migrate,
-to map data using the target schema, and to create new tables on the target
-database. At a minimum, use the following settings for **Task
-configuration**:
-
-    * For **Replication instance**, choose the replication
-     instance that you created in an earlier step.
-    * For **Source database endpoint**, choose the
-     publisher source that you created in an earlier step.
-    * For **Target database endpoint**, choose the
-     subscriber target that you created in an earlier step.
-
-The rest of the task details depend on your migration project. For more
-information about specifying all the details for DMS tasks, see [Working with AWS DMS tasks](../../../dms/latest/userguide/CHAP_Tasks.md "../../../dms/latest/userguide/CHAP_Tasks.md") in
-the _AWS Database Migration Service User Guide._
-After AWS DMS creates the task, it begins migrating data from the publisher to the
-subscriber.
+For an example of using logical replication to keep a database table synchronized with
+changes from a source Aurora PostgreSQL DB cluster, see [Example: Using logical replication with Aurora PostgreSQL DB clusters](AuroraPostgreSQL.Replication.Logical.md "AuroraPostgreSQL.Replication.Logical.md").

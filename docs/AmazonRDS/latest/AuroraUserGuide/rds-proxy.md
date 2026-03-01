@@ -1,123 +1,76 @@
-# RDS Proxy command-line examples
+# Monitoring RDS Proxy metrics with Amazon CloudWatch
 
-To see how combinations of connection commands and SQL statements interact with RDS Proxy, look at the following
-examples.
+You can monitor RDS Proxy by using Amazon CloudWatch. CloudWatch collects and processes raw data from the proxies into readable,
+near-real-time metrics. To find these metrics in the CloudWatch console, choose **Metrics**, then
+choose **RDS**, and choose **Per-Proxy Metrics**. For more information, see
+[Using Amazon
+CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md") in the Amazon CloudWatch User Guide.
 
-###### Examples
+###### Note
 
-- [Preserving Connections to a MySQL Database Across a Failover](#example-mysql-preserve-connections "#example-mysql-preserve-connections")
-- [Adjusting the max_connections Setting for an Aurora DB Cluster](#example-adjust-cluster-max-connections "#example-adjust-cluster-max-connections")
+RDS publishes these metrics for each underlying Amazon EC2 instance associated with a proxy. A single proxy might
+be served by more than one EC2 instance. Use CloudWatch statistics to aggregate the values for a proxy across all
+the associated instances.
 
-###### Example
+Some of these metrics might not be visible until after the first successful connection by a proxy.
 
-Preserving connections to a MySQL database across a failover
+In the RDS Proxy logs, each entry is prefixed with the name of the associated proxy endpoint.
+This name can be the name you specified for a user-defined endpoint, or the special name
+`default` for the default endpoint of a proxy that performs read/write requests.
 
-This MySQL example demonstrates how open connections continue working during a
-failover. An example is when you reboot a database or it becomes unavailable due to a
-problem. This example uses a proxy named `the-proxy` and an Aurora DB cluster with
-DB instances `instance-8898` and `instance-9814`. When you run the
-`failover-db-cluster` command from the Linux command line, the writer instance
-that the proxy is connected to changes to a different DB instance. You can see that the DB
-instance associated with the proxy changes while the connection remains open.
+All RDS Proxy metrics are in the group `proxy`.
 
-```
-$ mysql -h the-proxy.proxy-demo.us-east-1.rds.amazonaws.com -u `admin_user` -p
-Enter password:
-...
+Each proxy endpoint has its own CloudWatch metrics. You can monitor the usage of each proxy endpoint independently.
+For more information about proxy endpoints, see
+[Working with Amazon RDS Proxy endpoints](rds-proxy-endpoints.md "rds-proxy-endpoints.md").
 
-mysql> select @@aurora_server_id;
-+--------------------+
-| @@aurora_server_id |
-+--------------------+
-| instance-9814      |
-+--------------------+
-1 row in set (0.01 sec)
+You can aggregate the values for each metric using one of the following dimension sets. For example, by using
+the `ProxyName` dimension set, you can analyze all the traffic for a particular proxy. By using the
+other dimension sets, you can split the metrics in different ways. You can split the metrics based on the
+different endpoints or target databases of each proxy, or the read/write and read-only traffic to each database.
 
-mysql>
-[1]+  Stopped                 mysql -h the-proxy.proxy-demo.us-east-1.rds.amazonaws.com -u `admin_user` -p
-$ # Initially, instance-9814 is the writer.
-$ aws rds failover-db-cluster --db-cluster-identifier cluster-56-2019-11-14-1399
-`JSON output`
-$ # After a short time, the console shows that the failover operation is complete.
-$ # Now instance-8898 is the writer.
-$ fg
-mysql -h the-proxy.proxy-demo.us.us-east-1.rds.amazonaws.com -u `admin_user` -p
+- Dimension set 1: `ProxyName`
+- Dimension set 2: `ProxyName`, `EndpointName`
+- Dimension set 3: `ProxyName`, `TargetGroup`, `Target`
+- Dimension set 4: `ProxyName`, `TargetGroup`, `TargetRole`
 
-mysql> select @@aurora_server_id;
-+--------------------+
-| @@aurora_server_id |
-+--------------------+
-| instance-8898      |
-+--------------------+
-1 row in set (0.01 sec)
+| Metric                                      | Description                                                                                                                                                                                                                     | Valid period       | CloudWatch dimension set                                                                                                                                                                                                                                                          |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AvailabilityPercentage`                    | The percentage of time for which the target group was available in the role<br>indicated by the dimension. This metric is reported every minute. The most useful<br>statistic for this metric is `Sum`.                         | 1 minute           | [Dimension set 4](#proxy-dimension-set-4 "#proxy-dimension-set-4")                                                                                                                                                                                                                |
+| `ClientConnections`                         | The current number of client connections. This metric is reported every minute. The most useful<br>statistic for this metric is `Sum`.                                                                                          | 1 minute           | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 2](#proxy-dimension-set-2 "#proxy-dimension-set-2")                                                                                                                                            |
+| `ClientConnectionsClosed`                   | The number of client connections closed. The most useful statistic for this metric is<br>`Sum`.                                                                                                                                 | 1 minute and above | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 2](#proxy-dimension-set-2 "#proxy-dimension-set-2")                                                                                                                                            |
+| `ClientConnectionsInSetup`                  | The current number of client connections open but have not completed setup. This<br>metric is reported every minute. The most useful statistic for this metric is<br>Sum.                                                       | 1 minute           | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 2](#proxy-dimension-set-2 "#proxy-dimension-set-2")                                                                                                                                            |
+| `ClientConnectionsNoTLS`                    | The current number of client connections without Transport Layer Security (TLS).<br>This metric is reported every minute. The most useful statistic for this metric is<br>`Sum`.                                                | 1 minute           | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 2](#proxy-dimension-set-2 "#proxy-dimension-set-2")                                                                                                                                            |
+| `ClientConnectionsReceived`                 | The number of client connection requests received. The most useful statistic for this metric is<br>`Sum`.                                                                                                                       | 1 minute and above | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 2](#proxy-dimension-set-2 "#proxy-dimension-set-2")                                                                                                                                            |
+| `ClientConnectionsSetupFailedAuth`          | The number of client connection attempts that failed due to misconfigured authentication or TLS. The<br>most useful statistic for this metric is `Sum`.                                                                         | 1 minute and above | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 2](#proxy-dimension-set-2 "#proxy-dimension-set-2")                                                                                                                                            |
+| `ClientConnectionsSetupSucceeded`           | The number of client connections successfully established with any authentication mechanism with or<br>without TLS. The most useful statistic for this metric is `Sum`.                                                         | 1 minute and above | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 2](#proxy-dimension-set-2 "#proxy-dimension-set-2")                                                                                                                                            |
+| `ClientConnectionsTLS`                      | The current number of client connections with TLS. This metric is reported every<br>minute. The most useful statistic for this metric is `Sum`.                                                                                 | 1 minute           | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 2](#proxy-dimension-set-2 "#proxy-dimension-set-2")                                                                                                                                            |
+| `DatabaseConnectionRequests`                | The number of requests to create a database connection. The most useful statistic for this metric is<br>`Sum`.                                                                                                                  | 1 minute and above | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 3](#proxy-dimension-set-3 "#proxy-dimension-set-3"),<br>[Dimension set 4](#proxy-dimension-set-4 "#proxy-dimension-set-4")                                                                     |
+| `DatabaseConnectionRequestsWithTLS`         | The number of requests to create a database connection with TLS. The most useful statistic for this<br>metric is `Sum`.                                                                                                         | 1 minute and above | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 3](#proxy-dimension-set-3 "#proxy-dimension-set-3"),<br>[Dimension set 4](#proxy-dimension-set-4 "#proxy-dimension-set-4")                                                                     |
+| `DatabaseConnections`                       | The current number of database connections. This metric is reported every minute.<br>The most useful statistic for this metric is `Sum`.                                                                                        | 1 minute           | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 3](#proxy-dimension-set-3 "#proxy-dimension-set-3"),<br>[Dimension set 4](#proxy-dimension-set-4 "#proxy-dimension-set-4")                                                                     |
+| `DatabaseConnectionsBorrowLatency`          | The time in microseconds that it takes for the proxy being monitored to get a<br>database connection. The most useful statistic for this metric is `Sum`.                                                                       | 1 minute and above | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 2](#proxy-dimension-set-2 "#proxy-dimension-set-2")                                                                                                                                            |
+| `DatabaseConnectionsCurrentlyBorrowed`      | The current number of database connections in the borrow state. This metric is<br>reported every minute. The most useful statistic for this metric is `Sum`.                                                                    | 1 minute           | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 3](#proxy-dimension-set-3 "#proxy-dimension-set-3"),<br>[Dimension set 4](#proxy-dimension-set-4 "#proxy-dimension-set-4")                                                                     |
+| `DatabaseConnectionsCurrentlyInTransaction` | The current number of database connections in a transaction. This metric is reported every minute. The<br>most useful statistic for this metric is `Sum`.                                                                       | 1 minute           | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 3](#proxy-dimension-set-3 "#proxy-dimension-set-3"),<br>[Dimension set 4](#proxy-dimension-set-4 "#proxy-dimension-set-4")                                                                     |
+| `DatabaseConnectionsCurrentlySessionPinned` | The current number of database connections currently pinned because of operations in client requests<br>that change session state. This metric is reported every minute. The most useful statistic for this<br>metric is `Sum`. | 1 minute           | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 3](#proxy-dimension-set-3 "#proxy-dimension-set-3"),<br>[Dimension set 4](#proxy-dimension-set-4 "#proxy-dimension-set-4")                                                                     |
+| `DatabaseConnectionsSetupFailed`            | The number of database connection requests that failed. The most useful statistic for this metric is<br>`Sum`.                                                                                                                  | 1 minute and above | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 3](#proxy-dimension-set-3 "#proxy-dimension-set-3"),<br>[Dimension set 4](#proxy-dimension-set-4 "#proxy-dimension-set-4")                                                                     |
+| `DatabaseConnectionsSetupSucceeded`         | The number of database connections successfully established with or without TLS. The most useful<br>statistic for this metric is `Sum`.                                                                                         | 1 minute and above | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 3](#proxy-dimension-set-3 "#proxy-dimension-set-3"),<br>[Dimension set 4](#proxy-dimension-set-4 "#proxy-dimension-set-4")                                                                     |
+| `DatabaseConnectionsWithTLS`                | The current number of database connections with TLS. This metric is reported every minute. The most<br>useful statistic for this metric is `Sum`.                                                                               | 1 minute           | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 3](#proxy-dimension-set-3 "#proxy-dimension-set-3"),<br>[Dimension set 4](#proxy-dimension-set-4 "#proxy-dimension-set-4")                                                                     |
+| `MaxDatabaseConnectionsAllowed`             | The maximum number of database connections allowed. This metric is reported every minute. The most<br>useful statistic for this metric is `Sum`.                                                                                | 1 minute           | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 3](#proxy-dimension-set-3 "#proxy-dimension-set-3"),<br>[Dimension set 4](#proxy-dimension-set-4 "#proxy-dimension-set-4")                                                                     |
+| `QueryDatabaseResponseLatency`              | The time in microseconds that the database took to respond to the query. The most useful statistic for<br>this metric is `Average`.                                                                                             | 1 minute and above | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 2](#proxy-dimension-set-2 "#proxy-dimension-set-2"),<br>[Dimension set 3](#proxy-dimension-set-3 "#proxy-dimension-set-3"), [Dimension set 4](#proxy-dimension-set-4 "#proxy-dimension-set-4") |
+| `QueryRequests`                             | The number of queries received. A query including multiple statements is counted as one query. The<br>most useful statistic for this metric is `Sum`.                                                                           | 1 minute and above | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 2](#proxy-dimension-set-2 "#proxy-dimension-set-2")                                                                                                                                            |
+| `QueryRequestsNoTLS`                        | The number of queries received from non-TLS connections. A query including multiple statements is<br>counted as one query. The most useful statistic for this metric is `Sum`.                                                  | 1 minute and above | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 2](#proxy-dimension-set-2 "#proxy-dimension-set-2")                                                                                                                                            |
+| `QueryRequestsTLS`                          | The number of queries received from TLS connections. A query including multiple statements is counted as<br>one query. The most useful statistic for this metric is `Sum`.                                                      | 1 minute and above | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 2](#proxy-dimension-set-2 "#proxy-dimension-set-2")                                                                                                                                            |
+| `QueryResponseLatency`                      | The time in microseconds between getting a query request and the proxy responding to it. The most useful<br>statistic for this metric is `Average`.                                                                             | 1 minute and above | [Dimension set 1](#proxy-dimension-set-1 "#proxy-dimension-set-1"), [Dimension set 2](#proxy-dimension-set-2 "#proxy-dimension-set-2")                                                                                                                                            |
 
-mysql>
-[1]+  Stopped                 mysql -h the-proxy.proxy-demo.us-east-1.rds.amazonaws.com -u `admin_user` -p
-$ aws rds failover-db-cluster --db-cluster-identifier cluster-56-2019-11-14-1399
-`JSON output`
-$ # After a short time, the console shows that the failover operation is complete.
-$ # Now instance-9814 is the writer again.
-$ fg
-mysql -h the-proxy.proxy-demo.us-east-1.rds.amazonaws.com -u `admin_user` -p
+You can find logs of RDS Proxy activity under CloudWatch in the AWS Management Console. Each proxy has an entry in the
+**Log groups** page.
 
-mysql> select @@aurora_server_id;
-+--------------------+
-| @@aurora_server_id |
-+--------------------+
-| instance-9814      |
-+--------------------+
-1 row in set (0.01 sec)
-+---------------+---------------+
-| Variable_name | Value         |
-+---------------+---------------+
-| hostname      | **ip-10-1-3-178** |
-+---------------+---------------+
-1 row in set (0.02 sec)
-```
+###### Important
 
-###### Example
+These logs are intended for human consumption for troubleshooting purposes and not for programmatic
+access. The format and content of the logs is subject to change.
 
-Adjusting the max_connections setting for an Aurora DB cluster
-
-This example demonstrates how you can adjust the `max_connections` setting for an Aurora MySQL DB cluster. To do so,
-you create your own DB cluster parameter group based on the default parameter settings for clusters that are compatible with
-MySQL 5.7. You specify a value for the `max_connections` setting, overriding the formula that sets the default
-value. You associate the DB cluster parameter group with your DB cluster.
-
-```
-export REGION=us-east-1
-export CLUSTER_PARAM_GROUP=rds-proxy-mysql-57-max-connections-demo
-export CLUSTER_NAME=rds-proxy-mysql-57
-
-aws rds create-db-parameter-group --region $REGION \
-  --db-parameter-group-family aurora-mysql5.7 \
-  --db-parameter-group-name $CLUSTER_PARAM_GROUP \
-  --description "Aurora MySQL 5.7 cluster parameter group for RDS Proxy demo."
-
-aws rds modify-db-cluster --region $REGION \
-  --db-cluster-identifier $CLUSTER_NAME \
-  --db-cluster-parameter-group-name $CLUSTER_PARAM_GROUP
-
-echo "New cluster param group is assigned to cluster:"
-aws rds describe-db-clusters --region $REGION \
-  --db-cluster-identifier $CLUSTER_NAME \
-  --query '*[*].{DBClusterParameterGroup:DBClusterParameterGroup}'
-
-echo "Current value for max_connections:"
-aws rds describe-db-cluster-parameters --region $REGION \
-  --db-cluster-parameter-group-name $CLUSTER_PARAM_GROUP \
-  --query '*[*].{ParameterName:ParameterName,ParameterValue:ParameterValue}' \
-  --output text | grep "^max_connections"
-
-echo -n "Enter number for max_connections setting: "
-read answer
-
-aws rds modify-db-cluster-parameter-group --region $REGION --db-cluster-parameter-group-name $CLUSTER_PARAM_GROUP \
-  --parameters "ParameterName=max_connections,ParameterValue=$$answer,ApplyMethod=immediate"
-
-echo "Updated value for max_connections:"
-aws rds describe-db-cluster-parameters --region $REGION \
-  --db-cluster-parameter-group-name $CLUSTER_PARAM_GROUP \
-  --query '*[*].{ParameterName:ParameterName,ParameterValue:ParameterValue}' \
-  --output text | grep "^max_connections"
-```
+In particular, older logs don't contain any prefixes indicating the endpoint for
+each request. In newer logs, each entry is prefixed with the name of the associated proxy
+endpoint. This name can be the name that you specified for a user-defined endpoint, or the
+special name `default` for requests using the default endpoint of a proxy.

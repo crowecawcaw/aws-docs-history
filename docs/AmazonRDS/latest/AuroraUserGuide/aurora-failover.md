@@ -9,8 +9,7 @@ Aurora fails over to a new primary DB instance in one of two ways:
 - By creating a new primary instance
   If the DB cluster has one or more reader instances, then a reader is promoted to the primary instance during a failure event. To increase the availability
   of your DB cluster, we recommend that you create at least one or more reader instances in two or more different Availability Zones. For more information on the
-  failover mechanism, see [Fault tolerance for an Aurora DB
-  cluster](Concepts.md#Aurora.Managing.FaultTolerance "Concepts.md#Aurora.Managing.FaultTolerance").
+  failover mechanism, see [Fault tolerance for an Aurora DB cluster](Concepts.md#Aurora.Managing.FaultTolerance "Concepts.md#Aurora.Managing.FaultTolerance").
 
 You can use the AWS Management Console, AWS CLI, or RDS API to perform a manual failover.
 

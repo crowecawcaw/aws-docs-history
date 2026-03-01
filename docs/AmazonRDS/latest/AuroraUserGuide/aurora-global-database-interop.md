@@ -1,6 +1,4 @@
-# Using Amazon Aurora global databases with other AWS
-
-services
+# Using Amazon Aurora global databases with other AWS services
 
 You can use your Aurora global databases with other AWS services, such as Amazon S3 and AWS Lambda. Doing so requires that
 all Aurora DB clusters in your global database have the same privileges, external functions, and so on in the
@@ -10,50 +8,39 @@ you plan to use with your Aurora global database.
 
 The following procedures summarize the actions to take for each AWS service.
 
-######
-
-To invoke AWS Lambda functions from an Aurora global database
+###### To invoke AWS Lambda functions from an Aurora global database
 
 1. For all the Aurora clusters that make up the Aurora global database, perform the
-   procedures in [Invoking a Lambda function from an Amazon Aurora MySQL DB
-   cluster](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md").
+   procedures in [Invoking a Lambda function from an Amazon Aurora MySQL DB cluster](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md").
 2. For each cluster in the Aurora global database, set the
    (ARN) of the new IAM (IAM) role.
 3. To permit database users in an Aurora global database to invoke Lambda functions,
-   associate the role that you created in [Creating an
-   IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md") with each cluster
+   associate the role that you created in [Creating an IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md") with each cluster
    in the Aurora global database.
 4. Configure each cluster in the Aurora global database to allow outbound connections
-   to Lambda. For instructions, see [Enabling network
-   communication from Amazon Aurora to other AWS services](AuroraMySQL.Integrating.Authorizing.md "AuroraMySQL.Integrating.Authorizing.md").
+   to Lambda. For instructions, see [Enabling network communication from Amazon Aurora to other AWS services](AuroraMySQL.Integrating.Authorizing.md "AuroraMySQL.Integrating.Authorizing.md").
 
-######
-
-To load data from Amazon S3
+###### To load data from Amazon S3
 
 1. For all the Aurora clusters that make up the Aurora global database, perform the
-   procedures in [Loading data into an Amazon Aurora MySQL DB cluster from
-   text files in an Amazon S3 bucket](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md").
+   procedures in [Loading data into an Amazon Aurora MySQL DB cluster from text files in an Amazon S3 bucket](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md").
 2. For each Aurora cluster in the global database, set either the
    `aurora_load_from_s3_role` or `aws_default_s3_role` DB cluster
    parameter to the Amazon Resource Name (ARN) of the new IAM role. If an IAM role
    isn't specified for `aurora_load_from_s3_role`, Aurora uses the IAM role
    specified in `aws_default_s3_role`.
 3. To permit database users in an Aurora global database to access S3, associate
-   the role that you created in [Creating an
-   IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md") with each Aurora
+   the role that you created in [Creating an IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md") with each Aurora
    cluster in the global database.
 4. Configure each Aurora cluster in the global database to allow outbound connections to S3.
    For instructions, see
-   [Enabling network
-   communication from Amazon Aurora to other AWS services](AuroraMySQL.Integrating.Authorizing.md "AuroraMySQL.Integrating.Authorizing.md").
+   [Enabling network communication from Amazon Aurora to other AWS services](AuroraMySQL.Integrating.Authorizing.md "AuroraMySQL.Integrating.Authorizing.md").
 
 ###### To save queried data to Amazon S3
 
 1. For all the Aurora clusters that make up the Aurora global database, perform the
    procedures in
-   [Saving data from an Amazon Aurora MySQL DB cluster into text files in an Amazon S3
-   bucket](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md")
+   [Saving data from an Amazon Aurora MySQL DB cluster into text files in an Amazon S3 bucket](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md")
    or [Exporting data from an Aurora PostgreSQL DB cluster to Amazon S3](postgresql-s3-export.md "postgresql-s3-export.md").
 2. For each Aurora cluster in the global database, set either the
    `aurora_select_into_s3_role` or `aws_default_s3_role` DB cluster
@@ -62,9 +49,7 @@ To load data from Amazon S3
    role specified in `aws_default_s3_role`.
 3. To permit database users in an Aurora global database to access S3, associate the
    role that you created in
-   [Creating an
-   IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md")
+   [Creating an IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md")
    with each Aurora cluster in the global database.
 4. Configure each Aurora cluster in the global database to allow outbound connections
-   to S3. For instructions, see [Enabling network
-   communication from Amazon Aurora to other AWS services](AuroraMySQL.Integrating.Authorizing.md "AuroraMySQL.Integrating.Authorizing.md").
+   to S3. For instructions, see [Enabling network communication from Amazon Aurora to other AWS services](AuroraMySQL.Integrating.Authorizing.md "AuroraMySQL.Integrating.Authorizing.md").

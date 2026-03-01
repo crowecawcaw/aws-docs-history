@@ -1,6 +1,4 @@
-# Amazon CloudWatch metrics and Aurora MySQL status variables for write
-
-forwarding
+# Amazon CloudWatch metrics and Aurora MySQL status variables for write forwarding
 
 The following Amazon CloudWatch metrics and Aurora MySQL status variables apply when you use write forwarding for Aurora MySQL. For more information about metrics for Aurora MySQL writer and reader DB instances, see the following topics.
 

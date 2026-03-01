@@ -1,6 +1,4 @@
-# Optimizing correlated subqueries in
-
-Aurora PostgreSQL
+# Optimizing correlated subqueries in Aurora PostgreSQL
 
 A correlated subquery references table columns from the outer query. It is evaluated once
 for every row returned by the outer query. In the following example, the subquery references
@@ -24,9 +22,7 @@ SELECT ot.a, ot.b FROM ot WHERE ot.b < (SELECT AVG(it.b) FROM it WHERE it.a = ot
 
   By default, both parameters are turned on.
 
-## Improving Aurora PostgreSQL query performance using
-
-subquery transformation
+## Improving Aurora PostgreSQL query performance using subquery transformation
 
 Aurora PostgreSQL can accelerate correlated subqueries by transforming them into
 equivalent outer joins. This optimization applies to the following two types of
@@ -46,9 +42,7 @@ SELECT ot.a, ot.b, (SELECT AVG(it.b) FROM it WHERE it.a = ot.a) FROM ot;
 SELECT ot.a, ot.b FROM ot WHERE ot.b < (SELECT AVG(it.b) FROM it WHERE it.a = ot.a);
 ```
 
-### Enabling transformation in the
-
-subquery
+### Enabling transformation in the subquery
 
 To enable the transformation of correlated subqueries into equivalent outer
 joins, set the `apg_enable_correlated_scalar_transform` parameter to
@@ -137,9 +131,7 @@ query increases. We strongly recommend that you test this feature in a
 non-production environment with your actual schema, data, and workload before
 enabling it in a production environment.
 
-## Using subquery cache to improve Aurora PostgreSQL query
-
-performance
+## Using subquery cache to improve Aurora PostgreSQL query performance
 
 Aurora PostgreSQL supports subquery cache to store the results of correlated subqueries. This
 feature skips repeated correlated subquery executions when subquery results are already in
@@ -165,9 +157,7 @@ subquery cache is evaluated by checking whether the CHR is larger than
 apg_subquery_cache_hit_rate_threshold. If not, the cache will be deleted from memory,
 and the query execution will return to the original, uncached subquery re-execution.
 
-### Parameters that control subquery cache
-
-behavior
+### Parameters that control subquery cache behavior
 
 The following table lists the parameters that control the behavior of the subquery
 cache.
@@ -198,9 +188,7 @@ following command:
 SET apg_enable_subquery_cache TO ON;
 ```
 
-### Turning on subquery cache in
-
-Aurora PostgreSQL
+### Turning on subquery cache in Aurora PostgreSQL
 
 When subquery cache is enabled, Aurora PostgreSQL applies cache to save subquery results.
 The query plan will then have a Memoize node under SubPlan.

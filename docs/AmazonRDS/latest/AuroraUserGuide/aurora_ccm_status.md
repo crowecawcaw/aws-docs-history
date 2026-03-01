@@ -41,8 +41,7 @@ cluster.
 
 You turn on CCM for an Aurora PostgreSQL DB cluster by setting the
 `apg_ccm_enabled` to 1 in the cluster's custom DB cluster
-parameter group. To learn how, see [Configuring cluster
-cache management](AuroraPostgreSQL.md#AuroraPostgreSQL.cluster-cache-mgmt.Configure "AuroraPostgreSQL.md#AuroraPostgreSQL.cluster-cache-mgmt.Configure").
+parameter group. To learn how, see [Configuring cluster cache management](AuroraPostgreSQL.md#AuroraPostgreSQL.cluster-cache-mgmt.Configure "AuroraPostgreSQL.md#AuroraPostgreSQL.cluster-cache-mgmt.Configure").
 
 Cluster cache management is active on an Aurora PostgreSQL DB cluster when the cluster
 has an Aurora Reader instance configured as follows:

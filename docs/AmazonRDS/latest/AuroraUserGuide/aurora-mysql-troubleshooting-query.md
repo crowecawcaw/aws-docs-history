@@ -1,6 +1,4 @@
-# Troubleshooting query performance
-
-for Aurora MySQL databases
+# Troubleshooting query performance for Aurora MySQL databases
 
 MySQL provides [query optimizer control](https://dev.mysql.com/doc/refman/8.0/en/controlling-optimizer.html "https://dev.mysql.com/doc/refman/8.0/en/controlling-optimizer.html")
 through system variables that affect how query plans are evaluated, switchable optimizations, optimizer and index hints, and the

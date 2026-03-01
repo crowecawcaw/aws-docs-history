@@ -42,10 +42,8 @@ By completing these steps, you learn:
 
 - [Prerequisites](#tutorial-creating-custom-OPG.Prerequisites "#tutorial-creating-custom-OPG.Prerequisites")
 - [Create an Amazon Aurora DB cluster parameter group](#tutorial-creating-custom-OPG.create-parameter-group "#tutorial-creating-custom-OPG.create-parameter-group")
-- [Modify parameter value
-  in your custom parameter group](#tutorial-creating-custom-OPG.add-parameters "#tutorial-creating-custom-OPG.add-parameters")
-- [Create MySQL DB cluster
-  with a DB cluster parameter group](#tutorial-creating-custom-OPG.create-OPG "#tutorial-creating-custom-OPG.create-OPG")
+- [Modify parameter value in your custom parameter group](#tutorial-creating-custom-OPG.add-parameters "#tutorial-creating-custom-OPG.add-parameters")
+- [Create MySQL DB cluster with a DB cluster parameter group](#tutorial-creating-custom-OPG.create-OPG "#tutorial-creating-custom-OPG.create-OPG")
 
 ## Prerequisites
 
@@ -89,9 +87,7 @@ The new DB cluster parameter group appears on the
 **Parameter groups** page in the Amazon RDS console. The following steps illustrate how to modify parameter values
 to customize your parameter group.
 
-## Modify parameter value
-
-in your custom parameter group
+## Modify parameter value in your custom parameter group
 
 Use the following steps to modify the parameter value
 in the parameter group that you created in
@@ -114,9 +110,7 @@ The custom parameter group
 is now available to associate with Amazon Aurora for
 MySQL 8.0 DB cluster.
 
-## Create MySQL DB cluster
-
-with a DB cluster parameter group
+## Create MySQL DB cluster with a DB cluster parameter group
 
 Finally, create a MySQL DB cluster with the
 custom parameter

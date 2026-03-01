@@ -18,5 +18,5 @@ the log file might be empty when you download it.
 - [Watching a database log file](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md")
 - [Publishing database logs to Amazon CloudWatch Logs](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md")
 - [Reading log file contents using REST](DownloadCompleteDBLogFile.md "DownloadCompleteDBLogFile.md")
-- [Aurora MySQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")
+- [AuroraMySQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")
 - [Aurora PostgreSQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")

@@ -2,8 +2,7 @@
 
 A wait event in Aurora PostgreSQL indicates a resource for which a session is waiting, such as input/output (I/O) and locks. Wait
 events are helpful in finding out why sessions are waiting for resources, and identifying bottlenecks. For more information, see
-[Aurora PostgreSQL wait
-events](AuroraPostgreSQL.Tuning.md#AuroraPostgreSQL.Tuning.concepts.waits "AuroraPostgreSQL.Tuning.md#AuroraPostgreSQL.Tuning.concepts.waits").
+[Aurora PostgreSQL wait events](AuroraPostgreSQL.Tuning.md#AuroraPostgreSQL.Tuning.concepts.waits "AuroraPostgreSQL.Tuning.md#AuroraPostgreSQL.Tuning.concepts.waits").
 
 Aurora PostgreSQL Limitless Database has its own wait events that are related to routers and shards. Many of them are for routers waiting on shards to
 complete tasks. Shard wait events contain details on tasks that are being performed.

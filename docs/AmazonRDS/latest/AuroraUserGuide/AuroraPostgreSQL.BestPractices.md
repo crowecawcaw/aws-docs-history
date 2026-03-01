@@ -1,350 +1,280 @@
-# Tuning memory parameters for
+# Managing Aurora PostgreSQL connection churn with pooling
 
-Aurora PostgreSQL
+When client applications connect and disconnect so often that Aurora PostgreSQL DB cluster
+response time slows, the cluster is said to be experiencing _connection
+churn_. Each new connection to the Aurora PostgreSQL DB cluster endpoint consumes
+resources, thus reducing the resources that can be used to process the actual workload.
+Connection churn is an issue that we recommend that you manage by following some of the best
+practices discussed following.
 
-In Amazon Aurora PostgreSQL, you can use several parameters that control the amount of memory used
-for various processing tasks. If a task takes more memory than the amount set for a given
-parameter, Aurora PostgreSQL uses other resources for processing, such as by writing to disk. This
-can cause your Aurora PostgreSQL DB cluster to slow or potentially halt, with an out-of-memory
-error.
+For starters, you can improve response times on Aurora PostgreSQL DB clusters that have high
+rates of connection churn. To do this, you can use a connection pooler, such as RDS Proxy. A
+_connection pooler_ provides a cache of ready to use
+connections for clients. Almost all versions of Aurora PostgreSQL support RDS Proxy. For more
+information, see [Amazon RDS Proxy with Aurora PostgreSQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.RDS_Proxy.apg "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.RDS_Proxy.apg").
 
-The default setting for each memory parameter can usually handle its intended processing
-tasks. However, you can also tune your Aurora PostgreSQL DB
-cluster's
-memory-related
-parameters. You do this tuning to ensure that enough memory is allocated for processing your
-specific workload.
+If your specific version of Aurora PostgreSQL doesn't support RDS Proxy, you
+can use another PostgreSQL–compatible connection pooler, such as PgBouncer. To learn more, see the
+[PgBouncer](https://www.pgbouncer.org/ "https://www.pgbouncer.org/") website.
 
-Following, you can find information about parameters that control memory management. You can
-also learn how to assess memory utilization.
+To see if your Aurora PostgreSQL DB cluster can benefit from connection pooling, you can check the `postgresql.log` file
+for connections and disconnections. You can also use Performance Insights to find out how much connection churn
+your Aurora PostgreSQL DB cluster is experiencing. Following, you can
+find information about both topics.
 
-## Checking and setting parameter values
+## Logging connections and disconnections
 
-The parameters that you can set to manage memory and assess your Aurora PostgreSQL DB
-cluster's memory usage include the following:
-
-- `work_mem` – Specifies the amount of memory that the Aurora PostgreSQL DB cluster uses for
-  internal sort operations and hash tables before it writes to temporary disk files.
-- `log_temp_files` – Logs temporary file creation, file names, and sizes. When
-  this parameter is turned on, a log entry is stored for each temporary file that gets
-  created. Turn this on to see how frequently your Aurora PostgreSQL DB cluster needs to write to disk. Turn it off
-  again after you've gathered information about your Aurora PostgreSQL DB cluster's temporary file generation, to avoid
-  excessive logging.
-- `logical_decoding_work_mem` – Specifies the amount of memory (in kilobytes) to be used by each internal reorder buffer before spilling to disk.
-  This memory is used for _Logical decoding_, which is the process to create a replica. It is done by converting data from the
-  write-ahead log (WAL) file to the logical streaming output needed by the target.
-
-The value of this parameter creates a single buffer of the size specified for each
-replication connection. By default, it's 65536 KB. After this buffer is filled,
-the excess is written to disk as a file. To minimize disk activity, you can set the value
-of this parameter to a much higher value than that of `work_mem`.
-
-These are all dynamic parameters, so you can change them for the current session. To do this,
-connect to the Aurora PostgreSQL DB cluster
-with psql and using the
-`SET` statement, as shown following.
+The PostgreSQL `log_connections` and `log_disconnections` parameters
+can capture connections and disconnections to the writer instance
+of the Aurora PostgreSQL DB cluster. By default, these parameters are turned off. To turn these parameters on,
+use a custom parameter group and turn on by changing the value to 1. For more information
+about custom parameter groups, see [DB cluster parameter groups for Amazon Aurora DB clusters](USER_WorkingWithDBClusterParamGroups.md "USER_WorkingWithDBClusterParamGroups.md"). To check the settings, connect to
+your DB cluster endpoint for Aurora PostgreSQL by using psql and query as follows.
 
 ```
-SET `parameter_name` TO `parameter_value`;
-```
-
-Session settings last for the duration of the session only. When the session ends, the
-parameter reverts to its setting in the DB cluster parameter
-group.
-Before changing any parameters,
-first check the current values by querying the `pg_settings` table, as
-follows.
-
-```
-SELECT unit, setting, max_val
-   FROM pg_settings WHERE name='`parameter_name`';
-```
-
-For example, to find the value of the `work_mem` parameter, connect to the
-Aurora PostgreSQL DB cluster's writer instance and run the following query.
-
-```
-SELECT unit, setting, max_val, pg_size_pretty(max_val::numeric)
-  FROM pg_settings WHERE name='work_mem';
-`unit | setting | max_val | pg_size_pretty
-------+----------+-----------+----------------
- kB | 1024 | 2147483647| 2048 MB
+`labdb=>` SELECT setting FROM pg_settings
+  WHERE name = 'log_connections';
+ `setting
+---------
+on
+(1 row)`
+`labdb=>` SELECT setting FROM pg_settings
+  WHERE name = 'log_disconnections';
+`setting
+---------
+on
 (1 row)`
 ```
 
-Changing parameter settings so that they persist requires using a custom DB cluster parameter group.
-After exercising your Aurora PostgreSQL DB cluster
-with different values for these parameters using the `SET` statement,
-you can create a custom parameter group and apply to your Aurora PostgreSQL DB cluster.
-For more information, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
-
-## Understanding the
-
-working memory parameter
-
-The working memory parameter (`work_mem`) specifies the maximum amount of memory that Aurora PostgreSQL can use
-to process complex queries. Complex queries include those that involve sorting or grouping operations—in other words, queries that
-use the following clauses:
-
-- ORDER BY
-- DISTINCT
-- GROUP BY
-- JOIN (MERGE and HASH)
-
-The query planner indirectly affects how your Aurora PostgreSQL DB cluster uses working memory.
-The query planner generates execution plans for processing SQL statements. A given plan might
-break up a complex query into multiple units of work that can be run in parallel. When
-possible, Aurora PostgreSQL uses the amount of memory specified in the `work_mem`
-parameter for each session before writing to disk for each parallel process.
-
-Multiple database users running multiple operations concurrently and generating multiple
-units of work in parallel can exhaust your Aurora PostgreSQL DB cluster's allocated working
-memory. This can lead to excessive temporary file creation and disk I/O, or worse, it can lead
-to an out-of-memory error.
-
-### Identifying temporary file use
-
-Whenever the memory required to process queries exceeds the value specified in the
-`work_mem` parameter, the working data is offloaded to disk
-in a temporary file. You can see how often this occurs by turning on the
-`log_temp_files` parameter. By default, this parameter is off (it's set to
--1). To capture all temporary file information, set this parameter to 0. Set `log_temp_files`
-to any other positive integer to capture temporary file information for files equal to or greater than that
-amount of data (in kilobytes). In the following image, you can see an example from AWS Management Console.
-
-![Image of custom parameter group with log_temp_files set to 1024kB.](images/postgres_tuning_custom_parameter.png)
-
-After configuring temporary file logging, you can test with your own workload to see if your
-working memory setting is sufficient. You can also simulate a workload by using pgbench, a
-simple benchmarking application from the PostgreSQL community.
-
-The following example initializes (`-i`) `pgbench` by creating the
-necessary tables and rows for running the tests. In this example, the scaling factor
-(`-s` 50) creates 50 rows in the `pgbench_branches` table, 500 rows
-in `pgbench_tellers`, and 5,000,000 rows in the `pgbench_accounts`
-table in the `labdb` database.
+With both of these parameters turned on, the log captures all new connections and
+disconnections. You see the user and database for each new authorized connection. At
+disconnection time, the session duration is also logged, as shown in the following
+example.
 
 ```
-pgbench -U postgres -h `your-cluster-`instance-1.111122223333.`aws-region`rds.amazonaws.com -p 5432 -i -s `50` `labdb`
-`Password:
-dropping old tables...
-NOTICE: table "pgbench_accounts" does not exist, skipping
-NOTICE: table "pgbench_branches" does not exist, skipping
-NOTICE: table "pgbench_history" does not exist, skipping
-NOTICE: table "pgbench_tellers" does not exist, skipping
-creating tables...
-generating data (client-side)...
-5000000 of 5000000 tuples (100%) done (elapsed 15.46 s, remaining 0.00 s)
-vacuuming...
-creating primary keys...
-done in 61.13 s (drop tables 0.08 s, create tables 0.39 s, client-side generate 54.85 s, vacuum 2.30 s, primary keys 3.51 s)`
-```
-
-After initializing the environment, you can run the benchmark for a specific time (`-T`) and the number of
-clients (`-c`). This example also uses the `-d` option to output debugging information as the transactions are processed by
-the Aurora PostgreSQL DB cluster.
+2022-03-07 21:44:53.978 UTC [16641] LOG: connection authorized: user=labtek database=labdb application_name=psql
+2022-03-07 21:44:55.718 UTC [16641] LOG: disconnection: session time: 0:00:01.740 user=labtek database=labdb host=[local]
 
 ```
-pgbench -h -U postgres `your-cluster-`instance-1.111122223333.`aws-region`rds.amazonaws.com -p 5432 -d -T 60 -c 10 `labdb`
-`Password:`*******`
-pgbench (14.3)
-starting vacuum...end.
-transaction type: <builtin: TPC-B (sort of)>
-scaling factor: 50
-query mode: simple
-number of clients: 10
-number of threads: 1
-duration: 60 s
-number of transactions actually processed: 1408
-latency average = 398.467 ms
-initial connection time = 4280.846 ms
-tps = 25.096201 (without initial connection time)`
-```
 
-For more information about pgbench, see [pgbench](https://www.postgresql.org/docs/current/pgbench.html "https://www.postgresql.org/docs/current/pgbench.html") in the
-PostgreSQL documentation.
+To check your application for connection churn, turn on these parameters if they're not
+on already. Then gather data in the PostgreSQL log for analysis by running your application
+with a realistic workload and time period. You can view the log file in the RDS console.
+Choose the writer instance of your Aurora PostgreSQL DB cluster, and then choose the
+**Logs & events** tab. For more information, see [Viewing and listing database log files](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md").
 
-You can use the psql metacommand command (`\d`) to list the relations such as
-tables, views, and indexes created by pgbench.
+Or you can download the log file from the console and use the following command sequence.
+This sequence finds the total number of connections authorized and dropped per minute.
 
 ```
-`labdb=>`  \d pgbench_accounts
- `Table "public.pgbench_accounts"
- Column | Type | Collation | Nullable | Default
-----------+---------------+-----------+----------+---------
- aid | integer | | not null |
- bid | integer | | |
- abalance | integer | | |
- filler | character(84) | | |
-Indexes:
- "pgbench_accounts_pkey" PRIMARY KEY, btree (aid)`
+grep "connection authorized\|disconnection: session time:" postgresql.log.2022-03-21-16|\
+awk {'print $1,$2}' |\
+sort |\
+uniq -c |\
+sort -n -k1
 ```
 
-As shown in the output, the `pgbench_accounts` table is indexed on the
-`aid` column. To ensure that this next query uses working memory, query any
-nonindexed column, such as that shown in the following example.
+In the example output, you can see a spike in authorized connections followed by
+disconnections starting at 16:12:10.
 
 ```
-`postgres=>` SELECT * FROM pgbench_accounts ORDER BY bid;
-```
-
-Check the log for the temporary files. To do so, open the AWS Management Console, choose the Aurora PostgreSQL
-DB cluster instance, and then choose the **Logs & Events** tab. View
-the logs in the console or download for further analysis. As shown in the following image,
-the size of the temporary files needed to process the query indicates that you should
-consider increasing the amount specified for the `work_mem` parameter.
-
-![Image of the log file from AWS Management Console showing the temporary files.](images/postgres_tuning_log_temp_files.png)
-
-You can configure this parameter differently for individuals and groups, based on your
-operational needs. For example, you can set the `work_mem` parameter to 8 GB for
-the role named `dev_team`.
-
-```
-`postgres=>` ALTER ROLE `dev_team` SET work_mem=‘8GB';
-```
-
-With this setting for `work_mem`, any role that's a member of the `dev_team` role is allotted up to 8 GB of working memory.
-
-## Using indexes for faster response time
-
-If your queries are taking too long to return results, you can verify that your indexes are being used as expected. First,
-turn on `\timing`, the psql metacommand, as follows.
-
-```
-`postgres=>`  \timing on
-```
-
-After turning on timing, use a simple SELECT statement.
-
-```
-`postgres=>` SELECT COUNT(*) FROM
-  (SELECT * FROM pgbench_accounts
-  ORDER BY bid)
-  AS accounts;
-`count
--------
-5000000
-(1 row)
-Time: 3119.049 ms (00:03.119)`
-```
-
-As shown in the output, this query took just over 3 seconds to complete. To improve the
-response time, create an index on `pgbench_accounts`, as follows.
+.....
+,......
+.........
+5 2022-03-21 16:11:55 connection authorized:
+9 2022-03-21 16:11:55 disconnection: session
+5 2022-03-21 16:11:56 connection authorized:
+5 2022-03-21 16:11:57 connection authorized:
+5 2022-03-21 16:11:57 disconnection: session
+32 2022-03-21 16:12:10 connection authorized:
+30 2022-03-21 16:12:10 disconnection: session
+31 2022-03-21 16:12:11 connection authorized:
+27 2022-03-21 16:12:11 disconnection: session
+27 2022-03-21 16:12:12 connection authorized:
+27 2022-03-21 16:12:12 disconnection: session
+41 2022-03-21 16:12:13 connection authorized:
+47 2022-03-21 16:12:13 disconnection: session
+46 2022-03-21 16:12:14 connection authorized:
+41 2022-03-21 16:12:14 disconnection: session
+24 2022-03-21 16:12:15 connection authorized:
+29 2022-03-21 16:12:15 disconnection: session
+28 2022-03-21 16:12:16 connection authorized:
+24 2022-03-21 16:12:16 disconnection: session
+40 2022-03-21 16:12:17 connection authorized:
+42 2022-03-21 16:12:17 disconnection: session
+40 2022-03-21 16:12:18 connection authorized:
+40 2022-03-21 16:12:18 disconnection: session
+.....
+,......
+.........
+1 2022-03-21 16:14:10 connection authorized:
+1 2022-03-21 16:14:10 disconnection: session
+1 2022-03-21 16:15:00 connection authorized:
+1 2022-03-21 16:16:00 connection authorized:
 
 ```
-`postgres=>` CREATE INDEX ON pgbench_accounts(bid);
-`CREATE INDEX`
-```
 
-Rerun the query, and notice the faster response time. In this example, the query completed
-about 5 times faster, in about half a second.
+With this information, you can decide if your workload can benefit from a connection pooler. For more detailed
+analysis, you can use Performance Insights.
 
-```
-`postgres=>`  SELECT COUNT(*) FROM (SELECT * FROM pgbench_accounts ORDER BY bid) AS accounts;
- `count
--------
- 5000000
-(1 row)
-Time: 567.095 ms`
-```
+## Detecting connection churn with Performance Insights
 
-## Adjusting working memory for logical decoding
+You can use Performance Insights to assess the amount of connection churn on your
+Aurora PostgreSQL-Compatible Edition DB cluster.
+When you create an
+Aurora PostgreSQL DB cluster, the setting for Performance Insights is turned on by default. If you
+cleared this choice when you created your DB cluster, modify your cluster to turn on the
+feature. For more information, see [Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
 
-Logical replication has been available in all versions of Aurora PostgreSQL
-since its introduction in PostgreSQL version 10. When you configure logical replication,
-you can also set the `logical_decoding_work_mem` parameter to specify the amount of memory that the
-logical decoding process can use for the decoding and streaming process.
+With Performance Insights running on your Aurora PostgreSQL DB cluster, you can choose the
+metrics that you want to monitor. You can access Performance Insights from the navigation pane
+in the console. You can also access Performance Insights from the
+**Monitoring** tab of the writer instance for your Aurora PostgreSQL DB
+cluster, as shown in the following image.
 
-During logical decoding, write-ahead log (WAL) records are converted to SQL statements that
-are then sent to another target for logical replication or another task. When a transaction is
-written to the WAL and then converted, the entire transaction must fit into the value
-specified for `logical_decoding_work_mem`. By default, this parameter is set to 65536 KB.
-Any overflow is written to disk. This means that it must be reread from the disk before it
-can be sent to its destination, thus slowing the overall process.
+![Image of accessing Performance Insights from within the RDS console and selected Aurora PostgreSQL DB cluster.](images/postgres_connection_pooling_PI_1.png)
 
-You can assess the amount of transaction overflow in your current workload at a specific point
-in time by using the `aurora_stat_file` function as shown in the following example.
+From the Performance Insights console, choose **Manage metrics**. To
+analyze your Aurora PostgreSQL DB cluster's connection and disconnection activity, choose the
+following metrics. These are all metrics from PostgreSQL.
 
-```
-SELECT split_part (filename, '/', 2)
-   AS slot_name, count(1) AS num_spill_files,
-   sum(used_bytes) AS slot_total_bytes,
-   pg_size_pretty(sum(used_bytes)) AS slot_total_size
-   FROM aurora_stat_file()
-   WHERE filename like '%spill%'
-   GROUP BY 1;
- `slot_name | num_spill_files | slot_total_bytes | slot_total_size
-------------+-----------------+------------------+-----------------
- slot_name | 590 | 411600000 | 393 MB
-(1 row)`
-```
+- `xact_commit` – The number of committed transactions.
+- `total_auth_attempts` – The number of attempted authenticated user connections per minute.
+- `numbackends` – The number of backends currently connected to the database.
 
-This query returns the count and size of spill files on your Aurora PostgreSQL DB cluster when the
-query is invoked. Longer running workloads might not have any spill files on disk yet. To
-profile long-running workloads, we recommend that you create a table to capture the spill file
-information as the workload runs. You can create the table as follows.
+![Image of accessing Performance Insights from within the RDS console and selected Aurora PostgreSQL DB cluster.](images/postgres_connection_churn_PI_4.png)
 
-```
-CREATE TABLE spill_file_tracking AS
-    SELECT now() AS spill_time,*
-    FROM aurora_stat_file()
-    WHERE filename LIKE '%spill%';
-```
+To save the settings and display connection activity, choose **Update
+graph**.
 
-To see how spill files are used during logical replication, set up a publisher and subscriber
-and then start a simple replication. For more information, see [Setting up logical
-replication for your Aurora PostgreSQL DB cluster](AuroraPostgreSQL.Replication.Logical.md "AuroraPostgreSQL.Replication.Logical.md"). With replication under
-way, you can create a job that captures the result set from the
-`aurora_stat_file()` spill file function, as follows.
+In the following image, you can see the impact of running pgbench with
+100 users. The line showing connections is on a consistent upward slope. To learn more about
+pgbench and how to use it, see [pgbench](https://www.postgresql.org/docs/current/pgbench.html "https://www.postgresql.org/docs/current/pgbench.html") in PostgreSQL
+documentation.
 
-```
-INSERT INTO spill_file_tracking
-  SELECT now(),*
-  FROM aurora_stat_file()
-  WHERE filename LIKE '%spill%';
-```
+![Image of Performance Insights showing need for connection pooling.](images/postgres_connection_pooling_PI_2.png)
 
-Use the following psql command to run the job once per second.
+The image shows that running a workload with as few as 100 users
+without a connection pooler can cause a significant increase in the number of
+`total_auth_attempts` throughout the duration of workload processing.
+Note that it's best to keep `total_auth_attempts` as close to zero as possible.
 
-```
-\watch 0.5
-```
+With RDS Proxy connection pooling, the connection attempts increase at the start of the workload. After setting up the
+connection pool, the average declines. The resources used by transactions and backend use stays consistent throughout workload processing.
 
-As the job is running, connect to the writer instance from another psql session.
-Use the following series of statements to run a workload that exceeds the memory configuration and causes Aurora PostgreSQL to create a spill file.
+![Image of Performance Insights showing benefit of RDS Proxy for connection pooling.](images/postgres_connection_pooling_PI_3.png)
 
-```
-`labdb=>` `CREATE TABLE my_table (a int PRIMARY KEY, b int);`
-`CREATE TABLE`
-`labdb=>` `INSERT INTO my_table SELECT x,x FROM generate_series(0,10000000) x;`
-`INSERT 0 10000001`
-`labdb=>` `UPDATE my_table SET b=b+1;`
-`UPDATE 10000001`
-```
+For more information about using Performance Insights with your Aurora PostgreSQL DB cluster, see
+[Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md"). To analyze
+the metrics, see [Analyzing metrics with the Performance Insights dashboard](USER_PerfInsights.md "USER_PerfInsights.md").
 
-These statements take several minutes to complete. When finished, press the Ctrl key and the C
-key together to stop the monitoring function. Then use the following command to create a table
-to hold the information about the Aurora PostgreSQL DB cluster's spill file usage.
+## Demonstrating the benefits of connection pooling
+
+As mentioned previously, if you determine that your Aurora PostgreSQL DB cluster has a
+connection churn problem, you can use RDS Proxy for improved performance. Following, you can
+find an example that shows the differences in processing a workload when connections are
+pooled and when they're not. The example uses pgbench to model a transaction workload.
+
+As is psql, pgbench is a PostgreSQL client application that you can install and run from
+your local client machine. You can also install and run it from the Amazon EC2 instance that you
+use for managing your Aurora PostgreSQL DB cluster. For more information, see [pgbench](https://www.postgresql.org/docs/current/pgbench.html "https://www.postgresql.org/docs/current/pgbench.html") in the PostgreSQL
+documentation.
+
+To step through this example, you first create the pgbench environment in your database. The
+following command is the basic template for initializing the pgbench tables in the specified
+database. This example uses the default main user account, `postgres`, for the
+login. Change it as needed for your Aurora PostgreSQL DB cluster. You create the pgbench
+environment in a database on the writer instance of your cluster.
+
+###### Note
+
+The pgbench initialization process drops and recreates tables named
+`pgbench_accounts`, `pgbench_branches`,
+`pgbench_history`, and `pgbench_tellers`. Be sure that the database
+that you choose for `dbname` when you initialize
+pgbench doesn't use these names.
 
 ```
-SELECT spill_time, split_part (filename, '/', 2)
-    AS slot_name, count(1)
-    AS spills, sum(used_bytes)
-    AS slot_total_bytes, pg_size_pretty(sum(used_bytes))
-    AS slot_total_size FROM spill_file_tracking
-  GROUP BY 1,2 ORDER BY 1;
- `spill_time | slot_name | spills | slot_total_bytes | slot_total_size
-------------------------------+-----------------------+--------+------------------+-----------------
-2022-04-15 13:42:52.528272+00 | replication_slot_name | 1 | 142352280 | 136 MB
-2022-04-15 14:11:33.962216+00 | replication_slot_name | 4 | 467637996 | 446 MB
-2022-04-15 14:12:00.997636+00 | replication_slot_name | 4 | 569409176 | 543 MB
-2022-04-15 14:12:03.030245+00 | replication_slot_name | 4 | 569409176 | 543 MB
-2022-04-15 14:12:05.059761+00 | replication_slot_name | 5 | 618410996 | 590 MB
-2022-04-15 14:12:07.22905+00 | replication_slot_name | 5 | 640585316 | 611 MB
-(6 rows)`
+pgbench -U postgres -h `db-cluster-instance-1.111122223333`.`aws-region`.rds.amazonaws.com -p 5432 -d -i -s 50 `dbname`
 ```
 
-The output shows that running the example created five spill files that used 611 MB of memory. To avoid
-writing to disk, we recommend setting the `logical_decoding_work_mem` parameter to the next highest
-memory size, 1024.
+For pgbench, specify the following parameters.
+
+**-d**
+
+Outputs a debugging report as pgbench runs.
+
+**-h**
+
+Specifies the endpoint of the Aurora PostgreSQL DB cluster's writer instance.
+
+**-i**
+
+Initializes the pgbench environment in the database for the benchmark tests.
+
+**-p**
+
+Identifies the port used for database connections. The default for Aurora PostgreSQL is typically 5432 or 5433.
+
+**-s**
+
+Specifies the scaling factor to use for populating the tables with rows. The default scaling factor is 1, which generates 1 row in
+the `pgbench_branches` table, 10 rows in the `pgbench_tellers` table, and 100000 rows in the `pgbench_accounts` table.
+
+**-U**
+
+Specifies the user account for the Aurora PostgreSQL DB cluster's writer instance.
+
+After the pgbench environment is set up, you can then run benchmarking tests with and without connection pooling.
+The default test consists of a series of five SELECT, UPDATE, and INSERT commands per transaction that run repeatedly for the time specified. You can
+specify scaling factor, number of clients, and other details to model your own use cases.
+
+As an example, the command that follows runs the benchmark
+for 60 seconds (-T option, for time) with 20 concurrent connections (the -c option). The -C option makes the test run using a new connection each time, rather
+than once per client session. This setting gives you an indication of the connection overhead.
+
+```
+pgbench -h docs-lab-apg-133-test-instance-1.c3zr2auzukpa.us-west-1.rds.amazonaws.com -U postgres -p 5432 -T 60 -c 20 -C labdb
+`Password:``**********`
+`pgbench (14.3, server 13.3)
+ starting vacuum...end.
+ transaction type: <builtin: TPC-B (sort of)>
+ scaling factor: 50
+ query mode: simple
+ number of clients: 20
+ number of threads: 1
+ duration: 60 s
+ number of transactions actually processed: 495
+ latency average = 2430.798 ms
+ average connection time = 120.330 ms
+ tps = 8.227750 (including reconnection times)`
+```
+
+Running pgbench on the writer instance of an Aurora PostgreSQL DB cluster without reusing
+connections shows that only about 8 transactions are processed each second. This gives a total
+of 495 transactions during the 1-minute test.
+
+If you reuse connections, the response from Aurora PostgreSQL DB cluster for the number of users
+is almost 20 times faster. With reuse, a total of 9,042 transactions is processed compared to
+495 in the same amount of time and for the same number of user connections. The difference is
+that in the following, each connection is being reused.
+
+```
+pgbench -h docs-lab-apg-133-test-instance-1.c3zr2auzukpa.us-west-1.rds.amazonaws.com -U postgres -p 5432 -T 60 -c 20 labdb
+`Password:``*********`
+`pgbench (14.3, server 13.3)
+ starting vacuum...end.
+ transaction type: <builtin: TPC-B (sort of)>
+ scaling factor: 50
+ query mode: simple
+ number of clients: 20
+ number of threads: 1
+ duration: 60 s
+ number of transactions actually processed: 9042
+ latency average = 127.880 ms
+ initial connection time = 2311.188 ms
+ tps = 156.396765 (without initial connection time)`
+```
+
+This example shows you that pooling connections can significantly improve response times. For information about setting up RDS Proxy for your
+Aurora PostgreSQL DB cluster, see [Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md").

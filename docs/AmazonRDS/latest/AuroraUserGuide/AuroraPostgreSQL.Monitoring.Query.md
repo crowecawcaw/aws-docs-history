@@ -1,6 +1,4 @@
-# Monitoring query execution plans and peak memory for
-
-Aurora PostgreSQL
+# Monitoring query execution plans and peak memory for Aurora PostgreSQL
 
 You can monitor query execution plans in your Aurora PostgreSQL DB instance to detect the execution plans
 contributing to current database load and to track performance statistics of execution plans over time
@@ -22,8 +20,7 @@ You can monitor query peak memory usage in your DB instance to detect queries co
 ###### Topics
 
 - [Accessing query execution plans and peak memory using Aurora functions](#AuroraPostgreSQL.Monitoring.Query.Plans.Functions "#AuroraPostgreSQL.Monitoring.Query.Plans.Functions")
-- [Parameter reference for Aurora PostgreSQL query
-  execution plans](#AuroraPostgreSQL.Monitoring.Query.Plans.Parameters "#AuroraPostgreSQL.Monitoring.Query.Plans.Parameters")
+- [Parameter reference for Aurora PostgreSQL query execution plans](#AuroraPostgreSQL.Monitoring.Query.Plans.Parameters "#AuroraPostgreSQL.Monitoring.Query.Plans.Parameters")
 
 ## Accessing query execution plans and peak memory using Aurora functions
 
@@ -42,12 +39,9 @@ You can access the query peak memory statistics using the following functions:
 - aurora_stat_statements
 - aurora_stat_plans
 
-For more information on these functions, see [Aurora PostgreSQL functions
-reference](Appendix.AuroraPostgreSQL.md "Appendix.AuroraPostgreSQL.md").
+For more information on these functions, see [Aurora PostgreSQL functions reference](Appendix.AuroraPostgreSQL.md "Appendix.AuroraPostgreSQL.md").
 
-## Parameter reference for Aurora PostgreSQL query
-
-execution plans
+## Parameter reference for Aurora PostgreSQL query execution plans
 
 You can monitor the query execution plans using the below parameters in a DB parameter group.
 

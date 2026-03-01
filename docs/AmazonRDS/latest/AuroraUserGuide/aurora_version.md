@@ -21,8 +21,7 @@ CHAR or VARCHAR string
 This function displays the version of the Amazon Aurora PostgreSQL-Compatible Edition database engine.
 The version number is returned as a string formatted as
 `major`.`minor`.`patch`.
-For more information about Aurora PostgreSQL version numbers, see [Aurora version
-number](AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.Versions.AuroraNumber "AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.Versions.AuroraNumber").
+For more information about Aurora PostgreSQL version numbers, see [Aurora version number](AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.Versions.AuroraNumber "AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.Versions.AuroraNumber").
 
 You can choose when to apply minor version upgrades by setting the maintenance
 window for your Aurora PostgreSQL DB cluster. To learn how, see [Maintaining an Amazon Aurora DB cluster](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").

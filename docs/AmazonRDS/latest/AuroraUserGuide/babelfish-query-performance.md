@@ -10,5 +10,4 @@ You can achieve faster query processing in Babelfish using query hints and the P
   For more information, see [sp_babelfish_volatility](sp_babelfish_volatility.md "sp_babelfish_volatility.md").
 
 You can also improve the query performance using subquery transformation and subquery cache.
-For more information, see [Optimizing correlated subqueries in
-Aurora PostgreSQL](apg-correlated-subquery.md "apg-correlated-subquery.md").
+For more information, see [Optimizing correlated subqueries in Aurora PostgreSQL](apg-correlated-subquery.md "apg-correlated-subquery.md").

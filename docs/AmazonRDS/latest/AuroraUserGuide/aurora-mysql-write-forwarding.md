@@ -32,8 +32,7 @@ Local write forwarding requires Aurora MySQL version 3.04 or higher.
 - [Running multipart statements with write forwarding](#aurora-mysql-write-forwarding-multipart "#aurora-mysql-write-forwarding-multipart")
 - [Transactions with write forwarding](#aurora-mysql-write-forwarding-txns "#aurora-mysql-write-forwarding-txns")
 - [Configuration parameters for write forwarding](#aurora-mysql-write-forwarding-params "#aurora-mysql-write-forwarding-params")
-- [Amazon CloudWatch metrics and Aurora MySQL status variables for write
-  forwarding](aurora-mysql-write-forwarding-cloudwatch.md "aurora-mysql-write-forwarding-cloudwatch.md")
+- [Amazon CloudWatch metrics and Aurora MySQL status variables for write forwarding](aurora-mysql-write-forwarding-cloudwatch.md "aurora-mysql-write-forwarding-cloudwatch.md")
 - [Identifying forwarded transactions and queries](#aurora-write-forwarding-processlist "#aurora-write-forwarding-processlist")
 
 ## Checking if a DB cluster has write forwarding enabled

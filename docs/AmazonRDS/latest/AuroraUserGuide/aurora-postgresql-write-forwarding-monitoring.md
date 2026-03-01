@@ -3,9 +3,7 @@
 Using the following sections you can monitor local write forwarding in Aurora PostgreSQL clusters, including relevant CloudWatch metrics and wait events
 to track performance and identify potential issues.
 
-## Amazon CloudWatch metrics and Aurora PostgreSQL status variables for write
-
-forwarding
+## Amazon CloudWatch metrics and Aurora PostgreSQL status variables for write forwarding
 
 The following Amazon CloudWatch metrics apply to the writer DB instances when you use write forwarding
 on one or more read replicas.
@@ -73,8 +71,7 @@ For more information about the `apg_write_forward.consistency_mode` parameter se
 
 Common causes for longer wait times include the following:
 
-- Increased replica lag, as measured by the Amazon CloudWatch `ReplicaLag` metric. For more information about this metric, see [Monitoring Aurora PostgreSQL
-  replication](AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring "AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring").
+- Increased replica lag, as measured by the Amazon CloudWatch `ReplicaLag` metric. For more information about this metric, see [Monitoring Aurora PostgreSQL replication](AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring "AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring").
 - Increased load on the writer DB instance or read replica.
 
 **Actions**

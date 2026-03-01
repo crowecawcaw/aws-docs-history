@@ -1,112 +1,193 @@
-# Aurora Serverless v1
+# Supported Regions and Aurora DB engines for Performance Insights
 
 ###### Important
 
-AWS has announced the end-of-life date for Aurora Serverless v1: March 31st, 2025. We strongly recommend upgrading any Aurora Serverless v1 DB clusters to
-Aurora Serverless v2 before that date. The upgrade can involve a change in the major
-version number of the database engine. Thus, it's important to plan, test, and
-implement this switchover before the end-of-life date. Starting January 8th, 2025,
-customers will no longer be able to create new Aurora Serverless v1 clusters or
-instances with either the AWS Management Console or the CLI. For information about the migration
-process, see [Upgrading from an Aurora Serverless v1 cluster to Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.upgrade-from-serverless-v1-procedure "aurora-serverless-v2.md#aurora-serverless-v2.upgrade-from-serverless-v1-procedure").
+AWS has announced the end-of-life date for Performance Insights: June 30, 2026. After this date, Amazon RDS will no longer support the Performance Insights console experience,
+flexible retention periods (1-24 months), and their associated pricing. The Performance Insights API will continue to exist with no pricing changes. Costs for the
+Performance Insights API will appear in your AWS bill with the cost of CloudWatch Database Insights.
 
-Aurora Serverless v2 scales more quickly and in a more granular way.
-Aurora Serverless v2 also has more compatibility with other Aurora features such as
-reader DB instances. You can learn about Aurora Serverless v2 in [Using Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md").
+We recommend that you upgrade any DB clusters
+using the paid tier of Performance Insights to the Advanced mode of Database Insights before June 30, 2026.
+For information about upgrading to the Advanced mode of Database Insights, see
+[Turning on the Advanced mode of Database Insights for Amazon Aurora](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 
-Aurora Serverless v1 is an on-demand, auto-scaling feature designed to be a
-cost-effective approach to running intermittent or unpredictable workloads on Amazon Aurora.
-It automatically starts up, shuts down, and scales capacity up or down, as needed by
-your applications, using a single DB instance in each cluster. For more information, see
-[Using Amazon Aurora Serverless v1](aurora-serverless.md "aurora-serverless.md").
+If you take no action, DB clusters using Performance Insights
+will default to using the Standard mode of Database Insights. With Standard mode of Database Insights, you might lose access to performance data history beyond 7 days and might not be able to use execution plans
+and on-demand analysis features in the Amazon RDS console. After June 30, 2026 only the Advanced mode of Database Insights will support execution plans and on-demand analysis.
+
+With CloudWatch Database Insights, you can monitor database load for your fleet of databases and analyze and troubleshoot performance at scale.
+For more information about Database Insights, see [Monitoring Amazon Aurora databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
+For pricing information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
+
+Performance Insights expands on existing Amazon RDS monitoring features to illustrate
+and help you analyze your database performance. With the Performance Insights dashboard,
+you can visualize the database load on your Amazon RDS DB instance load and filter the
+load by waits, SQL statements, hosts, or users. For more information, see [Overview of Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
+
+For the region, DB engine, and instance class support information for Performance Insights features,
+see [Amazon Aurora DB engine, Region, and instance class support for Performance Insights features](USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport "USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport").
 
 ###### Topics
 
-- [Aurora Serverless v1 with Aurora MySQL](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV1.amy "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV1.amy")
-- [Aurora Serverless v1 with Aurora PostgreSQL](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV1.apg "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV1.apg")
+- [Performance Insights with Aurora MySQL](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.amy "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.amy")
+- [Performance Insights with Aurora PostgreSQL](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.apg "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.apg")
+- [Performance Insights with Aurora Serverless](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.serverless "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.serverless")
 
-## Aurora Serverless v1 with Aurora MySQL
+## Performance Insights with Aurora MySQL
 
-The following Regions and engine versions are available for Aurora Serverless v1
-with Aurora MySQL.
+###### Note
 
-| Region                    | Aurora MySQL version 3 | Aurora MySQL version 2 |
-| ------------------------- | ---------------------- | ---------------------- |
-| US East (N. Virginia)     | Not available          | Version 2.11.4         |
-| US East (Ohio)            | Not available          | Version 2.11.4         |
-| US West (N. California)   | Not available          | Version 2.11.4         |
-| US West (Oregon)          | Not available          | Version 2.11.4         |
-| Africa (Cape Town)        | Not available          | Not available          |
-| Asia Pacific (Hong Kong)  | Not available          | Not available          |
-| Asia Pacific (Hyderabad)  | Not available          | Not available          |
-| Asia Pacific (Jakarta)    | Not available          | Not available          |
-| Asia Pacific (Malaysia)   | Not available          | Not available          |
-| Asia Pacific (Melbourne)  | Not available          | Not available          |
-| Asia Pacific (Mumbai)     | Not available          | Version 2.11.4         |
-| Asia Pacific (Osaka)      | Not available          | Not available          |
-| Asia Pacific (Seoul)      | Not available          | Version 2.11.4         |
-| Asia Pacific (Singapore)  | Not available          | Version 2.11.4         |
-| Asia Pacific (Sydney)     | Not available          | Version 2.11.4         |
-| Asia Pacific (Thailand)   | Not available          | Not available          |
-| Asia Pacific (Tokyo)      | Not available          | Version 2.11.4         |
-| Canada (Central)          | Not available          | Version 2.11.4         |
-| Canada West (Calgary)     | Not available          | Not available          |
-| China (Beijing)           | Not available          | Not available          |
-| China (Ningxia)           | Not available          | Version 2.11.4         |
-| Europe (Frankfurt)        | Not available          | Version 2.11.4         |
-| Europe (Ireland)          | Not available          | Version 2.11.4         |
-| Europe (London)           | Not available          | Version 2.11.4         |
-| Europe (Milan)            | Not available          | Not available          |
-| Europe (Paris)            | Not available          | Version 2.11.4         |
-| Europe (Spain)            | Not available          | Not available          |
-| Europe (Stockholm)        | Not available          | Not available          |
-| Europe (Zurich)           | Not available          | Not available          |
-| Israel (Tel Aviv)         | Not available          | Not available          |
-| Middle East (Bahrain)     | Not available          | Not available          |
-| Middle East (UAE)         | Not available          | Not available          |
-| South America (São Paulo) | Not available          | Not available          |
-| AWS GovCloud (US-East)    | Not available          | Not available          |
-| AWS GovCloud (US-West)    | Not available          | Not available          |
+Engine version support is different for Performance Insights with Aurora MySQL
+if you have parallel query turned on. For more information on parallel query,
+see [Parallel query for Amazon Aurora MySQL](aurora-mysql-parallel-query.md "aurora-mysql-parallel-query.md").
 
-## Aurora Serverless v1 with Aurora PostgreSQL
+###### Topics
 
-The following Regions and engine versions are available for Aurora Serverless v1
+- [Performance Insights with Aurora MySQL and parallel query turned off](#Feature.PerfInsights.regions.amy.pq "#Feature.PerfInsights.regions.amy.pq")
+- [Performance Insights with Aurora MySQL and parallel query turned on](#Feature.PerfInsights.regions.amy.pqoff "#Feature.PerfInsights.regions.amy.pqoff")
+
+### Performance Insights with Aurora MySQL and parallel query turned off
+
+The following Regions and engine versions are available for Performance
+Insights with Aurora MySQL and parallel query turned off.
+
+| Region                     | Aurora MySQL version 3 | Aurora MySQL version 2 |
+| -------------------------- | ---------------------- | ---------------------- |
+| US East (N. Virginia)      | All versions           | All versions           |
+| US East (Ohio)             | All versions           | All versions           |
+| US West (N. California)    | All versions           | All versions           |
+| US West (Oregon)           | All versions           | All versions           |
+| Africa (Cape Town)         | All versions           | All versions           |
+| Asia Pacific (Hong Kong)   | All versions           | All versions           |
+| Asia Pacific (Hyderabad)   | All versions           | All versions           |
+| Asia Pacific (Jakarta)     | All versions           | All versions           |
+| Asia Pacific (Malaysia)    | All versions           | All versions           |
+| Asia Pacific (Melbourne)   | All versions           | All versions           |
+| Asia Pacific (Mumbai)      | All versions           | All versions           |
+| Asia Pacific (New Zealand) | All versions           | All versions           |
+| Asia Pacific (Osaka)       | All versions           | All versions           |
+| Asia Pacific (Seoul)       | All versions           | All versions           |
+| Asia Pacific (Singapore)   | All versions           | All versions           |
+| Asia Pacific (Sydney)      | All versions           | All versions           |
+| Asia Pacific (Taipei)      | All versions           | All versions           |
+| Asia Pacific (Thailand)    | All versions           | All versions           |
+| Asia Pacific (Tokyo)       | All versions           | All versions           |
+| Canada (Central)           | All versions           | All versions           |
+| Canada West (Calgary)      | All versions           | All versions           |
+| China (Beijing)            | All versions           | All versions           |
+| China (Ningxia)            | All versions           | All versions           |
+| Europe (Frankfurt)         | All versions           | All versions           |
+| Europe (Ireland)           | All versions           | All versions           |
+| Europe (London)            | All versions           | All versions           |
+| Europe (Milan)             | All versions           | All versions           |
+| Europe (Paris)             | All versions           | All versions           |
+| Europe (Spain)             | All versions           | All versions           |
+| Europe (Stockholm)         | All versions           | All versions           |
+| Europe (Zurich)            | All versions           | All versions           |
+| Israel (Tel Aviv)          | All versions           | All versions           |
+| Mexico (Central)           | All versions           | All versions           |
+| Middle East (Bahrain)      | All versions           | All versions           |
+| Middle East (UAE)          | All versions           | All versions           |
+| South America (São Paulo)  | All versions           | All versions           |
+| AWS GovCloud (US-East)     | All versions           | All versions           |
+| AWS GovCloud (US-West)     | All versions           | All versions           |
+
+### Performance Insights with Aurora MySQL and parallel query turned on
+
+The following Regions and engine versions are available for Performance
+Insights with Aurora MySQL and parallel query turned on.
+
+| Region                     | Aurora MySQL version 3 | Aurora MySQL version 2    |
+| -------------------------- | ---------------------- | ------------------------- |
+| US East (N. Virginia)      | Not available          | Version 2.09.0 and higher |
+| US East (Ohio)             | Not available          | Version 2.09.0 and higher |
+| US West (N. California)    | Not available          | Version 2.09.0 and higher |
+| US West (Oregon)           | Not available          | Version 2.09.0 and higher |
+| Africa (Cape Town)         | Not available          | Version 2.09.0 and higher |
+| Asia Pacific (Hong Kong)   | Not available          | Version 2.09.0 and higher |
+| Asia Pacific (Hyderabad)   | Not available          | All versions              |
+| Asia Pacific (Jakarta)     | Not available          | Version 2.09.0 and higher |
+| Asia Pacific (Malaysia)    | Not available          | Version 2.09.0 and higher |
+| Asia Pacific (Melbourne)   | Not available          | Version 2.09.0 and higher |
+| Asia Pacific (Mumbai)      | Not available          | Version 2.09.0 and higher |
+| Asia Pacific (New Zealand) | Not available          | Version 2.09.0 and higher |
+| Asia Pacific (Osaka)       | Not available          | Version 2.09.0 and higher |
+| Asia Pacific (Seoul)       | Not available          | Version 2.09.0 and higher |
+| Asia Pacific (Singapore)   | Not available          | Version 2.09.0 and higher |
+| Asia Pacific (Sydney)      | Not available          | Version 2.09.0 and higher |
+| Asia Pacific (Taipei)      | Not available          | Version 2.09.0 and higher |
+| Asia Pacific (Thailand)    | Not available          | Version 2.09.0 and higher |
+| Asia Pacific (Tokyo)       | Not available          | Version 2.09.0 and higher |
+| Canada (Central)           | Not available          | Version 2.09.0 and higher |
+| Canada West (Calgary)      | Not available          | Version 2.09.0 and higher |
+| China (Beijing)            | Not available          | Version 2.09.0 and higher |
+| China (Ningxia)            | Not available          | Version 2.09.0 and higher |
+| Europe (Frankfurt)         | Not available          | Version 2.09.0 and higher |
+| Europe (Ireland)           | Not available          | Version 2.09.0 and higher |
+| Europe (London)            | Not available          | Version 2.09.0 and higher |
+| Europe (Milan)             | Not available          | Version 2.09.0 and higher |
+| Europe (Paris)             | Not available          | Version 2.09.0 and higher |
+| Europe (Spain)             | Not available          | Version 2.09.0 and higher |
+| Europe (Stockholm)         | Not available          | Version 2.09.0 and higher |
+| Europe (Zurich)            | Not available          | Version 2.09.0 and higher |
+| Israel (Tel Aviv)          | Not available          | Version 2.09.0 and higher |
+| Mexico (Central)           | Not available          | Version 2.09.0 and higher |
+| Middle East (Bahrain)      | Not available          | Version 2.09.0 and higher |
+| Middle East (UAE)          | Not available          | Version 2.09.0 and higher |
+| South America (São Paulo)  | Not available          | Version 2.09.0 and higher |
+| AWS GovCloud (US-East)     | Not available          | Version 2.09.0 and higher |
+| AWS GovCloud (US-West)     | Not available          | Version 2.09.0 and higher |
+
+## Performance Insights with Aurora PostgreSQL
+
+The following Regions and engine versions are available for Performance Insights
 with Aurora PostgreSQL.
 
-| Region                    | Aurora PostgreSQL 13 |
-| ------------------------- | -------------------- |
-| US East (N. Virginia)     | Version 13.12        |
-| US East (Ohio)            | Version 13.12        |
-| US West (N. California)   | Version 13.12        |
-| US West (Oregon)          | Version 13.12        |
-| Africa (Cape Town)        | Not available        |
-| Asia Pacific (Hong Kong)  | Not available        |
-| Asia Pacific (Hyderabad)  | Not available        |
-| Asia Pacific (Jakarta)    | Not available        |
-| Asia Pacific (Malaysia)   | Not available        |
-| Asia Pacific (Melbourne)  | Not available        |
-| Asia Pacific (Mumbai)     | Version 13.12        |
-| Asia Pacific (Osaka)      | Not available        |
-| Asia Pacific (Seoul)      | Version 13.12        |
-| Asia Pacific (Singapore)  | Version 13.12        |
-| Asia Pacific (Sydney)     | Version 13.12        |
-| Asia Pacific (Thailand)   | Not available        |
-| Asia Pacific (Tokyo)      | Version 13.12        |
-| Canada (Central)          | Version 13.12        |
-| Canada West (Calgary)     | Not available        |
-| China (Beijing)           | Not available        |
-| China (Ningxia)           | Not available        |
-| Europe (Frankfurt)        | Version 13.12        |
-| Europe (Ireland)          | Version 13.12        |
-| Europe (London)           | Version 13.12        |
-| Europe (Milan)            | Not available        |
-| Europe (Paris)            | Version 13.12        |
-| Europe (Spain)            | Not available        |
-| Europe (Stockholm)        | Not available        |
-| Europe (Zurich)           | Not available        |
-| Israel (Tel Aviv)         | Not available        |
-| Middle East (Bahrain)     | Not available        |
-| Middle East (UAE)         | Not available        |
-| South America (São Paulo) | Not available        |
-| AWS GovCloud (US-East)    | Not available        |
-| AWS GovCloud (US-West)    | Not available        |
+| Region                     | Aurora PostgreSQL 17 | Aurora PostgreSQL 16 | Aurora PostgreSQL 15 | Aurora PostgreSQL 14 | Aurora PostgreSQL 13 | Aurora PostgreSQL 12 | Aurora PostgreSQL 11 | Aurora PostgreSQL 10 |
+| -------------------------- | -------------------- | -------------------- | -------------------- | -------------------- | -------------------- | -------------------- | -------------------- | -------------------- |
+| US East (N. Virginia)      | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| US East (Ohio)             | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| US West (N. California)    | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| US West (Oregon)           | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Africa (Cape Town)         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Hong Kong)   | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Hyderabad)   | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Jakarta)     | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Malaysia)    | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Melbourne)   | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Mumbai)      | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (New Zealand) | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Osaka)       | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Seoul)       | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Singapore)   | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Sydney)      | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Taipei)      | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Thailand)    | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Tokyo)       | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Canada (Central)           | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Canada West (Calgary)      | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| China (Beijing)            | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| China (Ningxia)            | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Europe (Frankfurt)         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Europe (Ireland)           | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Europe (London)            | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Europe (Milan)             | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Europe (Paris)             | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Europe (Spain)             | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Europe (Stockholm)         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Europe (Zurich)            | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Israel (Tel Aviv)          | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Mexico (Central)           | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Middle East (Bahrain)      | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Middle East (UAE)          | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| South America (São Paulo)  | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| AWS GovCloud (US-East)     | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| AWS GovCloud (US-West)     | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+
+## Performance Insights with Aurora Serverless
+
+Aurora Serverless v2 supports Performance Insights for all MySQL-compatible and
+PostgreSQL-compatible versions. We recommend that you set the minimum capacity to at
+least 2 Aurora capacity units (ACUs).
+
+Aurora Serverless v1 doesn't support Performance Insights.

@@ -1,6 +1,4 @@
-# Considerations for custom endpoints
-
-in Amazon Aurora
+# Considerations for custom endpoints in Amazon Aurora
 
 Use the following sections to manage, specify properties, and use membership rules for
 custom endpoints.
@@ -8,10 +6,8 @@ custom endpoints.
 ###### Topics
 
 - [Managing custom endpoints](#Aurora.Endpoints.Custom.Managing "#Aurora.Endpoints.Custom.Managing")
-- [Specifying properties for custom
-  endpoints](#Aurora.Endpoints.Custom.Properties "#Aurora.Endpoints.Custom.Properties")
-- [Membership rules for custom
-  endpoints](#Aurora.Endpoints.Custom.Membership "#Aurora.Endpoints.Custom.Membership")
+- [Specifying properties for custom endpoints](#Aurora.Endpoints.Custom.Properties "#Aurora.Endpoints.Custom.Properties")
+- [Membership rules for custom endpoints](#Aurora.Endpoints.Custom.Membership "#Aurora.Endpoints.Custom.Membership")
 
 ## Managing custom endpoints
 
@@ -45,9 +41,7 @@ functions:
 - [ModifyDBClusterEndpoint](../APIReference/API_ModifyDBClusterEndpoint.md "../APIReference/API_ModifyDBClusterEndpoint.md")
 - [DeleteDBClusterEndpoint](../APIReference/API_DeleteDBClusterEndpoint.md "../APIReference/API_DeleteDBClusterEndpoint.md")
 
-## Specifying properties for custom
-
-endpoints
+## Specifying properties for custom endpoints
 
 The maximum length for a custom endpoint name is 63 characters. The name format is
 the following:
@@ -80,9 +74,7 @@ API.
 - If you try to create a custom endpoint with a type that isn't appropriate based
   on the replication configuration for a cluster, Aurora returns an error.
 
-## Membership rules for custom
-
-endpoints
+## Membership rules for custom endpoints
 
 When you add a DB instance to a custom endpoint or remove it from a custom
 endpoint, any existing connections to that DB instance remain active.

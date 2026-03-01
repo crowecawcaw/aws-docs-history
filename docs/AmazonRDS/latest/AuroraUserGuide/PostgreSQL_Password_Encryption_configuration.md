@@ -1,6 +1,4 @@
-# Using SCRAM for PostgreSQL
-
-password encryption
+# Using SCRAM for PostgreSQL password encryption
 
 The _Salted Challenge Response Authentication Mechanism
 (SCRAM)_ is an alternative to PostgreSQL's default message digest (MD5)
@@ -74,9 +72,7 @@ follows:
 After you change `rds.accepted_password_auth_method` to scram-sha-256 alone,
 any users (roles) with `md5`–encrypted passwords can't connect.
 
-### Getting ready
-
-to require SCRAM for your Aurora PostgreSQL DB cluster
+### Getting ready to require SCRAM for your Aurora PostgreSQL DB cluster
 
 Before making any changes to your Aurora PostgreSQL DB
 cluster,
@@ -136,7 +132,7 @@ If your Aurora PostgreSQL DB cluster
 already uses a custom
 parameter group, you don't need to create a new one.
 
-For an overview of parameter groups for Aurora, see [Creating a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For an overview of parameter groups for Aurora, see [Creating a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 The password encryption type used for passwords is set in one parameter,
 `password_encryption`. The encryption that the Aurora PostgreSQL DB cluster
@@ -147,7 +143,7 @@ group
 and apply it to your cluster.
 
 You can also use the AWS Management Console or the RDS API to create a custom DB cluster parameter group
-. For more information, see [Creating a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+. For more information, see [Creating a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 You can now associate the custom parameter group with your DB instance.
 
@@ -235,9 +231,7 @@ aws rds modify-db-parameter-group --db-parameter-group-name ^
   "docs-lab-scram-passwords" --parameters "ParameterName=password_encryption,ParameterValue=scram-sha-256,ApplyMethod=immediate"
 ```
 
-### Migrating
-
-passwords for user roles to SCRAM
+### Migrating passwords for user roles to SCRAM
 
 You can migrate passwords for user roles to SCRAM as described following.
 
@@ -286,9 +280,7 @@ psql --host=`cluster-name-instance-1.111122223333`.`aws-region`.rds.amazonaws.co
 
 6. Repeat the process for all databases on your Aurora PostgreSQL DB cluster.
 
-### Changing
-
-parameter to require SCRAM
+### Changing parameter to require SCRAM
 
 This is the final step in the process. After you make the change in the following
 procedure, any user accounts (roles) that still use `md5` encryption for

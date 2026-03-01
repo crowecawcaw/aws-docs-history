@@ -19,8 +19,7 @@ None.
 SETOF record with the following columns:
 
 - `aws_region` – The AWS Region that this DB cluster is
-  in. For a complete listing of AWS Regions by engine, see [Regions and
-  Availability Zones](Concepts.md "Concepts.md").
+  in. For a complete listing of AWS Regions by engine, see [Regions and Availability Zones](Concepts.md "Concepts.md").
 - `highest_lsn_written` – The highest log sequence number
   (LSN) that currently exists on this DB cluster. A log sequence number (LSN)
   is a unique sequential number that identifies a record in the database

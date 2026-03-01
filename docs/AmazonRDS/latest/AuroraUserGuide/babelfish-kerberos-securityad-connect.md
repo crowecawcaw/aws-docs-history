@@ -1,6 +1,4 @@
-# Connecting to Babelfish
-
-via TDS endpoint
+# Connecting to Babelfish via TDS endpoint
 
 In the following example, user1 is member of accounts-group and sales-group, user2 is
 member of accounts-group and dev-group.

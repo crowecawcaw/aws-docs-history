@@ -50,5 +50,4 @@ The current LTS releases for Aurora PostgreSQL are as follows:
   [Release calendars for Aurora PostgreSQL](../AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.md "../AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.md").
 
 For information about how to identify Aurora and database engine versions, see
-[Identifying versions of
-Amazon Aurora PostgreSQL](AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.Versions "AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.Versions").
+[Identifying versions of Amazon Aurora PostgreSQL](AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.Versions "AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.Versions").

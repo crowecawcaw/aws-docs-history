@@ -36,8 +36,7 @@ The default database for the DB shard group in Aurora PostgreSQL Limitless Datab
 
 When connecting to Aurora PostgreSQL Limitless Database, clients connect using the cluster endpoint, and are routed to a transaction router by Amazon Route 53. However, Route 53 is
 limited in its ability to load balance, and can allow uneven workloads on transaction routers. The [Limitless Connection Plugin](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheLimitlessConnectionPlugin.md "https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheLimitlessConnectionPlugin.md") for the [AWS JDBC Driver](https://github.com/awslabs/aws-advanced-jdbc-wrapper "https://github.com/awslabs/aws-advanced-jdbc-wrapper") addresses
-this by performing client-side load balancing with load awareness. For more information on the [AWS JDBC Driver](https://github.com/awslabs/aws-advanced-jdbc-wrapper "https://github.com/awslabs/aws-advanced-jdbc-wrapper"), see [Connecting to Aurora PostgreSQL
-with the Amazon Web Services (AWS) JDBC Driver](Aurora.md#Aurora.Connecting.JDBCDriverPostgreSQL "Aurora.md#Aurora.Connecting.JDBCDriverPostgreSQL").
+this by performing client-side load balancing with load awareness. For more information on the [AWS JDBC Driver](https://github.com/awslabs/aws-advanced-jdbc-wrapper "https://github.com/awslabs/aws-advanced-jdbc-wrapper"), see [Connecting to Aurora PostgreSQL with the Amazon Web Services (AWS) JDBC Driver](Aurora.md#Aurora.Connecting.JDBCDriverPostgreSQL "Aurora.md#Aurora.Connecting.JDBCDriverPostgreSQL").
 
 ## Finding the number of routers and shards in a DB shard group
 

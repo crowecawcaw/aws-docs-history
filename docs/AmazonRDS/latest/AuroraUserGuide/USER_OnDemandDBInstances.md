@@ -12,7 +12,7 @@ which occurs when you delete the DB instance or if the DB instance fails.
 
 If you no longer want to be charged for your DB instance, you must stop or delete it to avoid being
 billed for additional DB instance hours. For more information about the DB
-instance states for which you are billed, see [Viewing DB instance status in an Aurora cluster](accessing-monitoring.md#Overview.DBInstance.Status "accessing-monitoring.md#Overview.DBInstance.Status").
+instance states for which you are billed, see [Viewing DB instance statusin an Aurora cluster](accessing-monitoring.md#Overview.DBInstance.Status "accessing-monitoring.md#Overview.DBInstance.Status").
 
 ## Stopped DB instances
 

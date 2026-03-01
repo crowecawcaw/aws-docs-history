@@ -20,8 +20,7 @@ drivers compliant with TDS version 7.1 through 7.4:
 
 - PostgreSQL tools, applications, and syntax on the PostgreSQL port, by default
   port 5432.
-  To learn more about connecting to Aurora PostgreSQL in general, see [Connecting to an Amazon Aurora PostgreSQL
-  DB cluster](Aurora.md#Aurora.Connecting.AuroraPostgreSQL "Aurora.md#Aurora.Connecting.AuroraPostgreSQL").
+  To learn more about connecting to Aurora PostgreSQL in general, see [Connecting to an Amazon Aurora PostgreSQL DB cluster](Aurora.md#Aurora.Connecting.AuroraPostgreSQL "Aurora.md#Aurora.Connecting.AuroraPostgreSQL").
 
 ###### Note
 
@@ -33,8 +32,7 @@ Starting with Babelfish version 5.1.0, end-to-end connection encryption is
 enforced by default. To ensure continued connectivity:
 
 - Configure SSL/TLS encryption for your connections. For more information, see
-  [Using SSL/TLS to encrypt a connection to a DB
-  cluster](UsingWithRDS.md "UsingWithRDS.md").
+  [Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.md "UsingWithRDS.md").
 - Import the required certificates on your client computers. For more
   information, see [Using SSL with a Microsoft SQL Server DB instance](../UserGuide/SQLServer.Concepts.General.SSL.md "../UserGuide/SQLServer.Concepts.General.SSL.md").
   If you want to continue using the encryption settings from a previous version of
@@ -43,18 +41,12 @@ enforced by default. To ensure continued connectivity:
 
 ###### Topics
 
-- [Finding the writer endpoint and port
-  number](#babelfish-connect-endpoint "#babelfish-connect-endpoint")
-- [Creating C# or JDBC client connections
-  to Babelfish](babelfish-connect-configure.md "babelfish-connect-configure.md")
-- [Using a SQL Server client to connect
-  to your DB cluster](babelfish-connect-sqlserver.md "babelfish-connect-sqlserver.md")
-- [Using a PostgreSQL client to connect to
-  your DB cluster](babelfish-connect-PostgreSQL.md "babelfish-connect-PostgreSQL.md")
+- [Finding the writer endpoint and port number](#babelfish-connect-endpoint "#babelfish-connect-endpoint")
+- [Creating C# or JDBC client connections to Babelfish](babelfish-connect-configure.md "babelfish-connect-configure.md")
+- [Using a SQL Server client to connect to your DB cluster](babelfish-connect-sqlserver.md "babelfish-connect-sqlserver.md")
+- [Using a PostgreSQL client to connect to your DB cluster](babelfish-connect-PostgreSQL.md "babelfish-connect-PostgreSQL.md")
 
-## Finding the writer endpoint and port
-
-number
+## Finding the writer endpoint and port number
 
 To connect to your Babelfish DB cluster, you use the endpoint associated
 with the DB cluster's writer (primary) instance. The instance must have a

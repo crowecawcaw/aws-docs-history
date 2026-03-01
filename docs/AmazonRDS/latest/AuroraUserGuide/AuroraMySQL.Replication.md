@@ -73,10 +73,8 @@ need a specific binlog format. Reboot your Aurora DB cluster for the change to t
 effect.
 
 For more information about using binary logging with Aurora MySQL, see
-[Replication between Aurora and MySQL or between Aurora and another Aurora DB
-cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
+[Replication between Aurora and MySQL or between Aurora and another Aurora DB cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
 For more information about modifying Aurora MySQL configuration parameters, see
-[Amazon Aurora DB cluster and DB instance
-parameters](USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups "USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups")
+[Amazon Aurora DB cluster and DB instance parameters](USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups "USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups")
 and
 [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").

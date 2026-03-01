@@ -1,6 +1,4 @@
-# Exporting and
-
-importing managed plans for Aurora PostgreSQL
+# Exporting and importing managed plans for Aurora PostgreSQL
 
 You can export your managed plans and import them into another DB instance.
 

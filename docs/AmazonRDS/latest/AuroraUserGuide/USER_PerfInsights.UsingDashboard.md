@@ -1,112 +1,53 @@
-# Overview of the Performance Insights dashboard
+# Accessing the Performance Insights dashboard
 
-The dashboard is the easiest way to interact with Performance Insights. The following example shows the dashboard for a PostgreSQL DB
-instance.
+Amazon RDS provides a consolidated view of Performance Insights and CloudWatch metrics in the Performance Insights dashboard.
 
-![Enable Performance Insights during DB instance creation with console](images/aurora_perf_insights_enabling.png)
+To access the Performance Insights dashboard, use the following procedure.
 
-###### Topics
+###### To view the Performance Insights dashboard in the AWS Management Console
 
-- [Time range filter](#USER_PerfInsights.UsingDashboard.Components.time-range "#USER_PerfInsights.UsingDashboard.Components.time-range")
-- [Counter metrics chart](#USER_PerfInsights.UsingDashboard.Components.Countermetrics "#USER_PerfInsights.UsingDashboard.Components.Countermetrics")
-- [Database load chart](#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions "#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions")
-- [Top dimensions
-  table](#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable "#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable")
+1. Open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the left navigation pane, choose **Performance Insights**.
+3. Choose a DB instance.
 
-## Time range filter
+For DB instances with Performance Insights turned on, you can also access the Performance Insights dashboard by choosing the
+**Sessions** item in the list of DB instances. Under
+**Current activity**, the **Sessions** item
+shows the database load in average active sessions over the last five minutes. The
+bar graphically shows the load. When the bar is empty, the DB instance is idle. As
+the load increases, the bar fills with blue. When the load passes the number of
+virtual CPUs (vCPUs) on the DB instance class, the bar turns red, indicating a
+potential bottleneck.
 
-By default, the Performance Insights dashboard shows DB load for the last hour. You can adjust this range to be as short as 5 minutes or as
-long as 2 years. You can also select a custom relative range.
+![Filter metrics](images/perf_insights_0a.png) 4. (Optional) Choose the date or time range in the upper right and specify a different
+relative or absolute time interval. You can now specify a time period, and generate a database performance analysis report. The
+report provides the identified insights and recommendations. For more information,
+see [Creating a performance analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md").
 
-You can select an absolute range with a beginning and ending date and time. The following example shows the time range beginning at midnight on
-9/25/24 and ending at 11:59 PM on 9/28/24.
+![Filter metrics by time interval](images/perf_insights_0c.png)
 
-By default, the time zone for the Performance Insights dashboard is Coordinated Universal Time (UTC). You can also choose the local time zone.
+In the following screenshot, the DB load interval is 5 hours.
 
-## Counter metrics chart
+![Set time interval to 5 hours](images/perf_insights_1.png) 5. (Optional) To zoom in on a portion of the DB load chart, choose the start time and drag to the end of the time period you want.
 
-With counter metrics, you can customize the Performance Insights dashboard to include up to 10 additional graphs.
-These graphs show a selection of dozens of operating system and database performance metrics. You can correlate this
-information with DB load to help identify and analyze performance problems.
+The selected area is highlighted in the DB load chart.
 
-The **Counter metrics** chart displays data for performance counters. The default
-metrics depend on the DB engine:
+![DB load for a specified time interval](images/perf_insights_zoom_in.png)
 
-- Aurora MySQL– `db.SQL.Innodb_rows_read.avg`
-- Aurora PostgreSQL – `db.Transactions.xact_commit.avg`
+When you release the mouse, the DB load chart zooms in on the selected AWS Region, and the **Top _dimensions_** table is recalculated.
 
-![Counter metrics](images/oracle_perf_insights_counters.png)
+![Zoom in on the selected DB load](images/perf_insights_zoom_in_b.png) 6. (Optional) To refresh your data automatically, select **Auto
+refresh**.
 
-To change the performance counters, choose **Manage Metrics**. You can select multiple
-**OS metrics** or **Database metrics**, as
-shown in the following screenshot. To see details for any metric, hover over the metric name.
+![Set automatic refresh](images/perf_insights_1b.png)
 
-![Filter metrics](images/perf_insights_select_metrics.png)
+The Performance Insights dashboard automatically refreshes with new data. The refresh rate depends on the
+amount of data displayed:
 
-For descriptions of the counter metrics that you can add for each DB engine, see [Performance Insights counter metrics](USER_PerfInsights_Counters.md "USER_PerfInsights_Counters.md").
-
-## Database load chart
-
-The **Database load** chart shows how the database activity compares to DB instance
-capacity as represented by the **Max vCPU** line. By default, the stacked line
-chart represents DB load as average active sessions per unit of time. The DB load is sliced (grouped) by wait
-states.
-
-![Database load](images/perf_insights_2.png)
-
-### DB load sliced by
-
-dimensions
-
-You can choose to display load as active sessions grouped by any supported dimensions. The following table shows
-which dimensions are supported for the different engines.
-
-| Dimension    | Aurora PostgreSQL | Aurora MySQL |
-| ------------ | ----------------- | ------------ |
-| Host         | Yes               | Yes          |
-| SQL          | Yes               | Yes          |
-| User         | Yes               | Yes          |
-| Waits        | Yes               | Yes          |
-| Application  | Yes               | No           |
-| Database     | Yes               | Yes          |
-| Session type | Yes               | No           |
-
-The following image shows the dimensions for a PostgreSQL DB instance.
-
-![Filter metrics](images/perf_insights_2b.png)
-
-### DB load details for
-
-a dimension item
-
-To see details about a DB load item within a dimension, hover over the item name. The following image shows
-details for a SQL statement.
-
-![Database load item details](images/perf_insights_2c.png)
-
-To see details for any item for the selected time period in the legend, hover over that item.
-
-![Time period details for DB load](images/perf_insights_3.png)
-
-## Top dimensions
-
-table
-
-The Top dimensions table slices DB load by different dimensions. A dimension is a category or "slice by" for
-different characteristics of DB load. If the dimension is SQL, **Top SQL** shows the SQL
-statements that contribute the most to DB load.
-
-![Top N dimensions](images/perf_insights_4c.png)
-
-Choose any of the following dimension tabs.
-
-| Tab               | Description                                                   | Supported engines      |
-| ----------------- | ------------------------------------------------------------- | ---------------------- |
-| Top SQL           | The SQL statements that are currently running                 | All                    |
-| Top waits         | The event for which the database backend is waiting           | All                    |
-| Top hosts         | The host name of the connected client                         | All                    |
-| Top users         | The user logged in to the database                            | All                    |
-| Top applications  | The name of the application that is connected to the database | Aurora PostgreSQL only |
-| Top session types | The type of the current session                               | Aurora PostgreSQL only |
-
-To learn how to analyze queries by using the **Top SQL** tab, see [Overview of the Top SQL tab](USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.md#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL "USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.md#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL").
+    * 5 minutes refreshes every 10 seconds.
+    * 1 hour refreshes every 5 minutes.
+    * 5 hours refreshes every 5 minutes.
+    * 24 hours refreshes every 30 minutes.
+    * 1 week refreshes every day.
+    * 1 month refreshes every day.

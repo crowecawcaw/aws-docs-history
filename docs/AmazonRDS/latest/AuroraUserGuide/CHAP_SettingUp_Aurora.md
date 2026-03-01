@@ -8,8 +8,7 @@ Before you use Amazon Aurora for the first time, complete the following tasks.
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
 - [Grant programmatic access](#getting-started-iam-user-access-keys "#getting-started-iam-user-access-keys")
 - [Determine requirements](#CHAP_SettingUp_Aurora.Requirements "#CHAP_SettingUp_Aurora.Requirements")
-- [Provide access to the DB cluster in the VPC by
-  creating a security group](#CHAP_SettingUp_Aurora.SecurityGroup "#CHAP_SettingUp_Aurora.SecurityGroup")
+- [Provide access to the DB cluster in the VPC by creating a security group](#CHAP_SettingUp_Aurora.SecurityGroup "#CHAP_SettingUp_Aurora.SecurityGroup")
   If you already have an AWS account, know your Aurora requirements, and prefer to use the defaults for IAM
   and VPC security groups, skip ahead to [Getting started with Amazon Aurora](CHAP_GettingStartedAurora.md "CHAP_GettingStartedAurora.md").
 
@@ -99,7 +98,7 @@ network needs. Here are some important things to consider:
 - **Resource requirements** – What are the memory and
   processor requirements for your application or service? You will use
   these settings when you determine what DB instance class you will use when you
-  create your DB cluster. For specifications about DB instance classes, see [Amazon Aurora DB instance classes](Concepts.md "Concepts.md").
+  create your DB cluster. For specifications about DB instance classes, see [Amazon AuroraDB instance classes](Concepts.md "Concepts.md").
 - **VPC, subnet, and security group –** Your DB cluster will be in
   a virtual private cloud (VPC). Security group rules must be configured
   to connect to a DB cluster. The following list describes the rules for each VPC
@@ -112,8 +111,7 @@ network needs. Here are some important things to consider:
       connections from the application or service to the Aurora DB
       cluster. Use the **Security Group** option on the VPC
       console or the AWS CLI to create VPC security groups. For information, see
-      [Step 3: Create a VPC security
-      group](USER_VPC.md#USER_VPC.CreateVPCSecurityGroup "USER_VPC.md#USER_VPC.CreateVPCSecurityGroup").
+      [Step 3: Create a VPC security group](USER_VPC.md#USER_VPC.CreateVPCSecurityGroup "USER_VPC.md#USER_VPC.CreateVPCSecurityGroup").
     - You must specify the default DB subnet group. If this is the first DB cluster you
       have created in the AWS Region, Amazon RDS will create the default DB
       subnet group when it creates the DB cluster.
@@ -124,8 +122,7 @@ network needs. Here are some important things to consider:
       connections from the application or service to the Aurora DB
       cluster. Use the **Security Group** option on the VPC
       console or the AWS CLI to create VPC security groups. For information, see
-      [Step 3: Create a VPC security
-      group](USER_VPC.md#USER_VPC.CreateVPCSecurityGroup "USER_VPC.md#USER_VPC.CreateVPCSecurityGroup").
+      [Step 3: Create a VPC security group](USER_VPC.md#USER_VPC.CreateVPCSecurityGroup "USER_VPC.md#USER_VPC.CreateVPCSecurityGroup").
     - The VPC must meet certain requirements in order to host DB clusters, such
       as having at least two subnets, each in a separate availability
       zone. For information, see [Amazon VPC and Amazon Aurora](USER_VPC.md "USER_VPC.md").
@@ -150,15 +147,12 @@ network needs. Here are some important things to consider:
   Note that once you create a DB cluster that listens on a port you specify, you
   can change the port by modifying the DB cluster.
 - **AWS Region:** What AWS Region do you want your database in? Having the database close in proximity to the
-  application or web service could reduce network latency. For more information, see [Regions and
-  Availability Zones](Concepts.md "Concepts.md").
+  application or web service could reduce network latency. For more information, see [Regions and Availability Zones](Concepts.md "Concepts.md").
 
 Once you have the information you need to create the security group and the DB cluster,
 continue to the next step.
 
-## Provide access to the DB cluster in the VPC by
-
-creating a security group
+## Provide access to the DB cluster in the VPC by creating a security group
 
 Your DB cluster will be created in a VPC. Security groups provide access to the
 DB cluster in the VPC. They act as a firewall for the associated DB cluster,
@@ -176,21 +170,18 @@ Amazon EC2 instance, you can use the VPC security group you set up for the Amazo
 instance.
 
 You can configure connectivity between an Amazon EC2 instance a DB cluster when you create the
-DB cluster. For more information, see [Configure automatic network connectivity with
-an EC2 instance](Aurora.md#Aurora.CreateInstance.Prerequisites.VPC.Automatic "Aurora.md#Aurora.CreateInstance.Prerequisites.VPC.Automatic").
+DB cluster. For more information, see [Configure automatic network connectivity with an EC2 instance](Aurora.md#Aurora.CreateInstance.Prerequisites.VPC.Automatic "Aurora.md#Aurora.CreateInstance.Prerequisites.VPC.Automatic").
 
 ###### Tip
 
 You can set up network connectivity between an Amazon EC2 instance and a DB
 cluster automatically when you create the DB cluster. For more information, see
-[Configure automatic network connectivity with
-an EC2 instance](Aurora.md#Aurora.CreateInstance.Prerequisites.VPC.Automatic "Aurora.md#Aurora.CreateInstance.Prerequisites.VPC.Automatic").
+[Configure automatic network connectivity with an EC2 instance](Aurora.md#Aurora.CreateInstance.Prerequisites.VPC.Automatic "Aurora.md#Aurora.CreateInstance.Prerequisites.VPC.Automatic").
 
 For information about how to connect resources in Amazon Lightsail to your DB clusters, see [Connect Lightsail resources to AWS services using VPC peering](../../../lightsail/latest/userguide/using-lightsail-with-other-aws-services.md "../../../lightsail/latest/userguide/using-lightsail-with-other-aws-services.md").
 
 For more information about creating a VPC for use with Aurora, see
-[Tutorial: Create a VPC for use with a
-DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
+[Tutorial: Create a VPC for use with a DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
 For information about common scenarios for accessing a DB instance, see
 [Scenarios for accessing a DB cluster in a VPC](USER_VPC.md "USER_VPC.md").
 

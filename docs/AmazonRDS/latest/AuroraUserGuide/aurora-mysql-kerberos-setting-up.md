@@ -6,16 +6,13 @@ Kerberos authentication, take the following steps.
 ###### Topics
 
 - [Step 1: Create a directory using AWS Managed Microsoft AD](#aurora-mysql-kerberos-setting-up.create-directory "#aurora-mysql-kerberos-setting-up.create-directory")
-- [Step 2: (Optional) Create a trust for an on-premises Active
-  Directory](#aurora-mysql-kerberos-setting-up.create-trust "#aurora-mysql-kerberos-setting-up.create-trust")
+- [Step 2: (Optional) Create a trust for an on-premises Active Directory](#aurora-mysql-kerberos-setting-up.create-trust "#aurora-mysql-kerberos-setting-up.create-trust")
 - [Step 3: Create an IAM role for use by Amazon Aurora](#aurora-mysql-kerberos-setting-up.CreateIAMRole "#aurora-mysql-kerberos-setting-up.CreateIAMRole")
 - [Step 4: Create and configure users](#aurora-mysql-kerberos-setting-up.create-users "#aurora-mysql-kerberos-setting-up.create-users")
 - [Step 5: Create or modify an Aurora MySQL DB cluster](#aurora-mysql-kerberos-setting-up.create-modify "#aurora-mysql-kerberos-setting-up.create-modify")
-- [Step 6: Create Aurora MySQL users that use Kerberos
-  authentication](#aurora-mysql-kerberos-setting-up.create-logins "#aurora-mysql-kerberos-setting-up.create-logins")
+- [Step 6: Create Aurora MySQL users that use Kerberos authentication](#aurora-mysql-kerberos-setting-up.create-logins "#aurora-mysql-kerberos-setting-up.create-logins")
 - [Step 7: Configure a MySQL client](#aurora-mysql-kerberos-setting-up.configure-client "#aurora-mysql-kerberos-setting-up.configure-client")
-- [Step 8: (Optional) Configure case-insensitive username
-  comparison](#aurora-mysql-kerberos-setting-up.case-insensitive "#aurora-mysql-kerberos-setting-up.case-insensitive")
+- [Step 8: (Optional) Configure case-insensitive username comparison](#aurora-mysql-kerberos-setting-up.case-insensitive "#aurora-mysql-kerberos-setting-up.case-insensitive")
 
 ## Step 1: Create a directory using AWS Managed Microsoft AD
 
@@ -114,9 +111,7 @@ ID** value because you need this value when you create or modify your Aurora MyS
 
 ![Directory ID in the Directory details page](images/WinAuth3.png)
 
-## Step 2: (Optional) Create a trust for an on-premises Active
-
-Directory
+## Step 2: (Optional) Create a trust for an on-premises Active Directory
 
 If you don't plan to use your own on-premises Microsoft Active Directory, skip to [Step 3: Create an IAM role for use by Amazon Aurora](#aurora-mysql-kerberos-setting-up.CreateIAMRole "#aurora-mysql-kerberos-setting-up.CreateIAMRole").
 
@@ -290,9 +285,7 @@ aws rds modify-db-cluster ^
 
 If you modify a DB cluster to turn on Kerberos authentication, reboot the reader DB instances after making the change.
 
-## Step 6: Create Aurora MySQL users that use Kerberos
-
-authentication
+## Step 6: Create Aurora MySQL users that use Kerberos authentication
 
 The DB cluster is joined to the AWS Managed Microsoft AD domain. Thus, you can create Aurora MySQL users from the Active Directory users in
 your domain. Database permissions are managed through standard Aurora MySQL permissions that are granted to and revoked from
@@ -385,9 +378,7 @@ The following is sample `krb5.conf` content for an on-premises Microsoft Active 
  .amazon.com = EXAMPLE.COM
 ```
 
-## Step 8: (Optional) Configure case-insensitive username
-
-comparison
+## Step 8: (Optional) Configure case-insensitive username comparison
 
 By default, the character case of the MySQL database username must match that of the Active Directory login. However, you
 can now use case-insensitive username comparison with the `authentication_kerberos` plugin. To do so, you set the
@@ -395,8 +386,8 @@ can now use case-insensitive username comparison with the `authentication_kerber
 
 ###### To use case-insensitive username comparison
 
-1. Create a custom DB cluster parameter group. Follow the procedures in [Creating a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+1. Create a custom DB cluster parameter group. Follow the procedures in [Creating a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 2. Edit the new parameter group to set the value of `authentication_kerberos_caseins_cmp` to
-   `true`. Follow the procedures in [Modifying parameters in a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+   `true`. Follow the procedures in [Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 3. Associate the DB cluster parameter group with your Aurora MySQL DB cluster. Follow the procedures in [Associating a DB cluster parameter group with a DB cluster in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 4. Reboot the DB cluster.

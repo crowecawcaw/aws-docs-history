@@ -1,6 +1,4 @@
-# Handling DDL Statement behavior
-
-based on default or explicit schema
+# Handling DDL Statement behavior based on default or explicit schema
 
 When using an AD authenticated session, the default schema for the current session is
 determined by the following conditions:
@@ -11,9 +9,7 @@ determined by the following conditions:
   user's default schema is considered as current session’s default schema with the
   smallest principal id.
 
-## Understanding CREATE DDL
-
-statement behavior
+## Understanding CREATE DDL statement behavior
 
 If there is no explicit schema specified in the CREATE DDL statement then object
 creation will take place in the default schema of current session. If the schema

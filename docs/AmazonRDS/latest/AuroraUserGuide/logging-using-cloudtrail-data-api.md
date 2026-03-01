@@ -1,6 +1,4 @@
-# Logging Amazon RDS Data API calls with
-
-AWS CloudTrail
+# Logging Amazon RDS Data API calls with AWS CloudTrail
 
 RDS Data API (Data API) is integrated with AWS CloudTrail, a service that provides a record of
 actions taken by a user, role, or an AWS service in Data API. CloudTrail captures all API calls for
@@ -13,9 +11,7 @@ details.
 
 To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-## Working with Data API information in
-
-CloudTrail
+## Working with Data API information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When supported
 activity (management events) occurs in Data API, that activity is recorded in a CloudTrail event
@@ -149,9 +145,7 @@ don't appear in your CloudTrail logs, look for a `PutEventSelectors` event with 
 
 For more information, see [Logging management events for trails](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md") in the _AWS CloudTrail User Guide_.
 
-## Understanding Data API log file
-
-entries
+## Understanding Data API log file entries
 
 A _trail_ is a configuration that enables delivery of
 events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log

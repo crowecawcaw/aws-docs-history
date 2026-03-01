@@ -1,6 +1,4 @@
-# Creating C# or JDBC client connections
-
-to Babelfish
+# Creating C# or JDBC client connections to Babelfish
 
 In the following you can find some examples of using C# and JDBC classes to
 connect to an Babelfish for Aurora PostgreSQL.
@@ -22,9 +20,7 @@ SqlConnection cnn = new SqlConnection(connectionString);
 cnn.Open();
 ```
 
-###### Example: Using generic JDBC API classes and interfaces to connect to a DB
-
-cluster
+###### Example: Using generic JDBC API classes and interfaces to connect to a DB cluster
 
 ```
 String dbServer =
@@ -40,9 +36,7 @@ System.out.print("Connecting Babelfish Server ... ");
 Connection cnn = DriverManager.getConnection(connectionUrl);
 ```
 
-###### Example: Using SQL Server-specific JDBC classes and interfaces to connect to a DB
-
-cluster
+###### Example: Using SQL Server-specific JDBC classes and interfaces to connect to a DB cluster
 
 ```
 // Create datasource.

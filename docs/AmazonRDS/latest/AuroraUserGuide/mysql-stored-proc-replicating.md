@@ -1,6 +1,4 @@
-# Configuring, starting, and stopping binary
-
-log (binlog) replication
+# Configuring, starting, and stopping binary log (binlog) replication
 
 You can call the following stored procedures while connected to the
 primary instance in an Aurora MySQL cluster. These procedures control how transactions are
@@ -9,39 +7,29 @@ database.
 
 ###### Topics
 
-- [mysql.rds_disable_session_binlog
-  (Aurora MySQL version 2)](#mysql_rds_disable_session_binlog "#mysql_rds_disable_session_binlog")
-- [mysql.rds_enable_session_binlog
-  (Aurora MySQL version 2)](#mysql_rds_enable_session_binlog "#mysql_rds_enable_session_binlog")
+- [mysql.rds_disable_session_binlog (Aurora MySQL version 2)](#mysql_rds_disable_session_binlog "#mysql_rds_disable_session_binlog")
+- [mysql.rds_enable_session_binlog (Aurora MySQL version 2)](#mysql_rds_enable_session_binlog "#mysql_rds_enable_session_binlog")
 - [mysql.rds_import_binlog_ssl_material](#mysql_rds_import_binlog_ssl_material "#mysql_rds_import_binlog_ssl_material")
 - [mysql.rds_next_master_log (Aurora MySQL version 2)](#mysql_rds_next_master_log "#mysql_rds_next_master_log")
 - [mysql.rds_next_source_log (Aurora MySQL version 3)](#mysql_rds_next_source_log "#mysql_rds_next_source_log")
 - [mysql.rds_remove_binlog_ssl_material](#mysql_rds_remove_binlog_ssl_material "#mysql_rds_remove_binlog_ssl_material")
-- [mysql.rds_reset_external_master
-  (Aurora MySQL version 2)](#mysql_rds_reset_external_master "#mysql_rds_reset_external_master")
-- [mysql.rds_reset_external_source
-  (Aurora MySQL version 3)](#mysql_rds_reset_external_source "#mysql_rds_reset_external_source")
-- [mysql.rds_set_binlog_source_ssl
-  (Aurora MySQL version 3)](#mysql_rds_set_binlog_source_ssl "#mysql_rds_set_binlog_source_ssl")
+- [mysql.rds_reset_external_master (Aurora MySQL version 2)](#mysql_rds_reset_external_master "#mysql_rds_reset_external_master")
+- [mysql.rds_reset_external_source (Aurora MySQL version 3)](#mysql_rds_reset_external_source "#mysql_rds_reset_external_source")
+- [mysql.rds_set_binlog_source_ssl (Aurora MySQL version 3)](#mysql_rds_set_binlog_source_ssl "#mysql_rds_set_binlog_source_ssl")
 - [mysql.rds_set_external_master (Aurora MySQL version 2)](#mysql_rds_set_external_master "#mysql_rds_set_external_master")
 - [mysql.rds_set_external_source (Aurora MySQL version 3)](#mysql_rds_set_external_source "#mysql_rds_set_external_source")
 - [mysql.rds_set_external_master_with_auto_position (Aurora MySQL version 2)](#mysql_rds_set_external_master_with_auto_position "#mysql_rds_set_external_master_with_auto_position")
 - [mysql.rds_set_external_source_with_auto_position (Aurora MySQL version 3)](#mysql_rds_set_external_source_with_auto_position "#mysql_rds_set_external_source_with_auto_position")
-- [mysql.rds_set_master_auto_position
-  (Aurora MySQL version 2)](#mysql_rds_set_master_auto_position "#mysql_rds_set_master_auto_position")
+- [mysql.rds_set_master_auto_position (Aurora MySQL version 2)](#mysql_rds_set_master_auto_position "#mysql_rds_set_master_auto_position")
 - [mysql.rds_set_read_only (Aurora MySQL version 3)](#mysql_rds_set_read_only "#mysql_rds_set_read_only")
 - [mysql.rds_set_session_binlog_format (Aurora MySQL version 2)](#mysql_rds_set_session_binlog_format "#mysql_rds_set_session_binlog_format")
-- [mysql.rds_set_source_auto_position
-  (Aurora MySQL version 3)](#mysql_rds_set_source_auto_position "#mysql_rds_set_source_auto_position")
+- [mysql.rds_set_source_auto_position (Aurora MySQL version 3)](#mysql_rds_set_source_auto_position "#mysql_rds_set_source_auto_position")
 - [mysql.rds_skip_repl_error](#mysql_rds_skip_repl_error "#mysql_rds_skip_repl_error")
 - [mysql.rds_start_replication](#mysql_rds_start_replication "#mysql_rds_start_replication")
-- [mysql.rds_start_replication_until (Aurora MySQL
-  version 3)](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until")
+- [mysql.rds_start_replication_until(Aurora MySQL version 3)](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until")
 - [mysql.rds_stop_replication](#mysql_rds_stop_replication "#mysql_rds_stop_replication")
 
-## mysql.rds_disable_session_binlog
-
-(Aurora MySQL version 2)
+## mysql.rds_disable_session_binlog (Aurora MySQL version 2)
 
 Turns off binary logging for the current session by setting the
 `sql_log_bin` variable to `OFF`.
@@ -74,9 +62,7 @@ logging for the current session if you have the
 SET SESSION sql_log_bin = OFF;
 ```
 
-## mysql.rds_enable_session_binlog
-
-(Aurora MySQL version 2)
+## mysql.rds_enable_session_binlog (Aurora MySQL version 2)
 
 Turns on binary logging for the current session by setting the
 `sql_log_bin` variable to `ON`.
@@ -141,9 +127,7 @@ certificate`"
 certificate`"
 - "ssl_key":"`Client key`"
 
-### Usage
-
-notes
+### Usage notes
 
 Prepare for encrypted replication before you run this procedure:
 
@@ -221,9 +205,7 @@ BQoQzd8v7yeb7OzlPnWOyN0qFU0XA246RA8QFYiCNYwI3f05p6KLxEXAMPLE
 
 ```
 
-## mysql.rds_next_master_log (Aurora MySQL version
-
-2.
+## mysql.rds_next_master_log (Aurora MySQL version 2)
 
 Changes the source database instance log position to the start of the next binary log
 on the source database instance. Use this procedure only if you are receiving
@@ -436,9 +418,7 @@ SSL communication and encrypted replication. This information is imported by usi
 CALL mysql.rds_remove_binlog_ssl_material;
 ```
 
-## mysql.rds_reset_external_master
-
-(Aurora MySQL version 2)
+## mysql.rds_reset_external_master (Aurora MySQL version 2)
 
 Reconfigures an Aurora MySQL DB instance to no longer be a read replica of
 an instance of MySQL running external to Amazon RDS.
@@ -447,8 +427,7 @@ an instance of MySQL running external to Amazon RDS.
 
 To run this procedure, `autocommit` must be enabled. To enable it, set
 the `autocommit` parameter to `1`. For information about
-modifying parameters, see [Modifying parameters in a DB parameter group
-in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+modifying parameters, see [Modifying parameters in a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 ### Syntax
 
@@ -470,12 +449,9 @@ manage replication within an Aurora MySQL DB cluster when possible. For
 information about managing replication in Aurora MySQL DB clusters, see [Using Aurora Replicas](AuroraMySQL.md#AuroraMySQL.Replication.Replicas "AuroraMySQL.md#AuroraMySQL.Replication.Replicas").
 
 For more information about using replication to import data
-from an instance of MySQL running external to Aurora MySQL, see [Replication between Aurora and MySQL or between Aurora and another Aurora DB
-cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
+from an instance of MySQL running external to Aurora MySQL, see [Replication between Aurora and MySQL or between Aurora and another Aurora DB cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
 
-## mysql.rds_reset_external_source
-
-(Aurora MySQL version 3)
+## mysql.rds_reset_external_source (Aurora MySQL version 3)
 
 Reconfigures an Aurora MySQL DB instance to no longer be a read replica of
 an instance of MySQL running external to Amazon RDS.
@@ -484,8 +460,7 @@ an instance of MySQL running external to Amazon RDS.
 
 To run this procedure, `autocommit` must be enabled. To enable it, set
 the `autocommit` parameter to `1`. For information about
-modifying parameters, see [Modifying parameters in a DB parameter group
-in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+modifying parameters, see [Modifying parameters in a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 ### Syntax
 
@@ -506,9 +481,7 @@ instances running external to Amazon RDS. We recommend that you use Aurora Repli
 manage replication within an Aurora MySQL DB cluster when possible. For
 information about managing replication in Aurora MySQL DB clusters, see [Using Aurora Replicas](AuroraMySQL.md#AuroraMySQL.Replication.Replicas "AuroraMySQL.md#AuroraMySQL.Replication.Replicas").
 
-## mysql.rds_set_binlog_source_ssl
-
-(Aurora MySQL version 3)
+## mysql.rds_set_binlog_source_ssl (Aurora MySQL version 3)
 
 Enables `SOURCE_SSL` encryption for binlog replication. For more
 information, see [CHANGE REPLICATION SOURCE TO statement](https://dev.mysql.com/doc/refman/8.0/en/change-replication-source-to.html "https://dev.mysql.com/doc/refman/8.0/en/change-replication-source-to.html") in the MySQL documentation.
@@ -536,9 +509,7 @@ enabled:
 This procedure is supported for Aurora MySQL version 3.06 and
 higher.
 
-## mysql.rds_set_external_master (Aurora MySQL version
-
-2.
+## mysql.rds_set_external_master (Aurora MySQL version 2)
 
 Configures an Aurora MySQL DB instance to be a read replica of an
 instance of MySQL running external to Amazon RDS.
@@ -550,8 +521,7 @@ deprecated and will be removed in a future release. Use `mysql.rds_set_external_
 
 To run this procedure, `autocommit` must be enabled. To enable it, set
 the `autocommit` parameter to `1`. For information about
-modifying parameters, see [Modifying parameters in a DB parameter group
-in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+modifying parameters, see [Modifying parameters in a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 ### Syntax
 
@@ -632,9 +602,7 @@ connect to the MySQL instance running external to Amazon RDS, you must specify
 values that indicate a replication user that has `REPLICATION CLIENT` and
 `REPLICATION SLAVE` permissions on the external instance of MySQL.
 
-###### To configure an external instance of MySQL as a source database
-
-instance
+###### To configure an external instance of MySQL as a source database instance
 
 1. Using the MySQL client of your choice, connect to the external instance of
    MySQL and create a user account to be used for replication. The following is
@@ -688,8 +656,7 @@ information about managing replication in Aurora MySQL DB clusters, see [Using A
 
 After calling `mysql.rds_set_external_master` to configure an Amazon RDS DB
 instance as a read replica, you can call [mysql.rds_start_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica to start the
-replication process. You can call [mysql.rds_reset_external_master
-(Aurora MySQL version 2)](#mysql_rds_reset_external_master "#mysql_rds_reset_external_master") to remove the read replica
+replication process. You can call [mysql.rds_reset_external_master (Aurora MySQL version 2)](#mysql_rds_reset_external_master "#mysql_rds_reset_external_master") to remove the read replica
 configuration.
 
 When `mysql.rds_set_external_master` is called, Amazon RDS records the time,
@@ -722,8 +689,7 @@ instance of MySQL running external to Amazon RDS.
 
 To run this procedure, `autocommit` must be enabled. To enable it, set
 the `autocommit` parameter to `1`. For information about
-modifying parameters, see [Modifying parameters in a DB parameter group
-in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+modifying parameters, see [Modifying parameters in a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 ### Syntax
 
@@ -790,8 +756,7 @@ specifies to not use encryption. The default is 0.
 You must have imported a custom SSL certificate
 using [mysql.rds_import_binlog_ssl_material](#mysql_rds_import_binlog_ssl_material "#mysql_rds_import_binlog_ssl_material") to enable
 this option. If you haven't imported an custom SSL certificate, then
-set this parameter to 0 and use [mysql.rds_set_binlog_source_ssl
-(Aurora MySQL version 3)](#mysql_rds_set_binlog_source_ssl "#mysql_rds_set_binlog_source_ssl") to enable SSL
+set this parameter to 0 and use [mysql.rds_set_binlog_source_ssl (Aurora MySQL version 3)](#mysql_rds_set_binlog_source_ssl "#mysql_rds_set_binlog_source_ssl") to enable SSL
 for binary log replication.
 
 The `SOURCE_SSL_VERIFY_SERVER_CERT` option isn't
@@ -813,9 +778,7 @@ values that indicate a replication user that has `REPLICATION CLIENT` and
 `REPLICATION SLAVE` permissions on the external instance of
 MySQL.
 
-###### To configure an external instance of MySQL as a source database
-
-instance
+###### To configure an external instance of MySQL as a source database instance
 
 1. Using the MySQL client of your choice, connect to the external instance of
    MySQL and create a user account to be used for replication. The following is
@@ -851,8 +814,7 @@ when possible. For information about managing replication in Aurora MySQL DB
 clusters, see [Using Aurora Replicas](AuroraMySQL.md#AuroraMySQL.Replication.Replicas "AuroraMySQL.md#AuroraMySQL.Replication.Replicas").
 
 After calling `mysql.rds_set_external_source` to configure an Aurora MySQL DB instance as a read replica, you can call [mysql.rds_start_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica to start the
-replication process. You can call [mysql.rds_reset_external_source
-(Aurora MySQL version 3)](#mysql_rds_reset_external_source "#mysql_rds_reset_external_source") to remove the read replica
+replication process. You can call [mysql.rds_reset_external_source (Aurora MySQL version 3)](#mysql_rds_reset_external_source "#mysql_rds_reset_external_source") to remove the read replica
 configuration.
 
 When `mysql.rds_set_external_source` is called, Amazon RDS records the time,
@@ -929,9 +891,7 @@ The password of the user ID specified in
 
 This option isn't currently implemented. The default is 0.
 
-### Usage
-
-notes
+### Usage notes
 
 For an Aurora MySQL DB cluster, you call this stored procedure while connected to
 the primary instance.
@@ -982,8 +942,7 @@ of `"set master"` in the `mysql.rds_history` and
 `mysql.rds_replication_status` tables.
 
 To skip a specific GTID-based transaction that is known to cause a problem, you
-can use the [mysql.rds_skip_transaction_with_gtid (Aurora MySQL
-version 2 and 3)](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For
+can use the [mysql.rds_skip_transaction_with_gtid(Aurora MySQL version 2 and 3)](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For
 more information about working with GTID-based replication, see [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md").
 
 ### Examples
@@ -1047,8 +1006,7 @@ This option isn't currently implemented. The default is 0.
 
 ###### Note
 
-Use [mysql.rds_set_binlog_source_ssl
-(Aurora MySQL version 3)](#mysql_rds_set_binlog_source_ssl "#mysql_rds_set_binlog_source_ssl") to
+Use [mysql.rds_set_binlog_source_ssl (Aurora MySQL version 3)](#mysql_rds_set_binlog_source_ssl "#mysql_rds_set_binlog_source_ssl") to
 enable SSL for binary log replication.
 
 ### Usage notes
@@ -1095,8 +1053,7 @@ information. This information is the time, the user, and an action of `"set mast
 `mysql.rds_history` and `mysql.rds_replication_status` tables.
 
 To skip a specific GTID-based transaction that is known to cause a problem, you can
-use the [mysql.rds_skip_transaction_with_gtid (Aurora MySQL
-version 2 and 3)](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For more
+use the [mysql.rds_skip_transaction_with_gtid(Aurora MySQL version 2 and 3)](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For more
 information about working with GTID-based replication, see [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md").
 
 ### Examples
@@ -1113,9 +1070,7 @@ call mysql.rds_set_external_source_with_auto_position(
 
 ```
 
-## mysql.rds_set_master_auto_position
-
-(Aurora MySQL version 2)
+## mysql.rds_set_master_auto_position (Aurora MySQL version 2)
 
 Sets the replication mode to be based on either binary log file positions or on global
 transaction identifiers (GTIDs).
@@ -1147,9 +1102,7 @@ procedure.
 
 This procedure is supported for Aurora MySQL version 2.
 
-## mysql.rds_set_read_only (Aurora MySQL version
-
-3.
+## mysql.rds_set_read_only (Aurora MySQL version 3)
 
 Turns `read_only` mode on or off globally for the DB instance.
 
@@ -1221,9 +1174,7 @@ current session.
 For Aurora, this procedure is supported for Aurora MySQL version 2.12 and higher
 MySQL 5.7–compatible versions.
 
-## mysql.rds_set_source_auto_position
-
-(Aurora MySQL version 3)
+## mysql.rds_set_source_auto_position (Aurora MySQL version 3)
 
 Sets the replication mode to be based on either binary log file positions or on global
 transaction identifiers (GTIDs).
@@ -1280,13 +1231,9 @@ values returned, see [SHOW
 REPLICA STATUS statement](https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html "https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html") in the MySQL documentation.
 
 For more information about addressing replication errors with
-Aurora MySQL, see [Diagnosing and resolving a
-MySQL read replication
-failure](CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL.RR "CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL.RR").
+Aurora MySQL, see [Diagnosing and resolving a MySQL read replication failure](CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL.RR "CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL.RR").
 
-#### Replication stopped
-
-error
+#### Replication stopped error
 
 When you call the `mysql.rds_skip_repl_error` procedure, you might
 receive an error message stating that the replica is down or disabled.
@@ -1325,9 +1272,7 @@ Initiates replication from an Aurora MySQL DB cluster.
 
 ###### Note
 
-You can use the [mysql.rds_start_replication_until (Aurora MySQL
-version 3)](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") or [mysql.rds_start_replication_until_gtid (Aurora MySQL
-version 3)](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure to
+You can use the [mysql.rds_start_replication_until(Aurora MySQL version 3)](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") or [mysql.rds_start_replication_until_gtid(Aurora MySQL version 3)](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure to
 initiate replication from an Aurora MySQL DB instance
 and stop replication at the specified binary log file location.
 
@@ -1345,23 +1290,18 @@ procedure.
 To import data from an instance of MySQL external to Amazon RDS, call
 `mysql.rds_start_replication` on the read replica to start the
 replication process after you call [mysql.rds_set_external_master (Aurora MySQL version 2)](#mysql_rds_set_external_master "#mysql_rds_set_external_master") or [mysql.rds_set_external_source (Aurora MySQL version 3)](#mysql_rds_set_external_source "#mysql_rds_set_external_source") to build the replication
-configuration. For more information, see [Replication between Aurora and MySQL or between Aurora and another Aurora DB
-cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
+configuration. For more information, see [Replication between Aurora and MySQL or between Aurora and another Aurora DB cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
 
 To export data to an instance of MySQL external to Amazon RDS, call
 `mysql.rds_start_replication` and
 `mysql.rds_stop_replication` on the read replica to control some
-replication actions, such as purging binary logs. For more information, see [Replication between Aurora and MySQL or between Aurora and another Aurora DB
-cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
+replication actions, such as purging binary logs. For more information, see [Replication between Aurora and MySQL or between Aurora and another Aurora DB cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
 
 You can also call `mysql.rds_start_replication` on the read replica to
 restart any replication process that you previously stopped by calling
-`mysql.rds_stop_replication`. For more information, see [Replication stopped
-error](CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL.ReplicationStopped "CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL.ReplicationStopped").
+`mysql.rds_stop_replication`. For more information, see [Replication stopped error](CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL.ReplicationStopped "CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL.ReplicationStopped").
 
-## mysql.rds_start_replication_until (Aurora MySQL
-
-version 3)
+## mysql.rds_start_replication_until(Aurora MySQL version 3)
 
 Initiates replication from an Aurora MySQL DB cluster and stops
 replication at the specified binary log file location.
@@ -1400,8 +1340,7 @@ procedure isn't supported for managed replication, which includes the
 following:
 
 - [Replicating Amazon Aurora MySQL DB clusters across AWS Regions](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md")
-- [Migrating data from an RDS for MySQL DB instance to an Amazon Aurora MySQL
-  DB cluster by using an Aurora read replica](AuroraMySQL.Migrating.RDSMySQL.md "AuroraMySQL.Migrating.RDSMySQL.md")
+- [Migrating data from an RDS for MySQL DB instance to an Amazon Aurora MySQL DB cluster by using an Aurora read replica](AuroraMySQL.Migrating.RDSMySQL.md "AuroraMySQL.Migrating.RDSMySQL.md")
 
 The file name specified for the `replication_log_file` parameter must
 match the source database instance binlog file name.
@@ -1439,18 +1378,15 @@ The master user must run the `mysql.rds_stop_replication` procedure.
 If you are configuring replication to import data from an instance of MySQL
 running external to Amazon RDS, you call `mysql.rds_stop_replication` on the
 read replica to stop the replication process after the import has completed. For
-more information, see [Replication between Aurora and MySQL or between Aurora and another Aurora DB
-cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
+more information, see [Replication between Aurora and MySQL or between Aurora and another Aurora DB cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
 
 If you are configuring replication to export data to an instance of MySQL external
 to Amazon RDS, you call `mysql.rds_start_replication` and
 `mysql.rds_stop_replication` on the read replica to control some
-replication actions, such as purging binary logs. For more information, see [Replication between Aurora and MySQL or between Aurora and another Aurora DB
-cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
+replication actions, such as purging binary logs. For more information, see [Replication between Aurora and MySQL or between Aurora and another Aurora DB cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
 
 The `mysql.rds_stop_replication` stored procedure
 isn't supported for managed replication, which includes the following:
 
 - [Replicating Amazon Aurora MySQL DB clusters across AWS Regions](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md")
-- [Migrating data from an RDS for MySQL DB instance to an Amazon Aurora MySQL
-  DB cluster by using an Aurora read replica](AuroraMySQL.Migrating.RDSMySQL.md "AuroraMySQL.Migrating.RDSMySQL.md")
+- [Migrating data from an RDS for MySQL DB instance to an Amazon Aurora MySQL DB cluster by using an Aurora read replica](AuroraMySQL.Migrating.RDSMySQL.md "AuroraMySQL.Migrating.RDSMySQL.md")

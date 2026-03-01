@@ -137,23 +137,17 @@ performance problem. Respond to this event only when performance degrades.
 
 ###### Topics
 
-- [Investigate whether the database is causing the CPU
-  increase](#apg-waits.cpu.actions.db-CPU "#apg-waits.cpu.actions.db-CPU")
-- [Determine whether the number of connections
-  increased](#apg-waits.cpu.actions.connections "#apg-waits.cpu.actions.connections")
+- [Investigate whether the database is causing the CPU increase](#apg-waits.cpu.actions.db-CPU "#apg-waits.cpu.actions.db-CPU")
+- [Determine whether the number of connections increased](#apg-waits.cpu.actions.connections "#apg-waits.cpu.actions.connections")
 - [Respond to workload changes](#apg-waits.cpu.actions.workload "#apg-waits.cpu.actions.workload")
 
-### Investigate whether the database is causing the CPU
-
-increase
+### Investigate whether the database is causing the CPU increase
 
 Examine the `os.cpuUtilization.nice.avg` metric in Performance
 Insights. If this value is far less than the CPU usage, nondatabase processes are
 the main contributor to CPU.
 
-### Determine whether the number of connections
-
-increased
+### Determine whether the number of connections increased
 
 Examine the `DatabaseConnections` metric in Amazon CloudWatch. Your action depends on whether the number
 increased or decreased during the period of increased CPU wait events.
@@ -173,7 +167,7 @@ might still try to reduce CPU utilization.
 In this case, consider the following options:
 
     + Decrease the number of backend processes connected to your database. For example,
-     implement a connection pooling solution such as RDS Proxy. To learn more, see [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").
+     implement a connection pooling solution such as RDS Proxy. To learn more, see [Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md").
     + Upgrade your instance size to get a higher number of
      vCPUs.
     + Redirect some read-only workloads to reader nodes, if applicable.

@@ -15,9 +15,7 @@ authentication for your DB cluster. For more information, see [Setting
 up Kerberos authentication](postgresql-kerberos-setting-up.md "postgresql-kerberos-setting-up.md"). After completing the setup, ensure that you can
 connect with a PostgreSQL client using Kerberos. For more information, see [Connecting with Kerberos Authentication](postgresql-kerberos-connecting.md "postgresql-kerberos-connecting.md").
 
-## Login and user provisioning in
-
-Babelfish
+## Login and user provisioning in Babelfish
 
 Windows logins created from the Tabular Data Stream (TDS) port can be used either
 with the TDS port or the PostgreSQL port. First, the login that can use Kerberos for
@@ -91,9 +89,7 @@ SELECT netbios_domain_name, fq_domain_name FROM babelfish_domain_mapping;
 
 ### Managing Logins
 
-######
-
-Create logins
+###### Create logins
 
 Connect to the DB through the TDS endpoint using a login that has the correct
 permissions. If there is no database user created for the login, then the login
@@ -124,9 +120,7 @@ the DNS domain name CORP.EXAMPLE.COM. If there is no mapping, then you must prov
 
 Logins based on Active Directory users, are limited to names of fewer than 21 characters.
 
-######
-
-Drop login
+###### Drop login
 
 To drop a login, use the same syntax as for any login, as shown in the
 following example:
@@ -135,9 +129,7 @@ following example:
 DROP LOGIN [DNS domain name\login]
 ```
 
-######
-
-Alter login
+###### Alter login
 
 To alter a login, use the same syntax as for any login, as in the following
 example:
@@ -160,19 +152,14 @@ following:
 All password management is performed through Directory Service, so the ALTER LOGIN command doesn't allow
 database administrators to change or set passwords for Windows logins.
 
-### Connecting to Babelfish
-
-for Aurora PostgreSQL with Kerberos authentication
+### Connecting to Babelfish for Aurora PostgreSQL with Kerberos authentication
 
 Typically, the database users who authenticate using Kerberos are doing so from
 their client machines. These machines are members of the Active Directory domain.
 They use Windows Authentication from their client applications to access the
 Babelfish for Aurora PostgreSQL server on the TDS port.
 
-### Connecting to
-
-Babelfish for Aurora PostgreSQL on the PostgreSQL port with Kerberos
-authentication
+### Connecting to Babelfish for Aurora PostgreSQL on the PostgreSQL port with Kerberos authentication
 
 You can use logins created from the TDS port with either the TDS port or the
 PostgreSQL port. However, PostgreSQL uses case-sensitive comparisons by default for

@@ -1,6 +1,4 @@
-# Addressing object ownership
-
-differences after upgrade
+# Addressing object ownership differences after upgrade
 
 Babelfish versions 4.6 and later, and 5.2 and later include a change to object
 ownership handling through the TDS endpoint. When you create new objects through the TDS

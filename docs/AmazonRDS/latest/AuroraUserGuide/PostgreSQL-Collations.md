@@ -1,6 +1,4 @@
-# Collations supported in
-
-Aurora PostgreSQL
+# Collations supported in Aurora PostgreSQL
 
 Collations are set of rules that determine how character strings stored in the database
 are sorted and compared. Collations play a fundamental role in the computer system and are

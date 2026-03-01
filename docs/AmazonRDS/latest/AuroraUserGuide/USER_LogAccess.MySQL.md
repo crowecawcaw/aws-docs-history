@@ -18,8 +18,7 @@ You can monitor the following types of Aurora MySQL log files:
 - [Aurora MySQL audit log](#ams-audit-log "#ams-audit-log")
 - [Aurora MySQL instance log](#ams-instance-log "#ams-instance-log")
 - [Log rotation and retention for Aurora MySQL](#USER_LogAccess.AMS.LogFileSize.retention "#USER_LogAccess.AMS.LogFileSize.retention")
-- [Publishing Aurora MySQL logs to
-  Amazon CloudWatch Logs](#USER_LogAccess.MySQLDB.PublishAuroraMySQLtoCloudWatchLogs "#USER_LogAccess.MySQLDB.PublishAuroraMySQLtoCloudWatchLogs")
+- [Publishing Aurora MySQL logs to Amazon CloudWatch Logs](#USER_LogAccess.MySQLDB.PublishAuroraMySQLtoCloudWatchLogs "#USER_LogAccess.MySQLDB.PublishAuroraMySQLtoCloudWatchLogs")
 
 ## Aurora MySQL error logs
 
@@ -147,9 +146,7 @@ To work with the logs from the Amazon RDS console, Amazon RDS API, Amazon RDS CL
 to FILE. Like the Aurora MySQL error log, these log files are rotated hourly. The log files that were generated during the
 previous 24 hours are retained. Note that the retention period is different between Amazon RDS and Aurora.
 
-## Publishing Aurora MySQL logs to
-
-Amazon CloudWatch Logs
+## Publishing Aurora MySQL logs to Amazon CloudWatch Logs
 
 You can configure your Aurora MySQL DB cluster to publish log data to a log group in Amazon CloudWatch Logs. With CloudWatch Logs, you
 can perform real-time analysis of the log data, and use CloudWatch to create alarms and view metrics. You can use CloudWatch Logs

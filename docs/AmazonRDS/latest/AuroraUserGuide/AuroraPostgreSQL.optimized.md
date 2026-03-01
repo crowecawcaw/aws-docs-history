@@ -1,6 +1,4 @@
-# Improving query performance for
-
-Aurora PostgreSQL with Aurora Optimized Reads
+# Improving query performance for Aurora PostgreSQL with Aurora Optimized Reads
 
 You can achieve faster query processing for Aurora PostgreSQL with Aurora Optimized Reads. An
 Aurora PostgreSQL DB instance that uses Aurora Optimized Reads delivers up to 8x improved query latency
@@ -9,20 +7,13 @@ capacity of a DB instance.
 
 ###### Topics
 
-- [Overview of Aurora Optimized
-  Reads in PostgreSQL](#AuroraPostgreSQL.optimized.reads.overview "#AuroraPostgreSQL.optimized.reads.overview")
-- [Using Aurora Optimized
-  Reads](#AuroraPostgreSQL.optimized.reads.using "#AuroraPostgreSQL.optimized.reads.using")
-- [Use cases for Aurora
-  Optimized Reads](#AuroraPostgreSQL.optimized.reads.usecases "#AuroraPostgreSQL.optimized.reads.usecases")
-- [Monitoring DB instances
-  that use Aurora Optimized Reads](#AuroraPostgreSQL.optimized.reads.monitoring "#AuroraPostgreSQL.optimized.reads.monitoring")
-- [Best practices for
-  Aurora Optimized Reads](#AuroraPostgreSQL.optimized.reads.bestpractices "#AuroraPostgreSQL.optimized.reads.bestpractices")
+- [Overview of Aurora Optimized Reads in PostgreSQL](#AuroraPostgreSQL.optimized.reads.overview "#AuroraPostgreSQL.optimized.reads.overview")
+- [Using Aurora Optimized Reads](#AuroraPostgreSQL.optimized.reads.using "#AuroraPostgreSQL.optimized.reads.using")
+- [Use cases for Aurora Optimized Reads](#AuroraPostgreSQL.optimized.reads.usecases "#AuroraPostgreSQL.optimized.reads.usecases")
+- [Monitoring DB instances that use Aurora Optimized Reads](#AuroraPostgreSQL.optimized.reads.monitoring "#AuroraPostgreSQL.optimized.reads.monitoring")
+- [Best practices for Aurora Optimized Reads](#AuroraPostgreSQL.optimized.reads.bestpractices "#AuroraPostgreSQL.optimized.reads.bestpractices")
 
-## Overview of Aurora Optimized
-
-Reads in PostgreSQL
+## Overview of Aurora Optimized Reads in PostgreSQL
 
 Aurora Optimized Reads is available by default when you create a DB cluster that uses
 Graviton-based R6gd, R8gd, and Intel-based R6id instances with non-volatile memory
@@ -113,9 +104,7 @@ postgres=> show shared_preload_libraries;`shared_preload_libraries
 rdsutils,pg_stat_statements,aurora_optimized_reads_cache`
 ```
 
-## Using Aurora Optimized
-
-Reads
+## Using Aurora Optimized Reads
 
 When you provision an Aurora PostgreSQL DB instance with one of the NVMe-based DB instances, the DB instance
 automatically uses Aurora Optimized Reads.
@@ -128,7 +117,7 @@ To turn on Aurora Optimized Reads, do one of the following:
   classes. For more information, see [Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
 
 Aurora Optimized Reads is available in all AWS Regions where one or more of the DB instance
-classes with local NVMe SSD storage are supported. For more information, see [Amazon Aurora DB instance classes](Concepts.md "Concepts.md").
+classes with local NVMe SSD storage are supported. For more information, see [Amazon AuroraDB instance classes](Concepts.md "Concepts.md").
 
 To switch back to a non-optimized reads Aurora instance, modify the DB instance class of your
 Aurora instance to the similar instance class without NVMe ephemeral storage for your
@@ -136,9 +125,7 @@ database workloads. For example, if the current DB instance class is db.r6gd.4xl
 db.r6g.4xlarge to switch back. For more information, see [Modifying an
 Aurora DB instance](../UserGuide/Overview.DBInstance.md "../UserGuide/Overview.DBInstance.md").
 
-## Use cases for Aurora
-
-Optimized Reads
+## Use cases for Aurora Optimized Reads
 
 Optimized Reads-enabled tiered cache
 
@@ -166,9 +153,7 @@ objects:
   sorting.
 - Other workloads that use internal temporary tables.
 
-## Monitoring DB instances
-
-that use Aurora Optimized Reads
+## Monitoring DB instances that use Aurora Optimized Reads
 
 You can monitor your queries that use Optimized Reads-enabled tiered cache with the
 EXPLAIN command as shown in the following example:
@@ -225,9 +210,7 @@ You can also use the `pg_proctab` extension to monitor NVMe storage.
 (2 rows)`
 ```
 
-## Best practices for
-
-Aurora Optimized Reads
+## Best practices for Aurora Optimized Reads
 
 Use the following best practices for Aurora Optimized Reads:
 
@@ -244,5 +227,4 @@ Use the following best practices for Aurora Optimized Reads:
 - You can enable cluster cache management (CCM) to warm up the buffer cache and
   tiered cache on a tier-0 reader, which will be used as a failover target. When
   CCM is enabled, the buffer cache is periodically scanned to write pages eligible
-  for eviction in tiered cache. For more information on CCM, see [Fast recovery after failover with
-  cluster cache management for Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+  for eviction in tiered cache. For more information on CCM, see [Fast recovery after failover with cluster cache management for Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").

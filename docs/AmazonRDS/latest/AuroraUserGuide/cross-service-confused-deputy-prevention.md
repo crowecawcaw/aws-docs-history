@@ -68,7 +68,5 @@ For more examples of policies that use the `aws:SourceArn` and `aws:SourceAccoun
 the following sections:
 
 - [Granting permissions to publish notifications to an Amazon SNS topic](USER_Events.md "USER_Events.md")
-- [Setting up access to an Amazon S3
-  bucket](USER_PostgreSQL.S3Import.md "USER_PostgreSQL.S3Import.md") (PostgreSQL import)
-- [Setting up access to an Amazon S3
-  bucket](postgresql-s3-export-access-bucket.md "postgresql-s3-export-access-bucket.md") (PostgreSQL export)
+- [Setting up access to an Amazon S3 bucket](USER_PostgreSQL.S3Import.md "USER_PostgreSQL.S3Import.md") (PostgreSQL import)
+- [Setting up access to an Amazon S3 bucket](postgresql-s3-export-access-bucket.md "postgresql-s3-export-access-bucket.md") (PostgreSQL export)

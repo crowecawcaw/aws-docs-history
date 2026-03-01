@@ -10,8 +10,7 @@ function to the metric to get the metric values. For example, the supported func
 The counter metrics are collected one time each minute. The OS metrics collection depends on whether
 Enhanced Monitoring is turned on or off. If Enhanced Monitoring is turned off, the OS metrics are collected one time each minute. If Enhanced Monitoring is turned on, the OS metrics
 are collected for the selected time period. For more information about turning Enhanced Monitoring on or off, see
-[Turning Enhanced Monitoring on and
-off](USER_Monitoring.OS.md#USER_Monitoring.OS.Enabling.Procedure "USER_Monitoring.OS.md#USER_Monitoring.OS.Enabling.Procedure").
+[Turning Enhanced Monitoring on and off](USER_Monitoring.OS.md#USER_Monitoring.OS.Enabling.Procedure "USER_Monitoring.OS.md#USER_Monitoring.OS.Enabling.Procedure").
 
 ###### Topics
 

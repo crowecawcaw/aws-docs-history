@@ -1,6 +1,4 @@
-# Viewing support dates for engine
-
-versions in Amazon RDS Extended Support
+# Viewing support dates for engine versions in Amazon RDS Extended Support
 
 You can view information about support dates for engine versions for your Aurora DB clusters
 or global clusters in Amazon RDS Extended Support by using

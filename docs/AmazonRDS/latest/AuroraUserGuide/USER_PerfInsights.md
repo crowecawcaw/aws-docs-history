@@ -1,60 +1,45 @@
-# Viewing Performance Insights proactive recommendations
+# Analyzing DB load for Aurora PostgreSQL Limitless Database using the Performance Insights dashboard
 
-Amazon RDS Performance Insights monitors specific metrics and automatically creates thresholds by analyzing what levels might be
-potentially problematic for a specified resource. When the new metric values cross a predefined threshold over a
-given period of time, Performance Insights generates a proactive recommendation. This recommendation helps to prevent future database
-performance impact. To receive these proactive recommendations, you must turn on Performance Insights with a paid tier retention period.
+With Performance Insights, you can track metrics at the shard group level and at the instance level for an Aurora PostgreSQL Limitless Database. When analyzing DB load for an Aurora PostgreSQL Limitless Database,
+you might want to compare the DB load for each shard and router to the maximum vCPU.
 
-For more information about turning on Performance Insights, see [Turning Performance Insights on and off for Aurora](USER_PerfInsights.md "USER_PerfInsights.md"). For information about pricing and data
-retention for Performance Insights, see [Pricing and data retention for Performance Insights](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md").
+###### Note
 
-To find out the regions, DB engines, and instance classes supported for the proactive recommendations, see
-[Amazon Aurora DB engine, Region, and instance class support
-for Performance Insights features](USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport "USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport").
+Aurora PostgreSQL Limitless Database always has Performance Insights and Enhanced Monitoring enabled. The minimum retention period for Performance Insights data for Limitless Database is 31 days (1 month).
 
-You can view the detailed analysis and recommended investigations of proactive recommendations in the recommendation details page.
+The **Absolute** view shows the number of Average active sessions (AAS) and the estimated vCPU. The
+**Relative** view shows the ratio of AAS to the estimated vCPU.
 
-For more information about recommendations, see [Recommendations from Amazon Aurora](monitoring-recommendations.md "monitoring-recommendations.md").
+###### Topics
 
-###### To view the detailed analysis of a proactive recommendation
+- [Analyzing relative DB load for Aurora PostgreSQL Limitless Database using the Performance Insights dashboard](#USER_PerfInsights.AnalyzeLimitlessTables.RelativeLoad "#USER_PerfInsights.AnalyzeLimitlessTables.RelativeLoad")
+- [Analyzing DB load by waits for Aurora PostgreSQL Limitless Database using the Performance Insights dashboard](USER_PerfInsights.AnalyzeLimitlessTables.md "USER_PerfInsights.AnalyzeLimitlessTables.md")
+- [Analyzing load distribution for Aurora PostgreSQL Limitless Database using the Performance Insights dashboard](USER_PerfInsights.AnalyzeLimitlessTables.md "USER_PerfInsights.AnalyzeLimitlessTables.md")
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
+## Analyzing relative DB load for Aurora PostgreSQL Limitless Database using the Performance Insights dashboard
+
+You might want to improve the performance of your Aurora PostgreSQL Limitless Database by tracking relative DB load. To analyze relative DB load by instance for your
+Aurora PostgreSQL Limitless Database, use the following procedure.
+
+###### To analyze relative DB load for Aurora PostgreSQL Limitless Database using the console
+
+1. Open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, do any of the following:
-   - Choose **Recommendations**.
+2. In the navigation pane, choose **Performance Insights**.
+3. Choose an Aurora PostgreSQL Limitless Database. The Performance Insights dashboard is displayed for that Aurora PostgreSQL Limitless Database.
+4. In the **Database load (DB load)** section, choose **Instances** for
+   **Sliced by**. To see the ratio of Average active sessions (AAS) to vCPU cores for all of the instances in your
+   Aurora PostgreSQL Limitless Database, choose **Relative** for **Viewed as**.
 
-   The **Recommendations** page displays a list of
-   recommendations sorted by the severity for all the resources in your
-   account.
-   - Choose **Databases** and then choose **Recommendations** for a resource in the databases page.
+The Average active sessions chart shows the DB load for instances in your Aurora PostgreSQL Limitless Database.
 
-   The **Recommendations** tab displays the recommendations and its details for the selected resource.
+![View the Performance Insights dashboard for your Aurora PostgreSQL Limitless Database sliced by instances.](images/pi-relative-instances.png) 5. To view the top instances, choose the **Top instances** tab.
 
-3. Find a proactive recommendation and choose **View details**.
+In the following example, the instance with the highest DB load is `DTR-2-2`.
 
-The recommendation details page appears. The title provides the name of the affected resource with the issue detected and the severity.
+![Use the Top instances tab for an Aurora PostgreSQL Limitless Database sliced by instances.](images/pi-top-instances.png) 6. (Optional) To analyze DB load for an instance in your Aurora PostgreSQL Limitless Database, choose the instance name in the **Instances**
+column. To view the DB load for `DTR-2-2`, choose `DTR-2-2` in the **Instances** column.
 
-The following are the components on the recommendation details page:
+###### Note
 
-    * **Recommendation summary** – The detected issue, recommendation and issue status, issue
-     start and end time, recommendation modified time, and the engine type.
-
-
-
-    ![Recommendation details page for proactive recommendation showing the Recommendation summary section in the console](images/RecommendationProactive-RecSummary.png)
-    * **Metrics** – The graphs of the detected issue.
-     Each graph displays a threshold determined by the resource's baseline behavior and data of
-     the metric reported from the issue start time.
-
-
-
-    ![Recommendation details page for proactive recommendation showing the Metrics section in the console](images/RecommedationProactive_Metrics.png)
-    * **Analysis and recommendations** – The recommendation and
-     the reason for the suggested recommendation.
-
-
-
-    ![Recommendation details page for proactive recommendation showing the Analysis and recommendations section in the console](images/ProactiveRecommendation-AnalysisAndRec.png)
-
-You can review the cause of the issue and then perform the suggested recommended actions to fix the issue, or
-choose **Dismiss** in the upper right to dismiss the recommendation.
+You can view Performance Insights metrics only for instances in an Aurora PostgreSQL Limitless Database.

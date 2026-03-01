@@ -1,6 +1,6 @@
 # Getting started with RDS Proxy
 
-Use the information in the following pages to set up and manage [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md") and
+Use the information in the following pages to set up and manage [Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md") and
 set related security options. The security options control who can access each proxy and how each proxy
 connects to DB instances.
 

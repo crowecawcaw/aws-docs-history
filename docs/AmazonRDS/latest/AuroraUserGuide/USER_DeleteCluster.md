@@ -433,5 +433,4 @@ specify the `DBInstanceIdentifier` parameter.
 
 When the status for a DB instance is `deleting`, its CA certificate value doesn't appear
 in the RDS console or in output for AWS CLI commands or RDS API operations. For more information about CA
-certificates, see [Using SSL/TLS to encrypt a connection to a DB
-cluster](UsingWithRDS.md "UsingWithRDS.md").
+certificates, see [Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.md "UsingWithRDS.md").

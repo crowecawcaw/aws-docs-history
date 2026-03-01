@@ -46,9 +46,7 @@ snapshot copies, AWS always bills for them.
 
 For general information about Aurora backups, see [Backups](Aurora.Managing.md#Aurora.Managing.Backups.Backup "Aurora.Managing.md#Aurora.Managing.Backups.Backup"). For information about pricing for Aurora backup storage, see the [Amazon Aurora pricing](https://aws.amazon.com/rds/aurora/pricing "https://aws.amazon.com/rds/aurora/pricing") page.
 
-## Amazon CloudWatch metrics for Aurora backup
-
-storage
+## Amazon CloudWatch metrics for Aurora backup storage
 
 You can monitor your Aurora clusters and create reports using Amazon CloudWatch metrics through
 the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). You can use the
@@ -99,12 +97,9 @@ backups. These metrics are computed independently for each Aurora DB cluster.
      usage with the billed automated backup usage, to give your total billed
      backup usage.
 
-For more information about how to use CloudWatch metrics, see [Availability of Aurora metrics in the Amazon RDS
-console](Aurora.Monitoring.Metrics.md "Aurora.Monitoring.Metrics.md").
+For more information about how to use CloudWatch metrics, see [Availability of Aurora metrics in the Amazon RDS console](Aurora.Monitoring.Metrics.md "Aurora.Monitoring.Metrics.md").
 
-## Calculating backup storage
-
-usage
+## Calculating backup storage usage
 
 The usage for an automated backup is calculated by looking at all of the incremental
 records that must be stored, to be able to restore to any point in time within the

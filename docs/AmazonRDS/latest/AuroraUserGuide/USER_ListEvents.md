@@ -18,7 +18,7 @@ You can retrieve the following event information for your Amazon Aurora resource
 
 If you need to store events for longer periods of time, you can send Amazon RDS events to EventBridge. For more information, see [Creating a rule that triggers on an Amazon Aurora event](rds-cloud-watch-events.md "rds-cloud-watch-events.md")
 
-For descriptions of the Amazon Aurora events, see [Amazon RDS event categories and event messages for Aurora](USER_Events.md "USER_Events.md").
+For descriptions of the Amazon Aurora events, see [Amazon RDS event categories and event messagesfor Aurora](USER_Events.md "USER_Events.md").
 
 To access detailed information about events using AWS CloudTrail, including request parameters, see [CloudTrail events](logging-using-cloudtrail.md#service-name-info-in-cloudtrail.events "logging-using-cloudtrail.md#service-name-info-in-cloudtrail.events").
 

@@ -28,14 +28,11 @@ database for your organization on AWS](https://aws.amazon.com/getting-started/de
 - [How Amazon Aurora works with Amazon RDS](#aurora-rds-comparison "#aurora-rds-comparison")
 - [Amazon Aurora DB clusters](Aurora.md "Aurora.md")
 - [Amazon Aurora versions](Aurora.md "Aurora.md")
-- [Regions and
-  Availability Zones](Concepts.md "Concepts.md")
-- [Supported features in
-  Amazon Aurora by AWS Region and Aurora DB engine](Concepts.AuroraFeaturesRegionsDBEngines.md "Concepts.AuroraFeaturesRegionsDBEngines.md")
+- [Regions and Availability Zones](Concepts.md "Concepts.md")
+- [Supported features in Amazon Aurora by AWS Region and Aurora DB engine](Concepts.AuroraFeaturesRegionsDBEngines.md "Concepts.AuroraFeaturesRegionsDBEngines.md")
 - [Amazon Aurora endpoint connections](Aurora.Overview.md "Aurora.Overview.md")
-- [Amazon Aurora DB instance classes](Concepts.md "Concepts.md")
-- [Amazon Aurora
-  storage](Aurora.Overview.md "Aurora.Overview.md")
+- [Amazon AuroraDB instance classes](Concepts.md "Concepts.md")
+- [Amazon Aurora storage](Aurora.Overview.md "Aurora.Overview.md")
 - [Amazon Aurora reliability](Aurora.Overview.md "Aurora.Overview.md")
 - [Amazon Aurora security](Aurora.Overview.md "Aurora.Overview.md")
 - [High availability for Amazon Aurora](Concepts.md "Concepts.md")

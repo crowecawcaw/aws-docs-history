@@ -1,6 +1,4 @@
-# Upgrading
-
-Babelfish to a new minor version
+# Upgrading Babelfish to a new minor version
 
 A minor version update aims to maintain backward compatibility. However, in some
 cases, critical security fixes or important bug fixes may not be fully backward
@@ -15,8 +13,7 @@ notes for that version. For an example, see [PostgreSQL 14.3](../AuroraPostgreSQ
 If your Aurora PostgreSQL DB cluster is configured with the **Auto minor
 version upgrade** option, your Babelfish for Aurora PostgreSQL DB cluster is upgraded
 automatically during the cluster's maintenance window. To learn more about auto
-minor version upgrade (AmVU) and how to use it, see [Automatic minor version upgrades for Aurora
-DB clusters](USER_UpgradeDBInstance.md#Aurora.Maintenance.AMVU "USER_UpgradeDBInstance.md#Aurora.Maintenance.AMVU"). If
+minor version upgrade (AmVU) and how to use it, see [Automatic minor version upgrades for Aurora DB clusters](USER_UpgradeDBInstance.md#Aurora.Maintenance.AMVU "USER_UpgradeDBInstance.md#Aurora.Maintenance.AMVU"). If
 your cluster isn't using AmVU, you can manually upgrade your Babelfish for Aurora PostgreSQL DB
 cluster to new minor versions either by responding to maintenance tasks, or by
 modifying the cluster to use the new version.
@@ -32,10 +29,8 @@ new minor release of Aurora PostgreSQL.
 To get complete version details, including the `patch`
 level, you can query the Aurora PostgreSQL DB cluster using the
 `aurora_version` Aurora PostgreSQL function. For more information, see
-[aurora_version](aurora_version.md "aurora_version.md") in the [Aurora PostgreSQL functions
-reference](Appendix.AuroraPostgreSQL.md "Appendix.AuroraPostgreSQL.md"). You can find an example
-of using the function in the [To use the PostgreSQL port to query for version information](babelfish-information-identify-version.md#apg-version-info-psql "babelfish-information-identify-version.md#apg-version-info-psql") procedure in [Identifying your version of
-Babelfish](babelfish-information-identify-version.md "babelfish-information-identify-version.md").
+[aurora_version](aurora_version.md "aurora_version.md") in the [Aurora PostgreSQL functions reference](Appendix.AuroraPostgreSQL.md "Appendix.AuroraPostgreSQL.md"). You can find an example
+of using the function in the [To use the PostgreSQL port to query for version information](babelfish-information-identify-version.md#apg-version-info-psql "babelfish-information-identify-version.md#apg-version-info-psql") procedure in [Identifying your version of Babelfish](babelfish-information-identify-version.md "babelfish-information-identify-version.md").
 
 The following table shows Aurora PostgreSQL and Babelfish version and the
 available target versions that can support the minor version upgrade process.

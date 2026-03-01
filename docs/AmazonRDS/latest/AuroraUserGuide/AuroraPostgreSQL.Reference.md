@@ -1,6 +1,4 @@
-# Amazon Aurora PostgreSQL wait
-
-events
+# Amazon Aurora PostgreSQL wait events
 
 The following are common wait events for Aurora PostgreSQL. To learn more about wait
 events and tuning your Aurora PostgreSQL DB cluster, see [Tuning with wait events for Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").

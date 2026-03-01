@@ -1,6 +1,4 @@
-# Understanding the behavior of
-
-autovacuum with invalid databases
+# Understanding the behavior of autovacuum with invalid databases
 
 A new value `-2` is introduced into the `datconnlimit` column in the
 `pg_database` catalog to indicate databases that have been interrupted in the
@@ -20,16 +18,11 @@ This new value is available from the following Aurora PostgreSQL versions:
 
 ###### Topics
 
-- [Monitoring
-  transaction ID](#appendix.postgresql.commondbatasks.autovacuum.monitorxid "#appendix.postgresql.commondbatasks.autovacuum.monitorxid")
-- [Adjusting the
-  monitoring query](#appendix.postgresql.commondbatasks.autovacuum.monitoradjust "#appendix.postgresql.commondbatasks.autovacuum.monitoradjust")
-- [Resolving invalid
-  database issue](#appendix.postgresql.commondbatasks.autovacuum.connissue "#appendix.postgresql.commondbatasks.autovacuum.connissue")
+- [Monitoring transaction ID](#appendix.postgresql.commondbatasks.autovacuum.monitorxid "#appendix.postgresql.commondbatasks.autovacuum.monitorxid")
+- [Adjusting the monitoring query](#appendix.postgresql.commondbatasks.autovacuum.monitoradjust "#appendix.postgresql.commondbatasks.autovacuum.monitoradjust")
+- [Resolving invalid database issue](#appendix.postgresql.commondbatasks.autovacuum.connissue "#appendix.postgresql.commondbatasks.autovacuum.connissue")
 
-## Monitoring
-
-transaction ID
+## Monitoring transaction ID
 
 The `age(datfrozenxid)` function is commonly used to monitor the transaction
 ID (XID) age of databases to prevent transaction ID wraparound.
@@ -48,9 +41,7 @@ databases can skew the results of this query. Since these databases are not vali
 not be part of regular maintenance checks, they can cause false positives, leading you to
 believe that the `age(datfrozenxid)` is higher than it actually is.
 
-## Adjusting the
-
-monitoring query
+## Adjusting the monitoring query
 
 To ensure accurate monitoring, you should adjust your monitoring query to exclude invalid
 databases. Follow this recommended query:
@@ -70,9 +61,7 @@ This query ensures that only valid databases are considered in the
 `age(datfrozenxid)` calculation, providing a true reflection of the transaction
 ID age across your PostgreSQL environment.
 
-## Resolving invalid
-
-database issue
+## Resolving invalid database issue
 
 When attempting to connect to an invalid database, you may encounter an error message
 similar to the following:

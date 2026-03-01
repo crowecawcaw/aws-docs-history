@@ -1,6 +1,4 @@
-# Creating an
-
-Aurora DB cluster or a global cluster with Amazon RDS Extended Support
+# Creating an Aurora DB cluster or a global cluster with Amazon RDS Extended Support
 
 When you create an Aurora DB cluster or a global cluster, select **Enable
 RDS Extended Support** in the console, or use the Extended Support option in the AWS CLI or the
@@ -20,16 +18,11 @@ an Aurora DB cluster or a global cluster.
 
 ###### Topics
 
-- [RDS Extended Support
-  behavior](#extended-support-creating-db-instance-behavior "#extended-support-creating-db-instance-behavior")
-- [Considerations
-  for RDS Extended Support](#extended-support-creating-db-instance-considerations "#extended-support-creating-db-instance-considerations")
-- [Create an Aurora DB cluster or a global cluster with
-  RDS Extended Support](#extended-support-creating-db-instance-create "#extended-support-creating-db-instance-create")
+- [RDS Extended Support behavior](#extended-support-creating-db-instance-behavior "#extended-support-creating-db-instance-behavior")
+- [Considerations for RDS Extended Support](#extended-support-creating-db-instance-considerations "#extended-support-creating-db-instance-considerations")
+- [Create an Aurora DB cluster or a global cluster with RDS Extended Support](#extended-support-creating-db-instance-create "#extended-support-creating-db-instance-create")
 
-## RDS Extended Support
-
-behavior
+## RDS Extended Support behavior
 
 The following table summarizes what happens when a major engine version reaches the
 Aurora
@@ -44,9 +37,7 @@ end of standard support.
 RDS API, the RDS Extended Support status appears as `open-source-rds-extended-support`
 or `open-source-rds-extended-support-disabled`.
 
-## Considerations
-
-for RDS Extended Support
+## Considerations for RDS Extended Support
 
 Before creating an Aurora DB cluster or a global cluster, consider the following
 items:
@@ -68,9 +59,7 @@ items:
 
 For more information, see [Amazon Aurora versions](Aurora.md "Aurora.md").
 
-## Create an Aurora DB cluster or a global cluster with
-
-RDS Extended Support
+## Create an Aurora DB cluster or a global cluster with RDS Extended Support
 
 You can create an Aurora DB cluster or a global cluster with an RDS Extended Support version
 using the AWS Management Console, the AWS CLI, or the RDS API.

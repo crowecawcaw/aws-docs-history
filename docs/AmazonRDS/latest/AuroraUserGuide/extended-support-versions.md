@@ -13,5 +13,4 @@ RDS Extended Support is only available on Aurora Serverless v2. It isn't
 available on Aurora Serverless v1.
 
 You can also view information about support dates for engine versions by using
-the AWS CLI or the RDS API. For more information, see [Viewing support dates for engine
-versions in Amazon RDS Extended Support](extended-support-viewing-support-dates.md "extended-support-viewing-support-dates.md").
+the AWS CLI or the RDS API. For more information, see [Viewing support dates for engine versions in Amazon RDS Extended Support](extended-support-viewing-support-dates.md "extended-support-viewing-support-dates.md").

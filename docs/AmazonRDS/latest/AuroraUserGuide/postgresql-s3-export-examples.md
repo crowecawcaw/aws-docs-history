@@ -1,18 +1,13 @@
-# Exporting query data using the
-
-aws_s3.query_export_to_s3 function
+# Exporting query data using the aws_s3.query_export_to_s3 function
 
 Export your PostgreSQL data to Amazon S3 by calling the [aws_s3.query_export_to_s3](postgresql-s3-export-functions.md#aws_s3.export_query_to_s3 "postgresql-s3-export-functions.md#aws_s3.export_query_to_s3") function.
 
 ###### Topics
 
 - [Prerequisites](#postgresql-s3-export-examples-prerequisites "#postgresql-s3-export-examples-prerequisites")
-- [Calling
-  aws_s3.query_export_to_s3](#postgresql-s3-export-examples-basic "#postgresql-s3-export-examples-basic")
-- [Exporting to a CSV
-  file that uses a custom delimiter](#postgresql-s3-export-examples-custom-delimiter "#postgresql-s3-export-examples-custom-delimiter")
-- [Exporting to a binary file
-  with encoding](#postgresql-s3-export-examples-encoded "#postgresql-s3-export-examples-encoded")
+- [Calling aws_s3.query_export_to_s3](#postgresql-s3-export-examples-basic "#postgresql-s3-export-examples-basic")
+- [Exporting to a CSV file that uses a custom delimiter](#postgresql-s3-export-examples-custom-delimiter "#postgresql-s3-export-examples-custom-delimiter")
+- [Exporting to a binary file with encoding](#postgresql-s3-export-examples-encoded "#postgresql-s3-export-examples-encoded")
 
 ## Prerequisites
 
@@ -20,12 +15,10 @@ Before you use the `aws_s3.query_export_to_s3` function, be sure to
 complete the following prerequisites:
 
 - Install the required PostgreSQL extensions as described in [Overview of exporting data to Amazon S3](postgresql-s3-export.md#postgresql-s3-export-overview "postgresql-s3-export.md#postgresql-s3-export-overview").
-- Determine where to export your data to Amazon S3 as described in [Specifying the Amazon S3 file path to export
-  to](postgresql-s3-export.md#postgresql-s3-export-file "postgresql-s3-export.md#postgresql-s3-export-file").
+- Determine where to export your data to Amazon S3 as described in [Specifying the Amazon S3 file path to export to](postgresql-s3-export.md#postgresql-s3-export-file "postgresql-s3-export.md#postgresql-s3-export-file").
 - Make sure that the DB cluster
   has export access to Amazon S3
-  as described in [Setting up access to an Amazon S3
-  bucket](postgresql-s3-export-access-bucket.md "postgresql-s3-export-access-bucket.md").
+  as described in [Setting up access to an Amazon S3 bucket](postgresql-s3-export-access-bucket.md "postgresql-s3-export-access-bucket.md").
 
 The examples following use a database table called `sample_table`.
 These examples export the data into a bucket called `amzn-s3-demo-bucket`. The
@@ -36,9 +29,7 @@ psql=> CREATE TABLE sample_table (bid bigint PRIMARY KEY, name varchar(80));
 psql=> INSERT INTO sample_table (bid,name) VALUES (1, 'Monday'), (2,'Tuesday'), (3, 'Wednesday');
 ```
 
-## Calling
-
-aws_s3.query_export_to_s3
+## Calling aws_s3.query_export_to_s3
 
 The following shows the basic ways of calling the [aws_s3.query_export_to_s3](postgresql-s3-export-functions.md#aws_s3.export_query_to_s3 "postgresql-s3-export-functions.md#aws_s3.export_query_to_s3") function.
 
@@ -121,9 +112,7 @@ For the full reference for this function and additional ways to call it, see [aw
 files in Amazon S3, see [View an
 object](../../../AmazonS3/latest/userguide/OpeningAnObject.md "../../../AmazonS3/latest/userguide/OpeningAnObject.md") in the _Amazon Simple Storage Service User Guide_.
 
-## Exporting to a CSV
-
-file that uses a custom delimiter
+## Exporting to a CSV file that uses a custom delimiter
 
 The following example shows how to call the [aws_s3.query_export_to_s3](postgresql-s3-export-functions.md#aws_s3.export_query_to_s3 "postgresql-s3-export-functions.md#aws_s3.export_query_to_s3") function to export data to a
 file that uses a custom delimiter. The example uses arguments of the [PostgreSQL
@@ -134,9 +123,7 @@ colon (:) delimiter.
 SELECT * from aws_s3.query_export_to_s3('select * from basic_test', :'s3_uri_1', options :='format csv, delimiter $$:$$');
 ```
 
-## Exporting to a binary file
-
-with encoding
+## Exporting to a binary file with encoding
 
 The following example shows how to call the [aws_s3.query_export_to_s3](postgresql-s3-export-functions.md#aws_s3.export_query_to_s3 "postgresql-s3-export-functions.md#aws_s3.export_query_to_s3") function to export data to a
 binary file that has Windows-1253 encoding.

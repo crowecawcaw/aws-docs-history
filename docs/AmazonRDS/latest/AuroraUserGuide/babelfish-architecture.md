@@ -18,9 +18,7 @@ When you create a SQL Server user database, it's flattened into the
 `babelfish_db` PostgreSQL database. Your database retains cross-database
 syntax and semantics equal to or similar to those provided by SQL Server.
 
-## Using Babelfish with a single database or
-
-multiple databases
+## Using Babelfish with a single database or multiple databases
 
 When you create an Aurora PostgreSQL cluster to use with Babelfish, you choose between
 using a single SQL Server database on its own or multiple SQL Server databases

@@ -1,6 +1,4 @@
-# Working with the
-
-database preview environment
+# Working with the database preview environment
 
 The PostgreSQL community releases new major version of PostgreSQL annually. Similarly, Amazon Aurora makes PostgreSQL major versions available as Preview releases. This allows you
 to create DB cluster using the Preview version and test out its features in the Database Preview Environment.
@@ -18,7 +16,7 @@ Keep in mind the following important limitations:
   The following options are supported by the Preview.
 
 - You can create DB instances using r5, r6g, r6i, r7g, r7i, r8g, x2g, t3 and t4g instance types only. For more
-  information about instance classes, see [Amazon Aurora DB instance classes](Concepts.md "Concepts.md").
+  information about instance classes, see [Amazon AuroraDB instance classes](Concepts.md "Concepts.md").
 - You can use both single-AZ and multi-AZ deployments.
 - You can use standard PostgreSQL dump and load functions to export databases
   from or import databases to the Database Preview Environment.
@@ -48,9 +46,7 @@ For more information on the list of instance classes, see [DB instance class typ
 - db.t4g.medium
 - db.t4g.large
 
-## Unsupported features in the
-
-preview environment
+## Unsupported features in the preview environment
 
 The following features aren't available in the preview environment:
 
@@ -112,6 +108,5 @@ described in the following PostgreSQL documentation:
 
 - [PostgreSQL 17 Released](https://www.postgresql.org/about/news/postgresql-17-released-2936/ "https://www.postgresql.org/about/news/postgresql-17-released-2936/")
 
-For information on the Database Preview Environment, see [Working with the
-database preview environment](working-with-the-apg-database-preview-environment.md "working-with-the-apg-database-preview-environment.md"). To access the
+For information on the Database Preview Environment, see [Working with the database preview environment](working-with-the-apg-database-preview-environment.md "working-with-the-apg-database-preview-environment.md"). To access the
 Preview Environment from the console, select [https://console.aws.amazon.com/rds-preview/](https://console.aws.amazon.com/rds-preview/ "https://console.aws.amazon.com/rds-preview/").

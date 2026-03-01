@@ -57,5 +57,4 @@ Recommendations are supported in the following AWS Regions:
 - [Applying Amazon Aurora recommendations](USERRecommendationsManage.md "USERRecommendationsManage.md")
 - [Dismissing Amazon Aurora recommendations](USERRecommendationsManage.md "USERRecommendationsManage.md")
 - [Modifying dismissed Amazon Aurora recommendations to active recommendations](USERRecommendationsManage.md "USERRecommendationsManage.md")
-- [Recommendations from
-  Amazon Aurora reference](USERRecommendationsManage.md "USERRecommendationsManage.md")
+- [Recommendations from Amazon Aurora reference](USERRecommendationsManage.md "USERRecommendationsManage.md")

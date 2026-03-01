@@ -29,9 +29,7 @@ AWS managed or customer managed key, use [AWS CloudTrail](../../../awscloudtrail
 For more information about key rotation, see [Rotating AWS KMS
 keys](../../../kms/latest/developerguide/rotate-keys.md "../../../kms/latest/developerguide/rotate-keys.md").
 
-## Authorizing use of a
-
-customer managed key
+## Authorizing use of a customer managed key
 
 When
 Aurora uses a customer managed key in cryptographic operations, it acts
@@ -65,8 +63,7 @@ you want to allow the customer managed key to be used only for requests that ori
 in
 Aurora, use the [kms:ViaService condition key](../../../kms/latest/developerguide/policy-conditions.md#conditions-kms-via-service "../../../kms/latest/developerguide/policy-conditions.md#conditions-kms-via-service") with the
 `rds.`<region>`.amazonaws.com`
-value. Also, you can use the keys or values in the [Amazon RDS
-encryption context](#Overview.Encryption.Keys.encryptioncontext "#Overview.Encryption.Keys.encryptioncontext")
+value. Also, you can use the keys or values in the [Amazon RDS encryption context](#Overview.Encryption.Keys.encryptioncontext "#Overview.Encryption.Keys.encryptioncontext")
 as a
 condition for using the customer managed key for encryption.
 
@@ -74,9 +71,7 @@ For more information, see [Allowing users in other accounts to use a KMS key](..
 _AWS Key Management Service Developer Guide_ and [Key
 policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md").
 
-## Amazon RDS
-
-encryption context
+## Amazon RDS encryption context
 
 When
 Aurora uses your KMS key, or when Amazon EBS uses the KMS key on

@@ -172,8 +172,7 @@ Consider the following questions when examining the workload:
 9. Are there any long-running transactions holding large numbers of row locks? Examine the InnoDB history list length
    (HLL) for indications of long-running transactions.
 
-For more information, see [The InnoDB history list length increased
-significantly](proactive-insights.md "proactive-insights.md") and the blog post [Why is my SELECT query running slowly
+For more information, see [The InnoDB history list length increased significantly](proactive-insights.md "proactive-insights.md") and the blog post [Why is my SELECT query running slowly
 on my Amazon Aurora MySQL DB cluster?](https://repost.aws/knowledge-center/aurora-mysql-slow-select-query "https://repost.aws/knowledge-center/aurora-mysql-slow-select-query").
 
     1. If a large HLL is caused by a write transaction, it means that `UNDO` logs are accumulating

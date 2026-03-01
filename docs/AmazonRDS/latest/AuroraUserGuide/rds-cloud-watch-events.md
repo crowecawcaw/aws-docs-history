@@ -5,12 +5,9 @@ availability issues or resource changes.
 
 ###### Topics
 
-- [Tutorial: Log DB instance state changes using
-  Amazon EventBridge](#log-rds-instance-state "#log-rds-instance-state")
+- [Tutorial: Log DB instance state changes using Amazon EventBridge](#log-rds-instance-state "#log-rds-instance-state")
 
-## Tutorial: Log DB instance state changes using
-
-Amazon EventBridge
+## Tutorial: Log DB instance state changes using Amazon EventBridge
 
 In this tutorial, you create an AWS Lambda function that logs the state changes for an instance.
 You then create a rule that runs the function whenever there is a state change of an existing RDS DB instance. The tutorial assumes that you

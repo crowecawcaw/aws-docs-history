@@ -49,5 +49,5 @@ environment.
 
 When Amazon GuardDuty RDS Protection detects a potentially suspicious or anomalous
 login attempt that indicates a threat to your database, GuardDuty generates a new finding
-with details about the potentially compromised database. For more information, see [Monitoring threats with Amazon GuardDuty RDS Protection for Amazon Aurora](guard-duty-rds-protection.md "guard-duty-rds-protection.md")
+with details about the potentially compromised database. For more information, see [Monitoring threats with Amazon GuardDuty RDS Protectionfor Amazon Aurora](guard-duty-rds-protection.md "guard-duty-rds-protection.md")
 .

@@ -1,6 +1,4 @@
-#
-
-Amazon RDS Data API operations reference
+# Amazon RDS Data API operations reference
 
 The Amazon RDS Data API provides the following operations to perform SQL statements.
 

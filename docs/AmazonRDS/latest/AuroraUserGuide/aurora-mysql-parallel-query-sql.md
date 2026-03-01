@@ -413,8 +413,7 @@ case, the table scan to produce the Bloom filter data structure might be able to
 
 Parallel query is typically used for the kinds of resource-intensive queries that benefit from the hash join optimization.
 The method for turning on the hash join optimization depends on the Aurora MySQL version. For details for each version, see
-[Turning on hash join for
-parallel query clusters](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join "aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join").
+[Turning on hash join for parallel query clusters](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join "aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join").
 For information about how to use hash joins effectively, see
 [Optimizing large Aurora MySQL join queries with hash joins](AuroraMySQL.BestPractices.md#Aurora.BestPractices.HashJoin "AuroraMySQL.BestPractices.md#Aurora.BestPractices.HashJoin").
 

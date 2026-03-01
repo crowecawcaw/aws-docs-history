@@ -8,9 +8,7 @@ Aurora MySQL.
 This discussion presumes that you are familiar with the MySQL binary log replication mechanism and how it works. For
 background information, see [Replication Implementation](https://dev.mysql.com/doc/refman/8.0/en/replication-implementation.html "https://dev.mysql.com/doc/refman/8.0/en/replication-implementation.html") in the MySQL documentation.
 
-## Multithreaded binary log
-
-replication
+## Multithreaded binary log replication
 
 With multithreaded binary log replication, a SQL thread reads events from the relay log and queues them up for SQL
 worker threads to apply. The SQL worker threads are managed by the coordinator thread. The binary log events are applied
