@@ -22,6 +22,5 @@ longer to display information.
 
 ###### Topics
 
-- [Apply the CodeGuru Profiler function decorator to your
-  handler function](python-lambda-command-line.md "python-lambda-command-line.md")
+- [Apply the CodeGuru Profiler function decorator to your handler function](python-lambda-command-line.md "python-lambda-command-line.md")
 - [Use AWS Lambda layers](python-lambda-layers.md "python-lambda-layers.md")

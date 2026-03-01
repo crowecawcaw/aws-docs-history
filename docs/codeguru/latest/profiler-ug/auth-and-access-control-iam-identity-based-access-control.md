@@ -1,6 +1,4 @@
-# Using
-
-identity-based policies for CodeGuru Profiler
+# Using identity-based policies for CodeGuru Profiler
 
 By default, IAM users and roles don't have permission to create or modify
 CodeGuru Profiler resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -16,21 +14,14 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Permissions required to use the CodeGuru Profiler
-  console](#console-permissions "#console-permissions")
-- [Permissions required by the CodeGuru Profiler profiling
-  agent](#agent-policies "#agent-policies")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Permissions required to use the CodeGuru Profiler console](#console-permissions "#console-permissions")
+- [Permissions required by the CodeGuru Profiler profiling agent](#agent-policies "#agent-policies")
 - [Permissions required to access CodeGuru Profiler data](#view-policies "#view-policies")
-- [AWS managed (predefined) policies for
-  CodeGuru Profiler](#managed-policies "#managed-policies")
-- [Customer managed policy
-  examples](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
+- [AWS managed (predefined) policies for CodeGuru Profiler](#managed-policies "#managed-policies")
+- [Customer managed policy examples](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete CodeGuru Profiler resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -63,9 +54,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Permissions required to use the CodeGuru Profiler
-
-console
+## Permissions required to use the CodeGuru Profiler console
 
 A user who uses the CodeGuru Profiler console must have a minimum set of permissions that allows
 them to describe other AWS resources for the AWS account. You must have permissions
@@ -78,9 +67,7 @@ from the following services:
 If you create an IAM policy that is more restrictive than the minimum required
 permissions, the console won't function as intended.
 
-## Permissions required by the CodeGuru Profiler profiling
-
-agent
+## Permissions required by the CodeGuru Profiler profiling agent
 
 The CodeGuru Profiler profiling agent is imported into your profiled application. When your
 application runs, the agent starts in a different thread to profile your application.
@@ -152,9 +139,7 @@ of all profiling groups in their AWS account and Region.
 For more information, see [`ConfigureAgent`](../profiler-api/API_ConfigureAgent.md "../profiler-api/API_ConfigureAgent.md"), [`PostAgentProfile`](../profiler-api/API_PostAgentProfile.md "../profiler-api/API_PostAgentProfile.md"), [`GetProfile`](../profiler-api/API_GetProfile.md "../profiler-api/API_GetProfile.md"), [`DescribeProfilingGroup`](../profiler-api/API_DescribeProfilingGroup.md "../profiler-api/API_DescribeProfilingGroup.md"), and [`ListProfilingGroups`](../profiler-api/API_ListProfilingGroups.md "../profiler-api/API_ListProfilingGroups.md") in the _Amazon CodeGuru Profiler API
 Reference_.
 
-## AWS managed (predefined) policies for
-
-CodeGuru Profiler
+## AWS managed (predefined) policies for CodeGuru Profiler
 
 AWS addresses many common use cases by providing standalone IAM policies that are
 created and administered by AWS. These AWS managed policies grant necessary
@@ -272,9 +257,7 @@ JSON
 
 ```
 
-## Customer managed policy
-
-examples
+## Customer managed policy examples
 
 You can create your own custom IAM policies to allow permissions for CodeGuru Profiler actions
 and resources. You can attach these custom policies to the IAM users, roles, or groups
@@ -293,16 +276,11 @@ IDs.
 
 **Examples**
 
-- [Example 1: Allow a user to see
-  all profiling groups and the visualizations of only one profiling group](#identity-based-policies-example-1 "#identity-based-policies-example-1")
-- [Example 2: Allow a user to
-  perform CodeGuru Profiler operations in a single Region](#identity-based-policies-example-2 "#identity-based-policies-example-2")
-- [Example 3: Allow a user
-  connecting from a specified IP address range access to a profiling group](#identity-based-policies-example-3 "#identity-based-policies-example-3")
+- [Example 1: Allow a user to see all profiling groups and the visualizations of only one profiling group](#identity-based-policies-example-1 "#identity-based-policies-example-1")
+- [Example 2: Allow a user to perform CodeGuru Profiler operations in a single Region](#identity-based-policies-example-2 "#identity-based-policies-example-2")
+- [Example 3: Allow a user connecting from a specified IP address range access to a profiling group](#identity-based-policies-example-3 "#identity-based-policies-example-3")
 
-### Example 1: Allow a user to see
-
-all profiling groups and the visualizations of only one profiling group
+### Example 1: Allow a user to see all profiling groups and the visualizations of only one profiling group
 
 The following example policy grants permissions for the AWS user with account
 ID `123456789012` to see a list of all profiling groups in their
@@ -331,9 +309,7 @@ group named `my-profiling-group`.
 }
 ```
 
-### Example 2: Allow a user to
-
-perform CodeGuru Profiler operations in a single Region
+### Example 2: Allow a user to perform CodeGuru Profiler operations in a single Region
 
 The following permissions policy uses a wildcard character
 (`"codeguru-profiler:*"`) to allow users to perform all CodeGuru Profiler actions in the
@@ -360,17 +336,14 @@ JSON
 
 ```
 
-### Example 3: Allow a user
-
-connecting from a specified IP address range access to a profiling group
+### Example 3: Allow a user connecting from a specified IP address range access to a profiling group
 
 You can create a policy that allows users to view a CodeGuru Profiler profiling group only if
 their IP address is within a certain IP address range. Because the
 `GetFindingsReportAccountSummary` and `ListProfilingGroups`
 actions don't support resource-level permissions, their resource is specified as
 wildcard character (`*`) in a separate statement. For more information,
-see the [Amazon CodeGuru Profiler permissions
-reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+see the [Amazon CodeGuru Profiler permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
 
 JSON
 

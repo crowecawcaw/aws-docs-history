@@ -9,16 +9,12 @@ CodeGuru Profiler.
 
 ###### Topics
 
-- [Choosing the right integration
-  option](#choosing-the-right-integration-option "#choosing-the-right-integration-option")
+- [Choosing the right integration option](#choosing-the-right-integration-option "#choosing-the-right-integration-option")
 - [Profiling your applications that run on AWS Lambda](setting-up-lambda.md "setting-up-lambda.md")
-- [Enabling the agent from the command
-  line](enabling-the-agent-with-command-line.md "enabling-the-agent-with-command-line.md")
+- [Enabling the agent from the command line](enabling-the-agent-with-command-line.md "enabling-the-agent-with-command-line.md")
 - [Enabling the agent with code](enabling-the-agent-with-code.md "enabling-the-agent-with-code.md")
 
-## Choosing the right integration
-
-option
+## Choosing the right integration option
 
 You can load the CodeGuru Profiler agent into your JVM-based application in two ways:
 

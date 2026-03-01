@@ -18,14 +18,10 @@ your running applications.
 ###### Topics
 
 - [Accessing visualizations](working-with-visualizations-accessing.md "working-with-visualizations-accessing.md")
-- [Types
-  of visualizations](working-with-visualizations-visualization-types.md "working-with-visualizations-visualization-types.md")
+- [Types of visualizations](working-with-visualizations-visualization-types.md "working-with-visualizations-visualization-types.md")
 - [Exploring visualization data](working-with-visualizations-exploring.md "working-with-visualizations-exploring.md")
-- [Filtering visualization
-  data](working-with-visualizations-filtering.md "working-with-visualizations-filtering.md")
+- [Filtering visualization data](working-with-visualizations-filtering.md "working-with-visualizations-filtering.md")
 - [Selecting a custom time range](working-with-visualizations-time-range.md "working-with-visualizations-time-range.md")
-- [Understanding the summary
-  page](working-with-visualizations-summary-page.md "working-with-visualizations-summary-page.md")
-- [Understanding the heap
-  summary](working-with-visualizations-heap-summary.md "working-with-visualizations-heap-summary.md")
+- [Understanding the summary page](working-with-visualizations-summary-page.md "working-with-visualizations-summary-page.md")
+- [Understanding the heap summary](working-with-visualizations-heap-summary.md "working-with-visualizations-heap-summary.md")
 - [Comparing two time ranges](working-with-visualizations-diff.md "working-with-visualizations-diff.md")

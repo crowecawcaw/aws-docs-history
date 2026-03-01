@@ -38,6 +38,5 @@ language.
 ## How do I get started with CodeGuru Profiler?
 
 1. Prepare to use CodeGuru Profiler by following the steps in [Setting up CodeGuru Profiler](setting-up.md "setting-up.md").
-2. Learn how to use recommendation reports by following the steps in [Working with anomalies and recommendation
-   reports](working-with-recommendation-reports.md "working-with-recommendation-reports.md").
+2. Learn how to use recommendation reports by following the steps in [Working with anomalies and recommendation reports](working-with-recommendation-reports.md "working-with-recommendation-reports.md").
 3. Graphically explore your application data by following the steps in [Working with visualizations](working-with-visualizations.md "working-with-visualizations.md").

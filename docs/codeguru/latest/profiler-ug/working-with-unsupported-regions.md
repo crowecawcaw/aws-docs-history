@@ -1,6 +1,4 @@
-# Working with unsupported AWS
-
-Regions
+# Working with unsupported AWS Regions
 
 To use Amazon CodeGuru Profiler in an AWS Region it doesn't support, you can configure your agent to
 submit profiles to one of the supported Regions instead. You can specify which AWS Region to
@@ -82,9 +80,7 @@ if __name__ == '__main__':
 For more information on enabling the agent with Python code, see [Enabling the agent with
 code (Python)](python-code-change.md "python-code-change.md").
 
-## Profiling applications that run on
-
-AWS Lambda
+## Profiling applications that run on AWS Lambda
 
 The following sections show how to use Amazon CodeGuru Profiler in an unsupported region when integrating with
 AWS Lambda.
@@ -128,8 +124,7 @@ def handler_name(event, context):
 ```
 
 For more information on the Amazon CodeGuru Profiler function decorator, see
-[Apply the CodeGuru Profiler function decorator to your
-handler function](python-lambda-command-line.md "python-lambda-command-line.md").
+[Apply the CodeGuru Profiler function decorator to your handler function](python-lambda-command-line.md "python-lambda-command-line.md").
 
 #### Using AWS Lambda layers
 

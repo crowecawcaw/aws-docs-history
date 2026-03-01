@@ -4,9 +4,7 @@ Tags can help you identify and organize your AWS resources and manage access to 
 For more information about using tags, see the [Tagging best
 practices](https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf "https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf") whitepaper.
 
-## View tags for a profiling
-
-group
+## View tags for a profiling group
 
 You can use the CodeGuru Profiler console to view the tags associated with a CodeGuru Profiler profiling
 group.

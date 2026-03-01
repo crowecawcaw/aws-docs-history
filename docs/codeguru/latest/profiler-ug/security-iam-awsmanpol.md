@@ -22,9 +22,7 @@ a new feature, AWS adds read-only permissions for new operations and resources. 
 and descriptions of job function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-##
-
-AWS managed policy: AmazonCodeGuruProfilerFullAccess
+## AWS managed policy: AmazonCodeGuruProfilerFullAccess
 
 You can attach the `AmazonCodeGuruProfilerFullAccess` policy to your IAM
 identities.
@@ -63,9 +61,7 @@ JSON
 
 ```
 
-##
-
-AWS managed policy: AmazonCodeGuruProfilerReadOnlyAccess
+## AWS managed policy: AmazonCodeGuruProfilerReadOnlyAccess
 
 You can attach the `AmazonCodeGuruProfilerReadOnlyAccess` policy to your IAM
 identities.
@@ -106,9 +102,7 @@ JSON
 
 ```
 
-##
-
-AWS managed policy: AmazonCodeGuruProfilerAgentAccess
+## AWS managed policy: AmazonCodeGuruProfilerAgentAccess
 
 You can attach the `AmazonCodeGuruProfilerAgentAccess` policy to your IAM
 identities.
@@ -145,9 +139,7 @@ JSON
 
 ```
 
-## CodeGuru Profiler updates to AWS managed
-
-policies
+## CodeGuru Profiler updates to AWS managed policies
 
 View details about updates to AWS managed policies for CodeGuru Profiler since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

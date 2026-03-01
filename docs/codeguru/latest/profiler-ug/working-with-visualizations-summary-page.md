@@ -1,6 +1,4 @@
-# Understanding the summary
-
-page
+# Understanding the summary page
 
 The Amazon CodeGuru Profiler summary page displays the status of your profiling group and relevant
 metrics gathered during profiling. The metrics shown are for any data gathered in the last 12
@@ -89,8 +87,7 @@ could indicate that your application has high spikes of memory usage, especially
 average heap usage is low.
 
 Choose **Visualize heap** to see your application's heap usage over
-time. For information on understanding the heap summary, see [Understanding the heap
-summary](working-with-visualizations-heap-summary.md "working-with-visualizations-heap-summary.md").
+time. For information on understanding the heap summary, see [Understanding the heap summary](working-with-visualizations-heap-summary.md "working-with-visualizations-heap-summary.md").
 
 ## Anomalies
 

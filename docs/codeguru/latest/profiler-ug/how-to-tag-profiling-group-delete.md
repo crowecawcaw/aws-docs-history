@@ -1,6 +1,4 @@
-# Remove a tag from a profiling
-
-group
+# Remove a tag from a profiling group
 
 You can remove one or more tags associated with a profiling group. You can also change the
 name of the key, which is equivalent to removing the current tag and adding a different one
@@ -14,9 +12,7 @@ you remove a tag from a profiling group, make sure to review any IAM policies th
 use the key or value for a tag to control access to resources such as profiling
 groups.
 
-## Remove a tag from a profiling
-
-group
+## Remove a tag from a profiling group
 
 You can use the CodeGuru Profiler console to remove the association between a tag and a profiling
 group.

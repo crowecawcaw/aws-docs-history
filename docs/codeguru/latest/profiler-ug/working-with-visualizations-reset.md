@@ -1,6 +1,4 @@
-# Resetting zoom in a
-
-visualization
+# Resetting zoom in a visualization
 
 You can zoom in to stack frames to view details. To return to the top-most view, you can
 reset the zoom.

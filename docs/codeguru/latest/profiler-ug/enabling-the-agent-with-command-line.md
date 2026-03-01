@@ -1,6 +1,4 @@
-# Enabling the agent from the command
-
-line
+# Enabling the agent from the command line
 
 The command line option for integrating the CodeGuru Profiler agent is the easiest way to start
 profiling your application, because it doesn't require recompiling and redeploying your
@@ -24,8 +22,7 @@ different from the default credentials. The path must point to a valid AWS crede
 file. For more information about credentials, see [Configuration and credential file settings](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md").
 
 The CodeGuru Profiler heap summary shows your application's heap usage over time. For more
-information on the heap summary, see [Understanding the heap
-summary](working-with-visualizations-heap-summary.md "working-with-visualizations-heap-summary.md").
+information on the heap summary, see [Understanding the heap summary](working-with-visualizations-heap-summary.md "working-with-visualizations-heap-summary.md").
 
 Opt in to heap summary data collection by adding `heapSummaryEnabled:true`.
 The following example shows how to enable heap summary collection.

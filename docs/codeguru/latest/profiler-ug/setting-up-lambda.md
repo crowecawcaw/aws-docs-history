@@ -23,5 +23,4 @@ longer to display information.
 ###### Topics
 
 - [All Java runtimes](lambda-custom.md "lambda-custom.md")
-- [Easier option for Java 8 on Amazon Linux 2 and Java 11 and Java 17 (Corretto)
-  runtimes](lambda-simple.md "lambda-simple.md")
+- [Easier option for Java 8 on Amazon Linux 2 and Java 11 and Java 17 (Corretto) runtimes](lambda-simple.md "lambda-simple.md")

@@ -74,8 +74,7 @@ options.
 
 The profiling group name is required to start the CodeGuru Profiler agent. The CodeGuru Profiler heap summary
 shows your application's heap usage over time. For more information on the heap summary, see
-[Understanding the heap
-summary](working-with-visualizations-heap-summary.md "working-with-visualizations-heap-summary.md").
+[Understanding the heap summary](working-with-visualizations-heap-summary.md "working-with-visualizations-heap-summary.md").
 
 ###### Important
 
@@ -149,8 +148,7 @@ see [Working with visualizations](working-with-visualizations.md "working-with-v
 
 When your application has run for an hour, the first
 **Recommendations** report is available. After the first report, new
-reports are generated hourly. For more information, see [Working with anomalies and recommendation
-reports](working-with-recommendation-reports.md "working-with-recommendation-reports.md").
+reports are generated hourly. For more information, see [Working with anomalies and recommendation reports](working-with-recommendation-reports.md "working-with-recommendation-reports.md").
 
 ###### Note
 

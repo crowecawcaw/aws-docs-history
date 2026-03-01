@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-CodeGuru Profiler
+# Using service-linked roles for CodeGuru Profiler
 
 Amazon CodeGuru Profiler uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role
 that is linked directly to CodeGuru Profiler. Service-linked roles are predefined by
@@ -22,9 +20,7 @@ That Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role permissions for
-
-CodeGuru Profiler
+## Service-linked role permissions for CodeGuru Profiler
 
 CodeGuru Profiler uses the service-linked role named **AWSServiceRoleForCodeGuruProfiler**.
 This is a managed IAM policy with scoped permissions that CodeGuru Profiler needs to run in your
@@ -107,9 +103,7 @@ If the CodeGuru Profiler service is using the role when you try to delete the
 resources, the deletion might fail. If that happens, wait for a few minutes and try
 the operation again.
 
-###### To delete CodeGuru Profiler resources used by the AWSServiceRoleForCodeGuruProfiler service-linked
-
-role
+###### To delete CodeGuru Profiler resources used by the AWSServiceRoleForCodeGuruProfiler service-linked role
 
 1. Sign in to the AWS Management Console, and then open the CodeGuru Profiler console at
    [https://console.aws.amazon.com/codeguru/profiler](https://console.aws.amazon.com/codeguru/profiler "https://console.aws.amazon.com/codeguru/profiler").
@@ -127,9 +121,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleFor
 service-linked role. For more information, see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for CodeGuru Profiler service-linked
-
-roles
+## Supported Regions for CodeGuru Profiler service-linked roles
 
 CodeGuru Profiler supports using service-linked roles in all of the AWS Regions where
 the service is available. For more information, see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").

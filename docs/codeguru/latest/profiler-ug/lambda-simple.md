@@ -1,6 +1,4 @@
-# Easier option for Java 8 on Amazon Linux 2 and Java 11 and Java 17 (Corretto)
-
-runtimes
+# Easier option for Java 8 on Amazon Linux 2 and Java 11 and Java 17 (Corretto) runtimes
 
 You can enable CodeGuru Profiler from the AWS console by setting environment variables and
 updating configuration for your AWS Lambda function. This method works for Java 8 on Amazon Linux 2
@@ -36,8 +34,7 @@ arn:aws:lambda:us-east-1:157417159150:layer:AWSCodeGuruProfilerJavaAgentLayer:11
 ```
 
 The CodeGuru Profiler heap summary is an optional feature that shows your application's heap usage
-over time. For more information on the heap summary, see [Understanding the heap
-summary](working-with-visualizations-heap-summary.md "working-with-visualizations-heap-summary.md").
+over time. For more information on the heap summary, see [Understanding the heap summary](working-with-visualizations-heap-summary.md "working-with-visualizations-heap-summary.md").
 
 Your Lambda function runs normally with the CodeGuru Profiler agent running in parallel. The agent
 submits your first profile after running for a total of 5 minutes. Processing can take up to

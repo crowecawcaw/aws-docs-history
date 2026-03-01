@@ -10,8 +10,7 @@ you can specify that an Amazon SNS notification is sent when more than five reco
 generated for a profiling group within an hour.
 
 A user or role must have CloudWatch `PutMetricAlarm` permissions to create an alarm.
-For more information, see [Using
-identity-based policies for CodeGuru Profiler](auth-and-access-control-iam-identity-based-access-control.md "auth-and-access-control-iam-identity-based-access-control.md") and [Amazon CloudWatch permissions reference](../../../AmazonCloudWatch/latest/monitoring/permissions-reference-cw.md "../../../AmazonCloudWatch/latest/monitoring/permissions-reference-cw.md") in the _Amazon CloudWatch User Guide_.
+For more information, see [Using identity-based policies for CodeGuru Profiler](auth-and-access-control-iam-identity-based-access-control.md "auth-and-access-control-iam-identity-based-access-control.md") and [Amazon CloudWatch permissions reference](../../../AmazonCloudWatch/latest/monitoring/permissions-reference-cw.md "../../../AmazonCloudWatch/latest/monitoring/permissions-reference-cw.md") in the _Amazon CloudWatch User Guide_.
 
 ###### To create a CloudWatch alarm for CodeGuru Profiler recommendations
 

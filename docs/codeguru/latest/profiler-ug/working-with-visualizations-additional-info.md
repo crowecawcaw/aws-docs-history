@@ -1,6 +1,4 @@
-# Understanding the dollar
-
-estimate of the CPU cost for frames
+# Understanding the dollar estimate of the CPU cost for frames
 
 Amazon CodeGuru Profiler provides an estimated dollar value for the active CPU cost of a frame. The
 value is an estimation that can help you understand where your optimization efforts will be

@@ -5,28 +5,18 @@ Amazon CodeGuru Profiler.
 
 ###### Topics
 
-- [Why are certain methods missing from my
-  profile?](#troubleshooting-missing-functions "#troubleshooting-missing-functions")
-- [I don't see any messages from CodeGuru Profiler in my
-  application logs.](#troubleshooting-agent-not-running "#troubleshooting-agent-not-running")
-- [I get a
-  ResourceNotFoundException in the application logs. The profiling group doesn't
-  exist.](#troubleshooting-profiler-group-does-not-exist "#troubleshooting-profiler-group-does-not-exist")
-- [I received a 403 Forbidden error in the
-  agent. The agent doesn't have permission to submit data.](#troubleshooting-agent-permission "#troubleshooting-agent-permission")
+- [Why are certain methods missing from my profile?](#troubleshooting-missing-functions "#troubleshooting-missing-functions")
+- [I don't see any messages from CodeGuru Profiler in my application logs.](#troubleshooting-agent-not-running "#troubleshooting-agent-not-running")
+- [I get a ResourceNotFoundException in the application logs. The profiling group doesn't exist.](#troubleshooting-profiler-group-does-not-exist "#troubleshooting-profiler-group-does-not-exist")
+- [I received a 403 Forbidden error in the agent. The agent doesn't have permission to submit data.](#troubleshooting-agent-permission "#troubleshooting-agent-permission")
 - [I don't see any data in the console.](#troubleshooting-no-data "#troubleshooting-no-data")
-- [There isn't enough data. The profile only
-  has a few frames.](#troubleshooting-not-enough-data "#troubleshooting-not-enough-data")
-- [I don’t see any profiling data for my AWS Lambda
-  function.](#troubleshooting-lambda "#troubleshooting-lambda")
+- [There isn't enough data. The profile only has a few frames.](#troubleshooting-not-enough-data "#troubleshooting-not-enough-data")
+- [I don’t see any profiling data for my AWS Lambda function.](#troubleshooting-lambda "#troubleshooting-lambda")
 - [I have errors in my Lambda function log.](#troubleshooting-lambda-error "#troubleshooting-lambda-error")
-- [I received a ValidationException
-  error in the agent.](#troubleshooting-lambda-agent "#troubleshooting-lambda-agent")
+- [I received a ValidationException error in the agent.](#troubleshooting-lambda-agent "#troubleshooting-lambda-agent")
 - [Why don't I see heap summary data?](#troubleshooting-heap-summary "#troubleshooting-heap-summary")
 
-## Why are certain methods missing from my
-
-profile?
+## Why are certain methods missing from my profile?
 
 The CodeGuru Profiler tool can miss methods that the Java virtual machine (JVM) has chosen to inline
 for performance reasons. This inlining biases the CodeGuru Profiler data.
@@ -34,9 +24,7 @@ for performance reasons. This inlining biases the CodeGuru Profiler data.
 Additionally, because CodeGuru Profiler does statistical sampling, methods that are rarely called or
 are executed quickly might not be sampled in any given time range.
 
-## I don't see any messages from CodeGuru Profiler in my
-
-application logs.
+## I don't see any messages from CodeGuru Profiler in my application logs.
 
 Make sure CodeGuru Profiler is running. If you are integrating with CodeGuru Profiler by making a code change,
 make sure you call `.start()` on your `Profiler` object at the beginning
@@ -73,10 +61,7 @@ INFO: Reported profile successfully
 
 ```
 
-## I get a
-
-ResourceNotFoundException in the application logs. The profiling group doesn't
-exist.
+## I get a ResourceNotFoundException in the application logs. The profiling group doesn't exist.
 
 Make sure you've created a profiling group with the same name that is used in the
 error through the console or API. Also, be sure you're using the correct AWS Region for the
@@ -86,9 +71,7 @@ profiling group, or by manually configuring the agent to target a given Region.
 For more information, see [Step 3: Set permissions
 for CodeGuru Profiler](setting-up.md#setting-up-step-3 "setting-up.md#setting-up-step-3").
 
-## I received a 403 Forbidden error in the
-
-agent. The agent doesn't have permission to submit data.
+## I received a 403 Forbidden error in the agent. The agent doesn't have permission to submit data.
 
 Make sure you've given full CodeGuru Profiler permissions to the role with which the agent is
 running. Make sure the agent is using the right credentials, either through the default
@@ -103,17 +86,13 @@ By default, the CodeGuru Profiler profiling agent profiles for 5 minutes before 
 profile. Wait 10–15 minutes after the first profile submission, and check the logs to
 make sure the agent is running.
 
-## There isn't enough data. The profile only
-
-has a few frames.
+## There isn't enough data. The profile only has a few frames.
 
 For CodeGuru Profiler to provide statistically valid information, it needs your application to be
 running under load. We recommend running your application for at least an hour with at least
 30% CPU utilization.
 
-## I don’t see any profiling data for my AWS Lambda
-
-function.
+## I don’t see any profiling data for my AWS Lambda function.
 
 You can profile your Lambda functions running in Java or Python if they are called often
 enough for CodeGuru Profiler to gather enough data. Invoke your Lambda function several times over a 5
@@ -132,9 +111,7 @@ in your logs, your Lambda function did not run long enough for the
 group with Lambda as your compute platform from the CodeGuru Profiler console. Set the name to
 `aws-lambda-`lambda-function-name``.
 
-## I received a `ValidationException`
-
-error in the agent.
+## I received a `ValidationException` error in the agent.
 
 If you see the following error in your logs, it means you configured your profiling group
 for AWS Lambda, but not your agent. For more information on how to configure the agent with

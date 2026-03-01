@@ -27,5 +27,4 @@ group.
 - [Add a tag to a profiling group](how-to-tag-profiling-group-add.md "how-to-tag-profiling-group-add.md")
 - [View tags for a profiling group](how-to-tag-profiling-group-list.md "how-to-tag-profiling-group-list.md")
 - [Edit tags for a profiling group](how-to-tag-profiling-group-update.md "how-to-tag-profiling-group-update.md")
-- [Remove a tag from a profiling
-  group](how-to-tag-profiling-group-delete.md "how-to-tag-profiling-group-delete.md")
+- [Remove a tag from a profiling group](how-to-tag-profiling-group-delete.md "how-to-tag-profiling-group-delete.md")

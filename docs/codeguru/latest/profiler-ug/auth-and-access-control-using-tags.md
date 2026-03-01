@@ -1,6 +1,4 @@
-# Using tags to control access to
-
-Amazon CodeGuru Profiler resources
+# Using tags to control access to Amazon CodeGuru Profiler resources
 
 Conditions in IAM policy statements are part of the syntax that you can use to specify
 permissions for CodeGuru Profiler profiling group-based actions. You can create a policy that allows

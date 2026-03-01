@@ -9,9 +9,7 @@ group based on these tags. You can use the CodeGuru Profiler console to add tags
 You can add tags when you create your profiling group on the **Create profiling
 group** page. You can also add tags to your existing profiling group.
 
-## Add a tag to a profiling
-
-group
+## Add a tag to a profiling group
 
 You can use the CodeGuru Profiler console to add one or more tags to an existing profiling group.
 

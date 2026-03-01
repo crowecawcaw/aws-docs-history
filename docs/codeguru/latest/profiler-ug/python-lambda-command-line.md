@@ -1,6 +1,4 @@
-# Apply the CodeGuru Profiler function decorator to your
-
-handler function
+# Apply the CodeGuru Profiler function decorator to your handler function
 
 Pull your `codeguru_profiler_agent` dependency to your local environment
 through `pip` and include it in the .zip file for Lambda.

@@ -1,6 +1,4 @@
-# Understanding the heap
-
-summary
+# Understanding the heap summary
 
 The **Heap summary** visualization shows your application’s heap usage
 over time. You can change the time period shown using the time range selector in the

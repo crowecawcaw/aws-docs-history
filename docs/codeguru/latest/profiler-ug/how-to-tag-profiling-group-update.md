@@ -11,9 +11,7 @@ edit the name (key) or value of a tag for a profiling group, make sure to review
 policies that might use the key or value for a tag to control access to resources such as
 profiling groups.
 
-## Edit a tag for a profiling
-
-group
+## Edit a tag for a profiling group
 
 You can use the CodeGuru Profiler console to edit the tags associated with a profiling group.
 

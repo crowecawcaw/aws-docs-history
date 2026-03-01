@@ -12,8 +12,7 @@ In CodeGuru Profiler, permissions policies are _resource-based policies_ that
 are attached directly to profiling groups. You can use resource-based policies to manage
 the IAM roles or users that have permission to submit profiling data and configure the
 agent. You can also grant access with identity-based policies. For an example, see
-[Permissions required by the CodeGuru Profiler profiling
-agent](auth-and-access-control-iam-identity-based-access-control.md#agent-policies "auth-and-access-control-iam-identity-based-access-control.md#agent-policies"). For more information about
+[Permissions required by the CodeGuru Profiler profiling agent](auth-and-access-control-iam-identity-based-access-control.md#agent-policies "auth-and-access-control-iam-identity-based-access-control.md#agent-policies"). For more information about
 IAM policies, see [Identity-based
 policies and resource-based policies](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md") in the _AWS Identity and Access Management User
 Guide_.
@@ -23,16 +22,11 @@ a profiling group
 
 ###### Topics
 
-- [Add a resource-based policy to a
-  profiling group (console)](#add-resource-based-policy-console "#add-resource-based-policy-console")
-- [Add a resource-based policy to a
-  profiling group (AWS CLI)](#add-resource-based-policy-cli "#add-resource-based-policy-cli")
-- [Add a resource-based policy to a
-  profiling group (AWS SDKs)](#add-resource-based-policy-sdk "#add-resource-based-policy-sdk")
+- [Add a resource-based policy to a profiling group (console)](#add-resource-based-policy-console "#add-resource-based-policy-console")
+- [Add a resource-based policy to a profiling group (AWS CLI)](#add-resource-based-policy-cli "#add-resource-based-policy-cli")
+- [Add a resource-based policy to a profiling group (AWS SDKs)](#add-resource-based-policy-sdk "#add-resource-based-policy-sdk")
 
-## Add a resource-based policy to a
-
-profiling group (console)
+## Add a resource-based policy to a profiling group (console)
 
 1. Open the Amazon CodeGuru Profiler console at
    [https://console.aws.amazon.com/codeguru/profiler](https://console.aws.amazon.com/codeguru/profiler "https://console.aws.amazon.com/codeguru/profiler").
@@ -47,9 +41,7 @@ profiling group (console)
 For more information, see [Set
 permissions](setting-up.md#setting-up-step-3 "setting-up.md#setting-up-step-3").
 
-## Add a resource-based policy to a
-
-profiling group (AWS CLI)
+## Add a resource-based policy to a profiling group (AWS CLI)
 
 Run the following AWS CLI command to add a resource-based policy to a profiling group.
 Use your profiling group name and the Amazon Resource Names (ARNs) of the roles and
@@ -79,9 +71,7 @@ The following is an example output that grants access to a profiling group named
 
 ```
 
-## Add a resource-based policy to a
-
-profiling group (AWS SDKs)
+## Add a resource-based policy to a profiling group (AWS SDKs)
 
 To add a resource-based policy using an AWS SDK, use the
 `PutPermission` method. For more information, see [PutPermission](../profiler-api/API_PutPermission.md "../profiler-api/API_PutPermission.md") in the _Amazon CodeGuru Profiler API Reference_.

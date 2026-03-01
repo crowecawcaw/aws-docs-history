@@ -1,6 +1,4 @@
-# Selecting and coloring thread
-
-states
+# Selecting and coloring thread states
 
 In a visualization view, you can filter profiling data by thread state. You can color
 thread states inside of stack frames to make it easy to spot how the application is
@@ -30,9 +28,7 @@ Custom view – You can choose to select the thread states for
 frames to include in the visualization. The threads you can select are the ones found in
 your profile data. You can also choose whether to color the frames based on thread states.
 
-## Example of differences
-
-between CPU view and latency view
+## Example of differences between CPU view and latency view
 
 | CPU view         | Latency view         |
 | ---------------- | -------------------- |

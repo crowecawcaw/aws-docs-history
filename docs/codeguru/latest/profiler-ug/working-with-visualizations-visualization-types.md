@@ -1,6 +1,4 @@
-# Types
-
-of visualizations
+# Types of visualizations
 
 Amazon CodeGuru Profiler uses three types of visualizations to display profiling data collected from
 applications.
@@ -18,25 +16,18 @@ The following topics provide more information about each visualization type.
 
 ###### Topics
 
-- [Overview
-  visualizations](#working-with-visualizations-overview-visualization "#working-with-visualizations-overview-visualization")
-- [Hotspots
-  visualizations](#working-with-visualizations-hotspots-visualization "#working-with-visualizations-hotspots-visualization")
-- [Inspect
-  visualizations](#working-with-visualizations-inspect-visualization "#working-with-visualizations-inspect-visualization")
+- [Overview visualizations](#working-with-visualizations-overview-visualization "#working-with-visualizations-overview-visualization")
+- [Hotspots visualizations](#working-with-visualizations-hotspots-visualization "#working-with-visualizations-hotspots-visualization")
+- [Inspect visualizations](#working-with-visualizations-inspect-visualization "#working-with-visualizations-inspect-visualization")
 
-## Overview
-
-visualizations
+## Overview visualizations
 
 An overview visualization provides a bottom-up view of your profiling data. It's similar
 to reading a stack trace in many IDEs. At the bottom of the visualization are the entry
 point functions. As you move higher, there are functions that are called deeper in the stack
 trace. Functions at the top of the visualization are the ones doing basic system operations.
 
-###
-
-From stack traces to overview visualization
+### From stack traces to overview visualization
 
 The following example shows how stack trace samples are represented in an overview
 visualization. Each stack trace that we sample from the profiled application is added to
@@ -87,9 +78,7 @@ Thread main
 As we collect more samples, the functions in which threads spend a lot of time appear
 wider in the visualization.
 
-### What you
-
-can learn from overview visualization
+### What you can learn from overview visualization
 
 An overview visualization can help you find specific call stacks that lead to
 inefficient code. You can find code that is running on the CPU by looking for flat tops in
@@ -100,8 +89,7 @@ function.
 
 ###### Note
 
-This example of an overview is in CPU view (see [Selecting and coloring thread
-states](working-with-visualizations-thread-states.md "working-with-visualizations-thread-states.md")).
+This example of an overview is in CPU view (see [Selecting and coloring thread states](working-with-visualizations-thread-states.md "working-with-visualizations-thread-states.md")).
 
 This overview example tells the following:
 
@@ -132,9 +120,7 @@ An overview visualization can make it difficult to spot problems with functions 
 spread around in multiple stacks. For example, logging calls are often distributed across
 threads and functions. In these cases, a hotspots visualization might be a better choice.
 
-## Hotspots
-
-visualizations
+## Hotspots visualizations
 
 A hotspots visualization shows a top-down view of your profile. The functions consuming
 the most application time are at the top of the visualization. The entry point functions are
@@ -154,9 +140,7 @@ This overview example tells the following:
 - Most of the overall CPU time is spent in the `doOne` function because
   it is the majority of the width in the top row.
 
-## Inspect
-
-visualizations
+## Inspect visualizations
 
 An
 inspect

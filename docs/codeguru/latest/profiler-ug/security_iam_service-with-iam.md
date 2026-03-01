@@ -1,6 +1,4 @@
-# Overview of managing access permissions to
-
-your CodeGuru Profiler resources
+# Overview of managing access permissions to your CodeGuru Profiler resources
 
 Every AWS resource is owned by an AWS account, and permissions to create or access a
 resource are governed by IAM permissions policies. An account administrator can attach
@@ -18,11 +16,9 @@ they can access, and the actions that can be performed on those resources.
 ###### Topics
 
 - [CodeGuru Profiler resources and operations](#arn-formats "#arn-formats")
-- [Understanding resource
-  ownership](#understanding-resource-ownership "#understanding-resource-ownership")
+- [Understanding resource ownership](#understanding-resource-ownership "#understanding-resource-ownership")
 - [Managing access to resources](#managing-access-resources "#managing-access-resources")
-- [Specifying policy elements: actions,
-  effects, and principals](#actions-effects-principals "#actions-effects-principals")
+- [Specifying policy elements: actions, effects, and principals](#actions-effects-principals "#actions-effects-principals")
 
 ## CodeGuru Profiler resources and operations
 
@@ -61,12 +57,9 @@ as follows.
 ```
 
 CodeGuru Profiler provides a set of operations to work with the CodeGuru Profiler resources. For a list, see
-the [Amazon CodeGuru Profiler permissions
-reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+the [Amazon CodeGuru Profiler permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
 
-## Understanding resource
-
-ownership
+## Understanding resource ownership
 
 The AWS account owns the resources that are created in it, regardless of who
 created the resources. Specifically, the resource owner is the AWS account of the
@@ -136,18 +129,14 @@ group.
 You can create IAM policies to restrict the calls and resources that users in
 your account have access to, and then attach those policies to IAM users. For more
 information about how to create IAM roles and to explore example IAM policy
-statements for CodeGuru Profiler, see [Identity-based
-policies](security_iam_access-manage.md#security_iam_access-manage-id-based-policies "security_iam_access-manage.md#security_iam_access-manage-id-based-policies").
+statements for CodeGuru Profiler, see [Identity-based policies](security_iam_access-manage.md#security_iam_access-manage-id-based-policies "security_iam_access-manage.md#security_iam_access-manage-id-based-policies").
 
-## Specifying policy elements: actions,
-
-effects, and principals
+## Specifying policy elements: actions, effects, and principals
 
 For each CodeGuru Profiler resource, the service defines a set of API operations. To grant
 permissions for these API operations, CodeGuru Profiler defines a set of actions that you can
 specify in a policy. Some API operations can require permissions for more than one
-action to perform the API operation. For more information, see [CodeGuru Profiler resources and operations](#arn-formats "#arn-formats") and the [Amazon CodeGuru Profiler permissions
-reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+action to perform the API operation. For more information, see [CodeGuru Profiler resources and operations](#arn-formats "#arn-formats") and the [Amazon CodeGuru Profiler permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
 
 The following are the basic policy elements:
 
@@ -171,5 +160,4 @@ To learn more about IAM policy syntax and descriptions, see [AWS IAM Policy Refe
 _IAM User Guide_.
 
 For a table showing all of the CodeGuru Profiler API actions and the resources they apply to, see
-the [Amazon CodeGuru Profiler permissions
-reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+the [Amazon CodeGuru Profiler permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").

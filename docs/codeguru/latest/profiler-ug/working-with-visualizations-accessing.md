@@ -13,5 +13,4 @@ The following instructions show you where to find the visualizations of your pro
 Once you've navigated to the **Visualize** page, you can switch between
 **Data** and **View** using the drop down menus above the visualization panel.
 For more information on visualization types, see
-[Types
-of visualizations](working-with-visualizations-visualization-types.md "working-with-visualizations-visualization-types.md").
+[Types of visualizations](working-with-visualizations-visualization-types.md "working-with-visualizations-visualization-types.md").

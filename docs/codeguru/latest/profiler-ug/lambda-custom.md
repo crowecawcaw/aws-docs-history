@@ -16,9 +16,7 @@ adding a dependency in your Maven or Gradle configuration files. For more inform
 adding dependencies, see [Enabling the agent with
 code](enabling-the-agent-with-code.md "enabling-the-agent-with-code.md").
 
-## Make code changes to start profiling your AWS Lambda
-
-functions
+## Make code changes to start profiling your AWS Lambda functions
 
 If you have been using handlers provided by AWS Lambda, then you can alter your code to
 use handlers provided by CodeGuru to enable profiling. For information about your
