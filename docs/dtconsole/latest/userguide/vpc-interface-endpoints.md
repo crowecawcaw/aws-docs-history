@@ -1,6 +1,4 @@
-# AWS CodeConnections and interface VPC endpoints
-
-(AWS PrivateLink)
+# AWS CodeConnections and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and AWS CodeConnections by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you to
@@ -16,9 +14,7 @@ For more information, see [Interface VPC
 endpoints (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for AWS CodeConnections VPC
-
-endpoints
+## Considerations for AWS CodeConnections VPC endpoints
 
 Before you set up an interface VPC endpoint for AWS CodeConnections, ensure that you review
 [Interface
@@ -47,9 +43,7 @@ services.
 
 You can manage VPC endpoints for the AWS CodeConnections service.
 
-### Creating interface VPC endpoints for AWS CodeConnections
-
-actions
+### Creating interface VPC endpoints for AWS CodeConnections actions
 
 You can create a VPC endpoint for the AWS CodeConnections service using either the Amazon VPC
 console or the AWS Command Line Interface (AWS CLI). For more information, see [Creating an interface
@@ -78,9 +72,7 @@ For more information, see [Accessing a
 service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-### Creating a VPC endpoint policy for AWS CodeConnections
-
-actions
+### Creating a VPC endpoint policy for AWS CodeConnections actions
 
 You can attach an endpoint policy to your VPC endpoint that controls access to
 AWS CodeConnections. The policy specifies the following information:
@@ -137,9 +129,7 @@ new host.
 AWS CodeConnections manages the lifecycle of these endpoints. To delete the endpoint, you must
 delete the corresponding host resource.
 
-### How webhook endpoints for AWS CodeConnections
-
-hosts are used
+### How webhook endpoints for AWS CodeConnections hosts are used
 
 The webhook endpoint is where webhooks from third-party repositories are sent for
 AWS CodeConnections processing. A webhook describes a customer action. When you perform a

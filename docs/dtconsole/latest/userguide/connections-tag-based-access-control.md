@@ -1,6 +1,4 @@
-# Using tags to control access to
-
-AWS CodeConnections resources
+# Using tags to control access to AWS CodeConnections resources
 
 Tags can be attached to the resource or passed in the request to services that support
 tagging. In AWS CodeConnections, resources can have tags, and some actions can include

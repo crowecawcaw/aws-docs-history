@@ -1,6 +1,4 @@
-# Create a connection to GitHub Enterprise
-
-Server
+# Create a connection to GitHub Enterprise Server
 
 You use connections to associate your AWS resources with a third-party repository. You
 can use the AWS Management Console or the AWS Command Line Interface (AWS CLI) to create a connection to GitHub Enterprise
@@ -33,7 +31,5 @@ IDs, and Security Group IDs) for the host. For more information, see [Connection
 
 ###### Topics
 
-- [Create a connection to GitHub
-  Enterprise Server (console)](connections-create-gheserver-console.md "connections-create-gheserver-console.md")
-- [Create a connection to GitHub
-  Enterprise Server (CLI)](connections-create-gheserver-cli.md "connections-create-gheserver-cli.md")
+- [Create a connection to GitHub Enterprise Server (console)](connections-create-gheserver-console.md "connections-create-gheserver-console.md")
+- [Create a connection to GitHub Enterprise Server (CLI)](connections-create-gheserver-cli.md "connections-create-gheserver-cli.md")

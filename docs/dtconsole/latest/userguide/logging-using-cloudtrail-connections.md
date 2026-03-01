@@ -1,6 +1,4 @@
-# Logging AWS CodeConnections API
-
-calls with AWS CloudTrail
+# Logging AWS CodeConnections API calls with AWS CloudTrail
 
 AWS CodeConnections is integrated with AWS CloudTrail, a service that provides a record of actions taken
 by a user, role, or an AWS service. CloudTrail captures all API calls for notifications as
@@ -16,9 +14,7 @@ made, and other details.
 
 For more information, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-## AWS CodeConnections information in
-
-CloudTrail
+## AWS CodeConnections information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When activity
 occurs in AWS CodeConnections, that activity is recorded in a CloudTrail event along with other AWS
@@ -60,9 +56,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding log file
-
-entries
+## Understanding log file entries
 
 A _trail_ is a configuration that enables delivery of events as log
 files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log

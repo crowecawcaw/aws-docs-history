@@ -14,8 +14,7 @@ Before you begin:
 
 - You must have already created a connection with your AWS account.
 - You must have resource sharing enabled.
-- You must have the required permissions configured. For more information, see [Supported permissions
-  for connection sharing](security-iam.md#permissions-reference-connections-sharing "security-iam.md#permissions-reference-connections-sharing").
+- You must have the required permissions configured. For more information, see [Supported permissions for connection sharing](security-iam.md#permissions-reference-connections-sharing "security-iam.md#permissions-reference-connections-sharing").
 
 ###### Note
 
@@ -97,9 +96,7 @@ the following.
 
 3. Requests to share can be accepted as detailed in the next procedure.
 
-###### To authenticate and accept the connection share with the destination
-
-account
+###### To authenticate and accept the connection share with the destination account
 
 The following procedure is optional for destination accounts that belong to the
 same organization and have resource sharing enabled in Organizations.

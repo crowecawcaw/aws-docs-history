@@ -1,6 +1,4 @@
-# Working with sync configurations for linked
-
-repositories
+# Working with sync configurations for linked repositories
 
 In AWS CodeConnections, you use a connection to associate AWS resources to a third-party repository,
 such as GitHub, Bitbucket Cloud, GitHub Enterprise Server, and GitLab. Using the

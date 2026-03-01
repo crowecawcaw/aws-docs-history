@@ -1,6 +1,4 @@
-# Permissions and
-
-examples for AWS CodeConnections
+# Permissions and examples for AWS CodeConnections
 
 The following policy statements and examples can help you manage AWS CodeConnections.
 
@@ -8,9 +6,7 @@ For information about how to create an IAM identity-based policy using these
 example JSON policy documents, see [Creating policies on the JSON tab](../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-json-editor") in the
 _IAM User Guide_.
 
-## Example: A policy for creating AWS CodeConnections with the CLI and viewing with the
-
-console
+## Example: A policy for creating AWS CodeConnections with the CLI and viewing with the console
 
 A role or user designated to use the AWS CLI or SDK to view, create, tag, or
 delete connections should have permissions limited to the following.
@@ -205,10 +201,7 @@ JSON
 
 ```
 
-## Example:
-
-Limit host VPC permissions using the **VpcId**
-context key
+## Example: Limit host VPC permissions using the **VpcId** context key
 
 In the following example, the customer can use the **VpcId** context key to limit creation or management of hosts to
 hosts with specified VPC.

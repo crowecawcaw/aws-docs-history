@@ -18,8 +18,7 @@ accounts or organizations.
   organization has a connector app installation. For connections in organizations, your
   connection mapping to each Organization account in the organization is 1:1. Multiple
   connections cannot be associated with the app installation. For more details about how
-  organizations work with connections, see [How connections in
-  AWS CodeConnections work with organizations](welcome-connections-how-it-works-github-organizations.md "welcome-connections-how-it-works-github-organizations.md").
+  organizations work with connections, see [How connections in AWS CodeConnections work with organizations](welcome-connections-how-it-works-github-organizations.md "welcome-connections-how-it-works-github-organizations.md").
   The following diagram shows how cloud-based connections work with user accounts or
   organizations.
 
@@ -49,8 +48,7 @@ accounts or organizations.
   Organizations for GitHub Enterprise Server, you create a new host for each connection in
   your organization and be sure to enter the same information in the network fields (VPC,
   Subnet IDs, and Security Group IDs) for the host. For more details about how organizations
-  work with connections, see [How connections in
-  AWS CodeConnections work with organizations](welcome-connections-how-it-works-github-organizations.md "welcome-connections-how-it-works-github-organizations.md").
+  work with connections, see [How connections in AWS CodeConnections work with organizations](welcome-connections-how-it-works-github-organizations.md "welcome-connections-how-it-works-github-organizations.md").
 - **All:** For each on-prem connection, each VPC can only
   be associated with one host at a time.
   In all cases, you will need to provide the URL for your on-prem server. Additionally, if
@@ -72,7 +70,6 @@ process is required to complete setup of the host and for it to move from `Pendi
 to an `Available` state. After this is complete, a host is `Available`
 and can be used for connections to installed provider types.
 
-For an overview of the connections workflow, see [Workflow to create or update
-connections](welcome-connections-workflow.md "welcome-connections-workflow.md"). For
+For an overview of the connections workflow, see [Workflow to create or update connections](welcome-connections-workflow.md "welcome-connections-workflow.md"). For
 an overview of the host creation workflow for installed providers, see [Workflow to create or update a host](welcome-hosts-workflow.md "welcome-hosts-workflow.md"). For the
 high-level steps to create a connection by provider type, see [Working with connections](connections.md "connections.md").

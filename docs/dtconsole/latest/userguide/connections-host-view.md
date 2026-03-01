@@ -3,9 +3,7 @@
 You can use the Developer Tools console or the **get-host** command in the AWS Command Line Interface
 (AWS CLI) to view details for a host.
 
-###### To
-
-view host details (console)
+###### To view host details (console)
 
 1.  Sign in to the AWS Management Console
     and

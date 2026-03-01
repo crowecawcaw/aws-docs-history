@@ -5,27 +5,18 @@ notifications.
 
 ###### Topics
 
-- [I get a permissions error when I try to
-  create a notification rule on a resource](#troubleshooting-permissions-error "#troubleshooting-permissions-error")
+- [I get a permissions error when I try to create a notification rule on a resource](#troubleshooting-permissions-error "#troubleshooting-permissions-error")
 - [I cannot view notification rules](#troubleshooting-cannot-view "#troubleshooting-cannot-view")
-- [I cannot create notification
-  rules](#troubleshooting-cannot-create-rule "#troubleshooting-cannot-create-rule")
-- [I am receiving notifications for a
-  resource I can't access](#troubleshooting-resource-no-access "#troubleshooting-resource-no-access")
+- [I cannot create notification rules](#troubleshooting-cannot-create-rule "#troubleshooting-cannot-create-rule")
+- [I am receiving notifications for a resource I can't access](#troubleshooting-resource-no-access "#troubleshooting-resource-no-access")
 - [I am not receiving Amazon SNS notifications](#troubleshooting-no-SNS "#troubleshooting-no-SNS")
-- [I am receiving duplicate
-  notifications about events](#troubleshooting-duplicate-notifications "#troubleshooting-duplicate-notifications")
-- [I want to understand why a notification
-  target status shows as unreachable](#troubleshooting-resource-unavailable "#troubleshooting-resource-unavailable")
-- [I want to increase my quotas for
-  notifications and resources](#troubleshooting-limit-increase "#troubleshooting-limit-increase")
+- [I am receiving duplicate notifications about events](#troubleshooting-duplicate-notifications "#troubleshooting-duplicate-notifications")
+- [I want to understand why a notification target status shows as unreachable](#troubleshooting-resource-unavailable "#troubleshooting-resource-unavailable")
+- [I want to increase my quotas for notifications and resources](#troubleshooting-limit-increase "#troubleshooting-limit-increase")
 
-## I get a permissions error when I try to
+## I get a permissions error when I try to create a notification rule on a resource
 
-create a notification rule on a resource
-
-Make sure that you have sufficient permissions. For more information, see [Identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+Make sure that you have sufficient permissions. For more information, see [Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## I cannot view notification rules
 
@@ -39,20 +30,14 @@ and CodePipeline, include permissions for notifications, services that do not cu
 notifications do not include permissions to view them. Alternatively, you might have a custom
 policy applied to your
 IAM user
-or role that does not allow you to view notifications. For more information, see [Identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+or role that does not allow you to view notifications. For more information, see [Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## I cannot create notification
-
-rules
+## I cannot create notification rules
 
 You might not have the permissions required to create a notification rule. For more
-information, see [Identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+information, see [Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## I am receiving notifications for a
-
-resource I can't access
+## I am receiving notifications for a resource I can't access
 
 When you create a notification rule and add a target, the notifications feature does not
 validate whether the recipient has access to the resource. It is possible for you to receive
@@ -95,9 +80,7 @@ To troubleshoot problems with the Amazon SNS topic, check the following:
 
 For more information, see [Configure Amazon SNS topics for notifications](set-up-sns.md "set-up-sns.md").
 
-## I am receiving duplicate
-
-notifications about events
+## I am receiving duplicate notifications about events
 
 Here are the most common reasons for receiving multiple notifications:
 
@@ -110,9 +93,7 @@ Here are the most common reasons for receiving multiple notifications:
   issue, consider unsubscribing your email address from the Amazon SNS topic that is the target
   for the rule and use the Slack channel, Microsoft Teams channel, or Amazon Chime chatroom to view notifications.
 
-## I want to understand why a notification
-
-target status shows as unreachable
+## I want to understand why a notification target status shows as unreachable
 
 Targets have two possible statuses: **_Active_** and
 **_Unreachable_**. **Unreachable**
@@ -132,8 +113,6 @@ reasons:
 - The supporting service for the target (Amazon SNS or AWS Chatbot) might be experiencing
   issues.
 
-## I want to increase my quotas for
-
-notifications and resources
+## I want to increase my quotas for notifications and resources
 
 Currently, you cannot change any quotas. See [Quotas for notifications](limits.md "limits.md").

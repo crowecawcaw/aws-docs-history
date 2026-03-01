@@ -1,6 +1,4 @@
-# Configure integration between notifications and
-
-AWS Chatbot
+# Configure integration between notifications and AWS Chatbot
 
 AWS Chatbot is an AWS service that makes it possible for DevOps and software development
 teams to use Amazon Chime chat rooms, Slack channels, and Microsoft Team channels to monitor
@@ -17,26 +15,18 @@ AWS Chatbot. For more information, see the documentation for these services.
 
 ###### Topics
 
-- [Configure an AWS Chatbot client for
-  a Slack channel](#notifications-chatbot-configure-client "#notifications-chatbot-configure-client")
-- [Configure an AWS Chatbot client for
-  a Microsoft Teams channel](#notifications-chatbot-configure-client-ts "#notifications-chatbot-configure-client-ts")
-- [Configure clients for
-  Slack or Amazon Chime manually](#notifications-chatbot-configure-manual-client "#notifications-chatbot-configure-manual-client")
+- [Configure an AWS Chatbot client for a Slack channel](#notifications-chatbot-configure-client "#notifications-chatbot-configure-client")
+- [Configure an AWS Chatbot client for a Microsoft Teams channel](#notifications-chatbot-configure-client-ts "#notifications-chatbot-configure-client-ts")
+- [Configure clients for Slack or Amazon Chime manually](#notifications-chatbot-configure-manual-client "#notifications-chatbot-configure-manual-client")
 
-## Configure an AWS Chatbot client for
-
-a Slack channel
+## Configure an AWS Chatbot client for a Slack channel
 
 You can create notification rules that use an AWS Chatbot client as a target. If you create
 a client for a Slack channel, you can use this client directly as a target in the
 workflow for creating a notification rule. This is the easiest way to set up
 notifications that appear in Slack channels.
 
-## To create an AWS Chatbot client with
-
-Slack
-to use as a target
+## To create an AWS Chatbot client with Slack to use as a target
 
 1. Follow the instructions in [Setting up
    AWS Chatbot with
@@ -60,18 +50,14 @@ to use as a target
 Do not remove the Amazon SNS topic from the AWS Chatbot client after it has been configured
 for you. Doing so will prevent notifications from being sent to Slack.
 
-## Configure an AWS Chatbot client for
-
-a Microsoft Teams channel
+## Configure an AWS Chatbot client for a Microsoft Teams channel
 
 You can create notification rules that use an AWS Chatbot client as a target. If you create
 a client for a Microsoft Teams channel, you can use this client directly as a target in the
 workflow for creating a notification rule. This is the easiest way to set up
 notifications that appear in Microsoft Teams channels.
 
-## To create an AWS Chatbot client with
-
-Microsoft Teams to use as a target
+## To create an AWS Chatbot client with Microsoft Teams to use as a target
 
 1. Follow the instructions in [Setting up
    AWS Chatbot with Microsoft Teams](../../../chatbot/latest/adminguide/teams-setup.md#teams-client-setup "../../../chatbot/latest/adminguide/teams-setup.md#teams-client-setup")
@@ -94,9 +80,7 @@ Microsoft Teams to use as a target
 Do not remove the Amazon SNS topic from the AWS Chatbot client after it has been configured
 for you. Doing so will prevent notifications from being sent to Microsoft Teams.
 
-## Configure clients for
-
-Slack or Amazon Chime manually
+## Configure clients for Slack or Amazon Chime manually
 
 You can choose to create the integration between notifications and Slack or Amazon Chime
 directly. This is the only method available for configuring notifications to Amazon Chime
@@ -104,9 +88,7 @@ chatrooms. When you configure this integration manually, you create an AWS Chatb
 that uses an Amazon SNS topic that you have previously configured as the target for a
 notification rule.
 
-## To manually integrate
-
-notifications with AWS Chatbot and slack
+## To manually integrate notifications with AWS Chatbot and slack
 
 1. Open the AWS Developer Tools console at [https://console.aws.amazon.com/codesuite/settings/notifications](https://console.aws.amazon.com/codesuite/settings/notifications/ "https://console.aws.amazon.com/codesuite/settings/notifications/").
 2. Choose **Settings**, and then choose **Notification
@@ -164,9 +146,7 @@ notifications when comments are made on a pull request, comment on a pull
 request and then watch the Slack channel in the browser to see when the
 notification appears.
 
-## To integrate notifications with AWS Chatbot
-
-and Amazon Chime
+## To integrate notifications with AWS Chatbot and Amazon Chime
 
 1. Open the AWS Developer Tools console at [https://console.aws.amazon.com/codesuite/settings/notifications](https://console.aws.amazon.com/codesuite/settings/notifications/ "https://console.aws.amazon.com/codesuite/settings/notifications/").
 2. Choose **Settings**, and then choose **Notification

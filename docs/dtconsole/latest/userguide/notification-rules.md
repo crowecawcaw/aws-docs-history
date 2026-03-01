@@ -6,8 +6,7 @@ notifications directly to users through Amazon SNS, or through AWS Chatbot clien
 Slack or Microsoft
 Teams channels. If you want to extend the reach of notifications, you can
 manually configure integration between notifications and AWS Chatbot so that notifications are
-sent to Amazon Chime chatrooms. For more information, see [Targets](concepts.md#targets "concepts.md#targets") and [To integrate notifications with AWS Chatbot
-and Amazon Chime](notifications-chatbot.md#notifications-chatbot-chime "notifications-chatbot.md#notifications-chatbot-chime").
+sent to Amazon Chime chatrooms. For more information, see [Targets](concepts.md#targets "concepts.md#targets") and [To integrate notifications with AWS Chatbot and Amazon Chime](notifications-chatbot.md#notifications-chatbot-chime "notifications-chatbot.md#notifications-chatbot-chime").
 
 ![Creating a notification rule for a repository in the AWS Developer Tools console.](images/create-notification-rule-repository.png)
 You can use the Developer Tools console or the AWS CLI to create and manage notification rules.

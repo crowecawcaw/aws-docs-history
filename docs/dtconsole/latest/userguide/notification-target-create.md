@@ -1,6 +1,4 @@
-# Create or configure a notification rule
-
-target
+# Create or configure a notification rule target
 
 Notification rule targets are Amazon SNS topics or AWS Chatbot clients configured for Slack or Microsoft Teams
 channels.
@@ -30,18 +28,14 @@ CodeCommit notifications before November 5, 2019, it will contain a policy that 
 CodeCommit to publish to it that contains different permissions than those required
 for AWS CodeStar Notifications. Using these topics is not recommended. If you want to use one created
 for that experience, you must add the required policy for AWS CodeStar Notifications in addition to the one
-that already exists. For more information, see [Configure Amazon SNS topics for notifications](set-up-sns.md "set-up-sns.md") and [Understanding notification contents and
-security](security.md#security-notifications "security.md#security-notifications").
+that already exists. For more information, see [Configure Amazon SNS topics for notifications](set-up-sns.md "set-up-sns.md") and [Understanding notification contents and security](security.md#security-notifications "security.md#security-notifications").
 
 If you want to extend the reach of notifications, you can manually configure
 integration between notifications and AWS Chatbot so that notifications are sent to Amazon Chime
 chatrooms. For more information, see [Targets](concepts.md#targets "concepts.md#targets")
-and [To integrate notifications with AWS Chatbot
-and Amazon Chime](notifications-chatbot.md#notifications-chatbot-chime "notifications-chatbot.md#notifications-chatbot-chime").
+and [To integrate notifications with AWS Chatbot and Amazon Chime](notifications-chatbot.md#notifications-chatbot-chime "notifications-chatbot.md#notifications-chatbot-chime").
 
-# To configure an existing Amazon SNS
-
-topic to use as a notification rule target (console)
+# To configure an existing Amazon SNS topic to use as a notification rule target (console)
 
 1. Sign in to the AWS Management Console and open the Amazon SNS console at
    [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
@@ -115,13 +109,9 @@ The policy statement should look like the following.
 6. In **Subscriptions**, review the list of topic subscribers.
    Add, edit, or delete subscribers as appropriate for this notification rule
    target. Make sure that the subscriber list contains only those users who are
-   allowed to see information about the resource. For more information, see [Understanding notification contents and
-   security](security.md#security-notifications "security.md#security-notifications").
+   allowed to see information about the resource. For more information, see [Understanding notification contents and security](security.md#security-notifications "security.md#security-notifications").
 
-# To create an AWS Chatbot client with
-
-Slack
-to use as a target
+# To create an AWS Chatbot client with Slack to use as a target
 
 1. Follow the instructions in [Setting up
    AWS Chatbot with
@@ -145,9 +135,7 @@ to use as a target
 Do not remove the Amazon SNS topic from the AWS Chatbot client after it has been configured
 for you. Doing so will prevent notifications from being sent to Slack.
 
-# To create an AWS Chatbot client with
-
-Microsoft Teams to use as a target
+# To create an AWS Chatbot client with Microsoft Teams to use as a target
 
 1. Follow the instructions in [Setting up
    AWS Chatbot with Microsoft Teams](../../../chatbot/latest/adminguide/teams-setup.md#teams-client-setup "../../../chatbot/latest/adminguide/teams-setup.md#teams-client-setup")

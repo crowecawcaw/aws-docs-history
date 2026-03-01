@@ -18,9 +18,7 @@ requirements:
 - It has a policy that allows AWS CodeStar Notifications to publish notifications to the
   topic.
 
-###### To configure an Amazon SNS topic to use as a
-
-target for AWS CodeStar Notifications notification rules
+###### To configure an Amazon SNS topic to use as a target for AWS CodeStar Notifications notification rules
 
 1. Sign in to the AWS Management Console and open the Amazon SNS console at
    [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").

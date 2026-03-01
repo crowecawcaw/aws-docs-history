@@ -31,9 +31,7 @@ following:
 - [CodeDeploy Security](../../../codedeploy/latest/userguide/security.md "../../../codedeploy/latest/userguide/security.md")
 - [CodePipeline Security](../../../codepipeline/latest/userguide/security.md "../../../codepipeline/latest/userguide/security.md")
 
-## Understanding notification contents and
-
-security
+## Understanding notification contents and security
 
 Notifications provide information about resources to users who are subscribed to the
 notification rule targets that you configure. This information can include details about your

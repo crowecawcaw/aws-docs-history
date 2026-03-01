@@ -1,6 +1,4 @@
-# What third-party providers can I
-
-create connections for?
+# What third-party providers can I create connections for?
 
 Connections can associate your AWS resources with the following third-party
 repositories:
@@ -22,8 +20,7 @@ Currently, custom domains for GitHub Enterprise Cloud are not supported.
 Connections support for GitLab includes version 15.x and later.
 
 - GitLab self-managed installation (for Enterprise Edition or Community Edition)
-  For an overview of the connections workflow, see [Workflow to create or update
-  connections](welcome-connections-workflow.md "welcome-connections-workflow.md").
+  For an overview of the connections workflow, see [Workflow to create or update connections](welcome-connections-workflow.md "welcome-connections-workflow.md").
 
 The steps to create connections for a cloud provider type, such as GitHub, are different
 from the steps for an installed provider type, such as GitHub Enterprise Server. For the

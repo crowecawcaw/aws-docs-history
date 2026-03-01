@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-AWS CodeConnections
+# Using service-linked roles for AWS CodeConnections
 
 AWS CodeConnections uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role
 that is linked directly to AWS CodeConnections. Service-linked roles are predefined by AWS CodeConnections and
@@ -50,9 +48,7 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 role) to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-AWS CodeConnections
+## Creating a service-linked role for AWS CodeConnections
 
 You don't need to manually create a service-linked role. You create the role when you
 create a resource for your Git-synced project with the CreateRepositoryLink API.
@@ -60,18 +56,14 @@ create a resource for your Git-synced project with the CreateRepositoryLink API.
 If you delete this service-linked role, and then need to create it again, you can use
 the same process to recreate the role in your account.
 
-## Editing a service-linked role for
-
-AWS CodeConnections
+## Editing a service-linked role for AWS CodeConnections
 
 After you create a service-linked role, you cannot change its name because various
 entities might reference the role. However, you can use IAM to edit the role
 description. For more information, see [Editing a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-AWS CodeConnections
+## Deleting a service-linked role for AWS CodeConnections
 
 If you no longer need to use a feature or service that requires a service-linked role,
 we recommend that you delete the role. That way, you don’t have an unused entity that is
@@ -99,9 +91,7 @@ Use the IAM console, AWS CLI, or AWS Identity and Access Management API to delet
 role. For more information, see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported regions for AWS CodeConnections service-linked
-
-roles
+## Supported regions for AWS CodeConnections service-linked roles
 
 AWS CodeConnections supports using service-linked roles in all of the AWS Regions where the
 service is available. For more information, see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").

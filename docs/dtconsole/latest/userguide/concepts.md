@@ -13,8 +13,7 @@ to know about as you use notifications.
 - [Notifications and AWS CodeStar Notifications](#concepts-api "#concepts-api")
 - [Events for notification rules on repositories](#events-ref-repositories "#events-ref-repositories")
 - [Events for notification rules on build projects](#events-ref-buildproject "#events-ref-buildproject")
-- [Events for notification rules on deployment
-  applications](#events-ref-deployapplication "#events-ref-deployapplication")
+- [Events for notification rules on deployment applications](#events-ref-deployapplication "#events-ref-deployapplication")
 - [Events for notification rules on pipelines](#events-ref-pipeline "#events-ref-pipeline")
 
 ## Notifications
@@ -40,8 +39,7 @@ Notifications include project-specific information such as build status,
 deployment status, lines of code that have comments, and pipeline approvals.
 Notification content might change as new features are added. As a security best
 practice, you should regularly review the targets of notification rules and the
-Amazon SNS topic subscribers. For more information, see [Understanding notification contents and
-security](security.md#security-notifications "security.md#security-notifications").
+Amazon SNS topic subscribers. For more information, see [Understanding notification contents and security](security.md#security-notifications "security.md#security-notifications").
 
 ## Notification rules
 
@@ -102,8 +100,7 @@ about the events that you specify in the notification rule.
 If you want to extend the reach of notifications, you can manually configure
 integration between notifications and AWS Chatbot so that notifications are sent to Amazon Chime
 chatrooms. You can then choose the Amazon SNS topic that is configured for that AWS Chatbot client
-as the target for the notification rule. For more information, see [To integrate notifications with AWS Chatbot
-and Amazon Chime](notifications-chatbot.md#notifications-chatbot-chime "notifications-chatbot.md#notifications-chatbot-chime").
+as the target for the notification rule. For more information, see [To integrate notifications with AWS Chatbot and Amazon Chime](notifications-chatbot.md#notifications-chatbot-chime "notifications-chatbot.md#notifications-chatbot-chime").
 
 If you choose to use an AWS Chatbot client as a target, you must first create that client
 in AWS Chatbot. When you choose an AWS Chatbot client as a target for a notification rule, an
@@ -137,8 +134,7 @@ CodeCommit notifications before November 5, 2019, it will contain a policy that 
 CodeCommit to publish to it that contains different permissions than those required
 for AWS CodeStar Notifications. Using these topics is not recommended. If you want to use one created
 for that experience, you must add the required policy for AWS CodeStar Notifications in addition to the one
-that already exists. For more information, see [Configure Amazon SNS topics for notifications](set-up-sns.md "set-up-sns.md") and [Understanding notification contents and
-security](security.md#security-notifications "security.md#security-notifications").
+that already exists. For more information, see [Configure Amazon SNS topics for notifications](set-up-sns.md "set-up-sns.md") and [Understanding notification contents and security](security.md#security-notifications "security.md#security-notifications").
 
 ## Notifications and AWS CodeStar Notifications
 
@@ -162,9 +158,7 @@ AWS CloudTrail. API actions can be allowed or denied through IAM policies.
 | Build state | Failed<br>Succeeded<br>In-progress<br>Stopped | `codebuild-project-build-state-failed`<br>`codebuild-project-build-state-succeeded`<br>`codebuild-project-build-state-in-progress`<br>`codebuild-project-build-state-stopped` |
 | Build phase | Failure<br>Success                            | `codebuild-project-build-phase-failure`<br>`codebuild-project-build-phase-success`                                                                                            |
 
-## Events for notification rules on deployment
-
-applications
+## Events for notification rules on deployment applications
 
 | Category   | Events                         | Event IDs                                                                                                                          |
 | ---------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |

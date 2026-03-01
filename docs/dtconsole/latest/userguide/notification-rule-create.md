@@ -3,12 +3,9 @@
 You can use the Developer Tools console or the AWS CLI to create notification rules. You can create
 an Amazon SNS topic to use as a target for a notification rule as part of creating the rule.
 If you want to use an AWS Chatbot client as a target, you must create that client before you
-can create the rule. For more information, see [Configure an AWS Chatbot client for
-a Slack channel](notifications-chatbot.md#notifications-chatbot-configure-client "notifications-chatbot.md#notifications-chatbot-configure-client").
+can create the rule. For more information, see [Configure an AWS Chatbot client for a Slack channel](notifications-chatbot.md#notifications-chatbot-configure-client "notifications-chatbot.md#notifications-chatbot-configure-client").
 
-# To create a notification rule
-
-(console)
+# To create a notification rule (console)
 
 1. Open the AWS Developer Tools console at [https://console.aws.amazon.com/codesuite/settings/notifications](https://console.aws.amazon.com/codesuite/settings/notifications/ "https://console.aws.amazon.com/codesuite/settings/notifications/").
 2. Use the navigation bar to navigate to the resource.
@@ -34,15 +31,13 @@ a Slack channel](notifications-chatbot.md#notifications-chatbot-configure-client
    Amazon EventBridge and information that might be supplied by the resource service or the
    notification manager.
 
-For more information, see [Understanding notification contents and
-security](security.md#security-notifications "security.md#security-notifications"). 6. In **Events that trigger notifications**, select the events
+For more information, see [Understanding notification contents and security](security.md#security-notifications "security.md#security-notifications"). 6. In **Events that trigger notifications**, select the events
 for which you want to send notifications. For event types for a resource, see
 the following:
 
     * CodeBuild: [Events for notification rules on build projects](concepts.md#events-ref-buildproject "concepts.md#events-ref-buildproject")
     * CodeCommit: [Events for notification rules on repositories](concepts.md#events-ref-repositories "concepts.md#events-ref-repositories")
-    * CodeDeploy: [Events for notification rules on deployment
-     applications](concepts.md#events-ref-deployapplication "concepts.md#events-ref-deployapplication")
+    * CodeDeploy: [Events for notification rules on deployment applications](concepts.md#events-ref-deployapplication "concepts.md#events-ref-deployapplication")
     * CodePipeline: [Events for notification rules on pipelines](concepts.md#events-ref-pipeline "concepts.md#events-ref-pipeline")
 
 7. In **Targets**, do one of the following:
@@ -76,12 +71,10 @@ the following:
      (Slack)
      or AWS Chatbot (Microsoft Teams), you will see a button
      directing you to configure a client in AWS Chatbot. Choosing that option
-     opens the AWS Chatbot console. For more information, see [Configure an AWS Chatbot client for
-     a Slack channel](notifications-chatbot.md#notifications-chatbot-configure-client "notifications-chatbot.md#notifications-chatbot-configure-client").
+     opens the AWS Chatbot console. For more information, see [Configure an AWS Chatbot client for a Slack channel](notifications-chatbot.md#notifications-chatbot-configure-client "notifications-chatbot.md#notifications-chatbot-configure-client").
     * If you want to use an existing Amazon SNS topic as a target, you must
      add the required policy for AWS CodeStar Notifications in addition to any other policies
-     that might exist for that topic. For more information, see [Configure Amazon SNS topics for notifications](set-up-sns.md "set-up-sns.md") and [Understanding notification contents and
-     security](security.md#security-notifications "security.md#security-notifications").
+     that might exist for that topic. For more information, see [Configure Amazon SNS topics for notifications](set-up-sns.md "set-up-sns.md") and [Understanding notification contents and security](security.md#security-notifications "security.md#security-notifications").
 
 8. Choose **Submit**, and then review the notification
    rule.
@@ -89,12 +82,9 @@ the following:
 ###### Note
 
 Users must subscribe and confirm subscriptions to the Amazon SNS topic you specified as the target of the rule before
-they will receive notifications. For more information, see [To subscribe users to an Amazon SNS topic used for
-notifications](subscribe-users-sns.md#set-up-sns-subscribe "subscribe-users-sns.md#set-up-sns-subscribe").
+they will receive notifications. For more information, see [To subscribe users to an Amazon SNS topic used for notifications](subscribe-users-sns.md#set-up-sns-subscribe "subscribe-users-sns.md#set-up-sns-subscribe").
 
-# To create a notification rule
-
-(AWS CLI)
+# To create a notification rule (AWS CLI)
 
 1. At a terminal or command prompt, run the **create-notification
    rule** command to generate the JSON skeleton.
@@ -150,9 +140,7 @@ aws codestar-notifications create-notification-rule --cli-input-json  file://`ru
 }
 ```
 
-# To list event types for
-
-notification rules (AWS CLI)
+# To list event types for notification rules (AWS CLI)
 
 1. At a terminal or command prompt, run the **list-event-types**
    command. You can use the `--filters` option to limit the response to
@@ -190,9 +178,7 @@ aws codestar-notifications list-event-types --filters Name=SERVICE_NAME,Value=Co
 }
 ```
 
-# To add a tag to a notification rule
-
-(AWS CLI)
+# To add a tag to a notification rule (AWS CLI)
 
 1. At a terminal or command prompt, run the **tag-resource**
    command. For example, use the following command to add a tag key-value pair that

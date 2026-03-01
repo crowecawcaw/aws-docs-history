@@ -28,14 +28,10 @@ not need to be the group owner.
 
 ###### Topics
 
-- [Create a connection to GitLab
-  (console)](#connections-create-gitlab-console "#connections-create-gitlab-console")
-- [Create a connection to GitLab
-  (CLI)](#connections-create-gitlab-cli "#connections-create-gitlab-cli")
+- [Create a connection to GitLab (console)](#connections-create-gitlab-console "#connections-create-gitlab-console")
+- [Create a connection to GitLab (CLI)](#connections-create-gitlab-cli "#connections-create-gitlab-cli")
 
-## Create a connection to GitLab
-
-(console)
+## Create a connection to GitLab (console)
 
 You can use the console to create a connection.
 
@@ -68,9 +64,7 @@ After the connection is created successfully, a success banner displays. The
 connection details are shown on the **Connection settings**
 page.
 
-## Create a connection to GitLab
-
-(CLI)
+## Create a connection to GitLab (CLI)
 
 You can use the AWS Command Line Interface (AWS CLI) to create a connection.
 

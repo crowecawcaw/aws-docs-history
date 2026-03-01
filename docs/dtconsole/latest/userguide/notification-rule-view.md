@@ -5,9 +5,7 @@ resources in an AWS Region. You can also view the details of each notification r
 Unlike the process for creating a notification rule, you do not have to go to the
 resource page for the resource.
 
-# To view notification rules
-
-(console)
+# To view notification rules (console)
 
 1. Open the AWS Developer Tools console at [https://console.aws.amazon.com/codesuite/settings/notifications](https://console.aws.amazon.com/codesuite/settings/notifications/ "https://console.aws.amazon.com/codesuite/settings/notifications/").
 2. In the navigation bar, expand **Settings**, and then choose
@@ -19,9 +17,7 @@ resource page for the resource.
    choose **View details**. You can also simply choose its name in
    the list.
 
-# To view a list of notification
-
-rules (AWS CLI)
+# To view a list of notification rules (AWS CLI)
 
 1. At a terminal or command prompt, run the
    **list-notification-rules** command to view all notification
@@ -49,9 +45,7 @@ aws codestar-notifications list-notification-rules --region `us-east-1`
 }
 ```
 
-# To view details of a
-
-notification rule (AWS CLI)
+# To view details of a notification rule (AWS CLI)
 
 1. At a terminal or command prompt, run the
    **describe-notification-rule** command, specifying the ARN of
@@ -91,9 +85,7 @@ aws codestar-notifications describe-notification-rule --arn arn:aws:codestar-not
 }
 ```
 
-# To view a list of tags for a
-
-notification rule (AWS CLI)
+# To view a list of tags for a notification rule (AWS CLI)
 
 1. At a terminal or command prompt, run the
    **list-tags-for-resource** command to view all tags for a

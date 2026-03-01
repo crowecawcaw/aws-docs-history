@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-AWS CodeStar Notifications
+# Using service-linked roles for AWS CodeStar Notifications
 
 AWS CodeStar Notifications uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role
 that is linked directly to AWS CodeStar Notifications. Service-linked roles are predefined by
@@ -21,9 +19,7 @@ access the resources.
 For information about other services that support service-linked roles, see [AWS Services
 That Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md").
 
-## Service-linked role permissions for
-
-AWS CodeStar Notifications
+## Service-linked role permissions for AWS CodeStar Notifications
 
 AWS CodeStar Notifications uses the AWSServiceRoleForCodeStarNotifications service-linked role to retrieve information about
 events that occur in your toolchain and send notifications to the targets you specify.
@@ -168,9 +164,7 @@ Use the IAM console, AWS CLI, or AWS Identity and Access Management API to delet
 role. For more information, see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported regions for AWS CodeStar Notifications service-linked
-
-roles
+## Supported regions for AWS CodeStar Notifications service-linked roles
 
 AWS CodeStar Notifications supports using service-linked roles in all of the AWS Regions where the
 service is available. For more information, see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") and [AWS CodeStar Notifications](../../../general/latest/gr/codestar_notifications.md "../../../general/latest/gr/codestar_notifications.md").

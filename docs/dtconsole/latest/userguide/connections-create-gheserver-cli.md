@@ -1,6 +1,4 @@
-# Create a connection to GitHub
-
-Enterprise Server (CLI)
+# Create a connection to GitHub Enterprise Server (CLI)
 
 You can use the AWS Command Line Interface (AWS CLI) to create a connection.
 
@@ -67,9 +65,7 @@ the following.
 2. Use the console to set up the pending connection. For more information, see
    [Update a pending connection](connections-update.md "connections-update.md").
 
-###### Step 4: To complete a connection for GitHub Enterprise Server in the
-
-console
+###### Step 4: To complete a connection for GitHub Enterprise Server in the console
 
 1. Sign in to the AWS Management Console and open the Developer Tools console at [https://console.aws.amazon.com/codesuite/settings/connections](https://console.aws.amazon.com/codesuite/settings/connections "https://console.aws.amazon.com/codesuite/settings/connections").
 2. Use the console to set up the pending connection and move the connection to an

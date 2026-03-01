@@ -1,6 +1,4 @@
-# How connections in
-
-AWS CodeConnections work with organizations
+# How connections in AWS CodeConnections work with organizations
 
 For organizations with a provider, such as GitHub Organizations, you cannot install a
 GitHub app into multiple GitHub Organizations. A connection has a 1:1 mapping with an

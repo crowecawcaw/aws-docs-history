@@ -1,6 +1,4 @@
-# Identity and access management for
-
-AWS CodeStar Notifications and AWS CodeConnections
+# Identity and access management for AWS CodeStar Notifications and AWS CodeConnections
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
@@ -21,24 +19,15 @@ the resource.
 - [Audience](#security_iam_audience "#security_iam_audience")
 - [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
-- [How features in the developer tools
-  console work with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [AWS CodeConnections permissions
-  reference](#permissions-reference-connections "#permissions-reference-connections")
-- [Identity-based policy
-  examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
-- [Using tags to control access to
-  AWS CodeConnections resources](connections-tag-based-access-control.md "connections-tag-based-access-control.md")
-- [Using notifications and
-  connections in the console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Troubleshooting AWS CodeStar Notifications and AWS CodeConnections
-  identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
-- [Using service-linked roles for
-  AWS CodeStar Notifications](using-service-linked-roles.md "using-service-linked-roles.md")
-- [Using service-linked roles for
-  AWS CodeConnections](service-linked-role-connections.md "service-linked-role-connections.md")
+- [How features in the developer tools console work with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
+- [AWS CodeConnections permissions reference](#permissions-reference-connections "#permissions-reference-connections")
+- [Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [Using tags to control access to AWS CodeConnections resources](connections-tag-based-access-control.md "connections-tag-based-access-control.md")
+- [Using notifications and connections in the console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Troubleshooting AWS CodeStar Notifications and AWS CodeConnections identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [Using service-linked roles for AWS CodeStar Notifications](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Using service-linked roles for AWS CodeConnections](service-linked-role-connections.md "service-linked-role-connections.md")
 - [AWS managed policies for AWS CodeConnections](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 
 ## Audience
@@ -46,14 +35,11 @@ the resource.
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting AWS CodeStar Notifications and AWS CodeConnections
-  identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
+  administrator if you cannot access features (see [Troubleshooting AWS CodeStar Notifications and AWS CodeConnections identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
 - **Service administrator** - determine user access and
-  submit permission requests (see [How features in the developer tools
-  console work with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
+  submit permission requests (see [How features in the developer tools console work with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
-  access (see [Identity-based policy
-  examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
+  access (see [Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
 
 ## Authenticating with identities
 
@@ -87,17 +73,13 @@ Using policies, administrators specify who has access to what by defining which 
 
 By default, users and roles have no permissions. An IAM administrator creates IAM policies and adds them to roles, which users can then assume. IAM policies define permissions regardless of the method used to perform the operation.
 
-### Identity-based
-
-policies
+### Identity-based policies
 
 Identity-based policies are JSON permissions policy documents that you attach to an identity (user, group, or role). These policies control what actions identities can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
 
 Identity-based policies can be _inline policies_ (embedded directly into a single identity) or _managed policies_ (standalone policies attached to multiple identities). To learn how to choose between managed and inline policies, see [Choose between managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md "../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md") in the _IAM User Guide_.
 
-## AWS CodeConnections permissions
-
-reference
+## AWS CodeConnections permissions reference
 
 The following tables list each AWS CodeConnections API operation, the corresponding
 actions for which you can grant permissions, and the format of the resource ARN to use
@@ -139,31 +121,19 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Permissions for
-  managing connections](#permissions-reference-connections-managing "#permissions-reference-connections-managing")
-- [Permissions for managing
-  hosts](#permissions-reference-connections-hosts "#permissions-reference-connections-hosts")
-- [Permissions for
-  completing connections](#permissions-reference-connections-handshake "#permissions-reference-connections-handshake")
-- [Permissions for
-  setting up hosts](#connections-permissions-actions-host-registration "#connections-permissions-actions-host-registration")
-- [Passing a
-  connection to a service](#permissions-reference-connections-passconnection "#permissions-reference-connections-passconnection")
+- [Permissions for managing connections](#permissions-reference-connections-managing "#permissions-reference-connections-managing")
+- [Permissions for managing hosts](#permissions-reference-connections-hosts "#permissions-reference-connections-hosts")
+- [Permissions for completing connections](#permissions-reference-connections-handshake "#permissions-reference-connections-handshake")
+- [Permissions for setting up hosts](#connections-permissions-actions-host-registration "#connections-permissions-actions-host-registration")
+- [Passing a connection to a service](#permissions-reference-connections-passconnection "#permissions-reference-connections-passconnection")
 - [Using a connection](#permissions-reference-connections-use "#permissions-reference-connections-use")
-- [Supported access types
-  for ProviderAction](#permissions-reference-connections-access "#permissions-reference-connections-access")
-- [Supported permissions
-  for tagging connection resources](#permissions-reference-connections-tagging "#permissions-reference-connections-tagging")
-- [Passing a
-  connection to a repository link](#permissions-reference-connections-passrepository "#permissions-reference-connections-passrepository")
-- [Supported condition key
-  for repository links](#permissions-reference-connections-branch "#permissions-reference-connections-branch")
-- [Supported permissions
-  for connection sharing](#permissions-reference-connections-sharing "#permissions-reference-connections-sharing")
+- [Supported access types for ProviderAction](#permissions-reference-connections-access "#permissions-reference-connections-access")
+- [Supported permissions for tagging connection resources](#permissions-reference-connections-tagging "#permissions-reference-connections-tagging")
+- [Passing a connection to a repository link](#permissions-reference-connections-passrepository "#permissions-reference-connections-passrepository")
+- [Supported condition key for repository links](#permissions-reference-connections-branch "#permissions-reference-connections-branch")
+- [Supported permissions for connection sharing](#permissions-reference-connections-sharing "#permissions-reference-connections-sharing")
 
-### Permissions for
-
-managing connections
+### Permissions for managing connections
 
 A role or user designated to use the AWS CLI or SDK to view, create, or delete
 connections should have permissions limited to the following.
@@ -171,8 +141,7 @@ connections should have permissions limited to the following.
 ###### Note
 
 You cannot complete or use a connection in the console with only the following
-permissions. You need to add the permissions in [Permissions for
-completing connections](#permissions-reference-connections-handshake "#permissions-reference-connections-handshake").
+permissions. You need to add the permissions in [Permissions for completing connections](#permissions-reference-connections-handshake "#permissions-reference-connections-handshake").
 
 ```
 codeconnections:CreateConnection
@@ -199,9 +168,7 @@ These operations support the following condition keys:
 | `codeconnections:GetConnection`    | N/A                                  |
 | `codeconnections:ListConnections`  | `codeconnections:ProviderTypeFilter` |
 
-### Permissions for managing
-
-hosts
+### Permissions for managing hosts
 
 A role or user designated to use the AWS CLI or SDK to view, create, or delete hosts
 should have permissions limited to the following.
@@ -209,8 +176,7 @@ should have permissions limited to the following.
 ###### Note
 
 You cannot complete or use a connection in the host with only the following
-permissions. You need to add the permissions in [Permissions for
-setting up hosts](#connections-permissions-actions-host-registration "#connections-permissions-actions-host-registration").
+permissions. You need to add the permissions in [Permissions for setting up hosts](#connections-permissions-actions-host-registration "#connections-permissions-actions-host-registration").
 
 ```
 codeconnections:CreateHost
@@ -238,13 +204,9 @@ These operations support the following condition keys:
 | `codeconnections:ListHosts`  | `codeconnections:ProviderTypeFilter`                      |
 
 For an example policy that uses the **VpcId**
-condition key, see [Example:
-Limit host VPC permissions using the VpcId
-context key](security_iam_id-based-policy-examples-connections.md#security_iam_id-based-policy-examples-connections-vpc "security_iam_id-based-policy-examples-connections.md#security_iam_id-based-policy-examples-connections-vpc") .
+condition key, see [Example: Limit host VPC permissions using the VpcId context key](security_iam_id-based-policy-examples-connections.md#security_iam_id-based-policy-examples-connections-vpc "security_iam_id-based-policy-examples-connections.md#security_iam_id-based-policy-examples-connections-vpc").
 
-### Permissions for
-
-completing connections
+### Permissions for completing connections
 
 A role or user designated to manage connections in the console should have the
 permissions required to complete a connection in the console and create an
@@ -304,9 +266,7 @@ These operations support the following condition keys.
 | `codeconnections:StartOAuthHandshake`          | `codeconnections:ProviderType`   |
 | `codeconnections:UpdateConnectionInstallation` | `codeconnections:InstallationId` |
 
-### Permissions for
-
-setting up hosts
+### Permissions for setting up hosts
 
 A role or user designated to manage connections in the console should have the
 permissions required to set up a host in the console, which includes authorizing the
@@ -354,9 +314,7 @@ Use the scroll bars to see the rest of the table.
 
 These operations support the following condition keys.
 
-### Passing a
-
-connection to a service
+### Passing a connection to a service
 
 When a connection is passed to a service (for example, when a connection ARN is
 provided in a pipeline definition to create or update a pipeline) the user must have
@@ -411,9 +369,7 @@ recommend that you use `codeconnections:UseConnection` to control access to
 a connection unless your access control requirements require different
 permissions.
 
-### Supported access types
-
-for `ProviderAction`
+### Supported access types for `ProviderAction`
 
 When a connection is used by an AWS service, it results in API calls being made
 to your source code provider. For example, a service might list repositories for a
@@ -434,27 +390,24 @@ They are not API actions.
 
 Use the scroll bars to see the rest of the table.
 
-AWS CodeConnections supported access types for
-`ProviderAction`| AWS CodeConnections permission | Required permissions | Resources |
-| --- | --- | --- |
-| `GetBranch` | `codeconnections:GetBranch`<br>Required to access information about a branch, such as the<br>latest commit for that branch. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListRepositories` | `codeconnections:ListRepositories`<br>Required to access a list of public and private repositories,<br>including details about those repositories, that belong to an<br>owner. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListOwners` | `codeconnections:ListOwners`<br>Required to access a list of owners that the connection has<br>access to. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListBranches` | `codeconnections:ListBranches`<br>Required to access the list of branches that exist on a given<br>repository. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `StartUploadArchiveToS3` | `codeconnections:StartUploadArchiveToS3`<br>Required to read source code and upload it to Amazon S3. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `GitPush` | `codeconnections:GitPush`<br>Required to write to a repository using Git. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `GitPull` | `codeconnections:GitPull`<br>Required to read from a repository using Git. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `GetUploadArchiveToS3Status` | `codeconnections:GetUploadArchiveToS3Status`<br>Required to access the status of an upload, including any<br>error messages, started by<br>`StartUploadArchiveToS3`. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `CreatePullRequestDiffComment` | `codeconnections:CreatePullRequestDiffComment`<br>Required to access comments on a pull request. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `GetPullRequest` | `codeconnections:GetPullRequest`<br>Required to view pull requests for a repository. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListBranchCommits` | `codeconnections:ListBranchCommits`<br>Required to view a list of commits for a repository<br>branch. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListCommitFiles` | `codeconnections:ListCommitFiles`<br>Required to view a list of files for a commit. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListPullRequestComments` | `codeconnections:ListPullRequestComments`<br>Required to view a list of comments for a pull request. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListPullRequestCommits` | `codeconnections:ListPullRequestCommits`<br>Required to view a list of commits for a pull request. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| AWS CodeConnections supported access types for `ProviderAction` | AWS CodeConnections permission                                                                                                                                                 | Required permissions                                                     | Resources |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ | --------- |
+| `GetBranch`                                                     | `codeconnections:GetBranch`<br>Required to access information about a branch, such as the<br>latest commit for that branch.                                                    | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListRepositories`                                              | `codeconnections:ListRepositories`<br>Required to access a list of public and private repositories,<br>including details about those repositories, that belong to an<br>owner. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListOwners`                                                    | `codeconnections:ListOwners`<br>Required to access a list of owners that the connection has<br>access to.                                                                      | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListBranches`                                                  | `codeconnections:ListBranches`<br>Required to access the list of branches that exist on a given<br>repository.                                                                 | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `StartUploadArchiveToS3`                                        | `codeconnections:StartUploadArchiveToS3`<br>Required to read source code and upload it to Amazon S3.                                                                           | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `GitPush`                                                       | `codeconnections:GitPush`<br>Required to write to a repository using Git.                                                                                                      | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `GitPull`                                                       | `codeconnections:GitPull`<br>Required to read from a repository using Git.                                                                                                     | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `GetUploadArchiveToS3Status`                                    | `codeconnections:GetUploadArchiveToS3Status`<br>Required to access the status of an upload, including any<br>error messages, started by<br>`StartUploadArchiveToS3`.           | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `CreatePullRequestDiffComment`                                  | `codeconnections:CreatePullRequestDiffComment`<br>Required to access comments on a pull request.                                                                               | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `GetPullRequest`                                                | `codeconnections:GetPullRequest`<br>Required to view pull requests for a repository.                                                                                           | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListBranchCommits`                                             | `codeconnections:ListBranchCommits`<br>Required to view a list of commits for a repository<br>branch.                                                                          | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListCommitFiles`                                               | `codeconnections:ListCommitFiles`<br>Required to view a list of files for a commit.                                                                                            | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListPullRequestComments`                                       | `codeconnections:ListPullRequestComments`<br>Required to view a list of comments for a pull request.                                                                           | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListPullRequestCommits`                                        | `codeconnections:ListPullRequestCommits`<br>Required to view a list of commits for a pull request.                                                                             | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
 
-### Supported permissions
-
-for tagging connection resources
+### Supported permissions for tagging connection resources
 
 The following IAM operations are used when tagging connection resources.
 
@@ -468,16 +421,13 @@ codeconnections:UntagResource
 
 Use the scroll bars to see the rest of the table.
 
-AWS CodeConnections required actions for tagging connection
-resources| AWS CodeConnections actions | Required permissions | Resources |
-| --- | --- | --- |
-| `ListTagsForResource` | `codeconnections:ListTagsForResource`<br>Required to view a list of tags associated with the connection<br>resource. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id`,arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
-| `TagResource` | `codeconnections:TagResource`<br>Required to tag a connection resource. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id`,arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
-| `UntagResource` | `codeconnections:UntagResource`<br>Required to remove tags from a connection resource. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id`,arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
+| AWS CodeConnections required actions for tagging connection resources | AWS CodeConnections actions                                                                                          | Required permissions                                                                                                                  | Resources |
+| --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `ListTagsForResource`                                                 | `codeconnections:ListTagsForResource`<br>Required to view a list of tags associated with the connection<br>resource. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id`,arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
+| `TagResource`                                                         | `codeconnections:TagResource`<br>Required to tag a connection resource.                                              | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id`,arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
+| `UntagResource`                                                       | `codeconnections:UntagResource`<br>Required to remove tags from a connection resource.                               | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id`,arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
 
-### Passing a
-
-connection to a repository link
+### Passing a connection to a repository link
 
 When a repository-link is provided in a sync configuration, the user must have the
 `codeconnections:PassRepository` permission for the repository-link
@@ -497,9 +447,7 @@ This operation also supports the following condition key:
 | ----------------------------------- | ----------------------------------------------------- | ---------------------- |
 | `codeconnections:PassedToService`   | • `cloudformation.sync.codeconnections.amazonaws.com` |
 
-### Supported condition key
-
-for repository links
+### Supported condition key for repository links
 
 Operations for repository links and sync configuration resources are supported by
 the following condition key:
@@ -512,9 +460,7 @@ Filters access by the branch name that is passed in the request.
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
 | `codeconnections:Branch`            | The following actions are supported for this condition key:<br>• CreateSyncConfiguration<br>• UpdateSyncConfiguration<br>• GetRepositorySyncStatus |
 
-### Supported permissions
-
-for connection sharing
+### Supported permissions for connection sharing
 
 The following IAM operations are used when sharing connections.
 
@@ -532,9 +478,7 @@ Use the scroll bars to see the rest of the table.
 
 For more information on connection sharing, see [Share connections with AWS accounts](connections-share.md "connections-share.md").
 
-## Using notifications and
-
-connections in the console
+## Using notifications and connections in the console
 
 The notifications experience is built into the CodeBuild, CodeCommit, CodeDeploy, and CodePipeline
 consoles, as well as in the Developer Tools console in the **Settings** navigation
@@ -566,8 +510,7 @@ following:
 - [Example: A read-only-level policy for using AWS CodeStar Notifications](security_iam_id-based-policy-examples-notifications.md#security_iam_id-based-policy-examples-notifications-read-only "security_iam_id-based-policy-examples-notifications.md#security_iam_id-based-policy-examples-notifications-read-only").
 
 AWS CodeConnections does not have any AWS managed policies. You use the permissions and
-combinations of permissions for access, such as the permissions detailed in [Permissions for
-completing connections](#permissions-reference-connections-handshake "#permissions-reference-connections-handshake").
+combinations of permissions for access, such as the permissions detailed in [Permissions for completing connections](#permissions-reference-connections-handshake "#permissions-reference-connections-handshake").
 
 For more information, see the following:
 
@@ -579,9 +522,7 @@ You don't need to allow console permissions for users that are making calls only
 the AWS CLI or the AWS API. Instead, allow access to only the actions that match the API
 operation that you're trying to perform.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.

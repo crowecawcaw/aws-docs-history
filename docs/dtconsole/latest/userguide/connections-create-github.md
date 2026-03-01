@@ -15,14 +15,10 @@ that are not under an organization, you must be the repository owner.
 
 ###### Topics
 
-- [Create a connection to GitHub
-  (console)](#connections-create-github-console "#connections-create-github-console")
-- [Create a connection to GitHub
-  (CLI)](#connections-create-github-cli "#connections-create-github-cli")
+- [Create a connection to GitHub (console)](#connections-create-github-console "#connections-create-github-console")
+- [Create a connection to GitHub (CLI)](#connections-create-github-cli "#connections-create-github-cli")
 
-## Create a connection to GitHub
-
-(console)
+## Create a connection to GitHub (console)
 
 You can use the console to create a connection to GitHub.
 
@@ -80,17 +76,13 @@ permissions**.
 connection ID for your new installation appears in **GitHub
 Apps**. Choose **Connect**.
 
-### View your created
-
-connection
+### View your created connection
 
 - The created connection displays in the connections list.
 
 ![Console screenshot showing connections listing with successfully created connection.](images/connections-create-ghe-complete.png)
 
-## Create a connection to GitHub
-
-(CLI)
+## Create a connection to GitHub (CLI)
 
 You can use the AWS Command Line Interface (AWS CLI) to create a connection to GitHub.
 

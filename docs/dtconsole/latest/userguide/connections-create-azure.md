@@ -13,8 +13,7 @@ Before you begin:
 
 You can create connections to an Azure DevOps repository. Installed (on a
 host) Azure provider types, such as Azure Cloud Hosting, are not supported. See
-[AWS CodeConnections supported providers and
-versions](supported-versions-connections.md "supported-versions-connections.md").
+[AWS CodeConnections supported providers and versions](supported-versions-connections.md "supported-versions-connections.md").
 
 ###### Note
 
@@ -23,14 +22,10 @@ create the connection.
 
 ###### Topics
 
-- [Create a connection to Azure
-  DevOps (console)](#connections-create-azure-console "#connections-create-azure-console")
-- [Create a connection to Azure DevOps
-  (CLI)](#connections-create-azure-cli "#connections-create-azure-cli")
+- [Create a connection to Azure DevOps (console)](#connections-create-azure-console "#connections-create-azure-console")
+- [Create a connection to Azure DevOps (CLI)](#connections-create-azure-cli "#connections-create-azure-cli")
 
-## Create a connection to Azure
-
-DevOps (console)
+## Create a connection to Azure DevOps (console)
 
 You can use the console to create a connection to Azure DevOps.
 
@@ -66,9 +61,7 @@ connection displays in the connections
 list
 and is now in available status and ready to use.
 
-## Create a connection to Azure DevOps
-
-(CLI)
+## Create a connection to Azure DevOps (CLI)
 
 You can use the AWS Command Line Interface (AWS CLI) to create a connection.
 

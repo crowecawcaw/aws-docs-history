@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples
+# Identity-based policy examples
 
 By default, IAM users and roles who have one of the managed policies for AWS CodeCommit,
 AWS CodeBuild, AWS CodeDeploy, or AWS CodePipeline applied have permissions to connections,

@@ -1,6 +1,4 @@
-# How features in the developer tools
-
-console work with IAM
+# How features in the developer tools console work with IAM
 
 Before you use IAM to manage access to features in the Developer Tools console, you should
 understand which IAM features are available to use with it. To get a high-level view
@@ -9,16 +7,12 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 
 ###### Topics
 
-- [Identity-based
-  policies in the developer tools console](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Identity-based policies in the developer tools console](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
 - [AWS CodeStar Notifications and AWS CodeConnections resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Authorization based on tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
 - [IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Identity-based
-
-policies in the developer tools console
+## Identity-based policies in the developer tools console
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -130,14 +124,12 @@ _IAM User Guide_.
 
 All AWS CodeStar Notifications actions support the
 `codestar-notifications:NotificationsForResource` condition key.
-For more information, see [Identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+For more information, see [Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 AWS CodeConnections define the following condition keys
 that can be used in the `Condition` element of an IAM policy. You can
 use these keys to further refine the conditions under which the policy statement
-applies. For more information, see [AWS CodeConnections permissions
-reference](security-iam.md#permissions-reference-connections "security-iam.md#permissions-reference-connections").
+applies. For more information, see [AWS CodeConnections permissions reference](security-iam.md#permissions-reference-connections "security-iam.md#permissions-reference-connections").
 
 | Condition keys                                | Description                                                                                                                                                                                                                |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -154,16 +146,13 @@ reference](security-iam.md#permissions-reference-connections "security-iam.md#pe
 
 ### Examples
 
-To view examples of AWS CodeStar Notifications and AWS CodeConnections identity-based policies, see [Identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS CodeStar Notifications and AWS CodeConnections identity-based policies, see [Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## AWS CodeStar Notifications and AWS CodeConnections resource-based policies
 
 AWS CodeStar Notifications and AWS CodeConnections do not support resource-based policies.
 
-## Authorization based on
-
-tags
+## Authorization based on tags
 
 You can attach tags to AWS CodeStar Notifications and AWS CodeConnections resources or pass tags in a request. To
 control access based on tags, you provide tag information in the [condition
@@ -175,17 +164,14 @@ strategies, see [Tagging AWS resources](../../../general/latest/gr/aws_tagging.m
 AWS CodeStar Notifications and AWS CodeConnections resources, see [Tag connections resources](connections-tag.md "connections-tag.md").
 
 To view example identity-based policies for limiting access to a resource based on
-the tags on that resource, see [Using tags to control access to
-AWS CodeConnections resources](connections-tag-based-access-control.md "connections-tag-based-access-control.md").
+the tags on that resource, see [Using tags to control access to AWS CodeConnections resources](connections-tag-based-access-control.md "connections-tag-based-access-control.md").
 
 ## IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials
+### Using temporary credentials
 
 You can use temporary credentials to sign in with federation, and assume an
 IAM role or a cross-account role. You obtain temporary security credentials by
@@ -201,7 +187,6 @@ in your IAM account and are owned by the service. An IAM administrator can
 view but not edit the permissions for service-linked roles.
 
 AWS CodeStar Notifications supports service-linked roles. For details about
-creating or managing AWS CodeStar Notifications and AWS CodeConnections service-linked roles, see [Using service-linked roles for
-AWS CodeStar Notifications](using-service-linked-roles.md "using-service-linked-roles.md").
+creating or managing AWS CodeStar Notifications and AWS CodeConnections service-linked roles, see [Using service-linked roles for AWS CodeStar Notifications](using-service-linked-roles.md "using-service-linked-roles.md").
 
 CodeConnections does not support service-linked roles.

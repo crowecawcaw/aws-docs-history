@@ -28,17 +28,12 @@ resources in developer tools, including:
   applications, and pipelines in CodePipeline, without the need to reference stored secrets or
   parameters.
 
-## What AWS services integrate with
-
-connections?
+## What AWS services integrate with connections?
 
 You can use connections to integrate your third-party repository with other
-AWS services. To view the service integrations for connections, see [Product and service integrations with
-AWS CodeConnections](integrations-connections.md "integrations-connections.md").
+AWS services. To view the service integrations for connections, see [Product and service integrations with AWS CodeConnections](integrations-connections.md "integrations-connections.md").
 
-## How do I get started with
-
-connections?
+## How do I get started with connections?
 
 To get started, here are some useful topics to review:
 

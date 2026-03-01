@@ -1,14 +1,10 @@
-# Add or remove a target for a
-
-notification rule
+# Add or remove a target for a notification rule
 
 You can edit a notification rule to change the target or targets to which it sends
 notifications. You can use the Developer Tools console or or the AWS CLI to change a notification
 rule's targets.
 
-# To change the targets for
-
-a notification rule (console)
+# To change the targets for a notification rule (console)
 
 1. Open the AWS Developer Tools console at [https://console.aws.amazon.com/codesuite/settings/notifications](https://console.aws.amazon.com/codesuite/settings/notifications/ "https://console.aws.amazon.com/codesuite/settings/notifications/").
 2. In the navigation bar, expand **Settings**, and then choose
@@ -28,9 +24,7 @@ a notification rule (console)
 
 6. Choose **Submit**.
 
-# To add a target to a
-
-notification rule (AWS CLI)
+# To add a target to a notification rule (AWS CLI)
 
 1. At a terminal or command prompt, run the **subscribe** command
    to add a target. For example, the following command adds an Amazon SNS topic as a
@@ -49,9 +43,7 @@ aws codestar-notifications subscribe --arn arn:aws:codestar-notifications:`us-ea
 }
 ```
 
-# To remove a target from a
-
-notification rule (AWS CLI)
+# To remove a target from a notification rule (AWS CLI)
 
 1. At a terminal or command prompt, run the the **unsubscribe**
    command to remove a target. For example, the following command removes an Amazon SNS

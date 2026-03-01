@@ -23,14 +23,11 @@ prefix will use `codeconnections` in the resource ARN. Actions and resources for
 the `codestar-connections` service prefix remain available. When specifying a
 resource in the IAM policy, the service prefix needs to match that of the resource.
 
-## AWS managed policy:
-
-AWSGitSyncServiceRolePolicy
+## AWS managed policy: AWSGitSyncServiceRolePolicy
 
 You can't attach AWSGitSyncServiceRolePolicy to your IAM entities. This policy is attached to a
 service-linked role that allows AWS CodeConnections to perform actions on your behalf. For more
-information, see [Using service-linked roles for
-AWS CodeConnections](service-linked-role-connections.md "service-linked-role-connections.md").
+information, see [Using service-linked roles for AWS CodeConnections](service-linked-role-connections.md "service-linked-role-connections.md").
 
 This policy allows customers to access Git-based repositories for use with connections.
 Customers will access these resources after using the CreateRepositoryLink API.
@@ -70,9 +67,7 @@ JSON
 
 ```
 
-## AWS CodeConnections updates to AWS managed
-
-policies
+## AWS CodeConnections updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS CodeConnections since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

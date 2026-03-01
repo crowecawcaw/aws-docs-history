@@ -1,6 +1,4 @@
-# Workflow to create or update
-
-connections
+# Workflow to create or update connections
 
 When you create a connection, you also create or use an existing connector app
 installation for the auth handshake with the third-party provider.

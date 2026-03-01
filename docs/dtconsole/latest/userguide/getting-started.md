@@ -6,19 +6,15 @@ build projects, deployment applications, pipelines, or repositories.
 ###### Note
 
 The first time you create a notification rule, a service-linked role is created in
-your account. For more information, see [Using service-linked roles for
-AWS CodeStar Notifications](using-service-linked-roles.md "using-service-linked-roles.md").
+your account. For more information, see [Using service-linked roles for AWS CodeStar Notifications](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ###### Topics
 
 - [Prerequisites](#getting-started-prerequisites "#getting-started-prerequisites")
-- [Create a notification rule for a
-  repository](getting-started-repository.md "getting-started-repository.md")
-- [Create a notification rule for a build
-  project](getting-started-build.md "getting-started-build.md")
+- [Create a notification rule for a repository](getting-started-repository.md "getting-started-repository.md")
+- [Create a notification rule for a build project](getting-started-build.md "getting-started-build.md")
 - [Create a notification rule for a deployment application](getting-started-deploy.md "getting-started-deploy.md")
-- [Create a notification rule for a
-  pipeline](getting-started-pipeline.md "getting-started-pipeline.md")
+- [Create a notification rule for a pipeline](getting-started-pipeline.md "getting-started-pipeline.md")
 
 ## Prerequisites
 

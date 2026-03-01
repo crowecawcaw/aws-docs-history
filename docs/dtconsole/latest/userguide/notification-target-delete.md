@@ -9,9 +9,7 @@ create room for other targets you might want to add to that notification rule.
 Deleting a notification rule target removes the target from all notification rules
 configured to use it as a target, but it does not delete the target itself.
 
-# To delete a notification rule
-
-target (console)
+# To delete a notification rule target (console)
 
 1. Open the AWS Developer Tools console at [https://console.aws.amazon.com/codesuite/settings/notifications](https://console.aws.amazon.com/codesuite/settings/notifications/ "https://console.aws.amazon.com/codesuite/settings/notifications/").
 2. In the navigation bar, expand **Settings**, and then choose
@@ -24,9 +22,7 @@ target (console)
 5. Type `delete`, and then choose
    **Delete**.
 
-# To delete a notification rule target
-
-(AWS CLI)
+# To delete a notification rule target (AWS CLI)
 
 1. At a terminal or command prompt, run the **delete-target**
    command, specifying the ARN of the target. For example, the following command

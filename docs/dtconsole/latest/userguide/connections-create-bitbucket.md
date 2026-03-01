@@ -12,8 +12,7 @@ Before you begin:
 
 You can create connections to a Bitbucket Cloud repository. Installed
 Bitbucket provider types, such as Bitbucket Server, are not supported. See
-[AWS CodeConnections supported providers and
-versions](supported-versions-connections.md "supported-versions-connections.md").
+[AWS CodeConnections supported providers and versions](supported-versions-connections.md "supported-versions-connections.md").
 
 ###### Note
 
@@ -26,14 +25,10 @@ install the app will not display.
 
 ###### Topics
 
-- [Create a connection to Bitbucket
-  (console)](#connections-create-bitbucket-console "#connections-create-bitbucket-console")
-- [Create a connection to Bitbucket
-  (CLI)](#connections-create-bitbucket-cli "#connections-create-bitbucket-cli")
+- [Create a connection to Bitbucket (console)](#connections-create-bitbucket-console "#connections-create-bitbucket-console")
+- [Create a connection to Bitbucket (CLI)](#connections-create-bitbucket-cli "#connections-create-bitbucket-cli")
 
-## Create a connection to Bitbucket
-
-(console)
+## Create a connection to Bitbucket (console)
 
 You can use the console to create a connection to Bitbucket.
 
@@ -87,9 +82,7 @@ connection displays in the connections list.
 
 ![Console screenshot showing the connector access request.](images/create-connection-bitbucket-app-ID.png)
 
-## Create a connection to Bitbucket
-
-(CLI)
+## Create a connection to Bitbucket (CLI)
 
 You can use the AWS Command Line Interface (AWS CLI) to create a connection.
 

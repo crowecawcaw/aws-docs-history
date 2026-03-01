@@ -1,6 +1,4 @@
-# Create a connection to GitHub
-
-Enterprise Server (console)
+# Create a connection to GitHub Enterprise Server (console)
 
 To create a GitHub Enterprise Server connection, you provide information for where
 your GitHub Enterprise Server is installed and authorize the connection creation with
@@ -12,12 +10,9 @@ Beginning July 1, 2024, the console creates connections with `codeconnections` i
 
 ###### Topics
 
-- [Create your GitHub
-  Enterprise Server connection (console)](#connections-create-gheserver-connection "#connections-create-gheserver-connection")
+- [Create your GitHub Enterprise Server connection (console)](#connections-create-gheserver-connection "#connections-create-gheserver-connection")
 
-## Create your GitHub
-
-Enterprise Server connection (console)
+## Create your GitHub Enterprise Server connection (console)
 
 To create a connection to GitHub Enterprise Server, have your server URL and
 GitHub Enterprise credentials ready.

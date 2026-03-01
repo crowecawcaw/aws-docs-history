@@ -5,52 +5,30 @@ resources in AWS CodeBuild, AWS CodeDeploy, and AWS CodePipeline.
 
 ###### Topics
 
-- [I cannot create
-  connections](#troubleshooting-connections-cannot-create "#troubleshooting-connections-cannot-create")
-- [I get a permissions
-  error when I try to create or complete a connection](#troubleshooting-connections-permissions-error-console "#troubleshooting-connections-permissions-error-console")
-- [I get a
-  permissions error when I try to use a connection](#troubleshooting-connections-permissions-error-useconnection "#troubleshooting-connections-permissions-error-useconnection")
-- [Connection is not in available
-  state or is no longer pending](#troubleshooting-connections-error-notpending "#troubleshooting-connections-error-notpending")
-- [Add GitClone permissions
-  for connections](#troubleshooting-connections-gitclone-permissions "#troubleshooting-connections-gitclone-permissions")
-- [Host is not in available
-  state](#troubleshooting-connections-host-pending "#troubleshooting-connections-host-pending")
-- [Troubleshooting a host with
-  connection errors](#troubleshooting-connections-host-errors "#troubleshooting-connections-host-errors")
-- [I’m unable to create a
-  connection for my host](#troubleshooting-connections-host-cannot-create "#troubleshooting-connections-host-cannot-create")
-- [Troubleshooting VPC configuration for
-  your host](#troubleshooting-connections-host-vpc "#troubleshooting-connections-host-vpc")
-- [Troubleshooting webhook VPC
-  endpoints (PrivateLink) for GitHub Enterprise Server connections](#troubleshooting-connections-host-vpc-webhook "#troubleshooting-connections-host-vpc-webhook")
-- [Troubleshooting for a host
-  created before November 24, 2020](#troubleshooting-connections-host-vpc-webhook-host "#troubleshooting-connections-host-vpc-webhook-host")
-- [Unable to create the connection for
-  a GitHub repository](#troubleshooting-connections-GitHub-admin "#troubleshooting-connections-GitHub-admin")
-- [Edit your GitHub Enterprise Server
-  connection app permissions](#troubleshooting-GHES-app-permissions "#troubleshooting-GHES-app-permissions")
-- [Connections error when connecting
-  to GitHub: "A problem occurred, make sure cookies are enabled in your browser" or "An
-  organization owner must install the GitHub app"](#troubleshooting-GitHub-organization-owner "#troubleshooting-GitHub-organization-owner")
-- [Connections service prefix in resources might
-  need to be updated for IAM policies](#troubleshoot-service-prefix "#troubleshoot-service-prefix")
+- [I cannot create connections](#troubleshooting-connections-cannot-create "#troubleshooting-connections-cannot-create")
+- [I get a permissions error when I try to create or complete a connection](#troubleshooting-connections-permissions-error-console "#troubleshooting-connections-permissions-error-console")
+- [I get a permissions error when I try to use a connection](#troubleshooting-connections-permissions-error-useconnection "#troubleshooting-connections-permissions-error-useconnection")
+- [Connection is not in available state or is no longer pending](#troubleshooting-connections-error-notpending "#troubleshooting-connections-error-notpending")
+- [Add GitClone permissions for connections](#troubleshooting-connections-gitclone-permissions "#troubleshooting-connections-gitclone-permissions")
+- [Host is not in available state](#troubleshooting-connections-host-pending "#troubleshooting-connections-host-pending")
+- [Troubleshooting a host with connection errors](#troubleshooting-connections-host-errors "#troubleshooting-connections-host-errors")
+- [I’m unable to create a connection for my host](#troubleshooting-connections-host-cannot-create "#troubleshooting-connections-host-cannot-create")
+- [Troubleshooting VPC configuration for your host](#troubleshooting-connections-host-vpc "#troubleshooting-connections-host-vpc")
+- [Troubleshooting webhook VPC endpoints (PrivateLink) for GitHub Enterprise Server connections](#troubleshooting-connections-host-vpc-webhook "#troubleshooting-connections-host-vpc-webhook")
+- [Troubleshooting for a host created before November 24, 2020](#troubleshooting-connections-host-vpc-webhook-host "#troubleshooting-connections-host-vpc-webhook-host")
+- [Unable to create the connection for a GitHub repository](#troubleshooting-connections-GitHub-admin "#troubleshooting-connections-GitHub-admin")
+- [Edit your GitHub Enterprise Server connection app permissions](#troubleshooting-GHES-app-permissions "#troubleshooting-GHES-app-permissions")
+- [Connections error when connecting to GitHub: "A problem occurred, make sure cookies are enabled in your browser" or "An organization owner must install the GitHub app"](#troubleshooting-GitHub-organization-owner "#troubleshooting-GitHub-organization-owner")
+- [Connections service prefix in resources might need to be updated for IAM policies](#troubleshoot-service-prefix "#troubleshoot-service-prefix")
 - [Permissions error due to service prefix in resources created using the console](#troubleshoot-service-prefix-console-permissions "#troubleshoot-service-prefix-console-permissions")
 - [Connection and host setup for installed providers supporting organizations](#troubleshooting-organization-host "#troubleshooting-organization-host")
-- [I want to increase my limits for
-  connections](#troubleshooting-connections-limit-increase "#troubleshooting-connections-limit-increase")
+- [I want to increase my limits for connections](#troubleshooting-connections-limit-increase "#troubleshooting-connections-limit-increase")
 
-## I cannot create
+## I cannot create connections
 
-connections
+You might not have permissions to create a connection. For more information, see [Permissions and examples for AWS CodeConnections](security_iam_id-based-policy-examples-connections.md "security_iam_id-based-policy-examples-connections.md").
 
-You might not have permissions to create a connection. For more information, see [Permissions and
-examples for AWS CodeConnections](security_iam_id-based-policy-examples-connections.md "security_iam_id-based-policy-examples-connections.md").
-
-## I get a permissions
-
-error when I try to create or complete a connection
+## I get a permissions error when I try to create or complete a connection
 
 The following error message might be returned when you try to create or view a connection
 in the CodePipeline console.
@@ -65,12 +43,9 @@ The permissions to create and view connections in the AWS Command Line Interface
 are only part of the permissions that you need to create and complete connections on the
 console. The permissions required to simply view, edit, or create a connection and then
 complete the pending connection should be scoped down for users who only need to perform
-certain tasks. For more information, see [Permissions and
-examples for AWS CodeConnections](security_iam_id-based-policy-examples-connections.md "security_iam_id-based-policy-examples-connections.md").
+certain tasks. For more information, see [Permissions and examples for AWS CodeConnections](security_iam_id-based-policy-examples-connections.md "security_iam_id-based-policy-examples-connections.md").
 
-## I get a
-
-permissions error when I try to use a connection
+## I get a permissions error when I try to use a connection
 
 One or both of the following error messages might be returned if you try to use a
 connection in the CodePipeline console, even though you have the permissions to list, get, and create
@@ -85,12 +60,9 @@ permissions.
 If this occurs, make sure that you have sufficient permissions.
 
 Make sure you have the permissions to use a connection, including listing the available
-repositories in the provider location. For more information, see [Permissions and
-examples for AWS CodeConnections](security_iam_id-based-policy-examples-connections.md "security_iam_id-based-policy-examples-connections.md").
+repositories in the provider location. For more information, see [Permissions and examples for AWS CodeConnections](security_iam_id-based-policy-examples-connections.md "security_iam_id-based-policy-examples-connections.md").
 
-## Connection is not in available
-
-state or is no longer pending
+## Connection is not in available state or is no longer pending
 
 If the console displays a message that a connection is not in an available state, choose
 **Complete connection**.
@@ -99,9 +71,7 @@ If you choose to complete the connection and a message appears that the connecti
 in a pending state, you can cancel the request because the connection is already in an
 available state.
 
-## Add GitClone permissions
-
-for connections
+## Add GitClone permissions for connections
 
 When you use an AWS CodeStar connection in a source action and a CodeBuild action, there are two ways
 the input artifact can be passed to the build:
@@ -158,9 +128,7 @@ policy**. 6. Return to the service role **Attach Permissions** page, refresh the
 policy list, and select the policy you just created. Choose **Attach
 policies**.
 
-## Host is not in available
-
-state
+## Host is not in available state
 
 If the console displays a message that a host is not in an `Available` state,
 choose **Set up host**.
@@ -173,9 +141,7 @@ in the console. For more information, see [Set up a pending host](connections-ho
 
 You cannot use the AWS CLI to set up a `Pending` host.
 
-## Troubleshooting a host with
-
-connection errors
+## Troubleshooting a host with connection errors
 
 Connections and hosts can move into the error state if the underlying GitHub app is
 deleted or modified. Hosts and connections in the error state cannot be recovered and the host
@@ -191,9 +157,7 @@ If the console or CLI returns a host or a connection related to a host with an
 - Delete and recreate the host resource and then reinstall the host registration app.
   For more information, see [Create a host](connections-host-create.md "connections-host-create.md").
 
-## I’m unable to create a
-
-connection for my host
+## I’m unable to create a connection for my host
 
 To create a connection or host, the following conditions are required.
 
@@ -201,9 +165,7 @@ To create a connection or host, the following conditions are required.
   information, see
 - Connections must be created in the same Region as the host.
 
-## Troubleshooting VPC configuration for
-
-your host
+## Troubleshooting VPC configuration for your host
 
 When you create a host resource, you must provide network connection or VPC information
 for the infrastructure where your GitHub Enterprise Server instance is installed. For
@@ -214,8 +176,7 @@ information shown here as a reference.
 
 Use this section for troubleshooting that is related to your GitHub Enterprise Server
 host configuration within an Amazon VPC. For troubleshooting that is related to your
-connection that is configured to use the webhook endpoint for VPC (PrivateLink), see [Troubleshooting webhook VPC
-endpoints (PrivateLink) for GitHub Enterprise Server connections](#troubleshooting-connections-host-vpc-webhook "#troubleshooting-connections-host-vpc-webhook").
+connection that is configured to use the webhook endpoint for VPC (PrivateLink), see [Troubleshooting webhook VPC endpoints (PrivateLink) for GitHub Enterprise Server connections](#troubleshooting-connections-host-vpc-webhook "#troubleshooting-connections-host-vpc-webhook").
 
 For this example, you would use the following process to configure the VPC and server
 where your GitHub Enterprise Server instance will be installed:
@@ -255,18 +216,12 @@ Guide_.
 
 ###### Topics
 
-- [I’m unable to get a host in
-  pending state](#troubleshooting-connections-host-vpc-failed "#troubleshooting-connections-host-vpc-failed")
-- [I’m unable to get a host in
-  available state](#troubleshooting-connections-host-vpc-app "#troubleshooting-connections-host-vpc-app")
-- [My connection/host was
-  working and has stopped working now](#troubleshooting-connections-host-vpc-stopped "#troubleshooting-connections-host-vpc-stopped")
-- [I’m unable to delete my
-  network interfaces](#troubleshooting-connections-host-vpc-delete "#troubleshooting-connections-host-vpc-delete")
+- [I’m unable to get a host in pending state](#troubleshooting-connections-host-vpc-failed "#troubleshooting-connections-host-vpc-failed")
+- [I’m unable to get a host in available state](#troubleshooting-connections-host-vpc-app "#troubleshooting-connections-host-vpc-app")
+- [My connection/host was working and has stopped working now](#troubleshooting-connections-host-vpc-stopped "#troubleshooting-connections-host-vpc-stopped")
+- [I’m unable to delete my network interfaces](#troubleshooting-connections-host-vpc-delete "#troubleshooting-connections-host-vpc-delete")
 
-### I’m unable to get a host in
-
-pending state
+### I’m unable to get a host in pending state
 
 If your host enters the VPC_CONFIG_FAILED_INITIALIZATION state, this is likely because
 of an issue with the VPC, subnets, or security groups that you have selected for your
@@ -290,9 +245,7 @@ ec2:DeleteVpcEndpoints
 ec2:DescribeVpcEndpoints
 ```
 
-### I’m unable to get a host in
-
-available state
+### I’m unable to get a host in available state
 
 If you are unable to complete the CodeConnections app setup for your host, it may be because of an
 issue with your VPC configurations or your GitHub Enterprise Server instance.
@@ -303,9 +256,7 @@ issue with your VPC configurations or your GitHub Enterprise Server instance.
 - You need to be an administrator of the GitHub Enterprise Server instance in order to
   create GitHub apps.
 
-### My connection/host was
-
-working and has stopped working now
+### My connection/host was working and has stopped working now
 
 If a connection/host was working before and is not working now, it could be due to a
 configuration change in your VPC or the GitHub app has been modified. Check the
@@ -326,9 +277,7 @@ following:
   Modifications to any of the configurations, such as URLs or app secrets, can break the
   connectivity between your installed GitHub Enterprise Server instance and CodeConnections.
 
-### I’m unable to delete my
-
-network interfaces
+### I’m unable to delete my network interfaces
 
 If you are unable to detect your network interfaces, check the following:
 
@@ -341,9 +290,7 @@ ec2:DescribeNetworkInterfaces
 ec2:DeleteNetworkInterface
 ```
 
-## Troubleshooting webhook VPC
-
-endpoints (PrivateLink) for GitHub Enterprise Server connections
+## Troubleshooting webhook VPC endpoints (PrivateLink) for GitHub Enterprise Server connections
 
 When you create a host with VPC configuration, the webhook VPC endpoint is created for
 you.
@@ -352,24 +299,19 @@ you.
 
 Use this section for troubleshooting that is related to your connection that is
 configured to use the webhook endpoint for VPC (PrivateLink). For troubleshooting that is
-related to your GitHub Enterprise Server host configuration within an Amazon VPC, see [Troubleshooting VPC configuration for
-your host](#troubleshooting-connections-host-vpc "#troubleshooting-connections-host-vpc").
+related to your GitHub Enterprise Server host configuration within an Amazon VPC, see [Troubleshooting VPC configuration for your host](#troubleshooting-connections-host-vpc "#troubleshooting-connections-host-vpc").
 
 When you create a connection to an installed provider type, and you have specified that
 your server is configured within a VPC, then AWS CodeConnections creates your host, and the VPC endpoint
 (PrivateLink) for webhooks is created for you. This enables the host to send event data via
 webhooks to your integrated AWS services over the Amazon network. For more information, see
-[AWS CodeConnections and interface VPC endpoints
-(AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
+[AWS CodeConnections and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
 
 ###### Topics
 
-- [I’m unable to delete
-  my webhook VPC endpoints](#troubleshooting-connections-host-vpc-webhook-delete "#troubleshooting-connections-host-vpc-webhook-delete")
+- [I’m unable to delete my webhook VPC endpoints](#troubleshooting-connections-host-vpc-webhook-delete "#troubleshooting-connections-host-vpc-webhook-delete")
 
-### I’m unable to delete
-
-my webhook VPC endpoints
+### I’m unable to delete my webhook VPC endpoints
 
 AWS CodeConnections manages the lifecycle of the webhook VPC endpoints for your host. If you want
 to delete the endpoint, you must do this by deleting the corresponding host resource.
@@ -384,29 +326,20 @@ ec2:DescribeNetworkInterfaces
 ec2:DeleteNetworkInterface
 ```
 
-## Troubleshooting for a host
-
-created before November 24, 2020
+## Troubleshooting for a host created before November 24, 2020
 
 As of November 24, 2020, when AWS CodeConnections sets up your host, an additional VPC endpoint
 (PrivateLink) support is set up for you. For hosts created before this update, use this
 troubleshooting section.
 
-For more information, see [AWS CodeConnections and interface VPC endpoints
-(AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
+For more information, see [AWS CodeConnections and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
 
 ###### Topics
 
-- [I have a host that was
-  created before November 24, 2020 and I want to use VPC endpoints (PrivateLink) for
-  webhooks](#troubleshooting-connections-host-vpc-webhook-create "#troubleshooting-connections-host-vpc-webhook-create")
-- [I’m unable to get a
-  host in available state (VPC error)](#troubleshooting-connections-host-vpc-error-pre-webhook "#troubleshooting-connections-host-vpc-error-pre-webhook")
+- [I have a host that was created before November 24, 2020 and I want to use VPC endpoints (PrivateLink) for webhooks](#troubleshooting-connections-host-vpc-webhook-create "#troubleshooting-connections-host-vpc-webhook-create")
+- [I’m unable to get a host in available state (VPC error)](#troubleshooting-connections-host-vpc-error-pre-webhook "#troubleshooting-connections-host-vpc-error-pre-webhook")
 
-### I have a host that was
-
-created before November 24, 2020 and I want to use VPC endpoints (PrivateLink) for
-webhooks
+### I have a host that was created before November 24, 2020 and I want to use VPC endpoints (PrivateLink) for webhooks
 
 When you set up your host for GitHub Enterprise Server, the webhook endpoint is created
 for you. Connections now use VPC PrivateLink webhook endpoints. If you created your host
@@ -415,9 +348,7 @@ first [delete](connections-host-delete.md "connections-host-delete.md") your hos
 then [create](connections-host-create.md "connections-host-create.md") a new
 host.
 
-### I’m unable to get a
-
-host in available state (VPC error)
+### I’m unable to get a host in available state (VPC error)
 
 If your host was created before November 24, 2020, and you are unable to complete the
 CodeConnections app setup for your host, it may be because of an issue with your VPC configurations or
@@ -426,9 +357,7 @@ your GitHub Enterprise Server instance.
 Your VPC will need a NAT Gateway (or outbound internet access) so that your GitHub
 Enterprise Server instance can send egress network traffic for GitHub webhooks.
 
-## Unable to create the connection for
-
-a GitHub repository
+## Unable to create the connection for a GitHub repository
 
 **Problem:**
 
@@ -439,9 +368,7 @@ connection.
 **Possible fixes:** For information about permission levels
 for a GitHub repository, see [https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization "https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization").
 
-## Edit your GitHub Enterprise Server
-
-connection app permissions
+## Edit your GitHub Enterprise Server connection app permissions
 
 If you installed the app for GitHub Enterprise Server on or before December 23, 2020, you
 might need to give the app Read-only access to members of the organization. If you are the
@@ -466,10 +393,7 @@ the GitHub app owner.
 ![Organization permissions interface showing Members access set to Read-only from dropdown menu.](images/ghes-app-permissions.png) 5. In **Add a note to users**, add a description of the reason for the
 update. Choose **Save changes**.
 
-## Connections error when connecting
-
-to GitHub: "A problem occurred, make sure cookies are enabled in your browser" or "An
-organization owner must install the GitHub app"
+## Connections error when connecting to GitHub: "A problem occurred, make sure cookies are enabled in your browser" or "An organization owner must install the GitHub app"
 
 **Problem:**
 
@@ -488,9 +412,7 @@ An organization owner must install the GitHub app
 organization, the organization owner must create the connection to the GitHub repository. For
 repositories that are not under an organization, you must be the repository owner.
 
-## Connections service prefix in resources might
-
-need to be updated for IAM policies
+## Connections service prefix in resources might need to be updated for IAM policies
 
 On March 29, 2024, the service was renamed from AWS CodeStar Connections to AWS CodeConnections.
 Beginning July 1, 2024, the console creates connections with `codeconnections`
@@ -581,9 +503,7 @@ and be sure to enter the same information in the following network fields:
 
 See the related steps to create a [GHES connection](connections-create-gheserver.md "connections-create-gheserver.md") or a [GitLab self-managed connection](connections-create-gitlab-managed.md "connections-create-gitlab-managed.md").
 
-## I want to increase my limits for
-
-connections
+## I want to increase my limits for connections
 
 You can request a limit increase for certain limits in CodeConnections. For more information, see
 [Quotas for connections](limits-connections.md "limits-connections.md").

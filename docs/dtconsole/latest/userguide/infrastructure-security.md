@@ -13,9 +13,7 @@ Requests must be signed by using an access key ID and a secret access key that i
 associated with an IAM principal. Or you can use the [AWS Security Token Service](../../../STS/latest/APIReference/Welcome.md "../../../STS/latest/APIReference/Welcome.md") (AWS STS) to generate temporary
 security credentials to sign requests.
 
-## Traffic between AWS CodeConnections
-
-resources across Regions
+## Traffic between AWS CodeConnections resources across Regions
 
 If you use the connections feature to enable connection of your resources, you agree and
 instruct us to store and process information associated with such connection resources in
@@ -23,8 +21,7 @@ AWS Regions outside the AWS Regions where you are using the underlying service, 
 in connection with, and for the sole purpose of, providing connection to such resources in
 Regions other than the one where the resource was created.
 
-For more information, see [Global resources in
-AWS CodeConnections](welcome-connections-how-it-works-global.md "welcome-connections-how-it-works-global.md").
+For more information, see [Global resources in AWS CodeConnections](welcome-connections-how-it-works-global.md "welcome-connections-how-it-works-global.md").
 
 ###### Note
 

@@ -1,6 +1,4 @@
-# Global resources in
-
-AWS CodeConnections
+# Global resources in AWS CodeConnections
 
 Connections are global resources, meaning that the resource is replicated across all
 AWS Regions.

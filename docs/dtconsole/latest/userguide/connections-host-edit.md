@@ -7,8 +7,7 @@ You cannot use the same URL for more than one host.
 
 ###### Note
 
-To learn about considerations for setting up a host in a VPC, see [(Optional) Prerequisites: Network or
-Amazon VPC configuration for your connection](connections-host-create.md#connections-create-host-prereq "connections-host-create.md#connections-create-host-prereq").
+To learn about considerations for setting up a host in a VPC, see [(Optional) Prerequisites: Network or Amazon VPC configuration for your connection](connections-host-create.md#connections-create-host-prereq "connections-host-create.md#connections-create-host-prereq").
 
 ###### To edit a host
 

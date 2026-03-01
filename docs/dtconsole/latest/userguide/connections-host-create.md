@@ -31,23 +31,17 @@ and VPC
 configuration
 for your host resource, see
 the VPC prerequisites
-in [(Optional) Prerequisites: Network or
-Amazon VPC configuration for your connection](#connections-create-host-prereq "#connections-create-host-prereq") and [Troubleshooting VPC configuration for
-your host](troubleshooting-connections.md#troubleshooting-connections-host-vpc "troubleshooting-connections.md#troubleshooting-connections-host-vpc").
+in [(Optional) Prerequisites: Network or Amazon VPC configuration for your connection](#connections-create-host-prereq "#connections-create-host-prereq") and [Troubleshooting VPC configuration for your host](troubleshooting-connections.md#troubleshooting-connections-host-vpc "troubleshooting-connections.md#troubleshooting-connections-host-vpc").
 
 To use the console to create a
 host and a
-connection to GitHub Enterprise Server, see [Create your GitHub
-Enterprise Server connection (console)](connections-create-gheserver-console.md#connections-create-gheserver-connection "connections-create-gheserver-console.md#connections-create-gheserver-connection"). The console creates your host
+connection to GitHub Enterprise Server, see [Create your GitHub Enterprise Server connection (console)](connections-create-gheserver-console.md#connections-create-gheserver-connection "connections-create-gheserver-console.md#connections-create-gheserver-connection"). The console creates your host
 for you.
 
-To use the console to create a host and a connection to GitLab self-managed, see [Create a connection to GitLab
-self-managed](connections-create-gitlab-managed.md "connections-create-gitlab-managed.md"). The console creates your host for
+To use the console to create a host and a connection to GitLab self-managed, see [Create a connection to GitLab self-managed](connections-create-gitlab-managed.md "connections-create-gitlab-managed.md"). The console creates your host for
 you.
 
-## (Optional) Prerequisites: Network or
-
-Amazon VPC configuration for your connection
+## (Optional) Prerequisites: Network or Amazon VPC configuration for your connection
 
 If your infrastructure is configured with a network connection, you can skip this
 section.
@@ -69,8 +63,7 @@ installation.
   TLS validation using a non-public certificate authority, you need to provide
   the TLS certificate for your host resource.
 - When connections creates your host, the VPC endpoint (PrivateLink)
-  for webhooks is created for you. For more information, see [AWS CodeConnections and interface VPC endpoints
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
+  for webhooks is created for you. For more information, see [AWS CodeConnections and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
 - Security group configuration:
   - The security groups used during host creation need inbound and
     outbound rules that allow the network interface to connect to your
@@ -107,12 +100,9 @@ to provide the following:
 - **Endpoint:** Have your server endpoint ready
   and continue to the next step.
 
-For more information, including troubleshooting VPC or host connections, see [Troubleshooting VPC configuration for
-your host](troubleshooting-connections.md#troubleshooting-connections-host-vpc "troubleshooting-connections.md#troubleshooting-connections-host-vpc").
+For more information, including troubleshooting VPC or host connections, see [Troubleshooting VPC configuration for your host](troubleshooting-connections.md#troubleshooting-connections-host-vpc "troubleshooting-connections.md#troubleshooting-connections-host-vpc").
 
-### Permission
-
-requirements
+### Permission requirements
 
 As part of the host creation process, AWS CodeConnections creates network resources
 on your behalf to facilitate the VPC connectivity. This includes a network interface
@@ -135,23 +125,16 @@ ec2:DescribeVpcEndpoints
 ```
 
 For more information about troubleshooting permissions or host connections in a
-VPC, see [Troubleshooting VPC configuration for
-your host](troubleshooting-connections.md#troubleshooting-connections-host-vpc "troubleshooting-connections.md#troubleshooting-connections-host-vpc").
+VPC, see [Troubleshooting VPC configuration for your host](troubleshooting-connections.md#troubleshooting-connections-host-vpc "troubleshooting-connections.md#troubleshooting-connections-host-vpc").
 
-For more information about the webhook VPC endpoint, see [AWS CodeConnections and interface VPC endpoints
-(AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
+For more information about the webhook VPC endpoint, see [AWS CodeConnections and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
 
 ###### Topics
 
-- [Create a host for a connection
-  (console)](#connections-host-create-console "#connections-host-create-console")
-- [Create a
-  host for a
-  connection (CLI)](#connections-host-create-cli "#connections-host-create-cli")
+- [Create a host for a connection (console)](#connections-host-create-console "#connections-host-create-console")
+- [Create a host for a connection (CLI)](#connections-host-create-cli "#connections-host-create-cli")
 
-## Create a host for a connection
-
-(console)
+## Create a host for a connection (console)
 
 For connections
 for
@@ -164,16 +147,13 @@ provider is installed.
 
 Beginning July 1, 2024, the console creates connections with `codeconnections` in the resource ARN. Resources with both service prefixes will continue to display in the console.
 
-To learn about considerations for setting up a host in a VPC, see [Create a connection to GitLab
-self-managed](connections-create-gitlab-managed.md "connections-create-gitlab-managed.md").
+To learn about considerations for setting up a host in a VPC, see [Create a connection to GitLab self-managed](connections-create-gitlab-managed.md "connections-create-gitlab-managed.md").
 
 To use the console to create a host and a connection to GitHub Enterprise Server, see
-[Create your GitHub
-Enterprise Server connection (console)](connections-create-gheserver-console.md#connections-create-gheserver-connection "connections-create-gheserver-console.md#connections-create-gheserver-connection"). The console creates your
+[Create your GitHub Enterprise Server connection (console)](connections-create-gheserver-console.md#connections-create-gheserver-connection "connections-create-gheserver-console.md#connections-create-gheserver-connection"). The console creates your
 host for you.
 
-To use the console to create a host and a connection to GitLab self-managed, see [Create a connection to GitLab
-self-managed](connections-create-gitlab-managed.md "connections-create-gitlab-managed.md"). The console creates your host
+To use the console to create a host and a connection to GitLab self-managed, see [Create a connection to GitLab self-managed](connections-create-gitlab-managed.md "connections-create-gitlab-managed.md"). The console creates your host
 for you.
 
 ###### Note
@@ -182,10 +162,7 @@ You only create a host once per GitHub Enterprise Server or GitLab self-managed
 account. All of your connections to a specific GitHub Enterprise Server or GitLab
 self-managed account will use the same host.
 
-## Create a
-
-host for a
-connection (CLI)
+## Create a host for a connection (CLI)
 
 You can use the AWS Command Line Interface (AWS CLI) to create a host for installed connections.
 
@@ -209,10 +186,8 @@ After you create a host with the CLI, use the console to set up the host to make
 status `Available`.
 
 To use the console to create a host and a connection to GitHub Enterprise Server, see
-[Create your GitHub
-Enterprise Server connection (console)](connections-create-gheserver-console.md#connections-create-gheserver-connection "connections-create-gheserver-console.md#connections-create-gheserver-connection"). The console creates your
+[Create your GitHub Enterprise Server connection (console)](connections-create-gheserver-console.md#connections-create-gheserver-connection "connections-create-gheserver-console.md#connections-create-gheserver-connection"). The console creates your
 host for you.
 
-To use the console to create a host and a connection to GitLab self-managed, see [Create a connection to GitLab
-self-managed](connections-create-gitlab-managed.md "connections-create-gitlab-managed.md"). The console creates your host
+To use the console to create a host and a connection to GitLab self-managed, see [Create a connection to GitLab self-managed](connections-create-gitlab-managed.md "connections-create-gitlab-managed.md"). The console creates your host
 for you.

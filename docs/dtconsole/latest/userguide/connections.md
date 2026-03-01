@@ -12,8 +12,7 @@ an installed provider type such as GitHub Enterprise Server.
 For organizations in GitHub or GitHub Enterprise Server, you cannot install a GitHub App
 into multiple GitHub Organizations. The app to GitHub Organization mapping is a 1:1 mapping.
 One organization can only have one app at a time; however, you can have multiple connections
-pointing to the same app. For more detail, see [How connections in
-AWS CodeConnections work with organizations](welcome-connections-how-it-works-github-organizations.md "welcome-connections-how-it-works-github-organizations.md").
+pointing to the same app. For more detail, see [How connections in AWS CodeConnections work with organizations](welcome-connections-how-it-works-github-organizations.md "welcome-connections-how-it-works-github-organizations.md").
 
 If you want to create a connection to an installed provider type, such as GitHub Enterprise
 Server, the console creates a host for you. A host is a resource that you create to represent
@@ -47,8 +46,7 @@ For more information about connections, see the [AWS CodeConnections API referen
 more information about the CodePipeline source action for Bitbucket, see [CodestarConnectionSource](../../../codepipeline/latest/userguide/action-reference-CodestarConnectionSource.md "../../../codepipeline/latest/userguide/action-reference-CodestarConnectionSource.md") in the _AWS CodePipeline User Guide_.
 
 To create or attach a policy to your AWS Identity and Access Management (IAM) user or role with the permissions
-required to use connections, see [AWS CodeConnections permissions
-reference](security-iam.md#permissions-reference-connections "security-iam.md#permissions-reference-connections"). Depending on when your CodePipeline service role
+required to use connections, see [AWS CodeConnections permissions reference](security-iam.md#permissions-reference-connections "security-iam.md#permissions-reference-connections"). Depending on when your CodePipeline service role
 was created, you might need to update its permissions to support AWS CodeConnections. For instructions,
 see [Update the service
 role](../../../codepipeline/latest/userguide/how-to-update-role-new-services.md "../../../codepipeline/latest/userguide/how-to-update-role-new-services.md") in the _AWS CodePipeline User Guide_.

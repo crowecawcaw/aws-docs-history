@@ -1,12 +1,8 @@
-# Permissions
-
-and examples for AWS CodeStar Notifications
+# Permissions and examples for AWS CodeStar Notifications
 
 The following policy statements and examples can help you manage AWS CodeStar Notifications.
 
-## Permissions related to notifications
-
-in full access managed policies
+## Permissions related to notifications in full access managed policies
 
 The **AWSCodeCommitFullAccess**,
 **AWSCodeBuildAdminAccess**,
@@ -81,9 +77,7 @@ full access policy for CodeCommit, the value is
     }
 ```
 
-## Permissions related to notifications in
-
-read-only managed policies
+## Permissions related to notifications in read-only managed policies
 
 The **AWSCodeCommitReadOnlyAccess**,
 **AWSCodeBuildReadOnlyAccess**,
@@ -124,9 +118,7 @@ full access policy for CodeCommit, the value is
     }
 ```
 
-## Permissions related to notifications
-
-in other managed policies
+## Permissions related to notifications in other managed policies
 
 The **AWSCodeCommitPowerUser**,
 **AWSCodeBuildDeveloperAccess**, and **AWSCodeBuildDeveloperAccess** managed policies include the

@@ -7,8 +7,7 @@ have the `AWSCodeBuildAdminAccess`, `AWSCodeCommitFullAccess`,
 `AWSCodeDeployFullAccess`, or `AWSCodePipeline_FullAccess` managed
 policy applied have full administrative access to notifications.
 
-For more information, including example policies, see [Identity-based
-policies](security-iam.md#security_iam_access-manage-id-based-policies "security-iam.md#security_iam_access-manage-id-based-policies").
+For more information, including example policies, see [Identity-based policies](security-iam.md#security_iam_access-manage-id-based-policies "security-iam.md#security_iam_access-manage-id-based-policies").
 
 If you have one of these policies applied to your IAM user or role, and a build project
 in CodeBuild, a repository in CodeCommit, a deployment application in CodeDeploy, or a pipeline in CodePipeline,
@@ -39,15 +38,11 @@ IAM admin user and group](../../../IAM/latest/UserGuide/getting-started_create-a
 
 ###### Topics
 
-- [Create and apply a policy for administrative access
-  to notifications](#set-up-permissions "#set-up-permissions")
+- [Create and apply a policy for administrative access to notifications](#set-up-permissions "#set-up-permissions")
 - [Configure Amazon SNS topics for notifications](set-up-sns.md "set-up-sns.md")
-- [Subscribe users to Amazon SNS topics that are
-  targets](subscribe-users-sns.md "subscribe-users-sns.md")
+- [Subscribe users to Amazon SNS topics that are targets](subscribe-users-sns.md "subscribe-users-sns.md")
 
-## Create and apply a policy for administrative access
-
-to notifications
+## Create and apply a policy for administrative access to notifications
 
 You can administer notifications by signing in with an IAM user or using a role that
 has permissions to access the service and the services (AWS CodeBuild, AWS CodeCommit, AWS CodeDeploy,

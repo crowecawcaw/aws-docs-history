@@ -1,6 +1,4 @@
-# Create a connection to GitLab
-
-self-managed
+# Create a connection to GitLab self-managed
 
 You can create connections for GitLab Enterprise Edition or GitLab Community Edition with
 a self-managed installation.
@@ -19,9 +17,7 @@ the connection, as detailed in these steps. For an overview of the host creation
 for installed providers, see [Workflow to create or update a host](welcome-hosts-workflow.md "welcome-hosts-workflow.md").
 
 You can optionally configure your host with a VPC. For more information about network and
-VPC configuration for your host resource, see the VPC prerequisites in [(Optional) Prerequisites: Network or
-Amazon VPC configuration for your connection](connections-host-create.md#connections-create-host-prereq "connections-host-create.md#connections-create-host-prereq") and [Troubleshooting VPC configuration for
-your host](troubleshooting-connections.md#troubleshooting-connections-host-vpc "troubleshooting-connections.md#troubleshooting-connections-host-vpc").
+VPC configuration for your host resource, see the VPC prerequisites in [(Optional) Prerequisites: Network or Amazon VPC configuration for your connection](connections-host-create.md#connections-create-host-prereq "connections-host-create.md#connections-create-host-prereq") and [Troubleshooting VPC configuration for your host](troubleshooting-connections.md#troubleshooting-connections-host-vpc "troubleshooting-connections.md#troubleshooting-connections-host-vpc").
 
 Before you begin:
 
@@ -61,18 +57,13 @@ IDs, and Security Group IDs) for the host. For more information, see [Connection
 
 ###### Topics
 
-- [Create a connection to
-  GitLab self-managed (console)](#connections-create-gitlab-managed-console "#connections-create-gitlab-managed-console")
-- [Create a connection to GitLab
-  self-managed (CLI)](#connections-create-gitlab-managed-cli "#connections-create-gitlab-managed-cli")
+- [Create a connection to GitLab self-managed (console)](#connections-create-gitlab-managed-console "#connections-create-gitlab-managed-console")
+- [Create a connection to GitLab self-managed (CLI)](#connections-create-gitlab-managed-cli "#connections-create-gitlab-managed-cli")
 
-## Create a connection to
-
-GitLab self-managed (console)
+## Create a connection to GitLab self-managed (console)
 
 Use these steps to create a host and a connection to GitLab self-managed in the
-console. For considerations for setting up a host in a VPC, see [(Optional) Prerequisites: Network or
-Amazon VPC configuration for your connection](connections-host-create.md#connections-create-host-prereq "connections-host-create.md#connections-create-host-prereq").
+console. For considerations for setting up a host in a VPC, see [(Optional) Prerequisites: Network or Amazon VPC configuration for your connection](connections-host-create.md#connections-create-host-prereq "connections-host-create.md#connections-create-host-prereq").
 
 ###### Note
 
@@ -211,9 +202,7 @@ After the connection is created successfully, a success banner displays. The
 connection details are shown on the **Connection settings**
 page.
 
-## Create a connection to GitLab
-
-self-managed (CLI)
+## Create a connection to GitLab self-managed (CLI)
 
 You can use the AWS Command Line Interface (AWS CLI) to create a host and connection for GitLab
 self-managed.

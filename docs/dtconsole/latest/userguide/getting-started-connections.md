@@ -20,8 +20,7 @@ In this section, you use connections with:
 - [Prerequisites](#getting-started-connections-prerequisites "#getting-started-connections-prerequisites")
 - [Step 1: Edit your source file](#getting-started-connections-edit "#getting-started-connections-edit")
 - [Step 2: Create your pipeline](#getting-started-connections-pipeline "#getting-started-connections-pipeline")
-- [Step 3: Associate your repository with
-  CodeGuru Reviewer](#getting-started-connections-analysis "#getting-started-connections-analysis")
+- [Step 3: Associate your repository with CodeGuru Reviewer](#getting-started-connections-analysis "#getting-started-connections-analysis")
 
 ## Prerequisites
 
@@ -203,9 +202,7 @@ This is a Bitbucket repository!
 
 ![Console screenshot showing successfully completed build output example.](images/pipeline-wizard-bitbucket-output.png)
 
-## Step 3: Associate your repository with
-
-CodeGuru Reviewer
+## Step 3: Associate your repository with CodeGuru Reviewer
 
 After you create a connection, you can use that connection for all of your AWS resources
 in the same account. For example, you can use the same Bitbucket connection for a CodePipeline source

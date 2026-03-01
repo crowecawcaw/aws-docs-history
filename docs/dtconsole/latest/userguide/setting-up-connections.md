@@ -6,8 +6,7 @@ feature in the Developer Tools console.
 ###### Topics
 
 - [Sign up for AWS](#setting-up-aws-sign-up "#setting-up-aws-sign-up")
-- [Create and apply a policy with
-  permissions to create connections](#setting-up-connections-iamuser "#setting-up-connections-iamuser")
+- [Create and apply a policy with permissions to create connections](#setting-up-connections-iamuser "#setting-up-connections-iamuser")
 
 ## Sign up for AWS
 
@@ -69,9 +68,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Create and apply a policy with
-
-permissions to create connections
+## Create and apply a policy with permissions to create connections
 
 ###### To use the JSON policy editor to create a policy
 

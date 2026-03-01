@@ -1,6 +1,4 @@
-# Product and service integrations with
-
-AWS CodeConnections
+# Product and service integrations with AWS CodeConnections
 
 AWS CodeConnections is integrated with a number of AWS services and partner products and services.
 Use the information in the following sections to help you configure connections to integrate

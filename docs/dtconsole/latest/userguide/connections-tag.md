@@ -30,8 +30,7 @@ In
 addition to identifying, organizing, and tracking your resource with tags, you can use tags
 in AWS Identity and Access Management (IAM) policies to help control who can view and interact with your
 resource.
-For examples of tag-based access policies, see [Using tags to control access to
-AWS CodeConnections resources](connections-tag-based-access-control.md "connections-tag-based-access-control.md").
+For examples of tag-based access policies, see [Using tags to control access to AWS CodeConnections resources](connections-tag-based-access-control.md "connections-tag-based-access-control.md").
 
 ###### Topics
 
@@ -45,18 +44,12 @@ resource.
 
 ###### Topics
 
-- [Add tags to a connections resource
-  (console)](#connections-tag-console-add "#connections-tag-console-add")
-- [View tags for a connections resource
-  (console)](#connections-tag-console-view "#connections-tag-console-view")
-- [Edit tags for a connections resource
-  (console)](#connections-tag-console-edit "#connections-tag-console-edit")
-- [Remove tags from a connections
-  resource (console)](#connections-tag-console-remove "#connections-tag-console-remove")
+- [Add tags to a connections resource (console)](#connections-tag-console-add "#connections-tag-console-add")
+- [View tags for a connections resource (console)](#connections-tag-console-view "#connections-tag-console-view")
+- [Edit tags for a connections resource (console)](#connections-tag-console-edit "#connections-tag-console-edit")
+- [Remove tags from a connections resource (console)](#connections-tag-console-remove "#connections-tag-console-remove")
 
-### Add tags to a connections resource
-
-(console)
+### Add tags to a connections resource (console)
 
 You can use the console to add tags to an existing connection or host.
 
@@ -112,9 +105,7 @@ settings.
 more tags for a host. 7. Choose **Submit**. The tags are listed under host
 settings.
 
-### View tags for a connections resource
-
-(console)
+### View tags for a connections resource (console)
 
 You can use the console to view the tags for existing resources.
 
@@ -142,9 +133,7 @@ You can use the console to view the tags for existing resources.
 4. Under **Host tags**, view the tags for the host under the
    **Key** and **Value** columns.
 
-### Edit tags for a connections resource
-
-(console)
+### Edit tags for a connections resource (console)
 
 You can use the console to edit tags that have been added to connections
 resources.
@@ -185,9 +174,7 @@ resources.
    `ProjectB`.
 6. Choose **Submit**.
 
-### Remove tags from a connections
-
-resource (console)
+### Remove tags from a connections resource (console)
 
 You can use the console to remove tags from connections resources. When you remove
 tags from the associated resource, the tags are deleted.
@@ -229,18 +216,12 @@ resource.
 
 ###### Topics
 
-- [Add tags to a connections resource
-  (CLI)](#connections-tag-add "#connections-tag-add")
-- [View tags for a connections resource
-  (CLI)](#connections-tag-view "#connections-tag-view")
-- [Edit tags for a connections resource
-  (CLI)](#connections-tag-edit "#connections-tag-edit")
-- [Remove tags from a connections resource
-  (CLI)](#connections-tag-delete "#connections-tag-delete")
+- [Add tags to a connections resource (CLI)](#connections-tag-add "#connections-tag-add")
+- [View tags for a connections resource (CLI)](#connections-tag-view "#connections-tag-view")
+- [Edit tags for a connections resource (CLI)](#connections-tag-edit "#connections-tag-edit")
+- [Remove tags from a connections resource (CLI)](#connections-tag-delete "#connections-tag-delete")
 
-### Add tags to a connections resource
-
-(CLI)
+### Add tags to a connections resource (CLI)
 
 You can use the AWS CLI to tag resources in connections.
 
@@ -286,9 +267,7 @@ aws codestar-connections tag-resource --resource-arn arn:aws:codestar-connection
 
 If successful, this command returns nothing.
 
-### View tags for a connections resource
-
-(CLI)
+### View tags for a connections resource (CLI)
 
 You can use the AWS CLI to view the AWS tags for a connections resource. If no
 tags have been added, the returned list is empty. Use the
@@ -357,9 +336,7 @@ shows two key-value pairs returned for a host.
 }
 ```
 
-### Edit tags for a connections resource
-
-(CLI)
+### Edit tags for a connections resource (CLI)
 
 You can use the AWS CLI to edit a tag for a resource. You can change the value for
 an existing key or add another key.
@@ -408,9 +385,7 @@ If successful, this command returns nothing. To verify the tags associated
 with the host, run the **list-tags-for-resource**
 command.
 
-### Remove tags from a connections resource
-
-(CLI)
+### Remove tags from a connections resource (CLI)
 
 Follow these steps to use the AWS CLI to remove a tag from a resource. When you
 remove tags from the associated resource, the tags are deleted.
