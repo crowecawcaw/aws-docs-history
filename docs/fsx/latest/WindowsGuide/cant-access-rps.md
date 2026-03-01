@@ -13,9 +13,7 @@ The file system's security group must have an inbound rule that allows
 traffic on port 5985 in order to establish a Remote PowerShell session. For more
 information, see [Amazon VPC Security Groups](limit-access-security-groups.md#fsx-vpc-security-groups "limit-access-security-groups.md#fsx-vpc-security-groups").
 
-## You have an external trust configured between the AWS managed Microsoft Active
-
-Directory and your on-premises Active Directory
+## You have an external trust configured between the AWS managed Microsoft Active Directory and your on-premises Active Directory
 
 In order to use the Amazon FSx Remote PowerShell with Kerberos authentication, you need to configure a
 local group policy on the client for forest search order. For more information, see the Microsoft documentation

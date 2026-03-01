@@ -4,17 +4,13 @@ To migrate your existing files to FSx for Windows File Server file systems, we r
 an online data transfer service designed to simplify, automate, and accelerate copying large
 amounts of data to and from AWS storage services. DataSync copies data over the internet or
 Direct Connect. As a fully managed service, DataSync removes much of the need to modify applications,
-develop scripts, or manage infrastructure. For more information, see [Migrating existing files to FSx for Windows File Server using
-AWS DataSync](migrate-files-to-fsx-datasync.md "migrate-files-to-fsx-datasync.md").
+develop scripts, or manage infrastructure. For more information, see [Migrating existing files to FSx for Windows File Server using AWS DataSync](migrate-files-to-fsx-datasync.md "migrate-files-to-fsx-datasync.md").
 
 As an alternative solution, you can use Robust File Copy, or Robocopy, which is a command
 line directory and file replication command set for Microsoft Windows. For detailed procedures on
-how to use Robocopy to migrate file storage to FSx for Windows File Server, see [Migrating existing files to FSx for Windows File Server using
-Robocopy](migrate-files-to-fsx.md "migrate-files-to-fsx.md").
+how to use Robocopy to migrate file storage to FSx for Windows File Server, see [Migrating existing files to FSx for Windows File Server using Robocopy](migrate-files-to-fsx.md "migrate-files-to-fsx.md").
 
-## Best practices for migrating existing file storage to
-
-FSx for Windows File Server
+## Best practices for migrating existing file storage to FSx for Windows File Server
 
 To migrate large amounts of data to FSx for Windows File Server as quickly as possible, use Amazon FSx
 file systems configured with solid state drive (SSD) storage. After the migration is complete,

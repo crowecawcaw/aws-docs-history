@@ -59,9 +59,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ```
 
-## Restricting specific file types using file
-
-groups
+## Restricting specific file types using file groups
 
 This example shows how to block users from saving audio and video files to a business
 documents folder using the default "`Audio and Video Files`" file group.

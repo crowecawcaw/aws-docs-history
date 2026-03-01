@@ -24,8 +24,7 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 ###### Topics
 
 - [Data protection in Amazon FSx for Windows File Server](data-protection-encryption.md "data-protection-encryption.md")
-- [File- and folder-level access control using
-  Windows ACLs](limit-access-file-folder.md "limit-access-file-folder.md")
+- [File- and folder-level access control using Windows ACLs](limit-access-file-folder.md "limit-access-file-folder.md")
 - [File system access control with Amazon VPC](limit-access-security-groups.md "limit-access-security-groups.md")
 - [Logging end user access with file access auditing](file-access-auditing.md "file-access-auditing.md")
 - [Identity and access management for Amazon FSx for Windows File Server](security-iam.md "security-iam.md")

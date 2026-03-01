@@ -1,6 +1,4 @@
-# Migrating existing files to FSx for Windows File Server using
-
-AWS DataSync
+# Migrating existing files to FSx for Windows File Server using AWS DataSync
 
 We recommend using AWS DataSync to transfer data between FSx for Windows File Server file systems. DataSync is a
 data transfer service that simplifies, automates, and accelerates moving and replicating data
@@ -34,8 +32,7 @@ in the _AWS DataSync User Guide_.
 
 If you are performing a large data migration, or a migration involving many small files, we recommend using an Amazon FSx File System with SSD storage type. This is because DataSync tasks involve scans of
 file metadata which can exhaust the disk IOPS limits of HDD file systems, leading to long-running migrations and file system performance impact.
-For more information, see: [Best practices for migrating existing file storage to
-FSx for Windows File Server](migrate-files-fsx.md#migrate-best-practices "migrate-files-fsx.md#migrate-best-practices").
+For more information, see: [Best practices for migrating existing file storage to FSx for Windows File Server](migrate-files-fsx.md#migrate-best-practices "migrate-files-fsx.md#migrate-best-practices").
 
 If your dataset consists of mostly small files, with file counts in the millions,
 or if you have more available network bandwidth than a single DataSync task can consume, you can also
@@ -44,9 +41,7 @@ For more information, see: [How to accelerate your data transfers with AWS DataS
 
 You can monitor the disk I/O utilization of your file system using [FSx performance metrics](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 
-## Basic steps for migrating files using
-
-DataSync
+## Basic steps for migrating files using DataSync
 
 To transfer files from a source location to a destination location using DataSync, take the
 following basic steps:

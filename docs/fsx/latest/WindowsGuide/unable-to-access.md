@@ -7,10 +7,8 @@ each with their own resolution, as follows.
 
 - [The file system elastic network interface was modified or deleted](#eni-deleted "#eni-deleted")
 - [The Elastic IP address attached to the file system elastic network interface was deleted](#eni-epi-removed "#eni-epi-removed")
-- [The file system security group lacks the
-  required inbound or outbound rules.](#sg-lacks-inbound-rules "#sg-lacks-inbound-rules")
-- [The compute instance's security group lacks the
-  required outbound rules](#compute-instance-lacks-inbound-rules "#compute-instance-lacks-inbound-rules")
+- [The file system security group lacks the required inbound or outbound rules.](#sg-lacks-inbound-rules "#sg-lacks-inbound-rules")
+- [The compute instance's security group lacks the required outbound rules](#compute-instance-lacks-inbound-rules "#compute-instance-lacks-inbound-rules")
 - [Compute instance not joined to an Active Directory](#fs-not-joined-to-ad "#fs-not-joined-to-ad")
 - [The file share doesn't exist](#file-share-doesnt-exist "#file-share-doesnt-exist")
 - [Active Directory user lacks required permissions](#ad-user-lacks-permission "#ad-user-lacks-permission")
@@ -34,16 +32,12 @@ automatically detaches any Elastic IP address, which is a public IP address
 reachable from the internet, that gets attached to a file system's elastic
 network interface. For more information, see [Accessing your data](supported-fsx-clients.md "supported-fsx-clients.md").
 
-## The file system security group lacks the
-
-required inbound or outbound rules.
+## The file system security group lacks the required inbound or outbound rules.
 
 Review the inbound rules specified in [Amazon VPC Security Groups](limit-access-security-groups.md#fsx-vpc-security-groups "limit-access-security-groups.md#fsx-vpc-security-groups"), and make sure that the security group
 associated with your file system has the corresponding inbound rules.
 
-## The compute instance's security group lacks the
-
-required outbound rules
+## The compute instance's security group lacks the required outbound rules
 
 Review the outbound rules specified in [Amazon VPC Security Groups](limit-access-security-groups.md#fsx-vpc-security-groups "limit-access-security-groups.md#fsx-vpc-security-groups"), and make sure that the security group
 associated with your compute instance has the corresponding outbound rules.

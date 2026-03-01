@@ -20,8 +20,7 @@ This getting started exercise includes the following steps.
 - [Step 3: Connect to your instance](#prereqs-step3 "#prereqs-step3")
 - [Step 4: Join your instance to your Directory Service directory](#prereqs-step4 "#prereqs-step4")
 - [Step 5. Create your file system](#getting-started-step1 "#getting-started-step1")
-- [Step 6. Map your file share to an EC2 instance running
-  Windows Server](#getting-started-step2 "#getting-started-step2")
+- [Step 6. Map your file share to an EC2 instance running Windows Server](#getting-started-step2 "#getting-started-step2")
 - [Step 7. Write data to your file share](#getting-started-step3 "#getting-started-step3")
 - [Step 8. Back up your file system](#getting-started-step4 "#getting-started-step4")
 - [Step 9. Clean up resources](#getting-started-step5 "#getting-started-step5")
@@ -556,9 +555,7 @@ Choose **Next**.
    and note the **DNS name** for your file system the **Network & security** tab.
    You will need it in the following procedure to map a share to an EC2 instance.
 
-## Step 6. Map your file share to an EC2 instance running
-
-Windows Server
+## Step 6. Map your file share to an EC2 instance running Windows Server
 
 You can now mount your Amazon FSx file system to your Microsoft Windows–based Amazon EC2
 instance joined to your Directory Service directory. The name of your file share is not the same as the

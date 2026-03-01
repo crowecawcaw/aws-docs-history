@@ -23,9 +23,7 @@ After classification is completed, you can use the assigned properties to genera
 storage
 reports, apply [File Management Tasks](fsrm-file-management.md "fsrm-file-management.md"), or search for files with specific characteristics.
 
-## Classification property
-
-definitions
+## Classification property definitions
 
 Classification property definitions specify the types of metadata that can be assigned
 to
@@ -163,9 +161,7 @@ the **Classification** tab. This tab displays all classification properties and 
 for
 the file.
 
-## Classification process
-
-management
+## Classification process management
 
 You can monitor and control the classification process with the following commands:
 
@@ -254,9 +250,7 @@ file content.
   property definitions and rules that are no longer needed to keep your
   classification configuration manageable.
 
-## Classification management
-
-commands
+## Classification management commands
 
 You can access four families of FSx remote PowerShell commands for managing file
 classification:
@@ -272,10 +266,7 @@ classification:
 4. **Classification process commands** - Start,
    stop, monitor, and configure the classification process.
 
-### List of File
-
-Classification FSx
-remote PowerShell commands
+### List of File Classification FSx remote PowerShell commands
 
 ###### Note
 
@@ -285,9 +276,7 @@ details page, or by using the AWS CLI `describe-file-systems` command.
 
 ### Property Definition Commands
 
-####
-
-New-FSxFSRMClassificationPropertyDefinition
+#### New-FSxFSRMClassificationPropertyDefinition
 
 `New-FSxFSRMClassificationPropertyDefinition`: Creates a
 classification property definition that can be used to classify files. Property
@@ -351,9 +340,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ```
 
-####
-
-Get-FSxFSRMClassificationPropertyDefinition
+#### Get-FSxFSRMClassificationPropertyDefinition
 
 `Get-FSxFSRMClassificationPropertyDefinition`: Retrieves one or
 more classification property definitions from your file system.
@@ -379,15 +366,11 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ```
 
-####
-
-Set-FSxFSRMClassificationPropertyDefinition
+#### Set-FSxFSRMClassificationPropertyDefinition
 
 Modifies the properties of an existing classification property definition.
 
-#####
-
-Parameters
+##### Parameters
 
 - `Name (array)` - Required. An array of property names to modify.
 - `DisplayName (string)` - Optional. A new display name for the property definition.
@@ -428,17 +411,13 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ```
 
-####
-
-Remove-FSxFSRMClassificationPropertyDefinition
+#### Remove-FSxFSRMClassificationPropertyDefinition
 
 Removes one or more classification property definitions from your file system.
 Only
 locally defined property definitions can be removed.
 
-#####
-
-Parameters
+##### Parameters
 
 - `Name (array)` - Required. An array of property names to remove.
 - `PassThru (boolean)` - Optional. If set to true, returns the removed property
@@ -572,9 +551,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ```
 
-#####
-
-Set-FSxFSRMClassificationRule
+##### Set-FSxFSRMClassificationRule
 
 Modifies the properties of existing classification rules.
 
@@ -647,9 +624,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ```
 
-#####
-
-Remove-FSxFSRMClassificationRule
+##### Remove-FSxFSRMClassificationRule
 
 Removes one or more classification rules from your file system.
 
@@ -778,9 +753,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ```
 
-### Classification Process
-
-Commands
+### Classification Process Commands
 
 #### Get-FSxFSRMClassification
 

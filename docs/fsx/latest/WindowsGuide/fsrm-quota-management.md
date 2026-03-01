@@ -87,9 +87,7 @@ You can access three families of FSx remote PowerShell commands for managing Quo
    subfolders. Use these commands when you need to apply consistent quota limits across
    multiple subfolders without manually creating individual quotas.
 
-### List of Quota Management FSx remote
-
-PowerShell commands
+### List of Quota Management FSx remote PowerShell commands
 
 ###### Note
 

@@ -16,10 +16,8 @@ and the Amazon FSx CLI for remote management on PowerShell by exploring the foll
 - [Reducing storage costs with Data Deduplication](#using-data-dedup "#using-data-dedup")
 - [Managing storage quotas](managing-user-quotas.md "managing-user-quotas.md")
 - [Increasing file system storage capacity](increase-storage-capacity.md "increase-storage-capacity.md")
-- [Monitoring storage capacity
-  increases](monitoring-storage-capacity-increase.md "monitoring-storage-capacity-increase.md")
-- [Increasing the storage capacity of
-  an FSx for Windows File Server file system dynamically](automate-storage-capacity-increase.md "automate-storage-capacity-increase.md")
+- [Monitoring storage capacity increases](monitoring-storage-capacity-increase.md "monitoring-storage-capacity-increase.md")
+- [Increasing the storage capacity of an FSx for Windows File Server file system dynamically](automate-storage-capacity-increase.md "automate-storage-capacity-increase.md")
 - [Updating the storage type of a FSx for Windows file system](updating-storage-type.md "updating-storage-type.md")
 - [Monitoring storage type updates](monitoring-storage-type-updates.md "monitoring-storage-type-updates.md")
 - [Updating a file system's SSD IOPS](how-to-provision-ssd-iops.md "how-to-provision-ssd-iops.md")
@@ -84,12 +82,9 @@ increasing a file system's storage capacity.
 
 You can track the progress of storage optimization, SSD storage capacity increases, or SSD
 IOPS updates at any time using the Amazon FSx console, CLI, or API. For more information, see
-[Monitoring storage capacity
-increases](monitoring-storage-capacity-increase.md "monitoring-storage-capacity-increase.md").
+[Monitoring storage capacity increases](monitoring-storage-capacity-increase.md "monitoring-storage-capacity-increase.md").
 
-### What to know about
-
-increasing a file system's storage capacity
+### What to know about increasing a file system's storage capacity
 
 Here are a few important items to consider when increasing storage capacity:
 
@@ -122,9 +117,7 @@ The optimization phase of storage capacity scaling can generate increased disk
 throughput, and potentially cause performance warnings. For more information, see
 [Performance warnings and recommendations](monitoring-cloudwatch.md#performance-insights-FSxW "monitoring-cloudwatch.md#performance-insights-FSxW").
 
-### Knowing when to increase storage
-
-capacity
+### Knowing when to increase storage capacity
 
 Increase your file system's storage capacity when it's running low on free
 storage capacity. Use the `FreeStorageCapacity` CloudWatch metric to monitor the
@@ -142,9 +135,7 @@ the AWS‐developed custom CloudFormation template to deploy all of the componen
 to implement the automated solution. For more information, see [Increasing storage
 capacity dynamically](automate-storage-capacity-increase.md "automate-storage-capacity-increase.md").
 
-### Storage capacity increases
-
-and file system performance
+### Storage capacity increases and file system performance
 
 Most workloads experience minimal performance impact while Amazon FSx runs the storage
 optimization process in the background after the new storage capacity is available.

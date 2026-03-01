@@ -102,9 +102,7 @@ You can generate reports in multiple formats to suit different use cases:
 
 You can specify multiple formats for a single report.
 
-## Interactive and scheduled
-
-reports
+## Interactive and scheduled reports
 
 You can create two types of storage reports:
 
@@ -236,10 +234,7 @@ reports:
    monitor, and wait for storage report generation. Use these commands to run
    reports on-demand or manage long-running report jobs.
 
-### List of Storage Report
-
-FSx remote
-PowerShell commands
+### List of Storage Report FSx remote PowerShell commands
 
 ###### Note
 
@@ -247,9 +242,7 @@ All the examples in this page assume that you have defined the `$FSxWindowsRemot
 PowerShell endpoint. You can find this endpoint in the Amazon FSx console on your file system's
 details page, or by using the AWS CLI `describe-file-systems` command.
 
-### Report Definition
-
-Commands
+### Report Definition Commands
 
 #### New-FSxFSRMStorageReport
 

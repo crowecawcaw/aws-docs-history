@@ -84,5 +84,4 @@ its own set of tags to control access to the resource.
 For more information about the permissions required to tag Amazon FSx resources at creation,
 see [Grant permission to tag resources during creation](using-tags-fsx.md#supported-iam-actions-tagging "using-tags-fsx.md#supported-iam-actions-tagging"). For
 more information about using tags to restrict access to Amazon FSx resources in IAM policies, see
-[Using tags to control access to your Amazon FSx
-resources](using-tags-fsx.md#restrict-fsx-access-tags "using-tags-fsx.md#restrict-fsx-access-tags").
+[Using tags to control access to your Amazon FSx resources](using-tags-fsx.md#restrict-fsx-access-tags "using-tags-fsx.md#restrict-fsx-access-tags").

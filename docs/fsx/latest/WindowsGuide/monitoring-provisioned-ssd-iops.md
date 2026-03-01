@@ -46,9 +46,7 @@ Displays the progress of the storage optimization process as percent complete.
 
 The time that Amazon FSx received the update action request.
 
-## Monitoring updates with the AWS CLI and
-
-API
+## Monitoring updates with the AWS CLI and API
 
 You can view and monitor file system SSD IOPS update requests using the [describe-file-systems](../../../cli/latest/reference/fsx/describe-file-systems.md "../../../cli/latest/reference/fsx/describe-file-systems.md") AWS CLI command and the [DescribeFileSystems](../APIReference/API_DescribeFileSystems.md "../APIReference/API_DescribeFileSystems.md") API action. The `AdministrativeActions`
 array lists the 10 most recent update actions for each administrative action type.

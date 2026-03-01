@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-FSx for Windows File Server
+# Using service-linked roles for FSx for Windows File Server
 
 Amazon FSx for Windows File Server uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to FSx for Windows File Server. Service-linked roles are predefined by FSx for Windows File Server and
@@ -33,8 +31,7 @@ the all applicable AWS resources:
 
 You can't attach AmazonFSxServiceRolePolicy to your IAM entities. This policy is attached to a
 service-linked role that allows FSx to manage AWS resources on your behalf. For more
-information, see [Using service-linked roles for
-FSx for Windows File Server](using-service-linked-roles.md "using-service-linked-roles.md").
+information, see [Using service-linked roles for FSx for Windows File Server](using-service-linked-roles.md "using-service-linked-roles.md").
 
 For updates to this policy, see
 [AmazonFSxServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonFSxServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonFSxServiceRolePolicy").
@@ -190,8 +187,7 @@ JSON
 ```
 
 Any updates to this policy are described in
-[Amazon FSx updates to AWS managed
-policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
+[Amazon FSx updates to AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
 
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
@@ -241,9 +237,7 @@ Use the IAM console, the IAM CLI, or the IAM API to delete the
 service-linked role. For more information, see [Deleting a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported regions for FSx for Windows File Server service-linked
-
-roles
+## Supported regions for FSx for Windows File Server service-linked roles
 
 FSx for Windows File Server supports using service-linked roles in all of the regions where the
 service is available. For more information, see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").

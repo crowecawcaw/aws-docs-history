@@ -1,6 +1,4 @@
-# Deleting shadow copy storage, schedule, and all shadow
-
-copies
+# Deleting shadow copy storage, schedule, and all shadow copies
 
 You can delete your shadow copy configuration, including all existing shadow copies and
 the shadow copy schedule. At the same time, you can release the shadow copy storage on the

@@ -33,8 +33,7 @@ you continue performing regular backups.
 - [Viewing existing shadow copies](get-fsxshadow-copies.md "get-fsxshadow-copies.md")
 - [Deleting shadow copies](remove-fsxshadow-copies.md "remove-fsxshadow-copies.md")
 - [Deleting a shadow copy schedule](remove-fsxshadowcopy-sched.md "remove-fsxshadowcopy-sched.md")
-- [Deleting shadow copy storage, schedule, and all shadow
-  copies](remove-fsxshadowstorage.md "remove-fsxshadowstorage.md")
+- [Deleting shadow copy storage, schedule, and all shadow copies](remove-fsxshadowstorage.md "remove-fsxshadowstorage.md")
 - [Troubleshooting shadow copies](shadow-copy-ts.md "shadow-copy-ts.md")
 
 ## Best practices when using shadow copies

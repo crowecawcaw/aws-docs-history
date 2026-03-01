@@ -212,8 +212,7 @@ Certain file system events can consume disk I/O performance resources and potent
 trigger performance warnings. For example:
 
 - The optimization phase of storage capacity scaling can generate increased disk throughput,
-  as described in [Storage capacity increases
-  and file system performance](managing-storage-configuration.md#storage-capacity-increase-and-performance "managing-storage-configuration.md#storage-capacity-increase-and-performance")
+  as described in [Storage capacity increases and file system performance](managing-storage-configuration.md#storage-capacity-increase-and-performance "managing-storage-configuration.md#storage-capacity-increase-and-performance")
 - For Multi-AZ file systems, events such as throughput capacity scaling, hardware replacement, or Availability
   Zone disruption result in automatic failover and failback events. Any data changes that occur during this time need
   to be synchronized between the primary and secondary file servers, and Windows Server runs a data synchronization job

@@ -18,15 +18,13 @@ _IAM User Guide_.
 ## AmazonFSxServiceRolePolicy
 
 Allows Amazon FSx to manage AWS resources on your behalf. See
-[Using service-linked roles for
-FSx for Windows File Server](using-service-linked-roles.md "using-service-linked-roles.md") to learn more.
+[Using service-linked roles for FSx for Windows File Server](using-service-linked-roles.md "using-service-linked-roles.md") to learn more.
 
 ## AWS managed policy: AmazonFSxDeleteServiceLinkedRoleAccess
 
 You can't attach `AmazonFSxDeleteServiceLinkedRoleAccess` to your IAM entities. This policy is linked to a service and used
 only with the service-linked role for that service. You cannot attach, detach, modify, or delete this policy. For more
-information, see [Using service-linked roles for
-FSx for Windows File Server](using-service-linked-roles.md "using-service-linked-roles.md").
+information, see [Using service-linked roles for FSx for Windows File Server](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy grants administrative permissions that allow Amazon FSx to delete its Service Linked Role for Amazon S3 access, used only by Amazon FSx for Lustre.
 
@@ -140,9 +138,7 @@ To view the permissions for this policy, see
 [AmazonFSxReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonFSxReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonFSxReadOnlyAccess.md")
 in the AWS Managed Policy Reference Guide.
 
-## Amazon FSx updates to AWS managed
-
-policies
+## Amazon FSx updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon FSx since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

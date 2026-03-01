@@ -70,9 +70,7 @@ configure the following types of notifications:
   reports help you identify patterns in file save attempts and make informed
   decisions about file screening policies. For more information, see [Storage Reports](fsrm-storage-reports.md "fsrm-storage-reports.md").
 
-## File screening management
-
-commands
+## File screening management commands
 
 You can access three families of FSx remote PowerShell commands for managing file
 screens:
@@ -89,10 +87,7 @@ screens:
    rules in parent folders. Use these commands when you need to allow specific file
    types in certain subfolders while maintaining broader restrictions.
 
-### List of File Screening FSx
-
-remote
-PowerShell commands
+### List of File Screening FSx remote PowerShell commands
 
 ###### Note
 
@@ -295,9 +290,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ### File Screen Template Commands
 
-####
-
-Get-FSxFSRMFileScreenTemplate
+#### Get-FSxFSRMFileScreenTemplate
 
 The `Get-FSxFSRMFileScreenTemplate` command retrieves one or more
 file screen templates from your file system.
@@ -321,9 +314,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ```
 
-####
-
-New-FSxFSRMFileScreenTemplate
+#### New-FSxFSRMFileScreenTemplate
 
 The `New-FSxFSRMFileScreenTemplate` command creates a file screen
 template that defines a reusable configuration for file screens. The template
@@ -392,9 +383,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ```
 
-####
-
-Remove-FSxFSRMFileScreenTemplate
+#### Remove-FSxFSRMFileScreenTemplate
 
 The `Remove-FSxFSRMFileScreenTemplate` command removes one or more
 file screen templates from your file system. When you remove a template, file
@@ -419,9 +408,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ```
 
-####
-
-Set-FSxFSRMFileScreenTemplate
+#### Set-FSxFSRMFileScreenTemplate
 
 The `Set-FSxFSRMFileScreenTemplate` command modifies the properties
 of existing file screen templates. Optionally updates file screens that were
@@ -481,9 +468,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ### File Screen Exception Commands
 
-####
-
-New-FSxFSRMFileScreenException
+#### New-FSxFSRMFileScreenException
 
 The `New-FSxFSRMFileScreenException` command creates a file screen
 exception that overrides any file screening rules that would otherwise apply to
@@ -528,9 +513,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ```
 
-####
-
-Get-FSxFSRMFileScreenException
+#### Get-FSxFSRMFileScreenException
 
 The `Get-FSxFSRMFileScreenException` command retrieves one or more
 file screen exceptions from your file system.
@@ -563,18 +546,14 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ```
 
-####
-
-Remove-FSxFSRMFileScreenException
+#### Remove-FSxFSRMFileScreenException
 
 The `Remove-FSxFSRMFileScreenException` command removes a file
 screen exception from a specified folder. After removal, the folder and its
 subfolders will be subject to any file screening rules from parent folders that
 were previously overridden by the exception.
 
-#####
-
-Parameters
+##### Parameters
 
 - `Folder (string)` - Required. The folder path from which to remove the file
   screen
@@ -593,9 +572,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ```
 
-####
-
-Set-FSxFSRMFileScreenException
+#### Set-FSxFSRMFileScreenException
 
 The `Set-FSxFSRMFileScreenException` command modifies the
 properties of a file screen exception.

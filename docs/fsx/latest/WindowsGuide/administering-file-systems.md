@@ -35,8 +35,7 @@ for remote management on PowerShell, and native Microsoft Windows Server graphic
 - [Managing throughput capacity](managing-throughput-capacity.md "managing-throughput-capacity.md")
 - [Managing network type](manage-network-type.md "manage-network-type.md")
 - [Tagging your Amazon FSx resources](tag-resources.md "tag-resources.md")
-- [Update a file
-  system using the AWS CLI](walkthrough03-update-file-system.md "walkthrough03-update-file-system.md")
+- [Update a file system using the AWS CLI](walkthrough03-update-file-system.md "walkthrough03-update-file-system.md")
 
 ## Amazon FSx file system status
 

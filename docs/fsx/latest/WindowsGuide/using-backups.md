@@ -67,8 +67,7 @@ level of critical functionality associated with them.
 You can use the AWS CLI or one of the AWS SDKs to change the backup window and backup
 retention period for your file systems. Use the [`UpdateFileSystem`](../APIReference/API_UpdateFileSystem.md "../APIReference/API_UpdateFileSystem.md")
 API operation or the [`update-file-system`](../../../cli/latest/reference/fsx/update-file-system.md "../../../cli/latest/reference/fsx/update-file-system.md")
-CLI command. For more information, see [Update a file
-system using the AWS CLI](walkthrough03-update-file-system.md "walkthrough03-update-file-system.md").
+CLI command. For more information, see [Update a file system using the AWS CLI](walkthrough03-update-file-system.md "walkthrough03-update-file-system.md").
 
 ###### Important
 

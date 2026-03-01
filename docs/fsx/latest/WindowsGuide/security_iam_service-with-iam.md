@@ -21,9 +21,7 @@ To get a high-level view of how FSx and other AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for FSx
+## Identity-based policies for FSx
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for FSx
 
-Identity-based policy examples for FSx
+To view examples of FSx for Windows File Server identity-based policies, see [Identity-based policy examples for Amazon FSx for Windows File Server](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of FSx for Windows File Server identity-based policies, see [Identity-based policy
-examples for Amazon FSx for Windows File Server](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within FSx
+## Resource-based policies within FSx
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for FSx
+## Policy actions for FSx
 
 **Supports policy actions:**
 
@@ -97,12 +88,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of FSx for Windows File Server identity-based policies, see [Identity-based policy
-examples for Amazon FSx for Windows File Server](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of FSx for Windows File Server identity-based policies, see [Identity-based policy examples for Amazon FSx for Windows File Server](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for FSx
+## Policy resources for FSx
 
 **Supports policy resources:**
 
@@ -122,12 +110,9 @@ To see a list of FSx resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by Amazon FSx for Windows File Server](../../../service-authorization/latest/reference/list_your_service.md#your_service-actions-as-permissions "../../../service-authorization/latest/reference/list_your_service.md#your_service-actions-as-permissions").
 
-To view examples of FSx for Windows File Server identity-based policies, see [Identity-based policy
-examples for Amazon FSx for Windows File Server](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of FSx for Windows File Server identity-based policies, see [Identity-based policy examples for Amazon FSx for Windows File Server](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for FSx
+## Policy condition keys for FSx
 
 **Supports service-specific policy condition keys:**
 
@@ -146,8 +131,7 @@ To see a list of FSx condition keys, see [Condition keys for Amazon FSx for Wind
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by Amazon FSx for Windows File Server](../../../service-authorization/latest/reference/list_your_service.md#your_service-actions-as-permissions "../../../service-authorization/latest/reference/list_your_service.md#your_service-actions-as-permissions").
 
-To view examples of FSx for Windows File Server identity-based policies, see [Identity-based policy
-examples for Amazon FSx for Windows File Server](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of FSx for Windows File Server identity-based policies, see [Identity-based policy examples for Amazon FSx for Windows File Server](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in FSx
 
@@ -175,9 +159,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with FSx
+## Using temporary credentials with FSx
 
 **Supports temporary credentials:**
 
@@ -198,9 +180,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-FSx
+## Service roles for FSx
 
 **Supports service roles:**
 
@@ -215,9 +195,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break FSx functionality.
 Edit service roles only when FSx provides guidance to do so.
 
-## Service-linked
-
-roles for FSx
+## Service-linked roles for FSx
 
 **Supports service-linked roles:**
 
@@ -227,5 +205,4 @@ A service-linked role is a type of service role that is linked to an AWS service
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
 but not edit the permissions for service-linked roles.
 
-For details about creating or managing FSx for Windows File Server service-linked roles, see [Using service-linked roles for
-FSx for Windows File Server](using-service-linked-roles.md "using-service-linked-roles.md").
+For details about creating or managing FSx for Windows File Server service-linked roles, see [Using service-linked roles for FSx for Windows File Server](using-service-linked-roles.md "using-service-linked-roles.md").

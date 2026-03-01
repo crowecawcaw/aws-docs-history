@@ -1,6 +1,4 @@
-# File- and folder-level access control using
-
-Windows ACLs
+# File- and folder-level access control using Windows ACLs
 
 Amazon FSx for Windows File Server supports identity-based authentication over the Server Message Block (SMB)
 protocol through Microsoft Active Directory. Active Directory is the Microsoft directory

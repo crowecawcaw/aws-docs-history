@@ -15,5 +15,4 @@ weekly maintenance window starts, described in the following procedure.
 6. Enter the new day and time that you want the weekly maintenance window to start.
 7. Choose **Save** to save your changes. The new maintenance start time is displayed in the **Administration Settings** panel.
    To change the start time of the weekly maintenance window using the [update-file-system](../../../cli/latest/reference/fsx/update-file-system.md "../../../cli/latest/reference/fsx/update-file-system.md") CLI command,
-   see [Update a file
-   system using the AWS CLI](walkthrough03-update-file-system.md "walkthrough03-update-file-system.md").
+   see [Update a file system using the AWS CLI](walkthrough03-update-file-system.md "walkthrough03-update-file-system.md").

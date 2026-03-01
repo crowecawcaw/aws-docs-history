@@ -34,9 +34,7 @@ your security and compliance objectives, see [Security in Amazon FSx](security.m
 
 ### Network security
 
-#### Don't modify or delete the ENI that's associated with your file
-
-system
+#### Don't modify or delete the ENI that's associated with your file system
 
 Your Amazon FSx file system is accessed through an elastic network interface (ENI) that resides in the virtual private cloud
 (VPC) that's associated with your file system. Modifying or deleting the network
@@ -157,9 +155,7 @@ increase throughput capacity to a value that's at least three times the value th
 expected to be driven by your workload to avoid Windows Server deleting your shadow
 copies. For more information, see [Impact of throughput capacity on performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance").
 
-### Increasing storage capacity and
-
-throughput capacity
+### Increasing storage capacity and throughput capacity
 
 Increase the storage capacity of your file system when it’s running low on free
 storage, or when you expect your storage requirements to grow larger than the
@@ -182,8 +178,7 @@ throughput capacity after the storage capacity increase is complete. Most worklo
 experience minimal performance impact during storage scaling. However, file systems with
 HDD storage type and workloads involving large numbers of end users, high levels of I/O, or
 datasets with large numbers of small files could temporarily experience a reduction in performance.
-For more information, see [Storage capacity increases
-and file system performance](managing-storage-configuration.md#storage-capacity-increase-and-performance "managing-storage-configuration.md#storage-capacity-increase-and-performance").
+For more information, see [Storage capacity increases and file system performance](managing-storage-configuration.md#storage-capacity-increase-and-performance "managing-storage-configuration.md#storage-capacity-increase-and-performance").
 
 ### Modifying throughput capacity during idle periods
 

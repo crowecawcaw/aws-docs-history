@@ -113,9 +113,7 @@ was reached.
 You can access commands for retrieving and modifying global settings. Use these commands
 to configure system-wide FSRM behavior.
 
-### List of FSRM Settings FSx remote
-
-PowerShell commands
+### List of FSRM Settings FSx remote PowerShell commands
 
 ###### Note
 

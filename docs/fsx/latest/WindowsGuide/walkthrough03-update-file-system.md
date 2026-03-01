@@ -1,6 +1,4 @@
-# Update a file
-
-system using the AWS CLI
+# Update a file system using the AWS CLI
 
 There are three elements that you can update using the procedures in this walkthrough. All
 other elements of your file system that you can update, you can do so from the console. These

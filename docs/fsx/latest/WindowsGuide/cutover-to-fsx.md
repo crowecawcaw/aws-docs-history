@@ -24,8 +24,7 @@ To prepare for the cutover to your Amazon FSx file system, you must do the follo
 
 - Disconnect all clients that write to the original file system.
 - Perform a final file sync using AWS DataSync or Robocopy. For more information, see [Migrating existing file storage to FSx for Windows File Server](migrate-files-fsx.md "migrate-files-fsx.md").
-- Perform a final file share configuration sync. For more information, see [Migrating your on-premises file share configurations to
-  Amazon FSx](migrate-file-share-config-to-fsx.md "migrate-file-share-config-to-fsx.md").
+- Perform a final file share configuration sync. For more information, see [Migrating your on-premises file share configurations to Amazon FSx](migrate-file-share-config-to-fsx.md "migrate-file-share-config-to-fsx.md").
 
 ## Configure SPNs for Kerberos authentication
 
@@ -68,9 +67,7 @@ new SPNs for your Amazon FSx file system's Active Directory computer object.
 Install-WindowsFeature RSAT-AD-PowerShell
 ```
 
-###### To find and delete existing DNS alias SPNs on the original file system's Active
-
-Directory computer object
+###### To find and delete existing DNS alias SPNs on the original file system's Active Directory computer object
 
 1. Find any existing SPNs by using the following commands. Replace `alias_fqdn`
    with the DNS alias that you associated with the file system in [Migrating your on-premises DNS configuration to FSx for Windows File Server](migrate-dns-config.md "migrate-dns-config.md").
@@ -131,8 +128,7 @@ SetSpn /S ("HOST/" + $Alias) $FSxAdComputer.Name
 
 Setting an SPN for your Amazon FSx file system will fail if an SPN for the DNS alias exists in the AD for the
 original file system's computer object. For information about finding and deleting existing SPNs, see
-[To find and delete existing DNS alias SPNs on the original file system's Active
-Directory computer object](#finddelete-existing-spn "#finddelete-existing-spn"). 2. Verify that the new SPNs are configured for the DNS alias using the following example script. Ensure that the
+[To find and delete existing DNS alias SPNs on the original file system's Active Directory computer object](#finddelete-existing-spn "#finddelete-existing-spn"). 2. Verify that the new SPNs are configured for the DNS alias using the following example script. Ensure that the
 response includes two HOST SPNs, `HOST/`alias`` and
  `HOST/`alias_fqdn``.
 

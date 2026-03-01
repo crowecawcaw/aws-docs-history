@@ -5,8 +5,7 @@ Following, you can find out about quotas when working with Amazon FSx for Window
 ###### Topics
 
 - [Quotas that you can increase](#soft-limits "#soft-limits")
-- [Resource quotas for each file
-  system](#limits-MFS-resources-file-system "#limits-MFS-resources-file-system")
+- [Resource quotas for each file system](#limits-MFS-resources-file-system "#limits-MFS-resources-file-system")
 - [Additional considerations](#limits-additional-considerations "#limits-additional-considerations")
 - [Quotas specific to Microsoft Windows](#ntfs-limits "#ntfs-limits")
 
@@ -38,9 +37,7 @@ that you can increase.
 For more information, see [Requesting a quota
 increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
 
-## Resource quotas for each file
-
-system
+## Resource quotas for each file system
 
 Following are the quotas on Amazon FSx for Windows File Server resources for each file system in an AWS Region.
 

@@ -10,9 +10,7 @@ The following procedures show you how to use Amazon FSx with WorkSpaces Applicat
 personal persistent storage to each user, and to provide a shared folder so that multiple users
 can access common files.
 
-## Providing personal persistent storage to each
-
-user
+## Providing personal persistent storage to each user
 
 You can use Amazon FSx to provide every user in your organization a unique storage drive within
 WorkSpaces Applications streaming sessions. A user will have permissions to access only their folder. The drive is

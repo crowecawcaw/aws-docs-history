@@ -36,8 +36,7 @@ FSx for Windows File Server will not create the domain group under the following
     + If you do not specify a name, and a group named "Domain Admins" already
      exists in your Active Directory.
 
-For more information, see [Joining an Amazon FSx file system to a self-managed
-Microsoft Active Directory domain](creating-joined-ad-file-systems.md "creating-joined-ad-file-systems.md").
+For more information, see [Joining an Amazon FSx file system to a self-managed Microsoft Active Directory domain](creating-joined-ad-file-systems.md "creating-joined-ad-file-systems.md").
 
 ###### Topics
 
@@ -47,8 +46,7 @@ Microsoft Active Directory domain](creating-joined-ad-file-systems.md "creating-
 - [Amazon FSx service account](#self-managed-AD-service-account "#self-managed-AD-service-account")
 - [Delegating permissions to the Amazon FSx service account or group](assign-permissions-to-service-account.md "assign-permissions-to-service-account.md")
 - [Validating your Active Directory configuration](validate-ad-config.md "validate-ad-config.md")
-- [Joining an Amazon FSx file system to a self-managed
-  Microsoft Active Directory domain](creating-joined-ad-file-systems.md "creating-joined-ad-file-systems.md")
+- [Joining an Amazon FSx file system to a self-managed Microsoft Active Directory domain](creating-joined-ad-file-systems.md "creating-joined-ad-file-systems.md")
 - [Getting the correct file system IP addresses to use for manual DNS entries](file-system-ip-addresses-for-dns.md "file-system-ip-addresses-for-dns.md")
 - [Updating a self-managed Active Directory configuration](update-self-ad-config.md "update-self-ad-config.md")
 - [Changing the Amazon FSx service account](changing-ad-service-account.md "changing-ad-service-account.md")

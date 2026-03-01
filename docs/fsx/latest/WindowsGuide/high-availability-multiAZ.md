@@ -15,9 +15,7 @@ technology and a set of storage volumes on each of the two AZs. Data is replicat
 provide enhanced durability by further replicating data across AZs, and enhanced availability during planned system maintenance and unplanned service disruption by failing over automatically
 to the standby AZ. This allows you to continue accessing your data, and helps to protect your data against instance failure and AZ disruption.
 
-## Choosing Single-AZ or Multi-AZ file system
-
-deployment type
+## Choosing Single-AZ or Multi-AZ file system deployment type
 
 We recommend using Multi-AZ file systems for most production workloads given the high availability and durability model it provides. Single-AZ deployment is designed as a cost-efficient solution for
 test and development workloads, certain production workloads that have replication built into the application layer and do not require additional storage-level redundancy, and production workloads that

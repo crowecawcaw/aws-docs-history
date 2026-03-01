@@ -48,18 +48,14 @@ is configured properly, select the **Attempt Recovery** button next to the
 
 ###### Topics
 
-- [Misconfigured file system: Amazon FSx can't reach either the DNS
-  servers or domain controllers for your domain.](#w2aac37c13c21 "#w2aac37c13c21")
+- [Misconfigured file system: Amazon FSx can't reach either the DNS servers or domain controllers for your domain.](#w2aac37c13c21 "#w2aac37c13c21")
 - [Misconfigured file system: The service account credentials are invalid](#w2aac37c13c23 "#w2aac37c13c23")
 - [Misconfigured file system: The AWS Secrets Manager secret or KMS key is not configured correctly](#w2aac37c13c25 "#w2aac37c13c25")
-- [Misconfigured file system: The service account provided doesn't have
-  permission to join the file system to the domain](#w2aac37c13c27 "#w2aac37c13c27")
+- [Misconfigured file system: The service account provided doesn't have permission to join the file system to the domain](#w2aac37c13c27 "#w2aac37c13c27")
 - [Misconfigured file system: The service account can't join any more computers to domain](#w2aac37c13c29 "#w2aac37c13c29")
 - [Misconfigured file system: The service account doesn't have access to the OU](#w2aac37c13c31 "#w2aac37c13c31")
 
-## Misconfigured file system: Amazon FSx can't reach either the DNS
-
-servers or domain controllers for your domain.
+## Misconfigured file system: Amazon FSx can't reach either the DNS servers or domain controllers for your domain.
 
 A file system will go into a `Misconfigured` state when Amazon FSx
 can't communicate with your Microsoft Active Directory domain controller or
@@ -114,9 +110,7 @@ To resolve the misconfiguration, do the following:
    - `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_PASSWORD` – Your AD service account password.
    - Verify that the secret and key have a resource-based policy that grants the Amazon FSx service principal `fsx.amazonaws.com` permission to retrieve the secret value.
 
-## Misconfigured file system: The service account provided doesn't have
-
-permission to join the file system to the domain
+## Misconfigured file system: The service account provided doesn't have permission to join the file system to the domain
 
 Amazon FSx can't establish a connection to your Microsoft Active Directory domain
 controllers. This is because the service account provided doesn't have

@@ -8,12 +8,10 @@ understanding your file system’s performance, see [FSx for Windows File Server
 ###### Topics
 
 - [How do I determine the throughput and IOPS limits for my file system?](#perf-throughput-IOPS-limits "#perf-throughput-IOPS-limits")
-- [What is the difference between network I/O and disk I/O? Why is my network I/O
-  different from my disk I/O?](#perf-whatis-networkio-diskio "#perf-whatis-networkio-diskio")
+- [What is the difference between network I/O and disk I/O? Why is my network I/O different from my disk I/O?](#perf-whatis-networkio-diskio "#perf-whatis-networkio-diskio")
 - [Why is my CPU or memory usage high, even when my network I/O is low?](#why-cpu-mem-high "#why-cpu-mem-high")
 - [What is bursting? How much bursting is my file system using? What happens when burst credits run out?](#what-is-bursting "#what-is-bursting")
-- [I see a warning on the Monitoring & performance page – do I need to change my file
-  system’s configuration?](#warnings "#warnings")
+- [I see a warning on the Monitoring & performance page – do I need to change my file system’s configuration?](#warnings "#warnings")
 - [My metrics were temporarily missing, should I be concerned?](#missing-metrics "#missing-metrics")
 
 ## How do I determine the throughput and IOPS limits for my file system?
@@ -21,9 +19,7 @@ understanding your file system’s performance, see [FSx for Windows File Server
 To view a file system's throughput and IOPS limits, refer to the [table showing performance levels](performance.md#performance-table "performance.md#performance-table")
 based on the amount of provision throughput capacity.
 
-## What is the difference between network I/O and disk I/O? Why is my network I/O
-
-different from my disk I/O?
+## What is the difference between network I/O and disk I/O? Why is my network I/O different from my disk I/O?
 
 Amazon FSx file systems include one or more file servers that serve data over the network to
 the clients accessing the file system. This is the network I/O. The file server has a fast, in-memory cache
@@ -66,9 +62,7 @@ baseline limits, and can use these credits to burst above the baseline limits (u
 limits) when required. For more information about the burst limits and duration for your file system,
 see [FSx for Windows File Server performance](performance.md "performance.md").
 
-## I see a warning on the **Monitoring & performance** page – do I need to change my file
-
-system’s configuration?
+## I see a warning on the **Monitoring & performance** page – do I need to change my file system’s configuration?
 
 The **Monitoring & performance** page includes warnings that indicate when recent workload
 demands have approached or exceeded resource limits determined by how you’ve configured
@@ -89,8 +83,7 @@ Certain file system events can consume disk I/O performance resources and potent
 trigger performance warnings. For example:
 
 - The optimization phase of storage capacity scaling can generate increased disk throughput, as described in
-  [Storage capacity increases
-  and file system performance](managing-storage-configuration.md#storage-capacity-increase-and-performance "managing-storage-configuration.md#storage-capacity-increase-and-performance")
+  [Storage capacity increases and file system performance](managing-storage-configuration.md#storage-capacity-increase-and-performance "managing-storage-configuration.md#storage-capacity-increase-and-performance")
 - For Multi-AZ file systems, events such as throughput capacity scaling, hardware replacement, or Availability
   Zone disruption result in automatic failover and failback events. Any data changes that occur during this time need
   to be synchronized between the primary and secondary file servers, and Windows Server runs a data synchronization job

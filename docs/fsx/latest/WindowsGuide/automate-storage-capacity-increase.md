@@ -1,6 +1,4 @@
-# Increasing the storage capacity of
-
-an FSx for Windows File Server file system dynamically
+# Increasing the storage capacity of an FSx for Windows File Server file system dynamically
 
 As an alternative to manually increasing your FSx for Windows File Server file system's storage capacity as the amount of data stored increases,
 you can use a CloudFormation template to increase storage automatically. The solution presented in the this section dynamically increases
@@ -25,8 +23,7 @@ The solution takes in the following parameters:
 
 - [Architecture overview](#storage-inc-architecture "#storage-inc-architecture")
 - [CloudFormation template](#storage-capacity-CFN-template "#storage-capacity-CFN-template")
-- [Automated deployment with
-  CloudFormation](#fsx-dynamic-storage-increase-deployment "#fsx-dynamic-storage-increase-deployment")
+- [Automated deployment with CloudFormation](#fsx-dynamic-storage-increase-deployment "#fsx-dynamic-storage-increase-deployment")
 
 ## Architecture overview
 
@@ -112,9 +109,7 @@ No default value. Specifies the amount by which to increase the
 storage capacity, expressed as a percentage of the current storage
 capacity.
 
-## Automated deployment with
-
-CloudFormation
+## Automated deployment with CloudFormation
 
 The following procedure configures and deploys an CloudFormation stack to automatically
 increase the storage capacity of an FSx for Windows File Server file system. It takes about 5
@@ -155,9 +150,7 @@ You can view the status of the stack in the CloudFormation console in the
 **Status** column. You should see a status of
 **CREATE_COMPLETE** in about 5 minutes.
 
-### Updating the
-
-stack
+### Updating the stack
 
 After the stack is created, you can update it by using the same template and
 providing new values for the parameters. For more information, see [Updating stacks directly](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-direct.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-direct.md") in the

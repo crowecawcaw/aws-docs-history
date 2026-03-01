@@ -1,6 +1,4 @@
-# Creating a new Amazon FSx file system
-
-fails
+# Creating a new Amazon FSx file system fails
 
 There are a number of potential causes when a file system creation request fails,
 as described in the following section.
@@ -48,8 +46,7 @@ Use the following steps to resolve the issue.
    to validate your self-managed Active Directory configuration prior to creating an FSx for Windows File Server file system that's joined
    to a self-managed Active Directory.
 3. Create a new file system using the AWS Management Console or AWS CLI. For more information, see
-   [Joining an Amazon FSx file system to a self-managed
-   Microsoft Active Directory domain](creating-joined-ad-file-systems.md "creating-joined-ad-file-systems.md").
+   [Joining an Amazon FSx file system to a self-managed Microsoft Active Directory domain](creating-joined-ad-file-systems.md "creating-joined-ad-file-systems.md").
 4. Provide a name for the file system administrator group that is unique in the domain for your self-managed Active Directory.
 
 ## DNS servers or domain controllers unreachable
@@ -397,7 +394,6 @@ capacity before the increase request was less than 2000 GiB, which is the minimu
 Use the following procedure to resolve this issue.
 
 1. Wait for the storage capacity increase request to complete and the file system has at least 2000 GiB of SSD storage capacity.
-   For more information, see [Monitoring storage capacity
-   increases](monitoring-storage-capacity-increase.md "monitoring-storage-capacity-increase.md").
+   For more information, see [Monitoring storage capacity increases](monitoring-storage-capacity-increase.md "monitoring-storage-capacity-increase.md").
 2. Take a user-initiated backup of the file system. For more information, see [Working with user-initiated backups](using-backups.md#user-initiated-backups "using-backups.md#user-initiated-backups").
 3. Restore the user-initiated backup to a new file system using HDD storage. For more information, see [Restoring backups to new file system](using-backups.md#restoring-backups "using-backups.md#restoring-backups").

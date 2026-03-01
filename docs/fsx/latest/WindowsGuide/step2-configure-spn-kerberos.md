@@ -49,9 +49,7 @@ The following procedures describes how to do the following:
 Install-WindowsFeature RSAT-AD-PowerShell
 ```
 
-###### To find and delete existing DNS alias SPNs on the original file system's Active
-
-Directory computer object
+###### To find and delete existing DNS alias SPNs on the original file system's Active Directory computer object
 
 If you have SPNs conﬁgured for the DNS alias that you've assigned to another ﬁle system on a
 computer object in your Active Directory, you must ﬁrst remove those SPNs before adding SPNs to
@@ -117,8 +115,7 @@ Set-AdComputer -Identity $FSxAdComputer -Add @{"msDS-AdditionalDnsHostname" = @(
 
 Setting an SPN for your Amazon FSx file system will fail if an SPN for the DNS alias exists in the AD for the
 original file system's computer object. For information about finding and deleting existing SPNs, see
-[To find and delete existing DNS alias SPNs on the original file system's Active
-Directory computer object](#find-delete-existing-spns "#find-delete-existing-spns"). 2. Verify that the new SPNs are configured for the DNS alias using the following example script. Ensure that the
+[To find and delete existing DNS alias SPNs on the original file system's Active Directory computer object](#find-delete-existing-spns "#find-delete-existing-spns"). 2. Verify that the new SPNs are configured for the DNS alias using the following example script. Ensure that the
 response includes two HOST SPNs, `HOST/`alias`` and
  `HOST/`alias_fqdn``, as described previously in this procedure.
 

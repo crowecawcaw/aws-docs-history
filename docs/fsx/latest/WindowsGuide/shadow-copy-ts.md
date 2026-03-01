@@ -7,8 +7,7 @@ as described in the following section.
 
 - [Oldest shadow copies are missing](#w2aac22c11c37b7 "#w2aac22c11c37b7")
 - [All of my shadow copies are missing](#w2aac22c11c37b9 "#w2aac22c11c37b9")
-- [Cannot create Amazon FSx backups or access shadow copies on a recently restored or updated file
-  system](#w2aac22c11c37c11 "#w2aac22c11c37c11")
+- [Cannot create Amazon FSx backups or access shadow copies on a recently restored or updated file system](#w2aac22c11c37c11 "#w2aac22c11c37c11")
 
 ## Oldest shadow copies are missing
 
@@ -41,9 +40,7 @@ Consider the following recommendations to help prevent this problem:
 For more information, see
 [File system recommendations for shadow copies](shadow-copies-fsxW.md#shadow-cpy-config-recommend "shadow-copies-fsxW.md#shadow-cpy-config-recommend").
 
-## Cannot create Amazon FSx backups or access shadow copies on a recently restored or updated file
-
-system
+## Cannot create Amazon FSx backups or access shadow copies on a recently restored or updated file system
 
 This is expected behavior. Amazon FSx rebuilds the shadow-copy state on a recently restored file system and does not allow
 access to shadow copies or backups while the rebuilding is still in progress.

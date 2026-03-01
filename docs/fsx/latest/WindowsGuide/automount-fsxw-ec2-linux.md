@@ -25,9 +25,7 @@ password=Password123
 domain=EXAMPLE.COM`
 ```
 
-## To automatically mount a file share on an Amazon Linux
-
-EC2 instance not joined to your Active Directory
+## To automatically mount a file share on an Amazon Linux EC2 instance not joined to your Active Directory
 
 ###### To launch and configure the Amazon Linux EC2 instance
 
