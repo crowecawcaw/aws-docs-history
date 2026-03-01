@@ -22,7 +22,7 @@ results. Find insights from output using serverless data integration, interactiv
 3. Use **AWS Glue** to perform the Extract, Transform, Load (ETL) task
    on data saved in **Amazon Simple Storage Service** (Amazon S3). Analyze the data with
    **Amazon Athena** through interactive Structured Query Language
-   (SQL) queries. Connect the results with **Amazon Quick Suite** for Business
+   (SQL) queries. Connect the results with **Amazon Quick** for Business
    Intelligence (BI) reporting and actionable insights delivery. Use **Amazon SageMaker AI**
    to identify power grid operation patterns and detect anomalies.
 4. Use **AWS Directory Service** to run Microsoft Active Directory (AD) for
