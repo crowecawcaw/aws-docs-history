@@ -1,6 +1,4 @@
-# Controlling how special types of
-
-words are spoken
+# Controlling how special types of words are spoken
 
 _<say-as>_
 

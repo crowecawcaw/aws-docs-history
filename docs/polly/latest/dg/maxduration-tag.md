@@ -1,6 +1,4 @@
-# Setting a maximum duration for
-
-synthesized speech
+# Setting a maximum duration for synthesized speech
 
 _<prosody amazon:max-duration>_
 

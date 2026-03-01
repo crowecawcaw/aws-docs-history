@@ -1,6 +1,4 @@
-# Amazon Polly API Permissions: Actions,
-
-Permissions, and Resources Reference
+# Amazon Polly API Permissions: Actions, Permissions, and Resources Reference
 
 When you're setting up a permissions policy that you can attach to an IAM identity
 (identity-based policies), you can use the following table

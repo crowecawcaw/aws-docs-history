@@ -42,9 +42,7 @@ example:
 
 When you use "`drc`" in the `amazon:effect` syntax, it is case-sensitive.
 
-###### Using `drc` with the `prosody
-
-volume` Tag
+###### Using `drc` with the `prosody volume` Tag
 
 As the following graphic shows, the `prosody
  volume` tag evenly increases the volume of an

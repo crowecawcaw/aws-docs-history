@@ -1,6 +1,4 @@
-# Using SSML
-
-with the Synthesize-Speech command
+# Using SSML with the Synthesize-Speech command
 
 This example shows how to use the
 `synthesize-speech` command with an SSML string.

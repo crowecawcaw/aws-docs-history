@@ -1,6 +1,4 @@
-# Synthesizing
-
-an SSML-enhanced document
+# Synthesizing an SSML-enhanced document
 
 For longer input text, you may find it easier to save your
 SSML content to a file and simply specify the file name in the
@@ -21,8 +19,7 @@ The `xml:lang` attribute specifies
 `en-US` (US English) as the language of the input
 text. For information about how the language of the input text
 and the language of the chosen voice affect the
-`SynthesizeSpeech` operation, see [Specifying another language for
-specific words](lang-tag.md "lang-tag.md").
+`SynthesizeSpeech` operation, see [Specifying another language for specific words](lang-tag.md "lang-tag.md").
 
 ###### To run an SSML-enhanced file
 

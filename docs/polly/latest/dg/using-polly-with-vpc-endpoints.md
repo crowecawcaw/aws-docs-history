@@ -53,9 +53,7 @@ For more information, see
 [Creating an Interface Endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint.html "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint.html")
 in the _Amazon VPC User Guide._
 
-## Testing the connection between
-
-your VPC and Amazon Polly
+## Testing the connection between your VPC and Amazon Polly
 
 After you create the endpoint, you can test the connection.
 

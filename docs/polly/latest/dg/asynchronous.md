@@ -41,6 +41,5 @@ bucket encryption](../../../AmazonS3/latest/dev/bucket-encryption.md "../../../A
 
 ###### Topics
 
-- [Setting up the IAM policy for asynchronous
-  synthesis](asynchronous-iam.md "asynchronous-iam.md")
+- [Setting up the IAM policy for asynchronous synthesis](asynchronous-iam.md "asynchronous-iam.md")
 - [Creating long audio files](longer-console.md "longer-console.md")

@@ -59,8 +59,6 @@ control the output so that it precisely fits your needs.
 
 - [Reserved characters in SSML](escapees.md "escapees.md")
 - [Using SSML on the console](ssml-to-speech-console.md "ssml-to-speech-console.md")
-- [Using SSML
-  with the Synthesize-Speech command](example-ssml-synthesize-speech-cli.md "example-ssml-synthesize-speech-cli.md")
-- [Synthesizing
-  an SSML-enhanced document](example-ssml-synthesize-document.md "example-ssml-synthesize-document.md")
+- [Using SSML with the Synthesize-Speech command](example-ssml-synthesize-speech-cli.md "example-ssml-synthesize-speech-cli.md")
+- [Synthesizing an SSML-enhanced document](example-ssml-synthesize-document.md "example-ssml-synthesize-document.md")
 - [Supported SSML tags](supportedtags.md "supportedtags.md")

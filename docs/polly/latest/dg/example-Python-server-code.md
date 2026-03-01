@@ -1,9 +1,6 @@
-# Python example: Python Server Code
+# Python example: Python Server Code (server.py)
 
-(server.py)
-
-This section provides the code for the Python server described in [Python example (HTML5 Client and Python
-Server)](examples-python.md "examples-python.md").
+This section provides the code for the Python server described in [Python example (HTML5 Client and Python Server)](examples-python.md "examples-python.md").
 
 ```
 """

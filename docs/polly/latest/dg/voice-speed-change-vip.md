@@ -43,5 +43,4 @@ Two speed options are available to you when using SSML with Amazon Polly:
 Test your selected voice at various speeds. The speed of each option is
 approximate and depends on the voice you choose.
 
-For more information on using the `prosody` tag, see [Controlling volume, speaking rate,
-and pitch](prosody-tag.md "prosody-tag.md") .
+For more information on using the `prosody` tag, see [Controlling volume, speaking rate, and pitch](prosody-tag.md "prosody-tag.md").

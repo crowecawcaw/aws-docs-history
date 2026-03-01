@@ -16,7 +16,6 @@ the steps described in [Getting started with Amazon Polly](getting-started.md "g
 - [Java samples](java-samples.md "java-samples.md")
 - [Python samples](python-samples.md "python-samples.md")
 - [Java example](examples-java.md "examples-java.md")
-- [Python example (HTML5 Client and Python
-  Server)](examples-python.md "examples-python.md")
+- [Python example (HTML5 Client and Python Server)](examples-python.md "examples-python.md")
 - [iOS example](examples-ios.md "examples-ios.md")
 - [Android example](examples-android.md "examples-android.md")

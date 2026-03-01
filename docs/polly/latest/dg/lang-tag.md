@@ -1,6 +1,4 @@
-# Specifying another language for
-
-specific words
+# Specifying another language for specific words
 
 _<lang>_
 

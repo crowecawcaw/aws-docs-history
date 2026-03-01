@@ -1,6 +1,4 @@
-# Python example (HTML5 Client and Python
-
-Server)
+# Python example (HTML5 Client and Python Server)
 
 This example application consists of the following:
 
@@ -28,11 +26,9 @@ To run this example application you need the following:
 ###### To test the application
 
 1. Save the server code as `server.py`. For the code, see
-   [Python example: Python Server Code
-   (server.py)](example-Python-server-code.md "example-Python-server-code.md").
+   [Python example: Python Server Code (server.py)](example-Python-server-code.md "example-Python-server-code.md").
 2. Save the HTML5 client code as `index.html`. For the
-   code, see [Python example: HTML5 User Interface
-   (index.html)](example-html-app.md "example-html-app.md").
+   code, see [Python example: HTML5 User Interface (index.html)](example-html-app.md "example-html-app.md").
 3. Run the following command from the path where you saved server.py to start
    the application (on some systems you might need to use `python3`
    instead of `python` when running the command).

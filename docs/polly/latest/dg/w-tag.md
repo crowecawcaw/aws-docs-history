@@ -1,6 +1,4 @@
-# Improving pronunciation by specifying
-
-parts of speech
+# Improving pronunciation by specifying parts of speech
 
 _<w>_
 

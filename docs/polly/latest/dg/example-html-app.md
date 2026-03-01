@@ -1,9 +1,6 @@
-# Python example: HTML5 User Interface
+# Python example: HTML5 User Interface (index.html)
 
-(index.html)
-
-This section provides the code for the HTML5 client described in [Python example (HTML5 Client and Python
-Server)](examples-python.md "examples-python.md").
+This section provides the code for the HTML5 client described in [Python example (HTML5 Client and Python Server)](examples-python.md "examples-python.md").
 
 ```
 <html>

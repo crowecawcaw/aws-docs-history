@@ -1,6 +1,4 @@
-# Basic examples for
-
-Amazon Polly using AWS SDKs
+# Basic examples for Amazon Polly using AWS SDKs
 
 The following code examples show how to use the basics of Amazon Polly with AWS
 SDKs.

@@ -1,6 +1,4 @@
-# Controlling volume, speaking rate,
-
-and pitch
+# Controlling volume, speaking rate, and pitch
 
 _<prosody>_
 

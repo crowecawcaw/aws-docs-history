@@ -1,6 +1,4 @@
-# Setting up the IAM policy for asynchronous
-
-synthesis
+# Setting up the IAM policy for asynchronous synthesis
 
 In order to use the asynchronous synthesis functionality, you will need an IAM policy
 that allows the following:
