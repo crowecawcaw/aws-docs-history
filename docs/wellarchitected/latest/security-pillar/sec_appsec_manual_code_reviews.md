@@ -127,8 +127,7 @@ repositories and continuous integration/continuous deployment
 
 **Related best practices:**
 
-- [SEC11-BP02 Automate testing throughout the development and
-  release lifecycle](sec_appsec_automate_testing_throughout_lifecycle.md "sec_appsec_automate_testing_throughout_lifecycle.md")
+- [SEC11-BP02 Automate testing throughout the development and release lifecycle](sec_appsec_automate_testing_throughout_lifecycle.md "sec_appsec_automate_testing_throughout_lifecycle.md")
 
 **Related documents:**
 

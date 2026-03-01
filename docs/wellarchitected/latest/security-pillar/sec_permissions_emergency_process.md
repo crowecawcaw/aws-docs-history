@@ -1,6 +1,4 @@
-# SEC03-BP03 Establish emergency access
-
-process
+# SEC03-BP03 Establish emergency access process
 
 Create a process that allows for emergency access to your workloads
 in the unlikely event of an issue with your centralized identity

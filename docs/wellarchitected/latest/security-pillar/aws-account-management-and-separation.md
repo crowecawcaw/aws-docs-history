@@ -1,6 +1,4 @@
-# AWS account management and
-
-separation
+# AWS account management and separation
 
 We recommend that you organize workloads in separate accounts and group accounts based on
 function, compliance requirements, or a common set of controls rather than mirroring your

@@ -1,6 +1,4 @@
-# SEC04-BP04 Initiate remediation for non-compliant
-
-resources
+# SEC04-BP04 Initiate remediation for non-compliant resources
 
 Your detective controls may alert on resources that are out of
 compliance with your configuration requirements. You can initiate

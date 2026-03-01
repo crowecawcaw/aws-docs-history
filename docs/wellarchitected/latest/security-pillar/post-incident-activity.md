@@ -13,5 +13,4 @@ effectively respond, no matter the situation.
 
 ###### Best practices
 
-- [SEC10-BP08 Establish a framework for learning from
-  incidents](sec_incident_response_establish_incident_framework.md "sec_incident_response_establish_incident_framework.md")
+- [SEC10-BP08 Establish a framework for learning from incidents](sec_incident_response_establish_incident_framework.md "sec_incident_response_establish_incident_framework.md")

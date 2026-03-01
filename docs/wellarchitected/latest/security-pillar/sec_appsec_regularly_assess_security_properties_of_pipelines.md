@@ -1,6 +1,4 @@
-# SEC11-BP07 Regularly assess security properties of the
-
-pipelines
+# SEC11-BP07 Regularly assess security properties of the pipelines
 
 Apply the principles of the Well-Architected Security Pillar to
 your pipelines, with particular attention to the separation of

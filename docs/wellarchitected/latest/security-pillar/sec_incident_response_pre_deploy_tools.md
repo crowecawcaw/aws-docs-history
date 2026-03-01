@@ -43,8 +43,7 @@ Having a consistent tagging strategy can speed up response times and minimize ti
 **Related Well-Architected best practices:**
 
 - [SEC04-BP01 Configure service and application logging](sec_detect_investigate_events_app_service_logging.md "sec_detect_investigate_events_app_service_logging.md")
-- [SEC04-BP02 Capture logs, findings, and metrics
-  in standardized locations](sec_detect_investigate_events_logs.md "sec_detect_investigate_events_logs.md")
+- [SEC04-BP02 Capture logs, findings, and metrics in standardized locations](sec_detect_investigate_events_logs.md "sec_detect_investigate_events_logs.md")
 
 **Related documents:**
 

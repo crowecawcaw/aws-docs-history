@@ -1,6 +1,4 @@
-# SEC10-BP08 Establish a framework for learning from
-
-incidents
+# SEC10-BP08 Establish a framework for learning from incidents
 
 Implementing a *lessons learned* framework and
 root cause analysis capability can not only help improve incident

@@ -1,6 +1,4 @@
-# SEC01-BP08 Evaluate and implement new security services and
-
-features regularly
+# SEC01-BP08 Evaluate and implement new security services and features regularly
 
 Evaluate and implement security services and features from AWS and
 AWS Partners that help you evolve the security posture of your

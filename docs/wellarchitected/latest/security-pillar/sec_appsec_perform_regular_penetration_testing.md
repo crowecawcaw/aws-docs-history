@@ -81,8 +81,7 @@ any issues to be remediated.
 **Related best practices:**
 
 - [SEC11-BP01 Train for application security](sec_appsec_train_for_application_security.md "sec_appsec_train_for_application_security.md")
-- [SEC11-BP02 Automate testing throughout the development and
-  release lifecycle](sec_appsec_automate_testing_throughout_lifecycle.md "sec_appsec_automate_testing_throughout_lifecycle.md")
+- [SEC11-BP02 Automate testing throughout the development and release lifecycle](sec_appsec_automate_testing_throughout_lifecycle.md "sec_appsec_automate_testing_throughout_lifecycle.md")
 
 **Related documents:**
 

@@ -1,6 +1,4 @@
-# SEC06-BP03 Reduce manual management and interactive
-
-access
+# SEC06-BP03 Reduce manual management and interactive access
 
 Use automation to perform deployment, configuration, maintenance,
 and investigative tasks wherever possible. Consider manual access to

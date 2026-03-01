@@ -1,6 +1,4 @@
-# SEC04-BP02 Capture logs, findings, and metrics
-
-in standardized locations
+# SEC04-BP02 Capture logs, findings, and metrics in standardized locations
 
 Security teams rely on logs and findings to analyze events that may
 indicate unauthorized activity or unintentional changes. To
@@ -107,7 +105,7 @@ management process, distinct from the tools that access them.
  Consider using services, such as
 [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/"), to run on-demand queries that correlate multiple
 data sources. You can also integrate visualization tools, such as
-[Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"). AI-powered solutions are becoming increasingly
+[Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"). AI-powered solutions are becoming increasingly
 available and can perform functions such as translating findings
 into human-readable summaries and natural language interaction. These solutions are often more readily integrated by having a
 standardized data storage location for querying.
@@ -148,7 +146,7 @@ standardized data storage location for querying.
 
 4. **Configure tools to access your
    standardized locations**
-   1. Configure tools such as Amazon Athena, Quick Suite,
+   1. Configure tools such as Amazon Athena, Quick,
       or third-party solutions to have the access required to
       your standardized locations.  Configure these tools to
       operate out of the Security Tooling account with
@@ -181,9 +179,9 @@ standardized data storage location for querying.
 
 - [Aggregating,
   searching, and visualizing log data from distributed sources
-  with Amazon Athena and Quick Suite](https://aws.amazon.com/blogs/security/aggregating-searching-and-visualizing-log-data-from-distributed-sources-with-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/security/aggregating-searching-and-visualizing-log-data-from-distributed-sources-with-amazon-athena-and-amazon-quicksight/")
+  with Amazon Athena and Quick](https://aws.amazon.com/blogs/security/aggregating-searching-and-visualizing-log-data-from-distributed-sources-with-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/security/aggregating-searching-and-visualizing-log-data-from-distributed-sources-with-amazon-athena-and-amazon-quicksight/")
 - [How
-  to visualize Amazon Security Lake findings with Quick Suite](https://aws.amazon.com/blogs/security/how-to-visualize-amazon-security-lake-findings-with-amazon-quicksight/ "https://aws.amazon.com/blogs/security/how-to-visualize-amazon-security-lake-findings-with-amazon-quicksight/")
+  to visualize Amazon Security Lake findings with Quick](https://aws.amazon.com/blogs/security/how-to-visualize-amazon-security-lake-findings-with-amazon-quicksight/ "https://aws.amazon.com/blogs/security/how-to-visualize-amazon-security-lake-findings-with-amazon-quicksight/")
 - [Generate
   AI powered insights for Amazon Security Lake using Amazon SageMaker AI Studio and Amazon Bedrock](https://aws.amazon.com/blogs/security/generate-ai-powered-insights-for-amazon-security-lake-using-amazon-sagemaker-studio-and-amazon-bedrock/ "https://aws.amazon.com/blogs/security/generate-ai-powered-insights-for-amazon-security-lake-using-amazon-sagemaker-studio-and-amazon-bedrock/")
 - [Identify
@@ -202,5 +200,5 @@ standardized data storage location for querying.
 - [Open Cybersecurity
   Schema Framework (OCSF)](https://github.com/ocsf "https://github.com/ocsf")
 - [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/")
-- [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
+- [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
 - [Amazon Bedrock](https://aws.amazon.com/bedrock/ "https://aws.amazon.com/bedrock/")

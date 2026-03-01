@@ -1,6 +1,4 @@
-# SEC10-BP04 Develop and test security incident response
-
-playbooks
+# SEC10-BP04 Develop and test security incident response playbooks
 
 A key part of preparing your incident response processes is
 developing playbooks. Incident response playbooks provide

@@ -1,6 +1,4 @@
-# SEC11-BP08 Build a program that embeds security ownership in
-
-workload teams
+# SEC11-BP08 Build a program that embeds security ownership in workload teams
 
 Build a program or mechanism that empowers builder teams to
 make security decisions about the software that they create. Your
@@ -79,8 +77,7 @@ and security communities.
 **Related best practices:**
 
 - [SEC11-BP01 Train for application security](sec_appsec_train_for_application_security.md "sec_appsec_train_for_application_security.md")
-- [SEC11-BP02 Automate testing throughout the development and
-  release lifecycle](sec_appsec_automate_testing_throughout_lifecycle.md "sec_appsec_automate_testing_throughout_lifecycle.md")
+- [SEC11-BP02 Automate testing throughout the development and release lifecycle](sec_appsec_automate_testing_throughout_lifecycle.md "sec_appsec_automate_testing_throughout_lifecycle.md")
 
 **Related documents:**
 
