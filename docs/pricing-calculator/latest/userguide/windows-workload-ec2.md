@@ -1,6 +1,4 @@
-# Generating estimates for Windows Servers and SQL Servers on
-
-EC2 Dedicated Hosts
+# Generating estimates for Windows Servers and SQL Servers on EC2 Dedicated Hosts
 
 You can use the workload calculator in AWS Pricing Calculator as a guide to the AWS tenancy
 qualifications for Microsoft Windows Server and SQL Server on Amazon Elastic Compute Cloud (Amazon EC2). You can use
@@ -13,8 +11,7 @@ AWS](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com
 ###### Topics
 
 - [Procedure](#windows-sql-ec2-estimate "#windows-sql-ec2-estimate")
-- [Licensing and tenancy
-  recommendations](#estimate-workload-tenancy-ec2 "#estimate-workload-tenancy-ec2")
+- [Licensing and tenancy recommendations](#estimate-workload-tenancy-ec2 "#estimate-workload-tenancy-ec2")
 - [Machine specifications](#estimate-workload-configure-ec2 "#estimate-workload-configure-ec2")
 - [Review dedicated hosts](#estimate-dedicatedhost-ec2 "#estimate-dedicatedhost-ec2")
 - [Pricing strategy](#estimate-workload-pricing-ec2 "#estimate-workload-pricing-ec2")
@@ -34,8 +31,7 @@ AWS](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com
 
 4. On the **Configure Windows Server and SQL Server on Amazon EC2**
    page, choose your customized settings.
-   - For more information about license and tenancy options, see [Licensing and tenancy
-     recommendations](#estimate-workload-tenancy-ec2 "#estimate-workload-tenancy-ec2").
+   - For more information about license and tenancy options, see [Licensing and tenancy recommendations](#estimate-workload-tenancy-ec2 "#estimate-workload-tenancy-ec2").
    - For more information about machine specifications, see [Machine specifications](#estimate-workload-configure-ec2 "#estimate-workload-configure-ec2").
    - For more information about pricing strategy options, see [Pricing strategy](#estimate-workload-pricing-ec2 "#estimate-workload-pricing-ec2").
    - For more information about reviewing dedicated hosts, see [Review dedicated hosts](#estimate-dedicatedhost-ec2 "#estimate-dedicatedhost-ec2").
@@ -44,9 +40,7 @@ AWS](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com
 
 5. Choose **Save and add service** or **Save and view summary**.
 
-## Licensing and tenancy
-
-recommendations
+## Licensing and tenancy recommendations
 
 You can determine your AWS licensing and tenancy options for your workload through
 your choices for Windows Server and SQL Server licensing inputs. The licensing options

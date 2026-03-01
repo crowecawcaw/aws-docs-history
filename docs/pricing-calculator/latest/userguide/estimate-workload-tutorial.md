@@ -8,14 +8,10 @@ Server on Amazon EC2 in AWS Pricing Calculator to generate an estimate.
 ###### Tasks
 
 - [Step 1: Choose your AWS Region](#estimate-workload-tutorial-region "#estimate-workload-tutorial-region")
-- [Step 2: Choose your licensing and
-  tenancy recommendation](#estimate-workload-tutorial-step1 "#estimate-workload-tutorial-step1")
-- [Step 3: Configure your machine
-  specifications](#estimate-workload-tutorial-step2 "#estimate-workload-tutorial-step2")
-- [Step 4: Choose a pricing
-  strategy](#estimate-workload-tutorial-step3 "#estimate-workload-tutorial-step3")
-- [Step 5: Review calculations and cost
-  details](#estimate-workload-tutorial-step4 "#estimate-workload-tutorial-step4")
+- [Step 2: Choose your licensing and tenancy recommendation](#estimate-workload-tutorial-step1 "#estimate-workload-tutorial-step1")
+- [Step 3: Configure your machine specifications](#estimate-workload-tutorial-step2 "#estimate-workload-tutorial-step2")
+- [Step 4: Choose a pricing strategy](#estimate-workload-tutorial-step3 "#estimate-workload-tutorial-step3")
+- [Step 5: Review calculations and cost details](#estimate-workload-tutorial-step4 "#estimate-workload-tutorial-step4")
 - [Step 6: Add a Windows LI and SQL Server LI to your estimate](#estimate-workload-tutorial-step5 "#estimate-workload-tutorial-step5")
 
 ### Step 1: Choose your AWS Region
@@ -32,17 +28,12 @@ Server on Amazon EC2 in AWS Pricing Calculator to generate an estimate.
 
 All AWS resources are priced based on the Region you choose.
 
-### Step 2: Choose your licensing and
-
-tenancy recommendation
+### Step 2: Choose your licensing and tenancy recommendation
 
 In this section, you can specify your license details to determine your cost-optimized tenancy qualifications. For more information about
-licensing and tenancy supported by AWS Pricing Calculator, see [Licensing and tenancy
-recommendations](windows-workload-estimates.md#estimate-workload-tenancy "windows-workload-estimates.md#estimate-workload-tenancy").
+licensing and tenancy supported by AWS Pricing Calculator, see [Licensing and tenancy recommendations](windows-workload-estimates.md#estimate-workload-tenancy "windows-workload-estimates.md#estimate-workload-tenancy").
 
-###### To determine your licensing and tenancy recommendations for this
-
-example
+###### To determine your licensing and tenancy recommendations for this example
 
 1. Open the **Configure Windows Server and SQL Server on Amazon EC2** section of AWS Pricing Calculator at
    [https://calculator.aws/#/createCalculator/EC2WinSQL](https://calculator.aws/#/createCalculator/EC2WinSQL "https://calculator.aws/#/createCalculator/EC2WinSQL").
@@ -57,9 +48,7 @@ Hosts**. You can use the [Amazon EC2 Dedicated Hosts calculator](https://calcula
 
 ![Licensing and tenancy recommendation with Amazon EC2 shared tenancy selected](images/t2_licensing_options_win_byol_sql.png)
 
-### Step 3: Configure your machine
-
-specifications
+### Step 3: Configure your machine specifications
 
 In this step, you can input machine specifications to configure your AWS Pricing Calculator estimate.
 
@@ -88,23 +77,18 @@ You can use these values for the purpose of this tutorial.
    storage amount (GiB) as `5000` and
    **IOPS** as `60000`.
 
-For more information, see [Machine
-specifications details](#estimate-workload-tutorial-step2-machinedetails "#estimate-workload-tutorial-step2-machinedetails"). 7. For **Amazon EC2 instance type**, choose the **Obtain an Amazon EC2 instance type
+For more information, see [Machine specifications details](#estimate-workload-tutorial-step2-machinedetails "#estimate-workload-tutorial-step2-machinedetails"). 7. For **Amazon EC2 instance type**, choose the **Obtain an Amazon EC2 instance type
 recommendation**.
 
-For more information, see [Amazon EC2 instance
-type details](#estimate-workload-tutorial-step2-ec2details "#estimate-workload-tutorial-step2-ec2details"). 8. For **Optimize vCPU**, keep the optimize CPU value as
+For more information, see [Amazon EC2 instance type details](#estimate-workload-tutorial-step2-ec2details "#estimate-workload-tutorial-step2-ec2details"). 8. For **Optimize vCPU**, keep the optimize CPU value as
 `16`.
 
-For more information, see [Benefits of
-Optimize vCPUs](#estimate-workload-tutorial-step2-optcpudetails "#estimate-workload-tutorial-step2-optcpudetails"). 9. For **Quantity**, enter `10`. 10. For number of passive instances, choose **5**. 11. Choose **Add machine** to add more machine specification
+For more information, see [Benefits of Optimize vCPUs](#estimate-workload-tutorial-step2-optcpudetails "#estimate-workload-tutorial-step2-optcpudetails"). 9. For **Quantity**, enter `10`. 10. For number of passive instances, choose **5**. 11. Choose **Add machine** to add more machine specification
 types.
 
 For this tutorial, add the remaining three workloads from the example workload table.
 
-#### Machine
-
-specifications details
+#### Machine specifications details
 
 If you enter the storage size (GB) only, the calculator provides you with the
 most cost-effective Amazon Elastic Block Store (Amazon EBS) storage option. If you enter a value
@@ -114,9 +98,7 @@ range, AWS Pricing Calculator recommends io2 Block Express with tiered pricing. 
 information, see [Amazon EBS volume
 types](../../../AWSEC2/latest/UserGuide/ebs-volume-types.md "../../../AWSEC2/latest/UserGuide/ebs-volume-types.md").
 
-#### Amazon EC2 instance
-
-type details
+#### Amazon EC2 instance type details
 
 You can choose **Obtain an Amazon EC2 instance type
 recommendation** for the server type specifications. AWS
@@ -127,9 +109,7 @@ You can also choose **Search** for an Amazon EC2 instance type if
 you want the ability to filter the instance types. You can filter by instance
 category, memory, CPU, and other options.
 
-#### Benefits of
-
-Optimize vCPUs
+#### Benefits of Optimize vCPUs
 
 You have the flexibility to specify a custom number of vCPUs while using the
 same memory, storage, and bandwidth of a full-sized instance. This means that
@@ -146,9 +126,7 @@ SQL Server node doesn't serve SQL Server data or run active SQL Server
 workloads. If you bring SQL Server to AWS with Software Assurance, you aren’t
 required to license SQL Server on a passive node.
 
-### Step 4: Choose a pricing
-
-strategy
+### Step 4: Choose a pricing strategy
 
 In this step, you use the pricing strategy section in AWS Pricing Calculator to choose a
 pricing model.
@@ -167,9 +145,7 @@ pricing model.
 This is a default pricing strategy that offers up to 75 percent savings over
 On-Demand pricing. For more information, see [Amazon EC2 pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/").
 
-### Step 5: Review calculations and cost
-
-details
+### Step 5: Review calculations and cost details
 
 At this stage in the example tutorial, you can view the breakdown your cost estimates.
 

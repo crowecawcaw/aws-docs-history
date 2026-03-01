@@ -28,9 +28,7 @@ This section shows how to configure a service you're creating an estimate for. I
 this example, we're adding Amazon EC2 using the Amazon EC2 **Quick estimate**
 option.
 
-###### To configure a service for your
-
-estimate
+###### To configure a service for your estimate
 
 1. Open the **Add service** page at [https://calculator.aws/#/addService](https://calculator.aws/#/addService "https://calculator.aws/#/addService")
 

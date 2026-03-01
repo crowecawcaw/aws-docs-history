@@ -12,8 +12,7 @@ AWS](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com
 ###### Topics
 
 - [Procedure](#windows-workload-estimates-process "#windows-workload-estimates-process")
-- [Licensing and tenancy
-  recommendations](#estimate-workload-tenancy "#estimate-workload-tenancy")
+- [Licensing and tenancy recommendations](#estimate-workload-tenancy "#estimate-workload-tenancy")
 - [Configuring machine specifications](#estimate-workload-configure "#estimate-workload-configure")
 - [Pricing strategy](#estimate-workload-pricing "#estimate-workload-pricing")
 - [Cost details](#estimate-workload-cost "#estimate-workload-cost")
@@ -29,8 +28,7 @@ AWS](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com
    **Configure**.
 4. On the **Configure Windows Server and SQL Server on Amazon EC2**
    page, choose your customized settings.
-   - For information about your tenancy choices, see [Licensing and tenancy
-     recommendations](#estimate-workload-tenancy "#estimate-workload-tenancy").
+   - For information about your tenancy choices, see [Licensing and tenancy recommendations](#estimate-workload-tenancy "#estimate-workload-tenancy").
    - For information about how to choose your machine specifications, see [Configuring machine specifications](#estimate-workload-configure "#estimate-workload-configure").
    - For information about how to choose your pricing strategy, see [Pricing strategy](#estimate-workload-pricing "#estimate-workload-pricing").
    - For information about how to choose your cost details, see [Cost details](#estimate-workload-cost "#estimate-workload-cost").
@@ -40,9 +38,7 @@ AWS](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com
 For a step-by step example shows how to generate an estimate for Windows Server and SQL
 Server on Amazon EC2, see [Tutorial: Generating estimates for Windows Servers and SQL Servers on EC2](estimate-workload-tutorial.md "estimate-workload-tutorial.md").
 
-## Licensing and tenancy
-
-recommendations
+## Licensing and tenancy recommendations
 
 You can determine your AWS licensing and tenancy options for your workload through
 your choices for Windows Server and SQL Server licensing inputs. The licensing options

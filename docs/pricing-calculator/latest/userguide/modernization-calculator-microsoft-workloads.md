@@ -1,6 +1,4 @@
-# Generating Microsoft
-
-estimates with AWS Modernization Calculator
+# Generating Microsoft estimates with AWS Modernization Calculator
 
 AWS Modernization Calculator for Microsoft workloads provides a pricing estimate for
 modernizing your Microsoft workloads using open source and AWS cloud-native services
