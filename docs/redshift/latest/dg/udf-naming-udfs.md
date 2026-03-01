@@ -9,9 +9,7 @@ conventions before implementation. Because function names can be overloaded, the
 collide with existing and future Amazon Redshift function names. This topic discusses overloading
 and presents a strategy for avoiding conflict.
 
-## Overloading function
-
-names
+## Overloading function names
 
 A function is identified by its name and _signature_, which is the
 number of input arguments and the data types of the arguments. Two functions in the same

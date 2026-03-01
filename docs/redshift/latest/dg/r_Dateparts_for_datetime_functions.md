@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Date parts for date or timestamp
-
-functions
+# Date parts for date or timestamp functions
 
 The following table identifies the date part and time part names and abbreviations that
 are accepted as arguments to the following functions:
@@ -34,9 +32,7 @@ are accepted as arguments to the following functions:
 | microsecond, microseconds                | microsec, microsecs, microsecond, usecond, useconds, us,<br>usec, usecs                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | timezone, timezone_hour, timezone_minute | Supported by the<br>[EXTRACT](r_EXTRACT_function.md "r_EXTRACT_function.md") for<br>timestamp with time zone (TIMESTAMPTZ) only.                                                                                                                                                                                                                                                                                                                                                                                  |
 
-## Variations in results
-
-with seconds, milliseconds, and microseconds
+## Variations in results with seconds, milliseconds, and microseconds
 
 Minor differences in query results occur when different date functions specify
 seconds, milliseconds, or microseconds as date parts:
@@ -71,9 +67,7 @@ select extract(sec from micro) from seconds;`
 3.189717`
 ```
 
-## CENTURY, EPOCH, DECADE, and MIL
-
-notes
+## CENTURY, EPOCH, DECADE, and MIL notes
 
 CENTURY or CENTURIES
 

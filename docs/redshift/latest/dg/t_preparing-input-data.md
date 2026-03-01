@@ -29,9 +29,7 @@ Use the following guidelines to help ensure that your input data is valid:
 - Verify that all single and double quotation marks are appropriately matched.
 - Verify that floating-point strings are in either standard floating-point
   format, such as 12.123, or an exponential format, such as 1.0E4.
-- Verify that all timestamp and date strings follow the specifications for [DATEFORMAT and TIMEFORMAT
-  strings](r_DATEFORMAT_and_TIMEFORMAT_strings.md "r_DATEFORMAT_and_TIMEFORMAT_strings.md"). The default timestamp
+- Verify that all timestamp and date strings follow the specifications for [DATEFORMAT and TIMEFORMAT strings](r_DATEFORMAT_and_TIMEFORMAT_strings.md "r_DATEFORMAT_and_TIMEFORMAT_strings.md"). The default timestamp
   format is YYYY-MM-DD hh:mm:ss, and the default date format is YYYY-MM-DD.
 - For more information about boundaries and limitations on individual data types,
-  see [Data types](c_Supported_data_types.md "c_Supported_data_types.md"). For information about multibyte character errors, see [Multibyte character load
-  errors](multi-byte-character-load-errors.md "multi-byte-character-load-errors.md")
+  see [Data types](c_Supported_data_types.md "c_Supported_data_types.md"). For information about multibyte character errors, see [Multibyte character load errors](multi-byte-character-load-errors.md "multi-byte-character-load-errors.md")

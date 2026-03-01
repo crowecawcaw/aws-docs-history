@@ -58,9 +58,7 @@ Consider the following when running the CREATE EXTERNAL TABLE AS command:
 - You can use STL_UNLOAD_LOG to track the files that are written to Amazon S3 by
   each CREATE EXTERNAL TABLE AS operation.
 
-## Permissions to create and
-
-query external tables
+## Permissions to create and query external tables
 
 To create external tables, make sure that you're the owner of the external
 schema or a superuser. To transfer ownership of an external schema, use [ALTER SCHEMA](r_ALTER_SCHEMA.md "r_ALTER_SCHEMA.md"). The following example
@@ -118,9 +116,7 @@ Selecting _$size_ or _$path_ incurs
 charges because Redshift Spectrum scans the data files in Amazon S3 to determine the size of the
 result set. For more information, see [Amazon Redshift Pricing](https://aws.amazon.com/redshift/pricing/ "https://aws.amazon.com/redshift/pricing/").
 
-## Setting data handling
-
-options
+## Setting data handling options
 
 You can set table parameters to specify input handling for data being queried in
 external tables, including:

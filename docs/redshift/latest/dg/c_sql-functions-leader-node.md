@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SQL functions supported on the leader
-
-node
+# SQL functions supported on the leader node
 
 Some Amazon Redshift queries are distributed and run on the compute nodes, and other queries
 run exclusively on the leader node.
@@ -22,8 +20,7 @@ error.
 
 The documentation for each function that must run exclusively on the leader node
 includes a note stating that the function will return an error if it references
-user-defined tables or Amazon Redshift system tables. See [Leader node–only
-functions](c_SQL_functions_leader_node_only.md "c_SQL_functions_leader_node_only.md") for a list of functions that run
+user-defined tables or Amazon Redshift system tables. See [Leader node–only functions](c_SQL_functions_leader_node_only.md "c_SQL_functions_leader_node_only.md") for a list of functions that run
 exclusively on the leader node.
 
 ## Examples

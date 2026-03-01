@@ -14,10 +14,8 @@ You can encrypt your load data on Amazon S3.
 The following topics provide more details and examples of authentication
 options:
 
-- [IAM permissions for COPY, UNLOAD,
-  and CREATE LIBRARY](copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions "copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions")
-- [Role-based access
-  control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based")
+- [IAM permissions for COPY, UNLOAD, and CREATE LIBRARY](copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions "copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions")
+- [Role-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based")
 - [Key-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-key-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-key-based")
   Use one of the following to provide authorization for the COPY command:
 
@@ -42,8 +40,7 @@ The following shows the syntax for the IAM_ROLE parameter.
 IAM_ROLE { default | 'arn:aws:iam::`<AWS account-id>`:role/`<role-name>`' }
 ```
 
-For more information, see [Role-based access
-control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based").
+For more information, see [Role-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based").
 
 ## Using the ACCESS_KEY_ID and SECRET_ACCESS_KEY parameters
 
@@ -55,8 +52,7 @@ This authorization method is not recommended.
 
 Instead of providing access credentials as plain text, we strongly
 recommend using role-based authentication by specifying the IAM_ROLE
-parameter. For more information, see [Role-based access
-control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based").
+parameter. For more information, see [Role-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based").
 
 ### SESSION_TOKEN
 
@@ -64,8 +60,7 @@ The session token for use with temporary access credentials. When
 SESSION_TOKEN is specified, you must also use ACCESS_KEY_ID and
 SECRET_ACCESS_KEY to provide temporary access key credentials. If you specify
 SESSION_TOKEN you can't use IAM_ROLE or CREDENTIALS. For more information, see
-[Temporary security
-credentials](copy-usage_notes-access-permissions.md#r_copy-temporary-security-credentials "copy-usage_notes-access-permissions.md#r_copy-temporary-security-credentials") in the
+[Temporary security credentials](copy-usage_notes-access-permissions.md#r_copy-temporary-security-credentials "copy-usage_notes-access-permissions.md#r_copy-temporary-security-credentials") in the
 IAM User Guide.
 
 ###### Note
@@ -73,8 +68,7 @@ IAM User Guide.
 Instead of creating temporary security credentials, we strongly recommend
 using role-based authentication. When you authorize using an IAM role, Amazon Redshift
 automatically creates temporary user credentials for each session. For more
-information, see [Role-based access
-control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based").
+information, see [Role-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based").
 
 The following shows the syntax for the SESSION_TOKEN parameter with the
 ACCESS_KEY_ID and SECRET_ACCESS_KEY parameters.
@@ -118,8 +112,7 @@ The keywords WITH and AS are optional and are ignored.
 
 You can specify either [role-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based.phrase "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based.phrase") or [key-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-key-based.phrase "copy-usage_notes-access-permissions.md#copy-usage_notes-access-key-based.phrase"). In either case, the
 IAM role or user must have the permissions required to access the specified
-AWS resources. For more information, see [IAM permissions for COPY, UNLOAD,
-and CREATE LIBRARY](copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions "copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions").
+AWS resources. For more information, see [IAM permissions for COPY, UNLOAD, and CREATE LIBRARY](copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions "copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions").
 
 ###### Note
 
@@ -150,8 +143,7 @@ CREDENTIALS
 'aws_access_key_id=`<temporary-access-key-id>`;aws_secret_access_key=`<temporary-secret-access-key-id>`;token=`<temporary-token>`'
 ```
 
-For more information, see [Temporary security
-credentials](copy-usage_notes-access-permissions.md#r_copy-temporary-security-credentials "copy-usage_notes-access-permissions.md#r_copy-temporary-security-credentials").
+For more information, see [Temporary security credentials](copy-usage_notes-access-permissions.md#r_copy-temporary-security-credentials "copy-usage_notes-access-permissions.md#r_copy-temporary-security-credentials").
 
 If the [ENCRYPTED](copy-parameters-data-source-s3.md#copy-encrypted "copy-parameters-data-source-s3.md#copy-encrypted") parameter is used, the
 _credentials-args_ string is in the following format,

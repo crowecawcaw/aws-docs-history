@@ -9,8 +9,7 @@ your sensitive data. You can decide which users or roles can access specific rec
 data within schemas or tables, based on security policies that are defined at the database
 objects level. In addition to column-level security, where you can grant users permissions
 to a subset of columns, use RLS policies to further restrict access to particular rows of
-the visible columns. For more information about column-level security, see [Usage notes for column-level access
-control](r_GRANT-usage-notes.md#r_GRANT-usage-notes-clp "r_GRANT-usage-notes.md#r_GRANT-usage-notes-clp").
+the visible columns. For more information about column-level security, see [Usage notes for column-level access control](r_GRANT-usage-notes.md#r_GRANT-usage-notes-clp "r_GRANT-usage-notes.md#r_GRANT-usage-notes-clp").
 
 When you enforce RLS policies on tables, you can
 restrict returned result sets when users run queries.

@@ -25,9 +25,7 @@ whether the data that it is going to work with is potentially stale. It will not
 because the second transaction does not obtain its snapshot of data until after the
 first transaction has released its lock.
 
-## Potential deadlock situation
-
-for concurrent write transactions involving multiple tables
+## Potential deadlock situation for concurrent write transactions involving multiple tables
 
 When transactions involve updates of more than one table, there is always the
 possibility of concurrently running transactions becoming deadlocked when they both
@@ -47,9 +45,7 @@ you need to schedule concurrent write operations carefully. For example, you sho
 always update tables in the same order in transactions and, if specifying locks,
 lock tables in the same order before you perform any DML operations.
 
-## Potential deadlock situation
-
-for concurrent write transactions involving a single table
+## Potential deadlock situation for concurrent write transactions involving a single table
 
 In a snapshot isolation environment, deadlocks can occur when running concurrent
 write transactions on the same table. The snapshot isolation deadlock happens when concurrent

@@ -10,8 +10,7 @@ input HLLSKETCH values.
 The combination of two or more HyperLogLog sketches is a new HLLSKETCH that
 encapsulates information about the union of the distinct values that each input sketch
 represents. After combining sketches, Amazon Redshift extracts the cardinality of the union of two
-or more datasets. For more information on how to combine multiple sketches, see [Example: Return a HyperLogLog sketch
-from combining multiple sketches](r_HLL-examples.md#hll-examples-multiple-sketches "r_HLL-examples.md#hll-examples-multiple-sketches").
+or more datasets. For more information on how to combine multiple sketches, see [Example: Return a HyperLogLog sketch from combining multiple sketches](r_HLL-examples.md#hll-examples-multiple-sketches "r_HLL-examples.md#hll-examples-multiple-sketches").
 
 ## Syntax
 

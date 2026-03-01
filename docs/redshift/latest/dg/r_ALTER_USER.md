@@ -78,8 +78,7 @@ statements, which might contain sensitive user-generated data.
 
 All rows in SVV_TRANSACTIONS are visible to all users.
 
-For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 PASSWORD { '_password_' | '_md5hash_' | '_sha256hash_' |
 DISABLE }

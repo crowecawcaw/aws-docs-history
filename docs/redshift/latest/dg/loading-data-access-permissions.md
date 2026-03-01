@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Credentials and access
-
-permissions
+# Credentials and access permissions
 
 To load or unload data using another AWS resource, such as Amazon S3, Amazon DynamoDB, Amazon EMR,
 or Amazon EC2, Amazon Redshift must have permission to access the resource and perform the
@@ -13,8 +11,7 @@ have LIST access to the bucket and GET access for the bucket objects.
 
 To obtain authorization to access a resource, Amazon Redshift must be authenticated. You
 can choose either role-based access control or key-based access control. This section
-presents an overview of the two methods. For complete details and examples, see [Permissions to access other AWS
-Resources](copy-usage_notes-access-permissions.md "copy-usage_notes-access-permissions.md").
+presents an overview of the two methods. For complete details and examples, see [Permissions to access other AWS Resources](copy-usage_notes-access-permissions.md "copy-usage_notes-access-permissions.md").
 
 ## Role-based access control
 
@@ -28,8 +25,7 @@ to safeguarding your AWS credentials.
 
 To use role-based access control, you must first create an IAM role using the
 Amazon Redshift service role type, and then attach the role to your data warehouse. The role must have,
-at a minimum, the permissions listed in [IAM permissions for COPY, UNLOAD,
-and CREATE LIBRARY](copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions "copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions"). For steps to create an IAM
+at a minimum, the permissions listed in [IAM permissions for COPY, UNLOAD, and CREATE LIBRARY](copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions "copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions"). For steps to create an IAM
 role and attach it to your cluster, see [Creating an IAM Role to Allow Your Amazon Redshift Cluster to Access AWS Services](../mgmt/authorizing-redshift-service.md#authorizing-redshift-service-creating-an-iam-role "../mgmt/authorizing-redshift-service.md#authorizing-redshift-service-creating-an-iam-role") in
 the _Amazon Redshift Management Guide_.
 
@@ -50,8 +46,7 @@ COPY customer FROM 's3://amzn-s3-demo-bucket/mydata'
 IAM_ROLE 'arn:aws:iam::12345678901:role/MyRedshiftRole';
 ```
 
-The AWS user must have, at a minimum, the permissions listed in [IAM permissions for COPY, UNLOAD,
-and CREATE LIBRARY](copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions "copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions").
+The AWS user must have, at a minimum, the permissions listed in [IAM permissions for COPY, UNLOAD, and CREATE LIBRARY](copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions "copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions").
 
 ## Key-based access control
 

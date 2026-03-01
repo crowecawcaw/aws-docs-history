@@ -14,8 +14,7 @@ process.
   query concurrently across the slices. However, more nodes also means greater
   expense, so you need to find the balance of cost and performance that is
   appropriate for your system. For more information on Amazon Redshift cluster
-  architecture, see [Data warehouse system
-  architecture](c_high_level_system_architecture.md "c_high_level_system_architecture.md").
+  architecture, see [Data warehouse system architecture](c_high_level_system_architecture.md "c_high_level_system_architecture.md").
 - Node types – An Amazon Redshift cluster can use
   one of several node types. Each node type offers different
   sizes and limits to help you scale your cluster appropriately. The node size
@@ -44,12 +43,10 @@ process.
   If other operations are running, enough query queue slots might not be available.
   In this case, the query has to wait for slots to open before it can begin
   processing. For more information about creating and configuring query queues, see
-  [Workload
-  management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md").
+  [Workload management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md").
 - Query structure – How your query is
   written affects its performance. As much as possible, write queries to process and
-  return as little data as meets your needs. For more information, see [Amazon Redshift best practices for designing
-  queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md").
+  return as little data as meets your needs. For more information, see [Amazon Redshift best practices for designing queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md").
 - Code compilation – Amazon Redshift generates and
   compiles code for each query execution plan.
 

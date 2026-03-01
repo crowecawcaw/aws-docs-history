@@ -7,8 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 STV_CURSOR_CONFIGURATION displays cursor configuration constraints. For more
 information, see [Cursor constraints](declare.md#declare-constraints "declare.md#declare-constraints").
 
-STV_CURSOR_CONFIGURATION is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV_CURSOR_CONFIGURATION is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

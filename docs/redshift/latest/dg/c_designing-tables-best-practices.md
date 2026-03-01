@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Amazon Redshift best practices for designing
-
-tables
+# Amazon Redshift best practices for designing tables
 
 As you plan your database, certain key table design decisions heavily influence overall
 query performance. These design choices also have a significant effect on storage
@@ -18,13 +16,8 @@ table design options.
 ###### Topics
 
 - [Choose the best sort key](c_best-practices-sort-key.md "c_best-practices-sort-key.md")
-- [Choose the best distribution
-  style](c_best-practices-best-dist-key.md "c_best-practices-best-dist-key.md")
-- [Let COPY choose compression
-  encodings](c_best-practices-use-auto-compression.md "c_best-practices-use-auto-compression.md")
-- [Define primary key and foreign
-  key constraints](c_best-practices-defining-constraints.md "c_best-practices-defining-constraints.md")
-- [Use the smallest possible column
-  size](c_best-practices-smallest-column-size.md "c_best-practices-smallest-column-size.md")
-- [Use date/time data types for
-  date columns](c_best-practices-timestamp-date-columns.md "c_best-practices-timestamp-date-columns.md")
+- [Choose the best distribution style](c_best-practices-best-dist-key.md "c_best-practices-best-dist-key.md")
+- [Let COPY choose compression encodings](c_best-practices-use-auto-compression.md "c_best-practices-use-auto-compression.md")
+- [Define primary key and foreign key constraints](c_best-practices-defining-constraints.md "c_best-practices-defining-constraints.md")
+- [Use the smallest possible column size](c_best-practices-smallest-column-size.md "c_best-practices-smallest-column-size.md")
+- [Use date/time data types for date columns](c_best-practices-timestamp-date-columns.md "c_best-practices-timestamp-date-columns.md")

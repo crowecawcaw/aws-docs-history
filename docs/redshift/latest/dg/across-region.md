@@ -13,8 +13,7 @@ With cross-Region data sharing, you can share data across clusters in the same
 AWS account, or in different AWS accounts even when the clusters are in different
 Regions. When sharing data with Amazon Redshift clusters that are in the same AWS account but
 different AWS Regions, follow the same workflow as sharing data within an
-AWS account. For more information, see [Sharing read access to data within an
-AWS account](within-account.md "within-account.md").
+AWS account. For more information, see [Sharing read access to data within an AWS account](within-account.md "within-account.md").
 
 If clusters sharing data are in different AWS accounts and AWS Regions, you
 can follow the same workflow as sharing data across AWS accounts and include
@@ -96,8 +95,7 @@ You can use the Amazon Redshift console to associate datashares with your entire
 AWS account or specific AWS Regions or namespaces within an AWS Region. To do
 this, sign in to the [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/"). Then associate one or more datashares that are
 shared from other accounts with your entire AWS account, the entire AWS Region,
-or a specific namespace within an AWS Region. For more information, see [Associating a datashare from a different
-AWS account in Amazon Redshift](writes-associating.md "writes-associating.md").
+or a specific namespace within an AWS Region. For more information, see [Associating a datashare from a different AWS account in Amazon Redshift](writes-associating.md "writes-associating.md").
 
 After the AWS account or specific namespaces are associated, the datashares
 become available for consumption. You can also change datashare association at any

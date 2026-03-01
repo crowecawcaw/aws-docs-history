@@ -143,9 +143,7 @@ drop table public.sample;
 alter table sample_namespace.sample_copy rename to sample;
 ```
 
-###### To perform a deep copy by creating a temporary table and truncating the original
-
-table
+###### To perform a deep copy by creating a temporary table and truncating the original table
 
 1. Use CREATE TABLE AS to create a temporary table with the rows from the original
    table.

@@ -47,64 +47,53 @@ This section walks you through the process of loading data from remote hosts. Th
 following sections provide the details that that you must accomplish in each
 step.
 
-- **[Step 1: Retrieve the
-  cluster public key and cluster node IP addresses](#load-from-host-steps-retrieve-key-and-ips "#load-from-host-steps-retrieve-key-and-ips")**
+- **[Step 1: Retrieve the cluster public key and cluster node IP addresses](#load-from-host-steps-retrieve-key-and-ips "#load-from-host-steps-retrieve-key-and-ips")**
 
 The public key enables the Amazon Redshift cluster nodes to establish SSH
 connections to the remote hosts. You will use the IP address for each cluster
 node to configure the host security groups or firewall to permit access from
 your Amazon Redshift cluster using these IP addresses.
 
-- **[Step 2: Add the Amazon Redshift
-  cluster public key to the host's authorized keys file](#load-from-host-steps-add-key-to-host "#load-from-host-steps-add-key-to-host")**
+- **[Step 2: Add the Amazon Redshift cluster public key to the host's authorized keys file](#load-from-host-steps-add-key-to-host "#load-from-host-steps-add-key-to-host")**
 
 You add the Amazon Redshift cluster public key to the host's authorized keys file
 so that the host will recognize the Amazon Redshift cluster and accept the SSH
 connection.
 
-- **[Step 3: Configure
-  the host to accept all of the Amazon Redshift cluster's IP addresses](#load-from-host-steps-configure-security-groups "#load-from-host-steps-configure-security-groups")**
+- **[Step 3: Configure the host to accept all of the Amazon Redshift cluster's IP addresses](#load-from-host-steps-configure-security-groups "#load-from-host-steps-configure-security-groups")**
 
 For Amazon EC2, modify the instance's security groups to add input rules to
 accept the Amazon Redshift IP addresses. For other hosts, modify the firewall so that
 your Amazon Redshift nodes are able to establish SSH connections to the remote host.
 
-- **[Step 4: Get the public key
-  for the host](#load-from-host-steps-get-the-host-key "#load-from-host-steps-get-the-host-key")**
+- **[Step 4: Get the public key for the host](#load-from-host-steps-get-the-host-key "#load-from-host-steps-get-the-host-key")**
 
 You can optionally specify that Amazon Redshift should use the public key to
 identify the host. You must locate the public key and copy the text into your
 manifest file.
 
-- **[Step 5: Create a manifest
-  file](#load-from-host-steps-create-manifest "#load-from-host-steps-create-manifest")**
+- **[Step 5: Create a manifest file](#load-from-host-steps-create-manifest "#load-from-host-steps-create-manifest")**
 
 The manifest is a JSON-formatted text file with the details Amazon Redshift needs
 to connect to the hosts and fetch the data.
 
-- **[Step 6: Upload the manifest
-  file to an Amazon S3 bucket](#load-from-host-steps-upload-manifest "#load-from-host-steps-upload-manifest")**
+- **[Step 6: Upload the manifest file to an Amazon S3 bucket](#load-from-host-steps-upload-manifest "#load-from-host-steps-upload-manifest")**
 
 Amazon Redshift reads the manifest and uses that information to connect to the
 remote host. If the Amazon S3 bucket does not reside in the same Region as your
 Amazon Redshift cluster, you must use the [REGION](copy-parameters-data-source-s3.md#copy-region "copy-parameters-data-source-s3.md#copy-region") option to
 specify the Region in which the data is located.
 
-- **[Step 7: Run the COPY command to load
-  the data](#load-from-host-steps-run-copy "#load-from-host-steps-run-copy")**
+- **[Step 7: Run the COPY command to load the data](#load-from-host-steps-run-copy "#load-from-host-steps-run-copy")**
 
 From an Amazon Redshift database, run the COPY command to load the data into an
 Amazon Redshift table.
 
-## Step 1: Retrieve the
-
-cluster public key and cluster node IP addresses
+## Step 1: Retrieve the cluster public key and cluster node IP addresses
 
 You will use the IP address for each cluster node to configure the host security groups to permit access from your Amazon Redshift cluster using these IP addresses.
 
-###### To retrieve the cluster public key and cluster node IP addresses for your
-
-cluster using the console
+###### To retrieve the cluster public key and cluster node IP addresses for your cluster using the console
 
 1. Access the Amazon Redshift Management Console.
 2. Choose the **Clusters** link in the navigation pane.
@@ -172,16 +161,12 @@ using the Amazon Redshift API, use the DescribeClusters action. For more informa
 _Amazon Redshift CLI Guide_ or [DescribeClusters](../APIReference/API_DescribeClusters.md "../APIReference/API_DescribeClusters.md") in the
 Amazon Redshift API Guide.
 
-## Step 2: Add the Amazon Redshift
-
-cluster public key to the host's authorized keys file
+## Step 2: Add the Amazon Redshift cluster public key to the host's authorized keys file
 
 You add the cluster public key to each host's authorized keys file so that the
 host will recognize Amazon Redshift and accept the SSH connection.
 
-###### To add the Amazon Redshift cluster public key to the host's authorized keys
-
-file
+###### To add the Amazon Redshift cluster public key to the host's authorized keys file
 
 1. Access the host using an SSH connection.
 
@@ -197,16 +182,13 @@ For example:
 ssh-rsa AAAACTP3isxgGzVWoIWpbVvRCOzYdVifMrh… uA70BnMHCaMiRdmvsDOedZDOedZ Amazon-Redshift
 ```
 
-## Step 3: Configure
-
-the host to accept all of the Amazon Redshift cluster's IP addresses
+## Step 3: Configure the host to accept all of the Amazon Redshift cluster's IP addresses
 
 If you are working with an Amazon EC2 instance or an Amazon EMR cluster, add Inbound rules
 to the host's security group to allow traffic from each Amazon Redshift cluster node. For
 **Type**, select SSH with TCP protocol on Port 22.
 For **Source**, enter the Amazon Redshift cluster node IP
-addresses you retrieved in [Step 1: Retrieve the
-cluster public key and cluster node IP addresses](#load-from-host-steps-retrieve-key-and-ips "#load-from-host-steps-retrieve-key-and-ips"). For information about
+addresses you retrieved in [Step 1: Retrieve the cluster public key and cluster node IP addresses](#load-from-host-steps-retrieve-key-and-ips "#load-from-host-steps-retrieve-key-and-ips"). For information about
 adding rules to an Amazon EC2 security group, see [Authorizing Inbound
 Traffic for Your Instances](../../../AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.md "../../../AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.md") in the _Amazon EC2 User Guide_.
 
@@ -222,9 +204,7 @@ Otherwise, use the public IP addresses.
 For more information about using Amazon Redshift in a VPC, see [Managing Clusters in Virtual Private
 Cloud (VPC)](../mgmt/managing-clusters-vpc.md "../mgmt/managing-clusters-vpc.md") in the _Amazon Redshift Management Guide_.
 
-## Step 4: Get the public key
-
-for the host
+## Step 4: Get the public key for the host
 
 You can optionally provide the host's public key in the manifest file so that
 Amazon Redshift can identify the host. The COPY command does not require the host public key
@@ -246,9 +226,7 @@ Amazon Redshift only supports RSA keys. We do not support DSA keys.
 When you create your manifest file in Step 5, you will paste the text of the
 public key into the "Public Key" field in the manifest file entry.
 
-## Step 5: Create a manifest
-
-file
+## Step 5: Create a manifest file
 
 The COPY command can connect to multiple hosts using SSH, and can create multiple
 SSH connections to each host. COPY runs a command through each host connection,
@@ -355,18 +333,14 @@ same host and run a different command through each connection:
 }
 ```
 
-## Step 6: Upload the manifest
-
-file to an Amazon S3 bucket
+## Step 6: Upload the manifest file to an Amazon S3 bucket
 
 Upload the manifest file to an Amazon S3 bucket. If the Amazon S3 bucket does not reside in
 the same AWS Region as your Amazon Redshift cluster, you must use the [REGION](copy-parameters-data-source-s3.md#copy-region "copy-parameters-data-source-s3.md#copy-region") option to specify the AWS Region in which the manifest is
 located. For information about creating an Amazon S3 bucket and uploading a file, see
 [Amazon Simple Storage Service User Guide](../../../AmazonS3/latest/userguide.md "../../../AmazonS3/latest/userguide.md").
 
-## Step 7: Run the COPY command to load
-
-the data
+## Step 7: Run the COPY command to load the data
 
 Run a [COPY](r_COPY.md "r_COPY.md") command to connect to the
 host and load the data into an Amazon Redshift table. In the COPY command, specify the
@@ -389,5 +363,4 @@ sample for compression analysis, then the second read actually loads the data. I
 running the remote command twice might cause a problem because of potential side
 effects, you should turn off automatic compression. To turn off automatic
 compression, run the COPY command with the COMPUPDATE option set to OFF. For more
-information, see [Loading tables with automatic
-compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").
+information, see [Loading tables with automatic compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").

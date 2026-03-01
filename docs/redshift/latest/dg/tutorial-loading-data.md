@@ -51,12 +51,10 @@ principles presented here apply to loading from other data sources as well.
 
 To learn more about using the COPY command, see these resources:
 
-- [Amazon Redshift best practices for loading
-  data](c_loading-data-best-practices.md "c_loading-data-best-practices.md")
+- [Amazon Redshift best practices for loading data](c_loading-data-best-practices.md "c_loading-data-best-practices.md")
 - [Loading data from Amazon EMR](loading-data-from-emr.md "loading-data-from-emr.md")
 - [Loading data from remote hosts](loading-data-from-remote-hosts.md "loading-data-from-remote-hosts.md")
-- [Loading data from an Amazon DynamoDB
-  table](t_Loading-data-from-dynamodb.md "t_Loading-data-from-dynamodb.md")
+- [Loading data from an Amazon DynamoDB table](t_Loading-data-from-dynamodb.md "t_Loading-data-from-dynamodb.md")
 
 ## Step 1: Create a cluster
 
@@ -96,9 +94,7 @@ Follow the [Amazon Redshift Getting Started Guide](../gsg.md "../gsg.md") steps 
 connection. You don't need to complete the remaining Getting Started steps to
 create tables, upload data, and try example queries.
 
-## Step 2: Download the data
-
-files
+## Step 2: Download the data files
 
 In this step, you download a set of sample data files to your computer. In the next
 step, you upload the files to an Amazon S3 bucket.
@@ -139,9 +135,7 @@ part-csv.tbl-006
 part-csv.tbl-007
 ```
 
-## Step 3: Upload the files to an Amazon S3
-
-bucket
+## Step 3: Upload the files to an Amazon S3 bucket
 
 In this step, you create an Amazon S3 bucket and upload the data files to the
 bucket.
@@ -214,9 +208,7 @@ bucket. For more information about controlling access to Amazon S3 resources, go
 [Managing access permissions
 to your Amazon S3 resources](../../../AmazonS3/latest/userguide/s3-access-control.md "../../../AmazonS3/latest/userguide/s3-access-control.md").
 
-## Step 4: Create the sample
-
-tables
+## Step 4: Create the sample tables
 
 For this tutorial, you use a set of tables based on the Star Schema Benchmark
 (SSB) schema. The following diagram shows the SSB data model.
@@ -404,18 +396,15 @@ tutorial, you use the following COPY command options and features:
 
 - Key prefix
 
-For information on how to load from multiple files by specifying a key prefix, see [Load the PART table using NULL
-AS](#tutorial-loading-load-part "#tutorial-loading-load-part").
+For information on how to load from multiple files by specifying a key prefix, see [Load the PART table using NULL AS](#tutorial-loading-load-part "#tutorial-loading-load-part").
 
 - CSV format
 
-For information on how to load data that is in CSV format, see [Load the PART table using NULL
-AS](#tutorial-loading-load-part "#tutorial-loading-load-part").
+For information on how to load data that is in CSV format, see [Load the PART table using NULL AS](#tutorial-loading-load-part "#tutorial-loading-load-part").
 
 - NULL AS
 
-For information on how to load PART using the NULL AS option, see [Load the PART table using NULL
-AS](#tutorial-loading-load-part "#tutorial-loading-load-part").
+For information on how to load PART using the NULL AS option, see [Load the PART table using NULL AS](#tutorial-loading-load-part "#tutorial-loading-load-part").
 
 - Character-delimited format
 
@@ -427,28 +416,23 @@ For information on how to use the REGION option, see [The DELIMITER and REGION o
 
 - Fixed-format width
 
-For information on how to load the CUSTOMER table from fixed-width data, see [Load the CUSTOMER table using
-MANIFEST](#tutorial-loading-load-customer "#tutorial-loading-load-customer").
+For information on how to load the CUSTOMER table from fixed-width data, see [Load the CUSTOMER table using MANIFEST](#tutorial-loading-load-customer "#tutorial-loading-load-customer").
 
 - MAXERROR
 
-For information on how to use the MAXERROR option, see [Load the CUSTOMER table using
-MANIFEST](#tutorial-loading-load-customer "#tutorial-loading-load-customer").
+For information on how to use the MAXERROR option, see [Load the CUSTOMER table using MANIFEST](#tutorial-loading-load-customer "#tutorial-loading-load-customer").
 
 - ACCEPTINVCHARS
 
-For information on how to use the ACCEPTINVCHARS option, see [Load the CUSTOMER table using
-MANIFEST](#tutorial-loading-load-customer "#tutorial-loading-load-customer").
+For information on how to use the ACCEPTINVCHARS option, see [Load the CUSTOMER table using MANIFEST](#tutorial-loading-load-customer "#tutorial-loading-load-customer").
 
 - MANIFEST
 
-For information on how to use the MANIFEST option, see [Load the CUSTOMER table using
-MANIFEST](#tutorial-loading-load-customer "#tutorial-loading-load-customer").
+For information on how to use the MANIFEST option, see [Load the CUSTOMER table using MANIFEST](#tutorial-loading-load-customer "#tutorial-loading-load-customer").
 
 - DATEFORMAT
 
-For information on how to use the DATEFORMAT option, see [Load the DWDATE table using
-DATEFORMAT](#tutorial-loading-load-dwdate "#tutorial-loading-load-dwdate").
+For information on how to use the DATEFORMAT option, see [Load the DWDATE table using DATEFORMAT](#tutorial-loading-load-dwdate "#tutorial-loading-load-dwdate").
 
 - GZIP, LZOP and BZIP2
 
@@ -462,9 +446,7 @@ For information on how to use the COMPUPDATE option, see [Load multiple data fil
 
 For information on how to load multiple files, see [Load multiple data files](#tutorial-loading-load-lineorder "#tutorial-loading-load-lineorder").
 
-### Loading the SSB
-
-tables
+### Loading the SSB tables
 
 You use the following COPY commands to load each of the tables in the SSB schema.
 The command to each table demonstrates different COPY options and troubleshooting
@@ -472,18 +454,12 @@ techniques.
 
 To load the SSB tables, follow these steps:
 
-1. [Replace the bucket name
-   and AWS credentials](#tutorial-loading-run-copy-replaceables "#tutorial-loading-run-copy-replaceables")
-2. [Load the PART table using NULL
-   AS](#tutorial-loading-load-part "#tutorial-loading-load-part")
-3. [Load the CUSTOMER table using
-   MANIFEST](#tutorial-loading-load-customer "#tutorial-loading-load-customer")
-4. [Load the DWDATE table using
-   DATEFORMAT](#tutorial-loading-load-dwdate "#tutorial-loading-load-dwdate")
+1. [Replace the bucket name and AWS credentials](#tutorial-loading-run-copy-replaceables "#tutorial-loading-run-copy-replaceables")
+2. [Load the PART table using NULL AS](#tutorial-loading-load-part "#tutorial-loading-load-part")
+3. [Load the CUSTOMER table using MANIFEST](#tutorial-loading-load-customer "#tutorial-loading-load-customer")
+4. [Load the DWDATE table using DATEFORMAT](#tutorial-loading-load-dwdate "#tutorial-loading-load-dwdate")
 
-#### Replace the bucket name
-
-and AWS credentials
+#### Replace the bucket name and AWS credentials
 
 The COPY commands in this tutorial are presented in the following
 format.
@@ -507,9 +483,7 @@ string that is enclosed in single quotation marks must not contain any
 spaces or line breaks. Note that the ARN might differ slightly in format than the sample. It's best to
 copy the ARN for the role from the IAM console, to ensure that it's accurate, when you run the COPY commands.
 
-#### Load the PART table using NULL
-
-AS
+#### Load the PART table using NULL AS
 
 In this step, you use the CSV and NULL AS options to load the PART table.
 
@@ -691,8 +665,7 @@ format.
 Whenever possible, you should locate your load data in the same AWS region
 as your Amazon Redshift cluster. If your data and your cluster are in the same
 region, you reduce latency and avoid
-cross-region data transfer costs. For more information, see [Amazon Redshift best practices for loading
-data](c_loading-data-best-practices.md "c_loading-data-best-practices.md").
+cross-region data transfer costs. For more information, see [Amazon Redshift best practices for loading data](c_loading-data-best-practices.md "c_loading-data-best-practices.md").
 
 If you must load data from a different AWS region, use the REGION option to
 specify the AWS region in which the load data is located. If you specify a
@@ -711,9 +684,7 @@ gzip
 region 'us-west-2';
 ```
 
-#### Load the CUSTOMER table using
-
-MANIFEST
+#### Load the CUSTOMER table using MANIFEST
 
 In this step, you use the FIXEDWIDTH, MAXERROR, ACCEPTINVCHARS, and MANIFEST
 options to load the CUSTOMER table.
@@ -890,8 +861,7 @@ In this exercise, you use a manifest file to avoid loading the wrong files.
 
 By default, when COPY encounters a character that is not supported by the
 column's data type, it skips the row and returns an error. For information
-about invalid UTF-8 characters, see [Multibyte character load
-errors](multi-byte-character-load-errors.md "multi-byte-character-load-errors.md").
+about invalid UTF-8 characters, see [Multibyte character load errors](multi-byte-character-load-errors.md "multi-byte-character-load-errors.md").
 
 You could use the MAXERRORS option to ignore errors and continue loading, then
 query STL_LOAD_ERRORS to locate the invalid characters, and then fix the data
@@ -968,9 +938,7 @@ acceptinvchars as '^'
 manifest;
 ```
 
-#### Load the DWDATE table using
-
-DATEFORMAT
+#### Load the DWDATE table using DATEFORMAT
 
 In this step, you use the DELIMITER and DATEFORMAT options to load the DWDATE
 table.
@@ -998,8 +966,7 @@ argument. When `'auto'` is specified, COPY recognizes any valid
 date or time format and convert it to the default format. The
 `'auto'` option recognizes several formats that are not
 supported when using a DATEFORMAT and TIMEFORMAT string. For more
-information, see [Using automatic recognition with DATEFORMAT and
-TIMEFORMAT](automatic-recognition.md "automatic-recognition.md").
+information, see [Using automatic recognition with DATEFORMAT and TIMEFORMAT](automatic-recognition.md "automatic-recognition.md").
 
 To load the DWDATE table, run the following COPY command.
 
@@ -1120,9 +1087,7 @@ clusters, with tens to hundreds of nodes, the difference is even more
 dramatic. If you have a single node cluster, there is little difference
 between the execution times.
 
-## Step 6: Vacuum and analyze the
-
-database
+## Step 6: Vacuum and analyze the database
 
 Whenever you add, delete, or modify a significant number of rows, you should run a
 VACUUM command and then an ANALYZE command. A _vacuum_ recovers the
@@ -1186,17 +1151,12 @@ You applied the following best practices for loading data:
 
 - [Use a COPY command to load data](c_best-practices-use-copy.md "c_best-practices-use-copy.md")
 - [Loading data files](c_best-practices-use-multiple-files.md "c_best-practices-use-multiple-files.md")
-- [Use a single COPY command to load
-  from multiple files](c_best-practices-single-copy-command.md "c_best-practices-single-copy-command.md")
+- [Use a single COPY command to load from multiple files](c_best-practices-single-copy-command.md "c_best-practices-single-copy-command.md")
 - [Compressing your data files](c_best-practices-compress-data-files.md "c_best-practices-compress-data-files.md")
-- [Verify data files before and
-  after a load](c_best-practices-verifying-data-files.md "c_best-practices-verifying-data-files.md")
+- [Verify data files before and after a load](c_best-practices-verifying-data-files.md "c_best-practices-verifying-data-files.md")
 
 For more information about Amazon Redshift best practices, see the following links:
 
-- [Amazon Redshift best practices for loading
-  data](c_loading-data-best-practices.md "c_loading-data-best-practices.md")
-- [Amazon Redshift best practices for designing
-  tables](c_designing-tables-best-practices.md "c_designing-tables-best-practices.md")
-- [Amazon Redshift best practices for designing
-  queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md")
+- [Amazon Redshift best practices for loading data](c_loading-data-best-practices.md "c_loading-data-best-practices.md")
+- [Amazon Redshift best practices for designing tables](c_designing-tables-best-practices.md "c_designing-tables-best-practices.md")
+- [Amazon Redshift best practices for designing queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md")

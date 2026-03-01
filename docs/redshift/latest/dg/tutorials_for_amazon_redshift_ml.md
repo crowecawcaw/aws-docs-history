@@ -12,18 +12,15 @@ predictions in Amazon Redshift using the model’s prediction function.
 
 Follow the steps in these tutorials to learn about Amazon Redshift ML features:
 
-- [Tutorial: Building customer churn
-  models](tutorial_customer_churn.md "tutorial_customer_churn.md") –
+- [Tutorial: Building customer churn models](tutorial_customer_churn.md "tutorial_customer_churn.md") –
   In this tutorial, you use Amazon Redshift ML to create a customer churn model with the
   CREATE MODEL command, and run prediction queries for user scenarios. Then, you implement
   queries using the SQL function that the CREATE MODEL command generates.
-- [Tutorial: Building K-means clustering
-  models](tutorial_k-means_clustering.md "tutorial_k-means_clustering.md") –
+- [Tutorial: Building K-means clustering models](tutorial_k-means_clustering.md "tutorial_k-means_clustering.md") –
   In this tutorial, you use Amazon Redshift ML to create, train, and deploy a machine
   learning model based on the [K-means
   algorithm](url-sm-dev.md "url-sm-dev.md").
-- [Tutorial: Building multi-class classification
-  models](tutorial_multi-class_classification.md "tutorial_multi-class_classification.md") –
+- [Tutorial: Building multi-class classification models](tutorial_multi-class_classification.md "tutorial_multi-class_classification.md") –
   In this tutorial, you use Amazon Redshift ML to create a machine learning model that
   solves multi-class classification problems. The multi-class classification
   algorithm classifies data points into one of three or more classes. Then, you

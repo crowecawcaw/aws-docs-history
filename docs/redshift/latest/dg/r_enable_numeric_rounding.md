@@ -4,9 +4,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # enable_numeric_rounding
 
-## Values (default in
-
-bold)
+## Values (default in bold)
 
 on (true), **off (false)**
 

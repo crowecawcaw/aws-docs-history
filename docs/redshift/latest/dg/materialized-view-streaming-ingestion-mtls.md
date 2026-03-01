@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Authentication with mTLS for Redshift
-
-streaming ingestion from Apache Kafka sources
+# Authentication with mTLS for Redshift streaming ingestion from Apache Kafka sources
 
 Mutual transport-layer security (mTLS) provides the means for a server to authenticate a client it's
 sending information to, and for the client to authenticate the
@@ -18,12 +16,9 @@ This topic provides procedures and SQL-command examples that show ways to create
 schema that uses mTLS to authenticate between the Redshift client and any Apache Kafka server.
 The steps in this topic complement the full set of steps
 for setting up streaming ingestion from Apache Kafka sources.
-For more information, see [Getting started with streaming ingestion
-from Apache Kafka sources](materialized-view-streaming-ingestion-getting-started-MSK.md "materialized-view-streaming-ingestion-getting-started-MSK.md").
+For more information, see [Getting started with streaming ingestion from Apache Kafka sources](materialized-view-streaming-ingestion-getting-started-MSK.md "materialized-view-streaming-ingestion-getting-started-MSK.md").
 
-## Prerequisites for
-
-using mTLS for streaming ingestion
+## Prerequisites for using mTLS for streaming ingestion
 
 This section provides prerequisite steps for using mTLS for streaming ingestion with either
 AWS Certificate Manager or AWS Secrets Manager.
@@ -78,13 +73,14 @@ Requests to AWS Certificate Manager require an Internet gateway (IGW) or a NAT g
 VPC. If your VPC doesn't have either an IGW or a NGW, do the following:
 
     * Use Secrets Manager instead of ACM to store your certificates.
-    * Attach a Secrets Manager VPC endpoint to your VPC.For information about using Secrets Manager with mTLS for streaming ingestion, see [Using mTLS for streaming ingestion
+    * Attach a Secrets Manager VPC endpoint to your VPC.For information about using Secrets Manager with mTLS for streaming ingestion, see [Using mTLS for streaming ingestion with AWS Secrets Manager](#materialized-view-streaming-ingestion-mtls-secrets-manager "#materialized-view-streaming-ingestion-mtls-secrets-manager") following.
 
-with AWS Secrets Manager](#materialized-view-streaming-ingestion-mtls-secrets-manager "#materialized-view-streaming-ingestion-mtls-secrets-manager") following. 3. Get the bootstrap broker URI for the Amazon MSK, Apache Kafka, or Confluent Cloud cluster.
-For information about getting the bootstrap broker URI for Amazon MSK, see
-[Getting the bootstrap brokers for
-an Amazon MSK cluster](../../../msk/latest/developerguide/msk-get-bootstrap-brokers.md "../../../msk/latest/developerguide/msk-get-bootstrap-brokers.md") in the _Amazon Managed Streaming for Apache Kafka Developer Guide_. 4. Run a SQL command such as the following example to create an external schema that maps the
-cluster to a Redshift external schema, using `mtls`.
+3. Get the bootstrap broker URI for the Amazon MSK, Apache Kafka, or Confluent Cloud cluster.
+   For information about getting the bootstrap broker URI for Amazon MSK, see
+   [Getting the bootstrap brokers for
+   an Amazon MSK cluster](../../../msk/latest/developerguide/msk-get-bootstrap-brokers.md "../../../msk/latest/developerguide/msk-get-bootstrap-brokers.md") in the _Amazon Managed Streaming for Apache Kafka Developer Guide_.
+4. Run a SQL command such as the following example to create an external schema that maps the
+   cluster to a Redshift external schema, using `mtls`.
 
 Amazon MSK
 
@@ -119,12 +115,9 @@ Important parameters:
 After performing these configuration steps, you can create a Redshift materialized view that references
 the schema defined in the sample and then
 use REFRESH MATERIALIZED VIEW to stream data. For more information, see
-[Getting started with streaming ingestion
-from Apache Kafka sources](materialized-view-streaming-ingestion-getting-started-MSK.md "materialized-view-streaming-ingestion-getting-started-MSK.md").
+[Getting started with streaming ingestion from Apache Kafka sources](materialized-view-streaming-ingestion-getting-started-MSK.md "materialized-view-streaming-ingestion-getting-started-MSK.md").
 
-## Using mTLS for streaming ingestion
-
-with AWS Secrets Manager
+## Using mTLS for streaming ingestion with AWS Secrets Manager
 
 You can configure mTLS for Redshift streaming ingestion by using
 AWS Secrets Manager for certificate management if you don't want to reference the
@@ -163,8 +156,7 @@ klhdslkfjahksgdfkgioeuyihbflahabhbdslv6akybeoiwv1hoaiusdhbahsbdi
 4. Attach the permission policy to retrieve the secret
    to the IAM role that you use to manage your Amazon Redshift cluster or Amazon Redshift Serverless workgroup.
    This permission is `secretsmanager:GetSecretValue`. For more information, see
-   [Set
-   up authentication](materialized-view-streaming-ingestion-getting-started-MSK.md#materialized-view-streaming-ingestion-getting-started-MSK-setup-auth "materialized-view-streaming-ingestion-getting-started-MSK.md#materialized-view-streaming-ingestion-getting-started-MSK-setup-auth").
+   [Set up authentication](materialized-view-streaming-ingestion-getting-started-MSK.md#materialized-view-streaming-ingestion-getting-started-MSK-setup-auth "materialized-view-streaming-ingestion-getting-started-MSK.md#materialized-view-streaming-ingestion-getting-started-MSK-setup-auth").
    For more information about managing IAM policies, see
    [Edit IAM policies](../../../IAM/latest/UserGuide/access_policies_manage-edit.md "../../../IAM/latest/UserGuide/access_policies_manage-edit.md").
    Specify the same IAM role in the next step to create the external schema.

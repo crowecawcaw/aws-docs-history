@@ -2,22 +2,18 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Permissions to access other AWS
-
-Resources
+# Permissions to access other AWS Resources
 
 To move data between your cluster and another AWS resource, such as Amazon S3, Amazon DynamoDB,
 Amazon EMR, or Amazon EC2, your cluster must have permission to access the resource and perform
 the necessary actions. For example, to load data from Amazon S3, COPY must have LIST access
 to the bucket and GET access for the bucket objects. For information about minimum
-permissions, see [IAM permissions for COPY, UNLOAD,
-and CREATE LIBRARY](#copy-usage_notes-iam-permissions "#copy-usage_notes-iam-permissions").
+permissions, see [IAM permissions for COPY, UNLOAD, and CREATE LIBRARY](#copy-usage_notes-iam-permissions "#copy-usage_notes-iam-permissions").
 
 To get authorization to access the resource, your cluster must be authenticated. You
 can choose either of the following authentication methods:
 
-- [Role-based access
-  control](#copy-usage_notes-access-role-based "#copy-usage_notes-access-role-based") – For role-based
+- [Role-based access control](#copy-usage_notes-access-role-based "#copy-usage_notes-access-role-based") – For role-based
   access control, you specify an AWS Identity and Access Management (IAM) role that your cluster uses for
   authentication and authorization. To safeguard your AWS credentials and sensitive
   data, we strongly recommend using role-based authentication.
@@ -25,9 +21,7 @@ can choose either of the following authentication methods:
   access control, you provide the AWS access credentials (access key ID and secret
   access key) for a user as plain text.
 
-## Role-based access
-
-control
+## Role-based access control
 
 With role-based access control, your
 cluster temporarily assumes an IAM role on your behalf. Then, based on the
@@ -62,8 +56,7 @@ Role-based authentication delivers the following benefits:
 
 To use role-based access control, you must first create an IAM role using the
 Amazon Redshift service role type, and then attach the role to your cluster. The role must have,
-at a minimum, the permissions listed in [IAM permissions for COPY, UNLOAD,
-and CREATE LIBRARY](#copy-usage_notes-iam-permissions "#copy-usage_notes-iam-permissions"). For steps to create an IAM
+at a minimum, the permissions listed in [IAM permissions for COPY, UNLOAD, and CREATE LIBRARY](#copy-usage_notes-iam-permissions "#copy-usage_notes-iam-permissions"). For steps to create an IAM
 role and attach it to your cluster, see [Authorizing Amazon Redshift to Access
 Other AWS Services On Your Behalf](../mgmt/authorizing-redshift-service.md "../mgmt/authorizing-redshift-service.md") in the
 _Amazon Redshift Management Guide_.
@@ -136,12 +129,9 @@ CREDENTIALS
 'aws_access_key_id=`<access-key-id>`;aws_secret_access_key=`<secret-access-key>`';
 ```
 
-The IAM user must have, at a minimum, the permissions listed in [IAM permissions for COPY, UNLOAD,
-and CREATE LIBRARY](#copy-usage_notes-iam-permissions "#copy-usage_notes-iam-permissions").
+The IAM user must have, at a minimum, the permissions listed in [IAM permissions for COPY, UNLOAD, and CREATE LIBRARY](#copy-usage_notes-iam-permissions "#copy-usage_notes-iam-permissions").
 
-### Temporary security
-
-credentials
+### Temporary security credentials
 
 If you are using key-based access control, you can further limit the access
 users have to your data by using temporary security credentials. Role-based
@@ -237,9 +227,7 @@ operation requires one hour, the COPY operation fails before it completes. If
 you use role-based access, the temporary security credentials are automatically
 refreshed until the operation completes.
 
-## IAM permissions for COPY, UNLOAD,
-
-and CREATE LIBRARY
+## IAM permissions for COPY, UNLOAD, and CREATE LIBRARY
 
 The IAM role or user referenced by the CREDENTIALS parameter must have, at a
 minimum, the following permissions:

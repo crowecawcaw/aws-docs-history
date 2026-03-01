@@ -6,8 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 SVV_INTEGRATION_TABLE_STATE displays details about table-level integration information.
 
-SVV_INTEGRATION_TABLE_STATE is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV_INTEGRATION_TABLE_STATE is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 For more information, see [Zero-ETL integrations](../mgmt/zero-etl-using.md "../mgmt/zero-etl-using.md").
 
@@ -27,9 +26,7 @@ For more information, see [Zero-ETL integrations](../mgmt/zero-etl-using.md "../
 | table_size                       | bigint                      | The size of the table in megabytes (MB).                                                                                                                                                                                                                                                                           |
 | is_history_mode                  | boolean                     | A `TRUE` value indicates that history mode is on. A `FALSE` indicates that history mode is off.                                                                                                                                                                                                                    |
 
-## Sample
-
-queries
+## Sample queries
 
 The following SQL command displays the columns of the log of integrations.
 

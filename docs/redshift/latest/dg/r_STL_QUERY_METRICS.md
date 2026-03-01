@@ -16,8 +16,7 @@ than one second might not be recorded.
 STL_QUERY_METRICS tracks and aggregates metrics at the query, segment, and step level.
 For information about query segments and steps, see [Query planning and execution workflow](c-query-planning.md "c-query-planning.md"). Many metrics (such as `max_rows`,
 `cpu_time`, and so on) are summed across node slices. For more
-information about node slices, see [Data warehouse system
-architecture](c_high_level_system_architecture.md "c_high_level_system_architecture.md").
+information about node slices, see [Data warehouse system architecture](c_high_level_system_architecture.md "c_high_level_system_architecture.md").
 
 To determine the level at which the row reports metrics, examine the
 `segment` and `step_type` columns.
@@ -32,8 +31,7 @@ To determine the level at which the row reports metrics, examine the
   the [SVL_QUERY_METRICS_SUMMARY](r_SVL_QUERY_METRICS_SUMMARY.md "r_SVL_QUERY_METRICS_SUMMARY.md") view aggregate the data in this view
   and present the information in a more accessible form.
 
-STL_QUERY_METRICS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL_QUERY_METRICS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 Some or all of the data in this table can also be found in the SYS monitoring view [SYS_QUERY_DETAIL](SYS_QUERY_DETAIL.md "SYS_QUERY_DETAIL.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
 We recommend that you use the SYS monitoring view for your queries.

@@ -112,9 +112,7 @@ and streaming materialized views. Materialized views with other source types, su
 Spectrum or Data Sharing, are not supported in cascade mode. CASCADE executes refresh in
 a single transaction for all nested MVs.
 
-## Incremental refresh for
-
-materialized views in a datashare
+## Incremental refresh for materialized views in a datashare
 
 Amazon Redshift supports automatic and incremental refresh for materialized views in a consumer
 datashare when the base tables are shared. Incremental refresh is an operation where
@@ -122,9 +120,7 @@ Amazon Redshift identifies changes in the base table or tables that happened aft
 refresh and updates only the corresponding records in the materialized view. For more
 information about this behavior, see [CREATE MATERIALIZED VIEW](materialized-view-create-sql-command.md#mv_CREATE_MARTERIALIZED_VIEW_datashare "materialized-view-create-sql-command.md#mv_CREATE_MARTERIALIZED_VIEW_datashare").
 
-## Limitations for incremental
-
-refresh
+## Limitations for incremental refresh
 
 Amazon Redshift currently doesn't support incremental refresh for materialized views that
 are defined with a query using any of the following SQL elements:
@@ -154,8 +150,7 @@ The COUNT, SUM, MIN, MAX, and AVG aggregate functions are supported.
       + Hudi
 
   Incremental refresh is supported for materialized views defined using formats
-  other than those listed above. For more information, see [Materialized views on external data
-  lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md "materialized-view-external-table.md").
+  other than those listed above. For more information, see [Materialized views on external data lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md "materialized-view-external-table.md").
 
 - Mutable functions, such as date-time functions, RANDOM and non-STABLE
   user-defined functions.

@@ -27,14 +27,10 @@ have to periodically copy it to other tables or unload it to Amazon S3.
 ###### Topics
 
 - [Types of system tables and views](#c_types-of-system-tables-and-views "#c_types-of-system-tables-and-views")
-- [Visibility of data in system tables and
-  views](#c_visibility-of-data "#c_visibility-of-data")
-- [Migrating provisioned-only queries to SYS
-  monitoring view queries](#sys_view_migration-use_cases "#sys_view_migration-use_cases")
-- [Improving query identifier tracking using
-  the SYS monitoring views](#sys_view_migration-query-id "#sys_view_migration-query-id")
-- [System table query, process,
-  and session ids](#system-table-query-process-session-ids "#system-table-query-process-session-ids")
+- [Visibility of data in system tables and views](#c_visibility-of-data "#c_visibility-of-data")
+- [Migrating provisioned-only queries to SYS monitoring view queries](#sys_view_migration-use_cases "#sys_view_migration-use_cases")
+- [Improving query identifier tracking using the SYS monitoring views](#sys_view_migration-query-id "#sys_view_migration-query-id")
+- [System table query, process, and session ids](#system-table-query-process-session-ids "#system-table-query-process-session-ids")
 - [SVV metadata views](svv_views.md "svv_views.md")
 - [SYS monitoring views](serverless_views-monitoring.md "serverless_views-monitoring.md")
 - [System view mapping for migrating to SYS monitoring views](sys_view_migration.md "sys_view_migration.md")
@@ -85,9 +81,7 @@ select * from stv_exec_state
 where currenttime = (select max(currenttime) from stv_exec_state)
 ```
 
-## Visibility of data in system tables and
-
-views
+## Visibility of data in system tables and views
 
 ###### Note
 
@@ -127,9 +121,7 @@ A superuser can see all rows in all tables. To give a regular user access to
 superuser-visible tables, [GRANT](r_GRANT.md "r_GRANT.md") SELECT
 privilege on that table to the regular user.
 
-### Filtering system-generated
-
-queries
+### Filtering system-generated queries
 
 The query-related system tables and views, such as SVL_QUERY_SUMMARY, SVL_QLOG,
 and others, usually contain a large number of automatically generated statements
@@ -143,13 +135,9 @@ example:
  select * from svl_query_summary where userid > 1
 ```
 
-## Migrating provisioned-only queries to SYS
+## Migrating provisioned-only queries to SYS monitoring view queries
 
-monitoring view queries
-
-### Migrating from provisioned
-
-clusters to Amazon Redshift Serverless
+### Migrating from provisioned clusters to Amazon Redshift Serverless
 
 If you're migrating a provisioned cluster to Amazon Redshift Serverless, you may have queries using
 the following system views, which only store data from provisioned clusters.
@@ -168,9 +156,7 @@ monitoring views that correspond to the columns in your provisioned-only views. 
 see the mapping relation between the provisioned-only views and the SYS monitoring
 views, go to [System view mapping for migrating to SYS monitoring views](sys_view_migration.md "sys_view_migration.md")
 
-### Updating queries while
-
-staying on a provisioned cluster
+### Updating queries while staying on a provisioned cluster
 
 If you're not migrating to Amazon Redshift Serverless, you might still want to update your existing
 queries. The SYS monitoring views are designed for ease of use and reduced
@@ -178,9 +164,7 @@ complexity, providing a complete array of metrics for effective monitoring and
 troubleshooting. Using SYS views such as [SYS_QUERY_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md") and [SYS_QUERY_DETAIL](SYS_QUERY_DETAIL.md "SYS_QUERY_DETAIL.md") that consolidate the information of multiple
 provisioned-only views, you can streamline your queries.
 
-## Improving query identifier tracking using
-
-the SYS monitoring views
+## Improving query identifier tracking using the SYS monitoring views
 
 SYS monitoring views such as such as [SYS_QUERY_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md") and [SYS_QUERY_DETAIL](SYS_QUERY_DETAIL.md "SYS_QUERY_DETAIL.md") contain the query_id column, which holds the
 identifier for users’ queries. Similarly, provisioned-only views such as [STL_QUERY](r_STL_QUERY.md "r_STL_QUERY.md") and [SVL_QLOG](r_SVL_QLOG.md "r_SVL_QLOG.md") contain the query column, which also holds the query
@@ -420,9 +404,7 @@ order by query_id,
 (28 rows)`
 ```
 
-## System table query, process,
-
-and session ids
+## System table query, process, and session ids
 
 When analyzing query, process, and session ids that appear in system tables, be aware
 of the following:

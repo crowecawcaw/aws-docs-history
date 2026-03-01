@@ -33,9 +33,7 @@ and query the data in Amazon Redshift.
 
 ## How AWS Data Exchange datashares work
 
-### Managing AWS Data Exchange datashares as a producer
-
-administrator
+### Managing AWS Data Exchange datashares as a producer administrator
 
 If
 you are a data producer (also known as a provider on AWS Data Exchange), you can create
@@ -44,9 +42,7 @@ products on AWS Data Exchange, you must be a registered AWS Data Exchange provid
 
 For more information on how to get started with AWS Data Exchange datashares, see [Sharing licensed Amazon Redshift data on AWS Data Exchange](adx-getting-started.md "adx-getting-started.md").
 
-### Using AWS Data Exchange datashares as a consumer with an
-
-active AWS Data Exchange subscription
+### Using AWS Data Exchange datashares as a consumer with an active AWS Data Exchange subscription
 
 If you are a consumer with an active AWS Data Exchange subscription (also known as a
 subscriber on AWS Data Exchange), you can browse the AWS Data Exchange catalog on the AWS Data Exchange
@@ -75,9 +71,7 @@ following:
   datashares. Performing this type of alteration can breach data product terms in
   AWS Data Exchange.
 
-## Datashare producers and
-
-consumers
+## Datashare producers and consumers
 
 _Data producers_ (also known as data sharing
 producers or datashare producers) are clusters that you want to share data from.

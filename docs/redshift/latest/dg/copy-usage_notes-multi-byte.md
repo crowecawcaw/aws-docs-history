@@ -8,5 +8,4 @@ If your data includes non-ASCII multibyte characters (such as Chinese or Cyrilli
 characters), you must load the data to VARCHAR columns. The VARCHAR data type supports
 four-byte UTF-8 characters, but the CHAR data type only accepts single-byte ASCII
 characters. You can't load five-byte or longer characters into Amazon Redshift tables. For
-more information, see [Multibyte
-characters](c_Supported_data_types.md#c_Supported_data_types-multi-byte-characters "c_Supported_data_types.md#c_Supported_data_types-multi-byte-characters").
+more information, see [Multibyte characters](c_Supported_data_types.md#c_Supported_data_types-multi-byte-characters "c_Supported_data_types.md#c_Supported_data_types-multi-byte-characters").

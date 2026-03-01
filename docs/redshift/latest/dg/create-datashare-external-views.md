@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Adding data lake tables to a
-
-datashare
+# Adding data lake tables to a datashare
 
 With a datashare, a data _producer_ can securely share database
 objects of fine granularity, such as schemas and tables, with
@@ -33,9 +31,7 @@ It covers two use cases:
 Data lake tables that you add to a datashare can include tables registered with
 Lake Formation and AWS Glue data catalog tables.
 
-## Create an external
-
-schema and an external table
+## Create an external schema and an external table
 
 You create an external schema and an external table in order to add them to the
 datashare in the sections that follow. These are preliminary steps. If you have
@@ -78,9 +74,7 @@ lake, see [Examples](r_CREATE_EXTERNAL_TABLE_examples.md "r_CREATE_EXTERNAL_TABL
 Sharing is supported only for tables where the IAM role on the
 producer has SELECT access on the table.
 
-## Add a
-
-late-binding view that references a data lake table to a datashare
+## Add a late-binding view that references a data lake table to a datashare
 
 When you create tables based on an external schema from the AWS data catalog,
 and you want to add them to a datashare, the most common way to do it is to add a
@@ -134,9 +128,7 @@ SELECT * FROM svv_datashare_objects WHERE share_name = 'my_datashare';
 After you complete the steps, database consumer users with access to the
 datashare view can query the data.
 
-## Add a data
-
-lake table directly to a datashare
+## Add a data lake table directly to a datashare
 
 Adding a table in an external schema to a datashare is similar to adding a
 view. This works well for a case where a consumer wants to query the data lake
@@ -183,9 +175,7 @@ After administrators complete the steps, database users on the consumer can
 write queries to retrieve data from the shared table and join it with other tables
 on the consumer.
 
-## Usage
-
-notes for adding data lake objects to a datashare
+## Usage notes for adding data lake objects to a datashare
 
 There are several items to note when you use tables and views from a data lake
 in a datashare:
@@ -206,9 +196,7 @@ in a datashare:
   – For Lake Formation registered tables, Amazon S3 resources are secured by Lake Formation and
   made available using the credentials provided by Lake Formation.
 
-## Billing
-
-considerations for adding data lake objects to a datashare
+## Billing considerations for adding data lake objects to a datashare
 
 The following details how costs are attributed for storing and scanning data
 lake objects in a datashare:

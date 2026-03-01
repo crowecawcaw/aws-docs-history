@@ -26,8 +26,7 @@ The rest of this section provides details about distribution styles.
 - [Distribution styles](c_choosing_dist_sort.md "c_choosing_dist_sort.md")
 - [Viewing distribution styles](viewing-distribution-styles.md "viewing-distribution-styles.md")
 - [Evaluating query patterns](t_evaluating_query_patterns.md "t_evaluating_query_patterns.md")
-- [Designating distribution
-  styles](t_designating_distribution_styles.md "t_designating_distribution_styles.md")
+- [Designating distribution styles](t_designating_distribution_styles.md "t_designating_distribution_styles.md")
 - [Evaluating the query plan](c_data_redistribution.md "c_data_redistribution.md")
 - [Query plan example](t_explain_plan_example.md "t_explain_plan_example.md")
 - [Distribution examples](c_Distribution_examples.md "c_Distribution_examples.md")

@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Performing a merge operation by specifying
-
-a column list without using the MERGE command
+# Performing a merge operation by specifying a column list without using the MERGE command
 
 When you run the merge operation detailed in the procedure, put all of the steps in a single transaction. The transaction
 rolls back if any step fails. Using a single transaction also reduces the number of commits, which saves time
@@ -40,8 +38,7 @@ where source.filter = 'filter_expression';
      check for DS_DIST_NONE on all of the joins. For more information, see [Evaluating the query plan](c_data_redistribution.md "c_data_redistribution.md")
    - If your target table is sorted by timestamp, add a predicate to take
      advantage of range-restricted scans on the target table. For more
-     information, see [Amazon Redshift best practices for designing
-     queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md").
+     information, see [Amazon Redshift best practices for designing queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md").
    - If you will not use all of the rows in the merge, add a clause to filter
      the rows that you want to change. For example, add an inequality filter on
      one or more columns to exclude rows that have not changed.

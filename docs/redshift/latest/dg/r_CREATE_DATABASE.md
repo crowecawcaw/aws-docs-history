@@ -54,8 +54,7 @@ For Aurora PostgreSQL zero-ETL integrations, you also need to specify
 `source_database` name, which can also be retrieved from
 SVV_INTEGRATION.
 
-For an example, see [Create databases to receive results of
-zero-ETL integrations](#r_CREATE_DATABASE-integration "#r_CREATE_DATABASE-integration"). For more information about
+For an example, see [Create databases to receive results of zero-ETL integrations](#r_CREATE_DATABASE-integration "#r_CREATE_DATABASE-integration"). For more information about
 creating databases with zero-ETL integrations, see [Creating
 destination databases in Amazon Redshift](../mgmt/zero-etl-using.md "../mgmt/zero-etl-using.md") in the
 _Amazon Redshift Management Guide_.
@@ -246,8 +245,7 @@ JSON
 
 ```
 
-For the steps to create an IAM role to use with federated query, see [Creating a secret and an IAM role to use
-federated queries](federated-create-secret-iam-role.md "federated-create-secret-iam-role.md").
+For the steps to create an IAM role to use with federated query, see [Creating a secret and an IAM role to use federated queries](federated-create-secret-iam-role.md "federated-create-secret-iam-role.md").
 
 ###### Note
 
@@ -259,9 +257,7 @@ The following shows the syntax for chaining three roles.
 IAM_ROLE 'arn:aws:iam::`<aws-account-id>`:role/`<role-1-name>`,arn:aws:iam::`<aws-account-id>`:role/`<role-2-name>`,arn:aws:iam::`<aws-account-id>`:role/`<role-3-name>`'
 ```
 
-## Syntax for using CREATE DATABASE
-
-with a datashare
+## Syntax for using CREATE DATABASE with a datashare
 
 The following syntax describes the CREATE DATABASE command used to create databases
 from a datashare for sharing data within the same AWS account.
@@ -279,9 +275,7 @@ CREATE DATABASE *database\_name*
 [ [ WITH PERMISSIONS ] FROM DATASHARE *datashare\_name* OF ACCOUNT *account\_id* NAMESPACE *namespace\_guid*
 ```
 
-### Parameters for using CREATE
-
-DATABASE with a datashare
+### Parameters for using CREATE DATABASE with a datashare
 
 FROM DATASHARE
 
@@ -309,9 +303,7 @@ ACCOUNT _account_id_
 A value that specifies the producer account that the datashare belongs
 to.
 
-## Usage notes for CREATE DATABASE for data
-
-sharing
+## Usage notes for CREATE DATABASE for data sharing
 
 As a database superuser, when you use CREATE DATABASE to create databases from
 datashares within the AWS account, specify the NAMESPACE option. The ACCOUNT option is
@@ -351,9 +343,7 @@ You can also create a database using a DATA CATALOG SCHEMA.
 CREATE DATABASE sampledb FROM ARN <glue-database-arn> WITH DATA CATALOG SCHEMA <sample_schema> IAM_ROLE default;
 ```
 
-## Create databases to receive results of
-
-zero-ETL integrations
+## Create databases to receive results of zero-ETL integrations
 
 To create a database using a zero-ETL integration identity, specify the
 `integration_id` in your CREATE DATABASE command.
@@ -402,9 +392,7 @@ on.
 CREATE DATABASE sample_integration_db FROM INTEGRATION 'a1b2c3d4-5678-90ab-cdef-EXAMPLE11111' SET HISTORY_MODE = true;
 ```
 
-## CREATE DATABASE
-
-limits
+## CREATE DATABASE limits
 
 Amazon Redshift enforces these limits for databases:
 
@@ -468,9 +456,7 @@ For information on how to create tables using database collation, see [CREATE TA
 
 For information on the COLLATE function, see [COLLATE function](r_COLLATE.md "r_COLLATE.md").
 
-### Database collation
-
-limitations
+### Database collation limitations
 
 The following are limitations when working with database collation in
 Amazon Redshift:
@@ -579,9 +565,7 @@ salesshare.
 CREATE DATABASE sales_db FROM DATASHARE salesshare OF NAMESPACE '13b8833d-17c6-4f16-8fe4-1a018f5ed00d';
 ```
 
-### Database collation
-
-examples
+### Database collation examples
 
 ###### Creating a case-insensitive database
 

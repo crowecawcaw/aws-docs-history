@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Granting object level permissions to consumer
-
-users and roles in Amazon Redshift
+# Granting object level permissions to consumer users and roles in Amazon Redshift
 
 As a consumer administrator, you can grant permissions to consumer users and
 roles at the object level by completing the following steps.
@@ -38,5 +36,4 @@ GRANT SELECT ON sales_db.public.tickit_sales_redshift to Bob;
 ```
 
 For more information about granting permissions with multi-warehouse writes,
-see [Managing permissions for a
-datashares in Amazon Redshift](writes-managing-permissions.md "writes-managing-permissions.md").
+see [Managing permissions for a datashares in Amazon Redshift](writes-managing-permissions.md "writes-managing-permissions.md").

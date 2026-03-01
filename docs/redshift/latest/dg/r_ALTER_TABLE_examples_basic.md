@@ -6,9 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 The following examples demonstrate basic usage of the ALTER TABLE command.
 
-## Rename a table or
-
-view
+## Rename a table or view
 
 The following command renames the USERS table to USERS_BKUP:
 
@@ -35,9 +33,7 @@ create view vdate as select * from date;
 alter table vdate owner to vuser;
 ```
 
-## Rename a
-
-column
+## Rename a column
 
 The following command renames the VENUESEATS column in the VENUE table to
 VENUESIZE:
@@ -47,9 +43,7 @@ alter table venue
 rename column venueseats to venuesize;
 ```
 
-## Drop a table
-
-constraint
+## Drop a table constraint
 
 To drop a table constraint, such as a primary key, foreign key, or unique
 constraint, first find the internal name of the constraint. Then specify the
@@ -93,9 +87,7 @@ The following example increases the size of the EVENTNAME column to VARBYTE(300)
 alter table event alter column eventname type varbyte(300);
 ```
 
-## Alter the compression
-
-encoding for a column
+## Alter the compression encoding for a column
 
 You can alter the compression encoding of a column. Below, you can find a set of
 examples demonstrating this approach. The table definition for these examples is as
@@ -133,9 +125,7 @@ Zstandard encoding to Runlength encoding.
 alter table t1 alter column c3 encode runlength;
 ```
 
-## Alter a DISTSTYLE KEY DISTKEY
-
-column
+## Alter a DISTSTYLE KEY DISTKEY column
 
 The following examples show how to change the DISTSTYLE and DISTKEY of a
 table.
@@ -183,9 +173,7 @@ select "table", "diststyle" from svv_table_info;`
  inventory | KEY(inv_item_sk)`
 ```
 
-## Alter a table to
-
-DISTSTYLE ALL
+## Alter a table to DISTSTYLE ALL
 
 The following examples show how to change a table to DISTSTYLE ALL.
 
@@ -258,9 +246,7 @@ key.
 alter table t1 alter sortkey(c0, c1);
 ```
 
-## Alter a table to ENCODE
-
-AUTO
+## Alter a table to ENCODE AUTO
 
 The following example shows how to alter a table to ENCODE AUTO.
 
@@ -295,9 +281,7 @@ The table encoding is no longer set to ENCODE AUTO.
 alter table t2 alter column c0 encode lzo;;
 ```
 
-## Alter row-level security
-
-control
+## Alter row-level security control
 
 The following command turns RLS off for the table:
 

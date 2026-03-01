@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Managing existing
-
-datashares
+# Managing existing datashares
 
 With Amazon Redshift, you can manage existing datashares to control access to your data in an
 Amazon Redshift cluster. The following sections provide step-by-step guidance on managing
@@ -33,9 +31,7 @@ Then choose a datashare either from the **Datashares from other
 clusters** or **Datashares created in my
 cluster** section to view its details.
 
-## Removing datashare objects from
-
-datashares
+## Removing datashare objects from datashares
 
 You can remove one or more objects from a datashare by using the following
 procedure.
@@ -67,9 +63,7 @@ procedure.
      Alternatively, choose **Remove by schema** to remove
      all user-defined functions in the specified schemas.
 
-## Removing data consumers from
-
-datashares
+## Removing data consumers from datashares
 
 You can remove one or more data consumers from a datashare. Data consumers can
 be namespaces that uniquely identified Amazon Redshift clusters or AWS accounts.
@@ -80,9 +74,7 @@ account, then choose **Remove**.
 Amazon Redshift removes the specified data consumers from the datashare. They lose
 access to the datashare immediately.
 
-## Editing datashares created in your
-
-account
+## Editing datashares created in your account
 
 Edit datashares created in your account using the console. Connect to a
 database first to see the list of datashares created in your account.
@@ -108,9 +100,7 @@ accounts. 7. Choose **Save changes**.
 
 Amazon Redshift updates your datashare with the changes.
 
-## Deleting a datashare created in your
-
-account
+## Deleting a datashare created in your account
 
 Delete datashares created in your account using the console. Connect to a
 database first to see the list of datashares created in your account.

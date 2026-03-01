@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Unsupported PostgreSQL
-
-functions
+# Unsupported PostgreSQL functions
 
 Many functions that are not excluded have different semantics or usage. For
 example, some supported functions will run only on the leader node. Also, some
@@ -19,8 +17,7 @@ in common are identical. Make sure to consult the _Amazon Redshift Database Deve
 [SQL commands](c_SQL_commands.md "c_SQL_commands.md") to understand the
 often subtle differences.
 
-For more information, see [SQL functions supported on the leader
-node](c_sql-functions-leader-node.md "c_sql-functions-leader-node.md").
+For more information, see [SQL functions supported on the leader node](c_sql-functions-leader-node.md "c_sql-functions-leader-node.md").
 
 These PostgreSQL functions are not supported in Amazon Redshift.
 

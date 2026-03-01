@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Loading data from an Amazon DynamoDB
-
-table
+# Loading data from an Amazon DynamoDB table
 
 You can use the COPY command to load a table with data from a single Amazon DynamoDB
 table.
@@ -67,12 +65,10 @@ loaded.
 The values for _authorization_ provide the AWS authorization your
 cluster needs to access the Amazon DynamoDB table. The permission must include SCAN and
 DESCRIBE for the Amazon DynamoDB table that is being loaded. For more information about
-required permissions, see [IAM permissions for COPY, UNLOAD,
-and CREATE LIBRARY](copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions "copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions"). The preferred method for
+required permissions, see [IAM permissions for COPY, UNLOAD, and CREATE LIBRARY](copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions "copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions"). The preferred method for
 authentication is to specify the IAM_ROLE parameter and provide the Amazon Resource Name
 (ARN) for an IAM role with the necessary permissions.
-For more information, see [Role-based access
-control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based").
+For more information, see [Role-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based").
 
 To authenticate using the IAM_ROLE parameter,
 `<aws-account-id>` and
@@ -118,8 +114,7 @@ slice.
 
 After sampling, the sample rows are discarded and the entire table is loaded. As a
 result, many rows are read twice. For more information about how automatic
-compression works, see [Loading tables with automatic
-compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").
+compression works, see [Loading tables with automatic compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").
 
 ###### Important
 

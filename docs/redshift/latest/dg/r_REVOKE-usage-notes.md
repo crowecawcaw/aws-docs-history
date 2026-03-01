@@ -65,9 +65,7 @@ enabled for Lake Formation, the `ALL` permission isn't revoked. Only the
 `SELECT` permission is revoked. You can view the Lake Formation permissions in
 the Lake Formation console.
 
-## Usage notes for revoking the
-
-ASSUMEROLE permission
+## Usage notes for revoking the ASSUMEROLE permission
 
 The following usage notes apply to revoking the ASSUMEROLE privilege in Amazon Redshift.
 
@@ -83,9 +81,7 @@ the cluster.
 revoke assumerole on all from public for all;
 ```
 
-## Usage notes for revoking machine
-
-learning permissions
+## Usage notes for revoking machine learning permissions
 
 You can't directly grant or revoke permissions related to an ML function. An ML
 function belongs to an ML model and permissions are controlled through the model.

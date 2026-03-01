@@ -4,9 +4,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # max_concurrency_scaling_clusters
 
-## Values (default in
-
-bold)
+## Values (default in bold)
 
 **1**, 0 to 10
 

@@ -8,8 +8,7 @@ Use SYS_COPY_JOB_INFO to view messages logged about a COPY JOB.
 
 This view contains information about errors in a COPY JOB that has run.
 
-SYS_COPY_JOB_INFO is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_COPY_JOB_INFO is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

@@ -37,8 +37,7 @@ learning algorithms. The following includes key features of AutoMV:
 
 AutoMV behavior and capabilities are the same as user-created materialized views. They
 are refreshed automatically and incrementally, using the same criteria and restrictions.
-Just like materialized views created by users, [Automatic query rewriting to use
-materialized views](materialized-view-auto-rewrite.md "materialized-view-auto-rewrite.md") identifies queries that can benefit
+Just like materialized views created by users, [Automatic query rewriting to use materialized views](materialized-view-auto-rewrite.md "materialized-view-auto-rewrite.md") identifies queries that can benefit
 from system-created AutoMVs. It automatically rewrites those queries to use the
 AutoMVs, improving query performance. Developers don't need to revise queries to take
 advantage of AutoMV.

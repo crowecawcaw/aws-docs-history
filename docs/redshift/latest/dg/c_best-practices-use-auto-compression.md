@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Let COPY choose compression
-
-encodings
+# Let COPY choose compression encodings
 
 You can specify compression encodings when you create a table, but in most cases,
 
@@ -36,5 +34,4 @@ automatic compression or run the ANALYZE COMPRESSION command. Then use those e
 to create new tables. You can add the encodings to the CREATE TABLE statement, or use
 CREATE TABLE LIKE to create a new table with the same encoding.
 
-For more information, see [Loading tables with automatic
-compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").
+For more information, see [Loading tables with automatic compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").

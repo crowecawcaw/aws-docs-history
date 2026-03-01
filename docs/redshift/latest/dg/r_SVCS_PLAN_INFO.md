@@ -12,8 +12,7 @@ set of rows. This is an alternative way to look at query plans.
 System views with the prefix SVCS provide details about queries on both the main and concurrency scaling clusters.
 The views are similar to the tables with the prefix STL except that the STL tables provide information only for queries run on the main cluster.
 
-SVCS_PLAN_INFO is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVCS_PLAN_INFO is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

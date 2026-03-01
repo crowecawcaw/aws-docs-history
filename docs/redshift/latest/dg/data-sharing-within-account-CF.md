@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Getting started with data sharing with
-
-AWS CloudFormation in Amazon Redshift
+# Getting started with data sharing with AWS CloudFormation in Amazon Redshift
 
 You can automate data sharing setup by using an AWS CloudFormation stack, which provisions
 AWS resources. The CloudFormation stack sets up data sharing between two Amazon Redshift clusters in
@@ -16,14 +14,12 @@ includes a table and sample read-only data. This data can be read by your other 
 cluster.
 
 If you want to start sharing data in an AWS account by running SQL statements to
-set up a datashare and grant permissions, without using CloudFormation, see [Sharing read access to data within an
-AWS account](within-account.md "within-account.md").
+set up a datashare and grant permissions, without using CloudFormation, see [Sharing read access to data within an AWS account](within-account.md "within-account.md").
 
 Before running the data sharing CloudFormation stack, you must be logged in with a user
 that has permission to create an IAM role and a Lambda function. You also need two Amazon Redshift
 clusters in the same account. You use one, the _producer_, to share the sample data, and the other, the _consumer_, to read it. The primary requirement for these
-clusters is that each use RA3 nodes. For additional requirements, see [Considerations for data sharing in
-Amazon Redshift](datashare-considerations.md "datashare-considerations.md").
+clusters is that each use RA3 nodes. For additional requirements, see [Considerations for data sharing in Amazon Redshift](datashare-considerations.md "datashare-considerations.md").
 
 For more information about getting started setting up an Amazon Redshift cluster, see [Get started with Amazon Redshift provisioned data
 warehouses](../gsg/new-user.md "../gsg/new-user.md"). For more information about automating setup with CloudFormation, see
@@ -77,9 +73,7 @@ If an error occurs while the stack is created, do the following:
   roles](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md"). For more information about policies for Λ function
   creation, see [Function development](../../../lambda/latest/dg/access-control-identity-based.md#permissions-user-function "../../../lambda/latest/dg/access-control-identity-based.md#permissions-user-function").
 
-## Querying the datashare that
-
-you created
+## Querying the datashare that you created
 
 To use the following procedure, make sure that you have the required permissions
 for running queries on each cluster described.
@@ -179,5 +173,4 @@ directly to databases created from datashares. They are read-only. 6. To run a q
 
 The query returns sales and seller data from the sample TICKIT data.
 
-For more examples of datashare queries, see [Sharing read access to data within an
-AWS account](within-account.md "within-account.md").
+For more examples of datashare queries, see [Sharing read access to data within an AWS account](within-account.md "within-account.md").

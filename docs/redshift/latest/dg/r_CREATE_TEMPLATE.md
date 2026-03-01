@@ -78,8 +78,7 @@ Any valid parameter for the specified redshift command.
 For example, templates for the COPY command can include:
 
 - [Data format parameters](copy-parameters-data-format.md "copy-parameters-data-format.md")
-- [File compression
-  parameters](copy-parameters-file-compression.md "copy-parameters-file-compression.md")
+- [File compression parameters](copy-parameters-file-compression.md "copy-parameters-file-compression.md")
 - [Data conversion parameters](copy-parameters-data-conversion.md "copy-parameters-data-conversion.md")
 - [Data load operations](copy-parameters-data-load.md "copy-parameters-data-load.md")
 

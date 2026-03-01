@@ -10,8 +10,7 @@ not. To view if a table is defined for automatic optimization, see [SVV_TABLE_IN
 for tables visible in the current session's database. After a recommendation has been
 applied (either by Amazon Redshift or by you), it no longer appears in the view.
 
-SVV_ALTER_TABLE_RECOMMENDATIONS is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV_ALTER_TABLE_RECOMMENDATIONS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

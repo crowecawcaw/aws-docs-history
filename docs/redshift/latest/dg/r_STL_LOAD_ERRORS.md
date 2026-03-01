@@ -14,8 +14,7 @@ for additional details, such as the exact data row and column where a parse erro
 occurred, after you query STL_LOAD_ERRORS to find out general information about the
 error.
 
-STL_LOAD_ERRORS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL_LOAD_ERRORS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 

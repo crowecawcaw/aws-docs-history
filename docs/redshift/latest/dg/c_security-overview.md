@@ -38,8 +38,7 @@ credentials](../../../general/latest/gr/aws-security-credentials.md "../../../ge
   encryption or client-side encryption. When you load from server-side encrypted data,
   Amazon S3 handles decryption transparently. When you load from client-side encrypted data,
   the Amazon Redshift COPY command decrypts the data as it loads the table. For more
-  information, see [Uploading encrypted data to
-  Amazon S3](t_uploading-encrypted-data.md "t_uploading-encrypted-data.md").
+  information, see [Uploading encrypted data to Amazon S3](t_uploading-encrypted-data.md "t_uploading-encrypted-data.md").
 - **Data in transit** — To protect your data in
   transit within the AWS Cloud, Amazon Redshift uses hardware accelerated SSL to communicate
   with Amazon S3 or Amazon DynamoDB for COPY, UNLOAD, backup, and restore operations.

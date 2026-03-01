@@ -13,8 +13,7 @@ parameter description in [Data format parameters](copy-parameters-data-format.md
 
 - [Copying data from JSON and Avro](#copy_json-from-JSON "#copy_json-from-JSON")
 - [Copying data from text and CSV](#copy_json-from-text-csv "#copy_json-from-text-csv")
-- [Copying data from columnar-format
-  Parquet and ORC](#copy_json-from-parquet-orc "#copy_json-from-parquet-orc")
+- [Copying data from columnar-format Parquet and ORC](#copy_json-from-parquet-orc "#copy_json-from-parquet-orc")
 
 ## Copying data from JSON and Avro
 
@@ -32,9 +31,7 @@ structure that is fully or partially unknown:
 
 The maximum size for a JSON object in Amazon Redshift is 4 MB, which applies before any shredding or parsing.
 
-### Method 1: Copying a JSON document into a single SUPER
-
-data column using `noshred`
+### Method 1: Copying a JSON document into a single SUPER data column using `noshred`
 
 You can copy entire JSON documents into single SUPER data columns using the `noshred`
 option in the COPY command. Consider the following example:
@@ -68,9 +65,7 @@ SELECT rdata FROM region_nations_noshred;
 When Amazon Redshift generates a SUPER data column, it becomes accessible using JDBC as a
 string through JSON serialization. For more information, see [Serializing complex nested JSON](serializing-complex-JSON.md "serializing-complex-JSON.md").
 
-### Method 2: Copying a JSON document into multiple
-
-SUPER data columns
+### Method 2: Copying a JSON document into multiple SUPER data columns
 
 You can shred a JSON document into multiple columns that can be either SUPER data
 columns or Amazon Redshift scalar types. Amazon Redshift spreads different portions of the JSON object
@@ -102,8 +97,7 @@ FORMAT JSON 'auto';
 
 When the JSON attribute names are in mixed upper and lower cases, specify the `auto ignorecase` option in
 the FORMAT JSON clause. For more information about the COPY command, see
-[Load from JSON data using the
-'auto ignorecase' option](r_COPY_command_examples.md#copy-from-json-examples-using-auto-ignorecase "r_COPY_command_examples.md#copy-from-json-examples-using-auto-ignorecase").
+[Load from JSON data using the 'auto ignorecase' option](r_COPY_command_examples.md#copy-from-json-examples-using-auto-ignorecase "r_COPY_command_examples.md#copy-from-json-examples-using-auto-ignorecase").
 
 In some cases, there is a mismatch between column names and JSON attributes or the
 attribute to load is nested more than a level deep. If so, use a
@@ -232,9 +226,7 @@ DELIMITER ','
 ESCAPE;
 ```
 
-## Copying data from columnar-format
-
-Parquet and ORC
+## Copying data from columnar-format Parquet and ORC
 
 If your semi-structured or nested data is already available in either Apache Parquet
 or Apache ORC format, you can use the COPY command to ingest data into Amazon Redshift.

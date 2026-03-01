@@ -6,8 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 Use SVV_RLS_RELATION to view a list of all relations that are RLS-protected.
 
-SVV_RLS_RELATION is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV_RLS_RELATION is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

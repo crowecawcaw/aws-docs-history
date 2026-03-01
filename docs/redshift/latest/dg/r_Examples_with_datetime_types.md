@@ -2,16 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Examples with datetime
-
-types
+# Examples with datetime types
 
 Following, you can find examples for working with datetime types supported
 by Amazon Redshift.
 
-## Date
-
-examples
+## Date examples
 
 The following examples insert dates that have different formats and
 display the output.
@@ -38,9 +34,7 @@ start_date | end_date
 If you insert a timestamp value into a DATE column, the time portion is
 ignored and only the date is loaded.
 
-## Time
-
-examples
+## Time examples
 
 The following examples insert TIME and TIMETZ values that have different
 formats and display the output.
@@ -62,9 +56,7 @@ start_time | end_time
  19:11:19 | 20:41:19+00`
 ```
 
-## Time
-
-stamp examples
+## Time stamp examples
 
 If you insert a date into a TIMESTAMP or TIMESTAMPTZ column, the time
 defaults to midnight. For example, if you insert the literal

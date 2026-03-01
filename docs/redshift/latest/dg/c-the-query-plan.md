@@ -158,9 +158,7 @@ functions.
 Produces final sorted results according to intermediate sorted results
 that derive from parallel operations.
 
-### UNION, INTERSECT, and EXCEPT
-
-operators
+### UNION, INTERSECT, and EXCEPT operators
 
 The query plan uses the following operators for queries that involve set
 operations with UNION, INTERSECT, and EXCEPT.

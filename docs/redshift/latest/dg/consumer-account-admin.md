@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Consumer account administrator
-
-actions
+# Consumer account administrator actions
 
 With Amazon Redshift, you can manage consumer accounts and control their access to your
 data warehousing resources.
@@ -18,8 +16,7 @@ console.
 
 Sign in to the [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/"). Then, associate one or more datashares that
 are shared from other accounts with your entire AWS account or specific
-namespaces in your account. For more information, see [Associating a datashare from a different
-AWS account in Amazon Redshift](writes-associating.md "writes-associating.md").
+namespaces in your account. For more information, see [Associating a datashare from a different AWS account in Amazon Redshift](writes-associating.md "writes-associating.md").
 
 After the AWS account or specific namespaces are associated, the datashares
 become available for consumption. You can also change datashare association at any

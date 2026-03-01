@@ -162,8 +162,7 @@ a column list is used.
 For examples that show how to load data using either the `'auto'` argument
 or a JSONPaths file, and using either JSON objects or arrays, see [Copy from JSON examples](r_COPY_command_examples.md#r_COPY_command_examples-copy-from-json "r_COPY_command_examples.md#r_COPY_command_examples-copy-from-json").
 
-For information on how to copy multiple JSON files, see [Using a manifest to specify
-data files](loading-data-files-using-manifest.md "loading-data-files-using-manifest.md").
+For information on how to copy multiple JSON files, see [Using a manifest to specify data files](loading-data-files-using-manifest.md "loading-data-files-using-manifest.md").
 
 ## Escape characters in JSON
 

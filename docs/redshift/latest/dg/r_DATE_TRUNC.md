@@ -36,8 +36,7 @@ Valid formats are as follows:
 - century, centuries
 - millennium, millennia
 
-For more information about abbreviations of some formats, see [Date parts for date or timestamp
-functions](r_Dateparts_for_datetime_functions.md "r_Dateparts_for_datetime_functions.md")
+For more information about abbreviations of some formats, see [Date parts for date or timestamp functions](r_Dateparts_for_datetime_functions.md "r_Dateparts_for_datetime_functions.md")
 
 _timestamp_
 

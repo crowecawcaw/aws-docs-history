@@ -102,9 +102,7 @@ Superusers have all privileges by default.
 
 For more information about granting and revoking privileges, see [GRANT](r_GRANT.md "r_GRANT.md") and [REVOKE](r_REVOKE.md "r_REVOKE.md").
 
-## Configuring the authorization parameter for
-
-Lambda UDFs
+## Configuring the authorization parameter for Lambda UDFs
 
 The CREATE EXTERNAL FUNCTION command requires authorization to invoke Lambda functions in AWS Lambda.
 To start authorization, specify an AWS Identity and Access Management (IAM) role when you run the CREATE EXTERNAL FUNCTION command. For more information about IAM roles,
@@ -190,9 +188,7 @@ IAM_ROLE 'arn:aws:iam::aws-account-id:role/role-name'
 To invoke Lambda functions which reside
 in other accounts within the same Region, see [Chaining IAM roles in Amazon Redshift](../mgmt/authorizing-redshift-service.md#authorizing-redshift-service-chaining-roles.html "../mgmt/authorizing-redshift-service.md#authorizing-redshift-service-chaining-roles.html").
 
-## Using the JSON interface between Amazon Redshift and
-
-AWS Lambda
+## Using the JSON interface between Amazon Redshift and AWS Lambda
 
 Amazon Redshift uses a common interface for all Lambda functions that Amazon Redshift communicates
 to.

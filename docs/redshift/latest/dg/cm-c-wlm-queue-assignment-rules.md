@@ -23,9 +23,7 @@ the WLM queue assignment rules:
 
 ![Flowchart illustrating the rules WLM uses to assign queries to queues.](images/queue-assignment-rules-with-rbac.png)
 
-## Queue
-
-assignments example
+## Queue assignments example
 
 The following table shows a WLM configuration with the superuser queue and four
 user-defined queues.

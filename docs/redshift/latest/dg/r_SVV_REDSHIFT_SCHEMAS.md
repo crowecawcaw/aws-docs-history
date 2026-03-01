@@ -8,8 +8,7 @@ Use SVV_REDSHIFT_SCHEMAS to view a list of all schemas that a user has access to
 set of schemas includes the schemas on the cluster and the schemas from datashares
 provided by remote clusters.
 
-SVV_REDSHIFT_SCHEMAS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV_REDSHIFT_SCHEMAS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

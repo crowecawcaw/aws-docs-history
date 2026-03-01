@@ -11,8 +11,7 @@ that stores intermediate results during query execution.
 A query consists of multiple segments, and each segment consists of one or more steps.
 For more information, see [Query processing](c-query-processing.md "c-query-processing.md").
 
-STL_SAVE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL_SAVE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 

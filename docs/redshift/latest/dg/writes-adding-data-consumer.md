@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Adding data consumers to a datashare
-
-in Amazon Redshift
+# Adding data consumers to a datashare in Amazon Redshift
 
 You can add one or more data consumers to the datashares on the console or with
 SQL. Data consumers can be namespaces that uniquely identified Amazon Redshift clusters

@@ -8,8 +8,7 @@ Records information about transactions that currently hold locks on tables in th
 database. Use the SVV_TRANSACTIONS view to identify open transactions and lock
 contention issues. For more information about locks, see [Managing concurrent write operations](c_Concurrent_writes.md "c_Concurrent_writes.md") and [LOCK](r_LOCK.md "r_LOCK.md").
 
-SVV_TRANSACTIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV_TRANSACTIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

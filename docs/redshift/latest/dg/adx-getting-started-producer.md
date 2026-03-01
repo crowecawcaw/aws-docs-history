@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Working with AWS Data Exchange datashares as a
-
-producer
+# Working with AWS Data Exchange datashares as a producer
 
 With Amazon Redshift, you can share live data products with AWS Data Exchange as a producer by
 creating and managing datashares.
@@ -76,9 +74,7 @@ ALTER DATASHARE salesshare SET INCLUDENEW = TRUE FOR SCHEMA PUBLIC;
 ```
 
 You can also use the Amazon Redshift console to add or remove objects from
-datashares. For more information, see [Add datashare objects to
-datashares](datashare-creation.md#add-datashare-object-console "datashare-creation.md#add-datashare-object-console"), [Removing datashare objects from
-datashares](manage-datashare-existing-console.md#remove-datashare-object-console "manage-datashare-existing-console.md#remove-datashare-object-console"), and [Editing AWS Data Exchange datashares](manage-adx-datashare-console.md#edit-adx-datashare-console "manage-adx-datashare-console.md#edit-adx-datashare-console"). 3. To authorize access to the datashares for AWS Data Exchange, do one of the
+datashares. For more information, see [Add datashare objects to datashares](datashare-creation.md#add-datashare-object-console "datashare-creation.md#add-datashare-object-console"), [Removing datashare objects from datashares](manage-datashare-existing-console.md#remove-datashare-object-console "manage-datashare-existing-console.md#remove-datashare-object-console"), and [Editing AWS Data Exchange datashares](manage-adx-datashare-console.md#edit-adx-datashare-console "manage-adx-datashare-console.md#edit-adx-datashare-console"). 3. To authorize access to the datashares for AWS Data Exchange, do one of the
 following:
 
     * Explicitly authorize access to the datashare for AWS Data Exchange by using the
@@ -131,8 +127,7 @@ following:
 
     ```
     * Use the Amazon Redshift console to authorize or remove authorization of
-     AWS Data Exchange datashares. For more information, see [Authorizing or removing authorization
-     from datashares](authorize-datashare-console.md "authorize-datashare-console.md").
+     AWS Data Exchange datashares. For more information, see [Authorizing or removing authorization from datashares](authorize-datashare-console.md "authorize-datashare-console.md").
     * Optionally, you can implicitly authorize access to the AWS Data Exchange
      datashare when importing the datashare into an AWS Data Exchange dataset.
 
@@ -206,8 +201,7 @@ datashare_break_glass_session_var variable and run the DROP DATASHARE
 statement again. If you want to delete an AWS Data Exchange datashare, see [DROP DATASHARE usage notes](r_DROP_DATASHARE.md#r_DROP_DATASHARE_usage "r_DROP_DATASHARE.md#r_DROP_DATASHARE_usage").
 
 You can also use the Amazon Redshift console to delete datashares. For more
-information, see [Deleting AWS Data Exchange datashares created
-in your account](manage-adx-datashare-console.md#delete-adx-datashare-console "manage-adx-datashare-console.md#delete-adx-datashare-console"). 6. Use ALTER DATASHARE to remove objects from datashares at any point from
+information, see [Deleting AWS Data Exchange datashares created in your account](manage-adx-datashare-console.md#delete-adx-datashare-console "manage-adx-datashare-console.md#delete-adx-datashare-console"). 6. Use ALTER DATASHARE to remove objects from datashares at any point from
 the datashare. Use REVOKE USAGE ON to revoke permissions on the datashare to
 certain consumers. It revokes USAGE permissions on objects within a
 datashare and instantly stops access to all consumer clusters. Listing

@@ -2,15 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Data files for queries in Amazon Redshift
-
-Spectrum
+# Data files for queries in Amazon Redshift Spectrum
 
 This section describes how to create data files in Amazon S3 in a format that Redshift Spectrum supports.
 
 The data files that you use for queries in Amazon Redshift Spectrum are commonly the same types of
 files that you use for other applications. For example, the same types of files are used
-with Amazon Athena, Amazon EMR, and Quick Suite. You can query the data in its original format directly
+with Amazon Athena, Amazon EMR, and Quick. You can query the data in its original format directly
 from Amazon S3. To do this, the data files must be in a format that Redshift Spectrum supports and be
 located in an Amazon S3 bucket that your cluster can access.
 

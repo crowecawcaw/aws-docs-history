@@ -60,8 +60,7 @@ When COMPUPDATE is ON (or TRUE), or COMPUPDATE is specified without an
 option, the COPY command applies automatic compression if the table is empty;
 even if the table columns already have encodings other than RAW. Currently
 specified column encodings can be replaced. Encoding for each column is based
-on an analysis of sample data. For more information, see [Loading tables with automatic
-compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").
+on an analysis of sample data. For more information, see [Loading tables with automatic compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").
 
 When COMPUPDATE is OFF (or FALSE), automatic compression is disabled. Column encodings aren't changed.
 

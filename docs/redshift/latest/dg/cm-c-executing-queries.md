@@ -11,9 +11,7 @@ how to create queues, configure their properties, and assign incoming queries ba
 
 The following examples assign queries to queues according to user roles, user groups, and query groups.
 
-##
-
-Assigning queries to queues based on user roles
+## Assigning queries to queues based on user roles
 
 If a user is assigned to a role and that role is attached to a queue, then queries run by that user are assigned to that queue.
 The following example creates a user role named `sales_rw` and assigns the user `test_user` to that role.
@@ -55,9 +53,7 @@ create user vp1234 in group ad_hoc_group password 'vpPass1234';
 alter group admin_group add user analyst44, analyst45, analyst46;
 ```
 
-## Assigning a
-
-query to a query group
+## Assigning a query to a query group
 
 You can assign a query to a queue at runtime by assigning your query to the
 appropriate query group. Use the SET command to begin a query group.
@@ -93,9 +89,7 @@ select query, elapsed, substring from svl_qlog order by query desc limit 5;
 reset query_group;
 ```
 
-## Assigning queries to
-
-the superuser queue
+## Assigning queries to the superuser queue
 
 To assign a query to the superuser queue, log on to Amazon Redshift as a superuser and then
 run the query in the superuser group. When you are done, reset the query group so that

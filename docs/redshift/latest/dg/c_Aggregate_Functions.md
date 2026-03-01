@@ -6,10 +6,8 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 ###### Topics
 
-- [ANY_VALUE
-  function](r_ANY_VALUE.md "r_ANY_VALUE.md")
-- [APPROXIMATE PERCENTILE_DISC
-  function](r_APPROXIMATE_PERCENTILE_DISC.md "r_APPROXIMATE_PERCENTILE_DISC.md")
+- [ANY_VALUE function](r_ANY_VALUE.md "r_ANY_VALUE.md")
+- [APPROXIMATE PERCENTILE_DISC function](r_APPROXIMATE_PERCENTILE_DISC.md "r_APPROXIMATE_PERCENTILE_DISC.md")
 - [AVG function](r_AVG.md "r_AVG.md")
 - [COUNT function](r_COUNT.md "r_COUNT.md")
 - [LISTAGG function](r_LISTAGG.md "r_LISTAGG.md")

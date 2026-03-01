@@ -21,8 +21,7 @@ the order of the source data.
 
 When loading from an Amazon DynamoDB table, order doesn't matter. The COPY command
 matches attribute names in the items retrieved from the DynamoDB table to column names
-in the Amazon Redshift table. For more information, see [Loading data from an Amazon DynamoDB
-table](t_Loading-data-from-dynamodb.md "t_Loading-data-from-dynamodb.md")
+in the Amazon Redshift table. For more information, see [Loading data from an Amazon DynamoDB table](t_Loading-data-from-dynamodb.md "t_Loading-data-from-dynamodb.md")
 
 The format for a column list is as follows.
 

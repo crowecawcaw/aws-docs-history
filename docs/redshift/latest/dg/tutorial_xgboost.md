@@ -219,9 +219,7 @@ GROUP BY
     1;
 ```
 
-### Find the average observation for an original and a counterfeit
-
-banknote
+### Find the average observation for an original and a counterfeit banknote
 
 The following prediction query returns the average value of each feature for
 banknotes that are predicted to be original and counterfeit in the testing

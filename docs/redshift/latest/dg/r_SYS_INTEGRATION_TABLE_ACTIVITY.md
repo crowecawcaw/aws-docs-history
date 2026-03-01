@@ -11,9 +11,7 @@ A superuser can see all rows in this table.
 
 For more information, see [zero-ETL integrations](../mgmt/zero-etl-using.md "../mgmt/zero-etl-using.md").
 
-## Table
-
-columns
+## Table columns
 
 | Column name     | Data type      | Description                                     |
 | --------------- | -------------- | ----------------------------------------------- |

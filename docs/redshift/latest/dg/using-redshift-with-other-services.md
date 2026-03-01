@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Using Amazon Redshift with other
-
-services
+# Using Amazon Redshift with other services
 
 This section describes how you can use other services as sources and destinations for Amazon Redshift data.
 
@@ -22,8 +20,7 @@ warehouse to multiple data files on Amazon S3. For more information, see [Unload
 DynamoDB
 Amazon DynamoDB is a fully managed NoSQL database service. You can use the COPY command
 to load an Amazon Redshift table with data from a single Amazon DynamoDB table. For more
-information, see [Loading data from an Amazon DynamoDB
-table](t_Loading-data-from-dynamodb.md "t_Loading-data-from-dynamodb.md").
+information, see [Loading data from an Amazon DynamoDB table](t_Loading-data-from-dynamodb.md "t_Loading-data-from-dynamodb.md").
 
 SSH
 You can use the COPY command in Amazon Redshift to load data from one or more remote hosts,

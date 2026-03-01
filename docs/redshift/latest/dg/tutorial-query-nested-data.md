@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Tutorial: Querying nested data with Amazon Redshift
-
-Spectrum
+# Tutorial: Querying nested data with Amazon Redshift Spectrum
 
 This tutorial demonstrates how to query nested data with Redshift Spectrum. Nested data is
 data that contains nested fields. Nested fields are fields that are joined together
@@ -13,10 +11,8 @@ as a single entity, such as arrays, structs, or objects.
 ###### Topics
 
 - [Overview](#tutorial-nested-data-overview "#tutorial-nested-data-overview")
-- [Step 1: Create an external table
-  that contains nested data](#tutorial-nested-data-create-table "#tutorial-nested-data-create-table")
-- [Step 2: Query your
-  nested data in Amazon S3 with SQL extensions](#tutorial-query-nested-data-sqlextensions "#tutorial-query-nested-data-sqlextensions")
+- [Step 1: Create an external table that contains nested data](#tutorial-nested-data-create-table "#tutorial-nested-data-create-table")
+- [Step 2: Query your nested data in Amazon S3 with SQL extensions](#tutorial-query-nested-data-sqlextensions "#tutorial-query-nested-data-sqlextensions")
 - [Nested data use cases](nested-data-use-cases.md "nested-data-use-cases.md")
 - [Nested data limitations (preview)](nested-data-restrictions.md "nested-data-restrictions.md")
 - [Serializing complex nested JSON](serializing-complex-JSON.md "serializing-complex-JSON.md")
@@ -56,8 +52,7 @@ to do so with Apache Parquet data.
 
 ### Prerequisites
 
-If you are not using Redshift Spectrum yet, follow the steps in the [Getting started with Amazon Redshift
-Spectrum](c-getting-started-using-spectrum.md "c-getting-started-using-spectrum.md") before
+If you are not using Redshift Spectrum yet, follow the steps in the [Getting started with Amazon Redshift Spectrum](c-getting-started-using-spectrum.md "c-getting-started-using-spectrum.md") before
 continuing.
 
 To create an external schema, replace the IAM role ARN in the following command
@@ -72,9 +67,7 @@ iam_role 'arn:aws:iam::123456789012:role/myspectrum_role'
 create external database if not exists;
 ```
 
-## Step 1: Create an external table
-
-that contains nested data
+## Step 1: Create an external table that contains nested data
 
 You can view the
 [source data](https://s3.amazonaws.com/redshift-downloads/tickit/spectrum/customers/customer_file1 "https://s3.amazonaws.com/redshift-downloads/tickit/spectrum/customers/customer_file1") by downloading it from Amazon S3.
@@ -121,9 +114,7 @@ x struct<a: string,
         >
 ```
 
-## Step 2: Query your
-
-nested data in Amazon S3 with SQL extensions
+## Step 2: Query your nested data in Amazon S3 with SQL extensions
 
 Redshift Spectrum supports querying `array`, `map`, and `struct` complex types through extensions to the Amazon Redshift SQL syntax.
 

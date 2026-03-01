@@ -30,7 +30,5 @@ Following the data load, verify that the correct files are present on Amazon S3.
 ###### Topics
 
 - [Managing data consistency](managing-data-consistency.md "managing-data-consistency.md")
-- [Uploading encrypted data to
-  Amazon S3](t_uploading-encrypted-data.md "t_uploading-encrypted-data.md")
-- [Verifying that the
-  correct files are present in your bucket](verifying-that-correct-files-are-present.md "verifying-that-correct-files-are-present.md")
+- [Uploading encrypted data to Amazon S3](t_uploading-encrypted-data.md "t_uploading-encrypted-data.md")
+- [Verifying that the correct files are present in your bucket](verifying-that-correct-files-are-present.md "verifying-that-correct-files-are-present.md")

@@ -8,8 +8,7 @@ Use SVV_REDSHIFT_COLUMNS to view a list of all columns that a user has access to
 set of columns includes the columns on the cluster and the columns from datashares
 provided by remote clusters.
 
-SVV_REDSHIFT_COLUMNS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV_REDSHIFT_COLUMNS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

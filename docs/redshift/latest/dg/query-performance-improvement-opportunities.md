@@ -9,23 +9,19 @@ ways to diagnose and resolve them.
 
 ###### Topics
 
-- [Table statistics missing or out of
-  date](#table-statistics-missing-or-out-of-date "#table-statistics-missing-or-out-of-date")
+- [Table statistics missing or out of date](#table-statistics-missing-or-out-of-date "#table-statistics-missing-or-out-of-date")
 - [Nested loop](#nested-loop "#nested-loop")
 - [Hash join](#hash-join "#hash-join")
 - [Ghost rows or uncommitted rows](#ghost-rows-or-uncommitted-rows "#ghost-rows-or-uncommitted-rows")
 - [Unsorted or missorted rows](#unsorted-or-mis-sorted-rows "#unsorted-or-mis-sorted-rows")
 - [Suboptimal data distribution](#suboptimal-data-distribution "#suboptimal-data-distribution")
-- [Insufficient memory allocated to the
-  query](#insufficient-memory-allocated-to-the-query "#insufficient-memory-allocated-to-the-query")
+- [Insufficient memory allocated to the query](#insufficient-memory-allocated-to-the-query "#insufficient-memory-allocated-to-the-query")
 - [Suboptimal WHERE clause](#suboptimal-WHERE-clause "#suboptimal-WHERE-clause")
 - [Insufficiently restrictive predicate](#insufficiently-restrictive-predicate "#insufficiently-restrictive-predicate")
 - [Very large result set](#very-large-result-set "#very-large-result-set")
 - [Large SELECT list](#large-SELECT-list "#large-SELECT-list")
 
-## Table statistics missing or out of
-
-date
+## Table statistics missing or out of date
 
 If table statistics are missing or out of date, you might see the
 following:
@@ -87,8 +83,7 @@ If unsorted or missorted rows are present, you might see a very selective filter
 alert event in STL_ALERT_EVENT_LOG. For more information, see [Reviewing query alerts](c-reviewing-query-alerts.md "c-reviewing-query-alerts.md").
 
 You can also check to see if any of the tables in your query have large unsorted
-areas by running the query in [Identifying tables with data skew
-or unsorted rows](identify-tables-with-data-skew-or-unsorted-rows.md "identify-tables-with-data-skew-or-unsorted-rows.md").
+areas by running the query in [Identifying tables with data skew or unsorted rows](identify-tables-with-data-skew-or-unsorted-rows.md "identify-tables-with-data-skew-or-unsorted-rows.md").
 
 To fix this issue, you can take a couple of approaches:
 
@@ -111,17 +106,14 @@ If data distribution is suboptimal, you might see the following:
   step. For more information, see [Using the SVL_QUERY_REPORT view](using-SVL-Query-Report.md "using-SVL-Query-Report.md").
 
 If none of the preceding is true, you can also see if any of the tables in your
-query have data skew by running the query in [Identifying tables with data skew
-or unsorted rows](identify-tables-with-data-skew-or-unsorted-rows.md "identify-tables-with-data-skew-or-unsorted-rows.md").
+query have data skew by running the query in [Identifying tables with data skew or unsorted rows](identify-tables-with-data-skew-or-unsorted-rows.md "identify-tables-with-data-skew-or-unsorted-rows.md").
 
 To fix this issue, review the distribution styles for the tables in the query and see if any improvements can
 be made. Remember to weigh the performance of this query against the performance of
 other important queries and the system overall before making any changes. For more
 information, see [Data distribution for query optimization](t_Distributing_data.md "t_Distributing_data.md").
 
-## Insufficient memory allocated to the
-
-query
+## Insufficient memory allocated to the query
 
 If insufficient memory is allocated to your query, you might see a step in
 SVL_QUERY_SUMMARY that has an `is_diskbased` value of true. For more
@@ -143,8 +135,7 @@ more information, see [Using the SVL_QUERY_SUMMARY view](using-SVL-Query-Summary
 
 To fix this issue, add a WHERE clause to the query based on the primary sort
 column of the largest table. This approach helps minimize scanning time. For more
-information, see [Amazon Redshift best practices for designing
-tables](c_designing-tables-best-practices.md "c_designing-tables-best-practices.md").
+information, see [Amazon Redshift best practices for designing tables](c_designing-tables-best-practices.md "c_designing-tables-best-practices.md").
 
 ## Insufficiently restrictive predicate
 

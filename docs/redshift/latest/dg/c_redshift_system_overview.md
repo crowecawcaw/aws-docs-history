@@ -22,10 +22,8 @@ architecture.
 
 ###### Topics
 
-- [Data warehouse system
-  architecture](c_high_level_system_architecture.md "c_high_level_system_architecture.md")
+- [Data warehouse system architecture](c_high_level_system_architecture.md "c_high_level_system_architecture.md")
 - [Amazon Redshift Performance](c_challenges_achieving_high_performance_queries.md "c_challenges_achieving_high_performance_queries.md")
 - [Columnar storage](c_columnar_storage_disk_mem_mgmnt.md "c_columnar_storage_disk_mem_mgmnt.md")
 - [Workload management](c_workload_mngmt_classification.md "c_workload_mngmt_classification.md")
-- [Using Amazon Redshift with other
-  services](using-redshift-with-other-services.md "using-redshift-with-other-services.md")
+- [Using Amazon Redshift with other services](using-redshift-with-other-services.md "using-redshift-with-other-services.md")

@@ -12,9 +12,7 @@ or base RPUs are fully utilized running user workload. For more information, see
 [Allocating extra compute resources for automatic database optimization](t_extra-compute-autonomics.md "t_extra-compute-autonomics.md") and
 [Concurrency scaling](concurrency-scaling.md "concurrency-scaling.md").
 
-##
-
-Autonomics billing for provisioned clusters
+## Autonomics billing for provisioned clusters
 
 On provisioned clusters, billing for autonomics operations adheres to the following logic:
 
@@ -25,9 +23,7 @@ On provisioned clusters, billing for autonomics operations adheres to the follow
 
 For more information, see [Amazon Redshift pricing](https://aws.amazon.com/redshift/pricing/ "https://aws.amazon.com/redshift/pricing/").
 
-##
-
-Autonomics billing for serverless workgroups
+## Autonomics billing for serverless workgroups
 
 On serverless workgroups, billing for autonomics operations adheres to the following logic:
 

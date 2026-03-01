@@ -8,8 +8,7 @@ Use SYS_UNLOAD_HISTORY to view details of UNLOAD commands. Each row represents a
 UNLOAD command with accumulated statistics for some of the fields. It contains both
 running and finished UNLOAD commands.
 
-SYS_UNLOAD_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_UNLOAD_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

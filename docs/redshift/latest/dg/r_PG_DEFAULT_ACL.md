@@ -7,8 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 Stores information about default access privileges. For more information on default
 access privileges, see [ALTER DEFAULT PRIVILEGES](r_ALTER_DEFAULT_PRIVILEGES.md "r_ALTER_DEFAULT_PRIVILEGES.md").
 
-PG_DEFAULT_ACL is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+PG_DEFAULT_ACL is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

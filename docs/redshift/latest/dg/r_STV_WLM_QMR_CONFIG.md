@@ -7,8 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 Records the configuration for WLM query monitoring rules (QMR). For more information,
 see [WLM query monitoring rules](cm-c-wlm-query-monitoring-rules.md "cm-c-wlm-query-monitoring-rules.md").
 
-STV_WLM_QMR_CONFIG is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV_WLM_QMR_CONFIG is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

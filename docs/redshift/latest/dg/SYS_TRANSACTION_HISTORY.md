@@ -7,8 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 Use SYS_TRANSACTION_HISTORY to see details of a transaction when tracking a
 query.
 
-SYS_TRANSACTION_HISTORY is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_TRANSACTION_HISTORY is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

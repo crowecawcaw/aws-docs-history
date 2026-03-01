@@ -2,17 +2,14 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Examples of interval literals without
-
-qualifier syntax
+# Examples of interval literals without qualifier syntax
 
 ###### Note
 
 The following examples demonstrate using an interval literal without a
 `YEAR TO MONTH` or `DAY TO SECOND` qualifier.
 For information about using the recommended interval literal with a
-qualifier, see [Interval data types and
-literals](r_interval_data_types.md "r_interval_data_types.md").
+qualifier, see [Interval data types and literals](r_interval_data_types.md "r_interval_data_types.md").
 
 Use an interval literal to identify specific periods of time, such as
 `12 hours` or `6 months`. You can use these

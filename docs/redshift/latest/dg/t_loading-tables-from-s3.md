@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Using the COPY command to load from
-
-Amazon S3
+# Using the COPY command to load from Amazon S3
 
 Use the [COPY](r_COPY.md "r_COPY.md") command to load a table in
 parallel from data files on Amazon S3. You can specify the files to be loaded by using an
@@ -33,14 +31,12 @@ creating a table, see [CREATE TABLE](r_CREATE_TABLE_NEW.md "r_CREATE_TABLE_NEW.m
 
 The values for _authorization_ provide the AWS authorization
 Amazon Redshift needs to access the Amazon S3 objects. For information about required
-permissions, see [IAM permissions for COPY, UNLOAD,
-and CREATE LIBRARY](copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions "copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions"). The preferred method for
+permissions, see [IAM permissions for COPY, UNLOAD, and CREATE LIBRARY](copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions "copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions"). The preferred method for
 authentication is to specify the IAM_ROLE parameter and provide the Amazon Resource
 Name (ARN) for an IAM role with the necessary permissions.
 
 For more
-information, see [Role-based access
-control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based") .
+information, see [Role-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based") .
 
 To authenticate using the IAM_ROLE parameter, replace
 `<aws-account-id>` and
@@ -107,12 +103,8 @@ If no Amazon S3 objects with the key prefix 'venue' exist, the load fails.
 
 ###### Topics
 
-- [Using a manifest to specify
-  data files](loading-data-files-using-manifest.md "loading-data-files-using-manifest.md")
-- [Loading compressed
-  data files from Amazon S3](t_loading-gzip-compressed-data-files-from-S3.md "t_loading-gzip-compressed-data-files-from-S3.md")
-- [Loading fixed-width data from
-  Amazon S3](t_loading_fixed_width_data.md "t_loading_fixed_width_data.md")
+- [Using a manifest to specify data files](loading-data-files-using-manifest.md "loading-data-files-using-manifest.md")
+- [Loading compressed data files from Amazon S3](t_loading-gzip-compressed-data-files-from-S3.md "t_loading-gzip-compressed-data-files-from-S3.md")
+- [Loading fixed-width data from Amazon S3](t_loading_fixed_width_data.md "t_loading_fixed_width_data.md")
 - [Loading multibyte data from Amazon S3](t_loading_unicode_data.md "t_loading_unicode_data.md")
-- [Loading encrypted data files from
-  Amazon S3](c_loading-encrypted-files.md "c_loading-encrypted-files.md")
+- [Loading encrypted data files from Amazon S3](c_loading-encrypted-files.md "c_loading-encrypted-files.md")

@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Amazon Redshift Spectrum query
-
-performance
+# Amazon Redshift Spectrum query performance
 
 This topic describes how to improve Redshift Spectrum query performance.
 
@@ -106,8 +104,7 @@ and ORDER BY.
 
 - Use partitions to limit the data that is scanned. Partition your data based on
   your most common query predicates, then prune partitions by filtering on partition
-  columns. For more information, see [Partitioning Redshift Spectrum external
-  tables](c-spectrum-external-tables.md#c-spectrum-external-tables-partitioning "c-spectrum-external-tables.md#c-spectrum-external-tables-partitioning").
+  columns. For more information, see [Partitioning Redshift Spectrum external tables](c-spectrum-external-tables.md#c-spectrum-external-tables-partitioning "c-spectrum-external-tables.md#c-spectrum-external-tables-partitioning").
 
 Query [SVL_S3PARTITION](r_SVL_S3PARTITION.md "r_SVL_S3PARTITION.md") to
 view total partitions and qualified partitions.

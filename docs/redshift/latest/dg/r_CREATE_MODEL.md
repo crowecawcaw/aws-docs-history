@@ -31,13 +31,10 @@ For details for the IAM role, trust policy, and other prerequisites, see [Cluste
 Following, you can find different use cases for the CREATE MODEL statement.
 
 - [Simple CREATE MODEL](r_create_model_use_cases.md#r_simple_create_model "r_create_model_use_cases.md#r_simple_create_model")
-- [CREATE MODEL with user
-  guidance](r_create_model_use_cases.md#r_user_guidance_create_model "r_create_model_use_cases.md#r_user_guidance_create_model")
+- [CREATE MODEL with user guidance](r_create_model_use_cases.md#r_user_guidance_create_model "r_create_model_use_cases.md#r_user_guidance_create_model")
 - [CREATE XGBoost models with AUTO OFF](r_create_model_use_cases.md#r_auto_off_create_model "r_create_model_use_cases.md#r_auto_off_create_model")
-- [Bring your own model (BYOM) - local
-  inference](r_create_model_use_cases.md#r_byom_create_model "r_create_model_use_cases.md#r_byom_create_model")
-- [Bring your own model (BYOM) - remote
-  inference](r_create_model_use_cases.md#r_byom_create_model_remote "r_create_model_use_cases.md#r_byom_create_model_remote")
+- [Bring your own model (BYOM) - local inference](r_create_model_use_cases.md#r_byom_create_model "r_create_model_use_cases.md#r_byom_create_model")
+- [Bring your own model (BYOM) - remote inference](r_create_model_use_cases.md#r_byom_create_model_remote "r_create_model_use_cases.md#r_byom_create_model_remote")
 - [CREATE MODEL with K-MEANS](r_create_model_use_cases.md#r_k-means_create_model "r_create_model_use_cases.md#r_k-means_create_model")
 - [Full CREATE MODEL](#r_full_create_model "#r_full_create_model")
 

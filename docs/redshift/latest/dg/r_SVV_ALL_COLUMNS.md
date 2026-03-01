@@ -8,8 +8,7 @@ Use SVV_ALL_COLUMNS to view a union of columns from Amazon Redshift tables as sh
 consolidated list of all external columns from all external tables. For information
 about Amazon Redshift columns, see [SVV_REDSHIFT_COLUMNS](r_SVV_REDSHIFT_COLUMNS.md "r_SVV_REDSHIFT_COLUMNS.md").
 
-SVV_ALL_COLUMNS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV_ALL_COLUMNS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

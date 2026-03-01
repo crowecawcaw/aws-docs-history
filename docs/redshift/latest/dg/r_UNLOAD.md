@@ -31,8 +31,7 @@ For more information and example scenarios about using the UNLOAD command, see
 ## Required privileges and permissions
 
 For the UNLOAD command to succeed, at least SELECT privilege on the data in the database is needed, along with permission to write to the Amazon S3 location.
-For information about permissions to access AWS resources for the UNLOAD command, see [Permissions to access other AWS
-Resources](copy-usage_notes-access-permissions.md "copy-usage_notes-access-permissions.md").
+For information about permissions to access AWS resources for the UNLOAD command, see [Permissions to access other AWS Resources](copy-usage_notes-access-permissions.md "copy-usage_notes-access-permissions.md").
 
 To apply least-privilege permissions, follow these recommendations to only grant permissions, as needed, to the user running the command.
 
@@ -450,9 +449,7 @@ Amazon Redshift doesn't add anything to the filename.
 
 ## Usage notes
 
-### Using ESCAPE for all delimited text UNLOAD
-
-operations
+### Using ESCAPE for all delimited text UNLOAD operations
 
 When you UNLOAD using a delimiter, your data can include that delimiter or any of
 the characters listed in the ESCAPE option description. In this case, you must use
@@ -466,9 +463,7 @@ We strongly recommend that you always use ESCAPE with both UNLOAD and COPY
 statements. The exception is if you are certain that your data doesn't
 contain any delimiters or other characters that might need to be escaped.
 
-### Loss of floating-point
-
-precision
+### Loss of floating-point precision
 
 You might encounter loss of precision for floating-point data that is successively
 unloaded and reloaded.
@@ -494,9 +489,7 @@ to 's3://amzn-s3-demo-bucket/venue_pipe_' iam_role 'arn:aws:iam::0123456789012:r
 You can also populate a table using SELECT…INTO or CREATE TABLE AS using a LIMIT
 clause, then unload from that table.
 
-### Unloading a column of the GEOMETRY data
-
-type
+### Unloading a column of the GEOMETRY data type
 
 You can only unload GEOMETRY columns to text or CSV format. You can't unload
 GEOMETRY data with the `FIXEDWIDTH` option. The data is unloaded in the
@@ -525,9 +518,7 @@ UNLOAD ('select * from hll_table') TO 's3://amzn-s3-demo-bucket/unload/'
 IAM_ROLE 'arn:aws:iam::0123456789012:role/MyRedshiftRole' NULL AS 'null' ALLOWOVERWRITE CSV;
 ```
 
-### Unloading a column of the VARBYTE data
-
-type
+### Unloading a column of the VARBYTE data type
 
 You can only unload VARBYTE columns to text or CSV format.
 The data is unloaded in the hexadecimal form.
@@ -582,9 +573,7 @@ Be aware of these considerations when using PARTITION BY:
 - The column data types that you can use as the partition key are SMALLINT,
   INTEGER, BIGINT, DECIMAL, REAL, BOOLEAN, CHAR, VARCHAR, DATE, and TIMESTAMP.
 
-### Using the ASSUMEROLE privilege to
-
-grant access to an IAM role for UNLOAD operations
+### Using the ASSUMEROLE privilege to grant access to an IAM role for UNLOAD operations
 
 To provide access for specific users and groups to an IAM role for UNLOAD operations, a superuser can grant the
 ASSUMEROLE privilege on an IAM role to users and groups. For information, see [GRANT](r_GRANT.md "r_GRANT.md").

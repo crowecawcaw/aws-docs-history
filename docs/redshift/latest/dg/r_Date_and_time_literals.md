@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Date, time, and timestamp
-
-literals
+# Date, time, and timestamp literals
 
 Following are rules for working with date, time, and timestamp literals
 supported by Amazon Redshift.
@@ -68,9 +66,7 @@ following time literals.
 | 20080215 16:05                                     | 4:05 PM exactly                                         |
 | 20080215                                           | Midnight (by default)                                   |
 
-## Special
-
-datetime values
+## Special datetime values
 
 The following special values can be used as datetime literals and as
 arguments to date functions. They require single quotation marks and are

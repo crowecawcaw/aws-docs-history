@@ -6,8 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 Records automated actions taken by Amazon Redshift on tables defined for automatic optimization.
 
-SYS_AUTO_TABLE_OPTIMIZATION is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_AUTO_TABLE_OPTIMIZATION is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
@@ -21,9 +20,7 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 | event_time       | timestamp      | The timestamp of the status column.                                                                                                                        |
 | alter_from       | character(200) | The previous distribution style and sort keys of<br>the table before applying the recommendation. The value is truncated<br>into 200-character increments. |
 
-## Sample
-
-queries
+## Sample queries
 
 In the following example, the rows in the result show actions taken by Amazon Redshift.
 

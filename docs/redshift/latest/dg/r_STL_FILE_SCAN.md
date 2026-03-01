@@ -11,8 +11,7 @@ Querying this view can help troubleshoot data load errors. STL_FILE_SCAN can be
 particularly helpful with pinpointing issues in parallel data loads, because parallel
 data loads typically load many files with a single COPY command.
 
-STL_FILE_SCAN is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL_FILE_SCAN is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 

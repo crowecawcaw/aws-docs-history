@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Computations with numeric
-
-values
+# Computations with numeric values
 
 In this context, _computation_ refers to binary
 mathematical operations: addition, subtraction, multiplication, and division.
@@ -141,9 +139,7 @@ If the calculated precision is greater than the maximum precision (38),
 the precision is reduced to 38, and the scale becomes the result of:
 `max((38 + scale - precision), min(4, 100))`
 
-## Overflow
-
-conditions
+## Overflow conditions
 
 Overflow is checked for all numeric computations. DECIMAL data with a
 precision of 19 or less is stored as 64-bit integers. DECIMAL data with a

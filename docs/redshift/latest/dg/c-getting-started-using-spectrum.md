@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Getting started with Amazon Redshift
-
-Spectrum
+# Getting started with Amazon Redshift Spectrum
 
 In this tutorial, you learn how to use Amazon Redshift Spectrum to query data directly from files
 on Amazon S3. If you already have a cluster and a SQL client, you can complete this tutorial with minimal setup.
@@ -49,24 +47,16 @@ As an alternative to the following steps, you can access the Redshift Spectrum D
 AWS CloudFormation template to create a stack with an Amazon S3 bucket that you can query. For more
 information, see [Launch your AWS CloudFormation stack and then query your data in Amazon S3](#c-getting-started-using-spectrum-query-s3-data-cfn "#c-getting-started-using-spectrum-query-s3-data-cfn").
 
-## Getting started with Redshift Spectrum step
-
-by step
+## Getting started with Redshift Spectrum step by step
 
 To get started using Amazon Redshift Spectrum, follow these steps:
 
-- [Step 1. Create an IAM
-  role for Amazon Redshift](#c-getting-started-using-spectrum-create-role "#c-getting-started-using-spectrum-create-role")
-- [Step 2: Associate the IAM
-  role with your cluster](#c-getting-started-using-spectrum-add-role "#c-getting-started-using-spectrum-add-role")
-- [Step 3: Create
-  an external schema and an external table](#c-getting-started-using-spectrum-create-external-table "#c-getting-started-using-spectrum-create-external-table")
-- [Step 4: Query your data
-  in Amazon S3](#c-getting-started-using-spectrum-query-s3-data "#c-getting-started-using-spectrum-query-s3-data")
+- [Step 1. Create an IAM role for Amazon Redshift](#c-getting-started-using-spectrum-create-role "#c-getting-started-using-spectrum-create-role")
+- [Step 2: Associate the IAM role with your cluster](#c-getting-started-using-spectrum-add-role "#c-getting-started-using-spectrum-add-role")
+- [Step 3: Create an external schema and an external table](#c-getting-started-using-spectrum-create-external-table "#c-getting-started-using-spectrum-create-external-table")
+- [Step 4: Query your data in Amazon S3](#c-getting-started-using-spectrum-query-s3-data "#c-getting-started-using-spectrum-query-s3-data")
 
-## Step 1. Create an IAM
-
-role for Amazon Redshift
+## Step 1. Create an IAM role for Amazon Redshift
 
 Your cluster needs authorization to access your external Data Catalog in AWS Glue or
 Amazon Athena and your data files in Amazon S3. To provide that authorization, you reference an
@@ -86,17 +76,13 @@ Data Catalog](../../../athena/latest/ug/glue-athena.md#glue-upgrade "../../../at
 When you create a role for Amazon Redshift, choose one of the following approaches:
 
 - If you are using Redshift Spectrum with either an Athena Data Catalog or AWS Glue Data Catalog, follow the
-  steps outlined in [To create an IAM role for
-  Amazon Redshift](#spectrum-get-started-create-role "#spectrum-get-started-create-role").
+  steps outlined in [To create an IAM role for Amazon Redshift](#spectrum-get-started-create-role "#spectrum-get-started-create-role").
 - If you are using Redshift Spectrum with an AWS Glue Data Catalog that is enabled for AWS Lake Formation, follow the steps outlined
   in these procedures:
-  - [To create an IAM role
-    for Amazon Redshift using an AWS Glue Data Catalog enabled for AWS Lake Formation](#spectrum-get-started-create-role-lake-formation "#spectrum-get-started-create-role-lake-formation")
+  - [To create an IAM role for Amazon Redshift using an AWS Glue Data Catalog enabled for AWS Lake Formation](#spectrum-get-started-create-role-lake-formation "#spectrum-get-started-create-role-lake-formation")
   - [To grant SELECT permissions on the table to query in the Lake Formation database](#spectrum-get-started-grant-lake-formation-table "#spectrum-get-started-grant-lake-formation-table")
 
-###### To create an IAM role for
-
-Amazon Redshift
+###### To create an IAM role for Amazon Redshift
 
 1. Open the [IAM
    console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home").
@@ -145,9 +131,7 @@ JSON
    for the role that you just created. You use that value when you create external
    tables to reference your data files on Amazon S3.
 
-###### To create an IAM role
-
-for Amazon Redshift using an AWS Glue Data Catalog enabled for AWS Lake Formation
+###### To create an IAM role for Amazon Redshift using an AWS Glue Data Catalog enabled for AWS Lake Formation
 
 1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Policies**.
@@ -234,9 +218,7 @@ Lake Formation, remove any IAM policies or bucket permissions that previously we
 For more information, see
 [Upgrading AWS Glue Data Permissions to the AWS Lake Formation Model](../../../lake-formation/latest/dg/upgrade-glue-lake-formation.md "../../../lake-formation/latest/dg/upgrade-glue-lake-formation.md") and [Lake Formation Permissions](../../../lake-formation/latest/dg/lake-formation-permissions.md "../../../lake-formation/latest/dg/lake-formation-permissions.md").
 
-## Step 2: Associate the IAM
-
-role with your cluster
+## Step 2: Associate the IAM role with your cluster
 
 Now you have an IAM role that authorizes Amazon Redshift to access the external Data Catalog and
 Amazon S3 for you. At this point, you must associate that role with your Amazon Redshift cluster.
@@ -254,21 +236,16 @@ Amazon S3 for you. At this point, you must associate that role with your Amazon 
 5. Choose **Done** to associate the IAM role with the cluster.
    The cluster is modified to complete the change.
 
-## Step 3: Create
-
-an external schema and an external table
+## Step 3: Create an external schema and an external table
 
 Create external tables in an external schema. The external schema references a
 database in the external data catalog and provides the IAM role ARN that authorizes your
 cluster to access Amazon S3 on your behalf. You can create an external database in an
 Amazon Athena Data Catalog, AWS Glue Data Catalog, or an Apache Hive metastore, such as Amazon EMR. For
 this example, you create the external database in an Amazon Athena Data Catalog when you
-create the external schema Amazon Redshift. For more information, see [External schemas in Amazon Redshift
-Spectrum](c-spectrum-external-schemas.md "c-spectrum-external-schemas.md").
+create the external schema Amazon Redshift. For more information, see [External schemas in Amazon Redshift Spectrum](c-spectrum-external-schemas.md "c-spectrum-external-schemas.md").
 
-###### To create an external
-
-schema and an external table
+###### To create an external schema and an external table
 
 1. To create an external schema, replace the IAM role ARN in the following command
    with the role ARN you created in [step 1](#c-getting-started-using-spectrum-create-role "#c-getting-started-using-spectrum-create-role"). Then run
@@ -327,9 +304,7 @@ location 's3://redshift-downloads/tickit/spectrum/sales/'
 table properties ('numRows'='172000');
 ```
 
-## Step 4: Query your data
-
-in Amazon S3
+## Step 4: Query your data in Amazon S3
 
 After your external tables are created, you can query them using the same SELECT
 statements that you use to query other Amazon Redshift tables. These SELECT statement queries
@@ -365,8 +340,7 @@ starttime timestamp);
 ```
 
 3. Load the EVENT table by replacing the IAM role ARN in the following COPY
-   command with the role ARN you created in [Step 1. Create an IAM
-   role for Amazon Redshift](#c-getting-started-using-spectrum-create-role "#c-getting-started-using-spectrum-create-role").
+   command with the role ARN you created in [Step 1. Create an IAM role for Amazon Redshift](#c-getting-started-using-spectrum-create-role "#c-getting-started-using-spectrum-create-role").
    You can optionally download and view the
    [source data for the `allevents_pipe.txt`](https://s3.amazonaws.com/redshift-downloads/tickit/allevents_pipe.txt "https://s3.amazonaws.com/redshift-downloads/tickit/allevents_pipe.txt")
    from an Amazon S3 bucket in AWS Region `us-east-1`.
@@ -517,9 +491,7 @@ eventid | sum
    5638 | 46280.00
 ```
 
-### View the query
-
-plan
+### View the query plan
 
 View the query plan for the previous query. Note the `S3 Seq Scan`,
 `S3 HashAggregate`, and `S3 Query Scan` steps that were run

@@ -111,8 +111,7 @@ from a higher concurrency level in certain cases, such as the following:
 
 If you enable short-query acceleration (SQA), WLM automatically prioritizes
 short queries over longer-running queries, so you don't need a separate queue
-for short queries for most workflows. For more information, see [Short query
-acceleration](wlm-short-query-acceleration.md "wlm-short-query-acceleration.md").
+for short queries for most workflows. For more information, see [Short query acceleration](wlm-short-query-acceleration.md "wlm-short-query-acceleration.md").
 
 - If you have multiple queries that each access data on a single slice, set up a
   separate WLM queue to run those queries concurrently. Amazon Redshift assigns
@@ -170,8 +169,7 @@ or by using wildcards. A query group is simply a label. At runtime, you can assi
 query group label to a series of queries. Any queries that are assigned to a listed
 query group run in the corresponding queue. There is no set limit to the number of query
 groups that can be assigned to a queue. For more
-information, see [Assigning a
-query to a query group](cm-c-executing-queries.md#cm-c-executing-queries-assigning-a-query-to-a-query-group "cm-c-executing-queries.md#cm-c-executing-queries-assigning-a-query-to-a-query-group").
+information, see [Assigning a query to a query group](cm-c-executing-queries.md#cm-c-executing-queries-assigning-a-query-to-a-query-group "cm-c-executing-queries.md#cm-c-executing-queries-assigning-a-query-to-a-query-group").
 
 ## Wildcards
 

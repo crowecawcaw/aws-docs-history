@@ -9,8 +9,7 @@ query with accumulated statistics for some of the fields. This view contains man
 of queries, such as data definition language (DDL), data manipulation language (DML),
 copy, unload, and Amazon Redshift Spectrum. It contains both running and finished queries.
 
-SYS_QUERY_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_QUERY_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 

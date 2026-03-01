@@ -59,7 +59,5 @@ permissions:
    deauthorize, or delete the datashare from Redshift. The associated permissions
    and objects in Lake Formation are not automatically deleted.
    For more information about sharing a datashare with AWS Lake Formation as a producer cluster or
-   workgroup administrator, see [Working with
-   Lake Formation-managed datashares as a producer](lake-formation-getting-started-producer.md "lake-formation-getting-started-producer.md"). To consume the shared data
-   from the producer cluster or workgroup, see [Working with
-   Lake Formation-managed datashares as a consumer](lake-formation-getting-started-consumer.md "lake-formation-getting-started-consumer.md").
+   workgroup administrator, see [Working with Lake Formation-managed datashares as a producer](lake-formation-getting-started-producer.md "lake-formation-getting-started-producer.md"). To consume the shared data
+   from the producer cluster or workgroup, see [Working with Lake Formation-managed datashares as a consumer](lake-formation-getting-started-consumer.md "lake-formation-getting-started-consumer.md").

@@ -7,11 +7,9 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 Use the SVV_QUERY_INFLIGHT view to determine what queries are currently running on the
 database. This view joins [STV_INFLIGHT](r_STV_INFLIGHT.md "r_STV_INFLIGHT.md") to [STL_QUERYTEXT](r_STL_QUERYTEXT.md "r_STL_QUERYTEXT.md").
 SVV_QUERY_INFLIGHT does not show leader-node only queries. For more information, see
-[Leader node–only
-functions](c_SQL_functions_leader_node_only.md "c_SQL_functions_leader_node_only.md").
+[Leader node–only functions](c_SQL_functions_leader_node_only.md "c_SQL_functions_leader_node_only.md").
 
-SVV_QUERY_INFLIGHT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV_QUERY_INFLIGHT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 

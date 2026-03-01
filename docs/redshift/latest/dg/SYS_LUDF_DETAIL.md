@@ -6,8 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 SYS_LUDF_DETAIL records information and metrics for Lambda User Defined Functions (LUDFs) that were used in a particular query.
 
-SYS_LUDF_DETAIL is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_LUDF_DETAIL is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

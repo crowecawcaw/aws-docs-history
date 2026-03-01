@@ -25,8 +25,7 @@ system tables and catalog tables:
 - [PG_DATABASE](https://www.postgresql.org/docs/8.0/static/catalog-pg-database.html "https://www.postgresql.org/docs/8.0/static/catalog-pg-database.html")
 - [PG_NAMESPACE](https://www.postgresql.org/docs/8.0/static/catalog-pg-namespace.html "https://www.postgresql.org/docs/8.0/static/catalog-pg-namespace.html")
 - [PG_STATISTIC_INDICATOR](r_PG_STATISTIC_INDICATOR.md "r_PG_STATISTIC_INDICATOR.md")
-  SVV_TABLE_INFO is visible only to superusers. For more information, see [Visibility of data in system tables and
-  views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data"). To permit a user to query the view, grant SELECT
+  SVV_TABLE_INFO is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data"). To permit a user to query the view, grant SELECT
   permission on SVV_TABLE_INFO to the user.
 
 ## Table columns

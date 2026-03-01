@@ -45,14 +45,12 @@ JSON
 
 ```
 
-If the cluster or namespace is in a VPC, follow the instructions in [Cluster and configure setup for Amazon Redshift ML
-administration](getting-started-machine-learning.md#admin-setup "getting-started-machine-learning.md#admin-setup").
+If the cluster or namespace is in a VPC, follow the instructions in [Cluster and configure setup for Amazon Redshift ML administration](getting-started-machine-learning.md#admin-setup "getting-started-machine-learning.md#admin-setup").
 
 If you need a more restrictive policy, you can create one that includes only the Amazon Bedrock
 permissions specified in the following pages:
 
-- [Cluster and configure setup for Amazon Redshift ML
-  administration](getting-started-machine-learning.md#admin-setup "getting-started-machine-learning.md#admin-setup")
+- [Cluster and configure setup for Amazon Redshift ML administration](getting-started-machine-learning.md#admin-setup "getting-started-machine-learning.md#admin-setup")
 - [Permissions required to use Amazon Redshift machine learning (ML)](../mgmt/redshift-iam-access-control-identity-based.md#iam-permission-ml? "../mgmt/redshift-iam-access-control-identity-based.md#iam-permission-ml?")
 
 For information about creating an IAM role, see

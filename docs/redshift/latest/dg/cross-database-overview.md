@@ -110,5 +110,4 @@ Following are system views that show all Amazon Redshift objects of all database
 - [Considerations](cross-database_usage.md "cross-database_usage.md")
 - [Limitations](cross-database_limitation.md "cross-database_limitation.md")
 - [Cross-database query examples](cross-database_example.md "cross-database_example.md")
-- [Using cross-database queries with the query
-  editor](cross-database_console.md "cross-database_console.md")
+- [Using cross-database queries with the query editor](cross-database_console.md "cross-database_console.md")

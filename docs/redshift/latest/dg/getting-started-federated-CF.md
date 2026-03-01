@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Getting started using federated queries to
-
-PostgreSQL with AWS CloudFormation
+# Getting started using federated queries to PostgreSQL with AWS CloudFormation
 
 You can use federated queries to query across operational databases. In this
 getting-started guide, you can automate setup by using a sample AWS CloudFormation stack to enable a
@@ -16,8 +14,7 @@ The stack creates an external schema, referencing your Aurora PostgreSQL instanc
 tables in the external schema from your Redshift cluster.
 
 If instead you want to get started with federated queries by running SQL statements to set up an external schema, without using CloudFormation,
-see [Getting started with using federated queries to
-PostgreSQL](getting-started-federated.md "getting-started-federated.md").
+see [Getting started with using federated queries to PostgreSQL](getting-started-federated.md "getting-started-federated.md").
 
 Before running the CloudFormation stack for federated queries, make sure that you have an
 Amazon Aurora PostgreSQL-Compatible Edition serverless database with the Data API turned on. You can turn on the
@@ -33,9 +30,7 @@ cluster, see [Get started with Amazon Redshift provisioned data warehouses](../g
 about setting up resources with CloudFormation, see [What is AWS CloudFormation?](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md"). For more information
 about setting up an Aurora DB cluster database, see [Creating an Aurora DB cluster Serverless v1 DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless.md").
 
-## Launching a CloudFormation stack for
-
-Redshift federated queries
+## Launching a CloudFormation stack for Redshift federated queries
 
 Use the following procedure to launch your CloudFormation stack for Amazon Redshift to enable federated queries.
 Before doing so, make sure you have your Amazon Redshift cluster and your serverless Aurora PostgreSQL instance set up.

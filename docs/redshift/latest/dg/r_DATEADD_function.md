@@ -17,8 +17,7 @@ DATEADD( *datepart*, *interval*, {*date*|*time*|*timetz*|*timestamp*} )
 _datepart_
 
 The date part (year, month, day, or hour, for example) that the function
-operates on. For more information, see [Date parts for date or timestamp
-functions](r_Dateparts_for_datetime_functions.md "r_Dateparts_for_datetime_functions.md").
+operates on. For more information, see [Date parts for date or timestamp functions](r_Dateparts_for_datetime_functions.md "r_Dateparts_for_datetime_functions.md").
 
 _interval_
 

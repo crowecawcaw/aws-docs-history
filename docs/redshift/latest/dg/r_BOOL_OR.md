@@ -32,8 +32,7 @@ DISTINCT | ALL
 With the argument DISTINCT, the function eliminates all duplicate values
 for the specified expression before calculating the result. With the
 argument ALL, the function retains all duplicate values. ALL is the default.
-See [DISTINCT support for
-bit-wise aggregations](c_bitwise_aggregate_functions.md#distinct-support-for-bit-wise-aggregations "c_bitwise_aggregate_functions.md#distinct-support-for-bit-wise-aggregations").
+See [DISTINCT support for bit-wise aggregations](c_bitwise_aggregate_functions.md#distinct-support-for-bit-wise-aggregations "c_bitwise_aggregate_functions.md#distinct-support-for-bit-wise-aggregations").
 
 ## Examples
 

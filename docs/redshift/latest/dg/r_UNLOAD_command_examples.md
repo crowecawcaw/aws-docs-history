@@ -13,9 +13,7 @@ The TICKIT sample data is used in many of the examples. For more information, se
 These examples contain line breaks for readability. Do not include line breaks
 or spaces in your _credentials-args_ string.
 
-## Unload VENUE to a pipe-delimited file
-
-(default delimiter)
+## Unload VENUE to a pipe-delimited file (default delimiter)
 
 The following example unloads the VENUE table and writes the data to
 `s3://amzn-s3-demo-bucket/unload/`:
@@ -57,9 +55,7 @@ venue_pipe_0002_part_00
 venue_pipe_0003_part_00
 ```
 
-## Unload LINEITEM table to
-
-partitioned Parquet files
+## Unload LINEITEM table to partitioned Parquet files
 
 The following example unloads the LINEITEM table in Parquet format, partitioned by
 the `l_shipdate` column.
@@ -173,9 +169,7 @@ The unload file looks similar to the following.
 4,"Community, Ballpark, Arena",Kansas City,KS,0
 ```
 
-## Unload VENUE to a CSV file using a
-
-delimiter
+## Unload VENUE to a CSV file using a delimiter
 
 The following example unloads the VENUE table and writes the data in CSV format
 using the pipe character (|) as the delimiter. The unloaded file is written to
@@ -255,9 +249,7 @@ The following shows the contents of the manifest file.
 }
 ```
 
-## Unload VENUE with MANIFEST
-
-VERBOSE
+## Unload VENUE with MANIFEST VERBOSE
 
 When you specify the MANIFEST VERBOSE option, the manifest file includes the
 following sections:
@@ -427,9 +419,7 @@ manifest;
 
 ```
 
-## Unload VENUE to encrypted
-
-files
+## Unload VENUE to encrypted files
 
 The following example unloads the VENUE table to a set of encrypted files using an AWS KMS key.
 If you specify a manifest file with the ENCRYPTED option, the manifest file
@@ -455,9 +445,7 @@ master_symmetric_key 'EXAMPLEMASTERKEYtkbjk/OpCwtYSx/M4/t7DMCDIK722'
 encrypted;
 ```
 
-## Load VENUE from encrypted
-
-files
+## Load VENUE from encrypted files
 
 To load tables from a set of files that were created by using UNLOAD with the
 ENCRYPT option, reverse the process by using a COPY command. With that command, use
@@ -476,9 +464,7 @@ manifest
 encrypted;
 ```
 
-## Unload VENUE data to a tab-delimited
-
-file
+## Unload VENUE data to a tab-delimited file
 
 ```
 unload ('select venueid, venuename, venueseats from venue')
@@ -498,9 +484,7 @@ The output data files look like this:
 ...
 ```
 
-## Unload VENUE to a fixed-width data
-
-file
+## Unload VENUE to a fixed-width data file
 
 ```
 unload ('select * from venue')
@@ -520,9 +504,7 @@ The output data files look like the following.
 ...
 ```
 
-## Unload VENUE to a set of tab-delimited
-
-GZIP-compressed files
+## Unload VENUE to a set of tab-delimited GZIP-compressed files
 
 ```
 unload ('select * from venue')
@@ -543,9 +525,7 @@ gzip;
 
 ```
 
-## Unload data that contains a
-
-delimiter
+## Unload data that contains a delimiter
 
 This example uses the ADDQUOTES option to unload comma-delimited data where some
 of the actual data fields contain a comma.

@@ -8,8 +8,7 @@ The SVV_IDENTITY_PROVIDERS view returns the name and additional properties for
 identity providers. For more information about how to create an identity provider, see
 [CREATE IDENTITY PROVIDER](r_CREATE_IDENTITY_PROVIDER.md "r_CREATE_IDENTITY_PROVIDER.md").
 
-SVV_IDENTITY_PROVIDERS is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV_IDENTITY_PROVIDERS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

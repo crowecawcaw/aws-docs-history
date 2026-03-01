@@ -8,8 +8,7 @@ Records the state of tables that are temporarily locked during cluster restart
 operations. Amazon Redshift places a temporary lock on tables while they are being processed to
 resolve stale transactions following a cluster restart.
 
-STV_STARTUP_RECOVERY_STATE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV_STARTUP_RECOVERY_STATE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

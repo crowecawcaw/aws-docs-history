@@ -12,8 +12,7 @@ owner** – follow these steps:
 
 1. Create datashares in your cluster and add datashare objects to the
    datashares. For more detailed steps on how to create datashares and add
-   datashare objects to datashares, see [Sharing read access to data within an
-   AWS account](within-account.md "within-account.md"). For information about the CREATE
+   datashare objects to datashares, see [Sharing read access to data within an AWS account](within-account.md "within-account.md"). For information about the CREATE
    DATASHARE and ALTER DATASHARE, see [CREATE DATASHARE](r_CREATE_DATASHARE.md "r_CREATE_DATASHARE.md") and [ALTER DATASHARE](r_ALTER_DATASHARE.md "r_ALTER_DATASHARE.md").
 
 The following example adds different datashare objects to the datashare
@@ -34,8 +33,7 @@ ALTER DATASHARE salesshare ADD ALL TABLES in schema public;
 ```
 
 You can also use the Amazon Redshift console to create or edit datashares. For more
-information, see [Create a datashare](datashare-creation.md#create-datashare-console "datashare-creation.md#create-datashare-console") and [Editing datashares created in your
-account](manage-datashare-existing-console.md#edit-datashare-console "manage-datashare-existing-console.md#edit-datashare-console"). 2. Delegate permissions to operate on the datashare. For more information,
+information, see [Create a datashare](datashare-creation.md#create-datashare-console "datashare-creation.md#create-datashare-console") and [Editing datashares created in your account](manage-datashare-existing-console.md#edit-datashare-console "manage-datashare-existing-console.md#edit-datashare-console"). 2. Delegate permissions to operate on the datashare. For more information,
 see [GRANT](r_GRANT.md "r_GRANT.md") or [REVOKE](r_REVOKE.md "r_REVOKE.md").
 
 The following example grants permissions to `dbuser` on
@@ -63,9 +61,7 @@ consumers from a datashare. To do so, they use GRANT USAGE or REVOKE
 USAGE.
 
 You can also use the Amazon Redshift console to add or remove data consumers for
-datashares. For more information, see [Add data consumers to
-datashares](datashare-creation.md#add-data-consumer-console "datashare-creation.md#add-data-consumer-console") and [Removing data consumers from
-datashares](manage-datashare-existing-console.md#remove-data-consumer-console "manage-datashare-existing-console.md#remove-data-consumer-console"). 4. (Optional) Revoke access to the datashare from AWS accounts if you
+datashares. For more information, see [Add data consumers to datashares](datashare-creation.md#add-data-consumer-console "datashare-creation.md#add-data-consumer-console") and [Removing data consumers from datashares](manage-datashare-existing-console.md#remove-data-consumer-console "manage-datashare-existing-console.md#remove-data-consumer-console"). 4. (Optional) Revoke access to the datashare from AWS accounts if you
 don't want to share the data with the consumers anymore.
 
 ```
@@ -84,12 +80,9 @@ to access datashares or to remove authorization from. Authorized data consumers
 receive notifications to take actions on datashares. If you are adding a namespace
 as a data consumer, you don't have to perform authorization. After data
 consumers are authorized, they can access datashare objects and create a consumer
-database to query the data. For more information, see [Authorizing or removing authorization
-from datashares](authorize-datashare-console.md "authorize-datashare-console.md").
+database to query the data. For more information, see [Authorizing or removing authorization from datashares](authorize-datashare-console.md "authorize-datashare-console.md").
 
-## Sharing
-
-write permissions to data across accounts
+## Sharing write permissions to data across accounts
 
 With Amazon Redshift, you can share data across AWS accounts and grant write
 permissions, enabling collaboration and data sharing between teams or

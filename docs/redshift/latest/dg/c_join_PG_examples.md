@@ -7,9 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 The following queries show a few of the ways in which you can query the catalog
 tables to get useful information about an Amazon Redshift database.
 
-## View table
-
-ID, database, schema, and table name
+## View table ID, database, schema, and table name
 
 The following view definition joins the STV_TBL_PERM system table with the
 PG_CLASS, PG_NAMESPACE, and PG_DATABASE system catalog tables to return the

@@ -11,8 +11,7 @@ improve query performance.
 A query consists of multiple segments, and each segment consists of one or more steps.
 For more information, see [Query processing](c-query-processing.md "c-query-processing.md").
 
-STL_ALERT_EVENT_LOG is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL_ALERT_EVENT_LOG is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 
@@ -47,8 +46,7 @@ design and rewrite your queries. STL_ALERT_EVENT_LOG records the following alert
 
 Statistics are missing. Run ANALYZE following data loads or significant
 updates and use STATUPDATE with COPY operations. For more information, see
-[Amazon Redshift best practices for designing
-queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md").
+[Amazon Redshift best practices for designing queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md").
 
 - **Nested loop**
 

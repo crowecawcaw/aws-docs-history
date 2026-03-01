@@ -16,8 +16,7 @@ or simple aggregations) are submitted, concurrency is higher.
 
 Automatic WLM is separate from short query acceleration (SQA) and it evaluates queries differently.
 Automatic WLM and SQA work together to allow short running and lightweight queries to complete even while long running, resource intensive queries are active.
-For more information about SQA, see [Short query
-acceleration](wlm-short-query-acceleration.md "wlm-short-query-acceleration.md").
+For more information about SQA, see [Short query acceleration](wlm-short-query-acceleration.md "wlm-short-query-acceleration.md").
 
 Amazon Redshift enables automatic WLM through parameter groups:
 
@@ -79,8 +78,7 @@ or by using wildcards. A _query group_ is simply a
 label. At runtime, you can assign the query group label to a series of queries. Any
 queries that are assigned to a listed query group run in the corresponding queue. There
 is no set limit to the number of query groups that can be assigned to a queue. For more
-information, see [Assigning a
-query to a query group](cm-c-executing-queries.md#cm-c-executing-queries-assigning-a-query-to-a-query-group "cm-c-executing-queries.md#cm-c-executing-queries-assigning-a-query-to-a-query-group").
+information, see [Assigning a query to a query group](cm-c-executing-queries.md#cm-c-executing-queries-assigning-a-query-to-a-query-group "cm-c-executing-queries.md#cm-c-executing-queries-assigning-a-query-to-a-query-group").
 
 ## Wildcards
 

@@ -9,8 +9,7 @@ including start time, end time, status of a stored procedure call, and call hier
 for nested stored procedure calls. Each stored procedure call receives a query
 ID.
 
-SYS_PROCEDURE_CALL is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_PROCEDURE_CALL is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

@@ -9,8 +9,7 @@ table during a classic resize. This is specifically applicable when the
 target node type is RA3. For more information about classic resize to RA3 nodes, go to
 [Classic resize](../mgmt/managing-cluster-operations.md#classic-resize-faster "../mgmt/managing-cluster-operations.md#classic-resize-faster").
 
-STV_XRESTORE_ALTER_QUEUE_STATE is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV_XRESTORE_ALTER_QUEUE_STATE is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 Some or all of the data in this table can also be found in the SYS monitoring view [SYS_RESTORE_STATE](SYS_RESTORE_STATE.md "SYS_RESTORE_STATE.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
 We recommend that you use the SYS monitoring view for your queries.

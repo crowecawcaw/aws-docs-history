@@ -44,8 +44,7 @@ _Amazon EMR Developer Guide_.
 If your external table is defined in AWS Glue, Athena, or a Hive metastore, you first create
 an external schema that references the external database. Then you can reference the
 external table in your SELECT statement by prefixing the table name with the schema name,
-without needing to create the table in Amazon Redshift. For more information, see [External schemas in Amazon Redshift
-Spectrum](c-spectrum-external-schemas.md "c-spectrum-external-schemas.md").
+without needing to create the table in Amazon Redshift. For more information, see [External schemas in Amazon Redshift Spectrum](c-spectrum-external-schemas.md "c-spectrum-external-schemas.md").
 
 To allow Amazon Redshift to view tables in the AWS Glue Data Catalog, add `glue:GetTable` to the
 Amazon Redshift IAM role. Otherwise you might get an error similar to the following.
@@ -129,9 +128,7 @@ data files on Amazon S3 to determine the size of the result set. For
 more information, see [Amazon Redshift
 Pricing](https://aws.amazon.com/redshift/pricing/ "https://aws.amazon.com/redshift/pricing/").
 
-### Pseudocolumns
-
-example
+### Pseudocolumns example
 
 The following example returns the total size of related data files for an external
 table.
@@ -147,9 +144,7 @@ s3://redshift-downloads/tickit/spectrum/sales_partition/saledate=2008-02/ |  144
 s3://redshift-downloads/tickit/spectrum/sales_partition/saledate=2008-03/ |  1644
 ```
 
-## Partitioning Redshift Spectrum external
-
-tables
+## Partitioning Redshift Spectrum external tables
 
 When you partition your data, you can restrict the amount of data that Redshift
 Spectrum scans by filtering on the partition key. You can partition your data by any
@@ -195,9 +190,7 @@ location 's3://redshift-downloads/tickit/spectrum/sales_partition/saledate=2008-
 If you use the AWS Glue catalog, you can add up to 100 partitions using a
 single ALTER TABLE statement.
 
-### Partitioning data
-
-examples
+### Partitioning data examples
 
 In this example, you create an external table that is partitioned by a single
 partition key and an external table that is partitioned by two partition keys.
@@ -232,9 +225,7 @@ iam_role 'arn:aws:iam::123456789012:role/myspectrumrole'
 create external database if not exists;
 ```
 
-#### Example 1:
-
-Partitioning with a single partition key
+#### Example 1: Partitioning with a single partition key
 
 In the following example, you create an external table that is partitioned by
 month.
@@ -314,9 +305,7 @@ spectrum   | sales_part | ["2008-03"] | s3://redshift-downloads/tickit/spectrum/
 spectrum   | sales_part | ["2008-04"] | s3://redshift-downloads/tickit/spectrum/sales_partition/saledate=2008-04
 ```
 
-#### Example 2:
-
-Partitioning with a multiple partition key
+#### Example 2: Partitioning with a multiple partition key
 
 To create an external table partitioned by `date` and
 `eventid`, run the following command.
@@ -395,9 +384,7 @@ salesmonth | eventname       | sum
 2008-02    | Die Walkure     |  534.00
 ```
 
-## Mapping external table columns to ORC
-
-columns
+## Mapping external table columns to ORC columns
 
 You use Amazon Redshift Spectrum external tables to query data from files in ORC format.
 Optimized row columnar (ORC) format is a columnar storage file format that supports
@@ -528,9 +515,7 @@ external table is a `struct` column with subcolumns named
 `map_col` and `int_col`. The subcolumns also map correctly
 to the corresponding columns in the ORC file by column name.
 
-## Creating external tables for data managed in
-
-Apache Hudi
+## Creating external tables for data managed in Apache Hudi
 
 To query data in Apache Hudi Copy On Write (CoW) format, you can use Amazon Redshift Spectrum external
 tables. A Hudi Copy On Write table is a collection of Apache Parquet files stored in
@@ -599,9 +584,7 @@ ADD IF NOT EXISTS PARTITION(*pcolumn1*=*pvalue1*[,...])
 LOCATION 's3://*s3-bucket*/*prefix*/*partition-path*'
 ```
 
-## Creating external tables for data managed in
-
-Delta Lake
+## Creating external tables for data managed in Delta Lake
 
 To query data in Delta Lake tables, you can use Amazon Redshift Spectrum external tables.
 
@@ -625,8 +608,7 @@ as `org.apache.hadoop.hive.ql.io.SymlinkTextInputFormat` and
 `org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat`. The
 `LOCATION` parameter must point to the manifest folder in the table base
 folder. If a SELECT operation on a Delta Lake table fails, for possible reasons see
-[Limitations and
-troubleshooting for Delta Lake tables](#c-spectrum-column-mapping-delta-limitations "#c-spectrum-column-mapping-delta-limitations").
+[Limitations and troubleshooting for Delta Lake tables](#c-spectrum-column-mapping-delta-limitations "#c-spectrum-column-mapping-delta-limitations").
 
 The DDL to define an unpartitioned table has the following format.
 
@@ -673,9 +655,7 @@ LOCATION
 's3://*s3-bucket*/*prefix*/_symlink_format_manifest/*partition-path*/manifest'
 ```
 
-### Limitations and
-
-troubleshooting for Delta Lake tables
+### Limitations and troubleshooting for Delta Lake tables
 
 Consider the following when querying Delta Lake tables from Redshift Spectrum:
 

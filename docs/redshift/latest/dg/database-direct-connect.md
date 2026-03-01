@@ -58,9 +58,7 @@ with the connected database. For more information, see [SVV_ALL_TABLES](r_SVV_AL
 Use SVV_ALL_COLUMNS to view a list of the shared columns in the datashare associated
 with the connected database. For more information, see [SVV_ALL_COLUMNS](r_SVV_ALL_COLUMNS.md "r_SVV_ALL_COLUMNS.md").
 
-## Integrating Amazon Redshift data sharing with business
-
-intelligence tools
+## Integrating Amazon Redshift data sharing with business intelligence tools
 
 To integrate data sharing with business intelligence (BI) tools, we recommend that
 you use the Amazon Redshift JDBC or ODBC drivers. Amazon Redshift JDBC and ODBC drivers support the

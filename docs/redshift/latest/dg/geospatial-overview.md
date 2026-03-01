@@ -149,8 +149,7 @@ For details about SQL functions to query spatial data, see
 [Spatial functions](geospatial-functions.md "geospatial-functions.md").
 
 For details about loading spatial data, see
-[Loading a column of the GEOMETRY or GEOGRAPHY data
-type](copy-usage_notes-spatial-data.md "copy-usage_notes-spatial-data.md").
+[Loading a column of the GEOMETRY or GEOGRAPHY data type](copy-usage_notes-spatial-data.md "copy-usage_notes-spatial-data.md").
 
 ###### Topics
 

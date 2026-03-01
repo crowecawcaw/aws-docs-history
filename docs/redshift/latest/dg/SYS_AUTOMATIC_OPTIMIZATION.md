@@ -8,8 +8,7 @@ Use SYS_AUTOMATIC_OPTIMIZATION to view details on the tasks that Amazon Redshift
 automatic optimization, also known as autonomics. For more information on automatic
 optimization, see [Automatic database optimization](c_autonomics.md "c_autonomics.md").
 
-SYS_AUTOMATIC_OPTIMIZATION is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_AUTOMATIC_OPTIMIZATION is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

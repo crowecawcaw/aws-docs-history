@@ -172,9 +172,7 @@ from event;
 ENCODE AUTO is used as the default for tables. Amazon Redshift automatically manages
 compression encoding for all columns in the table.
 
-## Distribution of
-
-incoming data
+## Distribution of incoming data
 
 When the hash distribution scheme of the incoming data matches that of the target
 table, no physical distribution of the data is actually necessary when the data is
@@ -184,9 +182,7 @@ data is loaded in place, using the same nodes and slices. However, if the source
 target tables are both set to EVEN distribution, data is redistributed into the
 target table.
 
-## Automatic ANALYZE
-
-operations
+## Automatic ANALYZE operations
 
 Amazon Redshift automatically analyzes tables that you create with CTAS commands. You do
 not need to run the ANALYZE command on these tables when they are first created. If

@@ -6,8 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 Use the SVL_S3PARTITION_SUMMARY view to get a summary of Redshift Spectrum queries partition processing at the segment level.
 
-SVL_S3PARTITION_SUMMARY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVL_S3PARTITION_SUMMARY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 For information about SVCS_S3PARTITION, see [SVCS_S3PARTITION_SUMMARY](r_SVCS_S3PARTITION_SUMMARY.md "r_SVCS_S3PARTITION_SUMMARY.md").
 

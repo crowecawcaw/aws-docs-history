@@ -6,23 +6,16 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 ###### Topics
 
-- [Storage and
-  ranges](#r_Character_types-storage-and-ranges "#r_Character_types-storage-and-ranges")
+- [Storage and ranges](#r_Character_types-storage-and-ranges "#r_Character_types-storage-and-ranges")
 - [CHAR or CHARACTER](#r_Character_types-char-or-character "#r_Character_types-char-or-character")
-- [VARCHAR or
-  CHARACTER VARYING](#r_Character_types-varchar-or-character-varying "#r_Character_types-varchar-or-character-varying")
-- [NCHAR and NVARCHAR
-  types](#r_Character_types-nchar-and-nvarchar-types "#r_Character_types-nchar-and-nvarchar-types")
-- [TEXT and BPCHAR
-  types](#r_Character_types-text-and-bpchar-types "#r_Character_types-text-and-bpchar-types")
+- [VARCHAR or CHARACTER VARYING](#r_Character_types-varchar-or-character-varying "#r_Character_types-varchar-or-character-varying")
+- [NCHAR and NVARCHAR types](#r_Character_types-nchar-and-nvarchar-types "#r_Character_types-nchar-and-nvarchar-types")
+- [TEXT and BPCHAR types](#r_Character_types-text-and-bpchar-types "#r_Character_types-text-and-bpchar-types")
 - [Significance of trailing blanks](#r_Character_types-significance-of-trailing-blanks "#r_Character_types-significance-of-trailing-blanks")
-- [Examples with character
-  types](r_Examples_with_character_types.md "r_Examples_with_character_types.md")
+- [Examples with character types](r_Examples_with_character_types.md "r_Examples_with_character_types.md")
   Character data types include CHAR (character) and VARCHAR (character varying).
 
-## Storage and
-
-ranges
+## Storage and ranges
 
 CHAR and VARCHAR data types are defined in terms of bytes, not characters. A
 CHAR column can only contain single-byte characters, so a CHAR(10) column can
@@ -65,9 +58,7 @@ char(10)
 
 A CHAR column without a length specification results in a CHAR(1) column.
 
-## VARCHAR or
-
-CHARACTER VARYING
+## VARCHAR or CHARACTER VARYING
 
 Use a VARCHAR or CHARACTER VARYING column to store variable-length strings
 with a fixed limit. These strings are not padded with blanks, so a VARCHAR(120)
@@ -93,9 +84,7 @@ SELECT LEN(CONCAT(REPEAT('A', 5000000), REPEAT('B', 5000000))) AS total_length;
  10000000`
 ```
 
-## NCHAR and NVARCHAR
-
-types
+## NCHAR and NVARCHAR types
 
 You can create columns with the NCHAR and NVARCHAR types (also known as
 NATIONAL CHARACTER and NATIONAL CHARACTER VARYING types). These types are
@@ -108,9 +97,7 @@ column.
 An NVARCHAR column without a length specification is converted to a
 VARCHAR(256) column.
 
-## TEXT and BPCHAR
-
-types
+## TEXT and BPCHAR types
 
 You can create an Amazon Redshift table with a TEXT column, but it is converted to
 a VARCHAR(256) column that accepts variable-length values with a maximum of 256

@@ -107,9 +107,7 @@ consume data from a given datashare can't be publicly accessible. Queries
 from consumer clusters that don't meet security restrictions specified in
 datashare are rejected at query runtime. For more information, see [ALTER DATASHARE](r_ALTER_DATASHARE.md "r_ALTER_DATASHARE.md").
 
-## Add datashare objects to
-
-datashares
+## Add datashare objects to datashares
 
 You can add database objects of various types on the console and with SQL by
 following one of the below procedures.
@@ -285,9 +283,7 @@ GRANT { EXECUTE | ALL [ PRIVILEGES ] }FOR FUNCTIONS IN
 TO DATASHARE { datashare_name}
 ```
 
-## Add data consumers to
-
-datashares
+## Add data consumers to datashares
 
 You can add one or more data consumers to the datashares. Data consumers can be
 namespaces that uniquely identified Amazon Redshift clusters or AWS accounts.

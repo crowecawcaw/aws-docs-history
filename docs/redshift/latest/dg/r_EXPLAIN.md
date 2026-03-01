@@ -48,9 +48,7 @@ definition language (DDL) or database operations.
 The EXPLAIN output relative unit costs are used by Amazon Redshift to choose a query plan. Amazon Redshift
 compares the sizes of various resource estimates to determine the plan.
 
-## Query planning and
-
-execution steps
+## Query planning and execution steps
 
 The execution plan for a specific Amazon Redshift query statement breaks down execution and
 calculation of a query into a discrete sequence of steps and table operations that

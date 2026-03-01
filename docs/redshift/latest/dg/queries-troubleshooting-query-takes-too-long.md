@@ -21,8 +21,7 @@ For more information, see [Query performance improvement](query-performance-impr
 
 You might be able to improve overall system performance by creating query queues
 and assigning different types of queries to the appropriate queues. For more
-information, see [Workload
-management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md").
+information, see [Workload management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md").
 
 ###### Queries are not optimized
 
@@ -40,9 +39,7 @@ Run the VACUUM command whenever you add, delete, or modify a large number of row
 unless you load your data in sort key order. The VACUUM command reorganizes your data
 to maintain the sort order and restore performance. For more information, see [Vacuuming tables](t_Reclaiming_storage_space202.md "t_Reclaiming_storage_space202.md").
 
-## Additional resources for troubleshooting
-
-long-running queries
+## Additional resources for troubleshooting long-running queries
 
 The following are system-view topics and other documentation sections that are helpful for query tuning:
 
@@ -59,6 +56,5 @@ The following are system-view topics and other documentation sections that are h
   queries that are top candidates for tuning](diagnostic-queries-for-query-tuning.md#identify-queries-that-are-top-candidates-for-tuning "diagnostic-queries-for-query-tuning.md#identify-queries-that-are-top-candidates-for-tuning") provides a troubleshooting query that helps you determine which recently-run
   queries were the most time consuming. This can help you focus your efforts on queries that need improvement.
 - If you want to explore query management further and understand how to manage query queues,
-  [Workload
-  management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md") shows how to do it. Workload
+  [Workload management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md") shows how to do it. Workload
   management is an advanced feature and we recommend automated workload management in most cases.

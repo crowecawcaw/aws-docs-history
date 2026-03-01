@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Declining a datashare from a
-
-different AWS account in Amazon Redshift
+# Declining a datashare from a different AWS account in Amazon Redshift
 
 With Amazon Redshift, you can decline datashares shared by other AWS accounts, enabling
 seamless and secure data sharing across organizational boundaries. Datashares are

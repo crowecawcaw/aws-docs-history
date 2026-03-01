@@ -60,8 +60,7 @@ supported functions. All offsets into strings are one-based.
 ###### Deprecated leader node-only functions
 
 The following string functions are deprecated because they run only on the leader
-node. For more information, see [Leader node–only
-functions](c_SQL_functions_leader_node_only.md "c_SQL_functions_leader_node_only.md")
+node. For more information, see [Leader node–only functions](c_SQL_functions_leader_node_only.md "c_SQL_functions_leader_node_only.md")
 
 - GET_BYTE
 - SET_BIT

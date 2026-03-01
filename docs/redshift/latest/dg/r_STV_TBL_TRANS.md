@@ -11,8 +11,7 @@ Transient tables are typically temporary row sets that are used as intermediate
 results while a query runs. STV_TBL_TRANS differs from [STV_TBL_PERM](r_STV_TBL_PERM.md "r_STV_TBL_PERM.md") in that STV_TBL_PERM contains information about
 permanent database tables.
 
-STV_TBL_TRANS is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV_TBL_TRANS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

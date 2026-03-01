@@ -12,8 +12,7 @@ datashares or choose not to authorize any access. To use an authorized datashare
 consumer account administrator can associate the datashare. The administrator can
 associate the datashare with an entire AWS account or with specific clusters in the
 consumer account, or decline the datashare. For more information about sharing data
-within an account, see [Sharing read access to data within an
-AWS account](within-account.md "within-account.md").
+within an account, see [Sharing read access to data within an AWS account](within-account.md "within-account.md").
 
 A datashare can have data consumers that are either namespaces in the same account
 or different AWS accounts. You don't need to create separate datashares for
@@ -29,6 +28,5 @@ the consumer account get access to a datashare.
 ###### Topics
 
 - [producer administrator actions](producer-cluster-admin.md "producer-cluster-admin.md")
-- [Consumer account administrator
-  actions](consumer-account-admin.md "consumer-account-admin.md")
+- [Consumer account administrator actions](consumer-account-admin.md "consumer-account-admin.md")
 - [consumer administrator actions](consumer-cluster-admin.md "consumer-cluster-admin.md")

@@ -45,8 +45,7 @@ PARTITION BY is specified, ORDER BY uses the entire table. If ORDER BY is
 omitted, the return value is `1` for all rows.
 
 If ORDER BY doesn't produce a unique ordering, the order of the rows
-is nondeterministic. For more information, see [Unique ordering of data for window
-functions](c_Window_functions.md#r_Examples_order_by_WF "c_Window_functions.md#r_Examples_order_by_WF").
+is nondeterministic. For more information, see [Unique ordering of data for window functions](c_Window_functions.md#r_Examples_order_by_WF "c_Window_functions.md#r_Examples_order_by_WF").
 
 ## Return type
 

@@ -9,8 +9,7 @@ interleaved sort keys should be reindexed using [VACUUM REINDEX](r_VACUUM_comman
 more information about how to determine how often to run VACUUM and when to run a VACUUM
 REINDEX, see [Minimizing vacuum times](vacuum-managing-vacuum-times.md "vacuum-managing-vacuum-times.md").
 
-SVV_INTERLEAVED_COLUMNS is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV_INTERLEAVED_COLUMNS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

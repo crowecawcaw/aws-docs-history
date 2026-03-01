@@ -7,8 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 The STV_NODE_STORAGE_CAPACITY table shows details of total storage capacity and total used capacity for each node in a cluster.
 It contains a row for each node.
 
-STV_NODE_STORAGE_CAPACITY is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV_NODE_STORAGE_CAPACITY is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

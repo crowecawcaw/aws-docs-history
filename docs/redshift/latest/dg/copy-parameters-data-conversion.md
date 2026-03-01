@@ -52,8 +52,7 @@ character will be replaced with '`^^^`'.
 
 The replacement character can be any ASCII character except NULL. The
 default is a question mark ( ? ). For information about invalid UTF-8
-characters, see [Multibyte character load
-errors](multi-byte-character-load-errors.md "multi-byte-character-load-errors.md").
+characters, see [Multibyte character load errors](multi-byte-character-load-errors.md "multi-byte-character-load-errors.md").
 
 COPY returns the number of rows that contained invalid UTF-8 characters,
 and it adds an entry to the [STL_REPLACEMENTS](r_STL_REPLACEMENTS.md "r_STL_REPLACEMENTS.md") system table for each affected row,
@@ -87,13 +86,11 @@ values, or if your date or time values use different formats, use the
 The `'auto'` argument recognizes several formats that aren't
 supported when using a DATEFORMAT and TIMEFORMAT string. The
 `'auto'`' keyword is case-sensitive. For more information, see
-[Using automatic recognition with DATEFORMAT and
-TIMEFORMAT](automatic-recognition.md "automatic-recognition.md").
+[Using automatic recognition with DATEFORMAT and TIMEFORMAT](automatic-recognition.md "automatic-recognition.md").
 
 The date format can include time information (hour, minutes, seconds),
 but this information is ignored. The AS keyword is optional. For more
-information, see [DATEFORMAT and TIMEFORMAT
-strings](r_DATEFORMAT_and_TIMEFORMAT_strings.md "r_DATEFORMAT_and_TIMEFORMAT_strings.md").
+information, see [DATEFORMAT and TIMEFORMAT strings](r_DATEFORMAT_and_TIMEFORMAT_strings.md "r_DATEFORMAT_and_TIMEFORMAT_strings.md").
 
 EMPTYASNULL
 
@@ -331,18 +328,15 @@ format is `YYYY-MM-DD HH:MI:SS` for TIMESTAMP columns or
 can't include a time zone specifier in the
 _timeformat_string_. To load TIMESTAMPTZ data that is
 in a format different from the default format, specify 'auto'; for more
-information, see [Using automatic recognition with DATEFORMAT and
-TIMEFORMAT](automatic-recognition.md "automatic-recognition.md"). For more information about
-_timeformat_string_, see [DATEFORMAT and TIMEFORMAT
-strings](r_DATEFORMAT_and_TIMEFORMAT_strings.md "r_DATEFORMAT_and_TIMEFORMAT_strings.md").
+information, see [Using automatic recognition with DATEFORMAT and TIMEFORMAT](automatic-recognition.md "automatic-recognition.md"). For more information about
+_timeformat_string_, see [DATEFORMAT and TIMEFORMAT strings](r_DATEFORMAT_and_TIMEFORMAT_strings.md "r_DATEFORMAT_and_TIMEFORMAT_strings.md").
 
 The `'auto'` argument recognizes several formats that aren't
 supported when using a DATEFORMAT and TIMEFORMAT string. If the COPY command
 doesn't recognize the format of your date or time values, or if your date
 and time values use formats different from each other, use the
 `'auto'` argument with the DATEFORMAT or TIMEFORMAT parameter.
-For more information, see [Using automatic recognition with DATEFORMAT and
-TIMEFORMAT](automatic-recognition.md "automatic-recognition.md").
+For more information, see [Using automatic recognition with DATEFORMAT and TIMEFORMAT](automatic-recognition.md "automatic-recognition.md").
 
 If your source data is represented as epoch time, that is the number of
 seconds or milliseconds since January 1, 1970, 00:00:00 UTC, specify

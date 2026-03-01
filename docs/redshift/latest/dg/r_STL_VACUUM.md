@@ -10,8 +10,7 @@ The view shows information specific to when each vacuum operation started and
 finished, and demonstrates the benefits of running the operation. For information about
 the requirements for running this command, see the [VACUUM](r_VACUUM_command.md "r_VACUUM_command.md") command description.
 
-STL_VACUUM is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL_VACUUM is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 Some or all of the data in this table can also be found in the SYS monitoring view [SYS_VACUUM_HISTORY](SYS_VACUUM_HISTORY.md "SYS_VACUUM_HISTORY.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
 We recommend that you use the SYS monitoring view for your queries.

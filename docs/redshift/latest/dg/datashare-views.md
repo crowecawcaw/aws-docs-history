@@ -91,9 +91,7 @@ dwuser       | 86b5169f-01dc-4a6f-9fbb-e2e24359e9a8
 (1 row)
 ```
 
-## Incremental refresh for materialized
-
-views in a datashare
+## Incremental refresh for materialized views in a datashare
 
 Amazon Redshift supports incremental refresh for materialized views in a consumer
 datashare when the base tables or materializd views are shared. Incremental refresh is an operation

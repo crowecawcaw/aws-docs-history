@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Updating and inserting new
-
-data
+# Updating and inserting new data
 
 You can efficiently add new data to an existing table by using the MERGE command.
 Perform a merge operation by creating a staging table and then using one of the
@@ -16,9 +14,7 @@ prerequisite, you can set up the TICKIT tables and data by following the instruc
 in [Getting started with common database tasks](../gsg/database-tasks.md "../gsg/database-tasks.md"). More detailed
 information about the sample data set is found at [Sample database](c_sampledb.md "c_sampledb.md").
 
-## Merge method 1: Replacing existing
-
-rows
+## Merge method 1: Replacing existing rows
 
 If you are overwriting all of the columns in the target table, the fastest method to
 perform a merge is to replace the existing rows. This scans the target table only once,
@@ -41,9 +37,7 @@ However, if most of the rows in the staging table will not participate in the me
 recommend performing an UPDATE and an INSERT in separate steps, as described later in
 this section.
 
-## Merge method 2: Specifying a column
-
-list without using MERGE
+## Merge method 2: Specifying a column list without using MERGE
 
 Use this method to update specific columns in the target table instead of overwriting
 entire rows. This method takes longer than the previous method because it requires an
@@ -55,8 +49,6 @@ extra update step and doesn't use the MERGE command. Use this method if any of t
 ###### Topics
 
 - [Creating a temporary staging table](merge-create-staging-table.md "merge-create-staging-table.md")
-- [Performing a merge operation by
-  replacing existing rows](merge-replacing-existing-rows.md "merge-replacing-existing-rows.md")
-- [Performing a merge operation by specifying
-  a column list without using the MERGE command](merge-specify-a-column-list.md "merge-specify-a-column-list.md")
+- [Performing a merge operation by replacing existing rows](merge-replacing-existing-rows.md "merge-replacing-existing-rows.md")
+- [Performing a merge operation by specifying a column list without using the MERGE command](merge-specify-a-column-list.md "merge-specify-a-column-list.md")
 - [Merge examples](merge-examples.md "merge-examples.md")

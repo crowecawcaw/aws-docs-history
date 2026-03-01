@@ -2,16 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Amazon Redshift best practices for designing
-
-queries
+# Amazon Redshift best practices for designing queries
 
 To maximize query performance, follow these recommendations when creating
 queries:
 
 - Design tables according to best practices to provide a solid foundation for query
-  performance. For more information, see [Amazon Redshift best practices for designing
-  tables](c_designing-tables-best-practices.md "c_designing-tables-best-practices.md").
+  performance. For more information, see [Amazon Redshift best practices for designing tables](c_designing-tables-best-practices.md "c_designing-tables-best-practices.md").
 - Avoid using `select *`. Include only the columns you specifically
   need.
 - Use a [CASE conditional expression](r_CASE_function.md "r_CASE_function.md") to perform

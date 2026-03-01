@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Verifying that the
-
-correct files are present in your bucket
+# Verifying that the correct files are present in your bucket
 
 After you upload your files to your Amazon S3 bucket, we recommend listing the
 contents of the bucket to verify that all of the correct files are present and

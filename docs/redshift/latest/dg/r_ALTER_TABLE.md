@@ -718,5 +718,4 @@ For examples that show how to use the ALTER TABLE command, see the following.
 
 - [ALTER TABLE examples](r_ALTER_TABLE_examples_basic.md "r_ALTER_TABLE_examples_basic.md")
 - [ALTER EXTERNAL TABLE examples](r_ALTER_TABLE_external-table.md "r_ALTER_TABLE_external-table.md")
-- [ALTER TABLE ADD and DROP COLUMN
-  examples](r_ALTER_TABLE_COL_ex-add-drop.md "r_ALTER_TABLE_COL_ex-add-drop.md")
+- [ALTER TABLE ADD and DROP COLUMN examples](r_ALTER_TABLE_COL_ex-add-drop.md "r_ALTER_TABLE_COL_ex-add-drop.md")

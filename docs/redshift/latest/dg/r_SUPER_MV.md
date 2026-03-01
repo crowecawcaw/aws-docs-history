@@ -31,5 +31,4 @@ as well as creating scalar columns out of shredded data to improve performance.
 ###### Topics
 
 - [Shredding semi-structured data into SUPER columns with materialized views](r_shred_super.md "r_shred_super.md")
-- [Creating Amazon Redshift scalar columns out of shredded
-  data](r_create_scalar.md "r_create_scalar.md")
+- [Creating Amazon Redshift scalar columns out of shredded data](r_create_scalar.md "r_create_scalar.md")

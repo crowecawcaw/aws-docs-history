@@ -34,9 +34,7 @@ Apache Iceberg compatibility with Amazon Redshift is available in the following 
 - Europe (Stockholm)
 - South America (São Paulo)
 
-## Considerations and limitations when using Amazon Redshift catalogs
-
-in the AWS Glue Data Catalog
+## Considerations and limitations when using Amazon Redshift catalogs in the AWS Glue Data Catalog
 
 When using Amazon Redshift catalogs in the AWS Glue Data Catalog, consider the following:
 

@@ -8,8 +8,7 @@ Use SYS_REDSHIFT_TEMPLATE to view details of Redshift TEMPLATES.
 
 This view contains the TEMPLATES that have been created.
 
-SYS_REDSHIFT_TEMPLATE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_REDSHIFT_TEMPLATE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

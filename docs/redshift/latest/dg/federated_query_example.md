@@ -11,8 +11,7 @@ The following examples show how to run a federated query. Run the SQL using your
 The following example shows how to set up a federated query that references an Amazon Redshift
 database, an Aurora PostgreSQL database, and Amazon S3. This example illustrates how federated
 queries work. To run it on your own environment, change it to fit your environment. For
-prerequisites for doing this, see [Getting started with using federated queries to
-PostgreSQL](getting-started-federated.md "getting-started-federated.md").
+prerequisites for doing this, see [Getting started with using federated queries to PostgreSQL](getting-started-federated.md "getting-started-federated.md").
 
 Create an external schema that references an Aurora PostgreSQL database.
 
@@ -218,14 +217,12 @@ The following example shows how to set up a federated query that references an A
 This example illustrates how federated
 queries works. To run it on your own environment, change it to fit your environment.
 
-For prerequisites for doing this, see [Getting started with using federated
-queries to MySQL](getting-started-federated-mysql.md "getting-started-federated-mysql.md").
+For prerequisites for doing this, see [Getting started with using federated queries to MySQL](getting-started-federated-mysql.md "getting-started-federated-mysql.md").
 
 This example depends on the following prerequisites:
 
 - A secret that was set up in Secrets Manager for the Aurora MySQL database. This secret is referenced in
-  IAM access policies and roles. For more information, see [Creating a secret and an IAM role to use
-  federated queries](federated-create-secret-iam-role.md "federated-create-secret-iam-role.md").
+  IAM access policies and roles. For more information, see [Creating a secret and an IAM role to use federated queries](federated-create-secret-iam-role.md "federated-create-secret-iam-role.md").
 - A security group that is set up linking Amazon Redshift and Aurora MySQL.
 
 Create an external schema that references an Aurora MySQL database.

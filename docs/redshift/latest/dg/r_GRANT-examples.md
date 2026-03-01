@@ -131,9 +131,7 @@ column of the `cust_profile_vw` view to the `user2` user.
 grant select(cust_name) on cust_profile_vw to user2;
 ```
 
-## Examples of granting access to
-
-datashares
+## Examples of granting access to datashares
 
 The following examples show GRANT datasharing usage permissions on a specific
 database or schema created from a datashare.
@@ -174,9 +172,7 @@ database.
 GRANT SELECT ON sales_db.sales_schema.tickit_sales_redshift to Bob;
 ```
 
-## Examples of granting scoped
-
-permissions
+## Examples of granting scoped permissions
 
 The following example grants usage for all current and future schemas in the
 `Sales_db` database to the `Sales` role.
@@ -218,9 +214,7 @@ format.
 GRANT ALL FOR TABLES IN SCHEMA ShareSchema DATABASE ShareDb TO ROLE Sales;
 ```
 
-## Examples of granting the ASSUMEROLE
-
-privilege
+## Examples of granting the ASSUMEROLE privilege
 
 The following are examples of granting the ASSUMEROLE privilege.
 
@@ -228,8 +222,7 @@ The following example shows the REVOKE statement that a superuser runs once on t
 cluster to enable the use of the ASSUMEROLE privilege for users and groups. Then, the
 superuser grants the ASSUMEROLE privilege to users and groups for the appropriate
 commands. For information on enabling the use of the ASSUMEROLE privilege for users
-and groups, see [Usage notes for granting the
-ASSUMEROLE permission](r_GRANT-usage-notes.md#r_GRANT-usage-notes-assumerole "r_GRANT-usage-notes.md#r_GRANT-usage-notes-assumerole").
+and groups, see [Usage notes for granting the ASSUMEROLE permission](r_GRANT-usage-notes.md#r_GRANT-usage-notes-assumerole "r_GRANT-usage-notes.md#r_GRANT-usage-notes-assumerole").
 
 ```
 revoke assumerole on all from public for all;
@@ -285,9 +278,7 @@ to reg_user1 for create model;
 
 ```
 
-## Examples of granting the ROLE
-
-privileges
+## Examples of granting the ROLE privileges
 
 The following example grants sample_role1 to user1.
 

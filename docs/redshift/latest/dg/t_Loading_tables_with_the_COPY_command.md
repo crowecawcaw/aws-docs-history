@@ -52,20 +52,15 @@ compression encodings to your table as part of the load process.
 
 ###### Topics
 
-- [Credentials and access
-  permissions](loading-data-access-permissions.md "loading-data-access-permissions.md")
+- [Credentials and access permissions](loading-data-access-permissions.md "loading-data-access-permissions.md")
 - [Preparing your input data](t_preparing-input-data.md "t_preparing-input-data.md")
 - [Loading data from Amazon S3](t_Loading-data-from-S3.md "t_Loading-data-from-S3.md")
 - [Loading data from Amazon EMR](loading-data-from-emr.md "loading-data-from-emr.md")
 - [Loading data from remote hosts](loading-data-from-remote-hosts.md "loading-data-from-remote-hosts.md")
-- [Loading data from an Amazon DynamoDB
-  table](t_Loading-data-from-dynamodb.md "t_Loading-data-from-dynamodb.md")
-- [Verifying that the data loaded
-  correctly](verifying-that-data-loaded-correctly.md "verifying-that-data-loaded-correctly.md")
+- [Loading data from an Amazon DynamoDB table](t_Loading-data-from-dynamodb.md "t_Loading-data-from-dynamodb.md")
+- [Verifying that the data loaded correctly](verifying-that-data-loaded-correctly.md "verifying-that-data-loaded-correctly.md")
 - [Validating input data](t_Validating_input_files.md "t_Validating_input_files.md")
-- [Loading tables with automatic
-  compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md")
-- [Optimizing storage for narrow
-  tables](c_load_compression_hidden_cols.md "c_load_compression_hidden_cols.md")
+- [Loading tables with automatic compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md")
+- [Optimizing storage for narrow tables](c_load_compression_hidden_cols.md "c_load_compression_hidden_cols.md")
 - [Loading default column values](c_loading_default_values.md "c_loading_default_values.md")
 - [Troubleshooting data loads](t_Troubleshooting_load_errors.md "t_Troubleshooting_load_errors.md")

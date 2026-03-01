@@ -35,9 +35,7 @@ For more information on dynamic data masking, go to [Dynamic data masking](t_ddm
 | attachment_id  | long      | The attached masking policy's ID.                                                                                                                           |
 | relation_kind  | text      | The type of the relation that the masking policy<br>is applied to. Possible values are `TABLE`,<br>`VIEW`, `LATE BINDING VIEW`, and<br>`MATERIALIZED VIEW`. |
 
-## Sample
-
-queries
+## Sample queries
 
 The following example shows that the `mask_credit_card_full` masking
 policy is attached to the `credit_db.public.credit_cards` table.

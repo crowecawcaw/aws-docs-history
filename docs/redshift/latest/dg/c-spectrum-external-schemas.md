@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# External schemas in Amazon Redshift
-
-Spectrum
+# External schemas in Amazon Redshift Spectrum
 
 This topic describes how to create and use external schemas with Redshift Spectrum. External
 schemas are collections of tables that you use as references to access data outside your
@@ -90,9 +88,7 @@ select * from svv_external_schemas
 
 For the full command syntax and examples, see [CREATE EXTERNAL SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREATE_EXTERNAL_SCHEMA.md").
 
-## Working with external catalogs in
-
-Amazon Redshift Spectrum
+## Working with external catalogs in Amazon Redshift Spectrum
 
 The metadata for Amazon Redshift Spectrum external databases and external tables is stored in an
 external data catalog. By default, Redshift Spectrum metadata is stored in an Athena Data Catalog.
@@ -106,9 +102,7 @@ definition language (DDL) using Athena or a Hive metastore, such as Amazon EMR.
 We recommend using Amazon Redshift to create and manage external databases and external
 tables in Redshift Spectrum.
 
-### Viewing Redshift Spectrum databases in
-
-Athena and AWS Glue
+### Viewing Redshift Spectrum databases in Athena and AWS Glue
 
 You can create an external database by including the CREATE EXTERNAL DATABASE IF
 NOT EXISTS clause as part of your CREATE EXTERNAL SCHEMA statement. In such cases,
@@ -152,9 +146,7 @@ spectrum      | sales_part       | s3://redshift-downloads/tickit/spectrum/sales
 
 ```
 
-### Registering an Apache Hive metastore
-
-database
+### Registering an Apache Hive metastore database
 
 If you create external tables in an Apache Hive metastore, you can use CREATE
 EXTERNAL SCHEMA to register those tables in Redshift Spectrum.
@@ -172,9 +164,7 @@ uri 'ip-10-0-111-111.us-west-2.compute.internal' port 9083
 iam_role 'arn:aws:iam::123456789012:role/mySpectrumRole';
 ```
 
-### Enabling your Amazon Redshift cluster to access
-
-your Amazon EMR cluster
+### Enabling your Amazon Redshift cluster to access your Amazon EMR cluster
 
 If your Hive metastore is in Amazon EMR, you must give your Amazon Redshift cluster access to your
 Amazon EMR cluster. To do so, you create an Amazon EC2 security group. You then allow all
@@ -203,9 +193,7 @@ To display the security group, do the following:
 
 ![A screenshot highlighting the Amazon EMR master node security group name in the Amazon EMR console.](images/spectrum-emr-security-groups.png)
 
-###### To create or modify an Amazon EC2 security group to allow connection between Amazon Redshift
-
-and Amazon EMR
+###### To create or modify an Amazon EC2 security group to allow connection between Amazon Redshift and Amazon EMR
 
 1. In the Amazon EC2 dashboard, choose **Security groups**. For more information, see [Security group rules](../../../AWSEC2/latest/UserGuide/security-group-rules.md "../../../AWSEC2/latest/UserGuide/security-group-rules.md") in the _Amazon EC2 User Guide_
 2. Choose **Create security group**.

@@ -12,8 +12,7 @@ SVV_RELATION_PRIVILEGES is visible to the following users:
 - Superusers
 - Users with the SYSLOG ACCESS UNRESTRICTED permission
   Other users can only see identities they have access to or own. For more information about data visibility,
-  see [Visibility of data in system tables and
-  views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+  see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

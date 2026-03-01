@@ -287,9 +287,7 @@ such as evaluating deep into objects or arrays and comparing all attributes. Use
 equal with caution, because the process of performing deep equal can be
 time-consuming.
 
-### Using dynamic typing for
-
-joins
+### Using dynamic typing for joins
 
 For joins, dynamic typing automatically matches values with different dynamic types
 without performing a long CASE WHEN analysis to find out what data types may appear. For

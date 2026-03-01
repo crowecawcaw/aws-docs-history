@@ -12,8 +12,7 @@ queries) that have been run on the system. One segment can perform one external 
 System views with the prefix SVCS provide details about queries on both the main and concurrency scaling clusters.
 The views are similar to the views with the prefix SVL except that the SVL views provide information only for queries run on the main cluster.
 
-SVCS_S3QUERY_SUMMARY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVCS_S3QUERY_SUMMARY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 For information about SVL_S3QUERY, see [SVL_S3QUERY](r_SVL_S3QUERY.md "r_SVL_S3QUERY.md").
 

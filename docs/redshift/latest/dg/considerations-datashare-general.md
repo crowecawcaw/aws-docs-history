@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# General considerations for data
-
-sharing in Amazon Redshift
+# General considerations for data sharing in Amazon Redshift
 
 The following are general considerations when working with datashares in
 Amazon Redshift:
@@ -12,8 +10,7 @@ Amazon Redshift:
 - _Default database_ – When you read data from a
   datashare, you remain connected to your local cluster database. For more
   information about setting up and reading from a database created from a datashare,
-  see [Querying datashare objects](../mgmt/query-editor-v2-datashare-using.md#query-editor-v2-datashare-consumer "../mgmt/query-editor-v2-datashare-using.md#query-editor-v2-datashare-consumer") and [Materialized views on external data
-  lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md "materialized-view-external-table.md").
+  see [Querying datashare objects](../mgmt/query-editor-v2-datashare-using.md#query-editor-v2-datashare-consumer "../mgmt/query-editor-v2-datashare-using.md#query-editor-v2-datashare-consumer") and [Materialized views on external data lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md "materialized-view-external-table.md").
 - _Connections_ – You must be connected directly to a
   datashare database or run the USE command to write to datashares. You can also use
   three-part notation. The USE command is not supported on external tables.
@@ -22,8 +19,7 @@ Amazon Redshift:
 - _Data transfer charges_ – Cross-Region data sharing
   includes additional cross-Region data-transfer charges.
   - These data-transfer charges don't apply within the same Region, only
-    across Regions. For more information, see [Managing cost control for cross-Region data
-    sharing](cross-region-billing.md "cross-region-billing.md").
+    across Regions. For more information, see [Managing cost control for cross-Region data sharing](cross-region-billing.md "cross-region-billing.md").
   - The consumer is charged for all compute and cross-region data transfer
     fees required to query the producer's data. The producer is charged for
     the underlying storage of data in their provisioned cluster or serverless

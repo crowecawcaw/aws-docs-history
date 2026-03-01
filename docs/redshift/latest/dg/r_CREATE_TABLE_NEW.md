@@ -623,9 +623,7 @@ Consider the following limits when you create a table.
 
 400.
 
-### Summary of column-level
-
-settings and table-level settings
+### Summary of column-level settings and table-level settings
 
 Several attributes and settings can be set at the column level or at the table
 level. In some cases, setting an attribute or constraint at the column level or at
@@ -679,9 +677,7 @@ level or at the table level. At the column level, the syntax is simply
 `REFERENCES`
 _reftable_ [ ( *refcolumn* )].
 
-### Distribution of
-
-incoming data
+### Distribution of incoming data
 
 When the hash distribution scheme of the incoming data matches that of the target
 table, no physical distribution of the data is actually necessary when the data is

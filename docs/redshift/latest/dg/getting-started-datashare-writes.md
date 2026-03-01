@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Getting started with multi-warehouse
-
-writes using data sharing in Amazon Redshift
+# Getting started with multi-warehouse writes using data sharing in Amazon Redshift
 
 You can share database objects for both reads and writes across different Amazon Redshift
 clusters or Amazon Redshift Serverless workgroups within the same AWS account, across accounts,
@@ -23,10 +21,8 @@ interface to control access and govern data across Amazon Redshift clusters and 
 following sections provide step-by-step instructions on configuring and managing data
 sharing with writes using Amazon Redshift.
 
-For a list of Regions where data sharing is available, see [AWS Regions where data sharing is
-available](data_sharing_regions.md "data_sharing_regions.md"). For
-considerations and limitations for writes, see [Considerations for data sharing in
-Amazon Redshift](datashare-considerations.md "datashare-considerations.md").
+For a list of Regions where data sharing is available, see [AWS Regions where data sharing is available](data_sharing_regions.md "data_sharing_regions.md"). For
+considerations and limitations for writes, see [Considerations for data sharing in Amazon Redshift](datashare-considerations.md "datashare-considerations.md").
 
 ###### Note
 
@@ -36,13 +32,8 @@ for Amazon Redshift Serverless workgroups on version 1.0.78890 or greater.
 
 ###### Topics
 
-- [Connecting to a database in
-  Amazon Redshift](connect-database-console-writes.md "connect-database-console-writes.md")
-- [Producer actions for new datashares in
-  Amazon Redshift](writes-producer-new.md "writes-producer-new.md")
-- [Consumer actions for new datashares in
-  Amazon Redshift](writes-consumer-new.md "writes-consumer-new.md")
-- [Producer actions for existing datashares
-  in Amazon Redshift](writes-producer-existing.md "writes-producer-existing.md")
-- [Consumer actions for existing datashares
-  in Amazon Redshift](writes-consumer-existing.md "writes-consumer-existing.md")
+- [Connecting to a database in Amazon Redshift](connect-database-console-writes.md "connect-database-console-writes.md")
+- [Producer actions for new datashares in Amazon Redshift](writes-producer-new.md "writes-producer-new.md")
+- [Consumer actions for new datashares in Amazon Redshift](writes-consumer-new.md "writes-consumer-new.md")
+- [Producer actions for existing datashares in Amazon Redshift](writes-producer-existing.md "writes-producer-existing.md")
+- [Consumer actions for existing datashares in Amazon Redshift](writes-consumer-existing.md "writes-consumer-existing.md")

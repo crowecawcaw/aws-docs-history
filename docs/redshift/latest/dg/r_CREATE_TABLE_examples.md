@@ -17,9 +17,7 @@ TABLE command. For instance, `dev_database.public.sales`. The database name
 must be the database you are connected to. Any attempt to create database objects in
 another database fails with and invalid-operation error.
 
-## Create
-
-a table with a distribution key, a compound sort key, and compression
+## Create a table with a distribution key, a compound sort key, and compression
 
 The following example creates a SALES table in the TICKIT database with
 compression defined for several columns. LISTID is declared as the distribution key,
@@ -90,9 +88,7 @@ Query the table:
 
 ```
 
-## Create a
-
-table using an interleaved sort key
+## Create a table using an interleaved sort key
 
 The following example creates the CUSTOMER table with an interleaved sort
 key.
@@ -111,9 +107,7 @@ diststyle all
 interleaved sortkey (c_custkey, c_city, c_mktsegment);
 ```
 
-## Create a table
-
-using IF NOT EXISTS
+## Create a table using IF NOT EXISTS
 
 The following example either creates the CITIES table, or does nothing and
 returns a message if it already exists:
@@ -125,9 +119,7 @@ city varchar(100) not null,
 state char(2) not null);
 ```
 
-## Create a
-
-table with ALL distribution
+## Create a table with ALL distribution
 
 The following example creates the VENUE table with ALL distribution.
 
@@ -195,9 +187,7 @@ This table also inherits the DISTKEY and SORTKEY attributes of its parent table:
 (6 rows)`
 ```
 
-## Create a
-
-table with an IDENTITY column
+## Create a table with an IDENTITY column
 
 The following example creates a table named VENUE_IDENT, which has an IDENTITY
 column named VENUEID. This column starts with 0 and increments by 1 for each record.
@@ -275,9 +265,7 @@ INSERT INTO T1 (base_id, business_key, some_field) values (2,'B','MNNN');
  3 | 2 | B | MNNN`
 ```
 
-## Create
-
-a table with DEFAULT column values
+## Create a table with DEFAULT column values
 
 The following example creates a CATEGORYDEF table that declares default values for
 each column:
@@ -302,9 +290,7 @@ insert into categorydef values(default,default,default,default);
 (1 row)`
 ```
 
-## DISTSTYLE,
-
-DISTKEY, and SORTKEY options
+## DISTSTYLE, DISTKEY, and SORTKEY options
 
 The following example shows how the DISTKEY, SORTKEY, and DISTSTYLE options work.
 In this example, COL1 is the distribution key; therefore, the distribution style must
@@ -376,9 +362,7 @@ col1 | integer | az64 | f | 0
 col2 | integer | az64 | f | 0`
 ```
 
-## Create a table
-
-with the ENCODE AUTO option
+## Create a table with the ENCODE AUTO option
 
 The following example creates the table `t1` with automatic compression
 encoding. ENCODE AUTO is the default for tables when you don't specify an encoding

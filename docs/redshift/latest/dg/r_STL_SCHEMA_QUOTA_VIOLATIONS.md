@@ -7,8 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 Records the occurrence, timestamp, XID, and other useful information when a schema
 quota is exceeded.
 
-STL_SCHEMA_QUOTA_VIOLATIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL_SCHEMA_QUOTA_VIOLATIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 Some or all of the data in this table can also be found in the SYS monitoring view [SYS_SCHEMA_QUOTA_VIOLATIONS](r_SYS_SCHEMA_QUOTA_VIOLATIONS.md "r_SYS_SCHEMA_QUOTA_VIOLATIONS.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
 We recommend that you use the SYS monitoring view for your queries.
@@ -28,9 +27,7 @@ We recommend that you use the SYS monitoring view for your queries.
 | disk_usage_pct | double precision            | The disk space percentage that is currently used<br>by the schema out of the configured quota. |
 | timestamp      | timestamp without time zone | The time when the violation occurred.                                                          |
 
-## Sample
-
-queries
+## Sample queries
 
 The following query shows the result of quota violation:
 

@@ -8,8 +8,7 @@ Displays the quota and the current disk usage for each schema.
 
 Regular users can see information for schemas for which they have USAGE permission. Superusers can see information for all schemas in the current database.
 
-SVV_SCHEMA_QUOTA_STATE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV_SCHEMA_QUOTA_STATE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 

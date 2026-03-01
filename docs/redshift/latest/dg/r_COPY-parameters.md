@@ -8,8 +8,7 @@ COPY has many parameters that can be used in many situations.
 However, not all parameters are supported in each situation.
 For example, to load from ORC or PARQUET files there is a limited number of supported parameters.
 For more information, see
-[COPY from columnar data
-formats](copy-usage_notes-copy-from-columnar.md "copy-usage_notes-copy-from-columnar.md").
+[COPY from columnar data formats](copy-usage_notes-copy-from-columnar.md "copy-usage_notes-copy-from-columnar.md").
 
 ###### Topics
 
@@ -17,8 +16,7 @@ formats](copy-usage_notes-copy-from-columnar.md "copy-usage_notes-copy-from-colu
 - [Authorization parameters](copy-parameters-authorization.md "copy-parameters-authorization.md")
 - [Column mapping options](copy-parameters-column-mapping.md "copy-parameters-column-mapping.md")
 - [Data format parameters](copy-parameters-data-format.md "copy-parameters-data-format.md")
-- [File compression
-  parameters](copy-parameters-file-compression.md "copy-parameters-file-compression.md")
+- [File compression parameters](copy-parameters-file-compression.md "copy-parameters-file-compression.md")
 - [Data conversion parameters](copy-parameters-data-conversion.md "copy-parameters-data-conversion.md")
 - [Data load operations](copy-parameters-data-load.md "copy-parameters-data-load.md")
 - [Alphabetical parameter list](r_COPY-alphabetical-parm-list.md "r_COPY-alphabetical-parm-list.md")

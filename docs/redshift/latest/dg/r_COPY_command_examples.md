@@ -12,34 +12,23 @@ spaces in your _credentials-args_ string.
 ###### Topics
 
 - [Load FAVORITEMOVIES from an DynamoDB table](#r_COPY_command_examples-load-favoritemovies-from-an-amazon-dynamodb-table "#r_COPY_command_examples-load-favoritemovies-from-an-amazon-dynamodb-table")
-- [Load
-  LISTING from an Amazon S3 bucket](#r_COPY_command_examples-load-listing-from-an-amazon-s3-bucket "#r_COPY_command_examples-load-listing-from-an-amazon-s3-bucket")
+- [Load LISTING from an Amazon S3 bucket](#r_COPY_command_examples-load-listing-from-an-amazon-s3-bucket "#r_COPY_command_examples-load-listing-from-an-amazon-s3-bucket")
 - [Load LISTING from an Amazon EMR cluster](#copy-command-examples-emr "#copy-command-examples-emr")
-- [Using a manifest to specify data
-  files](#copy-command-examples-manifest "#copy-command-examples-manifest")
+- [Using a manifest to specify data files](#copy-command-examples-manifest "#copy-command-examples-manifest")
 - [Load LISTING from a pipe-delimited file (default delimiter)](#r_COPY_command_examples-load-listing-from-a-pipe-delimited-file-default-delimiter "#r_COPY_command_examples-load-listing-from-a-pipe-delimited-file-default-delimiter")
-- [Load LISTING using
-  columnar data in Parquet format](#r_COPY_command_examples-load-listing-from-parquet "#r_COPY_command_examples-load-listing-from-parquet")
-- [Load LISTING using
-  columnar data in ORC format](#r_COPY_command_examples-load-listing-from-orc "#r_COPY_command_examples-load-listing-from-orc")
-- [Load EVENT with
-  options](#r_COPY_command_examples-load-event-with-options "#r_COPY_command_examples-load-event-with-options")
-- [Load
-  VENUE from a fixed-width data file](#r_COPY_command_examples-load-venue-from-a-fixed-width-data-file "#r_COPY_command_examples-load-venue-from-a-fixed-width-data-file")
+- [Load LISTING using columnar data in Parquet format](#r_COPY_command_examples-load-listing-from-parquet "#r_COPY_command_examples-load-listing-from-parquet")
+- [Load LISTING using columnar data in ORC format](#r_COPY_command_examples-load-listing-from-orc "#r_COPY_command_examples-load-listing-from-orc")
+- [Load EVENT with options](#r_COPY_command_examples-load-event-with-options "#r_COPY_command_examples-load-event-with-options")
+- [Load VENUE from a fixed-width data file](#r_COPY_command_examples-load-venue-from-a-fixed-width-data-file "#r_COPY_command_examples-load-venue-from-a-fixed-width-data-file")
 - [Load CATEGORY from a CSV file](#load-from-csv "#load-from-csv")
 - [Load VENUE with explicit values for an IDENTITY column](#r_COPY_command_examples-load-venue-with-explicit-values-for-an-identity-column "#r_COPY_command_examples-load-venue-with-explicit-values-for-an-identity-column")
-- [Load
-  TIME from a pipe-delimited GZIP file](#r_COPY_command_examples-load-time-from-a-pipe-delimited-gzip-file "#r_COPY_command_examples-load-time-from-a-pipe-delimited-gzip-file")
-- [Load a timestamp or
-  datestamp](#r_COPY_command_examples-load-a-time-datestamp "#r_COPY_command_examples-load-a-time-datestamp")
-- [Load
-  data from a file with default values](#r_COPY_command_examples-load-data-from-a-file-with-default-values "#r_COPY_command_examples-load-data-from-a-file-with-default-values")
-- [COPY data
-  with the ESCAPE option](#r_COPY_command_examples-copy-data-with-the-escape-option "#r_COPY_command_examples-copy-data-with-the-escape-option")
+- [Load TIME from a pipe-delimited GZIP file](#r_COPY_command_examples-load-time-from-a-pipe-delimited-gzip-file "#r_COPY_command_examples-load-time-from-a-pipe-delimited-gzip-file")
+- [Load a timestamp or datestamp](#r_COPY_command_examples-load-a-time-datestamp "#r_COPY_command_examples-load-a-time-datestamp")
+- [Load data from a file with default values](#r_COPY_command_examples-load-data-from-a-file-with-default-values "#r_COPY_command_examples-load-data-from-a-file-with-default-values")
+- [COPY data with the ESCAPE option](#r_COPY_command_examples-copy-data-with-the-escape-option "#r_COPY_command_examples-copy-data-with-the-escape-option")
 - [Copy from JSON examples](#r_COPY_command_examples-copy-from-json "#r_COPY_command_examples-copy-from-json")
 - [Copy from Avro examples](#r_COPY_command_examples-copy-from-avro "#r_COPY_command_examples-copy-from-avro")
-- [Preparing files for COPY with the ESCAPE
-  option](#r_COPY_preparing_data "#r_COPY_preparing_data")
+- [Preparing files for COPY with the ESCAPE option](#r_COPY_preparing_data "#r_COPY_preparing_data")
 - [Loading a shapefile into Amazon Redshift](#copy-example-spatial-copy-shapefile "#copy-example-spatial-copy-shapefile")
 - [COPY command with the NOLOAD option](#r_COPY_command_examples-load-noload-option "#r_COPY_command_examples-load-noload-option")
 - [COPY command with a multibyte delimiter and the ENCODING option](#r_COPY_command_examples-load-encoding-multibyte-delimiter-option "#r_COPY_command_examples-load-encoding-multibyte-delimiter-option")
@@ -57,9 +46,7 @@ iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 readratio 50;
 ```
 
-## Load
-
-LISTING from an Amazon S3 bucket
+## Load LISTING from an Amazon S3 bucket
 
 The following example loads LISTING from an Amazon S3 bucket. The COPY command loads all
 of the files in the `/data/listing/` folder.
@@ -93,9 +80,7 @@ iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 JSON 's3://amzn-s3-demo-bucket/jsonpaths.txt';
 ```
 
-## Using a manifest to specify data
-
-files
+## Using a manifest to specify data files
 
 You can use a manifest to ensure that your COPY command loads all of the required
 files, and only the required files, from Amazon S3. You can also use a manifest when you need
@@ -225,9 +210,7 @@ from 's3://amzn-s3-demo-bucket/data/listings_pipe.txt'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole';
 ```
 
-## Load LISTING using
-
-columnar data in Parquet format
+## Load LISTING using columnar data in Parquet format
 
 The following example loads data from a folder on Amazon S3 named parquet.
 
@@ -238,9 +221,7 @@ iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 format as parquet;
 ```
 
-## Load LISTING using
-
-columnar data in ORC format
+## Load LISTING using columnar data in ORC format
 
 The following example loads data from a folder on Amazon S3 named `orc`.
 
@@ -251,9 +232,7 @@ iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 format as orc;
 ```
 
-## Load EVENT with
-
-options
+## Load EVENT with options
 
 The following example loads pipe-delimited data into the EVENT table and applies the
 following rules:
@@ -278,9 +257,7 @@ delimiter '|'
 timeformat 'YYYY-MM-DD HH:MI:SS';
 ```
 
-## Load
-
-VENUE from a fixed-width data file
+## Load VENUE from a fixed-width data file
 
 ```
 copy venue
@@ -384,9 +361,7 @@ iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 explicit_ids;
 ```
 
-## Load
-
-TIME from a pipe-delimited GZIP file
+## Load TIME from a pipe-delimited GZIP file
 
 The following example loads the TIME table from a pipe-delimited GZIP file:
 
@@ -398,9 +373,7 @@ gzip
 delimiter '|';
 ```
 
-## Load a timestamp or
-
-datestamp
+## Load a timestamp or datestamp
 
 The following example loads data with a formatted timestamp.
 
@@ -428,9 +401,7 @@ c1
 (1 row)
 ```
 
-## Load
-
-data from a file with default values
+## Load data from a file with default values
 
 The following example uses a variation of the VENUE table in the TICKIT database.
 Consider a VENUE_NEW table defined with the following statement:
@@ -556,9 +527,7 @@ iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 delimiter '|';
 ```
 
-## COPY data
-
-with the ESCAPE option
+## COPY data with the ESCAPE option
 
 The following example shows how to load characters that match the delimiter character
 (in this case, the pipe character). In the input file, make sure that all of the pipe
@@ -608,18 +577,12 @@ In the following examples, you load the CATEGORY table with the following data.
 
 ###### Topics
 
-- [Load from JSON data using the
-  'auto' option](#copy-from-json-examples-using-auto "#copy-from-json-examples-using-auto")
-- [Load from JSON data using the
-  'auto ignorecase' option](#copy-from-json-examples-using-auto-ignorecase "#copy-from-json-examples-using-auto-ignorecase")
-- [Load from JSON data using a
-  JSONPaths file](#copy-from-json-examples-using-jsonpaths "#copy-from-json-examples-using-jsonpaths")
-- [Load from JSON
-  arrays using a JSONPaths file](#copy-from-json-examples-using-jsonpaths-arrays "#copy-from-json-examples-using-jsonpaths-arrays")
+- [Load from JSON data using the 'auto' option](#copy-from-json-examples-using-auto "#copy-from-json-examples-using-auto")
+- [Load from JSON data using the 'auto ignorecase' option](#copy-from-json-examples-using-auto-ignorecase "#copy-from-json-examples-using-auto-ignorecase")
+- [Load from JSON data using a JSONPaths file](#copy-from-json-examples-using-jsonpaths "#copy-from-json-examples-using-jsonpaths")
+- [Load from JSON arrays using a JSONPaths file](#copy-from-json-examples-using-jsonpaths-arrays "#copy-from-json-examples-using-jsonpaths-arrays")
 
-### Load from JSON data using the
-
-'auto' option
+### Load from JSON data using the 'auto' option
 
 To load from JSON data using the `'auto'` option, the JSON data must
 consist of a set of objects. The key names must match the column names, but the order
@@ -670,9 +633,7 @@ iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 json 'auto';
 ```
 
-### Load from JSON data using the
-
-'auto ignorecase' option
+### Load from JSON data using the 'auto ignorecase' option
 
 To load from JSON data using the `'auto ignorecase'` option, the JSON
 data must consist of a set of objects. The case of the key names doesn't have to
@@ -723,9 +684,7 @@ iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 json 'auto ignorecase';
 ```
 
-### Load from JSON data using a
-
-JSONPaths file
+### Load from JSON data using a JSONPaths file
 
 If the JSON data objects don't correspond directly to column names, you can use a
 JSONPaths file to map the JSON elements to columns. The order doesn't matter
@@ -790,9 +749,7 @@ iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 json 's3://amzn-s3-demo-bucket/category_jsonpath.json';
 ```
 
-### Load from JSON
-
-arrays using a JSONPaths file
+### Load from JSON arrays using a JSONPaths file
 
 To load from JSON data that consists of a set of arrays, you must use a JSONPaths
 file to map the array elements to columns. Suppose that you have the following data
@@ -844,16 +801,11 @@ In the following examples, you load the CATEGORY table with the following data.
 
 ###### Topics
 
-- [Load from Avro data using the
-  'auto' option](#copy-from-avro-examples-using-auto "#copy-from-avro-examples-using-auto")
-- [Load from Avro data using the
-  'auto ignorecase' option](#copy-from-avro-examples-using-auto-ignorecase "#copy-from-avro-examples-using-auto-ignorecase")
-- [Load from Avro data using a
-  JSONPaths file](#copy-from-avro-examples-using-avropaths "#copy-from-avro-examples-using-avropaths")
+- [Load from Avro data using the 'auto' option](#copy-from-avro-examples-using-auto "#copy-from-avro-examples-using-auto")
+- [Load from Avro data using the 'auto ignorecase' option](#copy-from-avro-examples-using-auto-ignorecase "#copy-from-avro-examples-using-auto-ignorecase")
+- [Load from Avro data using a JSONPaths file](#copy-from-avro-examples-using-avropaths "#copy-from-avro-examples-using-avropaths")
 
-### Load from Avro data using the
-
-'auto' option
+### Load from Avro data using the 'auto' option
 
 To load from Avro data using the `'auto'` argument, field names in the
 Avro schema must match the column names. When using the `'auto'`
@@ -913,9 +865,7 @@ iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 format as avro 'auto';
 ```
 
-### Load from Avro data using the
-
-'auto ignorecase' option
+### Load from Avro data using the 'auto ignorecase' option
 
 To load from Avro data using the `'auto ignorecase'` argument, the case of the field names in the
 Avro schema does not have to match the case of column names. When using the `'auto ignorecase'`
@@ -975,9 +925,7 @@ iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 format as avro 'auto ignorecase';
 ```
 
-### Load from Avro data using a
-
-JSONPaths file
+### Load from Avro data using a JSONPaths file
 
 If the field names in the Avro schema don't correspond directly to column names,
 you can use a JSONPaths file to map the schema elements to columns. The order of the
@@ -1025,9 +973,7 @@ iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 format avro 's3://amzn-s3-demo-bucket/category_path.avropath ';
 ```
 
-## Preparing files for COPY with the ESCAPE
-
-option
+## Preparing files for COPY with the ESCAPE option
 
 The following example describes how you might prepare data to "escape" newline
 characters before importing the data into an Amazon Redshift table using the COPY command with
@@ -1133,9 +1079,7 @@ The `.shp`, `.shx`, and
 `.dbf` files must share the same Amazon S3 prefix and file
 name.
 
-#### Ingesting data without
-
-simplification
+#### Ingesting data without simplification
 
 The following commands create tables and ingest data that can fit in the
 maximum geometry size without any simplification. Open the
@@ -1189,9 +1133,7 @@ INFO: Load into table 'norway_natural_with_id' completed, 83891 record(s) loaded
 
 ```
 
-#### Ingesting data with
-
-simplification
+#### Ingesting data with simplification
 
 The following commands create a table and try to ingest data that can't fit in
 the maximum geometry size without any simplification. Inspect the
@@ -1306,9 +1248,7 @@ INFO:  Load into table 'norway_natural' completed, 83891 record(s) loaded succes
 
 ```
 
-### Loading data into
-
-a table with a different column order
+### Loading data into a table with a different column order
 
 If you have a table that doesn't have `GEOMETRY` as the first column,
 you can use column mapping to map columns to the target table. For example, create a
@@ -1335,9 +1275,7 @@ INFO:  Load into table 'norway_natural_order' completed, 83891 record(s) loaded 
 
 ```
 
-### Loading data into
-
-a table with a geography column
+### Loading data into a table with a geography column
 
 If you have a table that has a `GEOGRAPHY` column,
 you first ingest into a `GEOMETRY` column and then cast the objects to `GEOGRAPHY` objects.

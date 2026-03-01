@@ -93,8 +93,7 @@ of the model stay on the same scale and produce reliable results. Amazon Redshif
 some K-Means preprocessors for the CREATE MODEL statement, such as StandardScaler,
 MinMax, and NumericPassthrough. If you don't want to apply any preprocessing for
 K-means, choose NumericPassthrough explicitly as a transformer. For more information
-about K-Means parameters, see [CREATE MODEL with K-MEANS
-parameters](r_create_model_use_cases.md#r_k-means-create-model-parameters "r_create_model_use_cases.md#r_k-means-create-model-parameters").
+about K-Means parameters, see [CREATE MODEL with K-MEANS parameters](r_create_model_use_cases.md#r_k-means-create-model-parameters "r_create_model_use_cases.md#r_k-means-create-model-parameters").
 
 To help you learn how to perform unsupervised training with
 K-Means clustering, you can watch the following video.

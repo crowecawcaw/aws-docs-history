@@ -60,7 +60,7 @@ true:
 For better performance, avoid using policy predicates that don't satisfy the
 preceding conditions.
 
-For more information about result caching in Amazon Redshift, see [Result caching](c_challenges_achieving_high_performance_queries.md#result-caching "c_challenges_achieving_high_performance_queries.md#result-caching") .
+For more information about result caching in Amazon Redshift, see [Result caching](c_challenges_achieving_high_performance_queries.md#result-caching "c_challenges_achieving_high_performance_queries.md#result-caching").
 
 ## Complex policies
 

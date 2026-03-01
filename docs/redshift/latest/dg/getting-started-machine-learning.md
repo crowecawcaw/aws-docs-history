@@ -12,14 +12,11 @@ learning algorithms: XGBoost (AUTO ON and OFF) and multilayer perceptron (AUTO O
 
 ###### Topics
 
-- [Cluster and configure setup for Amazon Redshift ML
-  administration](#admin-setup "#admin-setup")
+- [Cluster and configure setup for Amazon Redshift ML administration](#admin-setup "#admin-setup")
 - [Using model explainability with Amazon Redshift ML](#clarify "#clarify")
 - [Amazon Redshift ML probability metrics](#probability_metrics "#probability_metrics")
 
-## Cluster and configure setup for Amazon Redshift ML
-
-administration
+## Cluster and configure setup for Amazon Redshift ML administration
 
 Before you work with Amazon Redshift ML, complete the cluster setup and configure
 permissions for using Amazon Redshift ML.

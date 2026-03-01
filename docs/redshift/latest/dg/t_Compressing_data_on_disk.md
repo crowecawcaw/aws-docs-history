@@ -19,10 +19,8 @@ longer set to ENCODE AUTO. Amazon Redshift no longer automatically manages compr
 
 You can apply a compression type, or _encoding_, to the columns in
 a table manually when you create the table. Or you can use the COPY command to analyze
-and apply compression automatically. For more information, see [Let COPY choose compression
-encodings](c_best-practices-use-auto-compression.md "c_best-practices-use-auto-compression.md"). For details about applying
-automatic compression, see [Loading tables with automatic
-compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").
+and apply compression automatically. For more information, see [Let COPY choose compression encodings](c_best-practices-use-auto-compression.md "c_best-practices-use-auto-compression.md"). For details about applying
+automatic compression, see [Loading tables with automatic compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").
 
 ###### Note
 

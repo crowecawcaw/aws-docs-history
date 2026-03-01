@@ -11,8 +11,7 @@ Use the [RESET](r_RESET.md "r_RESET.md") command to return a parameter
 to its default value.
 
 You can change the server configuration parameters in several ways. For more
-information, see [Modifying the server
-configuration](cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings "cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings").
+information, see [Modifying the server configuration](cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings "cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings").
 
 ## Syntax
 
@@ -64,8 +63,7 @@ predictable sequence.
 
 _parameter_name_
 
-Name of the parameter to set. See [Modifying the server
-configuration](cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings "cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings") for information about
+Name of the parameter to set. See [Modifying the server configuration](cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings "cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings") for information about
 parameters.
 
 _value_
@@ -106,8 +104,7 @@ reset query_group;
 
 ```
 
-For more information, see [Workload
-management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md").
+For more information, see [Workload management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md").
 
 **Change the default identity namespace for the session**
 

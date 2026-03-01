@@ -113,8 +113,7 @@ GRANT { { SELECT | UPDATE } ( *column\_name* [, ...] ) [, ...] | ALL [ PRIVILEGE
 ```
 
 The following is the syntax for the ASSUMEROLE permissions granted to users and
-groups with a specified role. To begin using the ASSUMEROLE privilege, see [Usage notes for granting the
-ASSUMEROLE permission](r_GRANT-usage-notes.md#r_GRANT-usage-notes-assumerole "r_GRANT-usage-notes.md#r_GRANT-usage-notes-assumerole").
+groups with a specified role. To begin using the ASSUMEROLE privilege, see [Usage notes for granting the ASSUMEROLE permission](r_GRANT-usage-notes.md#r_GRANT-usage-notes-assumerole "r_GRANT-usage-notes.md#r_GRANT-usage-notes-assumerole").
 
 ```
 GRANT ASSUMEROLE
@@ -428,16 +427,14 @@ and so on) are recorded in the Data Catalog.
 ###### Note
 
 Amazon Redshift doesn't support the RULE and TRIGGER permissions. For more
-information, go to [Unsupported PostgreSQL
-features](c_unsupported-postgresql-features.md "c_unsupported-postgresql-features.md").
+information, go to [Unsupported PostgreSQL features](c_unsupported-postgresql-features.md "c_unsupported-postgresql-features.md").
 
 ASSUMEROLE
 
 Grants permission to run COPY, UNLOAD, EXTERNAL FUNCTION, and CREATE MODEL
 commands to users, roles, or groups with a specified role. The user, role, or
 group assumes that role when running the specified command. To begin using the
-ASSUMEROLE permission, see [Usage notes for granting the
-ASSUMEROLE permission](r_GRANT-usage-notes.md#r_GRANT-usage-notes-assumerole "r_GRANT-usage-notes.md#r_GRANT-usage-notes-assumerole").
+ASSUMEROLE permission, see [Usage notes for granting the ASSUMEROLE permission](r_GRANT-usage-notes.md#r_GRANT-usage-notes-assumerole "r_GRANT-usage-notes.md#r_GRANT-usage-notes-assumerole").
 
 ON [ TABLE ] _table_name_
 
@@ -616,8 +613,7 @@ functions (UDFs) by running the [CREATE FUNCTION](r_CREATE_FUNCTION.md "r_CREATE
 
 The USAGE ON LANGUAGE permission is required to create stored procedures by
 running the [CREATE PROCEDURE](r_CREATE_PROCEDURE.md "r_CREATE_PROCEDURE.md") command. For more information, see
-[Security and privileges for
-stored procedures](stored-procedure-security-and-privileges.md "stored-procedure-security-and-privileges.md") .
+[Security and privileges for stored procedures](stored-procedure-security-and-privileges.md "stored-procedure-security-and-privileges.md").
 
 For Python UDFs, use `plpythonu`. For SQL UDFs, use
 `sql`. For stored procedures, use `plpgsql`.

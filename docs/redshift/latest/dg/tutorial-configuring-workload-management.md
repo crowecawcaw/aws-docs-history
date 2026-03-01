@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Tutorial: Configuring manual
-
-workload management (WLM) queues
+# Tutorial: Configuring manual workload management (WLM) queues
 
 With Amazon Redshift, you can configure manual workload management (WLM) queues to prioritize and allocate
 resources for different types of queries and users. Manual WLM queues allow you to control the
@@ -17,8 +15,7 @@ in Amazon Redshift to meet your workload management requirements.
 
 We recommend configuring automatic workload management (WLM)
 in Amazon Redshift. For more information about automatic WLM, see
-[Workload
-management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md").
+[Workload management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md").
 However, if you need multiple WLM queues,
 this tutorial walks you through the process of configuring manual workload management (WLM)
 in Amazon Redshift. By configuring manual WLM, you can improve query performance and resource
@@ -48,29 +45,20 @@ tool. If you do not already have these set up, go to [Amazon Redshift Getting St
 
 ### Sections
 
-- [Section 1: Understanding
-  the default queue processing behavior](#tutorial-wlm-understanding-default-processing "#tutorial-wlm-understanding-default-processing")
-- [Section 2: Modifying the WLM
-  query queue configuration](#tutorial-wlm-modifying-wlm-configuration "#tutorial-wlm-modifying-wlm-configuration")
-- [Section 3: Routing queries to
-  queues based on user groups and query groups](#tutorial-wlm-routing-queries-to-queues "#tutorial-wlm-routing-queries-to-queues")
-- [Section 4: Using wlm_query_slot_count to
-  temporarily override the concurrency level in a queue](#tutorial-wlm-query-slot-count "#tutorial-wlm-query-slot-count")
-- [Section 5: Cleaning up your
-  resources](#tutorial-wlm-cleaning-up-resources "#tutorial-wlm-cleaning-up-resources")
+- [Section 1: Understanding the default queue processing behavior](#tutorial-wlm-understanding-default-processing "#tutorial-wlm-understanding-default-processing")
+- [Section 2: Modifying the WLM query queue configuration](#tutorial-wlm-modifying-wlm-configuration "#tutorial-wlm-modifying-wlm-configuration")
+- [Section 3: Routing queries to queues based on user groups and query groups](#tutorial-wlm-routing-queries-to-queues "#tutorial-wlm-routing-queries-to-queues")
+- [Section 4: Using wlm_query_slot_count to temporarily override the concurrency level in a queue](#tutorial-wlm-query-slot-count "#tutorial-wlm-query-slot-count")
+- [Section 5: Cleaning up your resources](#tutorial-wlm-cleaning-up-resources "#tutorial-wlm-cleaning-up-resources")
 
-## Section 1: Understanding
-
-the default queue processing behavior
+## Section 1: Understanding the default queue processing behavior
 
 Before you start to configure manual WLM, it’s useful to understand the default behavior of
 queue processing in Amazon Redshift. In this section, you create two database views that
 return information from several system tables. Then you run some test queries to see
 how queries are routed by default. For more information about system tables, see [System tables and views reference](cm_chap_system-tables.md "cm_chap_system-tables.md").
 
-### Step 1: Create the
-
-WLM_QUEUE_STATE_VW view
+### Step 1: Create the WLM_QUEUE_STATE_VW view
 
 In this step, you create a view called WLM_QUEUE_STATE_VW. This view returns
 information from the following system tables.
@@ -96,9 +84,7 @@ the WLM_QUEUE_STATE_VW view returns.
 | executing          | The number of queries that are currently running.                                                                                          |
 | executed           | The number of queries that have been run.                                                                                                  |
 
-#### To create the
-
-WLM_QUEUE_STATE_VW view
+#### To create the WLM_QUEUE_STATE_VW view
 
 1. Open [Amazon Redshift RSQL](../mgmt/rsql-query-tool.md "../mgmt/rsql-query-tool.md") and connect to your TICKIT sample database. If you do not
    have this database, see [Prerequisites](#tutorial-wlm-prereq "#tutorial-wlm-prereq").
@@ -143,9 +129,7 @@ query | description                               | slots | mem | max_time | use
     1 | (querytype:any)                           |     5 | 836 |        0 |  false | false   |      0 |         1 |      160
 ```
 
-### Step 2: Create the
-
-WLM_QUERY_STATE_VW view
+### Step 2: Create the WLM_QUERY_STATE_VW view
 
 In this step, you create a view called WLM_QUERY_STATE_VW. This view returns
 information from the [STV_WLM_QUERY_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md") system table.
@@ -164,9 +148,7 @@ returns.
 | queue_time | The number of microseconds that the query has spent in the<br>queue. |
 | exec_time  | The number of microseconds that the query has been<br>running.       |
 
-#### To create the
-
-WLM_QUERY_STATE_VW view
+#### To create the WLM_QUERY_STATE_VW view
 
 1. In RSQL, run the following query to create the WLM_QUERY_STATE_VW
    view.
@@ -295,9 +277,7 @@ queues and how many queries are being processed in each queue. The
 WLM_QUERY_STATE_VW view is useful for getting a more detailed view of the
 individual queries that are currently running.
 
-## Section 2: Modifying the WLM
-
-query queue configuration
+## Section 2: Modifying the WLM query queue configuration
 
 Now that you understand how queues work by default, you can learn how to configure
 query queues using manual WLM. In this section, you create and configure a new parameter
@@ -344,9 +324,7 @@ settings** window. 7. Choose **Manual WLM**, then choose **Save** to switch to m
 Next, associate the parameter group that has the manual WLM configuration with
 a cluster.
 
-###### To associate a parameter group with a manual WLM configuration with a
-
-cluster
+###### To associate a parameter group with a manual WLM configuration with a cluster
 
 1. Sign in to the AWS Management Console and open the Amazon Redshift console at
    [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
@@ -365,27 +343,20 @@ However, you need to reboot the cluster for the changes to also be applied to th
 
 After the cluster is rebooted, its status returns to **Available**.
 
-## Section 3: Routing queries to
-
-queues based on user groups and query groups
+## Section 3: Routing queries to queues based on user groups and query groups
 
 Now you have your cluster associated with a new parameter group and you've
 configured WLM. Next, run some queries to see how Amazon Redshift routes queries into queues
 for processing.
 
-### Step 1: View query queue
-
-configuration in the database
+### Step 1: View query queue configuration in the database
 
 First, verify that the database has the WLM configuration that you expect.
 
-#### To view the query queue
-
-configuration
+#### To view the query queue configuration
 
 1. Open RSQL and run the following query. The query uses the
-   WLM_QUEUE_STATE_VW view you created in [Step 1: Create the
-   WLM_QUEUE_STATE_VW view](#tutorial-wlm-create-queue-state-view "#tutorial-wlm-create-queue-state-view"). If you
+   WLM_QUEUE_STATE_VW view you created in [Step 1: Create the WLM_QUEUE_STATE_VW view](#tutorial-wlm-create-queue-state-view "#tutorial-wlm-create-queue-state-view"). If you
    already had a session connected to the database prior to the cluster
    reboot, you need to reconnect.
 
@@ -404,8 +375,7 @@ query | description                               | slots | mem | max_time | use
     3 | (querytype:any)                           |     5 | 250 |        0 |  false | false   |      0 |         1 |        0
 ```
 
-Compare these results to the results you received in [Step 1: Create the
-WLM_QUEUE_STATE_VW view](#tutorial-wlm-create-queue-state-view "#tutorial-wlm-create-queue-state-view"). Notice that
+Compare these results to the results you received in [Step 1: Create the WLM_QUEUE_STATE_VW view](#tutorial-wlm-create-queue-state-view "#tutorial-wlm-create-queue-state-view"). Notice that
 there are now two additional queues. Queue 1 is now the queue for the
 test query group, and queue 2 is the queue for the admin user
 group.
@@ -426,13 +396,9 @@ query | queue | slot_count | start_time          | state     | queue_time | exec
  2144 |     3 |          1 | 2014-09-24 23:49:59 | Executing | 0          | 550430
 ```
 
-### Step 2: Run a query using the query group
+### Step 2: Run a query using the query group queue
 
-queue
-
-#### To run a query using the query group
-
-queue
+#### To run a query using the query group queue
 
 1. Run the following query to route it to the `test` query
    group.
@@ -508,9 +474,7 @@ query | queue | slot_count | start_time          | state     | queue_time | exec
 The result should be that the query is now running in queue 3
 again.
 
-### Step 3: Create a database
-
-user and group
+### Step 3: Create a database user and group
 
 Before you can run any
 queries in this queue, you need to create the user group in the database and add a
@@ -518,9 +482,7 @@ user to the group. Then you log in with RSQL using the new user’s credentials 
 run queries. You need to run queries as a superuser, such as the admin user, to
 create database users.
 
-#### To create a new database
-
-user and user group
+#### To create a new database user and user group
 
 1. In the database, create a new database user named
    `adminwlm` by running the following command in an RSQL
@@ -538,17 +500,13 @@ create group admin;
 alter group admin add user adminwlm;
 ```
 
-### Step 4: Run a query using the user
-
-group queue
+### Step 4: Run a query using the user group queue
 
 Next you run a query and route it to the user group queue. You do this when you
 want to route your query to a queue that is configured to handle the type of query
 you want to run.
 
-#### To run a query using the user
-
-group queue
+#### To run a query using the user group queue
 
 1. In RSQL window 2, run the following queries to switch to the
    `adminwlm` account and run a query as that user.
@@ -623,9 +581,7 @@ query | queue | slot_count | start_time          | state     | queue_time | exec
 reset query_group;
 ```
 
-## Section 4: Using wlm_query_slot_count to
-
-temporarily override the concurrency level in a queue
+## Section 4: Using wlm_query_slot_count to temporarily override the concurrency level in a queue
 
 Sometimes, users might temporarily need more resources for a particular query. If so,
 they can use the wlm_query_slot_count configuration setting to temporarily override the
@@ -639,17 +595,13 @@ queries. If so, consider adjusting the WLM configuration and giving users a queu
 better suits the needs of their queries. For more information about temporarily
 overriding the concurrency level by using slot count, see [wlm_query_slot_count](r_wlm_query_slot_count.md "r_wlm_query_slot_count.md").
 
-### Step 1: Override the concurrency
-
-level using wlm_query_slot_count
+### Step 1: Override the concurrency level using wlm_query_slot_count
 
 For the purposes of this tutorial, we run the same long-running SELECT query.
 We run it as the `adminwlm` user using wlm_query_slot_count to
 increase the number of slots available for the query.
 
-#### To override the concurrency
-
-level using wlm_query_slot_count
+#### To override the concurrency level using wlm_query_slot_count
 
 1. Increase the limit on the query to make sure that you have enough time
    to query the WLM_QUERY_STATE_VW view and see a result.
@@ -719,15 +671,11 @@ query | queue | slot_count | start_time          | state     | queue_time | exec
  2262 |     3 |          1 | 2014-09-25 00:12:15 | Executing | 0          | 680
 ```
 
-### Step 2: Run
-
-queries from different sessions
+### Step 2: Run queries from different sessions
 
 Next, run queries from different sessions.
 
-#### To run queries
-
-from different sessions
+#### To run queries from different sessions
 
 1. In RSQL window 1 and 2, run the following to use the test query
    group.
@@ -785,14 +733,11 @@ one begins running. This execution happens because both queries are
 routed to the `test` query group, and the second query must
 wait for enough slots to begin processing.
 
-## Section 5: Cleaning up your
-
-resources
+## Section 5: Cleaning up your resources
 
 Your cluster continues to accrue charges as long as it is running. When you have
 completed this tutorial, return your environment to the previous state by following the
 steps in [Find Additional Resources
 and Reset Your Environment](../gsg/rs-gsg-clean-up-tasks.md "../gsg/rs-gsg-clean-up-tasks.md") in _Amazon Redshift Getting Started Guide_.
 
-For more information about WLM, see [Workload
-management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md").
+For more information about WLM, see [Workload management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md").

@@ -13,8 +13,7 @@ the number of disk blocks allocated per database, table, slice, or column. Each 
 block uses 1 MB. You can also use [STV_PARTITIONS](r_STV_PARTITIONS.md "r_STV_PARTITIONS.md") to view summary information about disk
 utilization.
 
-SVV_DISKUSAGE is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV_DISKUSAGE is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 

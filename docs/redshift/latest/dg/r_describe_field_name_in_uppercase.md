@@ -4,9 +4,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # describe_field_name_in_uppercase
 
-## Values (default in
-
-bold)
+## Values (default in bold)
 
 **off (false)**, on (true)
 

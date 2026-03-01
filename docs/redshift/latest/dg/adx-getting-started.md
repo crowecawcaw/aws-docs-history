@@ -14,14 +14,10 @@ access as long as their subscription is active.
 
 ###### Topics
 
-- [Working with AWS Data Exchange datashares as a
-  producer](adx-getting-started-producer.md "adx-getting-started-producer.md")
-- [Working with AWS Data Exchange datashares as a
-  consumer](#adx-getting-started-consumer "#adx-getting-started-consumer")
+- [Working with AWS Data Exchange datashares as a producer](adx-getting-started-producer.md "adx-getting-started-producer.md")
+- [Working with AWS Data Exchange datashares as a consumer](#adx-getting-started-consumer "#adx-getting-started-consumer")
 
-## Working with AWS Data Exchange datashares as a
-
-consumer
+## Working with AWS Data Exchange datashares as a consumer
 
 With Amazon Redshift, you can access and analyze datasets from AWS Data Exchange without having to
 store or manage copies of the data.
@@ -105,8 +101,7 @@ into a separate table on the consumer cluster, perform any processing
 needed, and then share the new objects that were created.
 
 You can also use the Amazon Redshift console to create databases from datashares.
-For more information, see [Creating databases from
-datashares](query-datashare-console.md#create-database-from-datashare-console "query-datashare-console.md#create-database-from-datashare-console"). 5. (Optional) Create external schemas to refer to and assign granular
+For more information, see [Creating databases from datashares](query-datashare-console.md#create-database-from-datashare-console "query-datashare-console.md#create-database-from-datashare-console"). 5. (Optional) Create external schemas to refer to and assign granular
 permissions to specific schemas in the consumer database imported on the
 consumer cluster. For more information, see [CREATE EXTERNAL SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREATE_EXTERNAL_SCHEMA.md").
 

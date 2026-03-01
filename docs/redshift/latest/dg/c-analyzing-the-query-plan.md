@@ -26,8 +26,7 @@ To analyze the data provided by the query plan, follow these steps:
 3.  Notice which table is used for the inner join, and which for the outer join.
     The query engine generally chooses the smaller table for the inner join, and the
     larger table for the outer join. If such a choice doesn't occur, your statistics
-    are likely out of date. For recommended solutions, see [Table statistics missing or out of
-    date](query-performance-improvement-opportunities.md#table-statistics-missing-or-out-of-date "query-performance-improvement-opportunities.md#table-statistics-missing-or-out-of-date").
+    are likely out of date. For recommended solutions, see [Table statistics missing or out of date](query-performance-improvement-opportunities.md#table-statistics-missing-or-out-of-date "query-performance-improvement-opportunities.md#table-statistics-missing-or-out-of-date").
 4.  See if there are any high-cost sort operations. If there are, see [Unsorted or missorted rows](query-performance-improvement-opportunities.md#unsorted-or-mis-sorted-rows "query-performance-improvement-opportunities.md#unsorted-or-mis-sorted-rows") for recommended solutions.
 5.  Look for the following broadcast operators where there are high-cost
     operations:

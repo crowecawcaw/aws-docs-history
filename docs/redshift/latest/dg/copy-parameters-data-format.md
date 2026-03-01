@@ -23,8 +23,7 @@ format, use the following parameters to specify the data format:
 - [ORC](#copy-orc "#copy-orc")
 - [PARQUET](#copy-parquet "#copy-parquet")
   COPY from columnar format is supported with certain restriction. For more
-  information, see [COPY from columnar data
-  formats](copy-usage_notes-copy-from-columnar.md "copy-usage_notes-copy-from-columnar.md").
+  information, see [COPY from columnar data formats](copy-usage_notes-copy-from-columnar.md "copy-usage_notes-copy-from-columnar.md").
 
 ###### Data format parameters
 
@@ -620,14 +619,11 @@ the `"friends"` array.
 "$.friends[0].name"
 ```
 
-## Columnar data format
-
-parameters
+## Columnar data format parameters
 
 In addition to the standard data formats, COPY supports the following columnar
 data formats for COPY from Amazon S3. COPY from columnar format is supported with certain
-restrictions. For more information, see [COPY from columnar data
-formats](copy-usage_notes-copy-from-columnar.md "copy-usage_notes-copy-from-columnar.md").
+restrictions. For more information, see [COPY from columnar data formats](copy-usage_notes-copy-from-columnar.md "copy-usage_notes-copy-from-columnar.md").
 
 ORC
 

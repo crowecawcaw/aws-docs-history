@@ -172,8 +172,7 @@ with no schema binding;
 ```
 
 For more information about creating Redshift Spectrum external tables, including the
-`SPECTRUM.SALES` table, see [Getting started with Amazon Redshift
-Spectrum](c-getting-started-using-spectrum.md "c-getting-started-using-spectrum.md").
+`SPECTRUM.SALES` table, see [Getting started with Amazon Redshift Spectrum](c-getting-started-using-spectrum.md "c-getting-started-using-spectrum.md").
 
 ###### Important
 

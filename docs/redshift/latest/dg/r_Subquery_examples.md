@@ -8,9 +8,7 @@ The following examples show different ways in which subqueries fit into SELECT
 queries. See [JOIN examples](r_Join_examples.md "r_Join_examples.md") for
 another example of the use of subqueries.
 
-## SELECT list
-
-subquery
+## SELECT list subquery
 
 The following example contains a subquery in the SELECT list. This subquery is
 _scalar_: it returns only one column and one value, which is
@@ -35,9 +33,7 @@ qtr  |  qtrsales   |   q1sales
 (2 rows)
 ```
 
-## WHERE clause
-
-subquery
+## WHERE clause subquery
 
 The following example contains a table subquery in the WHERE clause. This subquery
 produces multiple rows. In this case, the rows contain only one column, but table
@@ -71,8 +67,6 @@ Patricia   | Anderson | South Portland |       8
 (10 rows)
 ```
 
-## WITH clause
-
-subqueries
+## WITH clause subqueries
 
 See [WITH clause](r_WITH_clause.md "r_WITH_clause.md").

@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Managing access to data sharing API operations with IAM
-
-policies
+# Managing access to data sharing API operations with IAM policies
 
 To control the access to the data sharing API operations, use IAM action-based
 policies. For information about how to manage IAM policies, see [Managing

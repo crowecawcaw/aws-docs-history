@@ -10,8 +10,7 @@ processed, number of bytes processed, and partition info of external tables in A
 Each row in this view will also have a corresponding entry in the SYS_QUERY_DETAIL view,
 except this view has more detail information related to external query processing.
 
-SYS_EXTERNAL_QUERY_DETAIL is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_EXTERNAL_QUERY_DETAIL is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

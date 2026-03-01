@@ -8,5 +8,4 @@ The COPY command loads data in parallel from Amazon S3, Amazon EMR, Amazon Dynam
 sources on remote hosts. COPY loads large amounts of data much more efficiently than
 using INSERT statements, and stores the data more effectively as well.
 
-For more information about using the COPY command, see [Loading data from Amazon S3](t_Loading-data-from-S3.md "t_Loading-data-from-S3.md") and [Loading data from an Amazon DynamoDB
-table](t_Loading-data-from-dynamodb.md "t_Loading-data-from-dynamodb.md").
+For more information about using the COPY command, see [Loading data from Amazon S3](t_Loading-data-from-S3.md "t_Loading-data-from-S3.md") and [Loading data from an Amazon DynamoDB table](t_Loading-data-from-dynamodb.md "t_Loading-data-from-dynamodb.md").

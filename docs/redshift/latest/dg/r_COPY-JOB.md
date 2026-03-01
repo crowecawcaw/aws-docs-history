@@ -39,8 +39,7 @@ permissions in addition to all of the required permissions to use COPY:
     or database you want to COPY to.
 
 The IAM role specified with the COPY command must have permission to access the data to load.
-For more information, see [IAM permissions for COPY, UNLOAD,
-and CREATE LIBRARY](copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions "copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions").
+For more information, see [IAM permissions for COPY, UNLOAD, and CREATE LIBRARY](copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions "copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions").
 
 ## Syntax
 
@@ -134,8 +133,7 @@ If the cluster is paused, COPY JOBS are not run.
 To query COPY command files loaded and load errors, see [STL_LOAD_COMMITS](r_STL_LOAD_COMMITS.md "r_STL_LOAD_COMMITS.md"),
 [STL_LOAD_ERRORS](r_STL_LOAD_ERRORS.md "r_STL_LOAD_ERRORS.md"),
 [STL_LOADERROR_DETAIL](r_STL_LOADERROR_DETAIL.md "r_STL_LOADERROR_DETAIL.md").
-For more information, see [Verifying that the data loaded
-correctly](verifying-that-data-loaded-correctly.md "verifying-that-data-loaded-correctly.md").
+For more information, see [Verifying that the data loaded correctly](verifying-that-data-loaded-correctly.md "verifying-that-data-loaded-correctly.md").
 
 COPY JOBS are not supported on zero-ETL databases as they operate in read-only mode.
 

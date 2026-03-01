@@ -127,14 +127,11 @@ Amazon Redshift features that support the VARBYTE data type include:
 - [FROM_VARBYTE](r_FROM_VARBYTE.md "r_FROM_VARBYTE.md")
 - [TO_VARBYTE](r_TO_VARBYTE.md "r_TO_VARBYTE.md")
 - [GETBIT](r_GETBIT.md "r_GETBIT.md")
-- [Loading a column of the VARBYTE data
-  type](copy-usage-varbyte.md "copy-usage-varbyte.md")
+- [Loading a column of the VARBYTE data type](copy-usage-varbyte.md "copy-usage-varbyte.md")
 - [Unloading a column of the VARBYTE data
   type](r_UNLOAD.md#unload-usage-notes "r_UNLOAD.md#unload-usage-notes")
 
-## Limitations when using the VARBYTE data
-
-type with Amazon Redshift
+## Limitations when using the VARBYTE data type with Amazon Redshift
 
 The following are limitations when using the VARBYTE data type with
 Amazon Redshift:

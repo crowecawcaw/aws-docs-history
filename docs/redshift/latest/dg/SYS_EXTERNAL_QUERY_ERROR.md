@@ -8,8 +8,7 @@ You can query the system view SYS_EXTERNAL_QUERY_ERROR to get information about 
 scan errors. SYS_EXTERNAL_QUERY_ERROR displays a sample of logged errors. The default is
 10 entries per query.
 
-SYS_EXTERNAL_QUERY_ERROR is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_EXTERNAL_QUERY_ERROR is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

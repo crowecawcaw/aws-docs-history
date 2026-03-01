@@ -72,8 +72,7 @@ For more information about the basic options for the CREATE MODEL statement, see
   features. Then CREATE MODEL follows your suggestions on the specified aspects. At the
   same time, CREATE MODEL still discovers the best preprocessors for the remaining
   features and the best hyperparameters. For more information about how you can
-  constrain one or more aspects of the training pipeline, see [CREATE MODEL with user
-  guidance](r_create_model_use_cases.md#r_user_guidance_create_model "r_create_model_use_cases.md#r_user_guidance_create_model").
+  constrain one or more aspects of the training pipeline, see [CREATE MODEL with user guidance](r_create_model_use_cases.md#r_user_guidance_create_model "r_create_model_use_cases.md#r_user_guidance_create_model").
 - As a _machine learning expert_, you can take
   full control of training and hyperparameter tuning. Then the CREATE MODEL statement
   doesn't attempt to discover the optimal preprocessors, algorithms, and
@@ -86,18 +85,13 @@ For more information about the basic options for the CREATE MODEL statement, see
   either local or remote inference.
 
 For more information about how to use the CREATE MODEL statement for local or
-remote inference, see [Bring your own model (BYOM) - local
-inference](r_create_model_use_cases.md#r_byom_create_model "r_create_model_use_cases.md#r_byom_create_model").
+remote inference, see [Bring your own model (BYOM) - local inference](r_create_model_use_cases.md#r_byom_create_model "r_create_model_use_cases.md#r_byom_create_model").
 As an Amazon Redshift ML user, you can choose any of the following options to train and deploy
 your model:
 
-- Problem types, see [CREATE MODEL with user
-  guidance](r_create_model_use_cases.md#r_user_guidance_create_model "r_create_model_use_cases.md#r_user_guidance_create_model").
-- Objectives, see [CREATE MODEL with user
-  guidance](r_create_model_use_cases.md#r_user_guidance_create_model "r_create_model_use_cases.md#r_user_guidance_create_model") or [CREATE XGBoost models with AUTO OFF](r_create_model_use_cases.md#r_auto_off_create_model "r_create_model_use_cases.md#r_auto_off_create_model").
+- Problem types, see [CREATE MODEL with user guidance](r_create_model_use_cases.md#r_user_guidance_create_model "r_create_model_use_cases.md#r_user_guidance_create_model").
+- Objectives, see [CREATE MODEL with user guidance](r_create_model_use_cases.md#r_user_guidance_create_model "r_create_model_use_cases.md#r_user_guidance_create_model") or [CREATE XGBoost models with AUTO OFF](r_create_model_use_cases.md#r_auto_off_create_model "r_create_model_use_cases.md#r_auto_off_create_model").
 - Model types, see [CREATE XGBoost models with AUTO OFF](r_create_model_use_cases.md#r_auto_off_create_model "r_create_model_use_cases.md#r_auto_off_create_model").
-- Preprocessors, see [CREATE MODEL with user
-  guidance](r_create_model_use_cases.md#r_user_guidance_create_model "r_create_model_use_cases.md#r_user_guidance_create_model").
+- Preprocessors, see [CREATE MODEL with user guidance](r_create_model_use_cases.md#r_user_guidance_create_model "r_create_model_use_cases.md#r_user_guidance_create_model").
 - Hyperparameters, see [CREATE XGBoost models with AUTO OFF](r_create_model_use_cases.md#r_auto_off_create_model "r_create_model_use_cases.md#r_auto_off_create_model").
-- Bring your own model (BYOM), see [Bring your own model (BYOM) - local
-  inference](r_create_model_use_cases.md#r_byom_create_model "r_create_model_use_cases.md#r_byom_create_model").
+- Bring your own model (BYOM), see [Bring your own model (BYOM) - local inference](r_create_model_use_cases.md#r_byom_create_model "r_create_model_use_cases.md#r_byom_create_model").

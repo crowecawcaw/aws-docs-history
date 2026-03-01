@@ -13,8 +13,7 @@ runs a statement that would break serializability is stopped and rolled back. Ev
 time a transaction conflict occurs, Amazon Redshift writes a data row to the STL_TR_CONFLICT system
 table containing details about the canceled transaction. For more information, see [Isolation levels in Amazon Redshift](c_serial_isolation.md "c_serial_isolation.md").
 
-STL_TR_CONFLICT is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL_TR_CONFLICT is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 Some or all of the data in this table can also be found in the SYS monitoring view [SYS_TRANSACTION_HISTORY](SYS_TRANSACTION_HISTORY.md "SYS_TRANSACTION_HISTORY.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
 We recommend that you use the SYS monitoring view for your queries.

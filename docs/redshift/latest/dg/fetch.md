@@ -18,8 +18,7 @@ last row, no row is returned.
 When the first row of a cursor is fetched, the entire result set is materialized on the
 leader node, in memory or on disk, if needed. Because of the potential negative performance
 impact of using cursors with large result sets, we recommend using alternative approaches
-whenever possible. For more information, see [Performance considerations when using
-cursors](declare.md#declare-performance "declare.md#declare-performance").
+whenever possible. For more information, see [Performance considerations when using cursors](declare.md#declare-performance "declare.md#declare-performance").
 
 For more information, see [DECLARE](declare.md "declare.md"), [CLOSE](close.md "close.md").
 

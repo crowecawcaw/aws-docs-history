@@ -6,8 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 INTERVAL_CMP compares two intervals and returns `1` if the first interval is
 greater, `-1` if the second interval is greater, and `0` if the
-intervals are equal. For more information, see [Examples of interval literals without
-qualifier syntax](r_interval_literals.md "r_interval_literals.md").
+intervals are equal. For more information, see [Examples of interval literals without qualifier syntax](r_interval_literals.md "r_interval_literals.md").
 
 ## Syntax
 

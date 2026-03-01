@@ -69,9 +69,7 @@ column of the `cust_profile_vw` view from the `user2` user.
 revoke select(cust_name) on cust_profile_vw from user2;
 ```
 
-## Examples of revoking the USAGE
-
-permission from databases created from datashares
+## Examples of revoking the USAGE permission from databases created from datashares
 
 The following example revokes access to the `salesshare` datashare from
 the from the `13b8833d-17c6-4f16-8fe4-1a018f5ed00d` namespace.
@@ -94,9 +92,7 @@ from the `Analyst_role`.
 REVOKE USAGE ON SCHEMA sales_schema FROM ROLE Analyst_role;
 ```
 
-## Examples of revoking scoped
-
-permissions
+## Examples of revoking scoped permissions
 
 The following example revokes usage for all current and future schemas in the
 `Sales_db` database from the `Sales` role.
@@ -138,9 +134,7 @@ format.
 REVOKE ALL FOR TABLES IN SCHEMA ShareSchema DATABASE ShareDb FROM ROLE Sales;
 ```
 
-## Examples of revoking the ASSUMEROLE
-
-privilege
+## Examples of revoking the ASSUMEROLE privilege
 
 The following are examples of revoking the ASSUMEROLE privilege.
 

@@ -13,8 +13,7 @@ Split your load data into multiple files. When you load all the data from a sing
 large file, Amazon Redshift is forced to perform a serialized load, which is much slower.
 The number of files should be a multiple of the number of slices in your cluster, and
 the files should be about equal size, between 1 MB and 1 GB after compression. For
-more information, see [Amazon Redshift best practices for designing
-queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md").
+more information, see [Amazon Redshift best practices for designing queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md").
 
 ###### Load operation uses multiple COPY commands
 

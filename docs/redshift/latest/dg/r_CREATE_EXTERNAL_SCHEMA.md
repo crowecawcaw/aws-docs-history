@@ -284,8 +284,7 @@ JSON
 
 ```
 
-For the steps to create an IAM role to use with federated query, see [Creating a secret and an IAM role to use
-federated queries](federated-create-secret-iam-role.md "federated-create-secret-iam-role.md").
+For the steps to create an IAM role to use with federated query, see [Creating a secret and an IAM role to use federated queries](federated-create-secret-iam-role.md "federated-create-secret-iam-role.md").
 
 ###### Note
 
@@ -388,14 +387,12 @@ types are the following:
 - **iam** – Specifies IAM
   authentication. When you choose this, make sure that the IAM role has
   permissions for IAM authentication. For more information about defining
-  the external schema, see [Getting started with streaming ingestion
-  from Apache Kafka sources](materialized-view-streaming-ingestion-getting-started-MSK.md "materialized-view-streaming-ingestion-getting-started-MSK.md").
+  the external schema, see [Getting started with streaming ingestion from Apache Kafka sources](materialized-view-streaming-ingestion-getting-started-MSK.md "materialized-view-streaming-ingestion-getting-started-MSK.md").
 - **mtls** – Specifies that mutual
   transport layer security provides secure communication by facilitating
   authentication between a client and server. In this case, the client is
   Redshift and the server is Amazon MSK. For more information about configuring
-  streaming ingestion with mTLS, see [Authentication with mTLS for Redshift
-  streaming ingestion from Apache Kafka sources](materialized-view-streaming-ingestion-mtls.md "materialized-view-streaming-ingestion-mtls.md").
+  streaming ingestion with mTLS, see [Authentication with mTLS for Redshift streaming ingestion from Apache Kafka sources](materialized-view-streaming-ingestion-mtls.md "materialized-view-streaming-ingestion-mtls.md").
 
 AUTHENTICATION_ARN
 

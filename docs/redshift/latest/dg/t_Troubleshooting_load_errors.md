@@ -11,8 +11,6 @@ The following sections provide information about identifying and resolving data 
 
 - [Troubleshooting S3 event integration and COPY JOB errors](s3-integration-troubleshooting.md "s3-integration-troubleshooting.md")
 - [S3ServiceException errors](s3serviceexception-error.md "s3serviceexception-error.md")
-- [System tables for
-  troubleshooting data loads](system-tables-for-troubleshooting-data-loads.md "system-tables-for-troubleshooting-data-loads.md")
-- [Multibyte character load
-  errors](multi-byte-character-load-errors.md "multi-byte-character-load-errors.md")
+- [System tables for troubleshooting data loads](system-tables-for-troubleshooting-data-loads.md "system-tables-for-troubleshooting-data-loads.md")
+- [Multibyte character load errors](multi-byte-character-load-errors.md "multi-byte-character-load-errors.md")
 - [Load error reference](r_Load_Error_Reference.md "r_Load_Error_Reference.md")

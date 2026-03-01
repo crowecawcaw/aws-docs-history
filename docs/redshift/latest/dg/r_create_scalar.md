@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Creating Amazon Redshift scalar columns out of shredded
-
-data
+# Creating Amazon Redshift scalar columns out of shredded data
 
 Schemaless data stored in SUPER can affect the performance of Amazon Redshift. For instance,
 filter predicates or join conditions as range-restricted scans can't effectively

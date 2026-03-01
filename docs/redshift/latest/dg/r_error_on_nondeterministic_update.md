@@ -4,9 +4,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # error_on_nondeterministic_update
 
-## Values (default in
-
-bold)
+## Values (default in bold)
 
 **false**, true
 

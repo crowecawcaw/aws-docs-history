@@ -26,8 +26,7 @@ is available for use in UDFs, with the exception of the following modules:
 - [wsgiref 0.1.2](https://pypi.python.org/pypi/wsgiref "https://pypi.python.org/pypi/wsgiref")
   You can also import your own custom Python modules and make them available for use in
   UDFs by executing a [CREATE LIBRARY](r_CREATE_LIBRARY.md "r_CREATE_LIBRARY.md")
-  command. For more information, see [Example: Importing custom Python
-  library modules](udf-importing-custom-python-library-modules.md "udf-importing-custom-python-library-modules.md").
+  command. For more information, see [Example: Importing custom Python library modules](udf-importing-custom-python-library-modules.md "udf-importing-custom-python-library-modules.md").
 
 ###### Important
 

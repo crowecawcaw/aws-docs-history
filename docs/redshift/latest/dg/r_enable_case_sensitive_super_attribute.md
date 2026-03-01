@@ -22,8 +22,7 @@ to `true`, case is always preserved, regardless of the setting of the `enable_ca
 `enable_case_sensitive_identifier` instead.
 
 For more information on navigating uppercase and mixed-case JSON fields, see
-[Accessing JSON fields with uppercase and mixed-case field
-names or attributes](super-configurations.md#upper-mixed-case "super-configurations.md#upper-mixed-case").
+[Accessing JSON fields with uppercase and mixed-case field names or attributes](super-configurations.md#upper-mixed-case "super-configurations.md#upper-mixed-case").
 
 ## Examples
 

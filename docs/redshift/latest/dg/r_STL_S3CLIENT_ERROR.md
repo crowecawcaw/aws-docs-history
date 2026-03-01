@@ -9,8 +9,7 @@ Records errors encountered by a slice while loading a file from Amazon S3.
 Use the STL_S3CLIENT_ERROR to find details for errors encountered while transferring
 data from Amazon S3 as part of a COPY command.
 
-STL_S3CLIENT_ERROR is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL_S3CLIENT_ERROR is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

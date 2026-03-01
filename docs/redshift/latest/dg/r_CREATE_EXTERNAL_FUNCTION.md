@@ -39,8 +39,7 @@ superuser to replace a function.
 
 If you define a function with the same name as an existing function but a
 different signature, you create a new function. In other words, the function
-name is overloaded. For more information, see [Overloading function
-names](udf-naming-udfs.md#udf-naming-overloading-function-names "udf-naming-udfs.md#udf-naming-overloading-function-names").
+name is overloaded. For more information, see [Overloading function names](udf-naming-udfs.md#udf-naming-overloading-function-names "udf-naming-udfs.md#udf-naming-overloading-function-names").
 
 _external_fn_name_
 
@@ -122,8 +121,7 @@ Use the Amazon Resource Name (ARN) for an IAM role that your cluster uses
 for authentication and authorization. The CREATE EXTERNAL FUNCTION command is
 authorized to invoke Lambda functions through this IAM role. If your cluster has
 an existing IAM role with permissions to invoke Lambda functions attached, you
-can substitute your role's ARN. For more information, see [Configuring the authorization parameter for
-Lambda UDFs](udf-creating-a-lambda-sql-udf.md#udf-lambda-authorization "udf-creating-a-lambda-sql-udf.md#udf-lambda-authorization").
+can substitute your role's ARN. For more information, see [Configuring the authorization parameter for Lambda UDFs](udf-creating-a-lambda-sql-udf.md#udf-lambda-authorization "udf-creating-a-lambda-sql-udf.md#udf-lambda-authorization").
 
 The following shows the syntax for the IAM_ROLE parameter.
 
@@ -186,9 +184,7 @@ Consider the following when you create Lambda UDFs:
 
 Following are examples of using scalar Lambda user-defined functions (UDFs).
 
-### Scalar Lambda UDF example
-
-using a Node.js Lambda function
+### Scalar Lambda UDF example using a Node.js Lambda function
 
 The following example creates an external function called `exfunc_sum`
 that takes two integers as input arguments. This function returns the sum as an
@@ -270,9 +266,7 @@ SELECT exfunc_sum(c1,c2) FROM t_sum;
 (2 rows)
 ```
 
-### Scalar Lambda UDF example
-
-using the RETRY_TIMEOUT attribute
+### Scalar Lambda UDF example using the RETRY_TIMEOUT attribute
 
 In the following section, you can find an example of how to use the RETRY_TIMEOUT
 attribute in Lambda UDFs.
@@ -415,9 +409,7 @@ select exfunc_upper('Varchar');
 (1 row)
 ```
 
-### Scalar Lambda UDF example
-
-using a Python Lambda function
+### Scalar Lambda UDF example using a Python Lambda function
 
 The following example creates an external function that is named
 `exfunc_multiplication` and that multiplies numbers and returns an

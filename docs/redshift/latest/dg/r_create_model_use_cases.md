@@ -11,9 +11,7 @@ needs.
 
 The following summarizes the basic options of the CREATE MODEL syntax.
 
-### Simple CREATE MODEL
-
-syntax
+### Simple CREATE MODEL syntax
 
 ```
 CREATE MODEL *model\_name*
@@ -27,9 +25,7 @@ SETTINGS (
 )
 ```
 
-### Simple CREATE MODEL
-
-parameters
+### Simple CREATE MODEL parameters
 
 _model_name_
 
@@ -95,9 +91,7 @@ For more information about costs associated with various cell numbers
 and free trial details, see [Amazon Redshift
 pricing](https://aws.amazon.com/redshift/pricing "https://aws.amazon.com/redshift/pricing").
 
-## CREATE MODEL with user
-
-guidance
+## CREATE MODEL with user guidance
 
 Following, you can find a description of options for CREATE MODEL in addition to
 the options described in [Simple CREATE MODEL](#r_simple_create_model "#r_simple_create_model").
@@ -114,9 +108,7 @@ Then the CREATE MODEL follows your suggestions on the specified aspects, such as
 the objective. At the same time, the CREATE MODEL automatically discovers the best
 preprocessors and the best hyperparameters.
 
-### CREATE MODEL with user
-
-guidance syntax
+### CREATE MODEL with user guidance syntax
 
 CREATE MODEL offers more flexibility on the aspects that you can specify and
 the aspects that Amazon Redshift automatically discovers.
@@ -139,9 +131,7 @@ SETTINGS (
 )
 ```
 
-### CREATE MODEL with user
-
-guidance parameters
+### CREATE MODEL with user guidance parameters
 
 _MODEL_TYPE { XGBOOST | MLP | LINEAR_LEARNER }_
 
@@ -291,9 +281,7 @@ currently the only model type supported when AUTO is set to OFF. You can specify
 hyperparameters. Amazon Redshift uses default values for any hyperparameters that you
 specified.
 
-### CREATE XGBoost models with AUTO
-
-OFF syntax
+### CREATE XGBoost models with AUTO OFF syntax
 
 ```
 CREATE MODEL model_name
@@ -322,9 +310,7 @@ SETTINGS (
 )
 ```
 
-### CREATE XGBoost models with
-
-AUTO OFF parameters
+### CREATE XGBoost models with AUTO OFF parameters
 
 _AUTO OFF_
 
@@ -430,9 +416,7 @@ select ml_fn_abalone_xgboost_multi_predict_age(length_val,
 from abalone_xgb where record_number > 2500;
 ```
 
-## Bring your own model (BYOM) - local
-
-inference
+## Bring your own model (BYOM) - local inference
 
 Amazon Redshift ML supports using bring your own model (BYOM) for local inference.
 
@@ -460,9 +444,7 @@ Amazon Redshift currently only supports pretrained XGBoost, MLP, and Linear Lear
 models for BYOM. You can import SageMaker AI Autopilot and models directly trained in
 Amazon SageMaker AI for local inference using this path.
 
-#### CREATE MODEL parameters for
-
-local inference
+#### CREATE MODEL parameters for local inference
 
 _model_name_
 
@@ -513,12 +495,9 @@ store intermediate results.
 server-side encryption with an AWS KMS key to protect data at rest. Data
 in transit is protected with Secure Sockets Layer (SSL).
 
-For more information, see [CREATE MODEL with user
-guidance](#r_user_guidance_create_model "#r_user_guidance_create_model").
+For more information, see [CREATE MODEL with user guidance](#r_user_guidance_create_model "#r_user_guidance_create_model").
 
-#### CREATE MODEL for local inference
-
-example
+#### CREATE MODEL for local inference example
 
 The following example creates a model that has been previously trained in
 Amazon SageMaker AI, outside of Amazon Redshift. Because the model type is supported by Amazon Redshift
@@ -538,9 +517,7 @@ After the model is created, you can use the function
 _customer_churn_predict_ with the specified argument
 types to make predictions.
 
-## Bring your own model (BYOM) - remote
-
-inference
+## Bring your own model (BYOM) - remote inference
 
 Amazon Redshift ML also supports using bring your own model (BYOM) for remote
 inference.
@@ -560,9 +537,7 @@ IAM_ROLE { default | 'arn:aws:iam::<account-id>:role/<role-name>' }
 [SETTINGS (MAX_BATCH_ROWS integer)];
 ```
 
-#### CREATE MODEL parameters for
-
-remote inference
+#### CREATE MODEL parameters for remote inference
 
 _model_name_
 
@@ -622,9 +597,7 @@ of the model in Amazon Redshift. It then performs inference through the external
 function. You can use the SHOW MODEL command to view the model information on
 your Amazon Redshift cluster.
 
-#### CREATE MODEL for remote
-
-inference usage notes
+#### CREATE MODEL for remote inference usage notes
 
 Before using CREATE MODEL for remote inference, consider the
 following:
@@ -660,9 +633,7 @@ following:
   MAX_BATCH_ROWS is `1` or `application/jsonlines` in
   all other cases.
 
-##### CREATE MODEL for remote
-
-inference example
+##### CREATE MODEL for remote inference example
 
 The following example creates a model that uses a SageMaker AI endpoint to make
 predictions. Make sure that the endpoint is running to make predictions and
@@ -698,9 +669,7 @@ This algorithm solves clustering problems where you want to discover groupings i
 data. Unclassified data is grouped and partitioned based on its similarities and
 differences.
 
-### CREATE MODEL with K-MEANS
-
-syntax
+### CREATE MODEL with K-MEANS syntax
 
 ```
 CREATE MODEL model_name
@@ -723,9 +692,7 @@ SETTINGS (
     -- optional);
 ```
 
-### CREATE MODEL with K-MEANS
-
-parameters
+### CREATE MODEL with K-MEANS parameters
 
 _AUTO OFF_
 
@@ -744,8 +711,7 @@ transforms to be applied to each set of columns. Amazon Redshift supports 3
 K-Means preprocessors, namely StandardScaler, MinMax, and
 NumericPassthrough. If you don't want to apply any preprocessing for
 K-Means, choose NumericPassthrough explicitly as a transformer. For more
-information about supported transformers, see [CREATE MODEL with user
-guidance parameters](#r_user_guidance-create-model-parameters "#r_user_guidance-create-model-parameters").
+information about supported transformers, see [CREATE MODEL with user guidance parameters](#r_user_guidance-create-model-parameters "#r_user_guidance-create-model-parameters").
 
 The K-Means algorithm uses Euclidean distance to calculate similarity.
 Preprocessing the data ensures that the features of the model stay on the
@@ -815,9 +781,7 @@ Regions:
 - Europe (Frankfurt) (eu-central-1)
 - Europe (Ireland) (eu-west-1)
 
-### CREATE MODEL with Forecast
-
-syntax
+### CREATE MODEL with Forecast syntax
 
 ```
 CREATE [ OR REPLACE ] MODEL forecast_model_name
@@ -834,9 +798,7 @@ SETTINGS (
   )
 ```
 
-### CREATE MODEL with Forecast
-
-parameters
+### CREATE MODEL with Forecast parameters
 
 _forecast_model_name_
 

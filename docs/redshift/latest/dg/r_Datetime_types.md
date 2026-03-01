@@ -6,25 +6,19 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 ###### Topics
 
-- [Storage and
-  ranges](#r_Datetime_types-storage-and-ranges "#r_Datetime_types-storage-and-ranges")
+- [Storage and ranges](#r_Datetime_types-storage-and-ranges "#r_Datetime_types-storage-and-ranges")
 - [DATE](#r_Datetime_types-date "#r_Datetime_types-date")
 - [TIME](#r_Datetime_types-time "#r_Datetime_types-time")
 - [TIMETZ](#r_Datetime_types-timetz "#r_Datetime_types-timetz")
 - [TIMESTAMP](#r_Datetime_types-timestamp "#r_Datetime_types-timestamp")
 - [TIMESTAMPTZ](#r_Datetime_types-timestamptz "#r_Datetime_types-timestamptz")
-- [Examples with datetime
-  types](r_Examples_with_datetime_types.md "r_Examples_with_datetime_types.md")
-- [Date, time, and timestamp
-  literals](r_Date_and_time_literals.md "r_Date_and_time_literals.md")
-- [Interval data types and
-  literals](r_interval_data_types.md "r_interval_data_types.md")
+- [Examples with datetime types](r_Examples_with_datetime_types.md "r_Examples_with_datetime_types.md")
+- [Date, time, and timestamp literals](r_Date_and_time_literals.md "r_Date_and_time_literals.md")
+- [Interval data types and literals](r_interval_data_types.md "r_interval_data_types.md")
   Datetime data types include DATE, TIME, TIMETZ, TIMESTAMP, and
   TIMESTAMPTZ.
 
-## Storage and
-
-ranges
+## Storage and ranges
 
 | Name        | Storage | Range                          | Resolution    |
 | ----------- | ------- | ------------------------------ | ------------- |

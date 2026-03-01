@@ -84,9 +84,7 @@ ALTER DATASHARE salesshare;
 
 Amazon Redshift updates your datashare with the changes.
 
-## Deleting AWS Data Exchange datashares created
-
-in your account
+## Deleting AWS Data Exchange datashares created in your account
 
 Delete AWS Data Exchange datashares created in your account using the console. Connect to a
 database first to see the list of datashares created in your account.

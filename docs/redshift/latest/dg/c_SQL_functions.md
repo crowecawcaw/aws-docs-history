@@ -6,8 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 ###### Topics
 
-- [Leader node–only
-  functions](c_SQL_functions_leader_node_only.md "c_SQL_functions_leader_node_only.md")
+- [Leader node–only functions](c_SQL_functions_leader_node_only.md "c_SQL_functions_leader_node_only.md")
 - [Aggregate functions](c_Aggregate_Functions.md "c_Aggregate_Functions.md")
 - [Array functions](c_Array_Functions.md "c_Array_Functions.md")
 - [Bit-wise aggregate functions](c_bitwise_aggregate_functions.md "c_bitwise_aggregate_functions.md")

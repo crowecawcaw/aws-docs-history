@@ -52,9 +52,7 @@ Amazon Redshift data sharing is especially useful for these use cases:
   List Amazon Redshift data sets in the AWS Data Exchange catalog that customers can find, subscribe to,
   and query in minutes.
 
-### Data sharing write-access use
-
-cases
+### Data sharing write-access use cases
 
 Data sharing for writes has several important use cases:
 
@@ -83,9 +81,7 @@ By having this flexibility in sharing data, you get fine-grained access control.
 tailor this control for different users and businesses that need access to Amazon Redshift
 data.
 
-## Consistency management for data sharing in
-
-Amazon Redshift
+## Consistency management for data sharing in Amazon Redshift
 
 Amazon Redshift provides transactional consistency on all producer and consumer clusters and
 shares up-to-date and consistent views of the data with all consumers.

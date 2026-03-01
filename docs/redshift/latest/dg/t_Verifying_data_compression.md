@@ -13,8 +13,7 @@ We recommend that you use the COPY command to load data whenever possible, and
 allow the COPY command to choose the optimal encodings based on your data. Or
 you can use the [ANALYZE COMPRESSION](r_ANALYZE_COMPRESSION.md "r_ANALYZE_COMPRESSION.md") command to view the suggested
 encodings for existing data. For details about applying automatic compression,
-see [Loading tables with automatic
-compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").
+see [Loading tables with automatic compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").
 
 To perform a meaningful test of data compression, you must have a large number of
 rows. For this example, we create a table and insert rows by using a statement that

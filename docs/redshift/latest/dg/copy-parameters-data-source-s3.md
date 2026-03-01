@@ -21,10 +21,8 @@ specify the Region in which the data is located.
 
 - [Syntax](#copy-parameters-data-source-s3-syntax "#copy-parameters-data-source-s3-syntax")
 - [Examples](#copy-parameters-data-source-s3-examples "#copy-parameters-data-source-s3-examples")
-- [Optional
-  parameters](#copy-parameters-data-source-s3-optional-parms "#copy-parameters-data-source-s3-optional-parms")
-- [Unsupported
-  parameters](#copy-parameters-data-source-s3-unsupported-parms "#copy-parameters-data-source-s3-unsupported-parms")
+- [Optional parameters](#copy-parameters-data-source-s3-optional-parms "#copy-parameters-data-source-s3-optional-parms")
+- [Unsupported parameters](#copy-parameters-data-source-s3-unsupported-parms "#copy-parameters-data-source-s3-unsupported-parms")
 
 ## Syntax
 
@@ -179,14 +177,12 @@ loaded from Amazon S3. If the MANIFEST parameter is used, COPY loads data
 from the files listed in the manifest referenced by
 _'s3://copy_from_s3_manifest_file'_. If the
 manifest file isn't found, or isn't properly formed, COPY fails. For
-more information, see [Using a manifest to specify
-data files](loading-data-files-using-manifest.md "loading-data-files-using-manifest.md").
+more information, see [Using a manifest to specify data files](loading-data-files-using-manifest.md "loading-data-files-using-manifest.md").
 
 ENCRYPTED
 
 A clause that specifies that the input files on Amazon S3 are encrypted
-using client-side encryption with customer managed keys. For more information, see [Loading encrypted data files from
-Amazon S3](c_loading-encrypted-files.md "c_loading-encrypted-files.md"). Don't specify
+using client-side encryption with customer managed keys. For more information, see [Loading encrypted data files from Amazon S3](c_loading-encrypted-files.md "c_loading-encrypted-files.md"). Don't specify
 ENCRYPTED if the input files are encrypted using Amazon S3 server-side
 encryption (SSE-KMS or SSE-S3). COPY reads server-side encrypted files
 automatically.
@@ -206,8 +202,7 @@ MASTER_SYMMETRIC_KEY '_root_key_'
 The root symmetric key that was used to encrypt data files on
 Amazon S3. If MASTER_SYMMETRIC_KEY is specified, the [ENCRYPTED](#copy-encrypted "#copy-encrypted") parameter must also be specified.
 MASTER_SYMMETRIC_KEY can't be used with the CREDENTIALS parameter. For
-more information, see [Loading encrypted data files from
-Amazon S3](c_loading-encrypted-files.md "c_loading-encrypted-files.md").
+more information, see [Loading encrypted data files from Amazon S3](c_loading-encrypted-files.md "c_loading-encrypted-files.md").
 
 If the encrypted files are in compressed format, add the GZIP,
 LZOP, BZIP2, or ZSTD parameter.
@@ -238,9 +233,7 @@ Pricing](https://aws.amazon.com/dynamodb/pricing/ "https://aws.amazon.com/dynamo
 By default, COPY assumes that the data is located in the same
 Region as the Amazon Redshift cluster.
 
-## Optional
-
-parameters
+## Optional parameters
 
 You can optionally specify the following parameters with COPY from Amazon S3:
 
@@ -249,9 +242,7 @@ You can optionally specify the following parameters with COPY from Amazon S3:
 - [Data conversion parameters](copy-parameters-data-conversion.md "copy-parameters-data-conversion.md")
 - [Data load operations](copy-parameters-data-load.md "copy-parameters-data-load.md")
 
-## Unsupported
-
-parameters
+## Unsupported parameters
 
 You can't use the following parameters with COPY from Amazon S3:
 

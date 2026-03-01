@@ -183,8 +183,7 @@ context variables, go to [SET](r_SET.md "r_SET.md"),
 [CURRENT_SETTING](r_CURRENT_SETTING.md "r_CURRENT_SETTING.md"), and
 [RESET](r_RESET.md "r_RESET.md").
 For more information on modifying the server configuration in general, go to
-[Modifying the server
-configuration](cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings "cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings").
+[Modifying the server configuration](cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings "cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings").
 
 ###### Important
 

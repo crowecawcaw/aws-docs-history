@@ -11,8 +11,7 @@ time. While the STV_LOCKS table shows all current table updates, query the [STL_
 of lock conflicts. Use the [SVV_TRANSACTIONS](r_SVV_TRANSACTIONS.md "r_SVV_TRANSACTIONS.md") view to identify open transactions and lock
 contention issues.
 
-STV_LOCKS is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV_LOCKS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

@@ -12,9 +12,7 @@ A superuser can see all rows in this table.
 For more information, see [Working with Zero-ETL
 integrations](../mgmt/zero-etl-using.md "../mgmt/zero-etl-using.md").
 
-## Table
-
-columns
+## Table columns
 
 | Column name                      | Data type      | Description                                                                                                                                   |
 | -------------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -27,9 +25,7 @@ columns
 | state_change_reason              | character(256) | The reason for the last state transition.                                                                                                     |
 | record_time                      | timestamp      | The time (UTC) when this record was<br>updated.                                                                                               |
 
-## Sample
-
-queries
+## Sample queries
 
 The following SQL command displays the log of integrations.
 

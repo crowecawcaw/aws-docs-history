@@ -8,8 +8,7 @@ PG_CLASS_INFO is an Amazon Redshift system view built on the PostgreSQL catalog 
 and PG_CLASS_EXTENDED. PG_CLASS_INFO includes details about table creation time and the
 current distribution style. For more information, see [Data distribution for query optimization](t_Distributing_data.md "t_Distributing_data.md").
 
-PG_CLASS_INFO is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+PG_CLASS_INFO is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

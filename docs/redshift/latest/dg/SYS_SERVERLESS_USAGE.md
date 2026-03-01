@@ -18,8 +18,7 @@ Amazon Redshift Serverless retains the information in SYS_SERVERLESS_USAGE for 7
 For examples on compute cost billing, see [Billing for
 Amazon Redshift Serverless](../mgmt/serverless-billing.md "../mgmt/serverless-billing.md").
 
-SYS_SERVERLESS_USAGE is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_SERVERLESS_USAGE is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

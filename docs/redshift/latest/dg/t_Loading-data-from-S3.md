@@ -25,5 +25,4 @@ see [Loading default column values](c_loading_default_values.md "c_loading_defau
 
 - [Loading data from compressed and uncompressed files](t_splitting-data-files.md "t_splitting-data-files.md")
 - [Uploading files to Amazon S3 to use with COPY](t_uploading-data-to-S3.md "t_uploading-data-to-S3.md")
-- [Using the COPY command to load from
-  Amazon S3](t_loading-tables-from-s3.md "t_loading-tables-from-s3.md")
+- [Using the COPY command to load from Amazon S3](t_loading-tables-from-s3.md "t_loading-tables-from-s3.md")

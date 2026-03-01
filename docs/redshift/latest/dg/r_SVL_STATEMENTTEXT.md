@@ -10,8 +10,7 @@ that have been run on the system.
 The SVL_STATEMENTTEXT view contains the union of all of the rows in the [STL_DDLTEXT](r_STL_DDLTEXT.md "r_STL_DDLTEXT.md"), [STL_QUERYTEXT](r_STL_QUERYTEXT.md "r_STL_QUERYTEXT.md"), and [STL_UTILITYTEXT](r_STL_UTILITYTEXT.md "r_STL_UTILITYTEXT.md") tables. This view
 also includes a join to the STL_QUERY table.
 
-SVL_STATEMENTTEXT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVL_STATEMENTTEXT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 Some or all of the data in this table can also be found in the SYS monitoring view [SYS_QUERY_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
 We recommend that you use the SYS monitoring view for your queries.
@@ -48,9 +47,7 @@ starttime                  | type |              rtrim
 ...
 ```
 
-### Reconstructing stored
-
-SQL
+### Reconstructing stored SQL
 
 To reconstruct the SQL stored in the `text` column of SVL_STATEMENTTEXT,
 run a SELECT statement to create SQL from 1 or more parts in the

@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Getting started with streaming ingestion
-
-from Apache Kafka sources
+# Getting started with streaming ingestion from Apache Kafka sources
 
 This topic describes how to consume streaming data from Amazon MSK, Apache Kafka or Confluent Cloud
 using a materialized view.
@@ -38,14 +36,11 @@ that are not AWS-managed (Apache Kafka and Confluent Cloud).
 
 ###### Topics
 
-- [Set
-  up authentication](#materialized-view-streaming-ingestion-getting-started-MSK-setup-auth "#materialized-view-streaming-ingestion-getting-started-MSK-setup-auth")
+- [Set up authentication](#materialized-view-streaming-ingestion-getting-started-MSK-setup-auth "#materialized-view-streaming-ingestion-getting-started-MSK-setup-auth")
 - [Setting up your VPC](#materialized-view-streaming-ingestion-getting-started-MSK-Setup-VPC "#materialized-view-streaming-ingestion-getting-started-MSK-Setup-VPC")
 - [Create a Materialized View](#materialized-view-streaming-ingestion-getting-started-MSK-setup-materialized-view "#materialized-view-streaming-ingestion-getting-started-MSK-setup-materialized-view")
 
-### Set
-
-up authentication
+### Set up authentication
 
 This section describes setting up authentication to allow your Amazon Redshift application to access
 an Amazon MSK source.
@@ -255,8 +250,7 @@ are three types available:
      secure communication by
      facilitating authentication between a client and server. In this case, the client is Redshift and the server is Apache Kafka.
      For more
-     information about configuring streaming ingestion with mTLS, see [Authentication with mTLS for Redshift
-     streaming ingestion from Apache Kafka sources](materialized-view-streaming-ingestion-mtls.md "materialized-view-streaming-ingestion-mtls.md").
+     information about configuring streaming ingestion with mTLS, see [Authentication with mTLS for Redshift streaming ingestion from Apache Kafka sources](materialized-view-streaming-ingestion-mtls.md "materialized-view-streaming-ingestion-mtls.md").
 
 Note that Amazon MSK authentication with a username and password isn't supported for streaming ingestion.
 

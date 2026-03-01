@@ -7,12 +7,10 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 If a query is taking longer than expected, use the following steps to identify and
 correct issues that might be negatively affecting the query’s performance. If you aren’t
 sure what queries in your system might benefit from performance tuning, start by running
-the diagnostic query in [Identifying queries that are
-top candidates for tuning](identify-queries-that-are-top-candidates-for-tuning.md "identify-queries-that-are-top-candidates-for-tuning.md").
+the diagnostic query in [Identifying queries that are top candidates for tuning](identify-queries-that-are-top-candidates-for-tuning.md "identify-queries-that-are-top-candidates-for-tuning.md").
 
 1. Make sure that your tables are designed according to best practices. For more
-   information, see [Amazon Redshift best practices for designing
-   tables](c_designing-tables-best-practices.md "c_designing-tables-best-practices.md").
+   information, see [Amazon Redshift best practices for designing tables](c_designing-tables-best-practices.md "c_designing-tables-best-practices.md").
 2. See if you can delete or archive any unneeded data in your tables. For example,
    suppose your queries always target the last 6 months’ worth of data but you have
    the last 18 months’ worth in your tables. In this case, you can delete or archive
@@ -44,5 +42,4 @@ top candidates for tuning](identify-queries-that-are-top-candidates-for-tuning.m
    query itself, but you can improve overall system performance by creating and using query
    queues for different types of queries. To get an idea of queue wait time for your
    queries, see [Reviewing queue wait times for queries](review-queue-wait-times-for-queries.md "review-queue-wait-times-for-queries.md"). For more information about
-   configuring query queues, see [Workload
-   management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md").
+   configuring query queues, see [Workload management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md").

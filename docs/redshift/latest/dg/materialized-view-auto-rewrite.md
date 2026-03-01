@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Automatic query rewriting to use
-
-materialized views
+# Automatic query rewriting to use materialized views
 
 You can use automatic query rewriting of materialized views in Amazon Redshift to have
 Amazon Redshift rewrite queries to use materialized views. Doing this accelerates query
@@ -60,9 +58,7 @@ You can use automatic query rewriting of materialized views that are created on 
 You can stop automatic query rewriting at the session level by using SET
 mv_enable_aqmv_for_session to FALSE.
 
-## How automatic query rewriting of
-
-materialized views works
+## How automatic query rewriting of materialized views works
 
 Based on internal optimization, Amazon Redshift may decide to invoke automatic query
 rewriting of materialized views transparently to provide the most optimal query

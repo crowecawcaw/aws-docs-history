@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Loading compressed
-
-data files from Amazon S3
+# Loading compressed data files from Amazon S3
 
 To load data files that are compressed using gzip, lzop, or bzip2, include the
 corresponding option: GZIP, LZOP, or BZIP2.

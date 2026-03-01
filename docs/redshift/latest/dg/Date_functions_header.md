@@ -42,8 +42,7 @@ Amazon Redshift supports.
 - [TIMEZONE function](r_TIMEZONE.md "r_TIMEZONE.md")
 - [TO_TIMESTAMP function](r_TO_TIMESTAMP.md "r_TO_TIMESTAMP.md")
 - [TRUNC function](r_TRUNC_date.md "r_TRUNC_date.md")
-- [Date parts for date or timestamp
-  functions](r_Dateparts_for_datetime_functions.md "r_Dateparts_for_datetime_functions.md")
+- [Date parts for date or timestamp functions](r_Dateparts_for_datetime_functions.md "r_Dateparts_for_datetime_functions.md")
 
 ## Summary of date and time functions
 
@@ -103,8 +102,7 @@ even when they are within a transaction block.
 ## Deprecated leader node-only functions
 
 The following date functions are deprecated because they run only on the leader
-node. For more information, see [Leader node–only
-functions](c_SQL_functions_leader_node_only.md "c_SQL_functions_leader_node_only.md").
+node. For more information, see [Leader node–only functions](c_SQL_functions_leader_node_only.md "c_SQL_functions_leader_node_only.md").
 
 - AGE. Use [DATEDIFF function](r_DATEDIFF_function.md "r_DATEDIFF_function.md") instead.
 - CURRENT_TIME. Use [GETDATE function](r_GETDATE.md "r_GETDATE.md") or

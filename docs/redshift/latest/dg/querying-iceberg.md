@@ -35,8 +35,7 @@ To get started using Iceberg tables with Amazon Redshift:
    [Connecting to an Amazon Redshift data warehouse using SQL client tools](../mgmt/connecting-to-cluster.md "../mgmt/connecting-to-cluster.md")
    in the _Amazon Redshift Management Guide_.
 4. Create an external schema in your Amazon Redshift database for a specific Data Catalog database that includes your Iceberg tables. For information about creating an external schema, see
-   [External schemas in Amazon Redshift
-   Spectrum](c-spectrum-external-schemas.md "c-spectrum-external-schemas.md").
+   [External schemas in Amazon Redshift Spectrum](c-spectrum-external-schemas.md "c-spectrum-external-schemas.md").
 5. Run SQL queries to access the Iceberg tables in the external schema you created.
 
 ## Considerations when using Apache Iceberg tables with Amazon Redshift

@@ -7,8 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 Records the occurrence, transaction ID, and other useful information when a schema
 quota is exceeded. This system table is a translation of [STL_SCHEMA_QUOTA_VIOLATIONS](r_STL_SCHEMA_QUOTA_VIOLATIONS.md "r_STL_SCHEMA_QUOTA_VIOLATIONS.md").
 
-r_SYS_SCHEMA_QUOTA_VIOLATIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+r_SYS_SCHEMA_QUOTA_VIOLATIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
@@ -24,9 +23,7 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 | disk_usage     | integer                     | The disk space (in MB) that is currently used by<br>the schema. |
 | record_time    | timestamp without time zone | The time when the violation occurred.                           |
 
-## Sample
-
-queries
+## Sample queries
 
 The following query shows the result of a quota violation:
 

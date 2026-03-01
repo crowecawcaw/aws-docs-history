@@ -67,8 +67,7 @@ TablePlus.
 ###### Topics
 
 - [Naming stored procedures](stored-procedure-naming.md "stored-procedure-naming.md")
-- [Security and privileges for
-  stored procedures](stored-procedure-security-and-privileges.md "stored-procedure-security-and-privileges.md")
+- [Security and privileges for stored procedures](stored-procedure-security-and-privileges.md "stored-procedure-security-and-privileges.md")
 - [Returning a result set from a stored procedure](stored-procedure-result-set.md "stored-procedure-result-set.md")
 - [Managing transactions](stored-procedure-transaction-management.md "stored-procedure-transaction-management.md")
 - [Trapping errors](stored-procedure-trapping-errors.md "stored-procedure-trapping-errors.md")

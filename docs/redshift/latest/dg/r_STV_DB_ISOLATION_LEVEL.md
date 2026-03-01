@@ -7,8 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 STV_DB_ISOLATION_LEVEL displays the current isolation level for databases. For more
 information about isolation levels, see [Isolation levels in Amazon Redshift](c_serial_isolation.md "c_serial_isolation.md").
 
-STV_DB_ISOLATION_LEVEL is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV_DB_ISOLATION_LEVEL is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

@@ -7,9 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 The following examples show how data is distributed according to the options that
 you define in the CREATE TABLE statement.
 
-## DISTKEY
-
-examples
+## DISTKEY examples
 
 Look at the schema of the USERS table in the TICKIT database. USERID is
 defined as the SORTKEY column and the DISTKEY column:
@@ -79,9 +77,7 @@ slice | col | rows  | minvalue | maxvalue
 (4 rows)
 ```
 
-## DISTSTYLE EVEN
-
-example
+## DISTSTYLE EVEN example
 
 If you create a new table with the same data as the USERS table but set the
 DISTSTYLE to EVEN, rows are always evenly distributed across slices.
@@ -110,9 +106,7 @@ operation that can be performed efficiently. Joins, aggregations, and grouping
 operations are optimized when both tables are distributed and sorted on their
 respective joining columns.
 
-## DISTSTYLE ALL
-
-example
+## DISTSTYLE ALL example
 
 If you create a new table with the same data as the USERS table but set the
 DISTSTYLE to ALL, all the rows are distributed to the first slice of each node.

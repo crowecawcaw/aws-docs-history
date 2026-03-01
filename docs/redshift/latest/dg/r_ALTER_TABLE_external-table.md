@@ -6,8 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 The following examples use an Amazon S3 bucket located in the US East (N. Virginia) Region
 (`us-east-1`) AWS Region and the example tables created in [Examples](r_CREATE_EXTERNAL_TABLE_examples.md "r_CREATE_EXTERNAL_TABLE_examples.md") for CREATE TABLE. For more
-information about how to use partitions with external tables, see [Partitioning Redshift Spectrum external
-tables](c-spectrum-external-tables.md#c-spectrum-external-tables-partitioning "c-spectrum-external-tables.md#c-spectrum-external-tables-partitioning").
+information about how to use partitions with external tables, see [Partitioning Redshift Spectrum external tables](c-spectrum-external-tables.md#c-spectrum-external-tables-partitioning "c-spectrum-external-tables.md#c-spectrum-external-tables-partitioning").
 
 The following example sets the numRows table property for the SPECTRUM.SALES external
 table to 170,000 rows.

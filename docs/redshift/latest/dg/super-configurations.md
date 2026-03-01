@@ -10,8 +10,7 @@ details on choosing and applying the appropriate SUPER configurations based on y
 ###### Topics
 
 - [Lax and strict modes for SUPER](#lax-strict-modes "#lax-strict-modes")
-- [Accessing JSON fields with uppercase and mixed-case field
-  names or attributes](#upper-mixed-case "#upper-mixed-case")
+- [Accessing JSON fields with uppercase and mixed-case field names or attributes](#upper-mixed-case "#upper-mixed-case")
 - [Parsing options for SUPER](#parsing-options-super "#parsing-options-super")
 
 ## Lax and strict modes for SUPER
@@ -30,9 +29,7 @@ SET cast_super_null_on_error=ON;  --default lax mode for casting
 SET parse_super_null_on_error=OFF;  --default strict mode for ingestion
 ```
 
-## Accessing JSON fields with uppercase and mixed-case field
-
-names or attributes
+## Accessing JSON fields with uppercase and mixed-case field names or attributes
 
 When your JSON attribute names are in uppercase or mixed-case, you must be able to navigate
 SUPER type structures in a case sensitive way. To do that, you can configure

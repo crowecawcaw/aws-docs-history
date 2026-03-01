@@ -58,9 +58,7 @@ The following example turns on metadata security.
 ALTER SYSTEM SET metadata_security = true;
 ```
 
-### Setting a default identity
-
-namespace
+### Setting a default identity namespace
 
 This example is specific to working with an identity provider. You can integrate
 Redshift with IAM Identity Center and an identity provider to centralize identity management for

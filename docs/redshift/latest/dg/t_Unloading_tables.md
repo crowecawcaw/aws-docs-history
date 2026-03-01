@@ -109,8 +109,7 @@ The following example shows a manifest for four unload files.
 ```
 
 The manifest file can be used to load the same files by using a COPY with the
-MANIFEST option. For more information, see [Using a manifest to specify
-data files](loading-data-files-using-manifest.md "loading-data-files-using-manifest.md").
+MANIFEST option. For more information, see [Using a manifest to specify data files](loading-data-files-using-manifest.md "loading-data-files-using-manifest.md").
 
 After you complete an UNLOAD operation, confirm that the data was unloaded
 correctly by navigating to the Amazon S3 bucket where UNLOAD wrote the files. You

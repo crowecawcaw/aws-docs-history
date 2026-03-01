@@ -135,8 +135,7 @@ role that is attached to your cluster or by providing the access key ID and
 secret access key for an IAM user.
 
 - [Authorization parameters](copy-parameters-authorization.md "copy-parameters-authorization.md")
-- [Role-based access
-  control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based")
+- [Role-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based")
 - [Key-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-key-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-key-based")
 
 ## Optional parameters
@@ -148,8 +147,7 @@ process.
 
 - [Column mapping options](copy-parameters-column-mapping.md "copy-parameters-column-mapping.md")
 - [Data format parameters](#r_COPY-syntax-overview-data-format "#r_COPY-syntax-overview-data-format")
-- [Data conversion
-  parameters](#r_COPY-syntax-overview-data-conversion "#r_COPY-syntax-overview-data-conversion")
+- [Data conversion parameters](#r_COPY-syntax-overview-data-conversion "#r_COPY-syntax-overview-data-conversion")
 - [Data load operations](#r_COPY-syntax-overview-data-load "#r_COPY-syntax-overview-data-load")
 
 ### Column mapping
@@ -186,9 +184,7 @@ is in another format, use the following parameters to specify the data format.
 - [ORC](copy-parameters-data-format.md#copy-orc "copy-parameters-data-format.md#copy-orc")
 - [ZSTD](copy-parameters-file-compression.md#copy-zstd "copy-parameters-file-compression.md#copy-zstd")
 
-### Data conversion
-
-parameters
+### Data conversion parameters
 
 As it loads the table, COPY attempts to implicitly convert the strings in the
 source data to the data type of the target column. If you need to specify a
@@ -232,14 +228,12 @@ For more information about how to use the COPY command, see the following topics
 
 - [Usage notes](r_COPY_usage_notes.md "r_COPY_usage_notes.md")
 - [Tutorial: Loading data from Amazon S3](tutorial-loading-data.md "tutorial-loading-data.md")
-- [Amazon Redshift best practices for loading
-  data](c_loading-data-best-practices.md "c_loading-data-best-practices.md")
+- [Amazon Redshift best practices for loading data](c_loading-data-best-practices.md "c_loading-data-best-practices.md")
 - [Loading tables with the COPY command](t_Loading_tables_with_the_COPY_command.md "t_Loading_tables_with_the_COPY_command.md")
   - [Loading data from Amazon S3](t_Loading-data-from-S3.md "t_Loading-data-from-S3.md")
   - [Loading data from Amazon EMR](loading-data-from-emr.md "loading-data-from-emr.md")
   - [Loading data from remote hosts](loading-data-from-remote-hosts.md "loading-data-from-remote-hosts.md")
-  - [Loading data from an Amazon DynamoDB
-    table](t_Loading-data-from-dynamodb.md "t_Loading-data-from-dynamodb.md")
+  - [Loading data from an Amazon DynamoDB table](t_Loading-data-from-dynamodb.md "t_Loading-data-from-dynamodb.md")
 
 - [Troubleshooting data loads](t_Troubleshooting_load_errors.md "t_Troubleshooting_load_errors.md")
 

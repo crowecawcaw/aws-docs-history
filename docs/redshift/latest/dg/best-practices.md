@@ -30,10 +30,7 @@ database design. For more information, see [Automatic table optimization](t_Crea
 ###### Topics
 
 - [Conduct a proof of concept (POC) for Amazon Redshift](proof-of-concept-playbook.md "proof-of-concept-playbook.md")
-- [Amazon Redshift best practices for designing
-  tables](c_designing-tables-best-practices.md "c_designing-tables-best-practices.md")
-- [Amazon Redshift best practices for loading
-  data](c_loading-data-best-practices.md "c_loading-data-best-practices.md")
-- [Amazon Redshift best practices for designing
-  queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md")
+- [Amazon Redshift best practices for designing tables](c_designing-tables-best-practices.md "c_designing-tables-best-practices.md")
+- [Amazon Redshift best practices for loading data](c_loading-data-best-practices.md "c_loading-data-best-practices.md")
+- [Amazon Redshift best practices for designing queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md")
 - [Follow recommendations from Amazon Redshift Advisor](advisor.md "advisor.md")

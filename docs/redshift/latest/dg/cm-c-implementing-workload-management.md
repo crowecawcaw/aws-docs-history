@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Workload
-
-management
+# Workload management
 
 You can configure Amazon Redshift WLM to run with either automatic WLM or manual WLM.
 
@@ -29,8 +27,7 @@ performance. For more information, see [Concurrency scaling](concurrency-scaling
 ###### Note
 
 In most cases we recommend that you use automatic WLM. If
-you're using manual WLM and you want to migrate from to automatic WLM, see [Migrating from manual WLM to automatic
-WLM](#wlm-manual-to-automatic "#wlm-manual-to-automatic").
+you're using manual WLM and you want to migrate from to automatic WLM, see [Migrating from manual WLM to automatic WLM](#wlm-manual-to-automatic "#wlm-manual-to-automatic").
 
 With Auto WLM, it's possible to define query priorities for workloads in a queue. For more information about
 query priority, see [Query priority](query-priority.md "query-priority.md").
@@ -69,12 +66,10 @@ concurrently. This can change, based on the memory needs or other types of resou
 - [Implementing automatic WLM](automatic-wlm.md "automatic-wlm.md")
 - [Implementing manual WLM](cm-c-defining-query-queues.md "cm-c-defining-query-queues.md")
 - [Concurrency scaling](concurrency-scaling.md "concurrency-scaling.md")
-- [Short query
-  acceleration](wlm-short-query-acceleration.md "wlm-short-query-acceleration.md")
+- [Short query acceleration](wlm-short-query-acceleration.md "wlm-short-query-acceleration.md")
 - [WLM queue assignment rules](cm-c-wlm-queue-assignment-rules.md "cm-c-wlm-queue-assignment-rules.md")
 - [Assigning queries to queues](cm-c-executing-queries.md "cm-c-executing-queries.md")
-- [WLM dynamic and static configuration
-  properties](cm-c-wlm-dynamic-properties.md "cm-c-wlm-dynamic-properties.md")
+- [WLM dynamic and static configuration properties](cm-c-wlm-dynamic-properties.md "cm-c-wlm-dynamic-properties.md")
 - [WLM query monitoring rules](cm-c-wlm-query-monitoring-rules.md "cm-c-wlm-query-monitoring-rules.md")
 - [WLM system tables and views](cm-c-wlm-system-tables-and-views.md "cm-c-wlm-system-tables-and-views.md")
 
@@ -104,9 +99,7 @@ cluster reboot.
 For detailed information about modifying WLM configurations, see [Configuring Workload Management](../mgmt/workload-mgmt-config.md "../mgmt/workload-mgmt-config.md") in
 the _Amazon Redshift Management Guide._
 
-### Migrating from manual WLM to automatic
-
-WLM
+### Migrating from manual WLM to automatic WLM
 
 To maximize system throughput and use resources most effectively, we recommend that
 you set up automatic WLM for your queues. Consider taking the following approach to set
@@ -121,8 +114,7 @@ in the _Amazon Redshift Management Guide._
 ###### Important
 
 To change the parameter group or to switch from manual to automatic WLM requires a
-cluster reboot. For more information, see [WLM dynamic and static configuration
-properties](cm-c-wlm-dynamic-properties.md "cm-c-wlm-dynamic-properties.md").
+cluster reboot. For more information, see [WLM dynamic and static configuration properties](cm-c-wlm-dynamic-properties.md "cm-c-wlm-dynamic-properties.md").
 
 Let's take an example where there are three manual WLM queues. One each for an
 ETL workload, an analytics workload, and a data science workload. The ETL workload runs

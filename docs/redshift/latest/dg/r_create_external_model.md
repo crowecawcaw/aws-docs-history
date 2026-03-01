@@ -6,19 +6,14 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 ###### Topics
 
-- [Prerequisites for CREATE EXTERNAL
-  MODEL](#r_create_external_model_prereqs "#r_create_external_model_prereqs")
+- [Prerequisites for CREATE EXTERNAL MODEL](#r_create_external_model_prereqs "#r_create_external_model_prereqs")
 - [Required privileges](#r_simple_create_model-privileges "#r_simple_create_model-privileges")
 - [Cost control](#r_create_model_cost "#r_create_model_cost")
 - [CREATE EXTERNAL MODEL syntax](#r_create_external_model_syntax "#r_create_external_model_syntax")
-- [CREATE EXTERNAL MODEL
-  parameters and settings](#r_create_external_model_parameters_settings "#r_create_external_model_parameters_settings")
-- [CREATE EXTERNAL MODEL inference
-  function parameters](#r_create_external_model_if_parameters "#r_create_external_model_if_parameters")
+- [CREATE EXTERNAL MODEL parameters and settings](#r_create_external_model_parameters_settings "#r_create_external_model_parameters_settings")
+- [CREATE EXTERNAL MODEL inference function parameters](#r_create_external_model_if_parameters "#r_create_external_model_if_parameters")
 
-## Prerequisites for CREATE EXTERNAL
-
-MODEL
+## Prerequisites for CREATE EXTERNAL MODEL
 
 Before you use the CREATE EXTERNAL MODEL statement, complete the prerequisites in
 [Cluster setup for using Amazon Redshift ML](getting-started-machine-learning.md#cluster-setup "getting-started-machine-learning.md#cluster-setup"). The following is a
@@ -94,23 +89,17 @@ SELECT inference_function_name(input_text, [, inference_config [, additional_mod
 
 For information about how to use the inference function, see [Using an external model for Amazon Redshift ML integration with Amazon Bedrock](machine-learning-br.md#machine-learning-br-use "machine-learning-br.md#machine-learning-br-use").
 
-## CREATE EXTERNAL MODEL
-
-parameters and settings
+## CREATE EXTERNAL MODEL parameters and settings
 
 This section describes the parameters and settings for the `CREATE EXTERNAL
  MODEL` command.
 
 ###### Topics
 
-- [CREATE EXTERNAL MODEL
-  parameters](#r_create_external_model_parameters "#r_create_external_model_parameters")
-- [CREATE EXTERNAL MODEL
-  settings](#r_create_external_model_settings "#r_create_external_model_settings")
+- [CREATE EXTERNAL MODEL parameters](#r_create_external_model_parameters "#r_create_external_model_parameters")
+- [CREATE EXTERNAL MODEL settings](#r_create_external_model_settings "#r_create_external_model_settings")
 
-### CREATE EXTERNAL MODEL
-
-parameters
+### CREATE EXTERNAL MODEL parameters
 
 model_name
 
@@ -139,9 +128,7 @@ SETTINGS ( MODEL_ID model_id [,...] )
 Specifies the external model settings. See the section following for
 details.
 
-### CREATE EXTERNAL MODEL
-
-settings
+### CREATE EXTERNAL MODEL settings
 
 MODEL_ID model_id
 
@@ -197,27 +184,19 @@ following:
   input and output token usage. A super is a prediction model that
   combines multiple algorithms to produce a single, improved prediction.
 
-## CREATE EXTERNAL MODEL inference
-
-function parameters
+## CREATE EXTERNAL MODEL inference function parameters
 
 This section describes valid parameters for the inference function that the
 `CREATE EXTERNAL MODEL` command creates.
 
-### CREATE EXTERNAL MODEL
-
-inference function parameters for `REQUEST_TYPE` of
-`RAW`
+### CREATE EXTERNAL MODEL inference function parameters for `REQUEST_TYPE` of `RAW`
 
 An inference function created with a `REQUEST_TYPE` of `RAW`
 has one super input argument and always returns a super data type. The syntax of the
 input super follows the syntax of the request of the specific model selected from
 Amazon Bedrock.
 
-### CREATE EXTERNAL MODEL
-
-inference function parameters for `REQUEST_TYPE` of
-`UNIFIED`
+### CREATE EXTERNAL MODEL inference function parameters for `REQUEST_TYPE` of `UNIFIED`
 
 input_text
 

@@ -24,5 +24,4 @@ intervals. For more information, see [Analyzing tables](t_Analyzing_tables.md "t
 
 ###### Topics
 
-- [Updating and inserting new
-  data](t_updating-inserting-using-staging-tables-.md "t_updating-inserting-using-staging-tables-.md")
+- [Updating and inserting new data](t_updating-inserting-using-staging-tables-.md "t_updating-inserting-using-staging-tables-.md")

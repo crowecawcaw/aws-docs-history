@@ -33,15 +33,13 @@ The following is an example result.
 ![A sample result for rows in SVL_QUERY_SUMMARY matching a given query.](images/svl_query_summary_results.png) 3. Map the steps to the operations in the query plan using the information in
 [Mapping the query plan to the query summary](query-plan-summary-map.md "query-plan-summary-map.md"). They should have approximately the
 same values for rows and bytes (rows \* width from the query plan). If they
-don’t, see [Table statistics missing or out of
-date](query-performance-improvement-opportunities.md#table-statistics-missing-or-out-of-date "query-performance-improvement-opportunities.md#table-statistics-missing-or-out-of-date") for recommended
+don’t, see [Table statistics missing or out of date](query-performance-improvement-opportunities.md#table-statistics-missing-or-out-of-date "query-performance-improvement-opportunities.md#table-statistics-missing-or-out-of-date") for recommended
 solutions. 4. See if the `is_diskbased` field has a value of `t`
 (true) for any step. Hashes, aggregates, and sorts are the operators that are
 likely to write data to disk if the system doesn't have enough memory allocated
 for query processing.
 
-If `is_diskbased` is true, see [Insufficient memory allocated to the
-query](query-performance-improvement-opportunities.md#insufficient-memory-allocated-to-the-query "query-performance-improvement-opportunities.md#insufficient-memory-allocated-to-the-query") for recommended
+If `is_diskbased` is true, see [Insufficient memory allocated to the query](query-performance-improvement-opportunities.md#insufficient-memory-allocated-to-the-query "query-performance-improvement-opportunities.md#insufficient-memory-allocated-to-the-query") for recommended
 solutions. 5. Review the `label` field values and see if there is an
 AGG-DIST-AGG sequence anywhere in the steps. Its presence indicates two-step
 aggregation, which is expensive. To fix this, change the GROUP BY clause to use

@@ -122,7 +122,7 @@ By default, Amazon Redshift creates external tables with the pseudocolumns
 `$path` and `$size`. You can disable creation of
 pseudocolumns for a session by setting the
 `spectrum_enable_pseudo_columns` configuration parameter to
-`false`. For more information, see [Pseudocolumns](r_CREATE_EXTERNAL_TABLE_usage.md#r_CREATE_EXTERNAL_TABLE_usage-pseudocolumns "r_CREATE_EXTERNAL_TABLE_usage.md#r_CREATE_EXTERNAL_TABLE_usage-pseudocolumns") .
+`false`. For more information, see [Pseudocolumns](r_CREATE_EXTERNAL_TABLE_usage.md#r_CREATE_EXTERNAL_TABLE_usage-pseudocolumns "r_CREATE_EXTERNAL_TABLE_usage.md#r_CREATE_EXTERNAL_TABLE_usage-pseudocolumns").
 
 If pseudocolumns are enabled, the maximum number of columns you can define
 in a single table is 1,598. If pseudocolumns aren't enabled, the maximum
@@ -193,8 +193,7 @@ The length of a VARCHAR column is defined in bytes, not characters. For
 example, a VARCHAR(12) column can contain 12 single-byte characters or 6
 two-byte characters. When you query an external table, results are truncated to
 fit the defined column size without returning an error. For more information,
-see [Storage and
-ranges](r_Character_types.md#r_Character_types-storage-and-ranges "r_Character_types.md#r_Character_types-storage-and-ranges").
+see [Storage and ranges](r_Character_types.md#r_Character_types-storage-and-ranges "r_Character_types.md#r_Character_types-storage-and-ranges").
 
 For best performance, we recommend specifying the smallest column size that
 fits your data. To find the maximum size in bytes for values in a column, use
@@ -453,8 +452,7 @@ property:
 - replacement_char
 - surplus_char_handling
 
-For examples, see [Data handling
-examples](r_CREATE_EXTERNAL_TABLE_examples.md#r_CREATE_EXTERNAL_TABLE_examples-data-handling "r_CREATE_EXTERNAL_TABLE_examples.md#r_CREATE_EXTERNAL_TABLE_examples-data-handling").
+For examples, see [Data handling examples](r_CREATE_EXTERNAL_TABLE_examples.md#r_CREATE_EXTERNAL_TABLE_examples-data-handling "r_CREATE_EXTERNAL_TABLE_examples.md#r_CREATE_EXTERNAL_TABLE_examples-data-handling").
 
 'invalid_char_handling'='_value_'
 
@@ -644,8 +642,7 @@ omitted, columns are mapped by name by default. If
 _orc.schema.resolution_ is set to any value
 other than _'name'_ or
 _'position'_, columns are mapped by position.
-For more information about column mapping, see [Mapping external table columns to ORC
-columns](c-spectrum-external-tables.md#c-spectrum-column-mapping-orc "c-spectrum-external-tables.md#c-spectrum-column-mapping-orc").
+For more information about column mapping, see [Mapping external table columns to ORC columns](c-spectrum-external-tables.md#c-spectrum-column-mapping-orc "c-spectrum-external-tables.md#c-spectrum-column-mapping-orc").
 
 ###### Note
 

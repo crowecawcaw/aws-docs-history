@@ -83,9 +83,7 @@ Consider the following when running the INSERT (external table) command:
   Amazon S3 by each INSERT (external table) operation.
 - Amazon Redshift supports only Amazon S3 standard encryption for INSERT (external table).
 
-## INSERT (external table)
-
-examples
+## INSERT (external table) examples
 
 The following example inserts the results of the SELECT statement into the external
 table.

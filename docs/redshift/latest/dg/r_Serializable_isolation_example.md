@@ -7,9 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 The following pseudo-code examples demonstrate how transactions either proceed or
 wait when they are run concurrently.
 
-## Concurrent write examples with
-
-serializable isolation
+## Concurrent write examples with serializable isolation
 
 ### Concurrent COPY operations into the same table with serializable isolation
 
@@ -63,9 +61,7 @@ end;
 The same behavior would occur if one or both transactions contained an UPDATE
 command to the same table instead of a DELETE command.
 
-### Concurrent
-
-transactions with a mixture of read and write operations with serializable isolation
+### Concurrent transactions with a mixture of read and write operations with serializable isolation
 
 In this example, transaction 1 deletes rows from the USERS table, reloads the
 table, runs a COUNT(\*) query, and then ANALYZE, before committing:
@@ -98,13 +94,9 @@ The second transaction will succeed because it must wait for the first to
 complete. Its COUNT query will return the count based on the load it has
 completed.
 
-##
+## Concurrent write examples with snapshot isolation
 
-Concurrent write examples with snapshot isolation
-
-###
-
-Concurrent COPY operations into the same table with snapshot isolation
+### Concurrent COPY operations into the same table with snapshot isolation
 
 Transaction 1 copies rows into the LISTING table:
 
@@ -127,15 +119,11 @@ end;
 
 The same behavior would occur if one or both transactions contained an INSERT command instead of a COPY command.
 
-###
-
-Concurrent DELETE operations from the same table with snapshot isolation
+### Concurrent DELETE operations from the same table with snapshot isolation
 
 Concurrent DELETE or UPDATE operations from the same table with snapshot isolation run the same as operations run with serializable isolation.
 
-###
-
-Concurrent transactions with a mixture of read and write operations with snapshot isolation
+### Concurrent transactions with a mixture of read and write operations with snapshot isolation
 
 Concurrent transactions that are run with mixes of operations with snapshot isolation
 run the same as transactions with mixes of operations that are run with serializable isolation.

@@ -36,8 +36,7 @@ The transformation of identifier values from source to target follow the followi
 | foo_bar@ | foo_bar\_     |                   |
 | case     | case_redshift |                   |
 
-SVV_INTEGRATION_TABLE_MAPPING is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV_INTEGRATION_TABLE_MAPPING is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 For information about zero-ETL integrations, see [Zero-ETL integrations](../mgmt/zero-etl-using.md "../mgmt/zero-etl-using.md") in the _Amazon Redshift Management Guide_.
 

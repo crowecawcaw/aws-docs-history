@@ -8,8 +8,7 @@ Use SVV_REDSHIFT_FUNCTIONS to view a list of all functions that a user has acces
 This set of functions includes the functions on the cluster and the functions from
 datashares provided by remote clusters.
 
-SVV_REDSHIFT_FUNCTIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV_REDSHIFT_FUNCTIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

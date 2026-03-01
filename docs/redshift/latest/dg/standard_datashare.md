@@ -37,8 +37,11 @@ function.
 
 - When a producer cluster is deleted, Amazon Redshift deletes the datashares created by
   the producer cluster. When a producer cluster is backed up and restored, the
-  created datashares still persist on the restored cluster. However, datashare
-  permissions granted to other clusters are no longer valid on the restored cluster.
+  created datashares still persist on the restored cluster. If the restore is performed
+  on the same serverless namespace, datashare permissions might be preserved. See
+  [Considerations for data sharing in Amazon Redshift Serverless restore](considerations-datashare-serverless-restore.md "considerations-datashare-serverless-restore.md")
+  for supported scenarios. For other scenarios, datashare permissions granted
+  to consumer clusters are no longer valid on the restored cluster.
   Re-grant usage permissions of datashares to desired consumer clusters. The
   consumer database on the consumer cluster points to the datashare from the
   original cluster where the snapshot is taken. To query the shared data from the

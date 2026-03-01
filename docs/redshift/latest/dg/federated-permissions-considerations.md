@@ -9,19 +9,13 @@ information on data sharing considerations and limitations, see [Considerations 
 
 This feature is supported only with [cluster versions 197 and onwards](../mgmt/cluster-versions.md#cluster-version-197 "../mgmt/cluster-versions.md#cluster-version-197").
 
-**Supported Regions**
+**Unsupported Regions**
 
-- Asia Pacific (Mumbai)
-- US West (N. California)
-- Europe (Frankfurt)
-- US East (Ohio)
-- US East (N. Virginia)
-- US West (Oregon)
-- Asia Pacific (Hong Kong)
-- Asia Pacific (Singapore)
-- Asia Pacific (Sydney)
-- Europe (Ireland)
-- Europe (Stockholm)
+- Africa (Cape Town)
+- Asia Pacific (Hyderabad)
+- Europe (Milan)
+- Europe (Spain)
+- Middle East (UAE)
   **Environment Requirements**
 
 Both registered and consumer Redshift instances must meet these requirements:

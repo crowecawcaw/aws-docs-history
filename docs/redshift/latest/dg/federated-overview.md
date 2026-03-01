@@ -33,14 +33,10 @@ Details about queries sent to the Amazon Aurora PostgreSQL database or Amazon RD
 
 ###### Topics
 
-- [Getting started with using federated queries to
-  PostgreSQL](getting-started-federated.md "getting-started-federated.md")
-- [Getting started using federated queries to
-  PostgreSQL with AWS CloudFormation](getting-started-federated-CF.md "getting-started-federated-CF.md")
-- [Getting started with using federated
-  queries to MySQL](getting-started-federated-mysql.md "getting-started-federated-mysql.md")
-- [Creating a secret and an IAM role to use
-  federated queries](federated-create-secret-iam-role.md "federated-create-secret-iam-role.md")
+- [Getting started with using federated queries to PostgreSQL](getting-started-federated.md "getting-started-federated.md")
+- [Getting started using federated queries to PostgreSQL with AWS CloudFormation](getting-started-federated-CF.md "getting-started-federated-CF.md")
+- [Getting started with using federated queries to MySQL](getting-started-federated-mysql.md "getting-started-federated-mysql.md")
+- [Creating a secret and an IAM role to use federated queries](federated-create-secret-iam-role.md "federated-create-secret-iam-role.md")
 - [Examples of using a federated query](federated_query_example.md "federated_query_example.md")
 - [Data type differences between Amazon Redshift and supported PostgreSQL and MySQL databases](federated-data-types.md "federated-data-types.md")
 - [Considerations when accessing federated data with Amazon Redshift](federated-limitations.md "federated-limitations.md")

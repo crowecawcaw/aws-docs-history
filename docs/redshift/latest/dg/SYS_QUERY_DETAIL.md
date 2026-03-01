@@ -10,8 +10,7 @@ queries such as DDL, DML, and utility commands (for example, copy and unload). S
 columns might not be relevant depending on the query type. For example,
 external_scanned_bytes is not relevant to internal tables.
 
-SYS_QUERY_DETAIL is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_QUERY_DETAIL is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 

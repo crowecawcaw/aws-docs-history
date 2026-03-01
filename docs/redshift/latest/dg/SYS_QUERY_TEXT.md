@@ -10,8 +10,7 @@ query statement contains more than 4000 characters, additional rows are logged f
 statement by incrementing the sequence number for each row. This view logs all user
 query text such as DDL, utility, Amazon Redshift queries, and leader-node only queries.
 
-SYS_QUERY_TEXT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_QUERY_TEXT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

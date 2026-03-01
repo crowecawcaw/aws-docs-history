@@ -12,8 +12,7 @@ the number of 1 MB disk blocks allocated per database, table, slice, or column. 
 also use [STV_PARTITIONS](r_STV_PARTITIONS.md "r_STV_PARTITIONS.md") to view
 summary information about disk utilization.
 
-STV_BLOCKLIST is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV_BLOCKLIST is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 

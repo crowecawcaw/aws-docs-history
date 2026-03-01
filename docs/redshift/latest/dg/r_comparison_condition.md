@@ -122,9 +122,7 @@ Scarlett  | Mayer    |
 (10 rows
 ```
 
-## Examples with a TIME
-
-column
+## Examples with a TIME column
 
 The following example table TIME_TEST has a column TIME_VAL (type TIME) with
 three values inserted.
@@ -158,9 +156,7 @@ select time '18:25:33.123456' = time '18:25:33.123456';
  t
 ```
 
-## Examples with a TIMETZ
-
-column
+## Examples with a TIMETZ column
 
 The following example table TIMETZ_TEST has a column TIMETZ_VAL (type TIMETZ)
 with three values inserted.

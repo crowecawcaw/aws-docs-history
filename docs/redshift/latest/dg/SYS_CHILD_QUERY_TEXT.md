@@ -16,9 +16,7 @@ Returns the SQL text of a child query.
 | sequence             | integer        | The sequence number for this query piece.                  |
 | text                 | character(200) | The first 200 characters of the text of the SQL query.     |
 
-## Sample
-
-queries
+## Sample queries
 
 In the following example, the rows in the result show actions taken by Amazon Redshift.
 

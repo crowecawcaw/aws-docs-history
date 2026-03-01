@@ -7,17 +7,12 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 ###### Topics
 
 - [Integer types](#r_Numeric_types201-integer-types "#r_Numeric_types201-integer-types")
-- [DECIMAL or NUMERIC
-  type](#r_Numeric_types201-decimal-or-numeric-type "#r_Numeric_types201-decimal-or-numeric-type")
+- [DECIMAL or NUMERIC type](#r_Numeric_types201-decimal-or-numeric-type "#r_Numeric_types201-decimal-or-numeric-type")
 - [Notes about using 128-bit DECIMAL or NUMERIC columns](#r_Numeric_types201-notes-about-using-128-bit-decimal-or-numeric-columns "#r_Numeric_types201-notes-about-using-128-bit-decimal-or-numeric-columns")
-- [Floating-Point
-  types](#r_Numeric_types201-floating-point-types "#r_Numeric_types201-floating-point-types")
-- [Computations with numeric
-  values](r_numeric_computations201.md "r_numeric_computations201.md")
-- [Integer and floating-point
-  literals](r_numeric_literals201.md "r_numeric_literals201.md")
-- [Examples with numeric
-  types](r_Examples_with_numeric_types201.md "r_Examples_with_numeric_types201.md")
+- [Floating-Point types](#r_Numeric_types201-floating-point-types "#r_Numeric_types201-floating-point-types")
+- [Computations with numeric values](r_numeric_computations201.md "r_numeric_computations201.md")
+- [Integer and floating-point literals](r_numeric_literals201.md "r_numeric_literals201.md")
+- [Examples with numeric types](r_Examples_with_numeric_types201.md "r_Examples_with_numeric_types201.md")
   Numeric data types include integers, decimals, and floating-point numbers.
 
 ## Integer types
@@ -32,9 +27,7 @@ type.
 | INTEGER, INT, or INT4 | 4 bytes | -2147483648 to +2147483647                  |
 | BIGINT or INT8        | 8 bytes | -9223372036854775808 to 9223372036854775807 |
 
-## DECIMAL or NUMERIC
-
-type
+## DECIMAL or NUMERIC type
 
 Use the DECIMAL or NUMERIC data type to store values with a
 _user-defined precision_. The DECIMAL and NUMERIC
@@ -121,9 +114,7 @@ are certain that your application requires that precision. 128-bit values use
 twice as much disk space as 64-bit values and can slow down query execution
 time.
 
-## Floating-Point
-
-types
+## Floating-Point types
 
 Use the REAL and DOUBLE PRECISION data types to store numeric values with
 _variable precision_. These types are

@@ -13,8 +13,7 @@ information about transactions, see [Isolation levels in Amazon Redshift](c_seri
 
 Amazon Redshift supports Python version 2.7. For more information, see [www.python.org](https://www.python.org/ "https://www.python.org/").
 
-For more information, see [Example: Importing custom Python
-library modules](udf-importing-custom-python-library-modules.md "udf-importing-custom-python-library-modules.md").
+For more information, see [Example: Importing custom Python library modules](udf-importing-custom-python-library-modules.md "udf-importing-custom-python-library-modules.md").
 
 ## Required privileges
 
@@ -125,8 +124,7 @@ encryption key in the credentials-args string. If you use temporary security
 credentials, provide the temporary token in the
 _credentials-args_ string.
 
-For more information, see [Temporary security
-credentials](copy-usage_notes-access-permissions.md#r_copy-temporary-security-credentials "copy-usage_notes-access-permissions.md#r_copy-temporary-security-credentials").
+For more information, see [Temporary security credentials](copy-usage_notes-access-permissions.md#r_copy-temporary-security-credentials "copy-usage_notes-access-permissions.md#r_copy-temporary-security-credentials").
 
 REGION [AS] _aws_region_
 

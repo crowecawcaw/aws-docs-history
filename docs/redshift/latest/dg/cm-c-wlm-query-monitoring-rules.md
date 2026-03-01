@@ -29,8 +29,7 @@ If the action is hop or abort, the action is logged and the query is evicted fro
 the action is log, the query continues to run in the queue. WLM initiates only one log
 action per query per rule. If the queue contains other rules, those rules remain in effect.
 If the action is hop and the query is routed to another queue, the rules for the new queue
-apply. For more information about query monitoring and tracking actions taken on specific queries, see the collection of samples at [Short query
-acceleration](wlm-short-query-acceleration.md "wlm-short-query-acceleration.md").
+apply. For more information about query monitoring and tracking actions taken on specific queries, see the collection of samples at [Short query acceleration](wlm-short-query-acceleration.md "wlm-short-query-acceleration.md").
 
 When all of a rule's predicates are met, WLM writes a row to the [STL_WLM_RULE_ACTION](r_STL_WLM_RULE_ACTION.md "r_STL_WLM_RULE_ACTION.md") system table. In
 addition, Amazon Redshift records query metrics for currently running queries to [STV_QUERY_METRICS](r_STV_QUERY_METRICS.md "r_STV_QUERY_METRICS.md"). Metrics for
@@ -44,9 +43,7 @@ For more information about configuring serverless query queues, see
 [Setting query queues](../mgmt/serverless-workgroup-query-queues.md "../mgmt/serverless-workgroup-query-queues.md")
 in the _Amazon Redshift Management Guide_.
 
-## Defining a query monitoring
-
-rule
+## Defining a query monitoring rule
 
 You create query monitoring rules as part of your WLM configuration, which you define
 as part of your cluster's parameter group definition.
@@ -133,13 +130,11 @@ _Amazon Redshift Management Guide_.
 You can find more information about query monitoring rules in the following topics:
 
 - [Query monitoring metrics for Amazon Redshift provisioned](#cm-c-wlm-query-monitoring-metrics "#cm-c-wlm-query-monitoring-metrics")
-- [Query monitoring rules
-  templates](#cm-c-wlm-query-monitoring-templates "#cm-c-wlm-query-monitoring-templates")
+- [Query monitoring rules templates](#cm-c-wlm-query-monitoring-templates "#cm-c-wlm-query-monitoring-templates")
 - [Creating a query monitoring rule](../mgmt/parameter-group-modify-qmr-console.md "../mgmt/parameter-group-modify-qmr-console.md")
 - [Configuring Workload
   Management](../mgmt/workload-mgmt-config.md "../mgmt/workload-mgmt-config.md")
-- [System tables and views for query
-  monitoring rules](#cm-c-wlm-qmr-tables-and-views "#cm-c-wlm-qmr-tables-and-views")
+- [System tables and views for query monitoring rules](#cm-c-wlm-qmr-tables-and-views "#cm-c-wlm-qmr-tables-and-views")
 
 ## Query monitoring metrics for Amazon Redshift provisioned
 
@@ -214,9 +209,7 @@ For more information about configuring serverless query queues, see
 [WLM JSON configuration structure](../mgmt/serverless-workgroup-query-queues.md#serverless-wlm-json-configuration "../mgmt/serverless-workgroup-query-queues.md#serverless-wlm-json-configuration")
 in the _Amazon Redshift Management Guide_.
 
-## Query monitoring rules
-
-templates
+## Query monitoring rules templates
 
 When you add a rule using the Amazon Redshift console, you can choose to create a rule from
 a predefined template. Amazon Redshift creates a new rule with a set of predicates and
@@ -233,9 +226,7 @@ The following table lists available templates.
 | High disk usage when writing intermediate results | `query_temp_blocks_to_disk > 100000`                   | When currently executing queries use more than the<br>available system RAM, the query execution engine writes intermediate results<br>to disk (spilled memory). Typically, this condition is the result of a rogue<br>query, which usually is also the query that uses the most disk space. The<br>acceptable threshold for disk usage varies based on the cluster node type<br>and number of nodes. The template uses a default of 100,000 blocks, or 100<br>GB. For a small cluster, you might use a lower number. |
 | Long running query with high I/O skew             | `segment_execution_time > 120` and<br>`io_skew > 1.30` | I/O skew occurs when one node slice has a much higher I/O<br>rate than the other slices. As a starting point, a skew of 1.30 (1.3 times<br>average) is considered high. High I/O skew is not always a problem, but when<br>combined with a long running query time, it might indicate a problem with<br>the distribution style or sort key.                                                                                                                                                                          |
 
-## System tables and views for query
-
-monitoring rules
+## System tables and views for query monitoring rules
 
 When all of a rule's predicates are met, WLM writes a row to the [STL_WLM_RULE_ACTION](r_STL_WLM_RULE_ACTION.md "r_STL_WLM_RULE_ACTION.md") system table.
 This row contains details for the query that triggered the rule and the resulting

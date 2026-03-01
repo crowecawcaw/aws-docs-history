@@ -6,8 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 ###### Topics
 
-- [Multibyte
-  characters](#c_Supported_data_types-multi-byte-characters "#c_Supported_data_types-multi-byte-characters")
+- [Multibyte characters](#c_Supported_data_types-multi-byte-characters "#c_Supported_data_types-multi-byte-characters")
 - [Numeric types](r_Numeric_types201.md "r_Numeric_types201.md")
 - [Character types](r_Character_types.md "r_Character_types.md")
 - [Datetime types](r_Datetime_types.md "r_Datetime_types.md")
@@ -49,12 +48,9 @@ The following table lists the data types that you can use in Amazon Redshift tab
 ###### Note
 
 For information about unsupported data types, such as "char" (notice that char
-is enclosed in quotation marks), see [Unsupported PostgreSQL data
-types](c_unsupported-postgresql-datatypes.md "c_unsupported-postgresql-datatypes.md").
+is enclosed in quotation marks), see [Unsupported PostgreSQL data types](c_unsupported-postgresql-datatypes.md "c_unsupported-postgresql-datatypes.md").
 
-## Multibyte
-
-characters
+## Multibyte characters
 
 The VARCHAR data type supports UTF-8 multibyte characters up to a maximum of
 four bytes. Five-byte or longer characters are not supported. To calculate the
@@ -250,9 +246,7 @@ to any other data type, except each other. For more information, see [CAST funct
 The VARBYTE data type can't be implicitly converted to any other
 data type. For more information, see [CAST function](r_CAST_function.md "r_CAST_function.md").
 
-### Using dynamic typing for the SUPER
-
-data type
+### Using dynamic typing for the SUPER data type
 
 Amazon Redshift uses dynamic typing to process schemaless SUPER data without the
 need to declare the data types before you use them in your query. Dynamic

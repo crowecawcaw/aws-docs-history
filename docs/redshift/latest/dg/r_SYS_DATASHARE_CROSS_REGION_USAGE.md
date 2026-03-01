@@ -8,12 +8,9 @@ Use the SYS_DATASHARE_CROSS_REGION_USAGE view to get a summary of cross-Region d
 transferred usage caused by cross-Region datasharing query.
 SYS_DATASHARE_CROSS_REGION_USAGE aggregates details at the segment level.
 
-SYS_DATASHARE_CROSS_REGION_USAGE is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_DATASHARE_CROSS_REGION_USAGE is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
-## Table
-
-columns
+## Table columns
 
 | Column name          | Data type | Description                                                                                                             |
 | -------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -25,9 +22,7 @@ columns
 | transferred_data     | bigint    | The number of bytes of data transferred from a<br>producer Region to a consumer Region.                                 |
 | source_region        | char(25)  | The producer Region that the query transferred<br>data from.                                                            |
 
-## Sample
-
-queries
+## Sample queries
 
 The following example shows a SYS_DATASHARE_CROSS_REGION_USAGE view.
 

@@ -27,8 +27,7 @@ because the Amazon Redshift query optimizer eliminates partitions that don't con
 query.
 
 Materialized views on Spectrum tables can greatly improve cost and performance. For more
-information, see [Materialized views on external data
-lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md "materialized-view-external-table.md").
+information, see [Materialized views on external data lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md "materialized-view-external-table.md").
 
 After your Redshift Spectrum tables have been defined, you can query and join the tables
 just as you do any other Amazon Redshift table. Redshift Spectrum doesn't support update operations on external

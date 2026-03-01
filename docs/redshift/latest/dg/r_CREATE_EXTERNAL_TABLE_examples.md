@@ -167,9 +167,7 @@ s3://redshift-downloads/tickit/spectrum/sales_partition/saledate=2008-02/ |  144
 
 ```
 
-## Partitioning
-
-examples
+## Partitioning examples
 
 To create an external table partitioned by date, run the following command.
 
@@ -286,9 +284,7 @@ spectrum   | sales_part | ["2008-11-01"] | s3://redshift-downloads/tickit/spectr
 spectrum   | sales_part | ["2008-12-01"] | s3://redshift-downloads/tickit/spectrum/sales_partition/saledate=2008-12
 ```
 
-## Row format
-
-examples
+## Row format examples
 
 The following shows an example of specifying the ROW FORMAT SERDE parameters for
 data files stored in AVRO format.
@@ -386,9 +382,7 @@ LOCATION '`s3://amzn-s3-demo-bucket/prefix`'
 
 ```
 
-## Data handling
-
-examples
+## Data handling examples
 
 The following examples access the file: [spi_global_rankings.csv](https://s3.amazonaws.com/redshift-downloads/docs-downloads/spi_global_rankings.csv "https://s3.amazonaws.com/redshift-downloads/docs-downloads/spi_global_rankings.csv"). You can upload the `spi_global_rankings.csv` file to
 an Amazon S3 bucket to try these examples.

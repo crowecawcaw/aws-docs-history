@@ -6,8 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 SYS_INTEGRATION_ACTIVITY displays details about completed integration runs.
 
-SYS_INTEGRATION_ACTIVITY is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_INTEGRATION_ACTIVITY is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 For information about zero-ETL integrations, see [Working with zero-ETL
 integrations](../mgmt/zero-etl-using.md "../mgmt/zero-etl-using.md") in the Amazon Redshift Management Guide.

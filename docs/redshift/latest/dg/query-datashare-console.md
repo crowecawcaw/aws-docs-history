@@ -8,9 +8,7 @@ With Amazon Redshift, you can query data across datashares from producer cluster
 access live data without copying or transferring it. The following sections cover the
 details of setting up and querying datashares in your Amazon Redshift environment.
 
-## Creating databases from
-
-datashares
+## Creating databases from datashares
 
 To start querying data in the datashare, create a database from a datashare.
 You can create only one database from a specified datashare.

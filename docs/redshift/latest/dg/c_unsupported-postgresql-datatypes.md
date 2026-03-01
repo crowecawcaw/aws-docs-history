@@ -2,15 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Unsupported PostgreSQL data
-
-types
+# Unsupported PostgreSQL data types
 
 Generally, if a query attempts to use an unsupported data type, including explicit
 or implicit casts, it will return an error. However, some queries that use
 unsupported data types will run on the leader node but not on the compute nodes. See
-[SQL functions supported on the leader
-node](c_sql-functions-leader-node.md "c_sql-functions-leader-node.md").
+[SQL functions supported on the leader node](c_sql-functions-leader-node.md "c_sql-functions-leader-node.md").
 
 For a list of the supported data types, see [Data types](c_Supported_data_types.md "c_Supported_data_types.md").
 

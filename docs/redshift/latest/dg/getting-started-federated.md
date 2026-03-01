@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Getting started with using federated queries to
-
-PostgreSQL
+# Getting started with using federated queries to PostgreSQL
 
 To create a federated query, you follow this general approach:
 
@@ -32,8 +30,7 @@ There are cases where you must enable enhanced VPC routing: For example, if your
 VPC than your RDS or Aurora PostgreSQL instance, or if they're in the same VPC and your routes require it. Otherwise,
 you might receive timeout errors when you run a federated query. 2. Set up secrets in AWS Secrets Manager for your RDS PostgreSQL and Aurora PostgreSQL
 databases. Then reference the secrets in AWS Identity and Access Management (IAM) access policies and roles.
-For more information, see [Creating a secret and an IAM role to use
-federated queries](federated-create-secret-iam-role.md "federated-create-secret-iam-role.md").
+For more information, see [Creating a secret and an IAM role to use federated queries](federated-create-secret-iam-role.md "federated-create-secret-iam-role.md").
 
 ###### Note
 
@@ -43,7 +40,6 @@ When you use a VPC interface endpoint, communication between the Amazon Redshift
 from your VPC to the endpoint interface. For more information,
 see [Creating an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint "../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint") in the
 _Amazon VPC User Guide_. 3. Apply the IAM role that you previously created to the Amazon Redshift cluster. For more information, see
-[Creating a secret and an IAM role to use
-federated queries](federated-create-secret-iam-role.md "federated-create-secret-iam-role.md"). 4. Connect to your RDS PostgreSQL and Aurora PostgreSQL databases with an external schema. For more information,
+[Creating a secret and an IAM role to use federated queries](federated-create-secret-iam-role.md "federated-create-secret-iam-role.md"). 4. Connect to your RDS PostgreSQL and Aurora PostgreSQL databases with an external schema. For more information,
 see [CREATE EXTERNAL SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREATE_EXTERNAL_SCHEMA.md"). For examples on how to use federated query, see [Examples of using a federated query](federated_query_example.md "federated_query_example.md"). 5. Run your SQL queries referencing the external schema that references your RDS PostgreSQL and
 Aurora PostgreSQL databases.

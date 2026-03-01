@@ -28,6 +28,5 @@ in a JSON format.
 ```
 
 - You can import text or CSV data into Amazon Redshift using the COPY command. For more information,
-  see [Loading the HLLSKETCH data
-  type](copy-usage_notes-hll.md "copy-usage_notes-hll.md").
+  see [Loading the HLLSKETCH data type](copy-usage_notes-hll.md "copy-usage_notes-hll.md").
 - The default encoding for HLLSKETCH is RAW. For more information, see [Compression encodings](c_Compression_encodings.md "c_Compression_encodings.md").

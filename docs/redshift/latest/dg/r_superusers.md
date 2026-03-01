@@ -34,5 +34,4 @@ ALTER USER adminuser CREATEUSER;
 ```
 
 To create, alter, or drop a superuser, use the same commands to manage users. For more information, see
-[Creating, altering, and
-deleting users](r_Users-creatingaltering-and-deleting-users.md "r_Users-creatingaltering-and-deleting-users.md").
+[Creating, altering, and deleting users](r_Users-creatingaltering-and-deleting-users.md "r_Users-creatingaltering-and-deleting-users.md").

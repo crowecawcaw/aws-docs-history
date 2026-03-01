@@ -16,8 +16,7 @@ Sets the number of query slots that a query uses.
 Workload management (WLM) reserves slots in a service class according to the
 concurrency level set for the queue. For example, if concurrency level is set to 5, then
 the service class has 5 slots. WLM allocates the available memory for a service class
-equally to each slot. For more information, see [Workload
-management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md").
+equally to each slot. For more information, see [Workload management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md").
 
 ###### Note
 

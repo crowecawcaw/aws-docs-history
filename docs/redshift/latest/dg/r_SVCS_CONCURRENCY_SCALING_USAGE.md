@@ -8,9 +8,7 @@ Records the usage periods for concurrency scaling. Each usage period is a consec
 
 SVCS_CONCURRENCY_SCALING_USAGE This table is visible to superusers. The database's superuser can choose to open it up to all users.
 
-## Table
-
-columns
+## Table columns
 
 | Column name      | Data type                   | Description                                     |
 | ---------------- | --------------------------- | ----------------------------------------------- |
@@ -19,9 +17,7 @@ columns
 | queries          | bigint                      | Number of queries run during this usage period. |
 | usage_in_seconds | numeric(27,0)               | Total seconds in this usage period.             |
 
-## Sample
-
-queries
+## Sample queries
 
 To view the usage duration in seconds for a specific period, enter the following query:
 

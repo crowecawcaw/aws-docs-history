@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Using automatic recognition with DATEFORMAT and
-
-TIMEFORMAT
+# Using automatic recognition with DATEFORMAT and TIMEFORMAT
 
 If you specify `'auto'` as the argument for the DATEFORMAT or TIMEFORMAT
 parameter, Amazon Redshift will automatically recognize and convert the date format or time
@@ -17,8 +15,7 @@ dateformat 'auto';
 ```
 
 When used with the `'auto'` argument for DATEFORMAT and TIMEFORMAT, COPY
-recognizes and converts the date and time formats listed in the table in [DATEFORMAT and TIMEFORMAT
-strings](r_DATEFORMAT_and_TIMEFORMAT_strings.md "r_DATEFORMAT_and_TIMEFORMAT_strings.md"). In addition, the
+recognizes and converts the date and time formats listed in the table in [DATEFORMAT and TIMEFORMAT strings](r_DATEFORMAT_and_TIMEFORMAT_strings.md "r_DATEFORMAT_and_TIMEFORMAT_strings.md"). In addition, the
 `'auto'` argument recognizes the following formats that aren't supported
 when using a DATEFORMAT and TIMEFORMAT string.
 

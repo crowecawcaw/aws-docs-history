@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# DATEFORMAT and TIMEFORMAT
-
-strings
+# DATEFORMAT and TIMEFORMAT strings
 
 The COPY command uses the DATEFORMAT and TIMEFORMAT options to parse date and time values
 in your source data. DATEFORMAT and TIMEFORMAT are formatted strings that must match the format of your
@@ -27,8 +25,7 @@ If you can't match the format of your date or time values with the following dat
 and timeparts, or if you have date and time values that use formats different from each other, use the
 `'auto'` argument with the DATEFORMAT or TIMEFORMAT parameter. The
 `'auto'` argument recognizes several formats that aren't supported
-when using a DATEFORMAT or TIMEFORMAT string. For more information, see [Using automatic recognition with DATEFORMAT and
-TIMEFORMAT](automatic-recognition.md "automatic-recognition.md").
+when using a DATEFORMAT or TIMEFORMAT string. For more information, see [Using automatic recognition with DATEFORMAT and TIMEFORMAT](automatic-recognition.md "automatic-recognition.md").
 
 | Datepart or timepart | Meaning                                                                                                                                                                              |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -62,5 +59,4 @@ the corresponding DATEFORMAT or TIMEFORMAT strings for them.
 
 ## Example
 
-For an example of using TIMEFORMAT, see [Load a timestamp or
-datestamp](r_COPY_command_examples.md#r_COPY_command_examples-load-a-time-datestamp "r_COPY_command_examples.md#r_COPY_command_examples-load-a-time-datestamp").
+For an example of using TIMEFORMAT, see [Load a timestamp or datestamp](r_COPY_command_examples.md#r_COPY_command_examples-load-a-time-datestamp "r_COPY_command_examples.md#r_COPY_command_examples-load-a-time-datestamp").

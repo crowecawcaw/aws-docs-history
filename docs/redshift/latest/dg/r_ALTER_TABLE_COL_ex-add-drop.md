@@ -2,16 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ALTER TABLE ADD and DROP COLUMN
-
-examples
+# ALTER TABLE ADD and DROP COLUMN examples
 
 The following examples demonstrate how to use ALTER TABLE to add and then drop a
 basic table column and also how to drop a column with a dependent object.
 
-## ADD then DROP a
-
-basic column
+## ADD then DROP a basic column
 
 The following example adds a standalone FEEDBACK_SCORE column to the USERS table.
 This column simply contains an integer, and the default value for this column is NULL

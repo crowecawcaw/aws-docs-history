@@ -21,14 +21,11 @@ actively running queries. For more information about pricing, including how char
 
 - [Concurrency scaling capabilities](#concurrency-scaling-capabilities "#concurrency-scaling-capabilities")
 - [Limitations for concurrency scaling](#concurrency-scaling-limitations "#concurrency-scaling-limitations")
-- [AWS Regions for concurrency
-  scaling](#concurrency-scaling-regions "#concurrency-scaling-regions")
+- [AWS Regions for concurrency scaling](#concurrency-scaling-regions "#concurrency-scaling-regions")
 - [Concurrency scaling candidates](#concurrency-scaling-candidates "#concurrency-scaling-candidates")
-- [Configuring concurrency scaling
-  queues](#concurrency-scaling-queues "#concurrency-scaling-queues")
+- [Configuring concurrency scaling queues](#concurrency-scaling-queues "#concurrency-scaling-queues")
 - [Monitoring concurrency scaling](#concurrency-scaling-monitoring "#concurrency-scaling-monitoring")
-- [Concurrency scaling system
-  views](#concurrency-scaling-monitoring-system-views "#concurrency-scaling-monitoring-system-views")
+- [Concurrency scaling system views](#concurrency-scaling-monitoring-system-views "#concurrency-scaling-monitoring-system-views")
 
 ## Concurrency scaling capabilities
 
@@ -90,9 +87,7 @@ and [Controlling access from VPC endpoints with bucket policies](../../../Amazon
 - Amazon Redshift supports concurrency scaling for write operations on only Amazon Redshift RA3 nodes.
   Concurrency scaling for write operations isn't supported on other node types.
 
-## AWS Regions for concurrency
-
-scaling
+## AWS Regions for concurrency scaling
 
 With Amazon Redshift, you can use concurrency scaling to manage concurrent workload demands
 across Redshift clusters. This topic details in which regions you can use concurrency
@@ -154,9 +149,7 @@ meets the following requirements:
   Conversely, if a DC2 cluster currently has 40 nodes, but was originally created with 20, it does meet the requirements for concurrency scaling.
 - Not a single-node cluster.
 
-## Configuring concurrency scaling
-
-queues
+## Configuring concurrency scaling queues
 
 With Amazon Redshift, you can manage concurrency and system resources by configuring concurrency scaling.
 Concurrency scaling queues allow you to set limits on the number of queries or user
@@ -220,9 +213,7 @@ ORDER BY 1,2;
 Adjust the `starttime` and `endtime` values according to
 your requirements.
 
-## Concurrency scaling system
-
-views
+## Concurrency scaling system views
 
 With Amazon Redshift, you can use Concurrency scaling system views to monitor and manage
 concurrency scaling activity in your cluster. The following section describes

@@ -10,8 +10,7 @@ of a larger query.
 When the first row of a cursor is fetched, the entire result set is materialized on the
 leader node, in memory or on disk, if needed. Because of the potential negative performance
 impact of using cursors with large result sets, we recommend using alternative approaches
-whenever possible. For more information, see [Performance considerations when using
-cursors](#declare-performance "#declare-performance").
+whenever possible. For more information, see [Performance considerations when using cursors](#declare-performance "#declare-performance").
 
 You must declare a cursor within a transaction block. Only one cursor at a time can be
 open per session.
@@ -51,8 +50,7 @@ ODBC DSN options dialog, to 4,000 or greater on multi-node clusters to minimize 
 trips. On a single-node cluster, set Cache Size to 1,000.
 
 Because of the potential negative performance impact of using cursors, we recommend
-using alternative approaches whenever possible. For more information, see [Performance considerations when using
-cursors](#declare-performance "#declare-performance").
+using alternative approaches whenever possible. For more information, see [Performance considerations when using cursors](#declare-performance "#declare-performance").
 
 Amazon Redshift cursors are supported with the following limitations:
 
@@ -92,9 +90,7 @@ system table as a superuser. To view the state of active cursors, query the [STV
 Only the rows for a user's own cursors are visible to the user, but a superuser can
 view all cursors.
 
-## Performance considerations when using
-
-cursors
+## Performance considerations when using cursors
 
 Because cursors materialize the entire result set on the leader node before beginning
 to return results to the client, using cursors with very large result sets can have a

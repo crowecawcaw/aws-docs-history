@@ -17,8 +17,7 @@ query ID and the specified simplification tolerance.
 
 For more information about loading a shapefile, see [Loading a shapefile into Amazon Redshift](spatial-copy-shapefile.md "spatial-copy-shapefile.md").
 
-SYS_SPATIAL_SIMPLIFY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_SPATIAL_SIMPLIFY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

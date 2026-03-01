@@ -15,8 +15,7 @@ rows. This view is derived from the STL_UNLOAD_LOG system table but doesn't show
 System views with the prefix SVCS provide details about queries on both the main and concurrency scaling clusters.
 The views are similar to the tables with the prefix STL except that the STL tables provide information only for queries run on the main cluster.
 
-SVCS_UNLOAD_LOG is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVCS_UNLOAD_LOG is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

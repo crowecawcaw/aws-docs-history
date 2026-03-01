@@ -28,8 +28,7 @@ SVL_STATEMENTTEXT view.
 
 See also [STL_DDLTEXT](r_STL_DDLTEXT.md "r_STL_DDLTEXT.md"), [STL_UTILITYTEXT](r_STL_UTILITYTEXT.md "r_STL_UTILITYTEXT.md"), and [SVL_STATEMENTTEXT](r_SVL_STATEMENTTEXT.md "r_SVL_STATEMENTTEXT.md").
 
-STL_QUERYTEXT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL_QUERYTEXT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 Some or all of the data in this table can also be found in the SYS monitoring view [SYS_QUERY_TEXT](SYS_QUERY_TEXT.md "SYS_QUERY_TEXT.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
 We recommend that you use the SYS monitoring view for your queries.
@@ -72,9 +71,7 @@ order by query desc;
 (6 rows)
 ```
 
-### Reconstructing stored
-
-SQL
+### Reconstructing stored SQL
 
 To reconstruct the SQL stored in the `text` column of STL_QUERYTEXT,
 run a SELECT statement to create SQL from 1 or more parts in the

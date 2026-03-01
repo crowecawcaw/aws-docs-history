@@ -8,17 +8,12 @@ This section contains examples for using HyperLogLog with Amazon Redshift.
 
 ###### Topics
 
-- [Example: Return cardinality in a
-  subquery](#hll-examples-subquery "#hll-examples-subquery")
-- [Example: Return an HLLSKETCH type from
-  combined sketches in a subquery](#hll-examples-combined-subquery "#hll-examples-combined-subquery")
-- [Example: Return a HyperLogLog sketch
-  from combining multiple sketches](#hll-examples-multiple-sketches "#hll-examples-multiple-sketches")
+- [Example: Return cardinality in a subquery](#hll-examples-subquery "#hll-examples-subquery")
+- [Example: Return an HLLSKETCH type from combined sketches in a subquery](#hll-examples-combined-subquery "#hll-examples-combined-subquery")
+- [Example: Return a HyperLogLog sketch from combining multiple sketches](#hll-examples-multiple-sketches "#hll-examples-multiple-sketches")
 - [Example: Generate HyperLogLog sketches over S3 data using external tables](#hll-examples-cache-sketches "#hll-examples-cache-sketches")
 
-## Example: Return cardinality in a
-
-subquery
+## Example: Return cardinality in a subquery
 
 The following example returns the cardinality for each sketch in a subquery for a table
 named _Sales_.
@@ -43,9 +38,7 @@ hll_cardinality | country
  ...
 ```
 
-## Example: Return an HLLSKETCH type from
-
-combined sketches in a subquery
+## Example: Return an HLLSKETCH type from combined sketches in a subquery
 
 The following example returns a single HLLSKETCH type that represents the combination
 of individual sketches from a subquery. The sketches are combined by using the
@@ -64,9 +57,7 @@ FROM (SELECT hll_create_sketch(customer) AS sketch
 
 ```
 
-## Example: Return a HyperLogLog sketch
-
-from combining multiple sketches
+## Example: Return a HyperLogLog sketch from combining multiple sketches
 
 For the following example, suppose that the table `page-users` stores
 preaggregated sketches for each page that users visited on a given website. Each row

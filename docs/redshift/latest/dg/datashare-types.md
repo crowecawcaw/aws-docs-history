@@ -13,8 +13,7 @@ Each datashare is associated with a specific database in your Amazon Redshift cl
 A producer administrator can create datashares and add datashare objects to share data
 with other clusters, referred to as _outbound_ shares. A
 consumer administrator can receive datashares from other clusters, referred to as _inbound_ shares. For details on producers and consumers, see
-[Datashare producers and
-consumers](adx_datashare_overview.md#datashare_producer_consumer "adx_datashare_overview.md#datashare_producer_consumer").
+[Datashare producers and consumers](adx_datashare_overview.md#datashare_producer_consumer "adx_datashare_overview.md#datashare_producer_consumer").
 
 Datashare objects are objects from specific databases on a cluster that producer
 administrators can add to datashares to be shared with data consumers. Datashare objects

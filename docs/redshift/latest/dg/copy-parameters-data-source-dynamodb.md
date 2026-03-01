@@ -11,8 +11,7 @@ DynamoDB table name.
 
 - [Syntax](#copy-parameters-data-source-dynamodb-syntax "#copy-parameters-data-source-dynamodb-syntax")
 - [Examples](#copy-parameters-data-source-dynamodb-examples "#copy-parameters-data-source-dynamodb-examples")
-- [Optional
-  parameters](#copy-parameters-data-source-dynamodb-optional-parms "#copy-parameters-data-source-dynamodb-optional-parms")
+- [Optional parameters](#copy-parameters-data-source-dynamodb-optional-parms "#copy-parameters-data-source-dynamodb-optional-parms")
 - [Unsupported parameters](#copy-parameters-data-source-dynamodb-unsupported-parms "#copy-parameters-data-source-dynamodb-unsupported-parms")
 
 ###### Important
@@ -51,8 +50,7 @@ The source of the data to be loaded.
 
 The name of the DynamoDB table that contains the data, for example
 `'dynamodb://ProductCatalog'`. For details about how
-DynamoDB attributes are mapped to Amazon Redshift columns, see [Loading data from an Amazon DynamoDB
-table](t_Loading-data-from-dynamodb.md "t_Loading-data-from-dynamodb.md").
+DynamoDB attributes are mapped to Amazon Redshift columns, see [Loading data from an Amazon DynamoDB table](t_Loading-data-from-dynamodb.md "t_Loading-data-from-dynamodb.md").
 
 A DynamoDB table name is unique to an AWS account, which is identified
 by the AWS access credentials.
@@ -87,9 +85,7 @@ of the table. If you load data from DynamoDB to Amazon Redshift on an ongoing
 basis, consider organizing your DynamoDB tables as a time series to
 separate live traffic from the COPY operation.
 
-## Optional
-
-parameters
+## Optional parameters
 
 You can optionally specify the following parameters with COPY from Amazon DynamoDB:
 

@@ -9,8 +9,7 @@ utilization for Amazon Redshift.
 
 STV_PARTITIONS contains one row per node per logical disk volume.
 
-STV_PARTITIONS is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV_PARTITIONS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

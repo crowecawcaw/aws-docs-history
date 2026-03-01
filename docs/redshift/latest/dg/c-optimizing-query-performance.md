@@ -11,8 +11,7 @@ you use to add, change, and delete database objects such as tables and views.
 
 Once your system is set up, you typically work with DML the most, especially the [SELECT](r_SELECT_synopsis.md "r_SELECT_synopsis.md") command for retrieving and
 viewing data. To write effective data retrieval queries in Amazon Redshift, become familiar with
-SELECT and apply the tips outlined in [Amazon Redshift best practices for designing
-tables](c_designing-tables-best-practices.md "c_designing-tables-best-practices.md") to maximize query efficiency.
+SELECT and apply the tips outlined in [Amazon Redshift best practices for designing tables](c_designing-tables-best-practices.md "c_designing-tables-best-practices.md") to maximize query efficiency.
 
 To understand how Amazon Redshift processes queries, use the [Query processing](c-query-processing.md "c-query-processing.md") and [Query analysis and improvement](c-query-tuning.md "c-query-tuning.md") sections. Then you can apply this information in
 combination with diagnostic tools to identify and remove issues in query performance.

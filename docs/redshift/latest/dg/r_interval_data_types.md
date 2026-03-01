@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Interval data types and
-
-literals
+# Interval data types and literals
 
 You can use an interval data type to store durations of time in units such
 as, `seconds`, `minutes`, `hours`,
@@ -14,9 +12,7 @@ intervals to dates and timestamps, summing intervals, and subtracting an
 interval from a date or timestamp. Interval literals can be used as input
 values to interval data type columns in a table.
 
-## Syntax of interval data
-
-type
+## Syntax of interval data type
 
 To specify an interval data type to store a duration of time in years and
 months:
@@ -32,9 +28,7 @@ minutes, and seconds:
 INTERVAL *day\_to\_second\_qualifier* [ (*fractional\_precision*) ]
 ```
 
-## Syntax of interval
-
-literal
+## Syntax of interval literal
 
 To specify an interval literal to define a duration of time in years and
 months:
@@ -66,8 +60,7 @@ _day_to_second_qualifier_. For example,
 represents `1 year 2 months`, and `'13 day 1 hour 1
  minute 1.123 seconds' SECOND` represents `13 days 1
  hour 1 minute 1.123 seconds`. For more information about
-output formats of an interval, see [Interval
-styles](#r_interval_data_types-interval-styles "#r_interval_data_types-interval-styles").
+output formats of an interval, see [Interval styles](#r_interval_data_types-interval-styles "#r_interval_data_types-interval-styles").
 
 _year_to_month_qualifier_
 
@@ -126,9 +119,7 @@ The session configuration `interval_forbid_composite_literals`
 determines whether an error is returned when an interval is specified with
 both YEAR TO MONTH and DAY TO SECOND parts. For more information, see [interval_forbid_composite_literals](r_interval_forbid_composite_literals.md "r_interval_forbid_composite_literals.md").
 
-## Interval
-
-arithmetic
+## Interval arithmetic
 
 You can use interval values with other datetime values to perform
 arithmetic operations. The following tables describe the available
@@ -169,9 +160,7 @@ the following results for the given second operand:
 | -        | Numeric | Interval  | Timestamp | Timestamp |
 | +        | N/A     | N/A       | N/A       | N/A       |
 
-## Interval
-
-styles
+## Interval styles
 
 You can use the SQL [SET](r_SET.md "r_SET.md") command to change the output
 display format of your interval values. When you use the interval data type
@@ -269,9 +258,7 @@ Interval day to second values are formatted as the following.
 1 2:03:04.5678`
 ```
 
-## Examples of interval
-
-data type
+## Examples of interval data type
 
 The following examples demonstrate how to use INTERVAL data types with
 tables.
@@ -300,9 +287,7 @@ select * from sample_intervals;`
 -----+-----`
 ```
 
-## Examples of
-
-interval literals
+## Examples of interval literals
 
 The following examples are run with interval style set to
 `postgres`.

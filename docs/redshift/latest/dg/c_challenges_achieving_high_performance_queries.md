@@ -19,9 +19,7 @@ features.
 - [Result caching](#result-caching "#result-caching")
 - [Compiled code](#compiled-code "#compiled-code")
 
-##
-
-Massively parallel processing
+## Massively parallel processing
 
 Massively parallel processing (MPP) enables fast run of the most complex queries
 operating on large amounts of data. Multiple compute nodes handle all query
@@ -31,17 +29,13 @@ running the same compiled query segments on portions of the entire data.
 Amazon Redshift distributes the rows of a table to the compute nodes so that the data can be
 processed in parallel. By selecting an appropriate distribution key for each table, you
 can optimize the distribution of data to balance the workload and minimize movement of
-data from node to node. For more information, see [Choose the best distribution
-style](c_best-practices-best-dist-key.md "c_best-practices-best-dist-key.md").
+data from node to node. For more information, see [Choose the best distribution style](c_best-practices-best-dist-key.md "c_best-practices-best-dist-key.md").
 
 Loading data from flat files takes advantage of parallel processing by spreading the
 workload across multiple nodes while simultaneously reading from multiple files. For
-more information about how to load data into tables, see [Amazon Redshift best practices for loading
-data](c_loading-data-best-practices.md "c_loading-data-best-practices.md").
+more information about how to load data into tables, see [Amazon Redshift best practices for loading data](c_loading-data-best-practices.md "c_loading-data-best-practices.md").
 
-##
-
-Columnar data storage
+## Columnar data storage
 
 Columnar storage for database tables drastically reduces the overall disk I/O
 requirements and is an important factor in optimizing analytic query performance.
@@ -50,9 +44,7 @@ For more information, see [Columnar storage](c_columnar_storage_disk_mem_mgmnt.m
 When columns are sorted appropriately, the query processor is able to rapidly filter
 out a large subset of data blocks. For more information, see [Choose the best sort key](c_best-practices-sort-key.md "c_best-practices-sort-key.md").
 
-##
-
-Data compression
+## Data compression
 
 Data compression reduces storage requirements, thereby reducing disk I/O, which
 improves query performance. When you run a query, the compressed data is read into
@@ -62,8 +54,7 @@ similar data sequentially, Amazon Redshift is able to apply adaptive compression
 specifically tied to columnar data types. The best way to enable data compression on
 table columns is by allowing Amazon Redshift to apply optimal compression encodings when you
 load the table with data. To learn more about using automatic data compression, see
-[Loading tables with automatic
-compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").
+[Loading tables with automatic compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").
 
 ## Query optimizer
 

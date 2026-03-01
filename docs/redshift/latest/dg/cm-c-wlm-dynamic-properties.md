@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# WLM dynamic and static configuration
-
-properties
+# WLM dynamic and static configuration properties
 
 The WLM configuration properties are either dynamic or static. You can apply dynamic
 properties to the database without a cluster reboot, but static properties require a
@@ -50,6 +48,5 @@ Allocation.](cm-c-wlm-dynamic-memory-allocation.md "cm-c-wlm-dynamic-memory-allo
 
 ###### Topics
 
-- [WLM dynamic memory
-  allocation](cm-c-wlm-dynamic-memory-allocation.md "cm-c-wlm-dynamic-memory-allocation.md")
+- [WLM dynamic memory allocation](cm-c-wlm-dynamic-memory-allocation.md "cm-c-wlm-dynamic-memory-allocation.md")
 - [Dynamic WLM example](cm-c-wlm-dynamic-example.md "cm-c-wlm-dynamic-example.md")

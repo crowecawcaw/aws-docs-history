@@ -147,12 +147,9 @@ The COUNT, SUM, and AVG aggregate functions are supported.
       + Hudi
 
   Incremental refresh is supported for materialized views defined using formats
-  other than those listed above. For more information, see [Materialized views on external data
-  lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md "materialized-view-external-table.md").
+  other than those listed above. For more information, see [Materialized views on external data lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md "materialized-view-external-table.md").
 
-## Autorefreshing a materialized
-
-view
+## Autorefreshing a materialized view
 
 Amazon Redshift can automatically refresh materialized views with up-to-date data from its
 base tables when materialized views are created with or altered to have the

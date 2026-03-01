@@ -6,12 +6,9 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 Records the service class configurations for WLM.
 
-STV_WLM_SERVICE_CLASS_CONFIG is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV_WLM_SERVICE_CLASS_CONFIG is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
-## Table
-
-columns
+## Table columns
 
 | Column name              | Data type     | Description                                                                                                                                                                                                                                                                                   |
 | ------------------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -63,8 +60,7 @@ Default queue                |     5 | 125 |        0 | false         | false
 The following query shows the status of a dynamic WLM transition. While the
 transition is in process, `num_query_tasks` and
 `target_query_working_mem` are updated until they equal the target
-values. For more information, see [WLM dynamic and static configuration
-properties](cm-c-wlm-dynamic-properties.md "cm-c-wlm-dynamic-properties.md").
+values. For more information, see [WLM dynamic and static configuration properties](cm-c-wlm-dynamic-properties.md "cm-c-wlm-dynamic-properties.md").
 
 ```
 select rtrim(name) as name,

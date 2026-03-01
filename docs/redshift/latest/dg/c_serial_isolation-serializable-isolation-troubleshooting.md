@@ -4,9 +4,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # Troubleshooting serializable isolation errors
 
-## ERROR:1023
-
-DETAIL: Serializable isolation violation on a table in Redshift
+## ERROR:1023 DETAIL: Serializable isolation violation on a table in Redshift
 
 When Amazon Redshift detects a serializable isolation error, you see an error message such
 as the following.
@@ -103,9 +101,7 @@ Use an ALTER DATABASE command with snapshot isolation. For more information abou
 the SNAPSHOT parameter for ALTER DATABASE, see
 [Parameters](r_ALTER_DATABASE.md#r_ALTER_DATABASE-parameters "r_ALTER_DATABASE.md#r_ALTER_DATABASE-parameters").
 
-## ERROR:1018
-
-DETAIL: Relation does not exist
+## ERROR:1018 DETAIL: Relation does not exist
 
 When you run concurrent Amazon Redshift operations in different sessions, you see an
 error message such as the following.

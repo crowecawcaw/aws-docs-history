@@ -18,8 +18,7 @@ EXTRACT(*datepart* FROM *source*)
 _datepart_
 
 The subfield of a date or time to extract, such as a day, month, year, hour, minute, second, millisecond, or microsecond.
-For possible values, see [Date parts for date or timestamp
-functions](r_Dateparts_for_datetime_functions.md "r_Dateparts_for_datetime_functions.md").
+For possible values, see [Date parts for date or timestamp functions](r_Dateparts_for_datetime_functions.md "r_Dateparts_for_datetime_functions.md").
 
 _source_
 

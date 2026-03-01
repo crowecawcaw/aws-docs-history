@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Data warehouse system
-
-architecture
+# Data warehouse system architecture
 
 This section explains the components that make up the Amazon Redshift data warehouse architecture, as
 shown in the following figure.
@@ -44,8 +42,7 @@ references tables that are stored on the compute nodes. All other queries run
 exclusively on the leader node. Amazon Redshift is designed to implement certain SQL functions
 only on the leader node. A query that uses any of these functions will return an error
 if it references tables that reside on the compute nodes. For more information, see
-[SQL functions supported on the leader
-node](c_sql-functions-leader-node.md "c_sql-functions-leader-node.md").
+[SQL functions supported on the leader node](c_sql-functions-leader-node.md "c_sql-functions-leader-node.md").
 
 **Compute nodes**
 
@@ -88,8 +85,7 @@ When you create a table, you can optionally specify one column as the distributi
 key. When the table is loaded with data, the rows are distributed to the node slices
 according to the distribution key that is defined for a table. Choosing a good
 distribution key enables Amazon Redshift to use parallel processing to load data and run
-queries efficiently. For information about choosing a distribution key, see [Choose the best distribution
-style](c_best-practices-best-dist-key.md "c_best-practices-best-dist-key.md").
+queries efficiently. For information about choosing a distribution key, see [Choose the best distribution style](c_best-practices-best-dist-key.md "c_best-practices-best-dist-key.md").
 
 **Internal network**
 

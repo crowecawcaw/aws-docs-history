@@ -14,10 +14,8 @@ JSON-formatted files, or Avro files.
 - [Syntax](#copy-parameters-data-source-emr-syntax "#copy-parameters-data-source-emr-syntax")
 - [Example](#copy-parameters-data-source-emr-example "#copy-parameters-data-source-emr-example")
 - [Parameters](#copy-parameters-data-source-emr-parameters "#copy-parameters-data-source-emr-parameters")
-- [Supported
-  parameters](#copy-parameters-data-source-emr-optional-parms "#copy-parameters-data-source-emr-optional-parms")
-- [Unsupported
-  parameters](#copy-parameters-data-source-emr-unsupported-parms "#copy-parameters-data-source-emr-unsupported-parms")
+- [Supported parameters](#copy-parameters-data-source-emr-optional-parms "#copy-parameters-data-source-emr-optional-parms")
+- [Unsupported parameters](#copy-parameters-data-source-emr-unsupported-parms "#copy-parameters-data-source-emr-unsupported-parms")
 
 ## Syntax
 
@@ -84,9 +82,7 @@ user (key-based access control). For increased security and
 flexibility, we recommend using IAM role-based access control. For more
 information, see [Authorization parameters](copy-parameters-authorization.md "copy-parameters-authorization.md").
 
-## Supported
-
-parameters
+## Supported parameters
 
 You can optionally specify the following parameters with COPY from Amazon EMR:
 
@@ -95,9 +91,7 @@ You can optionally specify the following parameters with COPY from Amazon EMR:
 - [Data conversion parameters](copy-parameters-data-conversion.md "copy-parameters-data-conversion.md")
 - [Data load operations](copy-parameters-data-load.md "copy-parameters-data-load.md")
 
-## Unsupported
-
-parameters
+## Unsupported parameters
 
 You can't use the following parameters with COPY from Amazon EMR:
 

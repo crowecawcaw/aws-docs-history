@@ -14,8 +14,7 @@ For more information, see [CREATE TEMPLATE](r_CREATE_TEMPLATE.md "r_CREATE_TEMPL
 Templates for the COPY command can be created with:
 
 - [Data format parameters](copy-parameters-data-format.md "copy-parameters-data-format.md")
-- [File compression
-  parameters](copy-parameters-file-compression.md "copy-parameters-file-compression.md")
+- [File compression parameters](copy-parameters-file-compression.md "copy-parameters-file-compression.md")
 - [Data conversion parameters](copy-parameters-data-conversion.md "copy-parameters-data-conversion.md")
 - [Data load operations](copy-parameters-data-load.md "copy-parameters-data-load.md")
   For a complete list of supported parameters, see [COPY](r_COPY.md "r_COPY.md") command.

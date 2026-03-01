@@ -11,12 +11,9 @@ optimizations run using extra compute resources, see [Allocating extra compute r
 
 SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION is available only for provisioned clusters.
 
-SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
-## Table
-
-columns
+## Table columns
 
 | Column name     | Data type                   | Description                                                                                                                                    |
 | --------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |

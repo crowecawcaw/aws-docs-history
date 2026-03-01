@@ -2,18 +2,14 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Sharing read access to data within an
-
-AWS account
+# Sharing read access to data within an AWS account
 
 With Amazon Redshift, you can share read access to data across different database
 users or groups within the same AWS account. This feature allows you to control
 data access privileges at a granular level, ensuring that only authorized users or
 groups can read specific data sets.
 
-## Share data for read purposes as a producer
-
-administrator or database owner
+## Share data for read purposes as a producer administrator or database owner
 
 1. Create datashares in your cluster. For more information, see [CREATE DATASHARE](r_CREATE_DATASHARE.md "r_CREATE_DATASHARE.md").
 
@@ -86,10 +82,7 @@ ALTER DATASHARE salesshare SET INCLUDENEW = TRUE FOR SCHEMA PUBLIC;
 ```
 
 You can also use the Amazon Redshift console to add or remove objects from
-datashares. For more information, see [Add datashare objects to
-datashares](datashare-creation.md#add-datashare-object-console "datashare-creation.md#add-datashare-object-console"), [Removing datashare objects from
-datashares](manage-datashare-existing-console.md#remove-datashare-object-console "manage-datashare-existing-console.md#remove-datashare-object-console"), and [Editing datashares created in your
-account](manage-datashare-existing-console.md#edit-datashare-console "manage-datashare-existing-console.md#edit-datashare-console"). 4. Add consumers to or remove consumers from datashares. The following
+datashares. For more information, see [Add datashare objects to datashares](datashare-creation.md#add-datashare-object-console "datashare-creation.md#add-datashare-object-console"), [Removing datashare objects from datashares](manage-datashare-existing-console.md#remove-datashare-object-console "manage-datashare-existing-console.md#remove-datashare-object-console"), and [Editing datashares created in your account](manage-datashare-existing-console.md#edit-datashare-console "manage-datashare-existing-console.md#edit-datashare-console"). 4. Add consumers to or remove consumers from datashares. The following
 example adds the consumer namespace to `salesshare`. The
 namespace is the namespace globally unique identifier (GUID) of the consumer
 cluster in the account. For more information, see [GRANT](r_GRANT.md "r_GRANT.md") or [REVOKE](r_REVOKE.md "r_REVOKE.md").
@@ -111,9 +104,7 @@ cluster within the same AWS account, go to the Amazon Redshift console cluster
 details page. On that page, find the newly added namespace field.
 
 You can also use the Amazon Redshift console to add or remove data consumers for
-datashares. For more information, see [Add data consumers to
-datashares](datashare-creation.md#add-data-consumer-console "datashare-creation.md#add-data-consumer-console") and [Removing data consumers from
-datashares](manage-datashare-existing-console.md#remove-data-consumer-console "manage-datashare-existing-console.md#remove-data-consumer-console"). 5. (Optional) Add security restrictions to the datashare. The following
+datashares. For more information, see [Add data consumers to datashares](datashare-creation.md#add-data-consumer-console "datashare-creation.md#add-data-consumer-console") and [Removing data consumers from datashares](manage-datashare-existing-console.md#remove-data-consumer-console "manage-datashare-existing-console.md#remove-data-consumer-console"). 5. (Optional) Add security restrictions to the datashare. The following
 example shows that the consumer cluster with a public IP access is allowed
 to read the datashare. For more information, see [ALTER DATASHARE](r_ALTER_DATASHARE.md "r_ALTER_DATASHARE.md").
 
@@ -128,8 +119,7 @@ consumer clusters that don't meet security restrictions specified in
 datashare are rejected at query runtime.
 
 You can also use the Amazon Redshift console to edit datashares. For more
-information, see [Editing datashares created in your
-account](manage-datashare-existing-console.md#edit-datashare-console "manage-datashare-existing-console.md#edit-datashare-console"). 6. List datashares created in the cluster and look into the contents of the
+information, see [Editing datashares created in your account](manage-datashare-existing-console.md#edit-datashare-console "manage-datashare-existing-console.md#edit-datashare-console"). 6. List datashares created in the cluster and look into the contents of the
 datashare.
 
 The following example displays the information of a datashare named
@@ -182,8 +172,7 @@ DROP DATASHARE salesshare;
 ```
 
 You can also use the Amazon Redshift console to delete datashares. For more
-information, see [Deleting a datashare created in your
-account](manage-datashare-existing-console.md#delete-datashare-console "manage-datashare-existing-console.md#delete-datashare-console"). 8. Use ALTER DATASHARE to remove objects from datashares at any point from
+information, see [Deleting a datashare created in your account](manage-datashare-existing-console.md#delete-datashare-console "manage-datashare-existing-console.md#delete-datashare-console"). 8. Use ALTER DATASHARE to remove objects from datashares at any point from
 the datashare. Use REVOKE USAGE ON to revoke permissions on the datashare to
 certain consumers. It revokes USAGE permissions on objects within a
 datashare and instantly stops access to all consumer clusters. Listing
@@ -195,8 +184,7 @@ ALTER DATASHARE salesshare REMOVE TABLE public.tickit_sales_redshift;
 ```
 
 You can also use the Amazon Redshift console to edit datashares. For more
-information, see [Editing datashares created in your
-account](manage-datashare-existing-console.md#edit-datashare-console "manage-datashare-existing-console.md#edit-datashare-console"). 9. Revoke access to the datashare from namespaces if you don't want to
+information, see [Editing datashares created in your account](manage-datashare-existing-console.md#edit-datashare-console "manage-datashare-existing-console.md#edit-datashare-console"). 9. Revoke access to the datashare from namespaces if you don't want to
 share the data with the consumers anymore.
 
 ```
@@ -204,12 +192,9 @@ REVOKE USAGE ON DATASHARE salesshare FROM NAMESPACE '13b8833d-17c6-4f16-8fe4-1a0
 ```
 
 You can also use the Amazon Redshift console to edit datashares. For more
-information, see [Editing datashares created in your
-account](manage-datashare-existing-console.md#edit-datashare-console "manage-datashare-existing-console.md#edit-datashare-console").
+information, see [Editing datashares created in your account](manage-datashare-existing-console.md#edit-datashare-console "manage-datashare-existing-console.md#edit-datashare-console").
 
-## Share data for read purposes as a consumer
-
-administrator
+## Share data for read purposes as a consumer administrator
 
 1. List the datashares that are made available to you and view the content
    of datashares. For more information, see [DESC DATASHARE](r_DESC_DATASHARE.md "r_DESC_DATASHARE.md") and [SHOW DATASHARES](r_SHOW_DATASHARES.md "r_SHOW_DATASHARES.md").
@@ -277,8 +262,7 @@ into a separate table on the consumer cluster, perform any processing
 needed, and then share the new objects that were created.
 
 You can also use the Amazon Redshift console to create databases from datashares.
-For more information, see [Creating databases from
-datashares](query-datashare-console.md#create-database-from-datashare-console "query-datashare-console.md#create-database-from-datashare-console"). 3. (Optional) Create external schemas to refer to and assign granular
+For more information, see [Creating databases from datashares](query-datashare-console.md#create-database-from-datashare-console "query-datashare-console.md#create-database-from-datashare-console"). 3. (Optional) Create external schemas to refer to and assign granular
 permissions to specific schemas in the consumer database imported on the
 consumer cluster. For more information, see [CREATE EXTERNAL SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREATE_EXTERNAL_SCHEMA.md").
 

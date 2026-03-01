@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Using a manifest to specify
-
-data files
+# Using a manifest to specify data files
 
 You can use a manifest to make sure that the COPY command loads all of the
 required files, and only the required files, for a data load. You can use a
@@ -45,9 +43,7 @@ IAM_ROLE 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 MANIFEST;
 ```
 
-## Using a manifest
-
-created by UNLOAD
+## Using a manifest created by UNLOAD
 
 A manifest created by an [UNLOAD](r_UNLOAD.md "r_UNLOAD.md")
 operation using the MANIFEST parameter might have keys that are not required

@@ -11,28 +11,19 @@ these recommendations in the following sections.
 
 ###### Topics
 
-- [Compress Amazon S3 file objects
-  loaded by COPY](#cluster-compress-s3-recommendation "#cluster-compress-s3-recommendation")
-- [Isolate multiple active
-  databases](#isolate-active-dbs-recommendation "#isolate-active-dbs-recommendation")
-- [Reallocate workload management (WLM)
-  memory](#reallocate-wlm-recommendation "#reallocate-wlm-recommendation")
-- [Skip compression analysis
-  during COPY](#skip-compression-analysis-recommendation "#skip-compression-analysis-recommendation")
-- [Split Amazon S3 objects loaded by
-  COPY](#split-s3-objects-recommendation "#split-s3-objects-recommendation")
-- [Update table
-  statistics](#update-table-statistics-recommendation "#update-table-statistics-recommendation")
+- [Compress Amazon S3 file objects loaded by COPY](#cluster-compress-s3-recommendation "#cluster-compress-s3-recommendation")
+- [Isolate multiple active databases](#isolate-active-dbs-recommendation "#isolate-active-dbs-recommendation")
+- [Reallocate workload management (WLM) memory](#reallocate-wlm-recommendation "#reallocate-wlm-recommendation")
+- [Skip compression analysis during COPY](#skip-compression-analysis-recommendation "#skip-compression-analysis-recommendation")
+- [Split Amazon S3 objects loaded by COPY](#split-s3-objects-recommendation "#split-s3-objects-recommendation")
+- [Update table statistics](#update-table-statistics-recommendation "#update-table-statistics-recommendation")
 - [Enable short query acceleration](#enable-sqa-recommendation "#enable-sqa-recommendation")
-- [Alter distribution keys on
-  tables](#alter-diststyle-distkey-recommendation "#alter-diststyle-distkey-recommendation")
+- [Alter distribution keys on tables](#alter-diststyle-distkey-recommendation "#alter-diststyle-distkey-recommendation")
 - [Alter sort keys on tables](#alter-sortkey-recommendation "#alter-sortkey-recommendation")
 - [Alter compression encodings on columns](#alter-compression-encoding-recommendation "#alter-compression-encoding-recommendation")
 - [Data type recommendations](#data-type-recommendation "#data-type-recommendation")
 
-## Compress Amazon S3 file objects
-
-loaded by COPY
+## Compress Amazon S3 file objects loaded by COPY
 
 The COPY command takes advantage of the massively parallel processing (MPP)
 architecture in Amazon Redshift to read and load data in parallel. It can read files from Amazon S3,
@@ -85,9 +76,7 @@ architectures, storing this data in a compressed form can reduce your storage co
 - The ideal object size is 1–128 MB after compression.
 - You can compress files with gzip, lzop, or bzip2 format.
 
-## Isolate multiple active
-
-databases
+## Isolate multiple active databases
 
 As a best practice, we recommend isolating databases in Amazon Redshift from one another.
 Queries run in a specific database and can't access data from any other database on
@@ -140,9 +129,7 @@ GROUP BY database;
   3.  Resize the cluster to an appropriate node type and count for the
       database's workload.
 
-## Reallocate workload management (WLM)
-
-memory
+## Reallocate workload management (WLM) memory
 
 Amazon Redshift routes user queries to [Implementing manual WLM](cm-c-defining-query-queues.md "cm-c-defining-query-queues.md") for processing. Workload management
 (WLM) defines how those queries are routed to the queues. Amazon Redshift allocates each queue a
@@ -208,9 +195,7 @@ implement the slot reduction optimization by [modifying a parameter group](../mg
 - For more details on interpreting the query results from the preceding SQL
   code, see the [wlm_apex_hourly.sql script](https://github.com/awslabs/amazon-redshift-utils/blob/master/src/AdminScripts/wlm_apex_hourly.sql "https://github.com/awslabs/amazon-redshift-utils/blob/master/src/AdminScripts/wlm_apex_hourly.sql") on GitHub.
 
-## Skip compression analysis
-
-during COPY
+## Skip compression analysis during COPY
 
 When you load data into an empty table with compression encoding declared with the
 COPY command, Amazon Redshift applies storage compression. This optimization ensures that data
@@ -284,9 +269,7 @@ WHERE b.complyze_sec IS NOT NULL ORDER BY a.copy_sql, a.starttime;
   the `COMPUPDATE OFF` parameter. Otherwise, create the table with
   explicit compression before loading it with the COPY command.
 
-## Split Amazon S3 objects loaded by
-
-COPY
+## Split Amazon S3 objects loaded by COPY
 
 The COPY command takes advantage of the massively parallel processing (MPP)
 architecture in Amazon Redshift to read and load data from files on Amazon S3. The COPY command loads
@@ -356,9 +339,7 @@ END, (SUM(transfer_size)/(1024.0*1024.0))/COUNT(*) DESC;
   Split your load data files so that the files are about equal size, between 1 MB
   and 1 GB after compression.
 
-## Update table
-
-statistics
+## Update table statistics
 
 Amazon Redshift uses a cost-based query optimizer to choose the optimum execution plan for
 queries. The cost estimates are based on table statistics gathered using the ANALYZE
@@ -455,8 +436,7 @@ that are dedicated to running short queries. In addition, long-running queries
 don't need to contend with short queries for slots in a queue, so you can
 configure your WLM queues to use fewer query slots. When you use lower concurrency,
 query throughput is increased and overall system performance is improved for most
-workloads. For more information, see [Short query
-acceleration](wlm-short-query-acceleration.md "wlm-short-query-acceleration.md").
+workloads. For more information, see [Short query acceleration](wlm-short-query-acceleration.md "wlm-short-query-acceleration.md").
 
 **Analysis**
 
@@ -486,9 +466,7 @@ where service_class = 14;
 
 For more information, see [Monitoring SQA](wlm-short-query-acceleration.md#wlm-monitoring-sqa "wlm-short-query-acceleration.md#wlm-monitoring-sqa").
 
-## Alter distribution keys on
-
-tables
+## Alter distribution keys on tables
 
 Amazon Redshift distributes table rows throughout the cluster according to the table
 distribution style. Tables with KEY distribution require a column as the distribution

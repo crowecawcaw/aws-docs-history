@@ -75,9 +75,7 @@ to iam_role 'arn:aws:iam::123456789012:role/myGrantee';
 Superusers can access all objects regardless of GRANT and REVOKE commands that set
 object privileges.
 
-## Usage notes for column-level access
-
-control
+## Usage notes for column-level access control
 
 The following usage notes apply to column-level privileges on Amazon Redshift tables and
 views. These notes describe tables; the same notes apply to views unless we
@@ -131,9 +129,7 @@ explicitly note an exception.
   regular views.
 - To look up grants of column-level privileges, use the [PG_ATTRIBUTE_INFO](r_PG_ATTRIBUTE_INFO.md "r_PG_ATTRIBUTE_INFO.md") view.
 
-## Usage notes for granting the
-
-ASSUMEROLE permission
+## Usage notes for granting the ASSUMEROLE permission
 
 The following usage notes apply to granting the ASSUMEROLE permission in Amazon Redshift.
 
@@ -183,9 +179,7 @@ permissions that have been granted to a user that you specify, see [PG_GET_IAM_R
 list users, roles, and groups that have been granted access to an IAM role that you
 specify, see [PG_GET_GRANTEE_BY_IAM_ROLE](PG_GET_GRANTEE_BY_IAMROLE.md "PG_GET_GRANTEE_BY_IAMROLE.md").
 
-## Usage notes for granting machine
-
-learning permissions
+## Usage notes for granting machine learning permissions
 
 You can't directly grant or revoke permissions related to an ML function. An ML
 function belongs to an ML model and permissions are controlled through the model.

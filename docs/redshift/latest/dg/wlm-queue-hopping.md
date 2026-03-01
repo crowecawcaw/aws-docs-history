@@ -62,9 +62,7 @@ timeout:
 - UNLOAD statements
 - User-defined functions (UDFs)
 
-## WLM timeout reassigned
-
-and restarted queries
+## WLM timeout reassigned and restarted queries
 
 When a query is hopped and no matching queue is found, the query is canceled.
 
@@ -107,9 +105,7 @@ hop action.
 To find whether a query that was hopped by QMR was reassigned, restarted, or
 canceled, query the [STL_WLM_RULE_ACTION](r_STL_WLM_RULE_ACTION.md "r_STL_WLM_RULE_ACTION.md") system log table.
 
-## QMR hop action
-
-reassigned and restarted queries
+## QMR hop action reassigned and restarted queries
 
 When a query is hopped and no matching queue is found, the query is canceled.
 

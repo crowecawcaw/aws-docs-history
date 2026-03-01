@@ -50,8 +50,7 @@ to replace a function.
 
 If you define a function with the same name as an existing function but a
 different signature, you create a new function. In other words, the function
-name is overloaded. For more information, see [Overloading function
-names](udf-naming-udfs.md#udf-naming-overloading-function-names "udf-naming-udfs.md#udf-naming-overloading-function-names").
+name is overloaded. For more information, see [Overloading function names](udf-naming-udfs.md#udf-naming-overloading-function-names "udf-naming-udfs.md#udf-naming-overloading-function-names").
 
 _f_function_name_
 
@@ -68,8 +67,7 @@ information, see [Preventing UDF naming conflicts](udf-naming-udfs.md "udf-namin
 
 You can define more than one function with the same function name if the
 data types for the input arguments are different. In other words, the function
-name is overloaded. For more information, see [Overloading function
-names](udf-naming-udfs.md#udf-naming-overloading-function-names "udf-naming-udfs.md#udf-naming-overloading-function-names").
+name is overloaded. For more information, see [Overloading function names](udf-naming-udfs.md#udf-naming-overloading-function-names "udf-naming-udfs.md#udf-naming-overloading-function-names").
 
 _py_arg_name py_arg_data_type | sql_arg_data_type_
 
@@ -197,9 +195,7 @@ plpythonu. For more information, see [UDF security and permissions](udf-security
 
 ## Usage notes
 
-### Nested
-
-functions
+### Nested functions
 
 You can call another SQL user-defined function (UDF) from within a SQL UDF. The
 nested function must exist when you run the CREATE FUNCTION command. Amazon Redshift
@@ -216,9 +212,7 @@ as $$
 $$ language sql;
 ```
 
-### UDF security
-
-and privileges
+### UDF security and privileges
 
 To create a UDF, you must have permission for usage on language for SQL or
 plpythonu (Python). By default, USAGE ON LANGUAGE SQL is granted to PUBLIC. However,

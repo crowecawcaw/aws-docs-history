@@ -54,9 +54,7 @@ Isolation levels in Amazon Redshift prevent the following problems:
   a new row in an UPDATE or INSERT statement that matches the
   search criteria for T1. If T1 reruns its search statement, it gets a different set of rows.
 
-## SNAPSHOT
-
-and SERIALIZABLE isolation
+## SNAPSHOT and SERIALIZABLE isolation
 
 SNAPSHOT and SERIALIZABLE isolation are the two serializable isolation levels
 available in Amazon Redshift.

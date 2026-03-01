@@ -9,8 +9,7 @@ Use SVV_EXTERNAL_TABLES to view details for external tables; for more informatio
 Use SVV_EXTERNAL_TABLES also for cross-database queries to view metadata on all tables
 on unconnected databases that users have access to.
 
-SVV_EXTERNAL_TABLES is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV_EXTERNAL_TABLES is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

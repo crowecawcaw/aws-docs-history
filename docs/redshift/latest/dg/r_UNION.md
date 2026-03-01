@@ -8,8 +8,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 - [Syntax](#r_UNION-synopsis "#r_UNION-synopsis")
 - [Parameters](#r_UNION-parameters "#r_UNION-parameters")
-- [Order of evaluation
-  for set operators](#r_UNION-order-of-evaluation-for-set-operators "#r_UNION-order-of-evaluation-for-set-operators")
+- [Order of evaluation for set operators](#r_UNION-order-of-evaluation-for-set-operators "#r_UNION-order-of-evaluation-for-set-operators")
 - [Usage notes](#r_UNION-usage-notes "#r_UNION-usage-notes")
 - [Example UNION queries](c_example_union_query.md "c_example_union_query.md")
 - [Example UNION ALL query](c_example_unionall_query.md "c_example_unionall_query.md")
@@ -82,9 +81,7 @@ The default behavior when the ALL keyword isn't used is to discard
 these duplicates. INTERSECT ALL, EXCEPT ALL, and MINUS ALL aren't
 supported.
 
-## Order of evaluation
-
-for set operators
+## Order of evaluation for set operators
 
 The UNION and EXCEPT set operators are left-associative. If parentheses
 aren't specified to influence the order of precedence, a combination of these

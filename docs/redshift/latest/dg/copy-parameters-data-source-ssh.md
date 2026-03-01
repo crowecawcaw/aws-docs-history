@@ -22,10 +22,8 @@ commands.
 - [Syntax](#copy-parameters-data-source-ssh-syntax "#copy-parameters-data-source-ssh-syntax")
 - [Examples](#copy-parameters-data-source-ssh-examples "#copy-parameters-data-source-ssh-examples")
 - [Parameters](#copy-parameters-data-source-ssh-parameters "#copy-parameters-data-source-ssh-parameters")
-- [Optional
-  parameters](#copy-parameters-data-source-ssh-optional-parms "#copy-parameters-data-source-ssh-optional-parms")
-- [Unsupported
-  parameters](#copy-parameters-data-source-ssh-unsupported-parms "#copy-parameters-data-source-ssh-unsupported-parms")
+- [Optional parameters](#copy-parameters-data-source-ssh-optional-parms "#copy-parameters-data-source-ssh-optional-parms")
+- [Unsupported parameters](#copy-parameters-data-source-ssh-unsupported-parms "#copy-parameters-data-source-ssh-unsupported-parms")
 
 ###### Important
 
@@ -169,8 +167,7 @@ analysis, then the second read operation actually loads the data. If
 executing the remote command twice might cause a problem, you should
 disable automatic compression. To disable automatic compression, run the
 COPY command with the COMPUPDATE parameter set to OFF. For more
-information, see [Loading tables with automatic
-compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").
+information, see [Loading tables with automatic compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").
 
 For detailed procedures for using COPY from SSH, see [Loading data from remote hosts](loading-data-from-remote-hosts.md "loading-data-from-remote-hosts.md").
 
@@ -194,9 +191,7 @@ manifest file using the [s3://copy_from_ssh_manifest_file](#copy-ssh-manifest "#
 If you are using SSH to copy from a host using a private IP address in a remote VPC, the VPC must have enhanced VPC routing enabled. For more information about Enhanced VPC routing, see
 [Amazon Redshift Enhanced VPC Routing](../mgmt/enhanced-vpc-routing.md "../mgmt/enhanced-vpc-routing.md").
 
-## Optional
-
-parameters
+## Optional parameters
 
 You can optionally specify the following parameters with COPY from SSH:
 
@@ -205,9 +200,7 @@ You can optionally specify the following parameters with COPY from SSH:
 - [Data conversion parameters](copy-parameters-data-conversion.md "copy-parameters-data-conversion.md")
 - [Data load operations](copy-parameters-data-load.md "copy-parameters-data-load.md")
 
-## Unsupported
-
-parameters
+## Unsupported parameters
 
 You can't use the following parameters with COPY from SSH:
 

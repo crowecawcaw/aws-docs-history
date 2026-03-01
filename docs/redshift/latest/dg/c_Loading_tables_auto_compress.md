@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Loading tables with automatic
-
-compression
+# Loading tables with automatic compression
 
 You can apply compression encodings to columns in tables manually, based on your own
 evaluation of the data. Or you can use the COPY command with COMPUPDATE set to ON to
@@ -28,9 +26,7 @@ Automatic compression chooses RAW encoding if you haven't explicitly defined a
 type of encoding. ANALYZE COMPRESSION behaves the same. For optimal query performance,
 consider using RAW for sort keys.
 
-## How
-
-automatic compression works
+## How automatic compression works
 
 When the COMPUPDATE parameter is ON, the COPY command applies automatic compression whenever you run the
 COPY command with an empty target table and all of the table columns either have RAW

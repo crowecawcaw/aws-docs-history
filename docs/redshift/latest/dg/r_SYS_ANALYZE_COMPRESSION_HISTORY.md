@@ -7,12 +7,9 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 Records details for compression analysis operations during COPY or ANALYZE COMPRESSION
 commands.
 
-SYS_ANALYZE_COMPRESSION_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_ANALYZE_COMPRESSION_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
-## Table
-
-columns
+## Table columns
 
 | Column name     | Data type      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -26,9 +23,7 @@ columns
 | new_encoding    | character(15)  | The encoding type after compression<br>analysis.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | mode            | character(14)  | The possible values are:<br>**PRESET**<br>Specifies that the `new_encoding` is<br>determined by the Amazon Redshift COPY command based on the<br>column data type. No data is sampled.<br>**ON**<br>Specifies that the `new_encoding` is<br>determined by the Amazon Redshift COPY command based on an<br>analysis of sample data.<br>**ANALYZE ONLY**<br>Specifies that the `new_encoding` is<br>determined by the Amazon Redshift ANALYZE COMPRESSION command<br>based on an analysis of sample data. However, the<br>encoding type of the analyzed column is not<br>changed. |
 
-## Sample
-
-queries
+## Sample queries
 
 The following example inspects the details of compression analysis on the
 `lineitem` table by the last COPY command run in the same session.

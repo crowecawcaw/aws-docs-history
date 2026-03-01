@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Tutorial: Building multi-class classification
-
-models
+# Tutorial: Building multi-class classification models
 
 In this tutorial, you use Amazon Redshift ML to create a machine learning model that
 solves multi-class classification problems. The multi-class classification
@@ -309,9 +307,7 @@ LIMIT
     10;
 ```
 
-###
-
-Run prediction queries against the validation data (optional)
+### Run prediction queries against the validation data (optional)
 
 Run the following prediction queries against the validation data to see the
 model’s level of accuracy.

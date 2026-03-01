@@ -13,8 +13,7 @@ Records details for the following changes to a database user:
   You can query this view to see information about serverless workgroups and provisioned
   clusters.
 
-SYS_USERLOG is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS_USERLOG is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

@@ -19,8 +19,7 @@ _datepart_
 
 An identifier literal or string of the specific part of the date value (for example, year, month, or day)
 that the function operates on.
-For more information, see [Date parts for date or timestamp
-functions](r_Dateparts_for_datetime_functions.md "r_Dateparts_for_datetime_functions.md").
+For more information, see [Date parts for date or timestamp functions](r_Dateparts_for_datetime_functions.md "r_Dateparts_for_datetime_functions.md").
 
 {_date_|_timestamp_}
 

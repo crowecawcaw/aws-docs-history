@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Uploading encrypted data to
-
-Amazon S3
+# Uploading encrypted data to Amazon S3
 
 Amazon S3 supports both server-side encryption and client-side encryption. This
 topic discusses the differences between the server-side and client-side encryption
@@ -75,12 +73,9 @@ Client-Side Encryption Using the AWS SDK for Java](../../../AmazonS3/latest/user
 _Amazon Simple Storage Service User Guide_.
 
 For information about loading client-side encrypted files into your Amazon Redshift
-tables using the COPY command, see [Loading encrypted data files from
-Amazon S3](c_loading-encrypted-files.md "c_loading-encrypted-files.md").
+tables using the COPY command, see [Loading encrypted data files from Amazon S3](c_loading-encrypted-files.md "c_loading-encrypted-files.md").
 
-## Example: Uploading client-side
-
-encrypted data
+## Example: Uploading client-side encrypted data
 
 For an example of how to use the AWS SDK for Java to upload client-side
 encrypted data, go to [Protecting data using client-side encryption](../../../AmazonS3/latest/userguide/encrypt-client-side-symmetric-master-key.md "../../../AmazonS3/latest/userguide/encrypt-client-side-symmetric-master-key.md")

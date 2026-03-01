@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Query troubleshooting in Amazon Redshift
-
-Spectrum
+# Query troubleshooting in Amazon Redshift Spectrum
 
 This topic is a reference for common
 issues you might encounter with Amazon Redshift Spectrum queries.
@@ -17,18 +15,12 @@ table.
 
 - [Retries exceeded](#spectrum-troubleshooting-retries-exceeded "#spectrum-troubleshooting-retries-exceeded")
 - [Access throttled](#spectrum-troubleshooting-access-throttled "#spectrum-troubleshooting-access-throttled")
-- [Resource limit
-  exceeded](#spectrum-troubleshooting-resource-limit-exceeded "#spectrum-troubleshooting-resource-limit-exceeded")
-- [No rows returned
-  for a partitioned table](#spectrum-troubleshooting-no-rows-partitioned-table "#spectrum-troubleshooting-no-rows-partitioned-table")
-- [Not authorized
-  error](#spectrum-troubleshooting-not-authorized-error "#spectrum-troubleshooting-not-authorized-error")
-- [Incompatible data
-  formats](#spectrum-troubleshooting-incompatible-data-format "#spectrum-troubleshooting-incompatible-data-format")
-- [Syntax error when
-  using Hive DDL in Amazon Redshift](#spectrum-troubleshooting-syntax-error-using-hive-ddl "#spectrum-troubleshooting-syntax-error-using-hive-ddl")
-- [Permission
-  to create temporary tables](#spectrum-troubleshooting-permission-to-create-temp-tables "#spectrum-troubleshooting-permission-to-create-temp-tables")
+- [Resource limit exceeded](#spectrum-troubleshooting-resource-limit-exceeded "#spectrum-troubleshooting-resource-limit-exceeded")
+- [No rows returned for a partitioned table](#spectrum-troubleshooting-no-rows-partitioned-table "#spectrum-troubleshooting-no-rows-partitioned-table")
+- [Not authorized error](#spectrum-troubleshooting-not-authorized-error "#spectrum-troubleshooting-not-authorized-error")
+- [Incompatible data formats](#spectrum-troubleshooting-incompatible-data-format "#spectrum-troubleshooting-incompatible-data-format")
+- [Syntax error when using Hive DDL in Amazon Redshift](#spectrum-troubleshooting-syntax-error-using-hive-ddl "#spectrum-troubleshooting-syntax-error-using-hive-ddl")
+- [Permission to create temporary tables](#spectrum-troubleshooting-permission-to-create-temp-tables "#spectrum-troubleshooting-permission-to-create-temp-tables")
 - [Invalid range](#spectrum-troubleshooting-invalid-range "#spectrum-troubleshooting-invalid-range")
 - [Invalid Parquet version number](#spectrum-troubleshooting-invalid-parquet-version "#spectrum-troubleshooting-invalid-parquet-version")
 - [Required field missing from external partition information](#spectrum-troubleshooting-required-field-missing "#spectrum-troubleshooting-required-field-missing")
@@ -66,9 +58,7 @@ Two types of throttling can happen:
 The error context provides more details about the type of throttling. Following, you
 can find causes and possible resolutions for this throttling.
 
-### Access throttled by
-
-Amazon S3
+### Access throttled by Amazon S3
 
 Amazon S3 might throttle a Redshift Spectrum request if the read request rate on a [prefix](../../../glossary/latest/reference/glos-chap.md#keyprefix "../../../glossary/latest/reference/glos-chap.md#keyprefix") is too high. For information
 about a GET/HEAD request rate that you can achieve in Amazon S3, see [Optimizing Amazon S3 Performance](../../../AmazonS3/latest/userguide/optimizing-performance.md "../../../AmazonS3/latest/userguide/optimizing-performance.md") in _Amazon Simple Storage Service User Guide._
@@ -80,12 +70,9 @@ GET/HEAD requests that Redshift Spectrum makes to Amazon S3. To do this, try mer
 larger files. We recommend using file sizes of 64 MB or larger.
 
 Also consider partitioning your Redshift Spectrum tables to benefit from early filtering and to
-reduce the number of files accessed in Amazon S3. For more information, see [Partitioning Redshift Spectrum external
-tables](c-spectrum-external-tables.md#c-spectrum-external-tables-partitioning "c-spectrum-external-tables.md#c-spectrum-external-tables-partitioning").
+reduce the number of files accessed in Amazon S3. For more information, see [Partitioning Redshift Spectrum external tables](c-spectrum-external-tables.md#c-spectrum-external-tables-partitioning "c-spectrum-external-tables.md#c-spectrum-external-tables-partitioning").
 
-### Access throttled by
-
-AWS KMS
+### Access throttled by AWS KMS
 
 If you store your data in Amazon S3 using server-side encryption (SSE-S3 or SSE-KMS),
 Amazon S3 calls an API operation to AWS KMS for each file that Redshift Spectrum accesses. These
@@ -105,9 +92,7 @@ quota increase for your AWS KMS request rate for cryptographic operations. To re
 quota increase, see [AWS Service
 Limits](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md") in the _Amazon Web Services General Reference_.
 
-## Resource limit
-
-exceeded
+## Resource limit exceeded
 
 Redshift Spectrum enforces an upper bound on the amount of memory a request can use. A Redshift Spectrum
 request that requires more memory fails, resulting in the following error.
@@ -122,15 +107,12 @@ There are two common reasons that can cause a Redshift Spectrum request to overr
 - A large aggregation step is processed by Redshift Spectrum.
 
 We recommend using a file format that supports parallel reads with split sizes of 128 MB or less. See
-[Data files for queries in Amazon Redshift
-Spectrum](c-spectrum-data-files.md "c-spectrum-data-files.md") for
+[Data files for queries in Amazon Redshift Spectrum](c-spectrum-data-files.md "c-spectrum-data-files.md") for
 supported file formats and generic guidelines for data file creation. When
 using file formats or compression algorithms that don't support parallel reads, we recommend
 keeping file sizes between 64 MB and 128 MB.
 
-## No rows returned
-
-for a partitioned table
+## No rows returned for a partitioned table
 
 If your query returns zero rows from a partitioned external table, check whether a
 partition has been added for this external table. Redshift Spectrum only scans files in
@@ -138,17 +120,13 @@ an Amazon S3 location that has been explicitly added using `ALTER TABLE … ADD 
 the [SVV_EXTERNAL_PARTITIONS](r_SVV_EXTERNAL_PARTITIONS.md "r_SVV_EXTERNAL_PARTITIONS.md") view to find existing partitions. Run `ALTER TABLE … ADD PARTITION` for each missing
 partition.
 
-## Not authorized
-
-error
+## Not authorized error
 
 Verify that the IAM role for the cluster allows access to the Amazon S3 file objects. If
 your external database is on Amazon Athena, verify that the IAM role allows
 access to Athena resources. For more information, see [IAM policies for Amazon Redshift Spectrum](c-spectrum-iam-policies.md "c-spectrum-iam-policies.md").
 
-## Incompatible data
-
-formats
+## Incompatible data formats
 
 For a columnar file format, such as Apache Parquet, the column type is embedded with
 the data. The column type in the CREATE EXTERNAL TABLE definition must match the column
@@ -185,9 +163,7 @@ Column type: VARCHAR, Parquet schema:\noptional int64 l_orderkey [i:0 d:1 r:0]\n
 To correct the error, alter the external table to match the column type of the
 Parquet file.
 
-## Syntax error when
-
-using Hive DDL in Amazon Redshift
+## Syntax error when using Hive DDL in Amazon Redshift
 
 Amazon Redshift supports data definition language (DDL) for CREATE EXTERNAL TABLE that is
 similar to Hive DDL. However, the two types of DDL aren't always exactly the same. If
@@ -198,9 +174,7 @@ errors. The following are examples of differences between Amazon Redshift and Hi
   quotation marks (").
 - Amazon Redshift doesn't support the STRING data type. Use VARCHAR instead.
 
-## Permission
-
-to create temporary tables
+## Permission to create temporary tables
 
 To run Redshift Spectrum queries, the database user must have permission to create
 temporary tables in the database. The following example grants temporary permission on
@@ -233,12 +207,10 @@ File 'https://s3.region.amazonaws.com/s3bucket/location/file has an invalid vers
 
 There are two common reasons that can cause the check to fail:
 
-- The Parquet file has been overwritten during the query (see [Invalid range](#spectrum-troubleshooting-invalid-range "#spectrum-troubleshooting-invalid-range") ).
+- The Parquet file has been overwritten during the query (see [Invalid range](#spectrum-troubleshooting-invalid-range "#spectrum-troubleshooting-invalid-range")).
 - The Parquet file is corrupt.
 
-##
-
-Required field missing from external partition information
+## Required field missing from external partition information
 
 When you try to add a partition to an external table in
 an external catalog, you might get the following error:

@@ -14,8 +14,7 @@ configurations to achieve your desired data warehousing setup.
 
 ###### Topics
 
-- [Modifying the server
-  configuration](#t_Modifying_the_default_settings "#t_Modifying_the_default_settings")
+- [Modifying the server configuration](#t_Modifying_the_default_settings "#t_Modifying_the_default_settings")
 - [analyze_threshold_percent](r_analyze_threshold_percent.md "r_analyze_threshold_percent.md")
 - [cast_super_null_on_error](r_cast_super_null_on_error.md "r_cast_super_null_on_error.md")
 - [datashare_break_glass_session_var](r_datashare_break_glass_session_var.md "r_datashare_break_glass_session_var.md")
@@ -51,9 +50,7 @@ configurations to achieve your desired data warehousing setup.
 - [use_fips_ssl](use_fips_ssl.md "use_fips_ssl.md")
 - [wlm_query_slot_count](r_wlm_query_slot_count.md "r_wlm_query_slot_count.md")
 
-## Modifying the server
-
-configuration
+## Modifying the server configuration
 
 You can change the server configuration in the following ways:
 

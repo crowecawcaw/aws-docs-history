@@ -17,6 +17,5 @@ credentials.
 
 - [Unloading data to Amazon S3](t_Unloading_tables.md "t_Unloading_tables.md")
 - [Unloading encrypted data files](t_unloading_encrypted_files.md "t_unloading_encrypted_files.md")
-- [Unloading data in delimited or
-  fixed-width format](t_unloading_fixed_width_data.md "t_unloading_fixed_width_data.md")
+- [Unloading data in delimited or fixed-width format](t_unloading_fixed_width_data.md "t_unloading_fixed_width_data.md")
 - [Reloading unloaded data](t_Reloading_unload_files.md "t_Reloading_unload_files.md")

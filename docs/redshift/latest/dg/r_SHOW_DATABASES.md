@@ -118,8 +118,7 @@ JSON
 
 ```
 
-For the steps to create an IAM role to use with federated query, see [Creating a secret and an IAM role to use
-federated queries](federated-create-secret-iam-role.md "federated-create-secret-iam-role.md").
+For the steps to create an IAM role to use with federated query, see [Creating a secret and an IAM role to use federated queries](federated-create-secret-iam-role.md "federated-create-secret-iam-role.md").
 
 ###### Note
 

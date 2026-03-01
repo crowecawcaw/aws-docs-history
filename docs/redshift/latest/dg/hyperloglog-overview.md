@@ -41,8 +41,7 @@ Amazon Redshift imports, exports, and prints an HLLSKETCH as JSON when the sketc
 sparse format. Amazon Redshift imports, exports, and prints an HLLSKETCH as a Base64 string when the
 sketch is in a dense format. For more information about UNLOAD, see [Unloading the HLLSKETCH data type](r_UNLOAD.md#unload-usage-hll "r_UNLOAD.md#unload-usage-hll"). To import text or
 comma-separated value (CSV) data into Amazon Redshift, use the COPY command. For more information,
-see [Loading the HLLSKETCH data
-type](copy-usage_notes-hll.md "copy-usage_notes-hll.md").
+see [Loading the HLLSKETCH data type](copy-usage_notes-hll.md "copy-usage_notes-hll.md").
 
 For information about functions used with HyperLogLog, see [HyperLogLog functions](hyperloglog-functions.md "hyperloglog-functions.md").
 

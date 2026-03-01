@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Creating a database from a datashare in
-
-Amazon Redshift
+# Creating a database from a datashare in Amazon Redshift
 
 With Amazon Redshift, you can use a datashare to create a database, and then query data
 across datashares from producer clusters to securely access live data without
@@ -114,5 +112,4 @@ processing needed, and then share the new objects that were
 created.
 
 You can also use the Amazon Redshift console to create databases from
-datashares. For more information, see [Creating databases from
-datashares](query-datashare-console.md#create-database-from-datashare-console "query-datashare-console.md#create-database-from-datashare-console").
+datashares. For more information, see [Creating databases from datashares](query-datashare-console.md#create-database-from-datashare-console "query-datashare-console.md#create-database-from-datashare-console").

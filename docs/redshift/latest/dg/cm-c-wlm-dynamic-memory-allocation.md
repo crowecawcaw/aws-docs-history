@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# WLM dynamic memory
-
-allocation
+# WLM dynamic memory allocation
 
 In each queue, WLM creates a number of query slots equal to the queue's concurrency
 level. The amount of memory allocated to a query slot equals the percentage of memory

@@ -10,9 +10,7 @@ Regions, and insufficient Amazon S3 permissions.
 
 The section provides troubleshooting information for each type of error.
 
-## Invalid credentials
-
-string
+## Invalid credentials string
 
 If your credentials string was improperly formatted, you will receive the
 following error message:
@@ -38,9 +36,7 @@ message:
 This is often a copy and paste error. Verify that the access key ID was entered
 correctly. Also, if you are using temporary session keys, check that the value for `token` is set.
 
-## Invalid secret access
-
-key
+## Invalid secret access key
 
 If your secret access key is incorrect, you will receive the following error
 message:
@@ -53,9 +49,7 @@ Check your key and signing method.,Status 403,Error SignatureDoesNotMatch
 This is often a copy and paste error. Verify that the secret access key was
 entered correctly and that it is the correct key for the access key ID.
 
-## Bucket is in a different
-
-Region
+## Bucket is in a different Region
 
 The Amazon S3 bucket specified in the COPY command must be in the same AWS Region as
 the cluster. If your Amazon S3 bucket and your cluster are in different Regions, you

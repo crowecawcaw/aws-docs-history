@@ -32,9 +32,7 @@ SELECT  c.name.given, c.name.family, p AS phone
 FROM    spectrum.customers c LEFT JOIN c.phones p ON true;
 ```
 
-##
-
-Aggregating nested data with subqueries
+## Aggregating nested data with subqueries
 
 You can use a subquery to aggregate nested data. The following example
 illustrates this approach.

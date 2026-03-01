@@ -338,8 +338,7 @@ The PRIVILEGES keyword is optional.
 ###### Note
 
 Amazon Redshift doesn't support the RULE and TRIGGER permissions. For more
-information, go to [Unsupported PostgreSQL
-features](c_unsupported-postgresql-features.md "c_unsupported-postgresql-features.md").
+information, go to [Unsupported PostgreSQL features](c_unsupported-postgresql-features.md "c_unsupported-postgresql-features.md").
 
 ALTER
 
@@ -519,8 +518,7 @@ For more information, see [UDF security and permissions](udf-security-and-privil
 
 To revoke usage for stored procedures, first revoke usage from PUBLIC. Then
 grant usage on `plpgsql` only to the specific users or groups
-permitted to create stored procedures. For more information, see [Security and privileges for
-stored procedures](stored-procedure-security-and-privileges.md "stored-procedure-security-and-privileges.md") .
+permitted to create stored procedures. For more information, see [Security and privileges for stored procedures](stored-procedure-security-and-privileges.md "stored-procedure-security-and-privileges.md").
 
 ON COPY JOB _job_name_
 

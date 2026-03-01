@@ -41,9 +41,7 @@ ASCII letters in delimited identifiers are case-insensitive and are folded to
 lowercase. To use a double quotation mark in a string, you must precede it with
 another double quotation mark character.
 
-## Case-sensitive
-
-identifiers
+## Case-sensitive identifiers
 
 Case-sensitive identifiers (also known as mixed-case identifiers) can contain
 both uppercase and lowercase letters. To use case-sensitive identifiers, you can

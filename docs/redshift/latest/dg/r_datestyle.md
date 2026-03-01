@@ -4,9 +4,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # datestyle
 
-## Values (default in
-
-bold)
+## Values (default in bold)
 
 Format specification (**ISO**, Postgres, SQL, or
 German), and year/month/day ordering (DMY, **MDY**,

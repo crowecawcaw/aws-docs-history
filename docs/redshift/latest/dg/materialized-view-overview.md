@@ -25,7 +25,7 @@ Materialized views are especially useful for speeding up queries that are predic
 repeated. Instead of performing resource-intensive queries against large tables (such as
 aggregates or multiple joins), applications can query a materialized view and retrieve a
 precomputed result set. For example, consider the scenario where a set of queries is used to
-populate dashboards, such as Amazon Quick Suite.
+populate dashboards, such as Amazon Quick.
 This use case is ideal for a materialized view, because the queries are predictable and
 repeated over and over again.
 
@@ -98,10 +98,8 @@ command topics:
 ###### Topics
 
 - [Materialized view queries](materialized-view-query.md "materialized-view-query.md")
-- [Automatic query rewriting to use
-  materialized views](materialized-view-auto-rewrite.md "materialized-view-auto-rewrite.md")
-- [Materialized views on external data
-  lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md "materialized-view-external-table.md")
+- [Automatic query rewriting to use materialized views](materialized-view-auto-rewrite.md "materialized-view-auto-rewrite.md")
+- [Materialized views on external data lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md "materialized-view-external-table.md")
 - [Refreshing a materialized view](materialized-view-refresh.md "materialized-view-refresh.md")
 - [Automated materialized views](materialized-view-auto-mv.md "materialized-view-auto-mv.md")
 - [Using a user-defined function (UDF) in a materialized view](materialized-view-UDFs.md "materialized-view-UDFs.md")

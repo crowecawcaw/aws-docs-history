@@ -28,8 +28,7 @@ information, go to [Firewall Timeout Issue](../mgmt/connecting-firewall-guidance
 
 If your client application uses an ODBC connection and your query creates a result
 set that is too large to fit in memory, you can stream the result set to your client
-application by using a cursor. For more information, see [DECLARE](declare.md "declare.md") and [Performance considerations when using
-cursors](declare.md#declare-performance "declare.md#declare-performance").
+application by using a cursor. For more information, see [DECLARE](declare.md "declare.md") and [Performance considerations when using cursors](declare.md#declare-performance "declare.md#declare-performance").
 
 ###### Client-side out-of-memory error occurs with JDBC
 

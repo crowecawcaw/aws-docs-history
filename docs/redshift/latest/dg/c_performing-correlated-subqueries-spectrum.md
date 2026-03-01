@@ -13,8 +13,7 @@ To perform a correlated subquery, the pseudocolumn `$spectrum_oid` must be enabl
 For more information,
 see [Pseudocolumns](c-spectrum-external-tables.md#c-spectrum-external-tables-pseudocolumns "c-spectrum-external-tables.md#c-spectrum-external-tables-pseudocolumns").
 
-To create the external schema and external tables for this example, see [Getting started with Amazon Redshift
-Spectrum](c-getting-started-using-spectrum.md "c-getting-started-using-spectrum.md").
+To create the external schema and external tables for this example, see [Getting started with Amazon Redshift Spectrum](c-getting-started-using-spectrum.md "c-getting-started-using-spectrum.md").
 
 Following is an example of a correlated subquery in Redshift Spectrum.
 

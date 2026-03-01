@@ -39,8 +39,7 @@ Optional. One or more column expressions that defines the order of rows within a
 If no PARTITION BY is specified, ORDER BY uses the entire table.
 
 If ORDER BY does not produce a unique ordering or is omitted, the order of the rows is
-nondeterministic. For more information, see [Unique ordering of data for window
-functions](c_Window_functions.md#r_Examples_order_by_WF "c_Window_functions.md#r_Examples_order_by_WF").
+nondeterministic. For more information, see [Unique ordering of data for window functions](c_Window_functions.md#r_Examples_order_by_WF "c_Window_functions.md#r_Examples_order_by_WF").
 
 ## Return type
 

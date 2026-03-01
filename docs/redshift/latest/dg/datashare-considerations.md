@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Considerations for data sharing in
-
-Amazon Redshift
+# Considerations for data sharing in Amazon Redshift
 
 With Amazon Redshift _data sharing_, you can securely share
 access to live data across Amazon Redshift clusters, workgroups, AWS accounts, and AWS Regions
@@ -19,18 +17,12 @@ This section covers considerations when working with Amazon Redshift data sharin
 
 ###### Topics
 
-- [General considerations for data
-  sharing in Amazon Redshift](considerations-datashare-general.md "considerations-datashare-general.md")
-- [Considerations for data sharing
-  reads and writes in Amazon Redshift](considerations-datashare-reads-writes.md "considerations-datashare-reads-writes.md")
-- [Considerations for data sharing with
-  data lake tables in Amazon Redshift](considerations-datashare-datalake.md "considerations-datashare-datalake.md")
-- [Considerations for data sharing with AWS Lake Formation in
-  Amazon Redshift](lake-formation-considerations.md "lake-formation-considerations.md")
-- [Considerations for data sharing with AWS Data Exchange in
-  Amazon Redshift](adx-considerations.md "adx-considerations.md")
+- [General considerations for data sharing in Amazon Redshift](considerations-datashare-general.md "considerations-datashare-general.md")
+- [Considerations for data sharing reads and writes in Amazon Redshift](considerations-datashare-reads-writes.md "considerations-datashare-reads-writes.md")
+- [Considerations for data sharing in Amazon Redshift Serverless restore](considerations-datashare-serverless-restore.md "considerations-datashare-serverless-restore.md")
+- [Considerations for data sharing with data lake tables in Amazon Redshift](considerations-datashare-datalake.md "considerations-datashare-datalake.md")
+- [Considerations for data sharing with AWS Lake Formation in Amazon Redshift](lake-formation-considerations.md "lake-formation-considerations.md")
+- [Considerations for data sharing with AWS Data Exchange in Amazon Redshift](adx-considerations.md "adx-considerations.md")
 - [Permissions you can grant to datashares](permissions-datashares.md "permissions-datashares.md")
-- [Supported SQL statements for
-  data sharing writes on consumers](multi-warehouse-writes-sql-statements.md "multi-warehouse-writes-sql-statements.md")
-- [Unsupported SQL
-  statements for data sharing writes on consumers](multi-warehouse-writes-sql-statements-unsupported.md "multi-warehouse-writes-sql-statements-unsupported.md")
+- [Supported SQL statements for data sharing writes on consumers](multi-warehouse-writes-sql-statements.md "multi-warehouse-writes-sql-statements.md")
+- [Unsupported SQL statements for data sharing writes on consumers](multi-warehouse-writes-sql-statements-unsupported.md "multi-warehouse-writes-sql-statements-unsupported.md")

@@ -140,8 +140,7 @@ of the rows is nondeterministic. That is, if the ORDER BY expression
 produces duplicate values (a partial ordering), the return order of those
 rows might vary from one run of Amazon Redshift to the next. In turn, window
 functions might return unexpected or inconsistent results. For more
-information, see [Unique ordering of data for window
-functions](#r_Examples_order_by_WF "#r_Examples_order_by_WF").
+information, see [Unique ordering of data for window functions](#r_Examples_order_by_WF "#r_Examples_order_by_WF").
 
 _column_name_
 
@@ -246,9 +245,7 @@ between current row and 2 preceding
 between 3 following and current row
 ```
 
-## Unique ordering of data for window
-
-functions
+## Unique ordering of data for window functions
 
 If an ORDER BY clause for a window function doesn't produce a unique and
 total ordering of the data, the order of the rows is nondeterministic. If the ORDER BY

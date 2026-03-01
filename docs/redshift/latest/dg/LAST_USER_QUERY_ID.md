@@ -7,8 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 Returns the query ID of the most recently completed user query in the current session. If
 no queries have been run in the current session, last_user_query_id returns -1. The function
 does not return the query ID for queries that run exclusively on the
-leader node. For more information, see [Leader node–only
-functions](c_SQL_functions_leader_node_only.md "c_SQL_functions_leader_node_only.md").
+leader node. For more information, see [Leader node–only functions](c_SQL_functions_leader_node_only.md "c_SQL_functions_leader_node_only.md").
 
 ## Syntax
 

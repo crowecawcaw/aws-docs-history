@@ -43,8 +43,7 @@ distributed, including the following:
   [Distribution styles](c_choosing_dist_sort.md "c_choosing_dist_sort.md").
 - The distribution key for the materialized view, in the format
   `DISTKEY ( *distkey\_identifier*
-)`. For more information, see [Designating distribution
-  styles](t_designating_distribution_styles.md "t_designating_distribution_styles.md").
+)`. For more information, see [Designating distribution styles](t_designating_distribution_styles.md "t_designating_distribution_styles.md").
 - The sort key for the materialized view, in the format `SORTKEY (
 *column\_name* [, ...] )`.
   For more information, see [Sort keys](t_Sorting_data.md "t_Sorting_data.md").
@@ -59,8 +58,7 @@ views, see [Limitations](#mv_CREATE_MATERIALIZED_VIEW-limitations "#mv_CREATE_MA
 Furthermore, specific SQL language constructs used in the query determines
 whether the materialized view can be incrementally or fully refreshed. For
 information about the refresh method, see [REFRESH MATERIALIZED VIEW](materialized-view-refresh-sql-command.md "materialized-view-refresh-sql-command.md"). For information
-about the limitations for incremental refresh, see [Limitations for incremental
-refresh](materialized-view-refresh-sql-command.md#mv_REFRESH_MARTERIALIZED_VIEW_limitations "materialized-view-refresh-sql-command.md#mv_REFRESH_MARTERIALIZED_VIEW_limitations").
+about the limitations for incremental refresh, see [Limitations for incremental refresh](materialized-view-refresh-sql-command.md#mv_REFRESH_MARTERIALIZED_VIEW_limitations "materialized-view-refresh-sql-command.md#mv_REFRESH_MARTERIALIZED_VIEW_limitations").
 
 If the query contains an SQL command that doesn't support incremental
 refresh, Amazon Redshift displays a message indicating that the materialized view will use
@@ -88,9 +86,7 @@ To create a materialized view, you must have the following privileges:
 You can create a materialized view from a remote datasharing cluster by providing the
 external database name at the `mv_name`.
 
-## Incremental refresh for
-
-materialized views in a datashare
+## Incremental refresh for materialized views in a datashare
 
 Amazon Redshift supports automatic and incremental refresh for materialized views in a consumer
 datashare when the base tables are shared. Incremental refresh is an operation where
@@ -110,9 +106,7 @@ with a materialized view:
 For more information about creating materialized views in a datashare, see [Working with views in Amazon Redshift
 data sharing](datashare-views.md "datashare-views.md"), which contains several query examples.
 
-## DDL updates to materialized views or base
-
-tables
+## DDL updates to materialized views or base tables
 
 When using materialized views in Amazon Redshift, follow these usage notes for data definition
 language (DDL) updates to materialized views or base tables.

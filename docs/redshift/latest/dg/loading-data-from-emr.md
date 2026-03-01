@@ -13,49 +13,41 @@ fixed-width files, character-delimited files, CSV files, or JSON-formatted files
 This section walks you through the process of loading data from an Amazon EMR cluster.
 The following sections provide the details that you must accomplish each step.
 
-- **[Step 1: Configure IAM
-  permissions](#load-from-emr-steps-configure-iam "#load-from-emr-steps-configure-iam")**
+- **[Step 1: Configure IAM permissions](#load-from-emr-steps-configure-iam "#load-from-emr-steps-configure-iam")**
 
 The users that create the Amazon EMR cluster and run the Amazon Redshift COPY command
 must have the necessary permissions.
 
-- **[Step 2: Create an Amazon EMR
-  cluster](#load-from-emr-steps-create-cluster "#load-from-emr-steps-create-cluster")**
+- **[Step 2: Create an Amazon EMR cluster](#load-from-emr-steps-create-cluster "#load-from-emr-steps-create-cluster")**
 
 Configure the cluster to output text files to the Hadoop Distributed File
 System (HDFS). You will need the Amazon EMR cluster ID and the cluster's main public
 DNS (the endpoint for the Amazon EC2 instance that hosts the cluster).
 
-- **[Step 3: Retrieve the
-  Amazon Redshift cluster public key and cluster node IP addresses](#load-from-emr-steps-retrieve-key-and-ips "#load-from-emr-steps-retrieve-key-and-ips")**
+- **[Step 3: Retrieve the Amazon Redshift cluster public key and cluster node IP addresses](#load-from-emr-steps-retrieve-key-and-ips "#load-from-emr-steps-retrieve-key-and-ips")**
 
 The public key enables the Amazon Redshift cluster nodes to establish SSH
 connections to the hosts. You will use the IP address for each cluster node to
 configure the host security groups to permit access from your Amazon Redshift cluster
 using these IP addresses.
 
-- **[Step 4: Add the Amazon Redshift
-  cluster public key to each Amazon EC2 host's authorized keys file](#load-from-emr-steps-add-key-to-host "#load-from-emr-steps-add-key-to-host")**
+- **[Step 4: Add the Amazon Redshift cluster public key to each Amazon EC2 host's authorized keys file](#load-from-emr-steps-add-key-to-host "#load-from-emr-steps-add-key-to-host")**
 
 You add the Amazon Redshift cluster public key to the host's authorized keys file
 so that the host will recognize the Amazon Redshift cluster and accept the SSH
 connection.
 
-- **[Step 5: Configure the
-  hosts to accept all of the Amazon Redshift cluster's IP addresses](#load-from-emr-steps-configure-security-groups "#load-from-emr-steps-configure-security-groups")**
+- **[Step 5: Configure the hosts to accept all of the Amazon Redshift cluster's IP addresses](#load-from-emr-steps-configure-security-groups "#load-from-emr-steps-configure-security-groups")**
 
 Modify the Amazon EMR instance's security groups to add input rules to accept the
 Amazon Redshift IP addresses.
 
-- **[Step 6: Run the COPY command to load
-  the data](#load-from-emr-steps-run-copy "#load-from-emr-steps-run-copy")**
+- **[Step 6: Run the COPY command to load the data](#load-from-emr-steps-run-copy "#load-from-emr-steps-run-copy")**
 
 From an Amazon Redshift database, run the COPY command to load the data into an
 Amazon Redshift table.
 
-## Step 1: Configure IAM
-
-permissions
+## Step 1: Configure IAM permissions
 
 The users that create the Amazon EMR cluster and run the Amazon Redshift COPY command must
 have the necessary permissions.
@@ -85,9 +77,7 @@ elasticmapreduce:ListInstances
 redshift:DescribeClusters
 ```
 
-## Step 2: Create an Amazon EMR
-
-cluster
+## Step 2: Create an Amazon EMR cluster
 
 The COPY command loads data from files on the Amazon EMR Hadoop Distributed File System
 (HDFS). When you create the Amazon EMR cluster, configure the cluster to output data files
@@ -118,15 +108,11 @@ completes, you might have unexpected results, or the COPY operation might
 fail. 4. Note the cluster ID and the main public DNS (the endpoint for the Amazon EC2
 instance that hosts the cluster). You will use that information in later steps.
 
-## Step 3: Retrieve the
-
-Amazon Redshift cluster public key and cluster node IP addresses
+## Step 3: Retrieve the Amazon Redshift cluster public key and cluster node IP addresses
 
 You will use the IP address for each cluster node to configure the host security groups to permit access from your Amazon Redshift cluster using these IP addresses.
 
-###### To retrieve the Amazon Redshift cluster public key and cluster node IP addresses for
-
-your cluster using the console
+###### To retrieve the Amazon Redshift cluster public key and cluster node IP addresses for your cluster using the console
 
 1. Access the Amazon Redshift Management Console.
 2. Choose the **Clusters** link in the navigation pane.
@@ -190,17 +176,13 @@ information, see [describe-clusters](../../../cli/latest/reference/redshift/desc
 [DescribeClusters](../APIReference/API_DescribeClusters.md "../APIReference/API_DescribeClusters.md") in the
 Amazon Redshift API Guide.
 
-## Step 4: Add the Amazon Redshift
-
-cluster public key to each Amazon EC2 host's authorized keys file
+## Step 4: Add the Amazon Redshift cluster public key to each Amazon EC2 host's authorized keys file
 
 You add the cluster public key to each host's authorized keys file for all of the
 Amazon EMR cluster nodes so that the hosts will recognize Amazon Redshift and accept the SSH
 connection.
 
-###### To add the Amazon Redshift cluster public key to the host's authorized keys
-
-file
+###### To add the Amazon Redshift cluster public key to the host's authorized keys file
 
 1. Access the host using an SSH connection.
 
@@ -214,20 +196,15 @@ and suffix "`Amazon-Redshift`". For example:
 ssh-rsa AAAACTP3isxgGzVWoIWpbVvRCOzYdVifMrh… uA70BnMHCaMiRdmvsDOedZDOedZ Amazon-Redshift
 ```
 
-## Step 5: Configure the
-
-hosts to accept all of the Amazon Redshift cluster's IP addresses
+## Step 5: Configure the hosts to accept all of the Amazon Redshift cluster's IP addresses
 
 To allow inbound traffic to the host instances, edit the security group and add
 one Inbound rule for each Amazon Redshift cluster node. For **Type**, select SSH with TCP protocol on Port 22. For **Source**, enter the Amazon Redshift cluster node private IP
-addresses you retrieved in [Step 3: Retrieve the
-Amazon Redshift cluster public key and cluster node IP addresses](#load-from-emr-steps-retrieve-key-and-ips "#load-from-emr-steps-retrieve-key-and-ips"). For information about
+addresses you retrieved in [Step 3: Retrieve the Amazon Redshift cluster public key and cluster node IP addresses](#load-from-emr-steps-retrieve-key-and-ips "#load-from-emr-steps-retrieve-key-and-ips"). For information about
 adding rules to an Amazon EC2 security group, see [Authorizing Inbound
 Traffic for Your Instances](../../../AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.md "../../../AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.md") in the _Amazon EC2 User Guide_.
 
-## Step 6: Run the COPY command to load
-
-the data
+## Step 6: Run the COPY command to load the data
 
 Run a [COPY](r_COPY.md "r_COPY.md") command to connect to the
 Amazon EMR cluster and load the data into an Amazon Redshift table. The Amazon EMR cluster must

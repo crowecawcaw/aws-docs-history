@@ -353,16 +353,13 @@ FROM test_json;
 
 The following statements
 
-## Using `enable_case_sensitive_identifier` and
-
-`enable_case_sensitive_super_attribute` with semi-structured data
+## Using `enable_case_sensitive_identifier` and `enable_case_sensitive_super_attribute` with semi-structured data
 
 The following examples show how the configuration options
 [enable_case_sensitive_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md") and
 [enable_case_sensitive_super_attribute](r_enable_case_sensitive_super_attribute.md "r_enable_case_sensitive_super_attribute.md")
 differ when used for querying semi-structured data. For more information on these configuration options,
-see [Accessing JSON fields with uppercase and mixed-case field
-names or attributes](super-configurations.md#upper-mixed-case "super-configurations.md#upper-mixed-case").
+see [Accessing JSON fields with uppercase and mixed-case field names or attributes](super-configurations.md#upper-mixed-case "super-configurations.md#upper-mixed-case").
 
 In the following statement, resetting both configuration options to their default of false makes the query return NULL.
 

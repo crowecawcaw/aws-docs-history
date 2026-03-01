@@ -6,16 +6,11 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 ###### Topics
 
-- [Amazon Redshift and PostgreSQL JDBC and
-  ODBC](c_redshift-postgres-jdbc.md "c_redshift-postgres-jdbc.md")
-- [Features that are
-  implemented differently](c_redshift-sql-implementated-differently.md "c_redshift-sql-implementated-differently.md")
-- [Unsupported PostgreSQL
-  features](c_unsupported-postgresql-features.md "c_unsupported-postgresql-features.md")
-- [Unsupported PostgreSQL data
-  types](c_unsupported-postgresql-datatypes.md "c_unsupported-postgresql-datatypes.md")
-- [Unsupported PostgreSQL
-  functions](c_unsupported-postgresql-functions.md "c_unsupported-postgresql-functions.md")
+- [Amazon Redshift and PostgreSQL JDBC and ODBC](c_redshift-postgres-jdbc.md "c_redshift-postgres-jdbc.md")
+- [Features that are implemented differently](c_redshift-sql-implementated-differently.md "c_redshift-sql-implementated-differently.md")
+- [Unsupported PostgreSQL features](c_unsupported-postgresql-features.md "c_unsupported-postgresql-features.md")
+- [Unsupported PostgreSQL data types](c_unsupported-postgresql-datatypes.md "c_unsupported-postgresql-datatypes.md")
+- [Unsupported PostgreSQL functions](c_unsupported-postgresql-functions.md "c_unsupported-postgresql-functions.md")
   Amazon Redshift is based on PostgreSQL. Amazon Redshift and PostgreSQL have a number of very
   important differences that you must be aware of as you design and develop your data
   warehouse applications.

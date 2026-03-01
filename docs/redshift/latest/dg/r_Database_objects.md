@@ -46,8 +46,7 @@ then apply those policies to users or groups.
 
 Dynamic data masking (DDM) further protects your data by transforming it at query runtime so that
 you can allow users access to data without exposing sensitive details.
-For examples of security implementation, see [Example for controlling user and group
-access](t_user_group_examples.md "t_user_group_examples.md").
+For examples of security implementation, see [Example for controlling user and group access](t_user_group_examples.md "t_user_group_examples.md").
 
 For more information about protecting your data, see
 [Security in Amazon Redshift](../mgmt/iam-redshift-user-mgmt.md "../mgmt/iam-redshift-user-mgmt.md") in

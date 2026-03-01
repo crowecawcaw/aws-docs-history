@@ -11,8 +11,7 @@ contains information for all tables in all databases.
 This table differs from [STV_TBL_TRANS](r_STV_TBL_TRANS.md "r_STV_TBL_TRANS.md"), which contains information about transient
 database tables that the system creates during query processing.
 
-STV_TBL_PERM is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV_TBL_PERM is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

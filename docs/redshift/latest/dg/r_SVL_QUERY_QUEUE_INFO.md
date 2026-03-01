@@ -12,8 +12,7 @@ queries performed by a user.
 
 The SVL_QUERY_QUEUE_INFO view summarizes information from the [STL_QUERY](r_STL_QUERY.md "r_STL_QUERY.md"), [STL_WLM_QUERY](r_STL_WLM_QUERY.md "r_STL_WLM_QUERY.md"), and [STL_COMMIT_STATS](r_STL_COMMIT_STATS.md "r_STL_COMMIT_STATS.md") system tables.
 
-SVL_QUERY_QUEUE_INFO is visible only to superusers. For more information, see [Visibility of data in system tables and
-views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVL_QUERY_QUEUE_INFO is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

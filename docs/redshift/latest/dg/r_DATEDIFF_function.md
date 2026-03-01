@@ -17,8 +17,7 @@ DATEDIFF( *datepart*, {*date*|*time*|*timetz*|*timestamp*}, {*date*|*time*|*time
 _datepart_
 
 The specific part of the date or time value (year, month, or day, hour, minute, second, millisecond, or microsecond)
-that the function operates on. For more information, see [Date parts for date or timestamp
-functions](r_Dateparts_for_datetime_functions.md "r_Dateparts_for_datetime_functions.md").
+that the function operates on. For more information, see [Date parts for date or timestamp functions](r_Dateparts_for_datetime_functions.md "r_Dateparts_for_datetime_functions.md").
 
 Specifically, DATEDIFF determines the number of date part
 boundaries that are crossed between two expressions. For example,
