@@ -1,6 +1,4 @@
-# Chat applications policy syntax and
-
-examples
+# Chat applications policy syntax and examples
 
 This topic describes chat applications policy syntax and provides examples.
 
@@ -9,8 +7,7 @@ This topic describes chat applications policy syntax and provides examples.
 A chat applications policy is a plaintext file that is structured according to the rules
 of [JSON](http://json.org "http://json.org"). The syntax for chat applications policies
 follows the syntax for management policy types. For a complete discussion of that
-syntax, see [Understanding management policy
-inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on
+syntax, see [Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on
 applying that general syntax to the specific requirements of the chat applications policy
 type.
 
@@ -169,9 +166,7 @@ For more information about Channel level IAM roles and User level IAM roles, see
 
 The example policies that follow are for information purposes only.
 
-### Example 1:
-
-Allow only private Slack Channels in a specific workspace, disable Microsoft Teams, all authentication modes supported
+### Example 1: Allow only private Slack Channels in a specific workspace, disable Microsoft Teams, all authentication modes supported
 
 The following policy is focused on controlling the allowed configurations for Slack and Microsoft Teams chatbot integrations.
 

@@ -1,6 +1,4 @@
-# AWS Shield Network Security Director policy
-
-syntax and examples
+# AWS Shield Network Security Director policy syntax and examples
 
 Network Security Director policies follow a standardized JSON syntax that defines how Network Security
 Director

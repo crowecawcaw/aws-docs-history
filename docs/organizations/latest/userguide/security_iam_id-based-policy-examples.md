@@ -1,6 +1,4 @@
-# Identity-based policy examples for
-
-AWS Organizations
+# Identity-based policy examples for AWS Organizations
 
 By default, users and roles don't have permission to create or modify Organizations
 resources. To grant users permission to perform actions on the
@@ -14,23 +12,15 @@ For details about actions and resource types defined by Organizations, including
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
 - [Using the console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Granting full admin permissions
-  to a user](#orgs_permissions_grant-admin-actions "#orgs_permissions_grant-admin-actions")
-- [Granting limited access by
-  actions](#orgs_permissions_grant-limited-actions "#orgs_permissions_grant-limited-actions")
-- [Granting access to specific
-  resources](#orgs_permissions_grant-limited-resources "#orgs_permissions_grant-limited-resources")
-- [Granting the ability
-  to enable trusted access to limited service principals](#orgs_permissions_grant-trusted-access-condition "#orgs_permissions_grant-trusted-access-condition")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Granting full admin permissions to a user](#orgs_permissions_grant-admin-actions "#orgs_permissions_grant-admin-actions")
+- [Granting limited access by actions](#orgs_permissions_grant-limited-actions "#orgs_permissions_grant-limited-actions")
+- [Granting access to specific resources](#orgs_permissions_grant-limited-resources "#orgs_permissions_grant-limited-resources")
+- [Granting the ability to enable trusted access to limited service principals](#orgs_permissions_grant-trusted-access-condition "#orgs_permissions_grant-trusted-access-condition")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Organizations resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -63,9 +53,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Organizations
-
-console
+## Using the Organizations console
 
 To access the AWS Organizations console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Organizations resources
@@ -83,9 +71,7 @@ Organizations [`AWSOrganizationsFullAccess`](../../../aws-managed-policy/latest/
 entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -125,9 +111,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Granting full admin permissions
-
-to a user
+## Granting full admin permissions to a user
 
 You can create an IAM policy that grants full AWS Organizations administrator permissions to
 an IAM user in your organization. You can do this using the JSON policy editor in the
@@ -170,9 +154,7 @@ the permissions that are granted by your policy. 8. Choose **Create policy** to 
 To learn more about creating an IAM policy, see [Creating IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in
 the _IAM User Guide_.
 
-## Granting limited access by
-
-actions
+## Granting limited access by actions
 
 If you want to grant limited permissions instead of full permissions, you can create a
 policy that lists individual permissions that you want to allow in the
@@ -210,9 +192,7 @@ JSON
 For a list of all the permissions that are available to assign in an IAM policy, see
 [Actions defined by AWS Organizations](../../../service-authorization/latest/reference/list_awsorganizations.md#awsorganizations-actions-as-permissions "../../../service-authorization/latest/reference/list_awsorganizations.md#awsorganizations-actions-as-permissions") in the _Service Authorization Reference_.
 
-## Granting access to specific
-
-resources
+## Granting access to specific resources
 
 In addition to restricting access to specific actions, you can restrict access to
 specific entities in your organization. The `Resource` elements in the
@@ -262,16 +242,12 @@ contained in the specified OU. The OU is identified by the Amazon Resource Name 
 For more information about the ARNs for various resources, see [Resources types defined by AWS Organizations](../../../IAM/latest/UserGuide/list_awsorganizations.md#awsorganizations-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_awsorganizations.md#awsorganizations-resources-for-iam-policies") in the _Service
 Authorization Reference_.
 
-## Granting the ability
-
-to enable trusted access to limited service principals
+## Granting the ability to enable trusted access to limited service principals
 
 You can use the `Condition` element of a policy statement to further limit
 the circumstances where the policy statement matches.
 
-###### Example: Granting permissions to enable trusted access to one specified
-
-service
+###### Example: Granting permissions to enable trusted access to one specified service
 
 The following statement shows how you can restrict the ability to enable trusted
 access to only those services that you specify. If the user tries to call the API

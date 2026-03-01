@@ -1,6 +1,4 @@
-# AWS Account Management and
-
-AWS Organizations
+# AWS Account Management and AWS Organizations
 
 AWS Account Management helps you manage the account information and metadata for all of the
 AWS accounts in your organization. You can set, modify, or delete the alternate contact
@@ -12,13 +10,10 @@ Guide_.
 Use the following information to help you integrate
 AWS Account Management with AWS Organizations.
 
-## To enable trusted access with
-
-Account Management
+## To enable trusted access with Account Management
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 Account Management requires trusted access to AWS Organizations before you can designate a
 member account to be the delegated administrator for this service for your
@@ -69,13 +64,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## To disable trusted access with
-
-Account Management
+## To disable trusted access with Account Management
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 Only an administrator in the AWS Organizations management account can disable trusted access
 with AWS Account Management.
@@ -124,9 +116,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for Account Management
+## Enabling a delegated administrator account for Account Management
 
 When you designate a member account to be a delegated administrator for the
 organization, users and roles from the designated account can manage the AWS account
@@ -140,8 +130,7 @@ your account details.
 Only a user or role in the Organizations management account can configure a member account
 as a delegated administrator for Account Management in the organization
 
-For general instructions on how to configure a delegation policy, see [Create a resource-based delegation
-policy with AWS Organizations](orgs-policy-delegate.md "orgs-policy-delegate.md").
+For general instructions on how to configure a delegation policy, see [Create a resource-based delegation policy with AWS Organizations](orgs-policy-delegate.md "orgs-policy-delegate.md").
 
 AWS CLI, AWS API
 If you want to configure a delegated administrator account using the AWS

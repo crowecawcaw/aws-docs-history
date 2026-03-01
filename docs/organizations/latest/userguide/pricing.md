@@ -5,17 +5,13 @@ that users and roles in your member accounts use. For example, you are charged t
 standard fees for Amazon EC2 instances that are used by users or roles in your member
 accounts. For information about the pricing of other AWS services, see [AWS Pricing](https://aws.amazon.com/pricing/services/ "https://aws.amazon.com/pricing/services/").
 
-## Who pays for usage
-
-incurred by users under an AWS member account in my organization?
+## Who pays for usage incurred by users under an AWS member account in my organization?
 
 The owner of the
 [management account](orgs_getting-started_concepts.md#management-account "orgs_getting-started_concepts.md#management-account")
 is responsible for paying for all usage, data, and resources used by the accounts in the organization.
 
-## Will my bill reflect the organizational
-
-unit structure that I created in my organization?
+## Will my bill reflect the organizational unit structure that I created in my organization?
 
 Your bill will not reflect the structure that you have defined in your organization.
 You can use

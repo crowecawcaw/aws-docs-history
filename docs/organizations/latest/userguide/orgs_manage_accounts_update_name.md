@@ -1,6 +1,4 @@
-# Updating the account name for a member
-
-account with AWS Organizations
+# Updating the account name for a member account with AWS Organizations
 
 When you sign in to your organization's management account, you can update the account
 name for a member account. To learn how to update a member account name, follow the steps in

@@ -1,6 +1,4 @@
-# Getting started with
-
-backup policies
+# Getting started with backup policies
 
 Follow these steps to get started using backup policies.
 

@@ -16,9 +16,7 @@ To view the details of root, you must have the following permissions:
 
 AWS Management Console
 
-###### To view the details of the
-
-root
+###### To view the details of the root
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not

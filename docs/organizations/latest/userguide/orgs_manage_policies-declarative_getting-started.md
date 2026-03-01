@@ -1,6 +1,4 @@
-# Getting started with
-
-declarative policies
+# Getting started with declarative policies
 
 Follow these steps to get started using declarative policies.
 

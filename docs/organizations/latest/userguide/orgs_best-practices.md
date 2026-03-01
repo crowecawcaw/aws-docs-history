@@ -29,9 +29,7 @@ having no root user credentials, which eliminates the need for additional securi
 
 For more information, see [Centralize root user credentials for member accounts](../../../IAM/latest/UserGuide/id_root-user.md#id_root-user-access-management "../../../IAM/latest/UserGuide/id_root-user.md#id_root-user-access-management") in the _AWS Identity and Access Management User Guide_.
 
-### Keep the contact phone number
-
-updated
+### Keep the contact phone number updated
 
 To recover access to your AWS account, it is crucial to have a valid and active
 contact phone number that allows you to receive text messages or calls. We recommend
@@ -56,9 +54,7 @@ information. Any access to the phone or its storage location should be logged an
 monitored. If the phone number associated with an account changes, implement processes
 to update the phone number in your existing documentation.
 
-### Use a group email address for root
-
-accounts
+### Use a group email address for root accounts
 
 Use an email address that is managed by your business. Use an email address that
 forwards received messages directly to a group of users. In the event that AWS must
@@ -68,9 +64,7 @@ responding, even if individuals are on vacation, out sick, or leave the business
 
 ## Organization structure and workloads
 
-### Manage your accounts within a single
-
-organization
+### Manage your accounts within a single organization
 
 We recommend creating a single organization and managing all your accounts within this
 organization. An organization is a security boundary that lets you maintain consistency
@@ -79,9 +73,7 @@ configurations across accounts within an organization. If you want to enable con
 policies, central visibility, and programmatic controls across your multi-account
 environment, this is best achieved within a single organization.
 
-### Group workloads based on business
-
-purpose and not reporting structure
+### Group workloads based on business purpose and not reporting structure
 
 We recommend that you isolate production workload environments and data under your
 top-level workload-oriented
@@ -91,9 +83,7 @@ company’s reporting structure. Apart from production OUs, we recommend that yo
 one or more non-production OUs that contain accounts and workload environments that are
 used to develop and test workloads. For additional guidance, see [Organizing workload-oriented OUs](../../../whitepapers/latest/organizing-your-aws-environment/organizing-workload-oriented-ous.md "../../../whitepapers/latest/organizing-your-aws-environment/organizing-workload-oriented-ous.md").
 
-### Use multiple accounts to organize your
-
-workloads
+### Use multiple accounts to organize your workloads
 
 An AWS account provides natural security, access, and billing boundaries for your
 AWS resources. There are benefits of using multiple accounts because it lets you
@@ -104,9 +94,7 @@ accounts](../../../whitepapers/latest/organizing-your-aws-environment/design-pri
 
 ## Service and cost management
 
-### Enable AWS services at the organizational
-
-level using the service console or API/CLI operations
+### Enable AWS services at the organizational level using the service console or API/CLI operations
 
 As a best practice, we recommend enabling or disabling any services you’d like to
 integrate with across AWS Organizations using that service’s console, or API operations/CLI
@@ -114,12 +102,9 @@ command equivalents. Using this method, the AWS service can perform all required
 initialization steps for your organization, such as creating any required resources and
 cleaning up resources when disabling the service. AWS Account Management is the only service that
 requires use of the AWS Organizations Console or APIs to enable. To review the list of services
-that are integrated with AWS Organizations, see [AWS services that you can use with
-AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md").
+that are integrated with AWS Organizations, see [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md").
 
-### Use billing tools to track costs and
-
-optimize resource usage
+### Use billing tools to track costs and optimize resource usage
 
 When managing an organization, you get a consolidated bill that covers all charges
 from accounts in your organization. For business users who need access to cost
@@ -131,9 +116,7 @@ cost-efficiency services such as [Amazon S3 Storage Lens](https://aws.amazon.com
 and [AWS Compute
 Optimizer](https://aws.amazon.com/compute-optimizer/ "https://aws.amazon.com/compute-optimizer/").
 
-### Plan the tagging strategy and enforcement
-
-of tags across your organization resources
+### Plan the tagging strategy and enforcement of tags across your organization resources
 
 As your accounts and workloads scale, tags can be a useful feature for cost tracking,
 access control, and resource organization. For tagging naming strategies, follow the

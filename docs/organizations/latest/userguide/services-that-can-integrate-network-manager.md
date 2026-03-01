@@ -1,6 +1,4 @@
-# AWS Network Manager and
-
-AWS Organizations
+# AWS Network Manager and AWS Organizations
 
 Network Manager enables you to centrally manage your AWS Cloud WAN core network and your AWS
 Transit Gateway network across AWS accounts, Regions, and on-premises locations. With
@@ -26,9 +24,7 @@ multi-account monitoring and eventing, and `IAMRoleForAWSNetworkManagerCrossAcco
 Use the following information to help you integrate
 AWS Network Manager with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 When you enable trusted access, the following [service-linked roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") are automatically created in the listed organization accounts.
 These roles allow Network Manager to perform supported operations within the accounts in your organization. If you disable trusted access, Network Manager will not delete these roles from accounts in your organization.
@@ -50,9 +46,7 @@ additional role is automatically created in the delegated administrator account:
 
 - `AWSServiceRoleForCloudWatchCrossAccount`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked roles can only be assumed by the service principals authorized by the trust relationships defined for the role.
 
@@ -65,13 +59,10 @@ The service-linked roles can only be assumed by the service principals authorize
 
 Deleting these roles will impair multi-account functionality for Network Manager.
 
-## Enabling trusted access with
-
-Network Manager
+## Enabling trusted access with Network Manager
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 Only an administrator in the Organizations management account has permissions to enable trusted
 access with another AWS service. Be sure to use the Network Manager _console_
@@ -79,13 +70,10 @@ to enable trusted access, to avoid permissions issues. For more information, see
 accounts in Network Manager with AWS Organizations](../../../vpc/latest/tgwnm/tgw-nm-multi.md "../../../vpc/latest/tgwnm/tgw-nm-multi.md") in the
 _Amazon VPC User Guide_.
 
-## Disabling trusted access with
-
-Network Manager
+## Disabling trusted access with Network Manager
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 Only an administrator in an Organizations management account has permissions to disable trusted
 access with another AWS service.
@@ -98,9 +86,7 @@ the CloudFormation console, deployed CloudFormation StackSets and custom IAM rol
 properly cleaned up. To disable trusted service access, sign in to the [Network Manager
 console](https://console.aws.amazon.com/vpc/home#networkmanager "https://console.aws.amazon.com/vpc/home#networkmanager").
 
-## Enabling a delegated administrator
-
-account for Network Manager
+## Enabling a delegated administrator account for Network Manager
 
 When you designate a member account as a delegated administrator for the organization,
 users and roles from that account can perform administrative actions for

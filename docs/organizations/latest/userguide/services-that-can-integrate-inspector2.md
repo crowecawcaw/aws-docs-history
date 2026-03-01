@@ -16,9 +16,7 @@ on behalf of your organization such as:
 
 Use the following information to help you integrate Amazon Inspector with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -33,9 +31,7 @@ Amazon Inspector and Organizations, or if you remove the member account from the
 For more information, see [Using service-linked
 roles with Amazon Inspector](../../../inspector/latest/user/using-service-linked-roles.md "../../../inspector/latest/user/using-service-linked-roles.md") in the _Amazon Inspector User Guide_.
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -44,13 +40,10 @@ principals:
 
 - `inspector2.amazonaws.com`
 
-## To enable trusted access with
-
-Amazon Inspector
+## To enable trusted access with Amazon Inspector
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 Amazon Inspector requires trusted access to AWS Organizations before you can designate a member account to
 be the delegated administrator for this service for your organization.
@@ -94,13 +87,10 @@ If you are using the `EnableAWSServiceAccess` API, you need to also call
 [`EnableDelegatedAdminAccount`](../../../inspector/v2/APIReference/API_EnableDelegatedAdminAccount.md "../../../inspector/v2/APIReference/API_EnableDelegatedAdminAccount.md") to delegate the Inspector
 administrator account.
 
-## To disable trusted access with
-
-Amazon Inspector
+## To disable trusted access with Amazon Inspector
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 Only an administrator in the AWS Organizations management account can disable trusted access
 with Amazon Inspector.
@@ -132,9 +122,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for Amazon Inspector
+## Enabling a delegated administrator account for Amazon Inspector
 
 With Amazon Inspector you can manage multiple accounts in an organization using a delegated
 administrator with AWS Organizations service.
@@ -187,9 +175,7 @@ CLI or one of the AWS SDKs, you can use the following commands:
   member account's ID number and identify the account service principal
   `account.amazonaws.com` as parameters.
 
-## Disabling a delegated administrator
-
-for Amazon Inspector
+## Disabling a delegated administrator for Amazon Inspector
 
 Only an administrator in the AWS Organizations management account can remove a delegated
 administrator account from the organization.

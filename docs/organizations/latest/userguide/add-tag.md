@@ -40,9 +40,7 @@ resources as you create them.
 The organization root is created when you initially create the organization, so
 you can only add tags to it as an existing resource.
 
-## Adding or updating tags for an existing
-
-resource
+## Adding or updating tags for an existing resource
 
 You can also add new tags or update the values of tags attached to existing
 resources.

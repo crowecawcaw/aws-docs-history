@@ -1,6 +1,4 @@
-# AWS License Manager and
-
-AWS Organizations
+# AWS License Manager and AWS Organizations
 
 AWS License Manager streamlines the process of bringing software vendor licenses to the cloud. As
 you build out cloud infrastructure on AWS, you can save costs by using
@@ -19,9 +17,7 @@ By linking License Manager with AWS Organizations, you can:
   Use the following information to help you integrate
   AWS License Manager with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") are
 automatically created in your organization's management account when you enable trusted
@@ -39,9 +35,7 @@ License Manager and Organizations, or if you remove the member account from the 
 For more information, see [License Manager–Management account
 role](../../../license-manager/latest/userguide/management-role.md "../../../license-manager/latest/userguide/management-role.md"), [License Manager–Member account role](../../../license-manager/latest/userguide/member-role.md "../../../license-manager/latest/userguide/member-role.md"), and [License Manager–Linux subscriptions role](../../../license-manager/latest/userguide/linux-subscriptions-role.md "../../../license-manager/latest/userguide/linux-subscriptions-role.md").
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role. The service-linked roles used by License Manager grant access to the following service principals:
 
@@ -49,29 +43,23 @@ The service-linked role in the previous section can be assumed only by the servi
 - `license-manager.member-account.amazonaws.com`
 - `license-manager-linux-subscriptions.amazonaws.com`
 
-## Enabling trusted access with
-
-License Manager
+## Enabling trusted access with License Manager
 
 You can only enable trusted access using
 AWS License Manager.
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 ###### To enable trusted access with License Manager
 
 You must sign in to the License Manager console using your AWS Organizations management account and
 associate it with your License Manager account. For more information, see [Settings in AWS License Manager](../../../license-manager/latest/userguide/settings.md "../../../license-manager/latest/userguide/settings.md").
 
-## Disabling trusted access with
-
-License Manager
+## Disabling trusted access with License Manager
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 You can only disable trusted access using the Organizations
 tools.
@@ -107,9 +95,7 @@ To disable trusted access for Linux subscriptions use:
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for License Manager
+## Enabling a delegated administrator account for License Manager
 
 When you designate a member account as a delegated administrator for the organization,
 users and roles from that account can perform administrative actions for

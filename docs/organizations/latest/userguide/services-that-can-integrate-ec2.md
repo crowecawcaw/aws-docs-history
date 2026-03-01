@@ -1,6 +1,4 @@
-# Amazon Elastic Compute Cloud and
-
-AWS Organizations
+# Amazon Elastic Compute Cloud and AWS Organizations
 
 Amazon Elastic Compute Cloud provides on-demand, scalable computing capacity in the AWS Cloud.
 When you use Amazon EC2 with Organizations; you enable the Organizations admin to create a report of what the existing configuration is for accounts across their organization
@@ -9,9 +7,7 @@ after using Amazon EC2's [Declarative Policies](orgs_manage_policies_declarative
 Use the following information to help you integrate
 Amazon Elastic Compute Cloud with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -32,13 +28,10 @@ principals:
 
 - `ec2.amazonaws.com`
 
-## Enabling trusted access with
-
-Amazon EC2
+## Enabling trusted access with Amazon EC2
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 To enable the Organizations admin to create a report of what the existing configuration is for accounts across their organization, you must enable trusted access.
 
@@ -90,8 +83,7 @@ This command produces no output when successful.
 ## Disabling trusted access
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 You can only disable trusted access using the Organizations
 tools.

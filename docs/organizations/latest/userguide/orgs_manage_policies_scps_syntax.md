@@ -42,19 +42,16 @@ are used in SCPs.
 
 ###### Topics
 
-- [Action and NotAction
-  elements](#scp-syntax-action "#scp-syntax-action")
+- [Action and NotAction elements](#scp-syntax-action "#scp-syntax-action")
 - [Condition element](#scp-syntax-condition "#scp-syntax-condition")
 - [Effect element](#scp-syntax-effect "#scp-syntax-effect")
-- [Resource and NotResource element](#scp-syntax-resource "#scp-syntax-resource")
+- [Resourceand NotResource element](#scp-syntax-resource "#scp-syntax-resource")
 - [Statement element](#scp-syntax-statement "#scp-syntax-statement")
 - [Statement ID (Sid) element](#scp-syntax-sid "#scp-syntax-sid")
 - [Version element](#scp-syntax-version "#scp-syntax-version")
 - [Unsupported elements](#scp-syntax-unsupported "#scp-syntax-unsupported")
 
-## `Action` and `NotAction`
-
-elements
+## `Action` and `NotAction` elements
 
 The value for the `Action` or `NotAction` element is a list (a
 JSON array) of strings that identify AWS services and actions that are allowed or
@@ -84,9 +81,7 @@ For more information, see [IAM JSON Policy
 Elements: Action](../../../IAM/latest/UserGuide/reference_policies_elements_action.md "../../../IAM/latest/UserGuide/reference_policies_elements_action.md") and [IAM JSON Policy
 Elements: NotAction](../../../IAM/latest/UserGuide/reference_policies_elements_notaction.md "../../../IAM/latest/UserGuide/reference_policies_elements_notaction.md") in the _IAM User Guide_.
 
-### Example of `Action`
-
-element
+### Example of `Action` element
 
 The following example shows an SCP with a statement that permits account
 administrators to delegate describe, start, stop, and terminate permissions for EC2
@@ -136,9 +131,7 @@ JSON
 
 ```
 
-### Example of `NotAction`
-
-element
+### Example of `NotAction` element
 
 The following example shows how you can use a `NotAction` element to
 exclude AWS services from the effect of the policy.
@@ -315,7 +308,7 @@ contains the account), from launching Amazon EC2 instances if the Amazon EC2 ins
 set to `t2.micro`. Even if an IAM policy that allows this action is
 attached to the account, the guardrail created by the SCP prevents it.
 
-## `Resource` and `NotResource` element
+## `Resource`and `NotResource` element
 
 In statements where the `Effect` element has a value of `Allow`,
 you can specify only "\*" in the `Resource` element of an SCP. You can't

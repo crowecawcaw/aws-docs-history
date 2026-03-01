@@ -1,6 +1,4 @@
-# AWS Firewall Manager and
-
-AWS Organizations
+# AWS Firewall Manager and AWS Organizations
 
 AWS Firewall Manager is a security management service you use to centrally configure and manage
 firewall rules and other protections across the AWS accounts and applications in your
@@ -14,9 +12,7 @@ Guide](../../../waf/latest/developerguide/fms-chapter.md "../../../waf/latest/de
 Use the following information to help you integrate
 AWS Firewall Manager with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -28,9 +24,7 @@ Firewall Manager and Organizations, or if you remove the member account from the
 
 - `AWSServiceRoleForFMS`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -39,13 +33,10 @@ principals:
 
 - `fms.amazonaws.com`
 
-## Enabling trusted access with
-
-Firewall Manager
+## Enabling trusted access with Firewall Manager
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can enable trusted access using either the AWS Firewall Manager console or the AWS Organizations
 console.
@@ -109,13 +100,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-Firewall Manager
+## Disabling trusted access with Firewall Manager
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 You can disable trusted access using either the AWS Firewall Manager or the AWS Organizations tools.
 
@@ -180,9 +168,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for Firewall Manager
+## Enabling a delegated administrator account for Firewall Manager
 
 When you designate a member account as a delegated administrator for the organization,
 users and roles from that account can perform administrative actions for

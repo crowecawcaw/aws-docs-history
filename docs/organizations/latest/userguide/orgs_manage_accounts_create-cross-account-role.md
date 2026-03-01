@@ -1,12 +1,9 @@
-# Creating
-
-OrganizationAccountAccessRole for an invited account with AWS Organizations
+# Creating OrganizationAccountAccessRole for an invited account with AWS Organizations
 
 By default, if you create a member account as part of your organization, AWS
 automatically creates a role in the account that grants administrator permissions to
 IAM users in the management account who can assume the role. By default, that role is
-named `OrganizationAccountAccessRole`. For more information, see [Accessing a member
-account that has OrganizationAccountAccessRole with AWS Organizations](orgs_manage_accounts_access-cross-account-role.md "orgs_manage_accounts_access-cross-account-role.md").
+named `OrganizationAccountAccessRole`. For more information, see [Accessing a member account that has OrganizationAccountAccessRole with AWS Organizations](orgs_manage_accounts_access-cross-account-role.md "orgs_manage_accounts_access-cross-account-role.md").
 
 However, member accounts that you _invite_ to join
 your organization **_do
@@ -91,5 +88,4 @@ AWS Management Console
 The users who are members of the selected group now can use the URLs that you captured
 in step 9 to access each member account's role. They can access these member accounts
 the same way as they would if accessing an account that you create in the organization.
-For more information about using the role to administer a member account, see [Accessing a member
-account that has OrganizationAccountAccessRole with AWS Organizations](orgs_manage_accounts_access-cross-account-role.md "orgs_manage_accounts_access-cross-account-role.md").
+For more information about using the role to administer a member account, see [Accessing a member account that has OrganizationAccountAccessRole with AWS Organizations](orgs_manage_accounts_access-cross-account-role.md "orgs_manage_accounts_access-cross-account-role.md").

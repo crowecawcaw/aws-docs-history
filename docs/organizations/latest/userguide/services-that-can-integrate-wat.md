@@ -1,6 +1,4 @@
-# AWS Well-Architected Tool and
-
-AWS Organizations
+# AWS Well-Architected Tool and AWS Organizations
 
 The AWS Well-Architected Tool helps you document the state of your workloads and compares them to the
 latest AWS architectural best practices.
@@ -14,9 +12,7 @@ resources](../../../wellarchitected/latest/userguide/sharing.md "../../../wellar
 Use the following information to help you integrate
 AWS Well-Architected Tool with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -31,9 +27,7 @@ AWS WA Tool and Organizations, or if you remove the member account from the orga
 The service role policy is
 `AWSWellArchitectedOrganizationsServiceRolePolicy`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -42,15 +36,12 @@ principals:
 
 - `wellarchitected.amazonaws.com`
 
-## Enabling trusted access with
-
-AWS WA Tool
+## Enabling trusted access with AWS WA Tool
 
 Allows the updating of AWS WA Tool to reflect hierarchical changes in an
 organization.
 
-For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can enable trusted access using either the AWS Well-Architected Tool console or the AWS Organizations
 console.
@@ -113,13 +104,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-AWS WA Tool
+## Disabling trusted access with AWS WA Tool
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 You can disable trusted access using either the AWS Well-Architected Tool or the AWS Organizations tools.
 

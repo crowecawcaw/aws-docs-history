@@ -1,6 +1,4 @@
-# Understanding management policy
-
-inheritance
+# Understanding management policy inheritance
 
 ###### Important
 

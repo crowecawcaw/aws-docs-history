@@ -16,19 +16,16 @@ well as permissions for Organizations read-only actions.
 
 Before you register an account as a delegated administrator for a service:
 
-- Confirm that the service supports delegated administrators. See the table in [AWS services that you can use with
-  AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md") to learn which services support delegated administrators.
+- Confirm that the service supports delegated administrators. See the table in [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md") to learn which services support delegated administrators.
 - Enable trusted access for that service.
 
 ###### Note
 
-To learn how to enable a delegated administrator a service, reference the table in [AWS services that you can use with
-AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md") and select the **Learn more** link in the **Supports Delegated Administrator** column for that service.
+To learn how to enable a delegated administrator a service, reference the table in [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md") and select the **Learn more** link in the **Supports Delegated Administrator** column for that service.
 
 ## Permissions granted to delegated administrator accounts
 
-Each service-specific delegated administrator account has permissions granted by that service. To learn more, reference the table in [AWS services that you can use with
-AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md") and select the **Learn more** link in the **Supports Delegated Administrator** column for that service.
+Each service-specific delegated administrator account has permissions granted by that service. To learn more, reference the table in [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md") and select the **Learn more** link in the **Supports Delegated Administrator** column for that service.
 
 A delegated administrator account also has these read-only permissions:
 

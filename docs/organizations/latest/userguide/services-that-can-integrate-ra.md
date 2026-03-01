@@ -8,9 +8,7 @@ For more information, see [Manage delegated administrator accounts in Reachabili
 
 Use the following information to help you integrate Reachability Analyzer with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -24,9 +22,7 @@ Reachability Analyzer and Organizations, or if you remove the member account fro
 
 For more information, see [Cross-account analyses for Reachability Analyzer](../../../vpc/latest/reachability/multi-account.md "../../../vpc/latest/reachability/multi-account.md") in the _Reachability Analyzer user guide_.
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -35,13 +31,10 @@ principals:
 
 - `reachabilityanalyzer.networkinsights.amazonaws.com`
 
-## To enable trusted access with
-
-Reachability Analyzer
+## To enable trusted access with Reachability Analyzer
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 When you designate a delegated administrator for Reachability Analyzer it automatically enables
 trusted access for Reachability Analyzer for your organization.
@@ -106,19 +99,14 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## To disable trusted access with
-
-Reachability Analyzer
+## To disable trusted access with Reachability Analyzer
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 You can disable trusted access using either the Reachability Analyzer console (recommended), or the Organizations console. To disable trusted access using the Reachability Analyzer console, see [Cross-account analyses for Reachability Analyzer](../../../vpc/latest/reachability/multi-account.md "../../../vpc/latest/reachability/multi-account.md") in the _Reachability Analyzer user guide_.
 
-## Enabling a delegated administrator
-
-account for Reachability Analyzer
+## Enabling a delegated administrator account for Reachability Analyzer
 
 The delegated administrator account is able to run connectivity analyses across any of the resources in the organization.
 For more information, see [Integrate Reachability Analyzer
@@ -139,9 +127,7 @@ account as a delegated administrator for Reachability Analyzer in the organizati
 To configure a delegated administrator using the Reachability Analyzer console, see [Integrate Reachability Analyzer
 with AWS Organizations](../../../vpc/latest/ipam/enable-integ-ipam.md "../../../vpc/latest/ipam/enable-integ-ipam.md") in the _Reachability Analyzer user guide_.
 
-## Disabling a delegated administrator
-
-for Reachability Analyzer
+## Disabling a delegated administrator for Reachability Analyzer
 
 Only an administrator in the organization management account can configure a delegated
 administrator for Reachability Analyzer.

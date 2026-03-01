@@ -17,9 +17,7 @@ organization](../../../detective/latest/adminguide/accounts-orgs-transition.md "
 
 Use the following information to help you integrate Amazon Detective with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -31,9 +29,7 @@ Detective and Organizations, or if you remove the member account from the organi
 
 - `AWSServiceRoleForDetective`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -42,13 +38,10 @@ principals:
 
 - `detective.amazonaws.com`
 
-## To enable trusted access with
-
-Detective
+## To enable trusted access with Detective
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 ###### Note
 
@@ -81,13 +74,10 @@ AWS Management Console
    administrator of Amazon Detective that they can now enable that service
    to work with AWS Organizations from the service console .
 
-## To disable trusted access with
-
-Detective
+## To disable trusted access with Detective
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 Only an administrator in the AWS Organizations management account can disable trusted access
 with Amazon Detective.
@@ -114,9 +104,7 @@ AWS Management Console
    administrator of Amazon Detective that they can now disable that service from working with AWS Organizations
    using tthe service console or tools;.
 
-## Enabling a delegated administrator
-
-account for Detective
+## Enabling a delegated administrator account for Detective
 
 The delegated administrator account for Detective is the administrator account for a Detective
 behavior graph. The delegated administrator determines which organization accounts to
@@ -159,9 +147,7 @@ CLI or one of the AWS SDKs, you can use the following commands:
   member account's ID number and identify the account service principal
   `account.amazonaws.com` as parameters.
 
-## Disabling a delegated administrator
-
-for Detective
+## Disabling a delegated administrator for Detective
 
 You can remove the delegated administrator using either the Detective console or API, or
 by using the Organizations `DeregisterDelegatedAdministrator` CLI or SDK

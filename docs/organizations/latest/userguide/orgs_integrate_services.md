@@ -24,8 +24,7 @@ clean up of resources when disabling trusted access.
 For information about how to enable or disable trusted service access to your
 organization using the trusted service, see the **Learn
 more** link under the **Supports Trusted
-Access** column at [AWS services that you can use with
-AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md").
+Access** column at [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md").
 
 If you disable access by using the Organizations console, CLI commands, or API
 operations, it causes the following actions to occur:
@@ -50,9 +49,7 @@ operations, it causes the following actions to occur:
   depends on that service. For more information, see the documentation for the other AWS
   service.
 
-## Permissions required to enable trusted
-
-access
+## Permissions required to enable trusted access
 
 Trusted access requires permissions for two services: AWS Organizations and the trusted
 service. To enable trusted access, choose one of the following scenarios:
@@ -90,18 +87,14 @@ The minimum permissions for these credentials are the following:
       + `organizations:ListAWSServiceAccessForOrganization`
        – Required only if you use the AWS Organizations console
 
-  For the steps to enable trusted access in AWS Organizations, see [How to enable or disable
-  trusted access](#orgs_how-to-enable-disable-trusted-access "#orgs_how-to-enable-disable-trusted-access"). 2. The person who has credentials with permissions in the trusted service
+  For the steps to enable trusted access in AWS Organizations, see [How to enable or disable trusted access](#orgs_how-to-enable-disable-trusted-access "#orgs_how-to-enable-disable-trusted-access"). 2. The person who has credentials with permissions in the trusted service
   enables that service to work with AWS Organizations. This instructs the service
   to perform any required initialization, such as creating any resources
   that are required for the trusted service to operate in the
   organization. For more information, see the service-specific
-  instructions at [AWS services that you can use with
-  AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md").
+  instructions at [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md").
 
-## Permissions required to disable
-
-trusted access
+## Permissions required to disable trusted access
 
 When you no longer want to allow the trusted service to operate on your organization
 or its accounts, choose one of the following scenarios.
@@ -143,8 +136,7 @@ The minimum permissions for these credentials are the following:
   1.  The person with permissions in the trusted service first disables
       access using that service. This instructs the trusted service to clean
       up by removing the resources required for trusted access. For more
-      information, see the service-specific instructions at [AWS services that you can use with
-      AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md").
+      information, see the service-specific instructions at [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md").
   2.  The person with permissions in AWS Organizations can then use the AWS Organizations
       console, AWS CLI, or an AWS SDK to disable access for the trusted
       service. This removes the permissions for the trusted service from the
@@ -156,12 +148,9 @@ The minimum permissions for these credentials are the following:
       + `organizations:ListAWSServiceAccessForOrganization`
        – Required only if you use the AWS Organizations console
 
-  For the steps to disable trusted access in AWS Organizations, see [How to enable or disable
-  trusted access](#orgs_how-to-enable-disable-trusted-access "#orgs_how-to-enable-disable-trusted-access").
+  For the steps to disable trusted access in AWS Organizations, see [How to enable or disable trusted access](#orgs_how-to-enable-disable-trusted-access "#orgs_how-to-enable-disable-trusted-access").
 
-## How to enable or disable
-
-trusted access
+## How to enable or disable trusted access
 
 If you have permissions only for AWS Organizations and you want to enable or disable trusted
 access to your organization on behalf of the administrator of the other AWS service,
@@ -179,8 +168,7 @@ access.
 For information about how to enable or disable trusted service access to your
 organization using the trusted service, see the **Learn
 more** link under the **Supports Trusted
-Access** column at [AWS services that you can use with
-AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md").
+Access** column at [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md").
 
 If you disable access by using the Organizations console, CLI commands, or API
 operations, it causes the following actions to occur:
@@ -249,9 +237,7 @@ or disable trusted service access:
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## AWS Organizations and service-linked
-
-roles
+## AWS Organizations and service-linked roles
 
 AWS Organizations uses [IAM service-linked roles](https://aws.amazon.com/blogs/security/introducing-an-easier-way-to-delegate-permissions-to-aws-services-service-linked-roles/ "https://aws.amazon.com/blogs/security/introducing-an-easier-way-to-delegate-permissions-to-aws-services-service-linked-roles/") to enable trusted services to perform tasks on
 your behalf in your organization's member accounts. When you configure a trusted service

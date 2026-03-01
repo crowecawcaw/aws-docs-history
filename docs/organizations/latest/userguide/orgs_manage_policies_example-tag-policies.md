@@ -1,6 +1,4 @@
-# Tag policy syntax and
-
-examples
+# Tag policy syntax and examples
 
 This page describes tag policy syntax and provides examples.
 
@@ -8,19 +6,15 @@ This page describes tag policy syntax and provides examples.
 
 - [Tag policy syntax](#tag-policy-syntax-reference "#tag-policy-syntax-reference")
 - [Tag policy examples](#tag-policy-examples "#tag-policy-examples")
-- [Example 1: Define organization-wide tag
-  key case](#tag-policy-example-key-case "#tag-policy-example-key-case")
-- [Example 2: Prevent use of a tag
-  key](#tag-policy-example-prevent-key "#tag-policy-example-prevent-key")
-- [Example 3: Specify a tag policy for all supported resource types
-  of a specific AWS service](#tag-policy-example-all-supported "#tag-policy-example-all-supported")
+- [Example 1: Define organization-wide tag key case](#tag-policy-example-key-case "#tag-policy-example-key-case")
+- [Example 2: Prevent use of a tag key](#tag-policy-example-prevent-key "#tag-policy-example-prevent-key")
+- [Example 3: Specify a tag policy for all supported resource types of a specific AWS service](#tag-policy-example-all-supported "#tag-policy-example-all-supported")
 - [Example 4: Enforce required tag keys for compliance](#tag-policy-example-required-tags "#tag-policy-example-required-tags")
 
 ## Tag policy syntax
 
 A tag policy is a plaintext file that is structured according to the rules of [JSON](http://json.org "http://json.org"). The syntax for tag policies follows the syntax
-for management policy types. For a complete discussion of that syntax, see [Understanding management policy
-inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on
+for management policy types. For a complete discussion of that syntax, see [Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on
 applying that general syntax to the specific requirements of the tag policy type.
 
 The following tag policy shows basic tag policy syntax:
@@ -132,9 +126,7 @@ the following:
   marks.
 - Untagged resources don't appear as noncompliant in results.
 
-## Example 1: Define organization-wide tag
-
-key case
+## Example 1: Define organization-wide tag key case
 
 The following example shows a tag policy that only defines two tag keys and the
 capitalization that you want accounts in your organization to standardize on.
@@ -243,12 +235,9 @@ account**
 ```
 
 For more information about policy inheritance, including examples of how the
-inheritance operators work and example effective tag policies, see [Understanding management policy
-inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
+inheritance operators work and example effective tag policies, see [Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
 
-## Example 2: Prevent use of a tag
-
-key
+## Example 2: Prevent use of a tag key
 
 To prevent the use of a tag key, you can attach a tag policy like the following to an
 organization entity.
@@ -285,9 +274,7 @@ accounts from tagging **_only_** Amazon DynamoDB tables with the `Color` tag.
 }
 ```
 
-## Example 3: Specify a tag policy for all supported resource types
-
-of a specific AWS service
+## Example 3: Specify a tag policy for all supported resource types of a specific AWS service
 
 To specify a tag policy for all supported resource types of a specific AWS service,
 you use the `ALL_SUPPORTED` wildcard.

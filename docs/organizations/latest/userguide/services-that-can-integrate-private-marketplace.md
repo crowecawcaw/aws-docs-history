@@ -1,6 +1,4 @@
-# AWS Marketplace Private Marketplace and
-
-AWS Organizations
+# AWS Marketplace Private Marketplace and AWS Organizations
 
 AWS Marketplace is a curated digital catalog that you can use to find, buy, deploy, and manage
 third-party software, data, and services that you need to build solutions and run your
@@ -17,9 +15,7 @@ in the _AWS Marketplace Buyer Guide_.
 Use the following information to help you integrate
 AWS Marketplace Private Marketplace with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following service-linked role is automatically created in your organization's
 management account when you enable trusted access using the AWS Marketplace Private Marketplace console. This
@@ -32,9 +28,7 @@ If you enable trusted access directly from the Organizations console, CLI or SDK
 
 - `AWSServiceRoleForPrivateMarketplaceAdmin`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -43,12 +37,9 @@ principals:
 
 - `private-marketplace.marketplace.amazonaws.com`
 
-## Enabling trusted access with
+## Enabling trusted access with Private Marketplace
 
-Private Marketplace
-
-For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can enable trusted access using either the AWS Marketplace Private Marketplace console or the AWS Organizations
 console.
@@ -111,13 +102,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-Private Marketplace
+## Disabling trusted access with Private Marketplace
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can only disable trusted access using the Organizations
 tools.
@@ -146,9 +134,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for Private Marketplace
+## Enabling a delegated administrator account for Private Marketplace
 
 The management account administrator can delegate Private Marketplace administrative permissions
 to a designated member account known as delegated administrator. To register an account as a delegated administrator
@@ -166,9 +152,7 @@ You can also configure a delegated administrator by using
 the Organizations `RegisterDelegatedAdministrator` API. For more information, see [RegisterDelegatedAdministrator](../../../cli/latest/reference/organizations/register-delegated-administrator.md "../../../cli/latest/reference/organizations/register-delegated-administrator.md") in the _Organizations
 Command Reference_.
 
-## Disabling a delegated administrator
-
-for Private Marketplace
+## Disabling a delegated administrator for Private Marketplace
 
 Only an administrator in the organization management account can configure a delegated
 administrator for Private Marketplace.

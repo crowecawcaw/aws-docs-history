@@ -54,8 +54,7 @@ continue to operate as they did. This does not grant access.
 - [Effect element](#rcp-syntax-effect "#rcp-syntax-effect")
 - [Principal element](#rcp-syntax-principal "#rcp-syntax-principal")
 - [Action element](#rcp-syntax-action "#rcp-syntax-action")
-- [Resource and NotResource
-  elements](#rcp-syntax-resource "#rcp-syntax-resource")
+- [Resource and NotResource elements](#rcp-syntax-resource "#rcp-syntax-resource")
 - [Condition element](#rcp-syntax-condition "#rcp-syntax-condition")
 - [Unsupported elements](#rcp-syntax-unsupported "#rcp-syntax-unsupported")
 
@@ -165,9 +164,7 @@ _Service Authorization Reference_.
 For more information, see [IAM JSON Policy
 Elements: Action](../../../IAM/latest/UserGuide/reference_policies_elements_action.md "../../../IAM/latest/UserGuide/reference_policies_elements_action.md") in the _IAM User Guide_.
 
-## `Resource` and `NotResource`
-
-elements
+## `Resource` and `NotResource` elements
 
 Each statement must contain the `Resource` or `NotResource`
 element.

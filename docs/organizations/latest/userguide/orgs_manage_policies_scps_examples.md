@@ -1,6 +1,4 @@
-# Service control
-
-policy examples
+# Service control policy examples
 
 The example [service control policies
 (SCPs)](orgs_manage_policies_scps.md "orgs_manage_policies_scps.md") displayed in this topic are for information purposes only.

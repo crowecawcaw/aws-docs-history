@@ -6,9 +6,7 @@ asynchronously when one of your accounts has an invalid effective policy. The no
 appears as a banner in the AWS Organizations console page, and it is recorded as an AWS CloudTrail
 event.
 
-## Detect invalid effective management
-
-policies in your organization
+## Detect invalid effective management policies in your organization
 
 There are several ways in which you can view invalid effective management policies in
 your organization: from the AWS Management Console, AWS API, AWS Command Line
@@ -42,9 +40,7 @@ AWS Management Console
 
 AWS CLI & AWS SDKs
 
-###### To view the effective policy of a management policy type for an
-
-account
+###### To view the effective policy of a management policy type for an account
 
 The following commands help you view accounts with invalid effective policies
 

@@ -1,6 +1,4 @@
-# Getting information about your
-
-organization's policies
+# Getting information about your organization's policies
 
 This topic describes various ways to get details about the policies in your
 organization. These procedures apply to _all_ policy types. You must
@@ -26,9 +24,7 @@ permission:
 You can view the policies in your organization in the AWS Management Console or by using an
 AWS Command Line Interface (AWS CLI) command or an AWS SDK operation.
 
-###### To list all of the policies in
-
-your organization
+###### To list all of the policies in your organization
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -245,9 +241,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
   [ListPolicies](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
   in _AWS SDK for SAP ABAP API reference_.
 
-## Listing the policies attached to a root, OU,
-
-or account
+## Listing the policies attached to a root, OU, or account
 
 ###### Minimum permissions
 
@@ -260,9 +254,7 @@ account within your organization, you must have the following permission:
 
 AWS Management Console
 
-###### To list all policies that are attached directly to a specified root,
-
-OU, or account
+###### To list all policies that are attached directly to a specified root, OU, or account
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -280,9 +272,7 @@ type.
 
 AWS CLI & AWS SDKs
 
-###### To list all policies that are attached directly to a specified root,
-
-OU, or account
+###### To list all policies that are attached directly to a specified root, OU, or account
 
 You can use one of the following commands to list policies that are
 attached to an entity:
@@ -313,9 +303,7 @@ list.
 
 - AWS SDKs: [ListPoliciesForTarget](../APIReference/API_ListPoliciesForTarget.md "../APIReference/API_ListPoliciesForTarget.md")
 
-## Listing all roots, OUs, and accounts
-
-that a policy is attached to
+## Listing all roots, OUs, and accounts that a policy is attached to
 
 ###### Minimum permissions
 
@@ -328,9 +316,7 @@ permission:
 
 AWS Management Console
 
-###### To list all roots, OUs, and accounts that have a specified policy
-
-attached
+###### To list all roots, OUs, and accounts that have a specified policy attached
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -343,9 +329,7 @@ attached
 
 AWS CLI & AWS SDKs
 
-###### To list all roots, OUs, and accounts that have a specified policy
-
-attached
+###### To list all roots, OUs, and accounts that have a specified policy attached
 
 You can use one of the following commands to list entities that have a
 policy:

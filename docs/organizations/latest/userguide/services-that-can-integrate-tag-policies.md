@@ -1,6 +1,4 @@
-# Tag policies and
-
-AWS Organizations
+# Tag policies and AWS Organizations
 
 _Tag policies_ are a type of policy in AWS Organizations that can help you
 standardize tags across resources in your organization's accounts. For more information
@@ -9,18 +7,14 @@ about tag policies, see [Tag policies](orgs_manage_policies_tag-policies.md "org
 Use the following information to help you integrate
 tag policies with AWS Organizations.
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 Organizations interacts with the tags attached to your resources using the following service
 principal.
 
 - `tagpolicies.tag.amazonaws.com`
 
-## Enabling trusted access for tag
-
-policies
+## Enabling trusted access for tag policies
 
 You can enable trusted access either by enabling tag policies in the organization, or
 by using the AWS Organizations console.
@@ -75,9 +69,7 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-tag policies
+## Disabling trusted access with tag policies
 
 You can disable trusted access for tag policies by disabling the tag policy type in
 the AWS Organizations console. For more information, see [Disabling a policy type](disable-policy-type.md "disable-policy-type.md").

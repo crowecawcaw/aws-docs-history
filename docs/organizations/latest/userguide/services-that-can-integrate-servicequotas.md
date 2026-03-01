@@ -1,6 +1,4 @@
-# Service Quotas and
-
-AWS Organizations
+# Service Quotas and AWS Organizations
 
 Service Quotas is an AWS service that enables you to view and manage your quotas from a central
 location. Quotas, also referred to as limits, are the maximum value for your resources,
@@ -14,9 +12,7 @@ For more information about Service Quotas, see the [Service Quotas User Guide](.
 Use the following information to help you integrate
 Service Quotas with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -28,9 +24,7 @@ Service Quotas and Organizations, or if you remove the member account from the o
 
 - `AWSServiceRoleForServiceQuotas`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -39,13 +33,10 @@ principals:
 
 - `servicequotas.amazonaws.com`
 
-## Enabling trusted access with
-
-Service Quotas
+## Enabling trusted access with Service Quotas
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can only enable trusted access using
 Service Quotas.

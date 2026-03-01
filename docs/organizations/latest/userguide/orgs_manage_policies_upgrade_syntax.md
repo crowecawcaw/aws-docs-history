@@ -1,6 +1,4 @@
-# Upgrade rollout policy syntax and
-
-examples
+# Upgrade rollout policy syntax and examples
 
 An upgrade rollout policy defines how AWS services apply automatic upgrades across your
 resources. Understanding the policy syntax helps you create effective policies that match
@@ -9,12 +7,9 @@ your organization's upgrade requirements.
 ###### Topics
 
 - [Considerations](#orgs_manage_policies_upgrade_syntax_considerations "#orgs_manage_policies_upgrade_syntax_considerations")
-- [Basic policy
-  structure](#orgs_manage_policies_upgrade_syntax_structure "#orgs_manage_policies_upgrade_syntax_structure")
-- [Policy
-  components](#orgs_manage_policies_upgrade_syntax_components "#orgs_manage_policies_upgrade_syntax_components")
-- [Upgrade rollout policy
-  examples](#orgs_manage_policies_upgrade_syntax_examples "#orgs_manage_policies_upgrade_syntax_examples")
+- [Basic policy structure](#orgs_manage_policies_upgrade_syntax_structure "#orgs_manage_policies_upgrade_syntax_structure")
+- [Policy components](#orgs_manage_policies_upgrade_syntax_components "#orgs_manage_policies_upgrade_syntax_components")
+- [Upgrade rollout policy examples](#orgs_manage_policies_upgrade_syntax_examples "#orgs_manage_policies_upgrade_syntax_examples")
 
 ## Considerations
 
@@ -22,31 +17,25 @@ When implementing upgrade rollout policies, consider these important factors:
 
 - Policy names must be unique within your organization and should be clear and
   descriptive. Choose names that reflect the policy's purpose and scope. For more
-  information, see [Optimize
-  operational efficiency](orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_optimize "orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_optimize").
+  information, see [Optimize operational efficiency](orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_optimize "orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_optimize").
 - Testing is crucial before broad deployment. Validate new policies in
   non-production environments first and expand gradually to ensure desired
-  behavior. For more information, see [Start small and
-  scale gradually](orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_scale "orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_scale").
+  behavior. For more information, see [Start small and scale gradually](orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_scale "orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_scale").
 - Policy changes may take several hours to propagate across your organization.
   Plan your implementations accordingly and ensure proper monitoring is in place.
-  For more information, see [Monitor and
-  communicate changes](orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_monitor "orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_monitor").
+  For more information, see [Monitor and communicate changes](orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_monitor "orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_monitor").
 - JSON formatting must be valid and stay within the maximum policy size of 5,120
   bytes. Keep policy structures as simple as possible while meeting your
   requirements.
 - Regular policy reviews help maintain effectiveness. Schedule periodic
   evaluations of your policies to ensure they continue to meet your organizational
-  needs. For more information, see [Establish review
-  processes](orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_review "orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_review").
+  needs. For more information, see [Establish review processes](orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_review "orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_review").
 - Resources without an assigned upgrade order default to the "Second" order.
   Consider explicitly setting upgrade orders for critical resources rather than
-  relying on defaults. For more information, see [Validate policy
-  changes effectively](orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_validate "orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_validate").
+  relying on defaults. For more information, see [Validate policy changes effectively](orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_validate "orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_validate").
 - Manual upgrades take precedence over policy-defined upgrade orders. Ensure
   your change management processes account for both automatic and manual upgrade
-  scenarios. For more information, see [Establish review
-  processes](orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_review "orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_review").
+  scenarios. For more information, see [Establish review processes](orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_review "orgs_manage_policies_upgrade_best_practices.md#orgs_manage_policies_upgrade_best_practices_review").
 
 ###### Note
 
@@ -58,9 +47,7 @@ reference these tags. This ensures proper coordination between resource-level
 tagging and organizational policy enforcement. You can also use [Tag policies](orgs_manage_policies_tag-policies.md "orgs_manage_policies_tag-policies.md") to help maintain consistent
 tags when resources are tagged across your organization.
 
-## Basic policy
-
-structure
+## Basic policy structure
 
 Upgrade rollout policies use a JSON structure that includes the following main
 elements:
@@ -106,9 +93,7 @@ The following example shows a basic upgrade rollout policy structure:
 }
 ```
 
-## Policy
-
-components
+## Policy components
 
 An upgrade rollout policy consists of two key components that work together to control
 how upgrades are applied across your resources. These components include configuration
@@ -116,9 +101,7 @@ options for both default behaviors and tag-based overrides. Understanding how th
 components interact helps you create effective policies that match your organizational
 needs.
 
-### Default
-
-patch order setup
+### Default patch order setup
 
 When you create an upgrade rollout policy without specifying any resource-specific
 overrides, all resources default to a base upgrade order. You can set this default
@@ -141,9 +124,7 @@ most resources update later in the upgrade cycle:
 }
 ```
 
-### Resource level
-
-overriding via Tags
+### Resource level overriding via Tags
 
 You can override the default upgrade order for specific resources using tags. This
 allows you to create granular control over which resources receive upgrades in which
@@ -172,15 +153,11 @@ production:
 }
 ```
 
-## Upgrade rollout policy
-
-examples
+## Upgrade rollout policy examples
 
 Here are common upgrade rollout policy scenarios:
 
-### Example 1:
-
-Development environment first
+### Example 1: Development environment first
 
 This example shows how to configure resources in your development environment to
 receive upgrades first. By targeting resources with the "development" environment
@@ -202,9 +179,7 @@ more critical environments:
 }
 ```
 
-### Example 2: Production
-
-environment last
+### Example 2: Production environment last
 
 This example demonstrates how to ensure your production environments receive
 upgrades last. By explicitly setting production-tagged resources to the last upgrade
@@ -226,9 +201,7 @@ organizations with strict change management requirements:
 }
 ```
 
-### Example 3: Multiple
-
-upgrade orders using tags
+### Example 3: Multiple upgrade orders using tags
 
 The following example demonstrates how to use a single tag key with different
 values to specify all three upgrade orders. This approach is useful when you want to

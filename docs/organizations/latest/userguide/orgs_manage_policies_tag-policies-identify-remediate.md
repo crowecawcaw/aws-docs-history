@@ -6,5 +6,4 @@ After implementing tag policies in your organization, you can identify resources
 
 - [Finding untagged and mistagged resources for your organization with Resource Explorer](finding-untagged-mistagged-resources.md "finding-untagged-mistagged-resources.md")
 - [Correcting non-compliant tags in resources](enforcement-correcting.md "enforcement-correcting.md")
-- [Using Amazon EventBridge to monitor noncompliant
-  tags](orgs_manage_policies_tag-policies-cwe.md "orgs_manage_policies_tag-policies-cwe.md")
+- [Using Amazon EventBridge to monitor noncompliant tags](orgs_manage_policies_tag-policies-cwe.md "orgs_manage_policies_tag-policies-cwe.md")

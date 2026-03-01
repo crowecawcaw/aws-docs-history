@@ -1,6 +1,4 @@
-# Getting started with
-
-Security Hub policies
+# Getting started with Security Hub policies
 
 Before you configure Security Hub policies, ensure you understand the prerequisites and
 implementation requirements. This topic guides you through the process of setting up and
@@ -29,9 +27,7 @@ enable-security-hub-v2` in any Region from your management account, or create it
   directly by running `aws iam create-service-linked-role --aws-service-name 
 securityhubv2.amazonaws.com`.
 
-## Implementation
-
-steps
+## Implementation steps
 
 To implement Security Hub policies effectively, follow these steps in sequence. Each step
 ensures proper configuration and helps prevent common issues during setup. The

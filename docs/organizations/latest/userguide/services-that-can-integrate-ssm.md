@@ -1,6 +1,4 @@
-# AWS Systems Manager and
-
-AWS Organizations
+# AWS Systems Manager and AWS Organizations
 
 AWS Systems Manager is a collection of capabilities that enable visibility and control of your AWS
 resources. The following Systems Manager capabilities work with Organizations across all of the AWS accounts
@@ -34,9 +32,7 @@ target organizational units in an organization. Learn more in [Using a delegated
   Use the following information to help you integrate
   AWS Systems Manager with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -48,9 +44,7 @@ Systems Manager and Organizations, or if you remove the member account from the 
 
 - `AWSServiceRoleForAmazonSSM_AccountDiscovery`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -59,13 +53,10 @@ principals:
 
 - `ssm.amazonaws.com`
 
-## Enabling trusted access with
-
-Systems Manager
+## Enabling trusted access with Systems Manager
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can only enable trusted access using the Organizations
 tools.
@@ -112,13 +103,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-Systems Manager
+## Disabling trusted access with Systems Manager
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 Systems Manager requires trusted access with AWS Organizations to synchronize operations data across
 AWS accounts in your organization. If you disable trusted access, then Systems Manager fails to
@@ -168,9 +156,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for Systems Manager
+## Enabling a delegated administrator account for Systems Manager
 
 When you designate a member account as a delegated administrator for the organization,
 users and roles from that account can perform administrative actions for
@@ -187,9 +173,7 @@ accounts serves in this role. It does not have to be the organization's manageme
 account. The delegated administrator account is not required if you use Change Manager
 with a single account only.
 
-###### To designate a member account as a delegated administrator see the following
-
-topics in the _AWS Systems Manager User Guide_:
+###### To designate a member account as a delegated administrator see the following topics in the _AWS Systems Manager User Guide_:
 
 - For Explorer and OpsCenter, see [Configuring a
   Delegated Administrator](../../../systems-manager/latest/userguide/Explorer-setup-delegated-administrator.md "../../../systems-manager/latest/userguide/Explorer-setup-delegated-administrator.md").
@@ -197,13 +181,9 @@ topics in the _AWS Systems Manager User Guide_:
   organization and delegated account for Change Manager](../../../systems-manager/latest/userguide/change-manager-organization-setup.md "../../../systems-manager/latest/userguide/change-manager-organization-setup.md").
 - For Quick Setup see [Register a delegated administrator for Quick Setup](../../../systems-manager/latest/userguide/quick-setup-register-delegated-administrator.md "../../../systems-manager/latest/userguide/quick-setup-register-delegated-administrator.md") .
 
-## Disabling a delegated administrator
+## Disabling a delegated administrator account for Systems Manager
 
-account for Systems Manager
-
-###### To deregister a delegated administrator see the following
-
-topics in the _AWS Systems Manager User Guide_:
+###### To deregister a delegated administrator see the following topics in the _AWS Systems Manager User Guide_:
 
 - For Explorer and OpsCenter, see [Deregister an Explorer delegated administrator](../../../systems-manager/latest/userguide/Explorer-setup-delegated-administrator-deregister.md "../../../systems-manager/latest/userguide/Explorer-setup-delegated-administrator-deregister.md") .
 - For Change Manager, see [Setting up an

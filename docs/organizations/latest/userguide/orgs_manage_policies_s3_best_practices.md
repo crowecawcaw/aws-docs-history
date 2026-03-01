@@ -1,6 +1,4 @@
-# Best practices for using
-
-Amazon S3 policies
+# Best practices for using Amazon S3 policies
 
 When implementing Amazon S3 policies across your organization, following established best practices helps ensure successful deployment and maintenance.
 

@@ -29,9 +29,7 @@ Service control policies (SCPs)
 You can attach an SCP by either navigating to the policy or to the
 root, OU, or account that you want to attach the policy to.
 
-###### To attach an SCP by navigating to the root, OU, or
-
-account
+###### To attach an SCP by navigating to the root, OU, or account
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -80,9 +78,7 @@ Resource control policies (RCPs)
 You can attach an RCP by either navigating to the policy or to the
 root, OU, or account that you want to attach the policy to.
 
-###### To attach an RCP by navigating to the root, OU, or
-
-account
+###### To attach an RCP by navigating to the root, OU, or account
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -133,9 +129,7 @@ You can attach a declarative policy by either navigating to the
 policy or to the root, OU, or account that you want to attach the
 policy to.
 
-###### To attach a declarative policy by navigating to the root, OU,
-
-or account
+###### To attach a declarative policy by navigating to the root, OU, or account
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -156,9 +150,7 @@ The list of attached declarative policies on the
 the new addition. The policy change takes effect
 immediately.
 
-###### To attach a declarative policy by navigating to the
-
-policy
+###### To attach a declarative policy by navigating to the policy
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -184,9 +176,7 @@ You can attach a backup policy by either navigating to the policy
 or to the root, OU, or account that you want to attach the policy
 to.
 
-###### To attach a backup policy by navigating to the root, OU, or
-
-account
+###### To attach a backup policy by navigating to the root, OU, or account
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -232,9 +222,7 @@ You can attach a tag policy by either navigating to the policy or
 to the root, OU, or account that you want to attach the policy
 to.
 
-###### To attach a tag policy by navigating to the root, OU, or
-
-account
+###### To attach a tag policy by navigating to the root, OU, or account
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -280,9 +268,7 @@ You can attach a chat applications policy by either navigating to
 the policy or to the root, OU, or account that you want to attach
 the policy to.
 
-###### To attach a chat applications policy by navigating to the
-
-root, OU, or account
+###### To attach a chat applications policy by navigating to the root, OU, or account
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -303,9 +289,7 @@ The list of attached chat applications policies on the
 the new addition. The policy change takes effect
 immediately.
 
-###### To attach a chat applications policy by navigating to the
-
-policy
+###### To attach a chat applications policy by navigating to the policy
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -330,9 +314,7 @@ You can attach an AI services opt-out policy by either navigating
 to the policy or to the root, OU, or account that you want to attach
 the policy to.
 
-###### To attach an AI services opt-out policy by navigating to the
-
-root, OU, or account
+###### To attach an AI services opt-out policy by navigating to the root, OU, or account
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -353,9 +335,7 @@ The list of attached AI services opt-out policies on the
 the new addition. The policy change takes effect
 immediately.
 
-###### To attach an AI services opt-out policy by navigating to the
-
-policy
+###### To attach an AI services opt-out policy by navigating to the policy
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -380,9 +360,7 @@ You can attach a Security Hub policy by either navigating to the policy
 or to the root, OU, or account that you want to attach the policy
 to.
 
-###### To attach a Security Hub policy by navigating to the root, OU, or
-
-account
+###### To attach a Security Hub policy by navigating to the root, OU, or account
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not

@@ -1,6 +1,4 @@
-# Tutorial: Creating and configuring an
-
-organization
+# Tutorial: Creating and configuring an organization
 
 In this tutorial, you create your organization and configure it with two AWS member
 accounts. You create one of the member accounts in your organization, and you invite the
@@ -28,15 +26,13 @@ organization, and you create a second account as a member account.
 Next, you create two organizational units (OUs) in your new organization and
 place the member accounts in those OUs.
 
-**[Step 3: Create the service control
-policies](#tutorial-orgs-step3 "#tutorial-orgs-step3")**
+**[Step 3: Create the service control policies](#tutorial-orgs-step3 "#tutorial-orgs-step3")**
 
 You can apply restrictions to what actions can be delegated to users and roles
 in the member accounts by using [service control policies (SCPs)](orgs_manage_policies_scps.md "orgs_manage_policies_scps.md"). In this step, you create two SCPs
 and attach them to the OUs in your organization.
 
-**[Step 4: Testing your organization's
-policies](#tutorial-orgs-step4 "#tutorial-orgs-step4")**
+**[Step 4: Testing your organization's policies](#tutorial-orgs-step4 "#tutorial-orgs-step4")**
 
 You can sign in as users from each of the test accounts and see the effects
 that the SCPs have on the accounts.
@@ -102,9 +98,7 @@ see [Email address verification with AWS Organizations](about-email-verification
 You now have an organization with your account as its only member. This is the
 management account of the organization.
 
-### Invite an existing account to join your
-
-organization
+### Invite an existing account to join your organization
 
 Now that you have an organization, you can begin to populate it with accounts. In
 the steps in this section, you invite an existing account to join as a member of
@@ -277,9 +271,7 @@ page, next to **Production**, choose the radio
 button (not its name), and then choose **Move
 AWS account**.
 
-## Step 3: Create the service control
-
-policies
+## Step 3: Create the service control policies
 
 In the steps in this section, you create three [service control policies (SCPs)](orgs_manage_policies_scps.md "orgs_manage_policies_scps.md") and
 attach them to the root and to the OUs to restrict what users in the organization's
@@ -288,9 +280,7 @@ creating or modifying any AWS CloudTrail logs that you configure. The management
 affected by any SCP, so after you apply the CloudTrail SCP, you must create any logs from the
 management account.
 
-### Enable the service control policy
-
-type for the organization
+### Enable the service control policy type for the organization
 
 Before you can attach a policy of any type to a root or to any OU within a root,
 you must enable the policy type for the organization. Policy types aren't enabled by
@@ -316,9 +306,7 @@ the three policies that you need for this tutorial.
 
 AWS Management Console
 
-###### To create the first SCP that blocks CloudTrail configuration
-
-actions
+###### To create the first SCP that blocks CloudTrail configuration actions
 
 1. Navigate to the **[Policies](https://console.aws.amazon.com/organizations/v2/home/policies "https://console.aws.amazon.com/organizations/v2/home/policies")** page, and then choose
    **Service control policies**.
@@ -379,9 +367,7 @@ services and actions.
 
 AWS Management Console
 
-###### To create the second policy that allows approved services for the
-
-production OU
+###### To create the second policy that allows approved services for the production OU
 
 1. From the **[Service control policies](https://console.aws.amazon.com/organizations/v2/home/policies/service-control-policy "https://console.aws.amazon.com/organizations/v2/home/policies/service-control-policy")** page, choose **Create
    policy**.
@@ -422,9 +408,7 @@ Amazon DynamoDB in any accounts that are in the **MainApp** OU.
 
 AWS Management Console
 
-###### To create the third policy that denies access to services that
-
-can't be used in the MainApp OU
+###### To create the third policy that denies access to services that can't be used in the MainApp OU
 
 1. From the **[Service control policies](https://console.aws.amazon.com/organizations/v2/home/policies/service-control-policy "https://console.aws.amazon.com/organizations/v2/home/policies/service-control-policy")** page, choose **Create
    policy**.
@@ -531,9 +515,7 @@ radio button next to **Deny List for MainApp Prohibited
 Services**, and then choose **Attach
 policy**.
 
-## Step 4: Testing your organization's
-
-policies
+## Step 4: Testing your organization's policies
 
 You now can [sign in](../../../signin/latest/userguide/what-is-sign-in.md "../../../signin/latest/userguide/what-is-sign-in.md") as a user in any of the member accounts and try to perform various
 AWS actions:

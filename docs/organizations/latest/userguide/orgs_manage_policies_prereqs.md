@@ -1,18 +1,13 @@
-# Prerequisites and permissions for
-
-management policies for AWS Organizations
+# Prerequisites and permissions for management policies for AWS Organizations
 
 This page describes the prerequisites and required permissions for management policies for AWS Organizations.
 
 ###### Topics
 
-- [Prerequisites for management
-  policies](#manage-policies-prereqs-overview "#manage-policies-prereqs-overview")
+- [Prerequisites for management policies](#manage-policies-prereqs-overview "#manage-policies-prereqs-overview")
 - [Permissions for management policies](#manage-policies-permissions "#manage-policies-permissions")
 
-## Prerequisites for management
-
-policies
+## Prerequisites for management policies
 
 Using management policies for an organization requires the following:
 

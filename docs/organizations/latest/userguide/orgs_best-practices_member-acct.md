@@ -7,8 +7,7 @@ those tasks that truly require it](../../../IAM/latest/UserGuide/root-user-best-
 ###### Topics
 
 - [Define account name and attributes](#bp_member-acct_define-acct "#bp_member-acct_define-acct")
-- [Efficiently scale your environment
-  and account usage](#bp_member-acct_efficiently-scale "#bp_member-acct_efficiently-scale")
+- [Efficiently scale your environment and account usage](#bp_member-acct_efficiently-scale "#bp_member-acct_efficiently-scale")
 - [Enable root access management to simplify managing root user credentials for member accounts](#bp_member-acct_root-access-management "#bp_member-acct_root-access-management")
 
 ## Define account name and attributes
@@ -21,9 +20,7 @@ organization, we recommend that you assign those tags on accounts that reflect a
 usage, cost center, environment, and project. This makes it easier to identify,
 organize, and search for accounts.
 
-## Efficiently scale your environment
-
-and account usage
+## Efficiently scale your environment and account usage
 
 As you scale, before creating new accounts, make sure accounts for similar needs do
 not already exist, to avoid unnecessary duplication. AWS accounts should be based on
@@ -54,9 +51,7 @@ having no root user credentials, which eliminates the need for additional securi
 
 For more information, see [Centralize root user credentials for member accounts](../../../IAM/latest/UserGuide/id_root-user.md#id_root-user-access-management "../../../IAM/latest/UserGuide/id_root-user.md#id_root-user-access-management") in the _AWS Identity and Access Management User Guide_.
 
-### Use an SCP to restrict what the root user in your
-
-member accounts can do
+### Use an SCP to restrict what the root user in your member accounts can do
 
 We recommend that you create a service control policy (SCP) in the organization and
 attach it to the organization's root so that it applies to all member accounts. For more

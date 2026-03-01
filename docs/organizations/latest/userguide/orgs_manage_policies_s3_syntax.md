@@ -1,9 +1,6 @@
-# Amazon S3 policy syntax and
+# Amazon S3 policy syntax and examples
 
-examples
-
-An Amazon S3 policy is a plaintext file that is structured according to the rules of [JSON](http://json.org "http://json.org"). The syntax for Amazon S3 policies follows the syntax for all management policy types. For more information, see [Understanding management policy
-inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on applying that general syntax to the specific requirements of the Amazon S3 policies and the Block Public Access settings they help manage.
+An Amazon S3 policy is a plaintext file that is structured according to the rules of [JSON](http://json.org "http://json.org"). The syntax for Amazon S3 policies follows the syntax for all management policy types. For more information, see [Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on applying that general syntax to the specific requirements of the Amazon S3 policies and the Block Public Access settings they help manage.
 
 The following Amazon S3 policy example shows the basic policy syntax:
 

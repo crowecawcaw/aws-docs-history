@@ -1,6 +1,4 @@
-# Amazon Macie and
-
-AWS Organizations
+# Amazon Macie and AWS Organizations
 
 Amazon Macie is a fully managed data security and data privacy service that uses machine
 learning and pattern matching to discover, monitor, and help you protect your sensitive data
@@ -14,9 +12,7 @@ with AWS Organizations](../../../macie/latest/user/macie-organizations.md "../..
 Use the following information to help you integrate
 Amazon Macie with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created for your organization's delegated Macie
@@ -29,9 +25,7 @@ and Organizations, or if you remove the member account from the organization.
 
 - `AWSServiceRoleRorAmazonMacie`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -40,13 +34,10 @@ principals:
 
 - `macie.amazonaws.com`
 
-## Enabling trusted access with
-
-Macie
+## Enabling trusted access with Macie
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can enable trusted access using either the Amazon Macie console or the AWS Organizations
 console.
@@ -95,9 +86,7 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for Macie
+## Enabling a delegated administrator account for Macie
 
 When you designate a member account as a delegated administrator for the organization,
 users and roles from that account can perform administrative actions for
@@ -114,9 +103,7 @@ Macie in the organization:
 - `organizations:EnableAWSServiceAccess`
 - `macie:EnableOrganizationAdminAccount`
 
-###### To designate a member account as a delegated administrator for
-
-Macie
+###### To designate a member account as a delegated administrator for Macie
 
 Amazon Macie requires trusted access to AWS Organizations to designate a member account to be
 the Macie administrator for your organization. If you configure a delegated

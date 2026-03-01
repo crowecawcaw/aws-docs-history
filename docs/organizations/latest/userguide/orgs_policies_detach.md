@@ -26,9 +26,7 @@ Service control policies (SCPs)
 You can detach an SCP by either navigating to the policy or to the
 root, OU, or account that you want to detach the policy from.
 
-###### To detach an SCP by navigating to the root, OU, or account
-
-it's attached to
+###### To detach an SCP by navigating to the root, OU, or account it's attached to
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -89,9 +87,7 @@ The `RCPFullAWSAccess` policy is automatically
 attached to the root, every OU, and every account in your
 organization. You cannot detach this policy.
 
-###### To detach an RCP by navigating to the root, OU, or account
-
-it's attached to
+###### To detach an RCP by navigating to the root, OU, or account it's attached to
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -143,9 +139,7 @@ You can detach a declarative policy by either navigating to the
 policy or to the root, OU, or account that you want to detach the
 policy from.
 
-###### To detach a declarative policy by navigating to the root, OU,
-
-or account it's attached to
+###### To detach a declarative policy by navigating to the root, OU, or account it's attached to
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -164,9 +158,7 @@ or account it's attached to
 The list of attached declarative policies is updated. The
 policy change takes effect immediately.
 
-###### To detach a declarative policy by navigating to the
-
-policy
+###### To detach a declarative policy by navigating to the policy
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -191,9 +183,7 @@ You can detach a backup policy by either navigating to the policy
 or to the root, OU, or account that you want to detach the policy
 from.
 
-###### To detach a backup policy by navigating to the root, OU, or
-
-account it's attached to
+###### To detach a backup policy by navigating to the root, OU, or account it's attached to
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -237,9 +227,7 @@ You can detach a tag policy by either navigating to the policy or
 to the root, OU, or account that you want to detach the policy
 from.
 
-###### To detach a tag policy by navigating to the root, OU, or
-
-account it's attached to
+###### To detach a tag policy by navigating to the root, OU, or account it's attached to
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -282,9 +270,7 @@ You can detach a chat applications policy by either navigating to
 the policy or to the root, OU, or account that you want to detach
 the policy from.
 
-###### To detach a chat applications policy by navigating to the
-
-root, OU, or account it's attached to
+###### To detach a chat applications policy by navigating to the root, OU, or account it's attached to
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -303,9 +289,7 @@ root, OU, or account it's attached to
 The list of attached chat applications policies is
 updated. The policy change takes effect immediately.
 
-###### To detach a chat applications policy by navigating to the
-
-policy
+###### To detach a chat applications policy by navigating to the policy
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -330,9 +314,7 @@ You can detach an AI services opt-out policy by either navigating
 to the policy or to the root, OU, or account that you want to detach
 the policy from.
 
-###### To detach an AI services opt-out policy by navigating to the
-
-root, OU, or account it's attached to
+###### To detach an AI services opt-out policy by navigating to the root, OU, or account it's attached to
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -351,9 +333,7 @@ root, OU, or account it's attached to
 The list of attached AI services opt-out policies is
 updated. The policy change takes effect immediately.
 
-###### To detach an AI services opt-out policy by navigating to the
-
-policy
+###### To detach an AI services opt-out policy by navigating to the policy
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -378,9 +358,7 @@ You can detach a Security Hub policy by either navigating to the policy
 or to the root, OU, or account that you want to detach the policy
 from.
 
-###### To detach a Security Hub policy by navigating to the root, OU, or
-
-account it's attached to
+###### To detach a Security Hub policy by navigating to the root, OU, or account it's attached to
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not

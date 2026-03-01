@@ -6,8 +6,7 @@ If you don't receive the verification email, check that your email address is co
 and, if necessary, modify it.
 
 - To find out what email address is associated with your management account, see
-  [Viewing details of an organization from the
-  management account](orgs_view_org.md "orgs_view_org.md").
+  [Viewing details of an organization from the management account](orgs_view_org.md "orgs_view_org.md").
 - To change the email address that is associated with your management account,
   see [Managing an
   AWS account](../../../awsaccountbilling/latest/aboutv2/manage-account-payment.md "../../../awsaccountbilling/latest/aboutv2/manage-account-payment.md") in the _AWS Billing User Guide_.

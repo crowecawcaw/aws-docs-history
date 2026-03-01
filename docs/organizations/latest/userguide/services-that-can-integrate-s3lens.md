@@ -1,6 +1,4 @@
-# Amazon S3 Storage Lens and
-
-AWS Organizations
+# Amazon S3 Storage Lens and AWS Organizations
 
 By giving Amazon S3 Storage Lens trusted access to your organization, you allow it to collect
 and aggregate metrics across all of the AWS accounts in your organization. S3 Storage Lens
@@ -14,9 +12,7 @@ Guide_.
 Use the following information to help you integrate
 Amazon S3 Storage Lens with AWS Organizations.
 
-## Service-linked role created when
-
-you enable integration
+## Service-linked role created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's delegated administrator account when you enable trusted
@@ -28,9 +24,7 @@ Amazon S3 Storage Lens and Organizations, or if you remove the member account fr
 
 - `AWSServiceRoleForS3StorageLens`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -39,13 +33,10 @@ principals:
 
 - `storage-lens.s3.amazonaws.com`
 
-## Enabling trusted access with
-
-Amazon S3 Storage Lens
+## Enabling trusted access with Amazon S3 Storage Lens
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can enable trusted access using either the Amazon S3 Storage Lens console or the AWS Organizations
 console.
@@ -107,13 +98,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-Amazon S3 Storage Lens
+## Disabling trusted access with Amazon S3 Storage Lens
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 You can only disable trusted access using the
 Amazon S3 Storage Lens tools.
@@ -125,9 +113,7 @@ the AWS SDKs.
 
 See [Disabling trusted access for S3 Storage Lens](../../../AmazonS3/latest/user-guide/storage_lens_with_organizations.md#storage_lens_with_organizations_disabling_trusted_access "../../../AmazonS3/latest/user-guide/storage_lens_with_organizations.md#storage_lens_with_organizations_disabling_trusted_access") in the _Amazon Simple Storage Service User Guide_.
 
-## Enabling a delegated administrator
-
-account for Amazon S3 Storage Lens
+## Enabling a delegated administrator account for Amazon S3 Storage Lens
 
 When you designate a member account as a delegated administrator for the organization,
 users and roles from that account can perform administrative actions for
@@ -148,9 +134,7 @@ Amazon S3 Storage Lens in the organization:
 Amazon S3 Storage Lens supports a maximum of 5 delegated administrator accounts in your
 organization.
 
-###### To designate a member account as a delegated administrator for
-
-Amazon S3 Storage Lens
+###### To designate a member account as a delegated administrator for Amazon S3 Storage Lens
 
 You can register a delegated administrator using the Amazon S3 console, the AWS CLI or any of the AWS SDKs. To register a member account as a delegated
 administrator account for your organization using the Amazon S3 console, see [Registering a delegated administrator for S3 Storage Lens](../../../AmazonS3/latest/user-guide/storage_lens_with_organizations.md#storage_lens_with_organizations_registering_delegated_admins "../../../AmazonS3/latest/user-guide/storage_lens_with_organizations.md#storage_lens_with_organizations_registering_delegated_admins") in the

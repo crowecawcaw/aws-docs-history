@@ -1,6 +1,4 @@
-# Supported
-
-Regions
+# Supported Regions
 
 Tag policy features are available in the following Regions:
 

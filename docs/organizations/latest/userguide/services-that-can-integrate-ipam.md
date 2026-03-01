@@ -12,9 +12,7 @@ with AWS Organizations](../../../vpc/latest/ipam/enable-integ-ipam.md "../../../
 
 Use the following information to help you integrate Amazon VPC IP Address Manager (IPAM) with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following service-linked role is automatically created in your organization's
 management account and each member account when you integrate IPAM with AWS Organizations
@@ -26,9 +24,7 @@ either by using the IPAM console or using IPAM's
 For more information, see [Service-linked roles for IPAM](../../../vpc/latest/ipam/iam-ipam-slr.md "../../../vpc/latest/ipam/iam-ipam-slr.md") in
 the _Amazon VPC IPAM User Guide_.
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -37,13 +33,10 @@ principals:
 
 - `ipam.amazonaws.com`
 
-## To enable trusted access with
-
-IPAM
+## To enable trusted access with IPAM
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 ###### Note
 
@@ -72,13 +65,10 @@ in the _Amazon VPC IPAM User Guide_.
 You can't enable trusted access with IPAM using the AWS Organizations console or with
 the [`EnableAWSServiceAccess`](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md") API.
 
-## To disable trusted access with
-
-IPAM
+## To disable trusted access with IPAM
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 Only an administrator in the AWS Organizations management account can disable trusted access
 with IPAM using the AWS Organizations `disable-aws-service-access` API.
@@ -111,9 +101,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for IPAM
+## Enabling a delegated administrator account for IPAM
 
 The delegated administrator account for IPAM is responsible for creating the IPAM
 and IP address pools, managing and monitoring IP address usage in the organization, and
@@ -136,9 +124,7 @@ account as a delegated administrator for IPAM in the organization
 To configure a delegated administrator using the IPAM console, see [Integrate IPAM
 with AWS Organizations](../../../vpc/latest/ipam/enable-integ-ipam.md "../../../vpc/latest/ipam/enable-integ-ipam.md") in the _Amazon VPC IPAM User Guide_.
 
-## Disabling a delegated administrator
-
-for IPAM
+## Disabling a delegated administrator for IPAM
 
 Only an administrator in the organization management account can configure a delegated
 administrator for IPAM.

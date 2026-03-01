@@ -1,6 +1,4 @@
-# AWS Application Migration Service (Application Migration Service) and
-
-AWS Organizations
+# AWS Application Migration Service (Application Migration Service) and AWS Organizations
 
 AWS Application Migration Service simplifies, expedites, and reduces the cost of migrating applications to AWS.
 By integrating with Organizations, you can use the global view feature to manage large-scale migrations across multiple accounts. For more information see [Setting up your AWS Organizations](../../../mgn/latest/ug/setting-up-organizations.md "../../../mgn/latest/ug/setting-up-organizations.md") in the _Application Migration Service user guide_.
@@ -8,9 +6,7 @@ By integrating with Organizations, you can use the global view feature to manage
 Use the following information to help you integrate
 AWS Application Migration Service with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -31,9 +27,7 @@ principals:
 
 - `mgn.amazonaws.com`
 
-## Enabling trusted access with
-
-Application Migration Service
+## Enabling trusted access with Application Migration Service
 
 When you enable trusted access with Application Migration Service you can use the global view feature, which allows you to manage
 large-scale migrations across multiple accounts. Global view provides visibility and the ability to perform
@@ -41,8 +35,7 @@ specific actions on source servers, apps, and waves in different AWS accounts.
 For more information, see [Setting up your AWS Organizations](../../../mgn/latest/ug/setting-up-organizations.md "../../../mgn/latest/ug/setting-up-organizations.md") in the _AWS Application Migration Service user guide_.
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can enable trusted access using either the AWS Application Migration Service console or the AWS Organizations
 console.
@@ -100,9 +93,7 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-Application Migration Service
+## Disabling trusted access with Application Migration Service
 
 Only an administrator in the Organizations management account can disable trusted access with Application Migration Service.
 
@@ -160,9 +151,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for Application Migration Service
+## Enabling a delegated administrator account for Application Migration Service
 
 When you designate a member account as a delegated administrator for the organization,
 users and roles from that account can perform administrative actions for
@@ -192,9 +181,7 @@ CLI or one of the AWS SDKs, you can use the following commands:
   member account's ID number and identify the account service
   `mgn.amazonaws.com` as parameters.
 
-## Disabling a delegated administrator
-
-for Application Migration Service
+## Disabling a delegated administrator for Application Migration Service
 
 Only an administrator in the Organizations management account can remove a delegated
 administrator for Application Migration Service. You can remove the delegated administrator using the Organizations `DeregisterDelegatedAdministrator` CLI or SDK operation.

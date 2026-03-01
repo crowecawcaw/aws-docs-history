@@ -9,14 +9,11 @@ defines the controls that you want to apply to a group of AWS accounts.
 
 - [Update a service control policy (SCP)](#update_policy "#update_policy")
 - [Update a resource control policy (RCP)](#update_policy-rcp "#update_policy-rcp")
-- [Update a declarative
-  policy](#update-declarative-policy-procedure "#update-declarative-policy-procedure")
+- [Update a declarative policy](#update-declarative-policy-procedure "#update-declarative-policy-procedure")
 - [Update a backup policy](#update-backup-policy-procedure "#update-backup-policy-procedure")
 - [Update a tag policy](#update-tag-policy-procedure "#update-tag-policy-procedure")
-- [Update a chat applications
-  policy](#update-chatbot-policy-procedure "#update-chatbot-policy-procedure")
-- [Update an AI services opt-out
-  policy](#update-ai-opt-out-policy-procedure "#update-ai-opt-out-policy-procedure")
+- [Update a chat applications policy](#update-chatbot-policy-procedure "#update-chatbot-policy-procedure")
+- [Update an AI services opt-out policy](#update-ai-opt-out-policy-procedure "#update-ai-opt-out-policy-procedure")
 - [Update a Security Hub policy](#update-security-hub-policy-procedure "#update-security-hub-policy-procedure")
 
 ## Update a service control policy (SCP)
@@ -249,9 +246,7 @@ specifying a file that contains the new JSON policy text.
 
 - AWS SDKs: [UpdatePolicy](../APIReference/API_UpdatePolicy.md "../APIReference/API_UpdatePolicy.md")
 
-## Update a declarative
-
-policy
+## Update a declarative policy
 
 ###### Minimum permissions
 
@@ -279,8 +274,7 @@ AWS Management Console
 4. You can enter a new **Policy name**,
    **Policy description**, or edit the
    **JSON** policy text. For information about
-   declarative policy syntax, see [Declarative policy syntax and
-   examples](orgs_manage_policies_declarative_syntax.md "orgs_manage_policies_declarative_syntax.md").
+   declarative policy syntax, see [Declarative policy syntax and examples](orgs_manage_policies_declarative_syntax.md "orgs_manage_policies_declarative_syntax.md").
 5. When you're finished updating the policy, choose **Save
    changes**.
 
@@ -603,9 +597,7 @@ following text:
 
 - AWS SDKs: [UpdatePolicy](../APIReference/API_UpdatePolicy.md "../APIReference/API_UpdatePolicy.md")
 
-## Update a chat applications
-
-policy
+## Update a chat applications policy
 
 ###### Minimum permissions
 
@@ -665,9 +657,7 @@ The following example renames a chat applications policy.
 
 - AWS SDKs: [UpdatePolicy](../APIReference/API_UpdatePolicy.md "../APIReference/API_UpdatePolicy.md")
 
-## Update an AI services opt-out
-
-policy
+## Update an AI services opt-out policy
 
 ###### Minimum permissions
 
@@ -695,8 +685,7 @@ AWS Management Console
 4. You can enter a new **Policy name**,
    **Policy description**, or edit the
    **JSON** policy text. For information about
-   AI services opt-out policy syntax, see [AI services opt-out policy syntax and
-   examples](orgs_manage_policies_ai-opt-out_syntax.md "orgs_manage_policies_ai-opt-out_syntax.md"). For example
+   AI services opt-out policy syntax, see [AI services opt-out policy syntax and examples](orgs_manage_policies_ai-opt-out_syntax.md "orgs_manage_policies_ai-opt-out_syntax.md"). For example
    policies that you can use as a starting point, see [AI services opt-out policy examples](orgs_manage_policies_ai-opt-out_syntax.md#ai-opt-out-policy-examples "orgs_manage_policies_ai-opt-out_syntax.md#ai-opt-out-policy-examples").
 5. When you're finished updating the policy, choose **Save
    changes**.
@@ -825,8 +814,7 @@ AWS Management Console
 4. You can enter a new **Policy name**,
    **Policy description**, or edit the
    **JSON** policy text. For information about
-   Security Hub policy syntax, see [Security Hub policy syntax and
-   examples](orgs_manage_policies_security_hub_syntax.md "orgs_manage_policies_security_hub_syntax.md"). For
+   Security Hub policy syntax, see [Security Hub policy syntax and examples](orgs_manage_policies_security_hub_syntax.md "orgs_manage_policies_security_hub_syntax.md"). For
    example policies that you can use as a starting point, see [Security Hub policy examples](orgs_manage_policies_security_hub_syntax.md#security-hub-policy-examples "orgs_manage_policies_security_hub_syntax.md#security-hub-policy-examples").
 5. When you're finished updating the policy, choose **Save
    changes**.

@@ -1,13 +1,9 @@
-# Creating a member account in an organization
-
-with AWS Organizations
+# Creating a member account in an organization with AWS Organizations
 
 This topic describes how to create AWS accounts within your organization in AWS Organizations.
 For information about creating a single AWS account, see the [Getting Started Resource Center](https://aws.amazon.com/getting-started/ "https://aws.amazon.com/getting-started/").
 
-## Considerations before
-
-creating a member account
+## Considerations before creating a member account
 
 **Organizations automatically creates the IAM role
 `OrganizationAccountAccessRole` for the member
@@ -27,16 +23,14 @@ that apply to the member account.
 When you create a member account in your organization, Organizations automatically creates
 service-linked role `AWSServiceRoleForOrganizations` in the member account that enables
 integration with select AWS services. You must configure the other services to allow
-the integration. For more information, see [AWS Organizations and service-linked
-roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs "orgs_integrate_services.md#orgs_integrate_services-using_slrs").
+the integration. For more information, see [AWS Organizations and service-linked roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs "orgs_integrate_services.md#orgs_integrate_services-using_slrs").
 
 **Member accounts can only be created in the root of an
 organization**
 
 Member accounts in an organization can only be created in the root of an organization.
 After you create a member account root of an organization, you can move it between OUs.
-For more information, see [Moving accounts to an organizational unit (OU) or between the root and
-OUs with AWS Organizations](move_account_to_ou.md "move_account_to_ou.md").
+For more information, see [Moving accounts to an organizational unit (OU) or between the root and OUs with AWS Organizations](move_account_to_ou.md "move_account_to_ou.md").
 
 **Policies attached to the root immediately
 apply**
@@ -91,9 +85,7 @@ permissions:
 - `organizations:DescribeOrganization` – required only when using the Organizations console
 - `organizations:CreateAccount`
 
-###### To create an AWS account that is automatically part of your
-
-organization
+###### To create an AWS account that is automatically part of your organization
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -129,8 +121,7 @@ it to an empty string; it isn't `null`. You can attach up to
 50 tags to an account. 8. Choose **Create AWS account**.
 
     * If you get an error that indicates that you exceeded your
-     account quota for the organization, see [I get a "quota exceeded"
-     message when I try to add an account to my organization](orgs_troubleshoot.md#troubleshoot_general_error-adding-account "orgs_troubleshoot.md#troubleshoot_general_error-adding-account").
+     account quota for the organization, see [I get a "quota exceeded" message when I try to add an account to my organization](orgs_troubleshoot.md#troubleshoot_general_error-adding-account "orgs_troubleshoot.md#troubleshoot_general_error-adding-account").
     * If you get an error that indicates that you can't add an
      account because your organization is still initializing, wait
      one hour and try again.
@@ -142,8 +133,7 @@ it to an empty string; it isn't `null`. You can attach up to
 The **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts "https://console.aws.amazon.com/organizations/v2/home/accounts")** page appears, with your new account added to the
 list. 9. Now that the account exists and has an IAM role that grants
 administrator access to users in the management account, you can access
-the account by following the steps in [Accessing member accounts in an
-organization with AWS Organizations](orgs_manage_accounts_access.md "orgs_manage_accounts_access.md").
+the account by following the steps in [Accessing member accounts in an organization with AWS Organizations](orgs_manage_accounts_access.md "orgs_manage_accounts_access.md").
 
 The following code examples show how to use `CreateAccount`.
 

@@ -1,6 +1,4 @@
-# AWS IAM Identity Center and
-
-AWS Organizations
+# AWS IAM Identity Center and AWS Organizations
 
 AWS IAM Identity Center provides single sign-on access for all of your AWS accounts and
 cloud applications. It connects with Microsoft Active Directory through AWS Directory Service to allow
@@ -12,9 +10,7 @@ For more information about IAM Identity Center, see the [AWS IAM Identity Center
 Use the following information to help you integrate
 AWS IAM Identity Center with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -26,9 +22,7 @@ IAM Identity Center and Organizations, or if you remove the member account from 
 
 - `AWSServiceRoleForSSO`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -37,13 +31,10 @@ principals:
 
 - `sso.amazonaws.com`
 
-## Enabling trusted access with
-
-IAM Identity Center
+## Enabling trusted access with IAM Identity Center
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can enable trusted access using either the AWS IAM Identity Center console or the AWS Organizations
 console.
@@ -105,13 +96,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-IAM Identity Center
+## Disabling trusted access with IAM Identity Center
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 IAM Identity Center requires trusted access with AWS Organizations to operate. If you disable trusted access
 using AWS Organizations while you are using IAM Identity Center, it stops functioning because it can't access
@@ -168,9 +156,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for IAM Identity Center
+## Enabling a delegated administrator account for IAM Identity Center
 
 When you designate a member account as a delegated administrator for the organization,
 users and roles from that account can perform administrative actions for

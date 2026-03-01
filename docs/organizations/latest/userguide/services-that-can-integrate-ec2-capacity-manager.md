@@ -1,6 +1,4 @@
-# EC2 Capacity Manager and
-
-AWS Organizations
+# EC2 Capacity Manager and AWS Organizations
 
 EC2 Capacity Manager is a new UI experience with accompanying APIs for you to aggregate, view,
 analyze, and manage your capacity usage across EC2 On-Demand, Spot, and Capacity
@@ -19,9 +17,7 @@ _Amazon EC2 User Guide_.
 Use the following information to help you integrate
 EC2 Capacity Manager with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -45,9 +41,7 @@ _Amazon EC2 User Guide_.
   EC2 Capacity Manager to access AWS services and resources used or managed by
   EC2 Capacity Manager on your behalf.
 
-## Service principals used by
-
-EC2 Capacity Manager
+## Service principals used by EC2 Capacity Manager
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -56,13 +50,10 @@ principals:
 
 - `ec2.capacitymanager.amazonaws.com`
 
-## Enabling trusted access with
-
-EC2 Capacity Manager
+## Enabling trusted access with EC2 Capacity Manager
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 When you grant trusted access for EC2 Capacity Manager to your AWS Organization, the
 service gains permission to read organization membership information across all member
@@ -136,8 +127,7 @@ This command produces no output when successful.
 ## Disabling trusted access
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 To disable trusted access from the EC2 Capacity Manager console, navigate to Amazon EC2
 Capacity Manager Settings tab. In the Trusted access section, choose **Manage
@@ -181,9 +171,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for EC2 Capacity Manager
+## Enabling a delegated administrator account for EC2 Capacity Manager
 
 A delegated administrator for EC2 Capacity Manager can manage Capacity Manager for your
 organization without using the management account. Delegated administrators have the
@@ -219,9 +207,7 @@ one of the AWS SDKs:
 
 - AWS API: [RegisterDelegatedAdministrator](../APIReference/API_RegisterDelegatedAdministrator.md "../APIReference/API_RegisterDelegatedAdministrator.md")
 
-## Disabling a delegated administrator
-
-account for EC2 Capacity Manager
+## Disabling a delegated administrator account for EC2 Capacity Manager
 
 Only an administrator in either the Organizations management account or the EC2 Capacity Manager
 delegated admin account can remove a delegated administrator account from the

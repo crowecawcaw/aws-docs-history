@@ -10,16 +10,12 @@ defines the controls that you want to apply to a group of AWS accounts.
 
 - [Create a service control policy (SCP)](#create-an-scp "#create-an-scp")
 - [Create a resource control policy (RCP)](#create-an-rcp "#create-an-rcp")
-- [Create a declarative
-  policy](#create-declarative-policy-procedure "#create-declarative-policy-procedure")
+- [Create a declarative policy](#create-declarative-policy-procedure "#create-declarative-policy-procedure")
 - [Create a backup policy](#create-backup-policy-procedure "#create-backup-policy-procedure")
 - [Create a tag policy](#create-tag-policy-procedure "#create-tag-policy-procedure")
-- [Create a chat applications
-  policy](#create-chatbot-policy-procedure "#create-chatbot-policy-procedure")
-- [Create an AI services opt-out
-  policy](#create-ai-opt-out-policy-procedure "#create-ai-opt-out-policy-procedure")
-- [Create a upgrade rollout
-  policy](#create-upgrade-rollout-policy-procedure "#create-upgrade-rollout-policy-procedure")
+- [Create a chat applications policy](#create-chatbot-policy-procedure "#create-chatbot-policy-procedure")
+- [Create an AI services opt-out policy](#create-ai-opt-out-policy-procedure "#create-ai-opt-out-policy-procedure")
+- [Create a upgrade rollout policy](#create-upgrade-rollout-policy-procedure "#create-upgrade-rollout-policy-procedure")
 - [Create a Security Hub policy](#create-security-hub-policy-procedure "#create-security-hub-policy-procedure")
 
 ## Create a service control policy (SCP)
@@ -281,8 +277,7 @@ it. It uses that file to create a new service control policy.
 ###### Note
 
 SCPs don't take effect on the management account and in a few other situations.
-For more information, see [Tasks and entities not restricted by
-SCPs](orgs_manage_policies_scps.md#not-restricted-by-scp "orgs_manage_policies_scps.md#not-restricted-by-scp").
+For more information, see [Tasks and entities not restricted by SCPs](orgs_manage_policies_scps.md#not-restricted-by-scp "orgs_manage_policies_scps.md#not-restricted-by-scp").
 
 ## Create a resource control policy (RCP)
 
@@ -514,12 +509,9 @@ policy.
 ###### Note
 
 RCPs don't take effect on the management account and in a few other situations.
-For more information, see [Resources and entities not restricted by
-RCPs](orgs_manage_policies_rcps.md#actions-not-restricted-by-rcps "orgs_manage_policies_rcps.md#actions-not-restricted-by-rcps").
+For more information, see [Resources and entities not restricted by RCPs](orgs_manage_policies_rcps.md#actions-not-restricted-by-rcps "orgs_manage_policies_rcps.md#actions-not-restricted-by-rcps").
 
-## Create a declarative
-
-policy
+## Create a declarative policy
 
 ###### Minimum permissions
 
@@ -548,16 +540,13 @@ AWS Management Console
 5. You can build the policy using the **Visual
    editor** as described in this procedure. You can also
    enter or paste policy text in the **JSON** tab. For
-   information about declarative policy syntax, see [Declarative policy syntax and
-   examples](orgs_manage_policies_declarative_syntax.md "orgs_manage_policies_declarative_syntax.md").
+   information about declarative policy syntax, see [Declarative policy syntax and examples](orgs_manage_policies_declarative_syntax.md "orgs_manage_policies_declarative_syntax.md").
 
 If you choose to use the **Visual editor**,
 select the service attribute you want to include in your declarative
-policy. For more information, see [Supported
-AWS services and attributes](orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-supported-controls "orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-supported-controls"). 6. Choose **Add service attribute**, and configure
+policy. For more information, see [Supported AWS services and attributes](orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-supported-controls "orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-supported-controls"). 6. Choose **Add service attribute**, and configure
 the attribute to your specifications. For more detailed information
-on the each effect, see [Declarative policy syntax and
-examples](orgs_manage_policies_declarative_syntax.md "orgs_manage_policies_declarative_syntax.md"). 7. When you're finished editing your policy, choose **Create
+on the each effect, see [Declarative policy syntax and examples](orgs_manage_policies_declarative_syntax.md "orgs_manage_policies_declarative_syntax.md"). 7. When you're finished editing your policy, choose **Create
 policy** at the lower-right corner of the page.
 
 AWS CLI & AWS SDKs
@@ -586,8 +575,7 @@ policy:
   This declarative policy specifies that all accounts
   affected by the policy are must be configured so that new
   Amazon Machine Images (AMIs) are not publicly sharable. For
-  information about declarative policy syntax, see [Declarative policy syntax and
-  examples](orgs_manage_policies_declarative_syntax.md "orgs_manage_policies_declarative_syntax.md"). 2. Import the JSON policy file to create a new policy in the
+  information about declarative policy syntax, see [Declarative policy syntax and examples](orgs_manage_policies_declarative_syntax.md "orgs_manage_policies_declarative_syntax.md"). 2. Import the JSON policy file to create a new policy in the
   organization. In this example, the previous JSON file was
   named `policy.json`.
 
@@ -662,8 +650,7 @@ policy text.
 5. You can build the policy using the **Visual
    editor** as described in this procedure. You can also
    enter or paste policy text in the **JSON** tab. For
-   information about backup policy syntax, see [Backup policy syntax and
-   examples](orgs_manage_policies_backup_syntax.md "orgs_manage_policies_backup_syntax.md").
+   information about backup policy syntax, see [Backup policy syntax and examples](orgs_manage_policies_backup_syntax.md "orgs_manage_policies_backup_syntax.md").
 
 If you choose to use the **Visual editor**,
 select the backup options appropriate for your scenario. A backup
@@ -773,8 +760,7 @@ You can use one of the following to create a backup policy:
 
 Create a backup plan as JSON text similar to the following, and
 store it in a text file. For complete rules for the syntax, see
-[Backup policy syntax and
-examples](orgs_manage_policies_backup_syntax.md "orgs_manage_policies_backup_syntax.md").
+[Backup policy syntax and examples](orgs_manage_policies_backup_syntax.md "orgs_manage_policies_backup_syntax.md").
 
 ```
 {
@@ -927,14 +913,12 @@ following options:
     If a parent policy doesn't exist and you don't enable this
      option, only tag keys in all lowercase characters are
      considered compliant. For more information about inheritance
-     from parent policies, see [Understanding management policy
-     inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
+     from parent policies, see [Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
 
 
     ###### Tip
 
-    Consider using the example tag policy shown in [Example 1: Define organization-wide tag
-     key case](orgs_manage_policies_example-tag-policies.md#tag-policy-example-key-case "orgs_manage_policies_example-tag-policies.md#tag-policy-example-key-case") as a guide
+    Consider using the example tag policy shown in [Example 1: Define organization-wide tag key case](orgs_manage_policies_example-tag-policies.md#tag-policy-example-key-case "orgs_manage_policies_example-tag-policies.md#tag-policy-example-key-case") as a guide
      in creating a tag policy that define tag keys and their
      case treatment. Attach it to the organization root.
      Later, you can create and attach additional tag policies
@@ -1053,9 +1037,7 @@ syntax, see [Tag policy syntax](orgs_manage_policies_example-tag-policies.md#tag
 
 - AWS SDKs: [CreatePolicy](../APIReference/API_CreatePolicy.md "../APIReference/API_CreatePolicy.md")
 
-## Create a chat applications
-
-policy
+## Create a chat applications policy
 
 ###### Minimum permissions
 
@@ -1101,8 +1083,7 @@ policy text.
 5. You can build the policy using the **Visual
    editor** as described in this procedure. You can also
    enter or paste policy text in the **JSON** tab. For
-   information about chat applications policy syntax, see [Chat applications policy syntax and
-   examples](orgs_manage_policies_chatbot_syntax.md "orgs_manage_policies_chatbot_syntax.md").
+   information about chat applications policy syntax, see [Chat applications policy syntax and examples](orgs_manage_policies_chatbot_syntax.md "orgs_manage_policies_chatbot_syntax.md").
 
 If you choose to use the **Visual editor**,
 configure your chat applications policy by specifying access
@@ -1175,8 +1156,7 @@ You can use any text editor to create a chat applications policy.
 Use JSON syntax and save the chat applications policy as a file with
 any name and extension in a location of your choosing. Chat
 applications policies can have a maximum of ? characters, including
-spaces. For information about tag policy syntax, see [Chat applications policy syntax and
-examples](orgs_manage_policies_chatbot_syntax.md "orgs_manage_policies_chatbot_syntax.md").
+spaces. For information about tag policy syntax, see [Chat applications policy syntax and examples](orgs_manage_policies_chatbot_syntax.md "orgs_manage_policies_chatbot_syntax.md").
 
 ###### To create a chat applications policy
 
@@ -1250,9 +1230,7 @@ examples](orgs_manage_policies_chatbot_syntax.md "orgs_manage_policies_chatbot_s
 
 - AWS SDKs: [CreatePolicy](../APIReference/API_CreatePolicy.md "../APIReference/API_CreatePolicy.md")
 
-## Create an AI services opt-out
-
-policy
+## Create an AI services opt-out policy
 
 ###### Minimum permissions
 
@@ -1279,8 +1257,7 @@ AWS Management Console
    it isn't `null`. You can attach up to 50 tags to a
    policy. For more information, see [Tagging AWS Organizations resources](orgs_tagging.md "orgs_tagging.md").
 5. Enter or paste the policy text in the **JSON**
-   tab. For information about AI services opt-out policy syntax, see [AI services opt-out policy syntax and
-   examples](orgs_manage_policies_ai-opt-out_syntax.md "orgs_manage_policies_ai-opt-out_syntax.md"). For example
+   tab. For information about AI services opt-out policy syntax, see [AI services opt-out policy syntax and examples](orgs_manage_policies_ai-opt-out_syntax.md "orgs_manage_policies_ai-opt-out_syntax.md"). For example
    policies that you can use as a starting point, see [AI services opt-out policy examples](orgs_manage_policies_ai-opt-out_syntax.md#ai-opt-out-policy-examples "orgs_manage_policies_ai-opt-out_syntax.md#ai-opt-out-policy-examples").
 6. When you're finished editing your policy, choose **Create
    policy** at the lower-right corner of the page.
@@ -1340,9 +1317,7 @@ You can use one of the following to create a tag policy:
 
 - AWS SDKs: [CreatePolicy](../APIReference/API_CreatePolicy.md "../APIReference/API_CreatePolicy.md")
 
-## Create a upgrade rollout
-
-policy
+## Create a upgrade rollout policy
 
 ###### Minimum permissions
 
@@ -1371,13 +1346,11 @@ AWS Management Console
 5. You can build the policy using the **Visual
    editor** as described in this procedure. You can also
    enter or paste policy text in the **JSON** tab. For
-   more information, see [Upgrade rollout policy syntax and
-   examples](orgs_manage_policies_upgrade_syntax.md "orgs_manage_policies_upgrade_syntax.md").
+   more information, see [Upgrade rollout policy syntax and examples](orgs_manage_policies_upgrade_syntax.md "orgs_manage_policies_upgrade_syntax.md").
 
 If you choose to use the **Visual editor**,
 select the upgrade order you want to use for your upgrade rollout
-policy. For more information about upgrade orders, see [What are upgrade rollout
-policies?](orgs_manage_policies_upgrade_rollout.md#orgs_manage_policies_upgrade_rollout_what_are "orgs_manage_policies_upgrade_rollout.md#orgs_manage_policies_upgrade_rollout_what_are"). 6. Under **Policy order and resources**, select
+policy. For more information about upgrade orders, see [What are upgrade rollout policies?](orgs_manage_policies_upgrade_rollout.md#orgs_manage_policies_upgrade_rollout_what_are "orgs_manage_policies_upgrade_rollout.md#orgs_manage_policies_upgrade_rollout_what_are"). 6. Under **Policy order and resources**, select
 either **First**, **Second** or
 **Last** from the menu. 7. (Optional) To target individual resources with this policy, select
 **Override specific resources**, and then do
@@ -1447,8 +1420,7 @@ policy:
 
   This upgrade rollout policy defines the order of how AWS
   services apply automatic upgrades across your resources. For
-  information about upgrade rollout policy syntax, see [Upgrade rollout policy syntax and
-  examples](orgs_manage_policies_upgrade_syntax.md "orgs_manage_policies_upgrade_syntax.md"). 2. Import the JSON policy file to create a new policy in the
+  information about upgrade rollout policy syntax, see [Upgrade rollout policy syntax and examples](orgs_manage_policies_upgrade_syntax.md "orgs_manage_policies_upgrade_syntax.md"). 2. Import the JSON policy file to create a new policy in the
   organization. In this example, the previous JSON file was
   named `policy.json`.
 
@@ -1500,8 +1472,7 @@ AWS Management Console
    it isn't `null`. You can attach up to 50 tags to a
    policy. For more information, see [Tagging AWS Organizations resources](orgs_tagging.md "orgs_tagging.md").
 5. Enter or paste the policy text in the JSON code box. For
-   information about the Security Hub policy syntax, see [Security Hub policy syntax and
-   examples](orgs_manage_policies_security_hub_syntax.md "orgs_manage_policies_security_hub_syntax.md"). For
+   information about the Security Hub policy syntax, see [Security Hub policy syntax and examples](orgs_manage_policies_security_hub_syntax.md "orgs_manage_policies_security_hub_syntax.md"). For
    example policies that you can use as a starting point, see [Security Hub policy examples](orgs_manage_policies_security_hub_syntax.md#security-hub-policy-examples "orgs_manage_policies_security_hub_syntax.md#security-hub-policy-examples").
 6. When you're finished editing your policy, choose **Create
    policy** at the lower-right corner of the page.

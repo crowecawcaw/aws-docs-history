@@ -1,6 +1,4 @@
-# Update AWS Regions
-
-for an account in AWS Organizations
+# Update AWS Regions for an account in AWS Organizations
 
 You can update enabled AWS Regions for accounts within your organization using the
 AWS Organizations console. To learn how to update enabled AWS Regions, see [Enable or

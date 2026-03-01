@@ -1,6 +1,4 @@
-# Security Hub policy syntax and
-
-examples
+# Security Hub policy syntax and examples
 
 Security Hub policies follow a standardized JSON syntax that defines how Security Hub is enabled and
 configured across your organization. Understanding the policy structure helps you create

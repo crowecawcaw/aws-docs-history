@@ -1,6 +1,4 @@
-# Moving accounts to an organizational unit (OU) or between the root and
-
-OUs with AWS Organizations
+# Moving accounts to an organizational unit (OU) or between the root and OUs with AWS Organizations
 
 When you sign in to your organization's management account, you can move accounts in
 your organization from the root to an OU, from one OU to another, or back to the root

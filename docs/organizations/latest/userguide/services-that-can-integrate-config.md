@@ -1,6 +1,4 @@
-# AWS Config and
-
-AWS Organizations
+# AWS Config and AWS Organizations
 
 Multi-account, multi-region data aggregation in AWS Config enables you to aggregate AWS Config data
 from multiple accounts and AWS Regions into a single account. Multi-account, multi-region
@@ -34,13 +32,10 @@ You can delete or modify this role only if you disable trusted access between
 AWS Config and Organizations, or if you remove the member account from the
 organization.
 
-## Enabling trusted access with
-
-AWS Config
+## Enabling trusted access with AWS Config
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can enable trusted access using either the AWS Config console or the AWS Organizations
 console.
@@ -104,13 +99,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-AWS Config
+## Disabling trusted access with AWS Config
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 You can only disable trusted access using the Organizations
 tools.

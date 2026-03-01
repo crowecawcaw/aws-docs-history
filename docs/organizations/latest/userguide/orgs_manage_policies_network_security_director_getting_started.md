@@ -1,6 +1,4 @@
-# Getting started with
-
-AWS Shield Network Security Director policies
+# Getting started with AWS Shield Network Security Director policies
 
 Before you configure Network Security Director policies, ensure you understand the prerequisites and
 implementation requirements. This topic guides you through the process of setting up and
@@ -28,9 +26,7 @@ Additionally, verify that:
   directly by running `aws iam create-service-linked-role --aws-service-name
 network-director.amazonaws.com`.
 
-## Implementation
-
-steps
+## Implementation steps
 
 To implement Network Security Director policies effectively, follow these steps in sequence. Each step
 ensures proper configuration and helps prevent common issues during setup. These steps can be performed

@@ -1,6 +1,4 @@
-# Best practices for using
-
-Security Hub policies
+# Best practices for using Security Hub policies
 
 When implementing Security Hub policies across your organization, following established best
 practices helps ensure successful deployment and maintenance of your security

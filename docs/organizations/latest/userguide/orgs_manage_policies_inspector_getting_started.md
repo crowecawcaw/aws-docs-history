@@ -1,6 +1,4 @@
-# Getting started with
-
-Amazon Inspector policies
+# Getting started with Amazon Inspector policies
 
 Before you configure Amazon Inspector policies, ensure you understand the prerequisites and
 implementation requirements. This topic guides you through the process of setting up and
@@ -37,9 +35,7 @@ Additionally, verify that:
   directly by running `aws iam create-service-linked-role --aws-service-name 
 inspector2.amazonaws.com`.
 
-## Implementation
-
-steps
+## Implementation steps
 
 To implement Amazon Inspector policies effectively, follow these steps in sequence. Each step
 ensures proper configuration and helps prevent common issues during setup. The
@@ -80,6 +76,5 @@ To create an Amazon Inspector policy, you need the following permission:
    optional value. Leaving the value blank sets it to an empty string;
    it isn't `null`. You can attach up to 50 tags to a
    policy. For more information, see [Tagging AWS Organizations resources](orgs_tagging.md "orgs_tagging.md").
-6. Enter or paste the policy text in the JSON code box. For information about the Amazon Inspector policy syntax, and example policies you can use as a starting point, see [Amazon Inspector policy syntax and
-   examples](orgs_manage_policies_inspector_syntax.md "orgs_manage_policies_inspector_syntax.md").
+6. Enter or paste the policy text in the JSON code box. For information about the Amazon Inspector policy syntax, and example policies you can use as a starting point, see [Amazon Inspector policy syntax and examples](orgs_manage_policies_inspector_syntax.md "orgs_manage_policies_inspector_syntax.md").
 7. When you're finished editing your policy, choose **Create policy** at the lower-right corner of the page.

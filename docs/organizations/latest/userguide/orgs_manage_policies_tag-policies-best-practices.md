@@ -1,6 +1,4 @@
-# Best practices for using
-
-tag policies
+# Best practices for using tag policies
 
 AWS recommends the following best practices for using tag policies.
 
@@ -16,8 +14,7 @@ organization.
 ## Use the recommended workflow
 
 Start small by creating a simple tag policy. Then attach it to a member account that
-you can use for testing purposes. Use the workflows described in [Getting started with tag
-policies](orgs_manage_policies_tag-policies-getting-started.md "orgs_manage_policies_tag-policies-getting-started.md").
+you can use for testing purposes. Use the workflows described in [Getting started with tag policies](orgs_manage_policies_tag-policies-getting-started.md "orgs_manage_policies_tag-policies-getting-started.md").
 
 ## Determine tagging rules
 
@@ -49,8 +46,7 @@ compliance results.
 
 Enforcing compliance could prevent users in your organization's accounts from tagging
 the resources they need. Review the information in [Enforce tagging consistency](orgs_manage_policies_tag-policies-enforcement.md "orgs_manage_policies_tag-policies-enforcement.md"). Also see the
-workflows described in [Getting started with tag
-policies](orgs_manage_policies_tag-policies-getting-started.md "orgs_manage_policies_tag-policies-getting-started.md").
+workflows described in [Getting started with tag policies](orgs_manage_policies_tag-policies-getting-started.md "orgs_manage_policies_tag-policies-getting-started.md").
 
 ## Be aware of tagging limits
 
@@ -61,9 +57,7 @@ resources may be unable to achieve compliance status in compliance summaries, an
 Infrastructure as Code (IaC) platforms may fail to create resources when more than 50 tags
 are defined as required.
 
-## Consider creating an SCP to set guardrails around
-
-resource creation requests
+## Consider creating an SCP to set guardrails around resource creation requests
 
 Resources that have never had tags attached to them don't show as noncompliant in
 reports. Account administrators can still create untagged resources. In some cases, you

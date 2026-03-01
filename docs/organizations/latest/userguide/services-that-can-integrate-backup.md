@@ -1,6 +1,4 @@
-# AWS Backup and
-
-AWS Organizations
+# AWS Backup and AWS Organizations
 
 AWS Backup is a service that allows you to manage and monitor the AWS Backup jobs in your
 organization. Using AWS Backup, if you sign-in as a user in the organization's management
@@ -36,13 +34,10 @@ For more information about AWS Backup, see the _[AWS Backup Developer Guide](../
 Use the following information to help you integrate
 AWS Backup with AWS Organizations.
 
-## Enabling trusted access with
-
-AWS Backup
+## Enabling trusted access with AWS Backup
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can enable trusted access using either the AWS Backup console or the AWS Organizations
 console.
@@ -60,13 +55,10 @@ don’t need to complete these steps.
 
 To enabled trusted access using AWS Backup, see [Enabling backup in multiple AWS accounts](../../../aws-backup/latest/devguide/manage-cross-account.md#enable-xaccount-management "../../../aws-backup/latest/devguide/manage-cross-account.md#enable-xaccount-management") in the _AWS Backup Developer Guide_.
 
-## Disabling trusted access with
-
-AWS Backup
+## Disabling trusted access with AWS Backup
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 AWS Backup requires trusted access with AWS Organizations to enable monitoring of backup, restore,
 and copy jobs across your organization's accounts. If you disable trusted access AWS Backup,
@@ -101,8 +93,6 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for AWS Backup
+## Enabling a delegated administrator account for AWS Backup
 
 See [Delegated administrator](../../../aws-backup/latest/devguide/manage-cross-account.md#backup-delegatedadmin "../../../aws-backup/latest/devguide/manage-cross-account.md#backup-delegatedadmin") in the _AWS Backup Developer Guide_.

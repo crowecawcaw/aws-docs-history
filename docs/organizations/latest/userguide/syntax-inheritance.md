@@ -1,6 +1,4 @@
-# Policy syntax and inheritance for management policy
-
-types
+# Policy syntax and inheritance for management policy types
 
 Exactly how policies affect the OUs and accounts that inherit them depends on the type
 of management policy you choose. Management policy types include:
@@ -30,5 +28,4 @@ inherited from the organization root and OUs along with those directly attached 
 account. The effective policy specifies the final set of rules that apply to the
 account. You can view the effective policy for an account that includes the effect of
 all of the inheritance operators in the policies applied. For more information, see
-[Viewing effective management
-policies](orgs_manage_policies_effective.md "orgs_manage_policies_effective.md").
+[Viewing effective management policies](orgs_manage_policies_effective.md "orgs_manage_policies_effective.md").

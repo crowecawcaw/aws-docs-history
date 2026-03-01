@@ -17,9 +17,7 @@ permission:
 
 AWS Management Console
 
-###### To ask your invited member accounts to agree to enable all features
-
-in the organization
+###### To ask your invited member accounts to agree to enable all features in the organization
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -53,9 +51,7 @@ that haven't yet agreed show a status of
 
 AWS CLI & AWS SDKs
 
-###### To ask your invited member accounts to agree to enable all features
-
-in the organization
+###### To ask your invited member accounts to agree to enable all features in the organization
 
 You can use one of the following commands to enable all features in an
 organization:
@@ -109,12 +105,9 @@ accounts must agree to.
 After all invited accounts in the organization approve their requests, you can
 finalize the process and enable all features. You can also immediately finalize the
 process if your organization doesn't have any _invited_
-member accounts. To finalizing the process, continue with [Step 3: Finalize the migration process to enable all
-features (Management account)](#finalize-migration "#finalize-migration").
+member accounts. To finalizing the process, continue with [Step 3: Finalize the migration process to enable all features (Management account)](#finalize-migration "#finalize-migration").
 
-## Step 2: Approve the request to enable all
-
-features or to recreate the service-linked role (Invited account)
+## Step 2: Approve the request to enable all features or to recreate the service-linked role (Invited account)
 
 When you sign in to one of the organization's invited member accounts, you can approve
 a request from the management account. If your account was originally invited to join
@@ -145,9 +138,7 @@ the following permissions:
 
 AWS Management Console
 
-###### To agree to the request to enable all features in the
-
-organization
+###### To agree to the request to enable all features in the organization
 
 1. Sign in to the AWS Organizations console at [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an
    IAM user, assume an IAM role, or sign in as the root user ([not
@@ -161,9 +152,7 @@ organization
 
 AWS CLI & AWS SDKs
 
-###### To agree to the request to enable all features in the
-
-organization
+###### To agree to the request to enable all features in the organization
 
 To agree to the request, you must accept the handshake with
 `"Action": "APPROVE_ALL_FEATURES"`.
@@ -261,9 +250,7 @@ previous command to accept that handshake.
   - [list-handshakes-for-account](../../../cli/latest/reference/organizations/list-handshakes-for-account.md "../../../cli/latest/reference/organizations/list-handshakes-for-account.md")
   - [AcceptHandshake](../APIReference/API_AcceptHandshake.md "../APIReference/API_AcceptHandshake.md")
 
-## Step 3: Finalize the migration process to enable all
-
-features (Management account)
+## Step 3: Finalize the migration process to enable all features (Management account)
 
 All invited member accounts must approve the request to enable all features. If there
 are no invited member accounts in the organization, the **Enable all features

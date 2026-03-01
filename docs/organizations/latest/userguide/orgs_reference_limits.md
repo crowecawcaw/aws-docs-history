@@ -85,9 +85,7 @@ The following are the timeouts for handshakes in AWS Organizations.
 | Request to enable all features in an organization   | 90 days                                  |
 | Handshake is deleted and no longer appears in lists | 30 days after the handshake is completed |
 
-## Number of policies that you can attach to an
-
-entity
+## Number of policies that you can attach to an entity
 
 The minimum and maximum depend on the policy type and the entity that you're attaching
 the policy to. The following table shows each policy type and the number of entities
@@ -146,9 +144,7 @@ The burst rate allows you to handle temporary spikes in traffic without getting
 throttled, as long as the average requests per second stay within the baseline limit
 over time.
 
-### Account management
-
-limits
+### Account management limits
 
 The following table lists the AWS Organizations APIs for account management.
 
@@ -161,9 +157,7 @@ The following table lists the AWS Organizations APIs for account management.
 | LeaveOrganization                    | 1, 1                            |                                      |
 | ListCreateAccountStatus              | 5, 8                            | 6, 10                                |
 
-### Handshake management
-
-limits
+### Handshake management limits
 
 The following table lists the AWS Organizations APIs for account handshake.
 
@@ -176,9 +170,7 @@ The following table lists the AWS Organizations APIs for account handshake.
 | InviteAccountToOrganization                             | 3, 5                            |                                      |
 | ListHandshakesForAccount, ListHandshakesForOrganization | 5, 8                            | 6, 10                                |
 
-### Organization management
-
-limits
+### Organization management limits
 
 The following table lists the AWS Organizations APIs for organization management.
 

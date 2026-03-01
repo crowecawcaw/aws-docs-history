@@ -1,6 +1,4 @@
-# Leaving an organization from a
-
-member account with AWS Organizations
+# Leaving an organization from a member account with AWS Organizations
 
 When you sign in to a member account, you can leave an organization. The management account can't leave the organization using this
 technique. To remove the management account, you must [delete the organization](orgs_manage_org_delete.md "orgs_manage_org_delete.md").
@@ -61,8 +59,7 @@ AWS Management Console
 
 By default, you don't have access to the root user password in a
 member account that was created using AWS Organizations. If required, recover
-the root user password by following the steps in **Using the root user (Not recommended for everyday tasks)** in [Accessing member accounts in an
-organization with AWS Organizations](orgs_manage_accounts_access.md "orgs_manage_accounts_access.md"). 2. On the **[Organizations Dashboard](https://console.aws.amazon.com/organizations/v2/home/dashboard "https://console.aws.amazon.com/organizations/v2/home/dashboard")** page, choose **Leave this
+the root user password by following the steps in **Using the root user (Not recommended for everyday tasks)** in [Accessing member accounts in an organization with AWS Organizations](orgs_manage_accounts_access.md "orgs_manage_accounts_access.md"). 2. On the **[Organizations Dashboard](https://console.aws.amazon.com/organizations/v2/home/dashboard "https://console.aws.amazon.com/organizations/v2/home/dashboard")** page, choose **Leave this
 organization**. 3. In the **Confirm leaving the organization?**
 dialog box, choose **Leave organization**. When
 prompted, confirm your choice to remove the account. After you have confirmed,
@@ -158,5 +155,4 @@ _IAM User Guide_.
 
 Member accounts can also be removed by a user in the management account
 with [remove-account-from-organization](../../../cli/latest/reference/organizations/remove-account-from-organization.md "../../../cli/latest/reference/organizations/remove-account-from-organization.md") instead. For more information,
-see [Remove a member account
-from an organization](orgs_manage_accounts_remove.md#orgs_manage_accounts_remove-member-account "orgs_manage_accounts_remove.md#orgs_manage_accounts_remove-member-account").
+see [Remove a member account from an organization](orgs_manage_accounts_remove.md#orgs_manage_accounts_remove-member-account "orgs_manage_accounts_remove.md#orgs_manage_accounts_remove-member-account").

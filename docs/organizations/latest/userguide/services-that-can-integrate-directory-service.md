@@ -1,6 +1,4 @@
-# AWS Directory Service and
-
-AWS Organizations
+# AWS Directory Service and AWS Organizations
 
 AWS Directory Service for Microsoft Active Directory, or AWS Managed Microsoft AD, lets you run Microsoft Active
 Directory (AD) as a managed service. AWS Directory Service makes it easy to set up and run directories
@@ -14,12 +12,9 @@ To share an Directory Service across an organization, the organization must have
 Use the following information to help you integrate
 AWS Directory Service with AWS Organizations.
 
-## Enabling trusted access with
+## Enabling trusted access with Directory Service
 
-Directory Service
-
-For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can enable trusted access using either the AWS Directory Service console or the AWS Organizations
 console.
@@ -59,13 +54,10 @@ AWS Management Console
    administrator of AWS Directory Service that they can now enable that service
    to work with AWS Organizations from the service console .
 
-## Disabling trusted access with
-
-Directory Service
+## Disabling trusted access with Directory Service
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 If you disable trusted access using AWS Organizations while you are using Directory Service, all
 previously shared directories continue to operate as normal. However, you can no longer

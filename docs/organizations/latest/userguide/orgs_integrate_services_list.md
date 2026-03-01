@@ -1,6 +1,4 @@
-# AWS services that you can use with
-
-AWS Organizations
+# AWS services that you can use with AWS Organizations
 
 With AWS Organizations you can perform account management activities at scale by consolidating
 multiple AWS accounts into a single organization. Consolidating accounts simplifies how

@@ -1,12 +1,8 @@
-# Viewing effective management
-
-policies
+# Viewing effective management policies
 
 Determine the effective management policy for an account in your organization.
 
-## What is an effective management
-
-policy?
+## What is an effective management policy?
 
 The _effective policy_ specifies the final rules that apply to an
 AWS account for a management policy type. It is the aggregation for a management
@@ -18,8 +14,7 @@ belong to the OU. When you attach a management policy directly to an account, it
 only to that one AWS account.
 
 For information about how policies are combined into the final effective policy, see
-[Understanding management policy
-inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
+[Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
 
 **Backup policy example**
 
@@ -66,9 +61,7 @@ AI services opt-out policies comprises the effective AI services opt-out policy.
 all accounts in the organization are opted out of all AWS services, with the exception
 of one account that opts in to Amazon Rekognition.
 
-## How to view the effective management
-
-policy
+## How to view the effective management policy
 
 You can view the effective policy of a management policy type for an account from the
 AWS Management Console, AWS API, or AWS Command Line Interface.
@@ -83,9 +76,7 @@ have permission to run the following actions:
 
 AWS Management Console
 
-###### To view the effective policy of a management policy type for an
-
-account
+###### To view the effective policy of a management policy type for an account
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -111,9 +102,7 @@ is merged into the final effective policy.
 
 AWS CLI & AWS SDKs
 
-###### To view the effective policy of a management policy type for an
-
-account
+###### To view the effective policy of a management policy type for an account
 
 You can use one of the following to view the effective policy:
 

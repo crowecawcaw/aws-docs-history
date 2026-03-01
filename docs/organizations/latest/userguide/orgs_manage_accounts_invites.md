@@ -12,8 +12,7 @@ If you are the administrator of an AWS account, you also can accept or decline a
 invitation from an organization. If you accept, your account becomes a member of that
 organization.
 
-To create an account that automatically is part of an organization, see [Creating a member account in an organization
-with AWS Organizations](orgs_manage_accounts_create.md "orgs_manage_accounts_create.md").
+To create an account that automatically is part of an organization, see [Creating a member account in an organization with AWS Organizations](orgs_manage_accounts_create.md "orgs_manage_accounts_create.md").
 
 ###### Important
 
@@ -63,8 +62,7 @@ accrued by the member account.
 **Organizations automatically creates the service-linked role `AWSServiceRoleForOrganizations`**
 
 AWS Organizations creates a service-linked role called `AWSServiceRoleForOrganizations` to support integrations between AWS Organizations and other AWS
-services. For more information, see [AWS Organizations and service-linked
-roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs "orgs_integrate_services.md#orgs_integrate_services-using_slrs"). The invited account must have
+services. For more information, see [AWS Organizations and service-linked roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs "orgs_integrate_services.md#orgs_integrate_services-using_slrs"). The invited account must have
 this role if your organization supports [all features](orgs_getting-started_concepts.md#feature-set-all "orgs_getting-started_concepts.md#feature-set-all"). You can delete this
 role if the organization supports only the [consolidated billing](orgs_getting-started_concepts.md#feature-set-cb-only "orgs_getting-started_concepts.md#feature-set-cb-only") feature set.
 If you delete this role and later you enable all features in your
@@ -76,8 +74,7 @@ For invited member accounts, AWS Organizations doesn't automatically create the 
 role [OrganizationAccountAccessRole](orgs_manage_accounts_access-cross-account-role.md "orgs_manage_accounts_access-cross-account-role.md"). This role grants users in the
 management account administrative access to the member account. If you want to
 enable that level of administrative control to an invited account, you can
-manually add the role. For more information, see [Creating
-OrganizationAccountAccessRole for an invited account with AWS Organizations](orgs_manage_accounts_create-cross-account-role.md "orgs_manage_accounts_create-cross-account-role.md").
+manually add the role. For more information, see [Creating OrganizationAccountAccessRole for an invited account with AWS Organizations](orgs_manage_accounts_create-cross-account-role.md "orgs_manage_accounts_create-cross-account-role.md").
 
 ###### Note
 

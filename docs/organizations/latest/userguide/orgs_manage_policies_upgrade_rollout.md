@@ -16,9 +16,7 @@ across your entire organization or specific organizational units (OUs). This int
 allows you to manage upgrades at scale, eliminating the need for manual coordination or
 custom automation scripts.
 
-## Key features and
-
-benefits
+## Key features and benefits
 
 Upgrade rollout policies provide comprehensive capabilities for managing upgrades
 while offering significant advantages for organizations managing resources across
@@ -39,12 +37,9 @@ their associated benefits:
 | Compliance controls                               | Policy inheritance and enforcement                                  | • Enforce organizational standards             |
 | • Meet compliance requirements                    |
 
-For more information about policy inheritance, see [Understanding management policy
-inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
+For more information about policy inheritance, see [Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
 
-## What are upgrade rollout
-
-policies?
+## What are upgrade rollout policies?
 
 Upgrade rollout policies are a set of rules that determine how and when automatic
 upgrades are applied to your AWS resources. These policies allow you to designate
@@ -64,9 +59,7 @@ multi-account structures or those with strict change management requirements. Th
 provide a balance between maintaining up-to-date systems and minimizing the risk of
 upgrade-related disruptions to critical services.
 
-## How upgrade rollout
-
-policies work
+## How upgrade rollout policies work
 
 Upgrade rollout policies integrate seamlessly with your existing AWS infrastructure
 and processes. When you create and attach an upgrade rollout policy to an organizational
@@ -107,9 +100,7 @@ policies:
 | Upgrade order                     | A designation that determines when a resource receives upgrades<br>relative to other resources. Can be set to First, Second, or<br>Last.                               |
 | Upgrade rollout policy            | The AWS Organizations policy type used to manage upgrade schedules<br>across resources.                                                                                |
 
-## Use cases for upgrade
-
-rollout policies
+## Use cases for upgrade rollout policies
 
 Organizations of different sizes and industries can benefit from upgrade rollout
 policies. The following fictitious scenarios demonstrate common upgrade management
@@ -124,9 +115,7 @@ processes or complex automation scripts. The following examples demonstrate how 
 different organizations might solve similar challenges using upgrade rollout
 policies:
 
-### Example
-
-use case: Global Financial Services Company
+### Example use case: Global Financial Services Company
 
 A financial services company operates hundreds of Aurora PostgreSQL databases
 across multiple AWS accounts. Before upgrade rollout policies, their DevOps team
@@ -141,9 +130,7 @@ By implementing upgrade rollout policies, they:
 - Automatically validated changes in lower environments first
 - Maintained compliance with their change management requirements
 
-### Example use
-
-case: IoT Device Platform Provider
+### Example use case: IoT Device Platform Provider
 
 An IoT company processes millions of device events daily using multiple Amazon RDS
 databases. They needed to ensure automatic minor version upgrades wouldn't disrupt
@@ -188,11 +175,8 @@ upgrade rollout policies in AWS Organizations:
 
 To begin using upgrade rollout policies:
 
-1. Review the [Getting started with upgrade
-   rollout policies](orgs_manage_policies_upgrade_getting_started.md "orgs_manage_policies_upgrade_getting_started.md") to learn how
+1. Review the [Getting started with upgrade rollout policies](orgs_manage_policies_upgrade_getting_started.md "orgs_manage_policies_upgrade_getting_started.md") to learn how
    to create and manage policies
-2. Explore [Best practices for using
-   upgrade rollout policies](orgs_manage_policies_upgrade_best_practices.md "orgs_manage_policies_upgrade_best_practices.md") for
+2. Explore [Best practices for using upgrade rollout policies](orgs_manage_policies_upgrade_best_practices.md "orgs_manage_policies_upgrade_best_practices.md") for
    implementing upgrade rollout policies
-3. Understand [Upgrade rollout policy syntax and
-   examples](orgs_manage_policies_upgrade_syntax.md "orgs_manage_policies_upgrade_syntax.md")
+3. Understand [Upgrade rollout policy syntax and examples](orgs_manage_policies_upgrade_syntax.md "orgs_manage_policies_upgrade_syntax.md")

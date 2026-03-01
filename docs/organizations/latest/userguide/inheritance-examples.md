@@ -10,22 +10,14 @@ diagram.
 
 ###### Examples
 
-- [Example 1: Allow child policies to
-  overwrite only tag values](#example-assign-operator "#example-assign-operator")
-- [Example 2: Append new values to inherited
-  tags](#example-append-operator "#example-append-operator")
-- [Example 3: Remove values from inherited
-  tags](#example-remove-operator "#example-remove-operator")
-- [Example 4: Restrict changes to child
-  policies](#example-restrict-child "#example-restrict-child")
-- [Example 5: Conflicts with child
-  control operators](#multiple-same-node-operators "#multiple-same-node-operators")
-- [Example 6: Conflicts with appending
-  values at same hierarchy level](#multiple-same-node-values "#multiple-same-node-values")
+- [Example 1: Allow child policies to overwrite only tag values](#example-assign-operator "#example-assign-operator")
+- [Example 2: Append new values to inherited tags](#example-append-operator "#example-append-operator")
+- [Example 3: Remove values from inherited tags](#example-remove-operator "#example-remove-operator")
+- [Example 4: Restrict changes to child policies](#example-restrict-child "#example-restrict-child")
+- [Example 5: Conflicts with child control operators](#multiple-same-node-operators "#multiple-same-node-operators")
+- [Example 6: Conflicts with appending values at same hierarchy level](#multiple-same-node-values "#multiple-same-node-values")
 
-## Example 1: Allow child policies to
-
-overwrite _only_ tag values
+## Example 1: Allow child policies to overwrite _only_ tag values
 
 The following tag policy defines the `CostCenter` tag key and two
 acceptable values, `Development` and `Support`. If you attach
@@ -124,9 +116,7 @@ of an effective policy is intended only for understanding the results of the mer
 }
 ```
 
-## Example 2: Append new values to inherited
-
-tags
+## Example 2: Append new values to inherited tags
 
 There may be cases where you want all accounts in your organization to specify a
 tag key with a short list of acceptable values. For accounts in one OU, you may want
@@ -234,9 +224,7 @@ of an effective policy is intended only for understanding the results of the mer
 }
 ```
 
-## Example 3: Remove values from inherited
-
-tags
+## Example 3: Remove values from inherited tags
 
 There may be cases where the tag policy that is attached to the organization
 defines more tag values than you want an account to use. This example explains how
@@ -333,9 +321,7 @@ If you later add more accounts to OU2, their effective tag policies would be
 different than for account 999999999999. That's because the more restrictive policy
 D is only attached at the account level, and not to the OU.
 
-## Example 4: Restrict changes to child
-
-policies
+## Example 4: Restrict changes to child policies
 
 There may be cases where you want to restrict changes in child policies. This
 example explains how to do that using child control operators.
@@ -427,9 +413,7 @@ of an effective policy is intended only for understanding the results of the mer
 }
 ```
 
-## Example 5: Conflicts with child
-
-control operators
+## Example 5: Conflicts with child control operators
 
 Child control operators can exist in tag policies that are attached at the same
 level in the organization hierarchy. When that happens, the intersection of the
@@ -479,9 +463,7 @@ can append values, but not remove values. Therefore, the child policy can append
 value to the list of tag values but can't remove the `Maintenance`
 value.
 
-## Example 6: Conflicts with appending
-
-values at same hierarchy level
+## Example 6: Conflicts with appending values at same hierarchy level
 
 You can attach multiple tag policies to each organization entity. When you do
 this, the tag policies that are attached to the same organization entity might

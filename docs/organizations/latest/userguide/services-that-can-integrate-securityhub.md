@@ -1,6 +1,4 @@
-# AWS Security Hub CSPM and
-
-AWS Organizations
+# AWS Security Hub CSPM and AWS Organizations
 
 AWS Security Hub CSPM provides you with a comprehensive view of your security state in AWS and helps
 you check your environment against security industry standards and best practices.
@@ -19,9 +17,7 @@ For more information about Security Hub CSPM, see the _[AWS Security Hub User Gu
 Use the following information to help you integrate
 AWS Security Hub CSPM with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -33,9 +29,7 @@ Security Hub CSPM and Organizations, or if you remove the member account from th
 
 - `AWSServiceRoleForSecurityHub`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -44,20 +38,15 @@ principals:
 
 - `securityhub.amazonaws.com`
 
-## Enabling trusted access with
-
-Security Hub CSPM
+## Enabling trusted access with Security Hub CSPM
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 When you designate a delegated administrator for Security Hub CSPM, Security Hub CSPM automatically enables
 trusted access for Security Hub in your organization.
 
-## Disabling trusted access with
-
-Security Hub CSPM
+## Disabling trusted access with Security Hub CSPM
 
 For information about the permissions needed to disable trusted access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms") in the _AWS Organizations User Guide_.
 
@@ -68,9 +57,7 @@ Only an administrator of the Organizations management account can disable truste
 
 For instructions on disabling trusted access with Security Hub CSPM, see [Disabling Security Hub CSPM integration with AWS Organizations](../../../securityhub/latest/userguide/designate-orgs-admin-account.md#disable-orgs-integration "../../../securityhub/latest/userguide/designate-orgs-admin-account.md#disable-orgs-integration").
 
-## Enabling a delegated administrator
-
-for Security Hub CSPM
+## Enabling a delegated administrator for Security Hub CSPM
 
 When you designate a member account as a delegated administrator for the organization,
 users and roles from that account can perform administrative actions for
@@ -81,9 +68,7 @@ organization from management of Security Hub CSPM.
 For information, see [Designating a Security Hub CSPM administrator account](../../../securityhub/latest/userguide/designate-orgs-admin-account.md "../../../securityhub/latest/userguide/designate-orgs-admin-account.md") in the
 _AWS Security Hub User Guide_.
 
-###### To designate a member account as a delegated administrator for
-
-Security Hub CSPM
+###### To designate a member account as a delegated administrator for Security Hub CSPM
 
 1. Sign in with your Organizations management account.
 2. Perform one of the following:
@@ -95,9 +80,7 @@ Security Hub CSPM
 3. Under **Delegated Administrator**, enter the account
    ID.
 
-## Disabling a delegated administrator
-
-for Security Hub CSPM
+## Disabling a delegated administrator for Security Hub CSPM
 
 Only the organization management account can remove the delegated Security Hub CSPM administrator account.
 

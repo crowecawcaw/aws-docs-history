@@ -1,6 +1,4 @@
-# AWS Service Catalog and
-
-AWS Organizations
+# AWS Service Catalog and AWS Organizations
 
 Service Catalog enables you to create and manage catalogs of IT services that are approved for use on
 AWS.
@@ -19,28 +17,21 @@ For more information about Service Catalog, see the [_Service Catalog Administra
 Use the following information to help you integrate
 AWS Service Catalog with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 AWS Service Catalog doesn't create any service-linked roles as part of enabling trusted
 access.
 
-## Service principals used to
-
-grant permissions
+## Service principals used to grant permissions
 
 To enable trusted access, you must specify the following service principal:
 
 - `servicecatalog.amazonaws.com`
 
-## Enabling trusted access with
-
-Service Catalog
+## Enabling trusted access with Service Catalog
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can enable trusted access using either the AWS Service Catalog console or the AWS Organizations
 console.
@@ -106,13 +97,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-Service Catalog
+## Disabling trusted access with Service Catalog
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 If you disable trusted access using AWS Organizations while you are using Service Catalog, it doesn't
 delete your current shares, but it prevents you from creating new shares throughout your

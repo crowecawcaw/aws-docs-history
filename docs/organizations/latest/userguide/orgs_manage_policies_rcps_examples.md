@@ -1,6 +1,4 @@
-# Resource control
-
-policy examples
+# Resource control policy examples
 
 The example [resource control policies
 (RCPs)](orgs_manage_policies_rcps.md "orgs_manage_policies_rcps.md") displayed in this topic are for information purposes only.

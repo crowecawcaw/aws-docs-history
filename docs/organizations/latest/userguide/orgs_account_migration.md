@@ -1,6 +1,4 @@
-# Migrate an account to another
-
-organization with AWS Organizations
+# Migrate an account to another organization with AWS Organizations
 
 You can migrate an AWS account from one organization to another at any time. For
 example, migrating an account can be helpful in the case of a merger and acquisition when
@@ -30,16 +28,12 @@ The following AWS Prescriptive Guidance provides
 information about strategies for replicating data between AWS accounts:
 [Resource replication or migration between AWS accounts](../../../prescriptive-guidance/latest/transitioning-to-multiple-aws-accounts/resource-migration.md "../../../prescriptive-guidance/latest/transitioning-to-multiple-aws-accounts/resource-migration.md").
 
-## What you need to do before migrating
-
-an account
+## What you need to do before migrating an account
 
 Before migrating your AWS account from one organization to another, make
 sure you have completed the following steps.
 
-### Step 1: Check that you have the necessary
-
-IAM permissions to migrate an account
+### Step 1: Check that you have the necessary IAM permissions to migrate an account
 
 Make sure you have applied the necessary permissions for migrating an
 account to the respective
@@ -161,9 +155,7 @@ organization to join the new organization.
    the new organization to join the new organization. If you accept the invitation,
    the management account will be a member account of the new organization.
 
-## What you need to do after migrating
-
-an account
+## What you need to do after migrating an account
 
 After migration your account from one organization to another, make sure you have
 completed the following steps.

@@ -1,6 +1,4 @@
-# Best practices for using
-
-declarative policies
+# Best practices for using declarative policies
 
 AWS recommends the following best practices for using declarative policies.
 
@@ -21,8 +19,7 @@ observed for the attribute.
 The choice to attach a declarative policy for enforcing a baseline configuration
 depends on your specific use case.
 
-For more information and an illustrative example, see [Account status
-report for declarative policies](orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-account-status-report "orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-account-status-report").
+For more information and an illustrative example, see [Account status report for declarative policies](orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-account-status-report "orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-account-status-report").
 
 ## Start small and then scale
 
@@ -41,9 +38,7 @@ Implement processes to monitor for new declarative attributes, evaluate policy
 exceptions, and make adjustments to maintain alignment with your organizational security
 and operational requirements.
 
-## Validate changes using
-
-`DescribeEffectivePolicy`
+## Validate changes using `DescribeEffectivePolicy`
 
 After you make a change to a declarative policy, check the effective policies for
 representative accounts below the level where you made the change. You can [view the effective policy by using the

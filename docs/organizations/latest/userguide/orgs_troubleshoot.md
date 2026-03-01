@@ -10,30 +10,17 @@ that you might encounter when working with AWS Organizations.
 
 ###### Topics
 
-- [I get an "access denied"
-  message when I make a request to AWS Organizations](#troubleshoot_general_access-denied-service "#troubleshoot_general_access-denied-service")
-- [I get an "access denied"
-  message when I make a request with temporary security credentials](#troubleshoot_general_access-denied-temp-creds "#troubleshoot_general_access-denied-temp-creds")
-- [I get an "access denied"
-  message when I try to leave an organization as a member account or remove a member
-  account as the management account](#troubleshoot_general_error-leaving-org "#troubleshoot_general_error-leaving-org")
-- [I get a "quota exceeded"
-  message when I try to add an account to my organization](#troubleshoot_general_error-adding-account "#troubleshoot_general_error-adding-account")
-- [I get a "this operation requires
-  a wait period" message while adding or removing accounts](#troubleshoot_general_error-wait-req "#troubleshoot_general_error-wait-req")
-- [I get an "organization is still
-  initializing" message when I try to add an account to my organization](#troubleshoot_general_error-still-init "#troubleshoot_general_error-still-init")
-- [I get an "Invitations
-  are disabled" message when I try to invite an account to my organization.](#troubleshoot_general_error-changing-feature-set "#troubleshoot_general_error-changing-feature-set")
-- [Changes that I make aren't
-  always immediately visible](#troubleshoot_general_eventual-consistency "#troubleshoot_general_eventual-consistency")
-- [I get a “Complete sign-up”
-  message when I try to access an account that is already a part of an
-  organization](#troubleshoot_general_complete-signup "#troubleshoot_general_complete-signup")
+- [I get an "access denied" message when I make a request to AWS Organizations](#troubleshoot_general_access-denied-service "#troubleshoot_general_access-denied-service")
+- [I get an "access denied" message when I make a request with temporary security credentials](#troubleshoot_general_access-denied-temp-creds "#troubleshoot_general_access-denied-temp-creds")
+- [I get an "access denied" message when I try to leave an organization as a member account or remove a member account as the management account](#troubleshoot_general_error-leaving-org "#troubleshoot_general_error-leaving-org")
+- [I get a "quota exceeded" message when I try to add an account to my organization](#troubleshoot_general_error-adding-account "#troubleshoot_general_error-adding-account")
+- [I get a "this operation requires a wait period" message while adding or removing accounts](#troubleshoot_general_error-wait-req "#troubleshoot_general_error-wait-req")
+- [I get an "organization is still initializing" message when I try to add an account to my organization](#troubleshoot_general_error-still-init "#troubleshoot_general_error-still-init")
+- [I get an "Invitations are disabled" message when I try to invite an account to my organization.](#troubleshoot_general_error-changing-feature-set "#troubleshoot_general_error-changing-feature-set")
+- [Changes that I make aren't always immediately visible](#troubleshoot_general_eventual-consistency "#troubleshoot_general_eventual-consistency")
+- [I get a “Complete sign-up” message when I try to access an account that is already a part of an organization](#troubleshoot_general_complete-signup "#troubleshoot_general_complete-signup")
 
-### I get an "access denied"
-
-message when I make a request to AWS Organizations
+### I get an "access denied" message when I make a request to AWS Organizations
 
 - Verify that you have permissions to call the action and resource that you have
   requested. An administrator must grant permissions by attaching an IAM policy
@@ -47,9 +34,7 @@ message when I make a request to AWS Organizations
   correctly [signed the
   request](../../../general/latest/gr/signing_aws_api_requests.md "../../../general/latest/gr/signing_aws_api_requests.md").
 
-### I get an "access denied"
-
-message when I make a request with temporary security credentials
+### I get an "access denied" message when I make a request with temporary security credentials
 
 - Verify that the user or role that you are using to make the request has the
   correct permissions. Permissions for temporary security credentials are derived
@@ -64,10 +49,7 @@ message when I make a request with temporary security credentials
 - Verify that your temporary security credentials haven't expired. For more
   information, see [Requesting Temporary Security Credentials](../../../IAM/latest/UserGuide/id_credentials_temp_request.md "../../../IAM/latest/UserGuide/id_credentials_temp_request.md") in the _IAM User Guide_.
 
-### I get an "access denied"
-
-message when I try to leave an organization as a member account or remove a member
-account as the management account
+### I get an "access denied" message when I try to leave an organization as a member account or remove a member account as the management account
 
 - You can remove a member account only after you enable IAM user access to
   billing in the member account. For more information, see [Activating Access to the Billing and Cost Management Console](../../../awsaccountbilling/latest/aboutv2/grantaccess.md#ControllingAccessWebsite-Activate "../../../awsaccountbilling/latest/aboutv2/grantaccess.md#ControllingAccessWebsite-Activate") in the
@@ -80,12 +62,9 @@ account as the management account
   choose a support plan, provide and verify the required contact information, and
   provide a current payment method. AWS uses the payment method to charge for
   any billable (not AWS Free Tier) AWS activity that occurs while the account
-  isn't attached to an organization. For more information, see [Leaving an organization from a
-  member account with AWS Organizations](orgs_manage_accounts_leave-as-member.md "orgs_manage_accounts_leave-as-member.md").
+  isn't attached to an organization. For more information, see [Leaving an organization from a member account with AWS Organizations](orgs_manage_accounts_leave-as-member.md "orgs_manage_accounts_leave-as-member.md").
 
-### I get a "quota exceeded"
-
-message when I try to add an account to my organization
+### I get a "quota exceeded" message when I try to add an account to my organization
 
 There is a maximum number of accounts that you can have in an organization. Deleted or
 closed accounts continue to count against this quota.
@@ -100,9 +79,7 @@ account cancels the invitation, or the invitation expires.
 - See [Maximum and minimum values](orgs_reference_limits.md#min-max-values "orgs_reference_limits.md#min-max-values") for
   information about how to request a quota increase.
 
-### I get a "this operation requires
-
-a wait period" message while adding or removing accounts
+### I get a "this operation requires a wait period" message while adding or removing accounts
 
 Some actions require a wait period due to account quotas. For example, you can't
 immediately remove newly created accounts. Try the action again in a few days.
@@ -111,25 +88,19 @@ For issues with adding accounts, see the quota [Default maximum number of
 accounts](orgs_reference_limits.md#default-maximum-number-of-accounts "orgs_reference_limits.md#default-maximum-number-of-accounts"). For issues with removing accounts, see the quota [Number of accounts you can close within a
 30-day period](orgs_reference_limits.md#number-of-accounts-you-can-close "orgs_reference_limits.md#number-of-accounts-you-can-close").
 
-### I get an "organization is still
-
-initializing" message when I try to add an account to my organization
+### I get an "organization is still initializing" message when I try to add an account to my organization
 
 If you receive this error and it's been over an hour since you created the
 organization, contact [AWS Support](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-### I get an "Invitations
-
-are disabled" message when I try to invite an account to my organization.
+### I get an "Invitations are disabled" message when I try to invite an account to my organization.
 
 This happens when you [enable all
 features in your organization](orgs_manage_org_support-all-features.md "orgs_manage_org_support-all-features.md"). This operation can take some time and requires
 that all member accounts respond. Until the operation is completed, you can't invite new
 accounts to join the organization.
 
-### Changes that I make aren't
-
-always immediately visible
+### Changes that I make aren't always immediately visible
 
 As a service that is accessed through computers in data centers around the world,
 AWS Organizations uses a distributed computing model called [eventual consistency](https://wikipedia.org/wiki/Eventual_consistency "https://wikipedia.org/wiki/Eventual_consistency").
@@ -155,10 +126,7 @@ the following resources:
 - [EC2 Eventual Consistency](../../../AWSEC2/latest/APIReference/query-api-troubleshooting.md#eventual-consistency "../../../AWSEC2/latest/APIReference/query-api-troubleshooting.md#eventual-consistency") in the
   _Amazon EC2 API Reference_.
 
-### I get a “Complete sign-up”
-
-message when I try to access an account that is already a part of an
-organization
+### I get a “Complete sign-up” message when I try to access an account that is already a part of an organization
 
 - It may take up to 48 hours for the member account to inherit the management
   account’s billing details.

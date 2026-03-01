@@ -1,6 +1,4 @@
-# Accessing a member
-
-account that has OrganizationAccountAccessRole with AWS Organizations
+# Accessing a member account that has OrganizationAccountAccessRole with AWS Organizations
 
 When you create a member account using the AWS Organizations console, AWS Organizations _automatically_ creates an IAM role named
 `OrganizationAccountAccessRole` in the account. This role has full
@@ -9,8 +7,7 @@ includes all principals in the management account, such that the role is configu
 grant that access to the organization's management account.
 
 You can create an identical
-role for an invited member account by following the steps in [Creating
-OrganizationAccountAccessRole for an invited account with AWS Organizations](orgs_manage_accounts_create-cross-account-role.md "orgs_manage_accounts_create-cross-account-role.md").
+role for an invited member account by following the steps in [Creating OrganizationAccountAccessRole for an invited account with AWS Organizations](orgs_manage_accounts_create-cross-account-role.md "orgs_manage_accounts_create-cross-account-role.md").
 
 To use this role
 to access the member account, you must sign in as a user from the management account
@@ -20,9 +17,7 @@ for ease of maintenance.
 
 AWS Management Console
 
-###### To grant permissions to members of an IAM group in the management
-
-account to access the role
+###### To grant permissions to members of an IAM group in the management account to access the role
 
 1. Sign in to the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") as a user with
    administrator permissions in the management account. This is

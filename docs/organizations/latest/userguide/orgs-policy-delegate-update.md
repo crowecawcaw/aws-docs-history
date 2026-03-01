@@ -1,6 +1,4 @@
-# Update a resource-based delegation
-
-policy with AWS Organizations
+# Update a resource-based delegation policy with AWS Organizations
 
 From the management account, update a resource-based delegation policy for
 your organization and add a statement that specifies which member accounts can perform
@@ -32,9 +30,7 @@ using one of the following methods:
   creating a delegation policy without having to write JSON
   syntax.
 
-###### Use the JSON policy editor to update a delegation
-
-policy
+###### Use the JSON policy editor to update a delegation policy
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not

@@ -15,9 +15,7 @@ permissions:
 
 AWS Management Console
 
-###### To view or cancel invitations that are sent from your organization to
-
-other accounts
+###### To view or cancel invitations that are sent from your organization to other accounts
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -50,9 +48,7 @@ organization unless you send a new invitation.
 
 AWS CLI & AWS SDKs
 
-###### To view or cancel invitations that are sent from your organization to
-
-other accounts
+###### To view or cancel invitations that are sent from your organization to other accounts
 
 You can use the following commands to view or cancel
 invitations:

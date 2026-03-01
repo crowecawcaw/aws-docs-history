@@ -1,6 +1,4 @@
-# Amazon Security Lake and
-
-AWS Organizations
+# Amazon Security Lake and AWS Organizations
 
 Amazon Security Lake centralizes security data from cloud, on-premises, and custom sources into a data lake that's stored in your account.
 By integrating with Organizations, you can create a data lake that collects logs and events across your accounts. For more information see [Managing multiple accounts with AWS Organizations](../../../security-lake/latest/userguide/multi-account-management.md "../../../security-lake/latest/userguide/multi-account-management.md") in the _Amazon Security Lake user guide_.
@@ -8,9 +6,7 @@ By integrating with Organizations, you can create a data lake that collects logs
 Use the following information to help you integrate
 Amazon Security Lake with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../aws-backup/latest/devguide/manage-cross-account.md#backup-delegatedadmin "../../../aws-backup/latest/devguide/manage-cross-account.md#backup-delegatedadmin") is automatically created
 in your organization's management account when you call the [RegisterDataLakeDelegatedAdministrator](../../../security-lake/latest/APIReference/API_RegisterDataLakeDelegatedAdministrator.md "../../../security-lake/latest/APIReference/API_RegisterDataLakeDelegatedAdministrator.md") API.
@@ -21,16 +17,12 @@ or if you remove the member account from the organization.
 
 - `AWSServiceRoleForSecurityLake`
 
-###### Recommendation: Use Security Lake's RegisterDataLakeDelegatedAdministrator
-
-API to allow Security Lake access to your Organization and to register Organizations's delegated administrator
+###### Recommendation: Use Security Lake's RegisterDataLakeDelegatedAdministrator API to allow Security Lake access to your Organization and to register Organizations's delegated administrator
 
 If you use Organizations' APIs to register a delegated administrator, service-linked roles for the Organizations might not be created successfully.
 To ensure full functionality, use the Security Lake APIs.
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -39,9 +31,7 @@ principals:
 
 - `securitylake.amazonaws.com`
 
-## Enabling trusted access with
-
-Amazon Security Lake
+## Enabling trusted access with Amazon Security Lake
 
 When you enable trusted access with Security Lake,
 Security Lake can react automatically to changes in the organization membership. The delegated administrator
@@ -49,8 +39,7 @@ can enable AWS logs collection from supported services in any organization accou
 For more information, see [Service-linked role for Amazon Security Lake](../../../security-lake/latest/userguide/service-linked-roles.md "../../../security-lake/latest/userguide/service-linked-roles.md") in the _Amazon Security Lake user guide_.
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can only enable trusted access using the Organizations
 tools.
@@ -97,9 +86,7 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-Amazon Security Lake
+## Disabling trusted access with Amazon Security Lake
 
 Only an administrator in the Organizations management account can disable trusted access with Amazon Security Lake.
 
@@ -147,9 +134,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for Amazon Security Lake
+## Enabling a delegated administrator account for Amazon Security Lake
 
 The Amazon Security Lake delegated administrator adds other accounts in the organization as member accounts.
 The delegated administrator can enable Amazon Security Lake and configure Amazon Security Lake settings for the member accounts.
@@ -191,9 +176,7 @@ CLI or one of the AWS SDKs, you can use the following commands:
   member account's ID number and identify the account service principal
   `account.amazonaws.com` as parameters.
 
-## Disabling a delegated administrator
-
-for Amazon Security Lake
+## Disabling a delegated administrator for Amazon Security Lake
 
 Only an administrator in either the Organizations management account or the Amazon Security Lake
 delegated administrator account can remove a delegated administrator account from the

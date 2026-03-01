@@ -57,7 +57,7 @@ The following is a list of AWS services supported by the AI services opt-out pol
 - [Amazon Lex](../../../lex.md "../../../lex.md")
 - [Amazon Polly](../../../polly.md "../../../polly.md")
 - [Amazon Q](../../../amazonq.md "../../../amazonq.md")
-- [Amazon Quick Suite](../../../quicksight.md "../../../quicksight.md")
+- [Amazon Quick](../../../quicksight.md "../../../quicksight.md")
 - [Amazon Rekognition](../../../rekognition.md "../../../rekognition.md")
 - [Amazon Security Lake](../../../security-lake.md "../../../security-lake.md")
 - [AWS Supply Chain](../../../aws-supply-chain.md "../../../aws-supply-chain.md")

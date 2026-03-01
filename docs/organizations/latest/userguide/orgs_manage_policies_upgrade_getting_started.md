@@ -1,13 +1,9 @@
-# Getting started with upgrade
-
-rollout policies
+# Getting started with upgrade rollout policies
 
 Follow these steps to implement upgrade rollout policies in your organization. Each step
 links to detailed information to help you complete the implementation successfully.
 
-## Before you
-
-begin
+## Before you begin
 
 Ensure you have the following:
 
@@ -15,9 +11,7 @@ Ensure you have the following:
 - Resources in supported AWS services (such as Aurora or Amazon Relational Database Service)
 - Necessary IAM permissions configured
 
-## Implementation
-
-steps
+## Implementation steps
 
 1. [Enable upgrade rollout policies for your organization.](enable-policy-type.md "enable-policy-type.md")
 2. [Understand how
@@ -27,8 +21,7 @@ steps
      last
    - Document your tagging strategy for resource identification
 
-3. [Create a upgrade rollout
-   policy](orgs_policies_create.md#create-upgrade-rollout-policy-procedure "orgs_policies_create.md#create-upgrade-rollout-policy-procedure"):
+3. [Create a upgrade rollout policy](orgs_policies_create.md#create-upgrade-rollout-policy-procedure "orgs_policies_create.md#create-upgrade-rollout-policy-procedure"):
    - Define the default rollout order (organizational unit or account level)
    - Specify resource targeting using tags
    - Configure any policy exclusions

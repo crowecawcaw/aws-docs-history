@@ -44,8 +44,7 @@ the following permissions:
 - `iam:CreateServiceLinkedRole` – Required only when
   accepting the invitation requires the creation of a service-linked role in
   the member account to support integration with other AWS services. For
-  more information, see [AWS Organizations and service-linked
-  roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs "orgs_integrate_services.md#orgs_integrate_services-using_slrs").
+  more information, see [AWS Organizations and service-linked roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs "orgs_integrate_services.md#orgs_integrate_services-using_slrs").
 
 AWS Management Console
 
@@ -82,8 +81,7 @@ invitation** as appropriate.
     AWS Organizations automatically creates a service-linked role in
      the new member account to support integration between
      AWS Organizations and other AWS services. For more information, see
-     [AWS Organizations and service-linked
-     roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs "orgs_integrate_services.md#orgs_integrate_services-using_slrs").
+     [AWS Organizations and service-linked roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs "orgs_integrate_services.md#orgs_integrate_services-using_slrs").
 
 
     AWS sends an email message to the owner of the

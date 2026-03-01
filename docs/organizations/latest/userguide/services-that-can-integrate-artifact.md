@@ -1,6 +1,4 @@
-# AWS Artifact and
-
-AWS Organizations
+# AWS Artifact and AWS Organizations
 
 AWS Artifact is a service that allows you to download AWS security compliance reports such
 as ISO and PCI reports. Using AWS Artifact, a user in the organization's management account can
@@ -12,9 +10,7 @@ accounts in AWS Artifact](../../../artifact/latest/ug/manage-org-agreement.md ".
 Use the following information to help you integrate
 AWS Artifact with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -34,9 +30,7 @@ prevention](../../../artifact/latest/ug/security-iam.md#confused-deputy "../../.
 
 - `AWSServiceRoleForArtifact`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -45,13 +39,10 @@ principals:
 
 - `artifact.amazonaws.com`
 
-## Enabling trusted access with
-
-AWS Artifact
+## Enabling trusted access with AWS Artifact
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can only enable trusted access using the Organizations
 tools.
@@ -98,13 +89,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-AWS Artifact
+## Disabling trusted access with AWS Artifact
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 Only an administrator in the AWS Organizations management account can disable trusted access
 with AWS Artifact.

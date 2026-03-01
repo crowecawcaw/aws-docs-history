@@ -10,8 +10,7 @@ that emails or text messages its subscribers. You could also create an AWS Lambd
 function that logs the details of the action for your later review.
 
 For a tutorial that shows how to enable EventBridge to monitor key activity in your
-organization, see [Tutorial: Monitor important changes to your
-organization with Amazon EventBridge](orgs_tutorials_cwe.md "orgs_tutorials_cwe.md").
+organization, see [Tutorial: Monitor important changes to your organization with Amazon EventBridge](orgs_tutorials_cwe.md "orgs_tutorials_cwe.md").
 
 ###### Important
 

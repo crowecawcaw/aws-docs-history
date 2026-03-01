@@ -45,8 +45,7 @@ the parent policy.
 The final, single policy document that specifies the rules that apply to
 an account. The effective policy is the aggregation of any policies the
 account inherits, plus any policy that is directly attached to the account.
-For more information, see [Viewing effective management
-policies](orgs_manage_policies_effective.md "orgs_manage_policies_effective.md").
+For more information, see [Viewing effective management policies](orgs_manage_policies_effective.md "orgs_manage_policies_effective.md").
 
 **Inheritance operators**
 

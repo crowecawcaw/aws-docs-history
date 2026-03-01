@@ -11,6 +11,5 @@ This topic describes how to manage the management account with AWS Organizations
 
 ###### Topics
 
-- [Best practices for the management
-  account](orgs_best-practices_mgmt-acct.md "orgs_best-practices_mgmt-acct.md")
+- [Best practices for the management account](orgs_best-practices_mgmt-acct.md "orgs_best-practices_mgmt-acct.md")
 - [Closing a management account](orgs_manage_accounts_close_management.md "orgs_manage_accounts_close_management.md")

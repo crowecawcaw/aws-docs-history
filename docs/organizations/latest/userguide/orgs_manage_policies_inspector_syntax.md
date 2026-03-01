@@ -1,6 +1,4 @@
-# Amazon Inspector policy syntax and
-
-examples
+# Amazon Inspector policy syntax and examples
 
 Amazon Inspector policies follow a standardized JSON syntax that defines how Amazon Inspector is enabled and
 configured across your organization. An Amazon Inspector policy is a JSON document structured according to the AWS Organizations management-policy syntax. It defines which organizational entities will have Amazon Inspector automatically enabled.

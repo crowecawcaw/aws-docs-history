@@ -21,9 +21,7 @@ To get a high-level view of how Organizations and other AWS services work with m
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Organizations
+## Identity-based policies for Organizations
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Organizations
 
-Identity-based policy examples for Organizations
+To view examples of Organizations identity-based policies, see [Identity-based policy examples for AWS Organizations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Organizations identity-based policies, see [Identity-based policy examples for
-AWS Organizations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Organizations
+## Resource-based policies within Organizations
 
 **Supports resource-based policies:**
 
@@ -71,12 +64,9 @@ For more information, see [Delegated administrator for AWS Organizations](orgs_d
 
 ### Resource-based policy examples within Organizations
 
-To view examples of Organizations resource-based policies, see [Resource-based
-policy examples for AWS Organizations](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md"),
+To view examples of Organizations resource-based policies, see [Resource-based policy examples for AWS Organizations](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md"),
 
-## Policy actions
-
-for Organizations
+## Policy actions for Organizations
 
 **Supports policy actions:**
 
@@ -106,12 +96,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of Organizations identity-based policies, see [Identity-based policy examples for
-AWS Organizations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Organizations identity-based policies, see [Identity-based policy examples for AWS Organizations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Organizations
+## Policy resources for Organizations
 
 **Supports policy resources:**
 
@@ -130,12 +117,9 @@ To see a list of Organizations resource types and their ARNs, see [Resources def
 in the _Service Authorization Reference_. To learn with which actions you can
 specify the ARN of each resource, see [Actions defined by AWS Organizations](../../../service-authorization/latest/reference/list_awsorganizations.md#your_service-actions-as-permissions "../../../service-authorization/latest/reference/list_awsorganizations.md#your_service-actions-as-permissions").
 
-To view examples of Organizations identity-based policies, see [Identity-based policy examples for
-AWS Organizations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Organizations identity-based policies, see [Identity-based policy examples for AWS Organizations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Organizations
+## Policy condition keys for Organizations
 
 **Supports service-specific policy condition keys:**
 
@@ -154,8 +138,7 @@ To see a list of Organizations condition keys, see [Condition keys for AWS Organ
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by AWS Organizations](../../../service-authorization/latest/reference/list_awsorganizations.md#your_service-actions-as-permissions "../../../service-authorization/latest/reference/list_awsorganizations.md#your_service-actions-as-permissions").
 
-To view examples of Organizations identity-based policies, see [Identity-based policy examples for
-AWS Organizations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Organizations identity-based policies, see [Identity-based policy examples for AWS Organizations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Organizations
 
@@ -183,9 +166,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Organizations
+## Using temporary credentials with Organizations
 
 **Supports temporary credentials:**
 
@@ -197,9 +178,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access
-
-sessions for Organizations
+## Forward access sessions for Organizations
 
 **Supports forward access sessions (FAS):**
 
@@ -208,9 +187,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Organizations
+## Service roles for Organizations
 
 **Supports service roles:**
 
@@ -225,9 +202,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Organizations functionality.
 Edit service roles only when Organizations provides guidance to do so.
 
-## Service-linked
-
-roles for Organizations
+## Service-linked roles for Organizations
 
 **Supports service-linked roles:**
 

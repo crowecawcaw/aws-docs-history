@@ -1,27 +1,17 @@
-# Best practices for using
-
-upgrade rollout policies
+# Best practices for using upgrade rollout policies
 
 AWS recommends the following best practices for using upgrade rollout policies.
 
 ###### Topics
 
-- [Start small and
-  scale gradually](#orgs_manage_policies_upgrade_best_practices_scale "#orgs_manage_policies_upgrade_best_practices_scale")
-- [Establish review
-  processes](#orgs_manage_policies_upgrade_best_practices_review "#orgs_manage_policies_upgrade_best_practices_review")
-- [Validate policy
-  changes effectively](#orgs_manage_policies_upgrade_best_practices_validate "#orgs_manage_policies_upgrade_best_practices_validate")
-- [Monitor and
-  communicate changes](#orgs_manage_policies_upgrade_best_practices_monitor "#orgs_manage_policies_upgrade_best_practices_monitor")
-- [Maintain
-  compliance and security](#orgs_manage_policies_upgrade_best_practices_compliance "#orgs_manage_policies_upgrade_best_practices_compliance")
-- [Optimize
-  operational efficiency](#orgs_manage_policies_upgrade_best_practices_optimize "#orgs_manage_policies_upgrade_best_practices_optimize")
+- [Start small and scale gradually](#orgs_manage_policies_upgrade_best_practices_scale "#orgs_manage_policies_upgrade_best_practices_scale")
+- [Establish review processes](#orgs_manage_policies_upgrade_best_practices_review "#orgs_manage_policies_upgrade_best_practices_review")
+- [Validate policy changes effectively](#orgs_manage_policies_upgrade_best_practices_validate "#orgs_manage_policies_upgrade_best_practices_validate")
+- [Monitor and communicate changes](#orgs_manage_policies_upgrade_best_practices_monitor "#orgs_manage_policies_upgrade_best_practices_monitor")
+- [Maintain compliance and security](#orgs_manage_policies_upgrade_best_practices_compliance "#orgs_manage_policies_upgrade_best_practices_compliance")
+- [Optimize operational efficiency](#orgs_manage_policies_upgrade_best_practices_optimize "#orgs_manage_policies_upgrade_best_practices_optimize")
 
-## Start small and
-
-scale gradually
+## Start small and scale gradually
 
 Begin your implementation with a test policy attached to a single account in a
 non-critical environment. This approach allows you to validate the behavior and impact
@@ -34,9 +24,7 @@ implementation process. Consider creating a pilot group of resources that repres
 diversity of your environment but carries minimal operational risk. Document the results
 of each expansion phase to inform future policy rollouts and adjustments.
 
-## Establish review
-
-processes
+## Establish review processes
 
 Implement regular review processes to monitor for new upgrade rollout policy
 attributes and evaluate policy exceptions. These reviews should align with your
@@ -48,9 +36,7 @@ by policies, verification that upgrade orders align with your intended strategy,
 evaluation of any policy exceptions. Consider establishing criteria for when policies
 need updating and maintain a change log to track policy evolution over time.
 
-## Validate policy
-
-changes effectively
+## Validate policy changes effectively
 
 After making changes to an upgrade rollout policy, check the effective policies for
 representative accounts at each level of your organization. Use the AWS Management
@@ -64,9 +50,7 @@ those using default values. Establish a validation checklist that includes verif
 tag-based targeting, confirming maintenance window alignments, and testing policy
 inheritance.
 
-## Monitor and
-
-communicate changes
+## Monitor and communicate changes
 
 Establish comprehensive monitoring for your upgrade rollout policies and create clear
 communication channels for sharing upgrade-related information. Document clear
@@ -77,9 +61,7 @@ Maintain regular communication with teams managing resources affected by upgrade
 policies. Consider creating dashboards that provide visibility into upcoming upgrades
 and their expected progression through your environments.
 
-## Maintain
-
-compliance and security
+## Maintain compliance and security
 
 Regularly audit your upgrade rollout policies to ensure they align with your
 compliance requirements. Document all policy decisions and maintain clear records of
@@ -91,9 +73,7 @@ least-privilege access for policy administration. Create procedures for emergenc
 modifications and maintain documentation of security-related upgrade
 requirements.
 
-## Optimize
-
-operational efficiency
+## Optimize operational efficiency
 
 Design your policies to minimize operational overhead while maintaining necessary
 controls. To prevent unintended behavior, do not reuse tags across different use cases.

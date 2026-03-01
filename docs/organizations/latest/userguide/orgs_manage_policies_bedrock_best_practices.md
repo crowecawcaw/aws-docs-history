@@ -1,6 +1,4 @@
-# Best practices for using
-
-Amazon Bedrock policies
+# Best practices for using Amazon Bedrock policies
 
 ## Review Amazon Bedrock Service Limits for Guardrails
 

@@ -1,6 +1,4 @@
-# Closing a management account in your
-
-organization
+# Closing a management account in your organization
 
 To close the management account in your organization, you must first either [close](orgs_manage_accounts_close.md "orgs_manage_accounts_close.md") or [remove](orgs_manage_accounts_remove.md#orgs_manage_accounts_remove-member-account "orgs_manage_accounts_remove.md#orgs_manage_accounts_remove-member-account") all member accounts
 in the organization. The act of closing the management account also deletes the instance of
@@ -32,9 +30,7 @@ console.
 2. Verify that there are no active member accounts remaining in your
    organization. To do this, go to the [AWS Organizations
    console](https://console.aws.amazon.com/organizations "https://console.aws.amazon.com/organizations"). If you have a member account that is still
-   active, you will need to follow the guidance provided in [Closing a member account in an
-   organization with AWS Organizations](orgs_manage_accounts_close.md "orgs_manage_accounts_close.md") or [Remove a member account
-   from an organization](orgs_manage_accounts_remove.md#orgs_manage_accounts_remove-member-account "orgs_manage_accounts_remove.md#orgs_manage_accounts_remove-member-account") before you can move
+   active, you will need to follow the guidance provided in [Closing a member account in an organization with AWS Organizations](orgs_manage_accounts_close.md "orgs_manage_accounts_close.md") or [Remove a member account from an organization](orgs_manage_accounts_remove.md#orgs_manage_accounts_remove-member-account "orgs_manage_accounts_remove.md#orgs_manage_accounts_remove-member-account") before you can move
    to the next step.
 3. On the navigation bar in the upper-right corner, choose your
    account name or number, and then choose

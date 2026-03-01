@@ -1,6 +1,4 @@
-# Attribute-based access control with tags for
-
-AWS Organizations
+# Attribute-based access control with tags for AWS Organizations
 
 _[Attribute-based access control](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md")_ let you use administrator-managed
 attributes such as [tags](../../../ARG/latest/userguide/tag-editor.md "../../../ARG/latest/userguide/tag-editor.md") attached to both AWS resources and AWS identities to control access to
@@ -20,19 +18,14 @@ same value as the user's attached tag key `Z`."
 You can base your `Condition` tests on different types of tag references in an
 IAM policy.
 
-- [Checking the tags that are attached to resources
-  specified in the request](#abac-resource "#abac-resource")
-- [Checking the tags that are attached to the IAM user or
-  role who is making the request](#abac-prin "#abac-prin")
-- [Check the tags that are included as parameters in the
-  request](#abac-request "#abac-request")
+- [Checking the tags that are attached to resources specified in the request](#abac-resource "#abac-resource")
+- [Checking the tags that are attached to the IAM user or role who is making the request](#abac-prin "#abac-prin")
+- [Check the tags that are included as parameters in the request](#abac-request "#abac-request")
   For more information about using tags for access control in policies, see [Controlling access to
   and for IAM users and roles using resource tags](../../../IAM/latest/UserGuide/access_iam-tags.md "../../../IAM/latest/UserGuide/access_iam-tags.md"). For complete syntax of IAM
   permission policies, see the [IAM JSON Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md")
 
-## Checking the tags that are attached to resources
-
-specified in the request
+## Checking the tags that are attached to resources specified in the request
 
 When you make a request by using the AWS Management Console, the AWS Command Line Interface (AWS CLI), or one of the
 AWS SDKs, you specify what resources you want to access with that request. Whether you
@@ -81,9 +74,7 @@ JSON
 
 For more information about how to use this element, see [Controlling access to resource](../../../IAM/latest/UserGuide/access_iam-tags.md#access_iam-tags_control-resources "../../../IAM/latest/UserGuide/access_iam-tags.md#access_iam-tags_control-resources") and [aws:ResourceTag](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") in the _IAM User Guide_.
 
-## Checking the tags that are attached to the IAM user or
-
-role who is making the request
+## Checking the tags that are attached to the IAM user or role who is making the request
 
 You can control what the person making the request (the principal) is allowed to do
 based on the tags that are attached to that person's IAM user or role. To do this, use
@@ -117,9 +108,7 @@ JSON
 
 For more information about how to use this element, see [Controlling access for IAM principals](../../../IAM/latest/UserGuide/access_iam-tags.md#access_iam-tags_control-principals "../../../IAM/latest/UserGuide/access_iam-tags.md#access_iam-tags_control-principals") and [`aws:PrincipalTag`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principaltag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principaltag") in the _IAM User Guide_.
 
-## Check the tags that are included as parameters in the
-
-request
+## Check the tags that are included as parameters in the request
 
 Several operations enable you to specify tags as part of the request. For example,
 when you create a resource you can specify the tags that are attached to the new

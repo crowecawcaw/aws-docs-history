@@ -1,6 +1,4 @@
-# AWS Health and
-
-AWS Organizations
+# AWS Health and AWS Organizations
 
 AWS Health provides ongoing visibility into your resource performance and the
 availability of your AWS services and accounts. AWS Health delivers events when your
@@ -30,9 +28,7 @@ Otherwise, create the role using the AWS Health console, API, or CLI, as describ
 
 You can delete or modify this role only if you disable trusted access between AWS Health and Organizations, or if you remove the member account from the organization.
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -41,13 +37,10 @@ principals:
 
 - `health.amazonaws.com`
 
-## Enabling trusted access with
-
-AWS Health
+## Enabling trusted access with AWS Health
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 When you the enable organizational view feature for AWS Health, trusted access is
 also enabled for you automatically.
@@ -101,13 +94,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-AWS Health
+## Disabling trusted access with AWS Health
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 After you disable the organizational view feature, AWS Health stops aggregating
 events for all other accounts in your organization. This also disables trusted access
@@ -160,9 +150,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for AWS Health
+## Enabling a delegated administrator account for AWS Health
 
 When you designate a member account as a delegated administrator for the organization,
 users and roles from that account can perform administrative actions for
@@ -170,14 +158,10 @@ AWS Health that otherwise can be performed only by users or roles in the
 organization's management account. This helps you to separate management of the
 organization from management of AWS Health.
 
-###### To designate a member account as a delegated administrator for
-
-AWS Health
+###### To designate a member account as a delegated administrator for AWS Health
 
 See [Register a delegated administrator for your organizational view](../../../health/latest/ug/delegated-administrator-organizational-view.md#register-a-delegated-administrator "../../../health/latest/ug/delegated-administrator-organizational-view.md#register-a-delegated-administrator")
 
-###### To remove a delegated administrator for
-
-AWS Health
+###### To remove a delegated administrator for AWS Health
 
 See [Remove a delegated administrator from your organizational view](../../../health/latest/ug/delegated-administrator-organizational-view.md#remove-a-delegated-administrator "../../../health/latest/ug/delegated-administrator-organizational-view.md#remove-a-delegated-administrator")

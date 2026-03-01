@@ -1,6 +1,4 @@
-# Best practices for using
-
-Amazon Inspector policies
+# Best practices for using Amazon Inspector policies
 
 When implementing Amazon Inspector policies across your organization, following established best
 practices helps ensure successful deployment and maintenance.

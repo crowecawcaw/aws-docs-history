@@ -1,6 +1,4 @@
-# Tutorial: Monitor important changes to your
-
-organization with Amazon EventBridge
+# Tutorial: Monitor important changes to your organization with Amazon EventBridge
 
 This tutorial shows how to configure Amazon EventBridge, formerly Amazon CloudWatch Events, to monitor your organization for changes.
 You start by configuring a rule that is triggered when users invoke specific AWS Organizations
@@ -9,8 +7,7 @@ triggered, and you configure Amazon SNS to send an email with details about the 
 
 The following illustration shows the main steps of the tutorial.
 
-**[Step 1: Configure a trail and event
-selector](#tutorial-cwe-step1 "#tutorial-cwe-step1")**
+**[Step 1: Configure a trail and event selector](#tutorial-cwe-step1 "#tutorial-cwe-step1")**
 
 Create a log, called a _trail_, in AWS CloudTrail. You configure
 it to capture all API calls.
@@ -20,8 +17,7 @@ it to capture all API calls.
 Create an AWS Lambda function that logs details about the event to an S3
 bucket.
 
-**[Step 3: Create an Amazon SNS topic that sends emails to
-subscribers](#tutorial-cwe-step3 "#tutorial-cwe-step3")**
+**[Step 3: Create an Amazon SNS topic that sends emails to subscribers](#tutorial-cwe-step3 "#tutorial-cwe-step3")**
 
 Create an Amazon SNS topic that sends emails to its subscribers, and then subscribe
 yourself to the topic.
@@ -63,9 +59,7 @@ Currently, AWS Organizations is hosted in only the US East (N. Virginia) Region 
 it is available globally). To perform the steps in this tutorial, you must configure
 the AWS Management Console to use that region.
 
-## Step 1: Configure a trail and event
-
-selector
+## Step 1: Configure a trail and event selector
 
 In this step, you sign in to the management account and configure a log (called a
 _trail_) in AWS CloudTrail. You also configure an event
@@ -153,9 +147,7 @@ This sample code logs the event with a
 `LogOrganizationEvents` marker string followed by the
 JSON string that makes up the event. 8. Choose **Create function**.
 
-## Step 3: Create an Amazon SNS topic that sends emails to
-
-subscribers
+## Step 3: Create an Amazon SNS topic that sends emails to subscribers
 
 In this step, you create an Amazon SNS topic that emails information to its subscribers.
 You make this topic a target of the Amazon EventBridge rule that you create later.
@@ -279,9 +271,7 @@ the output.
    (the display name of your Amazon SNS topic). The body of the email contains the same
    JSON text output as the log entry that is shown in the preceding step.
 
-## Clean up: Remove the resources you no longer
-
-need
+## Clean up: Remove the resources you no longer need
 
 To avoid incurring charges, you should delete any AWS resources that you created as
 part of this tutorial that you don't want to keep.

@@ -1,6 +1,4 @@
-# Monitor the state of your
-
-AWS accounts
+# Monitor the state of your AWS accounts
 
 AWS Organizations provides a way to quickly assess the health and operational status of all
 accounts in your organization. You can view this information using the
@@ -43,9 +41,7 @@ before September 9, 2026.
 
 AWS Management Console
 
-###### To view the state of an
-
-AWS account
+###### To view the state of an AWS account
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not

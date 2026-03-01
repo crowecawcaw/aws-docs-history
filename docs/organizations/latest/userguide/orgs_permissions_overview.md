@@ -26,9 +26,7 @@ allow_ that specifies which actions the user can perform, and which resources
 they can perform the actions on. If the permissions are granted to a role, users in other
 accounts in the organization can assume that role.
 
-## AWS Organizations resources and
-
-operations
+## AWS Organizations resources and operations
 
 This section discusses how AWS Organizations concepts map to their IAM-equivalent
 concepts.
@@ -192,9 +190,7 @@ For a list of all of the AWS Organizations–specific condition keys that can be
 as permissions in an IAM policy, see [Condition keys for AWS Organizations](../../../service-authorization/latest/reference/list_awsorganizations.md#awsorganizations-policy-keys "../../../service-authorization/latest/reference/list_awsorganizations.md#awsorganizations-policy-keys") in the _Service
 Authorization Reference_.
 
-## Understanding resource
-
-ownership
+## Understanding resource ownership
 
 The AWS account owns the resources that are created in the account, regardless of
 who created the resources. Specifically, the resource owner is the AWS account of the
@@ -215,9 +211,7 @@ The following examples illustrate how this works:
   account, to which the role (not the assuming user) belongs, owns the OU
   resource.
 
-## Managing access to
-
-resources
+## Managing access to resources
 
 A _permissions policy_ describes who has access to what. The
 following section explains the available options for creating permissions
@@ -237,12 +231,9 @@ attached to a resource are referred to as _resource-based_ policies.
 
 ###### Topics
 
-- [Identity-based permission
-  policies (IAM policies)](#orgs-access-control-iam-policies "#orgs-access-control-iam-policies")
+- [Identity-based permission policies (IAM policies)](#orgs-access-control-iam-policies "#orgs-access-control-iam-policies")
 
-### Identity-based permission
-
-policies (IAM policies)
+### Identity-based permission policies (IAM policies)
 
 You can attach policies to IAM identities to allow those identities to perform
 operations on AWS resources. For example, you can do the following:
@@ -345,9 +336,7 @@ JSON
 For more information about users, groups, roles, and permissions, see [IAM identities (users, user groups, and roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in the
 _IAM User Guide_.
 
-## Specifying policy elements:
-
-Actions, conditions, effects, and resources
+## Specifying policy elements: Actions, conditions, effects, and resources
 
 For each AWS Organizations resource, the service defines a set of API operations, or actions,
 that can interact with or manipulate that resource in some way. To grant permissions for

@@ -1,6 +1,4 @@
-# Best practices for using backup
-
-policies
+# Best practices for using backup policies
 
 AWS recommends the following best practices for using backup policies.
 
@@ -18,9 +16,7 @@ can control which settings can be added to, changed, or removed by child policie
 using the [child control inheritance
 operators](policy-operators.md#child-control-operators "policy-operators.md#child-control-operators").
 
-## Validate changes to your backup policies checking
-
-using `GetEffectivePolicy`
+## Validate changes to your backup policies checking using `GetEffectivePolicy`
 
 After you make a change to a backup policy, check the effective policies for
 representative accounts below the level where you made the change. You can [view the effective policy by using
@@ -66,9 +62,7 @@ helps keep any issues with a plan isolated to one policy, and it prevents those 
 from complicating the troubleshooting of issues with other policies and their
 plans.
 
-## Use stack sets to create the required backup vaults
-
-and IAM roles
+## Use stack sets to create the required backup vaults and IAM roles
 
 Use AWS CloudFormation stack sets integration with Organizations to automatically create the required
 backup vaults and AWS Identity and Access Management (IAM) roles in each of the member accounts in your
@@ -77,9 +71,7 @@ automatically available in every AWS account in your organization. This approach
 enables you to run your backup plans with assurance that the dependencies are already
 met. For more information, see [Create a Stack Set with Self-Managed Permissions](../../../AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.md#create-stack-set-service-managed-permissions "../../../AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.md#create-stack-set-service-managed-permissions") in the _AWS CloudFormation User Guide_.
 
-## Check your results by reviewing the first backup
-
-created in each account
+## Check your results by reviewing the first backup created in each account
 
 When you make a change to a policy, check the next backup created after that change to
 ensure the change had the desired impact. This step goes beyond looking at the effective

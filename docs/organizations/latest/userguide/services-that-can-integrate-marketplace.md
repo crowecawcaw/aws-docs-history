@@ -1,6 +1,4 @@
-# AWS Marketplace and
-
-AWS Organizations
+# AWS Marketplace and AWS Organizations
 
 AWS Marketplace is a curated digital catalog that you can use to find, buy, deploy, and manage
 third-party software, data, and services that you need to build solutions and run your
@@ -16,9 +14,7 @@ AWS Marketplace](../../../marketplace/latest/buyerguide/buyer-using-service-link
 Use the following information to help you integrate
 AWS Marketplace with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -30,9 +26,7 @@ AWS Marketplace and Organizations, or if you remove the member account from the 
 
 - `AWSServiceRoleForMarketplaceLicenseManagement`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -41,12 +35,9 @@ principals:
 
 - `license-management.marketplace.amazonaws.com`
 
-## Enabling trusted access with
+## Enabling trusted access with AWS Marketplace
 
-AWS Marketplace
-
-For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can enable trusted access using either the AWS Marketplace console or the AWS Organizations
 console.
@@ -109,13 +100,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-AWS Marketplace
+## Disabling trusted access with AWS Marketplace
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can only enable trusted access using the Organizations
 tools.

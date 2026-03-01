@@ -85,9 +85,7 @@ Security Hub policies address common security management challenges in multi-acc
 environments. The following use cases demonstrate how organizations typically implement
 these policies to enhance their security posture.
 
-### Example use case: Regional
-
-compliance requirements
+### Example use case: Regional compliance requirements
 
 A multinational corporation needs different Security Hub configurations for different
 geographical regions. They create a parent policy enabling Security Hub in all regions
@@ -96,9 +94,7 @@ regions where different security controls are required. This allows them to main
 compliance with regional regulations while ensuring comprehensive security
 coverage.
 
-### Example use case: Development
-
-team security standards
+### Example use case: Development team security standards
 
 A software development organization implements Security Hub policies that enable
 monitoring in production regions while keeping development regions unmanaged. They
@@ -107,9 +103,7 @@ to maintain precise control over security monitoring coverage. This approach all
 them to enforce stricter security controls in production environments while
 maintaining flexibility in development areas.
 
-## Policy inheritance and
-
-enforcement
+## Policy inheritance and enforcement
 
 Understanding how policies are inherited and enforced is crucial for effective
 security management across your organization. The inheritance model follows the AWS Organizations
@@ -131,9 +125,7 @@ When creating Security Hub policies, the following validations occur:
 - Both `enable_in_regions` and `disable_in_regions` lists
   must be present, though they can be empty
 
-## Regional considerations and supported
-
-Regions
+## Regional considerations and supported Regions
 
 Security Hub policies operate across multiple Regions, requiring careful consideration of
 your global security requirements. Understanding regional behavior helps you implement

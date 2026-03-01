@@ -1,6 +1,4 @@
-# AWS Compute Optimizer and
-
-AWS Organizations
+# AWS Compute Optimizer and AWS Organizations
 
 AWS Compute Optimizer is a service that analyzes the configuration and utilization metrics of your
 AWS resources. Resource examples include Amazon Elastic Compute Cloud (Amazon EC2) instances and Auto Scaling groups. Compute Optimizer
@@ -11,9 +9,7 @@ Compute Optimizer, see the [AWS Compute Optimizer User Guide](../../../compute-o
 Use the following information to help you integrate
 AWS Compute Optimizer with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -26,9 +22,7 @@ Compute Optimizer and Organizations, or if you remove the member account from th
 - `AWSServiceRoleForComputeOptimizer`
 - `AWSServiceRoleForComputeOptimizerAutomation`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -37,13 +31,10 @@ principals:
 
 - `compute-optimizer.amazonaws.com`
 
-## Enabling trusted access with
-
-Compute Optimizer
+## Enabling trusted access with Compute Optimizer
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can enable trusted access using either the AWS Compute Optimizer console or the AWS Organizations
 console.
@@ -108,13 +99,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-Compute Optimizer
+## Disabling trusted access with Compute Optimizer
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 Only an administrator in the AWS Organizations management account can disable trusted access
 with AWS Compute Optimizer.
@@ -143,9 +131,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for Compute Optimizer
+## Enabling a delegated administrator account for Compute Optimizer
 
 When you designate a member account to be a delegated administrator for the
 organization, users and roles from the designated account can manage the AWS account
@@ -180,9 +166,7 @@ CLI or one of the AWS SDKs, you can use the following commands:
   member account's ID number and identify the account service principal
   `account.amazonaws.com` as parameters.
 
-## Disabling a delegated administrator
-
-for Compute Optimizer
+## Disabling a delegated administrator for Compute Optimizer
 
 Only an administrator in the organization management account can configure a delegated
 administrator for Compute Optimizer.

@@ -16,8 +16,7 @@ standalone AWS account that is no longer managed by AWS Organizations. You then 
 ###### Topics
 
 - [Considerations](#orgs_manage_org_delete-considerations "#orgs_manage_org_delete-considerations")
-- [Delete an
-  organization](#orgs_manage_org_delete_procedure "#orgs_manage_org_delete_procedure")
+- [Delete an organization](#orgs_manage_org_delete_procedure "#orgs_manage_org_delete_procedure")
 
 ## Considerations
 
@@ -34,8 +33,7 @@ the organization. If you created some of your member accounts using AWS Organiza
 you might be blocked from removing those accounts. You can remove a member
 account only if it has all the information that's required to operate as a
 standalone AWS account. For more information about how to provide that
-information and then remove the account, see [Leaving an organization from a
-member account with AWS Organizations](orgs_manage_accounts_leave-as-member.md "orgs_manage_accounts_leave-as-member.md").
+information and then remove the account, see [Leaving an organization from a member account with AWS Organizations](orgs_manage_accounts_leave-as-member.md "orgs_manage_accounts_leave-as-member.md").
 
 **Member accounts in a 'suspended' state cannot be removed from an organization**
 
@@ -67,9 +65,7 @@ It is recommended that you do a full export of all billing history.
 
 For more information, see [Cost and Usage Reports](../../../cur/latest/userguide/what-is-cur.md "../../../cur/latest/userguide/what-is-cur.md"), [Cost Explorer Reports](../../../cost-management/latest/userguide/ce-reports.md "../../../cost-management/latest/userguide/ce-reports.md"), [Savings Plans Reports](../../../savingsplans/latest/userguide/ce-sp-usingPR.md#ce-dl-pr "../../../savingsplans/latest/userguide/ce-sp-usingPR.md#ce-dl-pr"), and [Reserved Instance (RI) utilization and coverage](https://repost.aws/knowledge-center/ec2-ri-utilization-coverage-cost-explorer "https://repost.aws/knowledge-center/ec2-ri-utilization-coverage-cost-explorer").
 
-## Delete an
-
-organization
+## Delete an organization
 
 Use the following procedure to delete an organization which reverts the former management
 account to a standalone AWS account that is no longer managed by AWS Organizations.
@@ -88,8 +84,7 @@ account, and you must have the following permissions:
    sign in as the root user ([not
    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
 2. Before you can delete the organization, you must first remove all
-   accounts from the organization. For more information, see [Removing a member account from an
-   organization with AWS Organizations](orgs_manage_accounts_remove.md "orgs_manage_accounts_remove.md").
+   accounts from the organization. For more information, see [Removing a member account from an organization with AWS Organizations](orgs_manage_accounts_remove.md "orgs_manage_accounts_remove.md").
 3. Navigate to the **[Settings](https://console.aws.amazon.com/organizations/v2/home/settings "https://console.aws.amazon.com/organizations/v2/home/settings")** page, and then choose **Delete
    organization**.
 4. In the **Delete organization** confirmation
@@ -101,8 +96,7 @@ account, and you must have the following permissions:
 
 This operation does **not** close
 the management account but does return it to a standalone
-AWS account. To close the account, follow the steps at [Closing a member account in an
-organization with AWS Organizations](orgs_manage_accounts_close.md "orgs_manage_accounts_close.md").
+AWS account. To close the account, follow the steps at [Closing a member account in an organization with AWS Organizations](orgs_manage_accounts_close.md "orgs_manage_accounts_close.md").
 
 The following code examples show how to use `DeleteOrganization`.
 

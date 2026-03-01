@@ -39,15 +39,12 @@ the member accounts within your organization. This also means that RCPs apply to
 - [List of AWS services that support RCPs](#rcp-supported-services "#rcp-supported-services")
 - [Testing effects of RCPs](#rcp-warning-testing-effect "#rcp-warning-testing-effect")
 - [Maximum size of RCPs](#rcp-size-limit "#rcp-size-limit")
-- [Attaching RCPs to different levels in the
-  organization](#rcp-about-inheritance "#rcp-about-inheritance")
+- [Attaching RCPs to different levels in the organization](#rcp-about-inheritance "#rcp-about-inheritance")
 - [RCP effects on permissions](#rcp-effects-on-permissions "#rcp-effects-on-permissions")
-- [Resources and entities not restricted by
-  RCPs](#actions-not-restricted-by-rcps "#actions-not-restricted-by-rcps")
+- [Resources and entities not restricted by RCPs](#actions-not-restricted-by-rcps "#actions-not-restricted-by-rcps")
 - [RCP evaluation](orgs_manage_policies_rcps_evaluation.md "orgs_manage_policies_rcps_evaluation.md")
 - [RCP syntax](orgs_manage_policies_rcps_syntax.md "orgs_manage_policies_rcps_syntax.md")
-- [Resource control
-  policy examples](orgs_manage_policies_rcps_examples.md "orgs_manage_policies_rcps_examples.md")
+- [Resource control policy examples](orgs_manage_policies_rcps_examples.md "orgs_manage_policies_rcps_examples.md")
 
 ## List of AWS services that support RCPs
 
@@ -85,9 +82,7 @@ and line breaks that are outside quotation marks.
 Use the visual editor to build your RCP. It automatically removes extra white
 space.
 
-## Attaching RCPs to different levels in the
-
-organization
+## Attaching RCPs to different levels in the organization
 
 You can attach RCPs directly to individual accounts, OUs, or the organization root.
 For a detailed explanation of how RCPs work, see [RCP evaluation](orgs_manage_policies_rcps_evaluation.md "orgs_manage_policies_rcps_evaluation.md").
@@ -118,8 +113,7 @@ evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-lo
   RCP that has been attached to an account, to an organizational unit (OU), or to the root of the organization
   that owns the resource being accessed.
 - RCPs affect only resources in **_member_** accounts in the organization. They have no
-  effect on resources in the management account. This also means that RCPs apply to member accounts that are designated as delegated administrators. For more information, see [Best practices for the management
-  account](orgs_best-practices_mgmt-acct.md "orgs_best-practices_mgmt-acct.md").
+  effect on resources in the management account. This also means that RCPs apply to member accounts that are designated as delegated administrators. For more information, see [Best practices for the management account](orgs_best-practices_mgmt-acct.md "orgs_best-practices_mgmt-acct.md").
 - When a principal makes a request to access a resource within an account that
   has an attached RCP (a resource with an applicable RCP), the RCP is included in
   the policy evaluation logic to determine whether the principal is allowed or denied access.
@@ -130,9 +124,7 @@ evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-lo
   access, even if an applicable RCP allows all services, all
   actions, and all resources.
 
-## Resources and entities not restricted by
-
-RCPs
+## Resources and entities not restricted by RCPs
 
 You **_can't_** use
 RCPs to restrict the following:

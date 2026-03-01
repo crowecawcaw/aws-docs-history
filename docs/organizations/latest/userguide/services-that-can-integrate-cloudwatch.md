@@ -1,6 +1,4 @@
-# Amazon CloudWatch and
-
-AWS Organizations
+# Amazon CloudWatch and AWS Organizations
 
 You can use AWS Organizations for Amazon CloudWatch for the following use cases:
 
@@ -24,9 +22,7 @@ _Amazon CloudWatch User Guide_.
 Use the following information to help you integrate
 Amazon CloudWatch with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 Create the following [service-linked
 role](../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md "../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md") in your organization's management account. The service-linked role is
@@ -38,9 +34,7 @@ account from the organization.
 
 - `AWSServiceRoleForObservabilityAdmin`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -51,13 +45,10 @@ principals:
 - `networkflowmonitor.amazonaws.com`
 - `topology.networkflowmonitor.amazonaws.com`
 
-## Enabling trusted access with
-
-CloudWatch
+## Enabling trusted access with CloudWatch
 
 For information about the permissions that you need to turn on trusted access, see
-[Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+[Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can enable trusted access using either the Amazon CloudWatch console or the AWS Organizations
 console.
@@ -123,13 +114,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Turn off trusted access with
-
-CloudWatch
+## Turn off trusted access with CloudWatch
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 You can disable trusted access using either the Amazon CloudWatch or the AWS Organizations tools.
 
@@ -176,9 +164,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Registering a delegated
-
-administrator account for CloudWatch
+## Registering a delegated administrator account for CloudWatch
 
 When you register a member account as a delegated administrator account for the
 organization, users and roles from that account can perform administrative actions for
@@ -203,9 +189,7 @@ CloudWatch telemetry auditing](../../../AmazonCloudWatch/latest/monitoring/telem
 When you register a delegated administrator account in CloudWatch, you can use
 the account for management operations with telemetry auditing and with Network Flow Monitor.
 
-## Deregister a delegated
-
-administrator for CloudWatch
+## Deregister a delegated administrator for CloudWatch
 
 ###### Minimum permissions
 

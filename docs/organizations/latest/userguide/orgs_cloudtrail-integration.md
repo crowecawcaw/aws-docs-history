@@ -1,6 +1,4 @@
-# Logging API calls with
-
-AWS CloudTrail for AWS Organizations
+# Logging API calls with AWS CloudTrail for AWS Organizations
 
 AWS Organizations is integrated with AWS CloudTrail, a service that provides a record of actions
 taken by a user, role, or an AWS service in AWS Organizations. CloudTrail captures all API calls for
@@ -22,9 +20,7 @@ console to **US East (N. Virginia)** using the menu in the upper-right
 corner. If you query CloudTrail with the AWS CLI or SDK tools, direct your query to the
 US East (N. Virginia) endpoint.
 
-## AWS Organizations information in
-
-CloudTrail
+## AWS Organizations information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When activity
 occurs in AWS Organizations, that activity is recorded in a CloudTrail event along with other AWS
@@ -65,9 +61,7 @@ identity information in the log entry helps you determine the following:
 For more information, see the [CloudTrail
 userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding AWS Organizations log file
-
-entries
+## Understanding AWS Organizations log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event
@@ -76,9 +70,7 @@ requested action, the date and time of the action, request parameters, and so on
 CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't
 appear in any specific order.
 
-### Example log entries:
-
-CloseAccount
+### Example log entries: CloseAccount
 
 The following example shows a CloudTrail log entry for a sample
 `CloseAccount` call that is generated when the API is called and
@@ -166,9 +158,7 @@ the account successfully completes.
 }
 ```
 
-### Example log entries:
-
-CreateAccount
+### Example log entries: CreateAccount
 
 The following example shows a CloudTrail log entry for a sample
 `CreateAccount` call that is generated when the API is called and
@@ -297,9 +287,7 @@ account.
 }
 ```
 
-### Example log entry:
-
-CreateOrganizationalUnit
+### Example log entry: CreateOrganizationalUnit
 
 The following example shows a CloudTrail log entry for a sample
 `CreateOrganizationalUnit` call.
@@ -339,9 +327,7 @@ The following example shows a CloudTrail log entry for a sample
 }
 ```
 
-### Example log entry:
-
-InviteAccountToOrganization
+### Example log entry: InviteAccountToOrganization
 
 The following example shows a CloudTrail log entry for a sample
 `InviteAccountToOrganization` call.
@@ -425,9 +411,7 @@ The following example shows a CloudTrail log entry for a sample
 }
 ```
 
-### Example log entry:
-
-AttachPolicy
+### Example log entry: AttachPolicy
 
 The following example shows a CloudTrail log entry for a sample
 `AttachPolicy` call. The response indicates that the call failed
@@ -465,9 +449,7 @@ attach was attempted.
 }
 ```
 
-### Example log entry:
-
-Invalid effective policy
+### Example log entry: Invalid effective policy
 
 The following example shows a CloudTrail log entry for a sample `EffectivePolicyValidation` event. This event is emitted to the management account of the organization whenever an update in the organization creates an invalid effective policy on any account.
 
@@ -516,9 +498,7 @@ The following example shows a CloudTrail log entry for a sample `EffectivePolicy
 
 ```
 
-### Example log entry:
-
-Valid effective policy
+### Example log entry: Valid effective policy
 
 The following example shows a CloudTrail log entry for a sample `EffectivePolicyValidation` event. This event is emitted to the management account of the organization whenever an update in the organization fixes an effective policy on an account which was invalid previously.
 

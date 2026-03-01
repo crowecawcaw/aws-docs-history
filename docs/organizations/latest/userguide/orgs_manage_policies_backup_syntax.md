@@ -1,6 +1,4 @@
-# Backup policy syntax and
-
-examples
+# Backup policy syntax and examples
 
 This page describes backup policy syntax and provides examples.
 
@@ -109,7 +107,7 @@ performs on the selected resources.
 | `copy_actions`                                 | Specifies whether AWS Backup copies a backup to one or more<br>additional locations.<br>Each copy action contains the following elements:<br>• `target_backup_vault_arn`: Vault where AWS Backup<br>stores an additional copy of the backup.<br>+ Use `$account` for same-account<br>copies<br>+ Use actual account ID for cross-account<br>copies<br>• `lifecycle`: Specifies when AWS Backup transitions a<br>backup to cold storage and when it expires.<br>Each lifecycle contains the following elements:<br>+ `move_to_cold_storage_after_days`:<br>Number of days after the backup occurs before AWS Backup<br>moves the recovery point to cold storage.<br>+ `delete_after_days`: Number of days<br>after s backup occurs before AWS Backup deletes the<br>recovery point.<br>**Note**: Backups transitioned to<br>cold storage must be stored in cold storage for a minimum of 90<br>days.<br>This means that the `delete_after_days` must be 90 days<br>greater than `move_to_cold_storage_after_days`.                                                                                                                                                                                                                                   | No          |
 | `recovery_point_tags`                          | Tags that you want to assigned to resources that are restored<br>from backup.<br>Each tag contains the following elements:<br>• `tag_key`: Tag name (case-sensitive)<br>• `tag_value`: Tag value (case-sensitive)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | No          |
 | `index_actions`                                | Specifies whether AWS Backup creates a backup index of your Amazon EBS<br>snapshots and/or Amazon S3 backups. Backup indexes are created in order to<br>search the metadata of your backups. For more information about<br>backup index creation and backup search, see [Backup search](../../../aws-backup/latest/devguide/backup-search.md#backup-search-overview "../../../aws-backup/latest/devguide/backup-search.md#backup-search-overview").<br>\*_Note:_<br>• Additional [IAM role permissions](../../../aws-backup/latest/devguide/backup-search.md#backup-search-access "../../../aws-backup/latest/devguide/backup-search.md#backup-search-access") are required for Amazon EBS snapshot<br>backup index creation.<br>Each index action contains the following element:<br>`resource_types` where resource types supported for<br>indexing are Amazon EBS and Amazon S3. This parameter specifies which resource<br>type will be opted into indexing.                                                                                                                                                                                                                                                                                    | No          |
-| `scan_actions`                                 | Specifies whether a scanning action is enabled for a given rule.<br>You must specify a `Malwarescanner` and `ScanMode`.<br>You must use `scan_settings` in the backup policy elements in<br>conjunction with `scan_actions` in order for scanning jobs to start successfully.<br>Please also ensure you have the right [IAM role permissions](../../../aws-backup/latest/devguide/malware-protection.md#malware-access "../../../aws-backup/latest/devguide/malware-protection.md#malware-access").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | No          |
+| `scan_actions`                                 | Specifies whether a scanning action is enabled for a given rule.<br>You must specify a `ScanMode`.<br>You must use `scan_settings` in the backup policy elements in<br>conjunction with `scan_actions` in order for scanning jobs to start successfully.<br>Please also ensure you have the right [IAM role permissions](../../../aws-backup/latest/devguide/malware-protection.md#malware-access "../../../aws-backup/latest/devguide/malware-protection.md#malware-access").<br>• `ScanMode`: This will specify what scan type you want to run<br>at the frequency of your backup plan rule. You can choose between<br>`INCREMENTAL_SCAN` or `FULL_SCAN`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | No          |
 
 ## Backup syntax: regions
 
@@ -177,9 +175,7 @@ For more information, see [Specifying resources
 with the tags block](#backup-policy-example-6 "#backup-policy-example-6") and [Specifying
 resources with the resources block](#backup-policy-example-7 "#backup-policy-example-7").
 
-## Backup syntax: advanced backup
-
-settings
+## Backup syntax: advanced backup settings
 
 The `advanced_backup_settings` key specifies the configuration options for
 specific backup scenarios. Each setting contains the following elements:
@@ -213,13 +209,47 @@ backup plan itself. This does not impact the tags specified for `rules` or
 
 ## Backup syntax: scan settings
 
-The `scan_settings` policy key specifies the tags that are attached to a
-backup plan itself. This does not impact the tags specified for `rules` or
-`selections`.
+The `scan_settings` policy key specifies the configuration for malware
+scanning using Amazon GuardDuty Malware Protection for AWS Backup. You must use
+`scan_settings` in conjunction with `scan_actions` in your
+backup rules for scanning jobs to start successfully.
 
-| Backup plan tag elements | Element                                                                                                                                                                                                                                                                                                        | Description | Required |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | -------- |
-| `scan_settings`          | Each tag is a label consisting of a user-defined key and value:<br>Configuration options for scan settings. Currently the only scan settings that is<br>support is enable Amazon GuardDuty Malware Protection for AWS Backup.<br>You must specify the `Malwarescanner`, `ResourceTypes`, and `ScannerRoleArn`. | No          |
+| Scan settings elements | Element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Description | Required |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | -------- |
+| `scan_settings`        | Configuration options for scan settings. Currently the only scan settings that is<br>supported is enabling Amazon GuardDuty Malware Protection for AWS Backup.<br>You must specify the `ResourceTypes` and `ScannerRoleArn`.<br>• `ResourceTypes`: This will filter malware scanning to the<br>resource selection criteria you have chosen. You can use<br>`EBS`, `EC2`, `S3`, or `ALL`.<br>• `ScannerRoleArn`: This role is passed by AWS Backup to<br>Amazon GuardDuty when a scan is initiated, providing access to backups.<br>View [malware protection access](../../../aws-backup/latest/devguide/malware-protection.md#malware-access "../../../aws-backup/latest/devguide/malware-protection.md#malware-access") to see the full list of permissions required. | No          |
+
+**Example:**
+
+The following shows how to configure `scan_actions` in a backup rule and
+`scan_settings` at the plan level to enable Amazon GuardDuty Malware
+Protection scanning.
+
+`scan_actions` in a rule:
+
+```
+"scan_actions": {
+    "GUARDDUTY": {
+        "scan_mode": {
+            "@@assign": "INCREMENTAL_SCAN"
+        }
+    }
+}
+```
+
+`scan_settings` at the plan level:
+
+```
+"scan_settings": {
+    "GUARDDUTY": {
+        "resource_types": {
+            "@@assign": ["EBS"]
+        },
+        "scanner_role_arn": {
+            "@@assign": "arn:aws:iam::$account:role/MyGuardDutyScannerRole"
+        }
+    }
+}
+```
 
 ## Backup policy examples
 
@@ -241,10 +271,10 @@ space.
   the tags block](#backup-policy-example-6 "#backup-policy-example-6")
 - [Example 7: Specifying resources with
   the resources block](#backup-policy-example-7 "#backup-policy-example-7")
+- [Example 8: Backup plan with
+  Amazon GuardDuty Malware Protection scanning](#backup-policy-example-8 "#backup-policy-example-8")
 
-### Example 1: Policy assigned to a parent
-
-node
+### Example 1: Policy assigned to a parent node
 
 The following example shows a backup policy that is assigned to one of the parent
 nodes of an account.
@@ -445,9 +475,7 @@ ID 123456789012 will be the actual account ID for each account.
 }
 ```
 
-### Example 2: A parent policy is merged with
-
-a child policy
+### Example 2: A parent policy is merged with a child policy
 
 In the following example, an inherited parent policy and a child policy either
 inherited or directly attached to an AWS account merge to form the effective
@@ -646,9 +674,7 @@ and set of resources to apply the rules to.
 }
 ```
 
-### Example 3: A parent policy prevents any
-
-changes by a child policy
+### Example 3: A parent policy prevents any changes by a child policy
 
 In the following example, an inherited parent policy uses the [child control operators](policy-operators.md#child-control-operators "policy-operators.md#child-control-operators") to enforce all
 settings and prevents them from being changed or overridden by a child policy.
@@ -842,9 +868,7 @@ policy.
 }
 ```
 
-### Example 4: A parent policy prevents
-
-changes to one backup plan by a child policy
+### Example 4: A parent policy prevents changes to one backup plan by a child policy
 
 In the following example, an inherited parent policy uses the [child control operators](policy-operators.md#child-control-operators "policy-operators.md#child-control-operators") to enforce the
 settings for a single plan and prevents them from being changed or overridden by a
@@ -911,9 +935,7 @@ policy includes both plans.
 }
 ```
 
-### Example 5: A child policy overrides
-
-settings in a parent policy
+### Example 5: A child policy overrides settings in a parent policy
 
 In the following example, a child policy uses [value-setting operators](policy-operators.md#value-setting-operators "policy-operators.md#value-setting-operators") to override
 some of the settings inherited from a parent policy.
@@ -1090,9 +1112,7 @@ following changes occur:
 }
 ```
 
-### Example 6: Specifying resources with the
-
-`tags` block
+### Example 6: Specifying resources with the `tags` block
 
 The following example includes all resources with the `tag_key` =
 `“env”` and and `tag_value` = `"prod"` and
@@ -1122,9 +1142,7 @@ The following example includes all resources with the `tag_key` =
 ...
 ```
 
-### Example 7: Specifying resources with the
-
-`resources` block
+### Example 7: Specifying resources with the `resources` block
 
 The following are examples of using the `resources` block to specify
 resources.
@@ -1365,3 +1383,120 @@ combine resource types and tag conditions.
 },
 ...
 ```
+
+### Example 8: Backup plan with Amazon GuardDuty Malware Protection scanning
+
+The following example shows a backup policy that enables Amazon GuardDuty
+Malware Protection scanning on backup recovery points. The policy uses
+`scan_actions` in the rule to enable scanning and
+`scan_settings` at the plan level to configure the scanner.
+
+To use this feature, you must have the appropriate IAM role permissions.
+For more information, see [Access](../../../aws-backup/latest/devguide/malware-protection.md#malware-access "../../../aws-backup/latest/devguide/malware-protection.md#malware-access") in the _AWS Backup Developer Guide_.
+
+```
+{
+    "plans": {
+        "Malware_Scan_Backup_Plan": {
+            "regions": {
+                "@@assign": [
+                    "us-east-1",
+                    "us-west-2"
+                ]
+            },
+            "rules": {
+                "Daily_With_Incremental_Scan": {
+                    "schedule_expression": {
+                        "@@assign": "cron(0 5 ? * * *)"
+                    },
+                    "start_backup_window_minutes": {
+                        "@@assign": "60"
+                    },
+                    "target_backup_vault_name": {
+                        "@@assign": "Default"
+                    },
+                    "lifecycle": {
+                        "delete_after_days": {
+                            "@@assign": "35"
+                        }
+                    },
+                    "scan_actions": {
+                        "GUARDDUTY": {
+                            "scan_mode": {
+                                "@@assign": "INCREMENTAL_SCAN"
+                            }
+                        }
+                    }
+                },
+                "Monthly_With_Full_Scan": {
+                    "schedule_expression": {
+                        "@@assign": "cron(0 5 1 * ? *)"
+                    },
+                    "start_backup_window_minutes": {
+                        "@@assign": "60"
+                    },
+                    "target_backup_vault_name": {
+                        "@@assign": "Default"
+                    },
+                    "lifecycle": {
+                        "delete_after_days": {
+                            "@@assign": "365"
+                        }
+                    },
+                    "scan_actions": {
+                        "GUARDDUTY": {
+                            "scan_mode": {
+                                "@@assign": "FULL_SCAN"
+                            }
+                        }
+                    }
+                }
+            },
+            "selections": {
+                "tags": {
+                    "scan_selection": {
+                        "iam_role_arn": {
+                            "@@assign": "arn:aws:iam::$account:role/MyBackupRole"
+                        },
+                        "tag_key": {
+                            "@@assign": "backup"
+                        },
+                        "tag_value": {
+                            "@@assign": [
+                                "true"
+                            ]
+                        }
+                    }
+                }
+            },
+            "scan_settings": {
+                "GUARDDUTY": {
+                    "resource_types": {
+                        "@@assign": [
+                            "EBS"
+                        ]
+                    },
+                    "scanner_role_arn": {
+                        "@@assign": "arn:aws:iam::$account:role/MyGuardDutyScannerRole"
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+The key points in this example are:
+
+- `scan_actions` is specified inside each rule. The scanner
+  name `GUARDDUTY` is used as the key. The daily rule uses
+  `INCREMENTAL_SCAN` and the monthly rule uses
+  `FULL_SCAN`.
+- `scan_settings` is specified at the plan level (not
+  inside a rule). It configures the scanner role and resource types
+  to scan.
+- The `scanner_role_arn` must reference an IAM role
+  with the `AWSBackupGuardDutyRolePolicyForScans` managed
+  policy attached and a trust policy that allows the
+  `malware-protection.guardduty.amazonaws.com` service
+  principal to assume the role.

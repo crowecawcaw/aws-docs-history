@@ -1,6 +1,4 @@
-# AWS Resource Explorer and
-
-AWS Organizations
+# AWS Resource Explorer and AWS Organizations
 
 AWS Resource Explorer is a resource search and discovery service.
 With Resource Explorer, you can explore your resources, such as Amazon Elastic Compute Cloud instances,
@@ -15,9 +13,7 @@ of your assessments.
 Use the following information to help you integrate
 AWS Resource Explorer with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -33,9 +29,7 @@ Guide_.
 
 - `AWSServiceRoleForResourceExplorer`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -44,13 +38,10 @@ principals:
 
 - `resource-explorer-2.amazonaws.com`
 
-## To enable trusted access with
-
-AWS Resource Explorer
+## To enable trusted access with AWS Resource Explorer
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 Resource Explorer requires trusted access to AWS Organizations before you can designate a
 member account to be the delegated administrator for your organization.
@@ -92,13 +83,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## To disable trusted access with
-
-Resource Explorer
+## To disable trusted access with Resource Explorer
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 Only an administrator in the AWS Organizations management account can disable trusted access
 with AWS Resource Explorer.
@@ -140,9 +128,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for Resource Explorer
+## Enabling a delegated administrator account for Resource Explorer
 
 Use your delegated administrator account to create multi-account resource views and scope it to an
 organizational unit or your entire organization. You can share multi-account views with any account
@@ -179,9 +165,7 @@ CLI or one of the AWS SDKs, you can use the following commands:
   member account's ID number and identify the account service
   `resource-explorer-2.amazonaws.com` as parameters.
 
-## Disabling a delegated administrator
-
-for Resource Explorer
+## Disabling a delegated administrator for Resource Explorer
 
 Only an administrator in the Organizations management account or in the Resource Explorer delegated administrator account can remove a delegated
 administrator for Resource Explorer. You can disable trusted access using the Organizations `DeregisterDelegatedAdministrator` CLI or SDK operation.

@@ -1,6 +1,4 @@
-# Viewing details of an organization from the
-
-management account
+# Viewing details of an organization from the management account
 
 When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"), you
 can view details of the organization.

@@ -1,6 +1,4 @@
-# Using Amazon EventBridge to monitor noncompliant
-
-tags
+# Using Amazon EventBridge to monitor noncompliant tags
 
 You can use Amazon EventBridge, formerly Amazon CloudWatch Events, to monitor when noncompliant tags are introduced. In the following
 example event, the `"false"` value for `tag-policy-compliant`

@@ -10,8 +10,7 @@ From the organization's management account, you can delegate policy management f
 specified member accounts to perform policy actions that are by default available only to
 the management account.
 
-For example resource-based delegation policies, see [Resource-based
-policy examples for AWS Organizations](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
+For example resource-based delegation policies, see [Resource-based policy examples for AWS Organizations](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
 
 ###### Topics
 

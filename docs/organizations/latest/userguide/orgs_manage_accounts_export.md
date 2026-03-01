@@ -1,6 +1,4 @@
-# Export details for all accounts in
-
-AWS Organizations
+# Export details for all accounts in AWS Organizations
 
 With AWS Organizations, management account users and delegated administrators for an organization
 can export a .csv file with all account details within an organization. As a result,
@@ -24,9 +22,7 @@ the `State` parameter instead of `Status`.
 
 Only principals in the management account can download the account list.
 
-## Export a list of all AWS accounts in
-
-your organization
+## Export a list of all AWS accounts in your organization
 
 When you sign in to the organization's management account, you can get a list of all
 accounts that are part of your organization as a .csv file. The list contains individual
@@ -66,9 +62,7 @@ the following permissions:
 
 AWS Management Console
 
-###### To export a .csv file for all AWS accounts in your
-
-organization
+###### To export a .csv file for all AWS accounts in your organization
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not

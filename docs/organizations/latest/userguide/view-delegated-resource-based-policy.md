@@ -1,6 +1,4 @@
-# View a resource-based delegation
-
-policy with AWS Organizations
+# View a resource-based delegation policy with AWS Organizations
 
 From the management account, view your organization’s resource-based delegation policy
 to understand which delegated administrators have access to manage which policy

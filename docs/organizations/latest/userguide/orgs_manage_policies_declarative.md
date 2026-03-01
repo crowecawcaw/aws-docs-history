@@ -21,25 +21,20 @@ The key benefits of using declarative policies are:
   for the accounts in scope. You can also create customizable error messages, which
   can help administrators redirect end users to internal wiki pages or provide a
   descriptive message that can help end users understand why an action failed.
-  For a full list of supported AWS services and attributes, see [Supported
-  AWS services and attributes](#orgs_manage_policies_declarative-supported-controls "#orgs_manage_policies_declarative-supported-controls").
+  For a full list of supported AWS services and attributes, see [Supported AWS services and attributes](#orgs_manage_policies_declarative-supported-controls "#orgs_manage_policies_declarative-supported-controls").
 
 ###### Topics
 
-- [How declarative policies
-  work](#orgs_manage_policies_declarative-how-work "#orgs_manage_policies_declarative-how-work")
+- [How declarative policies work](#orgs_manage_policies_declarative-how-work "#orgs_manage_policies_declarative-how-work")
 - [Custom error messages](#orgs_manage_policies_declarative-custom-message "#orgs_manage_policies_declarative-custom-message")
 - [Account status report](#orgs_manage_policies_declarative-account-status-report "#orgs_manage_policies_declarative-account-status-report")
 - [Supported services](#orgs_manage_policies_declarative-supported-controls "#orgs_manage_policies_declarative-supported-controls")
 - [Getting started](orgs_manage_policies-declarative_getting-started.md "orgs_manage_policies-declarative_getting-started.md")
 - [Best practices](orgs_manage_policies_declarative_best-practices.md "orgs_manage_policies_declarative_best-practices.md")
 - [Generating the account status report](orgs_manage_policies_declarative_status-report.md "orgs_manage_policies_declarative_status-report.md")
-- [Declarative policy syntax and
-  examples](orgs_manage_policies_declarative_syntax.md "orgs_manage_policies_declarative_syntax.md")
+- [Declarative policy syntax and examples](orgs_manage_policies_declarative_syntax.md "orgs_manage_policies_declarative_syntax.md")
 
-## How declarative policies
-
-work
+## How declarative policies work
 
 Declarative policies are enforced in the service's control plane, which is an
 important distinction from [authorization policies such as service control policies (SCPs) and resource control
@@ -51,34 +46,30 @@ features or APIs are introduced by the service.
 The following table helps illustrate this distinction and provides some use
 cases.
 
-|                               | Service control policies                                                                                                                                                                                                                                                                                                                                                                  | Resource control policies                                                                                                                                                                                                                                                                                                                                                                                                  | Declarative policies                                                                                                                                                                                            |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Why?                          | To centrally define and enforce consistent access controls on<br>principals (such as IAM users and IAM roles) at scale.                                                                                                                                                                                                                                                                   | To centrally define and enforce consistent access controls on<br>resources at scale                                                                                                                                                                                                                                                                                                                                        | To centrally define and enforce the baseline configuration for<br>AWS services at scale.                                                                                                                        |
-| How?                          | By controlling the maximum available access permissions of<br>principals at an API level.                                                                                                                                                                                                                                                                                                 | By controlling the maximum available access permissions for<br>resources at an API level.                                                                                                                                                                                                                                                                                                                                  | By enforcing the desired configuration of an AWS service without<br>using API actions.                                                                                                                          |
-| Governs service-linked roles? | No                                                                                                                                                                                                                                                                                                                                                                                        | No                                                                                                                                                                                                                                                                                                                                                                                                                         | Yes                                                                                                                                                                                                             |
-| Feedback mechanism            | Non-customizable access denied SCP error.                                                                                                                                                                                                                                                                                                                                                 | Non-customizable access denied RCP error.                                                                                                                                                                                                                                                                                                                                                                                  | Customizable error message. For more information, see [Custom error messages<br>for declarative policies](#orgs_manage_policies_declarative-custom-message "#orgs_manage_policies_declarative-custom-message"). |
-| Example policy                | [Deny member accounts from leaving the organization](https://github.com/aws-samples/service-control-policy-examples/blob/main/Privileged-access-controls/Deny-member-accounts-from-leaving-your-AWS-organization.json "https://github.com/aws-samples/service-control-policy-examples/blob/main/Privileged-access-controls/Deny-member-accounts-from-leaving-your-AWS-organization.json") | [Restrict access to only HTTPS connections to your resources](https://github.com/aws-samples/resource-control-policy-examples/blob/main/Restrict-resource-access-patterns/Restrict-access-to-only-HTTPS-connections-to-your-resources.json "https://github.com/aws-samples/resource-control-policy-examples/blob/main/Restrict-resource-access-patterns/Restrict-access-to-only-HTTPS-connections-to-your-resources.json") | [Allowed<br>Images Settings](orgs_manage_policies_declarative_syntax.md#declarative-policy-ec2-ami-allowed-images "orgs_manage_policies_declarative_syntax.md#declarative-policy-ec2-ami-allowed-images")       |
+|                               | Service control policies                                                                                                                                                                                                                                                                                                                                                                  | Resource control policies                                                                                                                                                                                                                                                                                                                                                                                                  | Declarative policies                                                                                                                                                                                         |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Why?                          | To centrally define and enforce consistent access controls on<br>principals (such as IAM users and IAM roles) at scale.                                                                                                                                                                                                                                                                   | To centrally define and enforce consistent access controls on<br>resources at scale                                                                                                                                                                                                                                                                                                                                        | To centrally define and enforce the baseline configuration for<br>AWS services at scale.                                                                                                                     |
+| How?                          | By controlling the maximum available access permissions of<br>principals at an API level.                                                                                                                                                                                                                                                                                                 | By controlling the maximum available access permissions for<br>resources at an API level.                                                                                                                                                                                                                                                                                                                                  | By enforcing the desired configuration of an AWS service without<br>using API actions.                                                                                                                       |
+| Governs service-linked roles? | No                                                                                                                                                                                                                                                                                                                                                                                        | No                                                                                                                                                                                                                                                                                                                                                                                                                         | Yes                                                                                                                                                                                                          |
+| Feedback mechanism            | Non-customizable access denied SCP error.                                                                                                                                                                                                                                                                                                                                                 | Non-customizable access denied RCP error.                                                                                                                                                                                                                                                                                                                                                                                  | Customizable error message. For more information, see [Custom error messages for declarative policies](#orgs_manage_policies_declarative-custom-message "#orgs_manage_policies_declarative-custom-message"). |
+| Example policy                | [Deny member accounts from leaving the organization](https://github.com/aws-samples/service-control-policy-examples/blob/main/Privileged-access-controls/Deny-member-accounts-from-leaving-your-AWS-organization.json "https://github.com/aws-samples/service-control-policy-examples/blob/main/Privileged-access-controls/Deny-member-accounts-from-leaving-your-AWS-organization.json") | [Restrict access to only HTTPS connections to your resources](https://github.com/aws-samples/resource-control-policy-examples/blob/main/Restrict-resource-access-patterns/Restrict-access-to-only-HTTPS-connections-to-your-resources.json "https://github.com/aws-samples/resource-control-policy-examples/blob/main/Restrict-resource-access-patterns/Restrict-access-to-only-HTTPS-connections-to-your-resources.json") | [Allowed<br>Images Settings](orgs_manage_policies_declarative_syntax.md#declarative-policy-ec2-ami-allowed-images "orgs_manage_policies_declarative_syntax.md#declarative-policy-ec2-ami-allowed-images")    |
 
 After you have [created](orgs_policies_create.md#create-declarative-policy-procedure "orgs_policies_create.md#create-declarative-policy-procedure") and [attached](orgs_policies_attach.md "orgs_policies_attach.md") a
 declarative policy, it is applied and enforced across your organization. Declarative
 policies can be applied to an entire organization, organizational units (OUs), or
 accounts. Accounts joining an organization will automatically inherit the declarative
-policy in the organization. For more information, see [Understanding management policy
-inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
+policy in the organization. For more information, see [Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
 
 The _effective policy_ is the set of rules that are
 inherited from the organization root and OUs along with those directly attached to the
 account. The effective policy specifies the final set of rules that apply to the
-account. For more information, see [Viewing effective management
-policies](orgs_manage_policies_effective.md "orgs_manage_policies_effective.md").
+account. For more information, see [Viewing effective management policies](orgs_manage_policies_effective.md "orgs_manage_policies_effective.md").
 
 If a declarative policy is [detached](orgs_policies_detach.md "orgs_policies_detach.md"), the
 attribute state will roll back to its previous state before the declarative policy was
 attached.
 
-## Custom error messages
-
-for declarative policies
+## Custom error messages for declarative policies
 
 Declarative policies allow you to create custom error messages. For example, if an API
 operation fails due to a declarative policy, you can set the error message or provide a
@@ -100,9 +91,7 @@ information that can be used to identify or locate an individual. It covers reco
 such as financial, medical, educational, or employment. PII examples include
 addresses, bank account numbers, and phone numbers.
 
-## Account status
-
-report for declarative policies
+## Account status report for declarative policies
 
 The _account status report_ allows you to review the current status
 of all attributes supported by declarative policies for the accounts in scope. You can
@@ -146,13 +135,9 @@ status report](orgs_manage_policies_declarative_status-report.md "orgs_manage_po
 _Figure 1: Example account status report with uniformity across accounts for
 VPC Block Public Access and Image Block Public Access._
 
-## Supported
+## Supported AWS services and attributes
 
-AWS services and attributes
-
-### Supported
-
-attributes for declarative policies for EC2
+### Supported attributes for declarative policies for EC2
 
 The following table displays the attributes supported for Amazon EC2 related
 services.

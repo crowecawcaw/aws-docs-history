@@ -19,12 +19,9 @@ Terms. For a list of services supported by AI services opt-out policies, see [Li
 - [Considerations](#orgs_manage_policies-ai-opt-out-considerations "#orgs_manage_policies-ai-opt-out-considerations")
 - [Getting started](orgs_manage_policies-ai-opt-out_getting-started.md "orgs_manage_policies-ai-opt-out_getting-started.md")
 - [Opt out from all AI services](orgs_manage_policies_ai-opt-out_all.md "orgs_manage_policies_ai-opt-out_all.md")
-- [AI services opt-out policy syntax and
-  examples](orgs_manage_policies_ai-opt-out_syntax.md "orgs_manage_policies_ai-opt-out_syntax.md")
+- [AI services opt-out policy syntax and examples](orgs_manage_policies_ai-opt-out_syntax.md "orgs_manage_policies_ai-opt-out_syntax.md")
 
-## Considerations when
-
-using AI services opt-out policies
+## Considerations when using AI services opt-out policies
 
 **Opting out deletes all of the associated historical
 content**

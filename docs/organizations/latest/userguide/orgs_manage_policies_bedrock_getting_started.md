@@ -1,6 +1,4 @@
-# Getting started with
-
-Amazon Bedrock policies
+# Getting started with Amazon Bedrock policies
 
 Before you configure Amazon Bedrock policies, ensure you understand the prerequisites and
 implementation requirements. This topic guides you through the process of setting up and
@@ -18,9 +16,7 @@ Review the following requirements before implementing Amazon Bedrock policies:
 
 - You must enable the Amazon Bedrock policy type in the root of your organization
 
-## Implementation
-
-steps
+## Implementation steps
 
 To implement Amazon Bedrock policies effectively, follow these steps in sequence. Each step
 ensures proper configuration and helps prevent common issues during setup. The

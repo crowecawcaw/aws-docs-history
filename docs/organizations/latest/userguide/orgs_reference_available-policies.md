@@ -4,9 +4,7 @@ This section identifies the AWS-managed policies provided for your use to manage
 organization. You can't modify or delete an AWS managed policy, but you can attach or
 detach them to entities in your organization as needed.
 
-## AWS Organizations managed policies for use with
-
-AWS Identity and Access Management (IAM)
+## AWS Organizations managed policies for use with AWS Identity and Access Management (IAM)
 
 An IAM managed policy is provided and maintained by AWS. A managed policy provides
 permissions for common tasks that you can assign to your users by attaching the managed
@@ -43,9 +41,7 @@ to enable it to describe account attribute states for member accounts.
 
 View the policy: [DeclarativePoliciesEC2Report](../../../aws-managed-policy/latest/reference/DeclarativePoliciesEC2Report.md "../../../aws-managed-policy/latest/reference/DeclarativePoliciesEC2Report.md").
 
-## Updates to Organizations AWS managed
-
-policies
+## Updates to Organizations AWS managed policies
 
 The following table details updates to AWS managed policies since this service
 began tracking these changes. For automatic alerts about changes to this page,
@@ -67,9 +63,7 @@ History](document-history.md "document-history.md") page.
 | [AWSOrganizationsFullAccess](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AWSOrganizationsFullAccess$jsonEditor "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AWSOrganizationsFullAccess$jsonEditor") – updated to<br>allow account API permissions required to add, edit, or delete<br>account alternate contacts via the Organizations console. | Added the `account:GetAlternateContact`,<br>`account:DeleteAlternateContact`,<br>`account:PutAlternateContact` actions to the<br>policy to enable write access to modify alternate contacts for<br>an account.                                                                              | February 7, 2022  |
 | [AWSOrganizationsReadOnlyAccess](https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AWSOrganizationsReadOnlyAccess$jsonEditor "https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AWSOrganizationsReadOnlyAccess$jsonEditor") – updated to<br>allow account API permissions required to view account alternate<br>contacts via the Organizations console.   | Added the `account:GetAlternateContact` action<br>to the policy to enable access to view alternate contacts for an<br>account.                                                                                                                                                              | February 7, 2022  |
 
-## AWS managed authorization
-
-policies
+## AWS managed authorization policies
 
 [Authorization policies](orgs_manage_policies_authorization_policies.md "orgs_manage_policies_authorization_policies.md") are
 similar to IAM permission policies, but are a feature of AWS Organizations rather than IAM.

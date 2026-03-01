@@ -23,19 +23,14 @@ For more information, see [Centrally manage root access for member accounts](../
 
 Use the following information to help you integrate AWS Identity and Access Management with AWS Organizations.
 
-## Enabling trusted access with
-
-IAM
+## Enabling trusted access with IAM
 
 When you enable root access management, trusted access is enabled for IAM in AWS Organizations.
 
-## Disabling trusted access with
-
-IAM
+## Disabling trusted access with IAM
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 Only an administrator in the AWS Organizations management account can disable trusted access
 with AWS Identity and Access Management.
@@ -84,9 +79,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for IAM
+## Enabling a delegated administrator account for IAM
 
 When you designate a member account as a delegated administrator for the organization,
 users and roles from that account can perform privileged tasks on member accounts that
@@ -99,9 +92,7 @@ administrator for IAM.
 You can specify a delegated administrator account from the IAM console or API, or by
 using the Organizations CLI or SDK operation.
 
-## Disabling a delegated administrator
-
-for IAM
+## Disabling a delegated administrator for IAM
 
 Only an administrator in either the Organizations management account or the IAM delegated admin account
 can remove a delegated administrator account from the organization. You can disable delegated administration using the Organizations `DeregisterDelegatedAdministrator` CLI or SDK operation.

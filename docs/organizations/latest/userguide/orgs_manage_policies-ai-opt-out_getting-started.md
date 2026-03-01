@@ -1,6 +1,4 @@
-# Getting started with
-
-AI services opt-out policies
+# Getting started with AI services opt-out policies
 
 Follow these steps to get started using Artificial Intelligence (AI) services opt-out policies.
 

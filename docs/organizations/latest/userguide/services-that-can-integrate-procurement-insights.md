@@ -1,6 +1,4 @@
-# AWS Marketplace procurement insights dashboard and
-
-AWS Organizations
+# AWS Marketplace procurement insights dashboard and AWS Organizations
 
 You use the AWS Marketplace procurement insights dashboard to view agreements and cost-analysis data for all of the AWS accounts in your organization.
 When integrated with Organizations, AWS Marketplace procurement insights dashboard listens to organization changes,
@@ -12,20 +10,15 @@ For more information, see [Procurement insights](../../../marketplace/latest/buy
 Use the following information to help you integrate
 AWS Marketplace procurement insights dashboard with AWS Organizations.
 
-## Service-linked roles and managed policies created when
-
-you enable integration
+## Service-linked roles and managed policies created when you enable integration
 
 When you activate the AWS Marketplace procurement insights dashboard dashboard the [`AWSServiceRoleForProcurementInsightsPolicy`](../../../marketplace/latest/buyerguide/buyer-service-linked-role-procurement.md "../../../marketplace/latest/buyerguide/buyer-service-linked-role-procurement.md") service-linked role and the [`AWSServiceRoleForProcurementInsightsPolicy`](../../../marketplace/latest/buyerguide/buyer-security-iam-awsmanpol.md#aws-procurement-insights "../../../marketplace/latest/buyerguide/buyer-security-iam-awsmanpol.md#aws-procurement-insights") AWS managed policy are created.
 
-## Enabling trusted access with
-
-AWS Marketplace procurement insights
+## Enabling trusted access with AWS Marketplace procurement insights
 
 Enabling trusted access grants the AWS Marketplace procurement insights dashboard the ability to integrate with the customer's Organizations service. AWS Marketplace procurement insights dashboard listens to organization changes, such as an account joining the organization, and aggregates data for their corresponding agreements to build their dashboards.
 
-For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can enable trusted access using either the AWS Marketplace procurement insights dashboard console or the AWS Organizations
 console.
@@ -90,13 +83,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-AWS Marketplace procurement insights
+## Disabling trusted access with AWS Marketplace procurement insights
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can only disable trusted access using the Organizations
 tools.
@@ -125,9 +115,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for AWS Marketplace procurement insights
+## Enabling a delegated administrator account for AWS Marketplace procurement insights
 
 To configure a delegated administrator in the AWS Marketplace procurement insights console, see See [Registering delegated administrators>](../../../marketplace/latest/buyerguide/management-delegates.md#management-register-delegate "../../../marketplace/latest/buyerguide/management-delegates.md#management-register-delegate") in the
 _AWS Marketplace Buyer Guide_.
@@ -136,9 +124,7 @@ You can also configure a delegated administrator by using
 the Organizations `RegisterDelegatedAdministrator` API. For more information, see [RegisterDelegatedAdministrator](../../../cli/latest/reference/organizations/register-delegated-administrator.md "../../../cli/latest/reference/organizations/register-delegated-administrator.md") in the _Organizations
 Command Reference_.
 
-## Disabling a delegated administrator
-
-for AWS Marketplace procurement insights
+## Disabling a delegated administrator for AWS Marketplace procurement insights
 
 Only an administrator in the organization management account can configure a delegated
 administrator for AWS Marketplace procurement insights.

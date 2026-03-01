@@ -1,6 +1,4 @@
-# AWS Cost Optimization Hub and
-
-AWS Organizations
+# AWS Cost Optimization Hub and AWS Organizations
 
 AWS Cost Optimization Hub is an AWS Billing and Cost Management feature that helps you consolidate and prioritize cost optimization
 recommendations across your AWS accounts and AWS Regions, so that you can get the most out of your AWS spend. When you use Cost Optimization Hub with AWS Organizations you can easily identify, filter, and aggregate AWS cost optimization
@@ -11,9 +9,7 @@ For more information, see [Cost Optimization Hub](../../../cost-management/lates
 Use the following information to help you integrate
 AWS Cost Optimization Hub with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -32,13 +28,10 @@ _AWS Cost Management User Guide_.
 
 Cost Optimization Hub uses the `cost-optimization-hub.bcm.amazonaws.com` service principal.
 
-## Enabling trusted access with
-
-Cost Optimization Hub
+## Enabling trusted access with Cost Optimization Hub
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 When you opt in using your organization's management account and include all member accounts
 within the organization, trusted access for Cost Optimization Hub is automatically enabled in your organization account.
@@ -88,8 +81,7 @@ This command produces no output when successful.
 ## Disabling trusted access
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 You can only disable trusted access using the Organizations
 tools.
@@ -124,9 +116,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for Cost Optimization Hub
+## Enabling a delegated administrator account for Cost Optimization Hub
 
 When you designate a member account to be a delegated administrator for the organization, the
 designated account can retrieve Cost Optimization Hub recommendations for all accounts under your organization and manage
@@ -140,9 +130,7 @@ Cost Optimization Hub in the organization:
 
 For instructions about enabling a delegated administrator account for Cost Optimization Hub, see [Delegate an administrator account](../../../cost-management/latest/userguide/coh-delegated-admin.md "../../../cost-management/latest/userguide/coh-delegated-admin.md") in the _AWS Cost Management User Guide_.
 
-## Disabling a delegated administrator
-
-for Cost Optimization Hub
+## Disabling a delegated administrator for Cost Optimization Hub
 
 Only an administrator in the Organizations management account can remove a delegated
 administrator for Cost Optimization Hub.

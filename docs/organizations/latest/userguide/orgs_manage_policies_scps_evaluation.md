@@ -4,8 +4,7 @@
 
 The information in this section does **_not_** apply to management policy types, including backup
 policies, tag policies, chat applications policies, or AI services opt-out policies. For more
-information, see [Understanding management policy
-inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
+information, see [Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
 
 As you can attach multiple service control policies (SCPs) at different levels in
 AWS Organizations, understanding how SCPs are evaluated can help you write SCPs that yield the right
@@ -161,9 +160,7 @@ deny).
 
 ![Scenario 1: Impact of Deny policies](images/scp_scenario_1.png)
 
-### Scenario 2: Allow policies must exist at every
-
-level
+### Scenario 2: Allow policies must exist at every level
 
 This scenario shows how allow policies work in SCPs. For a service to be
 accessible, there must be an explicit allow at every level from the root down to the
@@ -173,9 +170,7 @@ access.
 
 ![Scenario 2: Allow policies must exist at every level](images/scp_scenario_2.png)
 
-### Scenario 3: Impact of missing an Allow statement at
-
-the root-level
+### Scenario 3: Impact of missing an Allow statement at the root-level
 
 Missing an "Allow" statement at the root-level in an SCP is a critical
 misconfiguration that will effectively block all access to AWS services and
@@ -183,9 +178,7 @@ actions for all member accounts in your organization.
 
 ![Scenario 3: Impact of missing an Allow statement at the root-level](images/scp_scenario_3.png)
 
-### Scenario 4: Layered Deny statements and resulting
-
-permissions
+### Scenario 4: Layered Deny statements and resulting permissions
 
 This scenario demonstrates a two-level deep OU structure. Both the Root and the
 Workloads OU have "Full AWS access", the Test OU has "Full AWS access" with
@@ -195,9 +188,7 @@ access.
 
 ![Scenario 4: Layered Deny statements and resulting permissions](images/scp_scenario_4.png)
 
-### Scenario 5: Allow policies at the OU-level to
-
-restrict service access
+### Scenario 5: Allow policies at the OU-level to restrict service access
 
 This scenario shows how allow policies can be used to restrict access to specific
 services. The Test OU has an "Allow EC2 access" policy, which means only EC2
@@ -208,9 +199,7 @@ broader allow at the root-level.
 
 ![Scenario 5: Allow policies at the OU-level to restrict service access](images/scp_scenario_5.png)
 
-### Scenario 6: Root-level deny affects all accounts
-
-regardless of lower-level allows
+### Scenario 6: Root-level deny affects all accounts regardless of lower-level allows
 
 This scenario demonstrates that a deny policy at the root-level affects all
 accounts in the organization, regardless of allow policies at lower levels. The root

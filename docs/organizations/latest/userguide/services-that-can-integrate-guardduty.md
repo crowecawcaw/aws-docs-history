@@ -1,6 +1,4 @@
-# Amazon GuardDuty and
-
-AWS Organizations
+# Amazon GuardDuty and AWS Organizations
 
 Amazon GuardDuty is a continuous security monitoring service that analyzes and processes a
 variety data sources, using threat intelligence feeds and machine learning to identify
@@ -18,9 +16,7 @@ AWS Organizations](../../../guardduty/latest/ug/guardduty_organizations.md "../.
 Use the following information to help you integrate
 Amazon GuardDuty with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following service-linked roles are automatically created in your organization's management account when you enable trusted access. These roles allow GuardDuty to perform supported operations within your organization's accounts in your organization.
 You can delete a role only if you disable trusted access between GuardDuty and Organizations, or if you remove the member account from the organization.
@@ -34,20 +30,15 @@ You can delete a role only if you disable trusted access between GuardDuty and O
   For more information, see [Service-linked role permissions for GuardDuty Malware Protection](../../../guardduty/latest/ug/slr-permissions-malware-protection.md "../../../guardduty/latest/ug/slr-permissions-malware-protection.md") in the
   _Amazon GuardDuty User Guide_
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 - `guardduty.amazonaws.com`, used by the `AWSServiceRoleForAmazonGuardDuty` service-linked role.
 - `malware-protection.guardduty.amazonaws.com`, used by the `AmazonGuardDutyMalwareProtectionServiceRolePolicy` service-linked role.
 
-## Enabling trusted access with
-
-GuardDuty
+## Enabling trusted access with GuardDuty
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can only enable trusted access using
 Amazon GuardDuty.
@@ -62,13 +53,10 @@ using the AWS CLI or one of the AWS SDKs, then you must explicitly call the [Ena
 parameter. Then you can call [EnableOrganizationAdminAccount](../../../guardduty/latest/APIReference/API_EnableOrganizationAdminAccount.md "../../../guardduty/latest/APIReference/API_EnableOrganizationAdminAccount.md") to delegate the GuardDuty administrator
 account.
 
-## Disabling trusted access with
-
-GuardDuty
+## Disabling trusted access with GuardDuty
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 You can only disable trusted access using the Organizations
 tools.
@@ -97,9 +85,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for GuardDuty
+## Enabling a delegated administrator account for GuardDuty
 
 When you designate a member account as a delegated administrator for the organization,
 users and roles from that account can perform administrative actions for
@@ -113,9 +99,7 @@ For information about the permissions required to designate a member account as 
 delegated administrator, see [Permissions required to designate a delegated administrator](../../../guardduty/latest/ug/guardduty_organizations.md#organizations_permissions "../../../guardduty/latest/ug/guardduty_organizations.md#organizations_permissions") in the
 _Amazon GuardDuty User Guide_
 
-###### To designate a member account as a delegated administrator for
-
-GuardDuty
+###### To designate a member account as a delegated administrator for GuardDuty
 
 See [Designate a delegated administrator and add member accounts (console)](../../../guardduty/latest/ug/guardduty_organizations.md#organization_thru_console "../../../guardduty/latest/ug/guardduty_organizations.md#organization_thru_console")
 and [Designate a delegated administrator and add member accounts

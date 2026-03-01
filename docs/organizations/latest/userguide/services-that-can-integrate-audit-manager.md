@@ -1,6 +1,4 @@
-# AWS Audit Manager and
-
-AWS Organizations
+# AWS Audit Manager and AWS Organizations
 
 AWS Audit Manager helps you continuously audit your AWS usage to simplify how you assess
 risk and compliance with regulations and industry standards. Audit Manager automates evidence
@@ -19,9 +17,7 @@ in the _Audit Manager User Guide_.
 Use the following information to help you integrate
 AWS Audit Manager with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -37,9 +33,7 @@ Guide_.
 
 - `AWSServiceRoleForAuditManager`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -48,13 +42,10 @@ principals:
 
 - `auditmanager.amazonaws.com`
 
-## To enable trusted access with
-
-Audit Manager
+## To enable trusted access with Audit Manager
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 Audit Manager requires trusted access to AWS Organizations before you can designate a
 member account to be the delegated administrator for your organization.
@@ -107,13 +98,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## To disable trusted access with
-
-Audit Manager
+## To disable trusted access with Audit Manager
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 Only an administrator in the AWS Organizations management account can disable trusted access
 with AWS Audit Manager.
@@ -145,9 +133,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for Audit Manager
+## Enabling a delegated administrator account for Audit Manager
 
 When you designate a member account to be a delegated administrator for the
 organization, users and roles from that account can perform administrative actions for

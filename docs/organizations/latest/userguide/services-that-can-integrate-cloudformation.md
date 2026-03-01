@@ -1,6 +1,4 @@
-# AWS CloudFormation StackSets and
-
-AWS Organizations
+# AWS CloudFormation StackSets and AWS Organizations
 
 CloudFormation StackSets enables you to create, update, or delete stacks across multiple
 AWS accounts and AWS Regions with a single operation. StackSets integration with
@@ -33,9 +31,7 @@ _AWS CloudFormation User Guide_.
 Use the following information to help you integrate
 AWS CloudFormation StackSets with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -61,9 +57,7 @@ For more details about creating stack sets, see [Working with
 AWS CloudFormation StackSets](../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md "../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md") in the
 _AWS CloudFormation User Guide_.
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -82,13 +76,10 @@ You can modify or delete this role from an account only if you first disable
 trusted access between StackSets and Organizations, or if you first remove the account
 from the target organization or organizational unit (OU).
 
-## Enabling trusted access with
-
-CloudFormation Stacksets
+## Enabling trusted access with CloudFormation Stacksets
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 Only an administrator in the Organizations management account has permissions to enable trusted
 access with another AWS service. You can enable trusted access using either the CloudFormation
@@ -100,13 +91,10 @@ AWS CloudFormation StackSets.
 To enable trusted access using the CloudFormation Stacksets console, see [Enable Trusted Access
 with AWS Organizations](../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.md") in the AWS CloudFormation User Guide.
 
-## Disabling trusted access with
-
-CloudFormation Stacksets
+## Disabling trusted access with CloudFormation Stacksets
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 Only an administrator in an Organizations management account has permissions to disable trusted
 access with another AWS service. You can disable trusted access only by using the Organizations
@@ -165,9 +153,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for CloudFormation Stacksets
+## Enabling a delegated administrator account for CloudFormation Stacksets
 
 When you designate a member account as a delegated administrator for the organization,
 users and roles from that account can perform administrative actions for

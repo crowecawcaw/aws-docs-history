@@ -1,6 +1,4 @@
-# AWS Security Incident Response and
-
-AWS Organizations
+# AWS Security Incident Response and AWS Organizations
 
 AWS Security Incident Response is a security service that provides 24/7, live, human-assisted security
 incident support to help customers respond rapidly to cybersecurity incidents such as
@@ -11,9 +9,7 @@ For more information, see [Managing AWS Security Incident Response accounts with
 Use the following information to help you integrate
 AWS Security Incident Response with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following service-linked roles are automatically created in your organization's management account when you enable trusted access.
 
@@ -27,17 +23,14 @@ defined for the role. The service-linked roles used by Security Incident Respons
 
 - `security-ir.amazonaws.com`
 
-## Enabling trusted access to
-
-Security Incident Response
+## Enabling trusted access to Security Incident Response
 
 Enabling trusted access to Security Incident Response allows the service to keep track of your organization's
 structure and ensure that all accounts in the organization have active security incident coverage. It also allows the service to use a
 service-linked role in member accounts for triaging capabilities when you enable the triage feature.
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can enable trusted access using either the AWS Security Incident Response console or the AWS Organizations
 console.
@@ -98,9 +91,7 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-Security Incident Response
+## Disabling trusted access with Security Incident Response
 
 Only an administrator in the Organizations management account can disable trusted access with Security Incident Response.
 
@@ -148,9 +139,7 @@ This command produces no output when successful.
 
 - AWS API: [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
 
-## Enabling a delegated administrator
-
-account for Security Incident Response
+## Enabling a delegated administrator account for Security Incident Response
 
 When you designate a member account as a delegated administrator for the organization,
 users and roles from that account can perform administrative actions for
@@ -182,9 +171,7 @@ CLI or one of the AWS SDKs, you can use the following commands:
   member account's ID number and identify the account service
   `security-ir.amazonaws.com` as parameters.
 
-## Disabling a delegated administrator
-
-for Security Incident Response
+## Disabling a delegated administrator for Security Incident Response
 
 ###### Important
 

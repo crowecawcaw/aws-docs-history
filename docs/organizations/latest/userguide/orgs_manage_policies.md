@@ -32,9 +32,7 @@ type is currently enabled.
 
 Organizations offers policy types in the following two broad categories:
 
-### Authorization
-
-policies
+### Authorization policies
 
 Authorization policies help you to centrally manage the security of AWS accounts
 across an organization.

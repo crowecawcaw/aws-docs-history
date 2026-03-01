@@ -1,6 +1,4 @@
-# Generating the account
-
-status report for declarative policies
+# Generating the account status report for declarative policies
 
 The _account status report_ allows you to review the current status of
 all attributes supported by declarative policies for the accounts in scope. You can choose
@@ -17,8 +15,7 @@ the attribute.
 The choice to attach a declarative policy for enforcing a baseline configuration depends
 on your specific use case.
 
-For more information and an illustrative example, see [Account status
-report for declarative policies](orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-account-status-report "orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-account-status-report").
+For more information and an illustrative example, see [Account status report for declarative policies](orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-account-status-report "orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-account-status-report").
 
 ## Prerequisites
 
@@ -49,9 +46,7 @@ For more information on how to enable trusted access for a specific service
 with the AWS CLI see, [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md"). 4. Only one report per organization can be generated at a time. Attempting to
 generate a report while another is in progress will result in an error.
 
-## Access the
-
-compliance status report
+## Access the compliance status report
 
 ###### Minimum permissions
 

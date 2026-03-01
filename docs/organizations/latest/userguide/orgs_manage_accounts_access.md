@@ -1,6 +1,4 @@
-# Accessing member accounts in an
-
-organization with AWS Organizations
+# Accessing member accounts in an organization with AWS Organizations
 
 When you create an account in your organization, in
 addition to the root user, AWS Organizations automatically creates an IAM role that is by
@@ -53,14 +51,12 @@ and access resources in their assigned management account or member accounts.
 
 For more information, see [Multi-account
 permissions](../../../singlesignon/latest/userguide/manage-your-accounts.md "../../../singlesignon/latest/userguide/manage-your-accounts.md") in the _AWS IAM Identity Center User Guide._ For
-information about setting up trusted access for IAM Identity Center, see [AWS IAM Identity Center and
-AWS Organizations](services-that-can-integrate-sso.md "services-that-can-integrate-sso.md").
+information about setting up trusted access for IAM Identity Center, see [AWS IAM Identity Center and AWS Organizations](services-that-can-integrate-sso.md "services-that-can-integrate-sso.md").
 
 Using the IAM role OrganizationAccountAccessRole If you create an account by using the tools provided as part of AWS Organizations, you can
 access the account by using the preconfigured role named
 `OrganizationAccountAccessRole` that exists in all new accounts that
-you create this way. For more information, see [Accessing a member
-account that has OrganizationAccountAccessRole with AWS Organizations](orgs_manage_accounts_access-cross-account-role.md "orgs_manage_accounts_access-cross-account-role.md").
+you create this way. For more information, see [Accessing a member account that has OrganizationAccountAccessRole with AWS Organizations](orgs_manage_accounts_access-cross-account-role.md "orgs_manage_accounts_access-cross-account-role.md").
 
 If you invite an existing account to join your organization and the account
 accepts the invitation, you can then choose to create an IAM role that allows the
@@ -68,12 +64,10 @@ management account to access the invited member account. This role is intended t
 identical to the role automatically added to an account that is created with
 AWS Organizations.
 
-To create this role, see [Creating
-OrganizationAccountAccessRole for an invited account with AWS Organizations](orgs_manage_accounts_create-cross-account-role.md "orgs_manage_accounts_create-cross-account-role.md").
+To create this role, see [Creating OrganizationAccountAccessRole for an invited account with AWS Organizations](orgs_manage_accounts_create-cross-account-role.md "orgs_manage_accounts_create-cross-account-role.md").
 
 After you
-create the role, you can access it using the steps in [Accessing a member
-account that has OrganizationAccountAccessRole with AWS Organizations](orgs_manage_accounts_access-cross-account-role.md "orgs_manage_accounts_access-cross-account-role.md").
+create the role, you can access it using the steps in [Accessing a member account that has OrganizationAccountAccessRole with AWS Organizations](orgs_manage_accounts_access-cross-account-role.md "orgs_manage_accounts_access-cross-account-role.md").
 
 ###### Topics
 

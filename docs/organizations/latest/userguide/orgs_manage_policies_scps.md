@@ -28,16 +28,13 @@ member accounts in your organization. This also means that SCPs apply to member 
 
 - [Testing effects of SCPs](#scp-warning-testing-effect "#scp-warning-testing-effect")
 - [Maximum size of SCPs](#scp-size-limit "#scp-size-limit")
-- [Attaching SCPs to different levels in the
-  organization](#scp-about-inheritance "#scp-about-inheritance")
+- [Attaching SCPs to different levels in the organization](#scp-about-inheritance "#scp-about-inheritance")
 - [SCP effects on permissions](#scp-effects-on-permissions "#scp-effects-on-permissions")
 - [Using access data to improve SCPs](#data-from-iam "#data-from-iam")
-- [Tasks and entities not restricted by
-  SCPs](#not-restricted-by-scp "#not-restricted-by-scp")
+- [Tasks and entities not restricted by SCPs](#not-restricted-by-scp "#not-restricted-by-scp")
 - [SCP evaluation](orgs_manage_policies_scps_evaluation.md "orgs_manage_policies_scps_evaluation.md")
 - [SCP syntax](orgs_manage_policies_scps_syntax.md "orgs_manage_policies_scps_syntax.md")
-- [Service control
-  policy examples](orgs_manage_policies_scps_examples.md "orgs_manage_policies_scps_examples.md")
+- [Service control policy examples](orgs_manage_policies_scps_examples.md "orgs_manage_policies_scps_examples.md")
 - [Troubleshooting service control policies (SCPs) with AWS Organizations](org_troubleshoot_policies.md "org_troubleshoot_policies.md")
 
 ## Testing effects of SCPs
@@ -69,9 +66,7 @@ and line breaks that are outside quotation marks.
 Use the visual editor to build your SCP. It automatically removes extra white
 space.
 
-## Attaching SCPs to different levels in the
-
-organization
+## Attaching SCPs to different levels in the organization
 
 For a detailed explanation of how SCPs work, see [SCP evaluation](orgs_manage_policies_scps_evaluation.md "orgs_manage_policies_scps_evaluation.md").
 
@@ -100,8 +95,7 @@ Logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../
   `AdministratorAccess` IAM policy with \*/\* permissions to the
   user.
 - SCPs affect only **_member_** accounts in the organization. They have no
-  effect on users or roles in the management account. This also means that SCPs apply to member accounts that are designated as delegated administrators. For more information, see [Best practices for the management
-  account](orgs_best-practices_mgmt-acct.md "orgs_best-practices_mgmt-acct.md").
+  effect on users or roles in the management account. This also means that SCPs apply to member accounts that are designated as delegated administrators. For more information, see [Best practices for the management account](orgs_best-practices_mgmt-acct.md "orgs_best-practices_mgmt-acct.md").
 - Users and roles must still be granted permissions with appropriate IAM
   permission policies. A user without any IAM permission policies has no access,
   even if the applicable SCPs allow all services and all actions.
@@ -112,8 +106,7 @@ Logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../
   action that is either not allowed or explicitly denied by the applicable SCPs,
   the user or role can't perform that action.
 - SCPs affect all users and roles in attached accounts, **_including the root user_**.
-  The only exceptions are those described in [Tasks and entities not restricted by
-  SCPs](#not-restricted-by-scp "#not-restricted-by-scp").
+  The only exceptions are those described in [Tasks and entities not restricted by SCPs](#not-restricted-by-scp "#not-restricted-by-scp").
 - SCPs **_do not_** affect any service-linked role. Service-linked roles
   enable other AWS services to integrate with AWS Organizations and can't be restricted
   by SCPs.
@@ -152,9 +145,7 @@ _IAM User Guide_:
 - [Viewing Organizations Service Last Accessed Data for Organizations](../../../IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.md "../../../IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.md")
 - [Using Data to Refine Permissions for an Organizational Unit](../../../IAM/latest/UserGuide/access_policies_access-advisor-example-scenarios.md#access_policies_access-advisor-reduce-permissions-orgs "../../../IAM/latest/UserGuide/access_policies_access-advisor-example-scenarios.md#access_policies_access-advisor-reduce-permissions-orgs")
 
-## Tasks and entities not restricted by
-
-SCPs
+## Tasks and entities not restricted by SCPs
 
 You **_can't_** use
 SCPs to restrict the following tasks:

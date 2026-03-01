@@ -1,18 +1,13 @@
-# AI services opt-out policy syntax and
-
-examples
+# AI services opt-out policy syntax and examples
 
 This topic describes Artificial Intelligence (AI) services opt-out policy syntax and provides examples.
 
-## Syntax for AI services opt-out
-
-policies
+## Syntax for AI services opt-out policies
 
 An AI services opt-out policy is a plaintext file that is structured according to the rules
 of [JSON](http://json.org "http://json.org"). The syntax for AI services opt-out policies
 follows the syntax for management policy types. For a complete discussion of that
-syntax, see [Understanding management policy
-inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on
+syntax, see [Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on
 applying that general syntax to the specific requirements of the AI services opt-out policy
 type.
 
@@ -195,9 +190,7 @@ elements:
 
 The example policies that follow are for information purposes only.
 
-### Example 1: Opt out of all AI services
-
-for all accounts in the organization
+### Example 1: Opt out of all AI services for all accounts in the organization
 
 The following example shows a policy that you could attach to your organization's
 root to opt out of AI services for accounts in your organization.
@@ -237,10 +230,7 @@ paste.
   child policies from changing the value of the `optOut` setting or
   adding any additional settings.
 
-### Example 2: Set an organization default
-
-setting for all services, but allow child policies to override the setting for
-individual services
+### Example 2: Set an organization default setting for all services, but allow child policies to override the setting for individual services
 
 The following example policy sets an organization-wide default for all AI
 services. The value for `default` prevents a child policy from change the
@@ -301,9 +291,7 @@ The resulting effective policy for the AWS account is that the account opts in
 to only Amazon Lex, and opts out of all other AWS AI services because of the inherited
 `default` opt-out setting from the parent policy.
 
-### Example 3: Define an organization-wide
-
-AI services opt-out policy for a single service
+### Example 3: Define an organization-wide AI services opt-out policy for a single service
 
 The following example shows an AI services opt-out policy that defines an
 `optOut` setting for a single AI service. If this policy is attached

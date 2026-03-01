@@ -1,6 +1,4 @@
-# Removing a member account from an
-
-organization with AWS Organizations
+# Removing a member account from an organization with AWS Organizations
 
 Removing a member account does not close the account,
 instead it removes the member account from the organization. The former member account
@@ -36,8 +34,7 @@ required contact information, and provide a current payment method. AWS uses
 the payment method to charge for any billable (not AWS Free Tier) AWS
 activity that occurs while the account isn't attached to an organization. To
 remove an account that doesn't yet have this information, follow the steps in
-[Leaving an organization from a
-member account with AWS Organizations](orgs_manage_accounts_leave-as-member.md "orgs_manage_accounts_leave-as-member.md").
+[Leaving an organization from a member account with AWS Organizations](orgs_manage_accounts_leave-as-member.md "orgs_manage_accounts_leave-as-member.md").
 
 **You must wait until
 at least four days after the account was created**
@@ -104,9 +101,7 @@ Integration with other services might be disabled. If you remove an
 account from an organization that has integration with an AWS service
 enabled, the users in that account can no longer use that service.
 
-## Remove a member account
-
-from an organization
+## Remove a member account from an organization
 
 When you sign in to the organization's management account, you can remove member
 accounts from the organization that you no longer need. To do this, complete the
@@ -255,5 +250,4 @@ role, see [Deleting roles or
 instance profiles](../../../IAM/latest/UserGuide/id_roles_manage_delete.md "../../../IAM/latest/UserGuide/id_roles_manage_delete.md") in the
 _IAM User Guide_.
 
-Member accounts can remove themselves with [leave-organization](../../../cli/latest/reference/organizations/leave-organization.md "../../../cli/latest/reference/organizations/leave-organization.md") instead. For more information, see [Leaving an organization from a
-member account with AWS Organizations](orgs_manage_accounts_leave-as-member.md "orgs_manage_accounts_leave-as-member.md").
+Member accounts can remove themselves with [leave-organization](../../../cli/latest/reference/organizations/leave-organization.md "../../../cli/latest/reference/organizations/leave-organization.md") instead. For more information, see [Leaving an organization from a member account with AWS Organizations](orgs_manage_accounts_leave-as-member.md "orgs_manage_accounts_leave-as-member.md").

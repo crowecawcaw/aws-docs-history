@@ -1,6 +1,4 @@
-# AWS Control Tower and
-
-AWS Organizations
+# AWS Control Tower and AWS Organizations
 
 AWS Control Tower offers a straightforward way to set up and govern an AWS multi-account environment, following prescriptive best practices.
 AWS Control Tower orchestration extends the capabilities of AWS Organizations. AWS Control Tower applies preventive and detective controls (guardrails) to help keep your organizations and accounts from divergence from best practices (drift).
@@ -24,15 +22,12 @@ and [Using Identity-Based Policies (IAM Policies) for AWS Control Tower](../../.
 
 AWS Control Tower uses the `controltower.amazonaws.com` service principal.
 
-## Enabling trusted access with
-
-AWS Control Tower
+## Enabling trusted access with AWS Control Tower
 
 AWS Control Tower uses trusted access to detect drift for preventive controls, and to track account and OU changes that cause drift.
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 You can only enable trusted access using the Organizations
 tools.
@@ -63,13 +58,10 @@ This command produces no output when successful.
 
 - AWS API: [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
 
-## Disabling trusted access with
-
-AWS Control Tower
+## Disabling trusted access with AWS Control Tower
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 You can only disable trusted access using the Organizations
 tools.

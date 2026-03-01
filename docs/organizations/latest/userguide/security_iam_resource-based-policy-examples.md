@@ -1,6 +1,4 @@
-# Resource-based
-
-policy examples for AWS Organizations
+# Resource-based policy examples for AWS Organizations
 
 The following code examples show how you can use resource-based delegation policies. For more information, see [Delegated administrator for AWS Organizations](orgs_delegate_policies.md "orgs_delegate_policies.md").
 

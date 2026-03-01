@@ -1,6 +1,4 @@
-# Declarative policy syntax and
-
-examples
+# Declarative policy syntax and examples
 
 This page describes declarative policy syntax and provides examples.
 
@@ -11,9 +9,7 @@ This page describes declarative policy syntax and provides examples.
 - Account administrators will not be able to modify the value of the service
   attribute at the individual account level.
 
-## Syntax for declarative
-
-policies
+## Syntax for declarative policies
 
 A declarative policy is a plaintext file that is structured according to the rules of
 [JSON](http://json.org "http://json.org"). The syntax for declarative policies
@@ -54,7 +50,7 @@ save space.
 - Serial Console Access
 - Image Block Public Access
 - Allowed Images Settings
-- Instance Metadata Defaults
+- Instance Metadata
 - Snapshot Block Public Access
 
 VPC Block Public Access
@@ -267,12 +263,14 @@ in scope. This list is not exhaustive:
 - `ReplaceImageCriteriaInAllowedImagesSettings`
 - `DisableAllowedImagesSettings`
 
-Instance Metadata Defaults
+Instance Metadata
 **Policy effect**
 
-Controls IMDS defaults for all new EC2 instance launches. Note that this
-configuration sets defaults only and does not enforce IMDS version settings.
-For more information about IMDS defaults, see [IMDS](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md") in the _Amazon Elastic Compute Cloud User Guide_.
+Controls IMDS defaults and IMDSv2 enforcement for all new EC2 instance
+launches. For more information about IMDS defaults and IMDSv2 enforcement,
+see [Use instance
+metadata to manage your EC2 instance](../../../AWSEC2/latest/UserGuide/ec2-instance-metadata.md "../../../AWSEC2/latest/UserGuide/ec2-instance-metadata.md") in the
+_Amazon EC2 User Guide_.
 
 **Policy contents**
 
@@ -292,6 +290,9 @@ The following are the available fields for this attribute:
         "@@assign": "enabled"
       },
       "instance_metadata_tags": {
+        "@@assign": "enabled"
+      },
+      "http_tokens_enforced": {
         "@@assign": "enabled"
       }
     }
@@ -313,7 +314,9 @@ The following are the available fields for this attribute:
 
 Before setting `http_tokens` to
 `required` (IMDSv2 must be used), make sure that
-none of your instances are making IMDSv1 calls.
+none of your instances are making IMDSv1 calls. For more
+information, see [Step 1: Identify instances with IMDSv2=optional and audit
+IMDSv1 usage](../../../AWSEC2/latest/UserGuide/instance-metadata-transition-to-version-2.md#path-step-1 "../../../AWSEC2/latest/UserGuide/instance-metadata-transition-to-version-2.md#path-step-1") in the _Amazon EC2 User Guide_.
 
 - `"http_put_response_hop_limit"`:
   - `"`Integer`"`: Integer
@@ -321,15 +324,15 @@ none of your instances are making IMDSv1 calls.
     the metadata token can travel. To indicate no preference,
     specify -1.
 
-  ###### Note
+###### Note
 
-  **Hop limit**
+**Hop limit**
 
-  If `http_tokens` is set to
-  `required`, it is recommended to set
-  `http_put_response_hop_limit` to a
-  minimum of 2. For more information, see [Instance metadata access considerations](../../../AWSEC2/latest/UserGuide/instancedata-data-retrieval.md#imds-considerations "../../../AWSEC2/latest/UserGuide/instancedata-data-retrieval.md#imds-considerations") in
-  the _Amazon Elastic Compute Cloud User Guide_.
+If `http_tokens` is set to
+`required`, it is recommended to set
+`http_put_response_hop_limit` to a
+minimum of 2. For more information, see [Instance metadata access considerations](../../../AWSEC2/latest/UserGuide/instancedata-data-retrieval.md#imds-considerations "../../../AWSEC2/latest/UserGuide/instancedata-data-retrieval.md#imds-considerations") in
+the _Amazon Elastic Compute Cloud User Guide_.
 
 - `"http_endpoint"`:
   - `"no_preference"`: Other defaults apply. For
@@ -346,6 +349,25 @@ none of your instances are making IMDSv1 calls.
     instance metadata.
   - `"disabled"`: Instance tags cannot be accessed
     from instance metadata.
+
+- `"http_tokens_enforced":`
+  - `"no_preference"`: Other defaults apply. For
+    example, AMI defaults if applicable.
+  - `"enabled"`: IMDSv2 must be used. Attempts to
+    launch an IMDSv1 instance or to enable IMDSv1 on existing
+    instances will fail.
+  - `"disabled"`: Both IMDSv1 and IMDSv2 are
+    allowed.
+
+###### Warning
+
+**IMDSv2 enforcement**
+
+Enabling IMDSv2 enforcement while allowing IMDSv1 and IMDSv2
+(token optional) will cause launch failures, unless IMDSv1 is
+explicitly disabled, either through launch parameters or AMI
+defaults. For more information, see [Launching an IMDSv1-enabled instance fails](../../../AWSEC2/latest/UserGuide/troubleshooting-launch.md#launching-an-imdsv1-enabled-instance-fails "../../../AWSEC2/latest/UserGuide/troubleshooting-launch.md#launching-an-imdsv1-enabled-instance-fails") in the
+_Amazon EC2 User Guide_.
 
 Snapshot Block Public Access
 **Policy effect**

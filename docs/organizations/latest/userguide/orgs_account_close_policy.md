@@ -1,6 +1,4 @@
-# Protecting member accounts from
-
-closure with AWS Organizations
+# Protecting member accounts from closure with AWS Organizations
 
 To protect member accounts from accidental closure, create an IAM policy that specifies which accounts are exempt. This policy prevents closure of protected member accounts.
 
@@ -13,9 +11,7 @@ Create an IAM policy to deny account closure using one of these methods:
 
 Service Control Policies (SCPs) don't affect IAM principals in the management account.
 
-## Example IAM policies that
-
-prevent member account closures
+## Example IAM policies that prevent member account closures
 
 The following code examples show two different methods you can use to restrict
 member accounts from closing their account.

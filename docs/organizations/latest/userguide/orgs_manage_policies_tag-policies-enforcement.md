@@ -7,8 +7,7 @@ Tag policies provide two capabilities to help you enforce tagging consistency ac
 - [Enforce for "Basic compliance rules"](#basic-compliance-rules "#basic-compliance-rules")
 - [Best practices](#best-practices "#best-practices")
 - [Enforce "Required tag key" with IaC](enforce-required-tag-keys-iac.md "enforce-required-tag-keys-iac.md")
-- [Tag policy syntax and
-  examples](orgs_manage_policies_example-tag-policies.md "orgs_manage_policies_example-tag-policies.md")
+- [Tag policy syntax and examples](orgs_manage_policies_example-tag-policies.md "orgs_manage_policies_example-tag-policies.md")
 
 ## Enforce for "Basic compliance rules"
 
@@ -28,8 +27,7 @@ To enforce basic compliance rules with tag policies, do one of the following whe
 - From the
   **JSON** tab, use the
   `enforced_for` field. For information on tag policy syntax, see
-  [Tag policy syntax and
-  examples](orgs_manage_policies_example-tag-policies.md "orgs_manage_policies_example-tag-policies.md").
+  [Tag policy syntax and examples](orgs_manage_policies_example-tag-policies.md "orgs_manage_policies_example-tag-policies.md").
 
 The image below shows the console experience of the Visual editor tab. In this example, the customer is defining a tag policy that will enforce tag value validation only for Amazon EC2 resource types that are supported by tag policies. This policy will check if the tag value is either "Legal" or "HR" when the supplied tag key is "CostCenter" for Amazon EC2 resource types. This policy also enforces capitalization, which means that the policy is looking for an exact string match to the "CostCenter" tag key.
 
@@ -69,8 +67,7 @@ We recommend that you use the Visual editor when you are defining your tag polic
 Follow these best practices for enforcement with "Basic compliance rules" and "Required tag keys for IaC" with tag policies:
 
 - **Use caution when enforcing compliance** – Make sure you understand the effects of using tag policies and follow the recommended workflows described in
-  [Getting started with tag
-  policies](orgs_manage_policies_tag-policies-getting-started.md "orgs_manage_policies_tag-policies-getting-started.md"). Test how enforcement works on a test account before expanding it to more accounts or organizational units. Otherwise, you could prevent users in your organization's accounts from creating the resources they need.
+  [Getting started with tag policies](orgs_manage_policies_tag-policies-getting-started.md "orgs_manage_policies_tag-policies-getting-started.md"). Test how enforcement works on a test account before expanding it to more accounts or organizational units. Otherwise, you could prevent users in your organization's accounts from creating the resources they need.
 - **Be aware of what resource types you can enforce on** – You can only enforce compliance with tag policies on
   [supported resource types](orgs_manage_policies_supported-resources-enforcement.md "orgs_manage_policies_supported-resources-enforcement.md"). Resource types that support enforcing compliance are listed when you use the visual editor to build a tag policy.
 - **Understand interactions with some services** – Some AWS services have container-like groupings of resources that automatically create resources for you and propagate tags from a resource in one service to another. For example, tags on Amazon EC2 groups and Amazon EMR clusters can automatically propagate to the contained Amazon EC2 instances. You may have tag policies for Amazon EC2 that are more strict than for groups or Amazon EMR clusters. If you enable enforcement, the tag policy prevents resources from being tagged and may block dynamic scaling and provisioning.

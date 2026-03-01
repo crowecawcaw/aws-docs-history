@@ -3,15 +3,13 @@
 The following topics provide information to help you start using
 AWS Organizations. You can also use the following tutorials to begin performing tasks using AWS Organizations.
 
-[Tutorial: Creating and configuring an
-organization](orgs_tutorials_basic.md "orgs_tutorials_basic.md")
+[Tutorial: Creating and configuring an organization](orgs_tutorials_basic.md "orgs_tutorials_basic.md")
 
 Get up and running with step-by-step instructions to create your organization,
 invite your first member accounts, create an OU hierarchy that contains your
 accounts, and apply some service control policies (SCPs).
 
-[Tutorial: Monitor important changes to your
-organization with Amazon EventBridge](orgs_tutorials_cwe.md "orgs_tutorials_cwe.md")
+[Tutorial: Monitor important changes to your organization with Amazon EventBridge](orgs_tutorials_cwe.md "orgs_tutorials_cwe.md")
 
 Monitor key changes in your organization by configuring Amazon EventBridge to trigger
 an alarm in the form of an email, SMS text message, or log entry when actions
@@ -23,8 +21,7 @@ the organization.
 
 - [Signing up for AWS](#getting-started-signing-up "#getting-started-signing-up")
 - [Accessing AWS Organizations](#how-to-access "#how-to-access")
-- [Tutorial: Creating and configuring an
-  organization](orgs_tutorials_basic.md "orgs_tutorials_basic.md")
+- [Tutorial: Creating and configuring an organization](orgs_tutorials_basic.md "orgs_tutorials_basic.md")
 - [Tutorial: Monitor an organization with Amazon EventBridge](orgs_tutorials_cwe.md "orgs_tutorials_cwe.md")
 - [Working with AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md")
 

@@ -1,6 +1,4 @@
-# Amazon Q Developer and
-
-AWS Organizations
+# Amazon Q Developer and AWS Organizations
 
 Amazon Q Developer is a generative AI powered conversational assistant that can help you understand, build,
 extend, and operate AWS applications. It is also a general purpose, machine learning-powered code generator that provides you with
@@ -26,9 +24,7 @@ principals:
 
 - `q.amazonaws.com`
 
-## Enabling trusted access with
-
-Amazon Q Developer
+## Enabling trusted access with Amazon Q Developer
 
 Amazon Q Developer Pro uses trusted access to share the settings made in the Organizations management
 account with member accounts in the same organization.
@@ -50,9 +46,7 @@ To enable trusted access for Amazon Q Developer, use this procedure.
 For more information, see [Enabling trusted access](../../../amazonq/latest/qdeveloper-ug/q-admin-setup-subscribe-general.md#q-admin-trusted-access "../../../amazonq/latest/qdeveloper-ug/q-admin-setup-subscribe-general.md#q-admin-trusted-access") in the _Amazon Q Developer user
 guide_.
 
-## Disabling trusted access with
-
-Amazon Q Developer
+## Disabling trusted access with Amazon Q Developer
 
 You can only disable trusted access using the
 Amazon Q Developer tools.

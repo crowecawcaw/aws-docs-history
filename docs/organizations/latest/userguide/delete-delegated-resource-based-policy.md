@@ -1,6 +1,4 @@
-# Delete a resource-based
-
-delegation policy with AWS Organizations
+# Delete a resource-based delegation policy with AWS Organizations
 
 When you no longer need to delegate the management of policies in your organization,
 you can delete the resource-based delegation policy from the organization's management

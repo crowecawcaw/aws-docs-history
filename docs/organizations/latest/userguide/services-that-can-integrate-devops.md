@@ -15,9 +15,7 @@ across your organization](../../../devops-guru/latest/userguide/getting-started-
 
 Use the following information to help you integrate Amazon DevOps Guru with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -29,9 +27,7 @@ DevOps Guru and Organizations, or if you remove the member account from the org
 
 - `AWSServiceRoleForDevOpsGuru`
 
-## Service principals used by the
-
-service-linked roles
+## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
@@ -44,13 +40,10 @@ For more information, see [Using
 service-linked roles for DevOps Guru](../../../devops-guru/latest/userguide/using-service-linked-roles.md "../../../devops-guru/latest/userguide/using-service-linked-roles.md") in the _Amazon DevOps Guru User
 Guide_.
 
-## To enable trusted access with
-
-DevOps Guru
+## To enable trusted access with DevOps Guru
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 ###### Note
 
@@ -98,13 +91,10 @@ DevOps Guru console
    console: [Amazon DevOps Guru console](https://console.aws.amazon.com//devops-guru/management-account "https://console.aws.amazon.com//devops-guru/management-account")
 2. Choose **Enable trusted access**.
 
-## To disable trusted access with
-
-DevOps Guru
+## To disable trusted access with DevOps Guru
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 Only an administrator in the AWS Organizations management account can disable trusted access
 with Amazon DevOps Guru.
@@ -131,9 +121,7 @@ AWS Management Console
    administrator of Amazon DevOps Guru that they can now disable that service from working with AWS Organizations
    using tthe service console or tools;.
 
-## Enabling a delegated administrator
-
-account for DevOps Guru
+## Enabling a delegated administrator account for DevOps Guru
 
 The delegated administrator account for DevOps Guru can see the insights data from all the
 member accounts which are onboarded to DevOps Guru from the organization. For information on
@@ -179,9 +167,7 @@ CLI or one of the AWS SDKs, you can use the following commands:
   member account's ID number and identify the account service principal
   `account.amazonaws.com` as parameters.
 
-## Disabling a delegated administrator
-
-for DevOps Guru
+## Disabling a delegated administrator for DevOps Guru
 
 You can remove the delegated administrator using either the DevOps Guru console, or by using the Organizations `DeregisterDelegatedAdministrator` CLI or SDK operation. For information on how to remove a delegated administrator using the DevOps Guru console, see [Monitor
 accounts across your organization](../../../devops-guru/latest/userguide/getting-started-multi-account.md "../../../devops-guru/latest/userguide/getting-started-multi-account.md") in the _Amazon DevOps Guru User

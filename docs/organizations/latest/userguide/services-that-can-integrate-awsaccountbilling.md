@@ -1,6 +1,4 @@
-# AWS Billing and Cost Management and
-
-AWS Organizations
+# AWS Billing and Cost Management and AWS Organizations
 
 AWS Billing and Cost Management provides a suite of features to help you set up your billing, retrieve and pay invoices, and analyze, organize, plan, and optimize your costs.
 When you use Billing and Cost Management with AWS Organizations you allow
@@ -10,9 +8,7 @@ allocation data services that you opted into.
 Use the following information to help you integrate
 AWS Billing and Cost Management with AWS Organizations.
 
-## Service-linked roles created when
-
-you enable integration
+## Service-linked roles created when you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
@@ -35,13 +31,10 @@ principals:
 
 Billing and Cost Management uses the `billing-cost-management.amazonaws.com` service principal.
 
-## Enabling trusted access with
-
-Billing and Cost Management
+## Enabling trusted access with Billing and Cost Management
 
 For information about the permissions needed to enable trusted
-access, see [Permissions required to enable trusted
-access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
+access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 With trusted access enabled via management account, customers can take advantage of the split cost allocation data feature under Billing and Cost Management.
 When customers enable split cost allocation data for Amazon Elastic Kubernetes Service with Amazon Managed Service for Prometheus, trusted access is invoked to create service-linked roles for all member accounts within the Organization.
@@ -77,8 +70,7 @@ This command produces no output when successful.
 ## Disabling trusted access
 
 For information about the permissions needed to disable trusted
-access, see [Permissions required to disable
-trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
+access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
 You can only disable trusted access using the Organizations
 tools.

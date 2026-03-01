@@ -1,6 +1,4 @@
-# Getting started with
-
-chat applications policies
+# Getting started with chat applications policies
 
 Follow these steps to get started using chat applications policies.
 
