@@ -1,6 +1,4 @@
-#
-
-Migration lifecycle
+# Migration lifecycle
 
 The iterative approach to cloud adoption discussed in this guide can
 be broken out into the three high-level phases of _assess,

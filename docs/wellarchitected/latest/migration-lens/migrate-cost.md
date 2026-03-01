@@ -158,7 +158,7 @@ The
 [Cloud
 Intelligence Dashboards](https://wellarchitectedlabs.com/cost/200_labs/200_cloud_intelligence/ "https://wellarchitectedlabs.com/cost/200_labs/200_cloud_intelligence/") are a collection of
 
-[Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
+[Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
 [dashboards](https://aws.amazon.com/blogs/mt/visualize-and-gain-insights-into-your-aws-cost-and-usage-with-cloud-intelligence-dashboards-using-amazon-quicksight/ "https://aws.amazon.com/blogs/mt/visualize-and-gain-insights-into-your-aws-cost-and-usage-with-cloud-intelligence-dashboards-using-amazon-quicksight/").
 They offer powerful visuals, in-depth insights, and intuitive
 querying without having to build complex solutions or share your
@@ -177,11 +177,11 @@ Advisor Organization (TAO) Dashboard](https://www.wellarchitectedlabs.com/cost/2
 [Trends
 Dashboard](https://cudos.workshop.aws/workshop-trends.html "https://cudos.workshop.aws/workshop-trends.html") are built on native AWS services. They are
 inherently secure because the data resides in the organization.
-They inherit all the features of Quick Suite, including
+They inherit all the features of Quick, including
 integration with
 
 [AWS Identity and Access Management](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/"), which makes them highly secure, and
-Quick Suite being a serverless service allows you to pay
+Quick being a serverless service allows you to pay
 as you go and scale on demand.
 
 You do not need coding or SQL skills to customize these
