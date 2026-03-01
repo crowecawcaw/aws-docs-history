@@ -1,6 +1,4 @@
-# Adding the secondary Conductor node to the
-
-cluster
+# Adding the secondary Conductor node to the cluster
 
 Add the secondary node back to the cluster, and then to the redundancy group.
 

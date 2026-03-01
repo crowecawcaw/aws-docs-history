@@ -1,6 +1,4 @@
-# Enabling or disabling high
-
-availability (HA)
+# Enabling or disabling high availability (HA)
 
 To enable or disable HA in a cluster, follow these steps.
 

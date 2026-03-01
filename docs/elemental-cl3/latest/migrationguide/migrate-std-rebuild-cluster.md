@@ -1,8 +1,6 @@
 # Step F: Rebuild the cluster
 
-## Step F1: Add and configure the worker
-
-nodes
+## Step F1: Add and configure the worker nodes
 
 Follow these steps on each worker node:
 
@@ -29,9 +27,7 @@ worker nodes.
 We strongly recommend that you don't make any voluntary changes to the
 configuration until you have tested your workflows in the new setup.
 
-## Step F2: Reconfigure
-
-routers
+## Step F2: Reconfigure routers
 
 This section applies if the cluster previously included nodes that connected to an
 SDI input using a router. After you upgrade, the cluster still has information about
@@ -50,8 +46,7 @@ Mappings_ step in that procedure.
 ## Step F3: Add Conductor node
 
 If the cluster included a secondary Conductor, add it to the cluster and to the Conductor Live
-redundancy group. See [Adding the secondary Conductor node to the
-cluster](migrate-topic-add-conductor.md "migrate-topic-add-conductor.md").
+redundancy group. See [Adding the secondary Conductor node to the cluster](migrate-topic-add-conductor.md "migrate-topic-add-conductor.md").
 
 ## Step F4: Final steps
 

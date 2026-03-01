@@ -1,6 +1,4 @@
-# Step A: Get ready to migrate an AWS Elemental Conductor Live
-
-cluster
+# Step A: Get ready to migrate an AWS Elemental Conductor Live cluster
 
 ## Read the essential notes
 
@@ -23,9 +21,7 @@ note of all the decisions that you make, particularly:
   a new license for each. The procedure for obtaining a new license is
   described in the essential notes.
 
-## Modify your automation system for
-
-HTTPS
+## Modify your automation system for HTTPS
 
 After a node has been migrated, it uses HTTPS. By default, the nodes are set up
 with self-signed certificates. Make sure of the following points:
@@ -57,10 +53,7 @@ If you want to use a boot USB drive with Dell, you should make the drive now. Yo
 might want to make several drives, depending on how many people will be performing
 the migration tasks. For instructions, see [Create a boot USB drive](migrate-topic-create-boot.md "migrate-topic-create-boot.md").
 
-## Obtain
-
-the
-default element password
+## Obtain the default element password
 
 When you install RHEL 9, the _elemental_ password
 will be reset to the global default value. When you install the AWS Elemental software, you

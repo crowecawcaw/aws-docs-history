@@ -5,8 +5,7 @@
 Perform these steps on each worker node in the cluster, after you've removed all
 the nodes from the cluster.
 
-Before you start, make sure that you have performed the tasks in [Step B: Prepare each AWS Elemental Conductor Live node for
-migration](migrate-std-prepare-node.md "migrate-std-prepare-node.md").
+Before you start, make sure that you have performed the tasks in [Step B: Prepare each AWS Elemental Conductor Live node for migration](migrate-std-prepare-node.md "migrate-std-prepare-node.md").
 
 1. Create a backup of the database on the node. See [Backing up data](migrate-topic-lifeboat.md "migrate-topic-lifeboat.md").
 2. Set boot mode on the node to UEFI. See [Switching boot mode to UEFI](migrate-topic-uefi.md "migrate-topic-uefi.md").

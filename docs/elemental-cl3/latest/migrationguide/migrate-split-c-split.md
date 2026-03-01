@@ -24,8 +24,7 @@ You end up with:
   During this time, the worker nodes (on the original cluster) continue processing
   without interruption.
 
-1. Disable high availability (HA) on the cluster. See [Enabling or disabling high
-   availability (HA)](migrate-topic-disable-ha.md "migrate-topic-disable-ha.md").
+1. Disable high availability (HA) on the cluster. See [Enabling or disabling high availability (HA)](migrate-topic-disable-ha.md "migrate-topic-disable-ha.md").
 2. Create a backup of the data on node X. See [Backing up data](migrate-topic-lifeboat.md "migrate-topic-lifeboat.md").
 
 ###### Important
@@ -33,8 +32,7 @@ You end up with:
 Now that you have made a backup of this Conductor node, don't make any changes
 to this Conductor node or to cluster until you've finished this migration
 process. Don't change the setup of the Conductor node, don't create channels,
-don't create new node assignments for any channel, and so on. 3. On the web interface for node X, re-enable HA. See [Enabling or disabling high
-availability (HA)](migrate-topic-disable-ha.md "migrate-topic-disable-ha.md"). 4. Perform the commands in the next few steps from the command line.
+don't create new node assignments for any channel, and so on. 3. On the web interface for node X, re-enable HA. See [Enabling or disabling high availability (HA)](migrate-topic-disable-ha.md "migrate-topic-disable-ha.md"). 4. Perform the commands in the next few steps from the command line.
 
     1. From the Linux prompt, use the *elemental* user to
      start a remote terminal session with node X.
@@ -55,10 +53,8 @@ CLI:
 sudo systemctl restart httpd
 ```
 
-6. On the web interface for node Y, disable HA. See [Enabling or disabling high
-   availability (HA)](migrate-topic-disable-ha.md "migrate-topic-disable-ha.md").
-7. Now that HA is disabled, you can remove node X from the cluster. See [Removing a Conductor node from the
-   cluster](migrate-topic-remove-c-node.md "migrate-topic-remove-c-node.md").
+6. On the web interface for node Y, disable HA. See [Enabling or disabling high availability (HA)](migrate-topic-disable-ha.md "migrate-topic-disable-ha.md").
+7. Now that HA is disabled, you can remove node X from the cluster. See [Removing a Conductor node from the cluster](migrate-topic-remove-c-node.md "migrate-topic-remove-c-node.md").
 8. On the CLI, enter the following commands to push the VIP into node Y:
 
 ```

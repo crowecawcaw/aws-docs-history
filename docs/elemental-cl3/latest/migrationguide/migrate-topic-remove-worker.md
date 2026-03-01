@@ -1,6 +1,4 @@
-# Removing a worker node from the
-
-cluster
+# Removing a worker node from the cluster
 
 To remove a worker node from the cluster, first you remove channel assignments from
 the node. Then you remove the worker node from its redundancy group, if it is in one.
@@ -27,9 +25,7 @@ channel to stop.
 
 Wait for all the channels to stop.
 
-## Step B: Remove node
-
-assignments
+## Step B: Remove node assignments
 
 1. On the web interface for the primary Conductor node, choose the
    **Channels** page.
@@ -48,9 +44,7 @@ assignments
    Node**, choose **None**.
 6. Choose **Process Now**.
 
-## Step C:
-
-Remove node from redundancy group
+## Step C: Remove node from redundancy group
 
 1. On the web interface for the primary Conductor node, choose the
    **Cluster** page.
@@ -60,9 +54,7 @@ Remove node from redundancy group
 3. On the **Active Nodes** tab, choose
    **Delete** (trash icon) for the node.
 
-## Step D: Remove node
-
-from cluster
+## Step D: Remove node from cluster
 
 1. On the **Cluster** page, choose
    **Nodes**.

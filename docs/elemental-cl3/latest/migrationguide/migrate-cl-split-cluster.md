@@ -48,7 +48,6 @@ migration](migrate-cl-std.md "migrate-cl-std.md") instead.
 - [Step B: Prepare each node](migrate-split-c-prepare-node.md "migrate-split-c-prepare-node.md")
 - [Step C: Split the cluster](migrate-split-c-split.md "migrate-split-c-split.md")
 - [Step D: Upgrade node X](migrate-split-c-upgrade-primary.md "migrate-split-c-upgrade-primary.md")
-- [Step E: Upgrade the worker
-  nodes](migrate-split-c-upgrade-w-nodes.md "migrate-split-c-upgrade-w-nodes.md")
+- [Step E: Upgrade the worker nodes](migrate-split-c-upgrade-w-nodes.md "migrate-split-c-upgrade-w-nodes.md")
 - [Step F: Upgrade node Y](migrate-split-c-upgrade-secondary.md "migrate-split-c-upgrade-secondary.md")
 - [Step G: Add node Y to cluster](migrate-split-c-add-secondary.md "migrate-split-c-add-secondary.md")

@@ -1,6 +1,4 @@
-# Step E: Upgrade the worker
-
-nodes
+# Step E: Upgrade the worker nodes
 
 You must now remove each worker from the original cluster (that is controlled by node
 Y), upgrade it, and add it to the new cluster (that is controlled by node X).
@@ -12,24 +10,19 @@ Perform the following steps on one node at a time.
 Typically, you move over as many worker nodes as you can in one maintenance window.
 Keep in mind that the workers nodes that you don't move over will still be processing.
 
-## Step E1: Remove the worker
-
-node
+## Step E1: Remove the worker node
 
 Before you start, make sure that you have performed the tasks in [Step B: Prepare each node](migrate-split-c-prepare-node.md "migrate-split-c-prepare-node.md").
 
 Remove the worker from the cluster. You perform this action from node Y (the Conductor
-node that is controlling the original cluster).See [Removing a worker node from the
-cluster](migrate-topic-remove-worker.md "migrate-topic-remove-worker.md").
+node that is controlling the original cluster).See [Removing a worker node from the cluster](migrate-topic-remove-worker.md "migrate-topic-remove-worker.md").
 
 The deployment now looks like the following diagram. Note that the worker node is
 standalone. It isn't being controlled by any Conductor.
 
 ![Diagram showing original cluster with worker nodes, two conductors, and a standalone worker node.](images/split_cluster_3removeW.png)
 
-## Step E2: Upgrade the worker
-
-node
+## Step E2: Upgrade the worker node
 
 1. Create a backup of the database on the node. See [Backing up data](migrate-topic-lifeboat.md "migrate-topic-lifeboat.md").
 2. Set boot mode on the node to UEFI. See [Backing up data](migrate-topic-lifeboat.md "migrate-topic-lifeboat.md").
@@ -44,9 +37,7 @@ procedure for obtaining a new license is described in the essential notes in
 the [current Release Notes](../../../elemental-live.md "../../../elemental-live.md").) To deploy the license, see the section about configuring
 licenses in the [AWS Elemental Live Configuration Guide](../../../elemental-live/latest/configguide.md "../../../elemental-live/latest/configguide.md").
 
-### Step E3: Add the worker node to the
-
-new cluster
+### Step E3: Add the worker node to the new cluster
 
 1. Add the worker node to the cluster. Then add the node to its
    redundancy group. Finally, assign channels to the node, using the [list of channel

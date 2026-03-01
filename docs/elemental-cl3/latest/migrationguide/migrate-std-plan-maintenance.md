@@ -1,13 +1,10 @@
-# Plan maintenance windows for migrating an
-
-AWS Elemental Conductor Live cluster
+# Plan maintenance windows for migrating an AWS Elemental Conductor Live cluster
 
 You should plan to perform the cluster migration in several phases:
 
 **First phase**
 
-You can perform the tasks in [Step A: Get ready to migrate an AWS Elemental Conductor Live
-cluster](migrate-std-get-ready.md "migrate-std-get-ready.md") outside of a
+You can perform the tasks in [Step A: Get ready to migrate an AWS Elemental Conductor Live cluster](migrate-std-get-ready.md "migrate-std-get-ready.md") outside of a
 maintenance window.
 
 **Second phase**
@@ -15,8 +12,7 @@ maintenance window.
 Perform the following tasks in one or more maintenance windows. The number of windows
 depends on the number of nodes you can complete in one maintenance window.
 
-- [Step B: Prepare each AWS Elemental Conductor Live node for
-  migration](migrate-std-prepare-node.md "migrate-std-prepare-node.md")
+- [Step B: Prepare each AWS Elemental Conductor Live node for migration](migrate-std-prepare-node.md "migrate-std-prepare-node.md")
   **Third phase**
 
 Perform all the following tasks on every node, all in one maintenance window.

@@ -6,10 +6,8 @@ backup.
 ###### Topics
 
 - [Step A: Perform the restore](#migrate-topic-restore-command "#migrate-topic-restore-command")
-- [Step B: Perform manual restore
-  tasks](#migrate-topic-restore-manual "#migrate-topic-restore-manual")
-- [Result of the
-  restore](#migrate-topic-restore-result "#migrate-topic-restore-result")
+- [Step B: Perform manual restore tasks](#migrate-topic-restore-manual "#migrate-topic-restore-manual")
+- [Result of the restore](#migrate-topic-restore-result "#migrate-topic-restore-result")
 
 ###### Important
 
@@ -89,9 +87,7 @@ earlier on this page.
 This time the script looks for the files that are in
 `/home/elemental`, and restores those files.
 
-## Step B: Perform manual restore
-
-tasks
+## Step B: Perform manual restore tasks
 
 After you have run the lifeboat script, you might need to perform some manual
 steps.
@@ -146,9 +142,7 @@ For more information, see the [current Release Notes](../../../elemental-live.md
 You must open port 443 on every node to allow access to the web interfaces for
 the AWS Elemental software.
 
-## Result of the
-
-restore
+## Result of the restore
 
 **Restored data**
 

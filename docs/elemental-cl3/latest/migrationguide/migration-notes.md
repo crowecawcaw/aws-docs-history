@@ -1,6 +1,4 @@
-# Important
-
-notes
+# Important notes
 
 Following is some key advice about migration.
 

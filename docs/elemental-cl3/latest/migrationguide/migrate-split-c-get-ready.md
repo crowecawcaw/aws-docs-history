@@ -21,9 +21,7 @@ note of all the decisions that you make, particularly:
   a new license for each. The procedure for obtaining a new license is
   described in the essential notes.
 
-## Modify your automation
-
-system
+## Modify your automation system
 
 In order for processing to continue after you split the cluster, you must make
 changes to the way your automation system and your web interface users connect to
@@ -93,9 +91,7 @@ If you want to use a boot USB drive with Dell, you should make the drive now. Yo
 might want to make several drives, depending on how many people will be performing
 the migration tasks. For instructions, see [Create a boot USB drive](migrate-topic-create-boot.md "migrate-topic-create-boot.md").
 
-## Obtain the default elemental
-
-password
+## Obtain the default elemental password
 
 When you install RHEL 9, the _elemental_ password
 will be reset to the global default value. When you install the AWS Elemental software, you

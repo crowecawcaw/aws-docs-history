@@ -4,11 +4,9 @@ You back up data using the special lifeboat script.
 
 ###### Topics
 
-- [About the backup
-  process](#migrate-topic-lifeboat-backup-about "#migrate-topic-lifeboat-backup-about")
+- [About the backup process](#migrate-topic-lifeboat-backup-about "#migrate-topic-lifeboat-backup-about")
 - [Step A: Verify hostnames](#migrate-topic-verify-hostnames "#migrate-topic-verify-hostnames")
-- [Step B: Download the lifeboat
-  script](#migrate-topic-lifeboat-download "#migrate-topic-lifeboat-download")
+- [Step B: Download the lifeboat script](#migrate-topic-lifeboat-download "#migrate-topic-lifeboat-download")
 - [Step C: Create the backup](#migrate-topic-lifeboat-backup "#migrate-topic-lifeboat-backup")
 
 ###### Important
@@ -18,9 +16,7 @@ AWS Elemental software. These files might include credentials and other sensitiv
 system information. Handle the backup according to your organization's best
 practices for handling sensitive data.
 
-## About the backup
-
-process
+## About the backup process
 
 The script backs up the following data:
 
@@ -61,9 +57,7 @@ If your migration process means that you don't run the lifeboat script for
 any reason, make sure that you change the hostnames before you boot the node
 after installing RHEL 9.
 
-## Step B: Download the lifeboat
-
-script
+## Step B: Download the lifeboat script
 
 Perform this procedure on every node in the cluster, to copy the lifeboat script
 onto every node.
@@ -97,9 +91,7 @@ Make sure that you have stopped the node. We recommend that you don't run the
 script on an active node. The script temporarily stops elemental_se and httpd
 services.
 
-### Step C1: Run the backup
-
-command
+### Step C1: Run the backup command
 
 Enter the backup command as follows.
 
@@ -153,9 +145,7 @@ The script also creates the following files:
 
 `/opt/upgrade-backups/system-backup.tar.gz`
 
-### Step C2: Store the backup
-
-archive
+### Step C2: Store the backup archive
 
 Copy two files to storage off the node, so that you can copy them back to the
 node when you want to perform the restore operation. The files to store off the
@@ -175,9 +165,7 @@ to the AWS Elemental software. These files might include credentials and
 other sensitive system information. Handle the backup according to your
 organization's best practices for handling sensitive data.
 
-### Step C3: Verify the
-
-backup
+### Step C3: Verify the backup
 
 Verify the integrity of the backup archive. This step is optional but we
 strongly recommend that you follow it because the [restore operation](migrate-topic-restore-database.md "migrate-topic-restore-database.md") that you

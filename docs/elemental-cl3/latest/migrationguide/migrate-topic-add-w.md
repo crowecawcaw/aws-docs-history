@@ -2,15 +2,11 @@
 
 ###### Topics
 
-- [Step A: Add worker nodes to the
-  cluster](#migrate-topic-add-w-cluster "#migrate-topic-add-w-cluster")
-- [Step B: Add worker nodes to redundancy
-  groups](#migrate-topic-add-w-red "#migrate-topic-add-w-red")
+- [Step A: Add worker nodes to the cluster](#migrate-topic-add-w-cluster "#migrate-topic-add-w-cluster")
+- [Step B: Add worker nodes to redundancy groups](#migrate-topic-add-w-red "#migrate-topic-add-w-red")
 - [Step C: Add node assignments](#migrate-topic-add-w-channels "#migrate-topic-add-w-channels")
 
-## Step A: Add worker nodes to the
-
-cluster
+## Step A: Add worker nodes to the cluster
 
 1.  On the web interface for the primary Conductor node, choose the
     **Cluster** page, then choose
@@ -60,9 +56,7 @@ cluster
     interface. You won't be able to specify these devices as video sources in a
     channel.
 
-## Step B: Add worker nodes to redundancy
-
-groups
+## Step B: Add worker nodes to redundancy groups
 
 1. On the web interface for the primary Conductor node, choose the
    **Cluster** page, then choose

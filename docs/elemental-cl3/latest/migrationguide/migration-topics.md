@@ -6,8 +6,7 @@ are listed alphabetically.
 For information about the correct order for following these tasks, see the procedure for
 your setup:
 
-- [Performing a standard cluster migration on an AWS Elemental Conductor Live
-  cluster](migrate-cl-std.md "migrate-cl-std.md")
+- [Performing a standard cluster migration on an AWS Elemental Conductor Live cluster](migrate-cl-std.md "migrate-cl-std.md")
 - [Performing a split cluster migration](migrate-cl-split-cluster.md "migrate-cl-split-cluster.md")
 
 ###### Topics

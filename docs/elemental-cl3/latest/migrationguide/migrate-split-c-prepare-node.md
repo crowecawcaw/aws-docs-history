@@ -3,9 +3,7 @@
 Prepare the nodes during one or more maintenance windows. The number of windows
 depends on the number of nodes you can complete in one maintenance window.
 
-## Upgrade to the latest 3.25 minor
-
-version
+## Upgrade to the latest 3.25 minor version
 
 To upgrade to version 3.26.1 or higher (version 2.26.x or higher for
 workers nodes), the software currently installed on the node must be version 3.25.5
@@ -24,9 +22,7 @@ or higher (or 2.25.5).
 
 To upgrade to 3.25.5 or higher (or 2.25.5), see the [AWS Elemental Conductor Live Upgrade Guide](../upgradeguide.md "../upgradeguide.md").
 
-## Verify access to the BMC on the
-
-appliances
+## Verify access to the BMC on the appliances
 
 Make sure that you have access to the BMC on each appliance:
 
@@ -54,9 +50,7 @@ you might want to perform both tasks during the same maintenance window.
 After you install the firmware, you must reboot each node. For more information,
 see [Updating firmware](migrate-topic-firmware.md "migrate-topic-firmware.md").
 
-## Make a note of node
-
-assignments
+## Make a note of node assignments
 
 Before you upgrade any worker node, you must make a note of the channels that are
 assigned to this node. You will use this information to restart the channels, after
@@ -68,9 +62,7 @@ you've completed the migration.
    all the channels that are assigned to that node.
 3. Repeat for each node.
 
-## Make a note of router
-
-information
+## Make a note of router information
 
 This information applies if the cluster includes nodes that connected to an SDI
 input using a router. After you upgrade, the cluster will still have information

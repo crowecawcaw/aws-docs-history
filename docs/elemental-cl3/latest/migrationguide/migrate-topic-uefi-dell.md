@@ -4,15 +4,11 @@ There are three ways to switch the boot mode from Legacy mode to UEFI.
 
 ###### Topics
 
-- [Switch using the IDRAC user
-  interface](#migrate-topic-uefi-dell-idrac "#migrate-topic-uefi-dell-idrac")
+- [Switch using the IDRAC user interface](#migrate-topic-uefi-dell-idrac "#migrate-topic-uefi-dell-idrac")
 - [Switch using RACADM](#migrate-topic-uefi-dell-racadm "#migrate-topic-uefi-dell-racadm")
-- [Switch using the F2 boot
-  menu](#migrate-condcutor-uefi-dell-f2 "#migrate-condcutor-uefi-dell-f2")
+- [Switch using the F2 boot menu](#migrate-condcutor-uefi-dell-f2 "#migrate-condcutor-uefi-dell-f2")
 
-## Switch using the IDRAC user
-
-interface
+## Switch using the IDRAC user interface
 
 iDRAC is a system for controlling Dell servers remotely. It is already
 installed and enabled on the Dell server. However, you might need to configure
@@ -83,9 +79,7 @@ jobqueue create BIOS.Setup.1-1 -r Forced
 
 The system reboots. UEFI is now enabled.
 
-## Switch using the F2 boot
-
-menu
+## Switch using the F2 boot menu
 
 You can use the boot menu from a direct connection to the server, or through
 the IDRAC virtual console.
