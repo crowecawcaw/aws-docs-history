@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Create and schedule a
-
-campaign
+# Create and schedule a campaign
 
 A _campaign_ is a messaging initiative that engages a specific audience
 segment. A campaign sends tailored messages on the days and times that you specify. You can
@@ -20,9 +18,7 @@ target segment, and create a responsive email message for the campaign. When you
 setting up the message, you choose the day and time when you want the message to be
 sent.
 
-## Create the campaign and choose a
-
-segment
+## Create the campaign and choose a segment
 
 When you create a segment, you first give the segment a name. Next, you choose the
 segment that the campaign applies to. In this tutorial, you choose the segment that you
@@ -46,9 +42,7 @@ sample customer data file](gettingstarted-import-customer-data.md#gettingstarted
    the targeted segment that you created in [Create
    a targeted segment](gettingstarted-import-customer-data.md#gettingstarted-import-customer-data-create-targeted-segment "gettingstarted-import-customer-data.md#gettingstarted-import-customer-data-create-targeted-segment"). Choose **Next**.
 
-## Create the campaign
-
-message
+## Create the campaign message
 
 After you specify a campaign name and choose a segment, you can create your message.
 This tutorial includes a link to an HTML file that you can use to create your

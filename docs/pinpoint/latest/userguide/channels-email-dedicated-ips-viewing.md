@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Viewing a list of dedicated IP
-
-addresses that are associated with your account
+# Viewing a list of dedicated IP addresses that are associated with your account
 
 You can view a list of dedicated IP addresses that are associated with your Amazon Pinpoint account
 in the current AWS Region. These IP addresses are available for use with both Amazon Pinpoint and

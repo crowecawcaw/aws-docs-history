@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Managing configuration
-
-sets
+# Managing configuration sets
 
 Configuration sets are groups of rules that you can apply to the emails that you send.
 When you apply a configuration set to an email, all of the rules in that configuration set
@@ -25,9 +23,7 @@ you must use Amazon SES to setup and manage configuration sets. For more informa
 creating configuration sets, see [Creating
 configuration sets](../../../ses/latest/dg/creating-configuration-sets.md "../../../ses/latest/dg/creating-configuration-sets.md") in the _Amazon Simple Email Service Developer Guide_.
 
-## Viewing a list of
-
-configuration sets
+## Viewing a list of configuration sets
 
 ###### To view a list of configuration sets in the Amazon Pinpoint console
 
@@ -36,9 +32,7 @@ configuration sets
 2. In the navigation pane, under **Email**, choose
    **Configuration sets**.
 
-## Applying a
-
-configuration set to an email identity
+## Applying a configuration set to an email identity
 
 To use configuration sets with Amazon Pinpoint, you have to specify a default configuration set
 for the email identity (that is, the email address or domain) that you use to send email

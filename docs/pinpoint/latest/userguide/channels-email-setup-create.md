@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Creating an Amazon Pinpoint project with email
-
-support
+# Creating an Amazon Pinpoint project with email support
 
 To send email with Amazon Pinpoint, you start by creating an Amazon Pinpoint project. When you create a
 project, you can enable the email channel for it, and then choose the email identity that
@@ -24,22 +22,17 @@ more information about verifying identities, see [Verifying email identities](ch
 
 If your account is still in the Amazon Pinpoint email sandbox, you also need to verify the
 identities that you plan to send email to. For more information about the email sandbox,
-see [Increasing your sending
-quotas](channels-email-manage-limits.md#channels-email-manage-limits-increase "channels-email-manage-limits.md#channels-email-manage-limits-increase").
+see [Increasing your sending quotas](channels-email-manage-limits.md#channels-email-manage-limits-increase "channels-email-manage-limits.md#channels-email-manage-limits-increase").
 
 If you have already created the project you can enable email by following the
 directions at [Enabling and disabling the email channel](channels-email-enable.md "channels-email-enable.md").
 
 ###### Topics
 
-- [Creating an email project
-  when you haven't yet verified an identity](#channels-email-setup-create-not-verified "#channels-email-setup-create-not-verified")
-- [Creating an email project
-  when you've already verified an identity](#channels-email-setup-create-already-verified "#channels-email-setup-create-already-verified")
+- [Creating an email project when you haven't yet verified an identity](#channels-email-setup-create-not-verified "#channels-email-setup-create-not-verified")
+- [Creating an email project when you've already verified an identity](#channels-email-setup-create-already-verified "#channels-email-setup-create-already-verified")
 
-## Creating an email project
-
-when you haven't yet verified an identity
+## Creating an email project when you haven't yet verified an identity
 
 If you haven't used Amazon Pinpoint to send email in the past, you probably haven't verified any
 identities. The procedure in this section describes the process of creating a project
@@ -68,9 +61,7 @@ email from this project. Amazon Pinpoint sends an email to the address that you 
 Open the email, and then click the link in the message to verify the email
 address.
 
-## Creating an email project
-
-when you've already verified an identity
+## Creating an email project when you've already verified an identity
 
 If you've already verified an email identity, you can use that identity with your new
 project.

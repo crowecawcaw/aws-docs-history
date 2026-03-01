@@ -66,8 +66,7 @@ to display in the body of messages that are sent to recipients whose email
 applications don't display HTML content. 8. ###### Note
 
 You must set up an email orchestration sending role before you can use email headers. For more
-information, see [Creating an email orchestration
-sending role in Amazon Pinpoint](channels-email-orchestration-sending-role.md "channels-email-orchestration-sending-role.md").
+information, see [Creating an email orchestration sending role in Amazon Pinpoint](channels-email-orchestration-sending-role.md "channels-email-orchestration-sending-role.md").
 
 Under **Headers**, choose **Add new headers**,
 to add up to 15 headers for the email message. For a list of supported headers, see

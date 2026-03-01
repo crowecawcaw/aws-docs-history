@@ -19,5 +19,4 @@ following restrictions:
   associated with the mailbox simulator.
 - You can send a maximum of 200 messages within 24 hours.
 - You can send a maximum of one message per second.
-  To learn how to remove these restrictions, see [Requesting a quota
-  increase](channels-email-manage-limits.md#channels-email-manage-limits-increase-case "channels-email-manage-limits.md#channels-email-manage-limits-increase-case").
+  To learn how to remove these restrictions, see [Requesting a quota increase](channels-email-manage-limits.md#channels-email-manage-limits-increase-case "channels-email-manage-limits.md#channels-email-manage-limits-increase-case").

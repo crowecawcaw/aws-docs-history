@@ -1534,9 +1534,7 @@ returns the user's first and last name if true – for example, `Hello
 Handlebars include additional features beyond those documented here. For more information,
 see [handlebarsjs.com](https://handlebarsjs.com/ "https://handlebarsjs.com/").
 
-## Using variables with message template
-
-helpers
+## Using variables with message template helpers
 
 Amazon Pinpoint custom attributes, such as `User.UserAttributes.LastName`, are
 stored as a list, regardless of whether there's a single item or multiple items. When

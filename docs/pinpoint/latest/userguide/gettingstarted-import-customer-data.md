@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Import customer data and
-
-create a segment
+# Import customer data and create a segment
 
 A _segment_ is a group of your customers that share certain attributes.
 For example, a segment might contain all of your customers who use version 2.0 of your app
@@ -64,9 +62,7 @@ If you used a spreadsheet application to modify the file, make sure that
 you save the modified file in Comma-Separated Values (.csv) format. Amazon Pinpoint
 can't import proprietary file formats, such as .xlsx.
 
-## Import
-
-the sample customer data file
+## Import the sample customer data file
 
 Now that you have a file that contains customer data, you can import it into Amazon Pinpoint. To
 import customer data, you have to create a new segment.

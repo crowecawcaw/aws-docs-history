@@ -13,17 +13,14 @@ that are applied to journey participants. You can use activities to send message
 participants across a variety of channels, or to split them into smaller groups, or to wait
 for a period of time. There are several different types of activities that you can add to a
 journey. This section provides basic information about adding activities to a journey. For
-detailed information about setting up each type of activity, see [Setting up journey
-activities](#journeys-add-activities-procedures "#journeys-add-activities-procedures").
+detailed information about setting up each type of activity, see [Setting up journey activities](#journeys-add-activities-procedures "#journeys-add-activities-procedures").
 
 ###### Note
 
 An exit journey element is added to the journey flow after reviewing and publishing
 your journey.
 
-## Setting up journey
-
-activities
+## Setting up journey activities
 
 Each type of journey activity has separate components that you must configure. The
 following sections provide additional information about setting up each type of
@@ -31,30 +28,18 @@ activity.
 
 ###### Topics in this section:
 
-- [Set up an email
-  activity](#journeys-add-activities-procedures-email "#journeys-add-activities-procedures-email")
-- [Set up a push notification
-  activity](#journeys-add-activities-procedures-push "#journeys-add-activities-procedures-push")
-- [Set up an SMS message
-  activity](#journeys-add-activities-procedures-sms "#journeys-add-activities-procedures-sms")
-- [Set up a contact
-  center activity](#journeys-add-activities-procedures-contact-center "#journeys-add-activities-procedures-contact-center")
-- [Set up a custom message
-  channel activity](#journeys-add-activities-procedures-custom "#journeys-add-activities-procedures-custom")
-- [Set up a wait
-  activity](#journeys-add-activities-procedures-wait "#journeys-add-activities-procedures-wait")
-- [Set up a yes/no
-  split activity](#journeys-add-activities-procedures-yes-no-split "#journeys-add-activities-procedures-yes-no-split")
-- [Set up a
-  multivariate split activity](#journeys-add-activities-procedures-multivariate-split "#journeys-add-activities-procedures-multivariate-split")
-- [Set up a holdout
-  activity](#journeys-add-activities-procedures-holdout "#journeys-add-activities-procedures-holdout")
-- [Set up a random
-  split activity](#journeys-add-activities-procedures-random-split "#journeys-add-activities-procedures-random-split")
+- [Set up an email activity](#journeys-add-activities-procedures-email "#journeys-add-activities-procedures-email")
+- [Set up a push notification activity](#journeys-add-activities-procedures-push "#journeys-add-activities-procedures-push")
+- [Set up an SMS message activity](#journeys-add-activities-procedures-sms "#journeys-add-activities-procedures-sms")
+- [Set up a contact center activity](#journeys-add-activities-procedures-contact-center "#journeys-add-activities-procedures-contact-center")
+- [Set up a custom message channel activity](#journeys-add-activities-procedures-custom "#journeys-add-activities-procedures-custom")
+- [Set up a wait activity](#journeys-add-activities-procedures-wait "#journeys-add-activities-procedures-wait")
+- [Set up a yes/no split activity](#journeys-add-activities-procedures-yes-no-split "#journeys-add-activities-procedures-yes-no-split")
+- [Set up a multivariate split activity](#journeys-add-activities-procedures-multivariate-split "#journeys-add-activities-procedures-multivariate-split")
+- [Set up a holdout activity](#journeys-add-activities-procedures-holdout "#journeys-add-activities-procedures-holdout")
+- [Set up a random split activity](#journeys-add-activities-procedures-random-split "#journeys-add-activities-procedures-random-split")
 
-### Set up an email
-
-activity
+### Set up an email activity
 
 When a journey participant arrives on a **Send email** activity,
 Amazon Pinpoint sends them an email immediately. Before you can configure an email activity,
@@ -100,16 +85,13 @@ want. 5. (Optional) For **Description**, enter text that describes
 the purpose of the activity. When you save the activity, this text appears
 as its label. 6. When you finish, choose **Save**.
 
-### Set up a push notification
-
-activity
+### Set up a push notification activity
 
 When a journey participant arrives on a **Send a push
 notification** activity, Amazon Pinpoint sends them a push notification
 immediately. Before you can configure a push notification activity, you must create
 a push notification template. For more information about creating push notification
-templates, see [Creating push notification
-templates](message-templates-creating-push.md "message-templates-creating-push.md").
+templates, see [Creating push notification templates](message-templates-creating-push.md "message-templates-creating-push.md").
 
 ###### Note
 
@@ -150,9 +132,7 @@ as its label. 6. When you finish, choose **Save**.
 
 ![An example of setting up a push activity.](images/journeys-create-step-3-add-activities-procedures-push.png)
 
-### Set up an SMS message
-
-activity
+### Set up an SMS message activity
 
 When a journey participant arrives on a **Send an SMS message**
 activity, Amazon Pinpoint sends them an SMS message immediately. Before you can configure an
@@ -247,9 +227,7 @@ about verifying destination numbers, see [SMS sandbox](../../../sms-voice/latest
 
 ![The send an SMS message window to set up an SMS activity.](images/journeys-create-step-3-add-activities-procedures-sms.png)
 
-### Set up a contact
-
-center activity
+### Set up a contact center activity
 
 When a journey participant arrives on a **Send through a contact
 center** activity, Amazon Pinpoint places them into an Amazon Connect outbound campaigns
@@ -386,9 +364,7 @@ Amazon Pinpoint:
 
 ![The send through a contact center window to set up an Amazon Connect activity.](images/journeys-create-step-3-add-activities-procedures-contact-center-option-1.png)
 
-### Set up a custom message
-
-channel activity
+### Set up a custom message channel activity
 
 When a journey participant arrives on a **Send through a custom
 channel** activity, Amazon Pinpoint sends information about the participant to an
@@ -401,9 +377,7 @@ a Lambda function or a webhook URL to send your message. For more information ab
 creating custom message channels, see [Creating custom channels in Amazon Pinpoint](../developerguide/channels-custom.md "../developerguide/channels-custom.md") in the
 _Amazon Pinpoint Developer Guide_.
 
-###### To set up a custom message channel activity that calls a Lambda
-
-function
+###### To set up a custom message channel activity that calls a Lambda function
 
 1. Choose **Add activity**.
 2. For **Add an activity**, choose **Send through a
@@ -466,9 +440,7 @@ as its label. 8. When you finish, choose **Save**.
 
 ![An example of setting up a webhook activity.](images/journeys-create-step-3-add-activities-procedures-custom-webhook.png)
 
-### Set up a wait
-
-activity
+### Set up a wait activity
 
 When a journey participant arrives on a **Wait** activity, they
 remain on that activity for a certain period of time or until a specific date and
@@ -502,9 +474,7 @@ that you sent earlier in the journey.
 
 ![An example of setting up a wait activity.](images/journeys-wait-activity.png)
 
-### Set up a yes/no
-
-split activity
+### Set up a yes/no split activity
 
 When journey participants arrive on a **yes/no split** activity,
 they're sent down one of two paths based on their attributes or behaviors. You can
@@ -695,9 +665,7 @@ down the ‘Yes’ branch of a Yes/No split activity.
 
 ![The yes/no split window to set up a yes or no split activity.](images/journeys-yes-no-split-activity.png)
 
-### Set up a
-
-multivariate split activity
+### Set up a multivariate split activity
 
 When journey participants arrive on a **Multivariate split**
 activity, they're sent down one of several paths based on their attributes or
@@ -926,9 +894,7 @@ down the ‘Yes’ branch of a Yes/No split activity.
 
 ![The multivariate split window to set up a multivariate split activity.](images/journeys-multivariate-split-activity.png)
 
-### Set up a holdout
-
-activity
+### Set up a holdout activity
 
 When journey participants arrive on a **Holdout** activity, the
 journey ends for a random selection of participants. You can specify the percentage
@@ -960,9 +926,7 @@ perfectly equal.
 
 ![The holdout window to set up a holdout activity to 25%.](images/journeys-holdout-activity.png)
 
-### Set up a random
-
-split activity
+### Set up a random split activity
 
 When journey participants arrive on a **Random split** activity,
 they're randomly sent down one of up to five paths. You can create two to five

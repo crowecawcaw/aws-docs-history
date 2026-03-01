@@ -12,17 +12,13 @@ The following topics describe the metrics that Amazon Pinpoint exports to CloudW
 
 ###### Topics in this section:
 
-- [Metrics related to message
-  delivery](#monitoring-metrics-delivery "#monitoring-metrics-delivery")
+- [Metrics related to message delivery](#monitoring-metrics-delivery "#monitoring-metrics-delivery")
 - [Metrics related to endpoints](#monitoring-metrics-endpoints "#monitoring-metrics-endpoints")
 - [Metrics related to import jobs](#monitoring-metrics-import-jobs "#monitoring-metrics-import-jobs")
-- [Metrics related to one-time
-  passwords](#monitoring-metrics-one-time-passwords "#monitoring-metrics-one-time-passwords")
+- [Metrics related to one-time passwords](#monitoring-metrics-one-time-passwords "#monitoring-metrics-one-time-passwords")
 - [Metrics related to events](#monitoring-metrics-events "#monitoring-metrics-events")
 
-## Metrics related to message
-
-delivery
+## Metrics related to message delivery
 
 | Metric                                | Description                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -48,9 +44,7 @@ delivery
 | `ImportJobFailure`        | The number of import jobs that couldn't be completed for any<br>reason.<br>Units: _Count_<br>Dimensions: ApplicationId                               |
 | `ImportJobDuration`       | The amount of time, in seconds, that elapsed between the beginning<br>and the end of each import job.<br>Units: _Count_<br>Dimensions: ApplicationId |
 
-## Metrics related to one-time
-
-passwords
+## Metrics related to one-time passwords
 
 | Metric                               | Description                                                                                                                       |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |

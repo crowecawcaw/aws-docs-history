@@ -21,6 +21,5 @@ You have the following options for managing your email channel with Amazon Pinpo
 
 - [Updating email settings](channels-email-manage-update.md "channels-email-manage-update.md")
 - [Managing email sending quotas](channels-email-manage-limits.md "channels-email-manage-limits.md")
-- [Managing configuration
-  sets](channels-email-manage-configuration-sets.md "channels-email-manage-configuration-sets.md")
+- [Managing configuration sets](channels-email-manage-configuration-sets.md "channels-email-manage-configuration-sets.md")
 - [Enabling and disabling the email channel](channels-email-enable.md "channels-email-enable.md")

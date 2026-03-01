@@ -15,18 +15,14 @@ is still in the Amazon Pinpoint sandbox, you also must verify the identities tha
 email to.
 
 Before you verify an identity, you have to create a project and enable the email channel
-for the project. For more information, see [Creating an Amazon Pinpoint project with email
-support](channels-email-setup-create.md "channels-email-setup-create.md").
+for the project. For more information, see [Creating an Amazon Pinpoint project with email support](channels-email-setup-create.md "channels-email-setup-create.md").
 
 ###### Topics in this section
 
-- [Verifying an email
-  address](#channels-email-manage-verify-email-address "#channels-email-manage-verify-email-address")
+- [Verifying an email address](#channels-email-manage-verify-email-address "#channels-email-manage-verify-email-address")
 - [Verifying a domain](#channels-email-manage-verify-domain "#channels-email-manage-verify-domain")
 
-## Verifying an email
-
-address
+## Verifying an email address
 
 If you've already created a project for sending email, you probably already verified
 an email address. You can verify a different email address by using the Amazon Pinpoint
@@ -179,9 +175,7 @@ domain with Amazon Pinpoint.
 | Names.co.uk          | [Changing your domains DNS settings](https://www.names.co.uk/support/articles/changing-your-domains-dns-settings/ "https://www.names.co.uk/support/articles/changing-your-domains-dns-settings/") (external<br>link)                                                                                                            |
 | Wix                  | [Adding or Updating CNAME Records in Your Wix<br>Account](https://support.wix.com/en/article/adding-or-updating-cname-records-in-your-wix-account "https://support.wix.com/en/article/adding-or-updating-cname-records-in-your-wix-account")                                                                                    |
 
-### Domain
-
-verification tips and troubleshooting
+### Domain verification tips and troubleshooting
 
 If you completed the preceding steps but your domain isn't verified after 72
 hours, check the following:

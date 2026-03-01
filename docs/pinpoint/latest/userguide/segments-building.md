@@ -41,19 +41,14 @@ segment group, and then create a relationship between the two groups.
 
 The following steps describe creating and configuring a segment:
 
-- [Step 1: Build a new segment or import an
-  existing segment](#segment-building-new "#segment-building-new")
+- [Step 1: Build a new segment or import an existing segment](#segment-building-new "#segment-building-new")
 - [Step 2: Configure segment group 1](#segmentconfigure "#segmentconfigure")
-- [Step 3: Choose the segments to include in
-  the group](#choosesegments "#choosesegments")
-- [Step 4: Choose and configure the segment
-  criteria](#choosecriteria "#choosecriteria")
+- [Step 3: Choose the segments to include in the group](#choosesegments "#choosesegments")
+- [Step 4: Choose and configure the segment criteria](#choosecriteria "#choosecriteria")
 - [Step 5: Add a second criteria group](#addsecondcriteria "#addsecondcriteria")
 - [Step 6: Add segment group 2](#addsegmentgroup "#addsegmentgroup")
 
-### Step 1: Build a new segment or import an
-
-existing segment
+### Step 1: Build a new segment or import an existing segment
 
 ###### To build a segment
 
@@ -96,9 +91,7 @@ group.
 
   ![The Segment group 1 section showing Include any audiences.](images/segments_any_all.png)
 
-### Step 3: Choose the segments to include in
-
-the group
+### Step 3: Choose the segments to include in the group
 
 The next step is to choose which segments you will include in the group. These segments are
 composed of the audience that you want to target in the segment group.
@@ -122,9 +115,7 @@ relationship connector.
 
 ![The segment estimate showing available endpoints and eligible endpoints.](images/segments_estimate.png)
 
-### Step 4: Choose and configure the segment
-
-criteria
+### Step 4: Choose and configure the segment criteria
 
 After you've chosen your segments, you can further refine the target audience by applying
 attributes, operators, and values to those segments.
@@ -293,7 +284,5 @@ group, you can't create a second segment group.
    that are excluded will not be included in the results. You can only exclude
    audiences in segment group 2.
 
-![Segment group 2 showing the relationship connector to Exclude audiences.](images/segments_groups_logic.png) 3. Choose the segments that you want to include in segment group 2. See [Step 3: Choose the segments to include in
-the group](#choosesegments "#choosesegments"). 4. (Optional) Choose the criteria by which you want to filter your segments. See [Step 4: Choose and configure the segment
-criteria](#choosecriteria "#choosecriteria") . 5. (Optional) Add additional groups of criteria. See [Step 5: Add a second criteria group](#addsecondcriteria "#addsecondcriteria"). 6. When you finish setting up the segment, choose **Create
+![Segment group 2 showing the relationship connector to Exclude audiences.](images/segments_groups_logic.png) 3. Choose the segments that you want to include in segment group 2. See [Step 3: Choose the segments to include in the group](#choosesegments "#choosesegments"). 4. (Optional) Choose the criteria by which you want to filter your segments. See [Step 4: Choose and configure the segment criteria](#choosecriteria "#choosecriteria"). 5. (Optional) Add additional groups of criteria. See [Step 5: Add a second criteria group](#addsecondcriteria "#addsecondcriteria"). 6. When you finish setting up the segment, choose **Create
 segment**.

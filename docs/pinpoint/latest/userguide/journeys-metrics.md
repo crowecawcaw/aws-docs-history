@@ -14,11 +14,9 @@ journey workspace, and Amazon Pinpoint begins to capture metrics related to the 
 ###### Topics
 
 - [Journey-level execution metrics](#journeys-metrics-execution "#journeys-metrics-execution")
-- [Activity-level execution
-  metrics](#journeys-metrics-execution-activity "#journeys-metrics-execution-activity")
+- [Activity-level execution metrics](#journeys-metrics-execution-activity "#journeys-metrics-execution-activity")
 - [Journey-Level engagement metrics](#journeys-metrics-engagement "#journeys-metrics-engagement")
-- [Activity-level engagement
-  metrics](#journeys-metrics-engagement-activity "#journeys-metrics-engagement-activity")
+- [Activity-level engagement metrics](#journeys-metrics-engagement-activity "#journeys-metrics-engagement-activity")
 
 ## Journey-level execution metrics
 
@@ -81,8 +79,7 @@ This section contains the following information:
 - **Removed due to re-evaluation** – The number of
   endpoints that were removed from the journey because of the re-evaluation
   process that occurs when a participant reaches a **Send contact
-  center** activity. For more information, see [Set up a contact
-  center activity](journeys-add-activities.md#journeys-add-activities-procedures-contact-center "journeys-add-activities.md#journeys-add-activities-procedures-contact-center").
+  center** activity. For more information, see [Set up a contact center activity](journeys-add-activities.md#journeys-add-activities-procedures-contact-center "journeys-add-activities.md#journeys-add-activities-procedures-contact-center").
 
 ### Unsent Message Metrics
 
@@ -118,9 +115,7 @@ This section contains the following information:
     `Demographic.Timezone` attribute and unsuccessful
     time zone estimation).
 
-## Activity-level execution
-
-metrics
+## Activity-level execution metrics
 
 Activity-level execution metrics include information about the endpoints that entered
 (or were prevented from entering) your activity. Select an individual activity to view
@@ -135,9 +130,7 @@ in the top right corner of each activity modal.
 These metrics are divided into several sections, which are discussed in detail in the
 following sections.
 
-### Sent message
-
-metrics
+### Sent message metrics
 
 The first section in the list of activity execution metrics shows how many
 endpoints entered your activity. An example of this section is shown in the
@@ -152,9 +145,7 @@ This section contains the following information:
 - **Messages not sent** – The number of messages not
   sent.
 
-### Unsent Message
-
-Metrics
+### Unsent Message Metrics
 
 Each activity in your journey includes a list of execution metrics that indicates
 information about the number of messages that couldn't be delivered because of
@@ -204,8 +195,7 @@ channel** activities.
 - **Removed due to re-evaluation** – The number of
   endpoints that were removed from the journey because of the re-evaluation
   process that occurs when a participant reaches a **Send through a
-  contact center** activity. For more information, see [Set up a contact
-  center activity](journeys-add-activities.md#journeys-add-activities-procedures-contact-center "journeys-add-activities.md#journeys-add-activities-procedures-contact-center").
+  contact center** activity. For more information, see [Set up a contact center activity](journeys-add-activities.md#journeys-add-activities-procedures-contact-center "journeys-add-activities.md#journeys-add-activities-procedures-contact-center").
 
 ###### Note
 
@@ -242,9 +232,7 @@ services, such as Apple Push Notification service or Firebase Cloud Messaging. A
 we receive this data from these sources, there is a delay of up to two hours while
 we process the incoming metrics.
 
-### Number of message
-
-activities
+### Number of message activities
 
 The engagement metrics for each journey provide the number of message activities
 in that journey.
@@ -254,9 +242,7 @@ broken down by type, as seen in the following image.
 
 ![An example graph of unsent email and Lambda messages.](images/journeys-metrics-engagement-number.png)
 
-## Activity-level engagement
-
-metrics
+## Activity-level engagement metrics
 
 Activity-level engagement metrics include information about the ways in which the
 participants in your journey interacted with the messages that were sent from the
@@ -267,9 +253,7 @@ following sections.
 
 Email activities provide the following engagement metrics.
 
-#### Response
-
-metrics
+#### Response metrics
 
 These metrics provide information about participants' interactions with
 the messages that were sent from the email message activity.
@@ -319,9 +303,7 @@ because the hour has changed. For this reason, it's possible for
 the number of clicks to exceed the number of opens or
 deliveries.
 
-#### Message engagement
-
-metrics
+#### Message engagement metrics
 
 The final section in the list of engagement metrics provides additional
 email response metrics. An example of this section is shown in the following
@@ -388,9 +370,7 @@ monthly digest.
 
 SMS message activities provide the following engagement metrics.
 
-#### Delivery
-
-metrics
+#### Delivery metrics
 
 These metrics provide information about participants' interactions with
 the messages that were sent from the SMS message activity.
@@ -435,9 +415,7 @@ This section contains the following information:
 - **Total opens** – The number of push
   notifications that were opened by recipients.
 
-#### Time to Live
-
-Metrics
+#### Time to Live Metrics
 
 The push notification engagement metrics also provide the time to live
 (TTL) value for the push notification activity. The TTL is the amount of
@@ -453,9 +431,7 @@ chose.
 
 Custom channel activities provide the following engagement metrics.
 
-#### Call
-
-Success Metrics
+#### Call Success Metrics
 
 These metrics provide information about participants' interactions with
 the messages that were sent from the custom channel activity.
@@ -538,9 +514,7 @@ Journey metrics for wait activities include the following information:
 - **Currently waiting** – The number of
   participants who are currently waiting (in the activity).
 
-#### Yes/No split activity
-
-metrics
+#### Yes/No split activity metrics
 
 Journey metrics for yes/no split activities include the following
 information:
@@ -550,9 +524,7 @@ information:
 - **Details for _path_** – The number of journey
   participants who were sent down each path of the activity.
 
-#### Multivariate
-
-split activity metrics
+#### Multivariate split activity metrics
 
 Journey metrics for multivariate split activities include the following
 information:
@@ -562,9 +534,7 @@ information:
 - **Details for _path_** – The number of journey
   participants who were sent down each path of the activity.
 
-#### Holdout activity
-
-metrics
+#### Holdout activity metrics
 
 Journey metrics for holdout activities include the following
 information:
@@ -575,9 +545,7 @@ information:
   participants who exited the journey because of being held out by the
   activity.
 
-#### Random split activity
-
-metrics
+#### Random split activity metrics
 
 Journey metrics for random split activities include the following
 information:

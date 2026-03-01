@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Create and configure a
-
-project
+# Create and configure a project
 
 In Amazon Pinpoint, a _project_ is a collection of settings, customer
 information, segments, and campaigns. If you're new to Amazon Pinpoint, the first step you should take

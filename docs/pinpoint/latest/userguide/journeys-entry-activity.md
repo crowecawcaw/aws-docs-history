@@ -15,8 +15,7 @@ journey. There are two ways to add participants to a journey:
 - **When an event occurs** – You can configure
   the journey so that participants are inserted into a journey dynamically, when
   specific events occur. For example, you can use this option to add participants to a
-  journey when they complete a sign-up workflow. For more information, see [Add participants when they
-  perform an activity](#journeys-entry-activity-event-triggered "#journeys-entry-activity-event-triggered").
+  journey when they complete a sign-up workflow. For more information, see [Add participants when they perform an activity](#journeys-entry-activity-event-triggered "#journeys-entry-activity-event-triggered").
 
 ###### Important
 
@@ -25,8 +24,7 @@ Contact Center activities aren't supported in event triggered journeys.
 - **Based on segment membership** – You can
   insert the members of an existing segment directly into the journey. The journey can
   be configured to periodically re-evaluate the segment to determine if there are new
-  segment members to add. For more information, see [Add participants from a
-  segment](#journeys-entry-activity-segment-based "#journeys-entry-activity-segment-based").
+  segment members to add. For more information, see [Add participants from a segment](#journeys-entry-activity-segment-based "#journeys-entry-activity-segment-based").
 
 ###### Note
 
@@ -37,9 +35,7 @@ user and all the endpoints associated with the user progress through the journey
 together. If the journey entry segment consists of endpoint-level data (no user_id),
 then the _participant_ is the individual endpoints.
 
-## Add participants when they
-
-perform an activity
+## Add participants when they perform an activity
 
 This event-triggered journey type adds participants based on a chosen event. You
 choose an event, such as music downloads, and then choose the event attributes to
@@ -136,9 +132,7 @@ displayed in the dropdown list might indicate that it's dynamic, if it's
 based on an imported segment, you will get an error. 6. (Optional) For **Description**, enter text that describes the
 activity. When you save the activity, this text appears as its label. 7. Choose **Save**.
 
-## Add participants from a
-
-segment
+## Add participants from a segment
 
 For this type of journey, you choose a segment to participate in the journey. You can
 optionally configure the Journey entry activity to add new journey participants by

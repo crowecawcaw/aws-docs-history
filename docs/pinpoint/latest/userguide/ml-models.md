@@ -56,8 +56,7 @@ This feature is available in the following AWS Regions:
 ###### Topics
 
 - [How recommendations work in Amazon Pinpoint](ml-models-rm-how-it-works.md "ml-models-rm-how-it-works.md")
-- [Preparing to use a recommender model with
-  Amazon Pinpoint](ml-models-rm-prerequisites.md "ml-models-rm-prerequisites.md")
+- [Preparing to use a recommender model with Amazon Pinpoint](ml-models-rm-prerequisites.md "ml-models-rm-prerequisites.md")
 - [Setting up a recommender model in Amazon Pinpoint](ml-models-rm-setup.md "ml-models-rm-setup.md")
 - [Using recommendations in messages](ml-models-rm-using.md "ml-models-rm-using.md")
 - [Managing machine learning models in Amazon Pinpoint](ml-models-managing.md "ml-models-managing.md")

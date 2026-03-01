@@ -47,9 +47,7 @@ use Amazon Pinpoint to send a message to the segment, the potential destinations
   When you create a new segment, you can use an imported segment as the base segment. You
   can then apply filters to the base segment to refine it according to your needs.
 
-## Imported segment
-
-considerations
+## Imported segment considerations
 
 Consider the following factors when you create imported segments:
 

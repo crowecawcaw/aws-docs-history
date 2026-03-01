@@ -20,8 +20,7 @@ Verify that logging is turned on to assist in identifying the cause of failure. 
   appear in the Amazon Pinpoint event logs as [\_email.rendering_failure events](../developerguide/event-streams-data-email.md#event-streams-data-email-attributes "../developerguide/event-streams-data-email.md#event-streams-data-email-attributes").
 - To resolve the issue, verify that all message variables have a corresponding
   endpoint attribute present and are in the correct format. For more information,
-  see [Adding personalized content to message
-  templates](message-templates-personalizing.md "message-templates-personalizing.md").
+  see [Adding personalized content to message templates](message-templates-personalizing.md "message-templates-personalizing.md").
 - Configure default values for all message variables in the template to avoid rendering failures when an attribute is missing for an endpoint.
 - Test running the campaign without the template to confirm whether endpoints can
   successfully receive messages. This action can help confirm that the issue is

@@ -45,8 +45,7 @@ display different content for each recipient of a message that uses the template
 To use a message variable, choose the name of an existing attribute from the
 **Attribute finder**. Amazon Pinpoint creates a message variable for the
 attribute and copies it to your clipboard. Paste the variable in the location that you
-want. For more information, see [Adding personalized content to message
-templates](message-templates-personalizing.md "message-templates-personalizing.md"). 8. If you added personalized content to the template by using message variables,
+want. For more information, see [Adding personalized content to message templates](message-templates-personalizing.md "message-templates-personalizing.md"). 8. If you added personalized content to the template by using message variables,
 specify a default value for each variable. If you do this, Amazon Pinpoint replaces the variable
 with the value that you specify, if a corresponding value doesn't exist for a recipient. We recommend that
 you do this for each variable in the template.

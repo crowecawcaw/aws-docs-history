@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Amazon Pinpoint domain reputation
-
-page
+# Amazon Pinpoint domain reputation page
 
 The **Domain reputation** page contains information about the domains
 that you use to send email, including their engagement rates, inbox placement rates, and
@@ -53,8 +51,7 @@ overview** section shows the following information:
   rate of around 80% is considered average.
 - **Denylist activities** – The number of denylists that
   IP addresses associated with the domain appear on. To learn more about
-  denylists, see [Denylist
-  activities](#channels-email-deliverability-dashboard-domain-denylist "#channels-email-deliverability-dashboard-domain-denylist").
+  denylists, see [Denylist activities](#channels-email-deliverability-dashboard-domain-denylist "#channels-email-deliverability-dashboard-domain-denylist").
 
 ### Alarms
 
@@ -123,9 +120,7 @@ section.
        topic**.
     7. When you finish, choose **Create**.
 
-## Inbox
-
-placement by email provider
+## Inbox placement by email provider
 
 This section shows you how different email providers handled the email that was sent
 from your domain during the selected time period. The email providers analyzed in this
@@ -147,9 +142,7 @@ days.
 
 ![An example of an inbox placement rate over 30 days with the five email providers.](images/channels-email-deliverability-dashboard-domain-reputation.png)
 
-## Denylist
-
-activities
+## Denylist activities
 
 This section helps you to quickly identify denylist events that could impact the
 delivery of emails sent from your domain. A _denylist_ is a list of
@@ -175,9 +168,7 @@ section, and includes links to their procedures for delisting an IP address.
 | Passive Spam Block List (PSBL)      | [Passive spam block list<br>website](https://psbl.org/remove "https://psbl.org/remove")                                          |
 | SpamCop                             | [SpamCop<br>website](https://www.spamcop.net/fom-serve/cache/298.html "https://www.spamcop.net/fom-serve/cache/298.html")        |
 
-## Domain
-
-authentication
+## Domain authentication
 
 This section contains information about the various methods that you can use to
 authenticate your domains. To configure DKIM or SPF authentication for a domain, you

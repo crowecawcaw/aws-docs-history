@@ -17,8 +17,7 @@ capabilities of Amazon Pinpoint. For example:
   on that domain. For more information about verifying domains, see [Verifying a domain](channels-email-manage-verify.md#channels-email-manage-verify-domain "channels-email-manage-verify.md#channels-email-manage-verify-domain").
 - You can obtain dedicated IP addresses for sending your email. Dedicated IP
   addresses are a great option for sending email in certain use cases. For more
-  information, see [Using dedicated IP addresses with
-  Amazon Pinpoint](channels-email-dedicated-ips.md "channels-email-dedicated-ips.md").
+  information, see [Using dedicated IP addresses with Amazon Pinpoint](channels-email-dedicated-ips.md "channels-email-dedicated-ips.md").
 - You can enable the Amazon Pinpoint Deliverability dashboard. The Deliverability dashboard
   helps you identify issues that could impact the delivery of your emails. For more
   information, see [The Amazon Pinpoint Deliverability dashboard](channels-email-deliverability-dashboard.md "channels-email-deliverability-dashboard.md").

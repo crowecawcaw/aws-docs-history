@@ -41,8 +41,7 @@ If you're creating an SMS campaign, see [Configuring an SMS message](#campaigns-
 If you're creating a push notification campaign, see [Configuring a push notification](#campaigns-message-push "#campaigns-message-push").
 
 If you're creating a campaign that sends messages through a custom channel,
-see [Configuring a custom channel
-message](#campaigns-message-custom "#campaigns-message-custom").
+see [Configuring a custom channel message](#campaigns-message-custom "#campaigns-message-custom").
 
 ###### To configure an email message
 
@@ -92,8 +91,7 @@ apply formatting features such as links. To switch views, choose
 the view selector above the message editor. 4. ###### Note
 
 You must set up an email orchestration sending role before you can use email headers. For more
-information, see [Creating an email orchestration
-sending role in Amazon Pinpoint](channels-email-orchestration-sending-role.md "channels-email-orchestration-sending-role.md").
+information, see [Creating an email orchestration sending role in Amazon Pinpoint](channels-email-orchestration-sending-role.md "channels-email-orchestration-sending-role.md").
 
 Under **Headers**, choose **Add new
 headers**, to add up to 15 headers for the email message.
@@ -295,7 +293,7 @@ number of messages included in the carousel.
 
 The following image shows a carousel with two messages:
 
-![An example carousel showing two clothing items for purchase.](/images/pinpoint/latest/userguide/images/channels-inapp-carousel.png) 11. (Optional) If you created this campaign as an A/B test campaign (as
+![An example carousel showing two clothing items for purchase.](images/channels-inapp-carousel.png) 11. (Optional) If you created this campaign as an A/B test campaign (as
 opposed to a standard campaign), repeat the steps in this section for
 each treatment. You can switch between treatments by using the tabs at
 the top of the **In-app messaging template**
@@ -496,9 +494,7 @@ the top of the **SMS details** section. 7. Choose **Next**.
    to your customers through any service that has an API or webhook functionality,
    including third-party services.
 
-#### Sending a custom message
-
-using a Lambda function
+#### Sending a custom message using a Lambda function
 
 To send messages through a service that has an API, you must create an
 AWS Lambda function that calls the API. For more information about creating
@@ -506,9 +502,7 @@ these functions, see [Creating
 custom channels](../developerguide/channels-custom.md "../developerguide/channels-custom.md") in the
 _Amazon Pinpoint Developer Guide_.
 
-###### To configure a custom channel that uses a Lambda function to call an
-
-API
+###### To configure a custom channel that uses a Lambda function to call an API
 
 1. On the **Create your message** page, for
    **Choose your custom message channel type**,
@@ -528,9 +522,7 @@ Custom endpoint type. For example, you could choose to only send the
 custom channel campaign to endpoints with the Email endpoint type
 attribute. 4. Choose **Next**.
 
-#### Sending a custom message
-
-using a webhook
+#### Sending a custom message using a webhook
 
 You can also create custom channels that send information about your
 segment members to services that use webhooks.
@@ -598,9 +590,7 @@ message to a small group of recipients for testing purposes. You can send test m
 in the following channels —email, push notification, in-app notification, or
 SMS.
 
-### Previewing an email message without
-
-sending it
+### Previewing an email message without sending it
 
 The Design view in the Amazon Pinpoint message editor shows a preview of an email message as
 it would appear if it was rendered by your web browser.

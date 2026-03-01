@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Adding personalized content to message
-
-templates
+# Adding personalized content to message templates
 
 To deliver dynamic, personalized content in messages that use a template, add _message variables_ to the message template. A _message variable_ is a placeholder that refers to a specific
 attribute that you or Amazon Pinpoint created to store information about your users. Each

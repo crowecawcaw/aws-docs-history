@@ -24,9 +24,7 @@ By completing this tutorial, you've done the following:
   collect by using this solution. It also includes some suggestions of ways that you can
   customize this solution to fit your unique use case.
 
-## Create customer
-
-segments
+## Create customer segments
 
 All of the customer details that you collect through this form are stored as
 endpoints. This solution creates endpoints that contain several attributes that you can
@@ -51,9 +49,7 @@ marketing materials are different from those who complete the form after finding
 your website. You can use this difference to create distinct segments, and then send
 tailored communications to each of those audiences.
 
-## Send personalized
-
-campaign messages
+## Send personalized campaign messages
 
 After you create segments, you can start sending campaigns to those segments. When you
 create campaign messages, you can personalize them by specifying which endpoint
@@ -87,9 +83,7 @@ message, include the following string in the message:
 `{{User.UserAttributes.FirstName}}`. When Amazon Pinpoint sends the message, it
 replaces the string with the value of the `FirstName` attribute.
 
-## Use the form to
-
-collect additional information
+## Use the form to collect additional information
 
 You can modify this solution to collect additional information on the registration
 form. For example, you could ask the customer to provide their address, and then use the
@@ -110,9 +104,7 @@ for the SMS endpoint). You should also modify the Lambda function so that it gen
 unique value for the `User.UserId` attribute, and then associates that value
 with both endpoints.
 
-## Record additional attributes
-
-for auditing purposes
+## Record additional attributes for auditing purposes
 
 This solution records two valuable attributes when it creates and updates endpoints.
 First, when the first Lambda function initially creates the endpoint, it records the URL

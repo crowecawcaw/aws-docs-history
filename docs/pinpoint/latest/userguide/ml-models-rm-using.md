@@ -54,8 +54,7 @@ function, a template and the resulting message might use additional variables an
 attributes. For example, they might also use variables for attributes that provide an image and a
 URL for each recommended movie or show.
 
-For more information about using message variables in templates, see [Adding personalized content to message
-templates](message-templates-personalizing.md "message-templates-personalizing.md").
+For more information about using message variables in templates, see [Adding personalized content to message templates](message-templates-personalizing.md "message-templates-personalizing.md").
 
 ## Adding recommendations to messages
 
@@ -111,8 +110,7 @@ preceding step for each additional attribute that you want to add a variable for
 You can also add variables for other types of attributes. To do this, expand other
 sections in the **Attribute finder**, choose each additional attribute that
 you want, and then paste the variable in the location that you want. To learn about using
-variables for other types of attributes, see [Adding personalized content to message
-templates](message-templates-personalizing.md "message-templates-personalizing.md"). 7. To specify a default value for a message variable, expand the **Default attribute
+variables for other types of attributes, see [Adding personalized content to message templates](message-templates-personalizing.md "message-templates-personalizing.md"). 7. To specify a default value for a message variable, expand the **Default attribute
 values** section. Then, in the list of variables, enter the default value that you
 want to use for the variable. We recommend that you do this for each variable in the
 template. 8. When you finish, do one of the following:

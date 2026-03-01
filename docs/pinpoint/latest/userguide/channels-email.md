@@ -23,19 +23,16 @@ campaigns that send email will continue to function and use the Amazon Pinpoint 
 update the **Orchestration sending role arn**.
 
 - For more information on creating the IAM role for **Orchestration
-  sending role arn**, see [Creating an email orchestration
-  sending role in Amazon Pinpoint](channels-email-orchestration-sending-role.md "channels-email-orchestration-sending-role.md").
+  sending role arn**, see [Creating an email orchestration sending role in Amazon Pinpoint](channels-email-orchestration-sending-role.md "channels-email-orchestration-sending-role.md").
 - For direct send, your IAM identity must have `ses:SendEmail` and
   `ses:SendRawEmail` permissions.
 - To check if your project has been updated with an **Orchestration
-  sending role arn**, see [Find your email
-  orchestration sending role ARN in Amazon Pinpoint](channels-email-orchestration-sending-role.md#channels-email-orchestration-sending-role-verify "channels-email-orchestration-sending-role.md#channels-email-orchestration-sending-role-verify").
+  sending role arn**, see [Find your email orchestration sending role ARN in Amazon Pinpoint](channels-email-orchestration-sending-role.md#channels-email-orchestration-sending-role-verify "channels-email-orchestration-sending-role.md#channels-email-orchestration-sending-role-verify").
   **New Amazon Pinpoint customers**: Use the **Orchestration
   sending role arn** to send emails from your journeys or campaigns. Your
   journeys and campaigns that send email will use the Amazon SES API.
 
-- For more information on creating the IAM role, see [Creating an email orchestration
-  sending role in Amazon Pinpoint](channels-email-orchestration-sending-role.md "channels-email-orchestration-sending-role.md").
+- For more information on creating the IAM role, see [Creating an email orchestration sending role in Amazon Pinpoint](channels-email-orchestration-sending-role.md "channels-email-orchestration-sending-role.md").
 - For direct send, your IAM identity must have `ses:SendEmail` and
   `ses:SendRawEmail` permissions.
   You can test IAM policies to verify how they will work with a given identity by
@@ -58,9 +55,7 @@ As your email needs change, you can manage the email channel by [updating your e
 [requesting an increase to your sending
 quotas](channels-email-manage-limits.md "channels-email-manage-limits.md").
 
-## Choosing between Amazon Pinpoint and Amazon Simple Email Service
-
-(Amazon SES)
+## Choosing between Amazon Pinpoint and Amazon Simple Email Service (Amazon SES)
 
 AWS also offers an email-only service called Amazon SES. Amazon Pinpoint uses Amazon SES highly scalable
 email infrastructure to send email. The two services offer different features and are
@@ -87,8 +82,7 @@ For more information about sending email using Amazon SES, see the [Amazon SES D
 - [Monitoring email activity with Amazon Pinpoint](channels-email-monitor.md "channels-email-monitor.md")
 - [Managing the Amazon Pinpoint email channel](channels-email-manage.md "channels-email-manage.md")
 - [Sending email in Amazon Pinpoint](channels-email-send.md "channels-email-send.md")
-- [Using dedicated IP addresses with
-  Amazon Pinpoint](channels-email-dedicated-ips.md "channels-email-dedicated-ips.md")
+- [Using dedicated IP addresses with Amazon Pinpoint](channels-email-dedicated-ips.md "channels-email-dedicated-ips.md")
 - [The Amazon Pinpoint Deliverability dashboard](channels-email-deliverability-dashboard.md "channels-email-deliverability-dashboard.md")
 - [Email best practices](channels-email-best-practices.md "channels-email-best-practices.md")
 - [Troubleshooting the email channel](channels-email-troubleshooting.md "channels-email-troubleshooting.md")

@@ -27,8 +27,7 @@ email channel for the current project. If you disable the email channel for the 
 can't send email from campaigns or journeys in the project. However, you can send
 transactional email from your Amazon Pinpoint account. To enable Amazon Pinpoint to send email for your
 campaigns or journeys you must create or update an IAM role to allow Amazon Pinpoint to send email
-on your behalf through Amazon SES, see [Creating an email orchestration
-sending role in Amazon Pinpoint](channels-email-orchestration-sending-role.md "channels-email-orchestration-sending-role.md").
+on your behalf through Amazon SES, see [Creating an email orchestration sending role in Amazon Pinpoint](channels-email-orchestration-sending-role.md "channels-email-orchestration-sending-role.md").
 
 In addition, you can use the **Email** settings page to verify email
 identities for the current project. In Amazon Pinpoint, an _identity_
@@ -38,8 +37,6 @@ send email with it by using Amazon Pinpoint.
 
 ###### Topics
 
-- [Creating an Amazon Pinpoint project with email
-  support](channels-email-setup-create.md "channels-email-setup-create.md")
+- [Creating an Amazon Pinpoint project with email support](channels-email-setup-create.md "channels-email-setup-create.md")
 - [Verifying email identities](channels-email-manage-verify.md "channels-email-manage-verify.md")
-- [Creating an email orchestration
-  sending role in Amazon Pinpoint](channels-email-orchestration-sending-role.md "channels-email-orchestration-sending-role.md")
+- [Creating an email orchestration sending role in Amazon Pinpoint](channels-email-orchestration-sending-role.md "channels-email-orchestration-sending-role.md")

@@ -60,9 +60,7 @@ verified email addresses or domains. For information about requesting an increas
 your sending quota or sending rate, see [Managing email sending quotas](channels-email-manage-limits.md "channels-email-manage-limits.md"). For information about removing your
 account from the sandbox, see [Amazon Pinpoint email sandbox](channels-email-setup-production-access.md "channels-email-setup-production-access.md").
 
-## Tracking open and click events in
-
-email
+## Tracking open and click events in email
 
 Amazon Pinpoint automatically tracks how many of your emails were opened or clicked by their
 recipients. In order to track the number of opens and clicks, Amazon Pinpoint makes minor changes to

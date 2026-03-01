@@ -94,9 +94,7 @@ journeys, choose the original journey, and then make your changes. Changes
 that you make to the test journey aren't automatically applied to the
 journey that the test is based on.
 
-### Best practices for testing your
-
-journeys
+### Best practices for testing your journeys
 
 - Include several test participants in the segment that you use to test your
   journey.

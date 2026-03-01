@@ -60,14 +60,12 @@ with the content and settings that you defined in the template.
    do this, add message variables that refer to specific attributes that you or Amazon Pinpoint created, such as an attribute that stores a user's first name. By using message variables, you can display different
    content for each recipient of a message that uses the template. To use a message variable, choose the name of an existing attribute
    from the **Attribute finder**. Amazon Pinpoint creates a message variable for the attribute and copies it to your clipboard. Paste the variable in the location that you want. For more
-   information, see [Adding personalized content to message
-   templates](message-templates-personalizing.md "message-templates-personalizing.md").
+   information, see [Adding personalized content to message templates](message-templates-personalizing.md "message-templates-personalizing.md").
 
 8. ###### Note
 
 You must set up an email orchestration sending role before you can use email headers. For more
-information, see [Creating an email orchestration
-sending role in Amazon Pinpoint](channels-email-orchestration-sending-role.md "channels-email-orchestration-sending-role.md").
+information, see [Creating an email orchestration sending role in Amazon Pinpoint](channels-email-orchestration-sending-role.md "channels-email-orchestration-sending-role.md").
 
 Under **Headers**, choose **Add new headers**,
 to add up to 15 headers for the email message. For a list of supported headers see
@@ -108,9 +106,7 @@ do this, make sure that you first complete step 9 to specify default values for 
 variables in the template. Otherwise, the message might not be sent or it might not render
 correctly.
 
-## Including unsubscribe links in
-
-message templates
+## Including unsubscribe links in message templates
 
 Including an unsubscribe link in your email is a best practice, and in some countries
 it's a legal requirement. In your unsubscribe links, you can include a special

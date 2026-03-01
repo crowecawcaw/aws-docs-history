@@ -6,17 +6,13 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Deliverability dashboard
-
-settings
+# Deliverability dashboard settings
 
 On the **Dashboard settings** page, you can change several settings that
 are related to the Deliverability dashboard. You can also find information that tells you about your
 usage of the Deliverability dashboard for the current month.
 
-## Subscription
-
-overview
+## Subscription overview
 
 The **Subscription overview** section contains information about the
 status of your Deliverability dashboard subscription. It also tells you how many days remain in
@@ -28,9 +24,7 @@ the end of a billing period, we continue to charge you for the remaining days in
 billing period. However, we don't charge you for the next billing period. To cancel your
 subscription, choose **Cancel subscription**.
 
-## Monthly
-
-usage
+## Monthly usage
 
 The **Monthly usage** section provides information about your usage
 of the Deliverability dashboard for the current month.

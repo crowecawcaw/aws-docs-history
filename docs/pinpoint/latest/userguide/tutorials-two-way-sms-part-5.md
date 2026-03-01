@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Create and deploy the web
-
-form to use SMS messaging for Amazon Pinpoint
+# Create and deploy the web form to use SMS messaging for Amazon Pinpoint
 
 All of the components that use AWS services for SMS messaging using Amazon Pinpoint are now in place. The last
 step is to create and deploy the web form that captures customer's data.

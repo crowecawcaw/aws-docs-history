@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Viewing your collection of message
-
-templates
+# Viewing your collection of message templates
 
 The **Message templates** page displays a list of all the message templates
 for your Amazon Pinpoint account in the current AWS Region. To browse the list or find specific templates

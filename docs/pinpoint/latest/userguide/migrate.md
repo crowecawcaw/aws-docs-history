@@ -40,27 +40,20 @@ functionality in SES by October 30, 2026.
 
 ###### Topics
 
-- [Migration steps: Transition features for Amazon Pinpoint
-  engagement](#migration-steps "#migration-steps")
+- [Migration steps: Transition features for Amazon Pinpoint engagement](#migration-steps "#migration-steps")
 - [Offboarding steps: Export data to 3rd party](#offboarding-steps "#offboarding-steps")
 - [Summary](#migration-summary "#migration-summary")
 - [Additional resources](#migration-additional-resources "#migration-additional-resources")
 
-## Migration steps: Transition features for Amazon Pinpoint
+## Migration steps: Transition features for Amazon Pinpoint engagement
 
-engagement
-
-### Customers seeking engagement
-
-features
+### Customers seeking engagement features
 
 To use the proactive engagement features of Amazon Connect, including segments, message
 templates, campaigns, journeys, analytics, please follow this guide to migrate Amazon Pinpoint
 engagement capabilities to Amazon Connect.
 
-#### Migrate endpoints and
-
-segments
+#### Migrate endpoints and segments
 
 Amazon Pinpoint Endpoints can be modeled as Amazon Connect Customer Profiles. Customer Profiles
 allows you to combine multiple endpoints into a single profile, allowing up to 3
@@ -201,9 +194,7 @@ output_file = 'customer_profiles.json'
 process_pinpoint_endpoints(input_file, output_file)
 ```
 
-#### Migrate channel
-
-configurations
+#### Migrate channel configurations
 
 Follow the onboarding steps to enable [SMS](../../../connect/latest/adminguide/setup-sms-messaging.md "../../../connect/latest/adminguide/setup-sms-messaging.md") and
 [email](../../../connect/latest/adminguide/setup-email-channel.md "../../../connect/latest/adminguide/setup-email-channel.md")
@@ -242,9 +233,7 @@ follow the similar approach as above using get-journey API to fetch its
 definition, and then recreate it in Amazon Connect using the campaign creation
 guide.
 
-### Events
-
-collection and mobile analytics customers
+### Events collection and mobile analytics customers
 
 #### Amplify SDK customers
 
@@ -289,9 +278,7 @@ To offboard your endpoints, you can
   endpoints.
 - Export that Segment to an S3 bucket or to your local machine.
 
-### Segments, campaigns, and
-
-journeys
+### Segments, campaigns, and journeys
 
 To offboard your segments, campaigns, and journeys, use our APIs or our UI to
 retrieve them. For this, you can use our [get-segment](../../../cli/latest/reference/pinpoint/get-segment.md "../../../cli/latest/reference/pinpoint/get-segment.md"), [get-campaign](../../../cli/latest/reference/pinpoint/get-campaign.md "../../../cli/latest/reference/pinpoint/get-campaign.md"), or [get-journey](../../../cli/latest/reference/pinpoint/get-journey.md "../../../cli/latest/reference/pinpoint/get-journey.md")

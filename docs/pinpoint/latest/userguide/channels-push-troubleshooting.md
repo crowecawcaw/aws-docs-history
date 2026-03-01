@@ -24,9 +24,7 @@ transactional push notifications that are not sent via a Campaign or Journey, lo
   [Platform response codes](../../../sns/latest/dg/sns-msg-status.md#platform-returncodes "../../../sns/latest/dg/sns-msg-status.md#platform-returncodes") in the [\_campaign.send](../developerguide/event-streams-data-campaign.md#event-streams-data-campaign-attributes "../developerguide/event-streams-data-campaign.md#event-streams-data-campaign-attributes") event for delivery outcome
   received by Amazon Pinpoint from the Downstream Push Notification Service.
 
-## Message not
-
-received
+## Message not received
 
 ###### **Issues and solutions**
 
@@ -48,9 +46,7 @@ received
 For insights on delivery attempts with a failure status, see the [Push Notification Response codes for the respective
 Push Channel](../../../sns/latest/dg/sns-msg-status.md#platform-returncodes "../../../sns/latest/dg/sns-msg-status.md#platform-returncodes") used in the delivery attempt.
 
-## Messages are not
-
-displayed
+## Messages are not displayed
 
 - If the logs show a Successful Delivery and if messages are not displayed on the system notification tray, this indicates an issue with the notification being delivered to the device but not being handled appropriately in the client application.
 - You might see that the Kinesis event logs show a **Successful

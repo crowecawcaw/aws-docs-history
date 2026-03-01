@@ -54,12 +54,10 @@ Amazon Pinpoint account.
 
 - [Creating email templates](message-templates-creating-email.md "message-templates-creating-email.md")
 - [Creating in-app templates](message-templates-creating-inapp.md "message-templates-creating-inapp.md")
-- [Creating push notification
-  templates](message-templates-creating-push.md "message-templates-creating-push.md")
+- [Creating push notification templates](message-templates-creating-push.md "message-templates-creating-push.md")
 - [Creating SMS templates](message-templates-creating-sms.md "message-templates-creating-sms.md")
 - [Creating voice templates](message-templates-creating-voice.md "message-templates-creating-voice.md")
-- [Adding personalized content to message
-  templates](message-templates-personalizing.md "message-templates-personalizing.md")
+- [Adding personalized content to message templates](message-templates-personalizing.md "message-templates-personalizing.md")
 - [Using message template helpers](message-template-helpers.md "message-template-helpers.md")
 - [Managing message templates](message-templates-managing.md "message-templates-managing.md")
 - [Managing versions of message templates](message-templates-versioning.md "message-templates-versioning.md")

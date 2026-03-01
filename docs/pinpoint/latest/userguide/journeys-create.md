@@ -206,9 +206,7 @@ dialog box is shown in the following image.
 
 7. Choose **Confirm**
 
-## (Optional) Configuring journey schedule
-
-settings
+## (Optional) Configuring journey schedule settings
 
 When you create a journey, you can specify a sending schedule for that journey. There
 are two schedule settings that you can configure. The first setting is _do not

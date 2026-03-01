@@ -45,9 +45,7 @@ that are sent from a campaign or journey. You can define dynamic segments based 
 data that's reported by your application, such as operating system or mobile device
 type. You can also import static segments that you define outside of Amazon Pinpoint.
 
-### Engage your audience with messaging
-
-campaigns
+### Engage your audience with messaging campaigns
 
 Engage your audience by [creating a campaign](campaigns-begin.md "campaigns-begin.md"). A
 campaign sends tailored messages on a schedule that you define. You can create
@@ -67,9 +65,7 @@ message to participants, waiting for a certain period of time, or splitting
 participants based on actions that they take, such as clicking a link in a
 message.
 
-### Provide consistent messaging with
-
-templates
+### Provide consistent messaging with templates
 
 Design consistent messages and reuse content more effectively by [creating and using message templates](messages-templates.md "messages-templates.md"). A
 message template contains content and settings that you want to reuse in messages

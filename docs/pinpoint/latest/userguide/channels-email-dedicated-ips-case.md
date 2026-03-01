@@ -6,18 +6,14 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Requesting and relinquishing dedicated
-
-IP addresses
+# Requesting and relinquishing dedicated IP addresses
 
 This section describes how to request and relinquish dedicated IP addresses by submitting
 a request in the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/"). We charge your account an additional monthly fee
 for each dedicated IP address that you lease for use with Amazon Pinpoint. For more information about
 the costs associated with dedicated IP addresses, see [Amazon Pinpoint pricing](https://aws.amazon.com/pinpoint/pricing/#Optional_Charges "https://aws.amazon.com/pinpoint/pricing/#Optional_Charges").
 
-## Best practices for
-
-working with dedicated IP addresses
+## Best practices for working with dedicated IP addresses
 
 Although there's no minimum commitment, we recommend that you lease more than one
 dedicated IP address in each AWS Region where you use Amazon Pinpoint. Each AWS Region
@@ -33,9 +29,7 @@ in the _Amazon Web Services General Reference_. To learn more about the
 number of Availability Zones that are available in each Region, see [AWS global
 infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
 
-## Requesting dedicated IP
-
-addresses
+## Requesting dedicated IP addresses
 
 The following steps show how to request dedicated IP addresses by creating a case in
 the AWS Support Center. You can use this process to request as many dedicated IP
@@ -111,9 +105,7 @@ After you submit the form, we evaluate your request. If we grant your request, w
 reply to your case in Support Center to confirm that your new dedicated IP addresses are
 associated with your account.
 
-## Relinquishing dedicated
-
-IP addresses
+## Relinquishing dedicated IP addresses
 
 If you no longer need dedicated IP addresses that are associated with your account,
 you can relinquish them by completing the following steps.

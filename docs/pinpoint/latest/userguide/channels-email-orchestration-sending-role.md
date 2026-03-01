@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Creating an email orchestration
-
-sending role in Amazon Pinpoint
+# Creating an email orchestration sending role in Amazon Pinpoint
 
 Amazon Pinpoint uses your Amazon SES resources for sending email messages that are either part of a
 campaign or a journey. To set up Amazon Pinpoint to use your Amazon SES resources to send email, create or
@@ -47,9 +45,7 @@ permissions for `ses:SendEmail` and `ses:SendRawEmail`.
    permissions.**
 8. Choose **Save**.
 
-## Deleting an email
-
-orchestration sending role in Amazon Pinpoint
+## Deleting an email orchestration sending role in Amazon Pinpoint
 
 You can delete the **Orchestration sending role arn** when you don't
 want to send email messages for the project. To delete the **Orchestration
@@ -74,9 +70,7 @@ Where:
 The response to this command is the JSON definition of the email channel that you
 deleted.
 
-## Find your email
-
-orchestration sending role ARN in Amazon Pinpoint
+## Find your email orchestration sending role ARN in Amazon Pinpoint
 
 For Amazon Pinpoint to begin email through Amazon SES, delegate the required permissions to Amazon Pinpoint.
 When the IAM role is set up, Amazon Pinpoint uses the **Orchestration sending role

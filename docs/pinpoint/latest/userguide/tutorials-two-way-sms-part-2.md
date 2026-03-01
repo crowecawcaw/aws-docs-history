@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Create IAM policies and
-
-roles for use with SMS in Amazon Pinpoint
+# Create IAM policies and roles for use with SMS in Amazon Pinpoint
 
 The next step in implementing the SMS registration solution in Amazon Pinpoint is to configure a policy and a
 role in AWS Identity and Access Management (IAM). For this solution, you need to create a policy that provides

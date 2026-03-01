@@ -26,9 +26,7 @@ KPI calculations are performed on hourly partitioned data due to the volume of e
 an hour can be written into the previous or next hour partition. This can cause KPIs to be
 off by around one percent.
 
-## Viewing the transactional
-
-messaging charts
+## Viewing the transactional messaging charts
 
 Complete the following steps to view the **Transactional messaging**
 charts and metrics on the Amazon Pinpoint console. You can filter the data by channel and by
@@ -51,9 +49,7 @@ range of dates, use the date selector at the top of the page to choose the dates
 for the time period that you want. After you choose new dates, the page updates
 to show the data for the selected time period.
 
-## Chart
-
-descriptions
+## Chart descriptions
 
 The **Transactional messaging** page contains several charts and
 metrics that provide information about how recipients have responded to the
@@ -69,9 +65,7 @@ part of the message that came before it. When a recipient's device receives mess
 that are separated in this way, it uses this additional information to join the incoming
 message parts into one message.
 
-### Transactional SMS
-
-charts
+### Transactional SMS charts
 
 When you use the channel selector to display the data for transactional SMS
 messages, you see the following charts and metrics:
@@ -185,9 +179,7 @@ period**), and the percentage of change between the number
 of errors that occurred on the first and last days of the time period
 (**Change over period**).
 
-### Transactional email
-
-charts
+### Transactional email charts
 
 When you use the channel selector to view the data for transactional email
 messages, you see the following charts and metrics:

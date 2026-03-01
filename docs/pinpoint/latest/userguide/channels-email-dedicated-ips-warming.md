@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Warming up dedicated IP
-
-addresses
+# Warming up dedicated IP addresses
 
 When determining whether to accept or reject a message, email service providers consider
 the reputation of the IP address that sent it. One of the factors that contributes to the
@@ -28,9 +26,7 @@ should send emails to your most active users to ensure that your complaint rate 
 You should also carefully examine your bounce messages and send less email if you receive a
 high number of blocking or throttling notifications.
 
-## Automatically warm up
-
-dedicated IP addresses
+## Automatically warm up dedicated IP addresses
 
 When you request dedicated IP addresses, Amazon Pinpoint automatically warms them up to improve
 the delivery of emails you send. The automatic IP address warm-up feature is enabled by

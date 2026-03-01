@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Preparing to use a recommender model with
-
-Amazon Pinpoint
+# Preparing to use a recommender model with Amazon Pinpoint
 
 To work with Amazon Pinpoint, a recommender model must be deployed as an Amazon Personalize campaign. In
 addition, certain AWS Identity and Access Management (IAM) roles and policies must be in place. If you want to

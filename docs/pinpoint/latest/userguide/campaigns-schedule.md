@@ -25,37 +25,27 @@ Android device, or all customers who live in the city of Los Angeles.
 
 ###### Topics
 
-- [Scheduling an email, SMS, voice message,
-  push, or custom campaign](#campaigns-schedule-no-inapp "#campaigns-schedule-no-inapp")
+- [Scheduling an email, SMS, voice message, push, or custom campaign](#campaigns-schedule-no-inapp "#campaigns-schedule-no-inapp")
 - [Scheduling an in-app campaign](#campaigns-schedule-inapp "#campaigns-schedule-inapp")
 
 ###### Prerequisite
 
 Before you begin, complete [Configure the message](campaigns-message.md "campaigns-message.md").
 
-## Scheduling an email, SMS, voice message,
-
-push, or custom campaign
+## Scheduling an email, SMS, voice message, push, or custom campaign
 
 ###### Topics in this section:
 
-- [Sending the campaign
-  immediately](#campaigns-schedule-immediate "#campaigns-schedule-immediate")
-- [Sending the campaign at a specific date
-  and time](#campaigns-schedule-once "#campaigns-schedule-once")
-- [Sending the campaign on a recurring
-  basis](#campaigns-schedule-recurring "#campaigns-schedule-recurring")
-- [Sending the campaign when events
-  occur](#campaigns-event-triggered "#campaigns-event-triggered")
-- [Best practices for using
-  event-based campaigns](#campaigns-event-triggered-best-practices "#campaigns-event-triggered-best-practices")
+- [Sending the campaign immediately](#campaigns-schedule-immediate "#campaigns-schedule-immediate")
+- [Sending the campaign at a specific date and time](#campaigns-schedule-once "#campaigns-schedule-once")
+- [Sending the campaign on a recurring basis](#campaigns-schedule-recurring "#campaigns-schedule-recurring")
+- [Sending the campaign when events occur](#campaigns-event-triggered "#campaigns-event-triggered")
+- [Best practices for using event-based campaigns](#campaigns-event-triggered-best-practices "#campaigns-event-triggered-best-practices")
 
 If you want to send the campaign as soon as you finish creating it, you can choose to
 send the campaign immediately.
 
-### Sending the campaign
-
-immediately
+### Sending the campaign immediately
 
 If you want to send the campaign as soon as you finish creating it, you can choose
 to send the campaign immediately. You can't pause a campaign that's set to run
@@ -69,9 +59,7 @@ immediately.
    **Immediately**.
 3. Choose **Next** to continue to the final step.
 
-### Sending the campaign at a specific date
-
-and time
+### Sending the campaign at a specific date and time
 
 If you want to send a campaign only once, you can schedule it to be sent at a
 specific date and time.
@@ -90,9 +78,7 @@ specific date and time.
    recipient's local time zone.
 5. Choose **Next** to continue to the final step.
 
-### Sending the campaign on a recurring
-
-basis
+### Sending the campaign on a recurring basis
 
 You can also schedule the campaign to be sent on a recurring basis. You can
 specify the frequency and the start and end dates for the campaign.
@@ -114,9 +100,7 @@ specify the frequency and the start and end dates for the campaign.
    zone.
 6. Choose **Next** to continue to the final step.
 
-### Sending the campaign when events
-
-occur
+### Sending the campaign when events occur
 
 If you want to send the campaign when customers take certain actions, you can
 configure the campaign to be sent when a specific event occurs. For example,
@@ -162,9 +146,7 @@ sends the campaign only if the event that you specified earlier occurs
 before the end date. 6. Under **Time zone**, choose a time zone to base the start
 and end dates on. 7. Choose **Next** to continue to the final step.
 
-### Best practices for using
-
-event-based campaigns
+### Best practices for using event-based campaigns
 
 There are a few restrictions and best practices that you should consider when you
 create event-based campaigns:
@@ -208,14 +190,10 @@ following:
 
 ###### Topics in this section:
 
-- [Define triggers and set campaign start and
-  end dates](#campaigns-inapp-trigger "#campaigns-inapp-trigger")
-- [(Optional) Change campaign global
-  settings](#campaigns-inapp-settings "#campaigns-inapp-settings")
+- [Define triggers and set campaign start and end dates](#campaigns-inapp-trigger "#campaigns-inapp-trigger")
+- [(Optional) Change campaign global settings](#campaigns-inapp-settings "#campaigns-inapp-settings")
 
-### Define triggers and set campaign start and
-
-end dates
+### Define triggers and set campaign start and end dates
 
 ###### To set a trigger event
 
@@ -277,9 +255,7 @@ sends the campaign only if the event that you previously specified occurs
 before the end date. 6. Under **Time zone**, choose a time zone to base the start
 and end dates on.
 
-### (Optional) Change campaign global
-
-settings
+### (Optional) Change campaign global settings
 
 Campaign global settings determine how often a message is displayed to a user.
 Customers might not want to see the same in-app message every time they initiate a

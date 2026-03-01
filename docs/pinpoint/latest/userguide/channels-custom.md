@@ -29,9 +29,7 @@ should review these terms before you send messages with custom channels.
 You can configure your campaigns to send messages through custom channels by using the
 Amazon Pinpoint console. For more information, see [Amazon Pinpoint campaigns](campaigns.md "campaigns.md").
 
-## Setting up and managing custom
-
-channels
+## Setting up and managing custom channels
 
 You can create custom channels by using a webhook, or by calling a service's API
 through an AWS Lambda function. For more information about creating custom channel

@@ -16,13 +16,10 @@ audience.
 ###### Topics
 
 - [General recommendations](#channels-email-best-practices-general "#channels-email-best-practices-general")
-- [Domain and "from" address
-  considerations](#channels-email-best-practices-domain-from "#channels-email-best-practices-domain-from")
-- [Building and maintaining your
-  lists](#channels-email-best-practices-lists "#channels-email-best-practices-lists")
+- [Domain and "from" address considerations](#channels-email-best-practices-domain-from "#channels-email-best-practices-domain-from")
+- [Building and maintaining your lists](#channels-email-best-practices-lists "#channels-email-best-practices-lists")
 - [Compliance](#channels-email-best-practices-compliance "#channels-email-best-practices-compliance")
-- [Sending a high volume of
-  email](#channels-email-best-practices-highvolume "#channels-email-best-practices-highvolume")
+- [Sending a high volume of email](#channels-email-best-practices-highvolume "#channels-email-best-practices-highvolume")
 - [Bounces](#channels-email-best-practices-bounce-rate "#channels-email-best-practices-bounce-rate")
 - [Complaints](#channels-email-best-practices-complaints "#channels-email-best-practices-complaints")
 - [Message quality](#channels-email-best-practices-quality "#channels-email-best-practices-quality")
@@ -44,9 +41,7 @@ audience.
   - Casinos and gambling
   - Work-from-home programs
 
-## Domain and "from" address
-
-considerations
+## Domain and "from" address considerations
 
 - Carefully consider the addresses that you send email from. The _From_ address is one of the first pieces of
   information your recipients see, and therefore can leave a lasting first
@@ -77,9 +72,7 @@ considerations
   address sends your recipients a clear message: that you aren't offering them a
   way to contact you, and that you're not interested in their feedback.
 
-## Building and maintaining your
-
-lists
+## Building and maintaining your lists
 
 - Implement a double opt-in strategy. When users sign up to receive email from
   you, send them a message with a confirmation link, and don't start sending them
@@ -112,9 +105,7 @@ lists
   spam legislation by country](https://en.wikipedia.org/wiki/Email_spam_legislation_by_country "https://en.wikipedia.org/wiki/Email_spam_legislation_by_country") on Wikipedia.
 - Always consult an attorney to obtain legal advice.
 
-## Sending a high volume of
-
-email
+## Sending a high volume of email
 
 Consistency is important when sending email. When increasing email volume, it's
 important to steadily increase sending volume each day, with similar types of messages

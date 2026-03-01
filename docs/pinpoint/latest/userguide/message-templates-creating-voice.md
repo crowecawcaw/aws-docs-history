@@ -49,8 +49,7 @@ content for each recipient of a message that uses the template.
 To use a message variable, choose the name of an existing attribute from the
 **Attribute finder**. Amazon Pinpoint creates a message variable for the attribute and
 copies it to your clipboard. Paste the variable in the location that you want. For more
-information, see [Adding personalized content to message
-templates](message-templates-personalizing.md "message-templates-personalizing.md"). 8. For **Language and region**, choose the language that the text of the
+information, see [Adding personalized content to message templates](message-templates-personalizing.md "message-templates-personalizing.md"). 8. For **Language and region**, choose the language that the text of the
 message script is written in. Amazon Pinpoint uses this setting to determine which phonemes and other
 language-specific settings to use when it converts the text of the script to speech. 9. For **Voice**, choose the voice that you want to speak the message to
 recipients. Each voice is created using native language speakers, so there are variations from

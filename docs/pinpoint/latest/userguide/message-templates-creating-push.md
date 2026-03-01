@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Creating push notification
-
-templates
+# Creating push notification templates
 
 A _push notification template_ is a message template that
 contains content and settings that you can use with your Amazon Pinpoint projects. When you use a
@@ -34,14 +32,11 @@ contain raw message data](#message-templates-creating-push-raw "#message-templat
 want to specify settings for a specific channel that aren't present in the standard Amazon Pinpoint
 push notification template.
 
-## Creating a standard push
-
-notification template
+## Creating a standard push notification template
 
 Complete this procedure to specify the basic message content, such as the title,
 message body, image, and action. To specify the raw message content, complete the
-procedure in [Creating a push notification
-template with raw message data](#message-templates-creating-push-raw "#message-templates-creating-push-raw") instead.
+procedure in [Creating a push notification template with raw message data](#message-templates-creating-push-raw "#message-templates-creating-push-raw") instead.
 
 ###### To create a push notification template
 
@@ -78,8 +73,7 @@ template with raw message data](#message-templates-creating-push-raw "#message-t
    attribute from the **Attribute finder**. Amazon Pinpoint
    creates a message variable for the attribute and copies it to your
    clipboard. Paste the variable in the location that you want. For
-   more information, see [Adding personalized content to message
-   templates](message-templates-personalizing.md "message-templates-personalizing.md").
+   more information, see [Adding personalized content to message templates](message-templates-personalizing.md "message-templates-personalizing.md").
    - For **Custom alert sound**, enter the name of the
      audio file that contains the custom sound that you want to play when a
      recipient receives the push notification. This name must match the name
@@ -195,15 +189,12 @@ values** section. Then enter the default value that you want to use for each var
 If you don't specify a default value and a value doesn't exist for a recipient, Amazon Pinpoint does not send the message. 10. When you finish entering content and settings for the template, choose
 **Create**.
 
-## Creating a push notification
-
-template with raw message data
+## Creating a push notification template with raw message data
 
 Complete this procedure to specify the raw message payload manually. You only need to
 specify the raw message payload if you want to use a feature of a specific push
 notification service that Amazon Pinpoint doesn't allow you to configure. If you don't need to
-specify the raw message content, you should complete the procedure in [Creating a standard push
-notification template](#message-templates-creating-push-standard "#message-templates-creating-push-standard") instead.
+specify the raw message content, you should complete the procedure in [Creating a standard push notification template](#message-templates-creating-push-standard "#message-templates-creating-push-standard") instead.
 
 An example of a use case that requires you to use a raw message template is when you
 want to send messages to users of the desktop Safari web browser. In this case, you must

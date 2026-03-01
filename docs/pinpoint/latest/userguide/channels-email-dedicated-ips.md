@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Using dedicated IP addresses with
-
-Amazon Pinpoint
+# Using dedicated IP addresses with Amazon Pinpoint
 
 When you create a new Amazon Pinpoint account, your emails are sent from IP addresses that are
 shared with other Amazon Pinpoint users. For [an additional monthly
@@ -46,9 +44,7 @@ If you choose to lease dedicated IP addresses, you have to determine how many
 dedicated IP addresses you need, submit a request, and optionally [create dedicated IP
 pools](channels-email-dedicated-ips-pools.md "channels-email-dedicated-ips-pools.md").
 
-## Reputation managed by
-
-AWS
+## Reputation managed by AWS
 
 IP address reputations are based largely on historical sending patterns and volume. An
 IP address that sends consistent volumes of email over a long period of time usually has
@@ -61,9 +57,7 @@ maximize the reputations of the shared IP addresses.
 If you use dedicated IP addresses, it's your responsibility to maintain your sender
 reputation by sending consistent and predictable volumes of email.
 
-## Predictability of
-
-sending patterns
+## Predictability of sending patterns
 
 An IP address with a consistent history of sending email has a better reputation than
 one that suddenly starts sending out large volumes of email with no prior sending
@@ -76,13 +70,10 @@ demands.
 
 If you use dedicated IP addresses, you have to warm up those addresses by sending an
 amount of email that gradually increases every day. The process of warming up new IP
-addresses is described in [Warming up dedicated IP
-addresses](channels-email-dedicated-ips-warming.md "channels-email-dedicated-ips-warming.md"). After your dedicated IP
+addresses is described in [Warming up dedicated IP addresses](channels-email-dedicated-ips-warming.md "channels-email-dedicated-ips-warming.md"). After your dedicated IP
 addresses are warmed up, you must then maintain a consistent sending pattern.
 
-## Volume of outbound
-
-email
+## Volume of outbound email
 
 Dedicated IP addresses are more appropriately suited for customers who send large
 volumes of email. Most internet service providers (ISPs) only track the reputation of a
@@ -102,18 +93,14 @@ dedicated IP addresses incurs an extra monthly cost beyond the standard costs th
 associated with sending email using Amazon Pinpoint. Each dedicated IP address incurs a separate
 monthly charge. For pricing information, see the [Amazon Pinpoint pricing page](https://aws.amazon.com/pinpoint/pricing/ "https://aws.amazon.com/pinpoint/pricing/").
 
-## Control over sender
-
-reputation
+## Control over sender reputation
 
 When you use dedicated IP addresses, your Amazon Pinpoint account is the only one that is able
 to send email from those addresses. For this reason, the sender reputation of the
 dedicated IP addresses that you lease is determined by your email-sending
 practices.
 
-## Ability to isolate
-
-sender reputation
+## Ability to isolate sender reputation
 
 By using dedicated IP addresses, you can isolate your sender reputation for different
 components of your email program. If you lease more than one dedicated IP address for
@@ -123,9 +110,7 @@ specific types of email. For example, you can create one pool of dedicated IP ad
 for sending marketing email, and another for sending transactional email. To learn more,
 see [Creating dedicated IP pools](channels-email-dedicated-ips-pools.md "channels-email-dedicated-ips-pools.md").
 
-## Known, unchanging IP
-
-addresses
+## Known, unchanging IP addresses
 
 When you use dedicated IP addresses, you can find the values of the addresses that
 send your mail in the **Dedicated IPs** page of the Amazon Pinpoint console.

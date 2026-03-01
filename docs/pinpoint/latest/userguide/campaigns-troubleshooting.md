@@ -10,9 +10,7 @@ supported by AWS End User Messaging.
 
 Verify that logging is turned on to assist in identifying the cause of failure. For more information, see [Monitoring and logging](troubleshooting.md#troubleshooting-logging "troubleshooting.md#troubleshooting-logging") and [Campaign events](../developerguide/event-streams-data-campaign.md "../developerguide/event-streams-data-campaign.md").
 
-## Some endpoints were not
-
-processed or targeted successfully by the campaign
+## Some endpoints were not processed or targeted successfully by the campaign
 
 **Endpoints targeted**: The total number of endpoints that
 will be targeted when the campaign runs for the chosen channel. This total excludes

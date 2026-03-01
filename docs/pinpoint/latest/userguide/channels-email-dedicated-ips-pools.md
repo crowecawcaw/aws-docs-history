@@ -26,5 +26,4 @@ _Amazon Simple Email Service Developer Guide_.
 
 In order to use configuration sets (and therefore, dedicated IP pools) with Amazon Pinpoint, you
 must configure the configuration set as the default configuration set for the email
-identities that you use with Amazon Pinpoint. For more information, see [Applying a
-configuration set to an email identity](channels-email-manage-configuration-sets.md#channels-email-manage-configuration-sets-applying "channels-email-manage-configuration-sets.md#channels-email-manage-configuration-sets-applying").
+identities that you use with Amazon Pinpoint. For more information, see [Applying a configuration set to an email identity](channels-email-manage-configuration-sets.md#channels-email-manage-configuration-sets-applying "channels-email-manage-configuration-sets.md#channels-email-manage-configuration-sets-applying").

@@ -104,9 +104,7 @@ following metrics:
 - **DKIM** – The percentage of messages that were verified by
   the provider using DKIM.
 
-## Test
-
-results
+## Test results
 
 Inbox placement tests contain two sections: a **Deliverability
 overview** and an **ISP Overview**.

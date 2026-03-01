@@ -35,5 +35,4 @@ process.
 
 If you enter an email domain, the console displays a TXT record that you must
 add to the DNS settings for your domain. 8. Follow the instructions shown on the console. For more information about verifying an
-email address or domain, see [Verifying email identities](channels-email-manage-verify.md "channels-email-manage-verify.md"). 9. If you need to create or update your **Orchestration sending role arn**, see [Creating an email orchestration
-sending role in Amazon Pinpoint](channels-email-orchestration-sending-role.md "channels-email-orchestration-sending-role.md"). 10. When you finish, choose **Save**.
+email address or domain, see [Verifying email identities](channels-email-manage-verify.md "channels-email-manage-verify.md"). 9. If you need to create or update your **Orchestration sending role arn**, see [Creating an email orchestration sending role in Amazon Pinpoint](channels-email-orchestration-sending-role.md "channels-email-orchestration-sending-role.md"). 10. When you finish, choose **Save**.

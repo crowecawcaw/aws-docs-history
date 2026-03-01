@@ -14,9 +14,7 @@ enabled.
 You can also enable the SMS channel for an existing project by using the **SMS and
 voice** settings page on the Amazon Pinpoint console. For more information, see [Managing the Amazon Pinpoint SMS channel](channels-sms-manage.md "channels-sms-manage.md").
 
-## Creating a new project using the Amazon Pinpoint
-
-console
+## Creating a new project using the Amazon Pinpoint console
 
 The first step in setting up the SMS channel in Amazon Pinpoint is to create a new project.
 Next, you enable the SMS channel for that project.

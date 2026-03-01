@@ -16,8 +16,7 @@ never created a project in Amazon Pinpoint, complete the procedures in this
 section.
 
 If your Amazon Pinpoint account includes one or more existing projects, you should
-complete the steps in [Option 2: Create and
-configure a project (existing Amazon Pinpoint users)](#projects-manage-create-existing-user "#projects-manage-create-existing-user") instead.
+complete the steps in [Option 2: Create and configure a project (existing Amazon Pinpoint users)](#projects-manage-create-existing-user "#projects-manage-create-existing-user") instead.
 
 ###### To create a project
 
@@ -53,8 +52,7 @@ The procedures in this section show you how to create a project if your Amazon P
 account already includes one or more existing projects.
 
 If your Amazon Pinpoint account doesn't contain any projects, you should complete the
-steps in [Option 1: Create and configure
-a project (new Amazon Pinpoint users)](#projects-manage-create-new-user "#projects-manage-create-new-user") instead.
+steps in [Option 1: Create and configure a project (new Amazon Pinpoint users)](#projects-manage-create-new-user "#projects-manage-create-new-user") instead.
 
 ###### To create a project
 

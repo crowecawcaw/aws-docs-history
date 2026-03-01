@@ -54,9 +54,7 @@ can [request production access for
 email](channels-email-setup-production-access.md "channels-email-setup-production-access.md"). After your account moves out of the sandbox and you start sending emails, you
 can increase your quotas further by submitting a quota increase request to AWS Support.
 
-## Increasing your sending
-
-quotas
+## Increasing your sending quotas
 
 When your account is out of the sandbox, your sending quotas increase if you're
 sending high-quality content and we detect that your utilization is approaching your
@@ -99,9 +97,7 @@ the mailbox simulator do not count toward your sending metrics or your
 bounce and complaint rates. For more information, see [Sending test
 emails in Amazon SES](../../../ses/latest/dg/send-an-email-from-console.md "../../../ses/latest/dg/send-an-email-from-console.md").
 
-## Requesting a quota
-
-increase
+## Requesting a quota increase
 
 To request higher sending quotas for Amazon Pinpoint, open a case in AWS Support Center by
 using the following instructions.
@@ -182,9 +178,7 @@ request.
 
 We might not be able to grant your request if your use case doesn’t align with our policies.
 
-## Checking the status of your
-
-request
+## Checking the status of your request
 
 After you submit your request, we review your case. To check the status of your
 request, complete the following steps.

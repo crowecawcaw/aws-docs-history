@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Bounce and
-
-complaint rates
+# Bounce and complaint rates
 
 On the **Bounce and complaint rates** page, you can find important
 metrics related to the bounce and complaint rates for your combined Amazon Pinpoint and Amazon Simple Email Service

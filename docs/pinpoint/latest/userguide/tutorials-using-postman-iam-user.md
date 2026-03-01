@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Create IAM policies and
-
-roles for use with Amazon Pinpoint
+# Create IAM policies and roles for use with Amazon Pinpoint
 
 When you use Postman to test the Amazon Pinpoint API, the first step is to create a user. In this
 section, you create a policy that permits users to interact with all the Amazon Pinpoint resources.

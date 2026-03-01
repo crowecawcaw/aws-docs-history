@@ -58,8 +58,7 @@ attribute value that you want to filter the data by.
 
 ## Chart descriptions
 
-The **Usage** page contains three sections: [User metrics](#analytics-usage-description-users "#analytics-usage-description-users"), [Session metrics](#analytics-usage-description-sessions "#analytics-usage-description-sessions"), and [Authentication
-metrics](#analytics-usage-description-authentication "#analytics-usage-description-authentication").
+The **Usage** page contains three sections: [User metrics](#analytics-usage-description-users "#analytics-usage-description-users"), [Session metrics](#analytics-usage-description-sessions "#analytics-usage-description-sessions"), and [Authentication metrics](#analytics-usage-description-authentication "#analytics-usage-description-authentication").
 
 ### User metrics
 
@@ -173,9 +172,7 @@ Shows the days and times when endpoints opened your app. The times in this
 chart reflect each endpoint's local time. Darker rectangles in this chart indicate larger
 numbers of endpoints opening your app.
 
-### Authentication
-
-metrics
+### Authentication metrics
 
 The **Authentication metrics** section provides information about
 how often existing users sign in to your app, and how often new users sign up for

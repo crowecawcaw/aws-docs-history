@@ -10,9 +10,7 @@ supported by AWS End User Messaging.
 
 Verify that logging is turned on to assist in identifying the cause of failure. For more information on logging, see [Monitoring and logging](troubleshooting.md#troubleshooting-logging "troubleshooting.md#troubleshooting-logging") and [Journey events](../developerguide/event-streams-data-journey.md "../developerguide/event-streams-data-journey.md").
 
-## Event based journey isn't
-
-triggered when using a PutEvents request
+## Event based journey isn't triggered when using a PutEvents request
 
 ###### **Issues and solutions**
 
@@ -62,9 +60,7 @@ file://PutEvents.json
 }
 ```
 
-## All journey participants go through ‘No’
-
-branch during ‘Yes/No’ split activity
+## All journey participants go through ‘No’ branch during ‘Yes/No’ split activity
 
 ###### **Issues and solutions**
 

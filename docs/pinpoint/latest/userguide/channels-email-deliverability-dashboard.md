@@ -31,13 +31,9 @@ You can access the Deliverability dashboard by using the Amazon Pinpoint console
 
 following sections:
 
-- [Amazon Pinpoint domain reputation
-  page](channels-email-deliverability-dashboard-domain.md "channels-email-deliverability-dashboard-domain.md")
+- [Amazon Pinpoint domain reputation page](channels-email-deliverability-dashboard-domain.md "channels-email-deliverability-dashboard-domain.md")
 - [IP reputation](channels-email-deliverability-dashboard-ip-address.md "channels-email-deliverability-dashboard-ip-address.md")
-- [Bounce and
-  complaint rates](channels-email-deliverability-dashboard-bounce-complaint.md "channels-email-deliverability-dashboard-bounce-complaint.md")
-- [Campaign
-  delivery metrics](channels-email-deliverability-dashboard-campaign-delivery.md "channels-email-deliverability-dashboard-campaign-delivery.md")
+- [Bounce and complaint rates](channels-email-deliverability-dashboard-bounce-complaint.md "channels-email-deliverability-dashboard-bounce-complaint.md")
+- [Campaign delivery metrics](channels-email-deliverability-dashboard-campaign-delivery.md "channels-email-deliverability-dashboard-campaign-delivery.md")
 - [Inbox placement tests](channels-email-deliverability-dashboard-pipt.md "channels-email-deliverability-dashboard-pipt.md")
-- [Deliverability dashboard
-  settings](channels-email-deliverability-dashboard-settings.md "channels-email-deliverability-dashboard-settings.md")
+- [Deliverability dashboard settings](channels-email-deliverability-dashboard-settings.md "channels-email-deliverability-dashboard-settings.md")

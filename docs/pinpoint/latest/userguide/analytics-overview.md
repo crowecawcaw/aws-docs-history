@@ -33,8 +33,7 @@ date.
 
 ## Chart descriptions
 
-The **Analytics overview** page contains three sections: [App analytics](#analytics-overview-description-app-analytics "#analytics-overview-description-app-analytics"), [Campaign
-analytics](#analytics-overview-description-campaign-analytics "#analytics-overview-description-campaign-analytics"), and [Transactional email](#analytics-overview-description-transactional-email-analytics "#analytics-overview-description-transactional-email-analytics").
+The **Analytics overview** page contains three sections: [App analytics](#analytics-overview-description-app-analytics "#analytics-overview-description-app-analytics"), [Campaign analytics](#analytics-overview-description-campaign-analytics "#analytics-overview-description-campaign-analytics"), and [Transactional email](#analytics-overview-description-transactional-email-analytics "#analytics-overview-description-transactional-email-analytics").
 
 ### App analytics
 
@@ -94,9 +93,7 @@ in the selected time period. This chart also provides the total revenue
 for the entire time period, and the percentage change in the amount of
 revenue from the beginning to the end of the time period.
 
-### Campaign
-
-analytics
+### Campaign analytics
 
 The **Campaign analytics** section contains several important
 metrics that can help you understand the success of your campaigns. The metrics in

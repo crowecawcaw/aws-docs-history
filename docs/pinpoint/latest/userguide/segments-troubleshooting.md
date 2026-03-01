@@ -52,9 +52,7 @@ your request is formatted properly, and then submit your request again.
   criteria. The segment can be exported to confirm the exact number of endpoints
   at a given point in time.
 
-## BadRequestException: Exceeded
-
-maximum endpoint per user count: 15
+## BadRequestException: Exceeded maximum endpoint per user count: 15
 
 This error occurs when attempting to add more than 15 endpoints associated with the same
 `UserId`.
@@ -75,10 +73,7 @@ Developer Guide_.
 - This limit is currently a hard limit with the service. It can't be increased.
   For more information, see [Endpoint quotas](../developerguide/quotas.md#quotas-endpoint "../developerguide/quotas.md#quotas-endpoint").
 
-## BadRequestException when calling the
-
-UpdateEndpointsBatch or UpdateEndpoints operation: Too many custom
-attributes
+## BadRequestException when calling the UpdateEndpointsBatch or UpdateEndpoints operation: Too many custom attributes
 
 This error occurs when attempting to add more than 250 attributes. Custom attributes
 can be a maximum of 15 KB per endpoint.

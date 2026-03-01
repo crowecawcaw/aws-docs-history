@@ -38,9 +38,7 @@ period. It also includes a table that lists all of those campaigns. When you cho
 specific campaign from the table, you see a new set of charts and metrics with data
 that's specific to that campaign.
 
-### Aggregated campaign
-
-metrics
+### Aggregated campaign metrics
 
 The **Campaigns** page includes the following charts and metrics,
 which are aggregated across all the campaigns that were active during the selected
@@ -65,9 +63,7 @@ rates for those messages. The **Endpoint deliveries**
 area shows the number of unique endpoints that received messages from
 the campaigns.
 
-### Metrics for individual
-
-campaigns
+### Metrics for individual campaigns
 
 When you select a campaign from the table of campaigns, you see charts and metrics
 that are specific to that campaign. The charts and metrics that you see depend on

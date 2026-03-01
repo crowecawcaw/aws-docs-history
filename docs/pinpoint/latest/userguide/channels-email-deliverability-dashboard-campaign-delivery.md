@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Campaign
-
-delivery metrics
+# Campaign delivery metrics
 
 The **Campaign delivery metrics** section contains information about
 inbox placement rates for the email that you sent from your domains. However, unlike the

@@ -21,8 +21,7 @@ add settings for attributes that temporarily store recommendations from the camp
 
 ## Before you begin
 
-Before you set up a recommender model in Amazon Pinpoint, review the information in [Preparing to use a recommender model with
-Amazon Pinpoint](ml-models-rm-prerequisites.md "ml-models-rm-prerequisites.md"). This will
+Before you set up a recommender model in Amazon Pinpoint, review the information in [Preparing to use a recommender model with Amazon Pinpoint](ml-models-rm-prerequisites.md "ml-models-rm-prerequisites.md"). This will
 help you gather the resources and information that you need to set up the model in Amazon Pinpoint.
 
 ## Step 1: Set up the model
