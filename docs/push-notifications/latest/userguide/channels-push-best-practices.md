@@ -5,9 +5,7 @@ situations that impact the deliverability of your messages. The following sectio
 recommendations to help ensure that your push communications reach your intended
 audience.
 
-## Sending a high volume of push
-
-notifications
+## Sending a high volume of push notifications
 
 Before you send a high volume of push notifications, make sure that your account is configured to support your throughput requirements. By default, all
 accounts are configured to send 25,000 messages per second. If you need to be able
