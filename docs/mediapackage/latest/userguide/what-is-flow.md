@@ -12,7 +12,5 @@ The following sections describe the live processing flows.
 
 ###### Topics
 
-- [General AWS Elemental MediaPackage live processing
-  flow](what-is-flow-gen.md "what-is-flow-gen.md")
-- [Live input redundancy AWS Elemental MediaPackage processing
-  flow](what-is-flow-ir.md "what-is-flow-ir.md")
+- [General AWS Elemental MediaPackage live processing flow](what-is-flow-gen.md "what-is-flow-gen.md")
+- [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md "what-is-flow-ir.md")

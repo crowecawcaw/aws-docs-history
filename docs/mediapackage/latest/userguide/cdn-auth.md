@@ -50,7 +50,5 @@ Complete the following procedures to configure CDN authorization with MediaPacka
 
 - [Configure MediaPackage CDN authorization setup](cdn-auth-setup.md "cdn-auth-setup.md")
 - [Rotate MediaPackage CDN authorization secrets](cdn-auth-rotate.md "cdn-auth-rotate.md")
-- [Troubleshoot MediaPackage CDN authorization
-  errors](cdn-auth-troubleshooting.md "cdn-auth-troubleshooting.md")
-- [Optimize MediaPackage CDN authorization
-  security](cdn-auth-best-practices.md "cdn-auth-best-practices.md")
+- [Troubleshoot MediaPackage CDN authorization errors](cdn-auth-troubleshooting.md "cdn-auth-troubleshooting.md")
+- [Optimize MediaPackage CDN authorization security](cdn-auth-best-practices.md "cdn-auth-best-practices.md")

@@ -1,6 +1,4 @@
-# Monitoring manifest update time in
-
-AWS Elemental MediaPackage
+# Monitoring manifest update time in AWS Elemental MediaPackage
 
 MediaPackage playback responses include the following custom headers that indicate
 when MediaPackage last modified the manifest in non-dynamic ad insertion workflows. These

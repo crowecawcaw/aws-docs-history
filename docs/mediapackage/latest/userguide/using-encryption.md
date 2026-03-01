@@ -16,9 +16,7 @@ and requirements:
   MediaPackage.
 - Use MediaPackage to encrypt live content.
 
-## Container and DRM system support with
-
-SPEKE
+## Container and DRM system support with SPEKE
 
 MediaPackage supports [SPEKE Version 2.0](../../../speke/latest/documentation/the-speke-api-v2.md "../../../speke/latest/documentation/the-speke-api-v2.md") which uses
 multiple, distinct encryption keys for audio and video tracks and uses [Content Protection Information Exchange

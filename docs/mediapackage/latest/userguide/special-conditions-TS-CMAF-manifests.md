@@ -1,6 +1,4 @@
-# Special conditions for TS and
-
-CMAF manifests in MediaPackage
+# Special conditions for TS and CMAF manifests in MediaPackage
 
 If you are using TS or CMAF manifests for MediaPackage, these special conditions
 apply.

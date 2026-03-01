@@ -61,8 +61,7 @@ Input redundancy is available with only live workflows in MediaPackage.
 
 MediaPackage creates two ingest URLs on every channel group so that you can
 create input redundancy by sending two identical streams to the same
-channel. For information about how input redundancy works, see [Live input redundancy AWS Elemental MediaPackage processing
-flow](what-is-flow-ir.md "what-is-flow-ir.md").
+channel. For information about how input redundancy works, see [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md "what-is-flow-ir.md").
 
 **Low-latency streaming**
 

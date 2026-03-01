@@ -1,6 +1,4 @@
-# Access control best practices for
-
-AWS Elemental MediaPackage
+# Access control best practices for AWS Elemental MediaPackage
 
 MediaPackage provides a variety of security features and tools. The following topics describe some
 tools and settings that you might want to use to help control access when performing certain
@@ -67,8 +65,7 @@ intend to share these resources with are already set up within IAM, you can add 
 common group and share the bucket with their group within the user policy. You can also use
 IAM user policies to share individual objects within a bucket.
 
-For more information, see [Identity-based policy
-examples for MediaPackage](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+For more information, see [Identity-based policy examples for MediaPackage](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ###### Tagging
 

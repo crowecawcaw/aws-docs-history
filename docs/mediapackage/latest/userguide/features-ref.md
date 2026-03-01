@@ -9,8 +9,7 @@ and how they work.
 - [CMAF ingest in AWS Elemental MediaPackage](cmaf-ingest.md "cmaf-ingest.md")
 - [Content encryption and DRM in AWS Elemental MediaPackage](using-encryption.md "using-encryption.md")
 - [CMSD headers from AWS Elemental MediaPackage](cmsd.md "cmsd.md")
-- [Working with cross-Region failover in
-  AWS Elemental MediaPackage](cross-region-failover.md "cross-region-failover.md")
+- [Working with cross-Region failover in AWS Elemental MediaPackage](cross-region-failover.md "cross-region-failover.md")
 - [DASH manifest options in AWS Elemental MediaPackage](dash-trtmts.md "dash-trtmts.md")
 - [HLS and LL-HLS in AWS Elemental MediaPackage](hls-overview.md "hls-overview.md")
 - [Manifest filtering from AWS Elemental MediaPackage](manifest-filtering.md "manifest-filtering.md")

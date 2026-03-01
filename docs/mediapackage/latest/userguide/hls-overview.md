@@ -68,5 +68,4 @@ Consider using HLS or LL-HLS endpoints in the following scenarios:
 - Creating multi-protocol streaming workflows that need to include HLS alongside other formats
 - Enabling advanced playback features like fast forward and rewind with I-frame only streams
 
-For information about creating HLS or LL-HLS endpoints, see [Create an HLS or LL-HLS
-manifest](endpoints-create.md#hls-llhls-manifest "endpoints-create.md#hls-llhls-manifest").
+For information about creating HLS or LL-HLS endpoints, see [Create an HLS or LL-HLS manifest](endpoints-create.md#hls-llhls-manifest "endpoints-create.md#hls-llhls-manifest").

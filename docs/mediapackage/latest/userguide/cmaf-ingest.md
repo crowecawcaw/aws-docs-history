@@ -6,17 +6,13 @@ and features to optimize your streaming experience.
 
 The topics in this section cover CMAF ingest.
 
-## Choosing a MediaLive output group for
-
-MediaPackage CMAF ingest
+## Choosing a MediaLive output group for MediaPackage CMAF ingest
 
 When configuring AWS Elemental MediaLive to send content to MediaPackage, you can choose between two output
 group types for CMAF ingest. Your choice affects which capabilities are available for
 stream control and presentation in your streaming workflow.
 
-### When to use each output
-
-group
+### When to use each output group
 
 Use this guidance to determine the output group that best fits your streaming
 requirements:
@@ -65,9 +61,7 @@ group:
 | Stream metadata passthrough                           | Standard                                         | Enhanced (additional passthrough capabilities) |
 | Setup complexity                                      | Simple                                           | More configuration options                     |
 
-## Enhanced CMAF capabilities with
-
-MediaPackage output groups
+## Enhanced CMAF capabilities with MediaPackage output groups
 
 When using the MediaPackage output group in MediaLive, AWS Elemental MediaPackage provides additional
 passthrough capabilities and desired stream ordering. These enhanced capabilities give
@@ -87,9 +81,7 @@ Stream ordering preservation helps you:
 - Present quality choices in your preferred order
 - Organize streams logically for better viewer navigation
 
-### Additional passthrough
-
-capabilities
+### Additional passthrough capabilities
 
 The MediaPackage output group provides additional passthrough capabilities that
 enable enhanced stream metadata to be preserved from MediaLive to the output

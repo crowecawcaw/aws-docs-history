@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed
-
-policy: AWSElementalMediaPackageV2FullAccess
+## AWS managed policy: AWSElementalMediaPackageV2FullAccess
 
 This policy grants contributor permissions that allow all actions on all live resources in
 MediaPackage.
@@ -27,9 +25,7 @@ IAM identities.
 
 To view the permissions for this policy, see [AWSElementalMediaPackageV2FullAccess](../../../aws-managed-policy/latest/reference/AWSElementalMediaPackageV2FullAccess.md "../../../aws-managed-policy/latest/reference/AWSElementalMediaPackageV2FullAccess.md") in the _AWS Managed Policy Reference_.
 
-## AWS managed
-
-policy: AWSElementalMediaPackageV2ReadOnly
+## AWS managed policy: AWSElementalMediaPackageV2ReadOnly
 
 This policy grants contributor permissions that allow read-only actions on all live resources in
 MediaPackage.
@@ -39,9 +35,7 @@ IAM identities.
 
 To view the permissions for this policy, see [AWSElementalMediaPackageV2ReadOnly](../../../aws-managed-policy/latest/reference/AWSElementalMediaPackageV2ReadOnly.md "../../../aws-managed-policy/latest/reference/AWSElementalMediaPackageV2ReadOnly.md") in the _AWS Managed Policy Reference_.
 
-## MediaPackage updates to AWS managed
-
-policies
+## MediaPackage updates to AWS managed policies
 
 View details about updates to AWS managed policies for MediaPackage since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

@@ -49,9 +49,7 @@ In the processing flow for live-to-VOD (video on demand) content, MediaPackage v
 
 The following sections provide an overview of the live-to-VOD processes.
 
-### Live-to-VOD
-
-`HarvestJob`
+### Live-to-VOD `HarvestJob`
 
 You can schedule a harvest job to take place at a specified timeframe in your live
 content stream.

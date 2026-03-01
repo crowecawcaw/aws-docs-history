@@ -5,8 +5,7 @@ how MediaPackage prepares content for delivery. Content can't be served from a c
 has an endpoint. If you're using input redundancy, each endpoint receives content from
 one ingest URL at a time. If MediaPackage performs a failover on the inputs for one ingest
 input URL, the endpoints automatically start receiving content from the other ingest
-URL. For more information about input redundancy and failover, see [Live input redundancy AWS Elemental MediaPackage processing
-flow](what-is-flow-ir.md "what-is-flow-ir.md").
+URL. For more information about input redundancy and failover, see [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md "what-is-flow-ir.md").
 
 You can use the MediaPackage console, MediaPackage API, or AWS CLI to create an origin endpoint.
 When you're creating an origin endpoint, don't put sensitive identifying information
@@ -174,8 +173,7 @@ To encrypt content, you must have a DRM provider, and be set up to use encryptio
    to use. If you don't see your preferred encryption method, confirm you
    choose the correct container type. The encryption method you choose impacts
    the DRM system providers you can choose. For supported encryption methods
-   and DRM system providers, see [Container and DRM system support with
-   SPEKE](using-encryption.md#encryption-choosing-speke-version "using-encryption.md#encryption-choosing-speke-version").
+   and DRM system providers, see [Container and DRM system support with SPEKE](using-encryption.md#encryption-choosing-speke-version "using-encryption.md#encryption-choosing-speke-version").
    - The valid encryption methods for TS container types are:
      - AES-128
      - Sample AES
@@ -191,8 +189,7 @@ To encrypt content, you must have a DRM provider, and be set up to use encryptio
    you're using to protect your content during distribution. You can choose
    more than one. If you don't see your DRM system provider, confirm you choose
    the correct container type and encryption method. For supported DRM system
-   providers, see [Container and DRM system support with
-   SPEKE](using-encryption.md#encryption-choosing-speke-version "using-encryption.md#encryption-choosing-speke-version").
+   providers, see [Container and DRM system support with SPEKE](using-encryption.md#encryption-choosing-speke-version "using-encryption.md#encryption-choosing-speke-version").
 
 The valid DRM systems for TS container types are:
 

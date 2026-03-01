@@ -109,8 +109,7 @@ resources to increase capacity for your traffic.
 
 If you're using input redundancy and one of the inputs stops sending content,
 then MediaPackage automatically switches to the other input for the source content. For
-more information about how input redundancy works, see [Live input redundancy AWS Elemental MediaPackage processing
-flow](what-is-flow-ir.md "what-is-flow-ir.md").
+more information about how input redundancy works, see [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md "what-is-flow-ir.md").
 
 While you create a channel, if you exceed the quotas on the account, you'll
 receive an error. The error will be similar to **`Too many requests,

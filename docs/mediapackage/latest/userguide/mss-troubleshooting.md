@@ -382,9 +382,7 @@ Indicates server-side issues with the MSS endpoint or underlying infrastructure.
 - Backend service failures or timeouts
 - Configuration errors in the endpoint setup
 
-## Using diagnostic tools to identify MSS
-
-issues
+## Using diagnostic tools to identify MSS issues
 
 The following tools can help you troubleshoot MSS streaming issues:
 

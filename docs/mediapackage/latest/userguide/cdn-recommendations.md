@@ -16,9 +16,7 @@ values and avoid overriding them at the CDN configuration level.
 - TS media segments and init segments - 1209600 seconds (14 days)
 - CMAF media segments and initialization segments - 1209600 seconds (14 days)
 
-## Include specific query strings in your CDN cache
-
-key
+## Include specific query strings in your CDN cache key
 
 We recommend that you include the following query strings in the CDN cache key.
 

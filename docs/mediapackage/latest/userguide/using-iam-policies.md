@@ -14,7 +14,6 @@ channel, see **[Creating a channel in AWS Elemental MediaPackage](channels-creat
 
 ###### Topics
 
-- [Policies and Permissions in
-  MediaPackage](policies-permissions.md "policies-permissions.md")
+- [Policies and Permissions in MediaPackage](policies-permissions.md "policies-permissions.md")
 - [Ingest authorization](ingest-auth.md "ingest-auth.md")
 - [Origin endpoint authorization](endpoint-auth.md "endpoint-auth.md")

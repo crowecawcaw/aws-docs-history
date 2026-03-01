@@ -1,6 +1,4 @@
-# Allowing MediaPackage to access other
-
-AWS services
+# Allowing MediaPackage to access other AWS services
 
 Some features require you to allow MediaPackage to access other AWS services, such as
 Amazon S3 and AWS Secrets Manager (Secrets Manager). To allow this access, create an IAM role and policy with the

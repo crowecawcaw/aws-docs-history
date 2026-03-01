@@ -40,9 +40,7 @@ issues with certain devices and players:
 When these compatibility issues occur, players may fail to start playback, encounter
 buffering problems, or display error messages related to DRM or segment parsing.
 
-## When to exclude segment
-
-metadata
+## When to exclude segment metadata
 
 Consider excluding DRM segment metadata in the following scenarios:
 
@@ -61,9 +59,7 @@ Excluding segment metadata doesn't affect other DRM functionality. PSSH (Protect
 System Specific Header) and TENC (Track Encryption) boxes remain unaffected and continue
 to provide essential DRM information.
 
-## Alternative key rotation
-
-methods
+## Alternative key rotation methods
 
 When you exclude segment metadata, key rotation can still be handled through alternative
 methods:

@@ -24,8 +24,7 @@ This section assumes that you have already performed these tasks:
 ###### Topics
 
 - [Create a role in the IAM console](#setting-up-create-role "#setting-up-create-role")
-- [Assume the role from
-  the IAM console or AWS CLI](#setting-up-create-nonadmin-roles-assume-role "#setting-up-create-nonadmin-roles-assume-role")
+- [Assume the role from the IAM console or AWS CLI](#setting-up-create-nonadmin-roles-assume-role "#setting-up-create-nonadmin-roles-assume-role")
 - [Add permissions for tagging](#requirements-for-tagging "#requirements-for-tagging")
 
 ## Create a role in the IAM console
@@ -114,9 +113,7 @@ user.
     _IAM User Guide_.
 14. Review the role and then choose **Create role**.
 
-## Assume the role from
-
-the IAM console or AWS CLI
+## Assume the role from the IAM console or AWS CLI
 
 View the following resources for learning about granting permissions for users to
 assume the role and how users can switch to the role from the IAM console or

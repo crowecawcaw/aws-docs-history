@@ -1,6 +1,4 @@
-# Manifest filtering query parameters
-
-in AWS Elemental MediaPackage
+# Manifest filtering query parameters in AWS Elemental MediaPackage
 
 To use manifest filtering query parameters, append `aws.manifestfilter` to
 your playback request to MediaPackage. MediaPackage evaluates the query, and serves a client manifest
@@ -12,8 +10,7 @@ parameters.
 ###### Note
 
 If you are using TS or CMAF origin endpoints, special conditions apply. For
-information about these conditions, see [Special conditions for TS and
-CMAF manifests in MediaPackage](special-conditions-TS-CMAF-manifests.md "special-conditions-TS-CMAF-manifests.md").
+information about these conditions, see [Special conditions for TS and CMAF manifests in MediaPackage](special-conditions-TS-CMAF-manifests.md "special-conditions-TS-CMAF-manifests.md").
 
 ## Query parameter formatting
 
@@ -47,8 +44,7 @@ The base query parameter is `aws.manifestfilter`, which is followed by
 optional parameter name and value pairs. To construct the query, append
 `?aws.manifestfilter=` to the end of the MediaPackage endpoint URL, followed
 by parameter names and values. For a list of all of the available parameters, see
-[Manifest filtering query parameters
-in AWS Elemental MediaPackage](manifest-filter-query-parameters.md "manifest-filter-query-parameters.md").
+[Manifest filtering query parameters in AWS Elemental MediaPackage](manifest-filter-query-parameters.md "manifest-filter-query-parameters.md").
 
 ###### Example HLS filter query
 
@@ -68,7 +64,7 @@ configurations. For more information, see [Configure cache behavior for all endp
 | Query string component | Description                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `?`                    | A restricted character that marks the beginning of a<br>query.                                                                                                                                                                                                                                                                                                                                                                                          |
-| `aws.manifestfilter=`  | The base query, which is followed by parameters constructed of<br>name and value pairs. For a list of all of the available parameters,<br>see [Manifest filtering query parameters<br>in AWS Elemental MediaPackage](manifest-filter-query-parameters.md "manifest-filter-query-parameters.md").                                                                                                                                                        |
+| `aws.manifestfilter=`  | The base query, which is followed by parameters constructed of<br>name and value pairs. For a list of all of the available parameters,<br>see [Manifest filtering query parameters in AWS Elemental MediaPackage](manifest-filter-query-parameters.md "manifest-filter-query-parameters.md").                                                                                                                                                           |
 | `:`                    | Used to associate the parameter name with a value. For example,<br>``parameter_name`:`value``.<br>When using multiple query parameters, this character must<br>be URL encoded (%3A).                                                                                                                                                                                                                                                                    |
 | `;`                    | Separates parameters in a query that contains multiple<br>parameters. For example,<br>``parameter1_name:value`;`parameter2_name:minValue-maxValue``.<br>When used in a list of parameters for the same query, implies an<br>`AND` operation.When using multiple query<br>parameters, this character must be URL encoded<br>(%3B).                                                                                                                       |
 | `,`                    | Separates a list of values. For example,<br>`parameter_name:`value1`,`value2`,`value3``.<br>Comma-separated values in a list imply an `OR`<br>relationship.When using multiple query parameters, this<br>character must be URL encoded (%2C).                                                                                                                                                                                                           |

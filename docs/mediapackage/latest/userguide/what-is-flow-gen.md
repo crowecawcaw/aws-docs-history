@@ -1,6 +1,4 @@
-# General AWS Elemental MediaPackage live processing
-
-flow
+# General AWS Elemental MediaPackage live processing flow
 
 The following outlines the general flow of live content in MediaPackage:
 
@@ -14,8 +12,7 @@ The following outlines the general flow of live content in MediaPackage:
    Additionally, AWS scales resources up and down to handle the incoming
    traffic.
 
-For more information, see [Live input redundancy AWS Elemental MediaPackage processing
-flow](what-is-flow-ir.md "what-is-flow-ir.md").
+For more information, see [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md "what-is-flow-ir.md").
 
 ###### Note
 

@@ -10,6 +10,5 @@ organization.
 
 - [Signing up for AWS](setting-up-aws-sign-up.md "setting-up-aws-sign-up.md")
 - [Set up additional IAM permissions](setting-up-iam-permissions.md "setting-up-iam-permissions.md")
-- [Allowing MediaPackage to access other
-  AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md")
+- [Allowing MediaPackage to access other AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md")
 - [Download tools](setting-up-tools.md "setting-up-tools.md")

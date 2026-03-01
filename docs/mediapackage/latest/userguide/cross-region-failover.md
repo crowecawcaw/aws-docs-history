@@ -1,6 +1,4 @@
-# Working with cross-Region failover in
-
-AWS Elemental MediaPackage
+# Working with cross-Region failover in AWS Elemental MediaPackage
 
 MediaPackage supports workflows where a CDN transparently fails over between multiple MediaPackage Live
 v2 origins located in different AWS Regions. The failover functionality also works in a
@@ -12,9 +10,7 @@ requirement can be satisfied through the combination of multiple requirements an
 restrictions at different levels in the workflow as described in the following
 sections.
 
-## Requirements for cross-Region failover in
-
-AWS Elemental MediaPackage
+## Requirements for cross-Region failover in AWS Elemental MediaPackage
 
 If your workflow respects these requirements and restrictions, origin failovers should
 be seamless for your viewers and not generate live-stream-playback disruptions.

@@ -191,9 +191,7 @@ API operation associates the delivery source with the end destination.
 
 Follow these procedures to manage or disable access logging for MediaPackage.
 
-###### To manage access logging for a channel
-
-(console)
+###### To manage access logging for a channel (console)
 
 1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
 2. Select your channel group from the list of channel groups.
@@ -210,9 +208,7 @@ logging destination.
 You can disable access logs for your MediaPackage channel at any
 time.
 
-###### To disable access logging for a channel
-
-(console)
+###### To disable access logging for a channel (console)
 
 1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
 2. Select your channel group from the list of channel groups.

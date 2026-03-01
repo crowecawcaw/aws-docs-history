@@ -18,10 +18,8 @@ MediaPackage, report when something is wrong, and take automatic actions when ap
 ###### Topics
 
 - [Monitoring AWS Elemental MediaPackage with Amazon CloudWatch metrics](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
-- [Monitoring AWS Elemental MediaPackage with EventBridge
-  events](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md")
+- [Monitoring AWS Elemental MediaPackage with EventBridge events](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md")
 - [Logging AWS Elemental MediaPackage API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Access logging](access-logging.md "access-logging.md")
-- [Monitoring manifest update time in
-  AWS Elemental MediaPackage](monitoring-manifest-last-updated.md "monitoring-manifest-last-updated.md")
+- [Monitoring manifest update time in AWS Elemental MediaPackage](monitoring-manifest-last-updated.md "monitoring-manifest-last-updated.md")
 - [MediaPackage response headers](response-headers.md "response-headers.md")

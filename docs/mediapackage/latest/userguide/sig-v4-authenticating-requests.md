@@ -35,9 +35,7 @@ For steps to create a signed AWS API request, see:
 - [Signature Calculations for the Authorization
   Headers: Transferring Payload in a Single Chunk](../../../AmazonS3/latest/API/sig-v4-header-based-auth.md "../../../AmazonS3/latest/API/sig-v4-header-based-auth.md") in the _Amazon Simple Storage Service API Reference_
 
-## Troubleshooting signed AWS
-
-API requests
+## Troubleshooting signed AWS API requests
 
 For troubleshooting help with your signed requests, see [Troubleshoot signed requests for AWS
 APIs](../../../IAM/latest/UserGuide/signature-v4-troubleshooting.md "../../../IAM/latest/UserGuide/signature-v4-troubleshooting.md") in the _IAM User Guide_.

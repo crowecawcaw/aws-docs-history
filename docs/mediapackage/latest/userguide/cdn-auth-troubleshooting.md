@@ -1,6 +1,4 @@
-# Troubleshoot MediaPackage CDN authorization
-
-errors
+# Troubleshoot MediaPackage CDN authorization errors
 
 When AWS Elemental MediaPackage CDN authorization fails, you may encounter various error codes and
 authorization issues. This section helps you identify and resolve common problems with

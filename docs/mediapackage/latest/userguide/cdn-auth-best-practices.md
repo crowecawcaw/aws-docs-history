@@ -1,6 +1,4 @@
-# Optimize MediaPackage CDN authorization
-
-security
+# Optimize MediaPackage CDN authorization security
 
 Implementing AWS Elemental MediaPackage CDN authorization effectively requires following security best
 practices for secret management, monitoring, and operational procedures. These

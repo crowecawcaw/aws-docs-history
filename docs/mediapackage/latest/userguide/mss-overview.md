@@ -32,9 +32,7 @@ MSS is particularly valuable in the following scenarios:
   some geographic regions, older devices with MSS support remain common, making
   this format important for reaching those markets.
 
-## Choosing the right streaming protocol for your
-
-audience
+## Choosing the right streaming protocol for your audience
 
 To reach the widest possible audience, select the appropriate streaming protocols
 based on your viewers' devices. This section helps you decide when to use MSS versus
@@ -63,9 +61,7 @@ Use this guide to determine which protocols you need to implement:
    maximum audience reach, implement multiple protocols and use device
    detection to serve the appropriate format.
 
-### Protocol comparison for
-
-implementation planning
+### Protocol comparison for implementation planning
 
 This comparison helps you understand the key differences between streaming
 protocols to plan your implementation:
@@ -80,9 +76,7 @@ protocols to plan your implementation:
 | Device support                | Xbox, Silverlight, older smart TVs | iOS, macOS, newer smart TVs | Android, browsers, newer smart TVs   |
 | Industry adoption             | Limited (legacy)                   | Widespread                  | Growing                              |
 
-### Common implementation
-
-scenarios
+### Common implementation scenarios
 
 Based on your audience needs, consider these common implementation
 scenarios:

@@ -7,9 +7,7 @@ see [MSS in AWS Elemental MediaPackage](mss-overview.md "mss-overview.md").
 
 MSS encryption in MediaPackage supports PlayReady DRM only. Other DRM systems are not supported for MSS content.
 
-## Understanding MSS encryption
-
-requirements
+## Understanding MSS encryption requirements
 
 When encrypting MSS content in MediaPackage, note the following requirements and
 limitations:
@@ -34,9 +32,7 @@ For information about how these encryption options affect your CDN configuration
 [CDN configuration for MSS in AWS Elemental MediaPackage](mss-cdn-configuration.md "mss-cdn-configuration.md"). For
 details on planning your MSS implementation with encryption, see [Planning your MSS implementation](mss-overview.md#mss-features "mss-overview.md#mss-features").
 
-## Encrypting your MSS content with
-
-PlayReady
+## Encrypting your MSS content with PlayReady
 
 To encrypt your MSS content:
 

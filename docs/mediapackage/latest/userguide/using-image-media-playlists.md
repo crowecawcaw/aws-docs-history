@@ -1,6 +1,4 @@
-# Using image media playlists to enable
-
-trick-play in AWS Elemental MediaPackage
+# Using image media playlists to enable trick-play in AWS Elemental MediaPackage
 
 To use image-based trickplay, in your upstream encoder you create an HLS _image media playlist_ that contains JPEG image segments.
 MediaPackage automatically passes through the image segments to the output. These segments are
@@ -9,8 +7,7 @@ These segments must conform to the [Image Media Playlist specification, version 
 time-based implementation of the specification.
 
 For information about how to configure your upstream encoder to generate an image
-media playlist, see [Configuring your upstream encoder to
-generate image media playlists](#configuring-upstream-encoder "#configuring-upstream-encoder").
+media playlist, see [Configuring your upstream encoder to generate image media playlists](#configuring-upstream-encoder "#configuring-upstream-encoder").
 
 ## Input source requirements
 
@@ -36,8 +33,7 @@ durations.
 
 You can use AWS Media Services to generate an HLS source in your upstream
 encoder that complies with the [Image Media Playlist specification, version 0.4](https://github.com/image-media-playlist/spec/blob/master/image_media_playlist_v0_4.pdf "https://github.com/image-media-playlist/spec/blob/master/image_media_playlist_v0_4.pdf"). For
-more information, see the following section [Configuring your upstream encoder to
-generate image media playlists](#configuring-upstream-encoder "#configuring-upstream-encoder").
+more information, see the following section [Configuring your upstream encoder to generate image media playlists](#configuring-upstream-encoder "#configuring-upstream-encoder").
 
 ### Limitations
 
@@ -53,9 +49,7 @@ MediaPackage:
   `EXT-X-PROGRAM-DATE-TIME` tags might be necessary to
   display the trick-play image.
 
-## Configuring your upstream encoder to
-
-generate image media playlists
+## Configuring your upstream encoder to generate image media playlists
 
 Your HLS source must conform to the [Image Media Playlist specification, version 0.4](https://github.com/image-media-playlist/spec/blob/master/image_media_playlist_v0_4.pdf "https://github.com/image-media-playlist/spec/blob/master/image_media_playlist_v0_4.pdf"). You can use the
 following AWS Media Services to create an HLS stream that complies with the
