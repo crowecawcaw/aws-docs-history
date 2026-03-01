@@ -1,6 +1,4 @@
-# PERF01-BP07 Use a data-driven approach for architectural
-
-choices
+# PERF01-BP07 Use a data-driven approach for architectural choices
 
 Define a clear, data-driven approach for architectural choices to
 verify that the right cloud services and configurations are used to
@@ -49,13 +47,10 @@ architecture remains future-proof and does not stagnate.
 - Create an architecture runway or a technology backlog which
   is prioritized along with the functional backlog.
 - Evaluate and assess different cloud services (for more
-  detail, see [PERF01-BP01 Learn
-  about and understand available cloud services and features](perf_architecture_understand_cloud_services_and_features.md "perf_architecture_understand_cloud_services_and_features.md")).
+  detail, see [PERF01-BP01 Learn about and understand available cloud services and features](perf_architecture_understand_cloud_services_and_features.md "perf_architecture_understand_cloud_services_and_features.md")).
 - Explore different architectural patterns, like microservices
   or serverless, that meet your performance requirements (for
-  more detail, see [PERF01-BP02 Use guidance from your cloud provider or an
-  appropriate partner to learn about architecture patterns and best
-  practices](perf_architecture_guidance_architecture_patterns_best_practices.md "perf_architecture_guidance_architecture_patterns_best_practices.md")).
+  more detail, see [PERF01-BP02 Use guidance from your cloud provider or an appropriate partner to learn about architecture patterns and best practices](perf_architecture_guidance_architecture_patterns_best_practices.md "perf_architecture_guidance_architecture_patterns_best_practices.md")).
 
 - Consult other teams, architecture diagrams, and resources,
   such as AWS Solution Architects,

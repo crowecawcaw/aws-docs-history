@@ -1,6 +1,4 @@
-# PERF04-BP03 Choose appropriate dedicated connectivity or VPN
-
-for your workload
+# PERF04-BP03 Choose appropriate dedicated connectivity or VPN for your workload
 
 When hybrid connectivity is required to connect on-premises and
 cloud resources, provision adequate bandwidth to meet your

@@ -1,6 +1,4 @@
-# PERF04-BP05 Choose network protocols to improve
-
-performance
+# PERF04-BP05 Choose network protocols to improve performance
 
 Make decisions about protocols for communication between systems and
 networks based on the impact to the workload’s performance.

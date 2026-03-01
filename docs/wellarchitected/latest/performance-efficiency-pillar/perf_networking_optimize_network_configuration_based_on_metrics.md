@@ -1,6 +1,4 @@
-# PERF04-BP07 Optimize network configuration based on
-
-metrics
+# PERF04-BP07 Optimize network configuration based on metrics
 
 Use collected and analyzed data to make informed decisions about
 optimizing your network configuration.

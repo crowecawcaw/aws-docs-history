@@ -1,6 +1,4 @@
-# PERF04-BP04 Use load
-
-balancing to distribute traffic across multiple resources
+# PERF04-BP04 Use load balancing to distribute traffic across multiple resources
 
 Distribute traffic across multiple resources or services to allow your workload to take
 advantage of the elasticity that the cloud provides. You can also use load balancing for

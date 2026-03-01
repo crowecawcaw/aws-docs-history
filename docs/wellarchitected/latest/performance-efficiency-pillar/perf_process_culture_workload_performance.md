@@ -1,6 +1,4 @@
-# PERF05-BP03 Define a process to improve workload
-
-performance
+# PERF05-BP03 Define a process to improve workload performance
 
 Define a process to evaluate new services, design patterns, resource
 types, and configurations as they become available. For example, run
@@ -38,8 +36,7 @@ workload.
 ### Implementation steps
 
 - **Identify KPIs:**
-  Identify your workload performance KPIs as outlined in [PERF05-BP01 Establish key performance indicators (KPIs) to
-  measure workload health and performance](perf_process_culture_establish_key_performance_indicators.md "perf_process_culture_establish_key_performance_indicators.md") to
+  Identify your workload performance KPIs as outlined in [PERF05-BP01 Establish key performance indicators (KPIs) to measure workload health and performance](perf_process_culture_establish_key_performance_indicators.md "perf_process_culture_establish_key_performance_indicators.md") to
   baseline your workload.
 - **Implement monitoring:**
   Use
@@ -49,8 +46,7 @@ workload.
   Conduct in-depth analysis to identify the areas (like
   configuration and application code) in your workload that is
   under-performing as outlined in
-  [PERF05-BP02 Use monitoring solutions to understand the areas
-  where performance is most critical](perf_process_culture_use_monitoring_solutions.md "perf_process_culture_use_monitoring_solutions.md"). Use your analysis and performance tools to identify the performance improvement strategies.
+  [PERF05-BP02 Use monitoring solutions to understand the areas where performance is most critical](perf_process_culture_use_monitoring_solutions.md "perf_process_culture_use_monitoring_solutions.md"). Use your analysis and performance tools to identify the performance improvement strategies.
 - **Validate improvements:**
   Use sandbox or pre-production environments to validate the
   effectiveness of improvement strategies.

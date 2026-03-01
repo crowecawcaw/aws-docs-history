@@ -1,6 +1,4 @@
-# PERF01-BP04 Evaluate how trade-offs impact customers and
-
-architecture efficiency
+# PERF01-BP04 Evaluate how trade-offs impact customers and architecture efficiency
 
 When evaluating performance-related improvements, determine which
 choices impact your customers and workload efficiency. For example,
@@ -56,7 +54,7 @@ behavior.
 
 - [Amazon
   Builders’ Library](https://aws.amazon.com/builders-library "https://aws.amazon.com/builders-library")
-- [Quick Suite KPIs](../../../quicksight/latest/user/kpi.md "../../../quicksight/latest/user/kpi.md")
+- [Quick KPIs](../../../quicksight/latest/user/kpi.md "../../../quicksight/latest/user/kpi.md")
 - [Amazon CloudWatch RUM](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.md")
 - [X-Ray
   Documentation](../../../xray/latest/devguide/aws-xray.md "../../../xray/latest/devguide/aws-xray.md")

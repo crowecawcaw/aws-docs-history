@@ -1,6 +1,4 @@
-# PERF05-BP05 Use automation to proactively remediate
-
-performance-related issues
+# PERF05-BP05 Use automation to proactively remediate performance-related issues
 
 Use key performance indicators (KPIs), combined with monitoring and
 alerting systems, to proactively address performance-related issues.
