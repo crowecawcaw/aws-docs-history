@@ -1,7 +1,4 @@
-# Step C: Tear down
-
-an
-AWS Elemental Conductor File cluster
+# Step C: Tear down an AWS Elemental Conductor File cluster
 
 Before you can install RHEL 9 and the new software version, you must remove all the
 nodes from the cluster.

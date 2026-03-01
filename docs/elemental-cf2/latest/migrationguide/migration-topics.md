@@ -6,9 +6,7 @@ are listed alphabetically.
 For information about the correct order for following these tasks, see the procedure for
 your setup:
 
-- [Performing a standard cluster
-  migration on an
-  AWS Elemental Conductor File cluster](migrate-cf-std.md "migrate-cf-std.md")
+- [Performing a standard cluster migration on an AWS Elemental Conductor File cluster](migrate-cf-std.md "migrate-cf-std.md")
 
 ###### Topics
 

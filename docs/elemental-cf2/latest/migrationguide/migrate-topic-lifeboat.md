@@ -21,9 +21,7 @@ AWS Elemental software. These files might include credentials and other sensitiv
 system information. Handle the backup according to your organization's best
 practices for handling sensitive data.
 
-## About the backup
-
-process
+## About the backup process
 
 The script backs up the following data:
 
@@ -45,9 +43,7 @@ The script backs up the following data:
   primary Conductor. The primary Conductor pushes data down to the secondary
   Conductor and to the appropriate worker nodes.
 
-## Step 1: Download the lifeboat
-
-script
+## Step 1: Download the lifeboat script
 
 Perform this procedure on every node in the cluster, to copy the lifeboat script
 onto every node.

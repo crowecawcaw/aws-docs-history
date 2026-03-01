@@ -1,7 +1,4 @@
-# Performing a standard cluster
-
-migration on an
-AWS Elemental Conductor File cluster
+# Performing a standard cluster migration on an AWS Elemental Conductor File cluster
 
 This procedure describes how to take the nodes in a AWS Elemental Conductor File cluster from a version below
 2.18 and migrate them to version 2.18 or higher. The nodes in the cluster might be the
@@ -28,18 +25,10 @@ the workers) are running 2.18.
 
 ###### Topics
 
-- [Plan maintenance
-  windows for
-  migrating an AWS Elemental Conductor File cluster](migrate-std-plan-maintenance.md "migrate-std-plan-maintenance.md")
-- [Step A: Get ready to migrate an AWS Elemental Conductor File
-  cluster](migrate-std-get-ready.md "migrate-std-get-ready.md")
-- [Step B: Prepare each
-  AWS Elemental Conductor File
-  node
-  for migration](migrate-std-prepare-node.md "migrate-std-prepare-node.md")
-- [Step C: Tear down
-  an
-  AWS Elemental Conductor File cluster](migrate-std-decluster.md "migrate-std-decluster.md")
+- [Plan maintenance windows for migrating an AWS Elemental Conductor File cluster](migrate-std-plan-maintenance.md "migrate-std-plan-maintenance.md")
+- [Step A: Get ready to migrate an AWS Elemental Conductor File cluster](migrate-std-get-ready.md "migrate-std-get-ready.md")
+- [Step B: Prepare each AWS Elemental Conductor File node for migration](migrate-std-prepare-node.md "migrate-std-prepare-node.md")
+- [Step C: Tear down an AWS Elemental Conductor File cluster](migrate-std-decluster.md "migrate-std-decluster.md")
 - [Step D: Create backups](migrate-std-backup.md "migrate-std-backup.md")
 - [Step E: Upgrade nodes](migrate-server-218-install-software-cf.md "migrate-server-218-install-software-cf.md")
 - [Step F: Rebuild the cluster](migrate-std-rebuild-cluster.md "migrate-std-rebuild-cluster.md")

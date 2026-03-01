@@ -1,15 +1,9 @@
-# Step B: Prepare each
-
-AWS Elemental Conductor File
-node
-for migration
+# Step B: Prepare each AWS Elemental Conductor File node for migration
 
 Prepare the nodes during one or more maintenance windows. The number of windows
 depends on the number of nodes you can complete in one maintenance window.
 
-## Upgrade to the latest 2.17 minor
-
-version
+## Upgrade to the latest 2.17 minor version
 
 To upgrade to version 2.18 or higher, the software currently installed on the node
 must be version 2.17.0 or higher.
@@ -17,9 +11,7 @@ must be version 2.17.0 or higher.
 - If the Conductor nodes are on one version and the worker nodes are on a
   different version, upgrade all nodes to the same version.
 
-## Verify access to the BMC on the
-
-appliances
+## Verify access to the BMC on the appliances
 
 Make sure that you have access to the BMC on each appliance:
 

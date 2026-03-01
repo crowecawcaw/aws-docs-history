@@ -1,13 +1,9 @@
-# Switching to Legacy on a
-
-SuperMicro
+# Switching to Legacy on a SuperMicro
 
 To switch the boot mode from UEFI back to BIOS (Legacy mode), you can use the IPMI
 interface, or you can work when directly connected to the server.
 
-## Install Java
-
-applet
+## Install Java applet
 
 Decide if you want to use the IPMI management console, or if you plan to
 connect directly to the server. If you want to use the console, decide if you
@@ -15,12 +11,9 @@ want to use the Java remote console applet to access the console, or if you want
 to use HTML5.
 
 If you want to use the Java remote console applet, you might need to install
-it. See [Step 1: Install Java
-applet](migrate-topic-uefi-supermicro.md#migrate-topic-uefi-supermicro-applet "migrate-topic-uefi-supermicro.md#migrate-topic-uefi-supermicro-applet").
+it. See [Step 1: Install Java applet](migrate-topic-uefi-supermicro.md#migrate-topic-uefi-supermicro-applet "migrate-topic-uefi-supermicro.md#migrate-topic-uefi-supermicro-applet").
 
-## Change the mode to
-
-BIOS
+## Change the mode to BIOS
 
 This procedure is nearly identical to the procedure for [switching to UEFI](migrate-topic-uefi-supermicro.md "migrate-topic-uefi-supermicro.md"). You change
 the same fields on the **Setup Utility** screen, but you

@@ -7,5 +7,4 @@ back to BIOS (Legacy mode).
 ###### Topics
 
 - [Switching to Legacy on a Dell](migrate-topic-bios-dell.md "migrate-topic-bios-dell.md")
-- [Switching to Legacy on a
-  SuperMicro](migrate-topic-bios-supermicro.md "migrate-topic-bios-supermicro.md")
+- [Switching to Legacy on a SuperMicro](migrate-topic-bios-supermicro.md "migrate-topic-bios-supermicro.md")

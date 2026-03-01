@@ -5,15 +5,11 @@ mode).
 
 ###### Topics
 
-- [Switch using the IDRAC user
-  interface](#migrate-topic-bios-dell-idrac "#migrate-topic-bios-dell-idrac")
+- [Switch using the IDRAC user interface](#migrate-topic-bios-dell-idrac "#migrate-topic-bios-dell-idrac")
 - [Switch using RACADM](#migrate-topic-bios-dell-racadm "#migrate-topic-bios-dell-racadm")
-- [Switch using the F2 boot
-  menu](#migrate-topic-bios-dell-f2 "#migrate-topic-bios-dell-f2")
+- [Switch using the F2 boot menu](#migrate-topic-bios-dell-f2 "#migrate-topic-bios-dell-f2")
 
-## Switch using the IDRAC user
-
-interface
+## Switch using the IDRAC user interface
 
 iDRAC is a system for controlling Dell servers remotely. It is already
 installed and enabled on the Dell server.
@@ -83,9 +79,7 @@ jobqueue create BIOS.Setup.1-1 -r forced -s TIME_NOW
 
 The system reboots. Legacy mode is now enabled.
 
-## Switch using the F2 boot
-
-menu
+## Switch using the F2 boot menu
 
 You can use the boot menu from a direct connection to the server, or through
 the IDRAC virtual console.

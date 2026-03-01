@@ -1,10 +1,7 @@
 # Step E: Upgrade nodes
 
 Perform these steps on each node in the cluster, after you've removed all the nodes
-from the cluster. Before you start, make sure that you've performed the steps in [Step B: Prepare each
-AWS Elemental Conductor File
-node
-for migration](migrate-std-prepare-node.md "migrate-std-prepare-node.md").
+from the cluster. Before you start, make sure that you've performed the steps in [Step B: Prepare each AWS Elemental Conductor File node for migration](migrate-std-prepare-node.md "migrate-std-prepare-node.md").
 
 1. Set the boot mode on the node to UEFI.
 2. Perform a kickstart to upgrade the operating system to RHEL 9.

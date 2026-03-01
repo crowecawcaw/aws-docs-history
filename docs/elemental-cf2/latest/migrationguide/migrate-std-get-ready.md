@@ -1,6 +1,4 @@
-# Step A: Get ready to migrate an AWS Elemental Conductor File
-
-cluster
+# Step A: Get ready to migrate an AWS Elemental Conductor File cluster
 
 ## Read the essential notes
 
@@ -13,9 +11,7 @@ Make sure that you have the latest version of the Release Notes. If you
 downloaded the file more than a few days ago, we recommend that you download it
 again.
 
-## Modify your automation system for
-
-HTTPS
+## Modify your automation system for HTTPS
 
 After a node has been migrated, it uses HTTPS. By default, the nodes are set up
 with self-signed certificates. Make sure of the following points:

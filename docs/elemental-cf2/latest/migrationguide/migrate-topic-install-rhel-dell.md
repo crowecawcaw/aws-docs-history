@@ -1,13 +1,9 @@
-# Installing on a
-
-Dell
+# Installing on a Dell
 
 You can install RHEL 9 on a Dell chassis either from the iDRAC interface or using
 a USB stick.
 
-## Install using the iDRAC
-
-interface
+## Install using the iDRAC interface
 
 ### Get Ready
 
@@ -47,9 +43,7 @@ The system reboots into the kickstart .iso. Lines of text appear, and
 finally the prompt **Enter the server complete hostname**
 appears.
 
-### Install the operating
-
-system
+### Install the operating system
 
 1. At the **Enter the server complete hostname**
    prompt, enter the hostname that already applies to this node, then

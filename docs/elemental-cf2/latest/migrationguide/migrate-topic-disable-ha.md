@@ -1,6 +1,4 @@
-# Enabling or disabling high
-
-availability (HA)
+# Enabling or disabling high availability (HA)
 
 Disable high availability prior to performing any changes on the Conductor
 nodes.

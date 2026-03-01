@@ -2,8 +2,7 @@
 
 You install RHEL 9 on a SuperMicro chassis from the IPMI interface.
 
-1. Install the Java applet and change the security level. See [Step 1: Install Java
-   applet](migrate-topic-uefi-supermicro.md#migrate-topic-uefi-supermicro-applet "migrate-topic-uefi-supermicro.md#migrate-topic-uefi-supermicro-applet").
+1. Install the Java applet and change the security level. See [Step 1: Install Java applet](migrate-topic-uefi-supermicro.md#migrate-topic-uefi-supermicro-applet "migrate-topic-uefi-supermicro.md#migrate-topic-uefi-supermicro-applet").
 2. Make sure that there are no physical USB drives plugged into the
    system.
 3. Make sure that you are at a workstation that has direct access to the
