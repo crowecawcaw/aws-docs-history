@@ -8,8 +8,7 @@ Custom classification accepts a variety of document types as inputs for real-tim
 If you plan to analyze image files or scanned PDF documents, your IAM policy must grant permissions to use
 two Amazon Textract API methods (DetectDocumentText and AnalyzeDocument). Amazon Comprehend invokes these methods during text extraction.
 For an example policy, see
-[Permissions required to perform document analysis
-actions](security_iam_id-based-policy-examples.md#security-iam-based-policy-perform-cmp-actions "security_iam_id-based-policy-examples.md#security-iam-based-policy-perform-cmp-actions").
+[Permissions required to perform document analysis actions](security_iam_id-based-policy-examples.md#security-iam-based-policy-perform-cmp-actions "security_iam_id-based-policy-examples.md#security-iam-based-policy-perform-cmp-actions").
 
 You must create an endpoint to run real-time analysis using a custom classification model.
 

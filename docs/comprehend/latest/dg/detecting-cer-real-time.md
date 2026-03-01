@@ -1,6 +1,4 @@
-# Real-time analysis for custom entity recognition
-
-(console)
+# Real-time analysis for custom entity recognition (console)
 
 You can use the Amazon Comprehend console to run real-time analysis with a custom model. First, you
 create an endpoint to run the real-time analysis. After you create the endpoint, you run the
@@ -11,14 +9,10 @@ For information about provisioning endpoint throughput, and the associated costs
 
 ###### Topics
 
-- [Creating an endpoint for custom
-  entity detection](#detecting-cer-real-time-create-endpoint "#detecting-cer-real-time-create-endpoint")
-- [Running real-time custom entity
-  detection](#detecting-cer-real-time-run "#detecting-cer-real-time-run")
+- [Creating an endpoint for custom entity detection](#detecting-cer-real-time-create-endpoint "#detecting-cer-real-time-create-endpoint")
+- [Running real-time custom entity detection](#detecting-cer-real-time-run "#detecting-cer-real-time-run")
 
-## Creating an endpoint for custom
-
-entity detection
+## Creating an endpoint for custom entity detection
 
 ###### To create an endpoint (console)
 
@@ -45,9 +39,7 @@ analyze per second. 8. From the **Purchase summary**, review your estimated hour
 and monthly endpoint cost. 9. Select the check box if you understand that your account accrues charges for the endpoint from the time it
 starts until you delete it. 10. Choose **Create endpoint**.
 
-## Running real-time custom entity
-
-detection
+## Running real-time custom entity detection
 
 After you create an endpoint for your custom entity recognizer model, you can run
 real-time analysis to detect entities in individual documents.

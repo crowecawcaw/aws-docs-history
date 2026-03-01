@@ -9,8 +9,7 @@ response to the [CreateEntityRecognizer](../APIReference/API_CreateEntityRecogni
 ###### Topics
 
 - [Detecting custom entities using the AWS Command Line Interface](#detecting-cer-async-api-cli "#detecting-cer-async-api-cli")
-- [Detecting custom entities using the
-  AWS SDK for Java](#detecting-cer-async-api-java "#detecting-cer-async-api-java")
+- [Detecting custom entities using the AWS SDK for Java](#detecting-cer-async-api-java "#detecting-cer-async-api-java")
 - [Detecting custom entities using the AWS SDK for Python (Boto3)](#detecting-cer-async-api-python "#detecting-cer-async-api-python")
 - [Overriding API actions for PDF files](#detecting-cer-api-pdf "#detecting-cer-api-pdf")
 
@@ -34,9 +33,7 @@ aws comprehend start-entities-detection-job \
 Amazon Comprehend responds with the `JobID` and `JobStatus` and will return the output from the job in
 the S3 bucket that you specified in the request.
 
-## Detecting custom entities using the
-
-AWS SDK for Java
+## Detecting custom entities using the AWS SDK for Java
 
 For Amazon Comprehend examples that use Java, see [Amazon Comprehend Java examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend").
 

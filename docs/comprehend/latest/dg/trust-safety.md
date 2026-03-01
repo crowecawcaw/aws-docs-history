@@ -293,4 +293,4 @@ individual. PII examples include addresses, bank account numbers, and phone numb
 You can detect or redact the PII entities in the text. To detect PII entities, you can use real-time analysis
 or an asynchronous batch job. To redact the PII entities, you must use an asynchronous batch job.
 
-For more information, see [Personally identifiable information (PII)](pii.md "pii.md") .
+For more information, see [Personally identifiable information (PII)](pii.md "pii.md").

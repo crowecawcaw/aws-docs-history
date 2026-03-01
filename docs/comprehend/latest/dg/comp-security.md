@@ -29,9 +29,7 @@ _in_ the cloud:
 
 - [Data protection in Amazon Comprehend](comp-data-protection.md "comp-data-protection.md")
 - [Identity and Access Management for Amazon Comprehend](security-iam.md "security-iam.md")
-- [Logging Amazon Comprehend API calls with
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Logging Amazon Comprehend API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Compliance validation for Amazon Comprehend](comp-compliance.md "comp-compliance.md")
 - [Resilience in Amazon Comprehend](comp-disaster-recovery-resiliency.md "comp-disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  Amazon Comprehend](comp-infrastructure-security.md "comp-infrastructure-security.md")
+- [Infrastructure security in Amazon Comprehend](comp-infrastructure-security.md "comp-infrastructure-security.md")

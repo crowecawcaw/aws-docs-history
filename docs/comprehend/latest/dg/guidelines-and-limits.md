@@ -63,7 +63,7 @@ these operations.
 
 The following quotas apply to real-time analysis for detecting entities, key-phrases,
 or dominant language. For entity detection, these quotas apply to detection with the built-in models.
-For custom entity detection, see the quotas in [Custom entity recognition](#limits-custom-entity-recognition "#limits-custom-entity-recognition") .
+For custom entity detection, see the quotas in [Custom entity recognition](#limits-custom-entity-recognition "#limits-custom-entity-recognition").
 
 | Description           | Quota/Guideline |
 | --------------------- | --------------- |

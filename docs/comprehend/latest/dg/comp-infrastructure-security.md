@@ -1,6 +1,4 @@
-# Infrastructure security in
-
-Amazon Comprehend
+# Infrastructure security in Amazon Comprehend
 
 As a managed service, Amazon Comprehend is protected by the AWS global network security.
 For information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS environment

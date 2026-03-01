@@ -1,15 +1,15 @@
-# Step 5: Visualizing Amazon Comprehend output in Quick Suite
+# Step 5: Visualizing Amazon Comprehend output in Quick
 
 After storing the Amazon Comprehend results in tables, you can connect to and visualize the data with
-Quick Suite. Quick Suite is an AWS managed business intelligence (BI) tool for visualizing data. Quick Suite
+Quick. Quick is an AWS managed business intelligence (BI) tool for visualizing data. Quick
 makes it easy to connect to your data source and create powerful visuals. In this step, you
-connect Quick Suite to your data, create visualizations that extract insights from the data, and
+connect Quick to your data, create visualizations that extract insights from the data, and
 publish a dashboard of visualizations.
 
 ###### Topics
 
 - [Prerequisites](#tutorial-reviews-visualize-prereqs "#tutorial-reviews-visualize-prereqs")
-- [Give Quick Suite access](#tutorial-reviews-visualize-access "#tutorial-reviews-visualize-access")
+- [Give Quick access](#tutorial-reviews-visualize-access "#tutorial-reviews-visualize-access")
 - [Import the datasets](#tutorial-reviews-visualize-import "#tutorial-reviews-visualize-import")
 - [Create a sentiment visualization](#tutorial-reviews-visualize-sentiment "#tutorial-reviews-visualize-sentiment")
 - [Create an entities visualization](#tutorial-reviews-visualize-entities "#tutorial-reviews-visualize-entities")
@@ -18,23 +18,21 @@ publish a dashboard of visualizations.
 
 ## Prerequisites
 
-Before you begin, complete [Step 4: Preparing the Amazon Comprehend output for data
-visualization](tutorial-reviews-tables.md "tutorial-reviews-tables.md").
+Before you begin, complete [Step 4: Preparing the Amazon Comprehend output for data visualization](tutorial-reviews-tables.md "tutorial-reviews-tables.md").
 
-## Give Quick Suite access
+## Give Quick access
 
-To import the data, Quick Suite requires access to your Amazon Simple Storage Service (Amazon S3) bucket and
-Amazon Athena tables. To give Quick Suite access to your data, you must be signed in as
+To import the data, Quick requires access to your Amazon Simple Storage Service (Amazon S3) bucket and
+Amazon Athena tables. To give Quick access to your data, you must be signed in as
 a QuickSight administrator and have access to edit the resource permissions. If you are
 unable to complete the following steps, review the IAM prerequisites from the overview
-page [Tutorial: Analyzing insights from customer reviews with
-Amazon Comprehend](tutorial-reviews.md "tutorial-reviews.md").
+page [Tutorial: Analyzing insights from customer reviews with Amazon Comprehend](tutorial-reviews.md "tutorial-reviews.md").
 
-###### To give Quick Suite access to your data
+###### To give Quick access to your data
 
-1. Open the [Quick Suite
+1. Open the [Quick
    console](https://quicksight.aws.amazon.com/sn/start "https://quicksight.aws.amazon.com/sn/start").
-2. If this is the first time you have used Quick Suite, the console prompts you to
+2. If this is the first time you have used Quick, the console prompts you to
    create a new administrator user by providing an email address. For
    **Email address**, enter the same email address as your AWS account.
    Choose **Continue**.
@@ -54,12 +52,12 @@ Amazon Comprehend](tutorial-reviews.md "tutorial-reviews.md").
 ## Import the datasets
 
 Before creating visualizations, you must add the sentiment and entities datasets to
-Quick Suite. You do this with the Quick Suite console. You import your unnested sentiment and unnested
+Quick. You do this with the Quick console. You import your unnested sentiment and unnested
 entities tables from Amazon Athena.
 
 ###### To import your datasets
 
-1. Open the [Quick Suite
+1. Open the [Quick
    console](https://quicksight.aws.amazon.com/sn/start "https://quicksight.aws.amazon.com/sn/start").
 2. In the navigation bar, in **Datasets**, choose **New
    dataset**.
@@ -77,7 +75,7 @@ entities tables from Amazon Athena.
    **Visualize**. SPICE is QuickSight's in-memory calculation
    engine that provides faster analyses than direct querying when creating
    visualizations.
-8. Return to the Quick Suite console and choose **Datasets**. Repeat
+8. Return to the Quick console and choose **Datasets**. Repeat
    steps 1-7 to create an entities dataset, but make the following changes:
    1. For **Data source name**, enter
       `reviews-entities-analysis`.
@@ -86,13 +84,13 @@ entities tables from Amazon Athena.
 
 ## Create a sentiment visualization
 
-Now that you can access your data in Quick Suite, you can begin creating visualizations. You
+Now that you can access your data in Quick, you can begin creating visualizations. You
 create a pie chart with the Amazon Comprehend sentiment data. The pie chart shows what proportion of
 the reviews are positive, neutral, mixed, and negative.
 
 ###### To visualize sentiment data
 
-1. In the Quick Suite console, choose **Analyses** and then choose
+1. In the Quick console, choose **Analyses** and then choose
    **New analysis**.
 2. From **Your Data Sets**, choose the sentiment dataset
    `sentiment_results_final` and then choose **Create
@@ -148,7 +146,7 @@ count of a specific entity, hover over a block.
 After creating the visualizations, you can publish them as a dashboard. You can
 perform various tasks with a dashboard, such as sharing it with users in your AWS account,
 saving it as a PDF, or emailing it as a report (limited to the Enterprise
-edition of Quick Suite). In this step, you publish the visualizations as a dashboard in your
+edition of Quick). In this step, you publish the visualizations as a dashboard in your
 account.
 
 ###### To publish your dashboard
@@ -160,7 +158,7 @@ account.
 4. Choose **Publish dashboard**.
 5. Close the **Share dashboard with users** pane by
    choosing the close button in the upper-right corner.
-6. In the Quick Suite console, in the navigation pane, choose **Dashboards**. A thumbnail of your new dashboard
+6. In the Quick console, in the navigation pane, choose **Dashboards**. A thumbnail of your new dashboard
    `comprehend-analysis-reviews` should appear under
    **Dashboards**. Choose the dashboard to view it.
 
@@ -184,9 +182,9 @@ account.
 
 The following actions can help prevent incurring ongoing charges:
 
-- Cancel your Quick Suite subscription. Quick Suite is a monthly subscription service. To
+- Cancel your Quick subscription. Quick is a monthly subscription service. To
   cancel your subscription, see [Canceling your
-  subscription](../../../quicksight/latest/user/closing-account.md "../../../quicksight/latest/user/closing-account.md") in the _Quick Suite User Guide_.
+  subscription](../../../quicksight/latest/user/closing-account.md "../../../quicksight/latest/user/closing-account.md") in the _Quick User Guide_.
 - Delete your Amazon S3 bucket. Amazon S3 charges you for storage. To clean up your Amazon S3
   resources, delete your bucket. For information about deleting a bucket, see
   [How do I delete an S3 Bucket?](../../../AmazonS3/latest/user-guide/delete-bucket.md "../../../AmazonS3/latest/user-guide/delete-bucket.md") in the _Amazon Simple Storage Service User Guide_. Make sure that you save all of your important

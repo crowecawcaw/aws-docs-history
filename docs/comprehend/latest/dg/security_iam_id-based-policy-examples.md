@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples for Amazon Comprehend
+# Identity-based policy examples for Amazon Comprehend
 
 By default, users and roles don't have permission to create or modify Amazon Comprehend
 resources. To grant users permission to perform actions on the
@@ -14,26 +12,18 @@ For details about actions and resource types defined by Amazon Comprehend, inclu
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Amazon Comprehend
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Permissions required to perform document analysis
-  actions](#security-iam-based-policy-perform-cmp-actions "#security-iam-based-policy-perform-cmp-actions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Amazon Comprehend console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Permissions required to perform document analysis actions](#security-iam-based-policy-perform-cmp-actions "#security-iam-based-policy-perform-cmp-actions")
 - [Permissions required to use KMS encryption](#auth-kms-permissions "#auth-kms-permissions")
-- [AWS managed (predefined)
-  policies for Amazon Comprehend](#access-policy-aws-managed-policies "#access-policy-aws-managed-policies")
-- [Role-based permissions required for
-  asynchronous operations](#auth-role-permissions "#auth-role-permissions")
+- [AWS managed (predefined) policies for Amazon Comprehend](#access-policy-aws-managed-policies "#access-policy-aws-managed-policies")
+- [Role-based permissions required for asynchronous operations](#auth-role-permissions "#auth-role-permissions")
 - [Permissions to allow all Amazon Comprehend actions](#custom-policy-all-all-actions "#custom-policy-all-all-actions")
 - [Permissions to allow topic modeling actions](#custom-policy-allow-topic-modeling "#custom-policy-allow-topic-modeling")
 - [Permissions required for a custom asynchronous analysis job](#tagging-resources "#tagging-resources")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Comprehend resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -66,9 +56,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Amazon Comprehend
-
-console
+## Using the Amazon Comprehend console
 
 To access the Amazon Comprehend console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Amazon Comprehend resources
@@ -159,9 +147,7 @@ reasons:
   roles and policies. The `iam:PassRole` action enables the console
   to pass the role to Amazon Comprehend.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -201,9 +187,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Permissions required to perform document analysis
-
-actions
+## Permissions required to perform document analysis actions
 
 The following example policy grants permissions to use the Amazon Comprehend document analysis actions:
 
@@ -303,9 +287,7 @@ is needed for output data encryption. For reading encrypted input (as when the i
 permission is required. The IAM role needs to give these permissions as needed. However, if the key is from a different account than is currently
 being used, the KMS key policy for that kms key must also give these permissions to the data access role for the job.
 
-## AWS managed (predefined)
-
-policies for Amazon Comprehend
+## AWS managed (predefined) policies for Amazon Comprehend
 
 AWS addresses many common use cases by providing standalone IAM policies that are
 created and administered by AWS. These AWS managed policies grant necessary
@@ -359,9 +341,7 @@ You can also create your own custom IAM policies to allow permissions for Amazon
 actions and resources. You can attach these custom policies to the users, groups or
 roles that require those permissions.
 
-## Role-based permissions required for
-
-asynchronous operations
+## Role-based permissions required for asynchronous operations
 
 To use the Amazon Comprehend asynchronous operations, you must grant Amazon Comprehend access to the Amazon S3 bucket that contains
 your document collection. You do this by creating a data access role in your account with a trust policy to

@@ -48,5 +48,4 @@ see [Permissions required to use KMS encryption](security_iam_id-based-policy-ex
 
 You create a data access role in IAM for Amazon Comprehend to access flywheel data in the data lake. If you
 use the console to create a flywheel, the system can optionally create a new role for this purpose.
-For more information, see [Role-based permissions required for
-asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions").
+For more information, see [Role-based permissions required for asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions").

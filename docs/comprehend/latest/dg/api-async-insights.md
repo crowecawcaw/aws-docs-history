@@ -26,8 +26,7 @@ point to a single file or it can be the prefix for a collection of data files. F
 information, see the [InputDataConfig](../APIReference/API_InputDataConfig.md "../APIReference/API_InputDataConfig.md") data type.
 
 You must grant Amazon Comprehend access to the Amazon S3 bucket that contains your document collection
-and output files. For more information, see [Role-based permissions required for
-asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions").
+and output files. For more information, see [Role-based permissions required for asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions").
 
 ## Starting an analysis job
 
@@ -122,9 +121,7 @@ Each response file also includes error messages for any job with the status fiel
 Each of the following sections shows examples of output for the two input
 formats.
 
-### Getting dominant language detection
-
-results
+### Getting dominant language detection results
 
 The following is an example of an output file from an analysis that detected the
 dominant language. The format of the input is one document per line. For more
@@ -186,9 +183,7 @@ input is one document per file.
 {"File": "1_doc", "KeyPhrases": [{"BeginOffset": 0, "EndOffset": 22, "Score": 0.8948641419410706, "Text": "Cluj-NapocaCluj-Napoca"}, {"BeginOffset": 45, "EndOffset": 49, "Score": 0.9989854693412781, "Text": "Cluj"}]}
 ```
 
-### Getting personally identifiable information (PII)
-
-detection results
+### Getting personally identifiable information (PII) detection results
 
 The following is an example an output file from an analysis job that detected PII
 entities in documents. The format of the input is one document per line.

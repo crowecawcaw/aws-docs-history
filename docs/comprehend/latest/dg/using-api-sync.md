@@ -494,16 +494,12 @@ backslash (\) Unix continuation character at the end of each line with a caret
 
 ###### Topics
 
-- [Detect the dominant language using a
-  batch (AWS CLI)](#batch-dominant-language "#batch-dominant-language")
+- [Detect the dominant language using a batch (AWS CLI)](#batch-dominant-language "#batch-dominant-language")
 - [Detect entities using a batch (AWS CLI)](#batch-entities "#batch-entities")
-- [Detect key phrases using a batch
-  (AWS CLI)](#batch-key-phrase "#batch-key-phrase")
+- [Detect key phrases using a batch (AWS CLI)](#batch-key-phrase "#batch-key-phrase")
 - [Detect sentiment using a batch (AWS CLI)](#batch-sentiment "#batch-sentiment")
 
-#### Detect the dominant language using a
-
-batch (AWS CLI)
+#### Detect the dominant language using a batch (AWS CLI)
 
 The [BatchDetectDominantLanguage](../APIReference/API_BatchDetectDominantLanguage.md "../APIReference/API_BatchDetectDominantLanguage.md") operation determines the
 dominant language of each document in a batch. For a list of the languages that
@@ -565,9 +561,7 @@ aws comprehend batch-detect-entities \
     --cli-input-json file://`path to input file`/process.json
 ```
 
-#### Detect key phrases using a batch
-
-(AWS CLI)
+#### Detect key phrases using a batch (AWS CLI)
 
 The [BatchDetectKeyPhrases](../APIReference/API_BatchDetectKeyPhrases.md "../APIReference/API_BatchDetectKeyPhrases.md") operation returns the key noun
 phrases in a batch of documents. The following AWS CLI command calls the

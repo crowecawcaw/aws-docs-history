@@ -15,8 +15,7 @@ Before you can import a custom model from another AWS account, ensure that the p
 who shared the model with you does the following:
 
 - Authorizes you to do the import. This authorization is granted in the resource-based
-  policy that is attached to the model version. For more information, see [Resource-based policies for custom
-  models](custom-copy-sharing.md#custom-copy-sharing-example-policy "custom-copy-sharing.md#custom-copy-sharing-example-policy").
+  policy that is attached to the model version. For more information, see [Resource-based policies for custom models](custom-copy-sharing.md#custom-copy-sharing-example-policy "custom-copy-sharing.md#custom-copy-sharing-example-policy").
 - Provides you with the following information:
   - The Amazon Resource Name (ARN) of the model version.
   - The AWS Region that contains the model. You must use the same AWS Region when
@@ -34,8 +33,7 @@ KMS key that is used:
   created, owned, and managed by an AWS customer in their AWS account. If the model is
   encrypted with a customer managed key, then the person who shared the model must:
   - Authorize you to decrypt the model. This authorization is granted in the KMS key
-    policy for the customer managed key. For more information, see [AWS KMS key policy
-    statement](custom-copy-sharing.md#custom-copy-sharing-prerequisites-permissions-kms "custom-copy-sharing.md#custom-copy-sharing-prerequisites-permissions-kms").
+    policy for the customer managed key. For more information, see [AWS KMS key policy statement](custom-copy-sharing.md#custom-copy-sharing-prerequisites-permissions-kms "custom-copy-sharing.md#custom-copy-sharing-prerequisites-permissions-kms").
   - Provide the ARN of the customer managed key. You use this ARN when you create an IAM
     service role. This role authorizes Amazon Comprehend to use the KMS key to decrypt the
     model.

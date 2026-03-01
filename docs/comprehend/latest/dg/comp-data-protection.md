@@ -34,5 +34,4 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 - [KMS encryption in Amazon Comprehend](kms-in-comprehend.md "kms-in-comprehend.md")
 - [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Protect jobs by using an Amazon Virtual Private Cloud](usingVPC.md "usingVPC.md")
-- [Amazon Comprehend and interface VPC endpoints
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Amazon Comprehend and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")

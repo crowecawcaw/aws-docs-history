@@ -10,8 +10,7 @@ you must use an asynchronous batch job.
 
 You can use Amazon S3 Object Lambda Access Points for personally identifiable information (PII) to control the
 retrieval of documents from your Amazon S3 bucket. You can control access to documents that contain PII and redact
-personally identifiable information from the documents. For more information, see [Using Amazon S3 object Lambda access points for personally
-identifiable information (PII)](using-access-points.md "using-access-points.md").
+personally identifiable information from the documents. For more information, see [Using Amazon S3 object Lambda access points for personally identifiable information (PII)](using-access-points.md "using-access-points.md").
 
 ###### Topics
 

@@ -159,8 +159,7 @@ sections in order:
    – In this section, you create an account and set up the AWS CLI.
 3. **[Getting started with Amazon Comprehend](getting-started.md "getting-started.md")**
    – In this section, you run a Amazon Comprehend analysis job.
-4. **[Tutorial: Analyzing insights from customer reviews with
-   Amazon Comprehend](tutorial-reviews.md "tutorial-reviews.md")**
+4. **[Tutorial: Analyzing insights from customer reviews with Amazon Comprehend](tutorial-reviews.md "tutorial-reviews.md")**
    – In this section, you perform sentiment and entities analysis and visualize the results.
 5. **[Amazon Comprehend API Reference](../APIReference/welcome.md "../APIReference/welcome.md")** –
    Reference documentation for Amazon Comprehend operations.

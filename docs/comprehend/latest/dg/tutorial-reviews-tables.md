@@ -1,6 +1,4 @@
-# Step 4: Preparing the Amazon Comprehend output for data
-
-visualization
+# Step 4: Preparing the Amazon Comprehend output for data visualization
 
 To prepare the results of the sentiment and entities analysis jobs for creating data visualizations, you use
 AWS Glue and Amazon Athena. In this step, you extract the Amazon Comprehend results files. Then, you create an AWS Glue
@@ -20,14 +18,12 @@ output file. Skip to [Load the Data into an AWS Glue Data Catalog](#tutorial-rev
 - [Download the Output](#tutorial-reviews-tables-download "#tutorial-reviews-tables-download")
 - [Extract the output files](#tutorial-reviews-tables-extract "#tutorial-reviews-tables-extract")
 - [Upload the extracted files](#tutorial-reviews-tables-upload "#tutorial-reviews-tables-upload")
-- [Load the data into an
-  AWS Glue Data Catalog](#tutorial-reviews-tables-crawler "#tutorial-reviews-tables-crawler")
+- [Load the data into an AWS Glue Data Catalog](#tutorial-reviews-tables-crawler "#tutorial-reviews-tables-crawler")
 - [Prepare the data for analysis](#tutorial-reviews-tables-prep "#tutorial-reviews-tables-prep")
 
 ## Prerequisites
 
-Before you begin, complete [Step 3: Running analysis jobs on documents in
-Amazon S3](tutorial-reviews-analysis.md "tutorial-reviews-analysis.md").
+Before you begin, complete [Step 3: Running analysis jobs on documents in Amazon S3](tutorial-reviews-analysis.md "tutorial-reviews-analysis.md").
 
 ## Download the Output
 
@@ -247,9 +243,7 @@ aws s3 cp `path/`sentiment-output s3://amzn-s3-demo-bucket/sentiment-results/
 aws s3 cp `path/`entities-output s3://amzn-s3-demo-bucket/entities-results/
 ```
 
-## Load the data into an
-
-AWS Glue Data Catalog
+## Load the data into an AWS Glue Data Catalog
 
 To get the results into a database, you can use an AWS Glue _crawler_. An AWS Glue _crawler_ scans files
 and discovers the schema of the data. It then arranges the data in tables in an

@@ -17,12 +17,10 @@ images, PDF files, and Word documents. For information about the input files, se
 If you plan to analyze image files or scanned PDF documents, your IAM policy must grant permissions to use
 two Amazon Textract API methods (DetectDocumentText and AnalyzeDocument). Amazon Comprehend invokes these methods during text extraction.
 For an example policy, see
-[Permissions required to perform document analysis
-actions](security_iam_id-based-policy-examples.md#security-iam-based-policy-perform-cmp-actions "security_iam_id-based-policy-examples.md#security-iam-based-policy-perform-cmp-actions").
+[Permissions required to perform document analysis actions](security_iam_id-based-policy-examples.md#security-iam-based-policy-perform-cmp-actions "security_iam_id-based-policy-examples.md#security-iam-based-policy-perform-cmp-actions").
 
 ###### Topics
 
-- [Real-time analysis for custom entity recognition
-  (console)](detecting-cer-real-time.md "detecting-cer-real-time.md")
+- [Real-time analysis for custom entity recognition (console)](detecting-cer-real-time.md "detecting-cer-real-time.md")
 - [Real-time analysis for custom entity recognition (API)](detecting-cer-real-time-api.md "detecting-cer-real-time-api.md")
 - [Outputs for real-time analysis](outputs-cer-sync.md "outputs-cer-sync.md")

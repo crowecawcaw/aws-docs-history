@@ -16,8 +16,7 @@ Amazon Comprehend provides the following API operations to start and manage asyn
 ###### Topics
 
 - [Before you start](#api-targeted-sentiment-before "#api-targeted-sentiment-before")
-- [Analyzing targeted sentiment using the
-  AWS CLI](#api-targeted-sentiment-cli "#api-targeted-sentiment-cli")
+- [Analyzing targeted sentiment using the AWS CLI](#api-targeted-sentiment-cli "#api-targeted-sentiment-cli")
 
 ## Before you start
 
@@ -28,12 +27,9 @@ Before you start, make sure that you have:
   be in the same Region as the API that you are calling.
 - **IAM service role**—You must have an
   IAM service role with permission to access your input and output buckets.
-  For more information, see [Role-based permissions required for
-  asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions").
+  For more information, see [Role-based permissions required for asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions").
 
-## Analyzing targeted sentiment using the
-
-AWS CLI
+## Analyzing targeted sentiment using the AWS CLI
 
 The following example demonstrates using the `StartTargetedSentimentDetectionJob`
 operation with the AWS CLI. This example specifies the language of the input

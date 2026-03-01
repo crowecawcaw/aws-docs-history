@@ -22,9 +22,7 @@ a new feature, AWS adds read-only permissions for new operations and resources. 
 and descriptions of job function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## AWS managed policy:
-
-ComprehendFullAccess
+## AWS managed policy: ComprehendFullAccess
 
 This policy grants full access to Amazon Comprehend resources including running topic
 modeling jobs. This policy also grants list and get permissions for Amazon S3 buckets and IAM
@@ -53,9 +51,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-ComprehendReadOnly
+## AWS managed policy: ComprehendReadOnly
 
 This policy grants read-only permissions to run all Amazon Comprehend actions **except** the following:
 
@@ -122,9 +118,7 @@ JSON
 
 ```
 
-## Amazon Comprehend updates to AWS managed
-
-policies
+## Amazon Comprehend updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Comprehend since this service began
 tracking these changes. For automatic alerts about changes to this page, subscribe to the

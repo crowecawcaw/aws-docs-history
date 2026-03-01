@@ -1,6 +1,4 @@
-# Amazon Comprehend and interface VPC endpoints
-
-(AWS PrivateLink)
+# Amazon Comprehend and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and Amazon Comprehend by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you
@@ -16,9 +14,7 @@ For more information, see [Interface VPC
 endpoints (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for Amazon Comprehend VPC
-
-endpoints
+## Considerations for Amazon Comprehend VPC endpoints
 
 Before you set up an interface VPC endpoint for Amazon Comprehend, ensure that you review
 [Interface
@@ -34,9 +30,7 @@ aws ec2 describe-vpc-endpoint-services \
 
 Amazon Comprehend supports making calls to all of its API actions from your VPC.
 
-## Creating an interface VPC endpoint for
-
-Amazon Comprehend
+## Creating an interface VPC endpoint for Amazon Comprehend
 
 You can create a VPC endpoint for the Amazon Comprehend service using either the Amazon VPC console
 or the AWS Command Line Interface (AWS CLI). For more information, see [Creating an
@@ -52,9 +46,7 @@ its default DNS name for the Region, for example, `*comprehend.us-east-1.amazona
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-## Creating a VPC endpoint policy for
-
-Amazon Comprehend
+## Creating a VPC endpoint policy for Amazon Comprehend
 
 You can attach an endpoint policy to your VPC endpoint that controls access to
 Amazon Comprehend. The policy specifies the following information:

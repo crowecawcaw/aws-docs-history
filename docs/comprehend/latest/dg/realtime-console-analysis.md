@@ -73,7 +73,7 @@ The **PII** tab provides two analysis modes:
 The **Offsets** analysis mode identifies the location of PII
 in your text documents. For more information, see [Locate PII entities](how-pii.md#how-pii-locate "how-pii.md#how-pii-locate").
 
-![Console display of the PII offsets analysis mode.](/images/comprehend/latest/dg/images/gs-console-pii.png)
+![Console display of the PII offsets analysis mode.](images/gs-console-pii.png)
 
 ### Labels
 
@@ -81,7 +81,7 @@ The **Labels** analysis mode checks for the presence of PII
 in your text document and returns the labels of identified PII entity types. For
 more information, see [Labeling PII entities](how-pii-labels.md "how-pii-labels.md").
 
-![Console display of the PII labels analysis mode.](images/gs-console-pii-labels.png)
+![Console display of the PII labels analysis mode.](/images/comprehend/latest/dg/images/gs-console-pii-labels.png)
 
 ## Sentiment
 

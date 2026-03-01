@@ -1,6 +1,4 @@
-# Using Amazon S3 object Lambda access points for personally
-
-identifiable information (PII)
+# Using Amazon S3 object Lambda access points for personally identifiable information (PII)
 
 Use Amazon S3 Object Lambda Access Points for personally identifiable information (PII) to
 configure how documents are retrieved from your Amazon S3 bucket. You can control access to documents
@@ -27,14 +25,10 @@ the following Amazon Comprehend Lambda functions:
 
 ###### Topics
 
-- [Controlling access to documents with personally
-  identifiable information (PII)](#access-point-pii-control "#access-point-pii-control")
-- [Redacting personally identifiable information (PII)
-  from documents](#access-point-pii-redact "#access-point-pii-redact")
+- [Controlling access to documents with personally identifiable information (PII)](#access-point-pii-control "#access-point-pii-control")
+- [Redacting personally identifiable information (PII) from documents](#access-point-pii-redact "#access-point-pii-redact")
 
-## Controlling access to documents with personally
-
-identifiable information (PII)
+## Controlling access to documents with personally identifiable information (PII)
 
 You can use an Amazon S3 Object Lambda Access Point to control access to documents with
 personally identifiable information (PII).
@@ -52,16 +46,12 @@ types, see [PII universal entity types](how-pii.md#how-pii-types "how-pii.md#how
 
 For more information about this Lambda function, sign in to the AWS Management Console to view the [ComprehendPiiAccessControlS3ObjectLambda](https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:839782855223:applications/ComprehendPiiAccessControlS3ObjectLambda "https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:839782855223:applications/ComprehendPiiAccessControlS3ObjectLambda") function in the AWS Serverless Application Repository.
 
-### Creating an Amazon S3 object Lambda access point to
-
-control access to documents
+### Creating an Amazon S3 object Lambda access point to control access to documents
 
 The following example creates an Amazon S3 Object Lambda Access Point to control access to
 documents that contain social security numbers.
 
-#### Creating an Amazon S3 object Lambda access point
-
-using the AWS Command Line Interface
+#### Creating an Amazon S3 object Lambda access point using the AWS Command Line Interface
 
 Create an Amazon S3 Object Lambda Access Point configuration and save the configuration in a
 file called **config.json**.
@@ -100,16 +90,12 @@ aws s3control create-banner-access-point \
 
 ```
 
-### Invoking an Amazon S3 object Lambda access point to
-
-control access to documents
+### Invoking an Amazon S3 object Lambda access point to control access to documents
 
 The following example invokes an Amazon S3 Object Lambda Access Point to control access to
 documents.
 
-#### Invoking an Amazon S3 object Lambda access point
-
-using the AWS Command Line Interface
+#### Invoking an Amazon S3 object Lambda access point using the AWS Command Line Interface
 
 The following example invokes an Amazon S3 Object Lambda Access Point using the AWS CLI.
 
@@ -124,9 +110,7 @@ aws s3api get-object \
 
 ```
 
-## Redacting personally identifiable information (PII)
-
-from documents
+## Redacting personally identifiable information (PII) from documents
 
 You can use an Amazon S3 Object Lambda Access Point to redact personally identifiable information
 (PII) from documents.
@@ -143,16 +127,12 @@ redacted. For more information about supported PII entity types, see [PII univer
 
 For more information about this Lambda function, sign in to the AWS Management Console to view the [ComprehendPiiRedactionS3ObjectLambda](https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:839782855223:applications/ComprehendPiiRedactionS3ObjectLambda "https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:839782855223:applications/ComprehendPiiRedactionS3ObjectLambda") function in the AWS Serverless Application Repository.
 
-### Creating an Amazon S3 object Lambda access point to
-
-redact PII from documents
+### Creating an Amazon S3 object Lambda access point to redact PII from documents
 
 The following example creates an Amazon S3 Object Lambda Access Point to redeact credit card
 numbers from documents.
 
-#### Creating an Amazon S3 object Lambda access point
-
-using the AWS Command Line Interface
+#### Creating an Amazon S3 object Lambda access point using the AWS Command Line Interface
 
 Create an Amazon S3 Object Lambda Access Point configuration and save the configuration in a
 file called `config.json`.
@@ -191,16 +171,12 @@ aws s3control create-access-point-for-object-lambda \
 
 ```
 
-### Invoking an Amazon S3 object Lambda access point to
-
-redact PII from documents
+### Invoking an Amazon S3 object Lambda access point to redact PII from documents
 
 The following examples invoke an Amazon S3 Object Lambda Access Point to redact PII from
 documents.
 
-#### Invoking an Amazon S3 object Lambda access point
-
-using the AWS Command Line Interface
+#### Invoking an Amazon S3 object Lambda access point using the AWS Command Line Interface
 
 The following example invokes an Amazon S3 Object Lambda Access Point using the AWS CLI.
 

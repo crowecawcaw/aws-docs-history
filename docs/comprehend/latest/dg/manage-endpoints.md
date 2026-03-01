@@ -11,8 +11,7 @@ Before you can manage an endpoint, you must create one. For more information, se
 following procedures:
 
 - [Creating an endpoint for custom classification](custom-sync.md#create-endpoint "custom-sync.md#create-endpoint")
-- [Creating an endpoint for custom
-  entity detection](detecting-cer-real-time.md#detecting-cer-real-time-create-endpoint "detecting-cer-real-time.md#detecting-cer-real-time-create-endpoint")
+- [Creating an endpoint for custom entity detection](detecting-cer-real-time.md#detecting-cer-real-time-create-endpoint "detecting-cer-real-time.md#detecting-cer-real-time-create-endpoint")
 
 ###### Topics
 
@@ -20,7 +19,6 @@ following procedures:
 - [Using Amazon Comprehend endpoints](using-endpoints.md "using-endpoints.md")
 - [Monitoring Amazon Comprehend endpoints](manage-endpoints-monitor.md "manage-endpoints-monitor.md")
 - [Updating Amazon Comprehend endpoints](manage-endpoints-update.md "manage-endpoints-update.md")
-- [Using Trusted Advisor with
-  Amazon Comprehend](manage-endpoints-trusted-advisor.md "manage-endpoints-trusted-advisor.md")
+- [Using Trusted Advisor with Amazon Comprehend](manage-endpoints-trusted-advisor.md "manage-endpoints-trusted-advisor.md")
 - [Deleting Amazon Comprehend endpoints](manage-endpoints-delete.md "manage-endpoints-delete.md")
 - [Auto scaling with endpoints](comprehend-autoscaling.md "comprehend-autoscaling.md")

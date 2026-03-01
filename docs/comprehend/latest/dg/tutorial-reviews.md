@@ -1,8 +1,6 @@
-# Tutorial: Analyzing insights from customer reviews with
+# Tutorial: Analyzing insights from customer reviews with Amazon Comprehend
 
-Amazon Comprehend
-
-This tutorial explains how to use Amazon Comprehend with [Amazon Simple Storage Service](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/"), [AWS Glue](https://aws.amazon.com/glue/ "https://aws.amazon.com/glue/"), [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/"), and [Amazon Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") to gain valuable insights into
+This tutorial explains how to use Amazon Comprehend with [Amazon Simple Storage Service](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/"), [AWS Glue](https://aws.amazon.com/glue/ "https://aws.amazon.com/glue/"), [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/"), and [Amazon Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") to gain valuable insights into
 your documents. Amazon Comprehend can extract sentiment (the mood of a document) and entities (names
 of people, organizations, events, dates, products, places, quantities, and titles) from
 unstructured text.
@@ -26,7 +24,7 @@ In this tutorial, you accomplish the following:
 - Run [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/")
   queries to clean your data. Amazon Athena is a serverless interactive query
   service.
-- Create visualizations with your data in [Amazon Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"). Quick Suite is a serverless
+- Create visualizations with your data in [Amazon Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"). Quick is a serverless
   business intelligence tool for extracting insights from your data.
   The following diagram shows the workflow.
 
@@ -43,20 +41,17 @@ services, see the following pricing pages.
 - [AWS Glue pricing](https://aws.amazon.com/glue/pricing/ "https://aws.amazon.com/glue/pricing/")
 - [Amazon Athena
   pricing](https://aws.amazon.com/athena/pricing/ "https://aws.amazon.com/athena/pricing/")
-- [Quick Suite
+- [Quick
   pricing](https://aws.amazon.com/quicksight/pricing/ "https://aws.amazon.com/quicksight/pricing/")
 
 ###### Topics
 
 - [Prerequisites](#tutorial-reviews-prereqs "#tutorial-reviews-prereqs")
 - [Step 1: Adding documents to Amazon S3](tutorial-reviews-add-docs.md "tutorial-reviews-add-docs.md")
-- [Step 2: (CLI only) creating an IAM role for
-  Amazon Comprehend](tutorial-reviews-create-role.md "tutorial-reviews-create-role.md")
-- [Step 3: Running analysis jobs on documents in
-  Amazon S3](tutorial-reviews-analysis.md "tutorial-reviews-analysis.md")
-- [Step 4: Preparing the Amazon Comprehend output for data
-  visualization](tutorial-reviews-tables.md "tutorial-reviews-tables.md")
-- [Step 5: Visualizing Amazon Comprehend output in Quick Suite](tutorial-reviews-visualize.md "tutorial-reviews-visualize.md")
+- [Step 2: (CLI only) creating an IAM role for Amazon Comprehend](tutorial-reviews-create-role.md "tutorial-reviews-create-role.md")
+- [Step 3: Running analysis jobs on documents in Amazon S3](tutorial-reviews-analysis.md "tutorial-reviews-analysis.md")
+- [Step 4: Preparing the Amazon Comprehend output for data visualization](tutorial-reviews-tables.md "tutorial-reviews-tables.md")
+- [Step 5: Visualizing Amazon Comprehend output in Quick](tutorial-reviews-visualize.md "tutorial-reviews-visualize.md")
 
 ## Prerequisites
 
@@ -143,6 +138,6 @@ _IAM User Guide_.
       + `AWSQuicksightAthenaAccess`
 
   These managed policies give you permission to use AWS Glue,
-  Amazon Athena, and Quick Suite. For information about attaching an IAM
+  Amazon Athena, and Quick. For information about attaching an IAM
   policy, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the
   _IAM User Guide_.

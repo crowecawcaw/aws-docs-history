@@ -1,6 +1,4 @@
-# Using Trusted Advisor with
-
-Amazon Comprehend
+# Using Trusted Advisor with Amazon Comprehend
 
 AWS Trusted Advisor is an online tool that provides recommendations to help you
 provision your resources following AWS best practices.
@@ -13,9 +11,7 @@ and the [AWS Support API](../../../awssupport/latest/user/Welcome.md "../../../a
 Amazon Comprehend supports the following Trusted Advisor checks to help customers optimize the cost and the
 security of their Amazon Comprehend endpoints by providing actionable recommendations.
 
-## Amazon Comprehend underutilized
-
-endpoints
+## Amazon Comprehend underutilized endpoints
 
 The **Amazon Comprehend underutilized endpoints** check evaluates the
 throughput configuration of your endpoints. This check alerts you when endpoints are not
@@ -28,9 +24,7 @@ or delete it. These check results are automatically refreshed once every day and
 under the **CostOptimization** category on the Trusted Advisor
 console.
 
-###### To view the utilization status of all your endpoints and the corresponding
-
-recommendations
+###### To view the utilization status of all your endpoints and the corresponding recommendations
 
 1. Sign in to the AWS Management Console and open the Trusted Advisor console.
 2. In the navigation pane, choose the **CostOptimization**
@@ -83,9 +77,7 @@ console:
 
 ![Example output of the cost optimization checks.](images/TA_cost_optimization_new.png)
 
-## Amazon Comprehend endpoint access
-
-risk
+## Amazon Comprehend endpoint access risk
 
 The **Amazon Comprehend endpoint access risk** check evaluates the
 AWS Key Management Service (AWS KMS) key permissions for an endpoint where the underlying model was encrypted

@@ -1,6 +1,4 @@
-# Logging Amazon Comprehend API calls with
-
-AWS CloudTrail
+# Logging Amazon Comprehend API calls with AWS CloudTrail
 
 Amazon Comprehend is integrated with AWS CloudTrail, a service that provides a record of actions
 taken by a user, role, or an AWS service in Amazon Comprehend. CloudTrail captures API calls for
@@ -14,9 +12,7 @@ was made, who made the request, when it was made, and additional details.
 
 To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-## Amazon Comprehend information in
-
-CloudTrail
+## Amazon Comprehend information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When supported
 event activity occurs in Amazon Comprehend, that activity is recorded in a CloudTrail event along
@@ -115,9 +111,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Example: Amazon Comprehend log file
-
-entries
+## Example: Amazon Comprehend log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event

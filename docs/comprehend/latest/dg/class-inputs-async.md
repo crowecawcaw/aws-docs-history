@@ -41,5 +41,4 @@ single file, Amazon Comprehend uses that file as input. If more than one file be
 uses all of them as input.
 
 Grant Amazon Comprehend access to the S3 bucket that contains your document collection and output
-files. For more information, see [Role-based permissions required for
-asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions").
+files. For more information, see [Role-based permissions required for asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions").

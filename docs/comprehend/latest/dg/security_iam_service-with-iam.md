@@ -21,9 +21,7 @@ To get a high-level view of how Amazon Comprehend and other AWS services work wi
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Amazon Comprehend
+## Identity-based policies for Amazon Comprehend
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Amazon Comprehend
 
-Identity-based policy examples for Amazon Comprehend
+To view examples of Amazon Comprehend identity-based policies, see [Identity-based policy examples for Amazon Comprehend](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Amazon Comprehend identity-based policies, see [Identity-based policy
-examples for Amazon Comprehend](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Amazon Comprehend
+## Resource-based policies within Amazon Comprehend
 
 **Supports resource-based policies:**
 
@@ -70,12 +63,9 @@ to a custom model. This policy defines other accounts that can use the
 custom model.
 
 To learn how to attach a resource-based policy to a
-custom model, see [Resource-based policies for custom
-models](custom-copy-sharing.md#custom-copy-sharing-example-policy "custom-copy-sharing.md#custom-copy-sharing-example-policy").
+custom model, see [Resource-based policies for custom models](custom-copy-sharing.md#custom-copy-sharing-example-policy "custom-copy-sharing.md#custom-copy-sharing-example-policy").
 
-## Policy actions
-
-for Amazon Comprehend
+## Policy actions for Amazon Comprehend
 
 **Supports policy actions:**
 
@@ -116,12 +106,9 @@ action:
 Don't use wildcards to specify all of the actions for a service. Use the best practice of
 granting least privilege when you specify the permissions in a policy.
 
-To view examples of Amazon Comprehend identity-based policies, see [Identity-based policy
-examples for Amazon Comprehend](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Comprehend identity-based policies, see [Identity-based policy examples for Amazon Comprehend](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Amazon Comprehend
+## Policy resources for Amazon Comprehend
 
 **Supports policy resources:**
 
@@ -141,9 +128,7 @@ To see a list of Amazon Comprehend resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by Amazon Comprehend](../../../service-authorization/latest/reference/list_amazoncomprehend.md#amazoncomprehend-actions-as-permissions "../../../service-authorization/latest/reference/list_amazoncomprehend.md#amazoncomprehend-actions-as-permissions").
 
-## Policy
-
-condition keys for Amazon Comprehend
+## Policy condition keys for Amazon Comprehend
 
 **Supports service-specific policy condition keys:**
 
@@ -162,8 +147,7 @@ To see a list of Amazon Comprehend condition keys, see [Condition keys for Amazo
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by Amazon Comprehend](../../../service-authorization/latest/reference/list_amazoncomprehend.md#amazoncomprehend-actions-as-permissions "../../../service-authorization/latest/reference/list_amazoncomprehend.md#amazoncomprehend-actions-as-permissions").
 
-To view examples of Amazon Comprehend identity-based policies, see [Identity-based policy
-examples for Amazon Comprehend](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Comprehend identity-based policies, see [Identity-based policy examples for Amazon Comprehend](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Amazon Comprehend
 
@@ -194,9 +178,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 For more information about tagging Amazon Comprehend
 resources, see [Tagging your resources](tagging.md "tagging.md").
 
-## Using temporary
-
-credentials with Amazon Comprehend
+## Using temporary credentials with Amazon Comprehend
 
 **Supports temporary credentials:**
 
@@ -208,9 +190,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access sessions
-
-for Amazon Comprehend
+## Forward access sessions for Amazon Comprehend
 
 **Supports forward access sessions (FAS):**
 
@@ -219,9 +199,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon Comprehend
+## Service roles for Amazon Comprehend
 
 **Supports service roles:**
 
@@ -240,12 +218,9 @@ To use the Amazon Comprehend asynchronous operations, you must grant Amazon Comp
 your document collection. You do this by creating a data access role in your account with a trust policy to
 trust the Amazon Comprehend service principal.
 
-For a policy example, see [Role-based permissions required for
-asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions")
+For a policy example, see [Role-based permissions required for asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions")
 
-## Service-linked
-
-roles for Amazon Comprehend
+## Service-linked roles for Amazon Comprehend
 
 **Supports service-linked roles:**
 

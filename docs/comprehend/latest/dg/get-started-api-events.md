@@ -19,8 +19,7 @@ Before you start, make sure that you have:
   be in the same Region as the API that you are calling.
 - **IAM service role**—You must have an
   IAM service role with permission to access your input and output buckets.
-  For more information, see [Role-based permissions required for
-  asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions").
+  For more information, see [Role-based permissions required for asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions").
 
 ## Detect events using the AWS CLI
 

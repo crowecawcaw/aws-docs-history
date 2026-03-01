@@ -21,8 +21,7 @@ Before you start, make sure that you have:
   calling.
 - **IAM service role**—You must have an
   IAM service role with permission to access your input and output buckets.
-  For more information, see [Role-based permissions required for
-  asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions").
+  For more information, see [Role-based permissions required for asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions").
 
 ## Input parameters
 
@@ -37,8 +36,7 @@ In your request, include the following required parameters:
   analysis.
 - `DataAccessRoleArn` – Provide the Amazon Resource Name (ARN) of an AWS Identity and Access Management role. This
   role must grant Amazon Comprehend read access to your input data and write access to your output location in Amazon S3. For more
-  information, see [Role-based permissions required for
-  asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions").
+  information, see [Role-based permissions required for asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions").
 - `Mode` – Set this parameter to `ONLY_OFFSETS`. With this setting, the output
   provides the character offsets that locate each PII entity in the input text. The output also includes
   confidence scores and PII entity types.

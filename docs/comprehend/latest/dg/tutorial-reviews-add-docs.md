@@ -16,8 +16,7 @@ upload a sample dataset to the bucket.
 
 ## Prerequisites
 
-Before you begin, review [Tutorial: Analyzing insights from customer reviews with
-Amazon Comprehend](tutorial-reviews.md "tutorial-reviews.md")
+Before you begin, review [Tutorial: Analyzing insights from customer reviews with Amazon Comprehend](tutorial-reviews.md "tutorial-reviews.md")
 and complete the prerequisites.
 
 ## Download sample data
@@ -114,8 +113,7 @@ The second folder is where Amazon Comprehend sends the analysis results. If you 
 console, you have to manually create the folders. If you use the AWS CLI, you can create
 folders when you upload the sample dataset or run an analysis job. For that reason, we
 provide a procedure for creating folders only for console users. If you are using the
-AWS CLI, you will create folders in [Upload the input data](#tutorial-reviews-add-docs-upload "#tutorial-reviews-add-docs-upload") and in [Step 3: Running analysis jobs on documents in
-Amazon S3](tutorial-reviews-analysis.md "tutorial-reviews-analysis.md").
+AWS CLI, you will create folders in [Upload the input data](#tutorial-reviews-add-docs-upload "#tutorial-reviews-add-docs-upload") and in [Step 3: Running analysis jobs on documents in Amazon S3](tutorial-reviews-analysis.md "tutorial-reviews-analysis.md").
 
 ###### To create folders in your S3 bucket (console)
 

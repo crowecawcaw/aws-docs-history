@@ -8,20 +8,14 @@ For information about provisioning endpoint throughput, and the associated costs
 
 ###### Topics
 
-- [Creating an endpoint for custom
-  entity detection](#detecting-cer-real-time-create-endpoint-api "#detecting-cer-real-time-create-endpoint-api")
-- [Running real-time custom entity
-  detection](#detecting-cer-real-time-run "#detecting-cer-real-time-run")
+- [Creating an endpoint for custom entity detection](#detecting-cer-real-time-create-endpoint-api "#detecting-cer-real-time-create-endpoint-api")
+- [Running real-time custom entity detection](#detecting-cer-real-time-run "#detecting-cer-real-time-run")
 
-## Creating an endpoint for custom
-
-entity detection
+## Creating an endpoint for custom entity detection
 
 For information about the costs associated with endpoints, see [Using Amazon Comprehend endpoints](using-endpoints.md "using-endpoints.md").
 
-### Creating an Endpoint with
-
-the AWS CLI
+### Creating an Endpoint with the AWS CLI
 
 To create an endpoint by using the AWS CLI, use the `create-endpoint`
 command:
@@ -46,9 +40,7 @@ If your command succeeds, Amazon Comprehend responds with the endpoint ARN:
 For more information about this command, its parameter arguments, and its output, see [`create-endpoint`](../../../cli/latest/reference/comprehend/create-endpoint.md "../../../cli/latest/reference/comprehend/create-endpoint.md") in the
 AWS CLI Command Reference.
 
-## Running real-time custom entity
-
-detection
+## Running real-time custom entity detection
 
 After you create an endpoint for your custom entity recognizer model, you use the endpoint to run
 the [DetectEntities](../APIReference/API_DetectEntities.md "../APIReference/API_DetectEntities.md") API operation. You can provide text input using the `text`
@@ -57,17 +49,12 @@ or `bytes` parameter. Enter the other input types using the `bytes` parameter.
 For image files and PDF files, you can use the `DocumentReaderConfig` parameter to override the
 default text extraction actions. For details, see [Setting text extraction options](idp-set-textract-options.md "idp-set-textract-options.md").
 
-### Detecting entities in text using the
-
-AWS CLI
+### Detecting entities in text using the AWS CLI
 
 To detect custom entities in text, run the `detect-entities`
 command with the input text in the `text` parameter.
 
-###### Example:
-
-Use
-the CLI to detect entities in input text
+###### Example: Use the CLI to detect entities in input text
 
 ```
 `$` `aws comprehend detect-entities \`
@@ -81,9 +68,7 @@ the CLI to detect entities in input text
 If your command succeeds, Amazon Comprehend responds with the analysis. For each entity that Amazon Comprehend
 detects, it provides the entity type, text, location, and confidence score.
 
-### Detecting entities in semi-structured documents using the
-
-AWS CLI
+### Detecting entities in semi-structured documents using the AWS CLI
 
 To detect custom entities in PDF, Word, or image file, run the `detect-entities`
 command with the input file in the `bytes` parameter.

@@ -119,9 +119,7 @@ For each detected event, the output provides details in the following format:
  }
 ```
 
-## Supported types for entities, events, and
-
-arguments
+## Supported types for entities, events, and arguments
 
 ### Entity types
 
@@ -183,21 +181,20 @@ arguments
 | NEW_COMPANY                         | The new legal entity resulting from the merger. |
 | PARTICIPANT                         | The company involved in the merger.             |
 
-Argument types for IPO, RIGHTS_ISSUE, SECONDARY_OFFERING, SHELF_OFFERING,
-TENDER_OFFERING| Type | Description |
-| --- | --- |
-| EXPIRE_DATE | The expiration date or time of the offering. |
-| INVESTOR | The person or company investing in the asset. |
-| OFFEREE | The person or company receiving the offering. |
-| OFFERING_AMOUNT | The monetary value associated with the offering. |
-| OFFERING_DATE | The date or time of the offering. |
-| OFFEROR | The person or company initiating the offering. |
-| OFFEROR_TOTAL_VALUE | The total monetary value associated with the offering. |
-| RECORD_DATE | The record date or time of the offering. |
-| SELLING_AGENT | The person or company facilitating the sale of the offering. |
-| SHARE_PRICE | The monetary value associated with the share price. |
-| SHARE_QUANTITY | The number of shares associated with the offering. |
-| UNDERWRITERS | The company associated with the underwriting of the offering. |
+| Argument types for IPO, RIGHTS_ISSUE, SECONDARY_OFFERING, SHELF_OFFERING, TENDER_OFFERING | Type                                                          | Description |
+| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ----------- |
+| EXPIRE_DATE                                                                               | The expiration date or time of the offering.                  |
+| INVESTOR                                                                                  | The person or company investing in the asset.                 |
+| OFFEREE                                                                                   | The person or company receiving the offering.                 |
+| OFFERING_AMOUNT                                                                           | The monetary value associated with the offering.              |
+| OFFERING_DATE                                                                             | The date or time of the offering.                             |
+| OFFEROR                                                                                   | The person or company initiating the offering.                |
+| OFFEROR_TOTAL_VALUE                                                                       | The total monetary value associated with the offering.        |
+| RECORD_DATE                                                                               | The record date or time of the offering.                      |
+| SELLING_AGENT                                                                             | The person or company facilitating the sale of the offering.  |
+| SHARE_PRICE                                                                               | The monetary value associated with the share price.           |
+| SHARE_QUANTITY                                                                            | The number of shares associated with the offering.            |
+| UNDERWRITERS                                                                              | The company associated with the underwriting of the offering. |
 
 | Argument types for STOCK_SPLIT | Type                                                                                                                   | Description |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------- | ----------- |

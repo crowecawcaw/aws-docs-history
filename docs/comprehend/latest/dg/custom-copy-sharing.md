@@ -15,12 +15,9 @@ example, US East (N. Virginia)— that contains your model.
 ###### Topics
 
 - [Before you begin](#custom-copy-sharing-prerequisites "#custom-copy-sharing-prerequisites")
-- [Resource-based policies for custom
-  models](#custom-copy-sharing-example-policy "#custom-copy-sharing-example-policy")
-- [Step 1: Add a resource-based policy to a
-  custom model](#custom-copy-sharing-adding-policy "#custom-copy-sharing-adding-policy")
-- [Step 2: Provide the details that others need to
-  import](#custom-copy-sharing-details "#custom-copy-sharing-details")
+- [Resource-based policies for custom models](#custom-copy-sharing-example-policy "#custom-copy-sharing-example-policy")
+- [Step 1: Add a resource-based policy to a custom model](#custom-copy-sharing-adding-policy "#custom-copy-sharing-adding-policy")
+- [Step 2: Provide the details that others need to import](#custom-copy-sharing-details "#custom-copy-sharing-details")
 
 ## Before you begin
 
@@ -171,9 +168,7 @@ JSON
 For more information, see [Key policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the
 _AWS Key Management Service Developer Guide_.
 
-## Resource-based policies for custom
-
-models
+## Resource-based policies for custom models
 
 Before an Amazon Comprehend user in another AWS account can import a custom model from your AWS
 account, you must authorize them to do so. To authorize them, you add a _resource-based policy_ to the model version that you want to share.
@@ -217,9 +212,7 @@ the only action that Amazon Comprehend supports.
 For more information about resource-based policies, see [Identity-based
 policies and resource-based policies](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md") in the _IAM User Guide_.
 
-## Step 1: Add a resource-based policy to a
-
-custom model
+## Step 1: Add a resource-based policy to a custom model
 
 You can add a resource-based policy by using the AWS Management Console, AWS CLI, or Amazon Comprehend API.
 
@@ -326,9 +319,7 @@ operation.
 You can also add a policy to a custom model in the API request that creates the model.
 To do this, provide the policy JSON for the ModelPolicy parameter when you submit a [CreateDocumentClassifier](API_CreateDocumentClassifier.md "API_CreateDocumentClassifier.md") or [CreateEntityRecognizer](API_CreateEntityRecognizer.md "API_CreateEntityRecognizer.md") request.
 
-## Step 2: Provide the details that others need to
-
-import
+## Step 2: Provide the details that others need to import
 
 Now that you have added the resource-based policy to your custom model, you have
 authorized other Amazon Comprehend users to import your model into their AWS accounts. However, before
