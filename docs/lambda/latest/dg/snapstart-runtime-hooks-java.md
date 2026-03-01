@@ -94,13 +94,13 @@ is garbage collected, runtime hooks do not run. Your code must maintain a strong
 
 Here are two examples of patterns to avoid:
 
-###### Example – Object without a strong reference
+###### Example– Object without a strong reference
 
 ```
 Core.getGlobalContext().register( new MyResource() );
 ```
 
-###### Example – Objects of anonymous classes
+###### Example– Objects of anonymous classes
 
 ```
 Core.getGlobalContext().register( new Resource() {
@@ -121,7 +121,7 @@ Core.getGlobalContext().register( new Resource() {
 Instead, maintain a strong reference. In the following example, the registered resource isn't garbage
 collected and runtime hooks run consistently.
 
-###### Example – Object with a strong reference
+###### Example– Object with a strong reference
 
 ```
 Resource myResource = new MyResource(); `// This reference must be maintained to prevent the registered resource from being garbage collected`

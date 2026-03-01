@@ -209,7 +209,7 @@ To allow outbound IPv6 traffic in a VPC, all of the subnets that are connected t
 
 You can update your function code to explicitly connect to subnet resources over IPv6. The following Python example opens a socket and connects to an IPv6 server.
 
-###### Example — Connect to IPv6 server
+###### Example— Connect to IPv6 server
 
 ```
 def connect_to_server(event, context):
@@ -389,9 +389,7 @@ JSON
 
 ```
 
-#### Deny users access to specific VPCs, subnets, or security
-
-groups
+#### Deny users access to specific VPCs, subnets, or security groups
 
 To deny users access to specific VPCs, use `StringEquals` to check the value of the
 `lambda:VpcIds` condition. The following example denies users access to `vpc-1` and
@@ -471,9 +469,7 @@ To deny users access to specific security groups, use `StringEquals` to check th
 
 ```
 
-#### Allow users to create and update functions with specific VPC
-
-settings
+#### Allow users to create and update functions with specific VPC settings
 
 To allow users to access specific VPCs, use `StringEquals` to check the value of the
 `lambda:VpcIds` condition. The following example allows users to access `vpc-1` and

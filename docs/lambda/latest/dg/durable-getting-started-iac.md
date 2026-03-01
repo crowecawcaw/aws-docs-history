@@ -8,7 +8,9 @@ All three tools require you to:
 - Grant checkpoint permissions to the execution role
 - Publish a version or create an alias (durable functions require qualified ARNs)
 
-## AWS CloudFormation
+## Durable functions from a ZIP
+
+### AWS CloudFormation
 
 Use CloudFormation to define your durable function in a template. The following example creates a durable function with the required permissions.
 
@@ -78,7 +80,7 @@ aws cloudformation deploy \
   --capabilities CAPABILITY_IAM
 ```
 
-## AWS CDK
+### AWS CDK
 
 AWS CDK lets you define infrastructure using programming languages. The following examples show how to create a durable function using TypeScript and Python.
 
@@ -171,7 +173,7 @@ class DurableFunctionStack(Stack):
 cdk deploy
 ```
 
-## AWS Serverless Application Model
+### AWS Serverless Application Model
 
 AWS SAM simplifies CloudFormation templates for serverless applications. The following template creates a durable function with AWS SAM.
 
@@ -211,7 +213,7 @@ sam build
 sam deploy --guided
 ```
 
-## Terraform
+### Terraform
 
 Terraform is a popular open-source IaC tool that supports AWS resources. The following example creates a durable function with Terraform using the AWS provider version 6.25.0 or later.
 
@@ -297,6 +299,100 @@ terraform apply
 ###### Note
 
 Terraform support for Lambda durable functions requires AWS provider version 6.25.0 or later. Update your provider version if you're using an older version.
+
+## Durable functions from an OCI container image
+
+You can also create Durable functions based off of container images. For instructions on how to build a container image, see [Supported runtimes for durable functions](durable-supported-runtimes.md "durable-supported-runtimes.md").
+
+### AWS CDK
+
+AWS CDK lets you define infrastructure using programming languages. The following examples show how to create a durable function using TypeScript from a container image.
+
+```
+import * as cdk from 'aws-cdk-lib';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+import * as iam from 'aws-cdk-lib/aws-iam';
+import { Construct } from 'constructs';
+
+export class DurableFunctionStack extends cdk.Stack {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
+
+    // Create the durable function
+    const durableFunction = new lambda.DockerImageFunction(this, 'DurableFunction', {
+      code: lambda.DockerImageCode.fromImageAsset('./lambda', {
+        platform: cdk.aws_ecr_assets.Platform.LINUX_AMD64,
+      }),
+      functionName: 'myDurableFunction',
+      memorySize: 512,
+      timeout: cdk.Duration.seconds(30),
+      durableConfig: { executionTimeout: cdk.Duration.hours(1), retentionPeriod: cdk.Duration.days(30) },
+    });
+
+    // Create version and alias
+    const version = durableFunction.currentVersion;
+    const alias = new lambda.Alias(this, 'ProdAlias', {
+      aliasName: 'prod',
+      version: version,
+    });
+
+    // Output the alias ARN
+    new cdk.CfnOutput(this, 'FunctionAliasArn', {
+      value: alias.functionArn,
+      description: 'Use this ARN to invoke the durable function',
+    });
+  }
+}
+```
+
+**To deploy the CDK stack**
+
+```
+cdk deploy
+```
+
+### AWS Serverless Application Model
+
+AWS SAM simplifies CloudFormation templates for serverless applications. The following template creates a durable function with AWS SAM.
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Lambda durable function with SAM
+
+Resources:
+  DurableFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: myDurableFunction
+      PackageType: Image
+      ImageUri: ./src
+      DurableConfig:
+        ExecutionTimeout: 3600
+        RetentionPeriodInDays: 7
+      Policies:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicDurableExecutionRolePolicy
+      AutoPublishAlias: prod
+    Metadata:
+      DockerTag: latest
+      DockerContext: ./src
+      Dockerfile: Dockerfile
+
+Outputs:
+  FunctionArn:
+    Description: Durable function ARN
+    Value: !GetAtt DurableFunction.Arn
+  AliasArn:
+    Description: Function alias ARN (use this for invocations)
+    Value: !Ref DurableFunction.Alias
+```
+
+**To deploy the SAM template**
+
+```
+sam build
+sam deploy --guided
+```
 
 ## Common configuration patterns
 

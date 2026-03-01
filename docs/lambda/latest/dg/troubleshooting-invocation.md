@@ -30,10 +30,8 @@ For a list of error types that the `Invoke` operation can return, see [Invoke](.
 - [EFS: Function could not connect to the EFS file system](#troubleshooting-invocation-efsconnect "#troubleshooting-invocation-efsconnect")
 - [EFS: Function could not mount the EFS file system due to timeout](#troubleshooting-invocation-efstimeout "#troubleshooting-invocation-efstimeout")
 - [Lambda: Lambda detected an IO process that was taking too long](#troubleshooting-invocation-ioprocess "#troubleshooting-invocation-ioprocess")
-- [Container:
-  CodeArtifactUserException errors](#troubleshooting-deployment-container-artifact "#troubleshooting-deployment-container-artifact")
-- [Container:
-  InvalidEntrypoint errors](#troubleshooting-deployment-container-entrypoint "#troubleshooting-deployment-container-entrypoint")
+- [Container: CodeArtifactUserException errors](#troubleshooting-deployment-container-artifact "#troubleshooting-deployment-container-artifact")
+- [Container: InvalidEntrypoint errors](#troubleshooting-deployment-container-entrypoint "#troubleshooting-deployment-container-entrypoint")
 
 ## Lambda: Function times out during Init phase (Sandbox.Timedout)
 
@@ -254,9 +252,7 @@ A previous invocation timed out and Lambda couldn't terminate the function handl
 attached file system runs out of burst credits and the baseline throughput is insufficient. To increase throughput,
 you can increase the size of the file system or use provisioned throughput.
 
-## Container:
-
-CodeArtifactUserException errors
+## Container: CodeArtifactUserException errors
 
 **Error:**
 _CodeArtifactUserPendingException error message_
@@ -275,9 +271,7 @@ _CodeArtifactUserFailedException error message_
 Lambda failed to optimize the code. You need to correct the code and upload it again.
 HTTP response code 409.
 
-## Container:
-
-InvalidEntrypoint errors
+## Container: InvalidEntrypoint errors
 
 **Error:**
 _Runtime.ExitError or "errorType": "Runtime.InvalidEntrypoint"_

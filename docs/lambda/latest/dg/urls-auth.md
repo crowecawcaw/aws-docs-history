@@ -64,7 +64,7 @@ The following resource-based policy allows the `example`
 role in AWS account `444455556666` to invoke the function URL associated with function
 `my-function`. The [lambda:InvokedViaFunctionUrl](../api/API_AddPermission.md#lambda-AddPermission-request-InvokedViaFunctionUrl "../api/API_AddPermission.md#lambda-AddPermission-request-InvokedViaFunctionUrl") context key restricts the `lambda:InvokeFunction` action to function URL calls. This means that the principal must use the function URL to invoke the function. If you don't include `lambda:InvokedViaFunctionUrl`, the principal can invoke your function through other invocation methods, in addition to the function URL.
 
-###### Example — Cross-account resource-based policy
+###### Example— Cross-account resource-based policy
 
 JSON
 
@@ -167,7 +167,7 @@ Note the following about this policy:
   means that the policy statement allows access only when your function URL's auth type is also `NONE`.
 - The `lambda:InvokedViaFunctionUrl` condition ensures that the function can only be invoked through the function URL and not through other invocation methods.
 
-###### Example — Default resource-based policy for NONE auth type
+###### Example— Default resource-based policy for NONE auth type
 
 JSON
 

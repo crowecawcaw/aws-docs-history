@@ -26,8 +26,7 @@ There are two main ways to use Lambda with Apache Kafka:
 - [Customizable consumer group ID in Lambda](kafka-consumer-group-id.md "kafka-consumer-group-id.md")
 - [Filtering events from Amazon MSK and self-managed Apache Kafka event sources](kafka-filtering.md "kafka-filtering.md")
 - [Using schema registries with Kafka event sources in Lambda](services-consume-kafka-events.md "services-consume-kafka-events.md")
-- [Low latency processing for Kafka event
-  sources](with-kafka-low-latency.md "with-kafka-low-latency.md")
+- [Low latency processing for Kafka event sources](with-kafka-low-latency.md "with-kafka-low-latency.md")
 - [Configuring error handling controls for Kafka event sources](kafka-retry-configurations.md "kafka-retry-configurations.md")
 - [Capturing discarded batches for Amazon MSK and self-managed Apache Kafka event sources](kafka-on-failure.md "kafka-on-failure.md")
 - [Using a Kafka topic as an on-failure destination](kafka-on-failure-destination.md "kafka-on-failure-destination.md")

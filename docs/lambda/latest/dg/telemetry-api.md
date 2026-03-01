@@ -60,8 +60,7 @@ subscribes to telemetry streams.
 - [Inbound Telemetry API messages](#telemetry-api-messages "#telemetry-api-messages")
 - [Lambda Telemetry API reference](telemetry-api-reference.md "telemetry-api-reference.md")
 - [Lambda Telemetry API Event schema reference](telemetry-schema-reference.md "telemetry-schema-reference.md")
-- [Converting Lambda Telemetry API Event objects to OpenTelemetry
-  Spans](telemetry-otel-spans.md "telemetry-otel-spans.md")
+- [Converting Lambda Telemetry API Event objects to OpenTelemetry Spans](telemetry-otel-spans.md "telemetry-otel-spans.md")
 - [Using the Lambda Logs API](runtimes-logs-api.md "runtimes-logs-api.md")
 
 ## Creating extensions using the Telemetry API

@@ -31,13 +31,10 @@ the AWS Samples GitHub repository.
 
 ###### Topics
 
-- [Lambda execution environment
-  lifecycle](#runtimes-extensions-api-lifecycle "#runtimes-extensions-api-lifecycle")
+- [Lambda execution environment lifecycle](#runtimes-extensions-api-lifecycle "#runtimes-extensions-api-lifecycle")
 - [Extensions API reference](#runtimes-extensions-registration-api "#runtimes-extensions-registration-api")
 
-## Lambda execution environment
-
-lifecycle
+## Lambda execution environment lifecycle
 
 The lifecycle of the execution environment includes the following phases:
 
@@ -70,8 +67,7 @@ environment when each process has completed and there are no pending events.
 - [Init phase](#runtimes-extensions-api-reg "#runtimes-extensions-api-reg")
 - [Invoke phase](#runtimes-lifecycle-extensions-invoke "#runtimes-lifecycle-extensions-invoke")
 - [Shutdown phase](#runtimes-lifecycle-extensions-shutdown "#runtimes-lifecycle-extensions-shutdown")
-- [Permissions and
-  configuration](#runtimes-extensions-registration-api-e "#runtimes-extensions-registration-api-e")
+- [Permissions and configuration](#runtimes-extensions-registration-api-e "#runtimes-extensions-registration-api-e")
 - [Failure handling](#runtimes-extensions-api-failure "#runtimes-extensions-api-failure")
 - [Troubleshooting extensions](#runtimes-extensions-api-trbl "#runtimes-extensions-api-trbl")
 
@@ -217,9 +213,7 @@ The `shutdownReason` includes the following values:
 
 ```
 
-### Permissions and
-
-configuration
+### Permissions and configuration
 
 Extensions run in the same execution environment as the Lambda function. Extensions also
 share resources with the function, such as CPU, memory, and `/tmp` disk storage.

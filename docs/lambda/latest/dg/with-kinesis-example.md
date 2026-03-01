@@ -521,9 +521,7 @@ cd kinesis-tutorial
 --role arn:aws:iam::`111122223333`:role/lambda-kinesis-role`
 ```
 
-## Test the
-
-Lambda function
+## Test the Lambda function
 
 Invoke your Lambda function manually using the `invoke` AWS Lambda CLI command and a sample Kinesis
 event.
@@ -616,9 +614,7 @@ You should see the following output:
 
 You use the stream ARN in the next step to associate the stream with your Lambda function.
 
-## Add an event source in
-
-AWS Lambda
+## Add an event source in AWS Lambda
 
 Run the following AWS CLI `add-event-source` command.
 

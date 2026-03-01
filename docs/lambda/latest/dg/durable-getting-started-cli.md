@@ -77,6 +77,10 @@ aws lambda create-function \
 
 You can only enable durable execution when creating the function. You cannot enable it on existing functions.
 
+###### Note
+
+Currently Durable functions in Java (Preview) currently can only be created through container images. For more information on creating durable functions from container images, see [Supported runtimes for durable functions](durable-supported-runtimes.md "durable-supported-runtimes.md").
+
 ## Publish a version
 
 While durable functions can be invoked using the `$LATEST` version qualifier, you must always use a qualified ARN pointing to a stable version to ensure deterministic execution of your code.

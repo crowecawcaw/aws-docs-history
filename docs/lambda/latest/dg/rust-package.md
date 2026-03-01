@@ -6,10 +6,8 @@ Lambda](https://www.cargo-lambda.info/guide/what-is-cargo-lambda.html "https://w
 ###### Sections
 
 - [Prerequisites](#rust-package-prerequisites "#rust-package-prerequisites")
-- [Building Rust functions on macOS, Windows, or
-  Linux](#rust-package-build "#rust-package-build")
-- [Deploying the Rust function binary with Cargo
-  Lambda](#rust-deploy-cargo "#rust-deploy-cargo")
+- [Building Rust functions on macOS, Windows, or Linux](#rust-package-build "#rust-package-build")
+- [Deploying the Rust function binary with Cargo Lambda](#rust-deploy-cargo "#rust-deploy-cargo")
 - [Invoking your Rust function with Cargo Lambda](#rust-invoke-function "#rust-invoke-function")
 
 ## Prerequisites
@@ -17,9 +15,7 @@ Lambda](https://www.cargo-lambda.info/guide/what-is-cargo-lambda.html "https://w
 - [Rust](https://www.rust-lang.org/tools/install "https://www.rust-lang.org/tools/install")
 - [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
 
-## Building Rust functions on macOS, Windows, or
-
-Linux
+## Building Rust functions on macOS, Windows, or Linux
 
 The following steps demonstrate how to create the project for your first Lambda function with
 Rust and compile it with [Cargo Lambda](https://www.cargo-lambda.info/ "https://www.cargo-lambda.info/"), a third-party open-source extension to the Cargo command-line tool that simplifies building and deploying Rust Lambda functions.
@@ -57,9 +53,7 @@ cargo lambda build --release --arm64
 aws configure
 ```
 
-## Deploying the Rust function binary with Cargo
-
-Lambda
+## Deploying the Rust function binary with Cargo Lambda
 
 Use the [deploy](https://www.cargo-lambda.info/commands/deploy.html "https://www.cargo-lambda.info/commands/deploy.html") subcommand to deploy the compiled binary to Lambda. This command creates
 an [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") and then creates the Lambda function. To specify an existing execution role, use

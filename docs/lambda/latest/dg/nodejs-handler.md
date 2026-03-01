@@ -133,7 +133,7 @@ The following examples show function handlers written using both ES modules and 
 
 ES module example
 
-###### Example – ES module handler
+###### Example– ES module handler
 
 ```
 const url = "https://aws.amazon.com/";
@@ -153,7 +153,7 @@ export const handler = async(event) => {
 
 CommonJS module example
 
-###### Example – CommonJS module handler
+###### Example– CommonJS module handler
 
 ```
 const https = require("https");
@@ -283,7 +283,7 @@ export const handler = `(event, context, callback)` => { };
 
 The callback function expects an `Error` and a response, which must be JSON-serializable. The function continues to execute until the [event loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/ "https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/") is empty or the function times out. The response isn't sent to the invoker until all event loop tasks are finished. If the function times out, an error is returned instead. You can configure the runtime to send the response immediately by setting [context.callbackWaitsForEmptyEventLoop](nodejs-context.md "nodejs-context.md") to false.
 
-###### Example – HTTP request with callback
+###### Example– HTTP request with callback
 
 The following example function checks a URL and returns the status code to the invoker.
 

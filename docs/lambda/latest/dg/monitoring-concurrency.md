@@ -7,8 +7,7 @@ explains these metrics and how to interpret them.
 
 - [General concurrency metrics](#general-concurrency-metrics "#general-concurrency-metrics")
 - [Provisioned concurrency metrics](#provisioned-concurrency-metrics "#provisioned-concurrency-metrics")
-- [Working with the
-  ClaimedAccountConcurrency metric](#claimed-account-concurrency "#claimed-account-concurrency")
+- [Working with the ClaimedAccountConcurrency metric](#claimed-account-concurrency "#claimed-account-concurrency")
 
 ## General concurrency metrics
 
@@ -31,8 +30,7 @@ for each metric is 1 minute.
   `ClaimedAccountConcurrency` exceeds your account concurrency limit, you can
   [request a higher account concurrency limit](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-concurrency-limit-increase/ "https://aws.amazon.com/premiumsupport/knowledge-center/lambda-concurrency-limit-increase/"). View this metric using
   **MAX**. For more information, see
-  [Working with the
-  ClaimedAccountConcurrency metric](#claimed-account-concurrency "#claimed-account-concurrency").
+  [Working with the ClaimedAccountConcurrency metric](#claimed-account-concurrency "#claimed-account-concurrency").
 
 ## Provisioned concurrency metrics
 
@@ -121,9 +119,7 @@ based on pre-defined thresholds.
 Conversely, consistently low values for `ProvisionedConcurrencyUtilization`
 may indicate that you over-allocated provisioned concurrency for your function.
 
-## Working with the
-
-`ClaimedAccountConcurrency` metric
+## Working with the `ClaimedAccountConcurrency` metric
 
 Lambda uses the `ClaimedAccountConcurrency` metric to determine how much
 concurrency your account is available for on-demand invocations. Lambda calculates
@@ -189,9 +185,7 @@ For this scenario, allocated concurrency is 800 in the
 - At `t3`, `ClaimedAccountConcurrency` is again 900
   (800 + 100 `UnreservedConcurrentExecutions`).
 
-### Setting up the `ClaimedAccountConcurrency`
-
-metric in CloudWatch
+### Setting up the `ClaimedAccountConcurrency` metric in CloudWatch
 
 Lambda emits the `ClaimedAccountConcurrency` metric in CloudWatch.
 Use this metric along with the value of `SERVICE_QUOTA(ConcurrentExecutions)`

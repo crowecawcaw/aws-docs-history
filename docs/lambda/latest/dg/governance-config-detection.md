@@ -67,7 +67,7 @@ configuration data and stores that data in Amazon Simple Storage Service (Amazon
 from your S3 buckets. With Athena, you can aggregate this data at the organizational level,
 generating a holistic view of your resource configurations across all your accounts. To set up
 aggregation of resource configuration data, see
-[Visualizing AWS Config data using Athena and Amazon Quick Suite](https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/") on the AWS Cloud Operations and Management blog.
+[Visualizing AWS Config data using Athena and Amazon Quick](https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/") on the AWS Cloud Operations and Management blog.
 
 The following is a sample Athena query to identify all Lambda functions using a particular layer ARN:
 
@@ -106,14 +106,14 @@ Here are results from the query:
 ![Query results in Athena console.](images/governance-config-detective-2.png)
 
 With the AWS Config data aggregated across the organization, you can then create a dashboard using
-[Amazon Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"). By importing your
-Athena results into Quick Suite, you can visualize how well your Lambda functions adhere to the
+[Amazon Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"). By importing your
+Athena results into Quick, you can visualize how well your Lambda functions adhere to the
 layer version rule. This dashboard can highlight compliant and non-compliant resources, which
 helps you to determine your enforcement policy, as outlined in the [next section](#governance-config-detective-implement "#governance-config-detective-implement"). The following image
 is an example dashboard that reports on the distribution of layer versions applied to functions
 within the organization.
 
-![Example Quick Suite dashboard shows distribution of layer versions in Lambda functions.](images/governance-config-detective-3.png)
+![Example Quick dashboard shows distribution of layer versions in Lambda functions.](images/governance-config-detective-3.png)
 
 ## Phase 3: Implement and enforce
 

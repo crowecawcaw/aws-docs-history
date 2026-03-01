@@ -70,7 +70,7 @@ To maximize the benefits of SnapStart, focus on efficient code organization and 
 - Initialize static resources or configurations before the handler is invoked.
 - Consider using a before-snapshot [runtime hook](snapstart-runtime-hooks-python.md "snapstart-runtime-hooks-python.md") for resource-intensive tasks such as downloading external files, pre-loading frameworks like Django, or loading machine learning models.
 
-###### Example — Optimize Python function for SnapStart
+###### Example— Optimize Python function for SnapStart
 
 ```
 # Import all dependencies outside of Lambda handler

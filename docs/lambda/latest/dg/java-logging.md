@@ -214,9 +214,7 @@ code.
 
 To add the request ID to your function's logs, use the appender in the [aws-lambda-java-log4j2](java-package.md "java-package.md") library.
 
-###### Example [src/main/resources/log4j2.xml](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/s3-java/src/main/resources/log4j2.xml "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/s3-java/src/main/resources/log4j2.xml")
-
-– Appender configuration
+###### Example [src/main/resources/log4j2.xml](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/s3-java/src/main/resources/log4j2.xml "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/s3-java/src/main/resources/log4j2.xml") – Appender configuration
 
 ```
 <Configuration>

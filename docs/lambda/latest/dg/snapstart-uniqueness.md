@@ -8,9 +8,7 @@ uniqueness. If you generate unique data during the initialization phase, then yo
 hooks, you can run specific
 code immediately before Lambda takes a snapshot or immediately after Lambda resumes a function from a snapshot.
 
-## Avoid saving state that depends on uniqueness during
-
-initialization
+## Avoid saving state that depends on uniqueness during initialization
 
 During the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib "lambda-runtime-environment.md#runtimes-lifecycle-ib") of your function, avoid caching data that's intended to be unique, such as generating a unique ID for logging or setting seeds for random functions. Instead, we recommend that you generate unique data or set seeds for random functions inside your function handler—or use a [runtime hook](snapstart-runtime-hooks.md "snapstart-runtime-hooks.md").
 
@@ -18,7 +16,7 @@ The following examples demonstrate how to generate a UUID in the function handle
 
 Java
 
-###### Example – Generating a unique ID in function handler
+###### Example– Generating a unique ID in function handler
 
 ```
 import java.util.UUID;
@@ -36,7 +34,7 @@ import java.util.UUID;
 
 Python
 
-###### Example – Generating a unique ID in function handler
+###### Example– Generating a unique ID in function handler
 
 ```
 import json
@@ -59,7 +57,7 @@ def lambda_handler(event, context):
 
 .NET
 
-###### Example – Generating a unique ID in function handler
+###### Example– Generating a unique ID in function handler
 
 ```
 namespace Example;
@@ -119,7 +117,7 @@ The following examples demonstrate how to use CSPRNGs to guarantee unique number
 
 Java
 
-###### Example – java.security.SecureRandom
+###### Example– java.security.SecureRandom
 
 ```
 import java.security.SecureRandom;
@@ -137,7 +135,7 @@ import java.security.SecureRandom;
 
 Python
 
-###### Example – random.SystemRandom
+###### Example– random.SystemRandom
 
 ```
 import json
@@ -156,7 +154,7 @@ def lambda_handler(event, context):
 
 .NET
 
-###### Example – RandomNumberGenerator
+###### Example– RandomNumberGenerator
 
 ```
 using Amazon.Lambda.Core;

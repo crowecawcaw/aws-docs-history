@@ -7,14 +7,11 @@ already configured properly, see [Configuring Amazon MSK event sources for Lambd
 
 ###### Topics
 
-- [Overview of network configuration requirements for Lambda
-  and MSK integrations](#msk-network-requirements "#msk-network-requirements")
+- [Overview of network configuration requirements for Lambda and MSK integrations](#msk-network-requirements "#msk-network-requirements")
 - [Configuring a NAT gateway for an MSK event source](#msk-nat-gateway "#msk-nat-gateway")
 - [Configuring AWS PrivateLink endpoints for an MSK event source](#msk-vpc-privatelink "#msk-vpc-privatelink")
 
-## Overview of network configuration requirements for Lambda
-
-and MSK integrations
+## Overview of network configuration requirements for Lambda and MSK integrations
 
 The networking configuration required for a Lambda and MSK integration depends on the network architecture
 of your application. There are three main resources involved in this integration: the Amazon MSK cluster, the

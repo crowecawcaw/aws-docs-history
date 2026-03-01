@@ -31,8 +31,7 @@ When testing your function through the Lambda console, you'll always see respons
 - [VPC compatibility with response streaming](#config-rs-vpc-compatibility "#config-rs-vpc-compatibility")
 - [Writing response streaming-enabled Lambda functions](config-rs-write-functions.md "config-rs-write-functions.md")
 - [Invoking a response streaming enabled function using Lambda function URLs](config-rs-invoke-furls.md "config-rs-invoke-furls.md")
-- [Tutorial: Creating a response streaming Lambda
-  function with a function URL](response-streaming-tutorial.md "response-streaming-tutorial.md")
+- [Tutorial: Creating a response streaming Lambda function with a function URL](response-streaming-tutorial.md "response-streaming-tutorial.md")
 
 ## Bandwidth limits for response streaming
 

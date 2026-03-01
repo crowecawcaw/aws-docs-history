@@ -13,8 +13,7 @@ For a walkthrough of the custom runtime deployment process, see [Tutorial: Build
 ###### Topics
 
 - [Requirements](#runtimes-custom-build "#runtimes-custom-build")
-- [Implementing response streaming in a custom
-  runtime](#runtimes-custom-response-streaming "#runtimes-custom-response-streaming")
+- [Implementing response streaming in a custom runtime](#runtimes-custom-response-streaming "#runtimes-custom-response-streaming")
 - [Building custom runtimes for Lambda Managed Instances](#runtimes-custom-managed-instances "#runtimes-custom-managed-instances")
 
 ## Requirements
@@ -94,9 +93,7 @@ version of Node.js to run a JavaScript runtime in a separate file named
     ./node-v11.1.0-linux-x64/bin/node runtime.js
 ```
 
-## Implementing response streaming in a custom
-
-runtime
+## Implementing response streaming in a custom runtime
 
 For [response streaming functions](configuration-response-streaming.md "configuration-response-streaming.md"), the `response` and `error`
 endpoints have slightly modified behavior that lets the runtime stream partial responses to

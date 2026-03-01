@@ -393,9 +393,7 @@ aws-xray-sdk==2.4.3
 In your function code, you can instrument AWS SDK clients by patching the `boto3` library
 with the `aws_xray_sdk.core` module.
 
-###### Example [function – Tracing
-
-an AWS SDK client](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python/function/lambda_function.py "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python/function/lambda_function.py")
+###### Example [function – Tracing an AWS SDK client](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python/function/lambda_function.py "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python/function/lambda_function.py")
 
 ```
 import boto3
@@ -454,9 +452,7 @@ You can't change the tracing mode on a published version.
 To activate tracing on an `AWS::Lambda::Function` resource in an CloudFormation template, use the
 `TracingConfig` property.
 
-###### Example [function-inline.yml](https://github.com/awsdocs/aws-lambda-developer-guide/blob/master/templates/function-inline.yml "https://github.com/awsdocs/aws-lambda-developer-guide/blob/master/templates/function-inline.yml") –
-
-Tracing configuration
+###### Example [function-inline.yml](https://github.com/awsdocs/aws-lambda-developer-guide/blob/master/templates/function-inline.yml "https://github.com/awsdocs/aws-lambda-developer-guide/blob/master/templates/function-inline.yml") – Tracing configuration
 
 ```
 Resources:
@@ -471,9 +467,7 @@ Resources:
 For an AWS Serverless Application Model (AWS SAM) `AWS::Serverless::Function` resource, use the `Tracing`
 property.
 
-###### Example [template.yml](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-nodejs/template.yml "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-nodejs/template.yml") – Tracing
-
-configuration
+###### Example [template.yml](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-nodejs/template.yml "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-nodejs/template.yml") – Tracing configuration
 
 ```
 Resources:
@@ -557,9 +551,7 @@ quite large. To avoid uploading runtime dependencies every time you update your 
 The following example shows an `AWS::Serverless::LayerVersion` resource that stores the
 AWS X-Ray SDK for Python.
 
-###### Example [template.yml](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python/template.yml "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python/template.yml") – Dependencies
-
-layer
+###### Example [template.yml](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python/template.yml "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python/template.yml") – Dependencies layer
 
 ```
 Resources:

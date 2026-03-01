@@ -2,7 +2,7 @@
 
 AWS Config is a useful tool to find and fix non-compliant AWS Serverless
 resources. Every change you make to your serverless resources is recorded in AWS Config.
-Additionally, AWS Config allows you to store configuration snapshot data on S3. You can use Amazon Athena and Amazon Quick Suite to make dashboards and see AWS Config data. In [Detect non-compliant Lambda deployments and configurations with AWS Config](governance-config-detection.md "governance-config-detection.md"), we discussed how we can visualize a certain configuration like Lambda layers.
+Additionally, AWS Config allows you to store configuration snapshot data on S3. You can use Amazon Athena and Amazon Quick to make dashboards and see AWS Config data. In [Detect non-compliant Lambda deployments and configurations with AWS Config](governance-config-detection.md "governance-config-detection.md"), we discussed how we can visualize a certain configuration like Lambda layers.
 This topic expands on these concepts.
 
 ## Visibility into Lambda configurations
@@ -43,13 +43,13 @@ WITH unnested AS (
     unnested
 ```
 
-You can use the query to build an Quick Suite dashboard and visualize the data. To aggregate AWS
-resource configuration data, create tables in Athena, and build Quick Suite dashboards on the data
+You can use the query to build an Quick dashboard and visualize the data. To aggregate AWS
+resource configuration data, create tables in Athena, and build Quick dashboards on the data
 from Athena, see
-[Visualizing AWS Config data using Athena and Amazon Quick Suite](https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/") on the AWS Cloud Operations and Management blog. Notably, this query also retrieves tag information for the functions. This allows for deeper insights into your workloads and environments,
+[Visualizing AWS Config data using Athena and Amazon Quick](https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/") on the AWS Cloud Operations and Management blog. Notably, this query also retrieves tag information for the functions. This allows for deeper insights into your workloads and environments,
 especially if you employ custom tags.
 
-![Query results in Quick Suite dashboard](images/governance-observability-1.png)
+![Query results in Quick dashboard](images/governance-observability-1.png)
 
 For more information on actions that you can take, see the [Addressing the observability findings](#governance-observability-addressing "#governance-observability-addressing") section later in this topic.
 
@@ -73,9 +73,7 @@ if you have deployed an AWS Config rule to identify compliance, you can select t
 
 For more information on actions that you can take, see the [Addressing the observability findings](#governance-observability-addressing "#governance-observability-addressing") section below.
 
-## Visibility into Lambda function boundaries
-
-using Security Hub CSPM
+## Visibility into Lambda function boundaries using Security Hub CSPM
 
 ![Diagram of example AWS Security Hub CSPM inputs for Lambda, such as resource policy, runtime, and code](images/governance-observability-4.png)
 

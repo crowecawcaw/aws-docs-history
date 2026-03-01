@@ -203,9 +203,7 @@ You can't change the tracing mode on a published version.
 To activate tracing on an `AWS::Lambda::Function` resource in an CloudFormation template, use the
 `TracingConfig` property.
 
-###### Example [function-inline.yml](https://github.com/awsdocs/aws-lambda-developer-guide/blob/master/templates/function-inline.yml "https://github.com/awsdocs/aws-lambda-developer-guide/blob/master/templates/function-inline.yml") –
-
-Tracing configuration
+###### Example [function-inline.yml](https://github.com/awsdocs/aws-lambda-developer-guide/blob/master/templates/function-inline.yml "https://github.com/awsdocs/aws-lambda-developer-guide/blob/master/templates/function-inline.yml") – Tracing configuration
 
 ```
 Resources:
@@ -220,9 +218,7 @@ Resources:
 For an AWS Serverless Application Model (AWS SAM) `AWS::Serverless::Function` resource, use the `Tracing`
 property.
 
-###### Example [template.yml](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-nodejs/template.yml "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-nodejs/template.yml") – Tracing
-
-configuration
+###### Example [template.yml](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-nodejs/template.yml "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-nodejs/template.yml") – Tracing configuration
 
 ```
 Resources:

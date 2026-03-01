@@ -102,13 +102,13 @@ invocation phases. We recommend you to not take a dependency on this behavior.
 
 If a function crashes or times out during the `Init` phase, Lambda emits error information in the `INIT_REPORT` log.
 
-###### Example — INIT_REPORT log for timeout
+###### Example— INIT_REPORT log for timeout
 
 ```
 INIT_REPORT Init Duration: 1236.04 ms Phase: init Status: timeout
 ```
 
-###### Example — INIT_REPORT log for extension failure
+###### Example— INIT_REPORT log for extension failure
 
 ```
 INIT_REPORT Init Duration: 1236.04 ms Phase: init Status: error Error Type: Extension.Crash
@@ -126,13 +126,13 @@ When you first invoke a [SnapStart](snapstart.md "snapstart.md") function and as
 
 If the `Restore` phase fails, Lambda emits error information in the `RESTORE_REPORT` log.
 
-###### Example — RESTORE_REPORT log for timeout
+###### Example— RESTORE_REPORT log for timeout
 
 ```
 RESTORE_REPORT Restore Duration: 1236.04 ms Status: timeout
 ```
 
-###### Example — RESTORE_REPORT log for runtime hook failure
+###### Example— RESTORE_REPORT log for runtime hook failure
 
 ```
 RESTORE_REPORT Restore Duration: 1236.04 ms Status: error Error Type: Runtime.ExitError

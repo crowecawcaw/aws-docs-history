@@ -21,9 +21,7 @@ To get a high-level view of how Lambda and other AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Lambda
+## Identity-based policies for Lambda
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Lambda
 
-Identity-based policy examples for Lambda
+To view examples of Lambda identity-based policies, see [Identity-based policy examples for AWS Lambda](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Lambda identity-based policies, see [Identity-based policy examples for
-AWS Lambda](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Lambda
+## Resource-based policies within Lambda
 
 **Supports resource-based policies:**
 
@@ -71,9 +64,7 @@ function or layer.
 To learn how to attach a resource-based policy to a
 function or layer, see [Viewing resource-based IAM policies in Lambda](access-control-resource-based.md "access-control-resource-based.md").
 
-## Policy actions
-
-for Lambda
+## Policy actions for Lambda
 
 **Supports policy actions:**
 
@@ -103,12 +94,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of Lambda identity-based policies, see [Identity-based policy examples for
-AWS Lambda](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Lambda identity-based policies, see [Identity-based policy examples for AWS Lambda](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Lambda
+## Policy resources for Lambda
 
 **Supports policy resources:**
 
@@ -127,12 +115,9 @@ To see a list of Lambda resource types and their ARNs, see [Resource types defin
 in the _Service Authorization Reference_. To learn with which actions you can
 specify the ARN of each resource, see [Actions defined by AWS Lambda](../../../IAM/latest/UserGuide/list_awslambda.md#awslambda-actions-as-permissions "../../../IAM/latest/UserGuide/list_awslambda.md#awslambda-actions-as-permissions").
 
-To view examples of Lambda identity-based policies, see [Identity-based policy examples for
-AWS Lambda](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Lambda identity-based policies, see [Identity-based policy examples for AWS Lambda](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Lambda
+## Policy condition keys for Lambda
 
 **Supports service-specific policy condition keys:**
 
@@ -151,8 +136,7 @@ To see a list of Lambda condition keys, see [Condition keys for AWS Lambda](../.
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by AWS Lambda](../../../IAM/latest/UserGuide/list_awslambda.md#awslambda-actions-as-permissions "../../../IAM/latest/UserGuide/list_awslambda.md#awslambda-actions-as-permissions").
 
-To view examples of Lambda identity-based policies, see [Identity-based policy examples for
-AWS Lambda](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Lambda identity-based policies, see [Identity-based policy examples for AWS Lambda](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Lambda
 
@@ -183,9 +167,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 For more information about tagging Lambda
 resources, see [Using attribute-based access control in Lambda](attribute-based-access-control.md "attribute-based-access-control.md").
 
-## Using temporary
-
-credentials with Lambda
+## Using temporary credentials with Lambda
 
 **Supports temporary credentials:**
 
@@ -197,9 +179,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access
-
-sessions for Lambda
+## Forward access sessions for Lambda
 
 **Supports forward access sessions (FAS):**
 
@@ -208,9 +188,7 @@ No
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Lambda
+## Service roles for Lambda
 
 **Supports service roles:**
 
@@ -226,9 +204,7 @@ In Lambda, a service role is known as an [execution role](lambda-intro-execution
 
 Changing the permissions for an execution role might break Lambda functionality.
 
-## Service-linked
-
-roles for Lambda
+## Service-linked roles for Lambda
 
 **Supports service-linked roles:**
 

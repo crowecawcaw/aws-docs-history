@@ -6,12 +6,14 @@ durable function that uses steps and waits to demonstrate checkpoint-based execu
 As you carry out the tutorial, you'll learn fundamental durable function concepts, like how to use the `DurableContext` object,
 create checkpoints with steps, and pause execution with waits. You'll also learn how replay works when your function resumes after a wait.
 
-To keep things simple, you create your function using either the Python or Node.js runtime. With these interpreted languages, you can edit
+To keep things simple, this tutorial shows you how to create your function using either the Python or Node.js runtime. With these interpreted languages, you can edit
 function code directly in the console's built-in code editor.
+
+Durable functions in Java (Preview) currently can only be deployed through container images. For more information on creating durable functions from container images, see [Supported runtimes for durable functions](durable-supported-runtimes.md "durable-supported-runtimes.md") or [Deploy Lambda durable functions with Infrastructure as Code](durable-getting-started-iac.md "durable-getting-started-iac.md").
 
 ###### Note
 
-Durable functions currently support Python and Node.js (JavaScript/TypeScript) runtimes. For a complete list of supported runtime versions and container image options, see [Supported runtimes for durable functions](durable-supported-runtimes.md "durable-supported-runtimes.md").
+Durable functions currently support Python and Node.js (JavaScript/TypeScript) runtimes and container images (OCI), such as Java. For a complete list of supported runtime versions and container image options, see [Supported runtimes for durable functions](durable-supported-runtimes.md "durable-supported-runtimes.md"). For more information about using container images with Lambda, see [Creating Lambda container images](images-create.md "images-create.md") in the Lambda Developer Guide.
 
 ###### Tip
 

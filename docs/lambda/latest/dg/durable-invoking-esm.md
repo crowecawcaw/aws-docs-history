@@ -173,35 +173,61 @@ Python
 ```
 
 from aws_durable_execution_sdk_python import durable_execution, DurableContext
+from aws_durable_execution_sdk_python.config import Duration, WaitForCallbackConfig
+from collections.abc import Sequence
 import json
 
+def validate_order(order_data: dict) -> dict:
+    """Validate order data - always passes."""
+    return order_data
+
+def request_approval(callback_id: str, validated_order: dict) -> None:
+    """Request approval for the order - always passes."""
+    pass
+
+def complete_order(validated_order: dict, approval_result: str) -> dict:
+    """Complete the order processing - always passes."""
+    return validated_order
+
 @durable_execution
-def handler(payload, context: DurableContext):
+def lambda_handler(payload, context: DurableContext):
     sqs_event = payload['event']
 
-    # Process each record with complex, multi-step logic
-    def process_record(ctx, record):
+    def process_record(
+        ctx: DurableContext,
+        record: dict,
+        index: int,
+        items: Sequence[dict]
+    ) -> dict:
         validated = ctx.step(
             lambda _: validate_order(json.loads(record['body'])),
-            name='validate'
+            name=f'validate-{index}'
         )
 
-        # Wait for external approval (could take hours or days)
         approval = ctx.wait_for_callback(
-            lambda callback_id: request_approval(callback_id, validated),
-            name='approval',
-            config=WaitForCallbackConfig(timeout_seconds=172800)  # 48 hours
+            submitter=lambda callback_id, wait_ctx: request_approval(callback_id, validated),
+            name=f'approval-{index}',
+            config=WaitForCallbackConfig(timeout=Duration.from_seconds(172800))
         )
 
-        # Complete processing
         return ctx.step(
             lambda _: complete_order(validated, approval),
-            name='complete'
+            name=f'complete-{index}'
         )
 
-    results = context.map(sqs_event['Records'], process_record)
+    results = context.map(
+        inputs=sqs_event['Records'],
+        func=process_record,
+        name='process-records'
+    )
 
-    return {'statusCode': 200, 'processed': len(results.get_results())}
+    return {
+        'statusCode': 200,
+        'started': results.started_count,
+        'completed': results.success_count,
+        'failed': results.failure_count,
+        'total': results.total_count
+    }
 
 ```
 

@@ -62,16 +62,13 @@ environment variables are encrypted client-side for protection in transit.
 6. Set up permissions.
 
 If you're using a customer managed key with server-side encryption, grant permissions to any users or roles that you
-want to be able to view or manage environment variables on the function. For more information, see [Managing permissions to your server-side
-encryption KMS key](#managing-permissions-to-your-server-side-encryption-key "#managing-permissions-to-your-server-side-encryption-key").
+want to be able to view or manage environment variables on the function. For more information, see [Managing permissions to your server-side encryption KMS key](#managing-permissions-to-your-server-side-encryption-key "#managing-permissions-to-your-server-side-encryption-key").
 
 If you're enabling client-side encryption for security in transit, your function needs permission to call
 the `kms:Decrypt` API operation. Add the policy that you saved previously in this procedure to the
 function's [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md").
 
-## Managing permissions to your server-side
-
-encryption KMS key
+## Managing permissions to your server-side encryption KMS key
 
 No AWS KMS permissions are required for your user or the function's execution role to use the default
 encryption key. To use a customer managed key, you need permission to use the key. Lambda uses your permissions

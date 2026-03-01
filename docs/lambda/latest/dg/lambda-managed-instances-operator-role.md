@@ -112,5 +112,4 @@ To responsibly manage the lifecycle of Lambda Managed Instances, Lambda requires
 
 **Deletion**: You can only delete this service-linked role after you have deleted all Lambda Managed Instances capacity providers in your account.
 
-For more information about service-linked roles, see [Using service-linked roles for
-Lambda](using-service-linked-roles.md "using-service-linked-roles.md").
+For more information about service-linked roles, see [Using service-linked roles for Lambda](using-service-linked-roles.md "using-service-linked-roles.md").

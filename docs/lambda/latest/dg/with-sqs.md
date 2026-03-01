@@ -24,8 +24,7 @@ The [Batch Processor utility](https://docs.powertools.aws.dev/lambda/python/late
 - [Lambda parameters for Amazon SQS event source mappings](services-sqs-parameters.md "services-sqs-parameters.md")
 - [Using event filtering with an Amazon SQS event source](with-sqs-filtering.md "with-sqs-filtering.md")
 - [Tutorial: Using Lambda with Amazon SQS](with-sqs-example.md "with-sqs-example.md")
-- [Tutorial: Using a cross-account Amazon SQS queue as an event
-  source](with-sqs-cross-account-example.md "with-sqs-cross-account-example.md")
+- [Tutorial: Using a cross-account Amazon SQS queue as an event source](with-sqs-cross-account-example.md "with-sqs-cross-account-example.md")
 
 ## Understanding polling and batching behavior for Amazon SQS event source mappings
 

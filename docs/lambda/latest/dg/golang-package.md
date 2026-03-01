@@ -121,7 +121,7 @@ In cmd.exe, run one of the following, depending on your target [instruction set 
 You can use the optional `lambda.norpc` tag to exclude the Remote Procedure Call (RPC) component of the [lambda](https://github.com/aws/aws-lambda-go/tree/master/lambda "https://github.com/aws/aws-lambda-go/tree/master/lambda")
 library. The RPC component is only required if you are using the deprecated Go 1.x runtime. Excluding the RPC reduces the size of the deployment package.
 
-###### Example — For the x86_64 architecture
+###### Example— For the x86_64 architecture
 
 ```
 set GOOS=linux
@@ -131,7 +131,7 @@ go build -tags lambda.norpc -o bootstrap main.go
 %USERPROFILE%\Go\bin\build-lambda-zip.exe -o myFunction.zip bootstrap
 ```
 
-###### Example — For the arm64 architecture
+###### Example— For the arm64 architecture
 
 ```
 set GOOS=linux

@@ -11,8 +11,7 @@ function logging and errors in each runtime, see individual runtime sections.
 - [Pricing](#monitoring-console-metrics-pricing "#monitoring-console-metrics-pricing")
 - [Using CloudWatch metrics with Lambda](monitoring-metrics.md "monitoring-metrics.md")
 - [Working with Lambda function logs](monitoring-logs.md "monitoring-logs.md")
-- [Logging AWS Lambda API calls using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Logging AWS Lambda API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Visualize Lambda function invocations using AWS X-Ray](services-xray.md "services-xray.md")
 - [Monitor function performance with Amazon CloudWatch Lambda Insights](monitoring-insights.md "monitoring-insights.md")
 - [Monitoring Lambda applications](applications-console-monitoring.md "applications-console-monitoring.md")

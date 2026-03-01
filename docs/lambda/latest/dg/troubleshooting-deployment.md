@@ -20,32 +20,19 @@ For more information about debugging and troubleshooting Lambda applications, se
 
 ###### Topics
 
-- [General: Permission is denied / Cannot
-  load such file](#troubleshooting-deployment-denied "#troubleshooting-deployment-denied")
-- [General: Error occurs when
-  calling the UpdateFunctionCode](#troubleshooting-deployment-updatefunctioncode "#troubleshooting-deployment-updatefunctioncode")
-- [Amazon S3: Error Code
-  PermanentRedirect.](#troubleshooting-deployment-PermanentRedirect "#troubleshooting-deployment-PermanentRedirect")
-- [General: Cannot find, cannot
-  load, unable to import, class not found, no such file or directory](#troubleshooting-deployment-functionHandler1 "#troubleshooting-deployment-functionHandler1")
-- [General: Undefined method
-  handler](#troubleshooting-deployment-functionHandler2 "#troubleshooting-deployment-functionHandler2")
-- [General: Lambda code storage
-  limit exceeded](#troubleshooting-deployment-CodeStorageExceeded "#troubleshooting-deployment-CodeStorageExceeded")
-- [Lambda: Layer conversion
-  failed](#troubleshooting-deployment-LayerConversionFailed "#troubleshooting-deployment-LayerConversionFailed")
-- [Lambda:
-  InvalidParameterValueException or RequestEntityTooLargeException](#troubleshooting-deployment-InvalidParameterValueException1 "#troubleshooting-deployment-InvalidParameterValueException1")
-- [Lambda:
-  InvalidParameterValueException](#troubleshooting-deployment-InvalidParameterValueException2 "#troubleshooting-deployment-InvalidParameterValueException2")
-- [Lambda: Concurrency and memory
-  quotas](#troubleshooting-deployment-quotas "#troubleshooting-deployment-quotas")
-- [Lambda: Invalid alias
-  configuration for provisioned concurrency](#troubleshooting-deployment-provisioned-concurrency "#troubleshooting-deployment-provisioned-concurrency")
+- [General: Permission is denied / Cannot load such file](#troubleshooting-deployment-denied "#troubleshooting-deployment-denied")
+- [General: Error occurs when calling the UpdateFunctionCode](#troubleshooting-deployment-updatefunctioncode "#troubleshooting-deployment-updatefunctioncode")
+- [Amazon S3: Error Code PermanentRedirect.](#troubleshooting-deployment-PermanentRedirect "#troubleshooting-deployment-PermanentRedirect")
+- [General: Cannot find, cannot load, unable to import, class not found, no such file or directory](#troubleshooting-deployment-functionHandler1 "#troubleshooting-deployment-functionHandler1")
+- [General: Undefined method handler](#troubleshooting-deployment-functionHandler2 "#troubleshooting-deployment-functionHandler2")
+- [General: Lambda code storage limit exceeded](#troubleshooting-deployment-CodeStorageExceeded "#troubleshooting-deployment-CodeStorageExceeded")
+- [Lambda: Layer conversion failed](#troubleshooting-deployment-LayerConversionFailed "#troubleshooting-deployment-LayerConversionFailed")
+- [Lambda: InvalidParameterValueException or RequestEntityTooLargeException](#troubleshooting-deployment-InvalidParameterValueException1 "#troubleshooting-deployment-InvalidParameterValueException1")
+- [Lambda: InvalidParameterValueException](#troubleshooting-deployment-InvalidParameterValueException2 "#troubleshooting-deployment-InvalidParameterValueException2")
+- [Lambda: Concurrency and memory quotas](#troubleshooting-deployment-quotas "#troubleshooting-deployment-quotas")
+- [Lambda: Invalid alias configuration for provisioned concurrency](#troubleshooting-deployment-provisioned-concurrency "#troubleshooting-deployment-provisioned-concurrency")
 
-## General: Permission is denied / Cannot
-
-load such file
+## General: Permission is denied / Cannot load such file
 
 **Error:**
 _EACCES: permission denied, open '/var/task/index.js'_
@@ -73,9 +60,7 @@ in the Microsoft Windows documentation.
 
 If you don't grant Lambda the permissions it needs to access directories in your deployment package, Lambda sets the permissions for those directories to 755 (rwxr-xr-x).
 
-## General: Error occurs when
-
-calling the UpdateFunctionCode
+## General: Error occurs when calling the UpdateFunctionCode
 
 **Error:**
 _An error occurred (RequestEntityTooLargeException) when calling the
@@ -92,9 +77,7 @@ file is converted to base64, which increases its size by about 30%. To allow for
 the size of other parameters in the request, the actual request size limit that Lambda
 applies is larger. Due to this, the 50 MB limit is approximate.
 
-## Amazon S3: Error Code
-
-PermanentRedirect.
+## Amazon S3: Error Code PermanentRedirect.
 
 **Error:**
 _Error occurred while GetObject. S3 Error Code: PermanentRedirect. S3 Error Message:
@@ -107,9 +90,7 @@ call to [UpdateFunctionCode](../api/API_UpdateFunctionCode.md "../api/API_Update
 CLI. Create a deployment artifact bucket for each Region where you develop
 applications.
 
-## General: Cannot find, cannot
-
-load, unable to import, class not found, no such file or directory
+## General: Cannot find, cannot load, unable to import, class not found, no such file or directory
 
 **Error:**
 _Cannot find module 'function'_
@@ -132,9 +113,7 @@ _Unable to load type 'Function.Handler' from assembly 'Function'._
 The name of the file or class in your function's handler configuration doesn't match your
 code. See the following section for more information.
 
-## General: Undefined method
-
-handler
+## General: Undefined method handler
 
 **Error:**
 _index.handler is undefined or not exported_
@@ -171,9 +150,7 @@ following topics.
 - [Building Lambda functions with C#](lambda-csharp.md "lambda-csharp.md")
 - [Building Lambda functions with PowerShell](lambda-powershell.md "lambda-powershell.md")
 
-## General: Lambda code storage
-
-limit exceeded
+## General: Lambda code storage limit exceeded
 
 **Error:**
 _Code storage limit exceeded._
@@ -193,9 +170,7 @@ You can view your total storage usage in the Lambda console, under the
 
 ![monitoring observability figure 26](images/monitoring-observability-figure-26.png)
 
-## Lambda: Layer conversion
-
-failed
+## Lambda: Layer conversion failed
 
 **Error:**
 _Lambda layer conversion failed. For advice on resolving this issue, see the
@@ -210,9 +185,7 @@ this error, take the following steps:
 - Rename any files that have the same name as a directory in any of your function's
   layers
 
-## Lambda:
-
-InvalidParameterValueException or RequestEntityTooLargeException
+## Lambda: InvalidParameterValueException or RequestEntityTooLargeException
 
 **Error:**
 _InvalidParameterValueException: Lambda was unable to configure your environment
@@ -249,9 +222,7 @@ In this example, the object is 39 characters and takes up 39 bytes when it's sto
 environment variable values use one byte each. Extended ASCII and Unicode characters can use
 between 2 bytes and 4 bytes per character.
 
-## Lambda:
-
-InvalidParameterValueException
+## Lambda: InvalidParameterValueException
 
 **Error:**
 _InvalidParameterValueException: Lambda was unable to configure your environment
@@ -263,9 +234,7 @@ Lambda reserves some environment variable keys for internal use. For example,
 overridden. Other variables, like `PATH`, are used by the runtime but can be
 extended in your function configuration. For a full list, see [Defined runtime environment variables](configuration-envvars.md#configuration-envvars-runtime "configuration-envvars.md#configuration-envvars-runtime").
 
-## Lambda: Concurrency and memory
-
-quotas
+## Lambda: Concurrency and memory quotas
 
 **Error:** _Specified ConcurrentExecutions for
 function decreases account's UnreservedConcurrentExecution below its minimum
@@ -286,9 +255,7 @@ cannot request memory quota increases.
 - **Memory:** Errors occur if the amount of memory
   allocated to the function exceeds your account's memory quota.
 
-## Lambda: Invalid alias
-
-configuration for provisioned concurrency
+## Lambda: Invalid alias configuration for provisioned concurrency
 
 **Error:** _Invalid alias configuration for
 provisioned concurrency_

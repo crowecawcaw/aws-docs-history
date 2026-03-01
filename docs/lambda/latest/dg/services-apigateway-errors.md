@@ -17,9 +17,7 @@ API Gateway. The client receives the generic error message.
 To customize the error response, you must catch errors in your code and format a response in the required
 format.
 
-###### Example [index.mjs](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/nodejs-apig/function/index.mjs "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/nodejs-apig/function/index.mjs") – Error
-
-formatting
+###### Example [index.mjs](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/nodejs-apig/function/index.mjs "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/nodejs-apig/function/index.mjs") – Error formatting
 
 ```
 var formatError = function(error){

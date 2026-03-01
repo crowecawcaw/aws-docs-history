@@ -31,8 +31,7 @@ _IAM User Guide_.
 - [AWS managed policy: AWSLambdaVPCAccessExecutionRole](#lambda-security-iam-awsmanpol-AWSLambdaVPCAccessExecutionRole "#lambda-security-iam-awsmanpol-AWSLambdaVPCAccessExecutionRole")
 - [AWS managed policy: AWSLambdaManagedEC2ResourceOperator](#lambda-security-iam-awsmanpol-AWSLambdaManagedEC2ResourceOperator "#lambda-security-iam-awsmanpol-AWSLambdaManagedEC2ResourceOperator")
 - [AWS managed policy: AWSLambdaServiceRolePolicy](#lambda-security-iam-awsmanpol-AWSLambdaServiceRolePolicy "#lambda-security-iam-awsmanpol-AWSLambdaServiceRolePolicy")
-- [Lambda updates to AWS managed
-  policies](#lambda-security-iam-awsmanpol-updates "#lambda-security-iam-awsmanpol-updates")
+- [Lambda updates to AWS managed policies](#lambda-security-iam-awsmanpol-updates "#lambda-security-iam-awsmanpol-updates")
 
 ## AWS managed policy: AWSLambda_FullAccess
 
@@ -237,9 +236,7 @@ This policy includes the following permissions:
 
 For more information about this policy, see [Using service-linked roles for Lambda](using-service-linked-roles.md "using-service-linked-roles.md").
 
-## Lambda updates to AWS managed
-
-policies
+## Lambda updates to AWS managed policies
 
 | Change                                                                                                                                                                                                                                                                                                                                                           | Description                                                                                                                                                                                                               | Date              |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |

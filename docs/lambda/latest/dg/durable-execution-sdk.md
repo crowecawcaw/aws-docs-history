@@ -2,7 +2,7 @@
 
 The durable execution SDK is the foundation for building durable functions. It provides the primitives you need to checkpoint progress, handle retries, and manage execution flow. The SDK abstracts the complexity of checkpoint management and replay, letting you write sequential code that automatically becomes fault-tolerant.
 
-The SDK is available for JavaScript, TypeScript, and Python. For complete API documentation and examples, see the [JavaScript/TypeScript SDK](https://github.com/aws/aws-durable-execution-sdk-js "https://github.com/aws/aws-durable-execution-sdk-js") and [Python SDK](https://github.com/aws/aws-durable-execution-sdk-python "https://github.com/aws/aws-durable-execution-sdk-python") on GitHub.
+The SDK is available for JavaScript, TypeScript, Python and Java (Preview). For complete API documentation and examples, see the [JavaScript/TypeScript SDK](https://github.com/aws/aws-durable-execution-sdk-js "https://github.com/aws/aws-durable-execution-sdk-js"), [Python SDK](https://github.com/aws/aws-durable-execution-sdk-python "https://github.com/aws/aws-durable-execution-sdk-python") and [Java SDK](https://github.com/aws/aws-durable-execution-sdk-java "https://github.com/aws/aws-durable-execution-sdk-java") on GitHub.
 
 ## DurableContext
 
@@ -37,6 +37,24 @@ def handler(event: dict, context: DurableContext):
     # Your function receives DurableContext
     # Use context.step(), context.wait(), etc.
     return result
+
+```
+
+Java (Preview)
+
+```
+
+import software.amazon.lambda.durable.DurableContext;
+import software.amazon.lambda.durable.DurableHandler;
+
+public class Handler extends DurableHandler<Object, String> {
+    @Override
+    public String handleRequest(Object input, DurableContext context) {
+        // Your function receives DurableContext
+        // Use context.step(), context.wait(), etc.
+        return result;
+    }
+}
 
 ```
 
@@ -107,6 +125,16 @@ result = context.step(
 
 ```
 
+Java (Preview)
+
+```
+
+var result = context.step("process-payment", Payment.class,
+    () -> paymentService.charge(amount)
+);
+
+```
+
 Steps support configurable retry strategies, execution semantics (at-most-once or at-least-once), and custom serialization.
 
 ### Waits
@@ -128,6 +156,15 @@ Python
 
 # Wait 1 hour without charges
 context.wait(3600)
+
+```
+
+Java (Preview)
+
+```
+
+// Wait 1 hour without charges
+context.wait(Duration.ofHours(1));
 
 ```
 
@@ -170,6 +207,24 @@ approval = callback.result()
 
 ```
 
+Java (Preview)
+
+```
+
+var config = CallbackConfig.builder(Duration.ofHours(24)).timeout()
+
+var callback = context.createCallback("approval", String.class, config);
+
+context.step("send-request", String.class, () -> {
+    notificationService.sendApprovalRequest(callback.callbackId(), requestData);
+    return "request-sent";
+});
+
+// Blocks until the callback finishes or times out
+String approval = callback.get();
+
+```
+
 **waitForCallback:** Simplifies callback handling by combining callback creation and submission in one operation. The SDK creates the callback, executes your submitter function with the callback ID, and waits for the result.
 
 TypeScript
@@ -197,6 +252,9 @@ result = context.wait_for_callback(
 )
 
 ```
+
+Java (Preview)
+waitForCallback is still in development for Java.
 
 Configure timeouts to prevent functions from waiting indefinitely. If a callback times out, the SDK throws a `CallbackError` and your function can handle the timeout case. Use heartbeat timeouts for long-running callbacks to detect when external systems stop responding.
 
@@ -230,6 +288,9 @@ results = context.parallel(
 
 ```
 
+Java (Preview)
+Parallel is still in development for Java.
+
 Use `parallel` to execute independent operations concurrently.
 
 ### Map
@@ -260,6 +321,9 @@ results = context.map(
 
 ```
 
+Java (Preview)
+Map is still in development for Java.
+
 Use `map` to process arrays with concurrency control.
 
 ### Child contexts
@@ -289,6 +353,18 @@ result = context.run_in_child_context(
     lambda child_ctx: process_batch(child_ctx, items),
     name='batch-processing'
 )
+
+```
+
+Java (Preview)
+
+```
+
+var result = context.runInChildContext(
+    "batch-processing",
+    String.class,
+    childCtx -> process_batch(childCtx, items)
+);
 
 ```
 
@@ -336,6 +412,9 @@ result = context.wait_for_condition(
 
 ```
 
+Java (Preview)
+waitForCondition is still in development for Java.
+
 Use `waitForCondition` for polling external systems, waiting for resources to be ready, or implementing retry with backoff.
 
 ### Function invocation
@@ -363,6 +442,20 @@ result = context.invoke(
     {'data': input_data},
     name='invoke-processor'
 )
+
+```
+
+Java (Preview)
+
+```
+
+var result = context.invoke(
+    "invoke-processor",
+    "arn:aws:lambda:us-east-1:123456789012:function:processor:1",
+    inputData,
+    Result.class,
+    InvokeConfig.builder().build()
+);
 
 ```
 

@@ -127,8 +127,7 @@ CloudWatch alarms.
   `ClaimedAccountConcurrency` is equal to `UnreservedConcurrentExecutions`
   plus the amount of allocated concurrency (i.e. the total reserved concurrency plus
   total provisioned concurrency). For more information, see
-  [Working with the
-  ClaimedAccountConcurrency metric](monitoring-concurrency.md#claimed-account-concurrency "monitoring-concurrency.md#claimed-account-concurrency").
+  [Working with the ClaimedAccountConcurrency metric](monitoring-concurrency.md#claimed-account-concurrency "monitoring-concurrency.md#claimed-account-concurrency").
 
 ## Asynchronous invocation metrics
 

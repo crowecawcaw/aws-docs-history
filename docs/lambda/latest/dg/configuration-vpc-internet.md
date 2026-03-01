@@ -88,7 +88,7 @@ Node.js
 
 ![Lambda console code editor.](images/code-source-nodejs.png)
 
-###### Example — HTTP request with async/await
+###### Example— HTTP request with async/await
 
 ```
 const url = "https://aws.amazon.com/";
@@ -347,7 +347,7 @@ Node.js
 
 ![Lambda console code editor.](images/code-source-nodejs.png)
 
-###### Example — HTTP request with async/await
+###### Example— HTTP request with async/await
 
 ```
 const url = "https://aws.amazon.com/";

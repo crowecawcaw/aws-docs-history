@@ -27,33 +27,29 @@ In order for Lambda to properly assume your execution role, the role's
 
 By default, Lambda creates an execution role with minimal permissions when you [create a function in the Lambda console](getting-started.md#getting-started-create-function "getting-started.md#getting-started-create-function"). Specifically,
 this execution role includes the [`AWSLambdaBasicExecutionRole` managed policy](../../../aws-managed-policy/latest/reference/AWSLambdaBasicExecutionRole.md "../../../aws-managed-policy/latest/reference/AWSLambdaBasicExecutionRole.md"), which gives your function
-basic permissions to log events to Amazon CloudWatch Logs.
+basic permissions to log events to Amazon CloudWatch Logs. You can select **Create default role**
+in the **Permissions** section.
 
-Your functions typically need additional permissions to perform more meaningful
-tasks. For example, you might have a Lambda function that responds to an event by updating
-entries in an Amazon DynamoDB database. You can create an execution role with the necessary
-permissions using the IAM console.
+You can choose an existing role by selecting **Use another role** in the
+**Permissions** section. If your Lambda function needs additional permissions to
+perform tasks such as updating entries in an Amazon DynamoDB database in response to events, you can
+create a custom execution role with the necessary permissions. To do this, select
+**Use another role** in the **Permissions** section, which
+opens a drawer where you can customize your permissions.
 
-###### To create an execution role in the IAM console
+###### To configure an execution role from Console
 
-1. Open the [Roles page](https://console.aws.amazon.com/iam/home#/roles "https://console.aws.amazon.com/iam/home#/roles") in the IAM console.
-2. Choose **Create role**.
-3. Under **Trusted entity type**, choose **AWS service**.
-4. Under **Use case**, choose **Lambda**.
-5. Choose **Next**.
-6. Select the AWS managed policies that you want to attach to your role.
+1. Enter a **role name** in the Role details section.
+2. In the **Policy** section, select **Use existing policy**.
+3. Select the AWS managed policies that you want to attach to your role.
    For example, if your function needs to access DynamoDB, select the
    **AWSLambdaDynamoDBExecutionRole** managed policy.
-7. Choose **Next**.
-8. Enter a **Role name** and then choose **Create role**.
+4. Choose **Create role**.
 
-For detailed instructions, see [Creating a role
-for an AWS service (console)](../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console "../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console") in the _IAM User Guide_.
-
-After you create your execution role, attach it to your function. When you
-[create a function in the Lambda console](getting-started.md#getting-started-create-function "getting-started.md#getting-started-create-function"),
-you can attach any execution role that you previously created to the function. If you want
-to attach a new execution role to an existing function, follow the steps in [Updating a function's execution role](permissions-executionrole-update.md#update-execution-role "permissions-executionrole-update.md#update-execution-role").
+Alternatively, when you [create a function in the Lambda console](getting-started.md#getting-started-create-function "getting-started.md#getting-started-create-function"), you can attach any execution
+role that you previously created to the function. If you want to attach a new execution role to
+an existing function, follow the steps in [Updating
+a function's execution role](permissions-executionrole-update.md "permissions-executionrole-update.md").
 
 ## Creating and managing roles with the AWS CLI
 

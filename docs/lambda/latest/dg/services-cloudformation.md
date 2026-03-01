@@ -6,7 +6,7 @@ events.
 
 The following example invokes a function that's defined elsewhere in the template.
 
-###### Example – Custom resource definition
+###### Example– Custom resource definition
 
 ```
 Resources:
@@ -25,7 +25,7 @@ to your function as is.
 CloudFormation invokes your Lambda function [asynchronously](invocation-async.md "invocation-async.md") with an event that
 includes a callback URL.
 
-###### Example – CloudFormation message event
+###### Example– CloudFormation message event
 
 ```
 {
@@ -47,7 +47,7 @@ The function is responsible for returning a response to the callback URL that in
 the full response syntax, see [Custom resource response
 objects](../../../AWSCloudFormation/latest/UserGuide/crpg-ref-responses.md "../../../AWSCloudFormation/latest/UserGuide/crpg-ref-responses.md").
 
-###### Example – CloudFormation custom resource response
+###### Example– CloudFormation custom resource response
 
 ```
 {
@@ -76,7 +76,7 @@ The following example function invokes a second function. If the call succeeds, 
 response to CloudFormation, and the stack update continues. The template uses the [AWS::Serverless::Function](../../../serverless-application-model/latest/developerguide/sam-resource-function.md "../../../serverless-application-model/latest/developerguide/sam-resource-function.md") resource type provided by
 AWS Serverless Application Model.
 
-###### Example – Custom resource function
+###### Example– Custom resource function
 
 ```
 Transform: 'AWS::Serverless-2016-10-31'

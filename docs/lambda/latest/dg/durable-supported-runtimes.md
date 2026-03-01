@@ -1,6 +1,6 @@
 # Supported runtimes for durable functions
 
-Durable functions are available for Node.js and Python runtimes. You can create durable functions using managed runtimes in the Lambda console or deploy them using container images for additional runtime version flexibility.
+Durable functions are available for selected managed runtimes and OCI container images for additional runtime version flexibility. You can create durable functions for Node.js and Python using managed runtimes directly in the console or programmatically through infrastructure-as-code. Durable functions in Java (Preview) currently can only be deployed through container images.
 
 ## Lambda managed runtimes
 
@@ -41,6 +41,30 @@ pip install aws-durable-execution-sdk-python
 
 The Python SDK uses synchronous methods and doesn't require `async/await`.
 
+### Java (Preview)
+
+Add a dependency to `pom.xml`:
+
+```
+
+<dependency>
+    <groupId>software.amazon.lambda.durable</groupId>
+    <artifactId>aws-durable-execution-sdk-java</artifactId>
+    <version>VERSION</version>
+</dependency>
+
+```
+
+Install the SDK in your Java project:
+
+```
+
+mvn install
+
+```
+
+A preview version of the Java SDK is available. The waitForCondition, waitForCallback, parallel and map operations are still in development.
+
 ## Container images
 
 You can use durable functions with container images to support additional runtime versions or custom runtime configurations. Container images let you use runtime versions not available as managed runtimes or customize your runtime environment.
@@ -52,8 +76,11 @@ To create a durable function using a container image:
 3. Build and push the container image to Amazon Elastic Container Registry
 4. Create the Lambda function from the container image with durable execution enabled
 
-### Python container example
+### Container example
 
+Create a Dockerfile:
+
+Python
 Create a Dockerfile for Python 3.11:
 
 ```
@@ -79,6 +106,33 @@ Create a `requirements.txt` file:
 ```
 
 aws-durable-execution-sdk-python
+
+```
+
+Java (Preview)
+Create a Dockerfile for Java 25:
+
+```
+
+FROM --platform=linux/amd64 public.ecr.aws/lambda/java:25
+
+# Install Maven
+RUN dnf install -y maven
+
+WORKDIR /var/task
+
+# Copy Maven configuration and source code
+COPY pom.xml .
+COPY src ./src
+
+# Build
+RUN mvn clean package -DskipTests
+
+# Move JAR to lib directory
+RUN mv target/*.jar lib/
+
+# Set the handler
+CMD ["src.path.to.lambdaFunction::handler"]
 
 ```
 

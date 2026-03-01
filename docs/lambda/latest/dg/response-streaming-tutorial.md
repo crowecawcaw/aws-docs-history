@@ -1,6 +1,4 @@
-# Tutorial: Creating a response streaming Lambda
-
-function with a function URL
+# Tutorial: Creating a response streaming Lambda function with a function URL
 
 In this tutorial, you create a Lambda function defined as a .zip file archive with a
 function URL endpoint that returns a response stream. For more information about configuring
@@ -55,9 +53,7 @@ The **AWSLambdaBasicExecutionRole** policy has the permissions that the
 function needs to write logs to Amazon CloudWatch Logs. After you create the role, note down the its Amazon
 Resource Name (ARN). You'll need it in the next step.
 
-## Create a response streaming
-
-function (AWS CLI)
+## Create a response streaming function (AWS CLI)
 
 Create a response streaming Lambda function with a function URL endpoint using the
 AWS Command Line Interface (AWS CLI).

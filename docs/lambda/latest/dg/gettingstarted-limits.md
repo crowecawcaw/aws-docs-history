@@ -25,8 +25,7 @@ The following sections list default quotas and limits in Lambda by category.
 ###### Topics
 
 - [Compute and storage](#compute-and-storage "#compute-and-storage")
-- [Function configuration, deployment, and
-  execution](#function-configuration-deployment-and-execution "#function-configuration-deployment-and-execution")
+- [Function configuration, deployment, and execution](#function-configuration-deployment-and-execution "#function-configuration-deployment-and-execution")
 - [Lambda API requests](#api-requests "#api-requests")
 - [Other services](#quotas-other-services "#quotas-other-services")
 
@@ -47,9 +46,7 @@ _Service Quotas User Guide_.
 
 For details on concurrency and how Lambda scales your function concurrency in response to traffic, see [Understanding Lambda function scaling](lambda-concurrency.md "lambda-concurrency.md").
 
-## Function configuration, deployment, and
-
-execution
+## Function configuration, deployment, and execution
 
 The following quotas apply to function configuration, deployment, and execution. Except as noted, they can't be changed.
 
