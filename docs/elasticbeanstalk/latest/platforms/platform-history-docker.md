@@ -8,9 +8,20 @@ For Docker platform versions that were current earlier than September 25, 2017, 
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## February 12, 2026 – present
+## February 26, 2026 – present
 
-The following Elastic Beanstalk platform versions for Single Container Docker have been current since February 12, 2026:
+The following Elastic Beanstalk platform versions for Single Container Docker have been current since February 26, 2026:
+
+| Platform Version and _Solution Stack Name_                                           | AMI              | ECS Agent | Docker  | Docker Compose | Proxy Server |
+| ------------------------------------------------------------------------------------ | ---------------- | --------- | ------- | -------------- | ------------ |
+| **Docker AL2023 version 4.10.0**<br>_64bit Amazon Linux 2023 v4.10.0 running Docker_ | 2023.10.20260216 |           | 25.0.14 | 5.1.0          | nginx 1.28.2 |
+| **ECS AL2023 version 4.4.0**<br>_64bit Amazon Linux 2023 v4.4.0 running ECS_         | 2023.10.20260216 | 1.101.3   | 25.0.14 |                |              |
+| **Docker AL2 version 4.6.0**<br>_64bit Amazon Linux 2 v4.6.0 running Docker_         | 2.0.20260216     |           | 25.0.14 | 5.1.0          | nginx 1.28.2 |
+| **ECS AL2 version 3.7.0**<br>_64bit Amazon Linux 2 v3.7.0 running ECS_               | 2.0.20260216     | 1.101.3   | 25.0.14 |                |              |
+
+## February 12, 2026 – February 25, 2026
+
+The following Elastic Beanstalk platform versions for Single Container Docker were current between February 12, 2026 and February 25, 2026:
 
 | Platform Version and _Solution Stack Name_                                         | AMI              | ECS Agent | Docker  | Docker Compose | Proxy Server |
 | ---------------------------------------------------------------------------------- | ---------------- | --------- | ------- | -------------- | ------------ |
