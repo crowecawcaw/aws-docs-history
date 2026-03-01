@@ -1,15 +1,9 @@
-# Using the HTTP REST endpoint to connect to a
+# Using the HTTP REST endpoint to connect to a Neptune DB instance
 
-Neptune DB instance
+###### Note
 
-Amazon Neptune provides an HTTP endpoint for SPARQL queries. The REST interface is compatible
-with SPARQL version 1.1.
-
-###### Important
-
-[Release: 1.0.4.0 (2020-10-12)](engine-releases-1.0.4.md "engine-releases-1.0.4.md")
-made TLS 1.2 and HTTPS mandatory for all connections to Amazon Neptune. It is no longer possible
-to connect to Neptune using unsecured HTTP, or using HTTPS with a version of TLS earlier than 1.2.
+Neptune does not currently support HTTP/2 for REST API requests. Clients must use
+HTTP/1.1 when connecting to endpoints.
 
 The following instructions walk you through connecting to the SPARQL endpoint using the
 **curl** command, connecting through HTTPS, and using HTTP syntax. Follow these
@@ -22,6 +16,9 @@ The HTTP endpoint for SPARQL queries to a Neptune DB instance is: 
 ###### Note
 
 For information about finding the hostname of your Neptune DB instance, see the [Connecting to Amazon Neptune Endpoints](feature-overview-endpoints.md "feature-overview-endpoints.md") section.
+
+Amazon Neptune provides an HTTP endpoint for SPARQL queries. The REST interface is compatible
+with SPARQL version 1.1.
 
 ###### QUERY Using HTTP POST
 

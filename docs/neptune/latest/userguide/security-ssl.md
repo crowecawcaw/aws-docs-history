@@ -18,8 +18,7 @@ Neptune requires at least TLS version 1.2, using the following strong cipher sui
   any DB cluster that uses a new DB cluster parameter group is required to
   use SSL by default. _To protect your data, Neptune endpoints in engine
   version `1.0.4.0` and above only support HTTPS requests._
-  See [Using the HTTP REST endpoint to connect to a
-  Neptune DB instance](access-graph-sparql-http-rest.md "access-graph-sparql-http-rest.md") for more information.
+  See [Using the HTTP REST endpoint to connect to a Neptune DB instance](access-graph-sparql-http-rest.md "access-graph-sparql-http-rest.md") for more information.
 
 Neptune automatically provides SSL certificates for your Neptune DB instances. You don't
 need to request any certificates. The certificates are provided when you create a new
@@ -62,6 +61,4 @@ Repository](https://www.amazontrust.com/repository/ "https://www.amazontrust.com
 
 ###### More Information
 
-For more information about connecting to Neptune endpoints with SSL, see [Set up the Gremlin console to connect to a
-Neptune DB instance](access-graph-gremlin-console.md "access-graph-gremlin-console.md") and [Using the HTTP REST endpoint to connect to a
-Neptune DB instance](access-graph-sparql-http-rest.md "access-graph-sparql-http-rest.md").
+For more information about connecting to Neptune endpoints with SSL, see [Set up the Gremlin console to connect to a Neptune DB instance](access-graph-gremlin-console.md "access-graph-gremlin-console.md") and [Using the HTTP REST endpoint to connect to a Neptune DB instance](access-graph-sparql-http-rest.md "access-graph-sparql-http-rest.md").

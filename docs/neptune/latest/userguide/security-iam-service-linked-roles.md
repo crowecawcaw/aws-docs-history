@@ -26,9 +26,7 @@ with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-ia
 **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-Linked Role Permissions for
-
-Neptune
+## Service-Linked Role Permissions for Neptune
 
 Neptune uses the `AWSServiceRoleForRDS` service-linked role to allow
 Neptune and Amazon RDS to call AWS services on behalf of your database instances. The
@@ -127,9 +125,7 @@ clusters before you can delete the associated service-linked role.
 Before you can use IAM to delete a service-linked role, you must first confirm that
 the role has no active sessions and remove any resources used by the role.
 
-###### To check whether the service-linked role has an active session in the IAM
-
-console
+###### To check whether the service-linked role has an active session in the IAM console
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane of the IAM console, choose **Roles**. Then choose

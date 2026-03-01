@@ -1,6 +1,4 @@
-# Using RDF4J Workbench to connect to a
-
-Neptune DB instance
+# Using RDF4J Workbench to connect to a Neptune DB instance
 
 This section walks you through connecting to an Amazon Neptune DB instance using RDF4J Workbench
 and RDF4J Server. RDF4J Server is required because it acts as a proxy between the Neptune

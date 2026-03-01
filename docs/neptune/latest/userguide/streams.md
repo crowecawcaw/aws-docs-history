@@ -78,6 +78,5 @@ The following diagram shows how change-log data can be retrieved from Neptune St
 - [Using Neptune Streams](streams-using.md "streams-using.md")
 - [Serialization Formats in Neptune Streams](streams-change-formats.md "streams-change-formats.md")
 - [Neptune Streams Examples](streams-examples.md "streams-examples.md")
-- [Using AWS CloudFormation to Set Up Neptune-to-Neptune
-  Replication with the Streams Consumer Application](streams-consumer-setup.md "streams-consumer-setup.md")
+- [Using AWS CloudFormation to Set Up Neptune-to-Neptune Replication with the Streams Consumer Application](streams-consumer-setup.md "streams-consumer-setup.md")
 - [Using Neptune streams cross-region replication for disaster recovery](streams-disaster-recovery.md "streams-disaster-recovery.md")

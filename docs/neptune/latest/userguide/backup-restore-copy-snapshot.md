@@ -19,10 +19,8 @@ For more information, see [Sharing a DB Cluster Snapshot](backup-restore-share-s
 - [Retention of DB Cluster Snapshot Copies](#backup-restore-copy-snapshot-retention "#backup-restore-copy-snapshot-retention")
 - [Handling Encryption When Copying Snapshots](#backup-restore-copy-snapshot-encryption "#backup-restore-copy-snapshot-encryption")
 - [Copying Snapshots Across AWS Regions](#backup-restore-copy-snapshot-cross-region "#backup-restore-copy-snapshot-cross-region")
-- [Copying a DB Cluster Snapshot Using
-  the Console](#backup-restore-copy-snapshot-console "#backup-restore-copy-snapshot-console")
-- [Copying a DB Cluster Snapshot Using
-  the AWS CLI](#backup-restore-copy-snapshot-cli "#backup-restore-copy-snapshot-cli")
+- [Copying a DB Cluster Snapshot Using the Console](#backup-restore-copy-snapshot-console "#backup-restore-copy-snapshot-console")
+- [Copying a DB Cluster Snapshot Using the AWS CLI](#backup-restore-copy-snapshot-cli "#backup-restore-copy-snapshot-cli")
 
 ## Limitations on Copying a Snapshot
 
@@ -101,9 +99,7 @@ the same region.
 Depending on the AWS Regions involved and the amount of data
 to be copied, a cross-region snapshot copy can take hours to complete.
 
-## Copying a DB Cluster Snapshot Using
-
-the Console
+## Copying a DB Cluster Snapshot Using the Console
 
 If your source database engine is Neptune, then your snapshot is a DB cluster
 snapshot. For each AWS account, you can copy up to five DB cluster snapshots at a time
@@ -142,9 +138,7 @@ The following procedure works for copying encrypted or unencrypted DB cluster sn
 
 8. Choose **Copy Snapshot**.
 
-## Copying a DB Cluster Snapshot Using
-
-the AWS CLI
+## Copying a DB Cluster Snapshot Using the AWS CLI
 
 You can copy a DB snapshot using the [copy-db-cluster-snapshot](api-snapshots.md#CopyDBClusterSnapshot "api-snapshots.md#CopyDBClusterSnapshot")
 AWS CLI command.

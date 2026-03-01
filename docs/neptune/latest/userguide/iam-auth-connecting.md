@@ -46,16 +46,11 @@ Gremlin and SPARQL endpoints of a Neptune DB instance with IAM authentication en
 - [Prerequisites for connecting Amazon Neptune databases using IAM authentication](iam-auth-connect-prerq.md "iam-auth-connect-prerq.md")
 - [Connecting to Amazon Neptune databases using IAM authentication from the command line](iam-auth-connect-command-line.md "iam-auth-connect-command-line.md")
 - [Connecting to Amazon Neptune databases using IAM authentication with Gremlin console](iam-auth-connecting-gremlin-console.md "iam-auth-connecting-gremlin-console.md")
-- [Connecting to Amazon Neptune databases using IAM with
-  Gremlin Java](iam-auth-connecting-gremlin-java.md "iam-auth-connecting-gremlin-java.md")
-- [Connecting to Amazon Neptune databases using IAM authentication with Java and
-  SPARQL](iam-auth-connecting-sparql-java.md "iam-auth-connecting-sparql-java.md")
-- [Connecting to Amazon Neptune databases using IAM authentication with SPARQL
-  and Node.js](iam-auth-connecting-sparql-node.md "iam-auth-connecting-sparql-node.md")
+- [Connecting to Amazon Neptune databases using IAM with Gremlin Java](iam-auth-connecting-gremlin-java.md "iam-auth-connecting-gremlin-java.md")
+- [Connecting to Amazon Neptune databases using IAM authentication with Java and SPARQL](iam-auth-connecting-sparql-java.md "iam-auth-connecting-sparql-java.md")
+- [Connecting to Amazon Neptune databases using IAM authentication with SPARQL and Node.js](iam-auth-connecting-sparql-node.md "iam-auth-connecting-sparql-node.md")
 - [Connecting to Amazon Neptune databases using IAM authentication with Python](iam-auth-connecting-python.md "iam-auth-connecting-python.md")
 - [Connecting to Amazon Neptune databases using IAM authentication with Gremlin Python](gremlin-python-iam-auth.md "gremlin-python-iam-auth.md")
-- [Connecting to Amazon Neptune databases using IAM
-  authentication with Gremlin JavaScript](gremlin-javascript-iam-auth.md "gremlin-javascript-iam-auth.md")
-- [Connecting to Amazon Neptune databases using IAM
-  authentication with Gremlin Go](gremlin-go-iam-auth.md "gremlin-go-iam-auth.md")
+- [Connecting to Amazon Neptune databases using IAM authentication with Gremlin JavaScript](gremlin-javascript-iam-auth.md "gremlin-javascript-iam-auth.md")
+- [Connecting to Amazon Neptune databases using IAM authentication with Gremlin Go](gremlin-go-iam-auth.md "gremlin-go-iam-auth.md")
 - [Connecting to Amazon Neptune databases using IAM authentication with Gremlin .NET](gremlin-dotnet-iam-auth.md "gremlin-dotnet-iam-auth.md")

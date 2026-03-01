@@ -6,16 +6,13 @@ a `neptune-db:` prefix.
 
 ###### Topics
 
-- [Using query actions in Neptune data-access
-  policy statements](#iam-data-query-actions "#iam-data-query-actions")
+- [Using query actions in Neptune data-access policy statements](#iam-data-query-actions "#iam-data-query-actions")
 - [IAM actions for data access in Amazon Neptune](iam-dp-actions.md "iam-dp-actions.md")
 - [IAM resource types for accessing data in Amazon Neptune](iam-data-resources.md "iam-data-resources.md")
 - [IAM condition keys for accessing data in Amazon Neptune](iam-data-condition-keys.md "iam-data-condition-keys.md")
 - [Creating IAM data-access policies in Amazon Neptune](iam-data-access-examples.md "iam-data-access-examples.md")
 
-## Using query actions in Neptune data-access
-
-policy statements
+## Using query actions in Neptune data-access policy statements
 
 There are three Neptune query actions that can be used in data-access policy
 statements, namely `ReadDataViaQuery`, `WriteDataViaQuery`,

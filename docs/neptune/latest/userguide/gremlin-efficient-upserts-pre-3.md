@@ -11,8 +11,7 @@ the new `mergeV()` and `mergeE()` steps are preferable
 in most cases. The `fold()/coalesce()/unfold()` pattern described
 here may still be useful in a some complex situations, but in general use
 `mergeV()` and `mergeE()` if you can, as described in
-[Making efficient upserts with Gremlin
-mergeV() and mergeE() steps](gremlin-efficient-upserts.md "gremlin-efficient-upserts.md").
+[Making efficient upserts with Gremlin mergeV() and mergeE() steps](gremlin-efficient-upserts.md "gremlin-efficient-upserts.md").
 
 Upserts allow you to write idempotent insert operations: no matter how many times
 you run such an operation, the overall outcome is the same. This is useful in highly
@@ -91,8 +90,7 @@ requests contain no more than 1500 Gremlin steps. Neptune may reject large batch
 requests with more than 1500 steps.
 
 To increase throughput, you can upsert batches in parallel using multiple clients
-(see [Creating Efficient Multithreaded
-Gremlin Writes](best-practices-gremlin-multithreaded-writes.md "best-practices-gremlin-multithreaded-writes.md")).
+(see [Creating Efficient Multithreaded Gremlin Writes](best-practices-gremlin-multithreaded-writes.md "best-practices-gremlin-multithreaded-writes.md")).
 The number of clients should be the same as the number of worker threads on your
 Neptune writer instance, which is typically 2 x the number of vCPUs on the server.
 For instance, an `r5.8xlarge` instance has 32 vCPUs and 64 worker threads.

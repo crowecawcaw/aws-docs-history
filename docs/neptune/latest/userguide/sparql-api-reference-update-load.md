@@ -1,6 +1,4 @@
-# Using SPARQL UPDATE LOAD
-
-to import data into Neptune
+# Using SPARQL UPDATE LOAD to import data into Neptune
 
 The syntax of the SPARQL UPDATE LOAD command is specified in the [SPARQL 1.1 Update
 recommendation](https://www.w3.org/TR/sparql11-update/#load "https://www.w3.org/TR/sparql11-update/#load"):

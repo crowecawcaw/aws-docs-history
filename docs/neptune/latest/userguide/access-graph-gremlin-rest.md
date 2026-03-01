@@ -1,6 +1,4 @@
-# Using the HTTPS REST endpoint to connect to a
-
-Neptune DB instance
+# Using the HTTPS REST endpoint to connect to a Neptune DB instance
 
 Amazon Neptune provides an HTTPS endpoint for Gremlin queries. The REST
 interface is compatible with whatever Gremlin version your DB cluster is
@@ -11,7 +9,9 @@ Gremlin release it supports).
 ###### Note
 
 As discussed in [Encrypting connections to your Amazon Neptune database with SSL/HTTPS](security-ssl.md "security-ssl.md"),
-Neptune now requires that you connect using HTTPS instead of HTTP.
+Neptune now requires that you connect using HTTPS instead of HTTP. In addition,
+Neptune does not currently support HTTP/2 for REST API requests. Clients must use
+HTTP/1.1 when connecting to endpoints.
 
 The following instructions walk you through connecting to the Gremlin endpoint using the
 `curl` command and HTTPS. You must follow these instructions from an Amazon EC2 instance
@@ -44,8 +44,7 @@ If this result set is too large, an `OutOfMemoryError` exception can occur
 on the Neptune DB instance.
 
 You can avoid this by enabling chunked responses (results returned in a series
-of separate responses). See [Use optional HTTP
-trailing headers to enable multi-part Gremlin responses](access-graph-gremlin-rest-trailing-headers.md "access-graph-gremlin-rest-trailing-headers.md").
+of separate responses). See [Use optional HTTP trailing headers to enable multi-part Gremlin responses](access-graph-gremlin-rest-trailing-headers.md "access-graph-gremlin-rest-trailing-headers.md").
 
 Although HTTP **POST** requests are recommended for sending Gremlin
 queries, it is also possible to use HTTP **GET** requests:

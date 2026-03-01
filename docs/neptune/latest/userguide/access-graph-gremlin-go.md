@@ -1,6 +1,4 @@
-# Using Go to connect to a Neptune DB
-
-instance
+# Using Go to connect to a Neptune DB instance
 
 ###### Important
 

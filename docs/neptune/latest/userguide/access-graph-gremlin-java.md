@@ -1,6 +1,4 @@
-# Using a Java client to connect to a Neptune DB
-
-instance
+# Using a Java client to connect to a Neptune DB instance
 
 The following section walks you through the running of a complete Java sample that
 connects to a Neptune DB instance and performs a Gremlin traversal using the Apache TinkerPop

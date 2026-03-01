@@ -1,6 +1,4 @@
-# Examples of using the
-
-Neptune-Export service to export training data for Neptune ML
+# Examples of using the Neptune-Export service to export training data for Neptune ML
 
 This request exports property-graph training data for a node classification task:
 

@@ -65,6 +65,5 @@ for information about how to implement and use a custom model.
 ###### Topics
 
 - [Models and model training in Amazon Neptune ML](machine-learning-models-and-training.md "machine-learning-models-and-training.md")
-- [Customizing model
-  hyperparameter configurations in Neptune ML](machine-learning-customizing-hyperparams.md "machine-learning-customizing-hyperparams.md")
+- [Customizing model hyperparameter configurations in Neptune ML](machine-learning-customizing-hyperparams.md "machine-learning-customizing-hyperparams.md")
 - [Model training best practices](machine-learning-improve-model-performance.md "machine-learning-improve-model-performance.md")

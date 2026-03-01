@@ -3,9 +3,7 @@
 You use the Neptune ML `endpoints` command to create an inference endpoint,
 check its status, delete it, or list existing inference endpoints.
 
-## Creating an inference endpoint
-
-using the Neptune ML `endpoints` command
+## Creating an inference endpoint using the Neptune ML `endpoints` command
 
 A Neptune ML `endpoints` command for creating an inference endpoint
 from a model created by a training job looks like this:
@@ -133,9 +131,7 @@ _Type_: integer. _Default_: `1`.
 
 _Type_: string. _Default_: _none_.
 
-## Getting the status
-
-of an inference endpoint using the Neptune ML `endpoints` command
+## Getting the status of an inference endpoint using the Neptune ML `endpoints` command
 
 A sample Neptune ML `endpoints` command for the status of an instance
 endpoint looks like this:
@@ -160,9 +156,7 @@ _Type_: string.
 _Type_: string. _Note_: This must be
 listed in your DB cluster parameter group or an error will be thrown.
 
-## Deleting an instance
-
-endpoint using the Neptune ML `endpoints` command
+## Deleting an instance endpoint using the Neptune ML `endpoints` command
 
 A sample Neptune ML `endpoints` command for deleting an instance
 endpoint looks like this:
@@ -199,9 +193,7 @@ listed in your DB cluster parameter group or an error will be thrown.
 
 _Type_: Boolean. _Default_: `FALSE`.
 
-## Listing inference endpoints
-
-using the Neptune ML `endpoints` command
+## Listing inference endpoints using the Neptune ML `endpoints` command
 
 A Neptune ML `endpoints` command for listing inference
 endpoints looks like this:

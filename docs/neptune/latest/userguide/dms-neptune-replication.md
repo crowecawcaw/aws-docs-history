@@ -85,9 +85,7 @@ After attaching the policy to the role, attach the role to your Neptune DB
 cluster. This will allow AWS DMS to use the bucket for staging the data being
 loaded.
 
-## Create an Amazon S3 endpoint in the
-
-Neptune VPC
+## Create an Amazon S3 endpoint in the Neptune VPC
 
 Now create a VPC Gateway endpoint for your intermediary Amazon S3 bucket, in the VPC
 where your Neptune cluster is located. You can use the AWS Management Console or the AWS CLI to

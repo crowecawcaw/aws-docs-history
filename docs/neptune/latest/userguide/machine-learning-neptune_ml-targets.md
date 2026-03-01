@@ -1,6 +1,4 @@
-# The targets field in
-
-a neptune_ml object
+# The targets field in a neptune_ml object
 
 The `targets` field in a JSON training data export configuration
 contains an array of target objects that specify a training task and and the machine-learning

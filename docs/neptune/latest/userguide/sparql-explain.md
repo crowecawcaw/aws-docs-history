@@ -13,8 +13,7 @@ your query execution plans.
 ###### Topics
 
 - [How the SPARQL query engine works in Neptune](sparql-explain-engine.md "sparql-explain-engine.md")
-- [How to use SPARQL explain to analyze Neptune query
-  execution](sparql-explain-using.md "sparql-explain-using.md")
+- [How to use SPARQL explain to analyze Neptune query execution](sparql-explain-using.md "sparql-explain-using.md")
 - [Examples of invoking SPARQL explain in Neptune](sparql-explain-examples.md "sparql-explain-examples.md")
 - [Neptune SPARQL explain operators](sparql-explain-operators.md "sparql-explain-operators.md")
 - [Limitations of SPARQL explain in Neptune](sparql-explain-limitations.md "sparql-explain-limitations.md")

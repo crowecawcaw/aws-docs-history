@@ -54,9 +54,7 @@ The general layout of a loader status response is as follows:
 }
 ```
 
-## Neptune Loader Get-Status
-
-`overallStatus` and `failedFeeds` response objects
+## Neptune Loader Get-Status `overallStatus` and `failedFeeds` response objects
 
 The possible responses returned for each failed feed, including the error
 descriptions, are the same as for the `overallStatus` object in a `Get-Status`

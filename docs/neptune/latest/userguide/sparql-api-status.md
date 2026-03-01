@@ -10,9 +10,7 @@ make a request to the `https://`your-neptune-endpoint`:`port`/sparql/status` end
 The ID of a running SPARQL query. Only displays the status of the specified
 query.
 
-## SPARQL query status response
-
-syntax
+## SPARQL query status response syntax
 
 ```
 {

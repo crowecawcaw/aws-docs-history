@@ -1,6 +1,4 @@
-# Creating an IAM role to allow
-
-Amazon Neptune to access Amazon S3 resources
+# Creating an IAM role to allow Amazon Neptune to access Amazon S3 resources
 
 Use the `AmazonS3ReadOnlyAccess` managed IAM policy to create a new
 IAM role that will allow Amazon Neptune access to Amazon S3 resources.
@@ -55,5 +53,4 @@ JSON
 ```
 
 14. Choose **Update trust policy**.
-15. Complete the steps in [Adding the IAM Role to an
-    Amazon Neptune Cluster](bulk-load-tutorial-IAM-add-role-cluster.md "bulk-load-tutorial-IAM-add-role-cluster.md").
+15. Complete the steps in [Adding the IAM Role to an Amazon Neptune Cluster](bulk-load-tutorial-IAM-add-role-cluster.md "bulk-load-tutorial-IAM-add-role-cluster.md").

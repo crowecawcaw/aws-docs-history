@@ -8,30 +8,20 @@ and then provide a name for the new DB cluster that is created by the restore.
 
 ###### Contents
 
-- [Things to keep in mind
-  about restoring a Neptune DB cluster from a snapshot](backup-restore-restore-snapshot.md#backup-restore-restore-snapshot-considerations "backup-restore-restore-snapshot.md#backup-restore-restore-snapshot-considerations")
-  - [You cannot restore
-    to an existing DB cluster](backup-restore-restore-snapshot.md#backup-restore-restores-to-new-cluster "backup-restore-restore-snapshot.md#backup-restore-restores-to-new-cluster")
+- [Things to keep in mind about restoring a Neptune DB cluster from a snapshot](backup-restore-restore-snapshot.md#backup-restore-restore-snapshot-considerations "backup-restore-restore-snapshot.md#backup-restore-restore-snapshot-considerations")
+  - [You cannot restore to an existing DB cluster](backup-restore-restore-snapshot.md#backup-restore-restores-to-new-cluster "backup-restore-restore-snapshot.md#backup-restore-restores-to-new-cluster")
   - [No instances are restored](backup-restore-restore-snapshot.md#backup-restore-restore-no-restored-instances "backup-restore-restore-snapshot.md#backup-restore-restore-no-restored-instances")
   - [No custom parameter group is restored](backup-restore-restore-snapshot.md#backup-restore-restore-default-parameters "backup-restore-restore-snapshot.md#backup-restore-restore-default-parameters")
-  - [No custom security
-    groups are restored](backup-restore-restore-snapshot.md#backup-restore-restore-default-security-group "backup-restore-restore-snapshot.md#backup-restore-restore-default-security-group")
-  - [You can't restore from
-    a shared encrypted snapshot](backup-restore-restore-snapshot.md#backup-restore-restore-not-shared-and-encrypted "backup-restore-restore-snapshot.md#backup-restore-restore-not-shared-and-encrypted")
-  - [A restored DB cluster
-    uses as much storage as before](backup-restore-restore-snapshot.md#backup-restore-restore-same-storage-allocation "backup-restore-restore-snapshot.md#backup-restore-restore-same-storage-allocation")
+  - [No custom security groups are restored](backup-restore-restore-snapshot.md#backup-restore-restore-default-security-group "backup-restore-restore-snapshot.md#backup-restore-restore-default-security-group")
+  - [You can't restore from a shared encrypted snapshot](backup-restore-restore-snapshot.md#backup-restore-restore-not-shared-and-encrypted "backup-restore-restore-snapshot.md#backup-restore-restore-not-shared-and-encrypted")
+  - [A restored DB cluster uses as much storage as before](backup-restore-restore-snapshot.md#backup-restore-restore-same-storage-allocation "backup-restore-restore-snapshot.md#backup-restore-restore-same-storage-allocation")
 
 - [How to restore from a snapshot](backup-restore-restore-snapshot.md#backup-restore-restore-snapshot-restoring "backup-restore-restore-snapshot.md#backup-restore-restore-snapshot-restoring")
-  - [Using the Console to
-    Restore from a Snapshot](backup-restore-restore-snapshot.md#backup-restore-restore-snapshot-restoring-console "backup-restore-restore-snapshot.md#backup-restore-restore-snapshot-restoring-console")
+  - [Using the Console to Restore from a Snapshot](backup-restore-restore-snapshot.md#backup-restore-restore-snapshot-restoring-console "backup-restore-restore-snapshot.md#backup-restore-restore-snapshot-restoring-console")
 
-## Things to keep in mind
+## Things to keep in mind about restoring a Neptune DB cluster from a snapshot
 
-about restoring a Neptune DB cluster from a snapshot
-
-### You cannot restore
-
-to an existing DB cluster
+### You cannot restore to an existing DB cluster
 
 The restore process always creates a new DB cluster, so you can't restore to a
 DB cluster that already exists.
@@ -63,9 +53,7 @@ a DB cluster that you are creating a snapshot of. Then, when you restore from th
 snapshot, you can easily associate the correct parameter group with the restored
 DB cluster.
 
-### No custom security
-
-groups are restored
+### No custom security groups are restored
 
 A new DB cluster created by a restore automatically has the default security group
 associated with it.
@@ -76,18 +64,14 @@ To do that, use the **Modify** command on the Neptune console,
 or the [ModifyDBInstance](api-instances.md#ModifyDBInstance "api-instances.md#ModifyDBInstance")
 API.
 
-### You can't restore from
-
-a shared encrypted snapshot
+### You can't restore from a shared encrypted snapshot
 
 You cannot restore a DB cluster from a DB cluster snapshot that is both
 shared and encrypted.
 
 Instead, make an unshared copy of the snapshot and restore from the copy.
 
-### A restored DB cluster
-
-uses as much storage as before
+### A restored DB cluster uses as much storage as before
 
 When you restore a DB cluster from a DB cluster snapshot, the amount of storage
 allocated to the new cluster is the same as was allocated to the DB cluster from which the
@@ -102,9 +86,7 @@ reloading it onto a new DB cluster (see [Neptune storage billing](feature-overvi
 You can restore a DB cluster from a DB cluster snapshot using the AWS Management Console,
 the AWS CLI, or the Neptune API.
 
-### Using the Console to
-
-Restore from a Snapshot
+### Using the Console to Restore from a Snapshot
 
 1. Sign in to the AWS Management Console, and open the Amazon Neptune console at [https://console.aws.amazon.com/neptune/home](https://console.aws.amazon.com/neptune/home "https://console.aws.amazon.com/neptune/home").
 2. In the navigation pane, choose **Snapshots**.

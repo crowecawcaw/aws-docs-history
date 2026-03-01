@@ -49,9 +49,7 @@ non-converted steps through the optimizer, to try to determine the best executio
 plan. The output of this optimization is the execution plan that the Neptune
 engine processes.
 
-## Using the Neptune Gremlin
-
-`explain` API to tune queries
+## Using the Neptune Gremlin `explain` API to tune queries
 
 The Neptune explain API is not the same as the Gremlin `explain()` step.
 It returns the final execution plan that the Neptune engine would process when executing

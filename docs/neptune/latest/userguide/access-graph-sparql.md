@@ -27,12 +27,9 @@ Before you begin, you must have the following:
 
 ###### Topics
 
-- [Using the RDF4J console to connect to a
-  Neptune DB instance](access-graph-sparql-rdf4j-console.md "access-graph-sparql-rdf4j-console.md")
-- [Using RDF4J Workbench to connect to a
-  Neptune DB instance](access-graph-sparql-rdf4j-workbench.md "access-graph-sparql-rdf4j-workbench.md")
-- [Using Java to connect to a Neptune DB
-  instance](access-graph-sparql-java.md "access-graph-sparql-java.md")
+- [Using the RDF4J console to connect to a Neptune DB instance](access-graph-sparql-rdf4j-console.md "access-graph-sparql-rdf4j-console.md")
+- [Using RDF4J Workbench to connect to a Neptune DB instance](access-graph-sparql-rdf4j-workbench.md "access-graph-sparql-rdf4j-workbench.md")
+- [Using Java to connect to a Neptune DB instance](access-graph-sparql-java.md "access-graph-sparql-java.md")
 - [SPARQL HTTP API](sparql-api-reference.md "sparql-api-reference.md")
 - [SPARQL query hints](sparql-query-hints.md "sparql-query-hints.md")
 - [SPARQL DESCRIBE behavior with respect to the default graph](sparql-default-describe.md "sparql-default-describe.md")

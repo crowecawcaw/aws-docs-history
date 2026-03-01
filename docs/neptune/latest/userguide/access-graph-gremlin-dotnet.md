@@ -1,6 +1,4 @@
-# Using .NET to connect to a Neptune DB
-
-instance
+# Using .NET to connect to a Neptune DB instance
 
 ###### Important
 

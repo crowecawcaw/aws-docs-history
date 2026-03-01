@@ -107,5 +107,4 @@ instance-type, please see the [Neptune pricing page](https://aws.amazon.com/nept
 ## Monitoring DB instance performance in Neptune
 
 You can use CloudWatch metrics in Neptune to monitor the performance of your DB instances
-and keep track of query latency as observed by the client. See [Using CloudWatch to monitor DB instance
-performance in Neptune](cloudwatch-monitoring-instances.md "cloudwatch-monitoring-instances.md").
+and keep track of query latency as observed by the client. See [Using CloudWatch to monitor DB instance performance in Neptune](cloudwatch-monitoring-instances.md "cloudwatch-monitoring-instances.md").

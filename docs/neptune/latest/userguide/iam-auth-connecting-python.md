@@ -38,8 +38,7 @@ The following example shows how to make signed requests to Neptune using Python.
 request makes a either a GET or POST request. Authentication information is passed using the
 `Authorization` request header.
 
-This example also works as an AWS Lambda function. For more information, see [Setting Up AWS Lambda for Neptune
-IAM Authentication](iam-auth-temporary-credentials.md#iam-auth-temporary-credentials-lambda "iam-auth-temporary-credentials.md#iam-auth-temporary-credentials-lambda").
+This example also works as an AWS Lambda function. For more information, see [Setting Up AWS Lambda for Neptune IAM Authentication](iam-auth-temporary-credentials.md#iam-auth-temporary-credentials-lambda "iam-auth-temporary-credentials.md#iam-auth-temporary-credentials-lambda").
 
 ###### To make signed requests to the Gremlin and SPARQL Neptune endpoints
 

@@ -13,8 +13,7 @@ occurs. For more information about using CloudWatch and alarms, see the [CloudWa
 - [Viewing CloudWatch Data (Console)](#Console_Neptune "#Console_Neptune")
 - [Viewing CloudWatch Data (AWS CLI)](#CloudwatchCLI_Neptune "#CloudwatchCLI_Neptune")
 - [Viewing CloudWatch Data (API)](#CloudwatchAPI_Neptune "#CloudwatchAPI_Neptune")
-- [Using CloudWatch to monitor DB instance
-  performance in Neptune](cloudwatch-monitoring-instances.md "cloudwatch-monitoring-instances.md")
+- [Using CloudWatch to monitor DB instance performance in Neptune](cloudwatch-monitoring-instances.md "cloudwatch-monitoring-instances.md")
 - [Neptune CloudWatch Metrics](cw-metrics.md "cw-metrics.md")
 - [Neptune CloudWatch Dimensions](cw-dimensions.md "cw-dimensions.md")
 

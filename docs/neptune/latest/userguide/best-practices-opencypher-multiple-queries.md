@@ -1,6 +1,4 @@
-# Neptune does not support
-
-multiple concurrent queries in a transaction
+# Neptune does not support multiple concurrent queries in a transaction
 
 Although the Bolt driver itself allows concurrent queries in a transaction, Neptune
 does not support multiple queries in a transaction running concurrently. Instead, Neptune

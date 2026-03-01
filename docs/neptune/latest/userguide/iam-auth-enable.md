@@ -1,6 +1,4 @@
-# Enabling IAM database authentication in
-
-Amazon Neptune
+# Enabling IAM database authentication in Amazon Neptune
 
 By default, IAM database authentication is disabled when you create an Amazon Neptune DB
 cluster. You can enable IAM database authentication (or disable it again) using the

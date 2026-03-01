@@ -9,9 +9,7 @@ greatly simply integrating Neptune into applications.
 
 This page provides information about how to use these APIs.
 
-## IAM Actions with different names
-
-than their Neptune data API SDK counterparts
+## IAM Actions with different names than their Neptune data API SDK counterparts
 
 When you're calling a Neptune API methods on a cluster that has IAM authentication
 enabled, you have to have an IAM policy attached to the user or role making the calls

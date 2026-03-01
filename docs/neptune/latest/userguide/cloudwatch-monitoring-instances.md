@@ -1,6 +1,4 @@
-# Using CloudWatch to monitor DB instance
-
-performance in Neptune
+# Using CloudWatch to monitor DB instance performance in Neptune
 
 You can use CloudWatch metrics in Neptune to monitor what is happening on
 your DB instances and keep track of the query queue length as observed by the

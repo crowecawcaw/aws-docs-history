@@ -39,8 +39,7 @@ IAM authentication](iam-auth-enable.md "iam-auth-enable.md") in your Neptune dat
 - [Neptune data model for OpenSearch data](full-text-search-model.md "full-text-search-model.md")
 - [Neptune full-text search parameters](full-text-search-parameters.md "full-text-search-parameters.md")
 - [Non-string OpenSearch indexing in Amazon Neptune](full-text-search-non-string-indexing.md "full-text-search-non-string-indexing.md")
-- [Full-text-search query execution
-  in Amazon Neptune](full-text-search-query-execution.md "full-text-search-query-execution.md")
+- [Full-text-search query execution in Amazon Neptune](full-text-search-query-execution.md "full-text-search-query-execution.md")
 - [Sample SPARQL queries using full-text search in Neptune](full-text-search-sparql-examples.md "full-text-search-sparql-examples.md")
 - [Using Neptune full-text search in Gremlin queries](full-text-search-gremlin.md "full-text-search-gremlin.md")
 - [Troubleshooting Neptune full-text search](streams-consumer-troubleshooting.md "streams-consumer-troubleshooting.md")

@@ -6,14 +6,11 @@ setting up and tearing down all the DB instances each time that you use the clus
 
 ###### Topics
 
-- [Overview of stopping and
-  starting a Neptune DB cluster](#manage-console-start-stop-overview "#manage-console-start-stop-overview")
+- [Overview of stopping and starting a Neptune DB cluster](#manage-console-start-stop-overview "#manage-console-start-stop-overview")
 - [Stopping a Neptune DB cluster](#manage-console-stopping "#manage-console-stopping")
 - [Starting a stopped Neptune DB cluster](#manage-console-start "#manage-console-start")
 
-## Overview of stopping and
-
-starting a Neptune DB cluster
+## Overview of stopping and starting a Neptune DB cluster
 
 During periods where you don't need a Neptune cluster, you can stop all instances
 in that cluster at once. You can start the cluster again anytime you need to use it.

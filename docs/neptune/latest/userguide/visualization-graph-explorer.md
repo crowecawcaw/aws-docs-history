@@ -40,9 +40,7 @@ After you have created a notebook, go to the Neptune console to start graph-expl
 2. Under **Notebooks**, select your notebook.
 3. Under Actions choose **Open Graph Explorer**.
 
-## How to run graph-explorer in Amazon ECS on
-
-AWS Fargate and connect to Neptune
+## How to run graph-explorer in Amazon ECS on AWS Fargate and connect to Neptune
 
 You can also build the graph-explorer Docker image and run it on a local
 machine or a hosted service like [Amazon Elastic Compute Cloud (Amazon EC2)](https://aws.amazon.com/ec2/ "https://aws.amazon.com/ec2/")

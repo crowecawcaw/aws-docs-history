@@ -1,6 +1,4 @@
-# Customizing model
-
-hyperparameter configurations in Neptune ML
+# Customizing model hyperparameter configurations in Neptune ML
 
 When you start a Neptune ML model-training job, Neptune ML automatically uses
 the information inferred from the preceding [data-processing](machine-learning-on-graphs-processing.md "machine-learning-on-graphs-processing.md") job. It uses the

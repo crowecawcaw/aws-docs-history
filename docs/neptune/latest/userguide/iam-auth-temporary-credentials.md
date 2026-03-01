@@ -22,8 +22,7 @@ credentials.
 ###### To authenticate using temporary credentials
 
 1. Create an IAM role with permission to access a Neptune cluster. For information
-   about creating this role, see [Using different kinds of IAM policies for
-   controlling access to Neptune](security-iam-access-manage.md#iam-auth-policy "security-iam-access-manage.md#iam-auth-policy").
+   about creating this role, see [Using different kinds of IAM policies for controlling access to Neptune](security-iam-access-manage.md#iam-auth-policy "security-iam-access-manage.md#iam-auth-policy").
 2. Add a trust relationship to the role that allows access to the credentials.
 
 Retrieve the temporary credentials, including the `AWS_ACCESS_KEY_ID`,
@@ -34,24 +33,18 @@ environment.
 
 ###### Topics
 
-- [Getting Temporary Credentials Using the
-  AWS CLI](#iam-auth-temporary-credentials-cli "#iam-auth-temporary-credentials-cli")
-- [Setting Up AWS Lambda for Neptune
-  IAM Authentication](#iam-auth-temporary-credentials-lambda "#iam-auth-temporary-credentials-lambda")
-- [Setting Up Amazon EC2 for Neptune IAM
-  Authentication](#iam-auth-temporary-credentials-ec2 "#iam-auth-temporary-credentials-ec2")
+- [Getting Temporary Credentials Using the AWS CLI](#iam-auth-temporary-credentials-cli "#iam-auth-temporary-credentials-cli")
+- [Setting Up AWS Lambda for Neptune IAM Authentication](#iam-auth-temporary-credentials-lambda "#iam-auth-temporary-credentials-lambda")
+- [Setting Up Amazon EC2 for Neptune IAM Authentication](#iam-auth-temporary-credentials-ec2 "#iam-auth-temporary-credentials-ec2")
 
-## Getting Temporary Credentials Using the
-
-AWS CLI
+## Getting Temporary Credentials Using the AWS CLI
 
 To get credentials using the AWS Command Line Interface (AWS CLI), first you need to add a trust
 relationship that grants permission to assume the role to the AWS user that will run the
 AWS CLI command.
 
 Add the following trust relationship to the Neptune IAM authentication role.
-If you don't have a Neptune IAM authentication role, see [Using different kinds of IAM policies for
-controlling access to Neptune](security-iam-access-manage.md#iam-auth-policy "security-iam-access-manage.md#iam-auth-policy").
+If you don't have a Neptune IAM authentication role, see [Using different kinds of IAM policies for controlling access to Neptune](security-iam-access-manage.md#iam-auth-policy "security-iam-access-manage.md#iam-auth-policy").
 
 JSON
 
@@ -132,10 +125,8 @@ export SERVICE_REGION=`us-east-1 or us-east-2 or us-west-1 or us-west-2 or ca-ce
 
 4. Connect using one of the following methods.
    - [Connecting to Amazon Neptune databases using IAM authentication with Gremlin console](iam-auth-connecting-gremlin-console.md "iam-auth-connecting-gremlin-console.md")
-   - [Connecting to Amazon Neptune databases using IAM with
-     Gremlin Java](iam-auth-connecting-gremlin-java.md "iam-auth-connecting-gremlin-java.md")
-   - [Connecting to Amazon Neptune databases using IAM authentication with Java and
-     SPARQL](iam-auth-connecting-sparql-java.md "iam-auth-connecting-sparql-java.md")
+   - [Connecting to Amazon Neptune databases using IAM with Gremlin Java](iam-auth-connecting-gremlin-java.md "iam-auth-connecting-gremlin-java.md")
+   - [Connecting to Amazon Neptune databases using IAM authentication with Java and SPARQL](iam-auth-connecting-sparql-java.md "iam-auth-connecting-sparql-java.md")
    - [Connecting to Amazon Neptune databases using IAM authentication with Python](iam-auth-connecting-python.md "iam-auth-connecting-python.md")
 
 ###### To use a script to get the credentials
@@ -169,15 +160,11 @@ export SERVICE_REGION=`us-east-1 or us-east-2 or us-west-1 or us-west-2 or ca-ce
 
 3. Connect using one of the following methods.
    - [Connecting to Amazon Neptune databases using IAM authentication with Gremlin console](iam-auth-connecting-gremlin-console.md "iam-auth-connecting-gremlin-console.md")
-   - [Connecting to Amazon Neptune databases using IAM with
-     Gremlin Java](iam-auth-connecting-gremlin-java.md "iam-auth-connecting-gremlin-java.md")
-   - [Connecting to Amazon Neptune databases using IAM authentication with Java and
-     SPARQL](iam-auth-connecting-sparql-java.md "iam-auth-connecting-sparql-java.md")
+   - [Connecting to Amazon Neptune databases using IAM with Gremlin Java](iam-auth-connecting-gremlin-java.md "iam-auth-connecting-gremlin-java.md")
+   - [Connecting to Amazon Neptune databases using IAM authentication with Java and SPARQL](iam-auth-connecting-sparql-java.md "iam-auth-connecting-sparql-java.md")
    - [Connecting to Amazon Neptune databases using IAM authentication with Python](iam-auth-connecting-python.md "iam-auth-connecting-python.md")
 
-## Setting Up AWS Lambda for Neptune
-
-IAM Authentication
+## Setting Up AWS Lambda for Neptune IAM Authentication
 
 AWS Lambda includes credentials automatically each time the Lambda function is run.
 
@@ -185,8 +172,7 @@ First you add a trust relationship that grants permission to assume the role to 
 Lambda service.
 
 Add the following trust relationship to the Neptune IAM authentication role. If you
-don't have a Neptune IAM authentication role, see [Using different kinds of IAM policies for
-controlling access to Neptune](security-iam-access-manage.md#iam-auth-policy "security-iam-access-manage.md#iam-auth-policy").
+don't have a Neptune IAM authentication role, see [Using different kinds of IAM policies for controlling access to Neptune](security-iam-access-manage.md#iam-auth-policy "security-iam-access-manage.md#iam-auth-policy").
 
 JSON
 
@@ -229,9 +215,7 @@ Lambda Permissions](../../../lambda/latest/dg/intro-permission-model.md "../../.
 
 For more information about the sample and the sample code, see [Connecting to Amazon Neptune databases using IAM authentication with Python](iam-auth-connecting-python.md "iam-auth-connecting-python.md").
 
-## Setting Up Amazon EC2 for Neptune IAM
-
-Authentication
+## Setting Up Amazon EC2 for Neptune IAM Authentication
 
 Amazon EC2 allows you to use instance profiles to automatically provide credentials. For
 more information, see [Using Instance Profiles](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md") in the _IAM User Guide_.
@@ -240,8 +224,7 @@ First you add a trust relationship that grants permission to assume the role to 
 Amazon EC2 service.
 
 Add the following trust relationship to the Neptune IAM authentication role. If you
-don't have a Neptune IAM authentication role, see [Using different kinds of IAM policies for
-controlling access to Neptune](security-iam-access-manage.md#iam-auth-policy "security-iam-access-manage.md#iam-auth-policy").
+don't have a Neptune IAM authentication role, see [Using different kinds of IAM policies for controlling access to Neptune](security-iam-access-manage.md#iam-auth-policy "security-iam-access-manage.md#iam-auth-policy").
 
 JSON
 
@@ -309,8 +292,6 @@ your EC2 instance so that they will be invoked automatically when you log in, ma
 temporary credentials available to the Gremlin console. 4. Connect using one of the following methods.
 
     * [Connecting to Amazon Neptune databases using IAM authentication with Gremlin console](iam-auth-connecting-gremlin-console.md "iam-auth-connecting-gremlin-console.md")
-    * [Connecting to Amazon Neptune databases using IAM with
-     Gremlin Java](iam-auth-connecting-gremlin-java.md "iam-auth-connecting-gremlin-java.md")
-    * [Connecting to Amazon Neptune databases using IAM authentication with Java and
-     SPARQL](iam-auth-connecting-sparql-java.md "iam-auth-connecting-sparql-java.md")
+    * [Connecting to Amazon Neptune databases using IAM with Gremlin Java](iam-auth-connecting-gremlin-java.md "iam-auth-connecting-gremlin-java.md")
+    * [Connecting to Amazon Neptune databases using IAM authentication with Java and SPARQL](iam-auth-connecting-sparql-java.md "iam-auth-connecting-sparql-java.md")
     * [Connecting to Amazon Neptune databases using IAM authentication with Python](iam-auth-connecting-python.md "iam-auth-connecting-python.md")

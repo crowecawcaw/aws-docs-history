@@ -1,6 +1,4 @@
-# Using the RDF4J console to connect to a
-
-Neptune DB instance
+# Using the RDF4J console to connect to a Neptune DB instance
 
 The RDF4J Console allows you to experiment with Resource Description Framework (RDF)
 graphs and queries in a REPL (read-eval-print loop) environment.

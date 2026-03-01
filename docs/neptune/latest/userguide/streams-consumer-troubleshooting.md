@@ -60,9 +60,7 @@ following:
 - OpenSearch can be accessed from the poller Lambda function in your VPC.
 - The security policy attached to OpenSearch allows inbound HTTP/HTTPS requests.
 
-## Fixing out-of-sync
-
-issues between Neptune and OpenSearch on an existing replication setup
+## Fixing out-of-sync issues between Neptune and OpenSearch on an existing replication setup
 
 You can use the steps below to get a Neptune database and OpenSearch domain back
 in sync with the latest data in case of out-of-sync issues between them resulting from

@@ -1,6 +1,4 @@
-# Using a CloudFormation template to update the engine
-
-version of your Neptune DB Cluster
+# Using a CloudFormation template to update the engine version of your Neptune DB Cluster
 
 You can re-use the Neptune CloudFormation template that you used to create your
 Neptune DB Cluster to update its engine version.
@@ -55,9 +53,6 @@ Note that Neptune automatically reboots DB instances after an engine upgrade.
 ###### Topics
 
 - [Example: Minor engine upgrade from 1.2.0.1 to 1.2.0.2](cfn-engine-update-1201-1202.md "cfn-engine-update-1201-1202.md")
-- [Example: Major version upgrade
-  from 1.1.1.0 to 1.2.0.2 with default parameter groups](cfn-engine-update-1110-1202-default.md "cfn-engine-update-1110-1202-default.md")
-- [Example: Major version upgrade
-  from 1.1.1.0 to 1.2.0.2 with custom parameter groups](cfn-engine-update-1110-1202-custom.md "cfn-engine-update-1110-1202-custom.md")
-- [Example: Major version upgrade
-  from 1.1.1.0 to 1.2.0.2 with a mix of default and custom parameter groups](cfn-engine-update-1110-1202-mixed.md "cfn-engine-update-1110-1202-mixed.md")
+- [Example: Major version upgrade from 1.1.1.0 to 1.2.0.2 with default parameter groups](cfn-engine-update-1110-1202-default.md "cfn-engine-update-1110-1202-default.md")
+- [Example: Major version upgrade from 1.1.1.0 to 1.2.0.2 with custom parameter groups](cfn-engine-update-1110-1202-custom.md "cfn-engine-update-1110-1202-custom.md")
+- [Example: Major version upgrade from 1.1.1.0 to 1.2.0.2 with a mix of default and custom parameter groups](cfn-engine-update-1110-1202-mixed.md "cfn-engine-update-1110-1202-mixed.md")

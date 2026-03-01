@@ -55,7 +55,7 @@ advantage of to optimize performance. For example:
   also works with [third-party visualization tools](visualization-tools.md "visualization-tools.md").
 - > Although Neptune has no drop-in replacement for the Neo4j Graph Data Science (GDS) library,
   > Neptune supports graph analytics today through a variety of solutions. For example, several [sample
-  > notebooks](https://github.com/aws/graph-notebook/tree/main/src/graph_notebook/notebooks/05-Data-Science "https://github.com/aws/graph-notebook/tree/main/src/graph_notebook/notebooks/05-Data-Science") demonstrate how to leverage the Neptune
+  > notebooks](https://github.com/aws/graph-notebook/tree/main/src/graph_notebook/notebooks/01-Neptune-Database/03-Sample-Applications/06-Data-Science-Samples "https://github.com/aws/graph-notebook/tree/main/src/graph_notebook/notebooks/01-Neptune-Database/03-Sample-Applications/06-Data-Science-Samples") demonstrate how to leverage the Neptune
   > [integration with
   > the AWS Pandas SDK](https://github.com/amazon-archives/fully-automated-neo4j-to-neptune "https://github.com/amazon-archives/fully-automated-neo4j-to-neptune") within Python environments to run analytics on graph data.
   > Please reach out to AWS support or engage your AWS account team if you have questions.

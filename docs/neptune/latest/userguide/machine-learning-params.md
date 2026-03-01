@@ -1,6 +1,4 @@
-# Fields to set in the params object when
-
-exporting training data
+# Fields to set in the params object when exporting training data
 
 The `params` object in an export request can contain various fields, as
 described in the [params

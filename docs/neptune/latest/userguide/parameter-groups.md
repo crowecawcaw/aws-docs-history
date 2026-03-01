@@ -109,9 +109,7 @@ group because the default DB cluster parameter group can't be modified. 4. Searc
 DB cluster parameter, or one or more specific instances if you are changing a DB
 instance parameter.
 
-## Creating a DB parameter group or DB cluster
-
-parameter group
+## Creating a DB parameter group or DB cluster parameter group
 
 You can easily use the Neptune console to create a new parameter group:
 

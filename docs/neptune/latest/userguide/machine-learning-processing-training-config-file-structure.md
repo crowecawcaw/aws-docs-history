@@ -1,6 +1,4 @@
-# The
-
-structure of JSON training data configuration files
+# The structure of JSON training data configuration files
 
 The training configuration file refers to CSV files saved by the export
 process in the `nodes/` and `edges/` folders.
@@ -38,9 +36,7 @@ The training data configuration file has three top-level elements:
 The configuration objects in the graph array have the structure described
 in the next section.
 
-## Contents
-
-of a configuration object listed in the `graph` array
+## Contents of a configuration object listed in the `graph` array
 
 A configuration object in the `graph` array can contain three top-level nodes:
 
@@ -63,9 +59,7 @@ A configuration object in the `graph` array can contain three top-level nodes:
 - `warnings`   –   (array of JSON objects)
   Each object contains a warning generated during the data export process.
 
-## Contents of an edge
-
-configuration object listed in an `edges` array
+## Contents of an edge configuration object listed in an `edges` array
 
 An edge configuration object listed in an `edges` array can contain
 the following top-level fields:
@@ -164,9 +158,7 @@ the `prefixname` string.
     training, validation and test populations. Either this field or `split_rate`
     can be defined, but not both. See [Custom train-validation-test proportions](#machine-learning-custom-stages-splits "#machine-learning-custom-stages-splits") for more information.
 
-## Contents of a node
-
-configuration object listed in a `nodes` array
+## Contents of a node configuration object listed in a `nodes` array
 
 A node configuration object listed in a `nodes` array can contain
 the following fields:
@@ -201,15 +193,11 @@ that column.
   of the column that stores node IDs. The second string specifies the node type
   in the graph, which corresponds to a property-graph label of the node.
 - **`features`**   –  
-  A JSON array of node feature objects. See [Contents of a feature
-  object listed in a features array for a node or edge](#machine-learning-graph-node-features-config "#machine-learning-graph-node-features-config").
+  A JSON array of node feature objects. See [Contents of a feature object listed in a features array for a node or edge](#machine-learning-graph-node-features-config "#machine-learning-graph-node-features-config").
 - **`labels`**   –  
-  A JSON array of node label objects. See [Contents of a node
-  label object listed in a node labels array](#machine-learning-graph-node-labels-config "#machine-learning-graph-node-labels-config").
+  A JSON array of node label objects. See [Contents of a node label object listed in a node labels array](#machine-learning-graph-node-labels-config "#machine-learning-graph-node-labels-config").
 
-## Contents of a feature
-
-object listed in a `features` array for a node or edge
+## Contents of a feature object listed in a `features` array for a node or edge
 
 A node feature object listed in a node `features` array can contain
 the following top-level fields:
@@ -220,8 +208,7 @@ the following top-level fields:
   string contains the feature name.
 
 The third string contains the feature type. Valid feature types are listed
-in [Possible values of the
-type field for features](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-feature-types "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-feature-types").
+in [Possible values of the type field for features](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-feature-types "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-feature-types").
 
 - **`norm`**   –  
   This field is required for numerical features. It specifies a normalization
@@ -319,9 +306,7 @@ See [The ngram_range field](machine-learning-neptune_ml-features.md#machine-lear
 
 See [The datetime_parts field](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-datetime_parts "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-datetime_parts").
 
-## Contents of a node
-
-label object listed in a node `labels` array
+## Contents of a node label object listed in a node `labels` array
 
 A label object listed in a node `labels` array defines a node target
 feature and specifies the proportions of nodes that the training, validation, and test

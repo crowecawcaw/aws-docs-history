@@ -1,6 +1,4 @@
-# Place more restrictive nodes on the left side in
-
-Variable-Length Path (VLP) expressions
+# Place more restrictive nodes on the left side in Variable-Length Path (VLP) expressions
 
 In Variable-Length Path (VLP) queries, the query engine optimizes the evaluation by choosing to start the traversal
 on the left or right side of the expression. The decision is based on the cardinality of the patterns on the left

@@ -3,9 +3,7 @@
 To get the status of SPARQL queries, use HTTP `GET` or `POST` to
 make a request to the `https://`your-neptune-endpoint`:`port`/sparql/status` endpoint.
 
-## SPARQL query cancellation request
-
-parameters
+## SPARQL query cancellation request parameters
 
 ###### cancelQuery
 

@@ -1,50 +1,71 @@
-# Amazon Neptune Engine Version 1.0.2.0 (2019-11-08)
+# Amazon Neptune Engine Version 1.0.2.2 (2020-03-09)
 
-## IMPORTANT: THIS ENGINE VERSION IS NOW DEPRECATED
-
-Starting from 2020-05-19, no new instances using this engine version will be created.
-
-This engine version is now superseded by [version
-1.0.2.1](engine-releases-1.0.2.md "engine-releases-1.0.2.md"), which contains all the bug fixes in this version as well as
-additional features such as full-text search integration, OSGP index support,
-and database snapshot cluster copy across AWS Regions.
-
-Starting June 1, 2020, Neptune will automatically upgrade any cluster running
-this engine version to [the latest patch
-of version 1.0.2.1](engine-releases-1.0.2.1.md "engine-releases-1.0.2.1.md") during the next maintenance window. You can upgrade manually
-before then, as described [here](engine-releases-1.0.2.md "engine-releases-1.0.2.md").
-
-If you have any issues with the upgrade, please contact us through [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support") or the [AWS Developer Forums](https://forums.aws.amazon.com/forum.jspa?forumID=253 "https://forums.aws.amazon.com/forum.jspa?forumID=253").
+As of 2020-03-09, engine version 1.0.2.2 is being generally deployed. Please note
+that it takes several days for a new release to become available in every region.
 
 ## Subsequent Patch Releases for This Release
 
-- [Release: 1.0.2.0.R3 (2020-05-05)](engine-releases-1.0.2.0.md "engine-releases-1.0.2.0.md")
-- [Release: 1.0.2.0.R2 (2019-11-21)](engine-releases-1.0.2.0.md "engine-releases-1.0.2.0.md")
+- [Release: 1.0.2.2.R2 (2020-04-02)](engine-releases-1.0.2.2.md "engine-releases-1.0.2.2.md")
+- [Release: 1.0.2.2.R3 (2020-07-22)](engine-releases-1.0.2.2.md "engine-releases-1.0.2.2.md")
+- [Release: 1.0.2.2.R4 (2020-07-23)](engine-releases-1.0.2.2.md "engine-releases-1.0.2.2.md")
+- [Release: 1.0.2.2.R5 (2020-10-12)](engine-releases-1.0.2.2.md "engine-releases-1.0.2.2.md")
+- [Release: 1.0.2.2.R6 (2021-02-19)](engine-releases-1.0.2.2.md "engine-releases-1.0.2.2.md")
 
-## New Features in This Engine Release
+## Improvements in This Engine Release
 
-In addition to maintenance updates, this release adds new functionality to support
-more than one engine version at a time (see [Maintaining your Amazon Neptune DB Cluster](cluster-maintenance.md "cluster-maintenance.md")).
+- Added information to the status API about transactions that are
+  being rolled back. See [Instance Status](access-graph-status.md "access-graph-status.md").
+- Upgraded the version of Apache TinkerPop to 3.4.3.
 
-As a result, the numbering of engine releases has changed (see [Version numbering before engine release 1.3.0.0](cluster-maintenance.md#older-engine-numbers "cluster-maintenance.md#older-engine-numbers")).
+Version 3.4.3 is backwards compatible with the previous version
+supported by Neptune (3.4.1). It does introduce one minor change in
+behavior: Gremlin no longer returns an error when you try to close
+a session that does not exist (see [Prevent error
+when closing sessions that don't exist](https://issues.apache.org/jira/browse/TINKERPOP-2237 "https://issues.apache.org/jira/browse/TINKERPOP-2237")).
+
+- Removed performance bottlenecks in execution of Gremlin full-text
+  search steps.
+
+## Defects Fixed in This Engine Release
+
+- Fixed a SPARQL bug in the handling of empty graph patterns in queries.
+- Fixed a SPARQL bug in the handling of unencoded semicolons in URL-encoded queries.
+- Fixed a Gremlin bug in the handling of repeated vertices in the `Union` step.
+- Fixed a Gremlin bug that caused some queries with a `.simplePath()` or
+  `.cyclicPath()` inside a `.repeat()` to return incorrect results.
+- Fixed a Gremlin bug that caused `.project()` to return incorrect results
+  if its child traversal returned no solutions.
+- Fixed a Gremlin bug where errors from read-write conflicts raised an
+  `InternalFailureException` rather than a `ConcurrentModificationException`.
+- Fixed a Gremlin bug that caused `.group().by(...).by(values("property"))`
+  failures.
+- Fixed Gremlin bugs in the profile output for full-text-search steps.
+- Fixed a resource leak in Gremlin sessions.
+- Fixed a bug that prevented the status API from reporting the correct orderable
+  version in some cases.
+- Fixed a bulk loader bug that allowed a URL to a location other than
+  Amazon S3 to be used as the source in a bulk load request.
+- Fixed a bulk loader bug in the detailed load status.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.2.0, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.2.2, make sure that your project is compatible
 with these query-language versions:
 
-- _Gremlin version:_ `3.4.1`
+- _Gremlin version:_ `3.4.3`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.2.0
+## Upgrade Paths to Engine Release 1.0.2.2
 
 You can manually upgrade any previous Neptune engine release to this release.
 
-You will not automatically upgrade to this release.
+If your cluster has its `AutoMinorVersionUpgrade` parameter set to `True`,
+your cluster will be upgraded to this engine release automatically two to three weeks after
+the date of this release, during a maintenance window.
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.2.0 is now generally available.
+Amazon Neptune 1.0.2.2 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster
@@ -56,7 +77,7 @@ For Linux, OS X, or Unix:
 ```
 aws neptune modify-db-cluster \
     --db-cluster-identifier `(your-neptune-cluster)` \
-    --engine-version 1.0.2.0 \
+    --engine-version 1.0.2.2 \
     --apply-immediately
 ```
 
@@ -65,7 +86,7 @@ For Windows:
 ```
 aws neptune modify-db-cluster ^
     --db-cluster-identifier `(your-neptune-cluster)` ^
-    --engine-version 1.0.2.0 ^
+    --engine-version 1.0.2.2 ^
     --apply-immediately
 ```
 

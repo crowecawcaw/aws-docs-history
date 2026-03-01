@@ -20,10 +20,8 @@ curl --request GET \
 
 - [Using neptune-export](neptune-export.md "neptune-export.md")
 - [Using the Neptune-Export service to export Neptune data](export-service.md "export-service.md")
-- [Using the neptune-export command-line
-  tool to export data from Neptune](export-utility.md "export-utility.md")
-- [Files exported by Neptune-Export
-  and neptune-export](exported-files.md "exported-files.md")
+- [Using the neptune-export command-line tool to export data from Neptune](export-utility.md "export-utility.md")
+- [Files exported by Neptune-Export and neptune-export](exported-files.md "exported-files.md")
 - [Parameters used to control the Neptune export process](export-parameters.md "export-parameters.md")
 - [Troubleshooting the Neptune export process](export-troubleshooting.md "export-troubleshooting.md")
 - [Exporting Gremlin query results to Amazon S3](exporting-gremlin.md "exporting-gremlin.md")

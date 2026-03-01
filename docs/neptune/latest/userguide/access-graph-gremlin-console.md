@@ -1,13 +1,9 @@
-# Set up the Gremlin console to connect to a
-
-Neptune DB instance
+# Set up the Gremlin console to connect to a Neptune DB instance
 
 The Gremlin Console allows you to experiment with TinkerPop graphs and queries in a REPL
 (read-eval-print loop) environment.
 
-## Installing the Gremlin
-
-console and connecting to it in the usual way
+## Installing the Gremlin console and connecting to it in the usual way
 
 You can use the Gremlin Console to connect to a remote graph database. The following
 section walks you through installing and configuring the Gremlin Console to connect remotely to a

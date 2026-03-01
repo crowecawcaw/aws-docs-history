@@ -48,9 +48,7 @@ You can estimate a starting instance size based on concurrency and average query
 latency, as described in the [next
 section](#migration-provisioning-instance-sizing "#migration-provisioning-instance-sizing").
 
-## Use Neptune Serverless to scale
-
-reader and writer instances automatically as needed
+## Use Neptune Serverless to scale reader and writer instances automatically as needed
 
 While it is often helpful to be able to estimate the compute capacity that your
 anticipated workloads will require, you can configure the [Neptune

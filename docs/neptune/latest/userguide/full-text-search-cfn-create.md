@@ -38,9 +38,7 @@ depending on the AWS Region that you want to use.
 
 On the **Create Stack** page, choose **Next**.
 
-## Add Details About the new OpenSearch
-
-stack you are creating
+## Add Details About the new OpenSearch stack you are creating
 
 The **Specify Stack Details** page provides properties and parameters
 that you can use to control the setup of full-text search:
@@ -121,6 +119,8 @@ Under **Parameters**, provide the following:
 - **`Step Function Fallback Period Unit`** – 
   The time units used to measure the preceding `Step Function Fallback Period` (minutes, hours, days).
   The default (minutes) is generally sufficient.
+- **`Enable/disable creation of Elastic Search Mappings by Lambda`** – 
+  Flag to enable/disable automatic management of Elastic Search mappings by the stream poller. Elastic Search mappings are critical to conversion between Neptune and Elastic Search data types. This should only be disabled by advanced users who wish to assume direct, manual control over all mappings in their Elastic Search index. The default is `true`.
 - **`Data replication scope`** – 
   Determines whether to replicate both nodes and edges, or only nodes to OpenSearch (this applies to
   Gremlin engine data only). The default value (All) is generally a good place to start.

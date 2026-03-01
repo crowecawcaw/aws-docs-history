@@ -32,8 +32,7 @@ the cloud and security _in_ the cloud:
 - [Amazon Neptune operating system upgrades](security-os-upgrades.md "security-os-upgrades.md")
 - [Protecting data in your Amazon Neptune database](data-protection.md "data-protection.md")
 - [Authenticating your Amazon Neptune database with AWS Identity and Access Management](iam-auth.md "iam-auth.md")
-- [Enabling IAM database authentication in
-  Amazon Neptune](iam-auth-enable.md "iam-auth-enable.md")
+- [Enabling IAM database authentication in Amazon Neptune](iam-auth-enable.md "iam-auth-enable.md")
 - [Connecting to your Amazon Neptune database using AWS Identity and Access Management authentication](iam-auth-connecting.md "iam-auth-connecting.md")
 - [Managing access to Amazon Neptune databases using IAM policies](security-iam-access-manage.md "security-iam-access-manage.md")
 - [Using service-linked roles for Amazon Neptune](security-iam-service-linked-roles.md "security-iam-service-linked-roles.md")

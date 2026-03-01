@@ -12,8 +12,7 @@ You can create a Neptune global database in one of the following ways:
 - [Configuration requirements for a global database in Amazon Neptune](#neptune-gdb-setup-config "#neptune-gdb-setup-config")
 - [Using the AWS CLI to create a global database in Amazon Neptune](#neptune-gdb-creating-cli "#neptune-gdb-creating-cli")
 - [Turning an existing DB cluster into a global database](#neptune-gdb-add-existing "#neptune-gdb-add-existing")
-- [Adding secondary global
-  database regions to a primary region in Amazon Neptune](#neptune-gdb-attaching "#neptune-gdb-attaching")
+- [Adding secondary global database regions to a primary region in Amazon Neptune](#neptune-gdb-attaching "#neptune-gdb-attaching")
 - [Connecting to a Neptune global database](#neptune-gdb-connect "#neptune-gdb-connect")
 
 ## Configuration requirements for a global database in Amazon Neptune
@@ -156,9 +155,7 @@ You can turn a DB cluster restored from a snapshot into a Neptune global
 database. After the restore is complete, turn the DB cluster that it created into
 the primary cluster of a new global database as described above.
 
-## Adding secondary global
-
-database regions to a primary region in Amazon Neptune
+## Adding secondary global database regions to a primary region in Amazon Neptune
 
 A Neptune global database needs at least one secondary Neptune DB cluster in
 a different AWS Region than the primary DB cluster. You can attach up to five secondary
@@ -171,9 +168,7 @@ can have on the primary cluster is `15 - 4 = 11`. This means that if you
 already have 14 reader instances in the primary DB cluster and one secondary cluster,
 you won't be able to add another secondary cluster.
 
-### Using the AWS CLI to add a secondary region
-
-to a global database in Neptune
+### Using the AWS CLI to add a secondary region to a global database in Neptune
 
 ###### To add a secondary AWS Region to a Neptune global database using the AWS CLI
 

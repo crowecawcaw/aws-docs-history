@@ -148,20 +148,16 @@ In Neptune engine versions prior to [release 1.2.0.0](engine-releases-1.2.0.md "
 IAM authentication and access control is only supported at the DB cluster level.
 From release `1.2.0.0` forward, however, you can control query-based
 access at a more granular level using condition keys in IAM policies. For more
-information, see [Using query actions in Neptune data-access
-policy statements](iam-data-access-policies.md#iam-data-query-actions "iam-data-access-policies.md#iam-data-query-actions")
+information, see [Using query actions in Neptune data-access policy statements](iam-data-access-policies.md#iam-data-query-actions "iam-data-access-policies.md#iam-data-query-actions")
 and [Authenticating your Amazon Neptune database with AWS Identity and Access Management](iam-auth.md "iam-auth.md")
 
 The Amazon Neptune console requires **NeptuneReadOnlyAccess**
 permissions. You can restrict access to IAM users by revoking this access. For more
-information, see [Using AWS managed policies to access
-Amazon Neptune databases](security-iam-access-managed-policies.md "security-iam-access-managed-policies.md")
+information, see [Using AWS managed policies to access Amazon Neptune databases](security-iam-access-managed-policies.md "security-iam-access-managed-policies.md")
 
 Amazon Neptune does not support user name/password–based access control.
 
-## WebSocket concurrent connections and maximum connection
-
-time
+## WebSocket concurrent connections and maximum connection time
 
 There is a limit to the number of concurrent WebSocket connections per Neptune
 DB instance. When that limit is reached, Neptune throttles any request to open a

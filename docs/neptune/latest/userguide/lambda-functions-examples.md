@@ -57,8 +57,7 @@ does not apply to retries for a `ConcurrentModificationException`.
 - This example uses [Retry4j](https://github.com/elennick/retry4j "https://github.com/elennick/retry4j")
   for retries.
 - To use the `Sigv4` signing driver in your Java Lambda function,
-  see the dependency requirements in [Connecting to Amazon Neptune databases using IAM with
-  Gremlin Java](iam-auth-connecting-gremlin-java.md "iam-auth-connecting-gremlin-java.md").
+  see the dependency requirements in [Connecting to Amazon Neptune databases using IAM with Gremlin Java](iam-auth-connecting-gremlin-java.md "iam-auth-connecting-gremlin-java.md").
 
 ###### Warning
 

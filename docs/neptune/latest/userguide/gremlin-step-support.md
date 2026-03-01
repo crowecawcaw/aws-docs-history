@@ -4,18 +4,12 @@ The Amazon Neptune engine does not currently have full native support for all Gr
 as explained in [Tuning Gremlin queries](gremlin-traversal-tuning.md "gremlin-traversal-tuning.md"). Current support falls into four
 categories:
 
-- [Gremlin steps that can always be converted to native
-  Neptune engine operations](#gremlin-steps-always "#gremlin-steps-always")
-- [Gremlin steps that can be converted to native
-  Neptune engine operations in some cases](#gremlin-steps-sometimes "#gremlin-steps-sometimes")
-- [Gremlin steps that are never converted to native
-  Neptune engine operations](#gremlin-steps-never "#gremlin-steps-never")
-- [Gremlin steps that are not supported
-  in Neptune at all](#neptune-gremlin-steps-unsupported "#neptune-gremlin-steps-unsupported")
+- [Gremlin steps that can always be converted to native Neptune engine operations](#gremlin-steps-always "#gremlin-steps-always")
+- [Gremlin steps that can be converted to native Neptune engine operations in some cases](#gremlin-steps-sometimes "#gremlin-steps-sometimes")
+- [Gremlin steps that are never converted to native Neptune engine operations](#gremlin-steps-never "#gremlin-steps-never")
+- [Gremlin steps that are not supported in Neptune at all](#neptune-gremlin-steps-unsupported "#neptune-gremlin-steps-unsupported")
 
-## Gremlin steps that can always be converted to native
-
-Neptune engine operations
+## Gremlin steps that can always be converted to native Neptune engine operations
 
 Many Gremlin steps can be converted to native Neptune engine operations as long
 as they meet the following conditions:
@@ -53,9 +47,7 @@ if they meet those conditions:
 - [valueMap( )](http://tinkerpop.apache.org/docs/current/reference/#valuemap-step "http://tinkerpop.apache.org/docs/current/reference/#valuemap-step")
 - [values( )](http://tinkerpop.apache.org/docs/current/reference/#values-step "http://tinkerpop.apache.org/docs/current/reference/#values-step")
 
-## Gremlin steps that can be converted to native
-
-Neptune engine operations in some cases
+## Gremlin steps that can be converted to native Neptune engine operations in some cases
 
 Some Gremlin steps can be converted to native Neptune engine operations in some
 situations but not in others:
@@ -261,9 +253,7 @@ g.V().has('airport','country','IE').aggregate('airport').limit(2)
     `within`, and `without` are used.
   - When user-supplied aggregations are used.
 
-## Gremlin steps that are never converted to native
-
-Neptune engine operations
+## Gremlin steps that are never converted to native Neptune engine operations
 
 The following Gremlin steps are supported in Neptune but are never converted to
 native Neptune engine operations. Instead, they are executed by the Gremlin server.
@@ -286,9 +276,7 @@ native Neptune engine operations. Instead, they are executed by the Gremlin serv
 - [timeLimit( )](http://tinkerpop.apache.org/docs/current/reference/#timelimit-step "http://tinkerpop.apache.org/docs/current/reference/#timelimit-step")
 - [tree( )](http://tinkerpop.apache.org/docs/current/reference/#tree-step "http://tinkerpop.apache.org/docs/current/reference/#tree-step")
 
-## Gremlin steps that are not supported
-
-in Neptune at all
+## Gremlin steps that are not supported in Neptune at all
 
 The following Gremlin steps are not supported at all in Neptune. In most cases
 this is because they require a `GraphComputer`, which Neptune does not

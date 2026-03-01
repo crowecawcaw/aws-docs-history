@@ -1,6 +1,4 @@
-# Example
-
-of a JSON training data configuration file
+# Example of a JSON training data configuration file
 
 Here is a sample training data configuration file that describes a graph
 for a node-classification task:

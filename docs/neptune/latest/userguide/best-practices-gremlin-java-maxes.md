@@ -1,6 +1,4 @@
-# Set `maxInProcessPerConnection`
-
-and `maxSimultaneousUsagePerConnection` to the same value
+# Set `maxInProcessPerConnection` and `maxSimultaneousUsagePerConnection` to the same value
 
 Both the `maxInProcessPerConnection` and the `maxSimultaneousUsagePerConnection`
 parameters are related to the maximum number of simultaneous queries you can submit on a single WebSocket

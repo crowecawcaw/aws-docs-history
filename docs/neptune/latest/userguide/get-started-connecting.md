@@ -2,9 +2,7 @@
 
 After creating a Neptune cluster, you can configure the connection methods to access it.
 
-## Setting up `curl` or awscurl
-
-to communicate with your Neptune endpoint
+## Setting up `curl` or awscurl to communicate with your Neptune endpoint
 
 Having a command-line tool for submitting queries to your Neptune DB cluster
 is very handy, as illustrated in many of the examples in this documentation. The [curl](https://curl.haxx.se/ "https://curl.haxx.se/") command line tool is an excellent option for

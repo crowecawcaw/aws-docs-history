@@ -1,6 +1,4 @@
-# Additional configuration for Neptune
-
-Serverless DB clusters and instances
+# Additional configuration for Neptune Serverless DB clusters and instances
 
 In addition to [setting minimum
 and maximum capacity](neptune-serverless-capacity-scaling.md "neptune-serverless-capacity-scaling.md") for your Neptune Serverless DB cluster, there are a few
@@ -22,9 +20,7 @@ one or more provisioned readers.
 See [Using Amazon Neptune Serverless](neptune-serverless-using.md "neptune-serverless-using.md") for information about
 how to create a mixed-configuration DB cluster.
 
-## Setting the promotion tiers for Neptune
-
-Serverless instances
+## Setting the promotion tiers for Neptune Serverless instances
 
 For clusters containing multiple serverless instances, or a mixture of provisioned
 and serverless instances, pay attention to the promotion tier setting for each serverless

@@ -101,9 +101,7 @@ place of each existing provisioned reader instance that you would like to
 turn into a serverless instance, and delete the existing provisioned instances
 (no failover is needed for reader instances).
 
-## Modifying the capacity range of an
-
-existing serverless DB cluster
+## Modifying the capacity range of an existing serverless DB cluster
 
 You can change the capacity range of a Neptune Serverless DB cluster using the
 AWS CLI like this (on Windows, replace '\' with '^'):
@@ -125,8 +123,14 @@ some parameter changes.
 ## Changing a Serverless DB instance to provisioned
 
 All you need to do to convert a Neptune Serverless instance to a provisioned one
-is to change its instance class to one of the provisioned instance classes. See [Modifying a Neptune DB Instance (and
-Applying Immediately)](manage-console-instances-modify.md "manage-console-instances-modify.md").
+is to change its instance class to one of the provisioned instance classes. See [Modifying a Neptune DB Instance (and Applying Immediately)](manage-console-instances-modify.md "manage-console-instances-modify.md").
+
+## Configuring Gremlin clients for Serverless
+
+When using Gremlin WebSocket clients with Neptune Serverless, you need to configure
+the client's heartbeat interval appropriately to maintain stable connections during scaling
+events. For detailed configuration instructions for Java, Go, JavaScript/Node.js, and Python
+clients, see [Heartbeat Configuration for Neptune Serverless](best-practices-gremlin-heartbeat-serverless.md "best-practices-gremlin-heartbeat-serverless.md").
 
 ## Monitoring serverless capacity with Amazon CloudWatch
 

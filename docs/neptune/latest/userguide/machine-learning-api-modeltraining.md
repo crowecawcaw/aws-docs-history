@@ -3,9 +3,7 @@
 You use the Neptune ML `modeltraining` command to create a model training job,
 check its status, stop it, or list all active model-training jobs.
 
-## Creating a model-training
-
-job using the Neptune ML `modeltraining` command
+## Creating a model-training job using the Neptune ML `modeltraining` command
 
 A Neptune ML `modeltraining` command for creating a completely new
 job looks like this:
@@ -224,9 +222,7 @@ _Type_: Boolean. _Default_: _False_.
 
 _Type_: integer.
 
-## Getting the status
-
-of a model-training job using the Neptune ML `modeltraining` command
+## Getting the status of a model-training job using the Neptune ML `modeltraining` command
 
 A sample Neptune ML `modeltraining` command for the status of a job looks like this:
 
@@ -250,9 +246,7 @@ _Type_: string.
 _Type_: string. _Note_: This must be
 listed in your DB cluster parameter group or an error will occur.
 
-## Stopping a model-training
-
-job using the Neptune ML `modeltraining` command
+## Stopping a model-training job using the Neptune ML `modeltraining` command
 
 A sample Neptune ML `modeltraining` command for stopping a job looks like this:
 
@@ -288,9 +282,7 @@ listed in your DB cluster parameter group or an error will occur.
 
 _Type_: Boolean. _Default_: `FALSE`.
 
-## Listing active model-training
-
-jobs using the Neptune ML `modeltraining` command
+## Listing active model-training jobs using the Neptune ML `modeltraining` command
 
 A sample Neptune ML `modeltraining` command for listing active jobs looks like this:
 

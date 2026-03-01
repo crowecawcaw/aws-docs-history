@@ -1,6 +1,4 @@
-# Use optional HTTP
-
-trailing headers to enable multi-part Gremlin responses
+# Use optional HTTP trailing headers to enable multi-part Gremlin responses
 
 By default, the HTTP response to Gremlin queries is returned in a single
 JSON result set. In the case of a very large result set, this can cause an

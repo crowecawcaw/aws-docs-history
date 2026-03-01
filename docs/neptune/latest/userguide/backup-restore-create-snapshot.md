@@ -11,9 +11,7 @@ snapshot.
 You can create a DB cluster snapshot using the AWS Management Console, the AWS CLI, or the Neptune
 API.
 
-## Using the Console to Create a DB
-
-Cluster Snapshot
+## Using the Console to Create a DB Cluster Snapshot
 
 ###### To create a DB cluster snapshot
 

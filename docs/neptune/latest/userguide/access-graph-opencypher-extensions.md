@@ -46,9 +46,7 @@ CREATE (n {`~id`: val.`~id`})
 SET n = removeKeyFromMap(val, '~id')
 ```
 
-## Custom ID values for node and
-
-relationship properties
+## Custom ID values for node and relationship properties
 
 Available in Neptune Database 1.2.0.2 and up, and Neptune Analytics.
 

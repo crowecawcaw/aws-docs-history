@@ -3,9 +3,7 @@
 You use the Neptune ML `dataprocessing` command to create a data processing job,
 check its status, stop it, or list all active data-processing jobs.
 
-## Creating a data-processing
-
-job using the Neptune ML `dataprocessing` command
+## Creating a data-processing job using the Neptune ML `dataprocessing` command
 
 A typical Neptune ML `dataprocessing` command for creating a new job
 looks like this:
@@ -152,9 +150,7 @@ The `enableInterContainerTrafficEncryption` parameter is only available in
 
 _Type_: string. _Default_: _none_.
 
-## Getting the status
-
-of a data-processing job using the Neptune ML `dataprocessing` command
+## Getting the status of a data-processing job using the Neptune ML `dataprocessing` command
 
 A sample Neptune ML `dataprocessing` command for the status of a job looks like this:
 
@@ -178,9 +174,7 @@ _Type_: string.
 _Type_: string. _Note_: This must be
 listed in your DB cluster parameter group or an error will occur.
 
-## Stopping a data-processing
-
-job using the Neptune ML `dataprocessing` command
+## Stopping a data-processing job using the Neptune ML `dataprocessing` command
 
 A sample Neptune ML `dataprocessing` command for stopping a job looks like this:
 
@@ -216,9 +210,7 @@ listed in your DB cluster parameter group or an error will occur.
 
 _Type_: Boolean. _Default_: `FALSE`.
 
-## Listing active data-processing
-
-jobs using the Neptune ML `dataprocessing` command
+## Listing active data-processing jobs using the Neptune ML `dataprocessing` command
 
 A sample Neptune ML `dataprocessing` command for listing active jobs looks like this:
 

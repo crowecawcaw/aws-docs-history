@@ -1,95 +1,96 @@
-# Amazon Neptune Engine Version 1.0.4.1 (2020-12-08)
+# Amazon Neptune Engine Version 1.0.4.0 (2020-10-12)
 
-As of 2020-12-08, engine version 1.0.4.1 is being generally deployed. Please note
+As of 2020-10-12, engine version 1.0.4.0 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ## Subsequent Patch Releases for This Release
 
-- [Release: 1.0.4.1.R1.1 (2021-03-22)](engine-releases-1.0.4.1.R1.md "engine-releases-1.0.4.1.R1.md")
-- [Release: 1.0.4.1.R2 (2021-02-24)](engine-releases-1.0.4.1.md "engine-releases-1.0.4.1.md")
-
-###### Important
-
-[Release: 1.0.4.0 (2020-10-12)](engine-releases-1.0.4.md "engine-releases-1.0.4.md")
-made TLS 1.2 and HTTPS mandatory for all connections to Amazon Neptune. However, a bug in
-that release has allowed HTTP connections and/or outdated TLS connections to continue
-to work for customers who previously set a DB cluster parameter to prevent enforcement
-of HTTPS connections.
-
-That bug was fixed in patch releases [1.0.4.0.R2](engine-releases-1.0.4.0.md "engine-releases-1.0.4.0.md")
-and [1.0.4.1.R2](engine-releases-1.0.4.1.md "engine-releases-1.0.4.1.md"), but the fix has caused unexpected
-connection failures when the patches are automatically installed. For this reason, both patches
-have been reverted, and can only be installed manually, to give you a chance to update your setup
-for TLS 1.2.
-
-Having to use SSL/TLS for all connections to Neptune affects your connections with
-the Gremlin console, the Gremlin driver, Gremlin Python, .NET, nodeJs, REST APIs, and also
-load-balancer connections. If you have been using HTTP or an older TLS version for any
-or all of these up until now, you must update the relevant client and drivers and change
-your code to use HTTPS exclusively before updating your system to the latest patches.
+- [Release: 1.0.4.0.R2 (2021-02-24)](engine-releases-1.0.4.0.md "engine-releases-1.0.4.0.md")
 
 ## New Features in This Engine Release
 
-- Introduced the Neptune ML feature, which brings powerful machine learning
-  capabilities to Amazon Neptune. See [Amazon Neptune ML for machine learning on graphs](machine-learning.md "machine-learning.md").
-- Added a custom SPARQL `UNLOAD` operation for removing data
-  retrieved from a remote source. See [SPARQL UPDATE UNLOAD](sparql-api-reference-unload.md "sparql-api-reference-unload.md").
+- Added frame-level compression for Gremlin.
 
 ## Improvements in This Engine Release
 
-- Optimized some Gremlin conditional insert patterns to avoid
-  concurrent-modification exceptions.
+- Amazon Neptune now requires the use of the Secure Sockets Layer (SSL) with the TLSv1.2
+  protocol for all connections to Neptune in all regions, using these strong cipher
+  suites:
+
+      + `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+      + `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
+      + `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
+      + `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
+      + `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
+      + `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+
+  This is true for both REST and WebSocket connections to Neptune, and means that
+  you must use HTTPS rather than HTTP when connecting to Neptune in all regions.
+
+Because client connections using HTTP or TLS 1.1 will no longer be supported
+anywhere, please make sure that your clients and code have been updated to use
+TLS 1.2 and HTTPS before upgrading to this engine release.
+
+###### Important
+
+**Having to use SSL/TLS for all connections to
+Neptune can be a breaking change.** It affects your
+connections with the Gremlin console, the Gremlin driver, Gremlin Python, .NET,
+nodeJs, REST APIs, and also load-balancer connections. If you have been using HTTP
+for any or all of these, you must now update the relevant client and drivers and
+change your code to use HTTPS or your connections will fail.
+
+A bug in this release has allowed HTTP connections and/or outdated TLS connections
+to continue to work for customers who previously set a DB cluster parameter to prevent
+enforcement of HTTPS connections. That bug was fixed in patch releases [1.0.4.0.R2](engine-releases-1.0.4.0.md "engine-releases-1.0.4.0.md") and [1.0.4.1.R2](engine-releases-1.0.4.1.md "engine-releases-1.0.4.1.md"), but the fix has caused unexpected
+connection failures when the patches are automatically installed.
+
+For this reason, both patches have been reverted, and can only be installed manually,
+to give you a chance to update your setup for TLS 1.2.
+
+- Upgraded TinkerPop to version 3.4.8. This is a backwards compatible
+  upgrade. See the [TinkerPop
+  change log](https://github.com/apache/tinkerpop/blob/master/CHANGELOG.asciidoc#tinkerpop-348-release-date-august-3-2020 "https://github.com/apache/tinkerpop/blob/master/CHANGELOG.asciidoc#tinkerpop-348-release-date-august-3-2020") for what's new.
+- Improved performance for the Gremlin `properties()` step.
+- Added details about `BindOp` and `MultiplexerOp`
+  in explain and profile reports.
+- Added data prefetch to improve performance when there are cache misses.
+- Added a new `allowEmptyStrings` setting in the bulk loader's
+  `parserConfiguration` parameter that allows empty strings to be
+  treated as valid property values in CSV loads (see [Neptune Loader Request Parameters](load-api-reference-load.md#load-api-reference-load-parameters "load-api-reference-load.md#load-api-reference-load-parameters")).
+- The loader now allows an escaped semicolon in multivalue CSV columns.
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a Gremlin bug that could cause missing results for a specific
-  pattern of queries that used the `as()` step.
-- Fixed a Gremlin bug that could cause errors when using the
-  `project()` step nested inside another step such as
-  `union()`.
-- Fixed a Gremlin bug in the `project()` step.
-- Fixed a Gremlin bug in string-based traversal where the
-  `none()` step did not work.
-- Fixed a Gremlin bug in string-based traversal where an
-  empty map was not supported as an arguent to the `inject()` step.
-- Fixed a Gremlin bug in string-based traversal execution in
-  the DFE engine where a terminal method such as `toList()` did
-  not work properly.
-- Fixed a Gremlin bug that failed to close transactions which used the
-  `iterate()` step in String queries.
-- Fixed a Gremlin bug that could cause queries using the
-  `is(P.gte(0))` pattern to throw an exception in some situations.
-- Fixed a Gremlin bug that could cause queries using the
-  `order().by(T.id)` pattern to throw an exception in some situations.
-- Fixed a Gremlin bug that could cause queries using the
-  `addV().aggregate()` pattern to give incorrect results in some situations.
-- Fixed a Gremlin bug that could cause queries
-  using the `path()` step followed by the `project()` step
-  pattern to throw an exception in some situations.
-- Fixed a SPARQL bug where the `SUBSTR` function signals
-  an error instead of returning an empty string.
-- Fixed a bug in the DFE engine that could cause join operations
-  in non-blocking query plans to generate incorrect results in the presence of
-  unbound variables.
+- Fixed a potential Gremlin memory leak related to the `both()` step.
+- Fixed a bug where request metrics were missing because an endpoint ending
+  in '/' was not being handled correctly.
+- Fix a bug that caused replicas to fall behind and restart under heavy
+  load when the DFE engine is enabled in lab mode.
+- Fixed a bug that prevented the correct error message from being reported
+  when a bulk load failed because of an out-of-memory condition.
+- Fixed a SPARQL bug where the character encoding was placed in the
+  Content-Encoding header in SPARQL query responses. Now `charset` is placed
+  in the Content-Type header instead, enabling HTTP clients to recognize the character
+  set being used automatically.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.4.1, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.4.0, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin version:_ `3.4.8`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.4.1
-
-Your cluster will be upgraded to this patch release automatically during your next
-maintenance window if you are running engine version `1.0.4.1`.
+## Upgrade Paths to Engine Release 1.0.4.0
 
 You can manually upgrade any previous Neptune engine release to this release.
 
+You will not automatically upgrade to this release.
+
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.4.1 is now generally available.
+Amazon Neptune 1.0.4.0 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster
@@ -101,7 +102,7 @@ For Linux, OS X, or Unix:
 ```
 aws neptune modify-db-cluster \
     --db-cluster-identifier `(your-neptune-cluster)` \
-    --engine-version 1.0.4.1 \
+    --engine-version 1.0.4.0 \
     --apply-immediately
 ```
 
@@ -110,7 +111,7 @@ For Windows:
 ```
 aws neptune modify-db-cluster ^
     --db-cluster-identifier `(your-neptune-cluster)` ^
-    --engine-version 1.0.4.1 ^
+    --engine-version 1.0.4.0 ^
     --apply-immediately
 ```
 

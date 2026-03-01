@@ -24,8 +24,7 @@ that it takes several days for a new release to become available in every region
 - Neptune now also lets you enable chunked response encoding for
   Gremlin queries. As in the SPARQL case, the response chunks have trailing headers
   that can contain an error code and message if a failure occurs after the query has
-  begun to return response chunks. See [Use optional HTTP
-  trailing headers to enable multi-part Gremlin responses](access-graph-gremlin-rest-trailing-headers.md "access-graph-gremlin-rest-trailing-headers.md").
+  begun to return response chunks. See [Use optional HTTP trailing headers to enable multi-part Gremlin responses](access-graph-gremlin-rest-trailing-headers.md "access-graph-gremlin-rest-trailing-headers.md").
 
 ## Improvements in This Engine Release
 

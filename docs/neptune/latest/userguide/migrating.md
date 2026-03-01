@@ -24,6 +24,5 @@ where the data is stored:
 - [Migrating from Neo4j to Amazon Neptune](migrating-from-neo4j.md "migrating-from-neo4j.md")
 - [Migrating an existing graph from an Apache TinkerPop Gremlin server to Amazon Neptune](migrating-from-tinkerpop.md "migrating-from-tinkerpop.md")
 - [Migrating an existing graph from an RDF triple store to Amazon Neptune](migrating-from-rdf.md "migrating-from-rdf.md")
-- [Using AWS Database Migration Service (AWS DMS) to migrate from a
-  relational or NoSQL database to Amazon Neptune](migrating-using-dms.md "migrating-using-dms.md")
+- [Using AWS Database Migration Service (AWS DMS) to migrate from a relational or NoSQL database to Amazon Neptune](migrating-using-dms.md "migrating-using-dms.md")
 - [Migrating from Blazegraph to Amazon Neptune](migrating-from-blazegraph.md "migrating-from-blazegraph.md")

@@ -23,12 +23,10 @@ or downtime for performing backups.
 - [Empty an Amazon Neptune DB cluster using the fast reset API](manage-console-fast-reset.md "manage-console-fast-reset.md")
 - [Adding Neptune reader instances to a DB Cluster](manage-console-add-replicas.md "manage-console-add-replicas.md")
 - [Creating a Neptune reader instance using the console](manage-console-create-replica.md "manage-console-create-replica.md")
-- [Modifying a Neptune DB Cluster Using the
-  Console](manage-console-modify.md "manage-console-modify.md")
+- [Modifying a Neptune DB Cluster Using the Console](manage-console-modify.md "manage-console-modify.md")
 - [Performance and Scaling in Amazon Neptune](manage-console-performance-scaling.md "manage-console-performance-scaling.md")
 - [Auto-scaling the number of replicas in an Amazon Neptune DB cluster](manage-console-autoscaling.md "manage-console-autoscaling.md")
 - [Maintaining your Amazon Neptune DB Cluster](cluster-maintenance.md "cluster-maintenance.md")
-- [Using a CloudFormation template to update the engine
-  version of your Neptune DB Cluster](cfn-engine-update.md "cfn-engine-update.md")
+- [Using a CloudFormation template to update the engine version of your Neptune DB Cluster](cfn-engine-update.md "cfn-engine-update.md")
 - [Database Cloning in Neptune](manage-console-cloning.md "manage-console-cloning.md")
 - [Managing Amazon Neptune Instances](manage-console-instances.md "manage-console-instances.md")

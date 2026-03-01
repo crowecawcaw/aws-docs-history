@@ -3,9 +3,7 @@
 In addition to the CloudFormation quick-start template and the AWS Management Console, you can also set
 up Neptune ML using the AWS CLI.
 
-## Create a DB cluster parameter
-
-group for your new Neptune ML cluster
+## Create a DB cluster parameter group for your new Neptune ML cluster
 
 The following AWS CLI commands create a new DB cluster parameter group and set it up
 to work with Neptune ML:
@@ -93,9 +91,7 @@ aws neptune create-db-instance
   --region `(AWS region, such as us-east-1)`
 ```
 
-## Attach the
-
-`NeptuneSageMakerIAMRole` to your DB cluster so that it can access SageMaker AI and Amazon S3 resources
+## Attach the `NeptuneSageMakerIAMRole` to your DB cluster so that it can access SageMaker AI and Amazon S3 resources
 
 Finally, follow the instructions in [Create a custom NeptuneSageMakerIAMRole role](machine-learning-manual-setup.md#ml-manual-setup-sm-role "machine-learning-manual-setup.md#ml-manual-setup-sm-role") to create an IAM role that will allow
 your DB cluster to communicate with SageMaker AI and Amazon S3. Then, use the following command

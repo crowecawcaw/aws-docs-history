@@ -41,8 +41,7 @@ encryption algorithm. For more information, see [Encrypting data at rest in your
 
 You can share AWS KMS encryption keys with another AWS account by adding the other
 account to the KMS key policy. For details on updating a key policy, see [Key Policies](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the _AWS KMS Developer
-Guide_. For an example of creating a key policy, see [Creating
-an IAM Policy to Enable Copying of the Encrypted Snapshot](#backup-restore-share-snapshot-encrypted-key-iam "#backup-restore-share-snapshot-encrypted-key-iam") later in this
+Guide_. For an example of creating a key policy, see [Creating an IAM Policy to Enable Copying of the Encrypted Snapshot](#backup-restore-share-snapshot-encrypted-key-iam "#backup-restore-share-snapshot-encrypted-key-iam") later in this
 topic. 2. Use the AWS Management Console, AWS CLI, or Neptune API to share the encrypted snapshot with the
 other accounts.
 
@@ -52,9 +51,7 @@ These restrictions apply to sharing encrypted snapshots:
 - You cannot share a snapshot that has been encrypted using the default
   AWS KMS encryption key of the AWS account that shared the snapshot.
 
-### Allowing Access
-
-to an AWS KMS Encryption Key
+### Allowing Access to an AWS KMS Encryption Key
 
 For another AWS account to copy an encrypted DB cluster snapshot shared from your
 account, the account that you share your snapshot with must have access to the KMS key that
@@ -131,9 +128,7 @@ JSON
 
 ```
 
-#### Creating
-
-an IAM Policy to Enable Copying of the Encrypted Snapshot
+#### Creating an IAM Policy to Enable Copying of the Encrypted Snapshot
 
 After the external AWS account has access to your KMS key, the owner of that account
 can create a policy that allows an IAM user created for the account to copy an encrypted
@@ -193,9 +188,7 @@ _AWS Key Management Service Developer Guide_.
 You can share a DB cluster snapshot using the AWS Management Console, the AWS CLI, or the Neptune
 API.
 
-### Using the Console to Share a
-
-DB Cluster Snapshot
+### Using the Console to Share a DB Cluster Snapshot
 
 Using the Neptune console, you can share a manual DB cluster snapshot with up to 20
 AWS accounts. You can also stop sharing a manual snapshot with one or more accounts.

@@ -1,15 +1,11 @@
-# Creating IAM administrative
-
-policy statements for Amazon Neptune
+# Creating IAM administrative policy statements for Amazon Neptune
 
 ## General administrative policy examples
 
 The following examples show how to create Neptune administrative policies that
 grant permissions to take various management actions on a DB cluster.
 
-### Policy that prevents an IAM user
-
-from deleting a specified DB instance
+### Policy that prevents an IAM user from deleting a specified DB instance
 
 The following is an example policy that prevents an IAM user from deleting a
 specified Neptune DB instance:
@@ -31,9 +27,7 @@ JSON
 
 ```
 
-### Policy that grants permission to
-
-create new DB instances
+### Policy that grants permission to create new DB instances
 
 The following is an example policy that allows an IAM user to create DB instances
 in a specified Neptune DB cluster:
@@ -55,9 +49,7 @@ JSON
 
 ```
 
-### Policy that grants permission to
-
-create new DB instances that use a specific DB parameter group
+### Policy that grants permission to create new DB instances that use a specific DB parameter group
 
 The following is an example policy that allows an IAM user to create DB instances
 in a specified DB cluster (here `us-west-2`) in a specified Neptune DB cluster
@@ -83,9 +75,7 @@ JSON
 
 ```
 
-### Policy that grants permission to
-
-describe any resource
+### Policy that grants permission to describe any resource
 
 The following is an example policy that allows an IAM user to describe any
 Neptune resource.
@@ -112,9 +102,7 @@ JSON
 The following examples show how to create Neptune administrative policies that
 tags to filter permissions for various management actions on a DB cluster.
 
-### Example 1: Grant permission for actions
-
-on a resource using a custom tag that can take multiple values
+### Example 1: Grant permission for actions on a resource using a custom tag that can take multiple values
 
 The policy below allows use of the `ModifyDBInstance`,
 `CreateDBInstance` or `DeleteDBInstance` API on any DB
@@ -150,9 +138,7 @@ JSON
 
 ```
 
-### Example 2: Limit the set of tag keys and
-
-values that can be used to tag a resource
+### Example 2: Limit the set of tag keys and values that can be used to tag a resource
 
 This policy uses a `Condition` key to allow a tag that has the key
 `env` and a value of `test`, `qa`, or

@@ -4,9 +4,7 @@ You can interact with a Amazon Neptune DB cluster after creating a connection. T
 Most users leverage the `curl` or `awscurl` command-line tools to communicate with the Neptune DB cluster effectively.
 These tools enable you to send requests, load data, and retrieve results from the graph database, facilitating seamless data management and querying capabilities.
 
-## Setting up `curl` to communicate with
-
-your Neptune endpoint
+## Setting up `curl` to communicate with your Neptune endpoint
 
 As illustrated in many of the examples in this documentation, the [curl](https://curl.haxx.se/ "https://curl.haxx.se/") command line tool is a handy option for
 communicating with your Neptune endpoint. For information about the tool, see the [curl man page](https://curl.haxx.se/docs/manpage.html "https://curl.haxx.se/docs/manpage.html"), and the book

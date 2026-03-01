@@ -171,9 +171,7 @@ awscurl -X POST --service neptune-db "$SYSTEM_ENDPOINT" \
   -d '{ "action" : "performDatabaseReset" }'
 ```
 
-## Using the Neptune workbench
-
-`%db_reset` line magic to reset a DB cluster
+## Using the Neptune workbench `%db_reset` line magic to reset a DB cluster
 
 The Neptune workbench supports a `%db_reset` line magic that lets you
 perform a fast database reset in a Neptune notebook.

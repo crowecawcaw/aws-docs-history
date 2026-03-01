@@ -1,6 +1,4 @@
-# How Neptune processes Gremlin
-
-queries using statement indexes
+# How Neptune processes Gremlin queries using statement indexes
 
 Statements are accessed in Amazon Neptune by way of three statement indexes, as detailed in
 [How Statements Are Indexed in Neptune](feature-overview-storage-indexing.md "feature-overview-storage-indexing.md"). Neptune extracts a statement

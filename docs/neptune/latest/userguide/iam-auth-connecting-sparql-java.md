@@ -1,6 +1,4 @@
-# Connecting to Amazon Neptune databases using IAM authentication with Java and
-
-SPARQL
+# Connecting to Amazon Neptune databases using IAM authentication with Java and SPARQL
 
 This section shows how to connect to Neptune using either RDF4J or Apache Jena with
 Signature Version 4 authentication.
@@ -60,9 +58,7 @@ _IAM User Guide_.
   - AWS GovCloud (US-West):   `us-gov-west-1`
   - AWS GovCloud (US-East):   `us-gov-east-1`
 
-###### To connect to Neptune using either RDF4J or Apache Jena with Signature Version 4
-
-signing
+###### To connect to Neptune using either RDF4J or Apache Jena with Signature Version 4 signing
 
 1. Clone the sample repository from GitHub.
 

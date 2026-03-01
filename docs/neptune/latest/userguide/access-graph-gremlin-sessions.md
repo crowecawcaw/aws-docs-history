@@ -14,8 +14,7 @@ rolled back.
 ###### Topics
 
 - [Gremlin sessions on the Gremlin console](#access-graph-gremlin-sessions-console "#access-graph-gremlin-sessions-console")
-- [Gremlin sessions in the Gremlin Language
-  Variant](#access-graph-gremlin-sessions-glv "#access-graph-gremlin-sessions-glv")
+- [Gremlin sessions in the Gremlin Language Variant](#access-graph-gremlin-sessions-glv "#access-graph-gremlin-sessions-glv")
 
 ## Gremlin sessions on the Gremlin console
 
@@ -53,9 +52,7 @@ or if you don't close the connection within the maximum session lifetime that Ne
 supports, the session transaction is not committed, and all the queries in it are rolled
 back.
 
-## Gremlin sessions in the Gremlin Language
-
-Variant
+## Gremlin sessions in the Gremlin Language Variant
 
 In the Gremlin language variant (GLV), you need to create a `SessionedClient`
 object to issue multiple queries in a single transaction, as in the following example.

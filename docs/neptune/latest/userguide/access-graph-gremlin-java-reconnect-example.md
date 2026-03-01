@@ -1,6 +1,4 @@
-# Java example of connecting to a Neptune DB
-
-instance with re-connect logic
+# Java example of connecting to a Neptune DB instance with re-connect logic
 
 The following Java example demonstrates how to connect to the Gremlin client
 with reconnect logic to recover from an unexpected disconnect.

@@ -1,6 +1,4 @@
-# Always completely consume the
-
-ResultSet or Iterator returned by a query
+# Always completely consume the ResultSet or Iterator returned by a query
 
 The client object should always completely consume the `ResultSet` (in
 the case of string-based submission), or the iterator returned by `GraphTraversal`.

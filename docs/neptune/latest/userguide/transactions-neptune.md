@@ -31,8 +31,7 @@ are executed under the same isolation as mutation queries, on the writer endpoin
 
 - [Read-only query isolation in Neptune](#transactions-neptune-read-only "#transactions-neptune-read-only")
 - [Mutation query isolation in Neptune](#transactions-neptune-mutation "#transactions-neptune-mutation")
-- [Conflict Resolution Using Lock-Wait
-  Timeouts](#transactions-neptune-conflicts "#transactions-neptune-conflicts")
+- [Conflict Resolution Using Lock-Wait Timeouts](#transactions-neptune-conflicts "#transactions-neptune-conflicts")
 - [Range locks and false conflicts](#transactions-neptune-false-conflicts "#transactions-neptune-false-conflicts")
 
 ## Read-only query isolation in Neptune
@@ -114,9 +113,7 @@ is a strong guarantee that this range will not be modified by any concurrent tra
 until the end of the reading transaction. This guarantees that no `non-repeatable
  reads` will occur.
 
-## Conflict Resolution Using Lock-Wait
-
-Timeouts
+## Conflict Resolution Using Lock-Wait Timeouts
 
 If a second transaction tries to modify a record in a range that a first transaction has
 locked, Neptune detects the conflict immediately and blocks the second transaction.

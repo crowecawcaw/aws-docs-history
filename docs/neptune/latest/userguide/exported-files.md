@@ -1,6 +1,4 @@
-# Files exported by Neptune-Export
-
-and `neptune-export`
+# Files exported by Neptune-Export and `neptune-export`
 
 When an export is complete, the export files are published to the Amazon S3 location you have
 specified. All files published to Amazon S3 are encrypted using Amazon S3 server-side encryption

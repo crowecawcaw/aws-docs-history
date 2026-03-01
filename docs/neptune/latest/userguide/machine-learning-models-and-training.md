@@ -101,8 +101,7 @@ choose the suitable hyperparameters.
 Neptune ML uses a SageMaker AI hyperparameter tuning job to launch multiple
 instances of model training with different hyperparameter configurations
 to try to find the best model for a range of hyperparameters settings.
-See [Customizing model
-hyperparameter configurations in Neptune ML](machine-learning-customizing-hyperparams.md "machine-learning-customizing-hyperparams.md").
+See [Customizing model hyperparameter configurations in Neptune ML](machine-learning-customizing-hyperparams.md "machine-learning-customizing-hyperparams.md").
 
 ## Knowledge graph embedding models in Neptune ML
 

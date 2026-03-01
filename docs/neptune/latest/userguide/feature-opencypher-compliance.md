@@ -271,9 +271,7 @@ this query results in an `UnsupportedOperationException` with the message:
 `Property predicate over variable-length relationships with non-constant
  expression is not supported in this release.`
 
-### Temporal support in the Neptune openCypher implementation (Neptune database
-
-1.3.1.0 and below)
+### Temporal support in the Neptune openCypher implementation (Neptune database 1.3.1.0 and below)
 
 Neptune currently provides limited support for temporal function in openCypher.
 It supports the `DateTime` data type for temporal types.
@@ -347,9 +345,7 @@ MATCH (n) RETURN epochMillis(n.someDateTime)
 Neptune doesn't currently support other functions and operations on
 `DateTime` objects, such as addition and subtraction.
 
-### Temporal support in the Neptune openCypher implementation
-
-(Neptune Analytics and Neptune Database 1.3.2.0 and above)
+### Temporal support in the Neptune openCypher implementation (Neptune Analytics and Neptune Database 1.3.2.0 and above)
 
 The following datetime functionality for OpenCypher applies to Neptune Analytics. Alternatively, you can use
 the labmode parameter `DatetimeMillisecond=enabled` for enabling the following datetime functionality on

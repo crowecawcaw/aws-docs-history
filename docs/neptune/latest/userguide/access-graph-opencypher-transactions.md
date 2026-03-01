@@ -284,8 +284,7 @@ mutation transactions](transactions-neptune.md#transactions-neptune-mutation "tr
 Whether or not you specifically pass in a session configuration, the
 transaction is always treated as a write transaction.
 
-For conflicts, see [Conflict Resolution Using Lock-Wait
-Timeouts](transactions-neptune.md#transactions-neptune-conflicts "transactions-neptune.md#transactions-neptune-conflicts").
+For conflicts, see [Conflict Resolution Using Lock-Wait Timeouts](transactions-neptune.md#transactions-neptune-conflicts "transactions-neptune.md#transactions-neptune-conflicts").
 
 ### Autocommit mutation transaction queries
 
@@ -368,5 +367,4 @@ transactions.
 If you do not pass in a session configuration, the transaction
 is treated as a write transaction by default.
 
-For conflicts, see [Conflict Resolution Using Lock-Wait
-Timeouts](transactions-neptune.md#transactions-neptune-conflicts "transactions-neptune.md#transactions-neptune-conflicts").
+For conflicts, see [Conflict Resolution Using Lock-Wait Timeouts](transactions-neptune.md#transactions-neptune-conflicts "transactions-neptune.md#transactions-neptune-conflicts").

@@ -8,9 +8,7 @@ the instance has been started.
 If you delete the last remaining instance in a cluster using the **web console**, it will
 also delete the underlying cluster storage volume.
 
-## Taking a Final Snapshot of
-
-Your DB Instance Before Deleting It
+## Taking a Final Snapshot of Your DB Instance Before Deleting It
 
 To delete a DB instance, you must specify the name of the instance and whether
 you want to have a final DB snapshot taken of the instance. If the DB instance that

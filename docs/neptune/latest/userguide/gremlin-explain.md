@@ -11,8 +11,7 @@ bottlenecks and tune your query, as explained in [Tuning Gremlin queries](gremli
 
 ###### Topics
 
-- [Understanding how Gremlin queries work in
-  Neptune](gremlin-explain-background.md "gremlin-explain-background.md")
+- [Understanding how Gremlin queries work in Neptune](gremlin-explain-background.md "gremlin-explain-background.md")
 - [Using the Gremlin explain API in Neptune](gremlin-explain-api.md "gremlin-explain-api.md")
 - [Gremlin profile API in Neptune](gremlin-profile-api.md "gremlin-profile-api.md")
 - [Tuning Gremlin queries using explain and profile](gremlin-traversal-tuning.md "gremlin-traversal-tuning.md")

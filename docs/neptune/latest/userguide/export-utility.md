@@ -1,13 +1,9 @@
-# Using the `neptune-export` command-line
-
-tool to export data from Neptune
+# Using the `neptune-export` command-line tool to export data from Neptune
 
 You can use the following steps to export data from your Neptune DB cluster to Amazon S3
 using the `neptune-export` command-line utility:
 
-## Prerequisites for using
-
-the `neptune-export` command-line utility
+## Prerequisites for using the `neptune-export` command-line utility
 
 ###### Before you start
 
@@ -79,9 +75,7 @@ the Amazon S3 location(s):
   to identify the Region where your DB cluster is located (see [Connecting to Neptune](iam-auth-connecting-gremlin-java.md "iam-auth-connecting-gremlin-java.md")
   for a list of Region identifiers).
 
-## Running the `neptune-export`
-
-utility to initiate an export operation
+## Running the `neptune-export` utility to initiate an export operation
 
 Use the following command to run neptune-export from the command line and start an
 export operation:
@@ -102,9 +96,7 @@ The command has two parameters:
 - **`--json`**   –  
   A JSON object that defines the export.
 
-## Example commands using the
-
-`neptune-export` command line utility
+## Example commands using the `neptune-export` command line utility
 
 To export property-graph data directly from your source DB cluster:
 

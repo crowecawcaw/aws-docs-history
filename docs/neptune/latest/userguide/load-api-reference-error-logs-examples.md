@@ -81,9 +81,7 @@ with an `errorLogs` object listing the load errors encountered:
 }
 ```
 
-## Example of a
-
-`Data prefetch task interrupted` error
+## Example of a `Data prefetch task interrupted` error
 
 Occasionally when you get a `LOAD_FAILED` status and then request more
 detailed information, the error returned may be a `PARSING_ERROR` with a

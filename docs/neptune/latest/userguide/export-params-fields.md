@@ -3,9 +3,7 @@
 The Neptune export `params` JSON object allows you to control the
 export, including the type and format of the exported data.
 
-## List of possible fields in the export
-
-parameters `params` object
+## List of possible fields in the export parameters `params` object
 
 Listed below are all the possible top-level fields that can appear in a
 `params` object. Only a subset of these fields appear in any one

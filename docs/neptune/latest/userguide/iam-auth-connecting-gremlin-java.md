@@ -1,6 +1,4 @@
-# Connecting to Amazon Neptune databases using IAM with
-
-Gremlin Java
+# Connecting to Amazon Neptune databases using IAM with Gremlin Java
 
 Here is an example of how to connect to Neptune using the Gremlin Java driver with Sigv4 signing (it assumes a general knowledge about using Maven).
 

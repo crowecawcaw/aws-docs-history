@@ -1,6 +1,4 @@
-# Using Node.js to connect to a Neptune DB
-
-instance
+# Using Node.js to connect to a Neptune DB instance
 
 ###### Important
 

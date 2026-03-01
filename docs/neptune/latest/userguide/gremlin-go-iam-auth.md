@@ -1,6 +1,4 @@
-# Connecting to Amazon Neptune databases using IAM
-
-authentication with Gremlin Go
+# Connecting to Amazon Neptune databases using IAM authentication with Gremlin Go
 
 ## Overview
 
@@ -106,9 +104,7 @@ func main() {
 }
 ```
 
-##
-
-Gremlin Go Dynamic Credential Refresh
+## Gremlin Go Dynamic Credential Refresh
 
 Gremlin Go has DynamicAuth which allows the injection of a function pointer to retrieve credentials and generate
 the header, which prevents header expiry with long-running connections.

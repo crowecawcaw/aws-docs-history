@@ -1,6 +1,4 @@
-# Connecting to Amazon Neptune databases using IAM authentication with SPARQL
-
-and Node.js
+# Connecting to Amazon Neptune databases using IAM authentication with SPARQL and Node.js
 
 ## Querying using Signature V4 signing and the AWS SDK for Javascript V3
 

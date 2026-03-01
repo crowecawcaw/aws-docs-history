@@ -1,6 +1,4 @@
-# Creating Efficient Multithreaded
-
-Gremlin Writes
+# Creating Efficient Multithreaded Gremlin Writes
 
 There are a few guidelines for multithreaded loading of data into Neptune using
 Gremlin.

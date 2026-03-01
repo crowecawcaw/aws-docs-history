@@ -1,12 +1,8 @@
-# Examples of filtering
-
-what is exported
+# Examples of filtering what is exported
 
 Here are examples that illustrate ways to filter the data that is exported.
 
-## Filtering the export
-
-of property-graph data
+## Filtering the export of property-graph data
 
 ### Example of using `scope` to export only edges
 
@@ -21,9 +17,7 @@ of property-graph data
 }
 ```
 
-### Example of using
-
-`nodeLabels` and `edgeLabels` to export only nodes and edges having specific labels
+### Example of using `nodeLabels` and `edgeLabels` to export only nodes and edges having specific labels
 
 The `nodeLabels` parameter in the following example specifies that
 only nodes having a `Person` label or a `Post` label should
@@ -42,9 +36,7 @@ with a `likes` label should be exported:
 }
 ```
 
-### Example of using `filter`
-
-to export only specified nodes, edges and properties
+### Example of using `filter` to export only specified nodes, edges and properties
 
 The `filter` object in this example exports `country` nodes
 with their `type`, `code` and `desc` properties,
@@ -80,9 +72,7 @@ and also `route` edges with their `dist` property.
 }
 ```
 
-### Example that
-
-uses `gremlinFilter`
+### Example that uses `gremlinFilter`
 
 This example uses `gremlinFilter` to export only those nodes and edges
 created after 2021-10-10 (that is, with a `created` property whose value
@@ -99,9 +89,7 @@ is greater than 2021-10-10):
 }
 ```
 
-### Example that
-
-uses `gremlinNodeFilter`
+### Example that uses `gremlinNodeFilter`
 
 This example uses `gremlinNodeFilter` to export only deleted nodes
 (nodes with a Boolean `deleted` property whose value is `true`):
@@ -117,9 +105,7 @@ This example uses `gremlinNodeFilter` to export only deleted nodes
 }
 ```
 
-### Example that
-
-uses `gremlinEdgeFilter`
+### Example that uses `gremlinEdgeFilter`
 
 This example uses `gremlinEdgeFilter` to export only edges with a
 `strength` numerical property whose value is 5:
@@ -135,9 +121,7 @@ This example uses `gremlinEdgeFilter` to export only edges with a
 }
 ```
 
-### Combining `filter`,
-
-`gremlinNodeFilter`, `nodeLabels`, `edgeLabels` and `scope`
+### Combining `filter`, `gremlinNodeFilter`, `nodeLabels`, `edgeLabels` and `scope`
 
 The `filter` object in this example exports:
 
@@ -223,9 +207,7 @@ not a literal:
 }
 ```
 
-### Using `namedGraph`
-
-to export a single named graph
+### Using `namedGraph` to export a single named graph
 
 This example exports triples belonging to the named graph
 <http://aws.amazon.com/neptune/vocab/v01/DefaultNamedGraph>:

@@ -1,23 +1,16 @@
-# Using AWS CloudFormation to Set Up Neptune-to-Neptune
-
-Replication with the Streams Consumer Application
+# Using AWS CloudFormation to Set Up Neptune-to-Neptune Replication with the Streams Consumer Application
 
 You can use an CloudFormation template to set up the Neptune streams consumer application to
 support Neptune-to-Neptune replication.
 
 ###### Topics
 
-- [Choose an CloudFormation template for Your
-  Region](#streams-consumer-cfn-by-region "#streams-consumer-cfn-by-region")
-- [Add details About the Neptune streams
-  consumer stack you're creating](#streams-consumer-cfn-stack-details "#streams-consumer-cfn-stack-details")
+- [Choose an CloudFormation template for Your Region](#streams-consumer-cfn-by-region "#streams-consumer-cfn-by-region")
+- [Add details About the Neptune streams consumer stack you're creating](#streams-consumer-cfn-stack-details "#streams-consumer-cfn-stack-details")
 - [Run the CloudFormation Template](#streams-consumer-cfn-complete "#streams-consumer-cfn-complete")
-- [To update the stream poller with the
-  latest Lambda artifacts](#streams-consumer-cfn-update "#streams-consumer-cfn-update")
+- [To update the stream poller with the latest Lambda artifacts](#streams-consumer-cfn-update "#streams-consumer-cfn-update")
 
-## Choose an CloudFormation template for Your
-
-Region
+## Choose an CloudFormation template for Your Region
 
 To launch the appropriate CloudFormation stack on the CloudFormation console, choose one of the
 **Launch Stack** buttons in the following table, depending on the AWS
@@ -53,9 +46,7 @@ Region that you want to use.
 
 On the **Create Stack** page, choose **Next**.
 
-## Add details About the Neptune streams
-
-consumer stack you're creating
+## Add details About the Neptune streams consumer stack you're creating
 
 The **Specify Stack Details** page provides properties and parameters
 that you can use to control the setup of the application:
@@ -238,9 +229,7 @@ _AWS CloudFormation API Reference_.
 
 Then choose **Create**.
 
-## To update the stream poller with the
-
-latest Lambda artifacts
+## To update the stream poller with the latest Lambda artifacts
 
 You can update the stream poller with the latest Lambda code artifacts as follows:
 

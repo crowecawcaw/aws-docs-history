@@ -34,9 +34,7 @@ the same directory as `curl.exe` and then elsewhere on the path. For more
 information, see [SSL Certificate
 Verification](https://curl.haxx.se/docs/sslcerts.html "https://curl.haxx.se/docs/sslcerts.html").
 
-## Using `awscurl` with temporary
-
-credentials to securely connect to a DB cluster with IAM authentication enabled
+## Using `awscurl` with temporary credentials to securely connect to a DB cluster with IAM authentication enabled
 
 The [awscurl](https://github.com/okigan/awscurl "https://github.com/okigan/awscurl") tool uses
 the same syntax as `curl`, but needs additional information as well:
@@ -77,9 +75,9 @@ aws sts assume-role \
     --duration-seconds 1800 \
     --role-arn "arn:aws:iam::`(account-id)`:role/`(rolename)`" \
     --role-session-name AWSCLI-Session > $output
-AccessKeyId=$(cat $output | jq '.Credentials''.AccessKeyId')
-SecretAccessKey=$(cat $output | jq '.Credentials''.SecretAccessKey')
-SessionToken=$(cat $output | jq '.Credentials''.SessionToken')
+AccessKeyId=$(echo $output | jq '.Credentials''.AccessKeyId')
+SecretAccessKey=$(echo $output | jq '.Credentials''.SecretAccessKey')
+SessionToken=$(echo $output | jq '.Credentials''.SessionToken')
 
 export AWS_ACCESS_KEY_ID=$AccessKeyId
 export AWS_SECRET_ACCESS_KEY=$SecretAccessKey

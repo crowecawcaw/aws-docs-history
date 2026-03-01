@@ -1,6 +1,4 @@
-# Troubleshooting
-
-`java.util.concurrent.TimeoutException`
+# Troubleshooting `java.util.concurrent.TimeoutException`
 
 The Gremlin Java client throws a `java.util.concurrent.TimeoutException`
 when a Gremlin request times out at the client itself while waiting for a slot in one

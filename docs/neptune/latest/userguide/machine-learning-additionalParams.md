@@ -1,6 +1,4 @@
-# Using the additionalParams
-
-object to tune the export of model-training information
+# Using the additionalParams object to tune the export of model-training information
 
 The `additionalParams` object contains fields that you can use
 to specify machine-learning class labels and features for training purposes and

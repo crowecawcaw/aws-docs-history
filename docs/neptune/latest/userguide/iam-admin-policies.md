@@ -1,6 +1,4 @@
-# Creating custom IAM
-
-policy statements to administer Amazon Neptune
+# Creating custom IAM policy statements to administer Amazon Neptune
 
 Administrative policy statements let you control what an IAM user can do to manage
 a Neptune database.
@@ -20,5 +18,4 @@ an `rds:` prefix by design.
 - [IAM actions for administering Amazon Neptune](neptune-iam-admin-actions.md "neptune-iam-admin-actions.md")
 - [IAM resource types for administering Amazon Neptune](iam-admin-resources.md "iam-admin-resources.md")
 - [IAM condition keys for administering Amazon Neptune](iam-admin-condition-keys.md "iam-admin-condition-keys.md")
-- [Creating IAM administrative
-  policy statements for Amazon Neptune](iam-admin-policy-examples.md "iam-admin-policy-examples.md")
+- [Creating IAM administrative policy statements for Amazon Neptune](iam-admin-policy-examples.md "iam-admin-policy-examples.md")

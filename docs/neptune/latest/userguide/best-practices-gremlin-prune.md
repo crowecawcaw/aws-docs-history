@@ -1,6 +1,4 @@
-# Pruning Records with the Creation Time
-
-Property
+# Pruning Records with the Creation Time Property
 
 You can prune stale records by storing the creation time as a property on vertices and
 dropping them periodically.

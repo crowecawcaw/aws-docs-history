@@ -9,7 +9,7 @@ of a graph edge: Subject (source vertex in LPG); Predicate (RDF), or Property or
 (target vertex or property value in LPG); and Graph (RDF) or Edge Identifier (LPG). There are 16 (2^4) possible
 access patterns for these four quad component positions. You can query all 16 patterns efficiently without having
 to scan and filter by using six indexes. Each quad statement index uses a key that is composed of the four position
-values concatenated in a different order. One possible combination of quad statment indexes that would cover all
+values concatenated in a different order. One possible combination of quad statement indexes that would cover all
 16 access paths is:
 
 ```
@@ -106,5 +106,4 @@ of statements, namely:
 - [Edge Statements](gremlin-explain-background-statements.md#gremlin-explain-background-edge-statements "gremlin-explain-background-statements.md#gremlin-explain-background-edge-statements")
 - [Property Statements](gremlin-explain-background-statements.md#gremlin-explain-background-property-statements "gremlin-explain-background-statements.md#gremlin-explain-background-property-statements")
 
-For an explanation of how these are used in Gremlin queries, see [Understanding how Gremlin queries work in
-Neptune](gremlin-explain-background.md "gremlin-explain-background.md").
+For an explanation of how these are used in Gremlin queries, see [Understanding how Gremlin queries work in Neptune](gremlin-explain-background.md "gremlin-explain-background.md").

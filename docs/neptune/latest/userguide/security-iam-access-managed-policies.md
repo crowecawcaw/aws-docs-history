@@ -1,6 +1,4 @@
-# Using AWS managed policies to access
-
-Amazon Neptune databases
+# Using AWS managed policies to access Amazon Neptune databases
 
 AWS addresses many common use cases by providing standalone IAM policies that are
 created and administered by AWS. Managed policies grant necessary permissions for common use

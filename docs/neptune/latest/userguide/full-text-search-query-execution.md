@@ -1,6 +1,4 @@
-# Full-text-search query execution
-
-in Amazon Neptune
+# Full-text-search query execution in Amazon Neptune
 
 In a query that includes full-text-search, Neptune tries to put the full-text-search
 calls first, before other parts of the query. This reduces the number of calls to

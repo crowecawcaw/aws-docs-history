@@ -120,9 +120,7 @@ The maintenance window determines when pending operations start, and most
 maintenance operations complete within the window, but larger maintenance tasks
 can continue beyond the window's end time.
 
-### Moving your DB cluster
-
-maintenance window
+### Moving your DB cluster maintenance window
 
 Ideally, the your maintenance window should fall at a time when you cluster is
 at its lowest usage. If that isn't true of your current window, you can move it to

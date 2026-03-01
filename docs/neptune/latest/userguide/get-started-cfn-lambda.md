@@ -1,6 +1,4 @@
-# Using CloudFormation to Create a Lambda Function to Use in
-
-Neptune
+# Using CloudFormation to Create a Lambda Function to Use in Neptune
 
 You can use an CloudFormation template to create an AWS Lambda function that can access
 Neptune.

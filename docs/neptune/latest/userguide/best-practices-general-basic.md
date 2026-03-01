@@ -45,8 +45,7 @@ memory.
 - [Best practices for using Neptune metrics](best-practices-general-metrics.md "best-practices-general-metrics.md")
 - [Best practices for tuning Neptune queries](#best-practices-general-tuning "#best-practices-general-tuning")
 - [Load balancing across read replicas](#best-practices-general-loadbalance "#best-practices-general-loadbalance")
-- [Loading faster using a temporary larger
-  instance](#best-practices-loader-tempinstance "#best-practices-loader-tempinstance")
+- [Loading faster using a temporary larger instance](#best-practices-loader-tempinstance "#best-practices-loader-tempinstance")
 - [Resize your writer instance by failing over to a read-replica](#best-practices-resize-instance "#best-practices-resize-instance")
 - [Retry upload after data prefetch task interrupted error](#load-api-reference-status-interrupted "#load-api-reference-status-interrupted")
 
@@ -132,9 +131,7 @@ to the reader endpoint.
 You can also load balance requests across read replicas by connecting to instance
 endpoints explicitly.
 
-## Loading faster using a temporary larger
-
-instance
+## Loading faster using a temporary larger instance
 
 Your load performance increases with larger instance sizes. If you're not using a large
 instance type, but you want increased load speeds, you can use a larger instance to load and

@@ -127,8 +127,7 @@ driver.close();
 
 Mutation queries are not thread safe.
 
-For conflicts, see [Conflict Resolution Using Lock-Wait
-Timeouts](transactions-neptune.md#transactions-neptune-conflicts "transactions-neptune.md#transactions-neptune-conflicts").
+For conflicts, see [Conflict Resolution Using Lock-Wait Timeouts](transactions-neptune.md#transactions-neptune-conflicts "transactions-neptune.md#transactions-neptune-conflicts").
 
 Mutation queries are not automatically retried in
 case of failure.

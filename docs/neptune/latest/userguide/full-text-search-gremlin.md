@@ -216,9 +216,7 @@ g.withSideEffect("Neptune#fts.endpoint",
 ==>[SGU, St George Municipal Airport]
 ```
 
-## Gremlin `query_string`
-
-query with `AND` and `OR` operators
+## Gremlin `query_string` query with `AND` and `OR` operators
 
 ```
 g.withSideEffect("Neptune#fts.endpoint",

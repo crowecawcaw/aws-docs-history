@@ -1,6 +1,4 @@
-# Upgrading to engine version 1.2.0.0 or
-
-above from a version earlier than 1.2.0.0
+# Upgrading to engine version 1.2.0.0 or above from a version earlier than 1.2.0.0
 
 [Engine release 1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md") introduced
 several significant changes that can make upgrading from an earlier version more

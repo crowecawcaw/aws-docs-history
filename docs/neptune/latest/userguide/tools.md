@@ -16,3 +16,7 @@ automate your work with a graph. Among these are the following:
   extensible, allowing you to define how data is collected and modeled as a graph. It uses a pipeline-based approach
   to define how data is collected and processed, and it provides a way to define how the graph should be updated when
   the schema changes.
+- **[Amazon Neptune MCP Query Servers](https://github.com/aws-samples/amazon-neptune-generative-ai-samples/blob/main/neptune-mcp-servers/neptune-query/README.md "https://github.com/aws-samples/amazon-neptune-generative-ai-samples/blob/main/neptune-mcp-servers/neptune-query/README.md")**   –  
+  Model Context Protocol (MCP) server for Amazon Neptune that supports both Neptune Database and Neptune Analytics by providing the ability to run graph queries (openCypher and Gremlin) as well as fetch the graph schema.
+- **[Amazon Neptune MCP Memory Servers](https://github.com/aws-samples/amazon-neptune-generative-ai-samples/blob/main/neptune-mcp-servers/neptune-memory/README.md "https://github.com/aws-samples/amazon-neptune-generative-ai-samples/blob/main/neptune-mcp-servers/neptune-memory/README.md")**   –  
+  Model Context Protocol (MCP) server for Amazon Neptune that provides memory to agents, stored in a knowledge graph against Amazon Neptune.

@@ -12,8 +12,7 @@ using evaluation of the recovery-time objective (RTO) and the recovery-point obj
   order of minutes.
 - **Recovery-point objective (RPO)**   —  
   The amount of time during which data is being lost. For a Neptune global database,
-  RPO is typically measured in seconds (see [Performing managed planned failovers
-  for Neptune global databases](#neptune-gdb-managed-failover "#neptune-gdb-managed-failover")).
+  RPO is typically measured in seconds (see [Performing managed planned failovers for Neptune global databases](#neptune-gdb-managed-failover "#neptune-gdb-managed-failover")).
   For a Neptune global database, there are two different approaches to failover:
 
 - **Detach-and-promote (manual unplanned recovery)**   —  
@@ -28,12 +27,9 @@ using evaluation of the recovery-time objective (RTO) and the recovery-point obj
   procedures such as relocating the primary DB cluster of the global database to one
   of the secondary regions. Because this process synchronizes secondary DB clusters
   with the primary before making any other changes, RPO is effectively 0 (that is,
-  there is no data loss). See [Performing managed planned failovers
-  for Neptune global databases](#neptune-gdb-managed-failover "#neptune-gdb-managed-failover").
+  there is no data loss). See [Performing managed planned failovers for Neptune global databases](#neptune-gdb-managed-failover "#neptune-gdb-managed-failover").
 
-## Detach-and-promote a Neptune global database
-
-in the case of an unplanned outage
+## Detach-and-promote a Neptune global database in the case of an unplanned outage
 
 In the very rare situation where your Neptune global database experiences an
 unexpected outage in its primary AWS Region, your primary Neptune DB cluster and its
@@ -83,17 +79,14 @@ that cluster is detached from the global database.
 
 This Neptune DB cluster becomes the primary cluster of a new Neptune
 global database when you start adding regions to it in the next step. 5. Add an AWS Region to the DB cluster. When you do this, the replication
-process from primary to secondary begins. See [Adding secondary global
-database regions to a primary region in Amazon Neptune](neptune-gdb-setup.md#neptune-gdb-attaching "neptune-gdb-setup.md#neptune-gdb-attaching") . 6. Add more AWS Regions as needed to recreate the topology needed to support your
+process from primary to secondary begins. See [Adding secondary global database regions to a primary region in Amazon Neptune](neptune-gdb-setup.md#neptune-gdb-attaching "neptune-gdb-setup.md#neptune-gdb-attaching"). 6. Add more AWS Regions as needed to recreate the topology needed to support your
 application.
 
 Make sure that application writes are sent to the correct Neptune DB cluster before,
 during, and after making these changes. Doing this avoids data inconsistencies among the DB
 clusters in the Neptune global database (these are known as split-brain issues).
 
-## Performing managed planned failovers
-
-for Neptune global databases
+## Performing managed planned failovers for Neptune global databases
 
 Managed planned failover lets you relocate the primary cluster of your Neptune
 global database to a different AWS Region whenever you choose. Some organizations

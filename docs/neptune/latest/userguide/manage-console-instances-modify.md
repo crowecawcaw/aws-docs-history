@@ -1,6 +1,4 @@
-# Modifying a Neptune DB Instance (and
-
-Applying Immediately)
+# Modifying a Neptune DB Instance (and Applying Immediately)
 
 You can apply most changes to an Amazon Neptune DB instance immediately or defer them until
 the next maintenance window. Some modifications, such as parameter group changes, require that

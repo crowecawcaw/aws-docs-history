@@ -1,6 +1,4 @@
-# Connecting to Amazon Neptune databases using IAM
-
-authentication with Gremlin JavaScript
+# Connecting to Amazon Neptune databases using IAM authentication with Gremlin JavaScript
 
 ## Overview
 

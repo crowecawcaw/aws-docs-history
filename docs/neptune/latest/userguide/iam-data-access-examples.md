@@ -3,9 +3,7 @@
 The following examples show how to create custom IAM policies that use fine-grained
 access control of data-plane APIs and actions, introduced in Neptune [engine release version 1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md").
 
-## Policy example allowing
-
-unrestricted access to the data in a Neptune DB cluster
+## Policy example allowing unrestricted access to the data in a Neptune DB cluster
 
 The following example policy allows an IAM user to connect to a Neptune DB cluster
 using IAM database authentication, and uses the "`*`" character to match
@@ -32,9 +30,7 @@ Neptune IAM authentication. To construct the ARN, see [Specifying data resources
 for an IAM authorization `Resource` is not the same as the ARN assigned
 to the cluster on creation.
 
-## Policy example allowing
-
-read-only access to a Neptune DB cluster
+## Policy example allowing read-only access to a Neptune DB cluster
 
 The following policy grants permission for full read-only access to data in
 a Neptune DB cluster:

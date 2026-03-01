@@ -583,8 +583,7 @@ RDF air routes dataset](https://github.com/aws/graph-notebook/tree/main/src/grap
 
 You can access graph summary endpoints securely with IAM authentication by using
 [awscurl](https://github.com/okigan/awscurl "https://github.com/okigan/awscurl") or any other tool
-that works with HTTPS and IAM. See [Using awscurl with temporary
-credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl") to see how to set up the proper
+that works with HTTPS and IAM. See [Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl") to see how to set up the proper
 credentials. Once you have done that, you can then make requests like this:
 
 ```

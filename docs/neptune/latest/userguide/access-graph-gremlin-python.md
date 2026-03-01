@@ -1,6 +1,4 @@
-# Using Python to connect to a Neptune DB
-
-instance
+# Using Python to connect to a Neptune DB instance
 
 ###### Important
 

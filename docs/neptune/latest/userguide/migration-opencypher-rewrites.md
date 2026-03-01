@@ -19,9 +19,7 @@ This section contains recommendations for handling common differences, but they
 are by no means exhaustive. You should test any application using these rewrites
 thoroughly to ensure that the results are what you expect.
 
-## Rewriting `None`,
-
-`All`, and `Any` predicate functions
+## Rewriting `None`, `All`, and `Any` predicate functions
 
 These functions are not part of the openCypher specification. Comparable results
 can be achieved in openCypher using List Comprehension.
@@ -50,9 +48,7 @@ any  => size(list_comprehension(list)) >= 1
 none => size(list_comprehension(list)) = 0
 ```
 
-## Rewriting the Cypher
-
-`reduce()` function in openCypher
+## Rewriting the Cypher `reduce()` function in openCypher
 
 The `reduce()` function is not part of the openCypher specification.
 It is often used to create an aggregation of data from elements within a list.
@@ -79,9 +75,7 @@ ORDER BY totalDist
 LIMIT 5
 ```
 
-## Rewriting the Cypher FOREACH
-
-clause in openCypher
+## Rewriting the Cypher FOREACH clause in openCypher
 
 The FOREACH clause is not part of the openCypher specification. It is often used
 to update data in the middle of a query, often from aggregations or elements within
@@ -118,9 +112,7 @@ UNWIND nodes(p) AS n
 SET n.marked = true
 ```
 
-## Rewriting Neo4j APOC procedures
-
-in Neptune
+## Rewriting Neo4j APOC procedures in Neptune
 
 The examples below use openCypher to replace some of the most commonly used
 [APOC

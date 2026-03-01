@@ -66,14 +66,8 @@ execution and serialization. Warning: This report can be verbose.
 The following is a sample `profile` query.
 
 ```
-curl -X POST https://`your-neptune-endpoint`:`port`/gremlin/profile \
-     -d '{"gremlin":"g.V().hasLabel(\"airport\")
-                          .has(\"code\", \"AUS\")
-                          .emit()
-                          .repeat(in().simplePath())
-                          .times(2)
-                          .limit(100)",
-          "profile.serializer":"application/vnd.gremlin-v3.0+gryo"}'
+curl -k -X POST https://your-neptune-endpoint:port/gremlin/profile \
+     -d '{"gremlin":"g.V().hasLabel(\"airport\").has(\"code\", \"AUS\").emit().repeat(in().simplePath()).times(2).limit(100)", "profile.serializer":"application/vnd.gremlin-v3.0+json"}'
 ```
 
 This query generates the following `profile` report when executed on the
@@ -249,7 +243,7 @@ formatted as shown in the example below.
 Query:
 
 ```
-curl https://localhost:8182/gremlin/profile \
+curl https://your-neptune-endpoint:port/gremlin/profile \
   -d "{\"gremlin\": \"g.withSideEffect('Neptune#useDFE', true).V().has('code', 'ATL').out()\"}"
 ```
 

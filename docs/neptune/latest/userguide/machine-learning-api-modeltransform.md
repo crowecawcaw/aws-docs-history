@@ -3,9 +3,7 @@
 You use the Neptune ML `modeltransform` command to create a model transform job,
 check its status, stop it, or list all active model-transform jobs.
 
-## Creating a model-transform
-
-job using the Neptune ML `modeltransform` command
+## Creating a model-transform job using the Neptune ML `modeltransform` command
 
 A Neptune ML `modeltransform` command for creating an incremental transform
 job, without model retraining, looks like this:
@@ -171,9 +169,7 @@ The `enableInterContainerTrafficEncryption` parameter is only available in
 
 _Type_: string. _Default_: _none_.
 
-## Getting the status
-
-of a model-transform job using the Neptune ML `modeltransform` command
+## Getting the status of a model-transform job using the Neptune ML `modeltransform` command
 
 A sample Neptune ML `modeltransform` command for the status of a job looks like this:
 
@@ -197,9 +193,7 @@ _Type_: string.
 _Type_: string. _Note_: This must be
 listed in your DB cluster parameter group or an error will occur.
 
-## Stopping a model-transform
-
-job using the Neptune ML `modeltransform` command
+## Stopping a model-transform job using the Neptune ML `modeltransform` command
 
 A sample Neptune ML `modeltransform` command for stopping a job looks like this:
 
@@ -235,9 +229,7 @@ listed in your DB cluster parameter group or an error will occur.
 
 _Type_: Boolean. _Default_: `FALSE`.
 
-## Listing active model-transform
-
-jobs using the Neptune ML `modeltransform` command
+## Listing active model-transform jobs using the Neptune ML `modeltransform` command
 
 A sample Neptune ML `modeltransform` command for listing active jobs looks like this:
 

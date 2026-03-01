@@ -20,14 +20,10 @@ contains the following fields:
 
 ###### Topics
 
-- [PG_JSON Change Serialization
-  Format](#streams-change-formats-gremlin "#streams-change-formats-gremlin")
-- [SPARQL NQUADS Change Serialization
-  Format](#streams-change-formats-sparql "#streams-change-formats-sparql")
+- [PG_JSON Change Serialization Format](#streams-change-formats-gremlin "#streams-change-formats-gremlin")
+- [SPARQL NQUADS Change Serialization Format](#streams-change-formats-sparql "#streams-change-formats-sparql")
 
-## PG_JSON Change Serialization
-
-Format
+## PG_JSON Change Serialization Format
 
 ###### Note
 
@@ -171,9 +167,7 @@ _to_ vertex or target node.
 }
 ```
 
-## SPARQL NQUADS Change Serialization
-
-Format
+## SPARQL NQUADS Change Serialization Format
 
 Neptune logs changes to SPARQL quads in the graph using the Resource Description
 Framework (RDF) `N-QUADS` language defined in the [W3C RDF 1.1 N-Quads](https://www.w3.org/TR/n-quads/ "https://www.w3.org/TR/n-quads/") specification.

@@ -22,10 +22,8 @@ role for accessing Amazon S3 resources, and then attach the role to your Neptune
 
 ###### Topics
 
-- [Creating an IAM role to allow
-  Amazon Neptune to access Amazon S3 resources](bulk-load-tutorial-IAM-CreateRole.md "bulk-load-tutorial-IAM-CreateRole.md")
-- [Adding the IAM Role to an
-  Amazon Neptune Cluster](bulk-load-tutorial-IAM-add-role-cluster.md "bulk-load-tutorial-IAM-add-role-cluster.md")
+- [Creating an IAM role to allow Amazon Neptune to access Amazon S3 resources](bulk-load-tutorial-IAM-CreateRole.md "bulk-load-tutorial-IAM-CreateRole.md")
+- [Adding the IAM Role to an Amazon Neptune Cluster](bulk-load-tutorial-IAM-add-role-cluster.md "bulk-load-tutorial-IAM-add-role-cluster.md")
 - [Creating the Amazon S3 VPC Endpoint](bulk-load-tutorial-vpc.md "bulk-load-tutorial-vpc.md")
 - [Chaining IAM roles in Amazon Neptune](bulk-load-tutorial-chain-roles.md "bulk-load-tutorial-chain-roles.md")
 

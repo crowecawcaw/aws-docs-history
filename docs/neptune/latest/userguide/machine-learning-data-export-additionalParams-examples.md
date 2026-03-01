@@ -1,6 +1,4 @@
-# Examples
-
-of using parameters within additionalParams for tuning model-training configuration
+# Examples of using parameters within additionalParams for tuning model-training configuration
 
 The following examples demonstrate how to utilize the "additionalParams" feature in property-graph and RDF data models to
 configure various aspects of the model training process for a Neptune ML application. The examples cover a wide range of
@@ -34,10 +32,8 @@ specific data and modeling requirements, unlocking the full potential of the Nep
   - [Specifying a default split rate for model-training configuration](machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-default-split-rate-example "machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-default-split-rate-example")
   - [Specifying a node-classification task for model-training configuration](machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-node-classification-example "machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-node-classification-example")
   - [Specifying a node regression task for model-training configuration](machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-node-regression-example "machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-node-regression-example")
-  - [Specifying
-    a link prediction task for particular edges](machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-link-prediction-example "machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-link-prediction-example")
-  - [Specifying
-    a link prediction task for all edges](machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-link-prediction-example "machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-link-prediction-example")
+  - [Specifying a link prediction task for particular edges](machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-link-prediction-example "machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-link-prediction-example")
+  - [Specifying a link prediction task for all edges](machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-link-prediction-example "machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-link-prediction-example")
 
 ## Property-graph examples using additionalParams
 
@@ -636,9 +632,7 @@ property of each `Movie` node should be treated as a node regression label:
 }
 ```
 
-### Specifying
-
-a link prediction task for particular edges
+### Specifying a link prediction task for particular edges
 
 To indicate which edges should be used for link prediction training purposes, add
 an edge element to the targets array using `"type" : "link_prediction"`.
@@ -666,9 +660,7 @@ prediction:
 }
 ```
 
-### Specifying
-
-a link prediction task for all edges
+### Specifying a link prediction task for all edges
 
 To indicate that all edges should be used for link prediction training purposes,
 add an `edge` element to the targets array using `"type" :

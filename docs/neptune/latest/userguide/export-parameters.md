@@ -11,7 +11,7 @@ The object passed in to the export process has up to five top-level fields:
 -d '{
       "command" : "`(either `export-pg` or `export-rdf`)`",
       "outputS3Path" : "s3:/`(your Amazon S3 bucket)`/`(path to the folder for exported data)`",
-      "jobsize" : "`(for Neptune-Export service only)`",
+      "jobSize" : "`(for Neptune-Export service only)`",
       "params" : { `(a JSON object that contains export-process parameters)` },
       "additionalParams": { `(a JSON object that contains parameters for training configuration)` }
     }'
@@ -25,8 +25,7 @@ The object passed in to the export process has up to five top-level fields:
 - [The params object](export-parameters.md#export-parameters-params "export-parameters.md#export-parameters-params")
 - [The additionalParams object](export-parameters.md#export-parameters-additionalParams "export-parameters.md#export-parameters-additionalParams")
 - [Export parameter fields in the params top-level JSON object](export-params-fields.md "export-params-fields.md")
-  - [List of possible fields in the export
-    parameters params object](export-params-fields.md#export-params-fields-list "export-params-fields.md#export-params-fields-list")
+  - [List of possible fields in the export parameters params object](export-params-fields.md#export-params-fields-list "export-params-fields.md#export-params-fields-list")
     - [List of fields common to all types of export](export-params-fields.md#export-params-common-fields-list "export-params-fields.md#export-params-common-fields-list")
     - [List of fields for property-graph exports](export-params-fields.md#export-params-property-graph-fields-list "export-params-fields.md#export-params-property-graph-fields-list")
     - [List of fields for RDF exports](export-params-fields.md#export-params-RDF-fields-list "export-params-fields.md#export-params-RDF-fields-list")
@@ -61,28 +60,19 @@ The object passed in to the export process has up to five top-level fields:
     - [sparql field in params](export-params-fields.md#export-params-sparql "export-params-fields.md#export-params-sparql")
     - [namedGraph field in params](export-params-fields.md#namedgraph-params-sparql "export-params-fields.md#namedgraph-params-sparql")
 
-- [Examples of filtering
-  what is exported](export-filtering-examples.md "export-filtering-examples.md")
-  - [Filtering the export
-    of property-graph data](export-filtering-examples.md#export-property-graph-filtering-examples "export-filtering-examples.md#export-property-graph-filtering-examples")
+- [Examples of filtering what is exported](export-filtering-examples.md "export-filtering-examples.md")
+  - [Filtering the export of property-graph data](export-filtering-examples.md#export-property-graph-filtering-examples "export-filtering-examples.md#export-property-graph-filtering-examples")
     - [Example of using scope to export only edges](export-filtering-examples.md#export-property-graph-filtering-scope-example "export-filtering-examples.md#export-property-graph-filtering-scope-example")
-    - [Example of using
-      nodeLabels and edgeLabels to export only nodes and edges having specific labels](export-filtering-examples.md#export-property-graph-filtering-labels-example "export-filtering-examples.md#export-property-graph-filtering-labels-example")
-    - [Example of using filter
-      to export only specified nodes, edges and properties](export-filtering-examples.md#export-property-graph-filtering-filter-example "export-filtering-examples.md#export-property-graph-filtering-filter-example")
-    - [Example that
-      uses gremlinFilter](export-filtering-examples.md#export-property-graph-filtering-gremlinFilter-example "export-filtering-examples.md#export-property-graph-filtering-gremlinFilter-example")
-    - [Example that
-      uses gremlinNodeFilter](export-filtering-examples.md#export-property-graph-filtering-gremlinNodeFilter-example "export-filtering-examples.md#export-property-graph-filtering-gremlinNodeFilter-example")
-    - [Example that
-      uses gremlinEdgeFilter](export-filtering-examples.md#export-property-graph-filtering-gremlinEdgeFilter-example "export-filtering-examples.md#export-property-graph-filtering-gremlinEdgeFilter-example")
-    - [Combining filter,
-      gremlinNodeFilter, nodeLabels, edgeLabels and scope](export-filtering-examples.md#export-property-graph-filtering-combo-example "export-filtering-examples.md#export-property-graph-filtering-combo-example")
+    - [Example of using nodeLabels and edgeLabels to export only nodes and edges having specific labels](export-filtering-examples.md#export-property-graph-filtering-labels-example "export-filtering-examples.md#export-property-graph-filtering-labels-example")
+    - [Example of using filter to export only specified nodes, edges and properties](export-filtering-examples.md#export-property-graph-filtering-filter-example "export-filtering-examples.md#export-property-graph-filtering-filter-example")
+    - [Example that uses gremlinFilter](export-filtering-examples.md#export-property-graph-filtering-gremlinFilter-example "export-filtering-examples.md#export-property-graph-filtering-gremlinFilter-example")
+    - [Example that uses gremlinNodeFilter](export-filtering-examples.md#export-property-graph-filtering-gremlinNodeFilter-example "export-filtering-examples.md#export-property-graph-filtering-gremlinNodeFilter-example")
+    - [Example that uses gremlinEdgeFilter](export-filtering-examples.md#export-property-graph-filtering-gremlinEdgeFilter-example "export-filtering-examples.md#export-property-graph-filtering-gremlinEdgeFilter-example")
+    - [Combining filter, gremlinNodeFilter, nodeLabels, edgeLabels and scope](export-filtering-examples.md#export-property-graph-filtering-combo-example "export-filtering-examples.md#export-property-graph-filtering-combo-example")
 
   - [Filtering the export of RDF data](export-filtering-examples.md#export-RDF-filtering-examples "export-filtering-examples.md#export-RDF-filtering-examples")
     - [Using rdfExportScope and sparql to export specific edges](export-filtering-examples.md#export-RDF-filtering-rdfExportScope-sparql-example "export-filtering-examples.md#export-RDF-filtering-rdfExportScope-sparql-example")
-    - [Using namedGraph
-      to export a single named graph](export-filtering-examples.md#export-RDF-filtering-rdfExportScope-sparql-namedGraph-example "export-filtering-examples.md#export-RDF-filtering-rdfExportScope-sparql-namedGraph-example")
+    - [Using namedGraph to export a single named graph](export-filtering-examples.md#export-RDF-filtering-rdfExportScope-sparql-namedGraph-example "export-filtering-examples.md#export-RDF-filtering-rdfExportScope-sparql-namedGraph-example")
 
 ## The `command` parameter
 
@@ -116,7 +106,7 @@ the export job you are starting, which helps determine the amount of compute
 resources devoted to the job and its maximum concurrency level.
 
 ```
-  "jobsize" : "`(one of four size descriptors)`"
+  "jobSize" : "`(one of four size descriptors)`"
 ```
 
 The four valid size descriptors are:

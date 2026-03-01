@@ -1,6 +1,4 @@
-# The features field
-
-in neptune_ml
+# The features field in neptune_ml
 
 Property values and RDF literals come in different formats and data types. To achieve
 good performance in machine learning, it is essential to convert those values to
@@ -105,9 +103,7 @@ Use the property parameter to specify a property of the vertex identified by the
   "property" : "age"
 ```
 
-## Possible values of the
-
-type field for features
+## Possible values of the type field for features
 
 The `type` parameter specifies the type of feature being defined.
 For example:

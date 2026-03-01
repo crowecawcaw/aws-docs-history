@@ -1,6 +1,4 @@
-# Add multiple read replica endpoints to a
-
-Gremlin Java connection pool
+# Add multiple read replica endpoints to a Gremlin Java connection pool
 
 When creating a Gremlin Java `Cluster` object, you can use the
 `.addContactPoint()` method to add multiple read replica instances to the

@@ -27,8 +27,7 @@ of errors.
 
   - [Neptune Loader Get-Status Responses](load-api-reference-status-response.md "load-api-reference-status-response.md")
     - [Neptune Loader Get-Status Response JSON layout](load-api-reference-status-response.md#load-api-reference-status-response-layout "load-api-reference-status-response.md#load-api-reference-status-response-layout")
-    - [Neptune Loader Get-Status
-      overallStatus and failedFeeds response objects](load-api-reference-status-response.md#load-api-reference-status-response-objects "load-api-reference-status-response.md#load-api-reference-status-response-objects")
+    - [Neptune Loader Get-Status overallStatus and failedFeeds response objects](load-api-reference-status-response.md#load-api-reference-status-response-objects "load-api-reference-status-response.md#load-api-reference-status-response-objects")
     - [Neptune Loader Get-Status errors response object](load-api-reference-status-response.md#load-api-reference-status-errors "load-api-reference-status-response.md#load-api-reference-status-errors")
     - [Neptune Loader Get-Status errorLogs response object](load-api-reference-status-response.md#load-api-reference-error-logs "load-api-reference-status-response.md#load-api-reference-error-logs")
 
@@ -39,8 +38,7 @@ of errors.
 
   - [Neptune Loader Get-Status errorLogs examples](load-api-reference-error-logs-examples.md "load-api-reference-error-logs-examples.md")
     - [Example detailed status response when errors occurred](load-api-reference-error-logs-examples.md#load-api-reference-status-examples-details-request-errors "load-api-reference-error-logs-examples.md#load-api-reference-status-examples-details-request-errors")
-    - [Example of a
-      Data prefetch task interrupted error](load-api-reference-error-logs-examples.md#load-api-reference-status-examples-task-interrupted "load-api-reference-error-logs-examples.md#load-api-reference-status-examples-task-interrupted")
+    - [Example of a Data prefetch task interrupted error](load-api-reference-error-logs-examples.md#load-api-reference-status-examples-task-interrupted "load-api-reference-error-logs-examples.md#load-api-reference-status-examples-task-interrupted")
 
 - [Neptune Loader Cancel Job](load-api-reference-cancel.md "load-api-reference-cancel.md")
   - [Cancel Job request syntax](load-api-reference-cancel.md#load-api-reference-cancel-syntax "load-api-reference-cancel.md#load-api-reference-cancel-syntax")

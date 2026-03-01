@@ -14,9 +14,7 @@ Normally, only running queries are included in the response, but when the
 `includeWaiting` parameter is specified, the status of all waiting queries is
 also returned.
 
-## Gremlin query status response
-
-syntax
+## Gremlin query status response syntax
 
 ```
 {

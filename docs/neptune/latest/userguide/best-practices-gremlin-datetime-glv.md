@@ -1,6 +1,4 @@
-# Using Native Date and Time for GLV
-
-Time Data
+# Using Native Date and Time for GLV Time Data
 
 If you are using a Gremlin Language Variant (GLV), you must use the native date and time
 classes and functions provided by the programming language for Gremlin time data.
@@ -45,8 +43,7 @@ import java.util.date
 g.V('3').property('date', new Date()).next();
 ```
 
-For a complete example for connecting to Neptune using Java, see [Using a Java client to connect to a Neptune DB
-instance](access-graph-gremlin-java.md "access-graph-gremlin-java.md").
+For a complete example for connecting to Neptune using Java, see [Using a Java client to connect to a Neptune DB instance](access-graph-gremlin-java.md "access-graph-gremlin-java.md").
 
 ###### Node.js (JavaScript)
 
@@ -58,8 +55,7 @@ a date generated using the Node.js `Date()` constructor.
 g.V('3').property('date', new Date()).next()
 ```
 
-For a complete example for connecting to Neptune using Node.js, see [Using Node.js to connect to a Neptune DB
-instance](access-graph-gremlin-node-js.md "access-graph-gremlin-node-js.md") .
+For a complete example for connecting to Neptune using Node.js, see [Using Node.js to connect to a Neptune DB instance](access-graph-gremlin-node-js.md "access-graph-gremlin-node-js.md").
 
 ###### .NET (C#)
 
@@ -73,8 +69,7 @@ Using System;
 g.V('3').property('date', DateTime.UtcNow).next()
 ```
 
-For a complete example for connecting to Neptune using C#, see [Using .NET to connect to a Neptune DB
-instance](access-graph-gremlin-dotnet.md "access-graph-gremlin-dotnet.md").
+For a complete example for connecting to Neptune using C#, see [Using .NET to connect to a Neptune DB instance](access-graph-gremlin-dotnet.md "access-graph-gremlin-dotnet.md").
 
 ###### Python
 
@@ -88,5 +83,4 @@ import datetime
 g.V('3').property('date',datetime.datetime.now()).next()
 ```
 
-For a complete example for connecting to Neptune using Python, see [Using Python to connect to a Neptune DB
-instance](access-graph-gremlin-python.md "access-graph-gremlin-python.md").
+For a complete example for connecting to Neptune using Python, see [Using Python to connect to a Neptune DB instance](access-graph-gremlin-python.md "access-graph-gremlin-python.md").

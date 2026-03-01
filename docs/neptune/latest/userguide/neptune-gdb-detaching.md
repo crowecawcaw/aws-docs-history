@@ -5,8 +5,7 @@ database. For example:
 
 - If the primary cluster becomes degraded or isolated, you can remove
   it from the global database and it becomes a standalone provisioned cluster that
-  can be used to create a new global database (see [Detach-and-promote a Neptune global database
-  in the case of an unplanned outage](neptune-gdb-disaster-recovery.md#neptune-gdb-detach-and-promote "neptune-gdb-disaster-recovery.md#neptune-gdb-detach-and-promote")).
+  can be used to create a new global database (see [Detach-and-promote a Neptune global database in the case of an unplanned outage](neptune-gdb-disaster-recovery.md#neptune-gdb-detach-and-promote "neptune-gdb-disaster-recovery.md#neptune-gdb-detach-and-promote")).
 - If you want to delete a global database, first you have to you remove
   (detach) all associated clusters from it, leaving the primary for last (see [Deleting a Neptune global database](neptune-gdb-deleting.md "neptune-gdb-deleting.md").
   You can use the [remove-from-global-cluster](../../../cli/latest/reference/rds/remove-from-global-cluster.md "../../../cli/latest/reference/rds/remove-from-global-cluster.md")

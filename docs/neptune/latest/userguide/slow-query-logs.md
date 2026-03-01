@@ -70,7 +70,7 @@ The following attributes are logged for slow queries when the
 | `queryLanguage`               | Query language, like Gremlin, SPARQL or openCypher.                 |
 | **memoryStats**               | `allocatedPermits`                                                  | Permits allocated to the query.                                      |
 | `approximateUsedMemoryBytes`  | Approximate memory used by the query during execution.              |
-| **queryTime**                 | `startTime`                                                         | Query start time (UTC).                                              |
+| **queryTimeStats**            | `startTime`                                                         | Query start time (UTC).                                              |
 | `overallRunTimeMs`            | Query total run time, in milliseconds.                              |
 | `parsingTimeMs`               | Query parsing time, in milliseconds.                                |
 | `waitingTimeMs`               | Query Gremlin/SPARQL/openCypher queue waiting time, in milliseconds |
@@ -92,7 +92,7 @@ The following attributes are logged for slow queries when the
 | **resultCache**               | `hitCount`                                                          | Result cache hit count.                                              |
 | `missCount`                   | Result cache miss count.                                            |
 | `putCount`                    | Result cache put count.                                             |
-| **concurrentExecution**       | `acceptedQueryCountAtStart`                                         | Parallel queries accepted with the current query execution at start. |
+| **concurrentExecutionStats**  | `acceptedQueryCountAtStart`                                         | Parallel queries accepted with the current query execution at start. |
 | `runningQueryCountAtStart`    | Parallel queries running with the current query execution at start. |
 | `acceptedQueryCountAtEnd`     | Parallel queries accepted with the current query execution at end.  |
 | `runningQueryCountAtEnd`      | Parallel queries running with the current query execution at end.   |

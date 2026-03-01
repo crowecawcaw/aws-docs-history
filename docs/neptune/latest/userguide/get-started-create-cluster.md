@@ -20,8 +20,7 @@ For information about creating an Amazon Neptune cluster manually using the AWS 
 [Launching a Neptune DB cluster using the AWS Management Console](manage-console-launch-console.md "manage-console-launch-console.md").
 
 You can also use an CloudFormation template to create a Lambda function to use with Neptune (see
-[Using CloudFormation to Create a Lambda Function to Use in
-Neptune](get-started-cfn-lambda.md "get-started-cfn-lambda.md") ).
+[Using CloudFormation to Create a Lambda Function to Use in Neptune](get-started-cfn-lambda.md "get-started-cfn-lambda.md")).
 
 For general information about managing clusters and instances in Neptune, see
 [Managing Your Amazon Neptune Database](manage-console.md "manage-console.md").

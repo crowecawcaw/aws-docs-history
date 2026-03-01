@@ -37,9 +37,7 @@ Neptune within a member account, be sure to:
   database.
 - Allow access to `neptune-graph:*` for Neptune Analytics operations.
 
-## Permissions Required to Use the
-
-Amazon Neptune Console
+## Permissions Required to Use the Amazon Neptune Console
 
 For a user to work with the Amazon Neptune console, that user must have a minimum set of
 permissions. These permissions allow the user to describe the Neptune resources for their
@@ -49,8 +47,7 @@ information.
 If you create an IAM policy that is more restrictive than the minimum required
 permissions, the console won't function as intended for users with that IAM policy. To
 ensure that those users can still use the Neptune console, also attach the
-`NeptuneReadOnlyAccess` managed policy to the user, as described in [Using AWS managed policies to access
-Amazon Neptune databases](security-iam-access-managed-policies.md "security-iam-access-managed-policies.md").
+`NeptuneReadOnlyAccess` managed policy to the user, as described in [Using AWS managed policies to access Amazon Neptune databases](security-iam-access-managed-policies.md "security-iam-access-managed-policies.md").
 
 You don't need to allow minimum console permissions for users that are making calls only
 to the AWS CLI or the Amazon Neptune API.
@@ -74,9 +71,7 @@ action.
 - IAM policies applied to a Neptune DB cluster apply to all instances in that
   cluster.
 
-## Using different kinds of IAM policies for
-
-controlling access to Neptune
+## Using different kinds of IAM policies for controlling access to Neptune
 
 To provide access to Neptune administrative actions or to data in a Neptune
 DB cluster, you attach policies to an IAM user or role. For information about how to

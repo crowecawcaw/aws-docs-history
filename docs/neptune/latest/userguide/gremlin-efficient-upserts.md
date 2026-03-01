@@ -1,6 +1,4 @@
-# Making efficient upserts with Gremlin
-
-`mergeV()` and `mergeE()` steps
+# Making efficient upserts with Gremlin `mergeV()` and `mergeE()` steps
 
 An upsert (or conditional insert) reuses a vertex or edge if it already exists,
 or creates it if it doesn't. Efficient upserts can make a significant difference in
@@ -45,8 +43,7 @@ requests contain no more than 1,500 Gremlin steps. Neptune may reject large batc
 requests with more than 1,500 steps.
 
 To increase throughput, you can upsert batches in parallel using multiple clients
-(see [Creating Efficient Multithreaded
-Gremlin Writes](best-practices-gremlin-multithreaded-writes.md "best-practices-gremlin-multithreaded-writes.md")).
+(see [Creating Efficient Multithreaded Gremlin Writes](best-practices-gremlin-multithreaded-writes.md "best-practices-gremlin-multithreaded-writes.md")).
 The number of clients should be the same as the number of worker threads on your
 Neptune writer instance, which is typically 2 x the number of vCPUs on the server.
 For instance, an `r5.8xlarge` instance has 32 vCPUs and 64 worker threads.

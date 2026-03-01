@@ -15,9 +15,7 @@ Amazon Neptune.
 - [Avoiding Dangling
   Elements](#transactions-examples-dangling "#transactions-examples-dangling")
 
-## Example 1 – Inserting a
-
-Property Only If It Does Not Exist
+## Example 1 – Inserting a Property Only If It Does Not Exist
 
 Suppose that you want to ensure that a property is set only once. For example, suppose
 that multiple queries are trying to assign a person a credit score concurrently. You only want
@@ -51,9 +49,7 @@ transactions, at most one of them can update the value at a time. This rules
 out the anomaly of more than one `creditScore` property being
 created.
 
-## Example 2 – Asserting That a
-
-Property Value Is Globally Unique
+## Example 2 – Asserting That a Property Value Is Globally Unique
 
 Suppose that you want to insert a person with a Social Security number as a primary key.
 You would want your mutation query to guarantee that, at a global level, no one else in the
@@ -83,9 +79,7 @@ taken on the `POGS` index for `P=ssn` and `O=123456789`.
 - If it does not exist, the lock prevents any concurrent transaction from inserting that Social
   Security number also
 
-## Example 3 – Changing a
-
-Property If Another Property Has a Specified Value
+## Example 3 – Changing a Property If Another Property Has a Specified Value
 
 Suppose that various events in a game move a person from level one to level two, and
 assign them a new `level2Score` property set to zero. You need to be sure that
@@ -123,9 +117,7 @@ currently equal to 1. In doing so, it takes a range lock on the `SPO` prefix for
 index. This lock prevents concurrent transactions from deleting the version 1 triple, and as a
 result, no conflicting concurrent updates can happen.
 
-## Example 4 – Replacing an Existing
-
-Property
+## Example 4 – Replacing an Existing Property
 
 Certain events might update a person's credit score to a new value (here
 `BBB`). But you want to be sure that concurrent events of that type can't create
@@ -150,9 +142,7 @@ This case is similar to example 3, except that instead of locking the
 concurrent transactions from inserting or deleting any triples with the
 `creditScore` property for the `person1` subject.
 
-## Example 5 – Avoiding Dangling
-
-Properties or Edges
+## Example 5 – Avoiding Dangling Properties or Edges
 
 The update on an entity should not leave a dangling element, that is,
 a property or edge associated to an entity that is not typed. This is only

@@ -46,8 +46,7 @@ of your service users.
 **IAM administrator** – If you're an IAM
 administrator, you will need to write IAM policies to manage both management
 and data access to Neptune. To view example Neptune identity-based policies
-that you can use, see [Using different kinds of IAM policies for
-controlling access to Neptune](security-iam-access-manage.md#iam-auth-policy "security-iam-access-manage.md#iam-auth-policy").
+that you can use, see [Using different kinds of IAM policies for controlling access to Neptune](security-iam-access-manage.md#iam-auth-policy "security-iam-access-manage.md#iam-auth-policy").
 
 ## Authenticating with Identities
 

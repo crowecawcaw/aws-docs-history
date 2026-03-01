@@ -1,8 +1,6 @@
 # Overview of custom models in Neptune ML
 
-## When to use a custom model
-
-in Neptune ML
+## When to use a custom model in Neptune ML
 
 Neptune ML's built-in models handle all the standard tasks supported by Neptune ML,
 but there may be cases where you want to have more granular control over the model for
@@ -16,9 +14,7 @@ custom model is appropriate in the following situations:
 - You want to use tabular models or ensemble models for node
   classification and regression.
 
-## Workflow for developing
-
-and using a custom model in Neptune ML
+## Workflow for developing and using a custom model in Neptune ML
 
 Custom model support in Neptune ML is designed to integrate seamlessly into
 existing Neptune ML workflows. It works by running custom code in your source

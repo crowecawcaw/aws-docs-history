@@ -69,9 +69,7 @@ type Airport @alias(property: "airport") {
 
 You can find `@relationship` directives in both the [Todo example](tools-graphql-start-from-schema.md#tools-graphql-todo-example "tools-graphql-start-from-schema.md#tools-graphql-todo-example") and the [Air Routes Example](tools-graphql.md "tools-graphql.md").
 
-## The `@graphQuery`
-
-and `@cypher` directives
+## The `@graphQuery` and `@cypher` directives
 
 You can define openCypher queries to resolve a field value, add queries or add
 mutations. For example, this adds a new `outboundRoutesCount` field to the

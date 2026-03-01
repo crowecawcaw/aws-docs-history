@@ -6,6 +6,11 @@
 - [The default OpenCypher JSON results format](#access-graph-opencypher-queries-results-simple-JSON "#access-graph-opencypher-queries-results-simple-JSON")
 - [Optional HTTP trailing headers for multi-part OpenCypher responses](#optional-http-trailing-headers "#optional-http-trailing-headers")
 
+###### Note
+
+Neptune does not currently support HTTP/2 for REST API requests. Clients must use
+HTTP/1.1 when connecting to endpoints.
+
 ## OpenCypher read and write queries on the HTTPS endpoint
 
 The OpenCypher HTTPS endpoint supports read and update queries using both the

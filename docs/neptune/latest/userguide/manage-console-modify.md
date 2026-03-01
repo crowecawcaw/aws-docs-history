@@ -1,6 +1,4 @@
-# Modifying a Neptune DB Cluster Using the
-
-Console
+# Modifying a Neptune DB Cluster Using the Console
 
 When you modify a DB instance using the AWS Management Console, you can choose to apply the changes right
 away by selecting **Apply Immediately**. If you choose to apply changes
@@ -37,17 +35,14 @@ the value of the **Apply Immediately** setting.
 
 On the console, some instance level changes only apply to the current DB instance,
 whereas others apply to the entire DB cluster. To change a setting that modifies the
-entire DB cluster at the instance level on the console, follow the instructions in [Modifying a DB Instance in a DB
-Cluster](#manage-console-modify-instance "#manage-console-modify-instance"). 5. When all the changes are as you want them, choose **Continue** and
+entire DB cluster at the instance level on the console, follow the instructions in [Modifying a DB Instance in a DB Cluster](#manage-console-modify-instance "#manage-console-modify-instance"). 5. When all the changes are as you want them, choose **Continue** and
 check the summary. 6. To apply the changes immediately, select **Apply immediately**. 7. On the confirmation page, review your changes. If they are correct, choose
 **Modify cluster** to save your changes.
 
 To edit your changes, choose **Back**, or to cancel your changes,
 choose **Cancel**.
 
-## Modifying a DB Instance in a DB
-
-Cluster
+## Modifying a DB Instance in a DB Cluster
 
 ###### To modify a DB Instance in a DB cluster using the console
 
@@ -62,8 +57,7 @@ Cluster
 ###### Note
 
 Some settings apply to the entire DB cluster and must be changed at the cluster
-level. To change those settings, follow the instructions in [Modifying a Neptune DB Cluster Using the
-Console](manage-console-modify.md "manage-console-modify.md").
+level. To change those settings, follow the instructions in [Modifying a Neptune DB Cluster Using the Console](manage-console-modify.md "manage-console-modify.md").
 
 In the AWS Management Console, some instance-level changes apply only to the current DB
 instance, whereas others apply to the entire DB cluster. 5. When all the changes are as you want them, choose **Continue** and
