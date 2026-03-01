@@ -14,9 +14,7 @@ list of blockchain transactions for a given time period. Additionally, you can g
 given transaction, such as transaction events, which you can further analyze or use in business
 logic for your applications.
 
-## Considerations and limitations for
-
-using Amazon Managed Blockchain (AMB) Query
+## Considerations and limitations for using Amazon Managed Blockchain (AMB) Query
 
 When you use AMB Query, consider the following:
 

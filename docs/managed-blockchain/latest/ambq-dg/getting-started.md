@@ -12,16 +12,13 @@ your own before running these examples.
 
 ###### Topics
 
-- [Create an IAM policy to access AMB Query API
-  operations](#getting-started-iam-policy "#getting-started-iam-policy")
+- [Create an IAM policy to access AMB Query API operations](#getting-started-iam-policy "#getting-started-iam-policy")
 - [Make Amazon Managed Blockchain (AMB) Query API requests by using Go](#getting-started-go-example "#getting-started-go-example")
 - [Make Amazon Managed Blockchain (AMB) Query API requests by using Node.js](#node-amb-query-requests "#node-amb-query-requests")
 - [Make Amazon Managed Blockchain (AMB) Query API requests by using Python](#python-amb-query-requests "#python-amb-query-requests")
 - [Use Amazon Managed Blockchain (AMB) Query on the AWS Management Console to run the GetTokenBalance operation](#query-console-gettokenbalance-example "#query-console-gettokenbalance-example")
 
-## Create an IAM policy to access AMB Query API
-
-operations
+## Create an IAM policy to access AMB Query API operations
 
 To make AMB Query API requests, you must use the user credentials (AWS_ACCESS_KEY_ID and
 AWS_SECRET_ACCESS_KEY) that have the appropriate IAM permissions for Amazon Managed Blockchain (AMB) Query. In a
@@ -57,8 +54,7 @@ IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IA
 ###### Note
 
 AWS recommends that you give access to specific API operations rather than using the
-wild-card `*`. For more information, see [Accessing
-specific Amazon Managed Blockchain (AMB) Query API actions](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-ambquery-apis "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-ambquery-apis").
+wild-card `*`. For more information, see [Accessing specific Amazon Managed Blockchain (AMB) Query API actions](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-ambquery-apis "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-ambquery-apis").
 
 ## Make Amazon Managed Blockchain (AMB) Query API requests by using Go
 
@@ -257,9 +253,7 @@ The `GetTokenBalance` API provides a way for you to get the balance of
 native tokens (ETH and BTC), which can be used to get the current balance of an
 externally owned account (EOA) at a point in time.
 
-###### Example— Use the `GetTokenBalance` API action to get the balance
-
-of a native token in Go
+###### Example— Use the `GetTokenBalance` API action to get the balance of a native token in Go
 
 In the following example, you use the `GetTokenBalance` API to get an address
 Ether (ETH) balance on the Ethereum Mainnet. Copy the following code to a file named
@@ -395,9 +389,7 @@ file into your local environment's working directory:
 }
 ```
 
-###### Example— Retrieve the historical token balance from a specific externally owned address
-
-(EOA) by using AMB Query `GetTokenBalance` API
+###### Example— Retrieve the historical token balance from a specific externally owned address (EOA) by using AMB Query `GetTokenBalance` API
 
 You can use the `GetTokenBalance` API to get the balance of various tokens
 (for example, ERC20, ERC721, and ERC1155) and native coins (for example, ETH and BTC), which

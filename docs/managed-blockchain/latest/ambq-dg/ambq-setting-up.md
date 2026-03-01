@@ -3,9 +3,7 @@
 Before you use Amazon Managed Blockchain (AMB) Query for the first time, follow the steps in this section to create an
 AWS account. The following section discusses how to get started using AMB Query.
 
-## Prerequisites and
-
-considerations
+## Prerequisites and considerations
 
 Before you use Amazon Web Services for the first time, you must have an
 AWS account.
@@ -45,8 +43,7 @@ For information about how to create an IAM user, see [Creating an IAM user in yo
 account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md"). For more information about how to attach a permissions policy to a user, see
 [Changing
 permissions for an IAM user](../../../IAM/latest/UserGuide/id_users_change-permissions.md "../../../IAM/latest/UserGuide/id_users_change-permissions.md"). For an example of a permissions policy
-that you can use to give a user permission to work with AMB Query, see [Identity-based policy
-examples for Amazon Managed Blockchain (AMB) Query](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+that you can use to give a user permission to work with AMB Query, see [Identity-based policy examples for Amazon Managed Blockchain (AMB) Query](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Install and configure the AWS Command Line Interface
 

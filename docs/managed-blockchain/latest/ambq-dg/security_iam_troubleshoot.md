@@ -1,18 +1,13 @@
-# Troubleshooting Amazon Managed Blockchain (AMB) Query identity and
-
-access
+# Troubleshooting Amazon Managed Blockchain (AMB) Query identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with AMB Query and IAM.
 
 ###### Topics
 
-- [I am not authorized to
-  perform an action in AMB Query](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform an action in AMB Query](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
 
-## I am not authorized to
-
-perform an action in AMB Query
+## I am not authorized to perform an action in AMB Query
 
 If you receive an error that you're not authorized to perform an action, your
 policies must be updated to allow you to perform the action.

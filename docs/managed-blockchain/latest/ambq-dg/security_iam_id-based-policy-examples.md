@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples for Amazon Managed Blockchain (AMB) Query
+# Identity-based policy examples for Amazon Managed Blockchain (AMB) Query
 
 By default, users and roles don't have permission to create or modify AMB Query
 resources. To grant users permission to perform actions on the
@@ -14,16 +12,11 @@ For details about actions and resource types defined by AMB Query, including the
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Accessing
-  specific Amazon Managed Blockchain (AMB) Query API actions](#security_iam_id-based-policy-examples-access-ambquery-apis "#security_iam_id-based-policy-examples-access-ambquery-apis")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Accessing specific Amazon Managed Blockchain (AMB) Query API actions](#security_iam_id-based-policy-examples-access-ambquery-apis "#security_iam_id-based-policy-examples-access-ambquery-apis")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AMB Query resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -56,9 +49,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -98,9 +89,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Accessing
-
-specific Amazon Managed Blockchain (AMB) Query API actions
+## Accessing specific Amazon Managed Blockchain (AMB) Query API actions
 
 ###### Note
 
@@ -133,9 +122,7 @@ JSON
 
 ```
 
-###### Example IAM Policy to access Amazon Managed Blockchain (AMB) Query `ListTransactions` and
-
-`GetTransaction` APIs
+###### Example IAM Policy to access Amazon Managed Blockchain (AMB) Query `ListTransactions` and `GetTransaction` APIs
 
 This example grants an IAM user in your AWS account access to
 the AMB Query `ListTransaction` and

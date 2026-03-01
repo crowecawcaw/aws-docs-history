@@ -4,20 +4,14 @@ This topic provides a list AMB Query use cases.
 
 ###### Topics
 
-- [Query current and historical
-  token balances](#query-token-balances "#query-token-balances")
+- [Query current and historical token balances](#query-token-balances "#query-token-balances")
 - [Retrieve historical transaction data](#query-transactions "#query-transactions")
-- [Get all token balances for
-  a given address](#query-token-balances "#query-token-balances")
+- [Get all token balances for a given address](#query-token-balances "#query-token-balances")
 - [List events emitted for a transaction](#query-tokens-minted "#query-tokens-minted")
-- [Get all tokens minted by a
-  contract](#query-transaction-events "#query-transaction-events")
-- [List contracts and get contract
-  information](#query-contract-info "#query-contract-info")
+- [Get all tokens minted by a contract](#query-transaction-events "#query-transaction-events")
+- [List contracts and get contract information](#query-contract-info "#query-contract-info")
 
-## Query current and historical
-
-token balances
+## Query current and historical token balances
 
 The [`GetTokenBalance`](../AMBQ-APIReference/API_GetTokenBalance.md "../AMBQ-APIReference/API_GetTokenBalance.md") API gets the balance of supported tokens (ERC20,
 ERC721, ERC1155) and native coins (ETH, BTC) to get the current or a historical balance by
@@ -40,9 +34,7 @@ a single transaction from the list.
 
 For more information, see the [Amazon Managed Blockchain (AMB) Query Reference Guide](../AMBQ-APIReference/Welcome.md "../AMBQ-APIReference/Welcome.md").
 
-## Get all token balances for
-
-a given address
+## Get all token balances for a given address
 
 You can use the [`ListTokenBalances`](../AMBQ-APIReference/API_ListTokenBalances.md "../AMBQ-APIReference/API_ListTokenBalances.md") API operation to get balances on wallets, user
 interfaces, web3 utilities, and more. This API operation returns a list of all balances for an
@@ -63,9 +55,7 @@ as a _Transfer_ event or a _Withdrawal_ event from the ERC20 contract.
 
 For more information, see the [Amazon Managed Blockchain (AMB) Query Reference Guide](../AMBQ-APIReference/Welcome.md "../AMBQ-APIReference/Welcome.md").
 
-## Get all tokens minted by a
-
-contract
+## Get all tokens minted by a contract
 
 You can use the [`ListTokenBalances`](../AMBQ-APIReference/API_ListTokenBalances.md "../AMBQ-APIReference/API_ListTokenBalances.md") API operation to return a list of all supported
 tokens (ERC20, ERC721, ERC1155) minted by a contract
@@ -76,9 +66,7 @@ the Ethereum blockchain by using the [`ListTokenBalances`](../AMBQ-APIReference/
 
 For more information, see the [Amazon Managed Blockchain (AMB) Query Reference Guide](../AMBQ-APIReference/Welcome.md "../AMBQ-APIReference/Welcome.md").
 
-## List contracts and get contract
-
-information
+## List contracts and get contract information
 
 You can use the [`ListAssetContracts`](../AMBQ-APIReference/ListAssetContracts.md "../AMBQ-APIReference/ListAssetContracts.md") API operation to list ERC-721, ERC-1155,
 or ERC-20 contracts deployed by a given address. Additionally, if you have the contract
