@@ -46,8 +46,7 @@ You can only deploy a note from your Studio notebook if it meets the following c
   AWS Management Console, AWS Command Line Interface or AWS API to change the Parallelism and/or ParallelismPerKPU settings according to the level of
   parallelism your application requires, or you can enable autoscaling for your deployed application.
 - If you are deploying as an application with durable state your VPC must have internet access. If your VPC does not have internet access,
-  see [Deploy as an application with
-  durable state in a VPC with no internet access](how-zeppelin-troubleshooting.md#how-zeppelin-troubleshooting-deploying-no-internet "how-zeppelin-troubleshooting.md#how-zeppelin-troubleshooting-deploying-no-internet").
+  see [Deploy as an application with durable state in a VPC with no internet access](how-zeppelin-troubleshooting.md#how-zeppelin-troubleshooting-deploying-no-internet "how-zeppelin-troubleshooting.md#how-zeppelin-troubleshooting-deploying-no-internet").
 
 ## Scala/Python criteria
 

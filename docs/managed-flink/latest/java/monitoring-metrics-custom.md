@@ -8,8 +8,7 @@ create your own metrics to track application-specific data, such as processing e
 ###### This topic contains the following sections:
 
 - [How it works](#monitoring-metrics-custom-howitworks "#monitoring-metrics-custom-howitworks")
-- [View examples for creating a mapping
-  class](#monitoring-metrics-custom-examples "#monitoring-metrics-custom-examples")
+- [View examples for creating a mapping class](#monitoring-metrics-custom-examples "#monitoring-metrics-custom-examples")
 - [View custom metrics](#monitoring-metrics-custom-examples-viewing "#monitoring-metrics-custom-examples-viewing")
 
 ## How it works
@@ -59,9 +58,7 @@ to CloudWatch. Custom metrics that you define have the following characteristics
   or [MonitoringConfigurationUpdate](../apiv2/API_MonitoringConfigurationUpdate.md "../apiv2/API_MonitoringConfigurationUpdate.md")
   parameter of the [UpdateApplication](../apiv2/API_UpdateApplication.md "../apiv2/API_UpdateApplication.md") action.
 
-## View examples for creating a mapping
-
-class
+## View examples for creating a mapping class
 
 The following code examples demonstrate how to create a mapping class that creates and
 increments a custom metric, and how to implement the mapping class in your application

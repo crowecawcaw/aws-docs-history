@@ -23,8 +23,7 @@ Apache Flink version upgrades. With in-place version upgrades, you retain
 application traceability against a single ARN across Apache Flink versions,
 including snapshots, logs, metrics, tags, Flink configurations, and more. You can
 use this feature in `RUNNING` and `READY` state. For more
-information, see [Use in-place version upgrades for Apache
-Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
+information, see [Use in-place version upgrades for Apache Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
 
 ###### Update Runtime Properties for a Managed Service for Apache Flink application
 
@@ -93,9 +92,7 @@ create an application:
 }
 ```
 
-### Add and update runtime properties in an existing
-
-application
+### Add and update runtime properties in an existing application
 
 The following example request for the [`UpdateApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md") action adds or updates runtime properties for an existing application:
 
@@ -187,5 +184,4 @@ private static FlinkKinesisProducer<String> createSinkFromApplicationProperties(
 }
 ```
 
-For code examples, see [Examples for creating and working with Managed Service for Apache Flink
-applications](examples-collapsibles.md "examples-collapsibles.md").
+For code examples, see [Examples for creating and working with Managed Service for Apache Flink applications](examples-collapsibles.md "examples-collapsibles.md").

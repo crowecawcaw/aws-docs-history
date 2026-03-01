@@ -30,9 +30,7 @@ about Apache Flink serializers, see [Data Types & Serialization](https://nightli
   operators isn't too complicated, or that you aren't creating or using resources with every record
   processed. Also ensure that your application isn't creating sliding or tumbling windows too frequently.
 
-## Performance troubleshooting
-
-solutions
+## Performance troubleshooting solutions
 
 This section contains potential solutions to performance issues.
 

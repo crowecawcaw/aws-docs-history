@@ -6,9 +6,7 @@ Managed Service for Apache Flink for Apache Flink version 1.15 or later will [au
 from starting or updating](flink-1-15-2.md "flink-1-15-2.md") if they are using unsupported Kinesis Connector
 versions (pre-version 1.15.2) bundled into application JARs or archives (ZIP).
 
-## Rejection
-
-error
+## Rejection error
 
 You will see the following error when submitting create / update application calls through:
 
@@ -20,8 +18,8 @@ For more information refer to connector fix: https://issues.apache.org/jira/brow
 ## Steps to remediate
 
 - Update the application’s dependency on `flink-connector-kinesis`. If you are using Maven as your project’s build tool,
-  follow [Update a Maven dependency](#troubleshooting-unsupported-kinesis-connectors-update-maven-dependency "#troubleshooting-unsupported-kinesis-connectors-update-maven-dependency") . If you are using Gradle, follow
-  [Update a Gradle dependency](#troubleshooting-unsupported-kinesis-connectors-update-gradle-dependency "#troubleshooting-unsupported-kinesis-connectors-update-gradle-dependency") .
+  follow [Update a Maven dependency](#troubleshooting-unsupported-kinesis-connectors-update-maven-dependency "#troubleshooting-unsupported-kinesis-connectors-update-maven-dependency"). If you are using Gradle, follow
+  [Update a Gradle dependency](#troubleshooting-unsupported-kinesis-connectors-update-gradle-dependency "#troubleshooting-unsupported-kinesis-connectors-update-gradle-dependency").
 - Repackage the application.
 - Upload to an Amazon S3 bucket.
 - Resubmit the create / update application request with the revised application just uploaded to the Amazon S3 bucket.

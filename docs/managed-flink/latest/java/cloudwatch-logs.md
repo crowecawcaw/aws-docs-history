@@ -52,24 +52,18 @@ To add a CloudWatch logging option using the AWS CLI, you complete the following
   action, or add a logging option to an existing application using the [AddApplicationCloudWatchLoggingOption](../../../managed-service-for-apache-flink/latest/apiv2/API_AddApplicationCloudWatchLoggingOption.md "../../../managed-service-for-apache-flink/latest/apiv2/API_AddApplicationCloudWatchLoggingOption.md") action.
 - Add permissions to your application's policy to write to the logs.
 
-### Create a CloudWatch log group and log
-
-stream
+### Create a CloudWatch log group and log stream
 
 You create a CloudWatch log group and stream using either the CloudWatch Logs console or the API.
 For information about creating a CloudWatch log group and log stream, see [Working with Log Groups and Log Streams](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md").
 
-### Work with application CloudWatch logging
-
-options
+### Work with application CloudWatch logging options
 
 Use the following API actions to add a CloudWatch log option to a new or existing
 application or change a log option for an existing application. For information
 about how to use a JSON file for input for an API action, see [Managed Service for Apache Flink API example code](api-examples.md "api-examples.md").
 
-#### Add a CloudWatch log option when creating an
-
-application
+#### Add a CloudWatch log option when creating an application
 
 The following example demonstrates how to use the
 `CreateApplication` action to add a CloudWatch log option when you
@@ -102,9 +96,7 @@ about the action, see [`CreateApplication`](../../../managed-service-for-apache-
 
 ```
 
-#### Add a CloudWatch log option to an existing
-
-application
+#### Add a CloudWatch log option to an existing application
 
 The following example demonstrates how to use the
 `AddApplicationCloudWatchLoggingOption` action to add a CloudWatch log
@@ -123,9 +115,7 @@ For more information about the action, see [`AddApplicationCloudWatchLoggingOpti
 
 ```
 
-#### Update an existing CloudWatch log
-
-option
+#### Update an existing CloudWatch log option
 
 The following example demonstrates how to use the
 `UpdateApplication` action to modify an existing CloudWatch log option.
@@ -147,9 +137,7 @@ with your own information. For more information about the action, see [`UpdateAp
 
 ```
 
-#### Delete a CloudWatch log option from an
-
-application
+#### Delete a CloudWatch log option from an application
 
 The following example demonstrates how to use the
 `DeleteApplicationCloudWatchLoggingOption` action to delete an
@@ -174,9 +162,7 @@ To set the level of application logging, use the [`MonitoringConfiguration`](../
 
 For information about application log levels, see [Control application monitoring levels](#cloudwatch_levels "#cloudwatch_levels").
 
-##### Set the application logging level when
-
-creating an application
+##### Set the application logging level when creating an application
 
 The following example request for the [`CreateApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_CreateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_CreateApplication.md") action sets the application
 log level to `INFO`.
@@ -207,9 +193,7 @@ log level to `INFO`.
 }
 ```
 
-##### Update the application logging
-
-level
+##### Update the application logging level
 
 The following example request for the [`UpdateApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md") action sets the application
 log level to `INFO`.
@@ -227,9 +211,7 @@ log level to `INFO`.
 }
 ```
 
-### Add permissions to write to the CloudWatch log
-
-stream
+### Add permissions to write to the CloudWatch log stream
 
 Managed Service for Apache Flink needs permissions to write misconfiguration errors to CloudWatch. You can
 add these permissions to the AWS Identity and Access Management (IAM) role that Managed Service for Apache Flink assumes.
@@ -259,9 +241,7 @@ JSON
 
 ```
 
-#### Permissions
-
-policy
+#### Permissions policy
 
 To grant permissions to an application to write log events to CloudWatch from a
 Managed Service for Apache Flink resource, you can use the following IAM permissions policy.
@@ -307,8 +287,7 @@ Monitoring metrics levels are defined as follows:
 - **Task**: Metrics are scoped to each task. For
   information about tasks, see [Implement application scaling in Managed Service for Apache Flink](how-scaling.md "how-scaling.md").
 - **Operator**: Metrics are scoped to each
-  operator. For information about operators, see [Transform data using operators in Managed Service for Apache Flink with the
-  DataStream API](how-operators.md "how-operators.md").
+  operator. For information about operators, see [Transform data using operators in Managed Service for Apache Flink with the DataStream API](how-operators.md "how-operators.md").
 - **Parallelism**: Metrics are scoped to
   application parallelism. You can only set this metrics level using the
   [MonitoringConfigurationUpdate](../apiv2/API_MonitoringConfigurationUpdate.md "../apiv2/API_MonitoringConfigurationUpdate.md") parameter of the
@@ -356,8 +335,7 @@ If application logs are not being written to the log stream, verify the followin
       + `logs:DescribeLogStreams`
 
   For more
-  information, see [Add permissions to write to the CloudWatch log
-  stream](#enable_putlogevents "#enable_putlogevents").
+  information, see [Add permissions to write to the CloudWatch log stream](#enable_putlogevents "#enable_putlogevents").
 
 - Verify that your application is running. To check your application's status,
   view your application's page in the console, or use the [DescribeApplication](../apiv2/API_DescribeApplication.md "../apiv2/API_DescribeApplication.md") or [ListApplications](../apiv2/API_ListApplications.md "../apiv2/API_ListApplications.md") actions.

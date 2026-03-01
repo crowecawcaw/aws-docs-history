@@ -5,21 +5,16 @@ Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Ama
 With automatic system rollback and operations visibility capabilities in Amazon Managed Service for Apache Flink,
 you can identify and resolve issues with your applications.
 
-## System
-
-rollbacks
+## System rollbacks
 
 If your application update or scaling operation fails due to a customer error,
 such as a code bug or permission issue, Amazon Managed Service for Apache Flink automatically attempts to roll
 back to the previous running version if you have opted in to this functionality. For
-more information, see [Enable system rollbacks for your Managed Service for Apache Flink
-application](how-system-rollbacks.md "how-system-rollbacks.md"). If this autorollback fails or you have
+more information, see [Enable system rollbacks for your Managed Service for Apache Flink application](how-system-rollbacks.md "how-system-rollbacks.md"). If this autorollback fails or you have
 not opted in or opted out, your application will be placed into the
 `READY` state. To update your application, complete the following steps:
 
-## Manual
-
-rollback
+## Manual rollback
 
 If the application is not progressing and is in a transient state for long, or if
 the application successfully transitioned to `Running`, but you see
@@ -33,9 +28,7 @@ application, you can manually roll it back using the
    `DescribeApplicationOperation` API.
 3. If rollback fails, use the previous system rollback steps.
 
-## Operations
-
-visibility
+## Operations visibility
 
 The `ListApplicationOperations` API shows the history of all customer
 and system operations on your application.

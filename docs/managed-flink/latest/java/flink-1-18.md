@@ -13,8 +13,7 @@ Apache Flink version upgrades. With in-place version upgrades, you retain
 application traceability against a single ARN across Apache Flink versions,
 including snapshots, logs, metrics, tags, Flink configurations, and more. You can
 use this feature in `RUNNING` and `READY` state. For more
-information, see [Use in-place version upgrades for Apache
-Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
+information, see [Use in-place version upgrades for Apache Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
 
 | Supported features with Apache Flink documentation references                          | Supported Features                                                                                                       | Description                                                                                                                                                                                                                                                                                                                             | Apache Flink documentation reference |
 | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
@@ -30,9 +29,7 @@ Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
 
 For the Apache Flink 1.18.1 release documentation, see [Apache Flink 1.18.1 Release Announcement](https://flink.apache.org/2024/01/19/apache-flink-1.18.1-release-announcement/ "https://flink.apache.org/2024/01/19/apache-flink-1.18.1-release-announcement/").
 
-## Changes in Amazon Managed Service for Apache Flink with
-
-Apache Flink 1.18
+## Changes in Amazon Managed Service for Apache Flink with Apache Flink 1.18
 
 **Akka replaced with Pekko**
 

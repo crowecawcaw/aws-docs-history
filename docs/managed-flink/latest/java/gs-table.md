@@ -11,17 +11,14 @@ application.
 
 ###### Topics
 
-- [Review the components of the Managed Service for Apache Flink
-  application](#gs-table-components "#gs-table-components")
+- [Review the components of the Managed Service for Apache Flink application](#gs-table-components "#gs-table-components")
 - [Complete the required prerequisites](#gs-table-prerequisites "#gs-table-prerequisites")
 - [Create and run a Managed Service for Apache Flink application](gs-table-create.md "gs-table-create.md")
 - [Next step](#gs-table-next-step-4 "#gs-table-next-step-4")
 - [Clean up AWS resources](gs-table-cleanup.md "gs-table-cleanup.md")
 - [Explore additional resources](gs-table-next-steps.md "gs-table-next-steps.md")
 
-## Review the components of the Managed Service for Apache Flink
-
-application
+## Review the components of the Managed Service for Apache Flink application
 
 ###### Note
 
@@ -65,8 +62,7 @@ the application and how to run the application locally in the IDE of your choice
 
 Before starting this tutorial, complete the first two steps of the [Get started with Amazon Managed Service for Apache Flink (DataStream API)](getting-started.md "getting-started.md"):
 
-- [Fulfill the prerequisites for completing the
-  exercises](getting-started.md#setting-up-prerequisites "getting-started.md#setting-up-prerequisites")
+- [Fulfill the prerequisites for completing the exercises](getting-started.md#setting-up-prerequisites "getting-started.md#setting-up-prerequisites")
 - [Set up the AWS Command Line Interface (AWS CLI)](setup-awscli.md "setup-awscli.md")
 
 To get started, see [Create an application](gs-table-create.md "gs-table-create.md").

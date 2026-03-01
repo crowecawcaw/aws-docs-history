@@ -1,26 +1,18 @@
 Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
 
-# Real-time vector embedding blueprints -
-
-troubleshooting
+# Real-time vector embedding blueprints - troubleshooting
 
 Review the following troubleshooting topics about real-time vector embedding blueprints.
 For more information about real-time vector embedding blueprints, see [Real-time vector embedding blueprints](../../../msk/latest/developerguide/ai-vector-embedding-integration-learn-more.md "../../../msk/latest/developerguide/ai-vector-embedding-integration-learn-more.md").
 
 ###### Troubleshooting topics
 
-- [My CloudFormation stack deployment has failed or
-  rolled back. What can I do to fix it?](#troubleshooting-blueprints-deployment "#troubleshooting-blueprints-deployment")
-- [I don't want my application to start reading
-  messages from the beginning of the Amazon MSK topics. What do I do?](#troubleshooting-blueprints-beginning "#troubleshooting-blueprints-beginning")
-- [How do I know if there is an issue with my Managed Service for Apache Flink
-  application and how can I debug it?](#troubleshooting-blueprints-debug "#troubleshooting-blueprints-debug")
-- [What are the key metrics that I should be
-  monitoring for my Managed Service for Apache Flink application?](#troubleshooting-blueprints-metrics "#troubleshooting-blueprints-metrics")
+- [My CloudFormation stack deployment has failed or rolled back. What can I do to fix it?](#troubleshooting-blueprints-deployment "#troubleshooting-blueprints-deployment")
+- [I don't want my application to start reading messages from the beginning of the Amazon MSK topics. What do I do?](#troubleshooting-blueprints-beginning "#troubleshooting-blueprints-beginning")
+- [How do I know if there is an issue with my Managed Service for Apache Flink application and how can I debug it?](#troubleshooting-blueprints-debug "#troubleshooting-blueprints-debug")
+- [What are the key metrics that I should be monitoring for my Managed Service for Apache Flink application?](#troubleshooting-blueprints-metrics "#troubleshooting-blueprints-metrics")
 
-## My CloudFormation stack deployment has failed or
-
-rolled back. What can I do to fix it?
+## My CloudFormation stack deployment has failed or rolled back. What can I do to fix it?
 
 - Go to your CFN stack and find the reason for the stack failure. It could
   be related to missing permissions, AWS resource name collisions, among
@@ -39,9 +31,7 @@ rolled back. What can I do to fix it?
   VPC endpoint. Deleting it might create network disruption for other
   services. Be careful in deleting these endpoints.
 
-## I don't want my application to start reading
-
-messages from the beginning of the Amazon MSK topics. What do I do?
+## I don't want my application to start reading messages from the beginning of the Amazon MSK topics. What do I do?
 
 You must explicitly set `source.msk.starting.offset` to one of the
 following values, depending on the desired behavior:
@@ -53,16 +43,12 @@ following values, depending on the desired behavior:
 - **Committed offset**: Read from the last
   message the consumer processed within a partition.
 
-## How do I know if there is an issue with my Managed Service for Apache Flink
-
-application and how can I debug it?
+## How do I know if there is an issue with my Managed Service for Apache Flink application and how can I debug it?
 
 Use the [Managed Service for Apache Flink troubleshooting guide](troubleshooting-runtime.md "troubleshooting-runtime.md") to debug Managed Service for Apache Flink related issues with your
 application.
 
-## What are the key metrics that I should be
-
-monitoring for my Managed Service for Apache Flink application?
+## What are the key metrics that I should be monitoring for my Managed Service for Apache Flink application?
 
 - All metrics available for a regular Managed Service for Apache Flink application can help you monitor
   your application. For more information, see [Metrics and dimensions in Managed Service for Apache Flink](metrics-dimensions.md "metrics-dimensions.md").

@@ -12,8 +12,7 @@ Line](https://cwiki.apache.org/confluence/display/FLINK/FLIP-458%3A+Long-Term+Su
 
 If you are using an earlier supported version of Apache Flink and want to upgrade
 your existing applications to Apache Flink 1.20.0, you can do so using in-place
-Apache Flink version upgrades. For more information, see [Use in-place version upgrades for Apache
-Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md"). With in-place version upgrades,
+Apache Flink version upgrades. For more information, see [Use in-place version upgrades for Apache Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md"). With in-place version upgrades,
 you retain application traceability against a single ARN across Apache Flink
 versions, including snapshots, logs, metrics, tags, Flink configurations, and more.
 

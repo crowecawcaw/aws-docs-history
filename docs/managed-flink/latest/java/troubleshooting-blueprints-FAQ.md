@@ -8,59 +8,36 @@ about real-time vector embedding blueprints, see [Real-time vector embedding blu
 ###### FAQ
 
 - [What AWS resources does this blueprint create?](#troubleshooting-blueprints-1 "#troubleshooting-blueprints-1")
-- [What are my actions after the AWS CloudFormation stack
-  deployment is complete?](#troubleshooting-blueprints-2 "#troubleshooting-blueprints-2")
-- [What should be the structure of the data in the
-  source Amazon MSK topic(s)?](#troubleshooting-blueprints-3 "#troubleshooting-blueprints-3")
+- [What are my actions after the AWS CloudFormation stack deployment is complete?](#troubleshooting-blueprints-2 "#troubleshooting-blueprints-2")
+- [What should be the structure of the data in the source Amazon MSK topic(s)?](#troubleshooting-blueprints-3 "#troubleshooting-blueprints-3")
 - [Can I specify parts of a message to embed?](#troubleshooting-blueprints-4 "#troubleshooting-blueprints-4")
 - [Can I read data from multiple Amazon MSK topics?](#troubleshooting-blueprints-5 "#troubleshooting-blueprints-5")
 - [Can I use regex to configure Amazon MSK topic names?](#troubleshooting-blueprints-6 "#troubleshooting-blueprints-6")
-- [What is the maximum size of a message that can be
-  read from an Amazon MSK topic?](#troubleshooting-blueprints-7 "#troubleshooting-blueprints-7")
+- [What is the maximum size of a message that can be read from an Amazon MSK topic?](#troubleshooting-blueprints-7 "#troubleshooting-blueprints-7")
 - [What type of OpenSearch is supported?](#troubleshooting-blueprints-8 "#troubleshooting-blueprints-8")
-- [Why do I need to use a vector search collection,
-  vector index, and add a vector field in my OpenSearch Serverless colelction?](#troubleshooting-blueprints-9 "#troubleshooting-blueprints-9")
-- [What should I set as the dimension for my vector
-  field?](#troubleshooting-blueprints-10 "#troubleshooting-blueprints-10")
-- [What does the output look like in the configured
-  OpenSearch index?](#troubleshooting-blueprints-11 "#troubleshooting-blueprints-11")
-- [Can I specify metadata fields to add to the document
-  stored in the OpenSearch index?](#troubleshooting-blueprints-12 "#troubleshooting-blueprints-12")
-- [Should I expect duplicate entries in the OpenSearch
-  index?](#troubleshooting-blueprints-13 "#troubleshooting-blueprints-13")
+- [Why do I need to use a vector search collection, vector index, and add a vector field in my OpenSearch Serverless colelction?](#troubleshooting-blueprints-9 "#troubleshooting-blueprints-9")
+- [What should I set as the dimension for my vector field?](#troubleshooting-blueprints-10 "#troubleshooting-blueprints-10")
+- [What does the output look like in the configured OpenSearch index?](#troubleshooting-blueprints-11 "#troubleshooting-blueprints-11")
+- [Can I specify metadata fields to add to the document stored in the OpenSearch index?](#troubleshooting-blueprints-12 "#troubleshooting-blueprints-12")
+- [Should I expect duplicate entries in the OpenSearch index?](#troubleshooting-blueprints-13 "#troubleshooting-blueprints-13")
 - [Can I send data to multiple OpenSearch indices?](#troubleshooting-blueprints-14 "#troubleshooting-blueprints-14")
-- [Can I deploy multiple real-time vector embedding
-  applications in a single AWS account?](#troubleshooting-blueprints-15 "#troubleshooting-blueprints-15")
-- [Can multiple real-time vector embedding applications
-  use the same data source or sink?](#troubleshooting-blueprints-16 "#troubleshooting-blueprints-16")
-- [Does the application support cross-account
-  connectivity?](#troubleshooting-blueprints-17 "#troubleshooting-blueprints-17")
-- [Does the application support cross-Region
-  connectivity?](#troubleshooting-blueprints-18 "#troubleshooting-blueprints-18")
-- [Can my Amazon MSK cluster and OpenSearch collection be in
-  different VPCs or subnets?](#troubleshooting-blueprints-19 "#troubleshooting-blueprints-19")
-- [What embedding models are supported by the
-  application?](#troubleshooting-blueprints-20 "#troubleshooting-blueprints-20")
-- [Can I fine-tune the performance of my application
-  based on my workload?](#troubleshooting-blueprints-21 "#troubleshooting-blueprints-21")
-- [What Amazon MSK authentication types are
-  supported?](#troubleshooting-blueprints-22 "#troubleshooting-blueprints-22")
-- [What is sink.os.bulkFlushIntervalMillis
-  and how do I set it?](#troubleshooting-blueprints-23 "#troubleshooting-blueprints-23")
-- [When I deploy my Managed Service for Apache Flink application, from what point
-  in the Amazon MSK topic will it begin reading messages?](#troubleshooting-blueprints-24 "#troubleshooting-blueprints-24")
-- [How do I use
-  source.msk.starting.offset?](#troubleshooting-blueprints-25 "#troubleshooting-blueprints-25")
+- [Can I deploy multiple real-time vector embedding applications in a single AWS account?](#troubleshooting-blueprints-15 "#troubleshooting-blueprints-15")
+- [Can multiple real-time vector embedding applications use the same data source or sink?](#troubleshooting-blueprints-16 "#troubleshooting-blueprints-16")
+- [Does the application support cross-account connectivity?](#troubleshooting-blueprints-17 "#troubleshooting-blueprints-17")
+- [Does the application support cross-Region connectivity?](#troubleshooting-blueprints-18 "#troubleshooting-blueprints-18")
+- [Can my Amazon MSK cluster and OpenSearch collection be in different VPCs or subnets?](#troubleshooting-blueprints-19 "#troubleshooting-blueprints-19")
+- [What embedding models are supported by the application?](#troubleshooting-blueprints-20 "#troubleshooting-blueprints-20")
+- [Can I fine-tune the performance of my application based on my workload?](#troubleshooting-blueprints-21 "#troubleshooting-blueprints-21")
+- [What Amazon MSK authentication types are supported?](#troubleshooting-blueprints-22 "#troubleshooting-blueprints-22")
+- [What is sink.os.bulkFlushIntervalMillis and how do I set it?](#troubleshooting-blueprints-23 "#troubleshooting-blueprints-23")
+- [When I deploy my Managed Service for Apache Flink application, from what point in the Amazon MSK topic will it begin reading messages?](#troubleshooting-blueprints-24 "#troubleshooting-blueprints-24")
+- [How do I use source.msk.starting.offset?](#troubleshooting-blueprints-25 "#troubleshooting-blueprints-25")
 - [What chunking strategies are supported?](#troubleshooting-blueprints-26 "#troubleshooting-blueprints-26")
-- [How do I read records in my vector
-  datastore?](#troubleshooting-blueprints-27 "#troubleshooting-blueprints-27")
+- [How do I read records in my vector datastore?](#troubleshooting-blueprints-27 "#troubleshooting-blueprints-27")
 - [Where can I find new updates to the source code?](#troubleshooting-blueprints-28 "#troubleshooting-blueprints-28")
-- [Can I make a change to the AWS CloudFormation template and
-  update the Managed Service for Apache Flink application?](#troubleshooting-blueprints-29 "#troubleshooting-blueprints-29")
-- [Will AWS monitor and maintain the application on
-  my behalf?](#troubleshooting-blueprints-30 "#troubleshooting-blueprints-30")
-- [Does this application move my data outside my
-  AWS account?](#troubleshooting-blueprints-31 "#troubleshooting-blueprints-31")
+- [Can I make a change to the AWS CloudFormation template and update the Managed Service for Apache Flink application?](#troubleshooting-blueprints-29 "#troubleshooting-blueprints-29")
+- [Will AWS monitor and maintain the application on my behalf?](#troubleshooting-blueprints-30 "#troubleshooting-blueprints-30")
+- [Does this application move my data outside my AWS account?](#troubleshooting-blueprints-31 "#troubleshooting-blueprints-31")
 
 ## What AWS resources does this blueprint create?
 
@@ -79,9 +56,7 @@ of the stack. The following are the key resources that the stack creates:
 - Data access policy for Amazon OpenSearch Service
 - VPC endpoints for accessing Amazon Bedrock and Amazon OpenSearch Service
 
-## What are my actions after the AWS CloudFormation stack
-
-deployment is complete?
+## What are my actions after the AWS CloudFormation stack deployment is complete?
 
 After the AWS CloudFormation stack deployment is complete, access the Managed Service for Apache Flink console and find
 your blueprint Managed Service for Apache Flink application. Choose the **Configure** tab and
@@ -91,9 +66,7 @@ application will start ingesting messages from your topic.
 
 To check for new releases, see [https://github.com/awslabs/real-time-vectorization-of-streaming-data/releases](https://github.com/awslabs/real-time-vectorization-of-streaming-data/releases "https://github.com/awslabs/real-time-vectorization-of-streaming-data/releases").
 
-## What should be the structure of the data in the
-
-source Amazon MSK topic(s)?
+## What should be the structure of the data in the source Amazon MSK topic(s)?
 
 We currently support structured and unstructured source data.
 
@@ -134,9 +107,7 @@ index.
 either a comma separated list of topic names or `.*` regex to include all
 topics.
 
-## What is the maximum size of a message that can be
-
-read from an Amazon MSK topic?
+## What is the maximum size of a message that can be read from an Amazon MSK topic?
 
 The maximum size of a message that can be processed is limited by the Amazon Bedrock
 InvokeModel body limit that is currently set to 25,000,000. For more information, see
@@ -149,18 +120,14 @@ collection, make sure to use a vector collection and create a vector index to us
 this application. This will let you use the OpenSearch vector database capabilities for
 querying your data. To learn more, see[Amazon OpenSearch Service’s vector database capabilities explained](https://aws.amazon.com/blogs/big-data/amazon-opensearch-services-vector-database-capabilities-explained/ "https://aws.amazon.com/blogs/big-data/amazon-opensearch-services-vector-database-capabilities-explained/").
 
-## Why do I need to use a vector search collection,
-
-vector index, and add a vector field in my OpenSearch Serverless colelction?
+## Why do I need to use a vector search collection, vector index, and add a vector field in my OpenSearch Serverless colelction?
 
 The _vector search_ collection type in OpenSearch
 Serverless provides a similarity search capability that is scalable and high performing.
 It streamlines building modern machine learning (ML) augmented search experiences and
 generative artificial intelligence (AI) applications. For more information, see [Working with vector search collections](../../../opensearch-service/latest/developerguide/serverless-vector-search.md "../../../opensearch-service/latest/developerguide/serverless-vector-search.md").
 
-## What should I set as the dimension for my vector
-
-field?
+## What should I set as the dimension for my vector field?
 
 Set the dimension of the vector field based on the embedding model that you want to
 use. Refer to the following table, and confirm these values from the respective
@@ -174,9 +141,7 @@ documentation.
 | Cohere Embed English                  | 1,024                                      |
 | Cohere Embed Multilingual             | 1,024                                      |
 
-## What does the output look like in the configured
-
-OpenSearch index?
+## What does the output look like in the configured OpenSearch index?
 
 Every document in the OpenSearch index contains following fields:
 
@@ -196,16 +161,12 @@ Every document in the OpenSearch index contains following fields:
 - **date**: UTC timestamp at which the document was
   stored in OpenSearch
 
-## Can I specify metadata fields to add to the document
-
-stored in the OpenSearch index?
+## Can I specify metadata fields to add to the document stored in the OpenSearch index?
 
 No, currently, we do not support adding additional fields to the final document stored
 in the OpenSearch index.
 
-## Should I expect duplicate entries in the OpenSearch
-
-index?
+## Should I expect duplicate entries in the OpenSearch index?
 
 Depending on how you configured your application, you might see duplicate messages in
 the index. One common reason is application restart. The application is configured by
@@ -220,46 +181,34 @@ No, the application supports storing data to a single OpenSearch index. To setup
 vectorization output to multiple indices, you must deploy separate Managed Service for Apache Flink
 applications.
 
-## Can I deploy multiple real-time vector embedding
-
-applications in a single AWS account?
+## Can I deploy multiple real-time vector embedding applications in a single AWS account?
 
 Yes, you can deploy multiple real-time vector embedding Managed Service for Apache Flink applications in a single
 AWS account if every application has a unique name.
 
-## Can multiple real-time vector embedding applications
-
-use the same data source or sink?
+## Can multiple real-time vector embedding applications use the same data source or sink?
 
 Yes, you can create multiple real-time vector embedding Managed Service for Apache Flink applications that read
 data from the same topic(s) or store data in the same index.
 
-## Does the application support cross-account
-
-connectivity?
+## Does the application support cross-account connectivity?
 
 No, for the application to run successfully, the Amazon MSK cluster and the OpenSearch
 collection must be in the same AWS account where you are trying to setup your Managed Service for Apache Flink
 application.
 
-## Does the application support cross-Region
-
-connectivity?
+## Does the application support cross-Region connectivity?
 
 No, the application only allows you to deploy an Managed Service for Apache Flink application with an Amazon MSK
 cluster and an OpenSearch collection in the same Region of the Managed Service for Apache Flink application.
 
-## Can my Amazon MSK cluster and OpenSearch collection be in
-
-different VPCs or subnets?
+## Can my Amazon MSK cluster and OpenSearch collection be in different VPCs or subnets?
 
 Yes, we support Amazon MSK cluster and OpenSearch collection in different VPCs and subnets
 as long as they are in the same AWS account. See (General MSF troubleshooting) to
 make sure your setup is correct.
 
-## What embedding models are supported by the
-
-application?
+## What embedding models are supported by the application?
 
 Currently, the application supports all models that are supported by Bedrock. These
 include:
@@ -271,9 +220,7 @@ include:
 - Cohere Embed English
 - Cohere Embed Multilingual
 
-## Can I fine-tune the performance of my application
-
-based on my workload?
+## Can I fine-tune the performance of my application based on my workload?
 
 Yes. The throughput of the application depends on a number of factors, all of which
 can be controlled by the customers:
@@ -290,15 +237,11 @@ can be controlled by the customers:
    you might notice that OpenSearch is the bottleneck in your pipeline. For scaling
    information, see OpenSearch scaling [Sizing Amazon OpenSearch Service domains](../../../opensearch-service/latest/developerguide/sizing-domains.md "../../../opensearch-service/latest/developerguide/sizing-domains.md").
 
-## What Amazon MSK authentication types are
-
-supported?
+## What Amazon MSK authentication types are supported?
 
 We only support the IAM MSK authentication type.
 
-## What is `sink.os.bulkFlushIntervalMillis`
-
-and how do I set it?
+## What is `sink.os.bulkFlushIntervalMillis` and how do I set it?
 
 When sending data to Amazon OpenSearch Service, the bulk flush interval is the interval at which the
 bulk request is run, regardless of the number of actions or the size of the request. The
@@ -308,9 +251,7 @@ While setting a flush interval can help to make sure that data is indexed timely
 can also lead to increased overhead if set too low. Consider your use case and the
 importance of timely indexing when choosing a flush interval.
 
-## When I deploy my Managed Service for Apache Flink application, from what point
-
-in the Amazon MSK topic will it begin reading messages?
+## When I deploy my Managed Service for Apache Flink application, from what point in the Amazon MSK topic will it begin reading messages?
 
 The application will start reading messages from the Amazon MSK topic at the offset
 specified by the `source.msk.starting.offset` configuration set in the
@@ -318,9 +259,7 @@ application’s runtime configuration. If `source.msk.starting.offset` is not
 explicitly set, the default behavior of the application is to start reading from the
 earliest available message in the topic.
 
-## How do I use
-
-`source.msk.starting.offset`?
+## How do I use `source.msk.starting.offset`?
 
 Explicitly set s`ource.msk.starting.offset` to one of the following values,
 based on desired behavior:
@@ -369,9 +308,7 @@ will fit in as many sentences as it can. If there are any sentences that are too
 then it will be chunked at the word-level. If a word is too long, then it will be split
 by character.
 
-## How do I read records in my vector
-
-datastore?
+## How do I read records in my vector datastore?
 
 1. When `source.msk.data.type` is `STRING`
    - **original_data**: The entire original
@@ -414,22 +351,16 @@ index.
 Go to [https://github.com/awslabs/real-time-vectorization-of-streaming-data/releases](https://github.com/awslabs/real-time-vectorization-of-streaming-data/releases "https://github.com/awslabs/real-time-vectorization-of-streaming-data/releases")
 to check for new releases.
 
-## Can I make a change to the AWS CloudFormation template and
-
-update the Managed Service for Apache Flink application?
+## Can I make a change to the AWS CloudFormation template and update the Managed Service for Apache Flink application?
 
 No, making a change to the AWS CloudFormation template does not update the Managed Service for Apache Flink application.
 Any new change in AWS CloudFormation implies a new stack needs to be deployed.
 
-## Will AWS monitor and maintain the application on
-
-my behalf?
+## Will AWS monitor and maintain the application on my behalf?
 
 No, AWS will not monitor, scale, update or patch this application on your behalf.
 
-## Does this application move my data outside my
-
-AWS account?
+## Does this application move my data outside my AWS account?
 
 All data read and stored by the Managed Service for Apache Flink application stays within your AWS account and
 never leaves your account.

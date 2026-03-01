@@ -5,9 +5,7 @@ Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Ama
 Follow these steps to create, configure, update, and run the application using
 the console.
 
-## Create the
-
-Application
+## Create the Application
 
 1. Sign in to the AWS Management Console, and open the Amazon MSF console at https://console.aws.amazon.com/flink.
 2. On the Managed Service for Apache Flink dashboard, choose **Create analytics
@@ -41,9 +39,7 @@ as follows:
 - Role:
   `kinesisanalytics-`MyApplication`-`us-west-2``
 
-## Configure the
-
-application
+## Configure the application
 
 Use the following procedure to configure the application.
 

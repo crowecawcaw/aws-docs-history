@@ -186,9 +186,7 @@ access it.
 Follow these steps to create, configure, update, and run the application using
 the console.
 
-### Create the
-
-Application
+### Create the Application
 
 1. Sign in to the AWS Management Console, and open the Amazon MSF console at https://console.aws.amazon.com/flink.
 2. On the Managed Service for Apache Flink dashboard, choose **Create analytics

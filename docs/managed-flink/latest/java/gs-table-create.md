@@ -9,16 +9,13 @@ sink.
 
 - [Create dependent resources](#gs-table-resources "#gs-table-resources")
 - [Set up your local development environment](#gs-table-2 "#gs-table-2")
-- [Download and examine the Apache Flink streaming Java
-  code](#gs-table-5 "#gs-table-5")
+- [Download and examine the Apache Flink streaming Java code](#gs-table-5 "#gs-table-5")
 - [Run your application locally](#gs-table-run-locally "#gs-table-run-locally")
-- [Observe the application writing data to an S3
-  bucket](#gs-table-input-output "#gs-table-input-output")
+- [Observe the application writing data to an S3 bucket](#gs-table-input-output "#gs-table-input-output")
 - [Stop your application running locally](#gs-table-stop "#gs-table-stop")
 - [Compile and package your application code](#gs-table-5.5 "#gs-table-5.5")
 - [Upload the application code JAR file](#gs-table-6 "#gs-table-6")
-- [Create and configure the Managed Service for Apache Flink
-  application](#gs-table-7 "#gs-table-7")
+- [Create and configure the Managed Service for Apache Flink application](#gs-table-7 "#gs-table-7")
 
 ## Create dependent resources
 
@@ -69,13 +66,10 @@ as normal Java dependencies using Maven.
 On your development machine, you must have Java JDK 11, Maven, and Git
 installed. We recommend that you use a development environment such as [Eclipse Java
 Neon](https://www.eclipse.org/downloads/packages/release/neon/3 "https://www.eclipse.org/downloads/packages/release/neon/3") or [IntelliJ
-IDEA](https://www.jetbrains.com/idea/ "https://www.jetbrains.com/idea/"). To verify that you meet all prerequisites, see [Fulfill the prerequisites for completing the
-exercises](getting-started.md#setting-up-prerequisites "getting-started.md#setting-up-prerequisites"). You **do not** need to install an Apache Flink
+IDEA](https://www.jetbrains.com/idea/ "https://www.jetbrains.com/idea/"). To verify that you meet all prerequisites, see [Fulfill the prerequisites for completing the exercises](getting-started.md#setting-up-prerequisites "getting-started.md#setting-up-prerequisites"). You **do not** need to install an Apache Flink
 cluster on your machine.
 
-### Authenticate your AWS
-
-session
+### Authenticate your AWS session
 
 The application uses Kinesis data streams to publish data. When running locally,
 you must have a valid AWS authenticated session with permissions to write to
@@ -90,9 +84,7 @@ session:
    Toolkit for IntelliJ IDEA](https://aws.amazon.com/intellij/ "https://aws.amazon.com/intellij/") and [AWS Toolkit for compiling the application or running
    Eclipse](../../../toolkit-for-eclipse/v1/user-guide/welcome.md "../../../toolkit-for-eclipse/v1/user-guide/welcome.md").
 
-## Download and examine the Apache Flink streaming Java
-
-code
+## Download and examine the Apache Flink streaming Java code
 
 The application code for this example is available from GitHub.
 
@@ -131,8 +123,7 @@ your IDE.
       content of the file follows.
   2.  When the application runs in Amazon Managed Service for Apache Flink, the default behavior
       loads the application configuration from the runtime properties
-      you will define in the Amazon Managed Service for Apache Flink application. See [Create and configure the Managed Service for Apache Flink
-      application](get-started-exercise.md#get-started-exercise-7 "get-started-exercise.md#get-started-exercise-7").
+      you will define in the Amazon Managed Service for Apache Flink application. See [Create and configure the Managed Service for Apache Flink application](get-started-exercise.md#get-started-exercise-7 "get-started-exercise.md#get-started-exercise-7").
 
   ```
   private static Map<String, Properties> loadApplicationProperties(StreamExecutionEnvironment env) throws IOException {
@@ -384,13 +375,11 @@ You can run and debug your Flink application locally in your IDE.
 
 Before you continue, verify that the input and output streams are available.
  See [Create two Amazon Kinesis data streams](get-started-exercise.md#get-started-exercise-1 "get-started-exercise.md#get-started-exercise-1"). Also, verify that you have permission to read
- and write from both streams. See [Authenticate your AWS
- session](get-started-exercise.md#get-started-exercise-2-5 "get-started-exercise.md#get-started-exercise-2-5").
+ and write from both streams. See [Authenticate your AWS session](get-started-exercise.md#get-started-exercise-2-5 "get-started-exercise.md#get-started-exercise-2-5").
 
 Setting up the local development environment requires Java 11 JDK, Apache Maven,
  and an IDE for Java development. Verify you meet the required prerequisites. See
- [Fulfill the prerequisites for completing the
- exercises](getting-started.md#setting-up-prerequisites "getting-started.md#setting-up-prerequisites").
+ [Fulfill the prerequisites for completing the exercises](getting-started.md#setting-up-prerequisites "getting-started.md#setting-up-prerequisites").
 
 
 ### Import the Java project into your IDE
@@ -525,8 +514,7 @@ To verify if the application is correctly processing data, you can inspect the
  debugging, but can add considerable overhead when running in production.
 
 
-## Observe the application writing data to an S3
- bucket
+## Observe the application writing data to an S3 bucket
 
 
 This example application generates random data internally and writes this data to the
@@ -549,8 +537,7 @@ env.enableCheckpointing(5000);
 
 ```
 
-###### To browse the S3 bucket and observe the file written by the
- application
+###### To browse the S3 bucket and observe the file written by the application
 
 1. 1. Open the Amazon S3 console at
 	 [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -642,8 +629,7 @@ In this section, you upload the JAR file you created in the previous section to
 The target directory also contains other JAR files that you don't need to
  upload.
 
-## Create and configure the Managed Service for Apache Flink
- application
+## Create and configure the Managed Service for Apache Flink application
 
 
 You can create and configure a Managed Service for Apache Flink application using either the
@@ -808,8 +794,7 @@ JSON
 5. Choose **Next** and then choose **Save
  changes**.
 
-### Configure the
- application
+### Configure the application
 
 
 Edit the application to set the application code artifact.
@@ -901,8 +886,7 @@ If you set the runtime properties or edited the IAM policies
 When this happens, check the **Exceptions** tab in
  the Flink dashboard to investigate the cause of the problem.
 
-### Observe the metrics of
- the running application
+### Observe the metrics of the running application
 
 
 On the **MyApplication** page, in the **Amazon
@@ -930,8 +914,7 @@ This dashboard displays a fixed set of metrics with a granularity
  of 5 minutes. You can create a custom application dashboard with any
  metrics in the CloudWatch dashboard.
 
-### Observe the application writing data to the
- destination bucket
+### Observe the application writing data to the destination bucket
 
 
 You can now observe the application running in Amazon Managed Service for Apache Flink writing files to
@@ -939,8 +922,7 @@ You can now observe the application running in Amazon Managed Service for Apache
 
 
 To observe the files, follow the same process you used to check the files
- being written when the application was running locally. See [Observe the application writing data to an S3
- bucket](#gs-table-input-output "#gs-table-input-output").
+ being written when the application was running locally. See [Observe the application writing data to an S3 bucket](#gs-table-input-output "#gs-table-input-output").
 
 
 Remember that the application writes new files on the Flink checkpoint. When

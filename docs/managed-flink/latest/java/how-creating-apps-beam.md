@@ -17,15 +17,11 @@ For a tutorial about how to use Apache Beam in a Managed Service for Apache Flin
 
 ###### This topic contains the following sections:
 
-- [Limitations of Apache Flink runner with
-  Managed Service for Apache Flink](#how-creating-apps-beam-using "#how-creating-apps-beam-using")
-- [Apache Beam capabilities with
-  Managed Service for Apache Flink](#how-creating-apps-beam-capabilities "#how-creating-apps-beam-capabilities")
+- [Limitations of Apache Flink runner with Managed Service for Apache Flink](#how-creating-apps-beam-using "#how-creating-apps-beam-using")
+- [Apache Beam capabilities with Managed Service for Apache Flink](#how-creating-apps-beam-capabilities "#how-creating-apps-beam-capabilities")
 - [Create an application using Apache Beam](examples-beam.md "examples-beam.md")
 
-## Limitations of Apache Flink runner with
-
-Managed Service for Apache Flink
+## Limitations of Apache Flink runner with Managed Service for Apache Flink
 
 Note the following about using the Apache Flink runner with Managed Service for Apache Flink:
 
@@ -34,9 +30,7 @@ Note the following about using the Apache Flink runner with Managed Service for 
   Apache Flink version 1.8 and above. Apache Beam is not supported with Managed Service for Apache Flink applications
   that use Apache Flink version 1.6.**
 
-## Apache Beam capabilities with
-
-Managed Service for Apache Flink
+## Apache Beam capabilities with Managed Service for Apache Flink
 
 Managed Service for Apache Flink supports the same Apache Beam capabilties as the Apache Flink runner. For information
 about what features are supported with the Apache Flink runner, see the

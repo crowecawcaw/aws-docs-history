@@ -8,16 +8,13 @@ parallel instances of tasks, see [Parallel Execution](https://nightlies.apache.o
 
 ###### Topics
 
-- [Configure application parallelism and
-  ParallelismPerKPU](#how-parallelism "#how-parallelism")
+- [Configure application parallelism and ParallelismPerKPU](#how-parallelism "#how-parallelism")
 - [Allocate Kinesis Processing Units](#how-scaling-kpus "#how-scaling-kpus")
 - [Update your application's parallelism](#how-scaling-howto "#how-scaling-howto")
 - [Use automatic scaling in Managed Service for Apache Flink](how-scaling-auto.md "how-scaling-auto.md")
 - [maxParallelism considerations](#how-scaling-auto-max-parallelism "#how-scaling-auto-max-parallelism")
 
-## Configure application parallelism and
-
-ParallelismPerKPU
+## Configure application parallelism and ParallelismPerKPU
 
 You configure the parallel execution for your Managed Service for Apache Flink application tasks (such as reading
 from a source or executing an operator) using the following [`ParallelismConfiguration`](../apiv2/API_ApplicationConfiguration.md "../apiv2/API_ApplicationConfiguration.md")

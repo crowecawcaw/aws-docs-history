@@ -1,8 +1,6 @@
 Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
 
-# Amazon Kinesis
-
-data streams source processing out of order during re-sharding
+# Amazon Kinesis data streams source processing out of order during re-sharding
 
 The current FlinkKinesisConsumer implementation doesn’t provide strong ordering guarantees between Kinesis shards. This may lead to out-of-order processing during re-sharding of Kinesis Stream, in particular for Flink applications that experience processing lag. Under some circumstances, for example windows operators based on event times, events might get discarded because of the resulting lateness.
 

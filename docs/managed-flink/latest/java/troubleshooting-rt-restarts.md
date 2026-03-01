@@ -19,8 +19,7 @@ This condition can have the following symptoms:
 - The application log contains status changes to `RESTARTING`
   or `FAILED`. You can query your application log for these status changes using the
   following CloudWatch Logs Insights query:
-  [Analyze errors: Application task-related
-  failures](cloudwatch-logs-reading.md#cloudwatch-logs-reading-apps "cloudwatch-logs-reading.md#cloudwatch-logs-reading-apps").
+  [Analyze errors: Application task-related failures](cloudwatch-logs-reading.md#cloudwatch-logs-reading-apps "cloudwatch-logs-reading.md#cloudwatch-logs-reading-apps").
 
 ## Causes and solutions
 
@@ -37,8 +36,7 @@ The following conditions may cause your application to become unstable and repea
 You can investigate the causes of this condition by querying your
 application logs for changes from your application's state from
 `RUNNING` to `FAILED`. For more information, see
-[Analyze errors: Application task-related
-failures](cloudwatch-logs-reading.md#cloudwatch-logs-reading-apps "cloudwatch-logs-reading.md#cloudwatch-logs-reading-apps").
+[Analyze errors: Application task-related failures](cloudwatch-logs-reading.md#cloudwatch-logs-reading-apps "cloudwatch-logs-reading.md#cloudwatch-logs-reading-apps").
 
 - **Kinesis data streams are not properly provisioned:** If a source
   or sink for your application is a Kinesis data stream, check the [metrics](../../../streams/latest/dev/monitoring-with-cloudwatch.md "../../../streams/latest/dev/monitoring-with-cloudwatch.md") for

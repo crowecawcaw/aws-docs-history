@@ -25,9 +25,7 @@ strategy by default.
 
 `restart-strategy.exponential-delay.reset-backoff-threshold:`
 
-## Checkpoints and state
-
-backends
+## Checkpoints and state backends
 
 `state.backend:`
 
@@ -108,9 +106,7 @@ This API is used by Flink’s own dashboard, but it can also be used by custom m
 
 `state.backend.rocksdb.thread.num:`
 
-## Advanced state
-
-backends options
+## Advanced state backends options
 
 `state.storage.fs.memory-threshold:`
 
@@ -182,9 +178,7 @@ backends options
 
 `cluster.processes.halt-on-fatal-error:`
 
-## Filesystem
-
-configurations
+## Filesystem configurations
 
 `fs.s3.connection.maximum:`
 
@@ -194,9 +188,7 @@ configurations
 
 `s3.upload.max.concurrent.uploads:`
 
-## Advanced fault
-
-tolerance options
+## Advanced fault tolerance options
 
 `heartbeat.timeout:`
 
@@ -210,9 +202,7 @@ tolerance options
 
 `metrics.latency.interval:`
 
-## Advanced options for the REST endpoint and
-
-client
+## Advanced options for the REST endpoint and client
 
 `rest.flamegraph.enabled:`
 

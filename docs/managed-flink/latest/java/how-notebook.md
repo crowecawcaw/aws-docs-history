@@ -48,5 +48,4 @@ for your production workloads.
 - [Work with AWS Glue](how-zeppelin-glue.md "how-zeppelin-glue.md")
 - [Examples and tutorials for Studio notebooks in Managed Service for Apache Flink](how-zeppelin-examples.md "how-zeppelin-examples.md")
 - [Troubleshoot Studio notebooks for Managed Service for Apache Flink](how-zeppelin-troubleshooting.md "how-zeppelin-troubleshooting.md")
-- [Create custom IAM policies for Managed Service for Apache Flink
-  Studio notebooks](how-zeppelin-appendix-iam.md "how-zeppelin-appendix-iam.md")
+- [Create custom IAM policies for Managed Service for Apache Flink Studio notebooks](how-zeppelin-appendix-iam.md "how-zeppelin-appendix-iam.md")

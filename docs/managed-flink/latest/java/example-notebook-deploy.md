@@ -1,8 +1,6 @@
 Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
 
-# Tutorial: Deploy a Studio notebook as a Managed Service for Apache Flink
-
-application with durable state
+# Tutorial: Deploy a Studio notebook as a Managed Service for Apache Flink application with durable state
 
 The following tutorial demonstrates how to deploy a Studio notebook as a Managed Service for Apache Flink application
 with durable state.
@@ -10,10 +8,8 @@ with durable state.
 ###### This tutorial contains the following sections:
 
 - [Complete prerequisites](#example-notebook-durable-setup "#example-notebook-durable-setup")
-- [Deploy an application with durable state using the
-  AWS Management Console](#example-notebook-deploy-console "#example-notebook-deploy-console")
-- [Deploy an application with durable state using the
-  AWS CLI](#example-notebook-deploy-cli "#example-notebook-deploy-cli")
+- [Deploy an application with durable state using the AWS Management Console](#example-notebook-deploy-console "#example-notebook-deploy-console")
+- [Deploy an application with durable state using the AWS CLI](#example-notebook-deploy-cli "#example-notebook-deploy-cli")
 
 ## Complete prerequisites
 
@@ -21,9 +17,7 @@ Create a new Studio notebook by following the [Tutorial: Create a Studio noteboo
 Managed Service for Apache Flink](example-notebook.md "example-notebook.md"), using either Kinesis Data Streams or Amazon MSK. Name the
 Studio notebook `ExampleTestDeploy`.
 
-## Deploy an application with durable state using the
-
-AWS Management Console
+## Deploy an application with durable state using the AWS Management Console
 
 1. Add an S3 bucket location where you want the packaged code to be stored under
    **Application code location -
@@ -70,9 +64,7 @@ WITH (
    - You can choose **configure** and modify any settings, and choose **Run** to
      start your streaming application.
 
-## Deploy an application with durable state using the
-
-AWS CLI
+## Deploy an application with durable state using the AWS CLI
 
 To deploy an application using the AWS CLI, you must update your AWS CLI to use the service model provided with your Beta 2 information.
 For information about how to use the updated service model, see [Complete the prerequisites](example-notebook.md#example-notebook-setup "example-notebook.md#example-notebook-setup").

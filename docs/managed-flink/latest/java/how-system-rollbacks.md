@@ -1,8 +1,6 @@
 Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
 
-# Enable system rollbacks for your Managed Service for Apache Flink
-
-application
+# Enable system rollbacks for your Managed Service for Apache Flink application
 
 With system-rollback capability, you can achieve higher availability of your
 running Apache Flink application on Amazon Managed Service for Apache Flink. Opting into this configuration
@@ -48,9 +46,7 @@ enables system rollbacks for an application:
 }
 ```
 
-## Review common scenarios for automatic system
-
-rollback
+## Review common scenarios for automatic system rollback
 
 The following scenarios illustrate where automatic system rollbacks are
 beneficial:

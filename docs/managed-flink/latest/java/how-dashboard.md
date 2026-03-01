@@ -20,9 +20,7 @@ Note the following about using the Apache Flink Dashboard with Managed Service f
 You can access your application's Apache Flink Dashboard either through the Managed Service for Apache Flink
 console, or by requesting a secure URL endpoint using the CLI.
 
-### Access your application's Apache Flink Dashboard
-
-using the Managed Service for Apache Flink console
+### Access your application's Apache Flink Dashboard using the Managed Service for Apache Flink console
 
 To access your application's Apache Flink Dashboard from the console, choose
 **Apache Flink Dashboard** on your application's page.
@@ -32,9 +30,7 @@ To access your application's Apache Flink Dashboard from the console, choose
 When you open the dashboard from the Managed Service for Apache Flink console, the URL that the console generates will be
 valid for 12 hours.
 
-### Access your application's Apache Flink Dashboard using
-
-the Managed Service for Apache Flink CLI
+### Access your application's Apache Flink Dashboard using the Managed Service for Apache Flink CLI
 
 You can use the Managed Service for Apache Flink CLI to generate a URL to access your application dashboard. The URL that you generate is valid for a specified
 amount of time.

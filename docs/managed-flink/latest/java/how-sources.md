@@ -11,9 +11,7 @@ the sources that are available for Amazon services.
 The `KinesisStreamsSource` provides streaming data to your application
 from an Amazon Kinesis data stream.
 
-### Create a
-
-`KinesisStreamsSource`
+### Create a `KinesisStreamsSource`
 
 The following code example demonstrates creating a
 `KinesisStreamsSource`:
@@ -37,9 +35,7 @@ For more information about using a `KinesisStreamsSource`, see
 [Amazon Kinesis Data Streams Connector](https://nightlies.apache.org/flink/flink-docs-stable/docs/connectors/datastream/kinesis/ "https://nightlies.apache.org/flink/flink-docs-stable/docs/connectors/datastream/kinesis/") in the Apache Flink
 documentation and [our public KinesisConnectors example on Github](https://github.com/aws-samples/amazon-managed-service-for-apache-flink-examples/tree/main/java/KinesisConnectors "https://github.com/aws-samples/amazon-managed-service-for-apache-flink-examples/tree/main/java/KinesisConnectors").
 
-### Create a `KinesisStreamsSource` that uses an EFO
-
-consumer
+### Create a `KinesisStreamsSource` that uses an EFO consumer
 
 The `KinesisStreamsSource` now supports [Enhanced Fan-Out (EFO)](https://ci.apache.org/projects/flink/flink-docs-release-1.13/docs/connectors/datastream/kinesis/ "https://ci.apache.org/projects/flink/flink-docs-release-1.13/docs/connectors/datastream/kinesis/").
 

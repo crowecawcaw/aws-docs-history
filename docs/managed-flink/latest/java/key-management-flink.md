@@ -114,7 +114,7 @@ When you provide an alias or alias ARN, Amazon MSF resolves the alias to key ARN
 
 ### Least-privileged key policy statements
 
-For information about key policy statements, see [Create a KMS key policy](manage-cmk-api.md#create-cmk-kms-key-policy "manage-cmk-api.md#create-cmk-kms-key-policy") and [Application lifecycle operator (API caller) permissions](manage-cmk-api.md#create-cmk-kms-api-caller-permissions "manage-cmk-api.md#create-cmk-kms-api-caller-permissions") .
+For information about key policy statements, see [Create a KMS key policy](manage-cmk-api.md#create-cmk-kms-key-policy "manage-cmk-api.md#create-cmk-kms-key-policy") and [Application lifecycle operator (API caller) permissions](manage-cmk-api.md#create-cmk-kms-api-caller-permissions "manage-cmk-api.md#create-cmk-kms-api-caller-permissions").
 
 ### Example AWS CloudTrail log entries
 

@@ -1,8 +1,6 @@
 Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
 
-# Maintain best practices for Managed Service for Apache Flink
-
-applications
+# Maintain best practices for Managed Service for Apache Flink applications
 
 This section contains information and recommendations for developing a stable, performant
 Managed Service for Apache Flink applications.
@@ -22,8 +20,7 @@ Managed Service for Apache Flink applications.
 - [Studio notebook optimum performance](#notebook-refresh-rate "#notebook-refresh-rate")
 - [How watermark strategies and idle shards affect time windows](#notebook-watermarking "#notebook-watermarking")
 - [Set a UUID for all operators](#best-practices-setting-operator-ids "#best-practices-setting-operator-ids")
-- [Add
-  ServiceResourceTransformer to the Maven shade plugin](#best-practices-service-resource-transformer "#best-practices-service-resource-transformer")
+- [Add ServiceResourceTransformer to the Maven shade plugin](#best-practices-service-resource-transformer "#best-practices-service-resource-transformer")
 
 ## Minimize the size of the uber JAR
 
@@ -571,9 +568,7 @@ more information, see the topic _Set a UUID for all operators_ under
 [Production
 readiness](production-readiness.md "production-readiness.md").
 
-## Add
-
-ServiceResourceTransformer to the Maven shade plugin
+## Add ServiceResourceTransformer to the Maven shade plugin
 
 Flink uses Java’s [Service Provider
 Interfaces (SPI)](https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html "https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html") to load components such as connectors and formats. Multiple

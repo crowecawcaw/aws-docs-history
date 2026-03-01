@@ -28,9 +28,7 @@ For more information, see the following topics in the _IAM User Guide_:
 - [IAM Roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")
 - [Common Scenarios for Roles: Users, Applications, and Services](../../../IAM/latest/UserGuide/id_roles_common-scenarios.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios.md")
 
-## Implement server-side encryption in dependent
-
-resources
+## Implement server-side encryption in dependent resources
 
 Data at rest and data in transit is encrypted in Managed Service for Apache Flink, and this encryption cannot be disabled. You should implement server-side encryption
 in your dependent resources, such as Kinesis data streams, Firehose streams, and Amazon S3 buckets. For more information on implementing

@@ -22,16 +22,14 @@ date, you will no longer be able to create, start, or run applications using Apa
 Flink version 1.13 in Amazon Managed Service for Apache Flink.
 
 You can upgrade your applications statefully using the in-place version upgrades
-feature in Managed Service for Apache Flink. For more information, see [Use in-place version upgrades for Apache
-Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
+feature in Managed Service for Apache Flink. For more information, see [Use in-place version upgrades for Apache Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
 
 Version **1.15.2** is supported by Managed Service for Apache Flink, but is no
 longer supported by the Apache Flink community.
 
 ###### This topic contains the following sections:
 
-- [Using the Apache Flink Kinesis Streams connector
-  with previous Apache Flink versions](#how-creating-apps-building-kinesis "#how-creating-apps-building-kinesis")
+- [Using the Apache Flink Kinesis Streams connector with previous Apache Flink versions](#how-creating-apps-building-kinesis "#how-creating-apps-building-kinesis")
 - [Building applications with Apache Flink 1.8.2](#earlier-buildingapps-1_8 "#earlier-buildingapps-1_8")
 - [Building applications with Apache Flink 1.6.2](#earlier-buildingapps-1_6 "#earlier-buildingapps-1_6")
 - [Upgrading applications](#earlier-upgrading "#earlier-upgrading")
@@ -42,9 +40,7 @@ longer supported by the Apache Flink community.
 - [Getting started: Flink 1.6.2 - deprecating](#earlier-gs-1_6 "#earlier-gs-1_6")
 - [Earlier version (legacy) examples for Managed Service for Apache Flink](#legacy-examples "#legacy-examples")
 
-## Using the Apache Flink Kinesis Streams connector
-
-with previous Apache Flink versions
+## Using the Apache Flink Kinesis Streams connector with previous Apache Flink versions
 
 The Apache Flink Kinesis Streams connector was not included in Apache Flink prior to
 version 1.11. In order for your application to use the Apache Flink Kinesis connector with
@@ -152,8 +148,7 @@ application](how-creating-apps.md "how-creating-apps.md").
 
 To upgrade the Apache Flink version of an Amazon Managed Service for Apache Flink application, use the in-place
 Apache Flink version upgrade feature using the AWS CLI, AWS SDK, CloudFormation, or the
-AWS Management Console. For more information, see [Use in-place version upgrades for Apache
-Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
+AWS Management Console. For more information, see [Use in-place version upgrades for Apache Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
 
 You can use this feature with any existing applications you use with Amazon Managed Service for Apache Flink in
 `READY` or `RUNNING` state.
@@ -174,22 +169,16 @@ your first application.
 
 ###### Topics
 
-- [Components of a Managed Service for Apache Flink
-  application](#getting-started-components-1-13 "#getting-started-components-1-13")
-- [Prerequisites for completing the
-  exercises](#setting-up-prerequisites-1-13 "#setting-up-prerequisites-1-13")
-- [Step 1: Set up an AWS
-  account and create an administrator user](#earlier-gs-1_13-setting-up "#earlier-gs-1_13-setting-up")
+- [Components of a Managed Service for Apache Flink application](#getting-started-components-1-13 "#getting-started-components-1-13")
+- [Prerequisites for completing the exercises](#setting-up-prerequisites-1-13 "#setting-up-prerequisites-1-13")
+- [Step 1: Set up an AWS account and create an administrator user](#earlier-gs-1_13-setting-up "#earlier-gs-1_13-setting-up")
 - [Next step](#earlier-gs-1_13-setup-awscli "#earlier-gs-1_13-setup-awscli")
 - [Step 2: Set up the AWS Command Line Interface (AWS CLI)](#setup-awscli-1-13 "#setup-awscli-1-13")
 - [Step 3: Create and run a Managed Service for Apache Flink application](#get-started-exercise-1-13 "#get-started-exercise-1-13")
-- [Step 4: Clean up AWS
-  resources](#getting-started-cleanup-1-13 "#getting-started-cleanup-1-13")
+- [Step 4: Clean up AWS resources](#getting-started-cleanup-1-13 "#getting-started-cleanup-1-13")
 - [Step 5: Next steps](#getting-started-next-steps-1-13 "#getting-started-next-steps-1-13")
 
-### Components of a Managed Service for Apache Flink
-
-application
+### Components of a Managed Service for Apache Flink application
 
 To process data, your Managed Service for Apache Flink application uses a Java/Apache Maven or Scala application
 that processes input and produces output using the Apache Flink runtime.
@@ -215,9 +204,7 @@ package to an Amazon Simple Storage Service (Amazon S3) bucket. You then create 
 package location, a Kinesis data stream as the streaming data source, and typically a
 streaming or file location that receives the application's processed data.
 
-### Prerequisites for completing the
-
-exercises
+### Prerequisites for completing the exercises
 
 To complete the steps in this guide, you must have the following:
 
@@ -234,12 +221,9 @@ To complete the steps in this guide, you must have the following:
 $ mvn -version
 ```
 
-To get started, go to [Set up an AWS account and create an
-administrator user](setting-up.md "setting-up.md").
+To get started, go to [Set up an AWS account and create an administrator user](setting-up.md "setting-up.md").
 
-### Step 1: Set up an AWS
-
-account and create an administrator user
+### Step 1: Set up an AWS account and create an administrator user
 
 #### Sign up for an AWS account
 
@@ -395,22 +379,15 @@ sink.
 
 ###### This section contains the following steps:
 
-- [Create two Amazon Kinesis data
-  streams](#get-started-exercise-1-1-13 "#get-started-exercise-1-1-13")
-- [Write sample records to the input
-  stream](#get-started-exercise-2-1-13 "#get-started-exercise-2-1-13")
-- [Download and examine the Apache Flink
-  streaming Java code](#get-started-exercise-5-1-13 "#get-started-exercise-5-1-13")
+- [Create two Amazon Kinesis data streams](#get-started-exercise-1-1-13 "#get-started-exercise-1-1-13")
+- [Write sample records to the input stream](#get-started-exercise-2-1-13 "#get-started-exercise-2-1-13")
+- [Download and examine the Apache Flink streaming Java code](#get-started-exercise-5-1-13 "#get-started-exercise-5-1-13")
 - [Compile the application code](#get-started-exercise-5.5-1-13 "#get-started-exercise-5.5-1-13")
-- [Upload the Apache Flink streaming Java
-  code](#get-started-exercise-6-1-13 "#get-started-exercise-6-1-13")
-- [Create and run the Managed Service for Apache Flink
-  application](#get-started-exercise-7-1-13 "#get-started-exercise-7-1-13")
+- [Upload the Apache Flink streaming Java code](#get-started-exercise-6-1-13 "#get-started-exercise-6-1-13")
+- [Create and run the Managed Service for Apache Flink application](#get-started-exercise-7-1-13 "#get-started-exercise-7-1-13")
 - [Next step](#get-started-exercise-next-step-4-1-13 "#get-started-exercise-next-step-4-1-13")
 
-#### Create two Amazon Kinesis data
-
-streams
+#### Create two Amazon Kinesis data streams
 
 Before you create a Managed Service for Apache Flink application for this exercise, create two Kinesis data streams
 (`ExampleInputStream` and `ExampleOutputStream`). Your
@@ -446,9 +423,7 @@ $ aws kinesis create-stream \
 --profile adminuser
 ```
 
-#### Write sample records to the input
-
-stream
+#### Write sample records to the input stream
 
 In this section, you use a Python script to write sample records to the stream for
 the application to process.
@@ -491,9 +466,7 @@ This section requires the [AWS SDK for Python (Boto)](https://aws.amazon.com/dev
 $ python stock.py
 ```
 
-#### Download and examine the Apache Flink
-
-streaming Java code
+#### Download and examine the Apache Flink streaming Java code
 
 The Java application code for this example is available from GitHub. To download
 the application code, do the following:
@@ -539,8 +512,7 @@ For more information about runtime properties, see [Use runtime properties](how-
 
 In this section, you use the Apache Maven compiler to create the Java code for the
 application. For information about installing Apache Maven and the Java Development
-Kit (JDK), see [Fulfill the prerequisites for completing the
-exercises](getting-started.md#setting-up-prerequisites "getting-started.md#setting-up-prerequisites").
+Kit (JDK), see [Fulfill the prerequisites for completing the exercises](getting-started.md#setting-up-prerequisites "getting-started.md#setting-up-prerequisites").
 
 ###### To compile the application code
 
@@ -575,9 +547,7 @@ If the application compiles successfully, the following file is created:
 
 `target/aws-kinesis-analytics-java-apps-1.0.jar`
 
-#### Upload the Apache Flink streaming Java
-
-code
+#### Upload the Apache Flink streaming Java code
 
 In this section, you create an Amazon Simple Storage Service (Amazon S3) bucket and upload your application
 code.
@@ -610,9 +580,7 @@ code.
 Your application code is now stored in an Amazon S3 bucket where your application can
 access it.
 
-#### Create and run the Managed Service for Apache Flink
-
-application
+#### Create and run the Managed Service for Apache Flink application
 
 You can create and run a Managed Service for Apache Flink application using either the console or the AWS CLI.
 
@@ -624,21 +592,15 @@ the AWS CLI, you create these resources separately.
 
 ###### Topics
 
-- [Create and run the
-  application (console)](#get-started-exercise-7-console-1-13 "#get-started-exercise-7-console-1-13")
-- [Create and run the application
-  (AWS CLI)](#get-started-exercise-7-cli-1-13 "#get-started-exercise-7-cli-1-13")
+- [Create and run the application (console)](#get-started-exercise-7-console-1-13 "#get-started-exercise-7-console-1-13")
+- [Create and run the application (AWS CLI)](#get-started-exercise-7-cli-1-13 "#get-started-exercise-7-cli-1-13")
 
-##### Create and run the
-
-application (console)
+##### Create and run the application (console)
 
 Follow these steps to create, configure, update, and run the application using
 the console.
 
-##### Create the
-
-Application
+##### Create the Application
 
 1. Sign in to the AWS Management Console, and open the Amazon MSF console at https://console.aws.amazon.com/flink.
 2. On the Managed Service for Apache Flink dashboard, choose **Create analytics
@@ -671,9 +633,7 @@ as follows:
 - Role:
   `kinesisanalytics-`MyApplication`-`us-west-2``
 
-##### Edit the IAM
-
-policy
+##### Edit the IAM policy
 
 Edit the IAM policy to add permissions to access the Kinesis data
 streams.
@@ -755,9 +715,7 @@ JSON
 
 ```
 
-##### Configure
-
-the application
+##### Configure the application
 
 1. On the **MyApplication** page, choose
    **Configure**.
@@ -796,22 +754,16 @@ and log stream for you. The names of these resources are as follows:
   `/aws/kinesis-analytics/MyApplication`
 - Log stream: `kinesis-analytics-log-stream`
 
-##### Run the
-
-application
+##### Run the application
 
 The Flink job graph can be viewed by running the application, opening the Apache Flink dashboard, and choosing the desired Flink job.
 
-##### Stop the
-
-application
+##### Stop the application
 
 On the **MyApplication** page, choose
 **Stop**. Confirm the action.
 
-##### Update the
-
-application
+##### Update the application
 
 Using the console, you can update application settings such as application
 properties, monitoring settings, and the location or file name of the
@@ -822,17 +774,13 @@ On the **MyApplication** page, choose
 **Configure**. Update the application settings and
 choose **Update**.
 
-##### Create and run the application
-
-(AWS CLI)
+##### Create and run the application (AWS CLI)
 
 In this section, you use the AWS CLI to create and run the Managed Service for Apache Flink application.
 Managed Service for Apache Flink uses the `kinesisanalyticsv2` AWS CLI command to create and
 interact with Managed Service for Apache Flink applications.
 
-##### Create a
-
-permissions policy
+##### Create a permissions policy
 
 ###### Note
 
@@ -900,9 +848,7 @@ automatically sets the credentials required by the SDK to those of the
 service execution IAM role that is associated with your application.
 No additional steps are needed.
 
-##### Create an IAM
-
-role
+##### Create an IAM role
 
 In this section, you create an IAM role that the Managed Service for Apache Flink application can assume to
 read a source stream and write to the sink stream.
@@ -944,8 +890,7 @@ permissions policies for the role. 6. Attach the permissions policy to the role.
 For this exercise, Managed Service for Apache Flink assumes this role for both reading
 data from a Kinesis data stream (source) and writing output to
 another Kinesis data stream. So you attach the policy that you
-created in the previous step, [Create a
-permissions policy](#get-started-exercise-7-cli-policy-1-13 "#get-started-exercise-7-cli-policy-1-13").
+created in the previous step, [Create a permissions policy](#get-started-exercise-7-cli-policy-1-13 "#get-started-exercise-7-cli-policy-1-13").
 
     1. On the **Summary** page, choose the
      **Permissions** tab.
@@ -965,9 +910,7 @@ to access resources. Make a note of the ARN of the new role.
 For step-by-step instructions for creating a role, see [Creating an IAM Role (Console)](../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console "../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console") in the
 _IAM User Guide_.
 
-##### Create the
-
-Managed Service for Apache Flink application
+##### Create the Managed Service for Apache Flink application
 
 1. Save the following JSON code to a file named
    `create_request.json`. Replace the sample
@@ -1028,9 +971,7 @@ aws kinesisanalyticsv2 create-application --cli-input-json file://create_request
 The application is now created. You start the application in the next
 step.
 
-##### Start the
-
-Application
+##### Start the Application
 
 In this section, you use the [`StartApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md") action to start the
 application.
@@ -1062,9 +1003,7 @@ aws kinesisanalyticsv2 start-application --cli-input-json file://start_request.j
 The application is now running. You can check the Managed Service for Apache Flink metrics on the
 Amazon CloudWatch console to verify that the application is working.
 
-##### Stop the
-
-Application
+##### Stop the Application
 
 In this section, you use the [`StopApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_StopApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StopApplication.md") action to stop the
 application.
@@ -1090,16 +1029,12 @@ aws kinesisanalyticsv2 stop-application --cli-input-json file://stop_request.jso
 
 The application is now stopped.
 
-##### Add a CloudWatch Logging
-
-Option
+##### Add a CloudWatch Logging Option
 
 You can use the AWS CLI to add an Amazon CloudWatch log stream to your application.
 For information about using CloudWatch Logs with your application, see [Set up application logging in Managed Service for Apache Flink](cloudwatch-logs.md "cloudwatch-logs.md").
 
-##### Update Environment
-
-Properties
+##### Update Environment Properties
 
 In this section, you use the [`UpdateApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md") action to change the
 environment properties for the application without recompiling the
@@ -1145,9 +1080,7 @@ and destination streams.
 aws kinesisanalyticsv2 update-application --cli-input-json file://update_properties_request.json
 ```
 
-##### Update the
-
-Application Code
+##### Update the Application Code
 
 When you need to update your application code with a new version of your
 code package, you use the [`UpdateApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md") AWS CLI action.
@@ -1191,32 +1124,23 @@ chose in the [Create two Amazon Kinesis data streams](get-started-exercise.md#ge
 
 #### Next step
 
-[Step 4: Clean up AWS
-resources](#getting-started-cleanup-1-13 "#getting-started-cleanup-1-13")
+[Step 4: Clean up AWS resources](#getting-started-cleanup-1-13 "#getting-started-cleanup-1-13")
 
-### Step 4: Clean up AWS
-
-resources
+### Step 4: Clean up AWS resources
 
 This section includes procedures for cleaning up AWS resources created in the
 Getting Started tutorial.
 
 ###### This topic contains the following sections:
 
-- [Delete your Managed Service for Apache Flink
-  application](#getting-started-cleanup-app-1-13 "#getting-started-cleanup-app-1-13")
-- [Delete your Kinesis data
-  streams](#getting-started-cleanup-stream-1-13 "#getting-started-cleanup-stream-1-13")
-- [Delete your Amazon S3 object and
-  bucket](#getting-started-cleanup-s3-1-13 "#getting-started-cleanup-s3-1-13")
-- [Delete your IAM
-  resources](#getting-started-cleanup-iam-1-13 "#getting-started-cleanup-iam-1-13")
+- [Delete your Managed Service for Apache Flink application](#getting-started-cleanup-app-1-13 "#getting-started-cleanup-app-1-13")
+- [Delete your Kinesis data streams](#getting-started-cleanup-stream-1-13 "#getting-started-cleanup-stream-1-13")
+- [Delete your Amazon S3 object and bucket](#getting-started-cleanup-s3-1-13 "#getting-started-cleanup-s3-1-13")
+- [Delete your IAM resources](#getting-started-cleanup-iam-1-13 "#getting-started-cleanup-iam-1-13")
 - [Delete your CloudWatch resources](#getting-started-cleanup-cw-1-13 "#getting-started-cleanup-cw-1-13")
 - [Next step](#getting-started-cleanup-next-step-5-1-13 "#getting-started-cleanup-next-step-5-1-13")
 
-#### Delete your Managed Service for Apache Flink
-
-application
+#### Delete your Managed Service for Apache Flink application
 
 1. Open the Kinesis console at
    [https://console.aws.amazon.com/kinesis](https://console.aws.amazon.com/kinesis "https://console.aws.amazon.com/kinesis").
@@ -1224,9 +1148,7 @@ application
 3. In the application's page, choose **Delete** and then
    confirm the deletion.
 
-#### Delete your Kinesis data
-
-streams
+#### Delete your Kinesis data streams
 
 1. Sign in to the AWS Management Console, and open the Amazon MSF console at https://console.aws.amazon.com/flink.
 2. In the Kinesis Data Streams panel, choose **ExampleInputStream**.
@@ -1238,9 +1160,7 @@ streams
    **Actions**, choose **Delete**, and
    then confirm the deletion.
 
-#### Delete your Amazon S3 object and
-
-bucket
+#### Delete your Amazon S3 object and bucket
 
 1. Open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -1250,9 +1170,7 @@ bucket
 3. Choose **Delete** and then enter the bucket name to
    confirm deletion.
 
-#### Delete your IAM
-
-resources
+#### Delete your IAM resources
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -1323,8 +1241,7 @@ community for over three years. We plan to deprecate these versions in Amazon Ma
 **November 5, 2024**. Starting from this date, you will
 not be able to create new applications for these Flink versions. You can continue
 running existing applications at this time. You can upgrade your applications statefully
-using the in-place version upgrades feature in Amazon Managed Service for Apache Flink For more information, see [Use in-place version upgrades for Apache
-Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
+using the in-place version upgrades feature in Amazon Managed Service for Apache Flink For more information, see [Use in-place version upgrades for Apache Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
 
 This topic contains a version of the [Tutorial: Get started using the DataStream API
 in Managed Service for Apache Flink](getting-started.md "getting-started.md") tutorial that uses Apache Flink 1.11.1.
@@ -1336,23 +1253,15 @@ your first application.
 
 ###### Topics
 
-- [Components of a Managed Service for Apache Flink
-  application](#earlier-gs-1_11-components "#earlier-gs-1_11-components")
-- [Prerequisites for completing
-  the exercises](#earlier-gs-1_11-setting-up-prerequisites "#earlier-gs-1_11-setting-up-prerequisites")
-- [Step 1: Set up an AWS
-  account and create an administrator user](#earlier-gs-1_11-setting-up "#earlier-gs-1_11-setting-up")
-- [Step 2: Set up the AWS Command Line Interface
-  (AWS CLI)](#earlier-gs-1_11-setup-awscli "#earlier-gs-1_11-setup-awscli")
-- [Step 3: Create and run a
-  Managed Service for Apache Flink application](#earlier-gs-1_11-get-started-exercise "#earlier-gs-1_11-get-started-exercise")
-- [Step 4: Clean up AWS
-  resources](#earlier-gs-1_11-cleanup "#earlier-gs-1_11-cleanup")
+- [Components of a Managed Service for Apache Flink application](#earlier-gs-1_11-components "#earlier-gs-1_11-components")
+- [Prerequisites for completing the exercises](#earlier-gs-1_11-setting-up-prerequisites "#earlier-gs-1_11-setting-up-prerequisites")
+- [Step 1: Set up an AWS account and create an administrator user](#earlier-gs-1_11-setting-up "#earlier-gs-1_11-setting-up")
+- [Step 2: Set up the AWS Command Line Interface (AWS CLI)](#earlier-gs-1_11-setup-awscli "#earlier-gs-1_11-setup-awscli")
+- [Step 3: Create and run a Managed Service for Apache Flink application](#earlier-gs-1_11-get-started-exercise "#earlier-gs-1_11-get-started-exercise")
+- [Step 4: Clean up AWS resources](#earlier-gs-1_11-cleanup "#earlier-gs-1_11-cleanup")
 - [Step 5: Next steps](#earlier-gs-1_11-next-steps "#earlier-gs-1_11-next-steps")
 
-### Components of a Managed Service for Apache Flink
-
-application
+### Components of a Managed Service for Apache Flink application
 
 To process data, your Managed Service for Apache Flink application uses a Java/Apache Maven or Scala application
 that processes input and produces output using the Apache Flink runtime.
@@ -1378,9 +1287,7 @@ package to an Amazon Simple Storage Service (Amazon S3) bucket. You then create 
 package location, a Kinesis data stream as the streaming data source, and typically a
 streaming or file location that receives the application's processed data.
 
-### Prerequisites for completing
-
-the exercises
+### Prerequisites for completing the exercises
 
 To complete the steps in this guide, you must have the following:
 
@@ -1397,12 +1304,9 @@ To complete the steps in this guide, you must have the following:
 $ mvn -version
 ```
 
-To get started, go to [Set up an AWS account and create an
-administrator user](setting-up.md "setting-up.md").
+To get started, go to [Set up an AWS account and create an administrator user](setting-up.md "setting-up.md").
 
-### Step 1: Set up an AWS
-
-account and create an administrator user
+### Step 1: Set up an AWS account and create an administrator user
 
 #### Sign up for an AWS account
 
@@ -1479,9 +1383,7 @@ To grant users programmatic access, choose one of the following options.
 
 [Set up the AWS Command Line Interface (AWS CLI)](#earlier-gs-1_11-setup-awscli "#earlier-gs-1_11-setup-awscli")
 
-### Step 2: Set up the AWS Command Line Interface
-
-(AWS CLI)
+### Step 2: Set up the AWS Command Line Interface (AWS CLI)
 
 In this step, you download and configure the AWS CLI to use with Managed Service for Apache Flink.
 
@@ -1547,35 +1449,24 @@ you configure a sample application and test the end-to-end setup.
 
 #### Next step
 
-[Step 3: Create and run a
-Managed Service for Apache Flink application](#earlier-gs-1_11-get-started-exercise "#earlier-gs-1_11-get-started-exercise")
+[Step 3: Create and run a Managed Service for Apache Flink application](#earlier-gs-1_11-get-started-exercise "#earlier-gs-1_11-get-started-exercise")
 
-### Step 3: Create and run a
-
-Managed Service for Apache Flink application
+### Step 3: Create and run a Managed Service for Apache Flink application
 
 In this exercise, you create a Managed Service for Apache Flink application with data streams as a source and a
 sink.
 
 ###### This section contains the following steps:
 
-- [Create two Amazon Kinesis data
-  streams](#earlier-gs-1_11-get-started-exercise-1 "#earlier-gs-1_11-get-started-exercise-1")
-- [Write sample records to the
-  input stream](#earlier-gs-1_11-get-started-exercise-2 "#earlier-gs-1_11-get-started-exercise-2")
-- [Download and examine the
-  Apache Flink streaming Java code](#earlier-gs-1_11-get-started-exercise-5 "#earlier-gs-1_11-get-started-exercise-5")
-- [Compile the application
-  code](#earlier-gs-1_11-get-started-exercise-5.5 "#earlier-gs-1_11-get-started-exercise-5.5")
-- [Upload the Apache Flink
-  streaming Java code](#earlier-gs-1_11-get-started-exercise-6 "#earlier-gs-1_11-get-started-exercise-6")
-- [Create and run the
-  Managed Service for Apache Flink application](#earlier-gs-1_11-get-started-exercise-7 "#earlier-gs-1_11-get-started-exercise-7")
+- [Create two Amazon Kinesis data streams](#earlier-gs-1_11-get-started-exercise-1 "#earlier-gs-1_11-get-started-exercise-1")
+- [Write sample records to the input stream](#earlier-gs-1_11-get-started-exercise-2 "#earlier-gs-1_11-get-started-exercise-2")
+- [Download and examine the Apache Flink streaming Java code](#earlier-gs-1_11-get-started-exercise-5 "#earlier-gs-1_11-get-started-exercise-5")
+- [Compile the application code](#earlier-gs-1_11-get-started-exercise-5.5 "#earlier-gs-1_11-get-started-exercise-5.5")
+- [Upload the Apache Flink streaming Java code](#earlier-gs-1_11-get-started-exercise-6 "#earlier-gs-1_11-get-started-exercise-6")
+- [Create and run the Managed Service for Apache Flink application](#earlier-gs-1_11-get-started-exercise-7 "#earlier-gs-1_11-get-started-exercise-7")
 - [Next step](#earlier-gs-1_11-get-started-exercise-next-step-4 "#earlier-gs-1_11-get-started-exercise-next-step-4")
 
-#### Create two Amazon Kinesis data
-
-streams
+#### Create two Amazon Kinesis data streams
 
 Before you create a Managed Service for Apache Flink application for this exercise, create two Kinesis data streams
 (`ExampleInputStream` and `ExampleOutputStream`). Your
@@ -1611,9 +1502,7 @@ $ aws kinesis create-stream \
 --profile adminuser
 ```
 
-#### Write sample records to the
-
-input stream
+#### Write sample records to the input stream
 
 In this section, you use a Python script to write sample records to the stream for
 the application to process.
@@ -1664,9 +1553,7 @@ if __name__ == "__main__":
 $ python stock.py
 ```
 
-#### Download and examine the
-
-Apache Flink streaming Java code
+#### Download and examine the Apache Flink streaming Java code
 
 The Java application code for this example is available from GitHub. To download
 the application code, do the following:
@@ -1708,14 +1595,11 @@ return env.addSource(new FlinkKinesisConsumer<>(inputStreamName,
 
 For more information about runtime properties, see [Use runtime properties](how-properties.md "how-properties.md").
 
-#### Compile the application
-
-code
+#### Compile the application code
 
 In this section, you use the Apache Maven compiler to create the Java code for the
 application. For information about installing Apache Maven and the Java Development
-Kit (JDK), see [Fulfill the prerequisites for completing the
-exercises](getting-started.md#setting-up-prerequisites "getting-started.md#setting-up-prerequisites").
+Kit (JDK), see [Fulfill the prerequisites for completing the exercises](getting-started.md#setting-up-prerequisites "getting-started.md#setting-up-prerequisites").
 
 ###### To compile the application code
 
@@ -1751,9 +1635,7 @@ If the application compiles successfully, the following file is created:
 
 `target/aws-kinesis-analytics-java-apps-1.0.jar`
 
-#### Upload the Apache Flink
-
-streaming Java code
+#### Upload the Apache Flink streaming Java code
 
 In this section, you create an Amazon Simple Storage Service (Amazon S3) bucket and upload your application
 code.
@@ -1786,9 +1668,7 @@ code.
 Your application code is now stored in an Amazon S3 bucket where your application can
 access it.
 
-#### Create and run the
-
-Managed Service for Apache Flink application
+#### Create and run the Managed Service for Apache Flink application
 
 You can create and run a Managed Service for Apache Flink application using either the console or the AWS CLI.
 
@@ -1800,14 +1680,10 @@ the AWS CLI, you create these resources separately.
 
 ###### Topics
 
-- [Create and run
-  the application (console)](#earlier-gs-1_11-get-started-exercise-7-console "#earlier-gs-1_11-get-started-exercise-7-console")
-- [Create and run the
-  application (AWS CLI)](#earlier-gs-1_11-get-started-exercise-7-cli "#earlier-gs-1_11-get-started-exercise-7-cli")
+- [Create and run the application (console)](#earlier-gs-1_11-get-started-exercise-7-console "#earlier-gs-1_11-get-started-exercise-7-console")
+- [Create and run the application (AWS CLI)](#earlier-gs-1_11-get-started-exercise-7-cli "#earlier-gs-1_11-get-started-exercise-7-cli")
 
-##### Create and run
-
-the application (console)
+##### Create and run the application (console)
 
 Follow these steps to create, configure, update, and run the application using
 the console.
@@ -1845,9 +1721,7 @@ as follows:
 - Role:
   `kinesisanalytics-`MyApplication`-`us-west-2``
 
-##### Edit
-
-the IAM policy
+##### Edit the IAM policy
 
 Edit the IAM policy to add permissions to access the Kinesis data
 streams.
@@ -1971,22 +1845,16 @@ and log stream for you. The names of these resources are as follows:
   `/aws/kinesis-analytics/MyApplication`
 - Log stream: `kinesis-analytics-log-stream`
 
-##### Run the
-
-application
+##### Run the application
 
 The Flink job graph can be viewed by running the application, opening the Apache Flink dashboard, and choosing the desired Flink job.
 
-##### Stop
-
-the application
+##### Stop the application
 
 On the **MyApplication** page, choose
 **Stop**. Confirm the action.
 
-##### Update
-
-the application
+##### Update the application
 
 Using the console, you can update application settings such as application
 properties, monitoring settings, and the location or file name of the
@@ -1997,17 +1865,13 @@ On the **MyApplication** page, choose
 **Configure**. Update the application settings and
 choose **Update**.
 
-##### Create and run the
-
-application (AWS CLI)
+##### Create and run the application (AWS CLI)
 
 In this section, you use the AWS CLI to create and run the Managed Service for Apache Flink application.
 a Managed Service for Apache Flink uses the `kinesisanalyticsv2` AWS CLI command to create and
 interact with Managed Service for Apache Flink applications.
 
-##### Create a Permissions
-
-Policy
+##### Create a Permissions Policy
 
 ###### Note
 
@@ -2117,8 +1981,7 @@ permissions policies for the role. 6. Attach the permissions policy to the role.
 For this exercise, Managed Service for Apache Flink assumes this role for both reading
 data from a Kinesis data stream (source) and writing output to
 another Kinesis data stream. So you attach the policy that you
-created in the previous step, [Create a Permissions
-Policy](#earlier-gs-1_11-get-started-exercise-7-cli-policy "#earlier-gs-1_11-get-started-exercise-7-cli-policy").
+created in the previous step, [Create a Permissions Policy](#earlier-gs-1_11-get-started-exercise-7-cli-policy "#earlier-gs-1_11-get-started-exercise-7-cli-policy").
 
     1. On the **Summary** page, choose the
      **Permissions** tab.
@@ -2138,9 +2001,7 @@ to access resources. Make a note of the ARN of the new role.
 For step-by-step instructions for creating a role, see [Creating an IAM Role (Console)](../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console "../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console") in the
 _IAM User Guide_.
 
-##### Create
-
-the Managed Service for Apache Flink application
+##### Create the Managed Service for Apache Flink application
 
 1. Save the following JSON code to a file named
    `create_request.json`. Replace the sample
@@ -2201,9 +2062,7 @@ aws kinesisanalyticsv2 create-application --cli-input-json file://create_request
 The application is now created. You start the application in the next
 step.
 
-##### Start the
-
-application
+##### Start the application
 
 In this section, you use the [`StartApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md") action to start the
 application.
@@ -2235,9 +2094,7 @@ aws kinesisanalyticsv2 start-application --cli-input-json file://start_request.j
 The application is now running. You can check the Managed Service for Apache Flink metrics on the
 Amazon CloudWatch console to verify that the application is working.
 
-##### Stop the
-
-application
+##### Stop the application
 
 In this section, you use the [`StopApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_StopApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StopApplication.md") action to stop the
 application.
@@ -2264,9 +2121,7 @@ aws kinesisanalyticsv2 stop-application --cli-input-json file://stop_request.jso
 
 The application is now stopped.
 
-##### Add a CloudWatch
-
-logging option
+##### Add a CloudWatch logging option
 
 You can use the AWS CLI to add an Amazon CloudWatch log stream to your application.
 For information about using CloudWatch Logs with your application, see [Set up application logging in Managed Service for Apache Flink](cloudwatch-logs.md "cloudwatch-logs.md").
@@ -2338,8 +2193,7 @@ version. You can check the current application version using the
 `ListApplications` or `DescribeApplication`
 actions. Update the bucket name suffix
 (`<username>`) with the suffix that you
-chose in the [Create two Amazon Kinesis data
-streams](#earlier-gs-1_11-get-started-exercise-1 "#earlier-gs-1_11-get-started-exercise-1") section.
+chose in the [Create two Amazon Kinesis data streams](#earlier-gs-1_11-get-started-exercise-1 "#earlier-gs-1_11-get-started-exercise-1") section.
 
 ```
 {
@@ -2362,31 +2216,23 @@ streams](#earlier-gs-1_11-get-started-exercise-1 "#earlier-gs-1_11-get-started-e
 
 #### Next step
 
-[Step 4: Clean up AWS
-resources](#earlier-gs-1_11-cleanup "#earlier-gs-1_11-cleanup")
+[Step 4: Clean up AWS resources](#earlier-gs-1_11-cleanup "#earlier-gs-1_11-cleanup")
 
-### Step 4: Clean up AWS
-
-resources
+### Step 4: Clean up AWS resources
 
 This section includes procedures for cleaning up AWS resources created in the
 Getting Started tutorial.
 
 ###### This topic contains the following sections:
 
-- [Delete your Managed Service for Apache Flink
-  application](#earlier-gs-1_11-cleanup-app "#earlier-gs-1_11-cleanup-app")
-- [Delete your Kinesis data
-  streams](#earlier-gs-1_11-cleanup-stream "#earlier-gs-1_11-cleanup-stream")
-- [Delete your Amazon S3 object and
-  bucket](#earlier-gs-1_11-cleanup-s3 "#earlier-gs-1_11-cleanup-s3")
+- [Delete your Managed Service for Apache Flink application](#earlier-gs-1_11-cleanup-app "#earlier-gs-1_11-cleanup-app")
+- [Delete your Kinesis data streams](#earlier-gs-1_11-cleanup-stream "#earlier-gs-1_11-cleanup-stream")
+- [Delete your Amazon S3 object and bucket](#earlier-gs-1_11-cleanup-s3 "#earlier-gs-1_11-cleanup-s3")
 - [Delete rour IAM resources](#earlier-gs-1_11-cleanup-iam "#earlier-gs-1_11-cleanup-iam")
 - [Delete your CloudWatch resources](#earlier-gs-1_11-cleanup-cw "#earlier-gs-1_11-cleanup-cw")
 - [Next step](#earlier-gs-1_11-cleanup-next-step-5 "#earlier-gs-1_11-cleanup-next-step-5")
 
-#### Delete your Managed Service for Apache Flink
-
-application
+#### Delete your Managed Service for Apache Flink application
 
 1. Open the Kinesis console at
    [https://console.aws.amazon.com/kinesis](https://console.aws.amazon.com/kinesis "https://console.aws.amazon.com/kinesis").
@@ -2394,9 +2240,7 @@ application
 3. In the application's page, choose **Delete** and then
    confirm the deletion.
 
-#### Delete your Kinesis data
-
-streams
+#### Delete your Kinesis data streams
 
 1. Sign in to the AWS Management Console, and open the Amazon MSF console at https://console.aws.amazon.com/flink.
 2. In the Kinesis Data Streams panel, choose **ExampleInputStream**.
@@ -2408,9 +2252,7 @@ streams
    **Actions**, choose **Delete**, and
    then confirm the deletion.
 
-#### Delete your Amazon S3 object and
-
-bucket
+#### Delete your Amazon S3 object and bucket
 
 1. Open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -2494,8 +2336,7 @@ community for over three years. We plan to deprecate these versions in Amazon Ma
 **November 5, 2024**. Starting from this date, you will
 not be able to create new applications for these Flink versions. You can continue
 running existing applications at this time. You can upgrade your applications statefully
-using the in-place version upgrades feature in Amazon Managed Service for Apache Flink For more information, see [Use in-place version upgrades for Apache
-Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
+using the in-place version upgrades feature in Amazon Managed Service for Apache Flink For more information, see [Use in-place version upgrades for Apache Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
 
 This topic contains a version of the [Tutorial: Get started using the DataStream API
 in Managed Service for Apache Flink](getting-started.md "getting-started.md")
@@ -2503,20 +2344,14 @@ tutorial that uses Apache Flink 1.8.2.
 
 ###### Topics
 
-- [Components of Managed Service for Apache Flink
-  application](#getting-started-components "#getting-started-components")
-- [Prerequisites for completing the
-  exercises](#su-1_8-prerequisites "#su-1_8-prerequisites")
-- [Step 1: Set up an AWS account
-  and create an administrator user](#earlier-gs-1_8-setting-up "#earlier-gs-1_8-setting-up")
+- [Components of Managed Service for Apache Flink application](#getting-started-components "#getting-started-components")
+- [Prerequisites for completing the exercises](#su-1_8-prerequisites "#su-1_8-prerequisites")
+- [Step 1: Set up an AWS account and create an administrator user](#earlier-gs-1_8-setting-up "#earlier-gs-1_8-setting-up")
 - [Step 2: Set up the AWS Command Line Interface (AWS CLI)](#su-1_8-awscli "#su-1_8-awscli")
 - [Step 3: Create and run a Managed Service for Apache Flink application](#earlier-gs-1_8-exercise "#earlier-gs-1_8-exercise")
-- [Step 4: Clean up AWS
-  resources](#earlier-gs-1_8-cleanup "#earlier-gs-1_8-cleanup")
+- [Step 4: Clean up AWS resources](#earlier-gs-1_8-cleanup "#earlier-gs-1_8-cleanup")
 
-### Components of Managed Service for Apache Flink
-
-application
+### Components of Managed Service for Apache Flink application
 
 To process data, your Managed Service for Apache Flink application uses a Java/Apache Maven or Scala application
 that processes input and produces output using the Apache Flink runtime.
@@ -2542,16 +2377,13 @@ package to an Amazon Simple Storage Service (Amazon S3) bucket. You then create 
 package location, a Kinesis data stream as the streaming data source, and typically a
 streaming or file location that receives the application's processed data.
 
-### Prerequisites for completing the
-
-exercises
+### Prerequisites for completing the exercises
 
 To complete the steps in this guide, you must have the following:
 
 - [Java Development Kit (JDK) version 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html "http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"). Set the `JAVA_HOME` environment variable to point to your JDK install location.
 - To use the Apache Flink Kinesis connector in this tutorial, you must download and
-  install Apache Flink. For details, see [Using the Apache Flink Kinesis Streams connector
-  with previous Apache Flink versions](#how-creating-apps-building-kinesis "#how-creating-apps-building-kinesis").
+  install Apache Flink. For details, see [Using the Apache Flink Kinesis Streams connector with previous Apache Flink versions](#how-creating-apps-building-kinesis "#how-creating-apps-building-kinesis").
 - We recommend that you use a development environment (such as [Eclipse Java
   Neon](http://www.eclipse.org/downloads/packages/release/neon/3 "http://www.eclipse.org/downloads/packages/release/neon/3") or [IntelliJ
   Idea](https://www.jetbrains.com/idea/ "https://www.jetbrains.com/idea/")) to develop and compile your application.
@@ -2564,12 +2396,9 @@ To complete the steps in this guide, you must have the following:
 $ mvn -version
 ```
 
-To get started, go to [Step 1: Set up an AWS account
-and create an administrator user](#earlier-gs-1_8-setting-up "#earlier-gs-1_8-setting-up").
+To get started, go to [Step 1: Set up an AWS account and create an administrator user](#earlier-gs-1_8-setting-up "#earlier-gs-1_8-setting-up").
 
-### Step 1: Set up an AWS account
-
-and create an administrator user
+### Step 1: Set up an AWS account and create an administrator user
 
 #### Sign up for an AWS account
 
@@ -2718,15 +2547,11 @@ sink.
 ###### This section contains the following steps:
 
 - [Create two Amazon Kinesis data streams](#earlier-gs-1_8-exercise-1 "#earlier-gs-1_8-exercise-1")
-- [Write sample records to the input
-  stream](#earlier-gs-1_8-exercise-2 "#earlier-gs-1_8-exercise-2")
-- [Download and examine the Apache Flink
-  streaming Java code](#earlier-gs-1_8-exercise-5 "#earlier-gs-1_8-exercise-5")
+- [Write sample records to the input stream](#earlier-gs-1_8-exercise-2 "#earlier-gs-1_8-exercise-2")
+- [Download and examine the Apache Flink streaming Java code](#earlier-gs-1_8-exercise-5 "#earlier-gs-1_8-exercise-5")
 - [Compile the application code](#earlier-gs-1_8-exercise-5.5 "#earlier-gs-1_8-exercise-5.5")
-- [Upload the Apache Flink streaming Java
-  code](#earlier-gs-1_8-exercise-6 "#earlier-gs-1_8-exercise-6")
-- [Create and run the Managed Service for Apache Flink
-  application](#earlier-gs-1_8-exercise-7 "#earlier-gs-1_8-exercise-7")
+- [Upload the Apache Flink streaming Java code](#earlier-gs-1_8-exercise-6 "#earlier-gs-1_8-exercise-6")
+- [Create and run the Managed Service for Apache Flink application](#earlier-gs-1_8-exercise-7 "#earlier-gs-1_8-exercise-7")
 - [Next step](#earlier-gs-1_8-exercise-next-step-4 "#earlier-gs-1_8-exercise-next-step-4")
 
 #### Create two Amazon Kinesis data streams
@@ -2765,9 +2590,7 @@ $ aws kinesis create-stream \
 --profile adminuser
 ```
 
-#### Write sample records to the input
-
-stream
+#### Write sample records to the input stream
 
 In this section, you use a Python script to write sample records to the stream for
 the application to process.
@@ -2818,9 +2641,7 @@ if __name__ == "__main__":
 $ python stock.py
 ```
 
-#### Download and examine the Apache Flink
-
-streaming Java code
+#### Download and examine the Apache Flink streaming Java code
 
 The Java application code for this example is available from GitHub. To download
 the application code, do the following:
@@ -2866,15 +2687,13 @@ For more information about runtime properties, see [Use runtime properties](how-
 
 In this section, you use the Apache Maven compiler to create the Java code for the
 application. For information about installing Apache Maven and the Java Development
-Kit (JDK), see [Prerequisites for completing the
-exercises](#su-1_8-prerequisites "#su-1_8-prerequisites").
+Kit (JDK), see [Prerequisites for completing the exercises](#su-1_8-prerequisites "#su-1_8-prerequisites").
 
 ###### Note
 
 **In order to use the Kinesis connector with versions of Apache
 Flink prior to 1.11, you need to download, build, and install Apache Maven. For more
-information, see [Using the Apache Flink Kinesis Streams connector
-with previous Apache Flink versions](#how-creating-apps-building-kinesis "#how-creating-apps-building-kinesis").**
+information, see [Using the Apache Flink Kinesis Streams connector with previous Apache Flink versions](#how-creating-apps-building-kinesis "#how-creating-apps-building-kinesis").**
 
 ###### To compile the application code
 
@@ -2910,9 +2729,7 @@ If the application compiles successfully, the following file is created:
 
 `target/aws-kinesis-analytics-java-apps-1.0.jar`
 
-#### Upload the Apache Flink streaming Java
-
-code
+#### Upload the Apache Flink streaming Java code
 
 In this section, you create an Amazon Simple Storage Service (Amazon S3) bucket and upload your application
 code.
@@ -2945,9 +2762,7 @@ code.
 Your application code is now stored in an Amazon S3 bucket where your application can
 access it.
 
-#### Create and run the Managed Service for Apache Flink
-
-application
+#### Create and run the Managed Service for Apache Flink application
 
 You can create and run a Managed Service for Apache Flink application using either the console or the AWS CLI.
 
@@ -2959,21 +2774,15 @@ the AWS CLI, you create these resources separately.
 
 ###### Topics
 
-- [Create and run the
-  application (console)](#earlier-gs-1_8-exercise-7-console "#earlier-gs-1_8-exercise-7-console")
-- [Create and run the application
-  (AWS CLI)](#earlier-gs-1_8-exercise-7-cli "#earlier-gs-1_8-exercise-7-cli")
+- [Create and run the application (console)](#earlier-gs-1_8-exercise-7-console "#earlier-gs-1_8-exercise-7-console")
+- [Create and run the application (AWS CLI)](#earlier-gs-1_8-exercise-7-cli "#earlier-gs-1_8-exercise-7-cli")
 
-##### Create and run the
-
-application (console)
+##### Create and run the application (console)
 
 Follow these steps to create, configure, update, and run the application using
 the console.
 
-##### Create the
-
-application
+##### Create the application
 
 1. Sign in to the AWS Management Console, and open the Amazon MSF console at https://console.aws.amazon.com/flink.
 2. On the Managed Service for Apache Flink dashboard, choose **Create analytics
@@ -3007,9 +2816,7 @@ as follows:
 - Role:
   `kinesisanalytics-`MyApplication`-`us-west-2``
 
-##### Edit the IAM
-
-policy
+##### Edit the IAM policy
 
 Edit the IAM policy to add permissions to access the Kinesis data
 streams.
@@ -3091,9 +2898,7 @@ JSON
 
 ```
 
-##### Configure the
-
-application
+##### Configure the application
 
 1. On the **MyApplication** page, choose
    **Configure**.
@@ -3132,25 +2937,19 @@ and log stream for you. The names of these resources are as follows:
   `/aws/kinesis-analytics/MyApplication`
 - Log stream: `kinesis-analytics-log-stream`
 
-##### Run the
-
-application
+##### Run the application
 
 1. On the **MyApplication** page, choose
    **Run**. Confirm the action.
 2. When the application is running, refresh the page. The console
    shows the **Application graph**.
 
-##### Stop the
-
-application
+##### Stop the application
 
 On the **MyApplication** page, choose
 **Stop**. Confirm the action.
 
-##### Update the
-
-application
+##### Update the application
 
 Using the console, you can update application settings such as application
 properties, monitoring settings, and the location or file name of the
@@ -3161,17 +2960,13 @@ On the **MyApplication** page, choose
 **Configure**. Update the application settings and
 choose **Update**.
 
-##### Create and run the application
-
-(AWS CLI)
+##### Create and run the application (AWS CLI)
 
 In this section, you use the AWS CLI to create and run the Managed Service for Apache Flink application.
 Managed Service for Apache Flink uses the `kinesisanalyticsv2` AWS CLI command to create and
 interact with Managed Service for Apache Flink applications.
 
-##### Create a Permissions
-
-Policy
+##### Create a Permissions Policy
 
 ###### Note
 
@@ -3239,9 +3034,7 @@ automatically sets the credentials required by the SDK to those of the
 service execution IAM role that is associated with your application.
 No additional steps are needed.
 
-##### Create an IAM
-
-role
+##### Create an IAM role
 
 In this section, you create an IAM role that the Managed Service for Apache Flink application can assume to
 read a source stream and write to the sink stream.
@@ -3283,8 +3076,7 @@ permissions policies for the role. 6. Attach the permissions policy to the role.
 For this exercise, Managed Service for Apache Flink assumes this role for both reading
 data from a Kinesis data stream (source) and writing output to
 another Kinesis data stream. So you attach the policy that you
-created in the previous step, [Create a Permissions
-Policy](#earlier-gs-1_8-exercise-7-cli-policy "#earlier-gs-1_8-exercise-7-cli-policy").
+created in the previous step, [Create a Permissions Policy](#earlier-gs-1_8-exercise-7-cli-policy "#earlier-gs-1_8-exercise-7-cli-policy").
 
     1. On the **Summary** page, choose the
      **Permissions** tab.
@@ -3304,9 +3096,7 @@ to access resources. Make a note of the ARN of the new role.
 For step-by-step instructions for creating a role, see [Creating an IAM Role (Console)](../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console "../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console") in the
 _IAM User Guide_.
 
-##### Create the
-
-Managed Service for Apache Flink application
+##### Create the Managed Service for Apache Flink application
 
 1. Save the following JSON code to a file named
    `create_request.json`. Replace the sample
@@ -3367,9 +3157,7 @@ aws kinesisanalyticsv2 create-application --cli-input-json file://create_request
 The application is now created. You start the application in the next
 step.
 
-##### Start the
-
-application
+##### Start the application
 
 In this section, you use the [`StartApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md") action to start the
 application.
@@ -3401,9 +3189,7 @@ aws kinesisanalyticsv2 start-application --cli-input-json file://start_request.j
 The application is now running. You can check the Managed Service for Apache Flink metrics on the
 Amazon CloudWatch console to verify that the application is working.
 
-##### Stop the
-
-application
+##### Stop the application
 
 In this section, you use the [`StopApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_StopApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StopApplication.md") action to stop the
 application.
@@ -3430,16 +3216,12 @@ aws kinesisanalyticsv2 stop-application --cli-input-json file://stop_request.jso
 
 The application is now stopped.
 
-##### Add a CloudWatch logging
-
-option
+##### Add a CloudWatch logging option
 
 You can use the AWS CLI to add an Amazon CloudWatch log stream to your application.
 For information about using CloudWatch Logs with your application, see [Set up application logging in Managed Service for Apache Flink](cloudwatch-logs.md "cloudwatch-logs.md").
 
-##### Update
-
-environment properties
+##### Update environment properties
 
 In this section, you use the [`UpdateApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md") action to change the
 environment properties for the application without recompiling the
@@ -3485,9 +3267,7 @@ and destination streams.
 aws kinesisanalyticsv2 update-application --cli-input-json file://update_properties_request.json
 ```
 
-##### Update the
-
-application code
+##### Update the application code
 
 When you need to update your application code with a new version of your
 code package, you use the [`UpdateApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md") AWS CLI action.
@@ -3531,30 +3311,22 @@ chose in the [Create two Amazon Kinesis data streams](#earlier-gs-1_8-exercise-1
 
 #### Next step
 
-[Step 4: Clean up AWS
-resources](#earlier-gs-1_8-cleanup "#earlier-gs-1_8-cleanup")
+[Step 4: Clean up AWS resources](#earlier-gs-1_8-cleanup "#earlier-gs-1_8-cleanup")
 
-### Step 4: Clean up AWS
-
-resources
+### Step 4: Clean up AWS resources
 
 This section includes procedures for cleaning up AWS resources created in the
 Getting Started tutorial.
 
 ###### This topic contains the following sections:
 
-- [Delete your Managed Service for Apache Flink
-  application](#earlier-gs-1_8-cleanup-app "#earlier-gs-1_8-cleanup-app")
-- [Delete your Kinesis data
-  streams](#earlier-gs-1_8-cleanup-stream "#earlier-gs-1_8-cleanup-stream")
-- [Delete your Amazon S3 object and
-  bucket](#earlier-gs-1_8-cleanup-s3 "#earlier-gs-1_8-cleanup-s3")
+- [Delete your Managed Service for Apache Flink application](#earlier-gs-1_8-cleanup-app "#earlier-gs-1_8-cleanup-app")
+- [Delete your Kinesis data streams](#earlier-gs-1_8-cleanup-stream "#earlier-gs-1_8-cleanup-stream")
+- [Delete your Amazon S3 object and bucket](#earlier-gs-1_8-cleanup-s3 "#earlier-gs-1_8-cleanup-s3")
 - [Delete your IAM resources](#earlier-gs-1_8-cleanup-iam "#earlier-gs-1_8-cleanup-iam")
 - [Delete your CloudWatch resources](#earlier-gs-1_8-cleanup-cw "#earlier-gs-1_8-cleanup-cw")
 
-#### Delete your Managed Service for Apache Flink
-
-application
+#### Delete your Managed Service for Apache Flink application
 
 1. Open the Kinesis console at
    [https://console.aws.amazon.com/kinesis](https://console.aws.amazon.com/kinesis "https://console.aws.amazon.com/kinesis").
@@ -3566,9 +3338,7 @@ application
 5. In the application's page, choose **Delete** and then
    confirm the deletion.
 
-#### Delete your Kinesis data
-
-streams
+#### Delete your Kinesis data streams
 
 1. Sign in to the AWS Management Console, and open the Amazon MSF console at https://console.aws.amazon.com/flink.
 2. In the Kinesis Data Streams panel, choose **ExampleInputStream**.
@@ -3580,9 +3350,7 @@ streams
    **Actions**, choose **Delete**, and
    then confirm the deletion.
 
-#### Delete your Amazon S3 object and
-
-bucket
+#### Delete your Amazon S3 object and bucket
 
 1. Open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -3629,8 +3397,7 @@ community for over three years. We plan to deprecate these versions in Amazon Ma
 **November 5, 2024**. Starting from this date, you will
 not be able to create new applications for these Flink versions. You can continue
 running existing applications at this time. You can upgrade your applications statefully
-using the in-place version upgrades feature in Amazon Managed Service for Apache Flink For more information, see [Use in-place version upgrades for Apache
-Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
+using the in-place version upgrades feature in Amazon Managed Service for Apache Flink For more information, see [Use in-place version upgrades for Apache Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
 
 This topic contains a version of the [Tutorial: Get started using the DataStream API
 in Managed Service for Apache Flink](getting-started.md "getting-started.md")
@@ -3638,20 +3405,14 @@ tutorial that uses Apache Flink 1.6.2.
 
 ###### Topics
 
-- [Components of a Managed Service for Apache Flink
-  application](#earlier-gs-1_6-components "#earlier-gs-1_6-components")
-- [Prerequisites for completing the
-  exercises](#su-1_6-prerequisites "#su-1_6-prerequisites")
-- [Step 1: Set up an AWS account
-  and create an administrator user](#earlier-gs-1_6-setting-up "#earlier-gs-1_6-setting-up")
+- [Components of a Managed Service for Apache Flink application](#earlier-gs-1_6-components "#earlier-gs-1_6-components")
+- [Prerequisites for completing the exercises](#su-1_6-prerequisites "#su-1_6-prerequisites")
+- [Step 1: Set up an AWS account and create an administrator user](#earlier-gs-1_6-setting-up "#earlier-gs-1_6-setting-up")
 - [Step 2: Set up the AWS Command Line Interface (AWS CLI)](#su-1_6-awscli "#su-1_6-awscli")
 - [Step 3: Create and run a Managed Service for Apache Flink application](#earlier-gs-1_6-exercise "#earlier-gs-1_6-exercise")
-- [Step 4: Clean up AWS
-  resources](#earlier-gs-1_6-cleanup "#earlier-gs-1_6-cleanup")
+- [Step 4: Clean up AWS resources](#earlier-gs-1_6-cleanup "#earlier-gs-1_6-cleanup")
 
-### Components of a Managed Service for Apache Flink
-
-application
+### Components of a Managed Service for Apache Flink application
 
 To process data, your Managed Service for Apache Flink application uses a Java/Apache Maven or Scala application that
 processes input and produces output using the Apache Flink runtime.
@@ -3678,9 +3439,7 @@ the code package location, a Kinesis data stream as the streaming data source, a
 typically a streaming or file location that receives the application's processed
 data.
 
-### Prerequisites for completing the
-
-exercises
+### Prerequisites for completing the exercises
 
 To complete the steps in this guide, you must have the following:
 
@@ -3699,12 +3458,9 @@ To complete the steps in this guide, you must have the following:
 $ mvn -version
 ```
 
-To get started, go to [Step 1: Set up an AWS account
-and create an administrator user](#earlier-gs-1_6-setting-up "#earlier-gs-1_6-setting-up").
+To get started, go to [Step 1: Set up an AWS account and create an administrator user](#earlier-gs-1_6-setting-up "#earlier-gs-1_6-setting-up").
 
-### Step 1: Set up an AWS account
-
-and create an administrator user
+### Step 1: Set up an AWS account and create an administrator user
 
 #### Sign up for an AWS account
 
@@ -3854,15 +3610,11 @@ sink.
 ###### This section contains the following steps:
 
 - [Create two Amazon Kinesis data streams](#earlier-gs-1_6-exercise-1 "#earlier-gs-1_6-exercise-1")
-- [Write sample records to the input
-  stream](#earlier-gs-1_6-exercise-2 "#earlier-gs-1_6-exercise-2")
-- [Download and examine the Apache Flink
-  streaming Java code](#earlier-gs-1_6-exercise-5 "#earlier-gs-1_6-exercise-5")
+- [Write sample records to the input stream](#earlier-gs-1_6-exercise-2 "#earlier-gs-1_6-exercise-2")
+- [Download and examine the Apache Flink streaming Java code](#earlier-gs-1_6-exercise-5 "#earlier-gs-1_6-exercise-5")
 - [Compile the application code](#earlier-gs-1_6-exercise-5.5 "#earlier-gs-1_6-exercise-5.5")
-- [Upload the Apache Flink streaming Java
-  code](#earlier-gs-1_6-exercise-6 "#earlier-gs-1_6-exercise-6")
-- [Create and run the Managed Service for Apache Flink
-  application](#earlier-gs-1_6-exercise-7 "#earlier-gs-1_6-exercise-7")
+- [Upload the Apache Flink streaming Java code](#earlier-gs-1_6-exercise-6 "#earlier-gs-1_6-exercise-6")
+- [Create and run the Managed Service for Apache Flink application](#earlier-gs-1_6-exercise-7 "#earlier-gs-1_6-exercise-7")
 
 #### Create two Amazon Kinesis data streams
 
@@ -3900,9 +3652,7 @@ $ aws kinesis create-stream \
 --profile adminuser
 ```
 
-#### Write sample records to the input
-
-stream
+#### Write sample records to the input stream
 
 In this section, you use a Python script to write sample records to the stream for
 the application to process.
@@ -3952,9 +3702,7 @@ if __name__ == "__main__":
 $ python stock.py
 ```
 
-#### Download and examine the Apache Flink
-
-streaming Java code
+#### Download and examine the Apache Flink streaming Java code
 
 The Java application code for this example is available from GitHub. To download
 the application code, do the following:
@@ -3996,8 +3744,7 @@ For more information about runtime properties, see
 
 In this section, you use the Apache Maven compiler to create the Java code for the
 application. For information about installing Apache Maven and the Java Development
-Kit (JDK), see [Prerequisites for completing the
-exercises](#su-1_6-prerequisites "#su-1_6-prerequisites").
+Kit (JDK), see [Prerequisites for completing the exercises](#su-1_6-prerequisites "#su-1_6-prerequisites").
 
 ###### Note
 
@@ -4021,8 +3768,7 @@ source code for the connector and build it as described in the [Apache Flink doc
         ###### Note
 
         The -Dflink.version parameter is not required for Managed Service for Apache Flink Runtime version 1.0.1; it is only required for version 1.1.0 and later. For
-         more information, see [Specify your application's Apache Flink
-         version](how-creating-apps.md#how-creating-apps-building-flink "how-creating-apps.md#how-creating-apps-building-flink").
+         more information, see [Specify your application's Apache Flink version](how-creating-apps.md#how-creating-apps-building-flink "how-creating-apps.md#how-creating-apps-building-flink").
         * Use your development environment. See your development environment documentation for details.
 
     You can either upload your package as a JAR file, or you can compress your
@@ -4036,9 +3782,7 @@ If the application compiles successfully, the following file is created:
 
 `target/aws-kinesis-analytics-java-apps-1.0.jar`
 
-#### Upload the Apache Flink streaming Java
-
-code
+#### Upload the Apache Flink streaming Java code
 
 In this section, you create an Amazon Simple Storage Service (Amazon S3) bucket and upload your application
 code.
@@ -4072,9 +3816,7 @@ code.
 Your application code is now stored in an Amazon S3 bucket where your application can
 access it.
 
-#### Create and run the Managed Service for Apache Flink
-
-application
+#### Create and run the Managed Service for Apache Flink application
 
 You can create and run a Managed Service for Apache Flink application using either the console or the
 AWS CLI.
@@ -4087,21 +3829,15 @@ the AWS CLI, you create these resources separately.
 
 ###### Topics
 
-- [Create and run the
-  application (console)](#earlier-gs-1_6-exercise-7-console "#earlier-gs-1_6-exercise-7-console")
-- [Create and run the application
-  (AWS CLI)](#earlier-gs-1_6-exercise-7-cli "#earlier-gs-1_6-exercise-7-cli")
+- [Create and run the application (console)](#earlier-gs-1_6-exercise-7-console "#earlier-gs-1_6-exercise-7-console")
+- [Create and run the application (AWS CLI)](#earlier-gs-1_6-exercise-7-cli "#earlier-gs-1_6-exercise-7-cli")
 
-##### Create and run the
-
-application (console)
+##### Create and run the application (console)
 
 Follow these steps to create, configure, update, and run the application using
 the console.
 
-##### Create the
-
-application
+##### Create the application
 
 1. Sign in to the AWS Management Console, and open the Amazon MSF console at https://console.aws.amazon.com/flink.
 2. On the Managed Service for Apache Flink dashboard, choose **Create analytics
@@ -4137,9 +3873,7 @@ and Region as follows:
 - Role:
   `kinesisanalytics-`MyApplication`-`us-west-2``
 
-##### Edit the IAM
-
-policy
+##### Edit the IAM policy
 
 Edit the IAM policy to add permissions to access the Kinesis data
 streams.
@@ -4221,9 +3955,7 @@ JSON
 
 ```
 
-##### Configure the
-
-application
+##### Configure the application
 
 1. On the **MyApplication** page, choose
    **Configure**.
@@ -4262,25 +3994,19 @@ and log stream for you. The names of these resources are as follows:
   `/aws/kinesis-analytics/MyApplication`
 - Log stream: `kinesis-analytics-log-stream`
 
-##### Run the
-
-application
+##### Run the application
 
 1. On the **MyApplication** page, choose
    **Run**. Confirm the action.
 2. When the application is running, refresh the page. The console
    shows the **Application graph**.
 
-##### Stop the
-
-application
+##### Stop the application
 
 On the **MyApplication** page, choose
 **Stop**. Confirm the action.
 
-##### Update the
-
-application
+##### Update the application
 
 Using the console, you can update application settings such as application
 properties, monitoring settings, and the location or file name of the
@@ -4291,17 +4017,13 @@ On the **MyApplication** page, choose
 **Configure**. Update the application settings and
 choose **Update**.
 
-##### Create and run the application
-
-(AWS CLI)
+##### Create and run the application (AWS CLI)
 
 In this section, you use the AWS CLI to create and run the Managed Service for Apache Flink
 application. Managed Service for Apache Flink uses the `kinesisanalyticsv2` AWS CLI command to create and
 interact with Managed Service for Apache Flink applications.
 
-##### Create a permissions
-
-policy
+##### Create a permissions policy
 
 First, you create a permissions policy with two statements: one that
 grants permissions for the `read` action on the source stream,
@@ -4361,9 +4083,7 @@ automatically sets the credentials required by the SDK to those of the
 service execution IAM role that is associated with your application.
 No additional steps are needed.
 
-##### Create an IAM
-
-role
+##### Create an IAM role
 
 In this section, you create an IAM role that the Managed Service for Apache Flink application can
 assume to read a source stream and write to the sink stream.
@@ -4405,8 +4125,7 @@ permissions policies for the role. 6. Attach the permissions policy to the role.
 For this exercise, Managed Service for Apache Flink assumes this role for both reading
 data from a Kinesis data stream (source) and writing output to
 another Kinesis data stream. So you attach the policy that you
-created in the previous step, [Create a permissions
-policy](#earlier-gs-1_6-exercise-7-cli-policy "#earlier-gs-1_6-exercise-7-cli-policy").
+created in the previous step, [Create a permissions policy](#earlier-gs-1_6-exercise-7-cli-policy "#earlier-gs-1_6-exercise-7-cli-policy").
 
     1. On the **Summary** page, choose the
      **Permissions** tab.
@@ -4426,9 +4145,7 @@ to access resources. Make a note of the ARN of the new role.
 For step-by-step instructions for creating a role, see [Creating an IAM Role (Console)](../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console "../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console") in the
 _IAM User Guide_.
 
-##### Create the
-
-Managed Service for Apache Flink application
+##### Create the Managed Service for Apache Flink application
 
 1. Save the following JSON code to a file named
    `create_request.json`. Replace the sample
@@ -4489,9 +4206,7 @@ aws kinesisanalyticsv2 create-application --cli-input-json file://create_request
 The application is now created. You start the application in the next
 step.
 
-##### Start the
-
-application
+##### Start the application
 
 In this section, you use the [`StartApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md") action to start the
 application.
@@ -4523,9 +4238,7 @@ aws kinesisanalyticsv2 start-application --cli-input-json file://start_request.j
 The application is now running. You can check the Managed Service for Apache Flink metrics on the
 Amazon CloudWatch console to verify that the application is working.
 
-##### Stop the
-
-application
+##### Stop the application
 
 In this section, you use the [`StopApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_StopApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StopApplication.md") action to stop the
 application.
@@ -4551,16 +4264,12 @@ aws kinesisanalyticsv2 stop-application --cli-input-json file://stop_request.jso
 
 The application is now stopped.
 
-##### Add a CloudWatch logging
-
-option
+##### Add a CloudWatch logging option
 
 You can use the AWS CLI to add an Amazon CloudWatch log stream to your application.
 For information about using CloudWatch Logs with your application, see [Set up application logging in Managed Service for Apache Flink](cloudwatch-logs.md "cloudwatch-logs.md").
 
-##### Update
-
-environment properties
+##### Update environment properties
 
 In this section, you use the [`UpdateApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md") action to change the
 environment properties for the application without recompiling the
@@ -4606,9 +4315,7 @@ and destination streams.
 aws kinesisanalyticsv2 update-application --cli-input-json file://update_properties_request.json
 ```
 
-##### Update the
-
-application code
+##### Update the application code
 
 When you need to update your application code with a new version of your
 code package, you use the [`UpdateApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md") AWS CLI action.
@@ -4644,9 +4351,7 @@ with the suffix that you chose in the [Create two Amazon Kinesis data streams](#
 
 ```
 
-### Step 4: Clean up AWS
-
-resources
+### Step 4: Clean up AWS resources
 
 This section includes procedures for cleaning up AWS resources created in the Getting Started tutorial.
 
@@ -4741,8 +4446,7 @@ Apache Flink DataStream API.
 - [Example: Tumbling window](#examples-tumbling "#examples-tumbling")
 - [Example: Sliding window](#examples-sliding "#examples-sliding")
 - [Example: Writing to an Amazon S3 bucket](#examples-s3 "#examples-s3")
-- [Tutorial: Using a Managed Service for Apache Flink application to replicate data from one topic in an MSK
-  cluster to another in a VPC](#example-msk "#example-msk")
+- [Tutorial: Using a Managed Service for Apache Flink application to replicate data from one topic in an MSK cluster to another in a VPC](#example-msk "#example-msk")
 - [Example: Use an EFO consumer with a Kinesis data stream](#examples-efo "#examples-efo")
 - [Example: Writing to Firehose](#get-started-exercise-fh "#get-started-exercise-fh")
 - [Example: Read from a Kinesis stream in a different account](#examples-cross "#examples-cross")
@@ -4775,8 +4479,7 @@ in Managed Service for Apache Flink](getting-started.md "getting-started.md") ex
 - [Compile the application code](#examples-tumbling-compile "#examples-tumbling-compile")
 - [Upload the Apache Flink streaming Java code](#examples-tumbling-upload "#examples-tumbling-upload")
 - [Create and run the Managed Service for Apache Flink application](#examples-tumbling-create-run "#examples-tumbling-create-run")
-- [Clean up AWS
-  resources](#examples-tumbling-cleanup "#examples-tumbling-cleanup")
+- [Clean up AWS resources](#examples-tumbling-cleanup "#examples-tumbling-cleanup")
 
 ##### Create dependent resources
 
@@ -5084,9 +4787,7 @@ log stream for you. The names of these resources are as follows:
 
 You can check the Managed Service for Apache Flink metrics on the CloudWatch console to verify that the application is working.
 
-##### Clean up AWS
-
-resources
+##### Clean up AWS resources
 
 This section includes procedures for cleaning up AWS resources created in the Tumbling Window tutorial.
 
@@ -6090,16 +5791,13 @@ This section includes procedures for cleaning up AWS resources that you created 
 
 ###### This topic contains the following sections:
 
-- [Delete your Managed Service for Apache Flink
-  application](#examples-s3-cleanup-app "#examples-s3-cleanup-app")
+- [Delete your Managed Service for Apache Flink application](#examples-s3-cleanup-app "#examples-s3-cleanup-app")
 - [Delete your Kinesis data stream](#examples-s3-cleanup-stream "#examples-s3-cleanup-stream")
 - [Delete your Amazon S3 objects and bucket](#examples-s3-cleanup-s3 "#examples-s3-cleanup-s3")
 - [Delete your IAM resources](#examples-s3-cleanup-iam "#examples-s3-cleanup-iam")
 - [Delete your CloudWatch resources](#examples-s3-cleanup-cw "#examples-s3-cleanup-cw")
 
-##### Delete your Managed Service for Apache Flink
-
-application
+##### Delete your Managed Service for Apache Flink application
 
 1. Sign in to the AWS Management Console, and open the Amazon MSF console at https://console.aws.amazon.com/flink.
 2. In the Managed Service for Apache Flink panel, choose **MyApplication**.
@@ -6149,9 +5847,7 @@ application
 4. Choose **Delete Log Group** and then confirm the
    deletion.
 
-#### Tutorial: Using a Managed Service for Apache Flink application to replicate data from one topic in an MSK
-
-cluster to another in a VPC
+#### Tutorial: Using a Managed Service for Apache Flink application to replicate data from one topic in an MSK cluster to another in a VPC
 
 ###### Note
 
@@ -6244,8 +5940,7 @@ in Managed Service for Apache Flink](getting-started.md "getting-started.md") tu
 
 ###### Note
 
-If you deleted the Amazon S3 bucket from the Getting Started tutorial, follow the [Upload the application code JAR
-file](get-started-exercise.md#get-started-exercise-6 "get-started-exercise.md#get-started-exercise-6") step again.
+If you deleted the Amazon S3 bucket from the Getting Started tutorial, follow the [Upload the application code JAR file](get-started-exercise.md#get-started-exercise-6 "get-started-exercise.md#get-started-exercise-6") step again.
 
 1. In the Amazon S3 console, choose the **ka-app-code-`<username>`** bucket,
    and choose **Upload**.
@@ -6372,8 +6067,7 @@ To read from the destination topic, use the destination topic name instead of th
 bin/kafka-console-consumer.sh --bootstrap-server `BootstrapBrokerString` --consumer.config client.properties --topic AWSKafkaTutorialTopicDestination --from-beginning
 ```
 
-If no records appear in the destination topic, see the [Cannot access resources in a
-VPC](troubleshooting-symptoms.md#troubleshooting-rt-vpc "troubleshooting-symptoms.md#troubleshooting-rt-vpc")
+If no records appear in the destination topic, see the [Cannot access resources in a VPC](troubleshooting-symptoms.md#troubleshooting-rt-vpc "troubleshooting-symptoms.md#troubleshooting-rt-vpc")
 section in the [Troubleshoot Managed Service for Apache Flink](troubleshooting.md "troubleshooting.md") topic.
 
 #### Example: Use an EFO consumer with a Kinesis data stream
@@ -6829,17 +6523,12 @@ in Managed Service for Apache Flink](getting-started.md "getting-started.md") ex
 ###### This section contains the following steps:
 
 - [Create dependent resources](#get-started-exercise-fh-1 "#get-started-exercise-fh-1")
-- [Write sample records to the input
-  stream](#get-started-exercise-fh-2 "#get-started-exercise-fh-2")
-- [Download and examine the Apache Flink
-  streaming Java code](#get-started-exercise-fh-5 "#get-started-exercise-fh-5")
+- [Write sample records to the input stream](#get-started-exercise-fh-2 "#get-started-exercise-fh-2")
+- [Download and examine the Apache Flink streaming Java code](#get-started-exercise-fh-5 "#get-started-exercise-fh-5")
 - [Compile the application code](#get-started-exercise-fh-5.5 "#get-started-exercise-fh-5.5")
-- [Upload the Apache Flink streaming Java
-  code](#get-started-exercise-fh-6 "#get-started-exercise-fh-6")
-- [Create and run the Managed Service for Apache Flink
-  application](#get-started-exercise-fh-7 "#get-started-exercise-fh-7")
-- [Clean up AWS
-  resources](#getting-started-fh-cleanup "#getting-started-fh-cleanup")
+- [Upload the Apache Flink streaming Java code](#get-started-exercise-fh-6 "#get-started-exercise-fh-6")
+- [Create and run the Managed Service for Apache Flink application](#get-started-exercise-fh-7 "#get-started-exercise-fh-7")
+- [Clean up AWS resources](#getting-started-fh-cleanup "#getting-started-fh-cleanup")
 
 ##### Create dependent resources
 
@@ -6866,9 +6555,7 @@ creating these resources, see the following topics:
   _Amazon Simple Storage Service User Guide_. Give the Amazon S3 bucket a globally unique name by appending your
   login name, such as `ka-app-code-`<username>``.
 
-##### Write sample records to the input
-
-stream
+##### Write sample records to the input stream
 
 In this section, you use a Python script to write sample records to the stream for
 the application to process.
@@ -6918,9 +6605,7 @@ $ python stock.py
 
 Keep the script running while completing the rest of the tutorial.
 
-##### Download and examine the Apache Flink
-
-streaming Java code
+##### Download and examine the Apache Flink streaming Java code
 
 The Java application code for this example is available from GitHub. To download
 the application code, do the following:
@@ -6967,8 +6652,7 @@ To compile the application, do the following:
    in Managed Service for Apache Flink](getting-started.md "getting-started.md")
    tutorial.
 2. **In order to use the Kinesis connector for the following application, you need to download, build, and install Apache Maven.
-   For more information, see [Using the Apache Flink Kinesis Streams connector
-   with previous Apache Flink versions](#how-creating-apps-building-kinesis "#how-creating-apps-building-kinesis").**
+   For more information, see [Using the Apache Flink Kinesis Streams connector with previous Apache Flink versions](#how-creating-apps-building-kinesis "#how-creating-apps-building-kinesis").**
 3. Compile the application with the following command:
 
 ```
@@ -6981,9 +6665,7 @@ The provided source code relies on libraries from Java 11.
 
 Compiling the application creates the application JAR file (`target/aws-kinesis-analytics-java-apps-1.0.jar`).
 
-##### Upload the Apache Flink streaming Java
-
-code
+##### Upload the Apache Flink streaming Java code
 
 In this section, you upload your application code to the Amazon S3 bucket that you
 created in the [Create dependent resources](#get-started-exercise-fh-1 "#get-started-exercise-fh-1") section.
@@ -7004,9 +6686,7 @@ created in the [Create dependent resources](#get-started-exercise-fh-1 "#get-sta
 Your application code is now stored in an Amazon S3 bucket where your application can
 access it.
 
-##### Create and run the Managed Service for Apache Flink
-
-application
+##### Create and run the Managed Service for Apache Flink application
 
 You can create and run a Managed Service for Apache Flink application using either the console or the
 AWS CLI.
@@ -7019,21 +6699,15 @@ the AWS CLI, you create these resources separately.
 
 ###### Topics
 
-- [Create and run the
-  application (console)](#get-started-exercise-fh-7-console "#get-started-exercise-fh-7-console")
-- [Create and run the application
-  (AWS CLI)](#get-started-exercise-fh-7-cli "#get-started-exercise-fh-7-cli")
+- [Create and run the application (console)](#get-started-exercise-fh-7-console "#get-started-exercise-fh-7-console")
+- [Create and run the application (AWS CLI)](#get-started-exercise-fh-7-cli "#get-started-exercise-fh-7-cli")
 
-##### Create and run the
-
-application (console)
+##### Create and run the application (console)
 
 Follow these steps to create, configure, update, and run the application using
 the console.
 
-##### Create the
-
-application
+##### Create the application
 
 1. Sign in to the AWS Management Console, and open the Amazon MSF console at https://console.aws.amazon.com/flink.
 2. On the Managed Service for Apache Flink dashboard, choose **Create analytics
@@ -7069,9 +6743,7 @@ follows:
 - Role:
   `kinesisanalytics-`MyApplication`-`us-west-2``
 
-##### Edit the IAM
-
-policy
+##### Edit the IAM policy
 
 Edit the IAM policy to add permissions to access the Kinesis data
 stream and Firehose stream.
@@ -7153,9 +6825,7 @@ JSON
 
 ```
 
-##### Configure the
-
-application
+##### Configure the application
 
 1. On the **MyApplication** page, choose
    **Configure**.
@@ -7186,22 +6856,16 @@ log stream for you. The names of these resources are as follows:
   `/aws/kinesis-analytics/MyApplication`
 - Log stream: `kinesis-analytics-log-stream`
 
-##### Run the
-
-application
+##### Run the application
 
 The Flink job graph can be viewed by running the application, opening the Apache Flink dashboard, and choosing the desired Flink job.
 
-##### Stop the
-
-application
+##### Stop the application
 
 On the **MyApplication** page, choose
 **Stop**. Confirm the action.
 
-##### Update the
-
-application
+##### Update the application
 
 Using the console, you can update application settings such as application
 properties, monitoring settings, and the location or file name of the
@@ -7215,22 +6879,17 @@ choose **Update**.
 
 To update the application's code on the console, you must either
 change the object name of the JAR, use a different S3 bucket, or use the
-AWS CLI as described in the [Update the
-application code](#get-started-exercise-fh-7-cli-update-code "#get-started-exercise-fh-7-cli-update-code") section. If the
+AWS CLI as described in the [Update the application code](#get-started-exercise-fh-7-cli-update-code "#get-started-exercise-fh-7-cli-update-code") section. If the
 file name or the bucket does not change, the application code is not
 reloaded when you choose **Update** on the
 **Configure** page.
 
-##### Create and run the application
-
-(AWS CLI)
+##### Create and run the application (AWS CLI)
 
 In this section, you use the AWS CLI to create and run the Managed Service for Apache Flink
 application.
 
-##### Create a permissions
-
-policy
+##### Create a permissions policy
 
 First, you create a permissions policy with two statements: one that
 grants permissions for the `read` action on the source stream, and
@@ -7289,9 +6948,7 @@ automatically sets the credentials required by the SDK to those of the
 service execution IAM role that is associated with your application.
 No additional steps are needed.
 
-##### Create an IAM
-
-role
+##### Create an IAM role
 
 In this section, you create an IAM role that the Managed Service for Apache Flink application can
 assume to read a source stream and write to the sink stream.
@@ -7332,8 +6989,7 @@ permissions policies for the role. 6. Attach the permissions policy to the role.
 For this exercise, Managed Service for Apache Flink assumes this role for both reading
 data from a Kinesis data stream (source) and writing output to
 another Kinesis data stream. So you attach the policy that you
-created in the previous step, [Create a permissions
-policy](#get-started-exercise-fh-7-cli-policy "#get-started-exercise-fh-7-cli-policy").
+created in the previous step, [Create a permissions policy](#get-started-exercise-fh-7-cli-policy "#get-started-exercise-fh-7-cli-policy").
 
     1. On the **Summary** page, choose the
      **Permissions** tab.
@@ -7353,9 +7009,7 @@ use to access resources. Make a note of the ARN of the new role.
 For step-by-step instructions for creating a role, see [Creating an IAM Role (Console)](../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console "../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console") in the
 _IAM User Guide_.
 
-##### Create the
-
-Managed Service for Apache Flink application
+##### Create the Managed Service for Apache Flink application
 
 1. Save the following JSON code to a file named
    `create_request.json`. Replace the sample
@@ -7398,9 +7052,7 @@ aws kinesisanalyticsv2 create-application --cli-input-json file://create_request
 The application is now created. You start the application in the next
 step.
 
-##### Start the
-
-application
+##### Start the application
 
 In this section, you use the [`StartApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md") action to start the
 application.
@@ -7432,9 +7084,7 @@ aws kinesisanalyticsv2 start-application --cli-input-json file://start_request.j
 The application is now running. You can check the Managed Service for Apache Flink metrics on the
 Amazon CloudWatch console to verify that the application is working.
 
-##### Stop the
-
-application
+##### Stop the application
 
 In this section, you use the [`StopApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_StopApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StopApplication.md") action to stop the
 application.
@@ -7461,16 +7111,12 @@ aws kinesisanalyticsv2 stop-application --cli-input-json file://stop_request.jso
 
 The application is now stopped.
 
-##### Add a CloudWatch logging
-
-option
+##### Add a CloudWatch logging option
 
 You can use the AWS CLI to add an Amazon CloudWatch log stream to your application.
 For information about using CloudWatch Logs with your application, see [Set up application logging in Managed Service for Apache Flink](cloudwatch-logs.md "cloudwatch-logs.md").
 
-##### Update the
-
-application code
+##### Update the application code
 
 When you need to update your application code with a new version of your
 code package, you use the [`UpdateApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md") AWS CLI action.
@@ -7502,9 +7148,7 @@ name suffix (<`username`>) with the suffix you chose in the [Create dependent re
 
 ```
 
-##### Clean up AWS
-
-resources
+##### Clean up AWS resources
 
 This section includes procedures for cleaning up AWS resources created in the Getting Started tutorial.
 
@@ -8055,8 +7699,7 @@ You can also use the technique in this tutorial for interactions between a Manag
 ###### This tutorial contains the following sections:
 
 - [Create a VPC with an Amazon MSK cluster](#example-keystore-createcluster "#example-keystore-createcluster")
-- [Create a custom truststore and apply it to your
-  cluster](#example-keystore-cert "#example-keystore-cert")
+- [Create a custom truststore and apply it to your cluster](#example-keystore-cert "#example-keystore-cert")
 - [Create the application code](#example-keystore-code "#example-keystore-code")
 - [Upload the Apache Flink streaming Java code](#example-keystore-upload "#example-keystore-upload")
 - [Create the application](#example-keystore-create "#example-keystore-create")
@@ -8096,9 +7739,7 @@ aws kafka get-bootstrap-brokers --region us-west-2 --cluster-arn `ClusterArn`
 
 - When following the steps in this tutorial and the prerequisite tutorials, be sure to use your selected AWS Region in your code, commands, and console entries.
 
-##### Create a custom truststore and apply it to your
-
-cluster
+##### Create a custom truststore and apply it to your cluster
 
 In this section, you create a custom certificate authority (CA), use it to generate a custom truststore, and apply it to your MSK cluster.
 
@@ -8145,8 +7786,7 @@ in Managed Service for Apache Flink](getting-started.md "getting-started.md") tu
 
 ###### Note
 
-If you deleted the Amazon S3 bucket from the Getting Started tutorial, follow the [Upload the application code JAR
-file](get-started-exercise.md#get-started-exercise-6 "get-started-exercise.md#get-started-exercise-6") step again.
+If you deleted the Amazon S3 bucket from the Getting Started tutorial, follow the [Upload the application code JAR file](get-started-exercise.md#get-started-exercise-6 "get-started-exercise.md#get-started-exercise-6") step again.
 
 1. In the Amazon S3 console, choose the **ka-app-code-`<username>`** bucket,
    and choose **Upload**.
@@ -8269,8 +7909,7 @@ To read from the destination topic, use the destination topic name instead of th
 bin/kafka-console-consumer.sh --bootstrap-server `BootstrapBrokerString` --consumer.config client.properties --topic AWSKafkaTutorialTopicDestination --from-beginning
 ```
 
-If no records appear in the destination topic, see the [Cannot access resources in a
-VPC](troubleshooting-symptoms.md#troubleshooting-rt-vpc "troubleshooting-symptoms.md#troubleshooting-rt-vpc")
+If no records appear in the destination topic, see the [Cannot access resources in a VPC](troubleshooting-symptoms.md#troubleshooting-rt-vpc "troubleshooting-symptoms.md#troubleshooting-rt-vpc")
 section in the [Troubleshoot Managed Service for Apache Flink](troubleshooting.md "troubleshooting.md") topic.
 
 ### Python examples
@@ -8302,12 +7941,9 @@ Managed Service for Apache Flink](gs-python.md "gs-python.md") exercise.
 
 - [Create dependent resources](#examples-python-tumbling-resources "#examples-python-tumbling-resources")
 - [Write sample records to the input stream](#examples-python-tumbling-write "#examples-python-tumbling-write")
-- [Download and examine the application
-  code](#examples-python-tumbling-download "#examples-python-tumbling-download")
-- [Compress and upload the Apache Flink streaming
-  Python code](#examples-python-tumbling-upload "#examples-python-tumbling-upload")
-- [Create and run the Managed Service for Apache Flink
-  application](#examples-python-tumbling-create-run "#examples-python-tumbling-create-run")
+- [Download and examine the application code](#examples-python-tumbling-download "#examples-python-tumbling-download")
+- [Compress and upload the Apache Flink streaming Python code](#examples-python-tumbling-upload "#examples-python-tumbling-upload")
+- [Create and run the Managed Service for Apache Flink application](#examples-python-tumbling-create-run "#examples-python-tumbling-create-run")
 - [Clean up AWS resources](#examples-python-tumbling-cleanup "#examples-python-tumbling-cleanup")
 
 ##### Create dependent resources
@@ -8388,9 +8024,7 @@ $ python stock.py
 
 Keep the script running while completing the rest of the tutorial.
 
-##### Download and examine the application
-
-code
+##### Download and examine the application code
 
 The Python application code for this example is available from GitHub. To download
 the application code, do the following:
@@ -8457,9 +8091,7 @@ tumbling_window_table = (
 
 .
 
-##### Compress and upload the Apache Flink streaming
-
-Python code
+##### Compress and upload the Apache Flink streaming Python code
 
 In this section, you
 upload your application code to the Amazon S3 bucket you created in the [Create dependent resources](#examples-python-tumbling-resources "#examples-python-tumbling-resources") section.
@@ -8478,9 +8110,7 @@ upload your application code to the Amazon S3 bucket you created in the [Create 
 Your application code is now stored in an Amazon S3 bucket where your application can
 access it.
 
-##### Create and run the Managed Service for Apache Flink
-
-application
+##### Create and run the Managed Service for Apache Flink application
 
 Follow these steps to create, configure, update, and run the application using
 the console.
@@ -8519,9 +8149,7 @@ and Region as follows:
 - Role:
   `kinesisanalytics-`MyApplication`-`us-west-2``
 
-##### Configure the
-
-application
+##### Configure the application
 
 1. On the **MyApplication** page, choose
    **Configure**.
@@ -8734,10 +8362,8 @@ Managed Service for Apache Flink](gs-python.md "gs-python.md") exercise.
 - [Create dependent resources](#examples-python-sliding-resources "#examples-python-sliding-resources")
 - [Write sample records to the input stream](#examples-python-sliding-write "#examples-python-sliding-write")
 - [Download and examine the application code](#examples-python-sliding-download "#examples-python-sliding-download")
-- [Compress and upload the Apache Flink streaming
-  Python code](#examples-python-sliding-upload "#examples-python-sliding-upload")
-- [Create and run the Managed Service for Apache Flink
-  application](#examples-python-sliding-create-run "#examples-python-sliding-create-run")
+- [Compress and upload the Apache Flink streaming Python code](#examples-python-sliding-upload "#examples-python-sliding-upload")
+- [Create and run the Managed Service for Apache Flink application](#examples-python-sliding-create-run "#examples-python-sliding-create-run")
 - [Clean up AWS resources](#examples-python-sliding-cleanup "#examples-python-sliding-cleanup")
 
 ##### Create dependent resources
@@ -8889,9 +8515,7 @@ sliding_window_table = (
 - The application uses the Kinesis Flink connector, from the [flink-sql-connector-kinesis-1.15.2.jar](https://mvnrepository.com/artifact/org.apache.flink/flink-sql-connector-kinesis/1.15.2 "https://mvnrepository.com/artifact/org.apache.flink/flink-sql-connector-kinesis/1.15.2")
   file.
 
-##### Compress and upload the Apache Flink streaming
-
-Python code
+##### Compress and upload the Apache Flink streaming Python code
 
 In this section, you
 upload your application code to the Amazon S3 bucket you created in the [Create dependent resources](#examples-python-sliding-resources "#examples-python-sliding-resources") section.
@@ -8912,9 +8536,7 @@ This section describes how to package your Python application.
 Your application code is now stored in an Amazon S3 bucket where your application can
 access it.
 
-##### Create and run the Managed Service for Apache Flink
-
-application
+##### Create and run the Managed Service for Apache Flink application
 
 Follow these steps to create, configure, update, and run the application using
 the console.
@@ -8953,9 +8575,7 @@ and Region as follows:
 - Role:
   `kinesisanalytics-`MyApplication`-`us-west-2``
 
-##### Configure the
-
-application
+##### Configure the application
 
 1. On the **MyApplication** page, choose
    **Configure**.
@@ -9170,8 +8790,7 @@ Managed Service for Apache Flink](gs-python.md "gs-python.md") exercise.
 - [Create dependent resources](#examples-python-s3-resources "#examples-python-s3-resources")
 - [Write sample records to the input stream](#examples-python-s3-write "#examples-python-s3-write")
 - [Download and examine the application code](#examples-python-s3-download "#examples-python-s3-download")
-- [Compress and upload the Apache Flink streaming Python
-  code](#examples-python-s3-upload "#examples-python-s3-upload")
+- [Compress and upload the Apache Flink streaming Python code](#examples-python-s3-upload "#examples-python-s3-upload")
 - [Create and run the Managed Service for Apache Flink application](#examples-python-s3-create-run "#examples-python-s3-create-run")
 - [Clean up AWS resources](#examples-python-s3-cleanup "#examples-python-s3-cleanup")
 
@@ -9340,9 +8959,7 @@ def create_sink_table(table_name, bucket_name):
 
 file.
 
-##### Compress and upload the Apache Flink streaming Python
-
-code
+##### Compress and upload the Apache Flink streaming Python code
 
 In this section, you
 upload your application code to the Amazon S3 bucket you created in the [Create dependent resources](#examples-python-s3-resources "#examples-python-s3-resources") section.
@@ -9799,9 +9416,7 @@ as follows:
 - Role:
   `kinesisanalytics-`MyApplication`-`us-west-2``
 
-##### Configure the
-
-application
+##### Configure the application
 
 Use the following procedure to configure the application.
 
@@ -10161,16 +9776,12 @@ aws kinesisanalyticsv2 stop-application --cli-input-json file://stop_request.jso
 
 The application is now stopped.
 
-##### Add a CloudWatch logging
-
-option
+##### Add a CloudWatch logging option
 
 You can use the AWS CLI to add an Amazon CloudWatch log stream to your application. For information about using CloudWatch Logs with your application,
 see [Setting Up Application Logging](cloudwatch-logs.md "cloudwatch-logs.md").
 
-##### Update
-
-environment properties
+##### Update environment properties
 
 In this section, you use the [UpdateApplication](../apiv2/API_UpdateApplication.md "../apiv2/API_UpdateApplication.md") action to change the environment
 properties for the application without recompiling the application code. In this example, you change the Region of the source and destination streams.
@@ -10484,9 +10095,7 @@ as follows:
 - Role:
   `kinesisanalytics-`MyApplication`-`us-west-2``
 
-##### Configure the
-
-application
+##### Configure the application
 
 Use the following procedure to configure the application.
 
@@ -10847,16 +10456,12 @@ aws kinesisanalyticsv2 stop-application --cli-input-json file://stop_request.jso
 
 The application is now stopped.
 
-##### Add a CloudWatch logging
-
-option
+##### Add a CloudWatch logging option
 
 You can use the AWS CLI to add an Amazon CloudWatch log stream to your application. For information about using CloudWatch Logs with your application,
 see [Setting Up Application Logging](cloudwatch-logs.md "cloudwatch-logs.md").
 
-##### Update
-
-environment properties
+##### Update environment properties
 
 In this section, you use the [UpdateApplication](../apiv2/API_UpdateApplication.md "../apiv2/API_UpdateApplication.md") action to change the environment
 properties for the application without recompiling the application code. In this example, you change the Region of the source and destination streams.
@@ -11153,9 +10758,7 @@ as follows:
 - Role:
   `kinesisanalytics-`MyApplication`-`us-west-2``
 
-##### Configure the
-
-application
+##### Configure the application
 
 Use the following procedure to configure the application.
 
@@ -11534,16 +11137,12 @@ aws kinesisanalyticsv2 stop-application --cli-input-json file://stop_request.jso
 
 The application is now stopped.
 
-##### Add a CloudWatch logging
-
-option
+##### Add a CloudWatch logging option
 
 You can use the AWS CLI to add an Amazon CloudWatch log stream to your application. For information about using CloudWatch Logs with your application,
 see [Setting Up Application Logging](cloudwatch-logs.md "cloudwatch-logs.md").
 
-##### Update
-
-environment properties
+##### Update environment properties
 
 In this section, you use the [UpdateApplication](../apiv2/API_UpdateApplication.md "../apiv2/API_UpdateApplication.md") action to change the environment
 properties for the application without recompiling the application code. In this example, you change the Region of the source and destination streams.

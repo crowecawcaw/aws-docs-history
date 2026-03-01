@@ -70,8 +70,7 @@ your application's Region and your Account ID.
 - [Analyze operations: Change in parallelism](#cloudwatch-logs-reading-auto "#cloudwatch-logs-reading-auto")
 - [Analyze errors: Access denied](#cloudwatch-logs-reading-access "#cloudwatch-logs-reading-access")
 - [Analyze errors: Source or sink not found](#cloudwatch-logs-reading-con "#cloudwatch-logs-reading-con")
-- [Analyze errors: Application task-related
-  failures](#cloudwatch-logs-reading-apps "#cloudwatch-logs-reading-apps")
+- [Analyze errors: Application task-related failures](#cloudwatch-logs-reading-apps "#cloudwatch-logs-reading-apps")
 
 ### Analyze operations: Distribution of tasks
 
@@ -150,9 +149,7 @@ fields @timestamp,@message
 
 ```
 
-### Analyze errors: Application task-related
-
-failures
+### Analyze errors: Application task-related failures
 
 The following CloudWatch Logs Insights query returns an application's task-related failure
 logs. These logs result if an application's status switches from `RUNNING`

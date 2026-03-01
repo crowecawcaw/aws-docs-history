@@ -1,8 +1,6 @@
 Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
 
-# Create and run a Managed Service for Apache Flink for Python
-
-application
+# Create and run a Managed Service for Apache Flink for Python application
 
 In this section, you create a Managed Service for Apache Flink application for Python application with a Kinesis stream as a
 source and a sink.
@@ -10,20 +8,16 @@ source and a sink.
 ###### This section contains the following steps.
 
 - [Create dependent resources](#gs-python-resources "#gs-python-resources")
-- [Set up your local development
-  environment](#gs-python-set-up "#gs-python-set-up")
-- [Download and examine the Apache Flink streaming
-  Python code](#gs-python-download "#gs-python-download")
+- [Set up your local development environment](#gs-python-set-up "#gs-python-set-up")
+- [Download and examine the Apache Flink streaming Python code](#gs-python-download "#gs-python-download")
 - [Manage JAR dependencies](#gs-python-jar-dependencies "#gs-python-jar-dependencies")
 - [Write sample records to the input stream](#gs-python-sample-records "#gs-python-sample-records")
 - [Run your application locally](#gs-python-run-locally "#gs-python-run-locally")
 - [Observe input and output data in Kinesis streams](#gs-python-observe-input-output "#gs-python-observe-input-output")
 - [Stop your application running locally](#gs-python-stop "#gs-python-stop")
 - [Package your application code](#gs-python-package-code "#gs-python-package-code")
-- [Upload the application package to an Amazon S3
-  bucket](#gs-python-upload-bucket "#gs-python-upload-bucket")
-- [Create and configure the Managed Service for Apache Flink
-  application](#gs-python-7 "#gs-python-7")
+- [Upload the application package to an Amazon S3 bucket](#gs-python-upload-bucket "#gs-python-upload-bucket")
+- [Create and configure the Managed Service for Apache Flink application](#gs-python-7 "#gs-python-7")
 - [Next step](#gs-python-next-step-4 "#gs-python-next-step-4")
 
 ## Create dependent resources
@@ -99,9 +93,7 @@ exist:
   `/AWS/KinesisAnalytics-java/<my-application>`.
 - A log stream called `kinesis-analytics-log-stream`.
 
-## Set up your local development
-
-environment
+## Set up your local development environment
 
 For development and debugging, you can run the Python Flink application on your
 machine. You can start the application from the command line with `python
@@ -111,8 +103,7 @@ machine. You can start the application from the command line with `python
 
 On your development machine, you must have Python 3.10 or 3.11, Java 11,
 Apache Maven, and Git installed. We recommend that you use an IDE such as [PyCharm](https://www.jetbrains.com/pycharm/ "https://www.jetbrains.com/pycharm/") or [Visual Studio Code](https://code.visualstudio.com/ "https://code.visualstudio.com/"). To verify
-that you meet all prerequisites, see [Fulfill the prerequisites for completing the
-exercises](gs-python.md#gs-python-prerequisites "gs-python.md#gs-python-prerequisites") before you proceed.
+that you meet all prerequisites, see [Fulfill the prerequisites for completing the exercises](gs-python.md#gs-python-prerequisites "gs-python.md#gs-python-prerequisites") before you proceed.
 
 ### Install the PyFlink library
 
@@ -139,9 +130,7 @@ $ pip install apache-flink==1.19.1
 You only need to install the PyFlink library. You **do not** need to install an Apache Flink
 cluster on your machine.
 
-### Authenticate your AWS
-
-session
+### Authenticate your AWS session
 
 The application uses Kinesis data streams to publish data. When running locally,
 you must have a valid AWS authenticated session with permissions to write to
@@ -165,9 +154,7 @@ $ aws kinesis put-record --stream-name ExampleOutputStream --data TEST --partiti
    Visual Studio Code](https://aws.amazon.com/visualstudiocode/ "https://aws.amazon.com/visualstudiocode/"), and [AWS Toolkit for IntelliJ
    IDEA](https://aws.amazon.com/intellij/ "https://aws.amazon.com/intellij/").
 
-## Download and examine the Apache Flink streaming
-
-Python code
+## Download and examine the Apache Flink streaming Python code
 
 The Python application code for this example is available from GitHub. To download
 the application code, do the following:
@@ -348,9 +335,7 @@ use the Kinesis connector. For Apache Flink 1.19, the connector version is
 If you are using Apache Flink 1.19, there is no connector version released
 specifically for this version. Use the connectors released for 1.18.
 
-### Download and package
-
-dependencies
+### Download and package dependencies
 
 Use Maven to download the dependencies defined in the `pom.xml`
 file and package them for the Python Flink application.
@@ -379,9 +364,7 @@ In this section, you will send sample records to the stream for the application 
 process. You have two options for generating sample data, either using a Python
 script or the [Kinesis Data Generator](https://github.com/awslabs/amazon-kinesis-data-generator "https://github.com/awslabs/amazon-kinesis-data-generator").
 
-### Generate sample data using a Python
-
-script
+### Generate sample data using a Python script
 
 You can use a Python script to send sample records to the stream.
 
@@ -403,9 +386,7 @@ $ python stock.py
 Keep the script running while you complete the rest of the
 tutorial. You can now run your Apache Flink application.
 
-### Generate sample data using Kinesis
-
-Data Generator
+### Generate sample data using Kinesis Data Generator
 
 Alternatively to using the Python script, you can use [Kinesis Data
 Generator](https://github.com/awslabs/amazon-kinesis-data-generator "https://github.com/awslabs/amazon-kinesis-data-generator"), also available in a [hosted version](https://awslabs.github.io/amazon-kinesis-data-generator/web/producer.html "https://awslabs.github.io/amazon-kinesis-data-generator/web/producer.html"), to send random sample data to the stream. Kinesis Data
@@ -468,12 +449,9 @@ library installed as described in the previous section. For more information, se
 
 Before you continue, verify that the input and output streams are available.
 See [Create two Amazon Kinesis data streams](get-started-exercise.md#get-started-exercise-1 "get-started-exercise.md#get-started-exercise-1"). Also, verify that you have permission to read
-and write from both streams. See [Authenticate your AWS
-session](get-started-exercise.md#get-started-exercise-2-5 "get-started-exercise.md#get-started-exercise-2-5").
+and write from both streams. See [Authenticate your AWS session](get-started-exercise.md#get-started-exercise-2-5 "get-started-exercise.md#get-started-exercise-2-5").
 
-### Import the Python project into your
-
-IDE
+### Import the Python project into your IDE
 
 To start working on the application in your IDE, you must import it as a
 Python project.
@@ -516,9 +494,7 @@ different Kinesis stream names or Regions.
 ]
 ```
 
-### Run your Python application
-
-locally
+### Run your Python application locally
 
 You can run your application locally, either from the command line as a
 regular Python script, or from the IDE.
@@ -600,9 +576,7 @@ $ mvn package
 This command generates the file
 `target/managed-flink-pyflink-getting-started-1.0.0.zip`.
 
-## Upload the application package to an Amazon S3
-
-bucket
+## Upload the application package to an Amazon S3 bucket
 
 In this section, you upload the .zip file you created in the previous section to
 the Amazon Simple Storage Service (Amazon S3) bucket you created at the beginning of this tutorial. If you
@@ -620,9 +594,7 @@ have not completed this step, see (link).
 6. Choose **Upload** without changing any other
    settings.
 
-## Create and configure the Managed Service for Apache Flink
-
-application
+## Create and configure the Managed Service for Apache Flink application
 
 You can create and configure a Managed Service for Apache Flink application using either the
 console or the AWS CLI. For this tutorial, we will use the console.
@@ -764,9 +736,7 @@ JSON
 5. Choose **Next** and then choose **Save
    changes**.
 
-### Configure the
-
-application
+### Configure the application
 
 Edit the application configuration to set the application code artifact.
 
@@ -854,9 +824,7 @@ external resources.
 When this happens, check the **Exceptions** tab
 in the Flink dashboard to see the cause of the problem.
 
-### Observe the metrics of
-
-the running application
+### Observe the metrics of the running application
 
 On the **MyApplication** page, in the **Amazon
 CloudWatch metrics** section, you can see some of the fundamental metrics
@@ -881,9 +849,7 @@ This dashboard displays a fixed set of metrics with a granularity
 of 5 minutes. You can create a custom application dashboard with any
 metrics in the CloudWatch dashboard.
 
-### Observe output data in
-
-Kinesis streams
+### Observe output data in Kinesis streams
 
 Make sure you are still publishing data to the input, either using the Python
 script or the Kinesis Data Generator.

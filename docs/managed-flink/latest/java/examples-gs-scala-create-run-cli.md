@@ -238,16 +238,12 @@ aws kinesisanalyticsv2 stop-application --cli-input-json file://stop_request.jso
 
 The application is now stopped.
 
-## Add a CloudWatch logging
-
-option
+## Add a CloudWatch logging option
 
 You can use the AWS CLI to add an Amazon CloudWatch log stream to your application. For information about using CloudWatch Logs with your application,
 see [Setting Up Application Logging](cloudwatch-logs.md "cloudwatch-logs.md").
 
-## Update
-
-environment properties
+## Update environment properties
 
 In this section, you use the [UpdateApplication](../apiv2/API_UpdateApplication.md "../apiv2/API_UpdateApplication.md") action to change the environment
 properties for the application without recompiling the application code. In this example, you change the Region of the source and destination streams.

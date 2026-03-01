@@ -1,8 +1,6 @@
 Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
 
-# Compile error: "Could not resolve dependencies for
-
-project"
+# Compile error: "Could not resolve dependencies for project"
 
 In order to compile the Managed Service for Apache Flink sample applications, you must first download
 and compile the Apache Flink Kinesis connector and add it to your local Maven
@@ -16,5 +14,4 @@ Could not resolve dependencies for project `your project name`: Failure to find 
 To resolve this error, you must download the Apache Flink source code (version
 1.8.2 from [https://flink.apache.org/downloads.html](https://flink.apache.org/downloads.html "https://flink.apache.org/downloads.html")) for the connector. For
 instructions about how to download, compile, and install the Apache Flink source
-code, see [Using the Apache Flink Kinesis Streams connector
-with previous Apache Flink versions](earlier.md#how-creating-apps-building-kinesis "earlier.md#how-creating-apps-building-kinesis").
+code, see [Using the Apache Flink Kinesis Streams connector with previous Apache Flink versions](earlier.md#how-creating-apps-building-kinesis "earlier.md#how-creating-apps-building-kinesis").

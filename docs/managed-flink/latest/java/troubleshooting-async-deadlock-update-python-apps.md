@@ -4,7 +4,7 @@ Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Ama
 
 Python applications can use connectors in 2 different ways: packaging connectors and other Java dependencies as part of single uber-jar, or use connector jar directly. To fix applications affected by Async Sink deadlock:
 
-- If the application uses an uber jar, follow the instructions for [Update Java applications](troubleshooting-async-deadlock-update-java-apps.md "troubleshooting-async-deadlock-update-java-apps.md") .
+- If the application uses an uber jar, follow the instructions for [Update Java applications](troubleshooting-async-deadlock-update-java-apps.md "troubleshooting-async-deadlock-update-java-apps.md").
 - To rebuild connector jars from source, use the following steps:
   **Building connectors from source:**
 

@@ -8,20 +8,15 @@ sink.
 ###### This section contains the following steps:
 
 - [Create dependent resources](#get-started-exercise-0 "#get-started-exercise-0")
-- [Set up your local development
-  environment](#get-started-exercise-2 "#get-started-exercise-2")
-- [Download and examine the Apache Flink
-  streaming Java code](#get-started-exercise-5 "#get-started-exercise-5")
+- [Set up your local development environment](#get-started-exercise-2 "#get-started-exercise-2")
+- [Download and examine the Apache Flink streaming Java code](#get-started-exercise-5 "#get-started-exercise-5")
 - [Write sample records to the input stream](#get-started-exercise-5-4 "#get-started-exercise-5-4")
 - [Run your application locally](#get-started-exercise-5-run "#get-started-exercise-5-run")
 - [Observe input and output data in Kinesis streams](#get-started-exercise-input-output "#get-started-exercise-input-output")
 - [Stop your application running locally](#get-started-exercise-stop "#get-started-exercise-stop")
-- [Compile and package your application
-  code](#get-started-exercise-5-5 "#get-started-exercise-5-5")
-- [Upload the application code JAR
-  file](#get-started-exercise-6 "#get-started-exercise-6")
-- [Create and configure the Managed Service for Apache Flink
-  application](#get-started-exercise-7 "#get-started-exercise-7")
+- [Compile and package your application code](#get-started-exercise-5-5 "#get-started-exercise-5-5")
+- [Upload the application code JAR file](#get-started-exercise-6 "#get-started-exercise-6")
+- [Create and configure the Managed Service for Apache Flink application](#get-started-exercise-7 "#get-started-exercise-7")
 - [Next step](#get-started-exercise-next-step-4 "#get-started-exercise-next-step-4")
 
 ## Create dependent resources
@@ -95,9 +90,7 @@ Amazon CloudWatch resources if they don't already exist:
   `/AWS/KinesisAnalytics-java/<my-application>`
 - A log stream called `kinesis-analytics-log-stream`
 
-## Set up your local development
-
-environment
+## Set up your local development environment
 
 For development and debugging, you can run the Apache Flink application on your
 machine directly from your IDE of choice. Any Apache Flink dependencies are handled
@@ -108,13 +101,10 @@ like regular Java dependencies using Apache Maven.
 On your development machine, you must have Java JDK 11, Maven, and Git
 installed. We recommend that you use a development environment such as [Eclipse Java
 Neon](https://www.eclipse.org/downloads/packages/release/neon/3 "https://www.eclipse.org/downloads/packages/release/neon/3") or [IntelliJ
-IDEA](https://www.jetbrains.com/idea/ "https://www.jetbrains.com/idea/"). To verify that you meet all prerequisites, see [Fulfill the prerequisites for completing the
-exercises](getting-started.md#setting-up-prerequisites "getting-started.md#setting-up-prerequisites"). You **do not** need to install an Apache Flink
+IDEA](https://www.jetbrains.com/idea/ "https://www.jetbrains.com/idea/"). To verify that you meet all prerequisites, see [Fulfill the prerequisites for completing the exercises](getting-started.md#setting-up-prerequisites "getting-started.md#setting-up-prerequisites"). You **do not** need to install an Apache Flink
 cluster on your machine.
 
-### Authenticate your AWS
-
-session
+### Authenticate your AWS session
 
 The application uses Kinesis data streams to publish data. When running locally,
 you must have a valid AWS authenticated session with permissions to write to
@@ -136,9 +126,7 @@ $ aws kinesis put-record --stream-name ExampleOutputStream --data TEST --partiti
    information, see [AWS
    Toolkit for IntelliJ IDEA](https://aws.amazon.com/intellij/ "https://aws.amazon.com/intellij/") and [AWS Toolkit for Eclipse](../../../toolkit-for-eclipse/v1/user-guide/welcome.md "../../../toolkit-for-eclipse/v1/user-guide/welcome.md").
 
-## Download and examine the Apache Flink
-
-streaming Java code
+## Download and examine the Apache Flink streaming Java code
 
 The Java application code for this example is available from GitHub. To download
 the application code, do the following:
@@ -177,8 +165,7 @@ your IDE.
       content of the file follows.
   2.  When the application runs in Amazon Managed Service for Apache Flink, the default behavior
       loads the application configuration from the runtime properties
-      you will define in the Amazon Managed Service for Apache Flink application. See [Create and configure the Managed Service for Apache Flink
-      application](#get-started-exercise-7 "#get-started-exercise-7").
+      you will define in the Amazon Managed Service for Apache Flink application. See [Create and configure the Managed Service for Apache Flink application](#get-started-exercise-7 "#get-started-exercise-7").
 
   ```
   private static Map<String, Properties> loadApplicationProperties(StreamExecutionEnvironment env) throws IOException {
@@ -346,8 +333,7 @@ In this section, you will send sample records to the stream for the application 
  script or the [Kinesis Data Generator](https://github.com/awslabs/amazon-kinesis-data-generator "https://github.com/awslabs/amazon-kinesis-data-generator").
 
 
-### Generate sample data using a Python
- script
+### Generate sample data using a Python script
 
 
 You can use a Python script to send sample records to the stream.
@@ -379,8 +365,7 @@ Keep the script running while you complete the rest of the
  tutorial. You can now run your Apache Flink application.
 
 
-### Generate sample data using Kinesis
- Data Generator
+### Generate sample data using Kinesis Data Generator
 
 
 Alternatively to using the Python script, you can use [Kinesis Data
@@ -453,13 +438,11 @@ You can run and debug your Flink application locally in your IDE.
 
 Before you continue, verify that the input and output streams are available.
  See [Create two Amazon Kinesis data streams](#get-started-exercise-1 "#get-started-exercise-1"). Also, verify that you have permission to read
- and write from both streams. See [Authenticate your AWS
- session](#get-started-exercise-2-5 "#get-started-exercise-2-5").
+ and write from both streams. See [Authenticate your AWS session](#get-started-exercise-2-5 "#get-started-exercise-2-5").
 
 Setting up the local development environment requires Java 11 JDK, Apache
  Maven, and and IDE for Java development. Verify you meet the required
- prerequisites. See [Fulfill the prerequisites for completing the
- exercises](getting-started.md#setting-up-prerequisites "getting-started.md#setting-up-prerequisites").
+ prerequisites. See [Fulfill the prerequisites for completing the exercises](getting-started.md#setting-up-prerequisites "getting-started.md#setting-up-prerequisites").
 
 
 ### Import the Java project into your IDE
@@ -628,8 +611,7 @@ Stop the application running in your IDE. The IDE usually provides a "stop"
  option. The exact location and method depends on the IDE you're using.
 
 
-## Compile and package your application
- code
+## Compile and package your application code
 
 
 In this section, you use Apache Maven to compile the Java code and package it into
@@ -664,8 +646,7 @@ In both cases, the following JAR file is created:
  Running a "build project" from your IDE might not create the JAR file.
 
 
-## Upload the application code JAR
- file
+## Upload the application code JAR file
 
 
 In this section, you upload the JAR file you created in the previous section to
@@ -694,8 +675,7 @@ The `target` directory also contains other JAR files that you don't
  need to upload.
 
 
-## Create and configure the Managed Service for Apache Flink
- application
+## Create and configure the Managed Service for Apache Flink application
 
 
 You can create and run a Managed Service for Apache Flink application using either the console or the AWS CLI. For this
@@ -711,22 +691,15 @@ When you create the application using the console, your AWS Identity and Access 
 
 ###### Topics
 
-* [Create the
- application](#get-started-exercise-7-console-create "#get-started-exercise-7-console-create")
-* [Edit the IAM
- policy](#get-started-exercise-7-console-iam "#get-started-exercise-7-console-iam")
-* [Configure the
- application](#get-started-exercise-7-console-configure "#get-started-exercise-7-console-configure")
-* [Run the
- application](#get-started-exercise-7-console-run "#get-started-exercise-7-console-run")
-* [Observe the metrics of
- the running application](#get-started-exercise-7-console-stop "#get-started-exercise-7-console-stop")
-* [Observe output data in
- Kinesis streams](#get-started-exercise-7-console-output "#get-started-exercise-7-console-output")
+* [Create the application](#get-started-exercise-7-console-create "#get-started-exercise-7-console-create")
+* [Edit the IAM policy](#get-started-exercise-7-console-iam "#get-started-exercise-7-console-iam")
+* [Configure the application](#get-started-exercise-7-console-configure "#get-started-exercise-7-console-configure")
+* [Run the application](#get-started-exercise-7-console-run "#get-started-exercise-7-console-run")
+* [Observe the metrics of the running application](#get-started-exercise-7-console-stop "#get-started-exercise-7-console-stop")
+* [Observe output data in Kinesis streams](#get-started-exercise-7-console-output "#get-started-exercise-7-console-output")
 * [Stop the application](#get-started-exercise-stop "#get-started-exercise-stop")
 
-### Create the
- application
+### Create the application
 
 
 ###### To create the application
@@ -792,8 +765,7 @@ Amazon Managed Service for Apache Flink was formerly known as Kinesis Data Analy
  for backward compatibility.
 
 
-### Edit the IAM
- policy
+### Edit the IAM policy
 
 
 Edit the IAM policy to add permissions to access the Kinesis data
@@ -887,8 +859,7 @@ JSON
 5. Choose **Next** at the bottom of the page and then
  choose **Save changes**.
 
-### Configure the
- application
+### Configure the application
 
 
 Edit the application configuration to set the application code
@@ -943,8 +914,7 @@ When you choose to enable Amazon CloudWatch logging, Managed Service for Apache 
  `/aws/kinesis-analytics/MyApplication`
 * Log stream: `kinesis-analytics-log-stream`
 
-### Run the
- application
+### Run the application
 
 
 The application is now configured and ready to run.
@@ -988,8 +958,7 @@ If you set the Runtime properties or edited the IAM policies
 When this happens, check the **Exceptions** tab
  in the Flink dashboard to see the cause of the problem.
 
-### Observe the metrics of
- the running application
+### Observe the metrics of the running application
 
 
 On the **MyApplication** page, in the **Amazon
@@ -1017,8 +986,7 @@ This dashboard displays a fixed set of metrics with a granularity
  of 5 minutes. You can create a custom application dashboard with any
  metrics in the CloudWatch dashboard.
 
-### Observe output data in
- Kinesis streams
+### Observe output data in Kinesis streams
 
 
 Make sure you are still publishing data to the input, either using the Python

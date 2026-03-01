@@ -1,8 +1,6 @@
 Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
 
-# Transform data using operators in Managed Service for Apache Flink with the
-
-DataStream API
+# Transform data using operators in Managed Service for Apache Flink with the DataStream API
 
 To transform incoming data in a Managed Service for Apache Flink, you use an Apache Flink
 _operator_. An Apache Flink operator transforms one or more data

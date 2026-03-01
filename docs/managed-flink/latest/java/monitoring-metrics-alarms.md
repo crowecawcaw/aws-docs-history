@@ -6,9 +6,7 @@ Using Amazon CloudWatch metric alarms, you watch a CloudWatch metric over a time
 
 For more information about CloudWatch alarms, see [Using Amazon CloudWatch Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md").
 
-## Review recommended
-
-alarms
+## Review recommended alarms
 
 This section contains the recommended alarms for monitoring Managed Service for Apache Flink applications.
 

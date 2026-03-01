@@ -19,8 +19,7 @@ For the China Regions and the AWS GovCloud (US) Regions, from **March
 applications using these versions of Apache Flink in Amazon Managed Service for Apache Flink.
 
 You can upgrade your applications statefully using the in-place version upgrades
-feature in Managed Service for Apache Flink. For more information, see [Use in-place version upgrades for Apache
-Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
+feature in Managed Service for Apache Flink. For more information, see [Use in-place version upgrades for Apache Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
 
 When working with Amazon Managed Service for Apache Flink, note the following quota:
 

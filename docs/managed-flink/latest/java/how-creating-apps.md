@@ -11,8 +11,7 @@ This topic contains information about creating a Managed Service for Apache Flin
 - [Use customer managed keys](#how-creating-apps-use-cmk "#how-creating-apps-use-cmk")
 - [Start your Managed Service for Apache Flink application](#how-creating-apps-starting "#how-creating-apps-starting")
 - [Verify your Managed Service for Apache Flink application](#how-creating-apps-verifying "#how-creating-apps-verifying")
-- [Enable system rollbacks for your Managed Service for Apache Flink
-  application](how-system-rollbacks.md "how-system-rollbacks.md")
+- [Enable system rollbacks for your Managed Service for Apache Flink application](how-system-rollbacks.md "how-system-rollbacks.md")
 
 ## Build your Managed Service for Apache Flink application code
 
@@ -20,8 +19,7 @@ This section describes the components that you use to build the application code
 Managed Service for Apache Flink application.
 
 We recommend that you use the latest supported version of Apache Flink for your
-application code. For information about upgrading Managed Service for Apache Flink applications, see [Use in-place version upgrades for Apache
-Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
+application code. For information about upgrading Managed Service for Apache Flink applications, see [Use in-place version upgrades for Apache Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
 
 You build your application code using [Apache Maven](https://maven.apache.org/ "https://maven.apache.org/").
 An Apache Maven project uses a `pom.xml` file to specify the versions of components
@@ -39,9 +37,7 @@ For information about creating a Managed Service for Apache Flink application th
 [Use Apache Beam with Managed Service for Apache Flink
 applications](how-creating-apps-beam.md "how-creating-apps-beam.md").
 
-### Specify your application's Apache Flink
-
-version
+### Specify your application's Apache Flink version
 
 When using Managed Service for Apache Flink Runtime version 1.1.0 and later, you specify the version of
 Apache Flink that your application uses when you compile your application. You
@@ -98,8 +94,7 @@ Amazon MSF encrypts your application by default using AWS owned keys. You can al
 ###### Note
 
 You can change the `RuntimeEnvironment` of an existing application. To learn how,
-see [Use in-place version upgrades for Apache
-Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
+see [Use in-place version upgrades for Apache Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md").
 
 ## Use customer managed keys
 

@@ -1,24 +1,19 @@
 Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
 
-# View example queries to analyza data in a
-
-Studio notebook
+# View example queries to analyza data in a Studio notebook
 
 ###### The following example queries demonstrate how to analyze data using window queries in a Studio notebook.
 
-- [Create tables with Amazon MSK/Apache
-  Kafka](#how-zeppelin-examples-creating-tables "#how-zeppelin-examples-creating-tables")
+- [Create tables with Amazon MSK/Apache Kafka](#how-zeppelin-examples-creating-tables "#how-zeppelin-examples-creating-tables")
 - [Create tables with Kinesis](#how-zeppelin-examples-creating-tables-with-kinesis "#how-zeppelin-examples-creating-tables-with-kinesis")
 - [Query a tumbling window](#how-zeppelin-examples-tumbling "#how-zeppelin-examples-tumbling")
 - [Query a sliding window](#how-zeppelin-examples-sliding "#how-zeppelin-examples-sliding")
 - [Use interactive SQL](#how-zeppelin-examples-interactive-sql "#how-zeppelin-examples-interactive-sql")
-- [Use the BlackHole SQL
-  connector](#how-zeppelin-examples-blackhole-connector-sql "#how-zeppelin-examples-blackhole-connector-sql")
+- [Use the BlackHole SQL connector](#how-zeppelin-examples-blackhole-connector-sql "#how-zeppelin-examples-blackhole-connector-sql")
 - [Use Scala to generate sample data](#notebook-example-data-generator "#notebook-example-data-generator")
 - [Use interactive Scala](#notebook-example-interactive-scala "#notebook-example-interactive-scala")
 - [Use interactive Python](#notebook-example-interactive-python "#notebook-example-interactive-python")
-- [Use a combination of interactive
-  Python, SQL, and Scala](#notebook-example-interactive-pythonsqlscala "#notebook-example-interactive-pythonsqlscala")
+- [Use a combination of interactive Python, SQL, and Scala](#notebook-example-interactive-pythonsqlscala "#notebook-example-interactive-pythonsqlscala")
 - [Use a cross-account Kinesis data stream](#notebook-example-crossaccount-kds "#notebook-example-crossaccount-kds")
   For information about Apache Flink SQL query settings, see [Flink on Zeppelin Notebooks for Interactive Data Analysis](https://flink.apache.org/ecosystem/2020/06/23/flink-on-zeppelin-part2.html "https://flink.apache.org/ecosystem/2020/06/23/flink-on-zeppelin-part2.html").
 
@@ -32,9 +27,7 @@ in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-doc
 For more examples of Apache Flink Streaming SQL queries, see [Queries](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/sql/queries.html "https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/sql/queries.html") in the [Apache Flink
 documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/ "https://nightlies.apache.org/flink/flink-docs-release-1.15/").
 
-## Create tables with Amazon MSK/Apache
-
-Kafka
+## Create tables with Amazon MSK/Apache Kafka
 
 You can use the Amazon MSK Flink connector with Managed Service for Apache Flink Studio to authenticate your connection with Plaintext, SSL, or IAM authentication. Create your tables using the specific properties per your requirements.
 
@@ -174,9 +167,7 @@ GROUP BY
   `key`;
 ```
 
-## Use the BlackHole SQL
-
-connector
+## Use the BlackHole SQL connector
 
 The BlackHole SQL connector doesn't require that you create a Kinesis data stream
 or an Amazon MSK cluster to test your queries. For information about the BlackHole
@@ -396,9 +387,7 @@ st_env \
 SELECT * FROM `query02`
 ```
 
-## Use a combination of interactive
-
-Python, SQL, and Scala
+## Use a combination of interactive Python, SQL, and Scala
 
 You can use any combination of SQL, Python, and Scala in your notebook for interactive analysis.
 In a Studio notebook that you plan to deploy as an application with durable state, you can use a combination of SQL and Scala.

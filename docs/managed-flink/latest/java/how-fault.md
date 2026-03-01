@@ -64,9 +64,7 @@ This section includes example requests for API actions for configuring checkpoin
 for an application. For information about how to use a JSON file for input for an API
 action, see [Managed Service for Apache Flink API example code](api-examples.md "api-examples.md").
 
-### Configure checkpointing for a new
-
-application
+### Configure checkpointing for a new application
 
 The following example request for the [`CreateApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_CreateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_CreateApplication.md") action configures checkpointing when you
 are creating an application:
@@ -96,9 +94,7 @@ are creating an application:
 }
 ```
 
-### Disable checkpointing for a new
-
-application
+### Disable checkpointing for a new application
 
 The following example request for the [`CreateApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_CreateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_CreateApplication.md") action disables checkpointing when you
 are creating an application:
@@ -125,9 +121,7 @@ are creating an application:
 }
 ```
 
-### Configure checkpointing for an
-
-existing application
+### Configure checkpointing for an existing application
 
 The following example request for the [`UpdateApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md") action configures checkpointing for an
 existing application:
@@ -148,9 +142,7 @@ existing application:
 }
 ```
 
-### Disable checkpointing for an
-
-existing application
+### Disable checkpointing for an existing application
 
 The following example request for the [`UpdateApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md") action disables checkpointing for an
 existing application:

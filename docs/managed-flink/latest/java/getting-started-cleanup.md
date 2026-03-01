@@ -7,19 +7,14 @@ Getting Started (DataStream API) tutorial.
 
 ###### This topic contains the following sections:
 
-- [Delete your Managed Service for Apache Flink
-  application](#getting-started-cleanup-app "#getting-started-cleanup-app")
-- [Delete your Kinesis data
-  streams](#getting-started-cleanup-stream "#getting-started-cleanup-stream")
-- [Delete your Amazon S3 objects and
-  bucket](#getting-started-cleanup-s3 "#getting-started-cleanup-s3")
+- [Delete your Managed Service for Apache Flink application](#getting-started-cleanup-app "#getting-started-cleanup-app")
+- [Delete your Kinesis data streams](#getting-started-cleanup-stream "#getting-started-cleanup-stream")
+- [Delete your Amazon S3 objects and bucket](#getting-started-cleanup-s3 "#getting-started-cleanup-s3")
 - [Delete your IAM resources](#getting-started-cleanup-iam "#getting-started-cleanup-iam")
 - [Delete your CloudWatch resources](#getting-started-cleanup-cw "#getting-started-cleanup-cw")
 - [Explore additional resources for Apache Flink](#getting-started-cleanup-next-step-5 "#getting-started-cleanup-next-step-5")
 
-## Delete your Managed Service for Apache Flink
-
-application
+## Delete your Managed Service for Apache Flink application
 
 Use the following procedure to delete the application.
 
@@ -29,9 +24,7 @@ Use the following procedure to delete the application.
 3. From the **Actions** dropdown list, choose
    **Delete** and then confirm the deletion.
 
-## Delete your Kinesis data
-
-streams
+## Delete your Kinesis data streams
 
 1. Sign in to the AWS Management Console, and open the Amazon MSF console at https://console.aws.amazon.com/flink..
 2. Choose **Data streams**.
@@ -40,9 +33,7 @@ streams
 4. From the **Actions** dropdown list, choose
    **Delete**, and then confirm the deletion.
 
-## Delete your Amazon S3 objects and
-
-bucket
+## Delete your Amazon S3 objects and bucket
 
 Use the following procedures to delete your Amazon S3 objects and bucket.
 

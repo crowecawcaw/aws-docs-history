@@ -11,9 +11,7 @@ action with the `Force` parameter set to `true`. For more information, see
 [Running Applications](how-running-apps.md "how-running-apps.md")
 in the [Managed Service for Apache Flink Developer Guide](../java.md "../java.md").
 
-## Deploy as an application with
-
-durable state in a VPC with no internet access
+## Deploy as an application with durable state in a VPC with no internet access
 
 The Managed Service for Apache Flink Studio deploy-as-application function does not support VPC applications without internet access. We recommend that you build your application in Studio,
 and then use Managed Service for Apache Flink to manually create a Flink application and select the zip file you built in your Notebook.

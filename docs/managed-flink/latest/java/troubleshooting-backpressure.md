@@ -29,9 +29,7 @@ Following are some obvious and more common reasons, some of which are further ex
 - It's a resource intensive operation (if there is no data skew consider scaling out for CPU/memory bound work or increasing `ParallelismPerKPU` for I/O bound work)
 - Extensive logging in the operator (reduce the logging to a minimum for production application or consider sending debug output to a data stream instead).
 
-## Testing throughput with the Discarding
-
-Sink
+## Testing throughput with the Discarding Sink
 
 The [Discarding Sink](https://nightlies.apache.org/flink/flink-docs-stable/api/java/org/apache/flink/streaming/api/functions/sink/DiscardingSink.html "https://nightlies.apache.org/flink/flink-docs-stable/api/java/org/apache/flink/streaming/api/functions/sink/DiscardingSink.html") simply disregards all events it receives while still executing the application (an application without any sink fails to execute). This is very useful for throughput testing, profiling, and to verify if the application is scaling properly.
 It's also a very pragmatic sanity check to verify if the sinks are causing back pressure or the application (but just checking the backpressure metrics is often easier and more straightforward).

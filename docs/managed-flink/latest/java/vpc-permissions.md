@@ -8,9 +8,7 @@ information about using permissions policies, see [Identity and Access Managemen
 The following permissions policy grants your application the necessary permissions to interact with a VPC. To use
 this permission policy, add it to your application's execution role.
 
-## Add a permissions policy for accessing an
-
-Amazon VPC
+## Add a permissions policy for accessing an Amazon VPC
 
 JSON
 

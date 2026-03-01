@@ -1,8 +1,6 @@
 Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
 
-# Upgrade your application to a new
-
-Apache Flink version
+# Upgrade your application to a new Apache Flink version
 
 You can upgrade your Flink application by using the [UpdateApplication](../apiv2/API_UpdateApplication.md "../apiv2/API_UpdateApplication.md") action.
 

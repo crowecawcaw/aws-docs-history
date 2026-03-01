@@ -9,8 +9,7 @@ Kinesis data stream or an Amazon MSK cluster.
 
 - [Complete the prerequisites](#example-notebook-setup "#example-notebook-setup")
 - [Create an AWS Glue database](#example-notebook-glue "#example-notebook-glue")
-- [Next steps: Create a Studio notebook with Kinesis Data Streams or
-  Amazon MSK](#examples-notebook-nextsteps "#examples-notebook-nextsteps")
+- [Next steps: Create a Studio notebook with Kinesis Data Streams or Amazon MSK](#examples-notebook-nextsteps "#examples-notebook-nextsteps")
 - [Create a Studio notebook with Kinesis Data Streams](example-notebook-streams.md "example-notebook-streams.md")
 - [Create a Studio notebook with Amazon MSK](example-notebook-msk.md "example-notebook-msk.md")
 - [Clean up your application and dependent resources](example-notebook-cleanup.md "example-notebook-cleanup.md")
@@ -32,9 +31,7 @@ database for metadata about your Amazon MSK data source.
    enter `default` for **Database name**.
    Choose **Create**.
 
-## Next steps: Create a Studio notebook with Kinesis Data Streams or
-
-Amazon MSK
+## Next steps: Create a Studio notebook with Kinesis Data Streams or Amazon MSK
 
 With this tutorial, you can create a Studio notebook that uses either Kinesis Data Streams or Amazon MSK:
 

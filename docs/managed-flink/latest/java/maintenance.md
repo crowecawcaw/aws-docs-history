@@ -69,9 +69,7 @@ To provide the highest possible security posture, Managed Service for Apache Fli
 exception to opt out of maintenance, pause maintenance, or perform maintenance on
 specific days.
 
-## Identify when maintenance has occurred on your
-
-application
+## Identify when maintenance has occurred on your application
 
 You can find if Managed Service for Apache Flink has performed a maintenance action on your application by
 using the `ListApplicationOperations` API.

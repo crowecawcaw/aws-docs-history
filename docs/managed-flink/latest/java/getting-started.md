@@ -10,20 +10,15 @@ application.
 
 ###### Topics
 
-- [Review the components of the Managed Service for Apache Flink
-  application](#getting-started-components "#getting-started-components")
-- [Fulfill the prerequisites for completing the
-  exercises](#setting-up-prerequisites "#setting-up-prerequisites")
-- [Set up an AWS account and create an
-  administrator user](setting-up.md "setting-up.md")
+- [Review the components of the Managed Service for Apache Flink application](#getting-started-components "#getting-started-components")
+- [Fulfill the prerequisites for completing the exercises](#setting-up-prerequisites "#setting-up-prerequisites")
+- [Set up an AWS account and create an administrator user](setting-up.md "setting-up.md")
 - [Set up the AWS Command Line Interface (AWS CLI)](setup-awscli.md "setup-awscli.md")
 - [Create and run a Managed Service for Apache Flink application](get-started-exercise.md "get-started-exercise.md")
 - [Clean up AWS resources](getting-started-cleanup.md "getting-started-cleanup.md")
 - [Explore additional resources](getting-started-next-steps.md "getting-started-next-steps.md")
 
-## Review the components of the Managed Service for Apache Flink
-
-application
+## Review the components of the Managed Service for Apache Flink application
 
 ###### Note
 
@@ -63,9 +58,7 @@ configuration parameter.
 This tutorial demonstrates how to use Apache Maven to package the application, and how
 to run the application locally in the IDE of your choice.
 
-## Fulfill the prerequisites for completing the
-
-exercises
+## Fulfill the prerequisites for completing the exercises
 
 To complete the steps in this guide, you must have the following:
 
@@ -103,5 +96,4 @@ $ mvn -version
 $ mvn -version
 ```
 
-To get started, go to [Set up an AWS account and create an
-administrator user](setting-up.md "setting-up.md").
+To get started, go to [Set up an AWS account and create an administrator user](setting-up.md "setting-up.md").

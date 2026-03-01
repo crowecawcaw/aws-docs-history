@@ -34,15 +34,11 @@ or [`UpdateApplication`](../../../managed-service-for-apache-flink/latest/apiv2/
 
 ###### This topic contains the following sections:
 
-- [Manage automatic snapshot
-  creation](#how-fault-snapshot-update "#how-fault-snapshot-update")
-- [Restore from a snapshot that contains
-  incompatible state data](#how-fault-snapshot-restore "#how-fault-snapshot-restore")
+- [Manage automatic snapshot creation](#how-fault-snapshot-update "#how-fault-snapshot-update")
+- [Restore from a snapshot that contains incompatible state data](#how-fault-snapshot-restore "#how-fault-snapshot-restore")
 - [Review snapshot API examples](#how-fault-snapshot-examples "#how-fault-snapshot-examples")
 
-## Manage automatic snapshot
-
-creation
+## Manage automatic snapshot creation
 
 If `SnapshotsEnabled` is set to `true` in the
 [ApplicationSnapshotConfiguration](../apiv2/API_ApplicationSnapshotConfiguration.md "../apiv2/API_ApplicationSnapshotConfiguration.md") for the application, Managed Service for Apache Flink
@@ -68,9 +64,7 @@ Automatically created snapshots have the following qualities:
   updated, scaled, or stopped. You must manually delete snapshots using the
   [DeleteApplicationSnapshot](../apiv2/API_DeleteApplicationSnapshot.md "../apiv2/API_DeleteApplicationSnapshot.md") action before creating more snapshots manually.
 
-## Restore from a snapshot that contains
-
-incompatible state data
+## Restore from a snapshot that contains incompatible state data
 
 Because snapshots contain information about operators, restoring state data from a
 snapshot for an operator that has changed since the previous application version may
@@ -116,9 +110,7 @@ This section includes example requests for API actions for using snapshots with 
 application. For information about how to use a JSON file for input for an API
 action, see [Managed Service for Apache Flink API example code](api-examples.md "api-examples.md").
 
-### Enable snapshots for an
-
-application
+### Enable snapshots for an application
 
 The following example request for the [`UpdateApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md") action enables
 snapshots for an application:
@@ -147,9 +139,7 @@ snapshot of the current application state:
 }
 ```
 
-### List snapshots for an
-
-application
+### List snapshots for an application
 
 The following example request for the [`ListApplicationSnapshots`](../../../managed-service-for-apache-flink/latest/apiv2/API_ListApplicationSnapshots.md "../../../managed-service-for-apache-flink/latest/apiv2/API_ListApplicationSnapshots.md") action lists the first 50
 snapshots for the current application state:
@@ -161,9 +151,7 @@ snapshots for the current application state:
 }
 ```
 
-### List details for an
-
-application snapshot
+### List details for an application snapshot
 
 The following example request for the [`DescribeApplicationSnapshot`](../../../managed-service-for-apache-flink/latest/apiv2/API_DescribeApplicationSnapshot.md "../../../managed-service-for-apache-flink/latest/apiv2/API_DescribeApplicationSnapshot.md") action lists details
 for a specific application snapshot:
@@ -189,9 +177,7 @@ previously saved snapshot. You can get the
 }
 ```
 
-### Restart an application
-
-using a named snapshot
+### Restart an application using a named snapshot
 
 The following example request for the [`StartApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md") action starts the application using
 the saved state from a specific snapshot:
@@ -208,9 +194,7 @@ the saved state from a specific snapshot:
 }
 ```
 
-### Restart an application
-
-using the most recent snapshot
+### Restart an application using the most recent snapshot
 
 The following example request for the [`StartApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md") action starts the application using
 the most recent snapshot:
@@ -226,9 +210,7 @@ the most recent snapshot:
 }
 ```
 
-### Restart an application
-
-using no snapshot
+### Restart an application using no snapshot
 
 The following example request for the [`StartApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md") action starts the application without
 loading application state, even if a snapshot is present:

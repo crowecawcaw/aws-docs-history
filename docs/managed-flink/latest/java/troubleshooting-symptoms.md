@@ -7,24 +7,15 @@ Managed Service for Apache Flink application.
 
 ###### Topics
 
-- [Application is stuck in a
-  transient status](#troubleshooting-rt-stuck "#troubleshooting-rt-stuck")
+- [Application is stuck in a transient status](#troubleshooting-rt-stuck "#troubleshooting-rt-stuck")
 - [Snapshot creation fails](#troubleshooting-rt-snapshots "#troubleshooting-rt-snapshots")
-- [Cannot access resources in a
-  VPC](#troubleshooting-rt-vpc "#troubleshooting-rt-vpc")
-- [Data is lost when writing to an Amazon S3
-  bucket](#troubleshooting-rt-s3 "#troubleshooting-rt-s3")
-- [Application is in the
-  RUNNING status but isn't processing data](#troubleshooting-rt-processing "#troubleshooting-rt-processing")
-- [Snapshot,
-  application update, or application stop error:
-  InvalidApplicationConfigurationException](#troubleshooting-rt-appconfigexception "#troubleshooting-rt-appconfigexception")
-- [java.nio.file.NoSuchFileException:
-  /usr/local/openjdk-8/lib/security/cacerts](#troubleshooting-rt-fnf "#troubleshooting-rt-fnf")
+- [Cannot access resources in a VPC](#troubleshooting-rt-vpc "#troubleshooting-rt-vpc")
+- [Data is lost when writing to an Amazon S3 bucket](#troubleshooting-rt-s3 "#troubleshooting-rt-s3")
+- [Application is in the RUNNING status but isn't processing data](#troubleshooting-rt-processing "#troubleshooting-rt-processing")
+- [Snapshot, application update, or application stop error: InvalidApplicationConfigurationException](#troubleshooting-rt-appconfigexception "#troubleshooting-rt-appconfigexception")
+- [java.nio.file.NoSuchFileException: /usr/local/openjdk-8/lib/security/cacerts](#troubleshooting-rt-fnf "#troubleshooting-rt-fnf")
 
-## Application is stuck in a
-
-transient status
+## Application is stuck in a transient status
 
 If your application stays in a transient status (`STARTING`,
 `UPDATING`, `STOPPING`, or `AUTOSCALING`), you
@@ -103,9 +94,7 @@ information about tuning operator performance, see
 After the application returns to a healthy state, we recommend that you
 set the application's `SnapshotsEnabled` property to `true`.
 
-## Cannot access resources in a
-
-VPC
+## Cannot access resources in a VPC
 
 If your application uses a VPC running on Amazon VPC, do the following to verify that your application has access to its resources:
 
@@ -121,25 +110,17 @@ and that your connectors have the correct connection settings.
 
 For information about setting up and analyzing CloudWatch logs, see [Logging and monitoring in Amazon Managed Service for Apache Flink](monitoring-overview.md "monitoring-overview.md").
 
-## Data is lost when writing to an Amazon S3
-
-bucket
+## Data is lost when writing to an Amazon S3 bucket
 
 Some data loss might occur when writing output to an Amazon S3 bucket using Apache Flink version 1.6.2.
 We recommend using the latest supported version of Apache Flink when using Amazon S3 for output directly. To
 write to an Amazon S3 bucket using Apache Flink 1.6.2, we recommend using Firehose. For more information about using Firehose with Managed Service for Apache Flink, see [Firehose sink](earlier.md#get-started-exercise-fh "earlier.md#get-started-exercise-fh").
 
-## Application is in the
+## Application is in the RUNNING status but isn't processing data
 
-RUNNING status but isn't processing data
+You can check your application status by using either the [`ListApplications`](../../../managed-service-for-apache-flink/latest/apiv2/API_ListApplications.md "../../../managed-service-for-apache-flink/latest/apiv2/API_ListApplications.md") or the [`DescribeApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_DescribeApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_DescribeApplication.md") actions. If your application enters the `RUNNING` status but isn't writing data to your sink, you can troubleshoot the issue by adding an Amazon CloudWatch log stream to your application. For more information, see [Work with application CloudWatch logging options](cloudwatch-logs.md#adding_cloudwatch "cloudwatch-logs.md#adding_cloudwatch"). The log stream contains messages that you can use to troubleshoot application issues.
 
-You can check your application status by using either the [`ListApplications`](../../../managed-service-for-apache-flink/latest/apiv2/API_ListApplications.md "../../../managed-service-for-apache-flink/latest/apiv2/API_ListApplications.md") or the [`DescribeApplication`](../../../managed-service-for-apache-flink/latest/apiv2/API_DescribeApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_DescribeApplication.md") actions. If your application enters the `RUNNING` status but isn't writing data to your sink, you can troubleshoot the issue by adding an Amazon CloudWatch log stream to your application. For more information, see [Work with application CloudWatch logging
-options](cloudwatch-logs.md#adding_cloudwatch "cloudwatch-logs.md#adding_cloudwatch"). The log stream contains messages that you can use to troubleshoot application issues.
-
-## Snapshot,
-
-application update, or application stop error:
-InvalidApplicationConfigurationException
+## Snapshot, application update, or application stop error: InvalidApplicationConfigurationException
 
 An error similar to the following might occur during a snapshot operation, or during an operation that creates a snapshot, such as updating or stopping an application:
 
@@ -161,13 +142,10 @@ creates a snapshot, do the following:
   Managed Service for Apache Flink console, or by using the `SnapshotsEnabledUpdate` parameter
   of the [UpdateApplication](../apiv2/API_UpdateApplication.md "../apiv2/API_UpdateApplication.md") action.
 - Investigate why snapshots cannot be created. For more information, see
-  [Application is stuck in a
-  transient status](#troubleshooting-rt-stuck "#troubleshooting-rt-stuck").
+  [Application is stuck in a transient status](#troubleshooting-rt-stuck "#troubleshooting-rt-stuck").
 - Reenable snapshots when the application returns to a healthy state.
 
-## java.nio.file.NoSuchFileException:
-
-/usr/local/openjdk-8/lib/security/cacerts
+## java.nio.file.NoSuchFileException: /usr/local/openjdk-8/lib/security/cacerts
 
 The location of the SSL truststore was updated in a previous deployment. Use the following value for the `ssl.truststore.location` parameter instead:
 

@@ -9,16 +9,12 @@ guide and to create your first application.
 
 ###### Topics
 
-- [Review the components of a Managed Service for Apache Flink
-  application](#gs-python-table-components "#gs-python-table-components")
+- [Review the components of a Managed Service for Apache Flink application](#gs-python-table-components "#gs-python-table-components")
 - [Fulfill the prerequisites](#gs-python-prerequisites "#gs-python-prerequisites")
-- [Create and run a Managed Service for Apache Flink for Python
-  application](gs-python-createapp.md "gs-python-createapp.md")
+- [Create and run a Managed Service for Apache Flink for Python application](gs-python-createapp.md "gs-python-createapp.md")
 - [Clean up AWS resources](gs-python-cleanup.md "gs-python-cleanup.md")
 
-## Review the components of a Managed Service for Apache Flink
-
-application
+## Review the components of a Managed Service for Apache Flink application
 
 ###### Note
 
@@ -119,8 +115,7 @@ compile your application.
 
 Then, complete the first two steps of the [Get started with Amazon Managed Service for Apache Flink (DataStream API)](getting-started.md "getting-started.md"):
 
-- [Set up an AWS account and create an
-  administrator user](setting-up.md "setting-up.md")
+- [Set up an AWS account and create an administrator user](setting-up.md "setting-up.md")
 - [Set up the AWS Command Line Interface (AWS CLI)](setup-awscli.md "setup-awscli.md")
 
 To get started, see [Create an application](gs-python-createapp.md "gs-python-createapp.md").

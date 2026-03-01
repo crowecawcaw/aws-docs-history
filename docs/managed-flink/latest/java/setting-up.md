@@ -1,8 +1,6 @@
 Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
 
-# Set up an AWS account and create an
-
-administrator user
+# Set up an AWS account and create an administrator user
 
 Before you use Managed Service for Apache Flink for the first time, complete the following tasks:
 

@@ -9,8 +9,7 @@ advanced Managed Service for Apache Flink solutions.
   In this workshop, you build an end-to-end streaming architecture to ingest, analyze, and visualize streaming data in near real-time.
   You set out to improve the operations of a taxi company in New York City. You analyze the telemetry data of a taxi fleet in
   New York City in near real-time to optimize their fleet operations.
-- **[Examples for creating and working with Managed Service for Apache Flink
-  applications](examples-collapsibles.md "examples-collapsibles.md"):**
+- **[Examples for creating and working with Managed Service for Apache Flink applications](examples-collapsibles.md "examples-collapsibles.md"):**
   This section of this Developer Guide provides examples of creating and working with applications
   in Managed Service for Apache Flink. They include example code and step-by-step instructions to help you create
   Managed Service for Apache Flink applications and test your results.

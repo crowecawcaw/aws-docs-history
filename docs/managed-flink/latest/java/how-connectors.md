@@ -1,8 +1,6 @@
 Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
 
-# Use connectors to move data in Managed Service for Apache Flink with the
-
-DataStream API
+# Use connectors to move data in Managed Service for Apache Flink with the DataStream API
 
 In the Amazon Managed Service for Apache Flink DataStream API, _connectors_ are software
 components that move data into and out of a Managed Service for Apache Flink application. Connectors are flexible integrations
