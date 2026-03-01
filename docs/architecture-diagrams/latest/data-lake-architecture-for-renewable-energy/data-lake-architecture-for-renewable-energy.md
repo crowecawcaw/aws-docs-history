@@ -24,7 +24,7 @@ This architecture enables you to build a renewable energy data lake that include
    transformations can then be performed by stored procedures.
 7. The **AWS Glue Data Catalog**, **AWS Lake Formation**, and **AWS Identity and Access Management**
    (IAM) are used to provide centralized security and governance.
-8. **Amazon Athena**, **Amazon Quick Suite**, and **Amazon Managed Grafana**
+8. **Amazon Athena**, **Amazon Quick**, and **Amazon Managed Grafana**
    visualize data and build dashboards and reporting.
 9. Use raw datasets with **Amazon SageMaker AI** to train and deploy
    machine learning models.
