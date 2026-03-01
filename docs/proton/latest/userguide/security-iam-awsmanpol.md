@@ -59,9 +59,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AWSProtonFullAccess
+## AWS managed policy: AWSProtonFullAccess
 
 You can attach `AWSProtonFullAccess` to your IAM entities. AWS Proton also
 attaches this policy to a service role that allows AWS Proton to perform actions on your behalf.
@@ -83,9 +81,7 @@ The policy includes the following key action namespaces:
 
 For more information, see [AWSProtonFullAccess](../../../aws-managed-policy/latest/reference/AWSProtonFullAccess.md "../../../aws-managed-policy/latest/reference/AWSProtonFullAccess.md").
 
-## AWS managed policy:
-
-AWSProtonDeveloperAccess
+## AWS managed policy: AWSProtonDeveloperAccess
 
 You can attach `AWSProtonDeveloperAccess` to your IAM entities. AWS Proton also
 attaches this policy to a service role that allows AWS Proton to perform actions on your
@@ -110,9 +106,7 @@ The policy includes the following key action namespaces:
 
 For more information, see [AWSProtonDeveloperAccess](../../../aws-managed-policy/latest/reference/AWSProtonDeveloperAccess.md "../../../aws-managed-policy/latest/reference/AWSProtonDeveloperAccess.md").
 
-## AWS managed policy:
-
-AWSProtonReadOnlyAccess
+## AWS managed policy: AWSProtonReadOnlyAccess
 
 You can attach `AWSProtonReadOnlyAccess` to your IAM entities. AWS Proton also
 attaches this policy to a service role that allows AWS Proton to perform actions on your behalf.
@@ -127,9 +121,7 @@ The policy includes the following key action namespaces:
 
 For more information, see [AWSProtonReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSProtonReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSProtonReadOnlyAccess.md").
 
-## AWS managed policy:
-
-AWSProtonSyncServiceRolePolicy
+## AWS managed policy: AWSProtonSyncServiceRolePolicy
 
 AWS Proton attaches this policy to the [AWSServiceRoleForProtonSync](using-service-linked-roles-sync.md "using-service-linked-roles-sync.md") service-linked role that allows AWS Proton to perform
 template sync.
@@ -146,9 +138,7 @@ The policy includes the following key action namespaces:
 
 For more information, see [AWSProtonSyncServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSProtonSyncServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSProtonSyncServiceRolePolicy.md").
 
-## AWS
-
-managed policy: AWSProtonCodeBuildProvisioningBasicAccess
+## AWS managed policy: AWSProtonCodeBuildProvisioningBasicAccess
 
 Permissions CodeBuild needs to run a build for AWS Proton CodeBuild Provisioning. You can attach
 `AWSProtonCodeBuildProvisioningBasicAccess` to your CodeBuild Provisioning Role.
@@ -168,9 +158,7 @@ proton notify-resource-deployment-status-change` for updating the IaaC outputs f
 
 For more information, see [AWSProtonCodeBuildProvisioningBasicAccess](../../../aws-managed-policy/latest/reference/AWSProtonCodeBuildProvisioningBasicAccess.md "../../../aws-managed-policy/latest/reference/AWSProtonCodeBuildProvisioningBasicAccess.md").
 
-## AWS
-
-managed policy: AWSProtonCodeBuildProvisioningServiceRolePolicy
+## AWS managed policy: AWSProtonCodeBuildProvisioningServiceRolePolicy
 
 AWS Proton attaches this policy to the [AWSServiceRoleForProtonCodeBuildProvisioning](using-service-linked-roles-codebuild.md "using-service-linked-roles-codebuild.md") service-linked role that allows AWS Proton to perform CodeBuild-based
 provisioning.
@@ -192,9 +180,7 @@ The policy includes the following key action namespaces:
 
 For more information, see [AWSProtonCodeBuildProvisioningServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSProtonCodeBuildProvisioningServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSProtonCodeBuildProvisioningServiceRolePolicy.md").
 
-## AWS
-
-managed policy: AWSProtonServiceGitSyncServiceRolePolicy
+## AWS managed policy: AWSProtonServiceGitSyncServiceRolePolicy
 
 AWS Proton attaches this policy to the [AWSServiceRoleForProtonServiceSync](using-service-linked-roles-sync.md "using-service-linked-roles-sync.md") service-linked role that allows AWS Proton to perform
 service sync.
@@ -208,9 +194,7 @@ The policy includes the following key action namespaces:
 
 For more information, see [AWSProtonServiceGitSyncServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSProtonServiceGitSyncServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSProtonServiceGitSyncServiceRolePolicy.md").
 
-## AWS Proton updates to AWS managed
-
-policies
+## AWS Proton updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Proton since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

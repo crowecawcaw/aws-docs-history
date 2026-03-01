@@ -27,9 +27,7 @@ customer-managed environments. You can also link a second account and use an AWS
 the primary account to execute deployments and updates to environments and services in that
 second, linked account.
 
-## How to use customer-managed
-
-environments
+## How to use customer-managed environments
 
 The first thing administrators need to do is register an imported, customer-managed
 environment template. Don't supply manifests or infrastructure files in the template bundle.

@@ -219,5 +219,4 @@ A service-linked role is a type of service role that is linked to an AWS service
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
 but not edit the permissions for service-linked roles.
 
-For more information, see [Using service-linked roles for
-AWS Proton](using-service-linked-roles.md "using-service-linked-roles.md").
+For more information, see [Using service-linked roles for AWS Proton](using-service-linked-roles.md "using-service-linked-roles.md").

@@ -157,9 +157,7 @@ customer managed tags for your environment. 11. In the navigation pane, choose *
 A new page displays a list of your environments along with the status and other
 environment details.
 
-## Step 6: Optional - Create a service and deploy an
-
-application
+## Step 6: Optional - Create a service and deploy an application
 
 1. Open the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/").
 2. In the navigation pane, choose **Services**.

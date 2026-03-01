@@ -3,9 +3,7 @@ End of support notice: On October 7, 2026, AWS will end support for AWS Proton. 
 will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
 Guide](proton-end-of-support.md "proton-end-of-support.md").
 
-# CodeBuild provisioning custom Amazon VPC
-
-support
+# CodeBuild provisioning custom Amazon VPC support
 
 AWS Proton CodeBuild Provisioning executes arbitrary customer-supplied CLI commands in a
 CodeBuild project located in the AWS Proton Environment account. These commands typically manage
@@ -30,9 +28,7 @@ straightforward solution. First, you must add the VPC ID, subnets, and security 
 the environment template. Next, you enter those values into the environment spec. This will
 result in a CodeBuild project being created for you that targets a given VPC.
 
-## Updating the Environment
-
-Template
+## Updating the Environment Template
 
 ###### Schema
 

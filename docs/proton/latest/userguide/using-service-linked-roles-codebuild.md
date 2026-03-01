@@ -25,9 +25,7 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role
-
-permissions for AWS Proton
+## Service-linked role permissions for AWS Proton
 
 AWS Proton uses the service-linked role named **AWSServiceRoleForProtonCodeBuildProvisioning**
 – A Service Linked Role for AWS Proton CodeBuild provisioning.
@@ -45,16 +43,13 @@ AWS Proton to complete the following actions on the specified resources:
 - Action: _create, manage, and read_ on
   _CodeBuild projects and builds_
 
-For more information about this policy, see [AWS
-managed policy: AWSProtonCodeBuildProvisioningServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSProtonCodeBuildProvisioningServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSProtonCodeBuildProvisioningServiceRolePolicy").
+For more information about this policy, see [AWS managed policy: AWSProtonCodeBuildProvisioningServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSProtonCodeBuildProvisioningServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSProtonCodeBuildProvisioningServiceRolePolicy").
 
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-AWS Proton
+## Creating a service-linked role for AWS Proton
 
 You don't need to manually create a service-linked role. When you
 create an environment that uses CodeBuild-based provisioning in AWS Proton in the AWS Management Console, the AWS CLI, or the AWS API, AWS Proton
@@ -64,9 +59,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 the same process to recreate the role in your account. When you
 create an environment that uses CodeBuild-based provisioning in AWS Proton, AWS Proton creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-AWS Proton
+## Editing a service-linked role for AWS Proton
 
 AWS Proton does not allow you to edit the **AWSServiceRoleForProtonCodeBuildProvisioning**
 service-linked role. After you create a service-linked role, you cannot change the name of
@@ -74,27 +67,21 @@ the role because various entities might reference the role. However, you can edi
 description of the role using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-AWS Proton
+## Deleting a service-linked role for AWS Proton
 
 If you no longer need to use a feature or service that requires a service-linked role,
 we recommend that you delete that role. That way you don’t have an unused entity that is not
 actively monitored or maintained. However, you must
 delete all environments and services (instances and pipelines) that use CodeBuild-based provisioning in AWS Proton before you can manually delete it.
 
-### Manually delete the service-linked
-
-role
+### Manually delete the service-linked role
 
 Use the IAM console, the AWS CLI, or the AWS API to delete the
 **AWSServiceRoleForProtonCodeBuildProvisioning** service-linked role. For more information, see
 [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported regions for AWS Proton
-
-service-linked roles
+## Supported regions for AWS Proton service-linked roles
 
 AWS Proton supports using service-linked roles in all of the AWS Regions where the
 service is available. For more information, see [AWS Proton endpoints and quotas](../../../general/latest/gr/proton.md "../../../general/latest/gr/proton.md") in the _AWS General Reference_.

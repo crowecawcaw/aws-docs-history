@@ -63,9 +63,7 @@ In the environment account, use the console or the AWS CLI to view and manage en
 account connection customer managed tags. AWS managed tags _aren't_
 generated for environment account connections. For more information, see [AWS Proton resources and tagging](resources.md "resources.md").
 
-## Create an environment in one account
-
-and provision its infrastructure in another account
+## Create an environment in one account and provision its infrastructure in another account
 
 To create and provision an environment from a single management account, set up an
 environment account for an environment that you plan to create.
@@ -93,8 +91,7 @@ resource provisioning in the associated environment account.
 
 The environment infrastructure resources are provisioned in the associated environment
 account. You can only use AWS Proton APIs to access and manage your environment and its
-infrastructure resources, from your management account. For more information, see [Create an environment in one account and
-provision in another account](ag-create-env.md#ag-create-env-deploy-other "ag-create-env.md#ag-create-env-deploy-other") and
+infrastructure resources, from your management account. For more information, see [Create an environment in one account and provision in another account](ag-create-env.md#ag-create-env-deploy-other "ag-create-env.md#ag-create-env-deploy-other") and
 [Update an environment](ag-env-update.md "ag-env-update.md").
 
 After you reject a request, you _can’t_ accept or use the rejected
@@ -121,18 +118,14 @@ won't be able to manage the environment infrastructure resources until a new env
 connection is accepted for the environment account and named environment. You're responsible
 for cleaning up provisioned resources that remain without an environment connection.
 
-## Use the console or CLI to
-
-manage environment account connections
+## Use the console or CLI to manage environment account connections
 
 You can use the console or CLI to create and manage environment account
 connections.
 
 AWS Management Console
 
-###### Use the console to create an environment account connection and send a request
-
-to the management account as shown in the next steps.
+###### Use the console to create an environment account connection and send a request to the management account as shown in the next steps.
 
 1. Decide on a name for the environment that you plan to create in your
    management account or choose the name of an existing environment that requires an

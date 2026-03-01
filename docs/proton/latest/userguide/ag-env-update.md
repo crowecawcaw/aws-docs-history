@@ -73,9 +73,7 @@ environment.
 
 AWS Management Console
 
-###### Update an environment using the console as shown in the following
-
-steps.
+###### Update an environment using the console as shown in the following steps.
 
 1. ###### Choose 1 of the following 2 steps.
    1. ###### In the list of environments.
@@ -84,9 +82,7 @@ steps.
       2. In the list of environments, choose the radio button to the left of
          the environment that you want to update.
 
-   2. ###### In the console environment detail
-
-      page.
+   2. ###### In the console environment detail page.
       1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"),
          choose **Environments**.
       2. In the list of environments, choose the name of the environment that
@@ -106,9 +102,7 @@ steps.
          reach the **Review** page.
       4. Review your updates and choose **Update**.
 
-   3. ###### To make an update to a new minor version of its environment
-
-      template.
+   3. ###### To make an update to a new minor version of its environment template.
       1. Choose **Actions** and then **Update
          minor**.
       2. Fill out the form and choose **Next**.
@@ -116,9 +110,7 @@ steps.
          reach the **Review** page.
       4. Review your updates and choose **Update**.
 
-   4. ###### To make an update to a new major version of its environment
-
-      template.
+   4. ###### To make an update to a new major version of its environment template.
       1. Choose **Actions** and then **Update
          major**.
       2. Fill out the form and choose **Next**.
@@ -198,9 +190,7 @@ environment.
 
 AWS Management Console
 
-###### Update an environment using the console as shown in the following
-
-steps.
+###### Update an environment using the console as shown in the following steps.
 
 1. ###### Choose 1 of the following 2 steps.
    1. ###### In the list of environments.
@@ -209,9 +199,7 @@ steps.
       2. In the list of environments, choose the radio button to the left of
          the environment template that you want to update.
 
-   2. ###### In the console environment detail
-
-      page.
+   2. ###### In the console environment detail page.
       1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"),
          choose **Environments**.
       2. In the list of environments, choose the name of the environment that
@@ -231,9 +219,7 @@ steps.
          reach the **Review** page.
       4. Review your updates and choose **Update**.
 
-   3. ###### To make an update to a new minor version of its environment
-
-      template.
+   3. ###### To make an update to a new minor version of its environment template.
       1. Choose **Actions** and then **Update
          minor**.
       2. Fill out the form and choose **Next**.
@@ -241,9 +227,7 @@ steps.
          reach the **Review** page.
       4. Review your updates and choose **Update**.
 
-   4. ###### To make an update to a new major version of its environment
-
-      template.
+   4. ###### To make an update to a new major version of its environment template.
       1. Choose **Actions** and then **Update
          major**.
       2. Fill out the form and choose **Next**.
@@ -253,9 +237,7 @@ steps.
 
 AWS CLI
 
-###### Use the AWS CLI to update a Terraform environment to a new minor version with
-
-self-managed provisioning.
+###### Use the AWS CLI to update a Terraform environment to a new minor version with self-managed provisioning.
 
 1. Run the following command to update your environment:
 

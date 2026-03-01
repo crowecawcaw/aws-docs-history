@@ -23,5 +23,4 @@ operations. For >additional information, see the [The AWS Proton Service API Ref
 - [Delete an environment](ag-env-delete.md "ag-env-delete.md")
 - [Environment account connections](ag-env-account-connections.md "ag-env-account-connections.md")
 - [Customer-managed environments](ag-env-customer-managed.md "ag-env-customer-managed.md")
-- [CodeBuild provisioning role
-  creation](ag-env-codebuild-provisioning-role-creation.md "ag-env-codebuild-provisioning-role-creation.md")
+- [CodeBuild provisioning role creation](ag-env-codebuild-provisioning-role-creation.md "ag-env-codebuild-provisioning-role-creation.md")

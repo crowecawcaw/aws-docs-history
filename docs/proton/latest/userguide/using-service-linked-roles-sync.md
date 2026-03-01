@@ -25,9 +25,7 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role
-
-permissions for AWS Proton
+## Service-linked role permissions for AWS Proton
 
 AWS Proton uses two service-linked roles named **AWSServiceRoleForProtonSync**
 and **AWSServiceRoleForProtonServiceSync**.
@@ -45,8 +43,7 @@ AWS Proton to complete the following actions on the specified resources:
 - Action: _use connection_ on
   _CodeConnections_
 
-For more information about this policy, see [AWS managed policy:
-AWSProtonSyncServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSProtonSyncServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSProtonSyncServiceRolePolicy").
+For more information about this policy, see [AWS managed policy: AWSProtonSyncServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSProtonSyncServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSProtonSyncServiceRolePolicy").
 
 The **AWSServiceRoleForProtonServiceSync** service-linked role trusts
 the following services to assume the role:
@@ -59,16 +56,13 @@ allows AWS Proton to complete the following actions on the specified resources:
 - Action: _create, manage, and read on AWS Proton services and
   service instances_
 
-For more information about this policy, see [AWS
-managed policy: AWSProtonServiceGitSyncServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AwsProtonServiceGitSyncServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AwsProtonServiceGitSyncServiceRolePolicy").
+For more information about this policy, see [AWS managed policy: AWSProtonServiceGitSyncServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AwsProtonServiceGitSyncServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AwsProtonServiceGitSyncServiceRolePolicy").
 
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-AWS Proton
+## Creating a service-linked role for AWS Proton
 
 You don't need to manually create a service-linked role. When you
 configure a repository or service for sync in AWS Proton in the AWS Management Console, the AWS CLI, or the AWS API, AWS Proton
@@ -83,9 +77,7 @@ you would want to configure a repository for sync, and to recreate
 **AWSServiceRoleForProtonServiceSync**, you would want to configure a
 service for sync.
 
-## Editing a service-linked role for
-
-AWS Proton
+## Editing a service-linked role for AWS Proton
 
 AWS Proton doesn't allow you to edit the **AWSServiceRoleForProtonSync**
 service-linked role. After you create a service-linked role, you can't change the name of
@@ -93,17 +85,13 @@ the role because various entities might reference the role. However, you can edi
 description of the role using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-AWS Proton
+## Deleting a service-linked role for AWS Proton
 
 You don't need to manually delete the **AWSServiceRoleForProtonSync** role. When you
 delete all AWS Proton linked repositories for repository sync in the AWS Management Console, the AWS CLI, or the AWS API, AWS Proton
 cleans up the resources and deletes the service-linked role for you.
 
-## Supported regions for AWS Proton
-
-service-linked roles
+## Supported regions for AWS Proton service-linked roles
 
 AWS Proton supports using service-linked roles in all of the AWS Regions where the
 service is available. For more information, see [AWS Proton endpoints and quotas](../../../general/latest/gr/proton.md "../../../general/latest/gr/proton.md") in the _AWS General Reference_.

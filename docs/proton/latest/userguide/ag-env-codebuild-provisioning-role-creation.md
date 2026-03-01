@@ -3,9 +3,7 @@ End of support notice: On October 7, 2026, AWS will end support for AWS Proton. 
 will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
 Guide](proton-end-of-support.md "proton-end-of-support.md").
 
-# CodeBuild provisioning role
-
-creation
+# CodeBuild provisioning role creation
 
 Infrastructure as a Code (IaaC) tools like CloudFormation and Terraform require permissions for the
 many different types of AWS resources. For example, if an IaaC template declares an Amazon S3

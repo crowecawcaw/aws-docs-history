@@ -16,9 +16,7 @@ Learn to create AWS Proton environments.
   environment template_. You provision your own shared resources outside of
   AWS Proton, and then you provide provisioning outputs that AWS Proton can use.
 
-###### You can choose one of several provisioning approaches when you create an
-
-environment.
+###### You can choose one of several provisioning approaches when you create an environment.
 
 - _AWS managed provisioning_ – Create, manage, and provision
   an environment in a single account. AWS Proton provisions your environment.
@@ -28,8 +26,7 @@ This method only supports CloudFormation infrastructure code (IaC) templates.
 - _AWS managed provisioning to another account_ – In a
   single management account, create and manage an environment that's provisioned in another
   account with environment account connections. AWS Proton provisions your environment in the
-  other account. For more information, see [Create an environment in one account and
-  provision in another account](#ag-create-env-deploy-other "#ag-create-env-deploy-other") and [Environment account connections](ag-env-account-connections.md "ag-env-account-connections.md").
+  other account. For more information, see [Create an environment in one account and provision in another account](#ag-create-env-deploy-other "#ag-create-env-deploy-other") and [Environment account connections](ag-env-account-connections.md "ag-env-account-connections.md").
 
 This method only supports CloudFormation IaC templates.
 
@@ -63,25 +60,18 @@ For more information, see [How AWS Proton provisions infrastructure](ag-works-pr
 
 ###### Topics
 
-- [Create and provision a standard environment in
-  the same account](#ag-create-env-same-account "#ag-create-env-same-account")
-- [Create an environment in one account and
-  provision in another account](#ag-create-env-deploy-other "#ag-create-env-deploy-other")
-- [Create and provision an environment using
-  self-managed provisioning](#ag-create-env-pull-request "#ag-create-env-pull-request")
+- [Create and provision a standard environment in the same account](#ag-create-env-same-account "#ag-create-env-same-account")
+- [Create an environment in one account and provision in another account](#ag-create-env-deploy-other "#ag-create-env-deploy-other")
+- [Create and provision an environment using self-managed provisioning](#ag-create-env-pull-request "#ag-create-env-pull-request")
 
-## Create and provision a standard environment in
-
-the same account
+## Create and provision a standard environment in the same account
 
 Use the console or AWS CLI to create and provision an environment in a single account.
 Provisioning is managed by AWS.
 
 AWS Management Console
 
-###### Use the console to create and provision an environment in a single
-
-account
+###### Use the console to create and provision an environment in a single account
 
 1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose
    **Environments**.
@@ -179,9 +169,7 @@ Command:
  --resource-arn "arn:aws:proton:`region-id`:`123456789012`:environment/`MySimpleEnv`"`
 ```
 
-## Create an environment in one account and
-
-provision in another account
+## Create an environment in one account and provision in another account
 
 Use the console or AWS CLI to create a standard environment in a management account that
 provisions environment infrastructure in another account. Provisioning is managed by
@@ -196,13 +184,9 @@ AWS.
 
 AWS Management Console
 
-###### Use the console create an environment in one account and provision in
+###### Use the console create an environment in one account and provision in another.
 
-another.
-
-1. ###### In the environment account, create an environment account connection, and use
-
-   it to send a request to connect to the management account.
+1. ###### In the environment account, create an environment account connection, and use it to send a request to connect to the management account.
    1. In [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose
       **Environment account connections** in the navigation
       pane.
@@ -224,9 +208,7 @@ another.
    sent to a management account** table and a modal shows how to
    accept the request from the management account.
 
-2. ###### In the management account, accept a request to connect from the environment
-
-   account.
+2. ###### In the management account, accept a request to connect from the environment account.
    1. Log in to your management account and choose **Environment account
       connections** in the AWS Proton console.
    2. In the **Environment account connections** page, in the
@@ -374,9 +356,7 @@ Response:
 }
 ```
 
-## Create and provision an environment using
-
-self-managed provisioning
+## Create and provision an environment using self-managed provisioning
 
 When you use self-managed provisioning, AWS Proton submits provisioning pull requests to a
 linked repository with your own provisioning infrastructure. The pull requests start your
@@ -396,9 +376,7 @@ examples show how you can use self-managed provisioning with Terraform.
 
 AWS Management Console
 
-###### Use the console to create a Terraform environment using self-managed
-
-provisioning.
+###### Use the console to create a Terraform environment using self-managed provisioning.
 
 1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose
    **Environments**.
@@ -460,9 +438,7 @@ _add_ the `provisioningRepository` parameter and omit
 the `ProtonServiceRoleArn` and `environmentAccountConnectionId`
 parameters.
 
-###### Use the AWS CLI to create a Terraform environment with self-managed
-
-provisioning.
+###### Use the AWS CLI to create a Terraform environment with self-managed provisioning.
 
 1. Create an environment and send a pull request to the repository for review and
    approval.

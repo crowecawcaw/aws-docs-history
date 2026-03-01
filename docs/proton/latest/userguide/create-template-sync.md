@@ -172,9 +172,7 @@ The response is as follows.
 }
 ```
 
-2.  ###### Create your template sync configuration with AWS CLI by providing the
-
-    following:
+2.  ###### Create your template sync configuration with AWS CLI by providing the following:
 
         * The template that you want to sync to. After you have created the template
          sync configuration, you can still create new versions from it manually in the
