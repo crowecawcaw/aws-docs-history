@@ -1,12 +1,9 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Viewing VMware data collection
-
-details
+# Viewing VMware data collection details
 
 The **VMware data collection details** page shows details about the
-vCenter you set up in [Setting up the
-Agentless Collector data collection module for VMware vCenter](agentless-collector-gs-vcenter.md "agentless-collector-gs-vcenter.md").
+vCenter you set up in [Setting up the Agentless Collector data collection module for VMware vCenter](agentless-collector-gs-vcenter.md "agentless-collector-gs-vcenter.md").
 
 Under **Discovered vCenter servers**, the vCenter you set up is
 listed with the following information about the vCenter:
@@ -33,8 +30,7 @@ approximately 15 minutes after turning on data collection.
 
 You can choose **View servers in Migration Hub** on this page to open the
 Migration Hub console, if your access to the internet is not blocked. Whether you choose this
-button or not, for information about how to access the Migration Hub console, see [Viewing your collected
-data](agentless-collector-gs-view-collected-data.md "agentless-collector-gs-view-collected-data.md").
+button or not, for information about how to access the Migration Hub console, see [Viewing your collected data](agentless-collector-gs-view-collected-data.md "agentless-collector-gs-view-collected-data.md").
 
 The following are the guidelines for recommended length of data collection according
 to migration planning activities:

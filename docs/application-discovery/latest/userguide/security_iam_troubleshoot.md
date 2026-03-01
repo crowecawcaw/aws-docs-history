@@ -1,20 +1,15 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Troubleshooting AWS Application Discovery Service Identity
-
-and Access
+# Troubleshooting AWS Application Discovery Service Identity and Access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with Application Discovery Service and IAM.
 
 ###### Topics
 
-- [I Am Not Authorized to Perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I Am Not Authorized to Perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
 
-## I Am Not Authorized to Perform
-
-iam:PassRole
+## I Am Not Authorized to Perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to Application Discovery Service.
 

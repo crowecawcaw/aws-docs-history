@@ -1,13 +1,10 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Editing VMware vCenter
-
-credentials
+# Editing VMware vCenter credentials
 
 To collect server inventory, profile, and utilization data from your VMware VMs, set
 up connections to your vCenter servers. For information about setting up VMware vCenter
-connections, see [Using the VMware vCenter
-Agentless Collector data collection module](agentless-collector-gs-data-collection-vcenter.md "agentless-collector-gs-data-collection-vcenter.md").
+connections, see [Using the VMware vCenter Agentless Collector data collection module](agentless-collector-gs-data-collection-vcenter.md "agentless-collector-gs-data-collection-vcenter.md").
 
 This section describes how to edit the vCenter credentials.
 
@@ -18,8 +15,7 @@ with Read and View permissions set for the System group.
 
 ###### To edit the VMware vCenter credentials
 
-On the [Viewing VMware data collection
-details](agentless-collector-gs-vcenter-details.md "agentless-collector-gs-vcenter-details.md") page, choose
+On the [Viewing VMware data collection details](agentless-collector-gs-vcenter-details.md "agentless-collector-gs-vcenter-details.md") page, choose
 **Edit vCenter servers**.
 
 - On the **Edit vCenter** page, perform the following:

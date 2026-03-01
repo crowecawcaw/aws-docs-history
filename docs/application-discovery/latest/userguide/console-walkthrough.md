@@ -13,10 +13,8 @@ In this section, you can find how to manage and monitor Application Discovery Se
 ###### Topics
 
 - [Viewing data in the AWS Migration Hub console dashboard](dashboard.md "dashboard.md")
-- [Starting and stopping data collectors in
-  the AWS Migration Hub console](start-stop-data_collection.md "start-stop-data_collection.md")
-- [Sorting data collectors in the AWS Migration Hub
-  console](sort-data-collectors.md "sort-data-collectors.md")
+- [Starting and stopping data collectors in the AWS Migration Hub console](start-stop-data_collection.md "start-stop-data_collection.md")
+- [Sorting data collectors in the AWS Migration Hub console](sort-data-collectors.md "sort-data-collectors.md")
 - [Viewing servers in the AWS Migration Hub console](view-servers.md "view-servers.md")
 - [Sorting servers in the AWS Migration Hub console](sort-servers.md "sort-servers.md")
 - [Tagging servers in the AWS Migration Hub console](tag-servers.md "tag-servers.md")

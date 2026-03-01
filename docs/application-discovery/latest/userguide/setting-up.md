@@ -6,8 +6,7 @@ Before you use AWS Application Discovery Service for the first time, complete th
 
 - [Sign up for Amazon Web Services](#setting-up-signup "#setting-up-signup")
 - [Create IAM users](#setting-up-iam "#setting-up-iam")
-- [Sign in to the Migration Hub console and
-  choose a home Region](#setting-up-choose-home-region "#setting-up-choose-home-region")
+- [Sign in to the Migration Hub console and choose a home Region](#setting-up-choose-home-region "#setting-up-choose-home-region")
 
 ## Sign up for Amazon Web Services
 
@@ -46,8 +45,7 @@ IAM users.
 ###### Topics
 
 - [Creating an IAM Administrative User](#setting-up-iam-admin "#setting-up-iam-admin")
-- [Creating an IAM Non-Administrative
-  User](#setting-up-iam-non-admin "#setting-up-iam-non-admin")
+- [Creating an IAM Non-Administrative User](#setting-up-iam-non-admin "#setting-up-iam-non-admin")
 
 ### Creating an IAM Administrative User
 
@@ -60,9 +58,7 @@ accessing Application Discovery Service.
   [Creating Your First IAM User and Administrators Group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the
   _IAM User Guide_.
 
-### Creating an IAM Non-Administrative
-
-User
+### Creating an IAM Non-Administrative User
 
 When creating non-administrative IAM users, follow the security best practice
 [Grant
@@ -96,9 +92,7 @@ _IAM User Guide_:
 3. After you create the user provide them with programmatic access as described in
    [Support programmatic user access](../../../IAM/latest/UserGuide/introduction_identity-management.md#gs-get-keys "../../../IAM/latest/UserGuide/introduction_identity-management.md#gs-get-keys").
 
-## Sign in to the Migration Hub console and
-
-choose a home Region
+## Sign in to the Migration Hub console and choose a home Region
 
 You need to choose an AWS Migration Hub home Region in the AWS account that you're using
 for the AWS Application Discovery Service.

@@ -1,8 +1,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# The Agentless Collector
-
-dashboard
+# The Agentless Collector dashboard
 
 On the Application Discovery Service Agentless Collector (Agentless Collector) dashboard page
 you can see the status of the collector and choose a method of data collection as
@@ -23,8 +21,7 @@ If you have AWS connection issues, you might need to edit
 Agentless Collector configuration settings.
 
 To edit the collector configuration settings, choose **Edit collector
-settings** and follow the instructions described in [Editing
-Agentless Collector settings](agentless-collector-edit-configure.md "agentless-collector-edit-configure.md").
+settings** and follow the instructions described in [Editing Agentless Collector settings](agentless-collector-edit-configure.md "agentless-collector-edit-configure.md").
 
 ## Data collection
 
@@ -36,20 +33,15 @@ operating system level collection.
 
 ###### Topics
 
-- [VMware vCenter data
-  collection](#using-collector-data-collect-vcenter "#using-collector-data-collect-vcenter")
-- [Database and
-  analytics data collection](#using-collector-data-collect-database-analytics "#using-collector-data-collect-database-analytics")
+- [VMware vCenter data collection](#using-collector-data-collect-vcenter "#using-collector-data-collect-vcenter")
+- [Database and analytics data collection](#using-collector-data-collect-database-analytics "#using-collector-data-collect-database-analytics")
 
-### VMware vCenter data
-
-collection
+### VMware vCenter data collection
 
 To collect server inventory, profile, and utilization data from your VMware
 VMs, set up connections to your vCenter servers. To set up the connections,
 choose **Set up** in the **VMware vCenter**
-section and follow the instructions described in [Using the VMware vCenter
-Agentless Collector data collection module](agentless-collector-gs-data-collection-vcenter.md "agentless-collector-gs-data-collection-vcenter.md").
+section and follow the instructions described in [Using the VMware vCenter Agentless Collector data collection module](agentless-collector-gs-data-collection-vcenter.md "agentless-collector-gs-data-collection-vcenter.md").
 
 After you set up vCenter data collection, from the dashboard you can perform
 the following:
@@ -66,9 +58,7 @@ vCenter** section is replaced with data collection status
 information, a **Stop data collection** button, and a
 **View and edit** button.
 
-### Database and
-
-analytics data collection
+### Database and analytics data collection
 
 You can run your database and analytics data collection module in the
 following two modes.
@@ -95,9 +85,7 @@ default mode because the recommendations are based on the actual
 database workloads. In this mode, the data collection module
 collects performance metrics every minute.
 
-###### To start collecting metadata and performance metrics from your database
-
-and analytics servers
+###### To start collecting metadata and performance metrics from your database and analytics servers
 
 1. On the **Database and analytics collector** page,
    choose **Data collection** in the navigation
@@ -119,5 +107,4 @@ status of data collection.
 
 After completing the data collection, your data collection module uploads
 collected data to your Amazon S3 bucket. Then, you can view this collected data as
-described in [Viewing your collected
-data](agentless-collector-gs-view-collected-data.md "agentless-collector-gs-view-collected-data.md").
+described in [Viewing your collected data](agentless-collector-gs-view-collected-data.md "agentless-collector-gs-view-collected-data.md").

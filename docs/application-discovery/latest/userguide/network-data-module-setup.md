@@ -1,22 +1,16 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Setting up the Network Data Collection
-
-module
+# Setting up the Network Data Collection module
 
 The Network Data Collection module collects network data for the server inventory that
 comes from the VMware vCenter module. Therefore, to use the Network Data Collection
 module, first set up the VMware vCenter module. For instructions, follow the guidance in
 the following topics:
 
-1. [Deploying
-   Application Discovery Service Agentless Collector](agentless-collector-deploying.md "agentless-collector-deploying.md")
-2. [Accessing the
-   Agentless Collector console](agentless-collector-gs-access-console.md "agentless-collector-gs-access-console.md")
-3. [Configuring
-   Agentless Collector](agentless-collector-gs-configure.md "agentless-collector-gs-configure.md")
-4. [Using the VMware vCenter
-   Agentless Collector data collection module](agentless-collector-gs-data-collection-vcenter.md "agentless-collector-gs-data-collection-vcenter.md")
+1. [Deploying Application Discovery Service Agentless Collector](agentless-collector-deploying.md "agentless-collector-deploying.md")
+2. [Accessing the Agentless Collector console](agentless-collector-gs-access-console.md "agentless-collector-gs-access-console.md")
+3. [Configuring Agentless Collector](agentless-collector-gs-configure.md "agentless-collector-gs-configure.md")
+4. [Using the VMware vCenter Agentless Collector data collection module](agentless-collector-gs-data-collection-vcenter.md "agentless-collector-gs-data-collection-vcenter.md")
 
 ###### To set up the Network Data Collection module
 
@@ -29,8 +23,7 @@ the following topics:
    enter up to 10 sets of credentials. The first time the module attempts to
    collect data for a server, it tries all of the credentials until it finds a set
    of credentials that works; it then saves that set and uses it again in
-   subsequent attempts. For information about setting up credentials, see [Setting up
-   credentials](#network-data-module-credentials-setup "#network-data-module-credentials-setup").
+   subsequent attempts. For information about setting up credentials, see [Setting up credentials](#network-data-module-credentials-setup "#network-data-module-credentials-setup").
 4. In the **Data collection preferences** section, to
    automatically start collecting data when a server reboots, select
    **Start data collection automatically**.
@@ -41,9 +34,7 @@ the following topics:
    collection attempts for a given server, select the checkbox to the left of the
    server in the **Servers** table.
 
-## Setting up
-
-credentials
+## Setting up credentials
 
 The Network Data Collection module uses WinRM to collect data from Windows
 servers. It uses SNMPv2 and SNMPv3 to collect data from Linux servers.
@@ -64,8 +55,7 @@ servers. It uses SNMPv2 and SNMPv3 to collect data from Linux servers.
 - Port 5986 (HTTPS) must be open between collector and target
   servers.
 - Avoid disabling WinRM certificate check. For information about setting up
-  WinRM certificates, see [Addressing
-  self-signed certification problems when configuring WinRM certificates](agentless-collector-troubleshooting.md#agentless-collector-address-self-signed-certification-problems "agentless-collector-troubleshooting.md#agentless-collector-address-self-signed-certification-problems").
+  WinRM certificates, see [Addressing self-signed certification problems when configuring WinRM certificates](agentless-collector-troubleshooting.md#agentless-collector-address-self-signed-certification-problems "agentless-collector-troubleshooting.md#agentless-collector-address-self-signed-certification-problems").
 
 **SNMPv2 credentials:**
 

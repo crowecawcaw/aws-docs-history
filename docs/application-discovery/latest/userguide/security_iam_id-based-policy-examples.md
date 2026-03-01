@@ -1,8 +1,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# AWS Application Discovery Service identity-based
-
-policy examples
+# AWS Application Discovery Service identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify
 Application Discovery Service resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -17,21 +15,14 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Granting full
-  access to Application Discovery Service](#security_iam_id-based-policy-examples-ads-fullaccess "#security_iam_id-based-policy-examples-ads-fullaccess")
-- [Granting access
-  to discovery agents](#security_iam_id-based-policy-examples-ads-agentaccess "#security_iam_id-based-policy-examples-ads-agentaccess")
-- [Granting
-  permissions for agent data collection](#security_iam_id-based-policy-examples-ads-export-service "#security_iam_id-based-policy-examples-ads-export-service")
-- [Granting
-  permissions for data exploration](#security_iam_id-based-policy-examples-ads-export-firehose "#security_iam_id-based-policy-examples-ads-export-firehose")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Granting full access to Application Discovery Service](#security_iam_id-based-policy-examples-ads-fullaccess "#security_iam_id-based-policy-examples-ads-fullaccess")
+- [Granting access to discovery agents](#security_iam_id-based-policy-examples-ads-agentaccess "#security_iam_id-based-policy-examples-ads-agentaccess")
+- [Granting permissions for agent data collection](#security_iam_id-based-policy-examples-ads-export-service "#security_iam_id-based-policy-examples-ads-export-service")
+- [Granting permissions for data exploration](#security_iam_id-based-policy-examples-ads-export-firehose "#security_iam_id-based-policy-examples-ads-export-firehose")
 - [Granting permissions to use the Migration Hub console network diagram](#security_iam_id-based-policy-examples-network-connection-graph "#security_iam_id-based-policy-examples-network-connection-graph")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Application Discovery Service resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -64,9 +55,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Granting full
-
-access to Application Discovery Service
+## Granting full access to Application Discovery Service
 
 The AWSApplicationDiscoveryServiceFullAccess managed policy grants the IAM user
 account access to the Application Discovery Service and Migration Hub APIs.
@@ -103,9 +92,7 @@ JSON
 
 ```
 
-## Granting access
-
-to discovery agents
+## Granting access to discovery agents
 
 The AWSApplicationDiscoveryAgentAccess managed policy grants the Application
 Discovery Agent access to register and communicate with Application Discovery Service. For more information
@@ -137,9 +124,7 @@ JSON
 
 ```
 
-## Granting
-
-permissions for agent data collection
+## Granting permissions for agent data collection
 
 The ApplicationDiscoveryServiceContinuousExportServiceRolePolicy managed policy
 allows AWS Application Discovery Service to create Amazon Data Firehose streams to transform and deliver data that's
@@ -236,14 +221,11 @@ JSON
 
 ```
 
-## Granting
-
-permissions for data exploration
+## Granting permissions for data exploration
 
 The AWSDiscoveryContinuousExportFirehosePolicy policy is required to use data
 exploration in Amazon Athena. It allows Amazon Data Firehose to write data that's collected from
-Application Discovery Service to Amazon S3. For information about using this policy, see [Creating the
-AWSApplicationDiscoveryServiceFirehose role](security-iam-awsmanpol.md#security-iam-awsmanpol-create-firehose-role "security-iam-awsmanpol.md#security-iam-awsmanpol-create-firehose-role").
+Application Discovery Service to Amazon S3. For information about using this policy, see [Creating the AWSApplicationDiscoveryServiceFirehose role](security-iam-awsmanpol.md#security-iam-awsmanpol-create-firehose-role "security-iam-awsmanpol.md#security-iam-awsmanpol-create-firehose-role").
 
 ###### Example AWSDiscoveryContinuousExportFirehosePolicy
 

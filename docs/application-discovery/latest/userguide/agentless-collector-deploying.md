@@ -1,19 +1,14 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Deploying
-
-Application Discovery Service Agentless Collector
+# Deploying Application Discovery Service Agentless Collector
 
 To deploy Application Discovery Service Agentless Collector, you must first create an IAM user and
 download the collector. This page walks you through the steps to take to deploy a
 collector.
 
-## Create an IAM user for
+## Create an IAM user for Agentless Collector
 
-Agentless Collector
-
-To use Agentless Collector, in the AWS account that you used in [Sign in to the Migration Hub console and
-choose a home Region](setting-up.md#setting-up-choose-home-region "setting-up.md#setting-up-choose-home-region"), you must create an AWS Identity and Access Management
+To use Agentless Collector, in the AWS account that you used in [Sign in to the Migration Hub console and choose a home Region](setting-up.md#setting-up-choose-home-region "setting-up.md#setting-up-choose-home-region"), you must create an AWS Identity and Access Management
 (IAM) user. Then, set up this IAM user to use the following AWS managed policy
 [AWSApplicationDiscoveryAgentlessCollectorAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSApplicationDiscoveryAgentlessCollectorAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSApplicationDiscoveryAgentlessCollectorAccess"). You attach this IAM
 policy when you create the IAM user.
@@ -81,13 +76,10 @@ Agentless Collector. When creating non-administrative IAM users, follow
 the security best practice [Grant Least
 Privilege](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege"), granting users minimum permissions.
 
-###### To create a non-administrator IAM user to use with
-
-Agentless Collector
+###### To create a non-administrator IAM user to use with Agentless Collector
 
 1. In AWS Management Console, navigate to the IAM console, using the AWS account that
-   you used to set the home Region in [Sign in to the Migration Hub console and
-   choose a home Region](setting-up.md#setting-up-choose-home-region "setting-up.md#setting-up-choose-home-region").
+   you used to set the home Region in [Sign in to the Migration Hub console and choose a home Region](setting-up.md#setting-up-choose-home-region "setting-up.md#setting-up-choose-home-region").
 2. Create a non-administrator IAM user by following the instructions for
    creating a user with the console as described in [Creating an IAM user in your
    AWS account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md") in the _IAM User Guide_.
@@ -114,8 +106,7 @@ _IAM User Guide_:
      IDs and secret access keys), follow the guidance in the
      **Important** note about saving the user's new
      access key ID and secret access key in a safe and secure place.
-     You'll need these access keys in [Configuring
-     Agentless Collector](agentless-collector-gs-configure.md "agentless-collector-gs-configure.md").
+     You'll need these access keys in [Configuring Agentless Collector](agentless-collector-gs-configure.md "agentless-collector-gs-configure.md").
 
 
     It's an AWS security best practice to rotate access keys. For
@@ -123,9 +114,7 @@ _IAM User Guide_:
      long-term credentials](../../../IAM/latest/UserGuide/best-practices.md#rotate-credentials "../../../IAM/latest/UserGuide/best-practices.md#rotate-credentials") in the
      *IAM User Guide.*
 
-## Download the
-
-Agentless Collector
+## Download the Agentless Collector
 
 To set up the Application Discovery Service Agentless Collector (Agentless Collector), you
 must download and deploy the Agentless Collector Open Virtualization
@@ -157,9 +146,7 @@ $ md5sum ApplicationDiscoveryServiceAgentlessCollector.ova
 $ sha256sum ApplicationDiscoveryServiceAgentlessCollector.ova
 ```
 
-## Deploy
-
-Agentless Collector
+## Deploy Agentless Collector
 
 Application Discovery Service Agentless Collector (Agentless Collector) is a virtual
 appliance that you install in your on-premises VMware environment. This section
@@ -211,10 +198,7 @@ Agentless Collector OVA file in your VMware environment.
     ovftool --acceptAllEulas --name=`AgentlessCollector` --datastore=`datastore1` -dm=thin `ApplicationDiscoveryServiceAgentlessCollector.ova` 'vi://`username:password@vcenterurl/Datacenter/host/esxi/`'
     ```
 
-    ###### The following describe the
-
-    `replaceable` values in the
-    example
+    ###### The following describe the `replaceable` values in the example
 
         + The name is the name that you want to use for your
          Agentless Collector VM.

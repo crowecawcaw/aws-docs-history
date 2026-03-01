@@ -1,14 +1,11 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Starting and stopping data collectors in
-
-the AWS Migration Hub console
+# Starting and stopping data collectors in the AWS Migration Hub console
 
 Application Discovery Service Agentless Collector (Agentless Collector) and AWS Application Discovery Agent
 (Discovery Agent) are the data collection tools that AWS Application Discovery Service (Application Discovery Service) uses to help you
 discover your existing infrastructure. The following steps explain how to download and
-deploy these discovery data collection tools, [Deploy
-Agentless Collector](agentless-collector-deploying.md#agentless-collector-gs-deploy "agentless-collector-deploying.md#agentless-collector-gs-deploy") and [AWS Application Discovery Agent](discovery-agent.md "discovery-agent.md").
+deploy these discovery data collection tools, [Deploy Agentless Collector](agentless-collector-deploying.md#agentless-collector-gs-deploy "agentless-collector-deploying.md#agentless-collector-gs-deploy") and [AWS Application Discovery Agent](discovery-agent.md "discovery-agent.md").
 
 These data collection tools store their data in the Application Discovery Service's repository, providing
 details about each server and the processes running on them. When either of these tools

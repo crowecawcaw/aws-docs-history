@@ -12,9 +12,7 @@ You can add an existing LDAP server into your database and analytics data collec
 module to automatically discover OS servers in your network. If you don't use LDAP, you
 can add OS servers manually.
 
-###### To add an LDAP server to your database and analytics data collection
-
-module
+###### To add an LDAP server to your database and analytics data collection module
 
 1. Open the Agentless Collector console. For more information, see [Accessing the
    collector console](agentless-collector-gs-access-console.md "agentless-collector-gs-access-console.md").

@@ -32,9 +32,7 @@ apt-get remove aws-discovery-agent:i386
 zypper remove aws-discovery-agent
 ```
 
-## Uninstall Discovery Agent on Microsoft
-
-Windows
+## Uninstall Discovery Agent on Microsoft Windows
 
 This section describes how to uninstall Discovery Agent on Microsoft Windows.
 

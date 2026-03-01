@@ -1,23 +1,19 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Prerequisites for
-
-Agentless Collector
+# Prerequisites for Agentless Collector
 
 The following are the prerequisites for using Application Discovery Service Agentless Collector
 (Agentless Collector):
 
 - One or more AWS accounts.
-- An AWS account with the AWS Migration Hub home Region set, see [Sign in to the Migration Hub console and
-  choose a home Region](setting-up.md#setting-up-choose-home-region "setting-up.md#setting-up-choose-home-region"). Your Migration Hub data is stored
+- An AWS account with the AWS Migration Hub home Region set, see [Sign in to the Migration Hub console and choose a home Region](setting-up.md#setting-up-choose-home-region "setting-up.md#setting-up-choose-home-region"). Your Migration Hub data is stored
   in your home Region for purposes of discovery, planning, and migration
   tracking.
 - An AWS account IAM user that is set up to use the AWS managed policy
   `AWSApplicationDiscoveryAgentlessCollectorAccess`. To use the
   database and analytics data collection module, this IAM user must also use two
   customer managed IAM policies `DMSCollectorPolicy` and
-  `FleetAdvisorS3Policy`. For more information, see [Deploying
-  Application Discovery Service Agentless Collector](agentless-collector-deploying.md#agentless-collector-gs-iam-user "agentless-collector-deploying.md#agentless-collector-gs-iam-user"). The IAM user must be
+  `FleetAdvisorS3Policy`. For more information, see [Deploying Application Discovery Service Agentless Collector](agentless-collector-deploying.md#agentless-collector-gs-iam-user "agentless-collector-deploying.md#agentless-collector-gs-iam-user"). The IAM user must be
   created in an AWS account with Migration Hub home Region set.
 - VMware vCenter Server V5.5, V6, V6.5, 6.7 or 7.0.
 
@@ -29,8 +25,7 @@ but we currently test against version 6.7 and 7.0.
 - For VMware vCenter Server setup, make sure that you can provide vCenter
   credentials with Read and View permissions set for the System group.
 - Agentless Collector requires outbound access over TCP port 443 to
-  several AWS domains. For a list of these domains, see [Configure firewall
-  for outbound access to AWS domains](#agentless-collector-gs-prerequisites-firewall "#agentless-collector-gs-prerequisites-firewall").
+  several AWS domains. For a list of these domains, see [Configure firewall for outbound access to AWS domains](#agentless-collector-gs-prerequisites-firewall "#agentless-collector-gs-prerequisites-firewall").
 - To use the database and analytics data collection module, create an Amazon S3
   bucket in the AWS Region that you set as your Migration Hub home Region. The
   database and analytics data collection modules stores inventory metadata in this
@@ -47,9 +42,7 @@ you might need to explicitly allow access to the following to use the automatic 
 - Resource ARNs that require access: `arn:aws:ecr-public::446372222237:repository/6e5498e4-8c31-4f57-9991-13b4b992ff7b`
 - Required permissions: `ecr-public:DescribeImages`
 
-## Configure firewall
-
-for outbound access to AWS domains
+## Configure firewall for outbound access to AWS domains
 
 If outbound connections from your network are restricted, you must update your
 firewall settings to allow outbound access to the AWS domains that
@@ -57,9 +50,7 @@ Agentless Collector requires. Which AWS domains require outbound access
 depend on if your Migration Hub home Region is US West (Oregon) Region, us-west-2, or some other
 Region.
 
-###### The following domains require outbound access if your AWS account home
-
-Region is us-west-2:
+###### The following domains require outbound access if your AWS account home Region is us-west-2:
 
 - `arsenal-discovery.us-west-2.amazonaws.com` – The
   collector uses this domain to validate that it is configured with the
@@ -81,9 +72,7 @@ Region is us-west-2:
 - `sts.amazonaws.com` – The collector uses this domain to
   understand what account the collector has been configured with.
 
-###### The following domains require outbound access if your AWS account home
-
-Region is not `us-west-2`:
+###### The following domains require outbound access if your AWS account home Region is not `us-west-2`:
 
 - `arsenal-discovery.us-west-2.amazonaws.com` – The
   collector uses this domain to validate that it is configured with the
@@ -116,5 +105,4 @@ access to.
 
 If a connection to AWS cannot be established, Agentless Collector
 cannot collect data from your on-premises environment. For information about how to
-fix the connection to AWS, see [Fixing
-Agentless Collector cannot reach AWS during setup](agentless-collector-troubleshooting.md#agentless-collector-fix-connector-cannot-reach-aws "agentless-collector-troubleshooting.md#agentless-collector-fix-connector-cannot-reach-aws").
+fix the connection to AWS, see [Fixing Agentless Collector cannot reach AWS during setup](agentless-collector-troubleshooting.md#agentless-collector-fix-connector-cannot-reach-aws "agentless-collector-troubleshooting.md#agentless-collector-fix-connector-cannot-reach-aws").

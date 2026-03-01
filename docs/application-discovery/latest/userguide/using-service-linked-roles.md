@@ -19,12 +19,9 @@ access the resources.
 
 ###### Topics
 
-- [Service-linked role permissions for
-  Application Discovery Service](service-linked-role-permissions.md "service-linked-role-permissions.md")
-- [Creating a service-linked role for
-  Application Discovery Service](create-service-linked-role.md "create-service-linked-role.md")
-- [Deleting a service-linked role for
-  Application Discovery Service](delete-service-linked-role.md "delete-service-linked-role.md")
+- [Service-linked role permissions for Application Discovery Service](service-linked-role-permissions.md "service-linked-role-permissions.md")
+- [Creating a service-linked role for Application Discovery Service](create-service-linked-role.md "create-service-linked-role.md")
+- [Deleting a service-linked role for Application Discovery Service](delete-service-linked-role.md "delete-service-linked-role.md")
   For information about other services that support service-linked roles, see [AWS Services That Work with
   IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") and look for the services that have **Yes** in the
   **Service-Linked Role** column. Choose a **Yes** with a link to view the service-linked role documentation for that

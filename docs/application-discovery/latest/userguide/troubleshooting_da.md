@@ -41,9 +41,7 @@ in the following directory.
 - For instructions on how to remove older versions of the Discovery Agent, see
   [Prerequisites for Discovery Agent](gen-prep-agents.md "gen-prep-agents.md").
 
-## Troubleshooting Discovery Agent on Microsoft
-
-Windows
+## Troubleshooting Discovery Agent on Microsoft Windows
 
 If you encounter problems while installing or using the AWS Application Discovery Agent on Microsoft
 Windows, consult the following guidance about logging and configuration.

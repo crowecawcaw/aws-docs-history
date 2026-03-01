@@ -1,15 +1,12 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Using the database
-
-and analytics data collection module
+# Using the database and analytics data collection module
 
 This section describes how to set up, configure, and use a database and analytics data
 collection module. You can use this data collection module to connect to your data
 environment and collect metadata and performance metrics from your on-premises databases and
 analytics servers. For information about the metrics that you can collect with this module,
-see [Data collected by the
-Agentless Collector database and analytics data collection module](agentless-collector-data-collected-database-analytics.md "agentless-collector-data-collected-database-analytics.md").
+see [Data collected by the Agentless Collector database and analytics data collection module](agentless-collector-data-collected-database-analytics.md "agentless-collector-data-collected-database-analytics.md").
 
 ###### Important
 
@@ -31,11 +28,9 @@ the following steps.
 4. Configure connection credentials to your OS servers and then use them to discover
    database servers.
 5. Configure connection credentials to your database and analytics servers and then
-   run the data collection. For more information, see [Database and
-   analytics data collection](agentless-collector-dashboard.md#using-collector-data-collect-database-analytics "agentless-collector-dashboard.md#using-collector-data-collect-database-analytics").
+   run the data collection. For more information, see [Database and analytics data collection](agentless-collector-dashboard.md#using-collector-data-collect-database-analytics "agentless-collector-dashboard.md#using-collector-data-collect-database-analytics").
 6. View collected data in the AWS DMS console and use it to generate target
-   recommendations for a migration to the AWS Cloud. For more information, see [Database and
-   analytics data collection](agentless-collector-dashboard.md#using-collector-data-collect-database-analytics "agentless-collector-dashboard.md#using-collector-data-collect-database-analytics").
+   recommendations for a migration to the AWS Cloud. For more information, see [Database and analytics data collection](agentless-collector-dashboard.md#using-collector-data-collect-database-analytics "agentless-collector-dashboard.md#using-collector-data-collect-database-analytics").
 
 ###### Topics
 
@@ -44,8 +39,7 @@ the following steps.
 - [Configuring data forwarding](agentless-collector-gs-database-analytics-collection-prerequisites.md "agentless-collector-gs-database-analytics-collection-prerequisites.md")
 - [Adding your LDAP and OS servers](agentless-collector-gs-database-analytics-collection-add-servers.md "agentless-collector-gs-database-analytics-collection-add-servers.md")
 - [Discovering your database servers](agentless-collector-gs-database-analytics-collection-discovery.md "agentless-collector-gs-database-analytics-collection-discovery.md")
-- [Data collected by the
-  Agentless Collector database and analytics data collection module](agentless-collector-data-collected-database-analytics.md "agentless-collector-data-collected-database-analytics.md")
+- [Data collected by the Agentless Collector database and analytics data collection module](agentless-collector-data-collected-database-analytics.md "agentless-collector-data-collected-database-analytics.md")
 
 ## Supported OS, database, and analytics servers
 

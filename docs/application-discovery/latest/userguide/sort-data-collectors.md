@@ -1,8 +1,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Sorting data collectors in the AWS Migration Hub
-
-console
+# Sorting data collectors in the AWS Migration Hub console
 
 If you deployed many data collectors, you can sort the displayed list of deployed
 collector's on the **Data Collectors** page of the console. You sort

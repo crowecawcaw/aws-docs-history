@@ -14,12 +14,9 @@ Agentless Collectors or Discovery Agents, see [Discovering data with the AWS Mig
 The Agentless Collector database and analytics data collection module uploads the
 collected data to the Amazon S3 bucket. You can view the data from this bucket in the AWS DMS
 console. To view collected data about discovered database and analytics servers, follow the
-steps in [Viewing your collected
-data](agentless-collector-gs-view-collected-data.md "agentless-collector-gs-view-collected-data.md").
+steps in [Viewing your collected data](agentless-collector-gs-view-collected-data.md "agentless-collector-gs-view-collected-data.md").
 
-## Matching logic for discovered servers and
-
-applications
+## Matching logic for discovered servers and applications
 
 AWS Application Discovery Service (Application Discovery Service) has built-in matching logic that identifies when servers that it
 discovers match existing entries. When this logic finds a match, it updates the information

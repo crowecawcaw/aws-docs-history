@@ -1,13 +1,10 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Starting and stopping Discovery Agent data
-
-collection
+# Starting and stopping Discovery Agent data collection
 
 After the Discovery Agent is deployed and configured, if data collections stops you can
 restart it. You can start or stop data collection through the console by following the
-steps in [Starting and stopping data collectors in
-the AWS Migration Hub console](start-stop-data_collection.md "start-stop-data_collection.md"), or by making API calls through the
+steps in [Starting and stopping data collectors in the AWS Migration Hub console](start-stop-data_collection.md "start-stop-data_collection.md"), or by making API calls through the
 AWS CLI. Before starting be sure to generate [access keys](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md")
 needed to manage the Discovery Agent.
 

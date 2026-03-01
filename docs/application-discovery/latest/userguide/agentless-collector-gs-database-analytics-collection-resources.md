@@ -10,8 +10,7 @@ the AWS DMS Fleet Advisor Target Recommendations feature](../../../dms/latest/us
 
 Before you create an AWS DMS data collector, create an IAM role that your AWS DMS data
 collector uses to access your Amazon S3 bucket. You created this Amazon S3 bucket when you
-completed the prerequisites in [Prerequisites for
-Agentless Collector](agentless-collector-gs-prerequisites.md "agentless-collector-gs-prerequisites.md").
+completed the prerequisites in [Prerequisites for Agentless Collector](agentless-collector-gs-prerequisites.md "agentless-collector-gs-prerequisites.md").
 
 ###### To create an IAM role for your AWS DMS data collector to access Amazon S3
 

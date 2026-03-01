@@ -1,8 +1,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Creating a service-linked role for
-
-Application Discovery Service
+# Creating a service-linked role for Application Discovery Service
 
 You don't need to manually create a service-linked role. The AWSServiceRoleForApplicationDiscoveryServiceContinuousExport service-linked
 role is automatically created when Continuous Export is implicitly turned on by
@@ -16,9 +14,7 @@ another service that uses the features supported by this role.
 To learn more, see [A New
 Role Appeared in My IAM Account](../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared "../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared").
 
-## Creating the service-linked
-
-role from the Migration Hub console
+## Creating the service-linked role from the Migration Hub console
 
 You can use the Migration Hub console to create the AWSServiceRoleForApplicationDiscoveryServiceContinuousExport service-linked role.
 
@@ -32,9 +28,7 @@ You can use the Migration Hub console to create the AWSServiceRoleForApplication
    associated costs and choose **Continue** or
    **Enable**.
 
-## Creating the service-linked role
-
-from the AWS CLI
+## Creating the service-linked role from the AWS CLI
 
 You can use Application Discovery Service commands from the AWS Command Line Interface to create the AWSServiceRoleForApplicationDiscoveryServiceContinuousExport
 service-linked role.

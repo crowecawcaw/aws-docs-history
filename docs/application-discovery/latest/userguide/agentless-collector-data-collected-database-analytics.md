@@ -1,13 +1,10 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Data collected by the
-
-Agentless Collector database and analytics data collection module
+# Data collected by the Agentless Collector database and analytics data collection module
 
 The Application Discovery Service Agentless Collector (Agentless Collector) database and analytics
 data collection module collects the following metrics from your data environment. For information
-about setting up data collection, see [Using the database
-and analytics data collection module](agentless-collector-gs-database-analytics-collection.md "agentless-collector-gs-database-analytics-collection.md").
+about setting up data collection, see [Using the database and analytics data collection module](agentless-collector-gs-database-analytics-collection.md "agentless-collector-gs-database-analytics-collection.md").
 
 When you use the database and analytics data collection module to collect
 **Metadata and database capacity**, it captures the following metrics.

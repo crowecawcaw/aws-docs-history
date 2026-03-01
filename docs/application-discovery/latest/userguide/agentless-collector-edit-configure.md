@@ -1,12 +1,9 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Editing
-
-Agentless Collector settings
+# Editing Agentless Collector settings
 
 You configured the collector when you first set up Application Discovery Service Agentless Collector
-(Agentless Collector) as described in [Configuring
-Agentless Collector](agentless-collector-gs-configure.md "agentless-collector-gs-configure.md"). The following procedure
+(Agentless Collector) as described in [Configuring Agentless Collector](agentless-collector-gs-configure.md "agentless-collector-gs-configure.md"). The following procedure
 describes how to edit Agentless Collector configuration settings.
 
 ###### To edit the collector configuration settings
@@ -24,8 +21,7 @@ following:
      data**, enter the AWS access key and secret key for the
      AWS account to specify as the destination account to receive the data
      discovered by the collector. For information about the requirements for
-     the IAM user, see [Deploying
-     Application Discovery Service Agentless Collector](agentless-collector-deploying.md#agentless-collector-gs-iam-user "agentless-collector-deploying.md#agentless-collector-gs-iam-user").
+     the IAM user, see [Deploying Application Discovery Service Agentless Collector](agentless-collector-deploying.md#agentless-collector-gs-iam-user "agentless-collector-deploying.md#agentless-collector-gs-iam-user").
 
 
     	1. For **AWS access-key**, enter the access
@@ -47,5 +43,4 @@ following:
     	 again.
     4. Choose **Save configurations**.
 
-Next, you'll see [The Agentless Collector
-dashboard](agentless-collector-dashboard.md "agentless-collector-dashboard.md").
+Next, you'll see [The Agentless Collector dashboard](agentless-collector-dashboard.md "agentless-collector-dashboard.md").

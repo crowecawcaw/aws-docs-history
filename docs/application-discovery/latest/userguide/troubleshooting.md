@@ -8,12 +8,9 @@ AWS Application Discovery Service.
 ###### Topics
 
 - [Stop data collection by data exploration](#stop-data-collection "#stop-data-collection")
-- [Remove the data collected by data
-  exploration](#remove-collected-data "#remove-collected-data")
-- [Fix common issues with data exploration in
-  Amazon Athena](#troubleshoot-data-exploration "#troubleshoot-data-exploration")
-- [Troubleshooting failed import
-  records](#troubleshooting-import-failed-records "#troubleshooting-import-failed-records")
+- [Remove the data collected by data exploration](#remove-collected-data "#remove-collected-data")
+- [Fix common issues with data exploration in Amazon Athena](#troubleshoot-data-exploration "#troubleshoot-data-exploration")
+- [Troubleshooting failed import records](#troubleshooting-import-failed-records "#troubleshooting-import-failed-records")
 
 ## Stop data collection by data exploration
 
@@ -66,9 +63,7 @@ manually delete the Amazon Data Firehose streams created by data exploration:
    - `aws-application-discovery-service-processes_agent`
    - `aws-application-discovery-service-sys_performance_agent`
 
-## Remove the data collected by data
-
-exploration
+## Remove the data collected by data exploration
 
 ###### To remove data that's collected by data exploration
 
@@ -116,27 +111,18 @@ on.
 To have all your data removed from Application Discovery Service, contact [AWS Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/") and request full
 data deletion.
 
-## Fix common issues with data exploration in
-
-Amazon Athena
+## Fix common issues with data exploration in Amazon Athena
 
 In this section, you can find information about how to fix common issues with data
 exploration in Amazon Athena.
 
 ###### Topics
 
-- [Data exploration in Amazon Athena fails to
-  initiate because service-linked roles and required AWS resources can't be
-  created](#slr-failed-initialize "#slr-failed-initialize")
-- [New Agent data doesn't show up in
-  Amazon Athena](#new-agent-data-not-showing "#new-agent-data-not-showing")
-- [You have insufficient permissions to
-  access Amazon S3, Amazon Data Firehose, or AWS Glue](#insufficient-permissions "#insufficient-permissions")
+- [Data exploration in Amazon Athena fails to initiate because service-linked roles and required AWS resources can't be created](#slr-failed-initialize "#slr-failed-initialize")
+- [New Agent data doesn't show up in Amazon Athena](#new-agent-data-not-showing "#new-agent-data-not-showing")
+- [You have insufficient permissions to access Amazon S3, Amazon Data Firehose, or AWS Glue](#insufficient-permissions "#insufficient-permissions")
 
-### Data exploration in Amazon Athena fails to
-
-initiate because service-linked roles and required AWS resources can't be
-created
+### Data exploration in Amazon Athena fails to initiate because service-linked roles and required AWS resources can't be created
 
 When you turn on data exploration in Amazon Athena, it creates the service-linked
 role, `AWSServiceRoleForApplicationDiscoveryServiceContinuousExport`, in
@@ -146,9 +132,7 @@ streams, and AWS Glue Data Catalog. If your account does not have the right perm
 data exploration in Amazon Athena to create this role, it will fail to initialize. Refer
 to [AWS managed policies for AWS Application Discovery Service](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
-### New Agent data doesn't show up in
-
-Amazon Athena
+### New Agent data doesn't show up in Amazon Athena
 
 If new data does not flow into Athena, it has been more than 30 minutes since an
 agent started, and data exploration status is Active, check the solutions listed
@@ -205,9 +189,7 @@ will not show up properly in Athena.
 Ensure that your servers are running so that your agents can collect and
 send data to AWS Application Discovery Service.
 
-### You have insufficient permissions to
-
-access Amazon S3, Amazon Data Firehose, or AWS Glue
+### You have insufficient permissions to access Amazon S3, Amazon Data Firehose, or AWS Glue
 
 If you are using AWS Organizations, and initialization for data exploration in Amazon Athena
 fails, it can be because you don’t have permissions to access Amazon S3, Amazon Data Firehose, Athena
@@ -224,9 +206,7 @@ modify these resources, please stop and start Data Exploration and it will
 automatically create these resources again. If you delete the Amazon S3 bucket created by
 data exploration, you may lose the data that was collected in the bucket.
 
-## Troubleshooting failed import
-
-records
+## Troubleshooting failed import records
 
 Migration Hub import allows you to import details of your on-premises environment directly
 into Migration Hub without using the Discovery Connector or Discovery Agent. This gives you the option to

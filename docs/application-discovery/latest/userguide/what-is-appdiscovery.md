@@ -19,7 +19,7 @@ workloads.
 All discovered data is stored in your AWS Migration Hub home Region. Therefore, you must set
 your home Region in the Migration Hub console or with CLI commands before performing any discovery
 and migration activities. Your data can be exported for analysis in Microsoft Excel or AWS
-analysis tools such as Amazon Athena and Amazon Quick Suite.
+analysis tools such as Amazon Athena and Amazon Quick.
 
 Using Application Discovery Service APIs, you can export the system performance and utilization data for your
 discovered servers. Input this data into your cost model to compute the cost of running
@@ -79,8 +79,7 @@ as-needed basis.
 
 Also, for VMs hosted on VMware, you can use both the Agentless Collector and
 Discovery Agent to perform discovery simultaneously. For details regarding the exact types of
-data each discovery tool will collect, see [Using the VMware vCenter
-Agentless Collector data collection module](agentless-collector-gs-data-collection-vcenter.md "agentless-collector-gs-data-collection-vcenter.md").
+data each discovery tool will collect, see [Using the VMware vCenter Agentless Collector data collection module](agentless-collector-gs-data-collection-vcenter.md "agentless-collector-gs-data-collection-vcenter.md").
 
 ## Database discovery
 
@@ -101,12 +100,9 @@ by the database and analytics module](agentless-collector-data-collected-databas
 After Agentless Collector completes data collection from your environment,
 you can use the AWS DMS console for further analysis and for planning your migration. For
 example, to choose an optimal migration target in the AWS Cloud, you can generate
-target recommendations for your source databases. For more information, see [Using the database
-and analytics data collection module](agentless-collector-gs-database-analytics-collection.md "agentless-collector-gs-database-analytics-collection.md").
+target recommendations for your source databases. For more information, see [Using the database and analytics data collection module](agentless-collector-gs-database-analytics-collection.md "agentless-collector-gs-database-analytics-collection.md").
 
-## Compare Agentless Collector and
-
-Discovery Agent
+## Compare Agentless Collector and Discovery Agent
 
 The following table provides a quick comparison of the data collection methods that
 Application Discovery Service supports.

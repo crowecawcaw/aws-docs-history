@@ -1,8 +1,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Access AWS Application Discovery Service using an interface endpoint
-
-(AWS PrivateLink)
+# Access AWS Application Discovery Service using an interface endpoint (AWS PrivateLink)
 
 You can use AWS PrivateLink to create a private connection between your VPC and
 AWS Application Discovery Service. You can access Application Discovery Service as if it were in your VPC, without the use of an
@@ -57,9 +55,7 @@ requests to Application Discovery Arsenal using its default Regional DNS
 name. For example,
 `arsenal-discovery.us-east-1.amazonaws.com`.
 
-## Create an endpoint policy for your interface
-
-endpoint
+## Create an endpoint policy for your interface endpoint
 
 An endpoint policy is an IAM resource that you can attach to an interface endpoint.
 The default endpoint policy allows full access to an AWS service through the interface
@@ -118,9 +114,7 @@ AWS Application Discovery Agent
 }
 ```
 
-## Using the VPC endpoint for the
-
-Agentless Collector and AWS Application Discovery Agent
+## Using the VPC endpoint for the Agentless Collector and AWS Application Discovery Agent
 
 The Agentless Collector and AWS Application Discovery Agent don't support configurable
 endpoints. Instead, use the private DNS feature for the `arsenal-discovery`

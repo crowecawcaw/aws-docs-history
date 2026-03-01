@@ -122,8 +122,7 @@ along with the port number and process details.
 Before running the query, if you have not already done so, you must create
 the `iana_service_ports_import` table that contains the IANA port
 registry database downloaded from IANA. For information about how to create
-this table, see [Creating the IANA port registry import
-table](#pq-create-iana-import-table "#pq-create-iana-import-table").
+this table, see [Creating the IANA port registry import table](#pq-create-iana-import-table "#pq-create-iana-import-table").
 
 After the `iana_service_ports_import` table is created, create
 two view helper functions for tracking outbound traffic. For information
@@ -198,8 +197,7 @@ with the port number and process details.
 Before running this query, if you have not already done so, you must
 create the `iana_service_ports_import` table that contains the
 IANA port registry database downloaded from IANA. For information about how
-to create this table, see [Creating the IANA port registry import
-table](#pq-create-iana-import-table "#pq-create-iana-import-table").
+to create this table, see [Creating the IANA port registry import table](#pq-create-iana-import-table "#pq-create-iana-import-table").
 
 After the `iana_service_ports_import` table is created, create
 two view helper functions for tracking inbound traffic. For information
@@ -273,8 +271,7 @@ This query identifies the running software based on port numbers.
 Before running this query, if you have not already done so, you must
 create the `iana_service_ports_import` table that contains the
 IANA port registry database downloaded from IANA. For information about how
-to create this table, see [Creating the IANA port registry import
-table](#pq-create-iana-import-table "#pq-create-iana-import-table").
+to create this table, see [Creating the IANA port registry import table](#pq-create-iana-import-table "#pq-create-iana-import-table").
 
 Run the following query to identify the running software based on port
 numbers.
@@ -307,9 +304,7 @@ WHERE  ianap.transportprotocol = 'tcp'
 ORDER BY cnt_dest_port DESC;
 ```
 
-## Creating the IANA port registry import
-
-table
+## Creating the IANA port registry import table
 
 Some of the predefined queries require a table named
 `iana_service_ports_import` that contains information downloaded from

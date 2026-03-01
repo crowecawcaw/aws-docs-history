@@ -38,9 +38,7 @@ System V init
 | Stop an agent                                           | `sudo /etc/init.d/aws-discovery-daemon<br>stop`    |
 | Restart an agent                                        | `sudo /etc/init.d/aws-discovery-daemon<br>restart` |
 
-## Manage the Discovery Agent process on Microsoft
-
-Windows
+## Manage the Discovery Agent process on Microsoft Windows
 
 You can manage the behavior of the Discovery Agent at the system level through the
 Windows Server Manager Services console. The following table describes how.

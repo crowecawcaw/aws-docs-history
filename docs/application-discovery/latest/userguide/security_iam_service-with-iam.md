@@ -1,8 +1,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# How AWS Application Discovery Service works with
-
-IAM
+# How AWS Application Discovery Service works with IAM
 
 Before you use IAM to manage access to Application Discovery Service, you should understand what
 IAM features are available to use with Application Discovery Service. To get a high-level view of how
@@ -11,18 +9,12 @@ Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [Application Discovery Service
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Application Discovery Service
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  Application Discovery Service tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Application Discovery Service IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Application Discovery Service identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Application Discovery Service resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on Application Discovery Service tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Application Discovery Service IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Application Discovery Service
-
-identity-based policies
+## Application Discovery Service identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -78,38 +70,27 @@ _IAM User Guide_.
 
 ### Examples
 
-To view examples of Application Discovery Service identity-based policies, see [AWS Application Discovery Service identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Application Discovery Service identity-based policies, see [AWS Application Discovery Service identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Application Discovery Service
-
-resource-based policies
+## Application Discovery Service resource-based policies
 
 Application Discovery Service does not support resource-based policies.
 
-## Authorization based on
-
-Application Discovery Service tags
+## Authorization based on Application Discovery Service tags
 
 Application Discovery Service does not support tagging resources or controlling access based on
 tags.
 
-## Application Discovery Service IAM
-
-roles
+## Application Discovery Service IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with Application Discovery Service
+### Using temporary credentials with Application Discovery Service
 
 Application Discovery Service does not support using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your

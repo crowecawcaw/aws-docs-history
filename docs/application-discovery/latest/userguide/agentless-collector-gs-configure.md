@@ -1,17 +1,13 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Configuring
-
-Agentless Collector
+# Configuring Agentless Collector
 
 Application Discovery Service Agentless Collector (Agentless Collector) is an Amazon Linux 2
 based virtual machine (VM). The following section describes how to configure a collector
 VM on the Agentless Collector console's **Configure
 Agentless Collector** page.
 
-###### To configure a collector VM on the \*\*Configure
-
-Agentless Collector\*\* page
+###### To configure a collector VM on the **Configure Agentless Collector** page
 
 1. For **Collector name**, enter a name for the collector to
    identify it. The name can contain spaces but it cannot contain special
@@ -19,8 +15,7 @@ Agentless Collector\*\* page
 2. Under **Data synchronization**, enter the AWS access key
    and secret key for the AWS account IAM user to specify as the destination
    account to receive the data discovered by the collector. For information about
-   the requirements for the IAM user, see [Deploying
-   Application Discovery Service Agentless Collector](agentless-collector-deploying.md#agentless-collector-gs-iam-user "agentless-collector-deploying.md#agentless-collector-gs-iam-user").
+   the requirements for the IAM user, see [Deploying Application Discovery Service Agentless Collector](agentless-collector-deploying.md#agentless-collector-gs-iam-user "agentless-collector-deploying.md#agentless-collector-gs-iam-user").
    1. For **AWS access-key**, enter the access key of the
       AWS account IAM user that you're specifying as the destination
       account.
@@ -58,23 +53,17 @@ Agentless Collector\*\* page
    **Other settings**, select **Automatically update
    Agentless Collector**. If you do not select this checkbox,
    you'll need to manually update Agentless Collector as described in
-   [Manually updating
-   Application Discovery Service Agentless Collector](agentless-collector-update.md "agentless-collector-update.md").
+   [Manually updating Application Discovery Service Agentless Collector](agentless-collector-update.md "agentless-collector-update.md").
 6. Choose **Save configurations**.
    The following topics describe optional collector configuration tasks.
 
 ###### Optional Configuration Tasks
 
-- [(Optional) Configure a static
-  IP address for the Agentless Collector VM](#agentless-collector-gs-configure-ip "#agentless-collector-gs-configure-ip")
-- [(Optional) Reset the
-  Agentless Collector VM back to using DHCP](#agentless-collector-gs-configure-dhcp "#agentless-collector-gs-configure-dhcp")
-- [(Optional) Configure the
-  Kerberos authentication protocol](#agentless-collector-gs-configure-kerberos "#agentless-collector-gs-configure-kerberos")
+- [(Optional) Configure a static IP address for the Agentless Collector VM](#agentless-collector-gs-configure-ip "#agentless-collector-gs-configure-ip")
+- [(Optional) Reset the Agentless Collector VM back to using DHCP](#agentless-collector-gs-configure-dhcp "#agentless-collector-gs-configure-dhcp")
+- [(Optional) Configure the Kerberos authentication protocol](#agentless-collector-gs-configure-kerberos "#agentless-collector-gs-configure-kerberos")
 
-## (Optional) Configure a static
-
-IP address for the Agentless Collector VM
+## (Optional) Configure a static IP address for the Agentless Collector VM
 
 The following steps describe how to configure a static IP address for the
 Application Discovery Service Agentless Collector (Agentless Collector) VM. When first
@@ -401,9 +390,7 @@ sudo reboot
    ping `vcenter-host-url`
    ```
 
-## (Optional) Reset the
-
-Agentless Collector VM back to using DHCP
+## (Optional) Reset the Agentless Collector VM back to using DHCP
 
 The following steps describe how to reconfigure the Agentless Collector
 VM to use DHCP.
@@ -522,9 +509,7 @@ sudo /sbin/ifup eth0
 sudo reboot
 ```
 
-## (Optional) Configure the
-
-Kerberos authentication protocol
+## (Optional) Configure the Kerberos authentication protocol
 
 If your OS server supports the Kerberos authentication protocol, then you can use
 this protocol to connect to your server. To do so, you must configure the
@@ -533,9 +518,7 @@ Application Discovery Service Agentless Collector VM.
 The following steps describe how to configure the Kerberos authentication protocol
 on your Application Discovery Service Agentless Collector VM.
 
-###### To configure the Kerberos authentication protocol on your collector
-
-VM
+###### To configure the Kerberos authentication protocol on your collector VM
 
 1. Open the collector’s VM console and sign in as
    `ec2-user` using the password

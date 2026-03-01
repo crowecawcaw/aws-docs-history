@@ -1,8 +1,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Service-linked role permissions for
-
-Application Discovery Service
+# Service-linked role permissions for Application Discovery Service
 
 Application Discovery Service uses the service-linked role named **AWSServiceRoleForApplicationDiscoveryServiceContinuousExport** –
 Enables access to AWS Services and Resources used or managed by AWS Application Discovery Service.

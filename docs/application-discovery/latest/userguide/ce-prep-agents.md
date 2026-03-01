@@ -9,8 +9,7 @@ start exploring your discovered data in Amazon Athena.
 When you turn on Continuous Export the service-linked role
 `AWSServiceRoleForApplicationDiscoveryServiceContinuousExport` is
 automatically used by your account. For more information about this service-linked role,
-see [Service-linked role permissions for
-Application Discovery Service](service-linked-role-permissions.md "service-linked-role-permissions.md").
+see [Service-linked role permissions for Application Discovery Service](service-linked-role-permissions.md "service-linked-role-permissions.md").
 
 The following instructions show how to turn on data exploration in Amazon Athena by using
 the console and the AWS CLI.
@@ -46,9 +45,7 @@ Data exploration in Amazon Athena is enabled by Continuous Export explicitly bei
 on through an API call from the AWS CLI. To do this, the AWS CLI must first be
 installed in your environment.
 
-###### To install the AWS CLI and turn on data exploration in
-
-Amazon Athena
+###### To install the AWS CLI and turn on data exploration in Amazon Athena
 
 1. Install the AWS CLI for your operating system (Linux, macOS, or
    Windows). See the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md") for instructions.

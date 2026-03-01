@@ -1,38 +1,25 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Troubleshooting
-
-Agentless Collector
+# Troubleshooting Agentless Collector
 
 This section contains topics that can help you troubleshoot known issues with
 Application Discovery Service Agentless Collector (Agentless Collector).
 
 ###### Topics
 
-- [Fixing Unable to
-  retrieve manifest or certificate file error](#unable-to-retrieve-manifest-or-certificate-file "#unable-to-retrieve-manifest-or-certificate-file")
-- [Addressing
-  self-signed certification problems when configuring WinRM certificates](#agentless-collector-address-self-signed-certification-problems "#agentless-collector-address-self-signed-certification-problems")
-- [Fixing
-  Agentless Collector cannot reach AWS during setup](#agentless-collector-fix-connector-cannot-reach-aws "#agentless-collector-fix-connector-cannot-reach-aws")
-- [Fixing
-  self-signed certification problems when connecting to the proxy host](#agentless-collector-fix-self-signed-certification-problems "#agentless-collector-fix-self-signed-certification-problems")
-- [Finding unhealthy
-  collectors](#agentless-collector-fixing-unhealthy-connectors "#agentless-collector-fixing-unhealthy-connectors")
+- [Fixing Unable to retrieve manifest or certificate file error](#unable-to-retrieve-manifest-or-certificate-file "#unable-to-retrieve-manifest-or-certificate-file")
+- [Addressing self-signed certification problems when configuring WinRM certificates](#agentless-collector-address-self-signed-certification-problems "#agentless-collector-address-self-signed-certification-problems")
+- [Fixing Agentless Collector cannot reach AWS during setup](#agentless-collector-fix-connector-cannot-reach-aws "#agentless-collector-fix-connector-cannot-reach-aws")
+- [Fixing self-signed certification problems when connecting to the proxy host](#agentless-collector-fix-self-signed-certification-problems "#agentless-collector-fix-self-signed-certification-problems")
+- [Finding unhealthy collectors](#agentless-collector-fixing-unhealthy-connectors "#agentless-collector-fixing-unhealthy-connectors")
 - [Fixing IP address issues](#agentless-collector-vcenter-ip-issues "#agentless-collector-vcenter-ip-issues")
-- [Fixing vCenter credentials
-  issues](#agentless-collector-vcenter-credentials-issues "#agentless-collector-vcenter-credentials-issues")
-- [Fixing data
-  forwarding issues in the database and analytics data collection module](#agentless-collector-database-analytics-forwarding-issues "#agentless-collector-database-analytics-forwarding-issues")
-- [Fixing connection
-  issues in the database and analytics data collection module](#agentless-collector-database-analytics-connection-issues "#agentless-collector-database-analytics-connection-issues")
+- [Fixing vCenter credentials issues](#agentless-collector-vcenter-credentials-issues "#agentless-collector-vcenter-credentials-issues")
+- [Fixing data forwarding issues in the database and analytics data collection module](#agentless-collector-database-analytics-forwarding-issues "#agentless-collector-database-analytics-forwarding-issues")
+- [Fixing connection issues in the database and analytics data collection module](#agentless-collector-database-analytics-connection-issues "#agentless-collector-database-analytics-connection-issues")
 - [Standalone ESX host support](#agentless-collector-standalone-esx-host "#agentless-collector-standalone-esx-host")
-- [Contacting AWS Support for
-  Agentless Collector issues](#agentless-collector-support "#agentless-collector-support")
+- [Contacting AWS Support for Agentless Collector issues](#agentless-collector-support "#agentless-collector-support")
 
-## Fixing `Unable to
-
-retrieve manifest or certificate file error`
+## Fixing `Unable to retrieve manifest or certificate file error`
 
 If you receive this error when you try to deploy the OVA from the Amazon S3 URL in the VMware
 vCenter UI, ensure that your vCenter server meets the following requirements:
@@ -40,9 +27,7 @@ vCenter UI, ensure that your vCenter server meets the following requirements:
 - VMware vCenter Server version 8.0 update 1 or later
 - VMware vCenter Server 7.0 Update 3q (ISO Build 23788036) or later
 
-## Addressing
-
-self-signed certification problems when configuring WinRM certificates
+## Addressing self-signed certification problems when configuring WinRM certificates
 
 If you enable WinRM certificate checks, you might need to import a self-signed certificate
 authority into the Agentless Collector.
@@ -85,9 +70,7 @@ sudo shutdown -r now
 sudo trust list --filter=ca-anchors | less
 ```
 
-## Fixing
-
-Agentless Collector cannot reach AWS during setup
+## Fixing Agentless Collector cannot reach AWS during setup
 
 Agentless Collector requires outbound access over TCP port 443 to several AWS
 domains. When configuring Agentless Collector in the console you can get the
@@ -109,18 +92,14 @@ established.
    require outbound access depend on if your home Region is US West (Oregon) Region, us-west-2, or
    some other Region.
 
-###### The following domains require outbound access if your AWS account home Region is
-
-us-west-2:
+###### The following domains require outbound access if your AWS account home Region is us-west-2:
 
     * `arsenal-discovery.us-west-2.amazonaws.com`
     * `migrationhub-config.us-west-2.amazonaws.com`
     * `api.ecr-public.us-east-1.amazonaws.com`
     * `public.ecr.aws`
 
-###### The following domains require outbound access if your AWS account home Region is
-
-not `us-west-2`:
+###### The following domains require outbound access if your AWS account home Region is not `us-west-2`:
 
     * `arsenal-discovery.us-west-2.amazonaws.com`
     * `arsenal-discovery.`your-home-region`.amazonaws.com`
@@ -158,12 +137,9 @@ the domains listed in the previous step.
 3. If telnet cannot resolve the domain, try configuring a static DNS server using the
    [instructions for
    Amazon Linux 2](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/").
-4. If the error continues, for further support, see [Contacting AWS Support for
-   Agentless Collector issues](#agentless-collector-support "#agentless-collector-support").
+4. If the error continues, for further support, see [Contacting AWS Support for Agentless Collector issues](#agentless-collector-support "#agentless-collector-support").
 
-## Fixing
-
-self-signed certification problems when connecting to the proxy host
+## Fixing self-signed certification problems when connecting to the proxy host
 
 If communication with the optionally provided proxy is via HTTPS and the proxy has a
 self-signed certificate, you might need to provide a certificate.
@@ -197,9 +173,7 @@ sudo update-ca-trust
 sudo shutdown -r now
 ```
 
-## Finding unhealthy
-
-collectors
+## Finding unhealthy collectors
 
 Status information for every collector is found on the [Data collectors](https://console.aws.amazon.com/migrationhub/discover/datacollectors?type=connector "https://console.aws.amazon.com/migrationhub/discover/datacollectors?type=connector") page of
 the AWS Migration Hub (Migration Hub) console. You can identify collectors with problems by finding any
@@ -223,23 +197,19 @@ to identify health issues.
    where _ip_address_ is the IP address of an unhealthy
    collector.
 5. Choose **Log in**, and then enter the Agentless Collector
-   password, which was set up when the collector was configured in [Configuring
-   Agentless Collector](agentless-collector-gs-configure.md "agentless-collector-gs-configure.md").
+   password, which was set up when the collector was configured in [Configuring Agentless Collector](agentless-collector-gs-configure.md "agentless-collector-gs-configure.md").
 6. On the **Agentless Collector** dashboard page, under
    **Data collection**, choose **View and edit** in the
    **VMware vCenter** section.
-7. Follow the instructions in [Editing VMware vCenter
-   credentials](agentless-collector-vcenter-edit.md "agentless-collector-vcenter-edit.md") to correct the URL and
+7. Follow the instructions in [Editing VMware vCenter credentials](agentless-collector-vcenter-edit.md "agentless-collector-vcenter-edit.md") to correct the URL and
    credentials.
 
 After correcting the health issues, the collector will re-establish connectivity with
 vCenter server, and the collector's status will change to the **Collecting**
-state. If the issues persist, see [Contacting AWS Support for
-Agentless Collector issues](#agentless-collector-support "#agentless-collector-support").
+state. If the issues persist, see [Contacting AWS Support for Agentless Collector issues](#agentless-collector-support "#agentless-collector-support").
 
 The most common causes for unhealthy collectors are IP address and credentials issues.
-[Fixing IP address issues](#agentless-collector-vcenter-ip-issues "#agentless-collector-vcenter-ip-issues") and [Fixing vCenter credentials
-issues](#agentless-collector-vcenter-credentials-issues "#agentless-collector-vcenter-credentials-issues") can help you resolve these
+[Fixing IP address issues](#agentless-collector-vcenter-ip-issues "#agentless-collector-vcenter-ip-issues") and [Fixing vCenter credentials issues](#agentless-collector-vcenter-credentials-issues "#agentless-collector-vcenter-credentials-issues") can help you resolve these
 issues and return a collector to a healthy state.
 
 ## Fixing IP address issues
@@ -257,11 +227,9 @@ The following procedure can help you resolve IP address issues.
    the following URL in the address bar: 
    `https://``<ip_address>``/`,
    where _ip_address_ is the IP address of the collector
-   from [Deploy
-   Agentless Collector](agentless-collector-deploying.md#agentless-collector-gs-deploy "agentless-collector-deploying.md#agentless-collector-gs-deploy").
+   from [Deploy Agentless Collector](agentless-collector-deploying.md#agentless-collector-gs-deploy "agentless-collector-deploying.md#agentless-collector-gs-deploy").
 3. Choose **Log in**, and then enter the Agentless Collector
-   password, which was set up when the collector was configured in [Configuring
-   Agentless Collector](agentless-collector-gs-configure.md "agentless-collector-gs-configure.md").
+   password, which was set up when the collector was configured in [Configuring Agentless Collector](agentless-collector-gs-configure.md "agentless-collector-gs-configure.md").
 4. On the **Agentless Collector** dashboard page, under
    **Data collection**, choose **View and edit** in the
    **VMware vCenter** section.
@@ -279,9 +247,7 @@ The following procedure can help you resolve IP address issues.
      blocking ingress network connections due to firewall issues. If yes, update your
      firewall settings to allow incoming connections from the collector VM.
 
-## Fixing vCenter credentials
-
-issues
+## Fixing vCenter credentials issues
 
 Collectors can go into an unhealthy state if the vCenter user credentials provided when
 configuring a collector are invalid, or do not have vCenter Read and View account
@@ -290,12 +256,9 @@ privileges.
 If you experience issues related to vCenter credentials, check to make sure that you have
 vCenter Read and View permissions set for the System group.
 
-For information about editing vCenter credentials, see [Editing VMware vCenter
-credentials](agentless-collector-vcenter-edit.md "agentless-collector-vcenter-edit.md").
+For information about editing vCenter credentials, see [Editing VMware vCenter credentials](agentless-collector-vcenter-edit.md "agentless-collector-vcenter-edit.md").
 
-## Fixing data
-
-forwarding issues in the database and analytics data collection module
+## Fixing data forwarding issues in the database and analytics data collection module
 
 The home page of the database and analytics data collection module in
 Agentless Collector displays the connection status for **Access to
@@ -306,8 +269,7 @@ S3**, then configure data forwarding. For more information, see [Configuring dat
 If you experience this issue after you configure data forwarding, then check to make sure
 that your data collection module can access to the internet. Then, make sure that you added
 the **DMSCollectorPolicy** and **FleetAdvisorS3Policy**
-policies to your IAM user. For more information, see [Deploying
-Application Discovery Service Agentless Collector](agentless-collector-deploying.md#agentless-collector-gs-iam-user "agentless-collector-deploying.md#agentless-collector-gs-iam-user").
+policies to your IAM user. For more information, see [Deploying Application Discovery Service Agentless Collector](agentless-collector-deploying.md#agentless-collector-gs-iam-user "agentless-collector-deploying.md#agentless-collector-gs-iam-user").
 
 If your data collection module can't connect to AWS, then provide outbound access to the
 following domains.
@@ -315,9 +277,7 @@ following domains.
 - `dms.`your-home-region`.amazonaws.com`
 - `s3.amazonaws.com`
 
-## Fixing connection
-
-issues in the database and analytics data collection module
+## Fixing connection issues in the database and analytics data collection module
 
 The database and analytics data collection module in Agentless Collector connects
 to your LDAP servers to discover OS servers in your data environment. Then, the data
@@ -412,9 +372,7 @@ provide the required permissions. For more information, see [Discovering your da
 The Agentless Collector does not support a standalone ESX host. The ESX host must
 be part of the vCenter Server instance.
 
-## Contacting AWS Support for
-
-Agentless Collector issues
+## Contacting AWS Support for Agentless Collector issues
 
 If you encounter issues with Application Discovery Service Agentless Collector
 (Agentless Collector) and need help, contact [AWS Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/") You'll be contacted and might be asked to send the

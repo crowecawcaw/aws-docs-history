@@ -1,8 +1,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Using the Application Discovery Service API to query discovered configuration
-
-items
+# Using the Application Discovery Service API to query discovered configuration items
 
 A _configuration item_ is an IT asset that was discovered
 in your data center by an agent or by an import. When you use
@@ -24,9 +22,7 @@ Results returned by `DescribeConfigurations`, `ListConfigurations`,
 and `StartExportTask` might not contain recent updates. For more information, see
 [Eventual consistency in the AWS Application Discovery Service API](#eventual-consistency "#eventual-consistency").
 
-## Using the `DescribeConfigurations`
-
-action
+## Using the `DescribeConfigurations` action
 
 The `DescribeConfigurations`action retrieves attributes for a list of
 configuration IDs. All the supplied IDs must be for the same asset type (server, application,
@@ -111,9 +107,7 @@ The `ListConfigurations`action retrieves a list of configuration items
 according to the criteria that you specify in a filter. For more information about command
 syntax, see [ListConfigurations](../APIReference/API_ListConfigurations.md "../APIReference/API_ListConfigurations.md").
 
-###### Output fields for
-
-`ListConfigurations`
+###### Output fields for `ListConfigurations`
 
 The following tables, organized by asset type, list the supported output fields of the
 `ListConfigurations`action. The ones marked as mandatory are always present in
@@ -174,9 +168,7 @@ the output.
 | `sourceServer.configurationId`       |           |
 | `sourceServer.hostName`              |           |
 
-###### Supported filters for
-
-`ListConfigurations`
+###### Supported filters for `ListConfigurations`
 
 The following tables, organized by asset type, list the supported filters for the
 `ListConfigurations`action. Filters and values are in a key/value relationship

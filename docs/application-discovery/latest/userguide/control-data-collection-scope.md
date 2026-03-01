@@ -1,8 +1,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Controlling the scope of vCenter data
-
-collection
+# Controlling the scope of vCenter data collection
 
 The vCenter user requires read-only permissions on each ESX host or VM to inventory using
 Application Discovery Service. Using the permission settings, you can control which hosts and VMs are included in
@@ -19,9 +17,7 @@ most granular. These procedures are for vSphere Client v6.7.0.2. The procedures 
 versions of the client might be different, depending on which version of the vSphere client
 you are using.
 
-###### To discover data about _all_ ESX hosts and VMs under
-
-the current vCenter
+###### To discover data about _all_ ESX hosts and VMs under the current vCenter
 
 1. In your VMware vSphere client, choose **vCenter** and then choose
    either **Hosts and Clusters** or **VMs and
@@ -35,9 +31,7 @@ the current vCenter
 5. Choose **Propagate to children** and then choose
    **OK**.
 
-###### To discover data about a _specific_ ESX host and
-
-_all_ of its child objects
+###### To discover data about a _specific_ ESX host and _all_ of its child objects
 
 1. In your VMware vSphere client, choose **vCenter** and then choose
    either **Hosts and Clusters** or **VMs and
@@ -49,9 +43,7 @@ _all_ of its child objects
    **Assigned Role**, choose **Read-only**.
 5. Choose **Propagate to children**, **OK**.
 
-###### To discover data about a _specific_ ESX host or
-
-child VM
+###### To discover data about a _specific_ ESX host or child VM
 
 1. In your VMware vSphere client, choose **vCenter** and then choose
    either **Hosts and Clusters** or **VMs and

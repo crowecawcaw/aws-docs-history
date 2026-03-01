@@ -5,9 +5,7 @@ AWS Application Discovery Service is no longer open to new customers. Alternativ
 This topic explains how to export server data by using the AWS Management Console, the AWS Command Line Interface,
 or the API.
 
-###### To use the AWS Management Console to export server data
-
-for all servers
+###### To use the AWS Management Console to export server data for all servers
 
 1. Sign in to the AWS Management Console and open
    the Migration Hub console at
@@ -32,9 +30,7 @@ for all servers
 | {account_id}\_Tags.csv                           | Details of each tag associated with a server.                                                                                                            |
 | {account_id}\_VMwareInfo.csv                     | Details of each VMware configuration, including moRef,<br>vmName, and vCenter.                                                                           |
 
-###### To use the AWS Management Console to export agent
-
-data for a specific server
+###### To use the AWS Management Console to export agent data for a specific server
 
 1. Sign in to the AWS Management Console and open
    the Migration Hub console at
@@ -60,9 +56,7 @@ data for a specific server
 | {account_id}\_sourceProcessConnection.csv      | Details of the outbound connection originating from the<br>server.                           |
 | {account_id}\_systemPerformance.csv            | Details of the CPU, memory and storage configuration &<br>performance for the server.        |
 
-###### To use the AWS Command Line Interface or the API to export server
-
-data
+###### To use the AWS Command Line Interface or the API to export server data
 
 1. Run [start-export-task](../../../cli/latest/reference/discovery/start-export-task.md "../../../cli/latest/reference/discovery/start-export-task.md"). The corresponding API operation is [StartExportTask](../APIReference/API_StartExportTask.md "../APIReference/API_StartExportTask.md")
 2. Run [describe-export-tasks](../../../cli/latest/reference/discovery/describe-export-tasks.md "../../../cli/latest/reference/discovery/describe-export-tasks.md"). The corresponding API operation is [DescribeExportTasks](../APIReference/API_DescribeExportTasks.md "../APIReference/API_DescribeExportTasks.md").

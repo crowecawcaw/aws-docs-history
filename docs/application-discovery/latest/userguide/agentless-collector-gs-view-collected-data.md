@@ -1,8 +1,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
-# Viewing your collected
-
-data
+# Viewing your collected data
 
 ###### Important
 
@@ -18,9 +16,7 @@ in [Viewing servers in the AWS Migration Hub console](view-servers.md "view-serv
 You can also view the collected metrics for database and analytics servers in the
 AWS DMS console by taking the following steps.
 
-###### To view the data discovered by the database and analytics data collection module
-
-in the AWS DMS console
+###### To view the data discovered by the database and analytics data collection module in the AWS DMS console
 
 1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
 2. Choose **Inventory** under **Discover**. The

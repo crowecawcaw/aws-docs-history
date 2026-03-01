@@ -24,17 +24,14 @@ a new feature, AWS adds read-only permissions for new operations and resources. 
 and descriptions of job function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## AWS
-
-managed policy: AWSApplicationDiscoveryServiceFullAccess
+## AWS managed policy: AWSApplicationDiscoveryServiceFullAccess
 
 The `AWSApplicationDiscoveryServiceFullAccess` policy grants an IAM user
 account access to the Application Discovery Service and Migration Hub APIs.
 
 An IAM user account with this policy attached can configure Application Discovery Service, start and stop
 agents, start and stop agentless discovery, and query data from the AWS Discovery Service
-database. For an example of this policy, see [Granting full
-access to Application Discovery Service](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-fullaccess "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-fullaccess").
+database. For an example of this policy, see [Granting full access to Application Discovery Service](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-fullaccess "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-fullaccess").
 
 ## AWS managed policy: AWSApplicationDiscoveryAgentlessCollectorAccess
 
@@ -108,9 +105,7 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: AWSApplicationDiscoveryAgentAccess
+## AWS managed policy: AWSApplicationDiscoveryAgentAccess
 
 The `AWSApplicationDiscoveryAgentAccess` policy grants the Application
 Discovery Agent access to register and communicate with Application Discovery Service.
@@ -119,12 +114,9 @@ You attach this policy to any user whose credentials are used by Application Dis
 
 This policy also grants the user access to Arsenal. Arsenal is an agent service that is
 managed and hosted by AWS. Arsenal forwards data to Application Discovery Service in the cloud. For an example
-of this policy, see [Granting access
-to discovery agents](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-agentaccess "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-agentaccess").
+of this policy, see [Granting access to discovery agents](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-agentaccess "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-agentaccess").
 
-## AWS managed policy:
-
-AWSAgentlessDiscoveryService
+## AWS managed policy: AWSAgentlessDiscoveryService
 
 The `AWSAgentlessDiscoveryService` policy grants the AWS Agentless
 Discovery Connector that is running in your VMware vCenter Server access to register,
@@ -132,9 +124,7 @@ communicate with, and share connector health metrics with Application Discovery 
 
 You attach this policy to any user whose credentials are used by the connector.
 
-## AWS managed policy:
-
-ApplicationDiscoveryServiceContinuousExportServiceRolePolicy
+## AWS managed policy: ApplicationDiscoveryServiceContinuousExportServiceRolePolicy
 
 If your IAM account has the `AWSApplicationDiscoveryServiceFullAccess`
 policy attached, `ApplicationDiscoveryServiceContinuousExportServiceRolePolicy`
@@ -146,23 +136,16 @@ data that's collected by AWS Application Discovery Service agents to an Amazon S
 
 In addition, this policy creates an AWS Glue Data Catalog with a new database called
 _application_discovery_service_database_ and table schemas for
-mapping data that's collected by the agents. For an example of this policy, see [Granting
-permissions for agent data collection](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-export-service "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-export-service").
+mapping data that's collected by the agents. For an example of this policy, see [Granting permissions for agent data collection](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-export-service "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-export-service").
 
-## AWS
-
-managed policy: AWSDiscoveryContinuousExportFirehosePolicy
+## AWS managed policy: AWSDiscoveryContinuousExportFirehosePolicy
 
 The `AWSDiscoveryContinuousExportFirehosePolicy` policy is required to use
 data exploration in Amazon Athena. It allows Amazon Data Firehose to write data that's collected from
-Application Discovery Service to Amazon S3. For information about using this policy, see [Creating the
-AWSApplicationDiscoveryServiceFirehose role](#security-iam-awsmanpol-create-firehose-role "#security-iam-awsmanpol-create-firehose-role"). For an example of this
-policy, see [Granting
-permissions for data exploration](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-export-firehose "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-export-firehose").
+Application Discovery Service to Amazon S3. For information about using this policy, see [Creating the AWSApplicationDiscoveryServiceFirehose role](#security-iam-awsmanpol-create-firehose-role "#security-iam-awsmanpol-create-firehose-role"). For an example of this
+policy, see [Granting permissions for data exploration](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-export-firehose "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-export-firehose").
 
-## Creating the
-
-AWSApplicationDiscoveryServiceFirehose role
+## Creating the AWSApplicationDiscoveryServiceFirehose role
 
 An administrator attaches managed policies to your IAM user account. When using the
 `AWSDiscoveryContinuousExportFirehosePolicy` policy, the administrator must
@@ -171,9 +154,7 @@ Firehose as a trusted entity and then attach the
 `AWSDiscoveryContinuousExportFirehosePolicy` policy to the role, as shown in
 the following procedure.
 
-###### To create the **AWSApplicationDiscoveryServiceFirehose** IAM
-
-role
+###### To create the **AWSApplicationDiscoveryServiceFirehose** IAM role
 
 1. In the IAM console, choose **Roles** on the navigation
    pane.
@@ -189,9 +170,7 @@ role
 8. Enter **AWSApplicationDiscoveryServiceFirehose** as the role
    name, and then choose **Create role**.
 
-## Application Discovery Service updates to AWS managed
-
-policies
+## Application Discovery Service updates to AWS managed policies
 
 View details about updates to AWS managed policies for Application Discovery Service since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

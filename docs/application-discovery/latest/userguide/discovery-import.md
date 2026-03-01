@@ -115,8 +115,7 @@ using either an external or internal matching key. If you populate your own matc
 key, `External ID`, this field is used to uniquely identify and import
 the records. If no matching key is specified, import uses an internally generated
 matching key that is derived from some of the columns in the import template. For
-more information on this matching, see [Matching logic for discovered servers and
-applications](view-data.md#add-match-logic "view-data.md#add-match-logic").
+more information on this matching, see [Matching logic for discovered servers and applications](view-data.md#add-match-logic "view-data.md#add-match-logic").
 
 ###### Note
 
@@ -284,9 +283,7 @@ Remember that when the IAM user uploads objects to the Amazon S3 bucket that you
 specified, they must leave the default permissions for the objects set so that the user
 can read the object.
 
-## Uploading your import file to
-
-Amazon S3
+## Uploading your import file to Amazon S3
 
 Next, you must upload your CSV formatted import file into Amazon S3 so it can be imported.
 Before you begin, you should have an Amazon S3 bucket that will house your import file
@@ -365,8 +362,7 @@ console.
    import.
 5. Fill out the **Amazon S3 Object URL** field. To do
    this step, you'll need to upload your import data file to Amazon S3. For
-   more information, see [Uploading your import file to
-   Amazon S3](#migration-hub-import-s3-upload "#migration-hub-import-s3-upload").
+   more information, see [Uploading your import file to Amazon S3](#migration-hub-import-s3-upload "#migration-hub-import-s3-upload").
 6. Choose **Import** in the lower-right area. This
    will open the **Imports** page where you can see
    your import and its status listed in the table.
@@ -501,5 +497,4 @@ modified failed-entries.csv file.
 After creating your import task, you can perform additional actions to help manage and
 track your data migration. For example, you can download an archive of failed records
 for a specific request. For information on using the failed records archive to resolve
-import issues, see [Troubleshooting failed import
-records](troubleshooting.md#troubleshooting-import-failed-records "troubleshooting.md#troubleshooting-import-failed-records").
+import issues, see [Troubleshooting failed import records](troubleshooting.md#troubleshooting-import-failed-records "troubleshooting.md#troubleshooting-import-failed-records").

@@ -105,5 +105,4 @@ inventory.
    metadata and performance metrics.
 3. Choose **Add to inventory**.
    After you add all database and analytics servers to your inventory, you can start
-   collecting metadata and performance metrics. For more information, see [Database and
-   analytics data collection](agentless-collector-dashboard.md#using-collector-data-collect-database-analytics "agentless-collector-dashboard.md#using-collector-data-collect-database-analytics").
+   collecting metadata and performance metrics. For more information, see [Database and analytics data collection](agentless-collector-dashboard.md#using-collector-data-collect-database-analytics "agentless-collector-dashboard.md#using-collector-data-collect-database-analytics").
