@@ -1,6 +1,4 @@
-# Set up the Elastic Beanstalk Command Line Interface
-
-with AWS Elastic Beanstalk and AWS Identity and Access Management (IAM)
+# Set up the Elastic Beanstalk Command Line Interface with AWS Elastic Beanstalk and AWS Identity and Access Management (IAM)
 
 |                      |                                                                                                                                                                                      |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
