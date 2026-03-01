@@ -71,7 +71,7 @@ Gather, process, analyze, and act on connected vehicle data using AWS IoT Core.
    send the exact data you need to the cloud to **Amazon Timestream** or
    **Amazon S3**.
 6. Use **Amazon SageMaker AI** to improve ADAS/AV models and optimize
-   vehicle design for performance and efficiency. Use **Amazon Quick Suite**
+   vehicle design for performance and efficiency. Use **Amazon Quick**
    to continually improve vehicle quality, safety, and autonomy using near real-time
    data from **AWS IoT FleetWise**.
 7. Using **AWS IoT Core Device Shadow** can make a vehicle’s
