@@ -60,7 +60,7 @@ it.
 
 Before you can use IAM to delete a service-linked role, you must first delete any resources used by the role.
 
-In App Runner, this means disassociating VPC connectors from all App Runner services in your account, and deleting the VPC connectors. For more information, see [Enabling VPC access for outgoing traffic](network-vpc.md "network-vpc.md") .
+In App Runner, this means disassociating VPC connectors from all App Runner services in your account, and deleting the VPC connectors. For more information, see [Enabling VPC access for outgoing traffic](network-vpc.md "network-vpc.md").
 
 ###### Note
 

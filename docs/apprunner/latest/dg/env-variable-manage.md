@@ -122,9 +122,7 @@ arn:aws:ssm:<region>:<aws_account_id>:parameter/DevRdsConnectionString
 The following examples shows how to reference secrets and configurations as environment variables on a code-based and an image-based App Runner
 service.
 
-###### Example Input.json file for image-based App Runner
-
-service
+###### Example Input.json file for image-based App Runner service
 
 ```
 {
@@ -150,18 +148,14 @@ service
 }
 ```
 
-###### Example Image-based App Runner
-
-service – Request
+###### Example Image-based App Runner service – Request
 
 ```
 aws apprunner create-service \
 --cli-input-json file://input.json
 ```
 
-###### Example Image-based App Runner
-
-service – Response
+###### Example Image-based App Runner service – Response
 
 ```
 {
@@ -225,18 +219,14 @@ service – Response
 }
 ```
 
-###### Example Code-based App Runner
-
-service – Request
+###### Example Code-based App Runner service – Request
 
 ```
 aws apprunner create-service \
 --cli-input-json file://input.json
 ```
 
-###### Example Code-based App Runner
-
-service – Response
+###### Example Code-based App Runner service – Response
 
 ```
 {

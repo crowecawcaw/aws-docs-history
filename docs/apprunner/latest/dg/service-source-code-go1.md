@@ -2,8 +2,7 @@
 
 ###### Important
 
-App Runner will end the support for **Go 1.18** on December 1, 2025. For recommendations and more information, see [End of support for managed runtime
-versions](service-source-code.md#service-source-code.managed-platforms.eos "service-source-code.md#service-source-code.managed-platforms.eos").
+App Runner will end the support for **Go 1.18** on December 1, 2025. For recommendations and more information, see [End of support for managed runtime versions](service-source-code.md#service-source-code.managed-platforms.eos "service-source-code.md#service-source-code.managed-platforms.eos").
 
 The AWS App Runner Go platform provides managed runtimes. Each runtime makes it easy to build and
 run containers with web applications based on a Go version. When you use a Go runtime, App Runner
@@ -60,8 +59,7 @@ The following examples show App Runner configuration files for building and runn
 service.
 
 This example shows a minimal configuration file that you can use with a Go managed
-runtime. For the assumptions that App Runner makes with a minimal configuration file, see [Configuration file
-examples](config-file-examples.md#config-file-examples.managed "config-file-examples.md#config-file-examples.managed").
+runtime. For the assumptions that App Runner makes with a minimal configuration file, see [Configuration file examples](config-file-examples.md#config-file-examples.managed "config-file-examples.md#config-file-examples.managed").
 
 ###### Example apprunner.yaml
 

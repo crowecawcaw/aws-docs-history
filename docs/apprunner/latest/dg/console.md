@@ -40,7 +40,7 @@ name.
 
 To get to the service dashboard, navigate to the **Services** page (see previous section), and then choose your App Runner service.
 
-![App Runner service dashboard page](/images/apprunner/latest/dg/images/console-dashboard.png)
+![App Runner service dashboard page](images/console-dashboard.png)
 
 The **Service overview** section provides basic details about the App Runner service and your application. Things you can do here:
 

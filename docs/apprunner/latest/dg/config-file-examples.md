@@ -8,9 +8,7 @@ configuration files with [image-based services](service-source-image.md "service
 The following examples demonstrate AWS App Runner configuration files. Some are minimal and contain only required settings. Others are complete, including all
 configuration file sections. For an overview of App Runner configuration files, see [Setting App Runner service options using a configuration file](config-file.md "config-file.md").
 
-## Configuration file
-
-examples
+## Configuration file examples
 
 With a minimal configuration file, App Runner makes the following assumptions:
 
@@ -75,8 +73,7 @@ This example shows the use of all configuration keys in the `apprunner.yaml` wit
 
 The `pre-run` parameter is only supported by the revised App Runner build.
 Do not insert this parameter in your configuration file if your application uses runtime versions that are supported by the
-original App Runner build. For more information, see [Managed runtime versions and the App Runner
-build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail").
+original App Runner build. For more information, see [Managed runtime versions and the App Runner build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail").
 
 ###### Note
 

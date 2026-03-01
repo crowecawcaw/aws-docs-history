@@ -3,8 +3,7 @@
 ###### Important
 
 App Runner will end the support for **Node.js 12**, **Node.js 14**, **Node.js 16** and **Node.js 18** on December 1, 2025. For recommendations and more
-information, see [End of support for managed runtime
-versions](service-source-code.md#service-source-code.managed-platforms.eos "service-source-code.md#service-source-code.managed-platforms.eos").
+information, see [End of support for managed runtime versions](service-source-code.md#service-source-code.managed-platforms.eos "service-source-code.md#service-source-code.managed-platforms.eos").
 
 The AWS App Runner Node.js platform provides managed runtimes. Each runtime makes it easy to build
 and run containers with web applications based on a Node.js version. When you use a Node.js
@@ -17,8 +16,7 @@ You specify a runtime for your App Runner service when you [create a service](ma
 `runtime` keyword in a [App Runner configuration file](config-file.md "config-file.md") that you include in your code repository.
 The naming convention of a managed runtime is `<language-name><major-version>`.
 
-For valid Node.js runtime names and versions, see [Node.js runtime release
-information](service-source-code-nodejs-releases.md "service-source-code-nodejs-releases.md").
+For valid Node.js runtime names and versions, see [Node.js runtime release information](service-source-code-nodejs-releases.md "service-source-code-nodejs-releases.md").
 
 App Runner updates the runtime for your service to the latest version on every deployment or service update. If your application requires a specific version of
 a managed runtime, you can specify it using the `runtime-version` keyword in the [App Runner configuration file](config-file.md "config-file.md"). You
@@ -39,11 +37,9 @@ The following examples demonstrate version locking:
 ###### Topics
 
 - [Node.js runtime configuration](#service-source-code-nodejs.config "#service-source-code-nodejs.config")
-- [Callouts for specific runtime
-  versions](#service-source-code-nodejs.callouts "#service-source-code-nodejs.callouts")
+- [Callouts for specific runtime versions](#service-source-code-nodejs.callouts "#service-source-code-nodejs.callouts")
 - [Node.js runtime examples](#service-source-code-nodejs.examples "#service-source-code-nodejs.examples")
-- [Node.js runtime release
-  information](service-source-code-nodejs-releases.md "service-source-code-nodejs-releases.md")
+- [Node.js runtime release information](service-source-code-nodejs-releases.md "service-source-code-nodejs-releases.md")
 
 ## Node.js runtime configuration
 
@@ -143,17 +139,12 @@ run:
   `package.json` and the `runtime-version` value in the
   App Runner configuration file causes the App Runner build phase to fail.
 
-## Callouts for specific runtime
+## Callouts for specific runtime versions
 
-versions
-
-### Node.js 22 and Node.js 18
-
-(revised App Runner build)
+### Node.js 22 and Node.js 18 (revised App Runner build)
 
 App Runner now runs an updated build process for applications based on the following runtime versions: Python 3.11, Node.js 22, and Node.js 18. If your application
-runs on either one of these runtime versions, see [Managed runtime versions and the App Runner
-build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail") for more
+runs on either one of these runtime versions, see [Managed runtime versions and the App Runner build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail") for more
 information about the revised build process. Applications that use all other runtime versions are not affected, and they continue to use the original build
 process.
 
@@ -166,13 +157,11 @@ service.
 
 The runtime version that's used in these examples is `22.14.0`.
 You can replace it with a version you want to use. For latest supported Node.js runtime
-version, see [Node.js runtime release
-information](service-source-code-nodejs-releases.md "service-source-code-nodejs-releases.md").
+version, see [Node.js runtime release information](service-source-code-nodejs-releases.md "service-source-code-nodejs-releases.md").
 
 This example shows a minimal configuration file that you can use with a Node.js
 managed runtime. For the assumptions that App Runner makes with a minimal configuration file,
-see [Configuration file
-examples](config-file-examples.md#config-file-examples.managed "config-file-examples.md#config-file-examples.managed").
+see [Configuration file examples](config-file-examples.md#config-file-examples.managed "config-file-examples.md#config-file-examples.managed").
 
 ###### Example apprunner.yaml
 
@@ -194,8 +183,7 @@ runtime.
 
 The runtime version that's used in these examples is
 `22.14.0`. You can replace it with a version you want to use.
-For latest supported Node.js runtime version, see [Node.js runtime release
-information](service-source-code-nodejs-releases.md "service-source-code-nodejs-releases.md").
+For latest supported Node.js runtime version, see [Node.js runtime release information](service-source-code-nodejs-releases.md "service-source-code-nodejs-releases.md").
 
 ###### Example apprunner.yaml
 
@@ -232,15 +220,13 @@ revised App Runner build.
 
 The `pre-run` parameter is only supported by the revised App Runner build.
 Do not insert this parameter in your configuration file if your application uses runtime versions that are supported by the
-original App Runner build. For more information, see [Managed runtime versions and the App Runner
-build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail").
+original App Runner build. For more information, see [Managed runtime versions and the App Runner build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail").
 
 ###### Note
 
 The runtime version that's used in these examples is
 `22.14.0`. You can replace it with a version you want to use.
-For latest supported Node.js runtime version, see [Node.js runtime release
-information](service-source-code-nodejs-releases.md "service-source-code-nodejs-releases.md").
+For latest supported Node.js runtime version, see [Node.js runtime release information](service-source-code-nodejs-releases.md "service-source-code-nodejs-releases.md").
 
 ###### Example apprunner.yaml
 
@@ -333,8 +319,7 @@ module.exports = function(grunt) {
 
 The runtime version that's used in these examples is
 `22.14.0`. You can replace it with a version you want to
-use. For latest supported Node.js runtime version, see [Node.js runtime release
-information](service-source-code-nodejs-releases.md "service-source-code-nodejs-releases.md").
+use. For latest supported Node.js runtime version, see [Node.js runtime release information](service-source-code-nodejs-releases.md "service-source-code-nodejs-releases.md").
 
 ```
 version: 1.0

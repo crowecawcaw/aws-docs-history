@@ -2,8 +2,7 @@
 
 ###### Important
 
-App Runner will end the support for **PHP 8.1** on December 31, 2025. For recommendations and more information, see [End of support for managed runtime
-versions](service-source-code.md#service-source-code.managed-platforms.eos "service-source-code.md#service-source-code.managed-platforms.eos").
+App Runner will end the support for **PHP 8.1** on December 31, 2025. For recommendations and more information, see [End of support for managed runtime versions](service-source-code.md#service-source-code.managed-platforms.eos "service-source-code.md#service-source-code.managed-platforms.eos").
 
 This topic lists the full details for the PHP runtime versions that App Runner supports.
 
@@ -31,5 +30,4 @@ This topic lists the full details for the PHP runtime versions that App Runner s
 ###### Note
 
 App Runner provides a revised build process for specific major runtimes that have been released more recently. Because of this you'll see references to
-_revised App Runner build_ and _original App Runner build_ in certain sections of this document. For more information, see [Managed runtime versions and the App Runner
-build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail").
+_revised App Runner build_ and _original App Runner build_ in certain sections of this document. For more information, see [Managed runtime versions and the App Runner build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail").

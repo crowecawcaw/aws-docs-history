@@ -3,8 +3,7 @@
 ###### Important
 
 App Runner will end the support for **.NET 6** on December 1, 2025.
-For recommendations and more information, see [End of support for managed runtime
-versions](service-source-code.md#service-source-code.managed-platforms.eos "service-source-code.md#service-source-code.managed-platforms.eos").
+For recommendations and more information, see [End of support for managed runtime versions](service-source-code.md#service-source-code.managed-platforms.eos "service-source-code.md#service-source-code.managed-platforms.eos").
 
 The AWS App Runner .NET platform provides managed runtimes. Each runtime makes it easy to build
 and run containers with web applications based on a .NET version. When you use a .NET runtime,
@@ -68,8 +67,7 @@ You can replace it with a version you want to use. For latest supported .NET run
 version, see [.NET runtime release information](service-source-code-dotnet-releases.md "service-source-code-dotnet-releases.md").
 
 This example shows a minimal configuration file that you can use with a .NET managed
-runtime. For the assumptions that App Runner makes with a minimal configuration file, see [Configuration file
-examples](config-file-examples.md#config-file-examples.managed "config-file-examples.md#config-file-examples.managed").
+runtime. For the assumptions that App Runner makes with a minimal configuration file, see [Configuration file examples](config-file-examples.md#config-file-examples.managed "config-file-examples.md#config-file-examples.managed").
 
 ###### Example apprunner.yaml
 

@@ -4,7 +4,7 @@ App Runner uses Amazon Virtual Private Cloud (Amazon VPC) to create boundaries b
 network, and the internet. For more information about Amazon VPC security, see [Internetwork traffic privacy in
 Amazon VPC](../../../vpc/latest/userguide/VPC_Security.md "../../../vpc/latest/userguide/VPC_Security.md") in the _Amazon VPC User Guide_.
 
-For information about associating your App Runner application with a custom Amazon VPC, see [Enabling VPC access for outgoing traffic](network-vpc.md "network-vpc.md") .
+For information about associating your App Runner application with a custom Amazon VPC, see [Enabling VPC access for outgoing traffic](network-vpc.md "network-vpc.md").
 
 For information about securing requests to App Runner using a VPC endpoint, see [Using App Runner with VPC endpoints](security-vpce.md "security-vpce.md").
 

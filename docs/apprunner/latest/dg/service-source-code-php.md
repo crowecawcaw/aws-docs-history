@@ -2,8 +2,7 @@
 
 ###### Important
 
-App Runner will end the support for **PHP 8.1** on December 31, 2025. For recommendations and more information, see [End of support for managed runtime
-versions](service-source-code.md#service-source-code.managed-platforms.eos "service-source-code.md#service-source-code.managed-platforms.eos").
+App Runner will end the support for **PHP 8.1** on December 31, 2025. For recommendations and more information, see [End of support for managed runtime versions](service-source-code.md#service-source-code.managed-platforms.eos "service-source-code.md#service-source-code.managed-platforms.eos").
 
 The AWS App Runner PHP platform provides managed runtimes. You can use each runtime to build and
 run containers with web applications based on a PHP version. When you use a PHP runtime, App Runner
@@ -78,12 +77,9 @@ _NGINX_ by using one of the following:
 - Startup script
 
 For examples on how to configure your App Runner service with PHP platform using
-_Apache HTTP Server_ or _NGINX_, see [Complete PHP application
-source](#service-source-code-php.examples.end2end "#service-source-code-php.examples.end2end").
+_Apache HTTP Server_ or _NGINX_, see [Complete PHP application source](#service-source-code-php.examples.end2end "#service-source-code-php.examples.end2end").
 
-### File
-
-Structure
+### File Structure
 
 The `index.php` must be installed in the `public` folder
 under the `root` directory of the web server.
@@ -145,8 +141,7 @@ The following are examples of App Runner configuration files that are used for b
 running a PHP service.
 
 The following example is a minimal configuration file that you can use with a PHP
-managed runtime. For more information about a minimal configuration file, see [Configuration file
-examples](config-file-examples.md#config-file-examples.managed "config-file-examples.md#config-file-examples.managed").
+managed runtime. For more information about a minimal configuration file, see [Configuration file examples](config-file-examples.md#config-file-examples.managed "config-file-examples.md#config-file-examples.managed").
 
 ###### Example apprunner.yaml
 
@@ -202,10 +197,7 @@ to a PHP runtime service using _Apache HTTP Server_ or
 _NGINX_. These examples assume that you use the
 default file structure.
 
-#### Running
-
-PHP platform with Apache HTTP Server using
-supervisord
+#### Running PHP platform with Apache HTTP Server using supervisord
 
 ###### Example File structure
 
@@ -281,10 +273,7 @@ run:
 </html>
 ```
 
-#### Running
-
-PHP platform with Apache HTTP Server using startup
-script
+#### Running PHP platform with Apache HTTP Server using startup script
 
 ###### Example File structure
 
@@ -361,9 +350,7 @@ run:
 </html>
 ```
 
-#### Running PHP
-
-platform with NGINX using supervisord
+#### Running PHP platform with NGINX using supervisord
 
 ###### Example File structure
 
@@ -439,9 +426,7 @@ run:
 </html>
 ```
 
-#### Running
-
-PHP platform with NGINX using startup script
+#### Running PHP platform with NGINX using startup script
 
 ###### Example File structure
 

@@ -69,7 +69,7 @@ The App Runner console displays a summary of all logs for your service and allow
 
 The console displays the service dashboard with a **Service overview**.
 
-![App Runner service dashboard page showing Activity list](images/console-dashboard.png) 3. On the service dashboard page, choose the **Logs** tab.
+![App Runner service dashboard page showing Activity list](/images/apprunner/latest/dg/images/console-dashboard.png) 3. On the service dashboard page, choose the **Logs** tab.
 
 The console displays a few types of logs in several sections:
 

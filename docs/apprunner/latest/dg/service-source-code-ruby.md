@@ -3,8 +3,7 @@
 ###### Important
 
 App Runner will end the support for **Ruby 3.1** on December 1, 2025.
-For recommendations and more information, see [End of support for managed runtime
-versions](service-source-code.md#service-source-code.managed-platforms.eos "service-source-code.md#service-source-code.managed-platforms.eos").
+For recommendations and more information, see [End of support for managed runtime versions](service-source-code.md#service-source-code.managed-platforms.eos "service-source-code.md#service-source-code.managed-platforms.eos").
 
 The AWS App Runner Ruby platform provides managed runtimes. Each runtime makes it easy to build and run containers with web applications based on a Ruby
 version. When you use a Ruby runtime, App Runner starts with a managed Ruby runtime image. This image is based on the [Amazon Linux Docker image](https://hub.docker.com/_/amazonlinux "https://hub.docker.com/_/amazonlinux") and contains the runtime package for a version of Ruby and some tools. App Runner uses this
@@ -56,8 +55,7 @@ settings directly when it's created or from a configuration file.
 The following examples show App Runner configuration files for building and running a Ruby service.
 
 This example shows a minimal configuration file that you can use with a Ruby managed runtime. For the assumptions that App Runner makes with a minimal
-configuration file, see [Configuration file
-examples](config-file-examples.md#config-file-examples.managed "config-file-examples.md#config-file-examples.managed").
+configuration file, see [Configuration file examples](config-file-examples.md#config-file-examples.managed "config-file-examples.md#config-file-examples.managed").
 
 ###### Example apprunner.yaml
 

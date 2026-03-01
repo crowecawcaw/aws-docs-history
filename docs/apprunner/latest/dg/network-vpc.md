@@ -35,9 +35,7 @@ is based on the security group and subnet combination. For a given VPC connector
 configuration, the latency only happens once, during the initial creation of the VPC
 Connector Hyperplane ENIs (elastic network interfaces).
 
-### More about Custom VPC connectors and
-
-AWS Hyperplane
+### More about Custom VPC connectors and AWS Hyperplane
 
 The VPC connectors in App Runner are based on AWS Hyperplane, the internal Amazon network
 system that's behind several AWS resources, such as [Network Load Balancer](../../../elasticloadbalancing/latest/network/introduction.md "../../../elasticloadbalancing/latest/network/introduction.md"), [NAT Gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md"), and [AWS PrivateLink](../../../vpc/latest/privatelink.md "../../../vpc/latest/privatelink.md"). The AWS Hyperplane technology
@@ -64,7 +62,7 @@ Hyperplane ENI in each of the subnets. Each Hyperplane ENI is assigned a private
 only and is tagged with a tag of the _AWSAppRunnerManaged_ key. If you
 choose a public subnet, errors will occur when running your App Runner service. However, if your
 service needs to access some services that are on the internet or other public AWS services,
-see [Considerations when selecting a subnet](#network-vpc.considerations-subnet "#network-vpc.considerations-subnet") .
+see [Considerations when selecting a subnet](#network-vpc.considerations-subnet "#network-vpc.considerations-subnet").
 
 ### Considerations when selecting a subnet
 

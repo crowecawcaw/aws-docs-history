@@ -20,9 +20,7 @@ required for your users and your App Runner service to perform their tasks. This
 have different permission needs. Implementing least privilege access is fundamental in reducing security risk and the impact that could result from
 errors or malicious intent.
 
-### Scan
-
-your images for vulnerabilities
+### Scan your images for vulnerabilities
 
 You can use the Amazon ECR's APIs to help identify software vulnerabilities in your container images. For more information, see the [Amazon ECR documentation](../../../AmazonECR/latest/userguide/image-scanning.md "../../../AmazonECR/latest/userguide/image-scanning.md").
 

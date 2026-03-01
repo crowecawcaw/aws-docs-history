@@ -30,10 +30,8 @@ environments and versions.
 - [Source code repository providers](#service-source-code.providers "#service-source-code.providers")
 - [Source directory](#service-source-code.source-directory "#service-source-code.source-directory")
 - [App Runner managed platforms](#service-source-code.managed-platforms "#service-source-code.managed-platforms")
-- [End of support for managed runtime
-  versions](#service-source-code.managed-platforms.eos "#service-source-code.managed-platforms.eos")
-- [Managed runtime versions and the App Runner
-  build](#service-source-code.build-detail "#service-source-code.build-detail")
+- [End of support for managed runtime versions](#service-source-code.managed-platforms.eos "#service-source-code.managed-platforms.eos")
+- [Managed runtime versions and the App Runner build](#service-source-code.build-detail "#service-source-code.build-detail")
 - [Using the Python platform](service-source-code-python.md "service-source-code-python.md")
 - [Using the Node.js platform](service-source-code-nodejs.md "service-source-code-nodejs.md")
 - [Using the Java platform](service-source-code-java.md "service-source-code-java.md")
@@ -47,9 +45,7 @@ environments and versions.
 App Runner deploys your source code by reading it from a source code repository. App Runner supports
 two source code repository providers: [GitHub](https://github.com/ "https://github.com/") and [Bitbucket](https://bitbucket.org/ "https://bitbucket.org/").
 
-### Deploying from your source code
-
-repository provider
+### Deploying from your source code repository provider
 
 To deploy your source code to an App Runner service from a source code repository, App Runner
 establishes a connection to it. When you use the App Runner console to [create a service](manage-create.md "manage-create.md"), you provide connection details and a
@@ -130,9 +126,7 @@ App Runner updates the runtime for your service to the latest version on every d
 a managed runtime, you can specify it using the `runtime-version` keyword in the [App Runner configuration file](config-file.md "config-file.md"). You
 can lock to any level of version, including a major or minor version. App Runner only makes lower-level updates to the runtime of your service.
 
-## End of support for managed runtime
-
-versions
+## End of support for managed runtime versions
 
 When the official provider or community of a managed language runtime officially declares
 a version to be End of Life (EOL), App Runner follows by declaring the version status to be
@@ -203,9 +197,7 @@ following actions:
   deploy it using App Runner’s [Image-based service](service-source-image.md "service-source-image.md") option. You can host your image in
   Amazon ECR.
 
-## Managed runtime versions and the App Runner
-
-build
+## Managed runtime versions and the App Runner build
 
 App Runner offers an updated build process for applications that run on the more recent major
 version runtimes. This revised build process is faster and more efficient. It also creates a
@@ -247,8 +239,7 @@ current runtimes.
 ###### Note
 
 Some of the listed runtimes include an **End of Support**
-date. For more information, see [End of support for managed runtime
-versions](#service-source-code.managed-platforms.eos "#service-source-code.managed-platforms.eos").
+date. For more information, see [End of support for managed runtime versions](#service-source-code.managed-platforms.eos "#service-source-code.managed-platforms.eos").
 
 ###### Important
 
@@ -257,9 +248,7 @@ for the build configuration of services that use the Python 3.11 managed runtime
 information, see [Callouts for specific runtime versions](service-source-code-python.md#service-source-code-python.callouts "service-source-code-python.md#service-source-code-python.callouts") in the _Python
 platform_ topic.
 
-### More about the App Runner builds and
-
-migration
+### More about the App Runner builds and migration
 
 When you migrate your application to a newer runtime that uses the revised build,
 you may need to slightly modify your build configuration.
@@ -382,9 +371,7 @@ only reference the `env` variables defined in the Build section of the
 configuration file. For more information, see [Run section](config-file-ref.md#config-file-ref.run "config-file-ref.md#config-file-ref.run") in the _App Runner configuration file
 chapter_.
 
-#### Service requirements for
-
-migration consideration
+#### Service requirements for migration consideration
 
 If your application environment has either of these two requirements, then you'll need
 to revise your build configuration, by adding `pre-run` commands.

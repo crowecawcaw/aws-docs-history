@@ -16,10 +16,10 @@ _AWS PrivateLink Guide_.
 
 By default, the web application in your App Runner service runs in a VPC that App Runner provides and configures. This VPC is public. It means that
 it's connected to the internet. You can optionally associate your
-application with a custom VPC. For more information, see [Enabling VPC access for outgoing traffic](network-vpc.md "network-vpc.md") .
+application with a custom VPC. For more information, see [Enabling VPC access for outgoing traffic](network-vpc.md "network-vpc.md").
 
 You can configure your services to access the internet, including AWS
-APIs, even when your service is connected to a VPC. For instructions on how to enable public internet access for VPC outbound traffic, see [Considerations when selecting a subnet](network-vpc.md#network-vpc.considerations-subnet "network-vpc.md#network-vpc.considerations-subnet") .
+APIs, even when your service is connected to a VPC. For instructions on how to enable public internet access for VPC outbound traffic, see [Considerations when selecting a subnet](network-vpc.md#network-vpc.considerations-subnet "network-vpc.md#network-vpc.considerations-subnet").
 
 App Runner doesn't support creating a VPC endpoint for your application.
 

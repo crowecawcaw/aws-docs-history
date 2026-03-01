@@ -180,8 +180,7 @@ run:
   after copying your application from the build image to the run image. You can enter commands here to the modify the run image outside the
   `/app` directory. For example, if you need to install additional global dependencies that reside outside of the
   `/app` directory, enter the required commands in this sub-section to do so. For more information about the App Runner build process,
-  see [Managed runtime versions and the App Runner
-  build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail").
+  see [Managed runtime versions and the App Runner build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail").
 
 ###### Note
 
@@ -190,8 +189,7 @@ run:
      cannot reference the environment variables defined in this Run section.
     + The `pre-run` parameter is only supported by the revised App Runner build.
     Do not insert this parameter in your configuration file if your application uses runtime versions that are supported by the
-    original App Runner build. For more information, see [Managed runtime versions and the App Runner
-     build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail").
+    original App Runner build. For more information, see [Managed runtime versions and the App Runner build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail").
 
 Syntax
 

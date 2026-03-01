@@ -3,8 +3,7 @@
 ###### Important
 
 App Runner will end the support for **Python 3.7** and **Python 3.8**
-on December 1, 2025. For recommendations and more information, see [End of support for managed runtime
-versions](service-source-code.md#service-source-code.managed-platforms.eos "service-source-code.md#service-source-code.managed-platforms.eos").
+on December 1, 2025. For recommendations and more information, see [End of support for managed runtime versions](service-source-code.md#service-source-code.managed-platforms.eos "service-source-code.md#service-source-code.managed-platforms.eos").
 
 The AWS App Runner Python platform provides managed runtimes. Each runtime makes it easy to build and run containers with web applications based on a Python
 version. When you use a Python runtime, App Runner starts with a managed Python runtime image. This image is based on the [Amazon Linux Docker image](https://hub.docker.com/_/amazonlinux "https://hub.docker.com/_/amazonlinux") and contains the runtime package for a version of Python and some tools and popular
@@ -57,8 +56,7 @@ settings directly when it's created or from a configuration file.
 ###### Note
 
 App Runner now runs an updated build process for applications based on the following runtime versions: Python 3.11, Node.js 22, and Node.js 18. If your application
-runs on either one of these runtime versions, see [Managed runtime versions and the App Runner
-build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail") for more
+runs on either one of these runtime versions, see [Managed runtime versions and the App Runner build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail") for more
 information about the revised build process. Applications that use all other runtime versions are not affected, and they continue to use the original build
 process.
 
@@ -106,8 +104,7 @@ The runtime version that's used in these examples is `3.7.7` and `3.11`. You can
 version you want to use. For latest supported Python runtime version, see [Python runtime release information](service-source-code-python-releases.md "service-source-code-python-releases.md").
 
 This example shows a minimal configuration file that you can use with a Python managed runtime. For the assumptions that App Runner makes with a minimal
-configuration file, see [Configuration file
-examples](config-file-examples.md#config-file-examples.managed "config-file-examples.md#config-file-examples.managed").
+configuration file, see [Configuration file examples](config-file-examples.md#config-file-examples.managed "config-file-examples.md#config-file-examples.managed").
 
 Python 3.11 uses the `pip3` and `python3` commands. For more information, see the [example of an extended configuration file for Python 3.11](#service-source-code-python.examples.extended-v2 "#service-source-code-python.examples.extended-v2") later in this
 topic.
@@ -178,8 +175,7 @@ example include a `pre-run` section, since this version of Python uses the revis
 
 The `pre-run` parameter is only supported by the revised App Runner build.
 Do not insert this parameter in your configuration file if your application uses runtime versions that are supported by the
-original App Runner build. For more information, see [Managed runtime versions and the App Runner
-build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail").
+original App Runner build. For more information, see [Managed runtime versions and the App Runner build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail").
 
 ###### Note
 
