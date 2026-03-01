@@ -1,6 +1,4 @@
-# Downloading a monthly cost allocation
-
-report
+# Downloading a monthly cost allocation report
 
 ###### Important
 

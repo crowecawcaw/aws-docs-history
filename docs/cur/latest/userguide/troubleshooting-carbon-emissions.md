@@ -1,36 +1,22 @@
-# Troubleshooting carbon emissions data
-
-exports
+# Troubleshooting carbon emissions data exports
 
 ###### Topics
 
-- [Why can't I create an export of the Carbon
-  emissions table even though I have IAM permissions to use Data Exports and the CUR 2.0 table?](#carbon-emissions-permissions "#carbon-emissions-permissions")
-- [Why can't I see carbon emissions data for some member
-  accounts in my organization?](#carbon-emissions-data "#carbon-emissions-data")
-- [Why is one of the files in my S3 bucket
-  empty?](#carbon-emissions-empty-file "#carbon-emissions-empty-file")
-- [Why does my S3 export show zero carbon emissions
-  for some Regions and services when there is usage data?](#carbon-emissions-show-zero "#carbon-emissions-show-zero")
-- [Is historical data backfill
-  available in Data Exports for carbon emissions?](#carbon-emissions-historical-data-backfill "#carbon-emissions-historical-data-backfill")
-- [Why can't I see historical data in my S3
-  bucket?](#carbon-emissions-historical-data "#carbon-emissions-historical-data")
-- [I changed the settings of my report; can I
-  backfill the data with the new settings?](#carbon-emissions-data-backfill "#carbon-emissions-data-backfill")
-- [Why don't I see the newly released columns in my
-  export?](#carbon-emissions-new-columns "#carbon-emissions-new-columns")
+- [Why can't I create an export of the Carbon emissions table even though I have IAM permissions to use Data Exports and the CUR 2.0 table?](#carbon-emissions-permissions "#carbon-emissions-permissions")
+- [Why can't I see carbon emissions data for some member accounts in my organization?](#carbon-emissions-data "#carbon-emissions-data")
+- [Why is one of the files in my S3 bucket empty?](#carbon-emissions-empty-file "#carbon-emissions-empty-file")
+- [Why does my S3 export show zero carbon emissions for some Regions and services when there is usage data?](#carbon-emissions-show-zero "#carbon-emissions-show-zero")
+- [Is historical data backfill available in Data Exports for carbon emissions?](#carbon-emissions-historical-data-backfill "#carbon-emissions-historical-data-backfill")
+- [How can I backfill data after changing my report settings or when a new methodology is released?](#carbon-emissions-backfill-request "#carbon-emissions-backfill-request")
+- [Why can't I see historical data in my S3 bucket?](#carbon-emissions-historical-data "#carbon-emissions-historical-data")
+- [Why don't I see the newly released columns in my export?](#carbon-emissions-new-columns "#carbon-emissions-new-columns")
 
-## Why can't I create an export of the Carbon
-
-emissions table even though I have IAM permissions to use Data Exports and the CUR 2.0 table?
+## Why can't I create an export of the Carbon emissions table even though I have IAM permissions to use Data Exports and the CUR 2.0 table?
 
 To access data in the Customer Carbon Footprint Tool or the Carbon emissions table, you
 need the IAM permission `sustainability:GetCarbonFootprintSummary`.
 
-## Why can't I see carbon emissions data for some member
-
-accounts in my organization?
+## Why can't I see carbon emissions data for some member accounts in my organization?
 
 If you're using a management (payer) account, you should automatically see carbon emissions
 data for your management account and all member (usage) accounts in the Carbon emissions table.
@@ -44,38 +30,37 @@ a new member account in January, its data first appears in the February export.
 Similarly, when a member account leaves the organization, its data continues to appear
 until the export period when it was removed.
 
-## Why is one of the files in my S3 bucket
-
-empty?
+## Why is one of the files in my S3 bucket empty?
 
 If your account doesn't have carbon emissions data for a given month, you'll receive a file
 in your S3 bucket for the given carbon model version and usage period, but the file will be
 empty.
 
-## Why does my S3 export show zero carbon emissions
-
-for some Regions and services when there is usage data?
+## Why does my S3 export show zero carbon emissions for some Regions and services when there is usage data?
 
 If your total carbon emissions show as zero, it means they are lower than 0.0000005 MTCO2e,
 which is our display threshold.
 
-## Is historical data backfill
-
-available in Data Exports for carbon emissions?
+## Is historical data backfill available in Data Exports for carbon emissions?
 
 Yes, upon creating an export you will receive data going back up to January 2022 with the
 first delivery and one month of data each month thereafter. If your account was created after
 January 2022, you’ll receive carbon emissions estimates from your account creation date
 onward.
 
-###### Note
+If you have an existing data export, you can request a backfill. See how in the question below.
 
-You cannot request a backfill by opening a support case. The only way to get historical
-data is to create a new data export.
+## How can I backfill data after changing my report settings or when a new methodology is released?
 
-## Why can't I see historical data in my S3
+Open a support case to request a backfill of your carbon data. In your support case, make sure to provide the report name and the start date for your backfill. For more information on opening a case, see [Getting help with your exports and reports](billing-get-answers.md "billing-get-answers.md").
 
-bucket?
+Note that you can't get a backfill of carbon data for the following scenarios:
+
+- You can't get a backfill for carbon data from before the date that you created the account.
+- If you use AWS Organizations and the structure of your organization changed, such as which account is designated the management account, then you can't get a backfill of data with the previous organization structure.
+- If you use AWS Organizations and you change organizations, then you can't get a backfill of data from prior to joining your current organization
+
+## Why can't I see historical data in my S3 bucket?
 
 Your S3 bucket might be missing historical data for any of the following reasons:
 
@@ -96,15 +81,7 @@ Your S3 bucket might be missing historical data for any of the following reasons
   export. If you believe the backfill has failed, try creating a new export. If it fails a
   second time, we recommend reaching out to AWS Support.
 
-## I changed the settings of my report; can I
-
-backfill the data with the new settings?
-
-No, backfilling data is not currently supported.
-
-## Why don't I see the newly released columns in my
-
-export?
+## Why don't I see the newly released columns in my export?
 
 Existing exports continue with their original configuration and monthly updates until
 updated. To add new columns to an existing export, you must update your export configuration for

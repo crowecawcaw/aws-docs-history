@@ -10,9 +10,7 @@ example, see [Amazon EC2 On-Demand
 Pricing](https://aws.amazon.com/ec2/pricing/on-demand/ "https://aws.amazon.com/ec2/pricing/on-demand/") for detailed pricing information about Amazon EC2 data
 transfer.
 
-## Data transfer within an AWS
-
-Region
+## Data transfer within an AWS Region
 
 Data transfer between Availability Zones in the same AWS Region have a
 **UsageType** of
@@ -26,9 +24,7 @@ see two `DataTransfer-Regional-Bytes` line items for each data transfer.
 Confirm the service's pricing page for more information, because some services have
 in-Region traffic at no cost.
 
-## Data transfer between AWS
-
-Regions
+## Data transfer between AWS Regions
 
 Data transfer between different AWS Regions can have the following usage
 types:
@@ -62,9 +58,7 @@ line item and a `USE2-APS3-AWS-Out-Bytes` line item. The
 data transfer charge is associated with the `USE2-APS3-AWS-Out-Bytes`
 line item.
 
-## Data transfer out to the
-
-internet
+## Data transfer out to the internet
 
 Data transfer from AWS to the internet have a **UsageType** of
 ``Region`-DataTransfer-Out-Bytes`. For
@@ -89,9 +83,7 @@ Direct Connect data transfer over a private or transit virtual interface have us
 types that end with `DataXfer-In:dc.3` or
 `DataXfer-Out:dc.3`.
 
-## S3 Transfer Acceleration
-
-traffic
+## S3 Transfer Acceleration traffic
 
 Amazon S3 data transfer using S3 Transfer Acceleration have usage types that contain
 `ABytes`:

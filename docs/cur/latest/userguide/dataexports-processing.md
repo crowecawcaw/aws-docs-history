@@ -53,9 +53,7 @@ Redshift.
 For information on setting up Redshift, see the _[Amazon Redshift
 Getting Started Guide](../../../redshift/latest/gsg/new-user-serverless.md "../../../redshift/latest/gsg/new-user-serverless.md")_.
 
-## Recommended SQL queries for processing
-
-CUR 2.0
+## Recommended SQL queries for processing CUR 2.0
 
 After loading your CUR 2.0 export data into a data analytics tool such as Amazon Athena or
 Amazon Redshift, you can process it in order to gain cost and usage insights. AWS
@@ -73,9 +71,7 @@ Note the following two pieces of information about SQL queries:
   [Data
   query–SQL query and table configurations](dataexports-data-query.md "dataexports-data-query.md").
 
-## Recommended SQL queries for processing carbon
-
-emissions data exports
+## Recommended SQL queries for processing carbon emissions data exports
 
 To get the total carbon emissions per payer_account_id:
 

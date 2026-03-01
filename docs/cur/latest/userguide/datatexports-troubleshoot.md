@@ -10,5 +10,4 @@ resolve common problems quickly and efficiently.
 - [Troubleshooting CUR 2.0](troubleshooting-cur-2-0.md "troubleshooting-cur-2-0.md")
 - [Troubleshooting the cost and usage dashboard](troubleshooting-dashboard.md "troubleshooting-dashboard.md")
 - [Troubleshooting Cost and Usage Reports](troubleshooting-cur.md "troubleshooting-cur.md")
-- [Troubleshooting carbon emissions data
-  exports](troubleshooting-carbon-emissions.md "troubleshooting-carbon-emissions.md")
+- [Troubleshooting carbon emissions data exports](troubleshooting-carbon-emissions.md "troubleshooting-carbon-emissions.md")

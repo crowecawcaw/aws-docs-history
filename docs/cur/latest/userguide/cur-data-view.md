@@ -47,7 +47,7 @@ The legacy AWS Cost and Usage Report page supports reports only for billing grou
 16. For **Report path prefix**, enter the report path prefix that
     you want prepended to the name of your report.
 
-This step is optional for Amazon Redshift or Quick Suite, but required for Amazon Athena. If you don't specify a prefix, the default prefix is the name that you specified for the report in step 7, and the date range for the report in the following format: `/report-name/date-range/` 17. For **Time granularity**, choose one of the following:
+This step is optional for Amazon Redshift or Quick, but required for Amazon Athena. If you don't specify a prefix, the default prefix is the name that you specified for the report in step 7, and the date range for the report in the following format: `/report-name/date-range/` 17. For **Time granularity**, choose one of the following:
 
     * **Hourly** if you want the line items in the report to be aggregated by the hour.
     * **Daily** if you want the line items in the report to be
@@ -58,11 +58,11 @@ This step is optional for Amazon Redshift or Quick Suite, but required for Amazo
     delivered in addition to the previous versions.
 
 Overwriting reports can save on Amazon S3 storage costs. Delivering new report versions can improve auditability of billing data over time. 19. For **Report data integration**, choose whether you want to upload your
-Cost and Usage Reports to Amazon Athena, Amazon Redshift, or Quick Suite. The report is compressed in the following
+Cost and Usage Reports to Amazon Athena, Amazon Redshift, or Quick. The report is compressed in the following
 formats:
 
     * **Athena**: parquet format
-    * **Amazon Redshift or Quick Suite**: .gz compression
+    * **Amazon Redshift or Quick**: .gz compression
 
 20. Choose **Next**.
 21. After you have reviewed the settings for your report, choose **Review

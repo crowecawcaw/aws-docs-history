@@ -62,11 +62,11 @@ following:
 
 Overwriting reports can save on Amazon S3 storage costs. Delivering new report versions can
 improve auditability of billing data over time. 15. For **Report data integration**, select whether you want to enable
-your Cost and Usage Reports to integrate with Amazon Athena, Amazon Redshift, or Quick Suite. The report is compressed in
+your Cost and Usage Reports to integrate with Amazon Athena, Amazon Redshift, or Quick. The report is compressed in
 the following formats:
 
     * **Athena**: parquet format
-    * **Amazon Redshift or Quick Suite**: .gz compression
+    * **Amazon Redshift or Quick**: .gz compression
 
 16. Choose **Next**.
 17. After you have reviewed the settings for your report, choose **Review and

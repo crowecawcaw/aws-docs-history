@@ -1,6 +1,4 @@
-# Understanding split cost allocation
-
-data
+# Understanding split cost allocation data
 
 You can use Cost and Usage Reports (AWS CUR) to track your Amazon ECS and Amazon EKS container costs.
 Using split cost allocation data, you can allocate your container costs to individual

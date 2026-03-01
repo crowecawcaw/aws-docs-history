@@ -1,6 +1,4 @@
-# Capacity reservation
-
-columns
+# Capacity reservation columns
 
 Capacity reservation columns contain data about capacity reservations that apply to the line item.
 

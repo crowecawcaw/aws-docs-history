@@ -23,5 +23,4 @@ the next month, AWS creates a new report file instead of overwriting the final r
 from the previous month. Reports for previous months remain in your S3 bucket until you
 delete them.
 
-For information on how to migrate your DBR to AWS CUR, see [Migrating from Detailed Billing Reports to
-Cost and Usage Reports](detailed-billing-migrate.md "detailed-billing-migrate.md").
+For information on how to migrate your DBR to AWS CUR, see [Migrating from Detailed Billing Reports to Cost and Usage Reports](detailed-billing-migrate.md "detailed-billing-migrate.md").

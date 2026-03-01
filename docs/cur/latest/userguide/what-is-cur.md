@@ -24,7 +24,7 @@ finalized.
 
 Your report files consist of a .csv file or a collection of .csv files and a manifest
 file. You can choose to configure your report data for integration with Amazon Athena, Amazon Redshift,
-or Quick Suite.
+or Quick.
 
 ## Report timeline
 
@@ -91,9 +91,9 @@ To learn more about the columns in your report, see the [Data dictionary](data-d
 ## Using your report
 
 You can download your report from the Amazon S3 console, query the report using Amazon Athena, or
-upload the report into Amazon Redshift or Quick Suite.
+upload the report into Amazon Redshift or Quick.
 
 - For more information about creating an Amazon S3 bucket and using Athena to query your data,
   see [Querying Cost and Usage Reports using Amazon Athena](cur-query-athena.md "cur-query-athena.md").
 - For more information about uploading to Amazon Redshift, see [Loading report data to Amazon Redshift](cur-query-other.md#cur-query-other-rs "cur-query-other.md#cur-query-other-rs").
-- For more information about uploading to Quick Suite, see [Loading report data to Amazon Quick Suite](cur-query-other.md#cur-query-other-qs "cur-query-other.md#cur-query-other-qs").
+- For more information about uploading to Quick, see [Loading report data to Amazon Quick](cur-query-other.md#cur-query-other-qs "cur-query-other.md#cur-query-other-qs").

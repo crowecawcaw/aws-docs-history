@@ -1,6 +1,4 @@
-# FOCUS 1.2 with AWS
-
-columns conformance gaps
+# FOCUS 1.2 with AWS columns conformance gaps
 
 The following table provides all of the conformance gaps that might exist in an export of
 the FOCUS 1.2 with AWS columns table. A particular conformance gap will not apply

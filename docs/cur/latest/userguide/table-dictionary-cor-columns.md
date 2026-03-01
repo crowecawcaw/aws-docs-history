@@ -1,6 +1,4 @@
-# Cost optimization recommendations
-
-columns
+# Cost optimization recommendations columns
 
 | Column name                                  | Description                                                                                                                                                    | Data type | Null value allowed |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |

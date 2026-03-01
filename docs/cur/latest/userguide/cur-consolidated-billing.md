@@ -32,9 +32,7 @@ When a member account leaves an organization or converts into a standalone accou
 member account can still access the previous reports as long as they have permissions to the
 Amazon S3 bucket where the previous reports are stored.
 
-## Managing Cost and Usage Reports as a management
-
-account
+## Managing Cost and Usage Reports as a management account
 
 If you’re an administrator of an AWS Organizations management account and you don’t want member
 accounts to create a report, you can apply a service control policy (SCP) that prevents

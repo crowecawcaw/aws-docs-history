@@ -1,6 +1,4 @@
-# Setting up an Amazon S3 bucket for data
-
-exports
+# Setting up an Amazon S3 bucket for data exports
 
 You must have an Amazon S3 bucket in your AWS account to receive and store your data
 exports. When creating an export in the console, you can select an existing S3 bucket that you

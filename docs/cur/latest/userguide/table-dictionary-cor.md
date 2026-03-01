@@ -1,6 +1,4 @@
-# Cost optimization recommendations (from Cost
-
-Optimization Hub)
+# Cost optimization recommendations (from Cost Optimization Hub)
 
 The cost optimization recommendations table contains your cost optimization
 recommendations from Cost Optimization Hub. Cost Optimization Hub recommendations are

@@ -1,6 +1,4 @@
-# Migrating from Detailed Billing Reports to
-
-Cost and Usage Reports
+# Migrating from Detailed Billing Reports to Cost and Usage Reports
 
 Detailed Billing Reports (DBR) and AWS Cost and Usage Reports (AWS CUR) both provide information about
 your charges. However, if you're using DBR, we recommend you transfer your report to
@@ -8,16 +6,11 @@ Cost and Usage Reports.
 
 ###### Topics
 
-- [Comparing benefits of the Cost and Usage Reports
-  (AWS CUR)](#migrate-benefit-cur "#migrate-benefit-cur")
-- [Key differences between Detailed Billing Reports and
-  Cost and Usage Reports](#migrate-key "#migrate-key")
-- [Reporting on advanced charge
-  types](#reporting-advanced-chargetype "#reporting-advanced-chargetype")
+- [Comparing benefits of the Cost and Usage Reports (AWS CUR)](#migrate-benefit-cur "#migrate-benefit-cur")
+- [Key differences between Detailed Billing Reports and Cost and Usage Reports](#migrate-key "#migrate-key")
+- [Reporting on advanced charge types](#reporting-advanced-chargetype "#reporting-advanced-chargetype")
 
-## Comparing benefits of the Cost and Usage Reports
-
-(AWS CUR)
+## Comparing benefits of the Cost and Usage Reports (AWS CUR)
 
 AWS CUR provides the most comprehensive source of information. You can use AWS CUR to
 understand individual costs in depth, and to analyze them in greater detail. This is
@@ -26,9 +19,7 @@ management needs and require dedicated query or analytic-based systems. AWS CUR 
 provides detailed information about Reserved Instances (RI), including amortized
 costs.
 
-### Comprehensive reservation
-
-information
+### Comprehensive reservation information
 
 Reserved Instances (RI), or reservations, offer a discounted hourly rate
 compared to On-Demand usage in exchange for committing to a one- or three-year
@@ -43,8 +34,7 @@ required to transform the required columns.
 
 AWS CUR provides additional columns that are not available in DBR, such as
 information regarding your amortized reservation costs. For more information,
-see [Understanding your amortized reservation
-data](amortized-reservation.md "amortized-reservation.md").
+see [Understanding your amortized reservation data](amortized-reservation.md "amortized-reservation.md").
 
 ### On-Demand pricing availability
 
@@ -91,15 +81,13 @@ available.
 
 ### Cross-product integration
 
-AWS CUR is integrated with Amazon Redshift, Quick Suite, and Amazon Athena. You can use AWS CUR to
+AWS CUR is integrated with Amazon Redshift, Quick, and Amazon Athena. You can use AWS CUR to
 build an AWS-based cost management solution. AWS CUR also provides data in
 Parquet format. This provides you with more options for building out your own
 cost and usage reporting system. For more information, see [AWS Cost and Usage Reports Manifest Files](../../../awsaccountbilling/latest/aboutv2/billing-reports-costusage-files.md#manifests "../../../awsaccountbilling/latest/aboutv2/billing-reports-costusage-files.md#manifests") in the
 _AWS Billing User Guide_.
 
-## Key differences between Detailed Billing Reports and
-
-Cost and Usage Reports
+## Key differences between Detailed Billing Reports and Cost and Usage Reports
 
 There are a few differences between DBR and AWS CUR to consider after you migrate to
 AWS CUR. For example, you might need to adjust how you ingest the data into your
@@ -164,9 +152,7 @@ bill/BillType.
 | Discount                                         | SELECT SUM(line_item_unblended_cost) FROM [CUR] WHERE<br>line_item_line_item_type = 'Discount'                        | You can use discount line items to identify all of your<br>discount-related line items.                 |
 | Rounding                                         | Not yet supported                                                                                                     | Not yet supported                                                                                       |
 
-## Reporting on advanced charge
-
-types
+## Reporting on advanced charge types
 
 ### Refunds
 
@@ -192,9 +178,7 @@ AWS CUR: Taxes are identified by filtering for the
 DBR: Taxes are identified by checking the ItemDescription column for the
 `‘Tax’` substring.
 
-### Identifying reservation-related
-
-upfront costs
+### Identifying reservation-related upfront costs
 
 AWS CUR: Reservation-related upfront costs are identified by filtering for the
 `"lineItem/LineItemType" = 'Fee'` string.
@@ -203,9 +187,7 @@ DBR: Reservation-related upfront costs are identified by checking the
 UsageType column for the `'HeavyUsage'` substring, and whether the
 `'SubscriptionId'` is null.
 
-### Identifying reservation-related
-
-monthly fees
+### Identifying reservation-related monthly fees
 
 AWS CUR: Reservation-related monthly fees are identified by filtering for the
 `"lineItem/LineItemType" = 'RIfee'` string.
@@ -213,9 +195,7 @@ AWS CUR: Reservation-related monthly fees are identified by filtering for the
 DBR: Reservation-related monthly fees are identified by checking the UsageType
 column for the `'HeavyUsage'` substring.
 
-### Identifying instances that received
-
-reserved instance benefits
+### Identifying instances that received reserved instance benefits
 
 AWS CUR: Reservation-related upfront fees are identified by filtering for the
 `"lineItem/LineItemType" = 'DiscountedUsage'` string.

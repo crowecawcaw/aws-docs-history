@@ -34,8 +34,7 @@ actual refresh rate may be different due to various factors.
 
 ###### Topics
 
-- [Setting up an Amazon S3 bucket for data
-  exports](dataexports-s3-bucket.md "dataexports-s3-bucket.md")
+- [Setting up an Amazon S3 bucket for data exports](dataexports-s3-bucket.md "dataexports-s3-bucket.md")
 - [Creating a standard export](dataexports-create-standard.md "dataexports-create-standard.md")
 - [Creating a cost and usage dashboard](dataexports-create-dashboard.md "dataexports-create-dashboard.md")
 - [Creating a Legacy CUR export](dataexports-create-legacy.md "dataexports-create-legacy.md")

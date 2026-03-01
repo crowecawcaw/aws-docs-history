@@ -1,6 +1,4 @@
-# Split line item
-
-columns
+# Split line item columns
 
 Columns under the **split_line_item** header are
 fields that appear in Data Exports if you've opted in to the split cost allocation

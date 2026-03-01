@@ -1,6 +1,4 @@
-# Example of split cost allocation
-
-data for accelerated instances
+# Example of split cost allocation data for accelerated instances
 
 The purpose of the following example is to show you how split cost allocation data
 is calculated by computing the cost of Kubernetes namespace and pods in Amazon EKS

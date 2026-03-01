@@ -6,7 +6,7 @@ existing report version with every update.
 
 Your report files include a .csv file or a collection of .csv files and the manifest file.
 Your report can also include any additional files that support your data’s integration with
-Amazon Athena, Amazon Redshift, or Quick Suite.
+Amazon Athena, Amazon Redshift, or Quick.
 
 The following sections describe the file organization and naming conventions based on the
 report versioning that you choose.
@@ -115,7 +115,7 @@ tables. For more information, see [Querying Cost and Usage Reports using Amazon 
 ## Cost and Usage Reports manifest files
 
 When AWS updates AWS CUR, AWS also creates and delivers manifest files that you can
-use for Amazon Athena, Amazon Redshift, or Quick Suite.
+use for Amazon Athena, Amazon Redshift, or Quick.
 
 Manifest files use the naming conventions, and lists the following:
 

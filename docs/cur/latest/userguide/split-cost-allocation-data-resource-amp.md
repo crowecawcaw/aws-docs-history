@@ -1,6 +1,4 @@
-# Using split cost
-
-allocation data with Amazon Managed Service for Prometheus
+# Using split cost allocation data with Amazon Managed Service for Prometheus
 
 Splitting the cost data for Amazon EKS requires that you collect and store metrics from
 your clusters, including memory and CPU usage. Amazon Managed Service for Prometheus
@@ -73,9 +71,7 @@ different availability zones) for use in later steps.
 You will need the `Amazon Managed Service for Prometheus
  workspace ARN` for use in later steps.
 
-## Forwarding EKS metrics to
-
-Amazon Managed Service for Prometheus
+## Forwarding EKS metrics to Amazon Managed Service for Prometheus
 
 Once you have an EKS cluster and an Amazon Managed Service for Prometheus
 instance, you can forward the metrics from the cluster to the instance. You can
@@ -89,9 +85,7 @@ send metrics in two ways.
   agent.](split-cost-allocation-data-resource-amp.md#create-prometheus-agent "split-cost-allocation-data-resource-amp.md#create-prometheus-agent") In this case, you have more control over the scraping
   configuration, but you must manage the agent after creating it.
 
-### Option 1: Using an AWS managed
-
-collector
+### Option 1: Using an AWS managed collector
 
 Using an AWS managed collector (a _scraper_) is the simplest way to send metrics from an EKS
 cluster to an Amazon Managed Service for Prometheus instance. The following
@@ -241,9 +235,7 @@ Output:
 }
 ```
 
-### Option 2: Creating your own
-
-Prometheus agent
+### Option 2: Creating your own Prometheus agent
 
 If you can’t use the AWS managed collector, or already have your own
 Prometheus server, you can use your own Prometheus instance as an agent to
@@ -324,16 +316,12 @@ Once you have set up your Prometheus agent, unlike AWS managed
 collectors, you are responsible for keeping the agent up to date and
 running to collect metrics.
 
-## Estimating your Amazon Managed
-
-Service for Prometheus costs
+## Estimating your Amazon Managed Service for Prometheus costs
 
 You can use AWS Pricing Calculator to estimate the cost of using Amazon
 Managed Service for Prometheus for split cost allocation data.
 
-###### To configure Amazon Managed Service for Prometheus for your
-
-estimate
+###### To configure Amazon Managed Service for Prometheus for your estimate
 
 1. Open AWS Pricing Calculator at [https://calculator.aws/#/](https://calculator.aws/#/ "https://calculator.aws/#/").
 2. Choose **Create estimate**.

@@ -1,6 +1,4 @@
-# Enabling split cost allocation
-
-data
+# Enabling split cost allocation data
 
 ###### Note
 

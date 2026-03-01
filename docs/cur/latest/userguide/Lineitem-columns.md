@@ -167,21 +167,20 @@ according to a normalization factor, based on the instance size. The following
 table shows the normalization factor that AWS applies to each instance
 size.
 
-Normalization factors for Amazon EC2
-size-flexible RIs| Instance size | Normalization factor |
-| --- | --- |
-| `nano` | 0.25 |
-| `micro` | 0.5 |
-| `small` | 1 |
-| `medium` | 2 |
-| `large` | 4 |
-| `xlarge` | 8 |
-| `2xlarge` | 16 |
-| `4xlarge` | 32 |
-| `8xlarge` | 64 |
-| `10xlarge` | 80 |
-| `16xlarge` | 128 |
-| `32xlarge` | 256 |
+| Normalization factors for Amazon EC2 size-flexible RIs | Instance size | Normalization factor |
+| ------------------------------------------------------ | ------------- | -------------------- |
+| `nano`                                                 | 0.25          |
+| `micro`                                                | 0.5           |
+| `small`                                                | 1             |
+| `medium`                                               | 2             |
+| `large`                                                | 4             |
+| `xlarge`                                               | 8             |
+| `2xlarge`                                              | 16            |
+| `4xlarge`                                              | 32            |
+| `8xlarge`                                              | 64            |
+| `10xlarge`                                             | 80            |
+| `16xlarge`                                             | 128           |
+| `32xlarge`                                             | 256           |
 
 ### lineItem/NormalizedUsageAmount
 

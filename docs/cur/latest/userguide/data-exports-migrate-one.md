@@ -1,6 +1,4 @@
-# Method one: Create an export with an SQL query
-
-using the CUR schema
+# Method one: Create an export with an SQL query using the CUR schema
 
 You can create an export with an SQL query. The export schema matches what you receive
 today in CUR. You do this using the AWS API or SDK.

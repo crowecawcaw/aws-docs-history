@@ -1,6 +1,4 @@
-# Monitoring your On-Demand capacity
-
-reservations
+# Monitoring your On-Demand capacity reservations
 
 Capacity reservations enable you to reserve capacity for your Amazon EC2 instances for
 any duration in a specific Availability Zone. This enables you to create and manage
@@ -8,9 +6,7 @@ capacity reservations separately from the billing discounts offered by Regional
 Reserved Instances (RI). To benefit from billing discounts, you can use Regional RIs
 in combination with capacity reservations.
 
-## Capacity reservation line
-
-items
+## Capacity reservation line items
 
 You can use some columns defined in the AWS CUR data dictionary to track your
 capacity reservations. The following columns are also used for capacity

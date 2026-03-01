@@ -1,6 +1,4 @@
-# Using split cost allocation
-
-data with Amazon CloudWatch Container Insights
+# Using split cost allocation data with Amazon CloudWatch Container Insights
 
 Splitting the cost data for Amazon EKS requires that you collect and store metrics from
 your clusters, including memory and CPU usage. Amazon CloudWatch Container Insights can be
@@ -30,9 +28,7 @@ allocation data:
   new one. For more information, see [Create an Amazon EKS cluster](../../../eks/latest/userguide/create-cluster.md "../../../eks/latest/userguide/create-cluster.md") in the _Amazon EKS User
   Guide_.
 
-## Setting up Amazon CloudWatch Container
-
-Insights to forward EKS metrics
+## Setting up Amazon CloudWatch Container Insights to forward EKS metrics
 
 You need to set up and configure the CloudWatch agent in order to forward EKS
 metrics. You can use either the [Amazon CloudWatch Observability EKS add-on or the Amazon CloudWatch
@@ -47,9 +43,7 @@ add-on:
 - CloudWatch agent version: v1.300045.0
 - CloudWatch Observability EKS add-on version: v2.0.1-eksbuild.1
 
-## Estimating your Amazon CloudWatch
-
-costs
+## Estimating your Amazon CloudWatch costs
 
 Enabling the feature to use Amazon CloudWatch Container Insights with split cost
 allocation data adds two new metrics to Amazon CloudWatch Container Insights:

@@ -1,6 +1,4 @@
-# Understanding the carbon emissions data
-
-export
+# Understanding the carbon emissions data export
 
 You can use the carbon emissions data export to get carbon emissions estimates from the
 Customer Carbon Footprint Tool for all usage accounts linked to your payer account. For more

@@ -1,6 +1,4 @@
-# Understanding your amortized reservation
-
-data
+# Understanding your amortized reservation data
 
 Amortizing is when you distribute one-time reservation costs across the billing
 period that is affected by that cost. Amortizing enables you to see your costs in
@@ -14,8 +12,7 @@ following Cost and Usage Reports columns.
 ###### Topics
 
 - [Reserved Instance inventory](#ri-inventory "#ri-inventory")
-- [Amortization data for the billing
-  period](#amortization-billing-period "#amortization-billing-period")
+- [Amortization data for the billing period](#amortization-billing-period "#amortization-billing-period")
 - [Reserved Instance effective costs](#ri-effective-costs "#ri-effective-costs")
 
 ###### Note
@@ -44,9 +41,7 @@ For more information about column descriptions and sample values, see [Reservati
 - reservation/endTime
 - reservation/modificationStatus
 
-## Amortization data for the billing
-
-period
+## Amortization data for the billing period
 
 You can use the following columns to understand the amortized costs of your
 RIs for the billing period. The values for these columns appear only for RI

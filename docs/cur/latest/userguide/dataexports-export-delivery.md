@@ -11,9 +11,7 @@ In the following sections, you'll find information about your export delivery.
 - **Export data file names and chunks:** How the export
   files (gzip/csv or Parquet) are named.
 
-## Export S3 parent directory
-
-structure
+## Export S3 parent directory structure
 
 Each export delivers the data from the query to S3 (as one or more gzip/csv or Parquet
 files) and a `Manifest.json` metadata file containing information about the

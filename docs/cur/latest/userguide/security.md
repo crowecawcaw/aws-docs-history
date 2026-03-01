@@ -26,6 +26,5 @@ resources.
 
 ###### Topics
 
-- [Identity and access management for Data
-  Exports](bcm-data-exports-access.md "bcm-data-exports-access.md")
+- [Identity and access management for Data Exports](bcm-data-exports-access.md "bcm-data-exports-access.md")
 - [Data protection in Data Exports](data-protection.md "data-protection.md")

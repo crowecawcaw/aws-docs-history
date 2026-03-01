@@ -1,6 +1,4 @@
-# Using Kubernetes
-
-labels for cost allocation in EKS
+# Using Kubernetes labels for cost allocation in EKS
 
 Split cost allocation data supports Kubernetes labels as cost allocation tags for
 Amazon EKS clusters. While these labels are automatically imported as user-defined cost
@@ -30,9 +28,7 @@ data:
 - You must have labels assigned to your pods in the EKS cluster. For
   more information on how to create labels in Kubernetes, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ "https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/") in the _Kubernetes Documentation_.
 
-## Working with Kubernetes labels in
-
-EKS
+## Working with Kubernetes labels in EKS
 
 Split cost allocation data supports up to 50 Kubernetes labels per pod, which
 are sorted alphabetically before being imported as cost allocation tags. Any
@@ -68,9 +64,7 @@ take up to 24 hours for the tag keys to appear on your cost allocation tags
 page. Once you activate the tags, it can take an additional 24 hours for
 them to become active.
 
-## Managing Kubernetes labels and cost
-
-allocation tags
+## Managing Kubernetes labels and cost allocation tags
 
 You can add, delete, and edit Kubernetes labels in EKS, as well as deactivate
 the associated cost allocation tags. The following describes the expected
@@ -104,9 +98,7 @@ You can deactivate any cost allocation tag created from Kubernetes labels.
 Once deactivated, data will no longer populate in the respective columns, and
 the column will be deleted from the next month’s CUR.
 
-## Best practices for managing
-
-Kubernetes labels for cost allocation
+## Best practices for managing Kubernetes labels for cost allocation
 
 Kubernetes labels provide significant flexibility in shared cost allocation
 modeling. To maximize the potential of this capability, we recommend following

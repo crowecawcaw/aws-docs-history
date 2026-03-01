@@ -1,6 +1,4 @@
-# Example of split cost
-
-allocation data
+# Example of split cost allocation data
 
 The purpose of the following example is to show you how split cost allocation data
 is calculated by computing the cost of individual Amazon ECS services, tasks in Amazon ECS
@@ -23,9 +21,7 @@ You have the following usage in a single hour:
   a 9:1 ratio. This is derived from per vCPU per hour and per GB per hour prices in
   [AWS Fargate](https://aws.amazon.com/fargate/pricing/ "https://aws.amazon.com/fargate/pricing/").
 
-## Step 1: Compute the unit cost for CPU and
-
-memory
+## Step 1: Compute the unit cost for CPU and memory
 
 `Unit-cost-per-resource = Hourly-instance-cost/((Memory-weight *
  Memory-available) + (CPU-weight * CPU-available))`
@@ -44,9 +40,7 @@ memory
 | --------- | ------------- | -------------- | ---------------- | ----------------------- | ------------------ | ---------------- |
 | Instance1 | m5.xlarge     | 4              | 16               | $1                      | $0.17              | $0.02            |
 
-## Step 2: Compute the allocated capacity and
-
-instance unused capacity
+## Step 2: Compute the allocated capacity and instance unused capacity
 
 - Allocated capacity: The memory and vCPU allocated to the Kubernetes pod from
   the parent EC2 instance, defined as the maximum of used and reserved
@@ -119,9 +113,7 @@ if Instance-unused-memory is 0)
 | Unused   | Unused     | 0                      |                   | 0.125                    |                     |
 |          |            | 1                      |                   | 1                        |                     |
 
-## Step 4: Compute the split cost and unused
-
-costs
+## Step 4: Compute the split cost and unused costs
 
 - Split cost: The pay per use cost allocation of the EC2 instance cost
   based on allocated CPU and memory usage by the Kubernetes pod.

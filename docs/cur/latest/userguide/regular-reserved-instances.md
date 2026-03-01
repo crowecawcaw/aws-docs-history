@@ -1,6 +1,4 @@
-# Understanding your reservation line
-
-items
+# Understanding your reservation line items
 
 RIs provide you a significant discount compared to On-Demand Instance pricing. RIs
 aren't physical instances. They're a billing discount applied to the use of
@@ -14,8 +12,7 @@ attributes to benefit from the billing discount.
 - [Recurring monthly RI fee](#recurring-monthly "#recurring-monthly")
 - [RI discount benefits](#discount-benefits "#discount-benefits")
 - [Reserved Instance type](#ri-type "#ri-type")
-- [Reserved Instance benefits applied to
-  instance usage](#ri-instance-usage "#ri-instance-usage")
+- [Reserved Instance benefits applied to instance usage](#ri-instance-usage "#ri-instance-usage")
 
 ###### Note
 
@@ -164,9 +161,7 @@ Reserved Instance, review the
 For zonal Reserved Instances, this column shows the corresponding Availability
 Zone. For regional Reserved Instances, this column is empty.
 
-## Reserved Instance benefits applied to
-
-instance usage
+## Reserved Instance benefits applied to instance usage
 
 To understand which instance usage line items benefitted from which Reserved
 Instances, you can filter your report by one or more of the following

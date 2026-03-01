@@ -36,9 +36,7 @@ corresponds to the dates the carbon emissions were generated. This structure ena
 you to differentiate between data with the old and new models by viewing the
 partition names.
 
-## AWS Organizations
-
-support
+## AWS Organizations support
 
 The Carbon emissions table inherits the settings you made in the consolidated
 billing feature in AWS Organizations. When consolidated billing is enabled, there

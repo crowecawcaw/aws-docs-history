@@ -9,5 +9,4 @@ Instance (RI) utilization, charges, and allocations.
 - [Understanding Savings Plans](cur-sp.md "cur-sp.md")
 - [Understanding your reservations](understanding-ri.md "understanding-ri.md")
 - [Understanding data transfer charges](cur-data-transfers-charges.md "cur-data-transfers-charges.md")
-- [Understanding split cost allocation
-  data](split-cost-allocation-data.md "split-cost-allocation-data.md")
+- [Understanding split cost allocation data](split-cost-allocation-data.md "split-cost-allocation-data.md")

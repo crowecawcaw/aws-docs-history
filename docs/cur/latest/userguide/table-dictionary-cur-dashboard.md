@@ -11,9 +11,7 @@ or schema of a table before it's queried in Data Exports.
 The Cost and Usage Dashboard does not have any modifiable table
 configurations.
 
-## AWS Organizations
-
-support
+## AWS Organizations support
 
 The cost and usage dashboard table is generated from CUR 2.0 data, which means
 that it inherits the same AWS Organizations settings that apply to CUR 2.0 and the

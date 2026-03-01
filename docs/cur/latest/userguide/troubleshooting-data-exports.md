@@ -3,10 +3,8 @@
 ###### Topics
 
 - [Why is my export unhealthy?](#dataexports-unhealthy-export "#dataexports-unhealthy-export")
-- [Why is my SQL statement not being accepted by
-  Data Exports?](#dataexports-sql-statement "#dataexports-sql-statement")
-- [Why can't I locate a predefined SQL script for
-  configuring Athena within Data Exports?](#dataexports-sql-script "#dataexports-sql-script")
+- [Why is my SQL statement not being accepted by Data Exports?](#dataexports-sql-statement "#dataexports-sql-statement")
+- [Why can't I locate a predefined SQL script for configuring Athena within Data Exports?](#dataexports-sql-script "#dataexports-sql-script")
 - [Why is one of my export partitions empty?](#dataexports-empty-partition "#dataexports-empty-partition")
 - [Why are there no report files in the Amazon S3 bucket?](#cur-no-report-files "#cur-no-report-files")
 
@@ -60,17 +58,13 @@ your cursor over the “unhealthy” message or by calling the `GetExport` API.
     use a dashboard again. After recreating your QuickSight account, you should delete your
     existing cost and usage dashboard export in Data Exports and recreate it.
 
-## Why is my SQL statement not being accepted by
-
-Data Exports?
+## Why is my SQL statement not being accepted by Data Exports?
 
 Data Exports supports a limited set of SQL syntax that is mainly focused on column selections and
 row filters. Make sure your SQL statement is using only the relevant keywords and operators. For
 full details, see [Data query](dataexports-data-query.md "dataexports-data-query.md").
 
-## Why can't I locate a predefined SQL script for
-
-configuring Athena within Data Exports?
+## Why can't I locate a predefined SQL script for configuring Athena within Data Exports?
 
 Unlike Cost and Usage Reports (CUR), Data Exports doesn't offer an SQL file for setting up Athena to query
 your exports. You'll need to either use a CloudFormation template for Data Exports or manually configure

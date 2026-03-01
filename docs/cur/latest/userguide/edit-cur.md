@@ -56,9 +56,9 @@ following:
     you want each version of the report to overwrite the previous version of the report, or to
     be delivered in addition to the previous versions.
 13. For **Report data integration**, select whether you want to enable
-    your AWS CUR to integrate with Amazon Athena, Amazon Redshift, or Quick Suite. The report is compressed in the
+    your AWS CUR to integrate with Amazon Athena, Amazon Redshift, or Quick. The report is compressed in the
     following formats:
     - **Athena**: Parquet format
-    - **Amazon Redshift or Quick Suite**: .gz compression
+    - **Amazon Redshift or Quick**: .gz compression
 
 14. Choose **Save**.
