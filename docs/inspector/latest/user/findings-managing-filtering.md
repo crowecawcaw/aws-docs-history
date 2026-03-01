@@ -4,9 +4,7 @@ You can filter your Amazon Inspector findings using filter criteria.
 If a finding doesn't match your filter criteria, Amazon Inspector excludes the finding from view.
 This section describes how to filter your Amazon Inspector findings using filter criteria.
 
-## Creating filters in the Amazon Inspector
-
-console
+## Creating filters in the Amazon Inspector console
 
 In each findings view, you can use the filter functionality to locate findings
 with specific characteristics. Filters are removed when you move to a different

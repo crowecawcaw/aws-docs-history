@@ -6,15 +6,13 @@ Complete the tasks in the following topics to sign up for an AWS account, create
 
 ###### Note
 
-If you already signed up for an AWS account, you can skip to [Configure an IAM role for CI/CD
-integration](#cicd-iam-role "#cicd-iam-role").
+If you already signed up for an AWS account, you can skip to [Configure an IAM role for CI/CD integration](#cicd-iam-role "#cicd-iam-role").
 
 ###### Topics
 
 - [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
-- [Configure an IAM role for CI/CD
-  integration](#cicd-iam-role "#cicd-iam-role")
+- [Configure an IAM role for CI/CD integration](#cicd-iam-role "#cicd-iam-role")
 
 ## Sign up for an AWS account
 
@@ -74,9 +72,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Configure an IAM role for CI/CD
-
-integration
+## Configure an IAM role for CI/CD integration
 
 To integrate Amazon Inspector scanning into your CI/CD pipeline you need to create an IAM
 policy that allows access to the Amazon Inspector Scan API that scans the software bill of

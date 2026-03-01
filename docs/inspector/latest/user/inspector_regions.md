@@ -91,9 +91,7 @@ For example, if you are authenticated in `us-west-2`, you would use the endpoint
 | AWS GovCloud (US-East)    | us-gov-east-1  | inspector-scan.us-gov-east-1.amazonaws.com<br>inspector-scan-fips.us-gov-east-1.amazonaws.com | HTTPS<br>HTTPS |
 | AWS GovCloud (US-West)    | us-gov-west-1  | inspector-scan.us-gov-west-1.amazonaws.com<br>inspector-scan-fips.us-gov-west-1.amazonaws.com | HTTPS<br>HTTPS |
 
-## Region-specific feature
-
-availability
+## Region-specific feature availability
 
 This section describes the availability of Amazon Inspector features by
 AWS Region.

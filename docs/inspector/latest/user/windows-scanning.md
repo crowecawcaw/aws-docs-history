@@ -19,9 +19,7 @@ The Amazon S3 bucket contains OVAL definitions used in scans.
 These OVAL definitions shouldn't be modified.
 Otherwise, Amazon Inspector won't scan for new CVEs when they release.
 
-## Amazon Inspector scan requirements for Windows
-
-instances
+## Amazon Inspector scan requirements for Windows instances
 
 To scan a Windows instance, Amazon Inspector requires the instance to meet the following
 criteria:
@@ -46,9 +44,7 @@ the OVAL definitions used to evaluate your instance. This bucket has the
 following the format:
 `inspector2-oval-prod-`REGION``.
 
-## Setting custom schedules for Windows
-
-instance scans
+## Setting custom schedules for Windows instance scans
 
 You can customize the time between your Windows Amazon EC2 instance scans by setting
 a cron expression or rate expression for the

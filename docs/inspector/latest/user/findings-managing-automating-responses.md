@@ -104,9 +104,7 @@ schema of other finding types and event types, see [Amazon EventBridge event sch
 
 ```
 
-## Creating an EventBridge rule to notify
-
-you of Amazon Inspector findings
+## Creating an EventBridge rule to notify you of Amazon Inspector findings
 
 To increase the visibility of Amazon Inspector findings, you can use EventBridge to set up automated
 finding alerts that are sent to a messaging hub. This topic shows you how to send alerts
@@ -114,9 +112,7 @@ for `CRITICAL` and `HIGH` severity findings to email, Slack, or
 Amazon Chime. You'll learn how to set up an Amazon Simple Notification Service topic and then connect that topic to an
 EventBridge event rule.
 
-### Step 1. Set up an Amazon SNS
-
-topic and endpoint
+### Step 1. Set up an Amazon SNS topic and endpoint
 
 To set up automatic alerts, you must first set up a topic in Amazon Simple Notification Service and add an
 endpoint. For more information, refer to the [SNS guide](../../../sns/latest/dg/sns-getting-started.md "../../../sns/latest/dg/sns-getting-started.md").
@@ -255,9 +251,7 @@ Amazon Chime setup
    notifications to the Amazon Chime room.
 10. Select **Configure**.
 
-### Step 2. Create
-
-an EventBridge rule for Amazon Inspector findings
+### Step 2. Create an EventBridge rule for Amazon Inspector findings
 
 1. Sign in using your credentials.
 2. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
@@ -292,9 +286,7 @@ pattern. 8. On the **Select targets** page, choose
 type**, choose **SNS topic**. 9. For **Topic**, select the name of the SNS topic you
 created in step 1. Then choose **Next**. 10. Add optional tags if needed and choose **Next**. 11. Review your rule and then choose **Create rule**.
 
-## EventBridge for Amazon Inspector multi-account
-
-environments
+## EventBridge for Amazon Inspector multi-account environments
 
 If you're an Amazon Inspector delegated administrator, EventBridge rules appear on your account based on
 applicable findings from your member accounts. If you set up findings notifications

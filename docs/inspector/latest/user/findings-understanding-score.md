@@ -24,9 +24,7 @@ You can find the source and version of a CVSS base score in the vulnerability de
 The Amazon Inspector score is not available for Linux instances running Ubuntu.
 Ubuntu uses a custom severity rating system that differs from CVSS scores.
 
-### Amazon Inspector score
-
-details
+### Amazon Inspector score details
 
 When you open the details page of a finding you can select the
 **Inspector score and vulnerability intelligence** Tab.

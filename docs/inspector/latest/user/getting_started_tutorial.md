@@ -40,8 +40,7 @@ Without the service-linked Amazon Inspector roles of management account and dele
 ###### To enable Amazon Inspector using AWS Organizations policies
 
 1. Designate a delegated administrator for Amazon Inspector before creating organization policies to ensure member accounts are associated with the Amazon Inspector organization for centralized findings visibility.
-   Sign in to the AWS Organizations management account, open the Amazon Inspector console at [https://console.aws.amazon.com/inspector/v2/home](https://console.aws.amazon.com/inspector/v2/home "https://console.aws.amazon.com/inspector/v2/home"), and follow the steps in [Designating a delegated administrator for
-   your AWS organization](designating-admin.md#delegated-admin-proc "designating-admin.md#delegated-admin-proc").
+   Sign in to the AWS Organizations management account, open the Amazon Inspector console at [https://console.aws.amazon.com/inspector/v2/home](https://console.aws.amazon.com/inspector/v2/home "https://console.aws.amazon.com/inspector/v2/home"), and follow the steps in [Designating a delegated administrator for your AWS organization](designating-admin.md#delegated-admin-proc "designating-admin.md#delegated-admin-proc").
 
 ###### Note
 

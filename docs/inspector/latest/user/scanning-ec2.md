@@ -179,8 +179,7 @@ association interval.
 This is an SSM association Amazon Inspector uses for scanning Windows
 instances. This association allows Amazon Inspector to initiate scans using
 the plugin, you can also use it to set custom intervals for
-scans of Windows instances. For more information, see [Setting custom schedules for Windows
-instance scans](windows-scanning.md#windows-scan-schedule "windows-scanning.md#windows-scan-schedule").
+scans of Windows instances. For more information, see [Setting custom schedules for Windows instance scans](windows-scanning.md#windows-scan-schedule "windows-scanning.md#windows-scan-schedule").
 
 `InspectorLinuxDistributor-do-not-delete`
 

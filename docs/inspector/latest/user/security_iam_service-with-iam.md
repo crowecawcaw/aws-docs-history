@@ -21,9 +21,7 @@ To get a high-level view of how Amazon Inspector and other AWS services work wit
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Amazon Inspector
+## Identity-based policies for Amazon Inspector
 
 **Supports identity-based policies:**
 
@@ -42,12 +40,9 @@ _IAM User Guide_.
 
 ### Identity-based policy examples for Amazon Inspector
 
-To view examples of Amazon Inspector identity-based policies, see [Identity-based policy
-examples for Amazon Inspector](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Inspector identity-based policies, see [Identity-based policy examples for Amazon Inspector](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based
-
-policies within Amazon Inspector
+## Resource-based policies within Amazon Inspector
 
 **Supports resource-based policies:**
 
@@ -63,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Amazon Inspector
+## Policy actions for Amazon Inspector
 
 **Supports policy actions:**
 
@@ -95,12 +88,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of Amazon Inspector identity-based policies, see [Identity-based policy
-examples for Amazon Inspector](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Inspector identity-based policies, see [Identity-based policy examples for Amazon Inspector](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Amazon Inspector
+## Policy resources for Amazon Inspector
 
 **Supports policy resources:**
 
@@ -120,12 +110,9 @@ To see a list of Amazon Inspector resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by Amazon Inspector](../../../service-authorization/latest/reference/list_amazoninspector2.md#amazoninspector2-actions-as-permissions "../../../service-authorization/latest/reference/list_amazoninspector2.md#amazoninspector2-actions-as-permissions").
 
-To view examples of Amazon Inspector identity-based policies, see [Identity-based policy
-examples for Amazon Inspector](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Inspector identity-based policies, see [Identity-based policy examples for Amazon Inspector](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Amazon Inspector
+## Policy condition keys for Amazon Inspector
 
 **Supports service-specific policy condition keys:**
 
@@ -144,8 +131,7 @@ To see a list of Amazon Inspector condition keys, see [Condition keys for Amazon
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by Amazon Inspector](../../../service-authorization/latest/reference/list_amazoninspector2.md#amazoninspector2-actions-as-permissions "../../../service-authorization/latest/reference/list_amazoninspector2.md#amazoninspector2-actions-as-permissions").
 
-To view examples of Amazon Inspector identity-based policies, see [Identity-based policy
-examples for Amazon Inspector](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Inspector identity-based policies, see [Identity-based policy examples for Amazon Inspector](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Amazon Inspector
 
@@ -173,9 +159,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Amazon Inspector
+## Using temporary credentials with Amazon Inspector
 
 **Supports temporary credentials:**
 
@@ -187,9 +171,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Amazon Inspector
+## Cross-service principal permissions for Amazon Inspector
 
 **Supports forward access sessions (FAS):**
 
@@ -198,9 +180,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon Inspector
+## Service roles for Amazon Inspector
 
 **Supports service roles:**
 

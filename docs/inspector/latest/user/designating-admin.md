@@ -66,9 +66,7 @@ For more information, see [Managing IAM policies](../../../IAM/latest/UserGuide/
 
 ```
 
-## Designating a delegated administrator for
-
-your AWS organization
+## Designating a delegated administrator for your AWS organization
 
 The following procedure describes how to designate a delegated administrator for your organization.
 Before you complete the procedure, make sure you are in the same organization as the member accounts you want the delegated administrator to manage.

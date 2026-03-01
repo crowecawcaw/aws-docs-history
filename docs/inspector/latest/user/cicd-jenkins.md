@@ -157,9 +157,7 @@ pipeline {
 }
 ```
 
-######
-
-To manually download the SBOMGen declarative pipeline
+###### To manually download the SBOMGen declarative pipeline
 
 - To add Amazon Inspector Scan to a build, use the following example syntax.
   Replace `SBOMGEN_PATH` with the path to the Amazon Inspector SBOM Generator you installed in step 3, `IMAGE_PATH` with the path to your image (such as `alpine:latest`), `IAM_ROLE` with the ARN of the IAM role you configured in step 1, and `ID` with your Docker credential ID if you are using a private repository.

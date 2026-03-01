@@ -65,7 +65,7 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | ----------------------------------- | --------------- | -------------------------------------- | ---------------------- | ------------------------ |
 | AlmaLinux                           | 8               | Errata CVE                             | Yes                    | Yes                      |
 | AlmaLinux                           | 9               | Errata CVE                             | Yes                    | Yes                      |
-| AlmaLinux                           | 10              | Errata CVE                             | Yes                    | Yes                      |
+| AlmaLinux                           | 10              | Errata CVE                             | No                     | Yes                      |
 | Amazon Linux (AL2)                  | AL2             | ALAS Errata CVE                        | Yes                    | Yes                      |
 | Amazon Linux 2023 (AL2023)          | AL2023          | ALAS Errata CVE                        | Yes                    | Yes                      |
 | Bottlerocket                        | 1.7.0 and later | Errata CVE                             | No                     | Yes                      |
@@ -76,13 +76,13 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | OpenSUSE Leap                       | 15.6            | Errata CVE                             | Yes                    | Yes                      |
 | Oracle Linux (Oracle)               | 8               | Errata CVE                             | Yes                    | Yes                      |
 | Oracle Linux (Oracle)               | 9               | Errata CVE                             | Yes                    | Yes                      |
-| Oracle Linux (Oracle)               | 10              | Errata CVE                             | Yes                    | Yes                      |
+| Oracle Linux (Oracle)               | 10              | Errata CVE                             | No                     | Yes                      |
 | Red Hat Enterprise Linux (RHEL)     | 8               | RHEL VEX CVE                           | Yes                    | Yes                      |
 | Red Hat Enterprise Linux (RHEL)     | 9               | RHEL VEX CVE                           | Yes                    | Yes                      |
-| Red Hat Enterprise Linux (RHEL)     | 10              | RHEL VEX CVE                           | Yes                    | Yes                      |
+| Red Hat Enterprise Linux (RHEL)     | 10              | RHEL VEX CVE                           | No                     | Yes                      |
 | Rocky Linux                         | 8               | Errata CVE                             | Yes                    | Yes                      |
 | Rocky Linux                         | 9               | Errata CVE                             | Yes                    | Yes                      |
-| Rocky Linux                         | 10              | Errata CVE                             | Yes                    | Yes                      |
+| Rocky Linux                         | 10              | Errata CVE                             | No                     | Yes                      |
 | SUSE Linux Enterprise Server (SLES) | 15.7            | SUSE CVE                               | Yes                    | Yes                      |
 | Ubuntu (Xenial)                     | 16.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Bionic)                     | 18.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
@@ -306,9 +306,7 @@ As a result, Amazon Inspector can stop generating findings for known CVEs.
 | Windows Server                      | 2012    | October 10, 2023  |
 | Windows Server                      | 2012 R2 | October 10, 2023  |
 
-##
-
-Supported programming languages
+## Supported programming languages
 
 This section lists the programming languages Amazon Inspector supports.
 

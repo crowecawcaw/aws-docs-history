@@ -24,12 +24,9 @@ The following topics describe the information each of these tabs provide.
 ###### Topics
 
 - [Assessing account-level coverage](#viewing-coverage-accounts "#viewing-coverage-accounts")
-- [Assessing coverage of Amazon EC2
-  instances](#viewing-coverage-instances "#viewing-coverage-instances")
-- [Assessing coverage of Amazon ECR
-  repositories](#viewing-coverage-repositories "#viewing-coverage-repositories")
-- [Assessing coverage of Amazon ECR container
-  images](#viewing-coverage-images "#viewing-coverage-images")
+- [Assessing coverage of Amazon EC2 instances](#viewing-coverage-instances "#viewing-coverage-instances")
+- [Assessing coverage of Amazon ECR repositories](#viewing-coverage-repositories "#viewing-coverage-repositories")
+- [Assessing coverage of Amazon ECR container images](#viewing-coverage-images "#viewing-coverage-images")
 - [Assessing coverage of AWS Lambda functions](#viewing-coverage-lambdas "#viewing-coverage-lambdas")
 
 ## Assessing account-level coverage
@@ -49,9 +46,7 @@ administrator, you can use this tab to change the automatic activation settings 
 organization. You can also activate or deactivate specific types of resource scanning for
 individual member accounts. For more information, see [Activating Amazon Inspector scans for member accounts](adding-member-accounts.md "adding-member-accounts.md").
 
-## Assessing coverage of Amazon EC2
-
-instances
+## Assessing coverage of Amazon EC2 instances
 
 The **Instances** tab shows Amazon EC2 instances in your AWS
 environment. The lists are organized into groups on the following tabs:
@@ -180,9 +175,7 @@ to continuously monitor and scan the instance.
 
 For details about configuring the scanning settings for an EC2 instance, see [Amazon EC2 instance scanning](scanning-ec2.md "scanning-ec2.md").
 
-## Assessing coverage of Amazon ECR
-
-repositories
+## Assessing coverage of Amazon ECR repositories
 
 The **Repositories** tab shows Amazon ECR repositories in your AWS
 environment. The lists are organized into groups on the following tabs:
@@ -248,9 +241,7 @@ scan images continuously or only when a new image is pushed.
 
 For details about configuring the scanning settings for repositories [Amazon ECR container image scanning](scanning-ecr.md "scanning-ecr.md").
 
-## Assessing coverage of Amazon ECR container
-
-images
+## Assessing coverage of Amazon ECR container images
 
 The **Images** tab shows Amazon ECR container images in your AWS
 environment. The lists are organized into groups on the following tabs:
@@ -287,9 +278,7 @@ the image and current findings for the image. To review the details of a finding
 the link in the **Title** column. For information about these details,
 see [Viewing details for your Amazon Inspector findings](findings-understanding-details.md "findings-understanding-details.md").
 
-### Scanning status values for Amazon ECR container
-
-images
+### Scanning status values for Amazon ECR container images
 
 For an Amazon Elastic Container Registry container image, the possible
 **Status** values are:

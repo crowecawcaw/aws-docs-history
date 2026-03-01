@@ -25,12 +25,9 @@ If you want to view your suppressed or closed findings, you must specify `SUPPRE
 ###### Tasks
 
 - [Step 1: Verify your permissions](#findings-managing-exporting-permissions "#findings-managing-exporting-permissions")
-- [Step 2: Configure an S3
-  bucket](#findings-managing-exporting-bucket-perms "#findings-managing-exporting-bucket-perms")
-- [Step 3: Configure an
-  AWS KMS key](#findings-managing-exporting-KMS "#findings-managing-exporting-KMS")
-- [Step 4: Configure and export a
-  findings report](#findings-managing-exporting-console "#findings-managing-exporting-console")
+- [Step 2: Configure an S3 bucket](#findings-managing-exporting-bucket-perms "#findings-managing-exporting-bucket-perms")
+- [Step 3: Configure an AWS KMS key](#findings-managing-exporting-KMS "#findings-managing-exporting-KMS")
+- [Step 4: Configure and export a findings report](#findings-managing-exporting-console "#findings-managing-exporting-console")
 - [Troubleshoot
   errors](#findings-managing-access-error "#findings-managing-access-error")
 
@@ -117,9 +114,7 @@ can then choose one of these buckets to store the report.
 If you're not allowed to perform one or more of the required actions, ask your AWS
 administrator for assistance before you proceed to the next step.
 
-## Step 2: Configure an S3
-
-bucket
+## Step 2: Configure an S3 bucket
 
 After you verify your permissions, you're ready to configure the S3 bucket where you
 want to store your findings report. It can be an existing bucket for your own account,
@@ -266,9 +261,7 @@ Both conditions help prevent Amazon Inspector from being used as a [confused dep
 recommend it, you can remove these conditions from the bucket policy. 9. When you finish updating the bucket policy, choose **Save
 changes**.
 
-## Step 3: Configure an
-
-AWS KMS key
+## Step 3: Configure an AWS KMS key
 
 After you verify your permissions and configure the S3 bucket, determine which
 AWS KMS key you want Amazon Inspector to use to encrypt your findings report. The key must be a
@@ -404,9 +397,7 @@ These conditions help prevent Amazon Inspector from being used as a [confused de
 recommend it, you can remove these conditions from the statement. 8. When you finish updating the key policy, choose **Save
 changes**.
 
-## Step 4: Configure and export a
-
-findings report
+## Step 4: Configure and export a findings report
 
 ###### Note
 

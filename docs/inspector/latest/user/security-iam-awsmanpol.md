@@ -137,9 +137,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AmazonInspector2ManagedTelemetryPolicy](../../../aws-managed-policy/latest/reference/AmazonInspector2ManagedTelemetryPolicy.md "../../../aws-managed-policy/latest/reference/AmazonInspector2ManagedTelemetryPolicy.md") in the _AWS Managed Policy Reference
 Guide_.
 
-## Amazon Inspector updates to AWS managed
-
-policies
+## Amazon Inspector updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Inspector since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

@@ -1,6 +1,4 @@
-# Logging Amazon Inspector API calls using
-
-AWS CloudTrail
+# Logging Amazon Inspector API calls using AWS CloudTrail
 
 Amazon Inspector is integrated with AWS CloudTrail, a service that provides a record of actions
 taken by an IAM user or role, or an AWS service, in Amazon Inspector. CloudTrail captures all API
@@ -18,9 +16,7 @@ you can determine:
   To
   learn more about CloudTrail, see the _[AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md")_.
 
-## Amazon Inspector information in
-
-CloudTrail
+## Amazon Inspector information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When activity
 occurs in Amazon Inspector, that activity is recorded in a CloudTrail event along with other
@@ -61,9 +57,7 @@ identity information helps you determine the following:
 
 For more information, see the [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding Amazon Inspector log
-
-file entries
+## Understanding Amazon Inspector log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event

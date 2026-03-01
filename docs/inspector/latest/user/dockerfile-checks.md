@@ -130,9 +130,7 @@ The severity rating for this check is **High**.
 
 The following are best practices for using Debian APT utilities.
 
-######
-
-Combining `apt-get` commands in a single `Run` statement to avoid caching issues
+###### Combining `apt-get` commands in a single `Run` statement to avoid caching issues
 
 We recommend combining `apt-get` commands in a single RUN statement inside of your Docker container.
 Using `apt-get update` by itself results in caching issues and subsequent `apt-get install` instructions to fail.

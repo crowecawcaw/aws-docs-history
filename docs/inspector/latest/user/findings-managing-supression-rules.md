@@ -17,9 +17,7 @@ The procedures in this section describe how to create, view, edit, and delete a 
 
 Only the delegated administrator for an organization can create and manage suppression rules.
 
-## Creating a suppression
-
-rule
+## Creating a suppression rule
 
 You can create suppression rules to filter the list of findings that are shown by
 default. You can create a suppression rule programmatically by using the [CreateFilter](../../v2/APIReference/API_CreateFilter.md "../../v2/APIReference/API_CreateFilter.md") API and specifying `SUPPRESS` as the value for `action`.
@@ -45,9 +43,7 @@ Only stand alone accounts and Amazon Inspector delegated administrators can crea
    applies the new suppression rule and hides any findings that match the
    criteria.
 
-## Viewing suppressed
-
-findings
+## Viewing suppressed findings
 
 By default, Amazon Inspector does not display suppressed findings in the Amazon Inspector console.
 However, you can view the findings suppressed by a particular rule.
@@ -70,9 +66,7 @@ You can make changes to suppression rules at any time.
 3. Choose the name of the suppression rule that you want to change, and then choose **Edit**.
 4. Make your intended changes, and then choose **Save**.
 
-## Deleting a suppression
-
-rule
+## Deleting a suppression rule
 
 You can delete suppression rules. If you delete a suppression rule, Amazon
 Inspector stops suppressing new and existing occurrences of findings that meet the

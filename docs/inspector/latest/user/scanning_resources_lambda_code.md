@@ -24,8 +24,7 @@ For more information, see the [Responsible AI Policy](https://aws.amazon.com/mac
 
 If you want to activate Lambda code scanning, you must activate Lambda standard scanning first.
 For more information, see [Activating a scan type](activate-scans.md "activate-scans.md").
-For information about which AWS Regions support this feature, see [Region-specific feature
-availability](inspector_regions.md#ins-regional-feature-availability "inspector_regions.md#ins-regional-feature-availability").
+For information about which AWS Regions support this feature, see [Region-specific feature availability](inspector_regions.md#ins-regional-feature-availability "inspector_regions.md#ins-regional-feature-availability").
 
 ## Encrypting your code in code vulnerability findings
 

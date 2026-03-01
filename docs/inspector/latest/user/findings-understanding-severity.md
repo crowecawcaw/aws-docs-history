@@ -44,17 +44,13 @@ vectors as part of their finding details:
 - CVSS 3.1 from NVD
 - CVSS 2.0 from NVD (where applicable)
 
-## Code vulnerability
-
-severity
+## Code vulnerability severity
 
 For code vulnerability findings Amazon Inspector uses the severity levels defined by the
 Amazon Q detectors that generated the finding. Each detector is assigned a
 severity using the CVSS v3 scoring system. ?
 
-## Network reachability
-
-severity
+## Network reachability severity
 
 Amazon Inspector determines the severity for a network reachability vulnerability based on
 the service, ports, and protocols that are exposed and by the type of open path. The
