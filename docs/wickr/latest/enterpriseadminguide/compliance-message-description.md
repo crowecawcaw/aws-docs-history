@@ -1,9 +1,7 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr
 Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# Appendix A: Compliance message
-
-description
+# Appendix A: Compliance message description
 
 The following table contains a list of JSON fields that will be found in the messages that
 the compliance bot streams to the received messages file.

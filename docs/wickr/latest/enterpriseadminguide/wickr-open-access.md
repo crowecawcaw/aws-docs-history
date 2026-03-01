@@ -17,9 +17,7 @@ security group.
 Enterprise deployments planning to use Wickr Open Access must turn on
 **Enable TCP Proxy** using the KOTS Admin Console.
 
-## Wickr Open Access (WOA) through
-
-deeplink
+## Wickr Open Access (WOA) through deeplink
 
 Wickr Open Access can be enforced for initial client setup through deeplink
 configuration. WOA must be force enabled in the user's security group for this capability

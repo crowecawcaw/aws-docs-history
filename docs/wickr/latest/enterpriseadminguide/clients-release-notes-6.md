@@ -1,80 +1,66 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr
 Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# Clients 6.32 release
+# Clients 6.52 release
 
-The following release notes include information for clients release 6.32. For information on
-the release timeline, see [Change log](#clients-release-notes-6.32-change-log "#clients-release-notes-6.32-change-log").
+The following release notes include information for clients release 6.52. For information on
+the release timeline, see [Change log](#clients-release-notes-6.52-change-log "#clients-release-notes-6.52-change-log").
 
 **Platform versions**
 
-|                        |        |
-| ---------------------- | ------ |
-| Android                | 6.32.3 |
-| iOS                    | 6.32.9 |
-| Desktop (Mac, Windows) | 6.32.5 |
-| Linux                  | 6.32.5 |
+|                        |         |
+| ---------------------- | ------- |
+| Android                | 6.52.7  |
+| iOS                    | 6.52.15 |
+| Desktop (Mac, Windows) | 6.52.9  |
+| Linux                  | 6.52.9  |
 
 **Android**
 
-New features:
+Changes, enhancements, and resolved issues:
 
-- Added a floating action button (FAB) that allows users to cycle through messages in chat
-  that failed to send.
-- Added media upload options under a new "Performance" settings menu to control image
-  compression when uploading media depending on your internet connection.
-  Changes, enhancements, and resolved issues:
-
-Fixed crash caused by mutable typing indicator fields
-
-Improvements:
-
-- Video media preview are now in line with messages and can be played from the
-  preview
-- Added a preview for new rich text formatting options, which can be found under Settings >
-  Appearance
+- Wickr Open Access (WOA) performance and stability improvements.
+- General enhancements and bug fixes.
   **iOS**
 
-New features:
+Improvements:
 
-- Added a floating action button (FAB) that allows users to cycle through messages in chat
-  that failed to send
-- Added media upload options under a new "Performance" settings menu to control image
-  compression when uploading media depending on your internet connection.
-  Changes, enhancements, and resolved issues:
-
-Fixed bug where sent attachments or locations would not display in a chat, but would still
-be received
+- Wickr Open Access (WOA) performance and stability improvements.
+- General enhancements and bug fixes.
+  **Desktop**
 
 Improvements:
 
-- Video media preview are now in line with messages and can be played from the
-  preview
-- Added a preview for new rich text formatting options, which can be found under Settings >
-  Appearance
-  **Desktop**
+- Wickr Open Access (WOA) performance and stability improvements.
+- **New User Experience Preview** is turned ON by default.
+- General enhancements and bug fixes.
 
-New features:
+###### Note
 
-Added a floating action button (FAB) that allows users to cycle through messages in chat
-that failed to send
+Starting with the next client release (6.54), Wickr will discontinue updates and support
+for the macOS client when running version 11 (Big Sur). It's recommended that you upgrade to
+version 12 (Monterey) or above.
+
+## Clients 6.52 (Hotfix) release
+
+**Platform versions**
+
+|         |        |
+| ------- | ------ |
+| Android | 6.52.8 |
+
+**Android**
 
 Changes, enhancements, and resolved issues:
 
-Mitigate potential OAuth server poisoning
-
-Improvements:
-
-- Added a preview for new messaging UI, including rich text formatting options, which can be
-  found under Settings > Appearance
-- Filetype allowlist introduced for in-client previews. All filetypes are still allowed to
-  download.
+- Wickr Open Access (WOA) performance and stability improvements.
+- General enhancements and bug fixes.
 
 ## Change log
 
-**Change log for 6.32 release and release notes**
+**Change log for 6.52 release and release notes**
 
-| Change          | Description                                                    | Date              |
-| --------------- | -------------------------------------------------------------- | ----------------- |
-| Clients update  | Updates to address vulnerability scan results and new features | February 13, 2024 |
-| Initial release | Initial release of February release notes                      | February 5, 2024  |
+| Change                                          | Description                            | Date           |
+| ----------------------------------------------- | -------------------------------------- | -------------- |
+| Android version 6.52.7 > Android version 6.52.8 | Performance and stability improvement  | April 30, 2025 |
+| Initial release                                 | Initial release of April release notes | April 10, 2025 |
