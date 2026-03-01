@@ -13,8 +13,7 @@ You can use Unified Navigation to:
 ###### Topics
 
 - [Accessing the Services menu in the AWS Management Console](service-menu.md "service-menu.md")
-- [Searching for products, services, features, and
-  more using Unified Search in the AWS Management Console](using-search.md "using-search.md")
+- [Searching for products, services, features, and more using Unified Search in the AWS Management Console](using-search.md "using-search.md")
 - [Launching AWS CloudShell from the navigation bar in the AWS Management Console](launch-cloudshell.md "launch-cloudshell.md")
 - [Accessing AWS notifications and Health events](access-notifications.md "access-notifications.md")
 - [Getting support](getting-support.md "getting-support.md")

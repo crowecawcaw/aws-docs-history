@@ -62,9 +62,7 @@ To view the permissions for this policy, see
 [AWSManagementConsoleAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSManagementConsoleAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSManagementConsoleAdministratorAccess.md")
 in the _AWS Managed Policy Reference._
 
-## AWS Management Console updates to AWS managed
-
-policies
+## AWS Management Console updates to AWS managed policies
 
 View details about updates to AWS managed policies for the AWS Management Console since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

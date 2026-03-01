@@ -1,6 +1,4 @@
-# Supported AWS Regions, service consoles, and
-
-features for Private Access
+# Supported AWS Regions, service consoles, and features for Private Access
 
 AWS Management Console Private Access supports only a subset of Regions and AWS services. Unsupported
 service consoles will be inactive in the AWS Management Console. In addition, certain AWS Management Console features

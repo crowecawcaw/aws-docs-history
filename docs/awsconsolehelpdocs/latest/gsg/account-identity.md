@@ -1,6 +1,4 @@
-# Allow AWS Management Console use for expected accounts and
-
-organizations only (trusted identities)
+# Allow AWS Management Console use for expected accounts and organizations only (trusted identities)
 
 AWS Management Console and AWS Sign-In support a VPC endpoint policy that specifically controls the
 identity of the signed-in account.

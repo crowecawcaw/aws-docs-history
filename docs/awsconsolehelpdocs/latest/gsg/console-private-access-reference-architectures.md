@@ -1,6 +1,4 @@
-# Reference
-
-architecture
+# Reference architecture
 
 To connect privately to AWS Management Console Private Access from an on-premises network, you can
 leverage the AWS Site-to-Site VPN to AWS Virtual Private Gateway (VGW) connection option. AWS Site-to-Site VPN

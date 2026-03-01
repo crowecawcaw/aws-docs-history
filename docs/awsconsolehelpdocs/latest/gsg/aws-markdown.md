@@ -5,17 +5,14 @@ topic explains the types of Markdown formatting supported in the console.
 
 ###### Contents
 
-- [Paragraphs, Line Spacing, and Horizontal
-  Lines](#aws-markdown-paragraphs "#aws-markdown-paragraphs")
+- [Paragraphs, Line Spacing, and Horizontal Lines](#aws-markdown-paragraphs "#aws-markdown-paragraphs")
 - [Headings](#aws-markdown-headings "#aws-markdown-headings")
 - [Text Formatting](#aws-markdown-formatting "#aws-markdown-formatting")
 - [Links](#aws-markdown-links "#aws-markdown-links")
 - [Lists](#aws-markdown-lists "#aws-markdown-lists")
 - [Tables and Buttons (CloudWatch Dashboards)](#aws-markdown-tables "#aws-markdown-tables")
 
-## Paragraphs, Line Spacing, and Horizontal
-
-Lines
+## Paragraphs, Line Spacing, and Horizontal Lines
 
 Paragraphs are separated by a blank line. To make sure that the blank line between the
 paragraphs renders when it is converted to HTML, add a new line with a non-break space

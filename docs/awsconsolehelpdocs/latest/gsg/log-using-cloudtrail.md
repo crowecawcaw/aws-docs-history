@@ -1,6 +1,4 @@
-# Logging AWS User Experience Customization API calls using
-
-AWS CloudTrail
+# Logging AWS User Experience Customization API calls using AWS CloudTrail
 
 AWS User Experience Customization is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service that provides a record of actions taken by a user, role, or an
 AWS service. CloudTrail captures all

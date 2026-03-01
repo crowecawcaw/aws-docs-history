@@ -1,6 +1,4 @@
-# Required VPC endpoints and DNS
-
-configuration
+# Required VPC endpoints and DNS configuration
 
 AWS Management Console Private Access requires the following two VPC endpoints per Region. Replace
 `region` with your own Region information.
@@ -21,7 +19,5 @@ Private Cloud Connectivity Options whitepaper_.
 
 ###### Topics
 
-- [DNS configuration for
-  AWS Management Console and AWS Sign-In](dns-configuration-console-signin.md "dns-configuration-console-signin.md")
-- [VPC endpoints and DNS
-  configuration for AWS services in the AWS Management Console](vpc-dns-configuration-aws-services.md "vpc-dns-configuration-aws-services.md")
+- [DNS configuration for AWS Management Console and AWS Sign-In](dns-configuration-console-signin.md "dns-configuration-console-signin.md")
+- [VPC endpoints and DNS configuration for AWS services in the AWS Management Console](vpc-dns-configuration-aws-services.md "vpc-dns-configuration-aws-services.md")

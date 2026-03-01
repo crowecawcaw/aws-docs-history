@@ -8,12 +8,9 @@ see [Diagnose common errors in the console with Amazon Q Developer](../../../ama
 ###### Topics
 
 - [The page isn't loading properly](#page-not-loading "#page-not-loading")
-- [My browser displays an 'access denied' error when connecting to
-  the AWS Management Console](#access-denied-error "#access-denied-error")
-- [My browser displays timeout errors when connecting to
-  the AWS Management Console](#regional-outage "#regional-outage")
-- [I want to change the language of the AWS Management Console
-  but I can't find the language selection menu at the bottom of the page](#change-my-language "#change-my-language")
+- [My browser displays an 'access denied' error when connecting to the AWS Management Console](#access-denied-error "#access-denied-error")
+- [My browser displays timeout errors when connecting to the AWS Management Console](#regional-outage "#regional-outage")
+- [I want to change the language of the AWS Management Console but I can't find the language selection menu at the bottom of the page](#change-my-language "#change-my-language")
 
 ## The page isn't loading properly
 
@@ -44,9 +41,7 @@ see [Diagnose common errors in the console with Amazon Q Developer](../../../ama
 Since July 31, 2022, AWS no longer supports Internet Explorer 11. We recommend that you use the AWS Management Console with other supported
 browsers. For more information, see [AWS News Blog](https://aws.amazon.com/jp/blogs/aws/heads-up-aws-support-for-internet-explorer-11-is-ending/ "https://aws.amazon.com/jp/blogs/aws/heads-up-aws-support-for-internet-explorer-11-is-ending/").
 
-## My browser displays an 'access denied' error when connecting to
-
-the AWS Management Console
+## My browser displays an 'access denied' error when connecting to the AWS Management Console
 
 Recent changes made to the console might affect your access if all of the following conditions are met:
 
@@ -60,14 +55,10 @@ Some AWS Management Console features use dual-stack domains that support both IP
 You can also onboard to the AWS Management Console Private Access feature to access the AWS Management Console through a VPC endpoint and use `aws:SourceVpc` conditions in your policies. For more information, see the following:
 
 - [AWS Management Console Private Access](console-private-access.md "console-private-access.md")
-- [How AWS Management Console Private Access works with
-  aws:SourceVpc](identity-other-policy-types.md#location-identity "identity-other-policy-types.md#location-identity")
-- [Supported AWS global condition context
-  keys](identity-other-policy-types.md#supported-global-condition-keys "identity-other-policy-types.md#supported-global-condition-keys")
+- [How AWS Management Console Private Access works with aws:SourceVpc](identity-other-policy-types.md#location-identity "identity-other-policy-types.md#location-identity")
+- [Supported AWS global condition context keys](identity-other-policy-types.md#supported-global-condition-keys "identity-other-policy-types.md#supported-global-condition-keys")
 
-## My browser displays timeout errors when connecting to
-
-the AWS Management Console
+## My browser displays timeout errors when connecting to the AWS Management Console
 
 If there's a service outage in your default AWS Region, your browser might display a
 **`504 Gateway Timeout`** error when trying to connect to the
@@ -87,9 +78,7 @@ the _AWS General Reference_.
 
 To view the status of all AWS services, including the AWS Management Console, see [AWS Health Dashboard](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status").
 
-## I want to change the language of the AWS Management Console
-
-but I can't find the language selection menu at the bottom of the page
+## I want to change the language of the AWS Management Console but I can't find the language selection menu at the bottom of the page
 
 The language selection menu has moved to the new Unified Settings page. To
 change the language of the AWS Management Console, [navigate to the Unified Settings page](unified-settings.md "unified-settings.md"),

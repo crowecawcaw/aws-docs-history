@@ -1,6 +1,4 @@
-# DNS configuration for
-
-AWS Management Console and AWS Sign-In
+# DNS configuration for AWS Management Console and AWS Sign-In
 
 To route your network traffic to respective VPC endpoints, configure DNS
 records in the network from which your users will be accessing the AWS Management Console. These

@@ -1,6 +1,4 @@
-# Using AWS Management Console Private Access with AWS Organizations
-
-service control policies
+# Using AWS Management Console Private Access with AWS Organizations service control policies
 
 If your AWS organization is using a service control policy (SCP) that allows specific
 services, you must add `signin:*` to the allowed actions. This permission is

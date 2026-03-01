@@ -1,6 +1,4 @@
-# VPC endpoints and DNS
-
-configuration for AWS services in the AWS Management Console
+# VPC endpoints and DNS configuration for AWS services in the AWS Management Console
 
 The AWS Management Console calls AWS services through a combination of direct browser requests and
 requests that are proxied by web servers. To direct this traffic to your AWS Management Console VPC

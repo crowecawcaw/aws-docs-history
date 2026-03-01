@@ -12,8 +12,7 @@ AWS Recommended Actions analyzes resource state to provide suggestions but doesn
 
 - [Features of AWS Recommended Actions](#key-features "#key-features")
 - [Using recommended actions](#using-recommended-actions "#using-recommended-actions")
-- [Logging AWS Recommended Actions API calls using
-  AWS CloudTrail](log-using-cloudtrail-rec-actions.md "log-using-cloudtrail-rec-actions.md")
+- [Logging AWS Recommended Actions API calls using AWS CloudTrail](log-using-cloudtrail-rec-actions.md "log-using-cloudtrail-rec-actions.md")
 
 ## Features of AWS Recommended Actions
 
