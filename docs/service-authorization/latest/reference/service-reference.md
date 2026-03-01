@@ -1,6 +1,4 @@
-# Simplified AWS service information for programmatic
-
-access
+# Simplified AWS service information for programmatic access
 
 AWS provides service reference information in JSON format to streamline the automation
 of policy management workflows. With the service reference information, you can access
@@ -25,8 +23,7 @@ allow you to incorporate the metadata into your policy management workflows.
   policies with action-level information, see [IAM Access Analyzer policy generation services](../../../IAM/latest/UserGuide/access-analyzer-policy-generation-action-last-accessed-support.md "../../../IAM/latest/UserGuide/access-analyzer-policy-generation-action-last-accessed-support.md") in the
   IAM User Guide.
   The content presented in the Service Authorization Reference may be presented differently or contain different
-  metadata. For more information, see [Additional field
-  definitions](#service-reference-additional-field-definitions "#service-reference-additional-field-definitions").
+  metadata. For more information, see [Additional field definitions](#service-reference-additional-field-definitions "#service-reference-additional-field-definitions").
 
 The service reference information also offers metadata on operations, including information on authorized actions and the method names in SDKs.
 
@@ -252,9 +249,7 @@ Amazon S3:
 - Operation - An API that can be called, usually through an SDK
 - Action - Permission that is authorized when performing an operation
 
-## Additional field
-
-definitions
+## Additional field definitions
 
 **Action properties** provide additional metadata about
 service actions to help categorize them based on their permission scope. These
