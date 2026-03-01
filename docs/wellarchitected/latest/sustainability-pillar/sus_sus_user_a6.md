@@ -1,6 +1,4 @@
-# SUS02-BP05 Optimize team member resources for activities
-
-performed
+# SUS02-BP05 Optimize team member resources for activities performed
 
 Optimize resources provided to team members to minimize the
 environmental sustainability impact while supporting their needs.

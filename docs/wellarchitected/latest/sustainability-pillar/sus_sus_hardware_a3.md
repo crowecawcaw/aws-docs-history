@@ -1,6 +1,4 @@
-# SUS05-BP02 Use instance types with the least
-
-impact
+# SUS05-BP02 Use instance types with the least impact
 
 Continually monitor and use new instance types to take advantage of energy efficiency
 improvements.

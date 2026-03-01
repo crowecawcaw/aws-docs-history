@@ -13,13 +13,8 @@ and implement patterns to minimize the need for device upgrades.
 
 ###### Best practices
 
-- [SUS03-BP01 Optimize software and architecture for asynchronous
-  and scheduled jobs](sus_sus_software_a2.md "sus_sus_software_a2.md")
-- [SUS03-BP02 Remove or refactor workload components with low or
-  no use](sus_sus_software_a3.md "sus_sus_software_a3.md")
-- [SUS03-BP03 Optimize areas of code that consume the most time or
-  resources](sus_sus_software_a4.md "sus_sus_software_a4.md")
-- [SUS03-BP04 Optimize impact on devices and
-  equipment](sus_sus_software_a5.md "sus_sus_software_a5.md")
-- [SUS03-BP05 Use software patterns and architectures that best
-  support data access and storage patterns](sus_sus_software_a6.md "sus_sus_software_a6.md")
+- [SUS03-BP01 Optimize software and architecture for asynchronous and scheduled jobs](sus_sus_software_a2.md "sus_sus_software_a2.md")
+- [SUS03-BP02 Remove or refactor workload components with low or no use](sus_sus_software_a3.md "sus_sus_software_a3.md")
+- [SUS03-BP03 Optimize areas of code that consume the most time or resources](sus_sus_software_a4.md "sus_sus_software_a4.md")
+- [SUS03-BP04 Optimize impact on devices and equipment](sus_sus_software_a5.md "sus_sus_software_a5.md")
+- [SUS03-BP05 Use software patterns and architectures that best support data access and storage patterns](sus_sus_software_a6.md "sus_sus_software_a6.md")

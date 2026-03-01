@@ -1,6 +1,4 @@
-# Design principles for
-
-sustainability in the cloud
+# Design principles for sustainability in the cloud
 
 Apply these design principles when architecting your cloud workloads to maximize
 sustainability and minimize impact.

@@ -1,6 +1,4 @@
-# SUS03-BP04 Optimize impact on devices and
-
-equipment
+# SUS03-BP04 Optimize impact on devices and equipment
 
 Understand the devices and equipment used in your architecture and use strategies to reduce their usage. This can minimize the overall environmental impact of your cloud workload.
 
