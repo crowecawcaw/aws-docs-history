@@ -174,9 +174,7 @@ The flowchart for this process is:
 
 ![Flowchart showing process for transforming requests with mutation attempts and value checks.](images/DynamoDB-condition-check-failure-handling.png)
 
-### Checking for the desired
-
-result
+### Checking for the desired result
 
 When the condition check fails, the AWS AppSync DynamoDB resolver performs a `GetItem` DynamoDB
 request to get the current value of the item from DynamoDB. By default, it uses a strongly consistent read,
@@ -238,9 +236,7 @@ If the current state of the object in DynamoDB is different from the expected re
 resolver follows the configured strategy, to either reject the mutation or invoke a Lambda function to
 determine what to do next.
 
-### Following the “reject”
-
-strategy
+### Following the “reject” strategy
 
 When following the `Reject` strategy, the AWS AppSync DynamoDB resolver returns
 an error for the mutation.
@@ -294,9 +290,7 @@ The GraphQL response looks like the following:
 Also, if any fields in the returned object are filled by other resolvers and the mutation had
 succeeded, they won’t be resolved when the object is returned in the `error` section.
 
-### Following the “custom”
-
-strategy
+### Following the “custom” strategy
 
 When following the `Custom` strategy, the AWS AppSync DynamoDB resolver invokes a Lambda function
 to decide what to do next. The Lambda function chooses one of the following options:

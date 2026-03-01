@@ -1,6 +1,4 @@
-# Using GraphQL mutations to add data to a
-
-DynamoDB table in the AWS AppSync console
+# Using GraphQL mutations to add data to a DynamoDB table in the AWS AppSync console
 
 Your next step is to add data to your blank DynamoDB table using a GraphQL mutation. Mutations are one of the
 fundamental operation types in GraphQL. They are defined in the schema and allow you to manipulate data in your

@@ -1,6 +1,4 @@
-# AWS AppSync
-
-resolver mapping template reference for `None` data source
+# AWS AppSync resolver mapping template reference for `None` data source
 
 ###### Note
 

@@ -1,6 +1,4 @@
-# Building a real-time
-
-WebSocket client in AWS AppSync
+# Building a real-time WebSocket client in AWS AppSync
 
 ###### Important
 
@@ -63,9 +61,7 @@ between the WebSocket client, HTTP client, and AWS AppSync.
    messages transferring through the WebSocket, the client can disconnect from
    the WebSocket connection.
 
-## Handshake
-
-details to establish the WebSocket connection
+## Handshake details to establish the WebSocket connection
 
 To connect and initiate a successful handshake with AWS AppSync, a WebSocket client
 needs the following:
@@ -233,13 +229,9 @@ The request headers would include the following:
 "x-api-key":"da2-12345678901234567890123456"
 ```
 
-### Amazon Cognito user
+### Amazon Cognito user pools and OpenID Connect (OIDC)
 
-pools and OpenID Connect (OIDC)
-
-#### Amazon Cognito
-
-and OIDCheader
+#### Amazon Cognito and OIDC header
 
 Header contents:
 
@@ -324,9 +316,7 @@ The request headers would include the following:
 
 ### IAM
 
-#### IAM
-
-header
+#### IAM header
 
 **Header content**
 
@@ -521,9 +511,7 @@ subscription.
 
 ### Lambda authorization
 
-#### Lambda
-
-authorization header
+#### Lambda authorization header
 
 **Header content**
 
@@ -606,9 +594,7 @@ The request headers would include the following:
 "host":"example1234567890000.appsync-api.us-east-1.amazonaws.com"
 ```
 
-## Real-time WebSocket
-
-operation
+## Real-time WebSocket operation
 
 After initiating a successful WebSocket handshake with AWS AppSync, the client must
 send a subsequent message to connect to AWS AppSync for different operations. These
@@ -646,9 +632,7 @@ as follows:
 { "type": "connection_init" }
 ```
 
-## Connection acknowledge
-
-message
+## Connection acknowledge message
 
 After sending the `connection_init` message, the client must wait for
 the `connection_ack` message. All messages sent before receiving
@@ -678,9 +662,7 @@ messages are heartbeats and do not need the client to acknowledge them.
 { "type": "ka" }
 ```
 
-## Subscription registration
-
-message
+## Subscription registration message
 
 After the client receives a `connection_ack` message, the client can
 send subscription registration messages to AWS AppSync. This type of message is a
@@ -788,9 +770,7 @@ following is an example of a SigV4 signature request:
 }
 ```
 
-## Subscription acknowledgment
-
-message
+## Subscription acknowledgment message
 
 After sending the subscription start message, the client should wait for AWS AppSync
 to send the `start_ack` message. The `start_ack` message
@@ -868,9 +848,7 @@ Example:
 }
 ```
 
-## Subscription unregistration
-
-message
+## Subscription unregistration message
 
 When the app wants to stop listening to the subscription events, the client should
 send a message with the following stringified JSON object:

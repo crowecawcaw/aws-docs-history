@@ -1,6 +1,4 @@
-# AWS AppSync resolver mapping template
-
-reference (VTL)
+# AWS AppSync resolver mapping template reference (VTL)
 
 ###### Note
 

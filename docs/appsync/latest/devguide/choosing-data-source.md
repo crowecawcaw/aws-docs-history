@@ -1,6 +1,4 @@
-# Choosing between direct data source access and proxying via a Lambda
-
-data source
+# Choosing between direct data source access and proxying via a Lambda data source
 
 With AWS AppSync and the `APPSYNC_JS` runtime, you can write your own code that implements your
 custom business logic by using AWS AppSync functions to access your data sources. This makes it easy for you

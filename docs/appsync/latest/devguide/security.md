@@ -23,12 +23,9 @@ _of_ the cloud and security _in_ the cloud:
 ###### Topics
 
 - [Data protection in AWS AppSync](data-protection.md "data-protection.md")
-- [Compliance validation for AWS AppSync](SERVICENAME-compliance.md "SERVICENAME-compliance.md")
+- [Compliance validation for AWS AppSync](compliance-validation.md "compliance-validation.md")
 - [Infrastructure security in AWS AppSync](infrastructure-security.md "infrastructure-security.md")
 - [Resilience in AWS AppSync](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Identity and
-  access
-  management
-  for AWS AppSync](security-iam.md "security-iam.md")
+- [Identity and access management for AWS AppSync](security-iam.md "security-iam.md")
 - [Logging AWS AppSync API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Security best practices for AWS AppSync](best-practices.md "best-practices.md")

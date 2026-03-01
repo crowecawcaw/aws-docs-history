@@ -34,9 +34,7 @@ endpoint:**
 
 AWS AppSync APIs support only TLS 1.2 and TLS 1.3 for custom domain names.
 
-## Registering and configuring a
-
-domain name
+## Registering and configuring a domain name
 
 To set up custom domain names for your AWS AppSync APIs, you must have a registered
 internet domain name. You can register an internet domain using
@@ -50,9 +48,7 @@ domain name in AWS AppSync, you must create or update your DNS provider's resour
 to map to your API endpoint. Without this mapping, API requests bound for the custom
 domain name cannot reach AWS AppSync.
 
-## Creating a custom domain name in
-
-AWS AppSync
+## Creating a custom domain name in AWS AppSync
 
 Creating a custom domain name for an AWS AppSync API sets up an
 Amazon CloudFront distribution. You must set up a DNS record to map the custom
@@ -102,9 +98,7 @@ To set up a custom domain name as the API's hostname, the API owner must provide
 or imported ACM certificate in the `us-east-1` _AWS Region (US East (N. Virginia))_ that covers the custom domain name. For more information about ACM, see [What is
 AWS Certificate Manager?](../../../acm/latest/userguide/acm-overview.md "../../../acm/latest/userguide/acm-overview.md") in the _AWS Certificate Manager User Guide_.
 
-## Wildcard custom domain names in
-
-AWS AppSync
+## Wildcard custom domain names in AWS AppSync
 
 AWS AppSync supports wildcard custom domain names. To configure a wildcard custom domain
 name, specify a wildcard character (`*`) as the first subdomain of a custom

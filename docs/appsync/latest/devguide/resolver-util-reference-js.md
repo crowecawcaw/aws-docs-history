@@ -1,6 +1,4 @@
-# AWS AppSync JavaScript runtime features for
-
-resolvers and functions
+# AWS AppSync JavaScript runtime features for resolvers and functions
 
 The `APPSYNC_JS` runtime environment provides functionality similar to [ECMAScript (ES) version 6.0](https://262.ecma-international.org/6.0/ "https://262.ecma-international.org/6.0/"). It
 supports a subset of its features and provides some additional methods (utilities) that are

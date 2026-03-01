@@ -1,6 +1,4 @@
-# Identity-based policies for
-
-AWS AppSync
+# Identity-based policies for AWS AppSync
 
 By default, users and roles don't have permission to create or modify AWS AppSync
 resources. To grant users permission to perform actions on the
@@ -13,29 +11,20 @@ _IAM User Guide_.
 For details about actions and resource types defined by AWS AppSync, including the format of the ARNs for each of the resource types, see [Actions, resources, and condition keys for AWS AppSync](../../../service-authorization/latest/reference/list_awsappsync.md "../../../service-authorization/latest/reference/list_awsappsync.md") in the _Service Authorization Reference_.
 
 To learn the best practices for creating and configuring IAM identity-based policies,
-see [IAM
-policy best practices](best-practices.md#security_iam_service-with-iam-policy-best-practices "best-practices.md#security_iam_service-with-iam-policy-best-practices").
+see [IAM policy best practices](best-practices.md#security_iam_service-with-iam-policy-best-practices "best-practices.md#security_iam_service-with-iam-policy-best-practices").
 
 For
-a list of IAM identity-based policies for AWS AppSync, see [AWS managed policies for
-AWS AppSync](security_iam_policy_list.md "security_iam_policy_list.md").
+a list of IAM identity-based policies for AWS AppSync, see [AWS managed policies for AWS AppSync](security_iam_policy_list.md "security_iam_policy_list.md").
 
 ###### Topics
 
-- [Using the AWS AppSync
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Accessing one
-  Amazon S3 bucket](#security_iam_id-based-policy-examples-access-one-bucket "#security_iam_id-based-policy-examples-access-one-bucket")
-- [Viewing
-  AWS AppSync widgets based on tags](#security_iam_id-based-policy-examples-view-widget-tags "#security_iam_id-based-policy-examples-view-widget-tags")
-- [AWS managed policies for
-  AWS AppSync](security_iam_policy_list.md "security_iam_policy_list.md")
+- [Using the AWS AppSync console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Accessing one Amazon S3 bucket](#security_iam_id-based-policy-examples-access-one-bucket "#security_iam_id-based-policy-examples-access-one-bucket")
+- [Viewing AWS AppSync widgets based on tags](#security_iam_id-based-policy-examples-view-widget-tags "#security_iam_id-based-policy-examples-view-widget-tags")
+- [AWS managed policies for AWS AppSync](security_iam_policy_list.md "security_iam_policy_list.md")
 
-## Using the AWS AppSync
-
-console
+## Using the AWS AppSync console
 
 To access the AWS AppSync console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the AWS AppSync resources
@@ -54,9 +43,7 @@ AWS AppSync `ConsoleAccess` or `ReadOnly` AWS managed policy to
 the entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -96,9 +83,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Accessing one
-
-Amazon S3 bucket
+## Accessing one Amazon S3 bucket
 
 In this example, you want to grant an IAM user in your AWS account access to one
 of your Amazon S3 buckets, `examplebucket`. You also want to allow the user to
@@ -154,9 +139,7 @@ JSON
 
 ```
 
-## Viewing
-
-AWS AppSync `widgets` based on tags
+## Viewing AWS AppSync `widgets` based on tags
 
 You can use conditions in your identity-based policy to control access to AWS AppSync
 resources based on tags. This example shows how you might create a policy that allows

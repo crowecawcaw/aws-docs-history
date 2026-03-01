@@ -73,8 +73,7 @@ Federation v2: [Apollo GraphQL Federation with AWS AppSync](https://aws.amazon.c
 - [Configuring schemas](#configuring-schemas-merged-api "#configuring-schemas-merged-api")
 - [Configuring authorization modes](#configuring-authorization-merged-api "#configuring-authorization-merged-api")
 - [Configuring execution roles](#execution-roles-merged-api "#execution-roles-merged-api")
-- [Configuring cross-account Merged APIs using
-  AWS RAM](#cross-account-merged-api "#cross-account-merged-api")
+- [Configuring cross-account Merged APIs using AWS RAM](#cross-account-merged-api "#cross-account-merged-api")
 - [Merging](#merges "#merges")
 - [Additional support for Merged APIs](#merge-api-additional-support "#merge-api-additional-support")
 - [Merged API limitations](#merged-api-limits "#merged-api-limits")
@@ -348,9 +347,7 @@ Several things occurred in the merge:
 - The `Review` type faced no conflicts and was merged.
 - The `Query` type faced no conflicts and was merged.
 
-### Managing resolvers on shared
-
-types
+### Managing resolvers on shared types
 
 In the above example, consider the case where _Source1.graphql_ has configured a unit resolver on `Query.getPost`,
 which uses a DynamoDB data source named `PostDatasource`. This resolver will return
@@ -380,9 +377,7 @@ custom authorization logic and `Function2` returns the reviews given the
 as a single GraphQL run, and this simple request will only require a single request
 token.
 
-### Managing resolver conflicts on
-
-shared types
+### Managing resolver conflicts on shared types
 
 Consider the following case where we also implement a resolver on
 `Query.getPost` in order to provide multiple fields at a time beyond the field
@@ -564,9 +559,7 @@ account as your merged API. In the case where your source APIs are not in the sa
 as your merged API, you must first share your resources using AWS Resource Access Manager
 (AWS RAM).
 
-## Configuring cross-account Merged APIs using
-
-AWS RAM
+## Configuring cross-account Merged APIs using AWS RAM
 
 When you create a Merged API, you can optionally associate source APIs from other
 accounts that have been shared via AWS Resource Access Manager (AWS RAM). AWS RAM helps you

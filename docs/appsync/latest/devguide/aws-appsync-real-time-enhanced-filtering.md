@@ -1,6 +1,4 @@
-# Defining enhanced
-
-subscriptions filters in AWS AppSync
+# Defining enhanced subscriptions filters in AWS AppSync
 
 ###### Important
 
@@ -12,9 +10,7 @@ In AWS AppSync, you can define and enable business logic for data filtering on t
 backend directly in the GraphQL API subscription resolvers by using filters that support
 additional logical operators. You can configure these filters, unlike the subscription
 arguments that are defined on the subscription query in the client. For more information
-about using subscription arguments, see [Using
-subscription arguments](aws-appsync-real-time-data.md#using-subscription-arguments "aws-appsync-real-time-data.md#using-subscription-arguments"). For a list of operators, see [AWS AppSync resolver mapping
-template utility reference](resolver-util-reference.md "resolver-util-reference.md").
+about using subscription arguments, see [Using subscription arguments](aws-appsync-real-time-data.md#using-subscription-arguments "aws-appsync-real-time-data.md#using-subscription-arguments"). For a list of operators, see [AWS AppSync resolver mapping template utility reference](resolver-util-reference.md "resolver-util-reference.md").
 
 For the purpose of this document, we divide real-time data filtering into the
 following categories:
@@ -118,9 +114,7 @@ extensions, see [Extensions](extensions-js.md "extensions-js.md").
 The following section explains how to use filtering extensions to implement
 enhanced filters.
 
-## Creating
-
-enhanced subscription filters using filtering extensions
+## Creating enhanced subscription filters using filtering extensions
 
 Enhanced filters are written in JSON in the response handler of the subscription's
 resolvers. Filters can be grouped together in a list called a
@@ -429,9 +423,7 @@ information about the transform utility for enhanced filtering, including the fo
 of the `filter` query variable payload, see [JavaScript
 resolvers overview](resolver-reference-overview-js.md "resolver-reference-overview-js.md").
 
-## Additional
-
-enhanced filtering restrictions
+## Additional enhanced filtering restrictions
 
 Below are
 several use cases where additional restrictions are placed on enhanced

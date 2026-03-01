@@ -10,7 +10,6 @@ components and the role they play in the GraphQL service.
 
 ###### Topics
 
-- [GraphQL
-  schemas](schema-components.md "schema-components.md")
+- [GraphQL schemas](schema-components.md "schema-components.md")
 - [Data sources](data-source-components.md "data-source-components.md")
 - [Resolvers](resolver-components.md "resolver-components.md")

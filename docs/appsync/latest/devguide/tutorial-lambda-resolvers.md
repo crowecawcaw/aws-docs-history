@@ -91,9 +91,7 @@ AWS account from here:
 
 [![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/lambda/LambdaCFTemplate.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/lambda/LambdaCFTemplate.yaml")
 
-## Configure a data source for
-
-Lambda
+## Configure a data source for Lambda
 
 After you create the Lambda function, navigate to your GraphQL API in the AWS AppSync
 console, and then choose the **Data Sources** tab.
@@ -149,9 +147,7 @@ JSON
 
 ```
 
-## Create
-
-a GraphQL schema
+## Create a GraphQL schema
 
 Now that the data source is connected to your Lambda function, create a GraphQL
 schema.
@@ -809,9 +805,7 @@ This example returns a GraphQL response similar to the following:
 }
 ```
 
-### Configuring the maximum batching
-
-size
+### Configuring the maximum batching size
 
 By default, when using `BatchInvoke`, AWS AppSync sends requests to your
 Lambda function in batches of up to five items. You can configure the maximum batch
@@ -840,9 +834,7 @@ $ aws appsync create-resolver --api-id <api-id> --type-name Query --field-name r
  --max-batch-size X
 ```
 
-### Maximum batching size configuration
-
-with VTL templates
+### Maximum batching size configuration with VTL templates
 
 For Lambda Resolvers that have VTL in-request templates, the maximum batch size
 will have no effect unless they have directly specified it as a

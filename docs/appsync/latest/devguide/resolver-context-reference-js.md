@@ -1,6 +1,4 @@
-# AWS AppSync JavaScript resolver context
-
-object reference
+# AWS AppSync JavaScript resolver context object reference
 
 AWS AppSync defines a set of variables and functions for working with request and response
 handlers. This makes logical operations on data easier with GraphQL. This document describes
@@ -279,9 +277,7 @@ principal. If you're using IAM authorization with credentials vended from
 Amazon Cognito identity pools, we recommend that you use
 `cognitoIdentityId`.
 
-### Access request
-
-headers
+### Access request headers
 
 AWS AppSync supports passing custom headers from clients and accessing them in your
 GraphQL resolvers by using `ctx.request.headers`. You can then use the header
@@ -323,9 +319,7 @@ You could then access these as an array, such as
 AWS AppSync doesn't expose the cookie header in
 `ctx.request.headers`.
 
-### Access the request custom
-
-domain name
+### Access the request custom domain name
 
 AWS AppSync supports configuring a custom domain that you can use to access your GraphQL
 and real-time endpoints for your APIs. When making a request with a custom domain name,

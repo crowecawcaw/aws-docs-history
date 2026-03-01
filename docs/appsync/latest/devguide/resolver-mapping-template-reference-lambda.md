@@ -1,6 +1,4 @@
-# AWS AppSync resolver
-
-mapping template reference for Lambda
+# AWS AppSync resolver mapping template reference for Lambda
 
 ###### Note
 
@@ -288,19 +286,14 @@ provide a default payload to your Lambda function and a default Lambda function 
 to a GraphQL type. You can choose to provide a request template, a response template, or
 neither, and AWS AppSync handles it accordingly.
 
-### Direct Lambda request
-
-mapping template
+### Direct Lambda request mapping template
 
 When the request mapping template is not provided, AWS AppSync will send the
 `Context` object directly to your Lambda function as an
 `Invoke` operation. For more information about the structure of the
-`Context` object, see [AWS AppSync resolver mapping
-template context reference](resolver-context-reference.md "resolver-context-reference.md").
+`Context` object, see [AWS AppSync resolver mapping template context reference](resolver-context-reference.md "resolver-context-reference.md").
 
-### Direct Lambda response
-
-mapping template
+### Direct Lambda response mapping template
 
 When the response mapping template is not provided, AWS AppSync does one of two
 things upon receiving your Lambda function's response. If you did not provide a
@@ -329,9 +322,7 @@ template evaluation step is bypassed, applications might experience less overhea
 and latency during the response in some scenarios compared to a Lambda function with
 a response mapping template that needs to be evaluated.
 
-### Custom error handling in
-
-Direct Lambda Resolver responses
+### Custom error handling in Direct Lambda Resolver responses
 
 You can customize error responses from Lambda functions that Direct Lambda Resolvers
 invoke by raising a custom exception. The following example demonstrates how to
@@ -385,9 +376,7 @@ The following snippet is an example GraphQL response that demonstrates a custom
 }
 ```
 
-### Direct Lambda Resolvers: Batching
-
-enabled
+### Direct Lambda Resolvers: Batching enabled
 
 You can enable batching for your Direct Lambda Resolver by configuring the
 `maxBatchSize` on your resolver. When `maxBatchSize` is
@@ -400,17 +389,13 @@ turns off batching.
 
 For more information on how batching with Lambda resolvers works, see [Advanced use case: Batching](tutorial-lambda-resolvers.md#advanced-use-case-batching "tutorial-lambda-resolvers.md#advanced-use-case-batching").
 
-#### Request mapping
-
-template
+#### Request mapping template
 
 When batching is enabled and the request mapping template is not provided,
 AWS AppSync sends a list of `Context` objects as a
 `BatchInvoke` operation directly to your Lambda function.
 
-#### Response mapping
-
-template
+#### Response mapping template
 
 When batching is enabled and the response mapping template is not provided,
 the response logic is equivalent to the following response mapping
@@ -442,9 +427,7 @@ a specific result. Each result in the list has the following format:
 
 Other fields in the result object are currently ignored.
 
-#### Handling errors from
-
-Lambda
+#### Handling errors from Lambda
 
 You can return an error for all results by throwing an exception or an error
 in your Lambda function. If the payload request or response size for your batch
@@ -454,9 +437,7 @@ payload.
 
 For information on handling individual errors, see [Returning individual errors](tutorial-lambda-resolvers.md#returning-individual-errors "tutorial-lambda-resolvers.md#returning-individual-errors").
 
-#### Sample Lambda
-
-functions
+#### Sample Lambda functions
 
 Using the schema below, you can create a Direct Lambda Resolver for the
 `Post.relatedPosts` field resolver and enable batching by setting

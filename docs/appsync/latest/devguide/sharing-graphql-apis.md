@@ -14,15 +14,12 @@ Consumers can include the following.
 
 ###### Topics
 
-- [Prerequisites for sharing AWS AppSync GraphQL
-  APIs](#prerequisites-sharing-apis "#prerequisites-sharing-apis")
+- [Prerequisites for sharing AWS AppSync GraphQL APIs](#prerequisites-sharing-apis "#prerequisites-sharing-apis")
 - [Share AWS AppSync GraphQL APIs](#share_graphal_apis "#share_graphal_apis")
 - [Stop sharing AWS AppSync GraphQL APIs](#stop-sharing-apis "#stop-sharing-apis")
 - [Cross-account events](#cross-account-events "#cross-account-events")
 
-## Prerequisites for sharing AWS AppSync GraphQL
-
-APIs
+## Prerequisites for sharing AWS AppSync GraphQL APIs
 
 Sharing AWS AppSync GraphQL APIs has the following prerequisites.
 
@@ -62,18 +59,14 @@ GraphQL API, while the resource share may still exist, it will be rendered ineff
   share an API, you are sharing the API ARN and the ARNs for all of its types and
   fields.
 
-### Create a resource share that you own using the
-
-AWS RAM console
+### Create a resource share that you own using the AWS RAM console
 
 To share an AWS AppSync GraphQL API, use the procedure described in [Creating
 a resource share](../../../ram/latest/userguide/working-with-sharing-create.md "../../../ram/latest/userguide/working-with-sharing-create.md") in the _AWS Resource Access Manager User Guide_, using the
 RAM permission name
 `AWSRAMPermissionAppSyncGraphQLApiInvokeAccess`.
 
-### Create and use a customer managed
-
-permission to share a private AWS AppSync GraphQL API using the AWS RAM console
+### Create and use a customer managed permission to share a private AWS AppSync GraphQL API using the AWS RAM console
 
 To share a private AWS AppSync GraphQL API, create a customer managed permission using the procedure described in [Creating and using customer managed permissions](../../../ram/latest/userguide/create-customer-managed-permissions.md "../../../ram/latest/userguide/create-customer-managed-permissions.md") in the _AWS Resource Access Manager User
 Guide_.
@@ -103,9 +96,7 @@ To enable cross-account access to `PrivateApiA` via `VPCE-B`, the customer can c
 - **Permission:** `private-api-A-access-via-vpce-b` (Customer-managed permission)
 - **Principal:** `Account: B`
 
-### Create a resource share that you own using
-
-the AWS CLI
+### Create a resource share that you own using the AWS CLI
 
 To share an AWS AppSync GraphQL API using the AWS CLI, use the `create-resource-share` command with `arn:aws:ram::aws:permission/AWSRAMPermissionAppSyncApiInvokeAccess` as the value for the `--permission-arns` switch.
 

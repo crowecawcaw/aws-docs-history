@@ -1,6 +1,4 @@
-# Performing DynamoDB transactions
-
-in AWS AppSync
+# Performing DynamoDB transactions in AWS AppSync
 
 ###### Note
 
@@ -185,9 +183,7 @@ schema {
 }
 ```
 
-### TransactWriteItems - Populate
-
-Accounts
+### TransactWriteItems - Populate Accounts
 
 In order to transfer money between accounts, we need to populate the table with
 the details. We’ll use the GraphQL operation `Mutation.populateAccounts`
@@ -303,9 +299,7 @@ We populated 3 saving accounts and 3 checking accounts in one mutation.
 
 Use the DynamoDB console to validate that data shows up in both the **savingAccounts** and **checkingAccounts** tables.
 
-### TransactWriteItems - Transfer
-
-Money
+### TransactWriteItems - Transfer Money
 
 Attach a resolver to the `transferMoney` mutation with the following
 **Request Mapping Template**. Note the values of
@@ -439,9 +433,7 @@ mutation write {
 We sent 2 banking transactions in one mutation. Use the DynamoDB console to validate
 that data shows up in the **savingAccounts**, **checkingAccounts**, and **transactionHistory** tables.
 
-### TransactGetItems - Retrieve
-
-Accounts
+### TransactGetItems - Retrieve Accounts
 
 In order to retrieve the details from saving accounts and checking accounts in a single transactional
 request we’ll attach a resolver to the `Query.getAccounts` GraphQL operation on our schema.

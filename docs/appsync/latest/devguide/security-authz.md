@@ -1,6 +1,4 @@
-# Configuring
-
-authorization and authentication to secure your GraphQL APIs
+# Configuring authorization and authentication to secure your GraphQL APIs
 
 AWS AppSync offers the following authorization types to secure GraphQL APIs: API keys,
 Lambda, IAM, OpenID Connect, and Cognito User Pools. Each option provides a different method
@@ -284,9 +282,7 @@ The number of seconds that the response should be cached for. If no value
 is returned, the value from the API is used. If this is 0, the response is
 not cached.
 
-Lambda authorizers have a timeout of 10 seconds. We recommend designing functions
-to execute in the shortest amount of time as possible to scale the performance of
-your API.
+Lambda authorizers have a standard timeout of 10 seconds but may time out earlier under peak traffic conditions. We recommend designing functions to execute in the shortest amount of time as possible (under 1s) to scale the performance of your API.
 
 Multiple AWS AppSync APIs can share a single authentication Lambda function. Cross
 account authorizer use is not permitted.
@@ -392,9 +388,7 @@ def handler(event, context):
 
 ```
 
-### Circumventing SigV4 and
-
-OIDC token authorization limitations
+### Circumventing SigV4 and OIDC token authorization limitations
 
 The following methods can be used to circumvent the issue of not being able to use
 your SigV4 signature or OIDC token as your Lambda authorization token when certain
@@ -579,9 +573,7 @@ If an API is configured with multiple authorization types, AWS AppSync validates
 issuer URL specified in the API configuration. However, when an API is configured with only
 OPENID_CONNECT authorization, AWS AppSync skips this issuer URL validation step.
 
-## AMAZON_COGNITO_USER_POOLS
-
-authorization
+## AMAZON_COGNITO_USER_POOLS authorization
 
 This authorization type enforces OIDC tokens provided by Amazon Cognito User Pools. Your
 application can leverage the users and groups in both your user pools and user pools from
@@ -645,9 +637,7 @@ following CLI command:
 $ aws appsync --region us-west-2 create-graphql-api --authentication-type AMAZON_COGNITO_USER_POOLS  --name userpoolstest --user-pool-config '{ "userPoolId":"test", "defaultEffect":"ALLOW", "awsRegion":"us-west-2"}'
 ```
 
-## Using additional authorization
-
-modes
+## Using additional authorization modes
 
 When you add additional authorization modes, you can directly configure the
 authorization setting at the AWS AppSync GraphQL API level (that is, the

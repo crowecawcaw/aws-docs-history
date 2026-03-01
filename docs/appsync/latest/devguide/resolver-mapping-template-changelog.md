@@ -1,6 +1,4 @@
-# AWS AppSync resolver mapping template
-
-changelog
+# AWS AppSync resolver mapping template changelog
 
 ###### Note
 
@@ -21,10 +19,8 @@ as `2018-05-29`) dictates the following:
 ###### Topics
 
 - [Datasource Operation Availability Per Version Matrix](#aws-appsync-resolver-mapping-template-operation-availability-per-version "#aws-appsync-resolver-mapping-template-operation-availability-per-version")
-- [Changing the
-  Version on a Unit Resolver Mapping Template](#changing-the-version-on-a-unit-resolver-mapping-template "#changing-the-version-on-a-unit-resolver-mapping-template")
-- [Changing the Version on a
-  Function](#changing-the-version-on-a-function "#changing-the-version-on-a-function")
+- [Changing the Version on a Unit Resolver Mapping Template](#changing-the-version-on-a-unit-resolver-mapping-template "#changing-the-version-on-a-unit-resolver-mapping-template")
+- [Changing the Version on a Function](#changing-the-version-on-a-function "#changing-the-version-on-a-function")
 - [2018-05-29](#aws-appsync-resolver-mapping-template-version-2018-05-29 "#aws-appsync-resolver-mapping-template-version-2018-05-29")
 - [2017-02-28](#aws-appsync-resolver-mapping-template-version-2017-02-28 "#aws-appsync-resolver-mapping-template-version-2017-02-28")
 
@@ -54,9 +50,7 @@ as `2018-05-29`) dictates the following:
 **Note**: Only **2018-05-29**
 version is currently supported in functions.
 
-## Changing the
-
-Version on a Unit Resolver Mapping Template
+## Changing the Version on a Unit Resolver Mapping Template
 
 For Unit resolvers, the version is specified as part of the body of the request mapping
 template. To update the version, simply update the `version` field to the new
@@ -89,9 +83,7 @@ You need to update the version field from `2017-02-28` to
 }
 ```
 
-## Changing the Version on a
-
-Function
+## Changing the Version on a Function
 
 For functions, the version is specified as the `functionVersion` field on the
 function object. To update the version, simply update the `functionVersion`.

@@ -1,6 +1,4 @@
-# Building
-
-a client application using Amplify client
+# Building a client application using Amplify client
 
 You can connect to your AWS AppSync GraphQL API using any GraphQL client, but we strongly
 recommend the Amplify v6 client. Amplify not only autogenerates strongly typed client SDKs

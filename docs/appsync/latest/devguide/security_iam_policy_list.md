@@ -1,6 +1,4 @@
-# AWS managed policies for
-
-AWS AppSync
+# AWS managed policies for AWS AppSync
 
 To add permissions to users, groups, and roles, it is easier to use AWS managed
 policies than to write policies yourself. It takes time and expertise to [create IAM customer managed policies](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") that provide your team with only the
@@ -23,9 +21,7 @@ launches a new feature, AWS adds read-only permissions for new operations and
 resources. For a list and descriptions of job function policies, see [AWS managed policies for job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the
 _IAM User Guide_.
 
-## AWS managed
-
-policy: AWSAppSyncInvokeFullAccess
+## AWS managed policy: AWSAppSyncInvokeFullAccess
 
 Use the `AWSAppSyncInvokeFullAccess` AWS managed policy to allow your
 administrators to access the AWS AppSync service through the console or
@@ -62,9 +58,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AWSAppSyncSchemaAuthor
+## AWS managed policy: AWSAppSyncSchemaAuthor
 
 Use the `AWSAppSyncSchemaAuthor` AWS managed policy to allow IAM
 users to access to create, update, and query their GraphQL
@@ -135,9 +129,7 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: AWSAppSyncPushToCloudWatchLogs
+## AWS managed policy: AWSAppSyncPushToCloudWatchLogs
 
 AWS AppSync uses Amazon CloudWatch
 to
@@ -146,8 +138,7 @@ you
 can
 use
 to troubleshoot and optimize your GraphQL requests. For more information, see
-[Using CloudWatch to
-monitor and log GraphQL API data](monitoring.md "monitoring.md").
+[Using CloudWatch to monitor and log GraphQL API data](monitoring.md "monitoring.md").
 
 Use the `AWSAppSyncPushToCloudWatchLogs` AWS managed policy to allow
 AWS AppSync to push logs to
@@ -187,9 +178,7 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: AWSAppSyncAdministrator
+## AWS managed policy: AWSAppSyncAdministrator
 
 Use the `AWSAppSyncAdministrator` AWS managed policy to allow your
 administrators to access
@@ -270,9 +259,7 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: AWSAppSyncServiceRolePolicy
+## AWS managed policy: AWSAppSyncServiceRolePolicy
 
 Use the `AWSAppSyncServiceRolePolicy` AWS managed policy to
 allow
@@ -286,8 +273,7 @@ manages.
 You can't attach `AWSAppSyncServiceRolePolicy` to your IAM entities.
 This policy is attached to a service-linked role that allows AWS AppSync to perform
 actions on your behalf. For more information, see
-[Service-linked
-roles for AWS AppSync](security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service-linked "security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service-linked").
+[Service-linked roles for AWS AppSync](security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service-linked "security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service-linked").
 
 ### Permissions details
 
@@ -297,8 +283,7 @@ This policy includes the following permissions.
   – AWS AppSync uses AWS X-Ray to collect data about requests
   made
   within your application. For more information, see
-  [Using AWS X-Ray to trace
-  requests in AWS AppSync](x-ray-tracing.md "x-ray-tracing.md").
+  [Using AWS X-Ray to trace requests in AWS AppSync](x-ray-tracing.md "x-ray-tracing.md").
 
 This policy allows the following actions:
 
@@ -331,9 +316,7 @@ JSON
 
 ```
 
-## AWS AppSync updates to AWS
-
-managed policies
+## AWS AppSync updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS AppSync since this
 service began tracking these changes. For automatic alerts about changes to this

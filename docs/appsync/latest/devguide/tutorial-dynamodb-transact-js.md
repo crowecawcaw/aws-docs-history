@@ -1,6 +1,4 @@
-# Performing DynamoDB transactions in
-
-AWS AppSync
+# Performing DynamoDB transactions in AWS AppSync
 
 AWS AppSync supports using Amazon DynamoDB transaction operations across one or more tables in a single Region.
 Supported operations are `TransactGetItems` and `TransactWriteItems`. By using these

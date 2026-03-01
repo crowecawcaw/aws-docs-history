@@ -1,6 +1,4 @@
-# Using Delta
-
-Sync operations on versioned data sources in AWS AppSync
+# Using Delta Sync operations on versioned data sources in AWS AppSync
 
 ###### Note
 

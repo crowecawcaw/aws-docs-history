@@ -5,8 +5,7 @@ GraphQL. There are three fundamental components of a GraphQL API:
 
 1. The **schema** is the file containing the shape and definition of your data.
    When a request is made by a client to your GraphQL service, the data returned will follow the specification
-   of the schema. For more information, see [GraphQL
-   schemas](schema-components.md#aws-appsync-schema-components "schema-components.md#aws-appsync-schema-components").
+   of the schema. For more information, see [GraphQL schemas](schema-components.md#aws-appsync-schema-components "schema-components.md#aws-appsync-schema-components").
 2. The **data source** is attached to your schema. When a request is made, this
    is where the data is retrieved and modified. For more information, see [Data sources](data-source-components.md#aws-appsync-data-source-components "data-source-components.md#aws-appsync-data-source-components").
 3. The **resolver** sits between the schema and the data source. When a request

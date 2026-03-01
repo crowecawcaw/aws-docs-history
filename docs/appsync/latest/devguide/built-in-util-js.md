@@ -105,17 +105,13 @@ request, returning back either "IAM Authorization", "User Pool
 Authorization", "Open ID Connect Authorization", or "API Key
 Authorization".
 
-## Return value behavior
-
-utils
+## Return value behavior utils
 
 **`util.escapeJavaScript(String)`**
 
 Returns the input string as a JavaScript escaped string.
 
-## Resolver authorization
-
-utils
+## Resolver authorization utils
 
 **`util.unauthorized()`**
 

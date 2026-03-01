@@ -3,29 +3,25 @@
 Before you use IAM to manage access to AWS AppSync, learn what IAM features are
 available to use with AWS AppSync.
 
-IAM features
-that
-you can use with AWS AppSync| IAM feature | AWS AppSync support |
-| --- | --- |
-| [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies") | Yes |
-| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies") | No |
-| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions") | Yes |
-| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources") | Yes |
-| [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | No |
-| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls") | No |
-| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags") | Partial |
-| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds") | Yes |
-| [Forward access sessions (FAS)](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions") | Partial |
-| [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service") | No |
-| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked") | Partial |
+| IAM features that you can use with AWS AppSync                                                                                                           | IAM feature | AWS AppSync support |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------- |
+| [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")                           | Yes         |
+| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")               | No          |
+| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")                    | Yes         |
+| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")              | Yes         |
+| [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | No          |
+| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")                                                                        | No          |
+| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")                                                  | Partial     |
+| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")                              | Yes         |
+| [Forward access sessions (FAS)](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")             | Partial     |
+| [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")                                          | No          |
+| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")                        | Partial     |
 
 To get a high-level view of how AWS AppSync and other AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for AWS AppSync
+## Identity-based policies for AWS AppSync
 
 **Supports identity-based policies:**
 
@@ -42,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for AWS AppSync
 
-Identity-based policy examples for AWS AppSync
+To view examples of AWS AppSync identity-based policies, see [Identity-based policies for AWS AppSync](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of AWS AppSync identity-based policies, see [Identity-based policies for
-AWS AppSync](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within AWS AppSync
+## Resource-based policies within AWS AppSync
 
 **Supports resource-based policies:**
 
@@ -67,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for AWS AppSync
+## Policy actions for AWS AppSync
 
 **Supports policy actions:**
 
@@ -99,12 +88,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of AWS AppSync identity-based policies, see [Identity-based policies for
-AWS AppSync](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS AppSync identity-based policies, see [Identity-based policies for AWS AppSync](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for AWS AppSync
+## Policy resources for AWS AppSync
 
 **Supports policy resources:**
 
@@ -123,12 +109,9 @@ To see a list of AWS AppSync resource types and their ARNs, see [Resources defin
 in the _Service Authorization Reference_. To learn with which actions you can
 specify the ARN of each resource, see [Actions defined by AWS AppSync](../../../service-authorization/latest/reference/list_awsappsync.md#awsappsync-actions-as-permissions "../../../service-authorization/latest/reference/list_awsappsync.md#awsappsync-actions-as-permissions").
 
-To view examples of AWS AppSync identity-based policies, see [Identity-based policies for
-AWS AppSync](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS AppSync identity-based policies, see [Identity-based policies for AWS AppSync](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for AWS AppSync
+## Policy condition keys for AWS AppSync
 
 **Supports service-specific policy condition keys:**
 
@@ -147,12 +130,9 @@ To see a list of AWS AppSync condition keys, see [Condition keys for AWS AppSync
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by AWS AppSync](../../../service-authorization/latest/reference/list_awsappsync.md#awsappsync-actions-as-permissions "../../../service-authorization/latest/reference/list_awsappsync.md#awsappsync-actions-as-permissions").
 
-To view examples of AWS AppSync identity-based policies, see [Identity-based policies for
-AWS AppSync](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS AppSync identity-based policies, see [Identity-based policies for AWS AppSync](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control lists (ACLs) in
-
-AWS AppSync
+## Access control lists (ACLs) in AWS AppSync
 
 **Supports ACLs:**
 
@@ -161,9 +141,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with AWS AppSync
+## Attribute-based access control (ABAC) with AWS AppSync
 
 **Supports ABAC (tags in policies):**
 
@@ -180,10 +158,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using
-
-temporary
-credentials with AWS AppSync
+## Using temporary credentials with AWS AppSync
 
 **Supports temporary credentials:**
 
@@ -195,9 +170,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access
-
-sessions for AWS AppSync
+## Forward access sessions for AWS AppSync
 
 **Supports forward access sessions (FAS):**
 
@@ -206,9 +179,7 @@ Partial
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AWS AppSync
+## Service roles for AWS AppSync
 
 **Supports service roles:**
 
@@ -223,9 +194,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break AWS AppSync functionality.
 Edit service roles only when AWS AppSync provides guidance to do so.
 
-## Service-linked
-
-roles for AWS AppSync
+## Service-linked roles for AWS AppSync
 
 **Supports service-linked roles:**
 

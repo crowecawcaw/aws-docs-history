@@ -1,6 +1,4 @@
-# AWS AppSync resolver
-
-mapping template programming guide
+# AWS AppSync resolver mapping template programming guide
 
 ###### Note
 
@@ -441,9 +439,7 @@ $util.qr($myMap.put("x/y", $xDIVy))
 $util.qr($myMap.put("x|y", $xMODy))
 ```
 
-### Using loops and conditionals
-
-together
+### Using loops and conditionals together
 
 It is very common when transforming data in VTL, such as before writing or reading
 from a data source, to loop over objects and then perform checks before performing

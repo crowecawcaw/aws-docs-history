@@ -10,8 +10,7 @@ use cases in the form of tutorials.
 
 ###### Topics
 
-- [Creating a simple post application using
-  DynamoDB JavaScript resolvers](tutorial-dynamodb-resolvers-js.md "tutorial-dynamodb-resolvers-js.md")
+- [Creating a simple post application using DynamoDB JavaScript resolvers](tutorial-dynamodb-resolvers-js.md "tutorial-dynamodb-resolvers-js.md")
 - [Using AWS Lambda resolvers](tutorial-lambda-resolvers-js.md "tutorial-lambda-resolvers-js.md")
 - [Using local resolvers](tutorial-local-resolvers-js.md "tutorial-local-resolvers-js.md")
 - [Combining GraphQL resolvers](tutorial-combining-graphql-resolvers-js.md "tutorial-combining-graphql-resolvers-js.md")

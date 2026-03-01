@@ -1,6 +1,4 @@
-# VTL resolver tutorials for
-
-AWS AppSync
+# VTL resolver tutorials for AWS AppSync
 
 ###### Note
 

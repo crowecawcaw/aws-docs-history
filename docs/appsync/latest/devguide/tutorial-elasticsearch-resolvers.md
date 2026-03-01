@@ -1,6 +1,4 @@
-# Using Amazon OpenSearch Service
-
-resolvers in AWS AppSync
+# Using Amazon OpenSearch Service resolvers in AWS AppSync
 
 ###### Note
 
@@ -21,7 +19,7 @@ Template Reference for OpenSearch](resolver-mapping-template-reference-elasticse
 To automatically set up a GraphQL endpoint in AWS AppSync with Amazon OpenSearch Service configured you
 can use this AWS CloudFormation template:
 
-[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](/images/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/elasticsearch/appsynces.yml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/elasticsearch/appsynces.yml")
+[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/elasticsearch/appsynces.yml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/elasticsearch/appsynces.yml")
 
 After the AWS CloudFormation deployment completes you can skip directly to [running GraphQL
 queries and mutations](#tutorial-elasticsearch-resolvers-perform-queries-mutations "#tutorial-elasticsearch-resolvers-perform-queries-mutations").
@@ -43,7 +41,7 @@ aws cloudformation create-stack --stack-name AppSyncOpenSearch \
 You can launch the following AWS CloudFormation stack in the US West 2 (Oregon) region in your
 AWS account:
 
-[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](/images/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/elasticsearch/ESResolverCFTemplate.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/elasticsearch/ESResolverCFTemplate.yaml")
+[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/elasticsearch/ESResolverCFTemplate.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/elasticsearch/ESResolverCFTemplate.yaml")
 
 ## Configure Data Source for OpenSearch Service
 
@@ -354,9 +352,7 @@ mapping template, because now you’re returning a single item and not a list:
 $utils.toJson($context.result.get("_source"))
 ```
 
-## Perform
-
-Queries and Mutations
+## Perform Queries and Mutations
 
 You should now be able to perform GraphQL operations against your OpenSearch Service domain.
 Navigate to the **Queries** tab of the AWS AppSync console

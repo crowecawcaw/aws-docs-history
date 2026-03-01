@@ -172,9 +172,7 @@ parameters used in the `create-resolver` command will be
 overwritten by the new values from the `update-resolver`
 command.
 
-## Adding a resolver for
-
-mutations
+## Adding a resolver for mutations
 
 The next step is to create a resolver for your `Mutation` type.
 

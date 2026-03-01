@@ -1,6 +1,4 @@
-# Type
-
-system (request mapping)
+# Type system (request mapping)
 
 When using the AWS AppSync DynamoDB function to call your DynamoDB tables, AWS AppSync needs to know
 the type of each value to use in that call. This is because DynamoDB supports more type

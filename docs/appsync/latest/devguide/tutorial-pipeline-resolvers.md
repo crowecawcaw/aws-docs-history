@@ -1,6 +1,4 @@
-# Using pipeline resolvers in
-
-AWS AppSync
+# Using pipeline resolvers in AWS AppSync
 
 ###### Note
 
@@ -88,9 +86,7 @@ just created.
 The API is now set up to use Amazon Cognito user pool as its authorization
 type.
 
-### Configuring Data Sources
-
-for the DynamoDB Tables
+### Configuring Data Sources for the DynamoDB Tables
 
 After the DynamoDB tables have been created, navigate to your AWS AppSync GraphQL API in
 the console and choose the **Data Sources** tab. Now,

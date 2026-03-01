@@ -1,6 +1,4 @@
-# AWS AppSync resolver mapping template
-
-overview
+# AWS AppSync resolver mapping template overview
 
 ###### Note
 
@@ -116,9 +114,7 @@ the execution flow when the resolver is invoked:
 Pipeline resolver execution flow is unidirectional and defined statically on
 the resolver.
 
-#### Useful
-
-Apache Velocity Template Language (VTL) utilities
+#### Useful Apache Velocity Template Language (VTL) utilities
 
 As the complexity of an application increases, VTL utilities and directives are
 here to facilitate development productivity. The following utilities can help you
@@ -289,18 +285,14 @@ $util.toJson($context.result.items)
 
 To see more examples of both unit and pipeline resolvers, see [Resolver tutorials](tutorials.md#aws-appsync-tutorials "tutorials.md#aws-appsync-tutorials").
 
-## Evaluated mapping
-
-template deserialization rules
+## Evaluated mapping template deserialization rules
 
 Mapping templates evaluate to a string. In AWS AppSync, the output string must follow a
 JSON structure to be valid.
 
 Additionally, the following deserialization rules are enforced.
 
-### Duplicate keys are not
-
-allowed in JSON objects
+### Duplicate keys are not allowed in JSON objects
 
 If the evaluated mapping template string represents a JSON object or contains an
 object that has duplicate keys, the mapping template returns the following error
@@ -325,9 +317,7 @@ Example of a duplicate key in an evaluated request mapping template:
 
 To fix this error, do not redefine keys in JSON objects.
 
-### Trailing
-
-characters are not allowed in JSON objects
+### Trailing characters are not allowed in JSON objects
 
 If the evaluated mapping template string represents a JSON object and contains
 trailing extraneous characters, the mapping template returns the following error

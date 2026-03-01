@@ -1,6 +1,4 @@
-# Disabling VTL mapping templates with direct Lambda
-
-resolvers (VTL)
+# Disabling VTL mapping templates with direct Lambda resolvers (VTL)
 
 ###### Note
 

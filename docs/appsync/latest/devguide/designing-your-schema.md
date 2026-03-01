@@ -1119,9 +1119,7 @@ Subscriptions in AWS AppSync are invoked as a response to a mutation. You config
 mutations invoke one or more subscriptions. For more information about configuring subscriptions, see [Real-time
 data](aws-appsync-real-time-data.md "aws-appsync-real-time-data.md").
 
-## Optional considerations - Relations and
-
-pagination
+## Optional considerations - Relations and pagination
 
 Suppose you had a million `Posts` stored in a DynamoDB table, and you wanted to return some of
 that data. However, the example query given above only returns all posts. You wouldn’t want to fetch all of

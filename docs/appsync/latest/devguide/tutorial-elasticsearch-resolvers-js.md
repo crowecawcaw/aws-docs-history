@@ -1,6 +1,4 @@
-# Using Amazon OpenSearch Service resolvers in
-
-AWS AppSync
+# Using Amazon OpenSearch Service resolvers in AWS AppSync
 
 AWS AppSync supports using Amazon OpenSearch Service from domains that you have provisioned in your own
 AWS account, provided they don’t exist inside a VPC. After your domains are provisioned, you
@@ -281,9 +279,7 @@ export function response(ctx) {
 }
 ```
 
-## Perform queries and
-
-mutations
+## Perform queries and mutations
 
 You should now be able to perform GraphQL operations against your OpenSearch Service domain.
 Navigate to the **Queries** tab of the AWS AppSync console

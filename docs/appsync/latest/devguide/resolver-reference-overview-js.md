@@ -78,9 +78,7 @@ execution flow when the resolver is invoked:
 
 ![GraphQL request flow diagram showing interactions between request, data sources, and response components.](images/appsync-js-resolver-logic.png)
 
-### Useful `APPSYNC_JS` runtime built-in
-
-utilities
+### Useful `APPSYNC_JS` runtime built-in utilities
 
 The following utilities can help you when you’re working with pipeline resolvers.
 

@@ -111,9 +111,7 @@ _AWS CloudTrail API Reference_.
 ]
 ```
 
-## Understanding AWS AppSync log file
-
-entries
+## Understanding AWS AppSync log file entries
 
 CloudTrail delivers events as log files that contain one or more log entries. An event
 represents a single request from any source and includes information about the requested

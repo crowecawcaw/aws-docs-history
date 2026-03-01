@@ -1,6 +1,4 @@
-# Transformation helpers in
-
-$util.transform
+# Transformation helpers in $util.transform
 
 ###### Note
 
@@ -113,9 +111,7 @@ Output:
 
 The default operator is assumed to be AND.
 
-## Transformation
-
-helpers subscription filters
+## Transformation helpers subscription filters
 
 \***\*`$util.transform.toSubscriptionFilter(Map) :
  Map`\*\***

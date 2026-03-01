@@ -1,6 +1,4 @@
-# AWS AppSync JavaScript resolver function
-
-reference for `None` data source
+# AWS AppSync JavaScript resolver function reference for `None` data source
 
 The AWS AppSync resolver function request and response with the data source of type
 _None_ enables you to shape requests for AWS AppSync local operations.

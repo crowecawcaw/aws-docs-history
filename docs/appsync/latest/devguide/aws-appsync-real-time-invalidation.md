@@ -1,6 +1,4 @@
-# Unsubscribing WebSocket connections
-
-using filters in AWS AppSync
+# Unsubscribing WebSocket connections using filters in AWS AppSync
 
 ###### Important
 
@@ -32,9 +30,7 @@ utilities:
   For more information about invalidation filtering extensions, see [JavaScript
   resolvers overview](resolver-reference-overview-js.md "resolver-reference-overview-js.md").
 
-## Using
-
-subscription invalidation
+## Using subscription invalidation
 
 To see how subscription invalidation works in AWS AppSync, use the following
 GraphQL schema:
@@ -213,9 +209,7 @@ that they are unsubscribed:
 }
 ```
 
-## Using context variables
-
-in subscription invalidation filters
+## Using context variables in subscription invalidation filters
 
 As with enhanced subscription filters, you can use the [`context` variable](resolver-context-reference-js.md "resolver-context-reference-js.md") in the subscription invalidation
 filter extension to access certain data.

@@ -119,9 +119,7 @@ creation, retrieval, and deletion of post data.
 
 This schema defines a `Post` type and operations to add and get `Post` objects.
 
-## Configuring the Data Source for the DynamoDB
-
-Tables
+## Configuring the Data Source for the DynamoDB Tables
 
 Next, link the queries and mutations defined in the schema to the `AppSyncTutorial-Post`DynamoDB
 table.
@@ -168,9 +166,7 @@ AWS AppSync:
 
 3. Choose **Create**.
 
-## Setting up the addPost resolver (DynamoDB
-
-PutItem)
+## Setting up the addPost resolver (DynamoDB PutItem)
 
 After AWS AppSync is aware of the DynamoDB table, you can link it to individual queries and mutations by defining
 **Resolvers**. The first resolver you create is the `addPost` resolver,
@@ -382,9 +378,7 @@ Here’s what happened:
 - Passed it through the response mapping document, which just passed it through unchanged.
 - Returned the newly created object in the GraphQL response.
 
-## Setting Up the getPost Resolver
-
-(DynamoDB GetItem)
+## Setting Up the getPost Resolver (DynamoDB GetItem)
 
 Now that you’re able to add data to the `AppSyncTutorial-Post`DynamoDB table, you
 need to set up the `getPost` query so it can retrieve that data from the
@@ -529,9 +523,7 @@ example, the request mapping template may look like the snippet below:
 }
 ```
 
-## Create an updatePost Mutation
-
-(DynamoDB UpdateItem)
+## Create an updatePost Mutation (DynamoDB UpdateItem)
 
 So far you can create and retrieve `Post` objects in DynamoDB. Next, you’ll set up
 a new mutation to allow us to update object. You’ll do this using the UpdateItem DynamoDB
@@ -673,9 +665,7 @@ because the request mapping template did not ask AWS AppSync and DynamoDB to do 
 those fields. Also, the `version` field was incremented by 1 because you asked
 AWS AppSync and DynamoDB to add 1 to the `version` field.
 
-## Modifying the
-
-updatePost Resolver (DynamoDB UpdateItem)
+## Modifying the updatePost Resolver (DynamoDB UpdateItem)
 
 This is a good start to the `updatePost` mutation, but it has two main
 problems:
@@ -948,9 +938,7 @@ argument to `3` and the request would succeed again.
 
 For more information about handling condition check failures, see the [Condition Expressions](aws-appsync-resolver-mapping-template-reference-dynamodb-condition-expressions.md "aws-appsync-resolver-mapping-template-reference-dynamodb-condition-expressions.md") mapping template reference documentation.
 
-## Create
-
-upvotePost and downvotePost Mutations (DynamoDB UpdateItem)
+## Create upvotePost and downvotePost Mutations (DynamoDB UpdateItem)
 
 The `Post` type has `ups` and `downs` fields to enable
 record upvotes and downvotes, but so far the API doesn’t let us do anything with them. Let’s
@@ -1047,9 +1035,7 @@ $utils.toJson($context.result)
 
 - Choose **Save**.
 
-### Call the API to upvote and
-
-downvote a Post
+### Call the API to upvote and downvote a Post
 
 Now the new resolvers have been set up, AWS AppSync knows how to translate an incoming
 `upvotePost` or `downvote` mutation to DynamoDB UpdateItem operation.
@@ -1138,9 +1124,7 @@ mutation votePost {
 }
 ```
 
-## Setting Up the deletePost
-
-Resolver (DynamoDB DeleteItem)
+## Setting Up the deletePost Resolver (DynamoDB DeleteItem)
 
 The next mutation you want to set up is to delete a post. You’ll do this using the
 `DeleteItem` DynamoDB operation.
@@ -1459,9 +1443,7 @@ mutation deletePost {
 }
 ```
 
-## Setting Up the allPost
-
-Resolver (DynamoDB Scan)
+## Setting Up the allPost Resolver (DynamoDB Scan)
 
 So far the API is only useful if you know the `id` of each post you want to
 look at. Let’s add a new resolver that returns all the posts in the table.
@@ -1677,9 +1659,7 @@ query allPost {
 }
 ```
 
-## Setting Up the
-
-allPostsByAuthor Resolver (DynamoDB Query)
+## Setting Up the allPostsByAuthor Resolver (DynamoDB Query)
 
 In addition to scanning DynamoDB for all posts, you can also query DynamoDB to retrieve posts
 created by a specific author. The DynamoDB table you created earlier already has a
@@ -1755,9 +1735,7 @@ used in the `allPost` resolver.
 For more information about `Query` request mapping, see the [Query](aws-appsync-resolver-mapping-template-reference-dynamodb-query.md "aws-appsync-resolver-mapping-template-reference-dynamodb-query.md")
 reference documentation.
 
-### Call the API to Query All
-
-Posts by an Author
+### Call the API to Query All Posts by an Author
 
 Now the resolver has been set up, AWS AppSync knows how to translate an incoming
 `allPostsByAuthor` mutation to a DynamoDB`Query` operation against the

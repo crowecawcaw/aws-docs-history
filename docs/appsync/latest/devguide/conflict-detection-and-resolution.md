@@ -1,6 +1,4 @@
-# Conflict detection and resolution in
-
-AWS AppSync
+# Conflict detection and resolution in AWS AppSync
 
 When concurrent writes happen with AWS AppSync, you can configure Conflict Detection and
 Conflict Resolution strategies to handle updates appropriately. Conflict Detection

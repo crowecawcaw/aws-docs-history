@@ -63,9 +63,7 @@ You can only use at most five unique
 single request. If you exceed this limit, you will receive a GraphQL
 error.
 
-## Argument:
-
-filterJsonObject
+## Argument: filterJsonObject
 
 The
 JSON object defines either subscription or invalidation filters. It's an array of
@@ -609,9 +607,7 @@ Note that there are several restrictions for using filters:
   }
   ```
 
-## Argument:
-
-invalidationJsonObject
+## Argument: invalidationJsonObject
 
 The `invalidationJsonObject` defines the following:
 

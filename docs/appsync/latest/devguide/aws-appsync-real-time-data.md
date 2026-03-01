@@ -1,6 +1,4 @@
-# Using
-
-subscriptions for real-time data applications in AWS AppSync
+# Using subscriptions for real-time data applications in AWS AppSync
 
 ###### Important
 
@@ -17,9 +15,7 @@ AWS AppSync continually manages the application's connection and scaling require
 following sections will show you how subscriptions in AWS AppSync
 work.
 
-## GraphQL schema subscription
-
-directives
+## GraphQL schema subscription directives
 
 Subscriptions in AWS AppSync are invoked as a response to a mutation. This means
 that you can make any data source in AWS AppSync real time by specifying a GraphQL schema
@@ -36,8 +32,7 @@ AWS Identity and Access Management (IAM), AWS Lambda, Amazon Cognito identity po
 field-level authorization. For fine-grained access controls on subscriptions, you
 can attach resolvers to your subscription fields and perform logic using the
 identity of the caller and AWS AppSync data sources. For more information, see
-[Configuring
-authorization and authentication to secure your GraphQL APIs](security-authz.md "security-authz.md").
+[Configuring authorization and authentication to secure your GraphQL APIs](security-authz.md "security-authz.md").
 
 Subscriptions are triggered from mutations and the mutation selection set is sent to
 subscribers.
@@ -152,12 +147,9 @@ return type of the corresponding mutation field. In the previous example, this w
 as both `addPost` and `addedPost` returned as a type of
 `Post`.
 
-To set up subscriptions on the client, see [Building
-a client application using Amplify client](building-a-client-app.md "building-a-client-app.md").
+To set up subscriptions on the client, see [Building a client application using Amplify client](building-a-client-app.md "building-a-client-app.md").
 
-## Using
-
-subscription arguments
+## Using subscription arguments
 
 An important part of using GraphQL subscriptions is understanding when and how to use
 arguments. You can make subtle changes to modify how and when to notify clients about
@@ -237,9 +229,7 @@ onUpdateTodo(
 ): Todo
 ```
 
-### Argument null value has
-
-meaning
+### Argument null value has meaning
 
 When making a subscription query in AWS AppSync, a `null` argument
 value will filter the results differently than omitting the argument
@@ -333,5 +323,4 @@ to the latest version allows them to use AWS AppSync's pure WebSockets engine.
 
 Pure WebSockets come with a larger payload size (240 KB), a wider variety of
 client options, and improved CloudWatch metrics. For more information on using pure
-WebSocket clients, see [Building a real-time
-WebSocket client in AWS AppSync](real-time-websocket-client.md "real-time-websocket-client.md").
+WebSocket clients, see [Building a real-time WebSocket client in AWS AppSync](real-time-websocket-client.md "real-time-websocket-client.md").

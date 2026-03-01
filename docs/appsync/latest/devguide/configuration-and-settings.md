@@ -3,11 +3,9 @@
 AWS AppSync enables you to:
 
 - Cache data that's requested often but unlikely to change from request to request.
-  This can reduce the load on your resolvers. For more information, see [Configuring server-side
-  caching and API payload compression in AWS AppSync](enabling-caching.md "enabling-caching.md").
+  This can reduce the load on your resolvers. For more information, see [Configuring server-side caching and API payload compression in AWS AppSync](enabling-caching.md "enabling-caching.md").
 - Version GraphQL objects to handle and avoid conflict among multiple clients. For more
-  information, see [Versioning, conflict detection, and sync
-  operations for DynamoDB data sources in AWS AppSync](conflict-detection-and-sync.md "conflict-detection-and-sync.md").
+  information, see [Versioning, conflict detection, and sync operations for DynamoDB data sources in AWS AppSync](conflict-detection-and-sync.md "conflict-detection-and-sync.md").
 - Use custom domain names to configure a single, memorable domain that works for both
   your GraphQL and real-time APIs. For more information, see [Configuring custom domain
   names](custom-domain-name.md "custom-domain-name.md").

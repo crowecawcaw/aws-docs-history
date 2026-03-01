@@ -21,12 +21,9 @@ The following common authentication methods are available:
 - OpenID Connect allows you to control and federate access with the OpenID Connect
   protocol.
 
-For more information on authentication and authorization in AWS AppSync, see [Configuring
-authorization and authentication to secure your GraphQL APIs](security-authz.md "security-authz.md").
+For more information on authentication and authorization in AWS AppSync, see [Configuring authorization and authentication to secure your GraphQL APIs](security-authz.md "security-authz.md").
 
-## Understand how API configuration changes
-
-propagate
+## Understand how API configuration changes propagate
 
 When you save changes to your API configuration, AWS AppSync starts to propagate the changes.
 Until your configuration change is propagated, AWS AppSync continues to serve your content from the
@@ -48,9 +45,7 @@ resources, such as your
 Amazon DynamoDB
 tables.
 
-## IAM
-
-policy best practices
+## IAM policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS AppSync resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and

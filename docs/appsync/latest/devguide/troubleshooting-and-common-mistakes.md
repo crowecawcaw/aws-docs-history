@@ -1,6 +1,4 @@
-# Troubleshooting and common mistakes
-
-in AWS AppSync
+# Troubleshooting and common mistakes in AWS AppSync
 
 This section discusses some common errors and how to troubleshoot them.
 

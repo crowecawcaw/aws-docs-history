@@ -1,6 +1,4 @@
-# Testing and debugging resolvers in AWS AppSync
-
-(JavaScript)
+# Testing and debugging resolvers in AWS AppSync (JavaScript)
 
 AWS AppSync executes resolvers on a GraphQL field against a data source. When working with pipeline
 resolvers, functions interact with your data sources. As described in the [JavaScript resolvers overview](resolver-reference-overview-js.md "resolver-reference-overview-js.md"),
@@ -123,10 +121,7 @@ from `util.autoId()`. Additionally, if you were to change the `username` to a
 value other than `Nadia`, the results won’t be returned because the authorization check would
 fail. For more information about fine-grained access control, see [Authorization use cases](security-authorization-use-cases.md#aws-appsync-security-authorization-use-cases "security-authorization-use-cases.md#aws-appsync-security-authorization-use-cases").
 
-### Testing
-
-request and response
-handlers with AWS AppSync's APIs
+### Testing request and response handlers with AWS AppSync's APIs
 
 You can use the
 `EvaluateCode`

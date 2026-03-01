@@ -1,6 +1,4 @@
-# Using CloudWatch to
-
-monitor and log GraphQL API data
+# Using CloudWatch to monitor and log GraphQL API data
 
 You can log and debug your GraphQL API using CloudWatch metrics and CloudWatch logs. These
 tools enable developers to monitor performance, troubleshoot issues, and optimize their
@@ -60,9 +58,7 @@ To turn on automatic logging on a GraphQL API, use the AWS AppSync console.
 
 5. Choose **Save**.
 
-### Manual IAM role
-
-configuration
+### Manual IAM role configuration
 
 If you choose to use an existing IAM role, the role must grant AWS AppSync the
 required permissions to write logs to CloudWatch. To configure this manually, you must provide
@@ -489,9 +485,7 @@ request quota was exceeded.
 **Unit**: _Count_. Use the Sum statistic to get the total number of
 dropped invalidation requests.
 
-#### Comparing inbound and outbound
-
-messages
+#### Comparing inbound and outbound messages
 
 When a mutation is executed, subscription fields with the _@aws_subscribe_ directive for that mutation are invoked. Each
 subscription invocation generates one inbound message. For example, if two
@@ -784,9 +778,7 @@ the root cause of a performance issue. You can also identify the most and least
 frequently used fields in your schema and assess the impact of deprecating GraphQL
 fields.
 
-### Conflict
-
-detection and sync logging
+### Conflict detection and sync logging
 
 If an AWS AppSync API has logging to CloudWatch Logs configured with the **Field resolver
 log level** set to **All**, then AWS AppSync emits conflict
@@ -833,9 +825,7 @@ each field. Actions provided can be:
   `Automerge` merges the incoming values to the values
   for the Set that exists in the server.
 
-### Using token counts
-
-to optimize your requests
+### Using token counts to optimize your requests
 
 Requests that consume less than or equal to 1,500 KB-seconds of memory and vCPU time
 are allocated one token. Requests with resource consumption greater than 1,500
@@ -988,9 +978,7 @@ logging utilities provided by AppSync to log only the necessary information.
 }
 ```
 
-## Analyzing your
-
-logs with CloudWatch Logs Insights
+## Analyzing your logs with CloudWatch Logs Insights
 
 The following are examples of queries you can run to get actionable insights into the
 performance and health of your GraphQL operations. These examples are available as sample
@@ -1061,9 +1049,7 @@ The following query returns field latency statistics:
 
 The results of CloudWatch Logs Insights queries can be exported to CloudWatch dashboards.
 
-## Analyze your logs
-
-with OpenSearch Service
+## Analyze your logs with OpenSearch Service
 
 You can search, analyze, and visualize your AWS AppSync logs with Amazon OpenSearch Service to identify
 performance bottlenecks and root causes of operational issues. You can identify resolvers

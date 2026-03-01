@@ -1,6 +1,4 @@
-# Configuring and
-
-using pipeline resolvers in AWS AppSync (VTL)
+# Configuring and using pipeline resolvers in AWS AppSync (VTL)
 
 ###### Note
 
@@ -149,9 +147,7 @@ $util.toJson($ctx.result)
 
 We just created our **saveUser** function.
 
-## Step 3: Adding a function to a
-
-pipeline resolver
+## Step 3: Adding a function to a pipeline resolver
 
 Our functions should have been added automatically to the pipeline resolver we just created. If this wasn't
 the case, or you created the functions through the **Functions** page, you can

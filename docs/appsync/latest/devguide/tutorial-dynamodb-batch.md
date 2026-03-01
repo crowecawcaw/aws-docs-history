@@ -1,6 +1,4 @@
-# Using DynamoDB batch operations in
-
-AWS AppSync
+# Using DynamoDB batch operations in AWS AppSync
 
 ###### Note
 
@@ -334,9 +332,7 @@ input LocationReadingInput {
 }
 ```
 
-### BatchPutItem - Recording
-
-Sensor Readings
+### BatchPutItem - Recording Sensor Readings
 
 Our sensors need to be able to send their readings once they connect to the
 internet. The GraphQL field `Mutation.recordReadings` is the API they
@@ -443,9 +439,7 @@ mutation sendReadings {
 We sent 10 sensor readings in one mutation, with readings split up across two
 tables. Use the DynamoDB console to validate that data shows up in both the **locationReadings** and **temperatureReadings** tables.
 
-### BatchDeleteItem -
-
-Deleting Sensor Readings
+### BatchDeleteItem - Deleting Sensor Readings
 
 Similarly, we would also need to delete batches of sensor readings. Let’s use the
 `Mutation.deleteReadings` GraphQL field for this purpose. Select
@@ -533,9 +527,7 @@ mutation deleteReadings {
 Validate through the DynamoDB console that these two readings have been deleted from
 the **locationReadings** and **temperatureReadings** tables.
 
-### BatchGetItem - Retrieve
-
-Readings
+### BatchGetItem - Retrieve Readings
 
 Another common operation for our Pet Health app would be to retrieve the readings
 for a sensor at a specific point in time. Let’s attach a resolver to the
@@ -721,9 +713,7 @@ A few things to note on the context:
 
 Let’s handle this error in three different ways.
 
-#### 1. Swallowing the invocation
-
-error
+#### 1. Swallowing the invocation error
 
 Returning data without handling the invocation error effectively swallows the
 error, making the result for the given GraphQL field always successful.
@@ -762,9 +752,7 @@ GraphQL response:
 No errors will be added to the error response as only data was acted
 on.
 
-#### 2. Raising an
-
-error to abort the template execution
+#### 2. Raising an error to abort the template execution
 
 When partial failures should be treated as complete failures from the client’s
 perspective, you can abort the template execution to prevent returning data. The
@@ -823,9 +811,7 @@ operation, we chose to raise an error such that the `getReadings`
 GraphQL field is null and the error has been added to the GraphQL response
 _errors_ block.
 
-#### 3. Appending
-
-an error to return both data and errors
+#### 3. Appending an error to return both data and errors
 
 In certain cases, to provide a better user experience, applications can return
 partial results and notify their clients of the unprocessed items. The clients

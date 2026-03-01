@@ -1,6 +1,4 @@
-# Creating
-
-generic pub/sub APIs powered by serverless WebSockets in AWS AppSync
+# Creating generic pub/sub APIs powered by serverless WebSockets in AWS AppSync
 
 ###### Important
 
@@ -17,9 +15,7 @@ Use AWS AppSync to implement simple pub/sub WebSocket APIs with little to no Gra
 knowledge in minutes by automatically generating GraphQL code on both the API backend
 and the client sides.
 
-## Create
-
-and configure pub-sub APIs
+## Create and configure pub-sub APIs
 
 To get started, do the following:
 

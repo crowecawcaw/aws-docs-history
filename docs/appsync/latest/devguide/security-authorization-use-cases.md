@@ -1,6 +1,4 @@
-# Access control use cases for securing requests
-
-and responses
+# Access control use cases for securing requests and responses
 
 In the [Security](security-authz.md#aws-appsync-security "security-authz.md#aws-appsync-security") section you learned about the different
 Authorization modes for protecting your API and an introduction was given on Fine Grained Authorization
@@ -287,9 +285,7 @@ Using the example table diagram from earlier, suppose the
 }
 ```
 
-### Use case: group can update existing
-
-record
+### Use case: group can update existing record
 
 ```
 #set($expression = "")
@@ -380,9 +376,7 @@ response mapping template. You can also return additional data to the client, su
 the initial results from a subscription, as long as the data structure matches that of
 the returned type in your GraphQL subscription.
 
-### Use case: user can
-
-subscribe to specific conversations only
+### Use case: user can subscribe to specific conversations only
 
 A common use case for real-time data with GraphQL subscriptions is building a
 messaging or private chat application. When creating a chat application that has

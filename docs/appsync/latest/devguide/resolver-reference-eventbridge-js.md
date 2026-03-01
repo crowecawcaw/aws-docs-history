@@ -1,6 +1,4 @@
-# AWS AppSync JavaScript resolver function
-
-reference for EventBridge data source
+# AWS AppSync JavaScript resolver function reference for EventBridge data source
 
 The AWS AppSync resolver function request and response used with the EventBridge data source allows you to send
 custom events to the Amazon EventBridge bus.

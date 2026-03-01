@@ -9,9 +9,7 @@ you enable versioning on a data source, AWS AppSync will automatically:
 - Maintain deleted items in the _Base_
   table with a “tombstone” for a configurable amount of time.
 
-## Versioned data source
-
-configuration
+## Versioned data source configuration
 
 When you enable versioning on a DynamoDB data source, you specify the following
 fields:

@@ -1,6 +1,4 @@
-# AWS AppSync JavaScript resolver function reference
-
-for Lambda
+# AWS AppSync JavaScript resolver function reference for Lambda
 
 You can use AWS AppSync functions and resolvers to invoke Lambda functions located in
 your account. You can shape your request payloads and the response from your Lambda functions
@@ -209,9 +207,7 @@ There are no required fields or shape restrictions that apply to the response ob
 However, because GraphQL is strongly typed, the resolved response must match the
 expected GraphQL type.
 
-## Lambda
-
-function batched response
+## Lambda function batched response
 
 If the `operation` field is set to `BatchInvoke`, AWS AppSync
 expects a list of items back from the Lambda function. In order for AWS AppSync to map

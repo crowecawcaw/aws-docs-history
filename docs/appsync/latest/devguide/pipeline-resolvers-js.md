@@ -1,6 +1,4 @@
-# Configuring and using pipeline resolvers in
-
-AWS AppSync (JavaScript)
+# Configuring and using pipeline resolvers in AWS AppSync (JavaScript)
 
 AWS AppSync executes resolvers on a GraphQL field. In some cases, applications require executing multiple
 operations to resolve a single GraphQL field. With pipeline resolvers, developers can now compose operations
@@ -10,9 +8,7 @@ require performing an authorization check before fetching data for a field.
 For more information about the architecture of a JavaScript pipeline resolver, see the [JavaScript
 resolvers overview](resolver-reference-overview-js.md#anatomy-of-a-pipeline-resolver-js "resolver-reference-overview-js.md#anatomy-of-a-pipeline-resolver-js").
 
-## Step 1: Creating a pipeline
-
-resolver
+## Step 1: Creating a pipeline resolver
 
 In the AWS AppSync console, go to the **Schema** page.
 
@@ -136,9 +132,7 @@ export function response(ctx) {
 
 We just created our **saveUser** function.
 
-## Step 3: Adding a function to
-
-a pipeline resolver
+## Step 3: Adding a function to a pipeline resolver
 
 Our functions should have been added automatically to the pipeline resolver we just created. If this wasn't
 the case, or you created the functions through the **Functions** page, you can

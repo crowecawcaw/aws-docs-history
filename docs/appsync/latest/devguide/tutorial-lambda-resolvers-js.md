@@ -75,9 +75,7 @@ which field is currently being resolved.
 
 Create this Lambda function using the AWS Management Console.
 
-## Configure a data source for
-
-Lambda
+## Configure a data source for Lambda
 
 After you create the Lambda function, navigate to your GraphQL API in the AWS AppSync
 console, and then choose the **Data Sources** tab.
@@ -781,9 +779,7 @@ This query returns a GraphQL response similar to the following:
 }
 ```
 
-### Configuring the maximum batching
-
-size
+### Configuring the maximum batching size
 
 To configure the maximum batching size on a resolver, use the following command in
 the AWS Command Line Interface (AWS CLI):

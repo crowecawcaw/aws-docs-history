@@ -37,9 +37,7 @@ See the [resolver function reference
 for RDS](resolver-reference-rds-js.md "resolver-reference-rds-js.md") data sources and [built-in
 modules](built-in-modules-js.md#built-in-rds-modules "built-in-modules-js.md#built-in-rds-modules") for more.
 
-## Using the introspection feature
-
-(console)
+## Using the introspection feature (console)
 
 For a detailed tutorial and getting started guide, see [Tutorial: Aurora
 PostgreSQL Serverless with Data API](aurora-serverless-tutorial-js.md "aurora-serverless-tutorial-js.md").

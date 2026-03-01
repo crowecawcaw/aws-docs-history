@@ -1,6 +1,4 @@
-# Using DynamoDB
-
-sync operations on versioned data sources in AWS AppSync
+# Using DynamoDB sync operations on versioned data sources in AWS AppSync
 
 Versioned data sources support `Sync` operations that allow you to retrieve
 all the results from a DynamoDB table and then receive only the data altered since your last

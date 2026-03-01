@@ -1,6 +1,4 @@
-# Using DynamoDB batch operations in
-
-AWS AppSync
+# Using DynamoDB batch operations in AWS AppSync
 
 AWS AppSync supports using Amazon DynamoDB batch operations across one or more tables in a single Region.
 Supported operations are `BatchGetItem`, `BatchPutItem`, and `BatchDeleteItem`.
@@ -331,9 +329,7 @@ Choose **Next**, then **Save changes**. Repeat
 this process for the `temperatureReadings` data source using the same policy snippet
 above.
 
-### BatchPutItem - Recording sensor
-
-readings
+### BatchPutItem - Recording sensor readings
 
 Our sensors need to be able to send their readings once they connect to the internet. The GraphQL
 field `Mutation.recordReadings` is the API they will use to do so. We'll need to add a
@@ -422,9 +418,7 @@ We sent ten sensor readings in one mutation with readings split up across two ta
 console to validate that the data shows up in both the `locationReadings` and
 `temperatureReadings` tables.
 
-### BatchDeleteItem - Deleting sensor
-
-readings
+### BatchDeleteItem - Deleting sensor readings
 
 Similarly, we would also need to be able to delete batches of sensor readings. Let’s use the
 `Mutation.deleteReadings` GraphQL field for this purpose. In the AWS AppSync console's
@@ -646,9 +640,7 @@ For `BatchPutItem`, it is `ctx.result.data.unprocessedItems`. For
 
 Let’s handle this error in three different ways.
 
-#### 1. Swallowing the invocation
-
-error
+#### 1. Swallowing the invocation error
 
 Returning data without handling the invocation error effectively swallows the
 error, making the result for the given GraphQL field always successful.
@@ -688,9 +680,7 @@ export function response(ctx) {
 No errors will be added to the error response as only data was acted
 on.
 
-#### 2. Raising an error to abort
-
-the response handler execution
+#### 2. Raising an error to abort the response handler execution
 
 When partial failures should be treated as complete failures from the client’s perspective, you
 can abort the response handler execution to prevent returning data. The `util.error(...)`
@@ -747,9 +737,7 @@ operation, we chose to raise an error such that the `getReadings`
 GraphQL field is null and the error has been added to the GraphQL response
 _errors_ block.
 
-#### 3. Appending
-
-an error to return both data and errors
+#### 3. Appending an error to return both data and errors
 
 In certain cases, to provide a better user experience, applications can return partial results and
 notify their clients of the unprocessed items. The clients can decide to either implement a retry or

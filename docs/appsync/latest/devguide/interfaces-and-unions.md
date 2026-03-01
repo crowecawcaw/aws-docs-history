@@ -1,6 +1,4 @@
-# Interfaces and unions
-
-in GraphQL
+# Interfaces and unions in GraphQL
 
 The GraphQL type system supports [Interfaces](https://graphql.org/learn/schema/#interfaces "https://graphql.org/learn/schema/#interfaces").
 An interface exposes a certain set of fields that a type must include to implement the interface.

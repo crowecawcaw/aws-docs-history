@@ -1,6 +1,4 @@
-# AWS AppSync resolver mapping
-
-template context reference
+# AWS AppSync resolver mapping template context reference
 
 ###### Note
 
@@ -252,9 +250,7 @@ principal. If you're using IAM authorization with credentials vended from
 Amazon Cognito identity pools, we recommend that you use
 `cognitoIdentityId`.
 
-### Access request
-
-headers
+### Access request headers
 
 AWS AppSync supports passing custom headers from clients and accessing them in your
 GraphQL resolvers by using `$context.request.headers`. You can then use the
@@ -296,9 +292,7 @@ You could then access these as an array, such as
 AWS AppSync doesn't expose the cookie header in
 `$context.request.headers`.
 
-### Access the request custom
-
-domain name
+### Access the request custom domain name
 
 AWS AppSync supports configuring a custom domain that you can use to access your GraphQL
 and real-time

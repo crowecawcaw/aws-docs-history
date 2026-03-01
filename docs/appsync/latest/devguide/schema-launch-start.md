@@ -1,7 +1,4 @@
-# Launching a
-
-schema
-in the AWS AppSync console
+# Launching a schema in the AWS AppSync console
 
 In this example, you will create a `Todo` API that allows users to create `Todo` items
 for daily chore reminders like `Finish task` or `Pick up

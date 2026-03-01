@@ -43,11 +43,8 @@ For more details about each of these capabilities, see [AWS AppSync features](ht
 
 We recommend that first-time AWS AppSync users begin by reading the following sections:
 
-- If you're unfamiliar with GraphQL, see the [Getting started: Creating your
-  first GraphQL API in AWS AppSync](quickstart.md "quickstart.md").
-- If you're building applications that consume GraphQL APIs, see [Building
-  a client application using Amplify client](building-a-client-app.md "building-a-client-app.md") and [Using
-  subscriptions for real-time data applications in AWS AppSync](aws-appsync-real-time-data.md "aws-appsync-real-time-data.md").
+- If you're unfamiliar with GraphQL, see the [Getting started: Creating your first GraphQL API in AWS AppSync](quickstart.md "quickstart.md").
+- If you're building applications that consume GraphQL APIs, see [Building a client application using Amplify client](building-a-client-app.md "building-a-client-app.md") and [Using subscriptions for real-time data applications in AWS AppSync](aws-appsync-real-time-data.md "aws-appsync-real-time-data.md").
 - If you're looking for GraphQL resolver information, see the following:
 
 JavaScript/TypeScript
@@ -60,8 +57,7 @@ VTL
 
     + [Resolver
      tutorials (VTL)](tutorials.md "tutorials.md")
-    + [AWS AppSync resolver mapping template
-     reference (VTL)](resolver-mapping-template-reference.md "resolver-mapping-template-reference.md")
+    + [AWS AppSync resolver mapping template reference (VTL)](resolver-mapping-template-reference.md "resolver-mapping-template-reference.md")
 
 - If you're looking for AWS AppSync example projects, updates, and more, see the [AppSync
   blog](https://aws.amazon.com/blogs/mobile/category/mobile-services/aws-appsync/ "https://aws.amazon.com/blogs/mobile/category/mobile-services/aws-appsync/").
