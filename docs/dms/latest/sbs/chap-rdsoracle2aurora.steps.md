@@ -1,25 +1,36 @@
-# Step 7: Create an AWS DMS Replication Instance
+# Step 8: Create AWS DMS Source and Target Endpoints
 
-After we validate the schema structure between source and target databases, as described preceding, we proceed to the core part of this walkthrough, which is the data migration. The following illustration shows a high-level view of the migration process.
+While your replication instance is being created, you can specify the source and target database endpoints using the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"). However, you can only test connectivity after the replication instance has been created, because the replication instance is used in the connection.
 
-![Migration process](images/datarep-conceptual2.png)
-A DMS replication instance performs the actual data migration between source and target. The replication instance also caches the transaction logs during the migration. How much CPU and memory capacity a replication instance has influences the overall time required for the migration.
+1. Specify your connection information for the source Oracle database and the target Amazon Aurora MySQL database. The following table describes the source settings.
 
-To create an AWS DMS replication instance, do the following:
+| For This Parameter      | Do This                                                                                                                                                         |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Endpoint Identifier** | Enter `Orasource` (the Amazon RDS for Oracle endpoint).                                                                                                         |
+| **Source Engine**       | Choose **oracle**.                                                                                                                                              |
+| **Server name**         | Provide the Oracle DB instance name. This is the \*_Server name_<br>• you used for AWS SCT, such as "do1xa4grferti8y.cqiw4tcs0mg7.us-west-2.rds.amazonaws.com". |
+| **Port**                | Enter `1521`.                                                                                                                                                   |
+| **SSL mode**            | Choose **None**.                                                                                                                                                |
+| **Username**            | Enter `oraadmin`.                                                                                                                                               |
+| **Password**            | Provide the password for the Oracle DB instance.                                                                                                                |
+| **SID**                 | Provide the Oracle database name.                                                                                                                               |
 
-1. Sign in to the AWS Management Console, select [AWS Database Migration Service](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2") (AWS DMS) and choose **Create replication instance**. If you are signed in as an AWS Identity and Access Management (IAM) user, you must have the appropriate permissions to access AWS DMS. For more information about the permissions required, see [IAM Permissions](../userguide/CHAP_Security.md#CHAP_Security.IAMPermissions "../userguide/CHAP_Security.md#CHAP_Security.IAMPermissions").
-2. On the **Create replication instance** page, specify your replication instance information as shown following.
+The following table describes the target settings.
 
-| For This Parameter                         | Do This                                                                                                 |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
-| **Name**                                   | Enter `DMSdemo-repserver`.                                                                              |
-| **Descriptive Amazon Resource Name (ARN)** | Skip this optional field.                                                                               |
-| **Description**                            | Enter a brief description, such as `DMS demo replication server`.                                       |
-| **Instance class**                         | Choose **dms.t3.medium**. This instance class is large enough to migrate a small set of tables.         |
-| **Engine version**                         | Choose **3.4.5**. This is the latest AWS DMS version, which includes all new features and enhancements. |
-| **Allocated storage (GiB)**                | Choose **50**. This storage space is enough for your migration project.                                 |
-| **VPC**                                    | Choose `DMSDemoVPC`, which is the VPC that was created by the AWS CloudFormation stack.                 |
-| **Multi-AZ**                               | Choose `Dev or test workload (Single-AZ)`.                                                              |
-| **Publicly accessible**                    | Leave this item selected.                                                                               |
+| For This Parameter      | Do This                                                                                                                                                                                           |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Endpoint Identifier** | Enter `Aurtarget` (the Amazon Aurora MySQL endpoint).                                                                                                                                             |
+| **Target Engine**       | Choose **aurora**.                                                                                                                                                                                |
+| **Servername**          | Provide the Aurora MySQL DB instance name. This is the \*_Server name_<br>• you used for AWS SCT, such as "dmsdemo-auroracluster-1u1oyqny35jwv.cluster-cqiw4tcs0mg7.us-west-2.rds.amazonaws.com". |
+| **Port**                | Enter `3306`.                                                                                                                                                                                     |
+| **SSL mode**            | Choose **None**.                                                                                                                                                                                  |
+| **Username**            | Enter `auradmin`.                                                                                                                                                                                 |
+| **Password**            | Provide the password for the Aurora MySQL DB instance.                                                                                                                                            |
 
-3. For the **Advanced**, **Maintenance**, and **Tags** sections, leave the default settings as they are, and choose **Create**.
+The completed page should look like the following:
+
+![Advanced section](images/sbs-rdsor2aurora19.5.png) 2. In order to disable foreign key checks during the initial data load, you must add the following commands to the target Aurora MySQL DB instance. In the **Advanced** section, shown following, type the following commands for **Extra connection attributes**: `initstmt=SET FOREIGN_KEY_CHECKS=0;autocommit=1`
+
+The first command disables foreign key checks during a load, and the second command commits the transactions that DMS executes.
+
+![Advanced section](images/sbs-rdsor2aurora20.png) 3. Choose **Next**.

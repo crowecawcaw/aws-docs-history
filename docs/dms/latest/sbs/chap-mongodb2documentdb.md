@@ -1,22 +1,21 @@
-# Migrating from MongoDB to Amazon DocumentDB
+# Create an AWS DMS replication instance for MongoDB migration
 
-Use the following tutorial to guide you through the process of migrating from MongoDB to Amazon DocumentDB (with MongoDB compatibility). In this tutorial, you do the following:
+To perform replication in AWS DMS, you need a replication instance.
 
-- Install MongoDB on an Amazon EC2 instance.
-- Populate MongoDB with sample data.
-- Create an AWS DMS replication instance, a source endpoint (for MongoDB), and a target endpoint (for Amazon DocumentDB).
-- Run an AWS DMS task to migrate the data from the source endpoint to the target endpoint.
+1.  Open the AWS DMS console at https://console.aws.amazon.com/dms/v2/.
+2.  In the navigation pane, choose **Replication instances**.
+3.  Choose **Create replication instance** and enter the following information:
 
-###### Important
+        * For **Name**, enter `mongodb2docdb`.
+        * For **Description**, enter `MongoDB to Amazon DocumentDB replication instance`.
+        * For **Instance class**, keep the default value.
+        * For **Engine version**, keep the default value.
+        * For **VPC**, choose your default VPC.
+        * For **Multi-AZ**, choose **No**.
+        * For **Publicly accessible**, enable this option.
 
-Before you begin, make sure to launch an Amazon DocumentDB cluster in your default virtual private cloud (VPC). For more information, see [Getting started](../../../documentdb/latest/developerguide/getting-started.md "../../../documentdb/latest/developerguide/getting-started.md") in the _Amazon DocumentDB Developer Guide._
+    When the settings are as you want them, choose **Create replication instance**.
 
-To estimate what it will cost to run this walkthrough on AWS, you can use the AWS Pricing Calculator. For more information, see [https://calculator.aws/](https://calculator.aws/ "https://calculator.aws/").
+###### Note
 
-###### Topics
-
-- [Launch an Amazon EC2 instance for MongoDB migration](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md")
-- [Install and configure MongoDB community edition](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md")
-- [Create an AWS DMS replication instance for MongoDB migration](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md")
-- [Create source and target endpoints for MongoDB migration](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md")
-- [Create and run a MongoDB migration task](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md")
+You can begin using your replication instance when its status becomes **available**. This can take several minutes.

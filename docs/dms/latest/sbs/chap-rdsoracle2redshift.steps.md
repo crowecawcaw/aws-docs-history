@@ -1,16 +1,64 @@
-# Step 11: Delete Walkthrough Resources
+# Step 10: Verify That Your Data Migration Completed Successfully
 
-After you have completed this walkthrough, perform the following steps to avoid being charged further for AWS resources used in the walkthrough. It’s necessary that you do the steps in order, because some resources cannot be deleted if they have a dependency upon another resource.
+When the migration task completes, you can compare your task results with the expected results.
 
-To delete AWS DMS resources, do the following:
+1. On the navigation pane, choose **Tasks**.
+2. Choose your migration task (`migrateSHschema`).
+3. Choose the **Table statistics** tab, shown following.
 
-1. On the navigation pane, choose **Tasks**, choose your migration task (`migratehrschema`), and then choose **Delete**.
-2. On the navigation pane, choose **Endpoints**, choose the Oracle source endpoint (`orasource`), and then choose **Delete**.
-3. Choose the Amazon Redshift target endpoint (`redshifttarget`), and then choose **Delete**.
-4. On the navigation pane, choose **Replication instances**, choose the replication instance (`DMSdemo-repserver`), and then choose **Delete**.
-   Next, you must delete your AWS CloudFormation stack, `DMSdemo`. Do the following:
+![Table statistics tab](images/sbs-rdsor2redshift26.png) 4. Connect to the Amazon Redshift instance by using SQL Workbench/J, and then check whether the database tables were successfully migrated from Oracle to Amazon Redshift by running the SQL script shown following.
 
-5. Sign in to the AWS Management Console and open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+```
+select "table", tbl_rows
+from svv_table_info
+where
+SCHEMA = 'sh'
+order by 1;
+```
 
-If you are signed in as an IAM user, you must have the appropriate permissions to access AWS CloudFormation. 2. Choose your AWS CloudFormation stack, `OracletoRedshiftDWusingDMS`. 3. For **Actions**, choose **Delete stack**.
-The status of the stack changes to DELETE_IN_PROGRESS while AWS CloudFormation cleans up the resources associated with the `OracletoRedshiftDWusingDMS` stack. When AWS CloudFormation is finished cleaning up resources, it removes the stack from the list.
+Your results should look similar to the following.
+
+```
+table      | tbl_rows
+-----------+---------
+channels   |        5
+customers  |        8
+products   |       66
+promotions |      503
+sales      |     1106
+```
+
+5. To verify whether the output for tables and number of rows from the preceding query matches what is expected for RDS Oracle, compare your results with those in previous steps.
+6. Run the following query to check the relationship in tables; this query checks the departments with employees greater than 10.
+
+```
+Select b.channel_desc,count(*) from SH.SALES a,SH.CHANNELS b where a.channel_id=b.channel_id
+group by b.channel_desc
+order by 1;
+```
+
+The output from this query should be similar to the following.
+
+```
+channel_desc | count
+-------------+------
+Direct Sales |   355
+Internet     |    26
+Partners     |   172
+```
+
+7. Verify column compression encoding.
+
+DMS uses an Amazon Redshift COPY operation to load data. By default, the COPY command applies automatic compression whenever loading to an empty target table. The sample data for this walkthrough is not large enough for automatic compression to be applied. When you migrate larger data sets, COPY will apply automatic compression.
+
+For more details about automatic compression on Amazon Redshift tables, see [Loading Tables with Automatic Compression](../../../redshift/latest/dg/c_Loading_tables_auto_compress.md "../../../redshift/latest/dg/c_Loading_tables_auto_compress.md").
+
+To view compression encodings, run the following query.
+
+```
+SELECT *
+FROM pg_table_def
+WHERE schemaname = 'sh';
+```
+
+Now you have successfully completed a database migration from an Amazon RDS for Oracle DB instance to Amazon Redshift.

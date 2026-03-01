@@ -1,21 +1,21 @@
-# Step 3: Configure Your Aurora MySQL Target Database
+# Step 8: Cut Over to Aurora MySQL
 
-AWS DMS migrates the data from the SQL Server source into an Amazon Aurora MySQL target. In this step, you configure the Aurora MySQL target database.
+To move connections from your Microsoft SQL Server database to your Amazon Aurora MySQL database, do the following:
 
-1. Create the AWS DMS user to connect to your target database, and grant Superuser or the necessary individual privileges (or for Amazon RDS, use the master username).
+1. End all SQL Server database dependencies and activities, such as running scripts and client connections. Ensure that the SQL Server Agent service is stopped.
 
-Alternatively, you can grant the privileges to an existing user.
-
-```
-CREATE USER 'aurora_dms_user' IDENTIFIED BY 'password';
-
-GRANT ALTER, CREATE, CREATE TEMPORARY TABLES, DROP, INDEX, INSERT, UPDATE, DELETE,
-SELECT ON target_database.* TO 'aurora_dms_user';
-```
-
-2. AWS DMS uses control tables on the target in the database `awsdms_control`. Use the following command to ensure that the user has the necessary access to the `awsdms_control` database:
+The following query should return no results other than your connection:
 
 ```
-GRANT ALL PRIVILEGES ON awsdms_control.* TO 'aurora_dms_user';
-FLUSH PRIVILEGES;
+SELECT session_id, login_name from sys.dm_exec_sessions where session_id > 50;
 ```
+
+2. Kill any remaining sessions (other than your own).
+
+```
+KILL session_id;
+```
+
+3. Shut down the SQL Server service.
+4. Let the AWS DMS task apply the final changes from the SQL Server database on the Amazon Aurora MySQL database.
+5. In the AWS DMS console, stop the AWS DMS task by choosing **Stop** for the task, and then confirming that you want to stop the task.

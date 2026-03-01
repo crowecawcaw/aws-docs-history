@@ -1,36 +1,26 @@
-# Database migration script/ETL/report conversion
+# Amazon RDS for Oracle data migration mechanism
 
-ETL is an acronym that stands for Extract, Transform and Load. The ETL process plays a central role in data integration strategies. ETL allows businesses to gather data from multiple sources and consolidate it into a single, centralized location. ETL also makes it possible for different types of data to work together.
+For testing purposes and for production cutover, data needs to be migrated from the old Amazon RDS for Oracle instance to the new Amazon RDS or Aurora PostgreSQL instance. Such a data migration requires knowledge of data type mapping and possibly incremental loading, depending on the size of the data and migration window.
 
-ELT is similar to ETL. However, the primary difference between them is that the data transformation processes occur after the Raw data from the source have been extracted and loaded into a staging area. The transformation of the data may occur in the destination database or in the middle tier or via serverless tools that might reduce the cost of the data processing.
+For this purpose AWS Database Migration Service (AWS DMS) can be used to connect source and target databases to replicate the contents of the data in the most optimal way.
 
-Transforming the data is a critical process that may provide significant value to the data. It’s also the stage where the data could be cleansed, standardized, deduplicated, verified, sorted, shared, and much more.
+## Process
 
-The role of ELT or ETL in database migration projects is critical for any successful migration.
+1. Create a replication server.
+2. Create source and target endpoints that have connection information about your data stores.
+3. Create one or more migration tasks to migrate data between the source and target data stores.
 
-For the remainder of this document, ETL will also refer to ELT patterns.
+After you configured AWS DMS, you can perform the following operations:
 
-ETL can be implemented in the database itself, in external scripts or in third-party tools such as Informatica, Talend, and so on. If the ETL is done using Oracle stored procedure, the freely available AWS Schema Conversion Tool (AWS SCT) is capable of converting the ETL code to AWS Glue. For more information, see [Automation](chap-oracle-postgresql.md#chap-oracle-postgresql.automation "chap-oracle-postgresql.md#chap-oracle-postgresql.automation").
+- A full data migration from Oracle to PostgreSQL.
+- An ongoing replication from Oracle to PostgreSQL.
 
-## Process for Conversion to AWS Glue
+Depending on the type of data in the database, you may need to optimize AWS DMS for handling certain data types like LOBS which you can read more about in the product guidance.
 
-If Python/Glue is a desired future state architecture for ETL code, and the ETL is implemented in the database, the conversion process works like this:
+## Reverse Migration
 
-1. Perform the database conversion. This is necessary because the PL/SQL conversion needs to know the schema of the database. For more information, see [Database Schema Conversion](chap-oracle-postgresql.migration-process.md "chap-oracle-postgresql.migration-process.md").
-2. Run AWS SCT, select the code involved in ETL and automatically convert the ETL code to AWS Glue. For more information, see [Converting ETL processes](../../../SchemaConversionTool/latest/userguide/CHAP-converting-aws-glue.md "../../../SchemaConversionTool/latest/userguide/CHAP-converting-aws-glue.md").
-3. Fix any warnings and errors in the ETL code conversion.
+Normally you just fall back to the old system if a migration fails during smoke testing, and in most cases you may decide to fix forward after cutover, in which case you fix any unforeseen bugs in the migrated system. But in some cases you may decide to have the option of migrating production data back from the new system to the original system after having been in production for a time. In those cases, a reverse data migration mechanism must be configured.
 
-## Process for Conversion of Stored Procedures
+![Reverse Migration](images/oracle-postgresql-reverse-migration.png)
 
-If ETL or report process is implemented in the database, then the database conversion takes care of converting the code, and only the method to call the stored procedures need to change.
-
-## Process for Conversion of Scripts, Reports, and Third-Party ETL
-
-If the ETL or Report code is available in scripts or hosted in third-party tools and those tools will be used in the future, then a custom process will have to be implemented:
-
-1. Perform the database conversion. This is necessary because the PL/SQL conversion needs to know the schema of the database. For more information, see [Database Schema Conversion](chap-oracle-postgresql.migration-process.md "chap-oracle-postgresql.migration-process.md").
-2. Extract PL/SQL statements from the third-party ETL or reporting tool into flat files, unless already available.
-3. Write YAML configuration files for AWS SCT CLI to convert external files.
-4. Run AWS SCT CLI on the external scripts using the YAML configuration files. For more information, see [AWS Schema Conversion Tool CLI and Interactive Mode Reference](https://s3.amazonaws.com/publicsctdownload/AWS+SCT+CLI+Reference.pdf "https://s3.amazonaws.com/publicsctdownload/AWS+SCT+CLI+Reference.pdf").
-5. Fix any warnings and errors in the ETL or report code conversion.
-6. Insert the converted PL/pgSQL code back into the third-party ETL or reporting tool, unless they stay as flat files.
+For more information, see [What is Database Migration Service?](../userguide/Welcome.md "../userguide/Welcome.md") and [Migrating Oracle databases with near-zero downtime](https://aws.amazon.com/blogs/database/migrating-oracle-databases-with-near-zero-downtime-using-aws-dms/ "https://aws.amazon.com/blogs/database/migrating-oracle-databases-with-near-zero-downtime-using-aws-dms/").

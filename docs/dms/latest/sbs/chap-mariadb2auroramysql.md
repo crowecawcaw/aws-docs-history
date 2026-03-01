@@ -1,54 +1,29 @@
-# Cut over for the migration from a MariaDB database
+# Create a migration task for a MariaDB database
 
-After the data validation is complete and any problems resolved, you can load the database triggers, functions, and procedures.
+We’ve now verified that the replication instance can connect to both the source and target endpoints. The next step is to create a database migration task.
 
-To do this, use the `routines.sql` file generated from MariaDB to create the necessary routines in Aurora MySQL. The following statement loads all procedures, functions, and triggers into the Aurora MySQL database.
+1. On the navigation pane, choose **Database Migration Tasks**.
+2. Choose **Create Task**. Provide the specified values for the following, and then choose **Next**:
+   - **Task identifier** — `maria-mysql`
+   - **Replication instance** — Choose the replication instance, `mariadb-mysql`.
+   - **Source database endpoint** — Choose the source database, `maria-on-prem`.
+   - **Target database endpoint** — Choose the target database, `mysqltrg-rds`.
+   - **Migration Type** — Choose **Migrate existing data and replicate ongoing changes** for CDC, or **Migrate existing data** for full load.
 
-```
-$ mysql -h mysqltrg-instance-1.xxxxxxxxx.us-east-1.rds.amazonaws.com  -u master -p migration -P 3306 < routines.sql
-```
+3. For **Task settings**, choose the following settings:
+   - **Target table preparation mode** — Do nothing
+   - **Stop task after full load completes** — Don’t stop
+   - **Include LOB columns in replication** — Limited LOB mode
+   - **Maximum LOB size (KB)** — 32
+   - **Enable validation**
+   - **Enable CloudWatch logs**
 
-After the routines are loaded, connect to the Aurora MySQL database to validate as shown following.
+4. For **Table mappings**, choose the following settings:
+   - Schema — Choose **migration** (assuming the schema and database to be migrated appear correctly).
+   - Table name — Enter the table name, or `%` to specify all the tables in the database.
+   - Action — Enter **Include** to include specific tables, or **Exclude** to exclude specific tables.
 
-```
-$ mysql -h mysqltrg-instance-1.xxxxxxxxx.us-east-1.rds.amazonaws.com  -u master -p migration -P 3306
-Enter password:
-Reading table information for completion of table and column names
-You can turn off this feature to get a quicker startup with -A
+5. Choose **Create Task**.
+   Your new AWS DMS migration task reads the data from the tables in the MariaDB source and migrates your data to the Aurora MySQL target.
 
-Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MySQL connection id is 957
-Server version: 5.6.10 MySQL Community Server (GPL)
-
-Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
-
-Enter 'help;' or '\h' for help. Enter '\c' to clear the current input statement.
-
-MySQL [migration]> select routine_schema as database_name,
-    ->             routine_name,
-    ->             routine_type as type,
-    ->             data_type as return_type
-    ->             from information_schema.routines
-    ->      where routine_schema not in ('sys', 'information_schema',
-    ->                                   'mysql', 'performance_schema');
-+---------------+----------------+-----------+-------------+
-| database_name | routine_name   | type      | return_type |
-+---------------+----------------+-----------+-------------+
-| migration     | CalcValue      | FUNCTION  | int         |
-| migration     | loadMLBPlayers | PROCEDURE |             |
-| migration     | loadNFLPlayers | PROCEDURE |             |
-+---------------+----------------+-----------+-------------+
-3 rows in set (0.002 sec)
-
-
-MySQL [migration]> select TRIGGER_SCHEMA, TRIGGER_NAME from information_schema.triggers where TRIGGER_SCHEMA='migration';
-+----------------+-----------------------+
-| TRIGGER_SCHEMA | TRIGGER_NAME          |
-+----------------+-----------------------+
-| migration      | increment_animal      |
-| migration      | contacts_after_update |
-+----------------+-----------------------+
-2 rows in set (0.009 sec)
-```
-
-The preceding output shows that all the procedures, triggers, and functions are loaded successfully to the Aurora MySQL database.
+You can use an AWS DMS full-load-only migration task to migrate views or a combination of tables and views. For more information, see [Specifying table selection and transformations rules](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.md "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.md") in the _DMS User Guide_.

@@ -1,25 +1,43 @@
-# Full load SQL Server database migration options performance comparison
+# SQL Server import and export wizard
 
-To compare the full load migration performance for all three methods, we used a test environment. In this environment, we populated the `dms_sample` database with 410.90 GB of data. We used the same on-premise SQL Server source and RDS SQL Server target databases to load data three times. For these data loads, we used the following methods:
+Microsoft SQL Server Import and Export Wizard is a high-performance option for data migration. It uses the SQL Server Integration Services (SSIS) framework. For more information, see [Import and Export Data with the SQL Server Import and Export Wizard](https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/import-and-export-data-with-the-sql-server-import-and-export-wizard?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/import-and-export-data-with-the-sql-server-import-and-export-wizard?view=sql-server-ver15") and [SQL Server Integration Services](https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services?view=sql-server-ver15").
 
-- Backup and restore.
-- Import and export wizard.
-- Generate and publish scripts wizard and bulk copy program utility (bcp).
-  The following image represents the performance comparison of the three migration methods. We expect similar performance trends for larger datasets.
+The Import and Export Wizard is suitable for the following use cases:
 
-![performance comparison of the three migration methods](images/sql-server-rds-sql-server-performance.png)
-The elapsed time shown in the diagram is the actual migration time. It doesn’t include the time spent on implementing prerequisites.
+- To achieve high migration performance.
+- To transform data during the migration. You can use the wizard to create SSIS packages and modify them in Visual Studio with an SSIS extension to achieve this.
+- To rename the target tables or schemas during the migration.
+- To migrate only the tables and avoid the migration of the secondary database objects such as users, views, stored procedures, triggers, foreign keys or functions.
+  The migration performance is affected by resource constraints of the host where you run the wizard. During the migration, all data is funneled through this host.
 
-For the backup and restore method, we spent 4.24 hours. This time includes:
+## Migration steps
 
-- 1.66 hours to backup the database.
-- 1.75 hours to copy the data from backup location to Amazon S3.
-- 0.88 hours to restore the data from the S3 bucket to Amazon RDS for SQL Server.
-  For the import and export wizard, we spent 8.58 hours.
+Use the following steps to migrate all the tables and views from the `dms_sample` database to your target database.
 
-For the bcp method, we spent 199 hours. This time includes:
+Disable all constraints on the target DB instance before to the migration. The Import and Export Wizard copies tables in a random order. This may lead to failures if you enforce referential integrity on the target.
 
-- 0.01 hours to generate scripts.
-- 0.01 hours to run the generated script on Amazon RDS for SQL Server.
-- 27.88 hours to run the bcp statements for unloading data from on-premise SQL Server.
-- 171.1 hours to run the bcp statements for loading data into Amazon RDS for SQL Server.
+```
+EXEC sp_msforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT all'
+```
+
+Make sure that you capture the current log sequence number (LSN) from the source database before your start the full load. To capture the current LSN, use the following command.
+
+```
+SELECT max([Current LSN]) FROM fn_dblog(NULL, NULL)
+```
+
+Then you can use this LSN to set up the change data capture (CDC) task in AWS DMS.
+
+Open the SQL Server Import and Export Wizard from the Windows Start menu. Connect to your source and target databases and select the source tables and views. The following image shows the SQL Server Import and Export Wizard application window.
+
+![SQL Server Import and Export Wizard application window](images/sql-server-rds-sql-server-full-load-import-export.png)
+
+Choose **Next**, then choose **Run immediately**, and then choose **Finish**. The SQL Server Import and Export Wizard starts the migration. You can monitor the progress of your migration using the Performing Operation screen. For more information, see [Performing Operation (SQL Server Import and Export Wizard)](https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/performing-operation-sql-server-import-and-export-wizard?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/performing-operation-sql-server-import-and-export-wizard?view=sql-server-ver15").
+
+Make sure that you turn on constraints after you complete the migration.
+
+```
+EXEC sp_msforeachtable 'ALTER TABLE ? CHECK CONSTRAINT all'
+```
+
+For more information, see [Get started with this simple example of the Import and Export Wizard](https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/get-started-with-this-simple-example-of-the-import-and-export-wizard?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/get-started-with-this-simple-example-of-the-import-and-export-wizard?view=sql-server-ver15").
