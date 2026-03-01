@@ -214,7 +214,7 @@ single request.
 
 For visualizations, several AWS services can be used. Amazon
 Managed Service for Apache Flink can process streaming data in
-real-time using SQL. Additionally, Quick Suite provides
+real-time using SQL. Additionally, Quick provides
 business intelligence dashboards for IoT data visualization
 with minimal setup. AWS IoT SiteWise offers purpose-built
 visualization tools for industrial equipment data. For

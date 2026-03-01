@@ -125,9 +125,7 @@ review the IoT limits and make sure that your application
 adheres to any soft limits related to the data plane, while not
 exceeding any hard limits that are imposed by the data plane.
 
-## IOTREL02-BP01 Manage service quotas and
-
-constraints
+## IOTREL02-BP01 Manage service quotas and constraints
 
 For cloud-based workload architectures, there are service quotas (which are also referred to as service limits). These quotas exist to help prevent accidentally provisioning more resources than you need and to limit request rates on API operations so as to protect services from abuse.
 

@@ -384,10 +384,10 @@ open-source analytics solution that enables you to query,
 visualize, alert on and understand your metrics no matter where
 they are stored. Grafana has integrations with services like AWS IoT Twinmaker to make visualizations easier.
 
-**Quick Suite** is a
+**Quick** is a
 cloud-scale business intelligence (BI) service that you can use
 to deliver straightforward insights to the people who you work
-with, wherever they are. Quick Suite connects to your data
+with, wherever they are. Quick connects to your data
 in the cloud and combines data from many different sources from
 the IoT suite.
 

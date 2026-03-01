@@ -126,10 +126,7 @@ addition, take advantage of Secure Elements (SEs) and TPMs.
 Trusted execution environments (TEEs) can add storage
 protections as well.
 
-## IOTSEC10-BP02 Use data classification
-
-strategies to categorize data access based on levels of
-sensitivity
+## IOTSEC10-BP02 Use data classification strategies to categorize data access based on levels of sensitivity
 
 Data classification and governance is the customer's
 responsibility.
