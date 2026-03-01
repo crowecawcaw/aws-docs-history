@@ -15,14 +15,10 @@ NodeJS that the Synthetics runtime supports.
 
 ###### Topics
 
-- [Runtime versions using
-  Java](CloudWatch_Synthetics_Library_Java.md "CloudWatch_Synthetics_Library_Java.md")
-- [Runtime versions using
-  Node.js and Playwright](CloudWatch_Synthetics_Library_nodejs_playwright.md "CloudWatch_Synthetics_Library_nodejs_playwright.md")
-- [Runtime versions using Node.js
-  and Puppeteer](CloudWatch_Synthetics_Library_nodejs_puppeteer.md "CloudWatch_Synthetics_Library_nodejs_puppeteer.md")
-- [Runtime versions using Python
-  and Selenium Webdriver](CloudWatch_Synthetics_Library_python_selenium.md "CloudWatch_Synthetics_Library_python_selenium.md")
+- [Runtime versions using Java](CloudWatch_Synthetics_Library_Java.md "CloudWatch_Synthetics_Library_Java.md")
+- [Runtime versions using Node.js and Playwright](CloudWatch_Synthetics_Library_nodejs_playwright.md "CloudWatch_Synthetics_Library_nodejs_playwright.md")
+- [Runtime versions using Node.js and Puppeteer](CloudWatch_Synthetics_Library_nodejs_puppeteer.md "CloudWatch_Synthetics_Library_nodejs_puppeteer.md")
+- [Runtime versions using Python and Selenium Webdriver](CloudWatch_Synthetics_Library_python_selenium.md "CloudWatch_Synthetics_Library_python_selenium.md")
 - [Runtime versions using Node.js](CloudWatch_Synthetics_Library_Nodejs.md "CloudWatch_Synthetics_Library_Nodejs.md")
 - [Runtime versions support policy](CloudWatch_Synthetics_Runtime_Support_Policy.md "CloudWatch_Synthetics_Runtime_Support_Policy.md")
 - [Runtime versions update](CloudWatch_Synthetics_Runtime_Version_Update.md "CloudWatch_Synthetics_Runtime_Version_Update.md")

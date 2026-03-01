@@ -23,8 +23,7 @@ The Discovery CloudFormation resource grants Application Signals the following p
     * `tag:GetResources`
 
 For more information about this role, see
-[Service-linked role permissions for
-CloudWatch Application Signals](using-service-linked-roles.md#service-linked-role-signals "using-service-linked-roles.md#service-linked-role-signals"). 2. Instrument your application with the [AWS::ApplicationSignals Construct Library](https://www.npmjs.com/package/@aws-cdk/aws-applicationsignals-alpha "https://www.npmjs.com/package/@aws-cdk/aws-applicationsignals-alpha") in the AWS CDK. The code snippets in this document are provided in _TypeScript_.
+[Service-linked role permissions for CloudWatch Application Signals](using-service-linked-roles.md#service-linked-role-signals "using-service-linked-roles.md#service-linked-role-signals"). 2. Instrument your application with the [AWS::ApplicationSignals Construct Library](https://www.npmjs.com/package/@aws-cdk/aws-applicationsignals-alpha "https://www.npmjs.com/package/@aws-cdk/aws-applicationsignals-alpha") in the AWS CDK. The code snippets in this document are provided in _TypeScript_.
 For other language-specific alternatives, see [Supported programming languages for the AWS CDK](../../../cdk/v2/guide/languages.md "../../../cdk/v2/guide/languages.md").
 
     * **Enable Application Signals on Amazon ECS with sidecar mode**

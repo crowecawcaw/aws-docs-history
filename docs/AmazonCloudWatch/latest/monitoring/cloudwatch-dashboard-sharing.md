@@ -48,9 +48,7 @@ that you share the dashboard with will not see those widgets. They will instead 
 that the widget is not available. You will still see metric widgets with alarm annotations when you view
 the dashboard yourself.
 
-## Permissions required
-
-to share a dashboard
+## Permissions required to share a dashboard
 
 To be able to share dashboards using any of the following methods and to see
 which dashboards have already been

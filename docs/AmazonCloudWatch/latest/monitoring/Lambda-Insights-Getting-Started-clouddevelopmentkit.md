@@ -1,6 +1,4 @@
-# Use the AWS CDK to enable Lambda Insights on an
-
-existing Lambda function
+# Use the AWS CDK to enable Lambda Insights on an existing Lambda function
 
 Follow these steps to use the AWS CDK to enable Lambda Insights on an existing Lambda function.
 To use these steps, you must already be using the AWS CDK to manage your resources.

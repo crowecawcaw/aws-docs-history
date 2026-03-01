@@ -24,13 +24,10 @@ model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://a
 ###### Contents
 
 - [Data protection in Amazon CloudWatch](data-protection.md "data-protection.md")
-- [Identity and access management for
-  Amazon CloudWatch](auth-and-access-control-cw.md "auth-and-access-control-cw.md")
+- [Identity and access management for Amazon CloudWatch](auth-and-access-control-cw.md "auth-and-access-control-cw.md")
 - [Compliance validation for Amazon CloudWatch](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon CloudWatch](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon CloudWatch](infrastructure-security.md "infrastructure-security.md")
 - [AWS Security Hub](CloudWatch_and_Security_Hub.md "CloudWatch_and_Security_Hub.md")
-- [Using CloudWatch, CloudWatch Synthetics, and CloudWatch Network
-  Monitoring with interface VPC endpoints](cloudwatch-and-interface-VPC.md "cloudwatch-and-interface-VPC.md")
-- [Security considerations for Synthetics
-  canaries](servicelens_canaries_security.md "servicelens_canaries_security.md")
+- [Using CloudWatch, CloudWatch Synthetics, and CloudWatch Network Monitoring with interface VPC endpoints](cloudwatch-and-interface-VPC.md "cloudwatch-and-interface-VPC.md")
+- [Security considerations for Synthetics canaries](servicelens_canaries_security.md "servicelens_canaries_security.md")

@@ -5,9 +5,7 @@ to other existing dashboards. For more information about
 dashboard variables, see
 [Creating flexible CloudWatch dashboards with dashboard variables](cloudwatch_dashboard_variables.md "cloudwatch_dashboard_variables.md").
 
-######
-
-To copy a dashboard variable to another dashboard
+###### To copy a dashboard variable to another dashboard
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

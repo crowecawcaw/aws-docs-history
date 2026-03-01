@@ -29,8 +29,7 @@ by default that user can create a rule that
 evaluates any log group in CloudWatch Logs. You can add IAM policy conditions that limit
 these permissions
 for a user to include and exclude specific log groups. For more information,
-see [Using condition keys to
-limit Contributor Insights users' access to log groups](iam-cw-condition-keys-contributor.md "iam-cw-condition-keys-contributor.md").
+see [Using condition keys to limit Contributor Insights users' access to log groups](iam-cw-condition-keys-contributor.md "iam-cw-condition-keys-contributor.md").
 
 ###### To create a rule using a built-in sample rule
 

@@ -1,6 +1,4 @@
-# Relevant fields in
-
-performance log events for Amazon EKS and Kubernetes
+# Relevant fields in performance log events for Amazon EKS and Kubernetes
 
 For Amazon EKS and Kubernetes, the containerized CloudWatch agent emits data as performance log
 events. This enables CloudWatch to ingest and store high-cardinality data. CloudWatch uses the data in
@@ -61,9 +59,7 @@ of these fields to collect data or investigate issues. For more information, see
 | Service     | `service_number_of_running_pods`                                          | API Server |                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `Namespace` | `namespace_number_of_running_pods`                                        | API Server |                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
-## Metrics calculation
-
-examples
+## Metrics calculation examples
 
 This section includes examples that show how some of the values in the preceding
 table are calculated.

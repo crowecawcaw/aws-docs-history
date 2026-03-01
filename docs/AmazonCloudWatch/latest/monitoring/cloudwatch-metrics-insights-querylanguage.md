@@ -1,6 +1,4 @@
-# Query components and syntax in
-
-CloudWatch Metrics Insights
+# Query components and syntax in CloudWatch Metrics Insights
 
 CloudWatch Metrics Insights syntax is as follows.
 
@@ -47,8 +45,7 @@ have created for your custom metrics.
 
 Metric namespaces that include **/** or any other character that
 is not a letter, number, or underscore must be surrounded by double quotation marks.
-For more information, see [What needs quotation marks or
-escape characters?](#cloudwatch-metrics-insights-syntaxdetails "#cloudwatch-metrics-insights-syntaxdetails").
+For more information, see [What needs quotation marks or escape characters?](#cloudwatch-metrics-insights-syntaxdetails "#cloudwatch-metrics-insights-syntaxdetails").
 
 **SCHEMA**
 
@@ -196,9 +193,7 @@ series.
 Using a **LIMIT** clause with an **ORDER BY**
 clause gives you a "Top N" query.
 
-## What needs quotation marks or
-
-escape characters?
+## What needs quotation marks or escape characters?
 
 In a query, label values must always be surrounded with single quotation marks. For
 example, **SELECT MAX(CPUUtilization) FROM "AWS/EC2" WHERE AutoScalingGroupName =
@@ -220,9 +215,7 @@ double quotation marks even if it does not include a reserved keyword.
 
 For a complete list of reserved keywords, see [Reserved keywords](cloudwatch-metrics-insights-reserved-keywords.md "cloudwatch-metrics-insights-reserved-keywords.md").
 
-## Build a rich query step by
-
-step
+## Build a rich query step by step
 
 This section illustrates building a full example that uses all possible clauses, step by step.
 
@@ -302,9 +295,7 @@ LIMIT 5
 
 ```
 
-## Cross-account query
-
-examples
+## Cross-account query examples
 
 These examples are valid when run in an account set up as a monitoring account in CloudWatch
 cross-account observability.

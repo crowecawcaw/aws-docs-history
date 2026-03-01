@@ -5,18 +5,14 @@ permissions features.
 
 ###### Topics
 
-- [Default CloudWatch investigations permissions,
-  retention, and encryption](#Ephemeral-Investigations-Security "#Ephemeral-Investigations-Security")
+- [Default CloudWatch investigations permissions, retention, and encryption](#Ephemeral-Investigations-Security "#Ephemeral-Investigations-Security")
 - [User permissions for your CloudWatch investigations group](#Investigations-Security-IAM "#Investigations-Security-IAM")
 - [Additional permissions for Database Insights](#Investigations-Security-RDS "#Investigations-Security-RDS")
-- [How to control what data CloudWatch investigations has
-  access to during investigations](#Investigations-Security-Data "#Investigations-Security-Data")
+- [How to control what data CloudWatch investigations has access to during investigations](#Investigations-Security-Data "#Investigations-Security-Data")
 - [Encryption of investigation data](#Investigations-KMS "#Investigations-KMS")
 - [Cross-Region inference](#cross-region-inference "#cross-region-inference")
 
-## Default CloudWatch investigations permissions,
-
-retention, and encryption
+## Default CloudWatch investigations permissions, retention, and encryption
 
 When you run investigations using default settings without additional configuration in
 your account the investigation uses the permissions available to your current console
@@ -54,9 +50,7 @@ the **AIOpsReadOnlyAccess** policy. These principals could
 be either IAM roles (recommended) or IAM users. Then your users who work with CloudWatch investigations
 would sign on using one of these principals.
 
-### Permissions for incident report
-
-generation
+### Permissions for incident report generation
 
 Incident report generation requires additional permissions to allow the AI to
 collect events, facts, and then create reports.
@@ -118,9 +112,7 @@ To attach this policy, use the IAM console to add the
 investigation principal. For more information about this managed policy and its
 permissions, see [AmazonRDSPerformanceInsightsFullAccess](../../../aws-managed-policy/latest/reference/AmazonRDSPerformanceInsightsFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonRDSPerformanceInsightsFullAccess.md").
 
-## How to control what data CloudWatch investigations has
-
-access to during investigations
+## How to control what data CloudWatch investigations has access to during investigations
 
 When you configure an investigation group in your account, you specify what
 permissions that CloudWatch investigations has to access your resources during investigations. You do this by
@@ -150,9 +142,7 @@ Anything that CloudWatch investigations can access can be added to the investiga
 investigation operators. We recommend that you align CloudWatch investigations permissions with the
 permissions that your investigation group operators have.
 
-### Allowing CloudWatch investigations to decrypt
-
-encrypted data during investigations
+### Allowing CloudWatch investigations to decrypt encrypted data during investigations
 
 If you encrypt your data in any of the following services with a customer managed
 key in AWS KMS, and you want CloudWatch investigations to be able to decrypt the data from these services
@@ -229,9 +219,7 @@ pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing
 
 For more information about AWS KMS, see [AWS Key Management Service](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
 
-### Using a customer managed key for
-
-your investigation group
+### Using a customer managed key for your investigation group
 
 You can associate an investigation group with a customer managed key, and then all
 investigations created in that group will use the customer managed key to encrypt
@@ -254,9 +242,7 @@ CloudWatch investigations customer managed key usage has the following condition
   a customer managed key, that user must have the `kms:Decrypt`
   permission.
 
-### Setting up investigations to use a AWS KMS
-
-customer managed key
+### Setting up investigations to use a AWS KMS customer managed key
 
 First, if you don't already have a symmetric key that you want to use, create a
 new key with the following command.
@@ -488,9 +474,7 @@ associate the AWS KMS key with the investigation group. For more information, se
 You can also associate a customer managed key with an existing investigation
 group.
 
-### Changing your encryption
-
-configuration
+### Changing your encryption configuration
 
 You can update an investigation group to change between using a customer managed
 key or a service owned key. You can also change from using one customer managed key

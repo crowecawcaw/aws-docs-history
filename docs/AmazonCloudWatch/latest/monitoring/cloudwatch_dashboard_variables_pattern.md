@@ -1,22 +1,17 @@
-# Tutorial: Creating
-
-a dashboard that uses a regular expression pattern to switch between AWS Regions
+# Tutorial: Creating a dashboard that uses a regular expression pattern to switch between AWS Regions
 
 The steps in this procedure illustrate how to create a flexible dashboard that can
 switch between Regions. This tutorial uses a regular expression _pattern
 variable_ instead of a property variable. For a tutorial that
 uses a property variable, see
-[Tutorial: Creating
-a CloudWatch Lambda dashboard with function name as the variable](cloudwatch_dashboard_variables_property.md "cloudwatch_dashboard_variables_property.md").
+[Tutorial: Creating a CloudWatch Lambda dashboard with function name as the variable](cloudwatch_dashboard_variables_property.md "cloudwatch_dashboard_variables_property.md").
 
 For many use cases, you can create a dashboard that switches between Regions by
 using a property variable. But if the widgets rely on Amazon Resource Names (ARNs)
 that include Region names, you must use a pattern variable to change the Region
 names within the ARNs.
 
-######
-
-To use a dashboard pattern variable to create a flexible multi-Region dashboard
+###### To use a dashboard pattern variable to create a flexible multi-Region dashboard
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -31,8 +26,7 @@ To use a dashboard pattern variable to create a flexible multi-Region dashboard
    **InstanceID** as a dimension.
 
 For more information about adding widgets to a dashboard,
-see [Using widgets
-on CloudWatch dashboards](create-and-work-with-widgets.md "create-and-work-with-widgets.md"). 5. After you add the widgets, as you are viewing the dashboard, choose
+see [Using widgets on CloudWatch dashboards](create-and-work-with-widgets.md "create-and-work-with-widgets.md"). 5. After you add the widgets, as you are viewing the dashboard, choose
 **Actions**, **Variables**,
 **Create a variable**. 6. Choose **Pattern variable**. 7. For **Property that the variable changes**, enter the
 name of the current dashboard Region, such as `us-east-2`.

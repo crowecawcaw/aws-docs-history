@@ -38,8 +38,7 @@ For a video demonstration of canaries, see the following:
   You can use both cron and rate expressions to schedule canaries.
 
 For information about security issues to consider before you create and run canaries, see
-[Security considerations for Synthetics
-canaries](servicelens_canaries_security.md "servicelens_canaries_security.md").
+[Security considerations for Synthetics canaries](servicelens_canaries_security.md "servicelens_canaries_security.md").
 
 By default, canaries create several CloudWatch metrics in the `CloudWatchSynthetics` namespace.
 These metrics have
@@ -47,8 +46,7 @@ These metrics have
 or `executeHttpStep()`
 function from the function library also have
 `StepName` as a dimension. For more information about the canary
-function library, see [Library functions available for
-canary scripts](CloudWatch_Synthetics_Canaries_Function_Library.md "CloudWatch_Synthetics_Canaries_Function_Library.md").
+function library, see [Library functions available for canary scripts](CloudWatch_Synthetics_Canaries_Function_Library.md "CloudWatch_Synthetics_Canaries_Function_Library.md").
 
 CloudWatch Synthetics integrates well with the X-Ray Trace Map, which uses CloudWatch with AWS X-Ray to
 provide an end-to-end view of your services to help you more efficiently pinpoint performance
@@ -65,8 +63,7 @@ and X-Ray are not supported.
 
 ###### Topics
 
-- [Required roles and permissions for CloudWatch
-  canaries](CloudWatch_Synthetics_Canaries_Roles.md "CloudWatch_Synthetics_Canaries_Roles.md")
+- [Required roles and permissions for CloudWatch canaries](CloudWatch_Synthetics_Canaries_Roles.md "CloudWatch_Synthetics_Canaries_Roles.md")
 - [Creating a canary](CloudWatch_Synthetics_Canaries_Create.md "CloudWatch_Synthetics_Canaries_Create.md")
 - [Groups](CloudWatch_Synthetics_Groups.md "CloudWatch_Synthetics_Groups.md")
 - [Test a canary locally](CloudWatch_Synthetics_Debug_Locally.md "CloudWatch_Synthetics_Debug_Locally.md")
@@ -75,11 +72,9 @@ and X-Ray are not supported.
 - [Canaries and X-Ray tracing](CloudWatch_Synthetics_Canaries_tracing.md "CloudWatch_Synthetics_Canaries_tracing.md")
 - [Running a canary on a VPC](CloudWatch_Synthetics_Canaries_VPC.md "CloudWatch_Synthetics_Canaries_VPC.md")
 - [Encrypting canary artifacts](CloudWatch_Synthetics_artifact_encryption.md "CloudWatch_Synthetics_artifact_encryption.md")
-- [Viewing canary
-  statistics and details](CloudWatch_Synthetics_Canaries_Details.md "CloudWatch_Synthetics_Canaries_Details.md")
+- [Viewing canary statistics and details](CloudWatch_Synthetics_Canaries_Details.md "CloudWatch_Synthetics_Canaries_Details.md")
 - [CloudWatch metrics published by canaries](CloudWatch_Synthetics_Canaries_metrics.md "CloudWatch_Synthetics_Canaries_metrics.md")
 - [Edit or delete a canary](synthetics_canaries_deletion.md "synthetics_canaries_deletion.md")
 - [Start, stop, delete, or update runtime for multiple canaries](synthetics_canaries_multi-action.md "synthetics_canaries_multi-action.md")
-- [Monitoring canary events with
-  Amazon EventBridge](monitoring-events-eventbridge.md "monitoring-events-eventbridge.md")
+- [Monitoring canary events with Amazon EventBridge](monitoring-events-eventbridge.md "monitoring-events-eventbridge.md")
 - [Performing safe canary updates](performing-safe-canary-upgrades.md "performing-safe-canary-upgrades.md")

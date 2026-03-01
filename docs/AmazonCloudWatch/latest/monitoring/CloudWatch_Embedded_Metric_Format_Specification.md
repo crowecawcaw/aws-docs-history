@@ -4,9 +4,7 @@ The CloudWatch embedded metric format is a JSON specification used to instruct C
 You can use CloudWatch to graph and create alarms on the extracted metric values.
 This section describes embedded metric format specification conventions and the embedded metric format document structure.
 
-## Embedded metric format
-
-specification conventions
+## Embedded metric format specification conventions
 
 The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this
 format specification are to be interpreted as described in [Key Words RFC2119](http://tools.ietf.org/html/rfc2119 "http://tools.ietf.org/html/rfc2119").
@@ -19,9 +17,7 @@ The terms "JSON", "JSON text", "JSON value", "member", "element", "object", "arr
 If you plan to create alarms on metrics created using embedded metric format, see
 [Setting alarms on metrics created with the embedded metric format](CloudWatch_Embedded_Metric_Format_Alarms.md "CloudWatch_Embedded_Metric_Format_Alarms.md") for recommendations.
 
-## Embedded metric format
-
-document structure
+## Embedded metric format document structure
 
 This section describes the structure of an embedded metric format document. Embedded metric format documents are defined in
 [JavaScript Object Notation RFC8259](https://tools.ietf.org/html/rfc8259 "https://tools.ietf.org/html/rfc8259").
@@ -50,8 +46,7 @@ For more details see [Monitoring with CloudWatch metrics](../logs/CloudWatch-Log
 The LogEvent message MUST be a valid JSON object with no additional data at the beginning or end of the LogEvent message string.
 For more information about the LogEvent structure, see [InputLogEvent](../../../AmazonCloudWatchLogs/latest/APIReference/API_InputLogEvent.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_InputLogEvent.md").
 
-Embedded metric format documents MUST contain the following top-level member on the root node. This is a [Metadata
-object](#CloudWatch_Embedded_Metric_Format_Specification_structure_metadata "#CloudWatch_Embedded_Metric_Format_Specification_structure_metadata") object.
+Embedded metric format documents MUST contain the following top-level member on the root node. This is a [Metadata object](#CloudWatch_Embedded_Metric_Format_Specification_structure_metadata "#CloudWatch_Embedded_Metric_Format_Specification_structure_metadata") object.
 
 ```
 {
@@ -61,15 +56,12 @@ object](#CloudWatch_Embedded_Metric_Format_Specification_structure_metadata "#Cl
 }
 ```
 
-The root node MUST contain all [Target
-members](#CloudWatch_Embedded_Metric_Format_Specification_structure_target "#CloudWatch_Embedded_Metric_Format_Specification_structure_target") members defined by the references in the
+The root node MUST contain all [Target members](#CloudWatch_Embedded_Metric_Format_Specification_structure_target "#CloudWatch_Embedded_Metric_Format_Specification_structure_target") members defined by the references in the
 [MetricDirective object](#CloudWatch_Embedded_Metric_Format_Specification_structure_metricdirective "#CloudWatch_Embedded_Metric_Format_Specification_structure_metricdirective").
 
 The root node MAY contain any other members that are not included in the above requirements. The values of these members MUST be valid JSON types.
 
-### Metadata
-
-object
+### Metadata object
 
 The `_aws` member can be used to represent metadata about the payload that informs downstream
 services how they should process the LogEvent. The value MUST be an object and MUST contain the following members:
@@ -110,8 +102,7 @@ MetricDirectives MUST contain the following members:
 
 A DimensionSet is an array of strings containing the dimension keys that will be applied to all metrics in the document.
 The values within this array MUST also be members on the root-node—referred to as the
-[Target
-members](#CloudWatch_Embedded_Metric_Format_Specification_structure_target "#CloudWatch_Embedded_Metric_Format_Specification_structure_target")
+[Target members](#CloudWatch_Embedded_Metric_Format_Specification_structure_target "#CloudWatch_Embedded_Metric_Format_Specification_structure_target")
 
 A DimensionSet MUST NOT contain more than 30 dimension keys. A DimensionSet MAY be empty.
 
@@ -143,8 +134,7 @@ a custom metric corresponding to each unique dimension combination. For more inf
 
 A MetricDefinition is an object that MUST contain the following member:
 
-- **Name**— A string [Reference values](#CloudWatch_Embedded_Metric_Format_Specification_structure_referencevalues "#CloudWatch_Embedded_Metric_Format_Specification_structure_referencevalues") to a metric [Target
-  members](#CloudWatch_Embedded_Metric_Format_Specification_structure_target "#CloudWatch_Embedded_Metric_Format_Specification_structure_target"). Metric targets MUST be
+- **Name**— A string [Reference values](#CloudWatch_Embedded_Metric_Format_Specification_structure_referencevalues "#CloudWatch_Embedded_Metric_Format_Specification_structure_referencevalues") to a metric [Target members](#CloudWatch_Embedded_Metric_Format_Specification_structure_target "#CloudWatch_Embedded_Metric_Format_Specification_structure_target"). Metric targets MUST be
   either a numeric value or an array of numeric values.
 
 A MetricDefinition object MAY contain the following members:
@@ -190,13 +180,10 @@ If you plan to create alarms on metrics created using embedded metric format, se
 
 ### Reference values
 
-Reference values are string values that reference [Target
-members](#CloudWatch_Embedded_Metric_Format_Specification_structure_target "#CloudWatch_Embedded_Metric_Format_Specification_structure_target") members on the root node.
+Reference values are string values that reference [Target members](#CloudWatch_Embedded_Metric_Format_Specification_structure_target "#CloudWatch_Embedded_Metric_Format_Specification_structure_target") members on the root node.
 These references should NOT be confused with the JSON Pointers described in [RFC6901](https://tools.ietf.org/html/rfc6901 "https://tools.ietf.org/html/rfc6901"). Target values cannot be nested.
 
-### Target
-
-members
+### Target members
 
 Valid targets MUST be members on the root node and cannot be nested objects. For example, a \_reference\_ value of `"A.a"`
 MUST match the following member:
@@ -215,9 +202,7 @@ Valid values of target members depend on what is referencing them. A metric targ
 be a numeric value or an array of numeric values. Numeric array metric targets MUST NOT
 have more than 100 members. A dimension target MUST have a string value.
 
-### Embedded metric
-
-format example and JSON schema
+### Embedded metric format example and JSON schema
 
 The following is a valid example of embedded metric format.
 

@@ -6,12 +6,10 @@ visualizing metrics in the CloudWatch console, creating custom dashboards, detec
 CloudWatch outlier detection, and configuring alarms that alert you when usage approaches a threshold.
 
 Some AWS services integrate these usage metrics with Service Quotas. For these services, you can use CloudWatch to manage your account's use of your service quotas.
-For more information, see [Visualizing your service quotas and setting
-alarms](CloudWatch-Quotas-Visualize-Alarms.md "CloudWatch-Quotas-Visualize-Alarms.md").
+For more information, see [Visualizing your service quotas and setting alarms](CloudWatch-Quotas-Visualize-Alarms.md "CloudWatch-Quotas-Visualize-Alarms.md").
 
 ###### Topics
 
-- [Visualizing your service quotas and setting
-  alarms](CloudWatch-Quotas-Visualize-Alarms.md "CloudWatch-Quotas-Visualize-Alarms.md")
+- [Visualizing your service quotas and setting alarms](CloudWatch-Quotas-Visualize-Alarms.md "CloudWatch-Quotas-Visualize-Alarms.md")
 - [AWS API usage metrics](AWS-API-Usage-Metrics.md "AWS-API-Usage-Metrics.md")
 - [CloudWatch usage metrics](CloudWatch-Usage-Metrics.md "CloudWatch-Usage-Metrics.md")

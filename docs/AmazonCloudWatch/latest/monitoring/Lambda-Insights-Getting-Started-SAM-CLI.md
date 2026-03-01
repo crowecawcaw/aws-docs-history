@@ -1,6 +1,4 @@
-# Use the AWS SAM CLI to enable Lambda Insights on an
-
-existing Lambda function
+# Use the AWS SAM CLI to enable Lambda Insights on an existing Lambda function
 
 Follow these steps to use the AWS SAM AWS CLI to enable Lambda Insights on an existing Lambda function.
 

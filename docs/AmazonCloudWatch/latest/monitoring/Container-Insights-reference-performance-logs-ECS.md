@@ -1,6 +1,4 @@
-# Container Insights
-
-performance log events for Amazon ECS
+# Container Insights performance log events for Amazon ECS
 
 The following are examples of the performance log events that Container Insights
 collects from Amazon ECS.

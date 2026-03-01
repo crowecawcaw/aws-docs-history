@@ -40,8 +40,7 @@ this data in the report, see [executeHttpStep(stepName, requestOptions, [callbac
 - [Canary runtime version upgrade and downgrade issues](#CloudWatch_Synthetics_Canaries_Troubleshoot_upgradeissues "#CloudWatch_Synthetics_Canaries_Troubleshoot_upgradeissues")
 - [Cross-origin request sharing (CORS) issue](#CloudWatch_Synthetics_Canaries_CORS "#CloudWatch_Synthetics_Canaries_CORS")
 - [Canary race condition issues](#CloudWatch_Synthetics_Canaries_RaceCondition "#CloudWatch_Synthetics_Canaries_RaceCondition")
-- [Troubleshooting a canary
-  on a VPC](#CloudWatch_Synthetics_Canaries_VPC_troubleshoot "#CloudWatch_Synthetics_Canaries_VPC_troubleshoot")
+- [Troubleshooting a canary on a VPC](#CloudWatch_Synthetics_Canaries_VPC_troubleshoot "#CloudWatch_Synthetics_Canaries_VPC_troubleshoot")
 - [Troubleshooting an auto retry canary](#CloudWatch_Synthetics_Canaries_autoretry "#CloudWatch_Synthetics_Canaries_autoretry")
 
 ## Canary fails after Lambda environment update
@@ -156,8 +155,7 @@ AWS WAF filtering and improves security.
 To set a custom user-agent string, do the following:
 
 - For Playwright runtimes, you can append your AWS WAF approved custom user-agent string using the Synthetics configuration file. For more information, see
-  [CloudWatch Synthetics
-  configurations](Synthetics_WritingCanary_Nodejs_Playwright.md#Synthetics_canary_configure_Playwright_script "Synthetics_WritingCanary_Nodejs_Playwright.md#Synthetics_canary_configure_Playwright_script").
+  [CloudWatch Synthetics configurations](Synthetics_WritingCanary_Nodejs_Playwright.md#Synthetics_canary_configure_Playwright_script "Synthetics_WritingCanary_Nodejs_Playwright.md#Synthetics_canary_configure_Playwright_script").
 - For Puppeteer or Selenium runtimes, you can add your custom user-agent string using supported library functions. For Puppeteer runtimes, see
   [async addUserAgent(page, userAgentString);](CloudWatch_Synthetics_Canaries_Library_Nodejs.md#CloudWatch_Synthetics_Library_addUserAgent "CloudWatch_Synthetics_Canaries_Library_Nodejs.md#CloudWatch_Synthetics_Library_addUserAgent"). For Selenium runtimes, see
   [add_user_agent(user_agent_str)](CloudWatch_Synthetics_Canaries_Library_Python.md#CloudWatch_Synthetics_Library_add_user_agent "CloudWatch_Synthetics_Canaries_Library_Python.md#CloudWatch_Synthetics_Library_add_user_agent").
@@ -177,9 +175,7 @@ verify the `xpath` that you are using to click the element. Also, if your elemen
 bottom of the screen, adjust your viewport. CloudWatch Synthetics by default uses a viewport of 1920 \* 1080. You can
 set a different viewport when you launch the browser or by using the Puppeteer function `page.setViewport`.
 
-##
-
-Unable to upload artifacts to S3, Exception: Unable to fetch S3 bucket location: Access Denied
+## Unable to upload artifacts to S3, Exception: Unable to fetch S3 bucket location: Access Denied
 
 If your canary fails because of an Amazon S3 error, CloudWatch Synthetics was unable to upload screenshots, logs, or reports created for the
 canary because of permission issues. Check the following:
@@ -201,18 +197,14 @@ canary because of permission issues. Check the following:
 If the canary performs visual monitoring, see
 [Updating artifact location and encryption when using visual monitoring](CloudWatch_Synthetics_artifact_encryption.md#CloudWatch_Synthetics_artifact_encryption_visual "CloudWatch_Synthetics_artifact_encryption.md#CloudWatch_Synthetics_artifact_encryption_visual") for more information.
 
-##
-
-Error: Protocol error (Runtime.callFunctionOn): Target closed.
+## Error: Protocol error (Runtime.callFunctionOn): Target closed.
 
 This error appears if there are some network requests after the page or browser is closed.
 You might have forgotten to wait for an asynchronous operation. After executing your script,
 CloudWatch Synthetics closes the browser. The execution of any asynchronous operation after the browser is
 closed might cause `target closed error`.
 
-##
-
-Canary Failed. Error: No datapoint - Canary Shows timeout error
+## Canary Failed. Error: No datapoint - Canary Shows timeout error
 
 This means that your canary run exceeded the timeout. The canary execution stopped before
 CloudWatch Synthetics could publish success percent CloudWatch metrics or update artifacts such as HAR files,
@@ -239,9 +231,7 @@ happens. You can use CloudWatch Logs to see the canary's logs.
 3. Find the log group by typing the canary name in the filter box. Log groups for
    canaries have the name **/aws/lambda/cwsyn-`canaryName`-randomId**.
 
-##
-
-Trying to access an internal endpoint
+## Trying to access an internal endpoint
 
 If you want your canary to access an endpoint on your internal network, we recommend that
 you set up CloudWatch Synthetics to use VPC. For more information, see
@@ -287,8 +277,7 @@ web application to allow cross-origin access or you can disable web security by 
 
 You can override launch parameters used by CloudWatch Synthetics and pass additional `disable-web-security` flag
 parameters by using the CloudWatch Synthetics launch function. For more information,
-see [Library functions available for
-Node.js canary scripts using Puppeteer](CloudWatch_Synthetics_Canaries_Library_Nodejs.md "CloudWatch_Synthetics_Canaries_Library_Nodejs.md").
+see [Library functions available for Node.js canary scripts using Puppeteer](CloudWatch_Synthetics_Canaries_Library_Nodejs.md "CloudWatch_Synthetics_Canaries_Library_Nodejs.md").
 
 ###### Note
 
@@ -300,16 +289,12 @@ version `syn-nodejs-2.1` or later.
 For the best experience when using CloudWatch Synthetics, ensure that the code written for the canaries is idempotent. Otherwise, in rare cases,
 canary runs may encounter race conditions when the canary interacts with the same resource across different runs.
 
-## Troubleshooting a canary
-
-on a VPC
+## Troubleshooting a canary on a VPC
 
 If you have issues after creating or updating a canary on a VPC, one of the following sections might
 help you troubleshoot the problem.
 
-### New
-
-canary in error state or canary can't be updated
+### New canary in error state or canary can't be updated
 
 If you create a canary to run on a VPC and it immediately goes into an error state, or you can't update a canary
 to run on a VPC, the canary's role
@@ -328,9 +313,7 @@ created.
 If this issue happens when you update a canary, you can update the canary again
 and provide a new role that has the required permissions.
 
-### "No test result returned"
-
-error
+### "No test result returned" error
 
 If a canary displays a "no test result returned" error, one of the following issues might be
 the cause:

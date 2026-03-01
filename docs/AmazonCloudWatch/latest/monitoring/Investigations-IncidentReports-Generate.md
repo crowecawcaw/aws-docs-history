@@ -1,6 +1,4 @@
-# Generate a report from an
-
-investigation
+# Generate a report from an investigation
 
 You can generate incident reports from in-progress or completed investigations.
 Incident reports generated early in an investigation may not include key facts such as
@@ -33,8 +31,7 @@ Before generating an incident confirm the following requirements are met:
 
 You can add these permissions as an inline policy to the investigation
 group role, or attach an additional permissions policy to investigation
-group role. For more information see, [Permissions for incident report
-generation](Investigations-Security.md#Investigations-Security-IAM-IRG "Investigations-Security.md#Investigations-Security-IAM-IRG").
+group role. For more information see, [Permissions for incident report generation](Investigations-Security.md#Investigations-Security-IAM-IRG "Investigations-Security.md#Investigations-Security-IAM-IRG").
 
 The new managed policy `AIOpsAssistantIncidentReportPolicy`
 provides the required permissions and is automatically added to

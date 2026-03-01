@@ -1,6 +1,4 @@
-# Sample
-
-Java/JMX workload for Amazon ECS clusters
+# Sample Java/JMX workload for Amazon ECS clusters
 
 JMX Exporter is an official Prometheus exporter that can scrape and expose JMX
 mBeans as Prometheus metrics. For more information, see [prometheus/jmx_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter").
@@ -13,8 +11,7 @@ in the CloudWatch agent configuration.
 
 To collect metrics from a sample Prometheus workload for Amazon ECS, you must be
 running Container Insights in the cluster. For information about installing Container
-Insights, see [Setting up Container Insights on
-Amazon ECS](deploy-container-insights-ECS.md "deploy-container-insights-ECS.md").
+Insights, see [Setting up Container Insights on Amazon ECS](deploy-container-insights-ECS.md "deploy-container-insights-ECS.md").
 
 ###### To install the Java/JMX sample workload for Amazon ECS clusters
 

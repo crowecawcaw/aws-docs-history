@@ -38,14 +38,10 @@ The following topics discuss the details of exploring related telemetry.
 - [Navigating related telemetry](#using-related-telemetry "#using-related-telemetry")
 - [Using the topology map](#using-related-telemetry-map "#using-related-telemetry-map")
 - [Finding a specific resource](#using-related-telemetry-find "#using-related-telemetry-find")
-- [Permissions and prerequisites needed
-  to view and explore related telemetry](#related-telemetry-permissions "#related-telemetry-permissions")
-- [How does CloudWatch find related
-  telemetry?](how-does-related-telemetry-work.md "how-does-related-telemetry-work.md")
-- [AWS services that support related
-  telemetry](services-with-related-telemetry.md "services-with-related-telemetry.md")
-- [How to add related information to
-  custom telemetry sent to CloudWatch](adding-your-own-related-telemetry.md "adding-your-own-related-telemetry.md")
+- [Permissions and prerequisites needed to view and explore related telemetry](#related-telemetry-permissions "#related-telemetry-permissions")
+- [How does CloudWatch find related telemetry?](how-does-related-telemetry-work.md "how-does-related-telemetry-work.md")
+- [AWS services that support related telemetry](services-with-related-telemetry.md "services-with-related-telemetry.md")
+- [How to add related information to custom telemetry sent to CloudWatch](adding-your-own-related-telemetry.md "adding-your-own-related-telemetry.md")
 
 ## What is related telemetry?
 
@@ -262,9 +258,7 @@ resource type. You can choose the **Metrics** or
 **Logs** tab to view the kind of telemetry that you want to
 view.
 
-## Permissions and prerequisites needed
-
-to view and explore related telemetry
+## Permissions and prerequisites needed to view and explore related telemetry
 
 To explore related telemetry, you must be getting entity information with the
 telemetry from your workloads, and you must have the proper permissions to view
@@ -273,12 +267,10 @@ that data.
 Many services send entity information automatically. For workloads that use the CloudWatch
 agent, you must have at least version `1.300049.1` of the agent, and you must
 configure it correctly. For information about configuring the agent, see
-[How to add related information to
-custom telemetry sent to CloudWatch](adding-your-own-related-telemetry.md "adding-your-own-related-telemetry.md"). For workloads running on Amazon EKS, you
+[How to add related information to custom telemetry sent to CloudWatch](adding-your-own-related-telemetry.md "adding-your-own-related-telemetry.md"). For workloads running on Amazon EKS, you
 must have at least version `v2.3.1-eksbuild.1` of the Amazon CloudWatch
 Observability EKS add-on. For more information about this add-on, see
-[Quick start with the Amazon CloudWatch
-Observability EKS add-on](Container-Insights-setup-EKS-addon.md "Container-Insights-setup-EKS-addon.md").
+[Quick start with the Amazon CloudWatch Observability EKS add-on](Container-Insights-setup-EKS-addon.md "Container-Insights-setup-EKS-addon.md").
 
 To explore related telemetry you must be signed in with certain permissions.
 Exploring related telemetry is a read-only activity, and requires at least read-only

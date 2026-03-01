@@ -1,6 +1,4 @@
-# Monitor across accounts and
-
-Regions
+# Monitor across accounts and Regions
 
 To enable unified monitoring across accounts, CloudWatch offers the following features:
 

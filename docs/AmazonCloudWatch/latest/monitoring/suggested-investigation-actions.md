@@ -1,6 +1,4 @@
-# Reviewing and executing suggested
-
-runbook remediations for CloudWatch investigations
+# Reviewing and executing suggested runbook remediations for CloudWatch investigations
 
 When you add a hypothesis to the **Feed** area of an active
 investigation, CloudWatch investigations might display **Show suggested actions**. One
@@ -13,8 +11,7 @@ capability in Systems Manager, another AWS service. Automation runbooks define a
 steps, or actions, to be run on the resources that you select. Each runbook is designed
 to address a specific issue. Runbooks can address a variety of operational needs:
 Creating, repairing, reconfiguring, installing, troubleshooting, remediating,
-duplicating, and more. For more information about Automation, see [Integration with AWS Systems Manager
-Automation](Investigations-Integrations.md#Investigations-Integrations-SSM "Investigations-Integrations.md#Investigations-Integrations-SSM").
+duplicating, and more. For more information about Automation, see [Integration with AWS Systems Manager Automation](Investigations-Integrations.md#Investigations-Integrations-SSM "Investigations-Integrations.md#Investigations-Integrations-SSM").
 
 ###### Before you begin
 

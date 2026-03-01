@@ -118,5 +118,4 @@ attached to an Amazon EC2 instance, because there is no metric activity to be mo
 volume. If you have an alarm set for such a metric, you might notice its state change to
 `INSUFFICIENT_DATA`. This might indicate that your resource is inactive, and
 might not necessarily mean that there is a problem. You can specify how each alarm treats
-missing data. For more information, see [Configuring how CloudWatch alarms treat missing
-data](alarms-and-missing-data.md "alarms-and-missing-data.md").
+missing data. For more information, see [Configuring how CloudWatch alarms treat missing data](alarms-and-missing-data.md "alarms-and-missing-data.md").

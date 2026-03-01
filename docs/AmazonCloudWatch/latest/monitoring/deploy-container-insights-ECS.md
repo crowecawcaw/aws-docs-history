@@ -1,6 +1,4 @@
-# Setting up Container Insights on
-
-Amazon ECS
+# Setting up Container Insights on Amazon ECS
 
 You can use one or both of the following options to enable Container Insights on Amazon ECS
 clusters:
@@ -12,13 +10,8 @@ clusters:
 
 ###### Topics
 
-- [Setting up Container Insights on
-  Amazon ECS](deploy-container-insights-ECS-cluster.md "deploy-container-insights-ECS-cluster.md")
-- [Setting up Container Insights on
-  Amazon ECS using AWS Distro for OpenTelemetry](deploy-container-insights-ECS-adot.md "deploy-container-insights-ECS-adot.md")
-- [Deploying the CloudWatch agent to
-  collect EC2 instance-level metrics on Amazon ECS](deploy-container-insights-ECS-instancelevel.md "deploy-container-insights-ECS-instancelevel.md")
-- [Deploying the AWS Distro for
-  OpenTelemetry to collect EC2 instance-level metrics on Amazon ECS clusters](deploy-container-insights-ECS-OTEL.md "deploy-container-insights-ECS-OTEL.md")
-- [Set up FireLens to send logs to
-  CloudWatch Logs](deploy-container-insights-ECS-logs.md "deploy-container-insights-ECS-logs.md")
+- [Setting up Container Insights on Amazon ECS](deploy-container-insights-ECS-cluster.md "deploy-container-insights-ECS-cluster.md")
+- [Setting up Container Insights on Amazon ECS using AWS Distro for OpenTelemetry](deploy-container-insights-ECS-adot.md "deploy-container-insights-ECS-adot.md")
+- [Deploying the CloudWatch agent to collect EC2 instance-level metrics on Amazon ECS](deploy-container-insights-ECS-instancelevel.md "deploy-container-insights-ECS-instancelevel.md")
+- [Deploying the AWS Distro for OpenTelemetry to collect EC2 instance-level metrics on Amazon ECS clusters](deploy-container-insights-ECS-OTEL.md "deploy-container-insights-ECS-OTEL.md")
+- [Set up FireLens to send logs to CloudWatch Logs](deploy-container-insights-ECS-logs.md "deploy-container-insights-ECS-logs.md")

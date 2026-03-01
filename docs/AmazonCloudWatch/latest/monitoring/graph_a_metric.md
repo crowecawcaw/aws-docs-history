@@ -63,7 +63,7 @@ band.
      daylight saving time changes.
 
 
-    For more information, see  [Editing an outlier detection model](Create_Anomaly_Detection_Alarm.md#Modify_Anomaly_Detection_Model "Create_Anomaly_Detection_Alarm.md#Modify_Anomaly_Detection_Model") .For more information about outlier detection, see [Using CloudWatch outlier detection](CloudWatch_Anomaly_Detection.md "CloudWatch_Anomaly_Detection.md").
+    For more information, see [Editing an outlier detection model](Create_Anomaly_Detection_Alarm.md#Modify_Anomaly_Detection_Model "Create_Anomaly_Detection_Alarm.md#Modify_Anomaly_Detection_Model").For more information about outlier detection, see [Using CloudWatch outlier detection](CloudWatch_Anomaly_Detection.md "CloudWatch_Anomaly_Detection.md").
 
 To hide the model from the graph, remove the check mark from the line with the
 `ANOMALY_DETECTION_BAND` function or choose the `X` icon. To
@@ -108,9 +108,7 @@ To delete an annotation, choose **x** in the
 **Share**. Copy the URL to save or share. 14. To add your graph to a dashboard, choose **Actions**,
 **Add to dashboard**.
 
-## Creating a graph of metrics from
-
-another data source
+## Creating a graph of metrics from another data source
 
 You can create a graph that displays resources from data sources other than CloudWatch. For
 more information about creating connections to these other data sources, see [Query metrics from other data sources](MultiDataSourceQuerying.md "MultiDataSourceQuerying.md").
@@ -170,8 +168,7 @@ To delete an annotation, choose **x** in the
 
 1. To change the name of the graph, choose the pencil icon.
 2. To change the time range, select one of the predefined values or choose
-   **custom**. For more information, see [Modify the time range or time zone format for a
-   graph](modify_graph_date_time.md "modify_graph_date_time.md").
+   **custom**. For more information, see [Modify the time range or time zone format for a graph](modify_graph_date_time.md "modify_graph_date_time.md").
 3. To change the statistic, choose the **Graphed metrics** tab.
    Choose the column heading or an individual value and then choose one of the statistics
    or predefined percentiles, or specify a custom percentile (for example,

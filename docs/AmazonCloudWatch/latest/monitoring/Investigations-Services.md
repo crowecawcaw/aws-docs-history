@@ -1,6 +1,4 @@
-# AWS services where investigations are
-
-supported
+# AWS services where investigations are supported
 
 You can launch investigations from telemetry data (such as CloudWatch metrics, alarms, and
 logs), review generated anomaly signals, and explore hypotheses on investigations.
@@ -38,8 +36,7 @@ following features enabled, for optimal quality and performance for CloudWatch i
 you complete the following steps:
 
 - 1For both Amazon EC2 and Amazon EBS, update your CloudWatch agent
-  to version 1.30049.1 or later. For more information, see [Collect metrics, logs, and traces using the CloudWatch
-  agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md").
+  to version 1.30049.1 or later. For more information, see [Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md").
 - 2For Amazon ECS, enable CloudWatch Container Insights. For
   more information, see [Container Insights](ContainerInsights.md "ContainerInsights.md").
 - 3For Amazon EKS, enable CloudWatch Container Insights and

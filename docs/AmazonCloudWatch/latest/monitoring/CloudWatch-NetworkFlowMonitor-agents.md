@@ -17,8 +17,7 @@ VPC EC2 instances, or self-managed (non-EKS) Kubernetes instances.
 - For information about installing agents on VPC EC2 instances and self-managed Kubernetes instances,
   see the sections in this chapter.
   You can establish a private connection between your VPC and Network Flow Monitor agents
-  by using AWS PrivateLink. For more information, see [Using CloudWatch, CloudWatch Synthetics, and CloudWatch Network
-  Monitoring with interface VPC endpoints](cloudwatch-and-interface-VPC.md "cloudwatch-and-interface-VPC.md").
+  by using AWS PrivateLink. For more information, see [Using CloudWatch, CloudWatch Synthetics, and CloudWatch Network Monitoring with interface VPC endpoints](cloudwatch-and-interface-VPC.md "cloudwatch-and-interface-VPC.md").
 
 ###### Contents
 

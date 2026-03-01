@@ -49,9 +49,7 @@ internet services. By updating to dual-stack and supporting IPv6, Internet Monit
 performance and scalability. Follow the steps in this section to update your configurations
 and take advantage of dual-stack support.
 
-## Identify the Internet Monitor
-
-endpoint used by your code
+## Identify the Internet Monitor endpoint used by your code
 
 If you use an Internet Monitor SDK, start by verifying which endpoint your code is using: the
 IPv4 endpoint or the dual-stack (IPv4 and IPv6) endpoint. If you don’t use an SDK with Internet Monitor,

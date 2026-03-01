@@ -140,9 +140,7 @@ will keep the tags on the canary and the Lambda function synchronized:
     enable active X-Ray tracing for this canary. Active tracing is only available for Puppeteer and Java runtimes.
     For more information, see [Canaries and X-Ray tracing](CloudWatch_Synthetics_Canaries_tracing.md "CloudWatch_Synthetics_Canaries_tracing.md").
 
-## Resources that are created for
-
-canaries
+## Resources that are created for canaries
 
 When you create a canary, the following resources are created:
 

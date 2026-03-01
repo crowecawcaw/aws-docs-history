@@ -1,6 +1,4 @@
-# Setting up Container Insights on
-
-Amazon ECS
+# Setting up Container Insights on Amazon ECS
 
 You can set up Container Insights with enhanced observability or Container Insights on
 new and existing Amazon ECS clusters using either the Amazon ECS console or the AWS CLI. Container
@@ -27,9 +25,7 @@ We recommend that you use Container Insights with enhanced observability instead
 Container Insights as it provides detailed visibility in your container environment,
 reducing the mean time to resolution.
 
-## Set up Container Insights
-
-with enhanced observability
+## Set up Container Insights with enhanced observability
 
 You can turn on Container Insights with enhanced observability using the Amazon ECS
 console or AWS CLI.

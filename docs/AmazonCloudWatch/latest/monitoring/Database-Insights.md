@@ -22,8 +22,7 @@ To get started with Database Insights, see the following topics.
 
 - [Get started with CloudWatch Database Insights](Database-Insights-Get-Started.md "Database-Insights-Get-Started.md")
 - [Viewing the Fleet Health Dashboard for CloudWatch Database Insights](Database-Insights-Fleet-Health-Dashboard.md "Database-Insights-Fleet-Health-Dashboard.md")
-- [Viewing the Database Instance Dashboard for
-  CloudWatch Database Insights](Database-Insights-Database-Instance-Dashboard.md "Database-Insights-Database-Instance-Dashboard.md")
+- [Viewing the Database Instance Dashboard for CloudWatch Database Insights](Database-Insights-Database-Instance-Dashboard.md "Database-Insights-Database-Instance-Dashboard.md")
 - [Troubleshooting for CloudWatch Database Insights](Database-Insights-Troubleshooting.md "Database-Insights-Troubleshooting.md")
 
 ## Modes for Database Insights

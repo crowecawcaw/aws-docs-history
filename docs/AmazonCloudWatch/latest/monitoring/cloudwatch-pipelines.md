@@ -1,74 +1,74 @@
 # CloudWatch pipelines
 
-A telemetry pipeline collects, processes, and routes data such as logs, metrics, and traces from various sources to different destinations. CloudWatch pipelines provides a
-centralized way to collect data from AWS services, third-party applications, and custom sources. The pipeline processes and transforms data using a rich set
-of processors, converts data into standard formats like Open Cybersecurity Schema Framework (OCSF), and routes processed data to CloudWatch Logs.
+CloudWatch pipelines is a fully managed data collector that ingests, transforms, and routes log data
+from AWS services, third-party applications, and custom sources to CloudWatch. Built-in
+processors let you enrich, filter, and standardize logs into formats like OCSF—without
+managing infrastructure or third-party tools.
 
-You can collect data from a wide range of sources, including AWS services, third-party
-applications, and your own custom sources. This data is then processed and transformed using
-processors that can standardize formats, filter unnecessary information, and enrich the data
-with additional context. This allows you to convert varied data formats into standardized
-schemas such as OCSF, enabling unified analysis across all your data sources.
+CloudWatch pipelines is fully integrated with the [logs management
+experience](../logs/data-source-discovery-management.md "../logs/data-source-discovery-management.md"), enabling you to consistently process and enrich log data across related
+log groups via data-source and data-type specification. This unlocks use cases such as:
 
-Throughout the entire pipeline, your data remains protected with transport layer
-encryption, ensuring security and compliance requirements are met.
+- **Automatic log categorization** – Logs processed
+  through pipelines are automatically tagged with data source information, enabling
+  service-centric discovery and querying across your infrastructure
+- **Expanding third-party support** – Aggregate
+  and normalize logs from a growing library of third-party sources for unified
+  analytics and compliance
+  Output from pipelines is fully compatible with CloudWatch Logs features including Logs Insights
+  queries, Logs Anomaly Detection, and Live Tail. CloudWatch pipelines works with both Standard and
+  Infrequent Access log classes and is backwards compatible with Log Transformers.
 
-###### Note
-
-When configuring pipelines, remember that pipeline definitions are not encrypted and
-should never include sensitive data, such as personally identifiable information
-(PII).
-
-Each pipeline consists of three main components:
-
-1. **Source** – Defines where your data comes
-   from (AWS services, third-party applications, or custom sources)
-2. **Processors** – Optionally, configure how
-   your data is transformed, filtered, or enriched
-
-###### Note
-
-Adding processors leads to mutation of the log events and original (raw) logs
-are not retained. 3. **Sink** – Specify where your
-processed data should be delivered
-To get started with CloudWatch pipelines:
-
-1. Sign in to the AWS Management Console
-2. Navigate to CloudWatch.
-3. Choose **Ingestion** from the navigation panel and then select the **Pipelines** tab.
-4. Choose **Create pipeline**.
+To get started with CloudWatch pipelines, visit [pipelines
+within the CloudWatch ingestion page](https://console.aws.amazon.com/cloudwatch/home?#/telemetry-config:pipelines?useCase=All "https://console.aws.amazon.com/cloudwatch/home?#/telemetry-config:pipelines?useCase=All") in the CloudWatch console.
 
 ###### Note
 
 Be aware of the following limits that apply to CloudWatch pipelines
 
 - Maximum number of pipelines per account: 330
+  - Up to 300 pipelines for collecting data from CloudWatch Logs
+  - Up to 30 pipelines for collecting data from other sources
 
-      + Up to 300 pipelines for collecting data from CloudWatch Logs
-      + Up to 30 pipelines for collecting data from other sources
+## Pipeline components
 
-  CloudWatch pipelines capabilities are offered as part of existing CloudWatch Logs Data
-  ingestion pricing at no additional cost with metering occurring at time of ingestion.
+Each pipeline consists of the following components:
 
-Existing log class ingestion pricing for vended and custom logs are applicable. For
-example, if you ingest 30GB of custom standard class logs and process them via a pipeline
-it would cost $15/Month on logs ingestion. If you ingest and process infrequent access
-custom logs then you would pay $7.50/Month. Please refer to [CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/") for more details
-on Log Data Ingestion Pricing.
+- **Source** – Defines where data originates
+  from (Amazon S3 buckets, CloudWatch Logs, third-party integration). Each pipeline must have
+  exactly one source.
+- **Processors** (optional) – Transform, parse,
+  and enrich log data as it flows through the pipeline. Processors are applied
+  sequentially in the order they are defined.
+- **Sink** – Defines the destination where
+  processed log data is sent. Each pipeline must have exactly one sink.
+- **Extensions** (optional) – Provide additional
+  functionality such as AWS Secrets Manager integration for credential management.
 
-Ingestion of data from 3P connector sources or via an S3 bucket connector is classified
-as Custom logs ingestion and follows Custom Log Data Ingestion pricing. Metering occurs at
-time of data on ingestion into CloudWatch. 3P connector sources or via an S3 bucket
-connector are metered after processing. CloudWatch pipeline sources metering including
-Vended and custom CloudWatch logs sources occurs at time logs are first received which is
-before processing via a pipeline.
-
-CloudWatch pipelines is available in the following AWS
-Regions.
+Throughout the entire pipeline, your data remains protected with transport layer
+encryption, ensuring security and compliance requirements are met.
 
 ###### Note
 
-Third-party data source collection is available in regions where [OpenSearch Ingestion has API endpoints](../../../general/latest/gr/opensearch-service.md "../../../general/latest/gr/opensearch-service.md").
+Pipeline definitions are not encrypted and should never include sensitive data,
+such as personally identifiable information (PII).
+
+###### Note
+
+Adding processors leads to mutation of the log events and original (raw) logs
+are not retained.
+
+## Pricing
+
+CloudWatch pipelines is included with CloudWatch Logs at no additional cost. Standard log ingestion rates
+based on log class (vended or custom) and storage class (Standard or Infrequent Access)
+still apply. Metering occurs at time of first ingestion into CloudWatch. CloudWatch Logs sources are
+metered before pipeline processing. Third-party and S3 bucket sources are classified
+as Custom logs and metered after processing. For pricing details, see [CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
+
+## Region availability
+
+CloudWatch pipelines is available in the following AWS Regions:
 
 - US East (Ohio)
 - US East (N. Virginia)
@@ -91,17 +91,12 @@ Third-party data source collection is available in regions where [OpenSearch Ing
 - Europe (Spain)
 - Europe (Stockholm)
 - South America (São Paulo)
-  For more details, see [Amazon CloudWatch endpoints and quotas](../../../general/latest/gr/cw_region.md "../../../general/latest/gr/cw_region.md") in the
-  _AWS General Reference_.
+
+###### Note
+
+Third-party data source collection is available in regions where [OpenSearch Ingestion has API endpoints](../../../general/latest/gr/opensearch-service.md "../../../general/latest/gr/opensearch-service.md").
+
+For more details, see [Amazon CloudWatch endpoints and quotas](../../../general/latest/gr/cw_region.md "../../../general/latest/gr/cw_region.md") in the
+_AWS General Reference_.
 
 ###### Topics
-
-- [Creating pipelines](Creating-pipelines.md "Creating-pipelines.md")
-- [Managing pipelines](managing-pipelines.md "managing-pipelines.md")
-- [Data sources](data-sources.md "data-sources.md")
-- [CloudWatch pipelines processors](pipeline-processors.md "pipeline-processors.md")
-- [Sinks](pipeline-sinks.md "pipeline-sinks.md")
-- [CloudWatch pipelines IAM policies and permissions](pipeline-iam-reference.md "pipeline-iam-reference.md")
-- [CloudWatch pipelines extensions](pipeline-extensions.md "pipeline-extensions.md")
-- [Monitoring Pipelines Using CloudWatch Metrics](pipelines-metrics.md "pipelines-metrics.md")
-- [Troubleshooting](troubleshooting.md "troubleshooting.md")

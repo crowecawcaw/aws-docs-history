@@ -9,8 +9,7 @@ telemetry anomalies.
 
 While CloudWatch investigations will continue to analyze telemetry data and provide suggestions without
 these features enabled, we strongly recommend that you enable the services and features
-listed in [(Recommended) Best practices to
-enhance investigations](Investigations-RecommendedServices.md "Investigations-RecommendedServices.md") for optimal quality and
+listed in [(Recommended) Best practices to enhance investigations](Investigations-RecommendedServices.md "Investigations-RecommendedServices.md") for optimal quality and
 performance for CloudWatch investigations.
 
 ###### Important

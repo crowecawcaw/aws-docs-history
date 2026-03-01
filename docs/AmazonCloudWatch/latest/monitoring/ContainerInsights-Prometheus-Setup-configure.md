@@ -1,6 +1,4 @@
-# Scraping additional
-
-Prometheus sources and importing those metrics
+# Scraping additional Prometheus sources and importing those metrics
 
 The CloudWatch agent with Prometheus monitoring needs two configurations to scrape the
 Prometheus metrics. One is for the standard Prometheus configurations as documented in
@@ -38,9 +36,7 @@ private IP.
 The egress rules of the security group for the CloudWatch agent must allow the CloudWatch
 agent to connect to the Prometheus workloads' port by private IP.
 
-## Prometheus scrape
-
-configuration
+## Prometheus scrape configuration
 
 The CloudWatch agent supports the standard Prometheus scrape configurations as
 documented in [<scrape_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config") in the Prometheus documentation. You can edit this
@@ -62,9 +58,7 @@ global:
 You can also define different values for these settings at the job level, to
 override the global configurations.
 
-### Prometheus
-
-scraping jobs
+### Prometheus scraping jobs
 
 The CloudWatch agent YAML files already have some default scraping jobs configured.
 For example, in `prometheus-eks.yaml`,
@@ -126,12 +120,9 @@ clusters are sent to the log stream named
 
 To add a new scraping target, you add a new `job_name` section to
 the `scrape_configs` section of the YAML file, and restart the agent.
-For an example of this process, see [Tutorial for
-adding a new Prometheus scrape target: Prometheus API Server metrics](#ContainerInsights-Prometheus-Setup-new-exporters "#ContainerInsights-Prometheus-Setup-new-exporters").
+For an example of this process, see [Tutorial for adding a new Prometheus scrape target: Prometheus API Server metrics](#ContainerInsights-Prometheus-Setup-new-exporters "#ContainerInsights-Prometheus-Setup-new-exporters").
 
-## CloudWatch agent
-
-configuration for Prometheus
+## CloudWatch agent configuration for Prometheus
 
 The CloudWatch agent configuration file has a `prometheus` section under
 `metrics_collected` for the Prometheus scraping configuration. It
@@ -152,8 +143,7 @@ includes the following configuration options:
   field.
 - **ecs_service_discovery**— is the
   section to specify the configuration for Amazon ECS Prometheus service discovery. For
-  more information, see [Detailed guide
-  for autodiscovery on Amazon ECS clusters](ContainerInsights-Prometheus-Setup-autodiscovery-ecs.md "ContainerInsights-Prometheus-Setup-autodiscovery-ecs.md").
+  more information, see [Detailed guide for autodiscovery on Amazon ECS clusters](ContainerInsights-Prometheus-Setup-autodiscovery-ecs.md "ContainerInsights-Prometheus-Setup-autodiscovery-ecs.md").
 
 The `ecs_service_discovery` section can contain the following
 fields:
@@ -298,9 +288,7 @@ The log event that is sent includes the following highlighted section:
 }
 ```
 
-## Tutorial for
-
-adding a new Prometheus scrape target: Prometheus API Server metrics
+## Tutorial for adding a new Prometheus scrape target: Prometheus API Server metrics
 
 The Kubernetes API Server exposes Prometheus metrics on endpoints by default.
 The official example for the Kubernetes API Server scraping configuration is
@@ -506,9 +494,7 @@ You can view your metrics in the CloudWatch console in the
 optionally create a CloudWatch dashboard for your Prometheus Kubernetes API Server
 metrics.
 
-### (Optional)
-
-Creating a dashboard for Kubernetes API Server metrics
+### (Optional) Creating a dashboard for Kubernetes API Server metrics
 
 To see Kubernetes API Server metrics in your dashboard, you must have first
 completed the steps in the previous sections to start collecting these metrics in

@@ -1,6 +1,4 @@
-# Quick Start setup for
-
-Container Insights on Amazon EKS and Kubernetes
+# Quick Start setup for Container Insights on Amazon EKS and Kubernetes
 
 ###### Important
 
@@ -8,8 +6,7 @@ If you are installing Container Insights on an Amazon EKS cluster, we recommend 
 you use the Amazon CloudWatch Observability EKS add-on for the installation, instead of using
 the instructions in this section. Additionally, to retrieve accelerated computing
 networks, you must use the Amazon CloudWatch Observability EKS add-on. For more information and
-instructions, see [Quick start with the Amazon CloudWatch
-Observability EKS add-on](Container-Insights-setup-EKS-addon.md "Container-Insights-setup-EKS-addon.md").
+instructions, see [Quick start with the Amazon CloudWatch Observability EKS add-on](Container-Insights-setup-EKS-addon.md "Container-Insights-setup-EKS-addon.md").
 
 To complete the setup of Container Insights, you can follow the quick start
 instructions in this section. If you are installing in an Amazon EKS cluster and you use the
@@ -19,12 +16,10 @@ Insights with enhanced observability for Amazon EKS in the cluster.
 ###### Important
 
 Before completing the steps in this section, you must have verified the
-prerequisites including IAM permissions. For more information, see [Verifying prerequisites for Container
-Insights in CloudWatch](Container-Insights-prerequisites.md "Container-Insights-prerequisites.md").
+prerequisites including IAM permissions. For more information, see [Verifying prerequisites for Container Insights in CloudWatch](Container-Insights-prerequisites.md "Container-Insights-prerequisites.md").
 
 Alternatively, you can instead follow the instructions in the following two
-sections, [Setting up the CloudWatch agent to collect
-cluster metrics](Container-Insights-setup-metrics.md "Container-Insights-setup-metrics.md") and [Send logs to CloudWatch Logs](Container-Insights-EKS-logs.md "Container-Insights-EKS-logs.md").
+sections, [Setting up the CloudWatch agent to collect cluster metrics](Container-Insights-setup-metrics.md "Container-Insights-setup-metrics.md") and [Send logs to CloudWatch Logs](Container-Insights-EKS-logs.md "Container-Insights-EKS-logs.md").
 Those sections provide more configuration details on how the CloudWatch agent works with Amazon EKS
 and Kubernetes, but require you to perform more installation steps.
 
@@ -41,15 +36,12 @@ Amazon has now launched Fluent Bit as the default log solution for Container
 Insights with significant performance gains. We recommend that you use Fluent Bit
 instead of Fluentd.
 
-## Quick Start with
-
-the CloudWatch agent operator and Fluent Bit
+## Quick Start with the CloudWatch agent operator and Fluent Bit
 
 There are two configurations for Fluent Bit: an optimized version and a version
 that provides an experience more similar to Fluentd. The Quick Start configuration
 uses the optimized version. For more details about the Fluentd-compatible
-configuration, see [Set up Fluent Bit as a
-DaemonSet to send logs to CloudWatch Logs](Container-Insights-setup-logs-FluentBit.md "Container-Insights-setup-logs-FluentBit.md").
+configuration, see [Set up Fluent Bit as a DaemonSet to send logs to CloudWatch Logs](Container-Insights-setup-logs-FluentBit.md "Container-Insights-setup-logs-FluentBit.md").
 
 The CloudWatch agent operator is an additional container that gets installed to an Amazon EKS
 cluster. It is modeled after the OpenTelemetry Operator for Kubernetes. The operator
@@ -103,8 +95,7 @@ curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-i
 **Migrating from Container Insights**
 
 If you already have Container Insights configured in an Amazon EKS cluster and you want
-to migrate to Container Insights with enhanced observability for Amazon EKS, see [Upgrading to Container Insights
-with enhanced observability for Amazon EKS in CloudWatch](Container-Insights-upgrade-enhanced.md "Container-Insights-upgrade-enhanced.md")
+to migrate to Container Insights with enhanced observability for Amazon EKS, see [Upgrading to Container Insights with enhanced observability for Amazon EKS in CloudWatch](Container-Insights-upgrade-enhanced.md "Container-Insights-upgrade-enhanced.md")
 
 **Deleting Container Insights**
 

@@ -1,6 +1,4 @@
-# View and troubleshoot problems detected by
-
-Amazon CloudWatch Application Insights
+# View and troubleshoot problems detected by Amazon CloudWatch Application Insights
 
 The topics in this section provide detailed information about the detected problems
 and insights displayed by Application Insights. It also provides suggested resolutions for
@@ -9,8 +7,7 @@ detected issues with your account or your configuration.
 ###### Troubleshooting topics
 
 - [CloudWatch console overview](#appinsights-troubleshooting-overview "#appinsights-troubleshooting-overview")
-- [Application Insights problem
-  summary page](#appinsights-troubleshooting-problem-summary "#appinsights-troubleshooting-problem-summary")
+- [Application Insights problem summary page](#appinsights-troubleshooting-problem-summary "#appinsights-troubleshooting-problem-summary")
 - [CloudWatch agent merge conflict failures](#cwagent-merge-conflicts "#cwagent-merge-conflicts")
 - [High CPU usage from CloudWatch agent log processing](#cwagent-high-cpu-usage "#cwagent-high-cpu-usage")
 - [Alarms are not created](#alarms-not-created "#alarms-not-created")
@@ -46,9 +43,7 @@ corner of the detailed dashboard.
 To return to the overview, choose **Back to overview**, which is
 next to the CloudWatch Application Insights detailed dashboard header.
 
-## Application Insights problem
-
-summary page
+## Application Insights problem summary page
 
 ###### Application Insights problem summary page
 
@@ -76,8 +71,7 @@ configuration file with different configurations defined for the same metrics or
 logs. To resolve the merge conflict, use the following steps:
 
 1. Identify the CloudWatch agent configuration files on your system. For more
-   information about the file locations, see [CloudWatch agent files and
-   locations](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-files-and-locations "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-files-and-locations").
+   information about the file locations, see [CloudWatch agent files and locations](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-files-and-locations "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-files-and-locations").
 2. Remove the resource configurations that you want to use in Application Insights from
    the existing CloudWatch agent configuration file. If you want to only use
    Application Insights configurations, delete the existing CloudWatch agent configuration

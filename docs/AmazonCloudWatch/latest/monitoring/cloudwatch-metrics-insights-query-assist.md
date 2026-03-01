@@ -1,6 +1,4 @@
-# Use natural language to generate
-
-and update CloudWatch Metrics Insights queries
+# Use natural language to generate and update CloudWatch Metrics Insights queries
 
 CloudWatch supports a natural language query capability to help you generate and update
 queries for [CloudWatch
@@ -55,9 +53,7 @@ natural language capability.
 
 For more information on the CloudWatch Metrics Insights query editor and syntax, see [CloudWatch Metrics Insights query components and syntax](cloudwatch-metrics-insights-querylanguage.md "cloudwatch-metrics-insights-querylanguage.md").
 
-### Example: Generate
-
-a natural language query
+### Example: Generate a natural language query
 
 To generate a query using natural language, enter a prompt and choose
 **Generate new query**. This example shows a query that performs a
@@ -94,9 +90,7 @@ LIMIT 10
 To turn off the appearance of your prompt and the explanation of how the query
 works, use the gear icon in your editor.
 
-### Example: Update a
-
-natural language query
+### Example: Update a natural language query
 
 You can update a query by editing the initial prompt and then choosing
 **Update query**.
@@ -128,9 +122,7 @@ LIMIT 10
 # This query modifies the original query to select the sum of returned bytes instead of consumed read capacity units, and orders the results from highest to lowest sum of returned bytes, limiting the results to the top 10 tables.
 ```
 
-## Opting out of
-
-using your data for service improvement
+## Opting out of using your data for service improvement
 
 The natural language prompt data you provide to train the AI model and generate
 relevant queries is used solely to provide and maintain your service. This data might be

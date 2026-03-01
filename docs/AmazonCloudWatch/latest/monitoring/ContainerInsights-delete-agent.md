@@ -1,6 +1,4 @@
-# Deleting the CloudWatch agent and Fluent Bit
-
-for Container Insights
+# Deleting the CloudWatch agent and Fluent Bit for Container Insights
 
 If you installed Container Insights by using installing the CloudWatch Observability
 add-on for Amazon EKS, you can delete Container Insights and the CloudWatch agent by entering the

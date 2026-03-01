@@ -7,9 +7,7 @@ of the gauge widget.
 You must set a gauge range
 when you create this widget.
 
-######
-
-To add a gauge widget to a dashboard
+###### To add a gauge widget to a dashboard
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

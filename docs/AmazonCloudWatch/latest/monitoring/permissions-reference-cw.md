@@ -18,24 +18,15 @@ actions).
 
 ###### Topics
 
-- [CloudWatch API operations and required permissions
-  for actions](#cw-permissions-table "#cw-permissions-table")
-- [CloudWatch Application Signals
-  API operations and required permissions for actions](#cw-application-signals-permissions-table "#cw-application-signals-permissions-table")
-- [CloudWatch Contributor
-  Insights API operations and required permissions for actions](#cw-contributor-insights-permissions-table "#cw-contributor-insights-permissions-table")
-- [CloudWatch Events API operations and required
-  permissions for actions](#cwe-permissions-table "#cwe-permissions-table")
-- [CloudWatch Logs API operations and required
-  permissions for actions](#cwl-permissions-table "#cwl-permissions-table")
-- [Amazon EC2 API operations and required
-  permissions for actions](#cw-ec2-permissions-table "#cw-ec2-permissions-table")
-- [Amazon EC2 Auto Scaling API operations and required
-  permissions for actions](#cw-as-permissions-table "#cw-as-permissions-table")
+- [CloudWatch API operations and required permissions for actions](#cw-permissions-table "#cw-permissions-table")
+- [CloudWatch Application Signals API operations and required permissions for actions](#cw-application-signals-permissions-table "#cw-application-signals-permissions-table")
+- [CloudWatch Contributor Insights API operations and required permissions for actions](#cw-contributor-insights-permissions-table "#cw-contributor-insights-permissions-table")
+- [CloudWatch Events API operations and required permissions for actions](#cwe-permissions-table "#cwe-permissions-table")
+- [CloudWatch Logs API operations and required permissions for actions](#cwl-permissions-table "#cwl-permissions-table")
+- [Amazon EC2 API operations and required permissions for actions](#cw-ec2-permissions-table "#cw-ec2-permissions-table")
+- [Amazon EC2 Auto Scaling API operations and required permissions for actions](#cw-as-permissions-table "#cw-as-permissions-table")
 
-## CloudWatch API operations and required permissions
-
-for actions
+## CloudWatch API operations and required permissions for actions
 
 | CloudWatch API operations                                                                                                  | Required permissions (API actions)                                                                                                                                                                                                                                                                                                             |
 | -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -67,9 +58,7 @@ for actions
 | [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md")                                     | `cloudwatch:TagResource`<br>Required to add or update tags on CloudWatch resources such as<br>alarms and Contributor Insights rules.                                                                                                                                                                                                           |
 | [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md")                               | `cloudwatch:UntagResource`<br>Required to remove tags from CloudWatch resources .                                                                                                                                                                                                                                                              |
 
-## CloudWatch Application Signals
-
-API operations and required permissions for actions
+## CloudWatch Application Signals API operations and required permissions for actions
 
 | CloudWatch Application Signals API operations                                                                                                                                                                                                    | Required permissions (API actions)                                                                                                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -90,17 +79,14 @@ API operations and required permissions for actions
 | [UntagResource](../../../applicationsignals/latest/APIReference/API_UntagResource.md "../../../applicationsignals/latest/APIReference/API_UntagResource.md")                                                                                     | `application-signals:UntagResource`<br>Required to be able to remove tags from resources.                                                                                                                           |
 | [UpdateServiceLevelObjective](../../../applicationsignals/latest/APIReference/API_UpdateServiceLevelObjective.md "../../../applicationsignals/latest/APIReference/API_UpdateServiceLevelObjective.md")                                           | `application-signals:UpdateServiceLevelObjective`<br>Required to update an existing service level objective                                                                                                         |
 
-## CloudWatch Contributor
-
-Insights API operations and required permissions for actions
+## CloudWatch Contributor Insights API operations and required permissions for actions
 
 ###### Important
 
 When you grant a user the `cloudwatch:PutInsightRule` permission,
 by default that user can create a rule that evaluates any log group in CloudWatch Logs.
 You can add IAM policy conditions that limit these permissions for a user to
-include and exclude specific log groups. For more information, see [Using condition keys to
-limit Contributor Insights users' access to log groups](iam-cw-condition-keys-contributor.md "iam-cw-condition-keys-contributor.md").
+include and exclude specific log groups. For more information, see [Using condition keys to limit Contributor Insights users' access to log groups](iam-cw-condition-keys-contributor.md "iam-cw-condition-keys-contributor.md").
 
 | CloudWatch Contributor Insights API operations                                                                    | Required permissions (API actions)                                                                                                                  |
 | ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -110,9 +96,7 @@ limit Contributor Insights users' access to log groups](iam-cw-condition-keys-co
 | [GetInsightRuleReport](../APIReference/API_GetInsightRuleReport.md "../APIReference/API_GetInsightRuleReport.md") | `cloudwatch:GetInsightRuleReport`<br>Required to retrieve time series data and other statistics<br>collectd by Contributor Insights rules.          |
 | [PutInsightRule](../APIReference/API_PutInsightRule.md "../APIReference/API_PutInsightRule.md")                   | `cloudwatch:PutInsightRule`<br>Required to create Contributor Insights rules. See the<br>\*_Important_<br>• note at the<br>beginning of this table. |
 
-## CloudWatch Events API operations and required
-
-permissions for actions
+## CloudWatch Events API operations and required permissions for actions
 
 | CloudWatch Events API operations                                                                                                                                                             | Required permissions (API actions)                                                       |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
@@ -129,18 +113,14 @@ permissions for actions
 | [RemoveTargets](../../../AmazonCloudWatchEvents/latest/APIReference/API_RemoveTargets.md "../../../AmazonCloudWatchEvents/latest/APIReference/API_RemoveTargets.md")                         | `events:RemoveTargets`<br>Required to remove a target from a rule.                       |
 | [TestEventPattern](../../../AmazonCloudWatchEvents/latest/APIReference/API_TestEventPattern.md "../../../AmazonCloudWatchEvents/latest/APIReference/API_TestEventPattern.md")                | `events:TestEventPattern`<br>Required to test an event pattern against a given<br>event. |
 
-## CloudWatch Logs API operations and required
-
-permissions for actions
+## CloudWatch Logs API operations and required permissions for actions
 
 ###### Note
 
 CloudWatch Logs permissions can be found in the [CloudWatch Logs user
 guide](../logs/permissions-reference-cwl.md "../logs/permissions-reference-cwl.md").
 
-## Amazon EC2 API operations and required
-
-permissions for actions
+## Amazon EC2 API operations and required permissions for actions
 
 | Amazon EC2 API operations                                                                                                                                       | Required permissions (API actions)                                            |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
@@ -150,9 +130,7 @@ permissions for actions
 | [StopInstances](../../../AWSEC2/latest/APIReference/API_StopInstances.md "../../../AWSEC2/latest/APIReference/API_StopInstances.md")                            | `ec2:StopInstances`<br>Required to stop an EC2 instance.                      |
 | [TerminateInstances](../../../AWSEC2/latest/APIReference/API_TerminateInstances.md "../../../AWSEC2/latest/APIReference/API_TerminateInstances.md")             | `ec2:TerminateInstances`<br>Required to terminate an EC2 instance.            |
 
-## Amazon EC2 Auto Scaling API operations and required
-
-permissions for actions
+## Amazon EC2 Auto Scaling API operations and required permissions for actions
 
 | Amazon EC2 Auto Scaling API operations | Required permissions (API actions)                                   |
 | -------------------------------------- | -------------------------------------------------------------------- |

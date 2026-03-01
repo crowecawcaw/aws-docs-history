@@ -1,6 +1,4 @@
-# Collect metrics, logs, and traces using the CloudWatch
-
-agent
+# Collect metrics, logs, and traces using the CloudWatch agent
 
 CloudWatch agent is a software component that collects metrics, logs, and traces from your Amazon EC2
 instances, on-premises servers, and containerized applications. It enables you to monitor your
@@ -18,8 +16,7 @@ default.
 
 - Collect internal system-level metrics from Amazon EC2 instances across operating systems. The
   metrics can include in-guest metrics, in addition to the metrics for EC2 instances. The
-  additional metrics that can be collected are listed in [Metrics collected by the CloudWatch
-  agent](metrics-collected-by-CloudWatch-agent.md "metrics-collected-by-CloudWatch-agent.md").
+  additional metrics that can be collected are listed in [Metrics collected by the CloudWatch agent](metrics-collected-by-CloudWatch-agent.md "metrics-collected-by-CloudWatch-agent.md").
 - Collect system-level metrics from on-premises servers. These can include servers in a
   hybrid environment as well as servers not managed by AWS.
 - Retrieve custom metrics from your applications or services using the `StatsD`
@@ -75,22 +72,14 @@ follows:
 
 - [Supported operating systems](supported-operating-systems.md "supported-operating-systems.md")
 - [Prerequisites](prerequisites.md "prerequisites.md")
-- [Download the
-  CloudWatch agent package](download-CloudWatch-Agent-on-EC2-Instance-commandline-first.md "download-CloudWatch-Agent-on-EC2-Instance-commandline-first.md")
-- [Verifying the signature of the
-  CloudWatch agent package](verify-CloudWatch-Agent-Package-Signature.md "verify-CloudWatch-Agent-Package-Signature.md")
+- [Download the CloudWatch agent package](download-CloudWatch-Agent-on-EC2-Instance-commandline-first.md "download-CloudWatch-Agent-on-EC2-Instance-commandline-first.md")
+- [Verifying the signature of the CloudWatch agent package](verify-CloudWatch-Agent-Package-Signature.md "verify-CloudWatch-Agent-Package-Signature.md")
 - [Installing the CloudWatch agent](install-CloudWatch-Agent-on-EC2-Instance.md "install-CloudWatch-Agent-on-EC2-Instance.md")
-- [Set up the CloudWatch agent with security-enhanced Linux
-  (SELinux)](CloudWatch-Agent-SELinux.md "CloudWatch-Agent-SELinux.md")
-- [Create the CloudWatch agent
-  configuration file](create-cloudwatch-agent-configuration-file.md "create-cloudwatch-agent-configuration-file.md")
+- [Set up the CloudWatch agent with security-enhanced Linux (SELinux)](CloudWatch-Agent-SELinux.md "CloudWatch-Agent-SELinux.md")
+- [Create the CloudWatch agent configuration file](create-cloudwatch-agent-configuration-file.md "create-cloudwatch-agent-configuration-file.md")
 - [Starting the CloudWatch agent](start-CloudWatch-Agent-on-premise-SSM-onprem.md "start-CloudWatch-Agent-on-premise-SSM-onprem.md")
-- [Metrics collected by the CloudWatch
-  agent](metrics-collected-by-CloudWatch-agent.md "metrics-collected-by-CloudWatch-agent.md")
-- [Using the CloudWatch agent with related
-  telemetry](CloudWatch-Agent-RelatedEntities.md "CloudWatch-Agent-RelatedEntities.md")
-- [Common scenarios with the CloudWatch
-  agent](CloudWatch-Agent-common-scenarios.md "CloudWatch-Agent-common-scenarios.md")
-- [CloudWatch agent credentials
-  preference](CloudWatch-Agent-Credentials-Preference.md "CloudWatch-Agent-Credentials-Preference.md")
+- [Metrics collected by the CloudWatch agent](metrics-collected-by-CloudWatch-agent.md "metrics-collected-by-CloudWatch-agent.md")
+- [Using the CloudWatch agent with related telemetry](CloudWatch-Agent-RelatedEntities.md "CloudWatch-Agent-RelatedEntities.md")
+- [Common scenarios with the CloudWatch agent](CloudWatch-Agent-common-scenarios.md "CloudWatch-Agent-common-scenarios.md")
+- [CloudWatch agent credentials preference](CloudWatch-Agent-Credentials-Preference.md "CloudWatch-Agent-Credentials-Preference.md")
 - [Troubleshooting the CloudWatch agent](troubleshooting-CloudWatch-Agent.md "troubleshooting-CloudWatch-Agent.md")

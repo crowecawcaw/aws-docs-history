@@ -1,6 +1,4 @@
-# IAM role
-
-permissions for account-based application onboarding
+# IAM role permissions for account-based application onboarding
 
 If you want to onboard all of the resources in your account, and you choose not to
 use the [Application Insights managed

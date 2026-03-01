@@ -1,6 +1,4 @@
-# CloudWatch pipelines configuration for ServiceNow CMDB
-
-Audit Log
+# CloudWatch pipelines configuration for ServiceNow CMDB Audit Log
 
 Collects configuration management database (CMDB) data from ServiceNow using
 OAuth2 authentication.

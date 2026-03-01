@@ -16,8 +16,7 @@ If the VPC is not already enabled for internet access, you have two options:
   to CloudWatch and Amazon S3 through private VPC endpoints. If you have not already done so, you must
   create a VPC endpoint for CloudWatch (com.amazonaws.`region`.monitoring) and a
   gateway endpoint for Amazon S3. For more information, see
-  [Using CloudWatch, CloudWatch Synthetics, and CloudWatch Network
-  Monitoring with interface VPC endpoints](cloudwatch-and-interface-VPC.md "cloudwatch-and-interface-VPC.md")
+  [Using CloudWatch, CloudWatch Synthetics, and CloudWatch Network Monitoring with interface VPC endpoints](cloudwatch-and-interface-VPC.md "cloudwatch-and-interface-VPC.md")
   and [Amazon VPC Endpoints for Amazon S3](../../../glue/latest/dg/vpc-endpoints-s3.md "../../../glue/latest/dg/vpc-endpoints-s3.md").
 
 ## Giving internet access to your canary on a VPC

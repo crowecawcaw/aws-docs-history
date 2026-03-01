@@ -49,13 +49,11 @@ For information about CloudWatch Logs API calls that are logged in CloudTrail, s
 - [Query generation information in CloudTrail](#cwl_query-generation-cloudtrail "#cwl_query-generation-cloudtrail")
 - [Amazon Q Developer operational investigations events in CloudTrail](#Q-Developer-Investigations-Cloudtrail "#Q-Developer-Investigations-Cloudtrail")
 - [Network Flow Monitor in CloudTrail](#CloudWatch-NetworkFlowMonitor-info-in-ct "#CloudWatch-NetworkFlowMonitor-info-in-ct")
-- [Network Flow Monitor data plane
-  events in CloudTrail](#CloudWatch-NetworkFlowMonitor-data-plane-events "#CloudWatch-NetworkFlowMonitor-data-plane-events")
+- [Network Flow Monitor data plane events in CloudTrail](#CloudWatch-NetworkFlowMonitor-data-plane-events "#CloudWatch-NetworkFlowMonitor-data-plane-events")
 - [Internet Monitor in CloudTrail](#cw_im_info_in_ct "#cw_im_info_in_ct")
 - [CloudWatch Synthetics information in CloudTrail](#cw_synthetics_info_in_ct "#cw_synthetics_info_in_ct")
 - [CloudWatch RUM information in CloudTrail](#RUM-CloudTrail "#RUM-CloudTrail")
-- [CloudWatch RUM data plane
-  events in CloudTrail](#RUM-data-plane-events "#RUM-data-plane-events")
+- [CloudWatch RUM data plane events in CloudTrail](#RUM-data-plane-events "#RUM-data-plane-events")
 - [Network Synthetic Monitor information in CloudTrail](#cw_network_synthetic_monitor_info_in_ct "#cw_network_synthetic_monitor_info_in_ct")
 - [CloudWatch Observability Access Manager information in CloudTrail](#cw_observability_access_manager_info_in_ct "#cw_observability_access_manager_info_in_ct")
 - [CloudWatch Observability Admin information in CloudTrail](#cw_observability_admin_info_in_ct "#cw_observability_admin_info_in_ct")
@@ -100,9 +98,7 @@ CloudWatch supports logging the following actions as events in CloudTrail log fi
 - [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md")
 - [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md")
 
-### Example: CloudWatch log file
-
-entries
+### Example: CloudWatch log file entries
 
 The following example shows a CloudTrail log entry that demonstrates the `PutMetricAlarm` action.
 
@@ -479,9 +475,7 @@ Amazon Q Developer operational investigations supports logging the following act
 - [UntagResource](../../../cloudwatchinvestigations/latest/APIReference/API_UntagResource.md "../../../cloudwatchinvestigations/latest/APIReference/API_UntagResource.md")
 - [UpdateInvestigationGroup](../../../cloudwatchinvestigations/latest/APIReference/API_UpdateInvestigationGroup.md "../../../cloudwatchinvestigations/latest/APIReference/API_UpdateInvestigationGroup.md")
 
-### Example: Amazon Q Developer operational investigations
-
-log file entries
+### Example: Amazon Q Developer operational investigations log file entries
 
 The following example shows a Amazon Q Developer operational investigations log entry that demonstrates the
 `CreateInvestigationGroup` action.
@@ -662,9 +656,7 @@ Network Flow Monitor supports logging the following actions as events in CloudTr
 - [UpdateMonitor](../../../networkflowmonitor/2.0/APIReference/API_UpdateMonitor.md "../../../networkflowmonitor/2.0/APIReference/API_UpdateMonitor.md")
 - [UpdateScope](../../../networkflowmonitor/2.0/APIReference/API_UpdateScope.md "../../../networkflowmonitor/2.0/APIReference/API_UpdateScope.md")
 
-### Example: Network Flow Monitor
-
-log file entry
+### Example: Network Flow Monitor log file entry
 
 The following example shows a Network Flow Monitor CloudTrail log file entry that demonstrates the
 `CreateMonitor` action.
@@ -787,9 +779,7 @@ The following example shows a Network Flow Monitor CloudTrail log file entry tha
     }
 ```
 
-## Network Flow Monitor data plane
-
-events in CloudTrail
+## Network Flow Monitor data plane events in CloudTrail
 
 CloudTrail can capture API activities related to the CloudWatch-NetworkFlowMonitor data plane operations.
 
@@ -955,9 +945,7 @@ Internet Monitor supports logging the following actions as events in CloudTrail 
 - [UntagResource](../../../internet-monitor/latest/api/API_UntagResource.md "../../../internet-monitor/latest/api/API_UntagResource.md")
 - [UpdateMonitor](../../../internet-monitor/latest/api/API_UpdateMonitor.md "../../../internet-monitor/latest/api/API_UpdateMonitor.md")
 
-### Example: Internet Monitor
-
-log file entries
+### Example: Internet Monitor log file entries
 
 The following example shows a CloudTrail Internet Monitor log entry that demonstrates the
 `ListMonitors` action.
@@ -1083,9 +1071,7 @@ CloudWatch Synthetics supports logging the following actions as events in CloudT
 - [UntagResource](../../../AmazonSynthetics/latest/APIReference/API_UntagResource.md "../../../AmazonSynthetics/latest/APIReference/API_UntagResource.md")
 - [UpdateCanary](../../../AmazonSynthetics/latest/APIReference/API_UpdateCanary.md "../../../AmazonSynthetics/latest/APIReference/API_UpdateCanary.md")
 
-### Example: CloudWatch Synthetics
-
-log file entries
+### Example: CloudWatch Synthetics log file entries
 
 The following example shows a CloudTrail Synthetics log entry that demonstrates the
 `DescribeCanaries` action.
@@ -1441,9 +1427,7 @@ The following example shows a CloudTrail log entry that demonstrates the [BatchC
 }
 ```
 
-## CloudWatch RUM data plane
-
-events in CloudTrail
+## CloudWatch RUM data plane events in CloudTrail
 
 CloudTrail can capture API activities related to the CloudWatch RUM data plane operation [PutRumEvents](../../../cloudwatchrum/latest/APIReference/API_PutRumEvents.md "../../../cloudwatchrum/latest/APIReference/API_PutRumEvents.md").
 

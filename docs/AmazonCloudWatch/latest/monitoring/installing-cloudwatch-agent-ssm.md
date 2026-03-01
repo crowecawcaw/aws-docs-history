@@ -1,6 +1,4 @@
-# Install the CloudWatch agent using
-
-AWS Systems Manager
+# Install the CloudWatch agent using AWS Systems Manager
 
 Using AWS Systems Manager makes it easier to install the CloudWatch agent on a fleet of Amazon EC2
 instances. You can download the agent into one server and create your CloudWatch agent
@@ -11,20 +9,13 @@ topics to install and run the CloudWatch agent using AWS Systems Manager.
 ###### Topics
 
 - [Install or update the SSM Agent](#update-SSM-Agent-EC2instance-first "#update-SSM-Agent-EC2instance-first")
-- [Verify Systems Manager
-  prerequisites](#install-CloudWatch-Agent-minimum-requirements-first "#install-CloudWatch-Agent-minimum-requirements-first")
-- [Verify internet
-  access](#install-CloudWatch-Agent-internet-access-first "#install-CloudWatch-Agent-internet-access-first")
-- [Download the CloudWatch agent package to
-  your first instance](#install-CloudWatch-Agent-EC2-first "#install-CloudWatch-Agent-EC2-first")
-- [Create and modify the
-  agent configuration file](#CW-Agent-Instance-Create-Configuration-File-first "#CW-Agent-Instance-Create-Configuration-File-first")
-- [Install and start the
-  CloudWatch agent on additional EC2 instances using your agent configuration](#install-CloudWatch-Agent-on-EC2-Instance-fleet "#install-CloudWatch-Agent-on-EC2-Instance-fleet")
-- [Install the CloudWatch agent on
-  additional EC2 instances using your agent configuration](#install-CloudWatch-Agent-on-EC2-Instance-fleet "#install-CloudWatch-Agent-on-EC2-Instance-fleet")
-- [(Optional) Modify the common
-  configuration and named profile for CloudWatch agent](#CloudWatch-Agent-profile-instance-fleet "#CloudWatch-Agent-profile-instance-fleet")
+- [Verify Systems Manager prerequisites](#install-CloudWatch-Agent-minimum-requirements-first "#install-CloudWatch-Agent-minimum-requirements-first")
+- [Verify internet access](#install-CloudWatch-Agent-internet-access-first "#install-CloudWatch-Agent-internet-access-first")
+- [Download the CloudWatch agent package to your first instance](#install-CloudWatch-Agent-EC2-first "#install-CloudWatch-Agent-EC2-first")
+- [Create and modify the agent configuration file](#CW-Agent-Instance-Create-Configuration-File-first "#CW-Agent-Instance-Create-Configuration-File-first")
+- [Install and start the CloudWatch agent on additional EC2 instances using your agent configuration](#install-CloudWatch-Agent-on-EC2-Instance-fleet "#install-CloudWatch-Agent-on-EC2-Instance-fleet")
+- [Install the CloudWatch agent on additional EC2 instances using your agent configuration](#install-CloudWatch-Agent-on-EC2-Instance-fleet "#install-CloudWatch-Agent-on-EC2-Instance-fleet")
+- [(Optional) Modify the common configuration and named profile for CloudWatch agent](#CloudWatch-Agent-profile-instance-fleet "#CloudWatch-Agent-profile-instance-fleet")
 
 ## Install or update the SSM Agent
 
@@ -40,17 +31,13 @@ _AWS Systems Manager User Guide_.
 For information about installing or updating the SSM Agent, see [Working with SSM Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md") in the
 _AWS Systems Manager User Guide_.
 
-## Verify Systems Manager
-
-prerequisites
+## Verify Systems Manager prerequisites
 
 Before you use Systems Manager Run Command to install and configure the CloudWatch agent, verify that
 your instances meet the minimum Systems Manager requirements. For more information, see [Systems Manager
 Prerequisites](../../../systems-manager/latest/userguide/systems-manager-setting-up.md#systems-manager-prereqs "../../../systems-manager/latest/userguide/systems-manager-setting-up.md#systems-manager-prereqs") in the _AWS Systems Manager User Guide_.
 
-## Verify internet
-
-access
+## Verify internet access
 
 Your Amazon EC2 instances must be able to connect to CloudWatch endpoints. This can be by
 Internet Gateway, NAT gateway, or CloudWatch Interface VPC endpoints. For more information about
@@ -69,9 +56,7 @@ The endpoints and ports to configure on your proxy are as follows:
   endpoints are listed in [AWS
   Systems Manager](../../../general/latest/gr/rande.md#ssm_region "../../../general/latest/gr/rande.md#ssm_region") in the _Amazon Web Services General Reference_.
 
-## Download the CloudWatch agent package to
-
-your first instance
+## Download the CloudWatch agent package to your first instance
 
 Use the following steps to download the CloudWatch agent package using Systems Manager.
 
@@ -95,9 +80,7 @@ the latest version of the agent. 9. Choose **Run**. 10. Optionally, in the **Tar
 button next to an instance name and choose **View output**. Systems Manager
 should show that the agent was successfully installed.
 
-## Create and modify the
-
-agent configuration file
+## Create and modify the agent configuration file
 
 After you have downloaded the CloudWatch agent, you must create the configuration file
 before you start the agent on any servers.
@@ -108,12 +91,9 @@ must first attach to that instance the `CloudWatchAgentAdminRole` IAM role.
 For more information about attaching roles, see [Attaching an IAM
 Role to an Instance](../../../AWSEC2/latest/WindowsGuide/iam-roles-for-amazon-ec2.md#attach-iam-role "../../../AWSEC2/latest/WindowsGuide/iam-roles-for-amazon-ec2.md#attach-iam-role") in the _Amazon EC2 User Guide_.
 
-For more information about creating the CloudWatch agent configuration file, see [Create the CloudWatch agent
-configuration file](create-cloudwatch-agent-configuration-file.md "create-cloudwatch-agent-configuration-file.md").
+For more information about creating the CloudWatch agent configuration file, see [Create the CloudWatch agent configuration file](create-cloudwatch-agent-configuration-file.md "create-cloudwatch-agent-configuration-file.md").
 
-## Install and start the
-
-CloudWatch agent on additional EC2 instances using your agent configuration
+## Install and start the CloudWatch agent on additional EC2 instances using your agent configuration
 
 After you have a CloudWatch agent configuration saved in Parameter Store, you can use it when you
 install the agent on other servers.
@@ -148,9 +128,7 @@ and follow the prompts.
 aws configure --profile AmazonCloudWatchAgent
 ```
 
-## Install the CloudWatch agent on
-
-additional EC2 instances using your agent configuration
+## Install the CloudWatch agent on additional EC2 instances using your agent configuration
 
 After you have a CloudWatch agent configuration saved in Parameter Store, you can use it when you
 install the agent on other servers.
@@ -232,8 +210,7 @@ file**
 Follow these steps to start the agent using Systems Manager Run Command.
 
 For information about setting up the agent on a system that has security-enhanced
-Linux (SELinux) enabled, see [Set up the CloudWatch agent with security-enhanced Linux
-(SELinux)](CloudWatch-Agent-SELinux.md "CloudWatch-Agent-SELinux.md").
+Linux (SELinux) enabled, see [Set up the CloudWatch agent with security-enhanced Linux (SELinux)](CloudWatch-Agent-SELinux.md "CloudWatch-Agent-SELinux.md").
 
 ###### To start the CloudWatch agent using Run Command
 
@@ -250,15 +227,12 @@ the CloudWatch agent. 6. In the **Action** list, choose
 **configure**. 7. In the **Optional Configuration Source** list, choose
 **ssm**. 8. In the **Optional Configuration Location** box, enter the name of
 the Systems Manager parameter name of the agent configuration file that you created and saved to
-Systems Manager Parameter Store, as explained in [Create the CloudWatch agent
-configuration file](create-cloudwatch-agent-configuration-file.md "create-cloudwatch-agent-configuration-file.md"). 9. In the **Optional Restart** list, choose **yes**
+Systems Manager Parameter Store, as explained in [Create the CloudWatch agent configuration file](create-cloudwatch-agent-configuration-file.md "create-cloudwatch-agent-configuration-file.md"). 9. In the **Optional Restart** list, choose **yes**
 to start the agent after you have finished these steps. 10. Choose **Run**. 11. Optionally, in the **Targets and outputs** areas, select the
 button next to an instance name and choose **View output**. Systems Manager
 should show that the agent was successfully started.
 
-## (Optional) Modify the common
-
-configuration and named profile for CloudWatch agent
+## (Optional) Modify the common configuration and named profile for CloudWatch agent
 
 The CloudWatch agent includes a configuration file called
 `common-config.toml`. You can use this file to optionally specify

@@ -1,6 +1,4 @@
-# Using service-linked roles for CloudWatch
-
-RUM
+# Using service-linked roles for CloudWatch RUM
 
 CloudWatch RUM uses a AWS Identity and Access Management (IAM)[service-linked role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role
 that is linked directly to RUM. The service-linked role is predefined by RUM and
@@ -21,9 +19,7 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 Choose a **Yes** with a link to view the service-linked
 role documentation for that service.
 
-## Service-linked role
-
-permissions for RUM
+## Service-linked role permissions for RUM
 
 RUM uses the service-linked role named
 **AWSServiceRoleForCloudWatchRUM** – this role allows
@@ -79,9 +75,7 @@ JSON
 
 ```
 
-## Creating a service-linked role for
-
-RUM
+## Creating a service-linked role for RUM
 
 You do not need to manually create the service-linked role for CloudWatch RUM. The first
 time that you create an app monitor with X-Ray tracing enabled, or update an app
@@ -98,9 +92,7 @@ CloudWatch RUM does not allow you to edit the
 roles, you cannot change their names because various entities might reference these
 roles. However, you can edit the description of these roles using IAM.
 
-### Editing a
-
-service-linked role description (IAM console)
+### Editing a service-linked role description (IAM console)
 
 You can use the IAM console to edit the description of a service-linked
 role.
@@ -115,9 +107,7 @@ role.
 4. Type a new description in the box, and choose
    **Save**.
 
-### Editing a service-linked
-
-role description (AWS CLI)
+### Editing a service-linked role description (AWS CLI)
 
 You can use IAM commands from the AWS Command Line Interface to edit the description of a
 service-linked role.
@@ -141,9 +131,7 @@ command:
 `$` `aws iam update-role-description --role-name `role-name` --description `description``
 ```
 
-### Editing a service-linked
-
-role description (IAM API)
+### Editing a service-linked role description (IAM API)
 
 You can use the IAM API to edit the description of a service-linked
 role.
@@ -157,9 +145,7 @@ role.
 
 [UpdateRoleDescription](../../../IAM/latest/APIReference/API_UpdateRoleDescription.md "../../../IAM/latest/APIReference/API_UpdateRoleDescription.md")
 
-## Deleting a service-linked role for
-
-RUM
+## Deleting a service-linked role for RUM
 
 If you no longer have app monitors with X-Ray enabled, we recommend that you
 delete the **AWSServiceRoleForCloudWatchRUM** role.
@@ -168,17 +154,13 @@ That way you don’t have an unused entity that is not actively monitored or
 maintained. However, you must clean up your service-linked role before you can
 delete it.
 
-### Cleaning up a
-
-service-linked role
+### Cleaning up a service-linked role
 
 Before you can use IAM to delete a service-linked role, you must first
 confirm that the role has no active sessions and remove any resources used by
 the role.
 
-###### To check whether the service-linked role has an active session in the
-
-IAM console
+###### To check whether the service-linked role has an active session in the IAM console
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -199,9 +181,7 @@ the role is being used, then you must wait for the session to end
 before you can delete the role. You cannot revoke the session for a
 service-linked role.
 
-### Deleting a
-
-service-linked role (IAM console)
+### Deleting a service-linked role (IAM console)
 
 You can use the IAM console to delete a service-linked role.
 
@@ -228,9 +208,7 @@ You can use the IAM console to delete a service-linked role.
    the service that are being used by the role, then the reason for the
    failure includes a list of resources.
 
-### Deleting a
-
-service-linked role (AWS CLI)
+### Deleting a service-linked role (AWS CLI)
 
 You can use IAM commands from the AWS Command Line Interface to delete a service-linked
 role.
@@ -260,9 +238,7 @@ The status of the deletion task can be `NOT_STARTED`,
 `FAILED`. If the deletion fails, the call returns the
 reason that it failed so that you can troubleshoot.
 
-### Deleting a
-
-service-linked role (IAM API)
+### Deleting a service-linked role (IAM API)
 
 You can use the IAM API to delete a service-linked role.
 
@@ -283,9 +259,7 @@ The status of the deletion task can be `NOT_STARTED`,
 `FAILED`. If the deletion fails, the call returns the
 reason that it failed so that you can troubleshoot.
 
-## Supported Regions for CloudWatch RUM service-linked
-
-roles
+## Supported Regions for CloudWatch RUM service-linked roles
 
 CloudWatch RUM supports using service-linked roles in all of the AWS Regions where the
 service is available. For more information, see [CloudWatch RUM service

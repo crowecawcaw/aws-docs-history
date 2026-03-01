@@ -5,9 +5,7 @@ CloudWatch Synthetics canary scripts.
 
 ## Samples for Node.js and Playwright
 
-### Playwright canary
-
-with multiple steps
+### Playwright canary with multiple steps
 
 The following script is an example of a Node.js Playwright canary with multiple
 steps.
@@ -57,9 +55,7 @@ export async function handler(event, context) {
 }
 ```
 
-### Playwright canaries
-
-setting cookies
+### Playwright canaries setting cookies
 
 The following script is an example of a Node.js Playwright canary setting three
 cookies.
@@ -98,9 +94,7 @@ export const handler = async (event, context) => {
 };
 ```
 
-## Samples
-
-for Node.js and Puppeteer
+## Samples for Node.js and Puppeteer
 
 ### Setting cookies
 
@@ -306,9 +300,7 @@ exports.handler = async () => {
 };
 ```
 
-## Samples
-
-for Python and Selenium
+## Samples for Python and Selenium
 
 The following sample Selenium code is a canary that fails with a custom error
 message when a target element is not loaded.

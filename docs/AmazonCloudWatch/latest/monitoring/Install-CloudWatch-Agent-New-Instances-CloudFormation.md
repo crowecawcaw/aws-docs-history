@@ -1,6 +1,4 @@
-# Install the CloudWatch
-
-agent on new instances using CloudFormation
+# Install the CloudWatch agent on new instances using CloudFormation
 
 This section describes how to install the CloudWatch agent on new Amazon EC2 instances using
 AWS CloudFormation.
@@ -24,8 +22,7 @@ Usage`.
 To modify these templates to collect different metrics, modify the following section
 of the template. The following example is from the template for Linux servers. Follow
 the format and syntax of the agent configuration file to make these changes. For more
-information, see [Manually create or edit the
-CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").
+information, see [Manually create or edit the CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").
 
 ```
 {
@@ -63,14 +60,12 @@ name.
   from Parameter Store. To use these templates, you must first create a configuration file and
   upload it to Parameter Store. You then provide the Parameter Store name of the file in the template.
   You can create the configuration file manually or by using the wizard. For more
-  information, see [Create the CloudWatch agent
-  configuration file](create-cloudwatch-agent-configuration-file.md "create-cloudwatch-agent-configuration-file.md").
+  information, see [Create the CloudWatch agent configuration file](create-cloudwatch-agent-configuration-file.md "create-cloudwatch-agent-configuration-file.md").
   You can use both types of templates for installing the CloudWatch agent and for updating the
   agent configuration.
 
 For information about setting up the agent on a system that has security-enhanced Linux
-(SELinux) enabled, see [Set up the CloudWatch agent with security-enhanced Linux
-(SELinux)](CloudWatch-Agent-SELinux.md "CloudWatch-Agent-SELinux.md").
+(SELinux) enabled, see [Set up the CloudWatch agent with security-enhanced Linux (SELinux)](CloudWatch-Agent-SELinux.md "CloudWatch-Agent-SELinux.md").
 
 ## Tutorial: Install and configure the CloudWatch agent using an CloudFormation inline template
 
@@ -171,9 +166,7 @@ metric.
 
 After some time, you see `UPDATE_COMPLETE`.
 
-## Tutorial:
-
-Install the CloudWatch agent using CloudFormation and Parameter Store
+## Tutorial: Install the CloudWatch agent using CloudFormation and Parameter Store
 
 This tutorial walks you through using CloudFormation to install the CloudWatch agent on a new Amazon EC2
 instance. This tutorial installs on a new instance running Amazon Linux 2 using an agent
@@ -182,17 +175,13 @@ configuration file that you create and save in Parameter Store.
 After the procedure for installing the agent, the tutorial continues with how to
 update the agent.
 
-###### To use CloudFormation to install the CloudWatch agent on a new instance using a configuration from
-
-Parameter Store
+###### To use CloudFormation to install the CloudWatch agent on a new instance using a configuration from Parameter Store
 
 1. If you haven't done so already, download the CloudWatch agent package to one of your
    computers so that you can create the agent configuration file. For more information
-   and downloading the agent using Parameter Store, see [Download the
-   CloudWatch agent package](download-CloudWatch-Agent-on-EC2-Instance-commandline-first.md "download-CloudWatch-Agent-on-EC2-Instance-commandline-first.md").
+   and downloading the agent using Parameter Store, see [Download the CloudWatch agent package](download-CloudWatch-Agent-on-EC2-Instance-commandline-first.md "download-CloudWatch-Agent-on-EC2-Instance-commandline-first.md").
 2. Create the agent configuration file and save it in Parameter Store. For more information,
-   see [Create the CloudWatch agent
-   configuration file](create-cloudwatch-agent-configuration-file.md "create-cloudwatch-agent-configuration-file.md").
+   see [Create the CloudWatch agent configuration file](create-cloudwatch-agent-configuration-file.md "create-cloudwatch-agent-configuration-file.md").
 3. Download the template from GitHub as follows:
 
 ```
@@ -252,8 +241,7 @@ configuration that you saved in Parameter Store.
 
 1. Change the agent configuration file stored in Parameter Store to the new configuration
    that you want.
-2. In the CloudFormation template that you downloaded in the Tutorial:
-   Install the CloudWatch agent using CloudFormation and Parameter Store topic, change
+2. In the CloudFormation template that you downloaded in the Tutorial: Install the CloudWatch agent using CloudFormation and Parameter Store topic, change
    the version number. For example, you might change `VERSION=1.0` to
    `VERSION=2.0`.
 3. Open the CloudFormation console at
@@ -270,9 +258,7 @@ configuration that you saved in Parameter Store.
 
 After some time, you see `UPDATE_COMPLETE`.
 
-## Troubleshooting
-
-installation of the CloudWatch agent with CloudFormation
+## Troubleshooting installation of the CloudWatch agent with CloudFormation
 
 This section helps you troubleshoot issues with installing and updating the CloudWatch agent
 using CloudFormation.
@@ -292,5 +278,4 @@ If you don't see metrics that you expect to see after installing or updating the
 agent, confirm that the agent is configured to collect that metric. To do this, check
 the `amazon-cloudwatch-agent.json` file to make sure that the metric
 is listed, and check that you are looking in the correct metric namespace. For more
-information, see [CloudWatch agent files and
-locations](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-files-and-locations "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-files-and-locations").
+information, see [CloudWatch agent files and locations](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-files-and-locations "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-files-and-locations").

@@ -1,6 +1,4 @@
-# Example: Use Application Signals to troubleshoot generative AI applications
-
-interacting with Amazon Bedrock models
+# Example: Use Application Signals to troubleshoot generative AI applications interacting with Amazon Bedrock models
 
 You can use Application Signals to troubleshoot your generative AI applications that
 interact with Amazon Bedrock models.

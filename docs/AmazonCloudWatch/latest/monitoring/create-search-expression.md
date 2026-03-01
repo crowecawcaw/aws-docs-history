@@ -1,6 +1,4 @@
-# Create a CloudWatch graph with a search
-
-expression
+# Create a CloudWatch graph with a search expression
 
 On the CloudWatch console, you can access search capability when you add a graph to a
 dashboard, or by using the **Metrics** view.

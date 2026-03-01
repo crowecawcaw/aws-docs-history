@@ -1,6 +1,4 @@
-# How to add related information to
-
-custom telemetry sent to CloudWatch
+# How to add related information to custom telemetry sent to CloudWatch
 
 When you publish your own metrics and logs to CloudWatch, the entity information needed
 for related telemetry is not there by default. When you send metrics to CloudWatch or
@@ -28,9 +26,7 @@ The following sections describe how to create the `KeyAttributes` and
 `Attributes` so that CloudWatch can identify the resources and services associated
 with the telemetry.
 
-## Identifying the entity
-
-with the KeyAttributes object
+## Identifying the entity with the KeyAttributes object
 
 The `KeyAttributes` property of the Entity objects ( [in CloudWatch](../APIReference/API_Entity.md "../APIReference/API_Entity.md") or
 [in CloudWatch
@@ -138,9 +134,7 @@ key value pairs:
   service in a remote call. For example,
   `api.test.myservice.com`.
 
-## Providing additional details
-
-about the entity with the Attributes object
+## Providing additional details about the entity with the Attributes object
 
 You can provide additional details about the `Entity` that you
 provide with your telemetry. This can include details about the platform,

@@ -1,6 +1,4 @@
-# Deploying the AWS Distro for
-
-OpenTelemetry to collect EC2 instance-level metrics on Amazon ECS clusters
+# Deploying the AWS Distro for OpenTelemetry to collect EC2 instance-level metrics on Amazon ECS clusters
 
 Use the steps in this section to use AWS Distro for OpenTelemetry to collect EC2
 instance-level metrics on an Amazon ECS cluster. For more information about the AWS Distro
@@ -99,18 +97,14 @@ Follow the steps in this section to manually deploy the AWS Distro for
 OpenTelemetry to collect instance-level metrics from your Amazon ECS clusters that are hosted
 on Amazon EC2 instances.
 
-### Step 1: Necessary roles and
-
-policies
+### Step 1: Necessary roles and policies
 
 Two IAM roles are required. You must create them if they don't already exist.
 For more information about these roles, see [Create IAM
 policy](https://aws-otel.github.io/docs/setup/ecs/create-iam-policy "https://aws-otel.github.io/docs/setup/ecs/create-iam-policy") and [Create IAM
 role](https://aws-otel.github.io/docs/setup/ecs/create-iam-role "https://aws-otel.github.io/docs/setup/ecs/create-iam-role").
 
-### Step 2: Create the task
-
-definition
+### Step 2: Create the task definition
 
 Create a task definition and use it to launch the AWS Distro for OpenTelemetry
 as a daemon service.
@@ -123,17 +117,13 @@ To use the Amazon ECS console to create the task definition, follow the instruct
 [Install AWS OTel Collector by creating Task Definition through AWS console for
 Amazon ECS EC2 instance metrics](https://aws-otel.github.io/docs/setup/ecs/create-task-definition-instance-console "https://aws-otel.github.io/docs/setup/ecs/create-task-definition-instance-console").
 
-### Step 3: Launch the daemon
-
-service
+### Step 3: Launch the daemon service
 
 To launch the AWS Distro for OpenTelemetry as a daemon service, follow the
 instructions in [Run your task on
 the Amazon Elastic Container Service (Amazon ECS) using daemon service](https://aws-otel.github.io/docs/setup/ecs/run-daemon-service "https://aws-otel.github.io/docs/setup/ecs/run-daemon-service").
 
-### (Optional)
-
-Advanced configuration
+### (Optional) Advanced configuration
 
 Optionally, you can use SSM to specify other configuration options for the AWS
 Distro for OpenTelemetry in your Amazon ECS clusters that are hosted on Amazon EC2 instances.

@@ -1,6 +1,4 @@
-# Setting up Container Insights on Amazon EKS and
-
-Kubernetes
+# Setting up Container Insights on Amazon EKS and Kubernetes
 
 Container Insights is supported on Amazon EKS versions 1.23 and later. The quick start method
 of installation is supported only on versions 1.24 and later.
@@ -16,8 +14,7 @@ follows:
 
 To use Container Insights with enhanced observability for Amazon EKS, you must use the
 Amazon CloudWatch Observability EKS add-on or the CloudWatch agent. For more information about
-this version of Container Insights, see [Container Insights with enhanced
-observability for Amazon EKS](container-insights-detailed-metrics.md "container-insights-detailed-metrics.md").
+this version of Container Insights, see [Container Insights with enhanced observability for Amazon EKS](container-insights-detailed-metrics.md "container-insights-detailed-metrics.md").
 
 To use Container Insights with Fargate, you must use AWS Distro for
 OpenTelemetry. Container Insights with enhanced observability for Amazon EKS is not
@@ -27,8 +24,7 @@ supported on Fargate.
 
 Container Insights now supports Windows worker nodes in an Amazon EKS cluster.
 Container Insights with enhanced observability for Amazon EKS is also supported on Windows.
-For information about enabling Container Insights on Windows, see [Using the CloudWatch agent with Container
-Insights enhanced observability enabled](Container-Insights-EKS-agent.md "Container-Insights-EKS-agent.md").
+For information about enabling Container Insights on Windows, see [Using the CloudWatch agent with Container Insights enhanced observability enabled](Container-Insights-EKS-agent.md "Container-Insights-EKS-agent.md").
 
 Set up Fluent Bit or Fluentd to send logs to CloudWatch Logs. (This is enabled by default if
 you install the Amazon CloudWatch Observability EKS add-on.)
@@ -43,11 +39,8 @@ metric stored or log ingested. For more information about CloudWatch pricing, se
 
 ###### Topics
 
-- [Verifying prerequisites for Container
-  Insights in CloudWatch](Container-Insights-prerequisites.md "Container-Insights-prerequisites.md")
-- [Using the CloudWatch agent with Container
-  Insights enhanced observability enabled](Container-Insights-EKS-agent.md "Container-Insights-EKS-agent.md")
+- [Verifying prerequisites for Container Insights in CloudWatch](Container-Insights-prerequisites.md "Container-Insights-prerequisites.md")
+- [Using the CloudWatch agent with Container Insights enhanced observability enabled](Container-Insights-EKS-agent.md "Container-Insights-EKS-agent.md")
 - [Using AWS Distro for OpenTelemetry](Container-Insights-EKS-otel.md "Container-Insights-EKS-otel.md")
 - [Send logs to CloudWatch Logs](Container-Insights-EKS-logs.md "Container-Insights-EKS-logs.md")
-- [Updating or deleting Container Insights
-  on Amazon EKS and Kubernetes](ContainerInsights-update-delete.md "ContainerInsights-update-delete.md")
+- [Updating or deleting Container Insights on Amazon EKS and Kubernetes](ContainerInsights-update-delete.md "ContainerInsights-update-delete.md")

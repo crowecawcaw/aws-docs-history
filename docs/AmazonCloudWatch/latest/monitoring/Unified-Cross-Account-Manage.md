@@ -1,22 +1,15 @@
-# Manage monitoring accounts and source
-
-accounts
+# Manage monitoring accounts and source accounts
 
 After you set up your monitoring accounts and source accounts, you can use the steps
 in these sections to manage them.
 
 ###### Contents
 
-- [Link more source
-  accounts to an existing monitoring account](Unified-Cross-Account-Manage.md#Unified-Cross-Account-Setup-AddSourceAccounts "Unified-Cross-Account-Manage.md#Unified-Cross-Account-Setup-AddSourceAccounts")
-- [Remove the link between
-  a monitoring account and source account](Unified-Cross-Account-Manage.md#Unified-Cross-Account-Setup-UnlinkAccount "Unified-Cross-Account-Manage.md#Unified-Cross-Account-Setup-UnlinkAccount")
-- [View
-  information about a monitoring account](Unified-Cross-Account-Manage.md#Unified-Cross-Account-Setup-ManageMonitoringAccount "Unified-Cross-Account-Manage.md#Unified-Cross-Account-Setup-ManageMonitoringAccount")
+- [Link more source accounts to an existing monitoring account](Unified-Cross-Account-Manage.md#Unified-Cross-Account-Setup-AddSourceAccounts "Unified-Cross-Account-Manage.md#Unified-Cross-Account-Setup-AddSourceAccounts")
+- [Remove the link between a monitoring account and source account](Unified-Cross-Account-Manage.md#Unified-Cross-Account-Setup-UnlinkAccount "Unified-Cross-Account-Manage.md#Unified-Cross-Account-Setup-UnlinkAccount")
+- [View information about a monitoring account](Unified-Cross-Account-Manage.md#Unified-Cross-Account-Setup-ManageMonitoringAccount "Unified-Cross-Account-Manage.md#Unified-Cross-Account-Setup-ManageMonitoringAccount")
 
-## Link more source
-
-accounts to an existing monitoring account
+## Link more source accounts to an existing monitoring account
 
 Follow the steps in this section to add links from additional source accounts to
 an existing monitoring account.
@@ -25,8 +18,7 @@ Each source account can be linked to as many as five monitoring accounts. Each
 monitoring account can be linked to as many as 100,000 source accounts.
 
 To manage a source account, you must have certain permissions. For more
-information, see [Necessary
-permissions](CloudWatch-Unified-Cross-Account-Setup.md#CloudWatch-Unified-Cross-Account-Setup-permissions "CloudWatch-Unified-Cross-Account-Setup.md#CloudWatch-Unified-Cross-Account-Setup-permissions").
+information, see [Necessary permissions](CloudWatch-Unified-Cross-Account-Setup.md#CloudWatch-Unified-Cross-Account-Setup-permissions "CloudWatch-Unified-Cross-Account-Setup.md#CloudWatch-Unified-Cross-Account-Setup-permissions").
 
 ###### To add more source accounts to a monitoring account
 
@@ -76,9 +68,7 @@ and `$AcccountEmailNoDomain` variables
 all resolve as `account-id` instead of the specified variable. 15. Choose **Link**. 16. Enter `Confirm` in the box and choose
 **Confirm**.
 
-## Remove the link between
-
-a monitoring account and source account
+## Remove the link between a monitoring account and source account
 
 Follow the steps in this section to stop sending data from one source account to a
 monitoring account.
@@ -88,8 +78,7 @@ monitoring account.
 After the source account stops sharing the metrics with the _Monitoring_ account, the _Source_ account metrics data is not accessible to the monitoring account. Source metric names can be visible to the monitoring account for upto 14 days.
 
 You must have the permissions required to manage a source account to complete this
-task. For more information, see [Necessary
-permissions](CloudWatch-Unified-Cross-Account-Setup.md#CloudWatch-Unified-Cross-Account-Setup-permissions "CloudWatch-Unified-Cross-Account-Setup.md#CloudWatch-Unified-Cross-Account-Setup-permissions").
+task. For more information, see [Necessary permissions](CloudWatch-Unified-Cross-Account-Setup.md#CloudWatch-Unified-Cross-Account-Setup-permissions "CloudWatch-Unified-Cross-Account-Setup.md#CloudWatch-Unified-Cross-Account-Setup-permissions").
 
 ###### To remove the link between a source account and a monitoring account
 
@@ -113,16 +102,13 @@ permissions](CloudWatch-Unified-Cross-Account-Setup.md#CloudWatch-Unified-Cross-
     the **Principal** line and choose
     **Update**.
 
-## View
-
-information about a monitoring account
+## View information about a monitoring account
 
 Follow the steps in this section to view the cross-account settings for a
 monitoring account.
 
 To manage a monitoring account, you must have certain permissions. For more
-information, see [Necessary
-permissions](CloudWatch-Unified-Cross-Account-Setup.md#CloudWatch-Unified-Cross-Account-Setup-permissions "CloudWatch-Unified-Cross-Account-Setup.md#CloudWatch-Unified-Cross-Account-Setup-permissions").
+information, see [Necessary permissions](CloudWatch-Unified-Cross-Account-Setup.md#CloudWatch-Unified-Cross-Account-Setup-permissions "CloudWatch-Unified-Cross-Account-Setup.md#CloudWatch-Unified-Cross-Account-Setup-permissions").
 
 ###### To manage a monitoring account
 

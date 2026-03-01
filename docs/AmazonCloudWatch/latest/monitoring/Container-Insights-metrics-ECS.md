@@ -23,8 +23,7 @@ If you do not see any Container Insights metrics in your console, be sure that y
 completed the setup of Container Insights. Metrics do not appear before Container Insights
 has been set up completely. For more information, see [Setting up Container Insights](deploy-container-insights.md "deploy-container-insights.md").
 
-The following metrics are available when you complete the steps in [Setting up Container Insights on
-Amazon ECS](deploy-container-insights-ECS-cluster.md "deploy-container-insights-ECS-cluster.md").
+The following metrics are available when you complete the steps in [Setting up Container Insights on Amazon ECS](deploy-container-insights-ECS-cluster.md "deploy-container-insights-ECS-cluster.md").
 
 | Metric name                                                                                                    | Dimensions                                                                                                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -63,8 +62,7 @@ Fargate reserves space on disk. It is only used by Fargate. You aren't billed fo
 It isn't shown in these metrics. However, you can see this additional storage in other
 tools such as `df`.
 
-The following metrics are available when you complete the steps in [Deploying the CloudWatch agent to
-collect EC2 instance-level metrics on Amazon ECS](deploy-container-insights-ECS-instancelevel.md "deploy-container-insights-ECS-instancelevel.md")
+The following metrics are available when you complete the steps in [Deploying the CloudWatch agent to collect EC2 instance-level metrics on Amazon ECS](deploy-container-insights-ECS-instancelevel.md "deploy-container-insights-ECS-instancelevel.md")
 
 | Metric name                         | Dimensions                                                             | Description                                                                                                                                                                                                            |
 | ----------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

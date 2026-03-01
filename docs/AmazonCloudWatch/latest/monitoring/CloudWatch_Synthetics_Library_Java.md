@@ -1,15 +1,11 @@
-# Runtime versions using
-
-Java
+# Runtime versions using Java
 
 The following section contains information about the CloudWatch Synthetics runtime versions for Java. This runtime does not have any browser or framework included.
 
 The naming convention for these runtime versions is
 `syn-`language`-`majorversion`.`minorversion``.
 
-##
-
-syn-java-1.0
+## syn-java-1.0
 
 **Major dependencies**:
 

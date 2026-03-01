@@ -1,6 +1,4 @@
-# Understanding AI-derived facts
-
-in incident reports
+# Understanding AI-derived facts in incident reports
 
 AI-derived facts form the foundation of CloudWatch investigations incident reports, representing
 information that the AI system considers objectively true or highly probable based on
@@ -14,9 +12,7 @@ and make informed decisions during incident response. The process represents a h
 approach where artificial intelligence augments human expertise rather than replacing
 it, ensuring that the insights generated are both comprehensive and trustworthy.
 
-## The development process of
-
-AI-derived facts
+## The development process of AI-derived facts
 
 The journey from raw telemetry data to actionable AI-derived facts begins with
 pattern observation, where the CloudWatch investigations AI analyzes vast amounts of AWS telemetry
@@ -75,9 +71,7 @@ limitation underscores the importance of human expertise in interpreting AI-deri
 facts and supplementing them with domain knowledge and contextual
 understanding.
 
-## Applying AI-derived
-
-facts in incident response
+## Applying AI-derived facts in incident response
 
 AI excels at identifying patterns across large datasets that would be impractical
 for humans to analyze manually, providing insights that can significantly accelerate

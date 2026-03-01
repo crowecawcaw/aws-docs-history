@@ -59,9 +59,7 @@ weeks.
 The maximum search expression query size is 1024 characters. You can have as many as 100
 search expressions on one graph. A graph can display as many as 500 time series.
 
-## CloudWatch search expressions:
-
-Tokenization
+## CloudWatch search expressions: Tokenization
 
 When you specify a `SearchTerm`, the search function searches for
 _tokens_, which are substrings that CloudWatch automatically generates from
@@ -82,9 +80,7 @@ tokens generated.
 | SDBFailure        | `sdbfailure`, `sdb`, `failure`                        |
 | Project2-trial333 | `project2trial333`, `project`, `2`,<br>`trial`, `333` |
 
-## CloudWatch search expressions: Partial
-
-matches
+## CloudWatch search expressions: Partial matches
 
 When you specify a `SearchTerm`, the search term is also tokenized. CloudWatch
 finds metrics based on partial matches, which are matches of a single token generated from
@@ -109,9 +105,7 @@ sensitive. For example, if the original term is `CustomCount1`, searches for
 `CustomCount` or `Count1` are successful, but searches for
 `customcount` or `count1` aren't.
 
-## CloudWatch search expressions: Exact
-
-matches
+## CloudWatch search expressions: Exact matches
 
 You can define a search to find only exact matches of your search term by using double
 quotes around the part of the search term that requires an exact match. These
@@ -136,9 +130,7 @@ non-alphanumeric characters or spaces, as in the following example.
 SEARCH(' {"My Namespace", "Dimension@Name"}, "Custom:Name[Special_Characters" ', 'Maximum')
 ```
 
-## CloudWatch search expressions: Excluding a metric
-
-schema
+## CloudWatch search expressions: Excluding a metric schema
 
 All examples shown so far include a metric schema, in curly braces. Searches that omit
 a metric schema are also valid.
@@ -166,9 +158,7 @@ string, even if it was a custom dimension name or value.
 SEARCH(' "AWS/EC2" MetricName="CPUUtilization" ', 'Average')
 ```
 
-## CloudWatch search expressions:
-
-Specifying property names in the search
+## CloudWatch search expressions: Specifying property names in the search
 
 The following exact match search for `"CustomCount1"` returns all metrics
 with exactly that name.
@@ -199,9 +189,7 @@ SEARCH(' InstanceType=micro ', 'Average')
 SEARCH(' InstanceType="t2.micro" Namespace="AWS/EC2" ', 'Average')
 ```
 
-## CloudWatch search expressions:
-
-Non-alphanumeric characters
+## CloudWatch search expressions: Non-alphanumeric characters
 
 Non-alphanumeric characters serve as delimiters, and mark where the names of metrics,
 dimensions, namespaces, and search terms are to be separated into tokens. When terms are
@@ -238,9 +226,7 @@ For example, to find the metric name `Europe\France Traffic(Network)` by
 exact match, use the search term `"Europe\\France
  Traffic\(Network\)"`
 
-## CloudWatch search expressions: Boolean
-
-operators
+## CloudWatch search expressions: Boolean operators
 
 Search supports the use of the Boolean operators `AND`, `OR`,
 and `NOT` within the `SearchTerm`. Boolean operators are enclosed in
@@ -297,9 +283,7 @@ names that include the strings `ProjectA` or `ProjectB`.
 SEARCH(' {AWS/Lambda,FunctionName} MetricName="Errors" OR (MetricName="Invocations" AND (ProjectA OR ProjectB)) ', 'Average')
 ```
 
-## CloudWatch search expressions: Using math
-
-expressions
+## CloudWatch search expressions: Using math expressions
 
 You can use a search expression within a math expressions in a graph.
 

@@ -4,13 +4,10 @@ CloudWatch Application Insights supports the following metrics:
 
 ###### Metrics
 
-- [RDS Database
-  instances](#appinsights-metrics-rds-instances "#appinsights-metrics-rds-instances")
+- [RDS Database instances](#appinsights-metrics-rds-instances "#appinsights-metrics-rds-instances")
 - [RDS Database clusters](#appinsights-metrics-rds-clusters "#appinsights-metrics-rds-clusters")
 
-## RDS Database
-
-instances
+## RDS Database instances
 
 BurstBalance
 

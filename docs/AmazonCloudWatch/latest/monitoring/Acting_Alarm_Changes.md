@@ -19,6 +19,5 @@ For more information about alarm actions, see [Alarm actions](alarm-actions.md "
 - [Notifying users on alarm changes](Notify_Users_Alarm_Changes.md "Notify_Users_Alarm_Changes.md")
 - [Invoke a Lambda function from an alarm](alarms-and-actions-Lambda.md "alarms-and-actions-Lambda.md")
 - [Start a CloudWatch investigations from an alarm](Start-Investigation-Alarm.md "Start-Investigation-Alarm.md")
-- [Stop, terminate, reboot, or recover an EC2
-  instance](UsingAlarmActions.md "UsingAlarmActions.md")
+- [Stop, terminate, reboot, or recover an EC2 instance](UsingAlarmActions.md "UsingAlarmActions.md")
 - [Alarm events and EventBridge](cloudwatch-and-eventbridge.md "cloudwatch-and-eventbridge.md")

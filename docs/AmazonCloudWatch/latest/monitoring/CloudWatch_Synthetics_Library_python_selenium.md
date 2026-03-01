@@ -1,6 +1,4 @@
-# Runtime versions using Python
-
-and Selenium Webdriver
+# Runtime versions using Python and Selenium Webdriver
 
 The following sections contain information about the CloudWatch Synthetics runtime versions
 for Python and Selenium Webdriver. Selenium is
@@ -12,9 +10,7 @@ For features and methods supported by Synthetics runtime on Selenium framework, 
 The naming convention for these runtime versions is
 `syn-`language`-`framework`-`majorversion`.`minorversion``.
 
-##
-
-syn-python-selenium-8.0
+## syn-python-selenium-8.0
 
 Version 8.0 is the newest CloudWatch Synthetics runtime for Python and Selenium.
 
@@ -36,9 +32,7 @@ For more information, see the following:
 
 The following earlier runtime versions for Python and Selenium are still supported.
 
-###
-
-syn-python-selenium-7.0
+### syn-python-selenium-7.0
 
 **Major dependencies**:
 
@@ -55,9 +49,7 @@ For more information, see the following:
 - [Selenium Change log](https://www.selenium.dev/blog/2025/selenium-4-32-released "https://www.selenium.dev/blog/2025/selenium-4-32-released")
 - [Selenium documentation](https://www.selenium.dev/selenium/docs/api/py/api.html "https://www.selenium.dev/selenium/docs/api/py/api.html")
 
-###
-
-syn-python-selenium-6.0
+### syn-python-selenium-6.0
 
 **Major dependencies**:
 
@@ -74,9 +66,7 @@ For more information, see the following:
 - [Selenium Change log](https://www.selenium.dev/blog/2024/selenium-4-21-released/ "https://www.selenium.dev/blog/2024/selenium-4-21-released/")
 - [Selenium documentation](https://www.selenium.dev/selenium/docs/api/py/api.html "https://www.selenium.dev/selenium/docs/api/py/api.html")
 
-###
-
-syn-python-selenium-5.1
+### syn-python-selenium-5.1
 
 **Major dependencies**:
 
@@ -89,9 +79,7 @@ syn-python-selenium-5.1
 - Minor updates on metric emission.
 - Supports dry runs for the canary which allows for adhoc executions or performing a safe canary update.
 
-###
-
-syn-python-selenium-5.0
+### syn-python-selenium-5.0
 
 **Major dependencies**:
 
@@ -103,9 +91,7 @@ syn-python-selenium-5.0
 
 - Automatic retry if the browser fails to launch.
 
-###
-
-syn-python-selenium-4.1
+### syn-python-selenium-4.1
 
 **Major dependencies**:
 
@@ -119,9 +105,7 @@ syn-python-selenium-4.1
   an update to address the
   [CVE-2024-39689](https://nvd.nist.gov/vuln/detail/CVE-2024-39689 "https://nvd.nist.gov/vuln/detail/CVE-2024-39689") vulnerability.
 
-###
-
-syn-python-selenium-4.0
+### syn-python-selenium-4.0
 
 **Major dependencies**:
 
@@ -136,9 +120,7 @@ syn-python-selenium-4.0
 The following earlier runtime versions for Python and Selenium have been deprecated. For information about
 runtime deprecation dates, see [CloudWatch Synthetics runtime deprecation dates](CloudWatch_Synthetics_Runtime_Support_Policy.md#runtime_deprecation_dates "CloudWatch_Synthetics_Runtime_Support_Policy.md#runtime_deprecation_dates").
 
-###
-
-syn-python-selenium-3.0
+### syn-python-selenium-3.0
 
 **Major dependencies**:
 
@@ -151,9 +133,7 @@ syn-python-selenium-3.0
 - **Updated versions of the bundled libraries in Chromium**— The Chromium
   dependency is updated to a new version.
 
-###
-
-syn-python-selenium-2.1
+### syn-python-selenium-2.1
 
 **Major dependencies**:
 
@@ -166,9 +146,7 @@ syn-python-selenium-2.1
 - **Updated versions of the bundled libraries in Chromium**— The Chromium and
   Selenium dependencies are updated to new versions.
 
-###
-
-syn-python-selenium-2.0
+### syn-python-selenium-2.0
 
 **Major dependencies**:
 
@@ -188,9 +166,7 @@ syn-python-selenium-2.0
 - **Session re-use**— A bug was fixed so that canaries
   are now prevented from reusing the session from their previous canary run.
 
-###
-
-syn-python-selenium-1.3
+### syn-python-selenium-1.3
 
 **Major dependencies**:
 
@@ -203,9 +179,7 @@ syn-python-selenium-1.3
 - **More precise timestamps**— The start time
   and stop time of canary runs are now precise to the millisecond.
 
-###
-
-syn-python-selenium-1.2
+### syn-python-selenium-1.2
 
 **Major dependencies**:
 
@@ -216,9 +190,7 @@ syn-python-selenium-1.2
 - **Updated dependencies**— The only
   new features in this runtime are the updated dependencies.
 
-###
-
-syn-python-selenium-1.1
+### syn-python-selenium-1.1
 
 **Major dependencies**:
 
@@ -249,9 +221,7 @@ example, `MyFolder/MyScriptFile.functionname` can be used as an entry point.
   issue**— With previous runtimes, a canary file named `index.py` caused exceptions
   because it conflicted with the name of the library file. This issue is now fixed.
 
-###
-
-syn-python-selenium-1.0
+### syn-python-selenium-1.0
 
 **Major dependencies**:
 

@@ -1,6 +1,6 @@
-# Analyzing lock trees for Amazon Aurora PostgreSQL with CloudWatch Database Insights
+# Analyzing lock trees for Amazon Aurora PostgreSQL and Amazon RDS for PostgreSQL with CloudWatch Database Insights
 
-To troubleshoot performance issues caused by locks, you can analyze lock trees for Amazon Aurora PostgreSQL databases with CloudWatch Database Insights using the following.
+To troubleshoot performance issues caused by locks, you can analyze lock trees for Amazon Aurora PostgreSQL and Amazon RDS for PostgreSQL databases with CloudWatch Database Insights using the following.
 
 - **Sliced by** dropdown – Choose the **Blocking object**, **Blocking session**, or **Blocking SQL** dimensions in the **Database load** chart
   to view how distinct top blockers contribute to DB Load over time. With the DB load chart, you can analyze if top blockers are constant or change often. Then, you can troubleshoot the blockers.
@@ -49,9 +49,7 @@ To view lock data for a DB instance, choose a period of 1 day or less. 8. Choose
 
 ![Lock tree expanded](images/dbi_lock-analysis-expand.png)
 
-## Lock snapshot
-
-data
+## Lock snapshot data
 
 Database Insights provides the following information for each lock request. To view columns that aren't enabled by default, choose the **Settings** icon for the **Lock trees** table and enable other columns.
 

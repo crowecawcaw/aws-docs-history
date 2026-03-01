@@ -21,9 +21,7 @@ _IAM User Guide_.
 | [Service<br>roles](#security_iam_service-with-iam-roles-service-nfm "#security_iam_service-with-iam-roles-service-nfm")                                                             | No          |
 | [Service-linked roles](#security_iam_service-with-iam-roles-service-linked-nfm "#security_iam_service-with-iam-roles-service-linked-nfm")                                           | Yes         |
 
-## Identity-based
-
-policies for Network Flow Monitor
+## Identity-based policies for Network Flow Monitor
 
 **Supports identity-based policies:**
 
@@ -40,9 +38,7 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-## Resource-based
-
-policies within Network Flow Monitor
+## Resource-based policies within Network Flow Monitor
 
 **Supports resource-based policies:**
 
@@ -52,9 +48,7 @@ Resource-based policies are JSON policy documents that you attach to a resource.
 of resource-based policies are IAM role trust policies and Amazon S3 bucket policies. In services that
 support resource-based policies, service administrators can use them to control access to a specific resource.
 
-## Policy actions
-
-for Network Flow Monitor
+## Policy actions for Network Flow Monitor
 
 **Supports policy actions:**
 
@@ -92,9 +86,7 @@ action:
 "Action": "networkflowmonitor:Describe*"
 ```
 
-## Policy
-
-resources for Network Flow Monitor
+## Policy resources for Network Flow Monitor
 
 **Supports policy resources:**
 
@@ -116,9 +108,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-## Policy
-
-condition keys for Network Flow Monitor
+## Policy condition keys for Network Flow Monitor
 
 **Supports service-specific policy condition keys:**
 
@@ -169,9 +159,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Network Flow Monitor
+## Using temporary credentials with Network Flow Monitor
 
 **Supports temporary credentials:**
 
@@ -183,9 +171,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Network Flow Monitor
+## Cross-service principal permissions for Network Flow Monitor
 
 **Supports forward access sessions (FAS):**
 
@@ -194,9 +180,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Network Flow Monitor
+## Service roles for Network Flow Monitor
 
 **Supports service roles:**
 
@@ -206,9 +190,7 @@ A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../..
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
 more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
-## Service-linked
-
-role for Network Flow Monitor
+## Service-linked role for Network Flow Monitor
 
 **Supports service-linked roles:**
 

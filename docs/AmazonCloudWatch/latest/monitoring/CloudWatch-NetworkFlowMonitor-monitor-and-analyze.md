@@ -1,6 +1,4 @@
-# Monitor and analyze network
-
-flows with a Network Flow Monitor monitor
+# Monitor and analyze network flows with a Network Flow Monitor monitor
 
 Network Flow Monitor data and graphs help you to visualize and track network issues. You can create
 monitors to see detailed information about specific network segments for your AWS workloads, including a

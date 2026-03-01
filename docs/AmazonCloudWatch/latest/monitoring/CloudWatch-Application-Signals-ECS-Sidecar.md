@@ -1,8 +1,6 @@
 # Deploy using the sidecar strategy
 
-## Step 1: Enable Application Signals
-
-in your account
+## Step 1: Enable Application Signals in your account
 
 You must first enable Application Signals in your account. If you haven't, see [Enable Application Signals in your account](CloudWatch-Application-Signals-Enable.md "CloudWatch-Application-Signals-Enable.md").
 
@@ -50,9 +48,7 @@ aws ssm put-parameter \
 --region "`$REGION`"
 ```
 
-## Step 4:
-
-Instrument your application with the CloudWatch agent
+## Step 4: Instrument your application with the CloudWatch agent
 
 The next step is to instrument your application for CloudWatch Application Signals.
 
@@ -1117,9 +1113,7 @@ Replace the node options with the following.
 }
 ```
 
-## Step 5:
-
-Deploy your application
+## Step 5: Deploy your application
 
 Create a new revision of your task definition and deploy it to your application cluster.
 You should see three containers in the newly created task:

@@ -1,6 +1,4 @@
-# CloudWatch pipelines configuration for Palo Alto
-
-Networks Next-Generation Firewalls
+# CloudWatch pipelines configuration for Palo Alto Networks Next-Generation Firewalls
 
 Collects log data from Palo Alto Next-Generation Firewall using basic
 authentication.

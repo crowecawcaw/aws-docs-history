@@ -1,6 +1,4 @@
-# Sample NGINX workload
-
-for Amazon ECS clusters
+# Sample NGINX workload for Amazon ECS clusters
 
 The NGINX Prometheus exporter can scrape and expose NGINX data as Prometheus
 metrics. This example uses the exporter in tandem with the NGINX reverse proxy service
@@ -15,19 +13,13 @@ NGINX Prometheus Exporter to expose the metrics on a different port or path. If 
 change the port or path, update the `ecs_service_discovery` section in the
 CloudWatch agent configuration file.
 
-## Install the NGINX
-
-reverse proxy sample workload for Amazon ECS clusters
+## Install the NGINX reverse proxy sample workload for Amazon ECS clusters
 
 Follow these steps to install the NGINX reverse proxy sample workload.
 
-### Create the
+### Create the Docker images
 
-Docker images
-
-###### To create the Docker images for the NGINX reverse proxy sample
-
-workload
+###### To create the Docker images for the NGINX reverse proxy sample workload
 
 1. Download the following folder from the NGINX reverse proxy repo: [https://github.com/awslabs/ecs-nginx-reverse-proxy/tree/master/reverse-proxy/](https://github.com/awslabs/ecs-nginx-reverse-proxy/tree/master/reverse-proxy/ "https://github.com/awslabs/ecs-nginx-reverse-proxy/tree/master/reverse-proxy/").
 2. Find the `app` directory and build an image from that
@@ -107,9 +99,7 @@ docker build -t nginx-reverse-proxy ./`path-to-your-directory`
 
 5. Upload your new images to an image repository for later use.
 
-### Create the
-
-task definition to run NGINX and the web server app in Amazon ECS
+### Create the task definition to run NGINX and the web server app in Amazon ECS
 
 Next, you set up the task definition.
 
@@ -203,9 +193,7 @@ aws ecs create-service \
  --desired-count 1
 ```
 
-### Configure the
-
-CloudWatch agent to scrape NGINX Prometheus metrics
+### Configure the CloudWatch agent to scrape NGINX Prometheus metrics
 
 The final step is to configure the CloudWatch agent to scrape the NGINX metrics. In
 this example, the CloudWatch agent discovers the task via the service name pattern, and
@@ -329,9 +317,7 @@ aws cloudformation create-stack --stack-name CWAgent-Prometheus-ECS-${ECS_CLUSTE
     --region $AWS_REGION
 ```
 
-## Viewing your NGINX
-
-metrics and logs
+## Viewing your NGINX metrics and logs
 
 You can now view the NGINX metrics being collected.
 

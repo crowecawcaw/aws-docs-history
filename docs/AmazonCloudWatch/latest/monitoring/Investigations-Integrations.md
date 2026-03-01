@@ -2,14 +2,10 @@
 
 ###### Topics
 
-- [Integration with AWS Systems Manager
-  Automation](#Investigations-Integrations-SSM "#Investigations-Integrations-SSM")
-- [Integration with third-party chat
-  systems](#Investigations-Integrations-Chat "#Investigations-Integrations-Chat")
+- [Integration with AWS Systems Manager Automation](#Investigations-Integrations-SSM "#Investigations-Integrations-SSM")
+- [Integration with third-party chat systems](#Investigations-Integrations-Chat "#Investigations-Integrations-Chat")
 
-## Integration with AWS Systems Manager
-
-Automation
+## Integration with AWS Systems Manager Automation
 
 CloudWatch investigations is integrated with Automation, a capability of AWS Systems Manager. You don't need to
 configure integration, but you might need to update AWS Identity and Access Management (IAM) permissions so
@@ -36,12 +32,9 @@ including a step-by-step description of the actions performed when executed, see
 runbooks to address specific scenarios in their environments. For information, see
 [Creating your own runbooks](../../../systems-manager-automation-runbooks/latest/userguide/automation-documents.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-documents.md") in the _AWS Systems Manager User Guide_.
 
-For information about working with runbooks in an investigation, see [Reviewing and executing suggested
-runbook remediations for CloudWatch investigations](suggested-investigation-actions.md "suggested-investigation-actions.md").
+For information about working with runbooks in an investigation, see [Reviewing and executing suggested runbook remediations for CloudWatch investigations](suggested-investigation-actions.md "suggested-investigation-actions.md").
 
-## Integration with third-party chat
-
-systems
+## Integration with third-party chat systems
 
 By integrating CloudWatch investigations with CloudWatch investigations in chat applications, you can have updates from
 investigations sent to third-party chat services, including Slack, and Microsoft
@@ -51,16 +44,11 @@ The following topics describe the required steps in the recommended order:
 
 ###### Topics
 
-- [Create and configure
-  the Amazon SNS topic and access policy](#Investigations-Integrations-Chat-policy "#Investigations-Integrations-Chat-policy")
-- [Configure CloudWatch investigations
-  in your chat applications](#Investigations-Integrations-Chatbot-configure "#Investigations-Integrations-Chatbot-configure")
-- [Add Amazon SNS topics to
-  CloudWatch AI Operations](#Investigations-Integrations-Chat-configure "#Investigations-Integrations-Chat-configure")
+- [Create and configure the Amazon SNS topic and access policy](#Investigations-Integrations-Chat-policy "#Investigations-Integrations-Chat-policy")
+- [Configure CloudWatch investigations in your chat applications](#Investigations-Integrations-Chatbot-configure "#Investigations-Integrations-Chatbot-configure")
+- [Add Amazon SNS topics to CloudWatch AI Operations](#Investigations-Integrations-Chat-configure "#Investigations-Integrations-Chat-configure")
 
-### Create and configure
-
-the Amazon SNS topic and access policy
+### Create and configure the Amazon SNS topic and access policy
 
 Create an Amazon SNS topic in the same region as your investigation. For more
 information, see [Creating an Amazon Simple Notification Service
@@ -86,9 +74,7 @@ policy to the Amazon SNS topic
 }
 ```
 
-### Configure CloudWatch investigations
-
-in your chat applications
+### Configure CloudWatch investigations in your chat applications
 
 To configure CloudWatch investigations in chat applications for communication with a third-party
 chat service, use the following tutorials:
@@ -112,9 +98,7 @@ behalf.
 In the channel configuration, you must also subscribe to the Amazon SNS topic that
 you created in the previous procedure.
 
-### Add Amazon SNS topics to
-
-CloudWatch AI Operations
+### Add Amazon SNS topics to CloudWatch AI Operations
 
 You must use the CloudWatch console to configure CloudWatch investigations to integrate with Amazon SNS. You
 can do this while you create the investigation group in your account, or

@@ -1,8 +1,6 @@
 # Deploy using the daemon strategy
 
-## Step 1: Enable Application Signals
-
-in your account
+## Step 1: Enable Application Signals in your account
 
 You must first enable Application Signals in your account. If you haven't, see [Enable Application Signals in your account](CloudWatch-Application-Signals-Enable.md "CloudWatch-Application-Signals-Enable.md").
 
@@ -50,9 +48,7 @@ aws ssm put-parameter \
 --region "`$REGION`"
 ```
 
-## Step 4:
-
-Deploy the CloudWatch agent daemon service
+## Step 4: Deploy the CloudWatch agent daemon service
 
 Create the following task definition and deploy it to your application cluster. Replace `$REGION` with your actual Region name.
 Replace `$TASK_ROLE_ARN` and `$EXECUTION_ROLE_ARN` with the IAM roles you prepared in
@@ -112,9 +108,7 @@ Ensure that these ports are not used by other services on the host to avoid conf
 }
 ```
 
-## Step 5:
-
-Instrument your application
+## Step 5: Instrument your application
 
 The next step is to instrument your application for Application Signals.
 
@@ -1075,9 +1069,7 @@ Replace the node options with the following.
 }
 ```
 
-## Step 6:
-
-Deploy your application
+## Step 6: Deploy your application
 
 Create a new revision of your task definition and deploy it to your application cluster.
 You should see two containers in the newly created task:

@@ -1,6 +1,4 @@
-# Integration with Application
-
-Insights
+# Integration with Application Insights
 
 Amazon CloudWatch Application Insights helps you monitor your applications and identifies and
 sets up key metrics, logs, and alarms across your application resources and technology
@@ -16,5 +14,4 @@ applications, the Application Insights dashboard appears below the Container Ins
 dashboard.
 
 For more information about Application Insights and containerized applications, see
-[Enable Application Insights for Amazon ECS
-and Amazon EKS resource monitoring](appinsights-setting-up-console.md#appinsights-container-insights "appinsights-setting-up-console.md#appinsights-container-insights").
+[Enable Application Insights for Amazon ECS and Amazon EKS resource monitoring](appinsights-setting-up-console.md#appinsights-container-insights "appinsights-setting-up-console.md#appinsights-container-insights").

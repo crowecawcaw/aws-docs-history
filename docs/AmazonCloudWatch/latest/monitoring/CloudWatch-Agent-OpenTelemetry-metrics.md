@@ -1,6 +1,4 @@
-# Collect metrics and traces with
-
-OpenTelemetry
+# Collect metrics and traces with OpenTelemetry
 
 You can collect metrics and traces from your applications or services using the CloudWatch
 agent with the OpenTelemetry Protocol (OTLP), which is a popular open source solution. You
@@ -41,8 +39,7 @@ Exporter Configuration](https://opentelemetry.io/docs/languages/sdk-configuratio
 
 To send metrics to CloudWatch or Amazon Managed Service for Prometheus, add the `otlp` section under
 `metrics_collected` within the `metrics` section. For more
-information about sending metrics to different destinations, see [Manually create or edit the
-CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md"). The following example
+information about sending metrics to different destinations, see [Manually create or edit the CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md"). The following example
 shows a configuration that sends metrics to CloudWatch:
 
 ###### Note

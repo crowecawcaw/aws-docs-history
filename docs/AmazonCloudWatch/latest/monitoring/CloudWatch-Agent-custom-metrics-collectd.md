@@ -1,6 +1,4 @@
-# Retrieve custom metrics with
-
-collectd
+# Retrieve custom metrics with collectd
 
 You can retrieve additional metrics from your applications or services using the CloudWatch
 agent with the collectd protocol, which is supported only on Linux servers. collectd is a
@@ -27,8 +25,7 @@ For information about installing collectd on other systems, see the [Download pa
 To collect these custom metrics, add a **"collectd": {}** line to the
 **metrics_collected** section of the agent configuration file. You can
 add this line manually. If you use the wizard to create the configuration file, it is done
-for you. For more information, see [Create the CloudWatch agent
-configuration file](create-cloudwatch-agent-configuration-file.md "create-cloudwatch-agent-configuration-file.md").
+for you. For more information, see [Create the CloudWatch agent configuration file](create-cloudwatch-agent-configuration-file.md "create-cloudwatch-agent-configuration-file.md").
 
 Optional parameters are also available. If you are using collectd and you do not use
 `/etc/collectd/auth_file` as your **collectd_auth_file**,
@@ -102,9 +99,7 @@ For more information, see [https://www.collectd.org/documentation/manpages/types
 }
 ```
 
-## Viewing collected metrics imported by
-
-the CloudWatch agent
+## Viewing collected metrics imported by the CloudWatch agent
 
 After importing collectd metrics into CloudWatch, you can view these metrics as time
 series graphs, and create alarms that can watch these metrics and notify you if they

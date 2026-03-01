@@ -63,8 +63,7 @@ Given this custom event, you can create a custom metric that counts the number o
 
 If you set up extended metrics, you can send any of the default CloudWatch RUM metrics to CloudWatch with additional dimensions so that the metrics give you a more fine-grained view.
 
-For more information about the default CloudWatch RUM metrics, see [CloudWatch metrics that you can collect with CloudWatch
-RUM](CloudWatch-RUM-metrics.md "CloudWatch-RUM-metrics.md").
+For more information about the default CloudWatch RUM metrics, see [CloudWatch metrics that you can collect with CloudWatch RUM](CloudWatch-RUM-metrics.md "CloudWatch-RUM-metrics.md").
 
 The maximum number of extended metric and custom metric definitions that one destination can contain is 2000. For each extended or custom metric that you send to each destination, each combination of dimension name and dimension value counts as an extended metric for this limit.
 

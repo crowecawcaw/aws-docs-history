@@ -6,10 +6,8 @@ CloudWatch Application Insights supports the following metrics:
 
 - [Execution-level](#appinsights-metrics-step-functions-execution "#appinsights-metrics-step-functions-execution")
 - [Activity](#appinsights-metrics-step-functions-activity "#appinsights-metrics-step-functions-activity")
-- [Lambda
-  function](#appinsights-metrics-step-functions-lambda "#appinsights-metrics-step-functions-lambda")
-- [Service
-  integration](#appinsights-metrics-step-functions-service-integration "#appinsights-metrics-step-functions-service-integration")
+- [Lambda function](#appinsights-metrics-step-functions-lambda "#appinsights-metrics-step-functions-lambda")
+- [Service integration](#appinsights-metrics-step-functions-service-integration "#appinsights-metrics-step-functions-service-integration")
 - [Step Functions API](#appinsights-metrics-step-functions-api "#appinsights-metrics-step-functions-api")
 
 ## Execution-level
@@ -48,9 +46,7 @@ ActivitiesSucceeded
 
 ActivitiesStarted
 
-## Lambda
-
-function
+## Lambda function
 
 LambdaFunctionRunTime
 
@@ -68,9 +64,7 @@ LambdaFunctionsSucceeded
 
 LambdaFunctionsStarted
 
-## Service
-
-integration
+## Service integration
 
 ServiceIntegrationRunTime
 

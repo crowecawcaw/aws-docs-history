@@ -32,5 +32,5 @@ For more information, see [Transaction Search](CloudWatch-Transaction-Search.md 
 | Nonstandard language support                | No                          | Yes                                          | No                         |
 | Container Insights integration              | Yes                         | No                                           | No                         |
 | Out of the box logging with CloudWatch Logs | Yes                         | No                                           | No                         |
-| Out of the box runtime metrics              | Yes                         | Yes                                          | No                         |
+| Out of the box runtime metrics              | Yes                         | No                                           | No                         |
 | Always gets metrics on 100% of traffic      | Yes                         | Only at 100% sampling rate                   | Only at 100% sampling rate |

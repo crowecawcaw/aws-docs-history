@@ -1,6 +1,4 @@
-# CloudWatch pipelines configuration for Microsoft
-
-Windows Events
+# CloudWatch pipelines configuration for Microsoft Windows Events
 
 Collects log data from Microsoft Windows Event logs using OAuth2
 authentication.

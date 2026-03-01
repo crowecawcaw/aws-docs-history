@@ -3,8 +3,7 @@
 CloudWatch collects metrics that track the usage of some AWS resources.
 These metrics correspond to AWS service quotas.
 Tracking these metrics can help you proactively manage your quotas. For more information, see
-[Visualizing your service quotas and setting
-alarms](CloudWatch-Quotas-Visualize-Alarms.md "CloudWatch-Quotas-Visualize-Alarms.md").
+[Visualizing your service quotas and setting alarms](CloudWatch-Quotas-Visualize-Alarms.md "CloudWatch-Quotas-Visualize-Alarms.md").
 Service quota usage metrics are in the `AWS/Usage` namespace and are collected every minute.
 
 The metrics that can be published in this namespace include `CallCount`, `ResourceCount`,

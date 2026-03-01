@@ -3,9 +3,7 @@
 This section illustrates strategies for using CloudWatch RUM with applications in different
 Regions.
 
-## My application is deployed
-
-in multiple AWS Regions
+## My application is deployed in multiple AWS Regions
 
 If your application is deployed in multiple AWS Regions, you have three
 options:
@@ -23,9 +21,7 @@ single point of failure.
 Using multiple app monitors removes the single point of failure, but prevents all
 data from being combined into one visualization.
 
-### CloudWatch RUM hasn't
-
-launched in some Regions that my application is deployed in
+### CloudWatch RUM hasn't launched in some Regions that my application is deployed in
 
 CloudWatch RUM is launched into many Regions and has wide geographical coverage. By
 setting up CloudWatch RUM in the Regions where it is available, you can get the

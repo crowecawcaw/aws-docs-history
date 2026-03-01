@@ -1,34 +1,21 @@
-# Set up, configure, and manage
-
-your application for monitoring using the command line
+# Set up, configure, and manage your application for monitoring using the command line
 
 This section provides steps for setting up, configuring, and managing your
 application for monitoring using the AWS CLI and AWS Tools for Windows PowerShell.
 
 ###### Command line procedures
 
-- [Add and manage an
-  application](#appinsights-config-app-command "#appinsights-config-app-command")
-- [Manage and update
-  monitoring](#appinsights-monitoring "#appinsights-monitoring")
-- [Configure monitoring for SQL Always On
-  Availability Groups](#configure-sql "#configure-sql")
-- [Configure monitoring for MySQL
-  RDS](#configure-mysql-rds "#configure-mysql-rds")
-- [Configure monitoring for MySQL
-  EC2](#configure-mysql-ec2 "#configure-mysql-ec2")
-- [Configure monitoring for
-  PostgreSQL RDS](#configure-postgresql-rds "#configure-postgresql-rds")
-- [Configure monitoring for
-  PostgreSQL EC2](#configure-postgresql-ec2 "#configure-postgresql-ec2")
-- [Configure monitoring for Oracle
-  RDS](#configure-oracle-rds "#configure-oracle-rds")
-- [Configure monitoring for Oracle
-  EC2](#configure-oracle-ec2 "#configure-oracle-ec2")
+- [Add and manage an application](#appinsights-config-app-command "#appinsights-config-app-command")
+- [Manage and update monitoring](#appinsights-monitoring "#appinsights-monitoring")
+- [Configure monitoring for SQL Always On Availability Groups](#configure-sql "#configure-sql")
+- [Configure monitoring for MySQL RDS](#configure-mysql-rds "#configure-mysql-rds")
+- [Configure monitoring for MySQL EC2](#configure-mysql-ec2 "#configure-mysql-ec2")
+- [Configure monitoring for PostgreSQL RDS](#configure-postgresql-rds "#configure-postgresql-rds")
+- [Configure monitoring for PostgreSQL EC2](#configure-postgresql-ec2 "#configure-postgresql-ec2")
+- [Configure monitoring for Oracle RDS](#configure-oracle-rds "#configure-oracle-rds")
+- [Configure monitoring for Oracle EC2](#configure-oracle-ec2 "#configure-oracle-ec2")
 
-## Add and manage an
-
-application
+## Add and manage an application
 
 You can add, get information about, manage, and configure your Application
 Insights application using the command line.
@@ -36,19 +23,13 @@ Insights application using the command line.
 ###### Topics
 
 - [Add an application](#appinsights-add-app "#appinsights-add-app")
-- [Describe an
-  application](#appinsights-describe-app "#appinsights-describe-app")
-- [List components in an
-  application](#appinsights-list-components "#appinsights-list-components")
-- [Describe a
-  component](#appinsights-describe-components "#appinsights-describe-components")
-- [Group similar
-  resources into a custom component](#appinsights-group-resources-components "#appinsights-group-resources-components")
-- [Ungroup a
-  custom component](#appinsights-ungroup-resources-components "#appinsights-ungroup-resources-components")
+- [Describe an application](#appinsights-describe-app "#appinsights-describe-app")
+- [List components in an application](#appinsights-list-components "#appinsights-list-components")
+- [Describe a component](#appinsights-describe-components "#appinsights-describe-components")
+- [Group similar resources into a custom component](#appinsights-group-resources-components "#appinsights-group-resources-components")
+- [Ungroup a custom component](#appinsights-ungroup-resources-components "#appinsights-ungroup-resources-components")
 - [Update an application](#appinsights-update-app "#appinsights-update-app")
-- [Update a custom
-  component](#appinsights-update-component "#appinsights-update-component")
+- [Update a custom component](#appinsights-update-component "#appinsights-update-component")
 
 ### Add an application
 
@@ -74,9 +55,7 @@ use the following command.
 New-CWAIApplication -ResourceGroupName `my-resource-group` -OpsCenterEnabled true -OpsItemSNSTopicArn `arn:aws:sns:us-east-1:123456789012:MyTopic`
 ```
 
-### Describe an
-
-application
+### Describe an application
 
 ###### Describe an application using the AWS CLI
 
@@ -98,9 +77,7 @@ following command.
 Get-CWAIApplication -ResourceGroupName `my-resource-group`
 ```
 
-### List components in an
-
-application
+### List components in an application
 
 ###### List components in an application using the AWS CLI
 
@@ -122,9 +99,7 @@ command.
 Get-CWAIComponentList -ResourceGroupName `my-resource-group`
 ```
 
-### Describe a
-
-component
+### Describe a component
 
 ###### Describe a component using the AWS CLI
 
@@ -148,18 +123,14 @@ application created on a resource group called
 Get-CWAIComponent -ComponentName `my-component` -ResourceGroupName `my-resource-group`
 ```
 
-### Group similar
-
-resources into a custom component
+### Group similar resources into a custom component
 
 We recommend grouping similar resources, such as .NET web server
 instances, into custom components for easier on-boarding and better
 monitoring and insights. CloudWatch Application Insights supports custom groups for EC2
 instances.
 
-###### To group resources into a custom component using the
-
-AWS CLI
+###### To group resources into a custom component using the AWS CLI
 
 To use the AWS CLI to group three instances (`arn:aws:ec2:us-east-1:123456789012:instance/i-11111`,
 `arn:aws:ec2:us-east-1:123456789012:instance/i-22222`,
@@ -172,9 +143,7 @@ for an application created for the resource group called
 aws application-insights create-component --resource-group-name `my-resource-group` --component-name `my-component` --resource-list `arn:aws:ec2:us-east-1:123456789012:instance/i-11111 arn:aws:ec2:us-east-1:123456789012:instance/i-22222 arn:aws:ec2:us-east-1:123456789012:instance/i-33333`
 ```
 
-###### To group resources into a custom component using
-
-AWS Tools for Windows PowerShell
+###### To group resources into a custom component using AWS Tools for Windows PowerShell
 
 To use AWS Tools for Windows PowerShell to group three instances
 (`arn:aws:ec2:us-east-1:123456789012:instance/i-11111`,
@@ -190,9 +159,7 @@ command.
 New-CWAIComponent -ResourceGroupName `my-resource-group` -ComponentName `my-component` -ResourceList `arn:aws:ec2:us-east-1:123456789012:instance/i-11111,arn:aws:ec2:us-east-1:123456789012:instance/i-22222,arn:aws:ec2:us-east-1:123456789012:instance/i-33333`
 ```
 
-### Ungroup a
-
-custom component
+### Ungroup a custom component
 
 ###### To ungroup a custom component using the AWS CLI
 
@@ -230,9 +197,7 @@ the following command.
 aws application-insights update-application --resource-group-name `my-resource-group` --ops-center-enabled --ops-item-sns-topic-arn `arn:aws:sns:us-east-1:123456789012:MyTopic`
 ```
 
-###### Update an application using AWS Tools for Windows
-
-PowerShell
+###### Update an application using AWS Tools for Windows PowerShell
 
 You can use the AWS Tools for Windows PowerShell to update an application to generate
 AWS SSM OpsCenter OpsItems for problems detected with the
@@ -245,9 +210,7 @@ the following command.
 Update-CWAIApplication -ResourceGroupName `my-resource-group` -OpsCenterEnabled true -OpsItemSNSTopicArn `arn:aws:sns:us-east-1:123456789012:MyTopic`
 ```
 
-### Update a custom
-
-component
+### Update a custom component
 
 ###### Update a custom component using the AWS CLI
 
@@ -260,9 +223,7 @@ instances, by using the following command.
 aws application-insights update-component --resource-group-name `my-resource-group` --component-name `my-component` --new-component-name `my-new-component` --resource-list `arn:aws:ec2:us-east-1:123456789012:instance/i-44444 arn:aws:ec2:us-east-1:123456789012:instance/i-55555`
 ```
 
-###### Update a custom component using AWS Tools for Windows
-
-PowerShell
+###### Update a custom component using AWS Tools for Windows PowerShell
 
 You can use the AWS Tools for Windows PowerShell to update a custom component called
 `my-component` with a new component name,
@@ -273,35 +234,23 @@ instances, by using the following command.
 Update-CWAIComponent -ComponentName `my-component` -NewComponentName `my-new-component` -ResourceGroupName `my-resource-group` -ResourceList `arn:aws:ec2:us-east-1:123456789012:instance/i-44444,arn:aws:ec2:us-east-1:123456789012:instance/i-55555`
 ```
 
-## Manage and update
-
-monitoring
+## Manage and update monitoring
 
 You can manage and update monitoring for your Application Insights application using
 the command line.
 
 ###### Topics
 
-- [List problems
-  with your application](#appinsights-list-problems-monitoring "#appinsights-list-problems-monitoring")
-- [Describe an
-  application problem](#appinsights-describe-app-problem "#appinsights-describe-app-problem")
-- [Describe the anomalies
-  or errors associated with a problem](#appinsights-describe-anomalies "#appinsights-describe-anomalies")
-- [Describe an anomaly or
-  error with the application](#appinsights-describe-anomalies "#appinsights-describe-anomalies")
-- [Describe the
-  monitoring configurations of a component](#appinsights-describe-monitoring "#appinsights-describe-monitoring")
-- [Describe the
-  recommended monitoring configuration of a component](#appinsights-describe-rec-monitoring "#appinsights-describe-rec-monitoring")
-- [Update the monitoring configurations
-  for a component](#update-monitoring "#update-monitoring")
-- [Remove a specified resource group
-  from Application Insights monitoring](#update-monitoring "#update-monitoring")
+- [List problems with your application](#appinsights-list-problems-monitoring "#appinsights-list-problems-monitoring")
+- [Describe an application problem](#appinsights-describe-app-problem "#appinsights-describe-app-problem")
+- [Describe the anomalies or errors associated with a problem](#appinsights-describe-anomalies "#appinsights-describe-anomalies")
+- [Describe an anomaly or error with the application](#appinsights-describe-anomalies "#appinsights-describe-anomalies")
+- [Describe the monitoring configurations of a component](#appinsights-describe-monitoring "#appinsights-describe-monitoring")
+- [Describe the recommended monitoring configuration of a component](#appinsights-describe-rec-monitoring "#appinsights-describe-rec-monitoring")
+- [Update the monitoring configurations for a component](#update-monitoring "#update-monitoring")
+- [Remove a specified resource group from Application Insights monitoring](#update-monitoring "#update-monitoring")
 
-### List problems
-
-with your application
+### List problems with your application
 
 ###### List problems with your application using the AWS CLI
 
@@ -315,9 +264,7 @@ command.
 aws application-insights list-problems --resource-group-name `my-resource-group` --start-time `1000` --end-time `10000`
 ```
 
-###### List problems with your application using AWS Tools for Windows
-
-PowerShell
+###### List problems with your application using AWS Tools for Windows PowerShell
 
 To use the AWS Tools for Windows PowerShell to list problems with your application
 detected between 1,000 and 10,000 milliseconds since Unix Epoch for
@@ -331,9 +278,7 @@ $endDate = "`8/6/2019 3:34:00`"
 Get-CWAIProblemList -ResourceGroupName `my-resource-group` -StartTime `$startDate` -EndTime `$endDate`
 ```
 
-### Describe an
-
-application problem
+### Describe an application problem
 
 ###### Describe an application problem using the AWS CLI
 
@@ -344,9 +289,7 @@ To use the AWS CLI to describe a problem with problem id
 aws application-insights describe-problem —problem-id `p-1234567890`
 ```
 
-###### Describe an application problem using AWS Tools for Windows
-
-PowerShell
+###### Describe an application problem using AWS Tools for Windows PowerShell
 
 To use the AWS Tools for Windows PowerShell to describe a problem with problem id
 `p-1234567890`, use the following command.
@@ -355,13 +298,9 @@ To use the AWS Tools for Windows PowerShell to describe a problem with problem i
 Get-CWAIProblem -ProblemId `p-1234567890`
 ```
 
-### Describe the anomalies
+### Describe the anomalies or errors associated with a problem
 
-or errors associated with a problem
-
-###### Describe the anomalies or errors associated with a problem using
-
-the AWS CLI
+###### Describe the anomalies or errors associated with a problem using the AWS CLI
 
 To use the AWS CLI to describe the anomalies or errors associated
 with a problem with problem id `p-1234567890`, use the
@@ -371,9 +310,7 @@ following command.
 aws application-insights describe-problem-observations --problem-id `-1234567890`
 ```
 
-###### Describe the anomalies or errors associated with a problem using
-
-AWS Tools for Windows PowerShell
+###### Describe the anomalies or errors associated with a problem using AWS Tools for Windows PowerShell
 
 To use the AWS Tools for Windows PowerShell to describe the anomalies or errors
 associated with a problem with problem id `p-1234567890`,
@@ -383,13 +320,9 @@ use the following command.
 Get-CWAIProblemObservation -ProblemId `p-1234567890`
 ```
 
-### Describe an anomaly or
+### Describe an anomaly or error with the application
 
-error with the application
-
-###### Describe an anomaly or error with the application using the AWS
-
-CLI
+###### Describe an anomaly or error with the application using the AWS CLI
 
 To use the AWS CLI to describe an anomaly or error with the
 application with the observation id `o-1234567890`, use
@@ -399,9 +332,7 @@ the following command.
 aws application-insights describe-observation —observation-id `o-1234567890`
 ```
 
-###### Describe an anomaly or error with the application using AWS
-
-Tools for Windows PowerShell
+###### Describe an anomaly or error with the application using AWS Tools for Windows PowerShell
 
 To use the AWS Tools for Windows PowerShell to describe an anomaly or error with the
 application with the observation id `o-1234567890`, use
@@ -411,13 +342,9 @@ the following command.
 Get-CWAIObservation -ObservationId `o-1234567890`
 ```
 
-### Describe the
+### Describe the monitoring configurations of a component
 
-monitoring configurations of a component
-
-###### Describe the monitoring configurations of a component using the
-
-AWS CLI
+###### Describe the monitoring configurations of a component using the AWS CLI
 
 To use the AWS CLI to describe the monitoring configuration of a
 component called `my-component` in an application created
@@ -428,9 +355,7 @@ following command.
 aws application-insights describe-component-configuration —resource-group-name `my-resource-group` —component-name `my-component`
 ```
 
-###### Describe the monitoring configurations of a component using AWS
-
-Tools for Windows PowerShell
+###### Describe the monitoring configurations of a component using AWS Tools for Windows PowerShell
 
 To use the AWS Tools for Windows PowerShell to describe the monitoring configuration of a
 component called `my-component`, in an application
@@ -444,13 +369,9 @@ Get-CWAIComponentConfiguration -ComponentName `my-component` -ResourceGroupName 
 For more information about component configuration and for example
 JSON files, see [Work with component configurations](component-config.md "component-config.md").
 
-### Describe the
+### Describe the recommended monitoring configuration of a component
 
-recommended monitoring configuration of a component
-
-###### Describe the recommended monitoring configuration of a component
-
-using the AWS CLI
+###### Describe the recommended monitoring configuration of a component using the AWS CLI
 
 When the component is part of a .NET Worker application, you can
 use the AWS CLI to describe the recommended monitoring configuration
@@ -462,9 +383,7 @@ using the following command.
 aws application-insights describe-component-configuration-recommendation --resource-group-name `my-resource-group` --component-name `my-component` --tier `DOT_NET_WORKER`
 ```
 
-###### Describe the recommended monitoring configuration of a component
-
-using AWS Tools for Windows PowerShell
+###### Describe the recommended monitoring configuration of a component using AWS Tools for Windows PowerShell
 
 When the component is part of a .NET Worker application, you can
 use the AWS Tools for Windows PowerShell to describe the recommended monitoring
@@ -480,13 +399,9 @@ Get-CWAIComponentConfigurationRecommendation -ComponentName `my-component` -Reso
 For more information about component configuration and for example
 JSON files, see [Work with component configurations](component-config.md "component-config.md").
 
-### Update the monitoring configurations
+### Update the monitoring configurations for a component
 
-for a component
-
-###### Update the monitoring configurations for a component using the
-
-AWS CLI
+###### Update the monitoring configurations for a component using the AWS CLI
 
 To use the AWS CLI to update the component called
 `my-component` in an application created on the
@@ -503,9 +418,7 @@ Worker`.
 aws application-insights update-component-configuration --resource-group-name `my-resource-group` --component-name `my-component` --tier `DOT_NET_WORKER` --monitor --component-configuration "file://`configuration.txt`"
 ```
 
-###### Update the monitoring configurations for a component using the
-
-AWS Tools for Windows PowerShell
+###### Update the monitoring configurations for a component using the AWS Tools for Windows PowerShell
 
 To use the AWS Tools for Windows PowerShell to update the component called
 `my-component` in an application created on the
@@ -526,13 +439,9 @@ Update-CWAIComponentConfiguration -ComponentName `my-component` -ResourceGroupNa
 For more information about component configuration and for example
 JSON files, see [Work with component configurations](component-config.md "component-config.md").
 
-### Remove a specified resource group
+### Remove a specified resource group from Application Insights monitoring
 
-from Application Insights monitoring
-
-###### Remove a specified resource group from Application Insights monitoring
-
-using the AWS CLI
+###### Remove a specified resource group from Application Insights monitoring using the AWS CLI
 
 To use the AWS CLI to remove an application created on the resource
 group called `my-resource-group` from monitoring, use the
@@ -542,9 +451,7 @@ following command.
 aws application-insights delete-application --resource-group-name `my-resource-group`
 ```
 
-###### Remove a specified resource group from Application Insights monitoring
-
-using the AWS Tools for Windows PowerShell
+###### Remove a specified resource group from Application Insights monitoring using the AWS Tools for Windows PowerShell
 
 To use the AWS Tools for Windows PowerShell to remove an application created on the
 resource group called `my-resource-group` from
@@ -554,9 +461,7 @@ monitoring, use the following command.
 Remove-CWAIApplication -ResourceGroupName `my-resource-group`
 ```
 
-## Configure monitoring for SQL Always On
-
-Availability Groups
+## Configure monitoring for SQL Always On Availability Groups
 
 1. Create an application for the resource group with the SQL HA EC2
    instances.
@@ -710,9 +615,7 @@ aws application-insights  update-component-configuration ‐-resource-group-name
 Application Insights must ingest Application Event logs (information level) to
 detect cluster activities such as failover.
 
-## Configure monitoring for MySQL
-
-RDS
+## Configure monitoring for MySQL RDS
 
 1. Create an application for the resource group with the RDS MySQL
    database instance.
@@ -735,9 +638,7 @@ aws application-insights create-application ‐-region `<REGION>` ‐-resource-g
 aws application-insights  update-component-configuration ‐-resource-group-name "`<RESOURCE_GROUP_NAME>`" ‐-region `<REGION>` ‐-component-name "`<DB_COMPONENT_NAME>`" ‐-monitor ‐-tier DEFAULT ‐-monitor  ‐-component-configuration "{\"alarmMetrics\":[{\"alarmMetricName\":\"CPUUtilization\",\"monitor\":true}],\"logs\":[{\"logType\":\"MYSQL\",\"monitor\":true},{\"logType\": \"MYSQL_SLOW_QUERY\",\"monitor\":false}]}"
 ```
 
-## Configure monitoring for MySQL
-
-EC2
+## Configure monitoring for MySQL EC2
 
 1. Create an application for the resource group with the SQL HA EC2
    instances.
@@ -758,9 +659,7 @@ aws application-insights create-application ‐-region `<REGION>` ‐-resource-g
 aws application-insights  update-component-configuration ‐-resource-group-name "`<RESOURCE_GROUP_NAME>`" ‐-region `<REGION>` ‐-component-name "`<DB_COMPONENT_NAME>`" ‐-monitor ‐-tier MYSQL ‐-monitor  ‐-component-configuration "{\"alarmMetrics\":[{\"alarmMetricName\":\"CPUUtilization\",\"monitor\":true}],\"logs\":[{\"logGroupName\":\"`<UNIQUE_LOG_GROUP_NAME>`\",\"logPath\":\"C:\\\\ProgramData\\\\MySQL\\\\MySQL Server **\\\\Data\\\\`<FILE_NAME>`.err\",\"logType\":\"MYSQL\",\"monitor\":true,\"encoding\":\"utf-8\"}]}"
 ```
 
-## Configure monitoring for
-
-PostgreSQL RDS
+## Configure monitoring for PostgreSQL RDS
 
 1. Create an application for the resource group with the PostgreSQL
    RDS database instance.
@@ -796,9 +695,7 @@ aws application-insights update-component-configuration --region `<REGION>` --re
 }"
 ```
 
-## Configure monitoring for
-
-PostgreSQL EC2
+## Configure monitoring for PostgreSQL EC2
 
 1. Create an application for the resource group with the PostgreSQL
    EC2 instance.
@@ -830,9 +727,7 @@ aws application-insights update-component-configuration ‐-region `<REGION>` �
 }"
 ```
 
-## Configure monitoring for Oracle
-
-RDS
+## Configure monitoring for Oracle RDS
 
 1. Create an application for the resource group with the Oracle RDS
    database instance.
@@ -873,9 +768,7 @@ aws application-insights update-component-configuration --region `<REGION>` --re
 }"
 ```
 
-## Configure monitoring for Oracle
-
-EC2
+## Configure monitoring for Oracle EC2
 
 1. Create an application for the resource group with the Oracle EC2
    instance.

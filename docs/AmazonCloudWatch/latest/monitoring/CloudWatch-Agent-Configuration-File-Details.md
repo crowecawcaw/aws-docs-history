@@ -1,6 +1,4 @@
-# Manually create or edit the
-
-CloudWatch agent configuration file
+# Manually create or edit the CloudWatch agent configuration file
 
 The CloudWatch agent configuration file is a JSON file with four sections:
 `agent`, `metrics`, `logs`, and `traces`.
@@ -73,8 +71,7 @@ AWS configuration file.
   contains one parameter, `role_arn`.
   - `role_arn` – Specifies the Amazon Resource Name (ARN) of
     an IAM role to use for authentication when sending metrics, logs, and traces
-    to a different AWS account. For more information, see [Sending metrics, logs, and
-    traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account").
+    to a different AWS account. For more information, see [Sending metrics, logs, and traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account").
 
 - `debug` – Optional. Specifies running the CloudWatch agent with
   debug log messages. The default value is `false`.
@@ -120,8 +117,7 @@ For more information about these options, see [LogLevelType](../../../sdk-for-go
   is valid only on Linux servers.
 
 If you specify this option, the user must exist before you start the CloudWatch agent.
-For more information, see [Running the CloudWatch agent as a different
-user](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-run-as-user "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-run-as-user").
+For more information, see [Running the CloudWatch agent as a different user](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-run-as-user "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-run-as-user").
 
 - `user_agent` – Optional. Specifies the `user-agent`
   string that is used by the CloudWatch agent when it makes API calls to the CloudWatch backend.
@@ -282,8 +278,7 @@ The default value is 60.
   `role_arn`.
   - `role_arn` – Specifies the ARN of an IAM role to use
     for authentication when sending metrics to a different account. For more
-    information, see [Sending metrics, logs, and
-    traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account"). If
+    information, see [Sending metrics, logs, and traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account"). If
     specified here, this value overrides the `role_arn` specified in
     the `agent` section of the configuration file, if any.
   - `service.name` – Optional. Specifies the service name to
@@ -308,8 +303,7 @@ collected.
 - `collectd` – Optional. Specifies that you want to retrieve
   custom metrics using the `collectd` protocol. You use
   `collectd` software to send the metrics to the CloudWatch agent. For more
-  information about the configuration options available for collectd, see [Retrieve custom metrics with
-  collectd](CloudWatch-Agent-custom-metrics-collectd.md "CloudWatch-Agent-custom-metrics-collectd.md").
+  information about the configuration options available for collectd, see [Retrieve custom metrics with collectd](CloudWatch-Agent-custom-metrics-collectd.md "CloudWatch-Agent-custom-metrics-collectd.md").
 - `cpu` – Optional. Specifies that CPU metrics are to be
   collected. This section is valid only for Linux instances. You must include at
   least one of the `resources` and `totalcpu` fields for any
@@ -405,8 +399,7 @@ collected.
   instance. The number of disk partitions you have depends on which AMI you
   are using and the number of Amazon EBS volumes you attach to the server.
 
-  To see the default units for each `disk` metric, see [Metrics collected by the CloudWatch
-  agent on Linux and macOS instances](metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent "metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent").
+  To see the default units for each `disk` metric, see [Metrics collected by the CloudWatch agent on Linux and macOS instances](metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent "metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent").
 
   Within the entry for each individual metric, you might optionally specify
   one or both of the following:
@@ -478,8 +471,7 @@ collected.
     values are `reads`, `writes`, `read_bytes`, `write_bytes`,
     `read_time`, `write_time`, `io_time`, and `iops_in_progress`.
     For a list of the NVMe driver metrics for Amazon EBS volumes and Amazon EC2 instance store volumes, see [Collect Amazon EBS NVMe driver metrics](Container-Insights-metrics-EBS-Collect.md "Container-Insights-metrics-EBS-Collect.md") and
-    [Collect Amazon EC2 instance store
-    volume NVMe driver metrics](Container-Insights-metrics-instance-store-Collect.md "Container-Insights-metrics-instance-store-Collect.md").
+    [Collect Amazon EC2 instance store volume NVMe driver metrics](Container-Insights-metrics-instance-store-Collect.md "Container-Insights-metrics-instance-store-Collect.md").
     This field is required if you include `diskio`.
 
   Within the entry for each individual metric, you might optionally specify
@@ -492,7 +484,7 @@ collected.
        the metric. The unit that you specify must be a valid CloudWatch metric unit, as
        listed in the `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
 
-  For information on default units and description of the metrics, see [Collect Amazon EBS NVMe driver metrics](Container-Insights-metrics-EBS-Collect.md "Container-Insights-metrics-EBS-Collect.md") .
+  For information on default units and description of the metrics, see [Collect Amazon EBS NVMe driver metrics](Container-Insights-metrics-EBS-Collect.md "Container-Insights-metrics-EBS-Collect.md").
   - `metrics_collection_interval` – Optional. Specifies how
     often to collect the diskio metrics, overriding the global
     `metrics_collection_interval` specified in the `agent`
@@ -526,8 +518,7 @@ collected.
     `used_percent`. This field is required if you include
     `swap`.
 
-  To see the default units for each `swap` metric, see [Metrics collected by the CloudWatch
-  agent on Linux and macOS instances](metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent "metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent").
+  To see the default units for each `swap` metric, see [Metrics collected by the CloudWatch agent on Linux and macOS instances](metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent "metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent").
 
   Within the entry for each individual metric, you might optionally specify
   one or both of the following:
@@ -575,8 +566,7 @@ collected.
     `used`, and `used_percent`. This field is required if
     you include `mem`.
 
-  To see the default units for each `mem` metric, see [Metrics collected by the CloudWatch
-  agent on Linux and macOS instances](metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent "metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent").
+  To see the default units for each `mem` metric, see [Metrics collected by the CloudWatch agent on Linux and macOS instances](metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent "metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent").
 
   Within the entry for each individual metric, you might optionally specify
   one or both of the following:
@@ -627,8 +617,7 @@ collected.
     `packets_recv`. This field is required if you include
     `net`.
 
-  To see the default units for each `net` metric, see [Metrics collected by the CloudWatch
-  agent on Linux and macOS instances](metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent "metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent").
+  To see the default units for each `net` metric, see [Metrics collected by the CloudWatch agent on Linux and macOS instances](metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent "metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent").
 
   Within the entry for each individual metric, you might optionally specify
   one or both of the following:
@@ -680,8 +669,7 @@ collected.
     `udp_socket`. This field is required if you include
     `netstat`.
 
-  To see the default units for each `netstat` metric, see [Metrics collected by the CloudWatch
-  agent on Linux and macOS instances](metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent "metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent").
+  To see the default units for each `netstat` metric, see [Metrics collected by the CloudWatch agent on Linux and macOS instances](metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent "metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent").
 
   Within the entry for each individual metric, you might optionally specify
   one or both of the following:
@@ -801,28 +789,23 @@ other accelerator types. This section can include the following fields:
 - `jmx` – Optional. Specifies that you want to retrieve Java
   Management Extensions (JMX) metrics from the instance. For more information about
   the parameters that you can use in this section and the metrics that you can
-  collect, see [Collect Java Management Extensions (JMX)
-  metrics](CloudWatch-Agent-JMX-metrics.md "CloudWatch-Agent-JMX-metrics.md").
+  collect, see [Collect Java Management Extensions (JMX) metrics](CloudWatch-Agent-JMX-metrics.md "CloudWatch-Agent-JMX-metrics.md").
 - `otlp` – Optional. Specifies that you want to collect metrics
   from the OpenTelemetry SDK. For more information about the fields that you can use
-  in this section, see [Collect metrics and traces with
-  OpenTelemetry](CloudWatch-Agent-OpenTelemetry-metrics.md "CloudWatch-Agent-OpenTelemetry-metrics.md").
+  in this section, see [Collect metrics and traces with OpenTelemetry](CloudWatch-Agent-OpenTelemetry-metrics.md "CloudWatch-Agent-OpenTelemetry-metrics.md").
 - `procstat` – Optional. Specifies that you want to retrieve
   metrics from individual processes. For more information about the configuration
-  options available for procstat, see [Collect process metrics with
-  the procstat plugin](CloudWatch-Agent-procstat-process-metrics.md "CloudWatch-Agent-procstat-process-metrics.md").
+  options available for procstat, see [Collect process metrics with the procstat plugin](CloudWatch-Agent-procstat-process-metrics.md "CloudWatch-Agent-procstat-process-metrics.md").
 - `statsd` – Optional. Specifies that you want to retrieve
   custom metrics using the `StatsD` protocol. The CloudWatch agent acts as a
   daemon for the protocol. You use any standard `StatsD` client to send
   the metrics to the CloudWatch agent. For more information about the configuration
-  options available for StatsD, see [Retrieve custom metrics with
-  StatsD](CloudWatch-Agent-custom-metrics-statsd.md "CloudWatch-Agent-custom-metrics-statsd.md").
+  options available for StatsD, see [Retrieve custom metrics with StatsD](CloudWatch-Agent-custom-metrics-statsd.md "CloudWatch-Agent-custom-metrics-statsd.md").
 - `ethtool` – Optional. Specifies that you want to retrieve
   network metrics using the `ethtool` plugin. This plugin can import both
   the metrics collected by the standard ethtool utility, as well as network
   performance metrics from Amazon EC2 instances. For more information about the
-  configuration options available for ethtool, see [Collect network performance
-  metrics](CloudWatch-Agent-network-performance.md "CloudWatch-Agent-network-performance.md").
+  configuration options available for ethtool, see [Collect network performance metrics](CloudWatch-Agent-network-performance.md "CloudWatch-Agent-network-performance.md").
 
 The following is an example of a `metrics` section for a Linux server.
 In this example, three CPU metrics, three netstat metrics, three process metrics, and
@@ -960,20 +943,16 @@ There are other optional sections that you can include in
 - `statsd` – Enables you to retrieve custom metrics using the
   `StatsD` protocol. The CloudWatch agent acts as a daemon for the protocol.
   You use any standard `StatsD` client to send the metrics to the CloudWatch
-  agent. For more information, see [Retrieve custom metrics with
-  StatsD](CloudWatch-Agent-custom-metrics-statsd.md "CloudWatch-Agent-custom-metrics-statsd.md").
+  agent. For more information, see [Retrieve custom metrics with StatsD](CloudWatch-Agent-custom-metrics-statsd.md "CloudWatch-Agent-custom-metrics-statsd.md").
 - `procstat` – Enables you to retrieve metrics from individual
-  processes. For more information, see [Collect process metrics with
-  the procstat plugin](CloudWatch-Agent-procstat-process-metrics.md "CloudWatch-Agent-procstat-process-metrics.md").
+  processes. For more information, see [Collect process metrics with the procstat plugin](CloudWatch-Agent-procstat-process-metrics.md "CloudWatch-Agent-procstat-process-metrics.md").
 - `jmx` – Optional. Specifies that you want to retrieve Java
   Management Extensions (JMX) metrics from the instance. For more information about
   the fields that you can use in this section and the metrics that you can collect,
-  see [Collect Java Management Extensions (JMX)
-  metrics](CloudWatch-Agent-JMX-metrics.md "CloudWatch-Agent-JMX-metrics.md").
+  see [Collect Java Management Extensions (JMX) metrics](CloudWatch-Agent-JMX-metrics.md "CloudWatch-Agent-JMX-metrics.md").
 - `otlp` – Optional. Specifies that you want to collect metrics
   from the OpenTelemetry SDK. For more information about the fields that you can use
-  in this section, see [Collect metrics and traces with
-  OpenTelemetry](CloudWatch-Agent-OpenTelemetry-metrics.md "CloudWatch-Agent-OpenTelemetry-metrics.md").
+  in this section, see [Collect metrics and traces with OpenTelemetry](CloudWatch-Agent-OpenTelemetry-metrics.md "CloudWatch-Agent-OpenTelemetry-metrics.md").
 
 The following is an example `metrics` section for use on Windows
 Server. In this example, many Windows metrics are collected, and the computer is also
@@ -1326,8 +1305,7 @@ concurrency can help with throughput.
       format, the first time stamp is used.
 
       This list of symbols is different than the list used by the older
-      CloudWatch Logs agent. For a summary of these differences, see [Timestamp differences between
-      the CloudWatch agent and the earlier CloudWatch Logs agent](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-logs-timestamp-differences "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-logs-timestamp-differences")
+      CloudWatch Logs agent. For a summary of these differences, see [Timestamp differences between the CloudWatch agent and the earlier CloudWatch Logs agent](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-logs-timestamp-differences "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-logs-timestamp-differences")
 
       `%y`
 
@@ -1677,8 +1655,7 @@ alarming on partial or incomplete data.
   `role_arn`.
   - `role_arn` – Specifies the ARN of an IAM role to use for
     authentication when sending logs to a different AWS account. For more
-    information, see [Sending metrics, logs, and
-    traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account"). If specified
+    information, see [Sending metrics, logs, and traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account"). If specified
     here, this overrides the `role_arn` specified in the
     `agent` section of the configuration file, if any.
 
@@ -1700,8 +1677,7 @@ alarming on partial or incomplete data.
 
       	- `enhanced_container_insights` – Set this to
       	 `true` to enable Container Insights with enhanced observability
-      	 for Amazon EKS. For more information, see [Container Insights with enhanced
-      	 observability for Amazon EKS](container-insights-detailed-metrics.md "container-insights-detailed-metrics.md").
+      	 for Amazon EKS. For more information, see [Container Insights with enhanced observability for Amazon EKS](container-insights-detailed-metrics.md "container-insights-detailed-metrics.md").
       	- `accelerated_compute_metrics` – Set this to
       	 `false` to opt out of collecting Nvidia GPU metrics on Amazon EKS
       	 clusters. For more information, see [NVIDIA GPU metrics](Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EKS-GPU "Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EKS-GPU").
@@ -1711,8 +1687,7 @@ alarming on partial or incomplete data.
        You can generate metric data from these logs. For more information, see [Embedding metrics within logs](CloudWatch_Embedded_Metric_Format.md "CloudWatch_Embedded_Metric_Format.md").
       + `otlp` – Optional. Specifies that you want to collect
        metrics from the OpenTelemetry SDK. For more information about the fields that
-       you can use in this section, see [Collect metrics and traces with
-       OpenTelemetry](CloudWatch-Agent-OpenTelemetry-metrics.md "CloudWatch-Agent-OpenTelemetry-metrics.md").
+       you can use in this section, see [Collect metrics and traces with OpenTelemetry](CloudWatch-Agent-OpenTelemetry-metrics.md "CloudWatch-Agent-OpenTelemetry-metrics.md").
 
   The following is an example of a `logs` section.
 
@@ -1856,8 +1831,7 @@ The `traces` section can include the following fields:
 
   - `otlp` – Optional. Specifies that you want to collect
     traces from the OpenTelemetry SDK. For more information about the fields that
-    you can use in this section, see [Collect metrics and traces with
-    OpenTelemetry](CloudWatch-Agent-OpenTelemetry-metrics.md "CloudWatch-Agent-OpenTelemetry-metrics.md")). For more
+    you can use in this section, see [Collect metrics and traces with OpenTelemetry](CloudWatch-Agent-OpenTelemetry-metrics.md "CloudWatch-Agent-OpenTelemetry-metrics.md")). For more
     information about the AWS Distro for OpenTelemetry, see [AWS Distro for OpenTelemetry](https://aws.amazon.com/otel/ "https://aws.amazon.com/otel/"). For
     more information about the AWS Distro for OpenTelemetry SDKs, see [Introduction](https://aws-otel.github.io/docs/introduction "https://aws-otel.github.io/docs/introduction").
 
@@ -1911,8 +1885,7 @@ configuration file.
   parameter, `role_arn`.
   - `role_arn` – Specifies the ARN of an IAM role to use for
     authentication when sending traces to a different AWS account. For more
-    information, see [Sending metrics, logs, and
-    traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account"). If specified
+    information, see [Sending metrics, logs, and traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account"). If specified
     here, this overrides the `role_arn` specified in the
     `agent` section of the configuration file, if any.
 
@@ -2204,17 +2177,13 @@ running Windows Server.
     }
 ```
 
-## Save the CloudWatch agent configuration file
-
-manually
+## Save the CloudWatch agent configuration file manually
 
 If you create or edit the CloudWatch agent configuration file manually, you can give it any
 name. After you have created the file, you can copy it to other servers where you want to
 run the agent.
 
-## Uploading the
-
-CloudWatch agent configuration file to Systems Manager Parameter Store
+## Uploading the CloudWatch agent configuration file to Systems Manager Parameter Store
 
 If you plan to use the SSM Agent to install the CloudWatch agent on servers, after you
 manually edit the CloudWatch agent configuration file, you can upload it to Systems Manager Parameter Store. To

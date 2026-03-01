@@ -21,18 +21,13 @@ alarms on metrics in other accounts or Regions from within a monitoring account.
 
 ###### Topics
 
-- [Enabling cross-account cross-Region functionality in
-  CloudWatch](#enable-cross-account-cross-Region "#enable-cross-account-cross-Region")
+- [Enabling cross-account cross-Region functionality in CloudWatch](#enable-cross-account-cross-Region "#enable-cross-account-cross-Region")
 - [(Optional) Integrate with AWS Organizations](#cross-account-and-AWS-organizations "#cross-account-and-AWS-organizations")
-- [Troubleshooting your CloudWatch cross-account
-  setup](#troubleshooting-cross-account-cross-Region "#troubleshooting-cross-account-cross-Region")
+- [Troubleshooting your CloudWatch cross-account setup](#troubleshooting-cross-account-cross-Region "#troubleshooting-cross-account-cross-Region")
 - [Monitoring account permissions for cross-account access](#cross-account-cross-region-limitations "#cross-account-cross-region-limitations")
-- [Disabling and cleaning up after using
-  cross-account](#cleanup-cross-account-cross-Region "#cleanup-cross-account-cross-Region")
+- [Disabling and cleaning up after using cross-account](#cleanup-cross-account-cross-Region "#cleanup-cross-account-cross-Region")
 
-## Enabling cross-account cross-Region functionality in
-
-CloudWatch
+## Enabling cross-account cross-Region functionality in CloudWatch
 
 To set up cross-account cross-Region functionality in your CloudWatch console, use the
 CloudWatch console to set up your sharing accounts and monitoring accounts.
@@ -158,8 +153,7 @@ Enable each monitoring account if you want to view cross-account CloudWatch data
 
 When you complete the following procedure, CloudWatch creates a service-linked role that CloudWatch uses in the monitoring account to access data
 shared from your other accounts. This service-linked role is called **AWSServiceRoleForCloudWatchCrossAccount**. For more information,
-see [Using service-linked roles for
-CloudWatch](using-service-linked-roles.md "using-service-linked-roles.md").
+see [Using service-linked roles for CloudWatch](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ###### To enable your account to view cross-account CloudWatch data
 
@@ -233,9 +227,7 @@ in the organization available to the monitoring accounts.
 In the confirmation screen, type `Confirm`, and
 choose **Launch template**.
 
-## Troubleshooting your CloudWatch cross-account
-
-setup
+## Troubleshooting your CloudWatch cross-account setup
 
 This section contains troubleshooting tips for cross-account, console deployment in CloudWatch.
 
@@ -296,9 +288,7 @@ To start a Logs query in a source account, you must have wildcard (\*) access to
 }
 ```
 
-## Disabling and cleaning up after using
-
-cross-account
+## Disabling and cleaning up after using cross-account
 
 To disable cross-account functionality for CloudWatch, follow these steps.
 

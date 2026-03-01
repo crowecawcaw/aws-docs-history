@@ -1,6 +1,4 @@
-# Setting up SSO for CloudWatch dashboard
-
-sharing
+# Setting up SSO for CloudWatch dashboard sharing
 
 To set up dashboard sharing through a third-party single sign-on provider that
 supports SAML, follow these steps.

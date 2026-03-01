@@ -1,6 +1,4 @@
-# Testing your CloudWatch app
-
-monitor setup by generating user events
+# Testing your CloudWatch app monitor setup by generating user events
 
 After you have inserted the code snippet and your updated application is running,
 you can test it by manually generating user events. To test this, we recommend that

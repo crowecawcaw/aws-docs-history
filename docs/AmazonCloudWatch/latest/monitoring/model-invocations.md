@@ -7,9 +7,7 @@ enable **Bedrock Invocation logging** and send the logs to
 CloudWatch. For more information, see [Set up a CloudWatch Logs destination](../../../bedrock/latest/userguide/model-invocation-logging.md#setup-cloudwatch-logs-destination "../../../bedrock/latest/userguide/model-invocation-logging.md#setup-cloudwatch-logs-destination") and [Help protect
 sensitive log data with masking](../logs/mask-sensitive-log-data.md "../logs/mask-sensitive-log-data.md") .
 
-## Enabling model invocation in
-
-Amazon Bedrock
+## Enabling model invocation in Amazon Bedrock
 
 ###### Note
 

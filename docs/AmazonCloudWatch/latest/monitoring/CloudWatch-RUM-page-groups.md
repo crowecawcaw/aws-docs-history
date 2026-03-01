@@ -25,5 +25,4 @@ awsRum.recordPageView({ pageId: '/home', pageTags: ['en', 'landing']});
 Page groups are intended to facilitate aggregating analytics across different
 pages. For information about how to define and manipulate `pageIds` for
 your application, see the **Manually recording page
-views** section in [Modifying the code snippet to
-configure the CloudWatch RUM web client (optional)](CloudWatch-RUM-modify-snippet.md "CloudWatch-RUM-modify-snippet.md").
+views** section in [Modifying the code snippet to configure the CloudWatch RUM web client (optional)](CloudWatch-RUM-modify-snippet.md "CloudWatch-RUM-modify-snippet.md").

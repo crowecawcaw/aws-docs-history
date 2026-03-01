@@ -1,6 +1,4 @@
-# Retrieve custom metrics with
-
-StatsD
+# Retrieve custom metrics with StatsD
 
 You can retrieve additional custom metrics from your applications or services using
 the CloudWatch agent with the `StatsD` protocol. StatsD is a popular open-source
@@ -37,8 +35,7 @@ Server. CloudWatch supports the following `StatsD` format:
 To collect these custom metrics, add a `"statsd": {}` line to the
 `metrics_collected` section of the agent configuration file. You can add this
 line manually. If you use the wizard to create the configuration file, it's done for you.
-For more information, see [Create the CloudWatch agent
-configuration file](create-cloudwatch-agent-configuration-file.md "create-cloudwatch-agent-configuration-file.md").
+For more information, see [Create the CloudWatch agent configuration file](create-cloudwatch-agent-configuration-file.md "create-cloudwatch-agent-configuration-file.md").
 
 The `StatsD` default configuration works for most users. There are optional
 fields that you can add to the **statsd** section of the agent
@@ -96,9 +93,7 @@ to 0 disables the aggregation of `StatsD` metrics.
 }
 ```
 
-## Viewing StatsD metrics imported by the
-
-CloudWatch agent
+## Viewing StatsD metrics imported by the CloudWatch agent
 
 After importing StatsD metrics into CloudWatch, you can view these metrics as time series
 graphs, and create alarms that can watch these metrics and notify you if they breach a

@@ -1,6 +1,4 @@
-# Quick start with the Amazon CloudWatch
-
-Observability EKS add-on
+# Quick start with the Amazon CloudWatch Observability EKS add-on
 
 You can use the Amazon EKS add-on to install Container Insights with enhanced
 observability for Amazon EKS. The add-on installs the CloudWatch agent to send infrastructure
@@ -15,8 +13,7 @@ not supported on Windows in Amazon EKS.
 The Amazon EKS add-on is not supported for clusters running Kubernetes instead of
 Amazon EKS.
 
-For more information about the Amazon CloudWatch Observability EKS add-on, see [Install the CloudWatch agent with the
-Amazon CloudWatch Observability EKS add-on or the Helm chart](install-CloudWatch-Observability-EKS-addon.md "install-CloudWatch-Observability-EKS-addon.md").
+For more information about the Amazon CloudWatch Observability EKS add-on, see [Install the CloudWatch agent with the Amazon CloudWatch Observability EKS add-on or the Helm chart](install-CloudWatch-Observability-EKS-addon.md "install-CloudWatch-Observability-EKS-addon.md").
 
 If you use version 3.1.0 or later of the add-on, you can use EKS Pod Identity to
 grant the required permissions to the add-on. EKS Pod Identity is the recommended option

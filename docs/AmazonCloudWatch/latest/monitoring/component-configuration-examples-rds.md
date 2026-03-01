@@ -1,6 +1,4 @@
-# Amazon Relational Database Service (RDS)
-
-instance
+# Amazon Relational Database Service (RDS) instance
 
 The following example shows a component configuration in JSON format for an
 Amazon RDS instance.

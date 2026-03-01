@@ -34,9 +34,7 @@ rule's `Value` during that period.
 - `Average` — the average value from all contributors during the time
   period represented by that data point.
 
-## Setting an alarm on Contributor Insights
-
-metric data
+## Setting an alarm on Contributor Insights metric data
 
 Using the function `INSIGHT_RULE_METRIC`,
 you can set alarms
@@ -162,5 +160,4 @@ The **Create alarm** icon looks like a bell.
 
 For more information
 about graphing metrics and using metric math functions,
-see the following section: [Add a math expression to a CloudWatch
-graph](using-metric-math.md#adding-metrics-expression-console "using-metric-math.md#adding-metrics-expression-console").
+see the following section: [Add a math expression to a CloudWatch graph](using-metric-math.md#adding-metrics-expression-console "using-metric-math.md#adding-metrics-expression-console").

@@ -60,9 +60,7 @@ to get a feel for what a good application traffic percentage to choose might be,
    To set a new percentage of traffic to monitor, choose **Update monitor coverage**. Or, to
    keep the current coverage level, choose **Cancel**.
 
-## View the number of city-networks monitored at different traffic
-
-percentage settings
+## View the number of city-networks monitored at different traffic percentage settings
 
 You can view the number of city-networks that would be monitored for
 your application at different application traffic percentages. The procedure in this section provides step-by-step information.

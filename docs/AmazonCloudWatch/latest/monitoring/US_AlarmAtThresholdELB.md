@@ -1,13 +1,9 @@
-# Create a load balancer latency alarm that sends
-
-email
+# Create a load balancer latency alarm that sends email
 
 You can set up an Amazon SNS notification and configure an alarm that monitors latency
 exceeding 100 ms for your Classic Load Balancer.
 
-## Setting up a latency alarm using the
-
-AWS Management Console
+## Setting up a latency alarm using the AWS Management Console
 
 Use these steps to use the AWS Management Console to create a load balancer latency alarm.
 
@@ -54,9 +50,7 @@ to the `ALARM` state. Each email address is sent a topic subscription
 confirmation email. You must confirm the subscription before notifications can be
 sent. 13. Choose **Create Alarm**.
 
-## Setting up a latency alarm using the
-
-AWS CLI
+## Setting up a latency alarm using the AWS CLI
 
 Use these steps to use the AWS CLI to create a load balancer latency alarm.
 

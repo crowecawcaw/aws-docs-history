@@ -1,6 +1,4 @@
-# Amazon ECS Container
-
-Insights with enhanced observability metrics
+# Amazon ECS Container Insights with enhanced observability metrics
 
 Container Insights with enhanced observability provides deeper visibility into containerized workloads by offering:
 
@@ -31,8 +29,7 @@ enhanced observability collects for Amazon ECS. These metrics are in the
 If you do not see any Container Insights metrics in your console, be sure that you have
 completed the setup of Container Insights with enhanced observability. Metrics do not appear
 before Container Insights with enhanced observability has been set up completely. For more
-information, see [Set up Container Insights
-with enhanced observability](deploy-container-insights-ECS-cluster.md#set-container-insights-ECS-cluster-enhanced "deploy-container-insights-ECS-cluster.md#set-container-insights-ECS-cluster-enhanced").
+information, see [Set up Container Insights with enhanced observability](deploy-container-insights-ECS-cluster.md#set-container-insights-ECS-cluster-enhanced "deploy-container-insights-ECS-cluster.md#set-container-insights-ECS-cluster-enhanced").
 
 The following metrics are available for all launch types.
 
@@ -86,8 +83,7 @@ Fargate reserves space on disk. It is only used by Fargate. You aren't billed fo
 It isn't shown in these metrics. However, you can see this additional storage in other
 tools such as `df`.
 
-The following metrics are available when you complete the steps in [Deploying the CloudWatch agent to
-collect EC2 instance-level metrics on Amazon ECS](deploy-container-insights-ECS-instancelevel.md "deploy-container-insights-ECS-instancelevel.md") and use the EC2 launch
+The following metrics are available when you complete the steps in [Deploying the CloudWatch agent to collect EC2 instance-level metrics on Amazon ECS](deploy-container-insights-ECS-instancelevel.md "deploy-container-insights-ECS-instancelevel.md") and use the EC2 launch
 type.
 
 | Metric name                         | Dimensions                                                             | Description                                                                                                                                                                                                            |

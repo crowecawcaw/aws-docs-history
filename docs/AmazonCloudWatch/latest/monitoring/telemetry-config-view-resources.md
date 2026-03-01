@@ -1,6 +1,4 @@
-# Viewing AWS resource telemetry in
-
-CloudWatch
+# Viewing AWS resource telemetry in CloudWatch
 
 The Telemetry configuration and auditing experience displays AWS resources in two places:
 As an overview, on the **Telemetry config** page and in detail, on the
@@ -64,14 +62,12 @@ information:
    account. To determine if the resource belongs to your account, check the
    **AWS account** column. If the **AWS account** column
    does not appear, change your the **Discovered data sources** page
-   preferences. For more information, see [Changing preferences for the Discovered
-   data sources page](#telemetry-config-resource-view-prefs "#telemetry-config-resource-view-prefs").
+   preferences. For more information, see [Changing preferences for the Discovered data sources page](#telemetry-config-resource-view-prefs "#telemetry-config-resource-view-prefs").
 
 ###### Topics
 
 - [Filtering discovered resources](#telemetry-config-filter-resource-view "#telemetry-config-filter-resource-view")
-- [Changing preferences for the Discovered
-  data sources page](#telemetry-config-resource-view-prefs "#telemetry-config-resource-view-prefs")
+- [Changing preferences for the Discovered data sources page](#telemetry-config-resource-view-prefs "#telemetry-config-resource-view-prefs")
 
 ## Filtering discovered resources
 
@@ -110,8 +106,7 @@ Your filter settings persist across both pages.
 
 4. You can filter the resources displayed in the page based on any of the columns in the
    page. You can change the columns in the page by changing your preferences for the
-   **Discovered data sources** page. For more information, see [Changing preferences for the Discovered
-   data sources page](#telemetry-config-resource-view-prefs "#telemetry-config-resource-view-prefs").
+   **Discovered data sources** page. For more information, see [Changing preferences for the Discovered data sources page](#telemetry-config-resource-view-prefs "#telemetry-config-resource-view-prefs").
    1. Choose **Find resource**. Filters for each column in the page appear.
       Choose one, then choose additional options to define the filter. Resources appear in the
       page that match the filter settings.
@@ -124,9 +119,7 @@ Your filter settings persist across both pages.
 6. To remove all of the filters and see all resource types discovered, choose
    **Clear filters**.
 
-## Changing preferences for the Discovered
-
-data sources page
+## Changing preferences for the Discovered data sources page
 
 You can change your preferences for the **Discovered data sources** page
 to control how many resources appear per page and which detailed metrics appear in the page.

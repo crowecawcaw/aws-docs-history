@@ -1,9 +1,6 @@
 # Removing a gauge widget from a CloudWatch dashboard
 
-######
-
-To remove a gauge widget
-from a dashboard
+###### To remove a gauge widget from a dashboard
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

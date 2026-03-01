@@ -9,12 +9,9 @@ troubleshoot complex multi-account scenarios.
 ###### Topics
 
 - [Prerequisites](#Investigations-cross-account-prereq "#Investigations-cross-account-prereq")
-- [Setup your
-  monitoring account for cross-account access](#Investigations-cross-account-monitoring-account "#Investigations-cross-account-monitoring-account")
-- [Setup your source
-  account(s) for cross-account access](#Investigations-cross-account-source-account "#Investigations-cross-account-source-account")
-- [Investigating
-  multi-account issues](#Investigations-cross-account-investigation "#Investigations-cross-account-investigation")
+- [Setup your monitoring account for cross-account access](#Investigations-cross-account-monitoring-account "#Investigations-cross-account-monitoring-account")
+- [Setup your source account(s) for cross-account access](#Investigations-cross-account-source-account "#Investigations-cross-account-source-account")
+- [Investigating multi-account issues](#Investigations-cross-account-investigation "#Investigations-cross-account-investigation")
 
 ## Prerequisites
 
@@ -25,9 +22,7 @@ troubleshoot complex multi-account scenarios.
   be in the monitoring account. You can also set them up in the source
   accounts and run single account investigations there.
 
-## Setup your
-
-monitoring account for cross-account access
+## Setup your monitoring account for cross-account access
 
 ###### Setup your monitoring account for cross-account access
 
@@ -176,9 +171,7 @@ monitoring account for cross-account access
 
       For more details on this command, see the [AWS CLI Command Reference](../../../cli/latest/reference/aiops/update-investigation-group.md "../../../cli/latest/reference/aiops/update-investigation-group.md").
 
-## Setup your source
-
-account(s) for cross-account access
+## Setup your source account(s) for cross-account access
 
 1. Provision an IAM role with the name
    `AIOps-CrossAccountInvestigationRole` if you selected the
@@ -227,14 +220,11 @@ account(s) for cross-account access
 Make sure the source account shows up in the cross-account configuration,
 and the status is **Linked to monitoring account**.
 
-## Investigating
-
-multi-account issues
+## Investigating multi-account issues
 
 After you set up CloudWatch cross-account observability dashboard, you can view and
 investigate from a cross-account telemetry in your monitoring account. You must add
 a cross-account telemetry from the source account in order to run an investigation
 into that source account.
 
-For detailed information about how to create an investigation, see [Investigate operational issues in your
-environment](Investigations-Investigate.md "Investigations-Investigate.md").
+For detailed information about how to create an investigation, see [Investigate operational issues in your environment](Investigations-Investigate.md "Investigations-Investigate.md").

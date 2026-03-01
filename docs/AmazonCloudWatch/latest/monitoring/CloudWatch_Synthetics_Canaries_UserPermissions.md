@@ -1,6 +1,4 @@
-# Required roles and permissions for users
-
-who manage CloudWatch canaries
+# Required roles and permissions for users who manage CloudWatch canaries
 
 To view canary details and the results of canary runs, you must be signed in as a user with
 either

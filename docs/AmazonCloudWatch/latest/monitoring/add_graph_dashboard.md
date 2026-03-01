@@ -1,7 +1,4 @@
-#
-
-Adding a graph widget
-to a CloudWatch dashboard
+# Adding a graph widget to a CloudWatch dashboard
 
 The procedures
 in this section
@@ -17,10 +14,7 @@ on your dashboard,
 see [Edit a graph
 on a CloudWatch dashboard](edit_graph_dashboard.md "edit_graph_dashboard.md").
 
-######
-
-To add a graph
-to a dashboard
+###### To add a graph to a dashboard
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

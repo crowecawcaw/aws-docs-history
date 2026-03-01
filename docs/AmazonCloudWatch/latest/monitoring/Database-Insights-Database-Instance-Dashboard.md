@@ -1,6 +1,4 @@
-# Viewing the Database Instance Dashboard for
-
-CloudWatch Database Insights
+# Viewing the Database Instance Dashboard for CloudWatch Database Insights
 
 Use the Database Instance Dashboard to view a snapshot of the health of a DB instance.
 
@@ -9,7 +7,7 @@ topics.
 
 ###### Topics
 
-- [Analyzing lock trees for Amazon Aurora PostgreSQL with CloudWatch Database Insights](Database-Insights-Lock-Analysis.md "Database-Insights-Lock-Analysis.md")
+- [Analyzing lock trees for Amazon Aurora PostgreSQL and Amazon RDS for PostgreSQL with CloudWatch Database Insights](Database-Insights-Lock-Analysis.md "Database-Insights-Lock-Analysis.md")
 - [Analyzing execution plans with CloudWatch Database Insights](Database-Insights-Execution-Plans.md "Database-Insights-Execution-Plans.md")
 
 ## Database load chart
@@ -89,9 +87,7 @@ statistics for a query, use the following procedure.
 Use the **Database telemetry** tab to view metrics, logs, events, and
 slow queries for the selected instance.
 
-### Metrics section for database
-
-telemetry
+### Metrics section for database telemetry
 
 The **Metrics** section displays a default metrics dashboard
 customized for each engine type.
@@ -110,9 +106,7 @@ instance of the database engine in that Region and account.
 
 ![Dashboard showing examples of the different types of database metrics.](images/dbi_dbmetrics.png)
 
-###### To customize the dashboard in the Database telemetry tab for an engine
-
-type
+###### To customize the dashboard in the Database telemetry tab for an engine type
 
 1. Sign in to the AWS Management Console and open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -149,9 +143,7 @@ The default database instance dashboard appears. 6. To add a widget to the dashb
 9. After customizing a dashboard, you can reset it to its original default
    state by choosing **Reset Dashboard**.
 
-### Logs section for database
-
-telemetry
+### Logs section for database telemetry
 
 The **Logs** section provides a view of database logs exported to
 CloudWatch Logs for the selected DB instance.
@@ -166,9 +158,7 @@ _Amazon Aurora User Guide_.
 For Aurora PostgreSQL Limitless Databases, logs are automatically published to CloudWatch Logs
 and are discoverable in the Database Insights console.
 
-### OS processes data for database
-
-telemetry
+### OS processes data for database telemetry
 
 You can use the **OS Processes** tab within the
 **Database telemetry** tab to view metrics for the operating
@@ -229,9 +219,7 @@ OS processes metrics are returned during a reboot of a database instance because
 only the database engine is rebooted. Metrics for the operating system are still
 reported.
 
-### Slow SQL Queries section for
-
-database telemetry
+### Slow SQL Queries section for database telemetry
 
 To view slow SQL queries and query patterns, you must enable log exports to CloudWatch Logs
 and configure DB parameters for your database.
@@ -295,9 +283,7 @@ Amazon RDS cluster."
 
 ![Calling services tab](images/dbi_did-calling.png)
 
-## Analyze database performance on
-
-demand with CloudWatch Database Insights
+## Analyze database performance on demand with CloudWatch Database Insights
 
 Analyze database performance with on-demand analyses for your Amazon RDS databases with
 CloudWatch Database Insights.

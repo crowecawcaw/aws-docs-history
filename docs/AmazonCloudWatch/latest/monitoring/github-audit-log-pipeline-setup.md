@@ -1,6 +1,4 @@
-# CloudWatch pipelines configuration for GitHub Audit
-
-Log
+# CloudWatch pipelines configuration for GitHub Audit Log
 
 ###### Note
 

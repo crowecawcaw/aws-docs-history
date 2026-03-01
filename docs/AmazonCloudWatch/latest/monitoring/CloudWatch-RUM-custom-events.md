@@ -1,7 +1,6 @@
 # Send custom events
 
-CloudWatch RUM records and ingests the events listed in [Information collected by the CloudWatch RUM
-web client](CloudWatch-RUM-datacollected.md "CloudWatch-RUM-datacollected.md"). If you use version 1.12.0 or later of the CloudWatch RUM web client, you can define,
+CloudWatch RUM records and ingests the events listed in [Information collected by the CloudWatch RUM web client](CloudWatch-RUM-datacollected.md "CloudWatch-RUM-datacollected.md"). If you use version 1.12.0 or later of the CloudWatch RUM web client, you can define,
 record, and send additional custom events. You define the event type name and the data
 to send for each event type that you define. Each custom event payload can be up to 6
 KB.
@@ -33,9 +32,7 @@ these are as follows:
     RUM.
   - Must be an object that consists of fields and values.
 
-## Examples of recording custom
-
-events
+## Examples of recording custom events
 
 There are two ways to record custom events in the CloudWatch RUM web client.
 

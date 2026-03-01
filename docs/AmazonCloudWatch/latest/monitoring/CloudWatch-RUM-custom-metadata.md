@@ -3,8 +3,7 @@
 CloudWatch RUM attaches additional data to each event as metadata. Event metadata consists
 of attributes in the form of key-value pairs. You can use these attributes to search or
 filter events in the CloudWatch RUM console. By default, CloudWatch RUM creates some metadata for
-you. For more information about the default metadata, see [RUM event
-metadata](CloudWatch-RUM-datacollected.md#CloudWatch-RUM-datacollected-metadata "CloudWatch-RUM-datacollected.md#CloudWatch-RUM-datacollected-metadata").
+you. For more information about the default metadata, see [RUM event metadata](CloudWatch-RUM-datacollected.md#CloudWatch-RUM-datacollected-metadata "CloudWatch-RUM-datacollected.md#CloudWatch-RUM-datacollected-metadata").
 
 You can also use the CloudWatch RUM web client to add custom metadata to CloudWatch RUM events.
 The custom metadata can include session attributes and page attributes.
@@ -12,9 +11,7 @@ The custom metadata can include session attributes and page attributes.
 To add custom metadata, you must use version 1.10.0 or later of the CloudWatch RUM web
 client.
 
-## Requirements and
-
-syntax
+## Requirements and syntax
 
 Each event can include as many as 10 custom attributes in the metadata. The syntax
 requirements for custom attributes are as follows:
@@ -252,9 +249,7 @@ example**
 </script>
 ```
 
-## Filtering by metadata attributes in the
-
-console
+## Filtering by metadata attributes in the console
 
 To filter the visualizations in the CloudWatch RUM console with any built-in or custom
 metadata attribute, use the search bar. In the search bar, you can specify as many

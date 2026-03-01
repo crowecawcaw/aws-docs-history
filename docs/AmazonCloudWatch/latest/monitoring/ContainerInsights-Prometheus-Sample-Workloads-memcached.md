@@ -1,6 +1,4 @@
-# Set up
-
-memcached with a metric exporter on Amazon EKS and Kubernetes
+# Set up memcached with a metric exporter on Amazon EKS and Kubernetes
 
 memcached is an open-source memory object caching system. For more information,
 see [What is Memcached?](https://www.memcached.org "https://www.memcached.org").
@@ -15,9 +13,7 @@ eksctl create fargateprofile --cluster `MyCluster` \
 --namespace memcached-sample --name memcached-sample
 ```
 
-###### To install memcached with a metric exporter to test Container Insights
-
-Prometheus support
+###### To install memcached with a metric exporter to test Container Insights Prometheus support
 
 1. Enter the following command to add the repo:
 

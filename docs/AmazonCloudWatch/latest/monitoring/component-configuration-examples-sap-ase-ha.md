@@ -1,6 +1,4 @@
-# SAP ASE High Availability on
-
-Amazon EC2
+# SAP ASE High Availability on Amazon EC2
 
 The following example shows a component configuration in JSON format for SAP
 ASE High Availability on Amazon EC2.

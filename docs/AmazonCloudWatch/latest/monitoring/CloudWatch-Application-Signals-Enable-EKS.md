@@ -54,8 +54,7 @@ If you haven't already enabled Application Signals, follow the instructions in [
    ```
 
    5. If you want to create a service role to use the add-on, see
-      [Install the CloudWatch agent with the
-      Amazon CloudWatch Observability EKS add-on or the Helm chart](install-CloudWatch-Observability-EKS-addon.md "install-CloudWatch-Observability-EKS-addon.md").
+      [Install the CloudWatch agent with the Amazon CloudWatch Observability EKS add-on or the Helm chart](install-CloudWatch-Observability-EKS-addon.md "install-CloudWatch-Observability-EKS-addon.md").
    6. Choose **Next**, confirm the information on the screen, and
       choose **Create**.
    7. In the next screen, choose **Enable CloudWatch Application Signals** to return to the CloudWatch console
@@ -77,8 +76,7 @@ If you are enabling Application Signals for a Node.js application with ESM, skip
 Console
 The **Console** option uses the advanced configuration of the
 Amazon CloudWatch Observability EKS add-on to setup Application Signals for your services.
-For more information about the add-on, see [(Optional)
-Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration "install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration").
+For more information about the add-on, see [(Optional) Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration "install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration").
 
 If you don’t see a list of workloads and namespaces, ensure you have the right permissions to view them for this cluster.
 For more information, see [Required permissions](../../../eks/latest/userguide/view-kubernetes-resources.md#view-kubernetes-resources-permissions "../../../eks/latest/userguide/view-kubernetes-resources.md#view-kubernetes-resources-permissions").
@@ -350,8 +348,7 @@ The Discovery CloudFormation resource grants Application Signals the following p
     * `tag:GetResources`
 
 For more information about this role, see
-[Service-linked role permissions for
-CloudWatch Application Signals](using-service-linked-roles.md#service-linked-role-signals "using-service-linked-roles.md#service-linked-role-signals"). 2. Install the `amazon-cloudwatch-observability` add-on.
+[Service-linked role permissions for CloudWatch Application Signals](using-service-linked-roles.md#service-linked-role-signals "using-service-linked-roles.md#service-linked-role-signals"). 2. Install the `amazon-cloudwatch-observability` add-on.
 
     1. Create an IAM role with the `CloudWatchAgentServerPolicy` and the OIDC associated with the cluster.
 
@@ -473,5 +470,7 @@ Using the CloudWatch Application Signals MCP server offers several advantages:
 - **Reduced errors:** Automated configuration generation minimizes manual typing errors
 - **Faster setup:** Get from intention to implementation more quickly
 - **Learning tool:** See the generated configurations and understand how Application Signals works
+
+### Additional resources
 
 For more information about configuring and using the CloudWatch Application Signals MCP server, see the [MCP server documentation](https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server "https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server").

@@ -103,15 +103,13 @@ pricing calculator.
 The CloudWatch agent is software that runs continuously and autonomously on your servers and in containerized environments. It collects metrics, logs, and traces from your
 infrastructure and applications and sends them to CloudWatch and X-Ray.
 
-For more information about the CloudWatch agent, see [Collect metrics, logs, and traces using the CloudWatch
-agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md").
+For more information about the CloudWatch agent, see [Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md").
 
 The agent configuration in this solution collects the foundational metrics for Kafka, JVM, and EC2. The CloudWatch agent can be configured to collect more
 Kafka and JVM metrics than the dashboard displays by default. For a list of all Kafka metrics that you can collect, see
 [Collect Kafka metrics](CloudWatch-Agent-JMX-metrics.md#CloudWatch-Agent-Kafka-metrics "CloudWatch-Agent-JMX-metrics.md#CloudWatch-Agent-Kafka-metrics"). For a list of all JVM metrics that you can collect, see
 [Collect JVM metrics](CloudWatch-Agent-JMX-metrics.md#CloudWatch-Agent-JVM-metrics "CloudWatch-Agent-JMX-metrics.md#CloudWatch-Agent-JVM-metrics"). For a list of EC2 metrics, see
-[Metrics collected by the CloudWatch
-agent on Linux and macOS instances](metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent "metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent").
+[Metrics collected by the CloudWatch agent on Linux and macOS instances](metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent "metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent").
 
 **Expose JMX ports for the Kafka broker, producer, and consumer roles**
 
@@ -203,13 +201,11 @@ for `ClusterName` is used as
 both the `ClusterName` dimension and the `ProcessGroupName` dimension.
 Replace `port-number`
 with the JMX port of your Kafka server. If JMX was enabled with password authentication or SSL for remote access,
-see [Collect Java Management Extensions (JMX)
-metrics](CloudWatch-Agent-JMX-metrics.md "CloudWatch-Agent-JMX-metrics.md") for information about setting up TLS or authorization as required.
+see [Collect Java Management Extensions (JMX) metrics](CloudWatch-Agent-JMX-metrics.md "CloudWatch-Agent-JMX-metrics.md") for information about setting up TLS or authorization as required.
 
 The EC2 metrics shown in this configuration (configuration shown outside the JMX block)
 only work for Linux and macOS instances. If you are using Windows instances, you can choose to omit these metrics in the configuration.
-For information about metrics collected on Windows instances, see [Metrics collected by the CloudWatch
-agent on Windows Server instances](metrics-collected-by-CloudWatch-agent.md#windows-metrics-enabled-by-CloudWatch-agent "metrics-collected-by-CloudWatch-agent.md#windows-metrics-enabled-by-CloudWatch-agent").
+For information about metrics collected on Windows instances, see [Metrics collected by the CloudWatch agent on Windows Server instances](metrics-collected-by-CloudWatch-agent.md#windows-metrics-enabled-by-CloudWatch-agent "metrics-collected-by-CloudWatch-agent.md#windows-metrics-enabled-by-CloudWatch-agent").
 
 ```
 {
@@ -375,8 +371,7 @@ There are several approaches for installing the CloudWatch agent, depending on t
 We recommend using Systems Manager for this solution. It provides a console experience and makes it simpler to
 manage a fleet of managed servers within a single AWS account. The instructions in this section use Systems Manager and are intended for
 when you don’t have the CloudWatch agent running with existing configurations. You can check whether the CloudWatch agent is
-running by following the steps in [Verify that the CloudWatch agent
-is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running").
+running by following the steps in [Verify that the CloudWatch agent is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running").
 
 If you are already running the CloudWatch agent on the
 EC2 hosts where the workload is deployed and managing the agent configurations,
@@ -498,15 +493,13 @@ be associated with the CloudWatch agents running in the targeted instances. This
 
 ### Step 4: Verify the agent setup is configured properly
 
-You can verify whether the CloudWatch agent is installed by following the steps in [Verify that the CloudWatch agent
-is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running"). If the CloudWatch agent is
+You can verify whether the CloudWatch agent is installed by following the steps in [Verify that the CloudWatch agent is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running"). If the CloudWatch agent is
 not installed and running, make sure you have set up everything correctly.
 
 - Be sure you have attached a role with correct permissions for the
   EC2 instance as described in [Step 1: Ensure the target EC2 instances have the required IAM permissions](Solution-Tomcat-On-EC2.md#Solution-Tomcat-Agent-Step1 "Solution-Tomcat-On-EC2.md#Solution-Tomcat-Agent-Step1").
 - Be sure you have correctly configured the JSON for the Systems Manager parameter. Follow the steps in
-  [Troubleshooting
-  installation of the CloudWatch agent with CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting "Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting").
+  [Troubleshooting installation of the CloudWatch agent with CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting "Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting").
 
 If everything is set up correctly, then you should see the
 Kafka metrics being published to CloudWatch. You can check the CloudWatch console to verify they are being published.
@@ -532,8 +525,7 @@ The top contributor view displays the top 10 per metric widget. This allows you 
 The solution dashboard doesn't display EC2 metrics.
 To view EC2 metrics, you'll need to use the EC2 automatic dashboard to see EC2 vended metrics and
 use the EC2 console dashboard to see EC2 metrics that are collected by the CloudWatch agent. For more information about automatic dashboards
-for AWS services, see [Viewing a CloudWatch dashboard for a
-single AWS service](CloudWatch_Automatic_Dashboards_Focus_Service.md "CloudWatch_Automatic_Dashboards_Focus_Service.md").
+for AWS services, see [Viewing a CloudWatch dashboard for a single AWS service](CloudWatch_Automatic_Dashboards_Focus_Service.md "CloudWatch_Automatic_Dashboards_Focus_Service.md").
 
 To create the dashboard, you can use the following options:
 
@@ -662,8 +654,7 @@ in the agent configuration. If the multiple Kafka roles are part of different JV
 role can be different depending on the JMX port set for that process.
 
 - Create separate agent configuration files for each Kafka role, and configure the agent to apply both configuration files.
-  For instructions for applying multiple configuration files, see [Creating multiple CloudWatch agent
-  configuration files](create-cloudwatch-agent-configuration-file.md#CloudWatch-Agent-multiple-config-files "create-cloudwatch-agent-configuration-file.md#CloudWatch-Agent-multiple-config-files").
+  For instructions for applying multiple configuration files, see [Creating multiple CloudWatch agent configuration files](create-cloudwatch-agent-configuration-file.md#CloudWatch-Agent-multiple-config-files "create-cloudwatch-agent-configuration-file.md#CloudWatch-Agent-multiple-config-files").
 
 The following example shows a CloudWatch agent configuration where the producer and consumer roles are
 running on one instance as part of the same JVM process. In this case, the port number must be the same in both the

@@ -81,11 +81,7 @@ integrates seamlessly with your investigation workflow.
 
 ###### Topics
 
-- [Understanding AI-derived facts
-  in incident reports](Investigations-IncidentReports-ai-facts.md "Investigations-IncidentReports-ai-facts.md")
-- [Incident report
-  terminology](Investigations-IncidentReports-terms.md "Investigations-IncidentReports-terms.md")
-- [Generate a report from an
-  investigation](Investigations-IncidentReports-Generate.md "Investigations-IncidentReports-Generate.md")
-- [Using 5 Whys analysis in incident
-  reports](incident-report-5whys.md "incident-report-5whys.md")
+- [Understanding AI-derived facts in incident reports](Investigations-IncidentReports-ai-facts.md "Investigations-IncidentReports-ai-facts.md")
+- [Incident report terminology](Investigations-IncidentReports-terms.md "Investigations-IncidentReports-terms.md")
+- [Generate a report from an investigation](Investigations-IncidentReports-Generate.md "Investigations-IncidentReports-Generate.md")
+- [Using 5 Whys analysis in incident reports](incident-report-5whys.md "incident-report-5whys.md")

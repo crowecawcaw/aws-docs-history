@@ -1,6 +1,4 @@
-# Building your queries in
-
-CloudWatch Metrics Insights
+# Building your queries in CloudWatch Metrics Insights
 
 You can run a CloudWatch Metrics Insights query using the CloudWatch console, the AWS CLI, or the AWS SDKs. Queries
 run in the console are free of charge. For more information about CloudWatch pricing, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").

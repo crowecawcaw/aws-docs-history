@@ -1,6 +1,4 @@
-# Enabling unminification
-
-of JavaScript error stack traces
+# Enabling unminification of JavaScript error stack traces
 
 When your web application JavaScript source code is minified, error stack traces can
 be difficult to read. You can enable unminification to the stack traces by uploading
@@ -33,23 +31,15 @@ WebpackJS](https://webpack.js.org/guides/code-splitting/ "https://webpack.js.org
 
 ###### Topics
 
-- [Configure your Amazon S3 bucket resource
-  policy to allow RUM service access](#CloudWatch-RUM-ConfigureS3 "#CloudWatch-RUM-ConfigureS3")
+- [Configure your Amazon S3 bucket resource policy to allow RUM service access](#CloudWatch-RUM-ConfigureS3 "#CloudWatch-RUM-ConfigureS3")
 - [Upload source maps](#CloudWatch-RUM-UploadSourceMaps "#CloudWatch-RUM-UploadSourceMaps")
-- [Configure releaseId in your CloudWatch RUM
-  web client](#CloudWatch-RUM-ConfigureRumID "#CloudWatch-RUM-ConfigureRumID")
-- [Enabling CloudWatch RUM app monitor to
-  unminify JavaScript stack traces](#CloudWatch-RUM-unminifyjavascript "#CloudWatch-RUM-unminifyjavascript")
-- [Viewing unminified stack
-  traces in the RUM console](#CloudWatch-RUM-viewunminifiedstacktraces "#CloudWatch-RUM-viewunminifiedstacktraces")
-- [Viewing unminified
-  stack traces in CloudWatch Logs](#CloudWatch-RUM-viewunminifiedstacktracesCWL "#CloudWatch-RUM-viewunminifiedstacktracesCWL")
-- [Troubleshooting source
-  maps](#CloudWatch-RUM-troubleshootsourcemaps "#CloudWatch-RUM-troubleshootsourcemaps")
+- [Configure releaseId in your CloudWatch RUM web client](#CloudWatch-RUM-ConfigureRumID "#CloudWatch-RUM-ConfigureRumID")
+- [Enabling CloudWatch RUM app monitor to unminify JavaScript stack traces](#CloudWatch-RUM-unminifyjavascript "#CloudWatch-RUM-unminifyjavascript")
+- [Viewing unminified stack traces in the RUM console](#CloudWatch-RUM-viewunminifiedstacktraces "#CloudWatch-RUM-viewunminifiedstacktraces")
+- [Viewing unminified stack traces in CloudWatch Logs](#CloudWatch-RUM-viewunminifiedstacktracesCWL "#CloudWatch-RUM-viewunminifiedstacktracesCWL")
+- [Troubleshooting source maps](#CloudWatch-RUM-troubleshootsourcemaps "#CloudWatch-RUM-troubleshootsourcemaps")
 
-## Configure your Amazon S3 bucket resource
-
-policy to allow RUM service access
+## Configure your Amazon S3 bucket resource policy to allow RUM service access
 
 Make sure your Amazon S3 bucket is in the same region as your RUM appMonitor. Configure
 your Amazon S3 bucket to allow RUM service access for retrieving source map files.
@@ -176,9 +166,7 @@ else
 fi
 ```
 
-## Configure releaseId in your CloudWatch RUM
-
-web client
+## Configure releaseId in your CloudWatch RUM web client
 
 CloudWatch RUM uses the configured `releaseId` to determine the folder to
 retrieve the source map files. Name the `releaseId` the same as your
@@ -209,9 +197,7 @@ try {
 }
 ```
 
-## Enabling CloudWatch RUM app monitor to
-
-unminify JavaScript stack traces
+## Enabling CloudWatch RUM app monitor to unminify JavaScript stack traces
 
 To unminify JavaScript stack traces, set the app monitor's SourceMap status to
 `ENABLED`. Provide the Amazon S3 URI to the bucket or folder containing
@@ -239,9 +225,7 @@ In this case, source map files should be located at the following location.
             |-index.d5a07c87.js.map
 ```
 
-## Viewing unminified stack
-
-traces in the RUM console
+## Viewing unminified stack traces in the RUM console
 
 After uploading your source maps to Amazon S3, enabling source maps on your RUM app
 monitor, and deploying your web application with the `releaseId`
@@ -250,9 +234,7 @@ Filter by the JS error event type and view the latest JS error event. You will s
 the unminified stack trace in the new `event_details.unminifiedStack`
 field for events ingested after the feature was enabled.
 
-## Viewing unminified
-
-stack traces in CloudWatch Logs
+## Viewing unminified stack traces in CloudWatch Logs
 
 Enable RUM event storage in CloudWatch Logs by turning on **Data
 storage**. Once enabled, you can search the new
@@ -260,9 +242,7 @@ storage**. Once enabled, you can search the new
 analyze trends and relate issues across multiple sessions using CloudWatch Logs
 queries.
 
-## Troubleshooting source
-
-maps
+## Troubleshooting source maps
 
 CloudWatch RUM provides out of the box metrics to troubleshoot your source map setup.
 These metrics are published in the metric namespace named `AWS/RUM`. The

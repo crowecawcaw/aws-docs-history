@@ -1,6 +1,4 @@
-# Changing the time range or time zone format of a CloudWatch
-
-dashboard
+# Changing the time range or time zone format of a CloudWatch dashboard
 
 You can
 change the time range to display dashboard data over minutes, hours, days, or weeks. You

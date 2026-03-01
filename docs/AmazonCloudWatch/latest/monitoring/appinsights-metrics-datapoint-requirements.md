@@ -1,6 +1,4 @@
-# Metrics with data
-
-points requirements
+# Metrics with data points requirements
 
 For metrics without an obvious default threshold to alarm on, Application Insights waits
 until the metric has enough data points to predict a reasonable threshold to alarm
@@ -18,8 +16,7 @@ are:
 - [AWS/ApplicationELB](#appinsights-metrics-datapoint-requirements-app-elb "#appinsights-metrics-datapoint-requirements-app-elb")
 - [AWS/AutoScaling](#appinsights-metrics-datapoint-requirements-autoscaling "#appinsights-metrics-datapoint-requirements-autoscaling")
 - [AWS/EC2](#appinsights-metrics-datapoint-requirements-ec2 "#appinsights-metrics-datapoint-requirements-ec2")
-- [Elastic Block
-  Store (EBS)](#appinsights-metrics-datapoint-requirements-ebs "#appinsights-metrics-datapoint-requirements-ebs")
+- [Elastic Block Store (EBS)](#appinsights-metrics-datapoint-requirements-ebs "#appinsights-metrics-datapoint-requirements-ebs")
 - [AWS/ELB](#appinsights-metrics-datapoint-requirements-elb "#appinsights-metrics-datapoint-requirements-elb")
 - [AWS/RDS](#appinsights-metrics-datapoint-requirements-rds "#appinsights-metrics-datapoint-requirements-rds")
 - [AWS/Lambda](#appinsights-metrics-datapoint-requirements-lambda "#appinsights-metrics-datapoint-requirements-lambda")
@@ -113,9 +110,7 @@ NetworkPacketsIn
 
 NetworkPacketsOut
 
-## Elastic Block
-
-Store (EBS)
+## Elastic Block Store (EBS)
 
 VolumeReadBytes
 

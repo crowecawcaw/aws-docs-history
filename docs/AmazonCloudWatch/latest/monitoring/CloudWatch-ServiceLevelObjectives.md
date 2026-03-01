@@ -48,10 +48,8 @@ application to make sure that long-term performance goals are met.
 ###### Topics
 
 - [SLO concepts](#CloudWatch-ServiceLevelObjectives-concepts "#CloudWatch-ServiceLevelObjectives-concepts")
-- [Calculate error budget and
-  attainment for period-based SLOs](#CloudWatch-ServiceLevelObjectives-budget "#CloudWatch-ServiceLevelObjectives-budget")
-- [Calculate error budget and
-  attainment for request-based SLOs](#CloudWatch-ServiceLevelObjectives-budget-request "#CloudWatch-ServiceLevelObjectives-budget-request")
+- [Calculate error budget and attainment for period-based SLOs](#CloudWatch-ServiceLevelObjectives-budget "#CloudWatch-ServiceLevelObjectives-budget")
+- [Calculate error budget and attainment for request-based SLOs](#CloudWatch-ServiceLevelObjectives-budget-request "#CloudWatch-ServiceLevelObjectives-budget-request")
 - [Calculate burn rates and optionally set burn rate alarms](#CloudWatch-ServiceLevelObjectives-burn "#CloudWatch-ServiceLevelObjectives-burn")
 - [Create an SLO](#CloudWatch-ServiceLevelObjectives-Create "#CloudWatch-ServiceLevelObjectives-Create")
 - [View and triage SLO status](#CloudWatch-ServiceLevelObjectives-Triage "#CloudWatch-ServiceLevelObjectives-Triage")
@@ -106,9 +104,7 @@ Rate)\*100**, where Fault responses are `5xx` errors. Success responses
 are responses without a `5XX` error. `4XX` responses are treated as
 successful.
 
-## Calculate error budget and
-
-attainment for period-based SLOs
+## Calculate error budget and attainment for period-based SLOs
 
 When you view information about an SLO, you see its current health status and its
 _error budget_. The error budget is the amount of time within the
@@ -127,9 +123,7 @@ met. So far in the current interval, 130 of the
 
 ![A bar chart diagram that shows the total periods in an SLO interval, and the attainment and error budget numbers for this SLO.](images/SLO-budget.png)
 
-### Determine success within each
-
-period
+### Determine success within each period
 
 Within each period, the SLI data is aggregated into a single data point based on the statistic used for the SLI.
 This data point represents the entire length of the
@@ -151,9 +145,7 @@ _Time window exclusions_ is a block of time with a defined start and end date. T
 - When an interval for a request-based SLO is completely excluded, a default attainment rate metric of 100% is published.
 - You can only specify time windows with a start date in the future.
 
-## Calculate error budget and
-
-attainment for request-based SLOs
+## Calculate error budget and attainment for request-based SLOs
 
 After you have created an SLO, you can retrieve error budget reports for it.
 An _error budget_ is the amount of requests that your application can be non-compliant
@@ -330,8 +322,7 @@ any CloudWatch metric or any metric math expression that results in a single tim
 The first time that you create an SLO in your account, CloudWatch automatically creates the **AWSServiceRoleForCloudWatchApplicationSignals**
 service-linked role in your account, if it doesn't already exist. This service-linked role allows CloudWatch to
 collect CloudWatch Logs data, X-Ray trace data, CloudWatch metrics data, and tagging data from applications in your account.
-For more information about CloudWatch service-linked roles, see [Using service-linked roles for
-CloudWatch](using-service-linked-roles.md "using-service-linked-roles.md").
+For more information about CloudWatch service-linked roles, see [Using service-linked roles for CloudWatch](using-service-linked-roles.md "using-service-linked-roles.md").
 
 When you create an SLO, you specify whether it is a _period-based SLO_
 or a _request-based SLO_. Each type of SLO has a different way of evaluating
@@ -395,8 +386,7 @@ Use the following procedure to create a period-based SLO.
 
      For more information about these screens, see
      [Graph a metric](graph_a_metric.md "graph_a_metric.md") and
-     [Add a math expression to a CloudWatch
-     graph](using-metric-math.md#adding-metrics-expression-console "using-metric-math.md#adding-metrics-expression-console"). 3. For **Select a calculation method**, choose **Periods**. 4. For **Set condition**, select a comparison operator and threshold
+     [Add a math expression to a CloudWatch graph](using-metric-math.md#adding-metrics-expression-console "using-metric-math.md#adding-metrics-expression-console"). 3. For **Select a calculation method**, choose **Periods**. 4. For **Set condition**, select a comparison operator and threshold
      for the SLO to use as the indicator of success.
 
    - To set the SLO on the dependency of a service on either of the standard application metrics `Latency` or
@@ -523,8 +513,7 @@ Use the following procedure to create a request-based SLO.
 
      For more information about these screens, see
      [Graph a metric](graph_a_metric.md "graph_a_metric.md") and
-     [Add a math expression to a CloudWatch
-     graph](using-metric-math.md#adding-metrics-expression-console "using-metric-math.md#adding-metrics-expression-console").
+     [Add a math expression to a CloudWatch graph](using-metric-math.md#adding-metrics-expression-console "using-metric-math.md#adding-metrics-expression-console").
 
    - To set the SLO on the dependency of a service on either of the standard application metrics `Latency` or
      `Availability`:
@@ -659,8 +648,7 @@ see [SLO concepts](#CloudWatch-ServiceLevelObjectives-concepts "#CloudWatch-Serv
 The graphs at the top of the page display the **SLO attainment** and
 **Error budget** status. A graph about the SLI metric associated with this SLO
 is also displayed. 4. To further triage an SLO that is not meeting its goal, choose the service name, operation name, or dependency name associated with that SLO. You are taken to the details page where you can triage further. For more
-information, see [View detailed service activity and operational health with the
-service detail page](ServiceDetail.md "ServiceDetail.md"). 5. To change the time range of the charts and tables on the page, choose a new time range
+information, see [View detailed service activity and operational health with the service detail page](ServiceDetail.md "ServiceDetail.md"). 5. To change the time range of the charts and tables on the page, choose a new time range
 near the top of the screen.
 
 ## Edit an existing SLO

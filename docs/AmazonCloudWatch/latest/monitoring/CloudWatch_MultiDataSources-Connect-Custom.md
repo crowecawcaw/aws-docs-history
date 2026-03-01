@@ -24,9 +24,7 @@ You can connect a custom data source to CloudWatch in two ways:
   - [Step 2: Create a Lambda permissions policy](CloudWatch_MultiDataSources-Connect-Custom.md#MultiDataSources-Connect-Custom-Lambda-Permissions "CloudWatch_MultiDataSources-Connect-Custom.md#MultiDataSources-Connect-Custom-Lambda-Permissions")
   - [Step 3: Attach a resource tag to the Lambda function](CloudWatch_MultiDataSources-Connect-Custom.md#MultiDataSources-Connect-Custom-Lambda-tags "CloudWatch_MultiDataSources-Connect-Custom.md#MultiDataSources-Connect-Custom-Lambda-tags")
 
-##
-
-Use a template
+## Use a template
 
 Using a template creates a sample Lambda function, and can help you get your custom connector
 built faster. These sample functions provide sample code
@@ -57,8 +55,7 @@ choose the refresh icon to update this list.
 
 When your new data source appears in this list, it is ready for you to test in the console
 and modify. 10. (Optional) To query the test data from this source in the console, follow the instructions in
-[Creating a graph of metrics from
-another data source](graph_a_metric.md#create-metric-graph-multidatasource "graph_a_metric.md#create-metric-graph-multidatasource"). 11. Modify the Lambda function for your needs.
+[Creating a graph of metrics from another data source](graph_a_metric.md#create-metric-graph-multidatasource "graph_a_metric.md#create-metric-graph-multidatasource"). 11. Modify the Lambda function for your needs.
 
     1. In the navigation pane, choose **Settings**.
     2. Choose the **Metrics data sources** tab.
@@ -73,15 +70,11 @@ By using the template, when you write your Lambda function you don't need to fol
 or [Step 3: Attach a resource tag to the Lambda function](#MultiDataSources-Connect-Custom-Lambda-tags "#MultiDataSources-Connect-Custom-Lambda-tags"). These steps were performed by
 CloudWatch because you used the template.
 
-##
-
-Create a custom data source from scratch
+## Create a custom data source from scratch
 
 Follow the steps in this section to create a Lambda function that connects CloudWatch to a data source.
 
-###
-
-Step 1: Create the function
+### Step 1: Create the function
 
 A custom data source connector must support `GetMetricData` events from
 CloudWatch. Optionally, you can also implement a `DescribeGetMetricData` event to
@@ -120,9 +113,7 @@ correspond to the requested start time and period.
   dashboard widget with the query. In some cases, this might make your query not
   valid.
 
-####
-
-GetMetricData event
+#### GetMetricData event
 
 **Request payload**
 
@@ -253,9 +244,7 @@ that it's a generic internal error.
 }
 ```
 
-####
-
-DescribeGetMetricData event
+#### DescribeGetMetricData event
 
 **Request payload**
 
@@ -302,18 +291,13 @@ Type: Array of objects containing Value and Type.
   included in any response. You can see examples in
   [GetMetricData event](#MultiDataSources-GetMetricData "#MultiDataSources-GetMetricData").
 
-####
-
-Important considerations for CloudWatch alarms
+#### Important considerations for CloudWatch alarms
 
 If you are going to use the data source to set CloudWatch alarms, you should set it up to
 report data with timestamps every minute to CloudWatch. For more information and other
-considerations for creating alarms on metrics from connected data sources, see [Create an alarm based on a connected data
-source](Create_MultiSource_Alarm.md "Create_MultiSource_Alarm.md").
+considerations for creating alarms on metrics from connected data sources, see [Create an alarm based on a connected data source](Create_MultiSource_Alarm.md "Create_MultiSource_Alarm.md").
 
-####
-
-(Optional) Use AWS Secrets Manager to store credentials
+#### (Optional) Use AWS Secrets Manager to store credentials
 
 If your Lambda function needs to use credentials to access the data source, we
 recommend using AWS Secrets Manager to store these credentials instead of
@@ -321,9 +305,7 @@ hardcoding them into your Lambda function. For more information about using
 AWS Secrets Manager with Lambda, see [Use
 AWS Secrets Manager secrets in AWS Lambda functions](../../../secretsmanager/latest/userguide/retrieving-secrets_lambda.md "../../../secretsmanager/latest/userguide/retrieving-secrets_lambda.md").
 
-####
-
-(Optional) Connect to a data source in a VPC
+#### (Optional) Connect to a data source in a VPC
 
 If your data source is in a VPC managed by Amazon Virtual Private Cloud, you must configure your Lambda
 function to access it. For more information, see [Connecting outbound networking to
@@ -333,9 +315,7 @@ You might also need to configure VPC service endpoints to access services such
 as AWS Secrets Manager. For more information, see
 [Access an AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#access-service-though-endpoint "../../../vpc/latest/privatelink/create-interface-endpoint.md#access-service-though-endpoint").
 
-###
-
-Step 2: Create a Lambda permissions policy
+### Step 2: Create a Lambda permissions policy
 
 You must use create a policy statement that grants CloudWatch permission to use
 the Lambda function that you created. You can use the AWS CLI or the Lambda console to create
@@ -351,9 +331,7 @@ the policy statement.
 aws lambda add-permission --function-name `my-data-source-function` --statement-id `MyDataSource-DataSourcePermission1234` --action lambda:InvokeFunction --principal lambda.datasource.cloudwatch.amazonaws.com --source-account `123456789012`
 ```
 
-###
-
-Step 3: Attach a resource tag to the Lambda function
+### Step 3: Attach a resource tag to the Lambda function
 
 The CloudWatch console determines which of your Lambda functions are data source connectors by using
 a tag. When you create a data source using one of the wizards, the tag is automatically

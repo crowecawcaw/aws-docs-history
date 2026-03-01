@@ -14,15 +14,11 @@ You do not need to install the CloudWatch agent to send logs from Lambda functio
 Lambda function timeouts are not handled automatically. This means that if your function times out before the metrics get flushed,
 then the metrics for that invocation will not be captured.
 
-## Installing the CloudWatch
-
-agent
+## Installing the CloudWatch agent
 
 Install the CloudWatch agent for each service which is to send embedded metric format logs.
 
-### Installing the CloudWatch
-
-agent on EC2
+### Installing the CloudWatch agent on EC2
 
 First, install the CloudWatch agent on the instance. For more information, see
 [Installing the CloudWatch agent](install-CloudWatch-Agent-on-EC2-Instance.md "install-CloudWatch-Agent-on-EC2-Instance.md").
@@ -30,8 +26,7 @@ First, install the CloudWatch agent on the instance. For more information, see
 Once you have installed the agent, configure the agent to listen on a UDP or TCP port for the embedded metric format logs.
 The following is an example of this configuration that listens on the default socket `tcp:25888`. For more information about
 agent configuration, see
-[Manually create or edit the
-CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").
+[Manually create or edit the CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").
 
 ```
 {
@@ -43,9 +38,7 @@ CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details
 }
 ```
 
-### Installing the CloudWatch
-
-agent on Amazon ECS
+### Installing the CloudWatch agent on Amazon ECS
 
 The easiest way to deploy the CloudWatch agent on Amazon ECS is to run it as a sidecar,
 defining it in the same task definition as your application.
@@ -57,8 +50,7 @@ In this example, the relative file path will be `amazon-cloudwatch-agent.json`.
 
 For more information about
 agent configuration, see
-[Manually create or edit the
-CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").
+[Manually create or edit the CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").
 
 ```
 {
@@ -202,9 +194,7 @@ aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonSSMReadOnl
 
 ```
 
-### Installing the CloudWatch
-
-agent on Amazon EKS
+### Installing the CloudWatch agent on Amazon EKS
 
 Parts of this process can be skipped if you have already installed
 CloudWatch Container Insights on this cluster.
@@ -214,8 +204,7 @@ Permissions
 If you have not already installed Container Insights, then first ensure that your
 Amazon EKS nodes have the appropriate IAM permissions. They should have the
 **CloudWatchAgentServerPolicy** attached.
-For more information, see [Verifying prerequisites for Container
-Insights in CloudWatch](Container-Insights-prerequisites.md "Container-Insights-prerequisites.md").
+For more information, see [Verifying prerequisites for Container Insights in CloudWatch](Container-Insights-prerequisites.md "Container-Insights-prerequisites.md").
 
 **Create ConfigMap**
 

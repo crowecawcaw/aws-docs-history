@@ -137,9 +137,7 @@ average customer experience, ignoring outliers.
 Trimmed mean is a good latency statistic to watch if you are looking to optimize your
 customer experience.
 
-## Requirements to use percentiles, trimmed mean, and
-
-some other statistics
+## Requirements to use percentiles, trimmed mean, and some other statistics
 
 CloudWatch needs raw data points to calculate the following statistics:
 

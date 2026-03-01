@@ -1,6 +1,4 @@
-#
-
-Managing access to data sources
+# Managing access to data sources
 
 CloudWatch uses CloudFormation to create the required resources in your account. We recommend that you
 use the `cloudformation:TemplateUrl` condition to control access to CloudFormation templates when

@@ -1,12 +1,9 @@
-# Viewing canary
-
-statistics and details
+# Viewing canary statistics and details
 
 You can view details about your canaries and see statistics about their runs.
 
 To be able to see all the details about your canary run results, you must be logged on to an account
-that has sufficient permissions. For more information, see [Required roles and permissions for CloudWatch
-canaries](CloudWatch_Synthetics_Canaries_Roles.md "CloudWatch_Synthetics_Canaries_Roles.md").
+that has sufficient permissions. For more information, see [Required roles and permissions for CloudWatch canaries](CloudWatch_Synthetics_Canaries_Roles.md "CloudWatch_Synthetics_Canaries_Roles.md").
 
 ###### To view canary statistics and details
 

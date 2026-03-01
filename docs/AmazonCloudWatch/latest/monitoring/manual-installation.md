@@ -7,15 +7,12 @@ first time.
 
 ###### Topics
 
-- [Installing on Amazon Linux using the package
-  manager](#amazon-linux-package "#amazon-linux-package")
+- [Installing on Amazon Linux using the package manager](#amazon-linux-package "#amazon-linux-package")
 - [Installing on Amazon Linux using the command line](#linux-manual-install "#linux-manual-install")
 - [Installing on Windows](#windows-installation "#windows-installation")
 - [Installing on macOS](#macos-installation "#macos-installation")
 
-## Installing on Amazon Linux using the package
-
-manager
+## Installing on Amazon Linux using the package manager
 
 The CloudWatch agent is available as a package in Amazon Linux 2023 and Amazon Linux 2.
 If you are using one of these operating systems, you can install the package by entering
@@ -47,8 +44,7 @@ wget download-link
 | ARM64        | Amazon Linux 2023 and Amazon Linux 2 | https://amazoncloudwatch-agent.s3.amazonaws.com/amazon\_linux/arm64/latest/amazon-cloudwatch-agent.rpm |
 
 2. After you have downloaded the package, you can optionally verify the package
-   signature. For more information, see [Verifying the signature of the
-   CloudWatch agent package](verify-CloudWatch-Agent-Package-Signature.md "verify-CloudWatch-Agent-Package-Signature.md").
+   signature. For more information, see [Verifying the signature of the CloudWatch agent package](verify-CloudWatch-Agent-Package-Signature.md "verify-CloudWatch-Agent-Package-Signature.md").
 3. Install the package. If you downloaded an RPM package on a Linux server, change to
    the directory containing the package and enter the following:
 
@@ -75,8 +71,7 @@ https://amazoncloudwatch-agent.s3.amazonaws.com/windows/amd64/latest/amazon-clou
 ```
 
 2. After you have downloaded the package, you can optionally verify the package
-   signature. For more information, see [Verifying the signature of the
-   CloudWatch agent package](verify-CloudWatch-Agent-Package-Signature.md "verify-CloudWatch-Agent-Package-Signature.md").
+   signature. For more information, see [Verifying the signature of the CloudWatch agent package](verify-CloudWatch-Agent-Package-Signature.md "verify-CloudWatch-Agent-Package-Signature.md").
 3. Install the package. Change to the directory containing the package and enter the
    following:
 
@@ -105,8 +100,7 @@ https://amazoncloudwatch-agent.s3.amazonaws.com/darwin/arm64/latest/amazon-cloud
 ```
 
 2. After you have downloaded the package, you can optionally verify the package
-   signature. For more information, see [Verifying the signature of the
-   CloudWatch agent package](verify-CloudWatch-Agent-Package-Signature.md "verify-CloudWatch-Agent-Package-Signature.md").
+   signature. For more information, see [Verifying the signature of the CloudWatch agent package](verify-CloudWatch-Agent-Package-Signature.md "verify-CloudWatch-Agent-Package-Signature.md").
 3. Install the package. Change to the directory containing the package and enter the
    following:
 

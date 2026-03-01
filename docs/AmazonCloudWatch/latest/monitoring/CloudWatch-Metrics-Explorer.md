@@ -1,6 +1,4 @@
-# Use metrics explorer to monitor resources by their
-
-tags and properties
+# Use metrics explorer to monitor resources by their tags and properties
 
 Metrics explorer is a tag-based tool that enables you to filter, aggregate, and
 visualize your metrics by tags and resource properties, to enhance observability for your services. This gives you a
@@ -122,5 +120,4 @@ These settings will republish the metrics that you had previously set up to be p
 adding to your metric costs.
 
 For more information about editing the CloudWatch agent configuration file, see
-[Manually create or edit the
-CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").
+[Manually create or edit the CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").

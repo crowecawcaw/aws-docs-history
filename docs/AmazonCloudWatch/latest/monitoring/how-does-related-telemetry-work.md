@@ -1,6 +1,4 @@
-# How does CloudWatch find related
-
-telemetry?
+# How does CloudWatch find related telemetry?
 
 The CloudWatch **Explore related** pane shows you metrics and logs that
 are related to each other, but how does that work?
@@ -34,15 +32,12 @@ and database. This can make finding all the telemetry for a service simpler.
 CloudWatch must have received telemetry with entity information within the last
 three hours in order to find related resources and telemetry.
 
-## Where does the entity
-
-data come from?
+## Where does the entity data come from?
 
 There are different ways that CloudWatch gets entities for telemetry:
 
 - Most telemetry sent to CloudWatch from AWS services are associated with resources
-  automatically. For a complete list of supported resources, see [AWS services that support related
-  telemetry](services-with-related-telemetry.md "services-with-related-telemetry.md").
+  automatically. For a complete list of supported resources, see [AWS services that support related telemetry](services-with-related-telemetry.md "services-with-related-telemetry.md").
 - The CloudWatch agent automatically adds entity information to the telemetry
   that it sends to CloudWatch.
 
@@ -50,21 +45,16 @@ There are different ways that CloudWatch gets entities for telemetry:
 
 You may need to update your CloudWatch agent to the latest version to include
 entity data. For more information, see
-[Collect metrics, logs, and traces using the CloudWatch
-agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md"), and [Configure CloudWatch agent
-service and environment names for related entities](CloudWatch-Agent-configure-related-telemetry.md "CloudWatch-Agent-configure-related-telemetry.md").
+[Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md"), and [Configure CloudWatch agent service and environment names for related entities](CloudWatch-Agent-configure-related-telemetry.md "CloudWatch-Agent-configure-related-telemetry.md").
 
 - When you are submitting your own telemetry, you can add entity information
   to the data. For more information, see
-  [How to add related information to
-  custom telemetry sent to CloudWatch](adding-your-own-related-telemetry.md "adding-your-own-related-telemetry.md").
+  [How to add related information to custom telemetry sent to CloudWatch](adding-your-own-related-telemetry.md "adding-your-own-related-telemetry.md").
 - CloudWatch makes a best effort to recognize the entity information associated with
   other telemetry (for example, custom telemetry that you send to CloudWatch without
   any entity information).
 
-## Where does service data
-
-come from?
+## Where does service data come from?
 
 Besides recognizing the natural connections between resources, such as an instance
 resource and an attached volume resource, CloudWatch can also group resources by
@@ -80,8 +70,7 @@ including:
   `OTEL_SERVICE_NAME` environment variable used by supported
   OpenTelemetry instrumentation libraries to set the service name.
 - The CloudWatch agent configuration allows configuring a service name. For more
-  information, see [Configure CloudWatch agent
-  service and environment names for related entities](CloudWatch-Agent-configure-related-telemetry.md "CloudWatch-Agent-configure-related-telemetry.md").
+  information, see [Configure CloudWatch agent service and environment names for related entities](CloudWatch-Agent-configure-related-telemetry.md "CloudWatch-Agent-configure-related-telemetry.md").
 - Kubernetes workloads use a corresponding name from the cluster, such as the
   Deployment, ReplicaSet, Pod, or Container, for the service name.
 - For Amazon EC2 workloads, the service can come from tags (the `service`,
@@ -94,8 +83,7 @@ To use tags to generate service names, you must first
 
 - When you are submitting your own telemetry, you can add service information
   to the data. For more information, see
-  [How to add related information to
-  custom telemetry sent to CloudWatch](adding-your-own-related-telemetry.md "adding-your-own-related-telemetry.md").
+  [How to add related information to custom telemetry sent to CloudWatch](adding-your-own-related-telemetry.md "adding-your-own-related-telemetry.md").
 - When it cannot use the above, CloudWatch uses the name of the IAM role that sends
   the metrics as the service name. This, for example, can provide a service name
   for Amazon ECS telemetry.

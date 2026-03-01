@@ -1,6 +1,4 @@
-# Upgrading to Container Insights
-
-with enhanced observability for Amazon EKS in CloudWatch
+# Upgrading to Container Insights with enhanced observability for Amazon EKS in CloudWatch
 
 ###### Important
 
@@ -8,14 +6,12 @@ If you are upgrading or installing Container Insights on an Amazon EKS cluster, 
 recommend that you use the Amazon CloudWatch Observability EKS add-on for the installation,
 instead of using the instructions in this section. Additionally, to retrieve
 accelerated computing metrics, you must use the Amazon CloudWatch Observability EKS
-add-on. For more information and instructions, see [Quick start with the Amazon CloudWatch
-Observability EKS add-on](Container-Insights-setup-EKS-addon.md "Container-Insights-setup-EKS-addon.md").
+add-on. For more information and instructions, see [Quick start with the Amazon CloudWatch Observability EKS add-on](Container-Insights-setup-EKS-addon.md "Container-Insights-setup-EKS-addon.md").
 
 Container Insights with enhanced observability for Amazon EKS is the newest version of
 Container Insights. It collects detailed metrics from clusters running Amazon EKS and offers
 curated, immediately usable dashboards to drill down into application and infrastructure
-telemetry. For more information about this version of Container Insights, see [Container Insights with enhanced
-observability for Amazon EKS](container-insights-detailed-metrics.md "container-insights-detailed-metrics.md").
+telemetry. For more information about this version of Container Insights, see [Container Insights with enhanced observability for Amazon EKS](container-insights-detailed-metrics.md "container-insights-detailed-metrics.md").
 
 If you have installed the original version of Container Insights in an Amazon EKS cluster
 and you want to upgrade it to the newer version with enhanced observability, follow the
@@ -24,12 +20,9 @@ instructions in this section.
 ###### Important
 
 Before completing the steps in this section, you must have verified the
-prerequisites including cert-manager. For more information, see [Quick Start with
-the CloudWatch agent operator and Fluent Bit](Container-Insights-setup-EKS-quickstart.md#Container-Insights-setup-EKS-quickstart-FluentBit "Container-Insights-setup-EKS-quickstart.md#Container-Insights-setup-EKS-quickstart-FluentBit").
+prerequisites including cert-manager. For more information, see [Quick Start with the CloudWatch agent operator and Fluent Bit](Container-Insights-setup-EKS-quickstart.md#Container-Insights-setup-EKS-quickstart-FluentBit "Container-Insights-setup-EKS-quickstart.md#Container-Insights-setup-EKS-quickstart-FluentBit").
 
-###### To upgrade an Amazon EKS cluster to Container Insights with enhanced observability for
-
-Amazon EKS
+###### To upgrade an Amazon EKS cluster to Container Insights with enhanced observability for Amazon EKS
 
 1. Install the CloudWatch agent operator by entering the following command. Replace
    `my-cluster-name` with the name of your Amazon EKS or

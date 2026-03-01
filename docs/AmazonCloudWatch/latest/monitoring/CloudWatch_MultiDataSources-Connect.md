@@ -37,12 +37,9 @@ refresh icon to update this list.
 
 When your new data source appears in this list, it is ready to use. You can choose **Query from
 CloudWatch metrics** to begin querying with it. For more information, see
-[Creating a graph of metrics from
-another data source](graph_a_metric.md#create-metric-graph-multidatasource "graph_a_metric.md#create-metric-graph-multidatasource").
+[Creating a graph of metrics from another data source](graph_a_metric.md#create-metric-graph-multidatasource "graph_a_metric.md#create-metric-graph-multidatasource").
 
-##
-
-Amazon Managed Service for Prometheus
+## Amazon Managed Service for Prometheus
 
 **Updating the data source configuration**
 
@@ -65,9 +62,7 @@ Amazon Managed Service for Prometheus
   try to create a dashboard or alarm with a multi-line query from the command line or
   Infrastructure as Code, the API will reject the action with a parse error.
 
-##
-
-Amazon OpenSearch Service
+## Amazon OpenSearch Service
 
 **Creating the data source**
 
@@ -98,9 +93,7 @@ For example, if your domain endpoint is `https://sample-domain.us-east-1.es.amaz
   - Select Filters to apply (Any String field in the document).
   - Choose **Graph query**.
 
-##
-
-Amazon RDS for PostgreSQL and Amazon RDS for MySQL
+## Amazon RDS for PostgreSQL and Amazon RDS for MySQL
 
 **Creating the data source**
 
@@ -154,9 +147,7 @@ single values and plotted across the provided time range. If the timestamps don'
 with the selected period in CloudWatch, the data is automatically aggregated using
 `SUM` and aligned with the period in CloudWatch.
 
-##
-
-Amazon S3 CSV files
+## Amazon S3 CSV files
 
 **Querying the data source**
 
@@ -192,9 +183,7 @@ plotted across the provided time range. If the timestamps don't align with the s
 period in CloudWatch, the data is automatically aggregated using `SUM` and aligned
 with the period in CloudWatch.
 
-##
-
-Microsoft Azure Monitor
+## Microsoft Azure Monitor
 
 **Creating the data source**
 
@@ -220,9 +209,7 @@ Microsoft Azure Monitor
   you specify the Azure subscription, and the resource group and resource. You can then select the metric namespace, metric,
   and aggregation, and filter by dimensions.
 
-##
-
-Prometheus
+## Prometheus
 
 **Creating the data source**
 
@@ -269,9 +256,7 @@ example, if your query contains a single line comment it will not be valid. If y
 create a dashboard or alarm with a multi-line query from the command line or Infrastructure
 as Code, the API will reject the action with a parse error.
 
-##
-
-Notification of Available Updates
+## Notification of Available Updates
 
 From time to time, Amazon might notify you that we recommend that you update your connectors
 with a newer available version and will provide instructions for how to do so.

@@ -1,6 +1,4 @@
-# Configuring how CloudWatch alarms treat missing
-
-data
+# Configuring how CloudWatch alarms treat missing data
 
 Sometimes, not every expected data point for a metric gets reported to CloudWatch. For example,
 this can happen when a connection is lost, a server goes down, or when a metric reports data
@@ -48,14 +46,12 @@ condition changes, and also more accurately indicates the health of your system.
 
 ###### Important
 
-Alarms that evaluate metrics in the `AWS/DynamoDB` namespace always ignore
-missing data even if you choose a different option for how the alarm should treat missing
+Alarms that evaluate metrics in the `AWS/DynamoDB` namespace default to ignore
+missing data. You can override this if you choose a different option for how the alarm should treat missing
 data. When an `AWS/DynamoDB` metric has missing data, alarms that evaluate that
 metric remain in their current state.
 
-## How alarm state is evaluated when data is
-
-missing
+## How alarm state is evaluated when data is missing
 
 Whenever an alarm evaluates whether to change state, CloudWatch attempts to retrieve a higher
 number of data points than the number specified as **Evaluation Periods**.
@@ -142,8 +138,7 @@ case, the missing data point is ignored and the setting for how to evaluate miss
 not needed, because there are 3 real data points to evaluate.
 
 Row 5 represents a special case of alarm evaluation called _premature alarm
-state_. For more information, see [Avoiding premature
-transitions to alarm state](#CloudWatch-alarms-avoiding-premature-transition "#CloudWatch-alarms-avoiding-premature-transition").
+state_. For more information, see [Avoiding premature transitions to alarm state](#CloudWatch-alarms-avoiding-premature-transition "#CloudWatch-alarms-avoiding-premature-transition").
 
 In the next table, the **Period** is again set to 5 minutes, and
 **Datapoints to Alarm** is only 2 while **Evaluation
@@ -173,9 +168,7 @@ two necessary breaching data points to trigger the ALARM state.
 Row 5 represents a special case of alarm evaluation called _premature alarm
 state_. For more information, see the following section.
 
-### Avoiding premature
-
-transitions to alarm state
+### Avoiding premature transitions to alarm state
 
 CloudWatch alarm evaluation includes logic to try to avoid false alarms, where the alarm
 goes into ALARM state prematurely when data is intermittent. The example shown in row 5 in
@@ -213,8 +206,7 @@ Alarm**).
 single time series**
 
 The missing data scenarios and their effects upon alarm evaluation are the same as a standard
-metric alarm in terms of the configured missing data treatment. See, [Configuring how CloudWatch alarms treat missing
-data](alarms-and-missing-data.md "alarms-and-missing-data.md").
+metric alarm in terms of the configured missing data treatment. See, [Configuring how CloudWatch alarms treat missing data](alarms-and-missing-data.md "alarms-and-missing-data.md").
 
 **Alarms based on Metrics Insights queries that produce multiple time series**
 
@@ -235,6 +227,4 @@ Missing data scenarios affect the alarm evaluation in the following manner:
   contributor was not found with the message, "No data was returned for this contributor".
   The state of the alarm will depend on the state of the other contributors that were
   retrieved by the query.
-- At alarm level, if the query returns an empty result (no time series at all), the treat missing
-  data treatment is applied. For example, if the treat missing data was set as `BREACHING`,
-  the alarm will transition to `ALARM`.
+- At alarm level, if the query returns an empty result (no time series at all), the alarm will transition to `INSUFFICIENT_DATA` no matter the missing data treatment that is set.

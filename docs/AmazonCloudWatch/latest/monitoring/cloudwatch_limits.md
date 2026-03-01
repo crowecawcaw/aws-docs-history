@@ -12,8 +12,7 @@ For some AWS services including CloudWatch, you can use the CloudWatch usage met
 visualize your current service usage on CloudWatch graphs and dashboards. You can use a CloudWatch
 metric math function to display the service quotas for those resources on your graphs.
 You can also configure alarms that alert you when your usage approaches a service quota.
-For more information, see [Visualizing your service quotas and setting
-alarms](CloudWatch-Quotas-Visualize-Alarms.md "CloudWatch-Quotas-Visualize-Alarms.md").
+For more information, see [Visualizing your service quotas and setting alarms](CloudWatch-Quotas-Visualize-Alarms.md "CloudWatch-Quotas-Visualize-Alarms.md").
 
 ###### Topics
 
@@ -24,8 +23,7 @@ alarms](CloudWatch-Quotas-Visualize-Alarms.md "CloudWatch-Quotas-Visualize-Alarm
 - [Internet Monitor](#CloudWatch-IM-quotas "#CloudWatch-IM-quotas")
 - [Network Flow Monitor](#CloudWatch-NetworkFlowMonitor-quotas "#CloudWatch-NetworkFlowMonitor-quotas")
 - [Network Synthetic Monitor](#nw-monitor-quotas "#nw-monitor-quotas")
-- [CloudWatch Observability Access
-  Manager](#CloudWatch-OAM-quotas "#CloudWatch-OAM-quotas")
+- [CloudWatch Observability Access Manager](#CloudWatch-OAM-quotas "#CloudWatch-OAM-quotas")
 - [CloudWatch Observability Admin](#CloudWatch-ObsAdmin-quotas "#CloudWatch-ObsAdmin-quotas")
 - [CloudWatch RUM](#CloudWatch-RUM-quotas "#CloudWatch-RUM-quotas")
 - [Managing your CloudWatch service quotas](#service-quotas-manage "#service-quotas-manage")
@@ -202,9 +200,7 @@ maintaining reliable endpoint monitoring.
 | Number of probes per monitor                  | Each supported Region: 24  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/networkmonitor/quotas/L-F192A8D6 "https://console.aws.amazon.com/servicequotas/home/services/networkmonitor/quotas/L-F192A8D6") | The maximum number of probes that a monitor can have.             |
 | Number of probes per subnet for each monitor  | Each supported Region: 4   | [Yes](https://console.aws.amazon.com/servicequotas/home/services/networkmonitor/quotas/L-A8FA6DFE "https://console.aws.amazon.com/servicequotas/home/services/networkmonitor/quotas/L-A8FA6DFE") | The maximum number of probes that a subnet in a monitor can have. |
 
-## CloudWatch Observability Access
-
-Manager
+## CloudWatch Observability Access Manager
 
 CloudWatch Observability Access Manager allows you to securely share CloudWatch resources across
 accounts. This section details the quotas for Observability Access Manager, including

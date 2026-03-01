@@ -145,9 +145,7 @@ view the results for the specified metric only.
 `aws cloudwatch list-metrics --namespace AWS/EC2 --metric-name `CPUUtilization``
 ```
 
-###### To retrieve metrics from linked source accounts in CloudWatch cross-account
-
-observability
+###### To retrieve metrics from linked source accounts in CloudWatch cross-account observability
 
 The following example is run in a monitoring account to retrieve metrics from both the
 monitoring account and all linked source accounts. If you do not add

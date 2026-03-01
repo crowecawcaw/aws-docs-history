@@ -12,8 +12,7 @@
    a dashboard.
 3. The dashboard must already contain a graph where you want to add the metric.
    If it doesn't, create the graph and add any metric to it. For more information,
-   see [Adding a graph widget
-   to a CloudWatch dashboard](add_graph_dashboard.md "add_graph_dashboard.md") .
+   see [Adding a graph widget to a CloudWatch dashboard](add_graph_dashboard.md "add_graph_dashboard.md").
 4. Choose **Actions**, **View/edit source**.
 
 A JSON block appears. The block specifies the widgets on the dashboard and their contents. The following is an example

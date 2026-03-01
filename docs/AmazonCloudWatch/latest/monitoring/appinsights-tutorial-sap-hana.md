@@ -1,6 +1,4 @@
-# Tutorial: Set up monitoring for SAP
-
-HANA
+# Tutorial: Set up monitoring for SAP HANA
 
 This tutorial demonstrates how to configure CloudWatch Application Insights to set up monitoring for your SAP
 HANA databases. You can use CloudWatch Application Insights automatic dashboards to visualize problem details,
@@ -9,10 +7,8 @@ HANA databases.
 
 ###### Application Insights for SAP HANA topics
 
-- [Supported
-  environments](#appinsights-tutorial-sap-hana-supported-environments "#appinsights-tutorial-sap-hana-supported-environments")
-- [Supported operating
-  systems](#appinsights-tutorial-sap-hana-supported-os "#appinsights-tutorial-sap-hana-supported-os")
+- [Supported environments](#appinsights-tutorial-sap-hana-supported-environments "#appinsights-tutorial-sap-hana-supported-environments")
+- [Supported operating systems](#appinsights-tutorial-sap-hana-supported-os "#appinsights-tutorial-sap-hana-supported-os")
 - [Features](#appinsights-tutorial-sap-hana-features "#appinsights-tutorial-sap-hana-features")
 - [Prerequisites](#appinsights-tutorial-sap-hana-prerequisites "#appinsights-tutorial-sap-hana-prerequisites")
 - [Set up
@@ -23,9 +19,7 @@ HANA databases.
 - [Detecting outliers](#appinsights-tutorial-sap-hana-troubleshooting-anomaly-detection "#appinsights-tutorial-sap-hana-troubleshooting-anomaly-detection")
 - [Troubleshooting Application Insights](#appinsights-tutorial-sap-hana-troubleshooting-health-dashboard "#appinsights-tutorial-sap-hana-troubleshooting-health-dashboard")
 
-## Supported
-
-environments
+## Supported environments
 
 CloudWatch Application Insights supports the deployment of AWS resources for the following systems and
 patterns. You provide and install SAP HANA database software and supported SAP
@@ -46,9 +40,7 @@ application software.
 CloudWatch Application Insights supports only single SID HANA environments. If multiple HANA SIDs are
 attached, monitoring will be set up for only the first detected SID.
 
-## Supported operating
-
-systems
+## Supported operating systems
 
 CloudWatch Application Insights for SAP HANA supports x86-64 architecture on the following operating
 systems:
@@ -124,8 +116,7 @@ Manual installation of Python 3.8 or higher is required for SuSE Linux 15 SP4, R
   `/hana/shared/SID/hdbclient/`.
 - **Amazon CloudWatch agent** – Make sure that you are not running a preexisting CloudWatch agent on your Amazon EC2 instance.
   If you have CloudWatch agent installed, make sure to remove the configuration of the resources you are using in CloudWatch Application Insights from the existing CloudWatch agent configuration file to avoid a merge conflict. For more information, see
-  [Manually create or edit the
-  CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").
+  [Manually create or edit the CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").
 - **AWS Systems Manager enablement** – Install
   SSM Agent on your instances, and the instances must be enabled for SSM.
   For information about how to install the SSM Agent, see [Working with SSM
@@ -199,12 +190,9 @@ Manual installation of Python 3.8 or higher is required for SuSE Linux 15 SP4, R
 - **Service-linked role** – Application Insights
   uses AWS Identity and Access Management (IAM) service-linked roles. A service-linked role is
   created for you when you create your first Application Insights application in the
-  Application Insights console. For more information, see [Using service-linked roles for
-  CloudWatch Application Insights](CHAP_using-service-linked-roles-appinsights.md "CHAP_using-service-linked-roles-appinsights.md").
+  Application Insights console. For more information, see [Using service-linked roles for CloudWatch Application Insights](CHAP_using-service-linked-roles-appinsights.md "CHAP_using-service-linked-roles-appinsights.md").
 
-## Set up your SAP HANA database
-
-for monitoring
+## Set up your SAP HANA database for monitoring
 
 Use the following steps to set up monitoring for your SAP HANA database
 
@@ -269,9 +257,7 @@ Use the following steps to set up monitoring for your SAP HANA database
     deploys all of the metrics and alarms for your SAP HANA system, which can
     take up to 2 hours.
 
-## Manage monitoring of your SAP
-
-HANA database
+## Manage monitoring of your SAP HANA database
 
 You can manage user credentials, metrics, and log paths for your SAP HANA database
 by performing the following steps:
@@ -302,9 +288,7 @@ by performing the following steps:
    account updates all of the metrics and alarms for your SAP HANA system,
    which can take up to 2 hours.
 
-## View and
-
-troubleshoot SAP HANA problems detected by CloudWatch Application Insights
+## View and troubleshoot SAP HANA problems detected by CloudWatch Application Insights
 
 The following sections provide steps to help you resolve common troubleshooting
 scenarios that occur when you configure monitoring for SAP HANA on
@@ -312,15 +296,11 @@ Application Insights.
 
 ###### Troubleshooting topics
 
-- [SAP HANA
-  database reaches memory allocation limit](#appinsights-tutorial-sap-hana-troubleshooting-memory "#appinsights-tutorial-sap-hana-troubleshooting-memory")
-- [Disk
-  full event](#appinsights-tutorial-sap-hana-troubleshooting-disk-full "#appinsights-tutorial-sap-hana-troubleshooting-disk-full")
+- [SAP HANA database reaches memory allocation limit](#appinsights-tutorial-sap-hana-troubleshooting-memory "#appinsights-tutorial-sap-hana-troubleshooting-memory")
+- [Disk full event](#appinsights-tutorial-sap-hana-troubleshooting-disk-full "#appinsights-tutorial-sap-hana-troubleshooting-disk-full")
 - [SAP HANA backup stopped running](#appinsights-tutorial-sap-hana-troubleshooting-backup-stopped "#appinsights-tutorial-sap-hana-troubleshooting-backup-stopped")
 
-### SAP HANA
-
-database reaches memory allocation limit
+### SAP HANA database reaches memory allocation limit
 
 ###### Description
 
@@ -349,9 +329,7 @@ code size, and OOM reservation allocation size.
 
 ![Log group text.](images/appinsights-memory-allocation-3.png)
 
-### Disk
-
-full event
+### Disk full event
 
 ###### Description
 
@@ -418,9 +396,7 @@ metrics that are seasonal, spiky, or sparse.
 This section provides steps to help you resolve common errors returned by the
 Application Insights dashboard.
 
-### Unable to add more than 60
-
-monitored metrics
+### Unable to add more than 60 monitored metrics
 
 The output shows the following error.
 
@@ -454,9 +430,7 @@ AWS Management Console
 
 Exporter logs from Amazon EC2 instance
 
-###### Troubleshoot no SAP metrics appear after onboarding using
-
-exporter logs
+###### Troubleshoot no SAP metrics appear after onboarding using exporter logs
 
 1. Connect to the Amazon EC2 instance where your SAP HANA database is running.
 2. Find the correct naming convention for

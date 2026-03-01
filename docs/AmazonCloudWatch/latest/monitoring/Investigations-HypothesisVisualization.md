@@ -1,6 +1,4 @@
-# Understanding hypothesis
-
-visualizations
+# Understanding hypothesis visualizations
 
 When CloudWatch investigations generates hypotheses that include multiple resources, the investigation view
 provides a visual representation of the causal relationships between those resources.

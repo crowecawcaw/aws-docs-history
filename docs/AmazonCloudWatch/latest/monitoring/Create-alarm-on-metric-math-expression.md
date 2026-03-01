@@ -1,6 +1,4 @@
-# Create a CloudWatch alarm based on a metric
-
-math expression
+# Create a CloudWatch alarm based on a metric math expression
 
 Metric alarms are designed to evaluate time series that you define from either a single
 metric, or a metric math expression that combines or transforms one or more metrics into a
@@ -81,8 +79,7 @@ breaching.
 
 To create an M out of N alarm, specify a lower number for the first value than you
 specify for the second value. For more information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md"). 13. For **Missing data treatment**, choose how to have the alarm behave
-when some data points are missing. For more information, see [Configuring how CloudWatch alarms treat missing
-data](alarms-and-missing-data.md "alarms-and-missing-data.md"). 14. Choose **Next**. 15. Under **Notification**, select an SNS topic to notify when the alarm
+when some data points are missing. For more information, see [Configuring how CloudWatch alarms treat missing data](alarms-and-missing-data.md "alarms-and-missing-data.md"). 14. Choose **Next**. 15. Under **Notification**, select an SNS topic to notify when the alarm
 is in `ALARM` state, `OK` state, or `INSUFFICIENT_DATA`
 state.
 

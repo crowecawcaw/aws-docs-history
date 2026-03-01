@@ -1,6 +1,4 @@
-# Scraping additional
-
-Prometheus sources and importing those metrics
+# Scraping additional Prometheus sources and importing those metrics
 
 The CloudWatch agent with Prometheus monitoring needs two configurations to scrape the
 Prometheus metrics. One is for the standard Prometheus configurations as documented in
@@ -26,9 +24,7 @@ IP.
 The egress rules of the security group for the CloudWatch agent must allow the CloudWatch agent
 to connect to the Prometheus workloads' port by private IP.
 
-## Prometheus scrape
-
-configuration
+## Prometheus scrape configuration
 
 The CloudWatch agent supports the standard Prometheus scrape configurations as
 documented in [<scrape_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config") in the Prometheus documentation. You can edit this
@@ -50,9 +46,7 @@ global:
 You can also define different values for these settings at the job level, to
 override the global configurations.
 
-### Prometheus
-
-scraping jobs
+### Prometheus scraping jobs
 
 The CloudWatch agent YAML files already have some default scraping jobs configured.
 For example, in the YAML files for Amazon ECS such as
@@ -96,12 +90,9 @@ group.
 To add a new scraping target, you add a new entry in the
 `task_definition_list` section under the
 `ecs_service_discovery` section. of the YAML file, and restart the
-agent. For an example of this process, see [Tutorial for
-adding a new Prometheus scrape target: Prometheus API Server metrics](ContainerInsights-Prometheus-Setup-configure.md#ContainerInsights-Prometheus-Setup-new-exporters "ContainerInsights-Prometheus-Setup-configure.md#ContainerInsights-Prometheus-Setup-new-exporters").
+agent. For an example of this process, see [Tutorial for adding a new Prometheus scrape target: Prometheus API Server metrics](ContainerInsights-Prometheus-Setup-configure.md#ContainerInsights-Prometheus-Setup-new-exporters "ContainerInsights-Prometheus-Setup-configure.md#ContainerInsights-Prometheus-Setup-new-exporters").
 
-## CloudWatch agent
-
-configuration for Prometheus
+## CloudWatch agent configuration for Prometheus
 
 The CloudWatch agent configuration file has a `prometheus` section under
 `metrics_collected` for the Prometheus scraping configuration. It

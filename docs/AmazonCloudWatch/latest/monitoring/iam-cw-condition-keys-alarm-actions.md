@@ -1,6 +1,4 @@
-# Using condition keys to
-
-limit alarm actions
+# Using condition keys to limit alarm actions
 
 When CloudWatch alarms change state, they can perform different actions such as
 stopping and terminating EC2 instances and performing Systems Manager actions. These

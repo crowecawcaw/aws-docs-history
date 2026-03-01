@@ -94,14 +94,12 @@ pricing calculator.
 The CloudWatch agent is software that runs continuously and autonomously on your servers and in containerized environments. It collects metrics, logs, and traces from your
 infrastructure and applications and sends them to CloudWatch and X-Ray.
 
-For more information about the CloudWatch agent, see [Collect metrics, logs, and traces using the CloudWatch
-agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md").
+For more information about the CloudWatch agent, see [Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md").
 
 The agent configuration in this solution collects the foundational metrics for the solution. The CloudWatch agent can be configured to collect more
 JVM metrics than the dashboard displays by default. For a list of all JVM metrics that you can collect, see
 [Collect JVM metrics](CloudWatch-Agent-JMX-metrics.md#CloudWatch-Agent-JVM-metrics "CloudWatch-Agent-JMX-metrics.md#CloudWatch-Agent-JVM-metrics"). For general information about CloudWatch agent configuration, see
-[Metrics collected by the CloudWatch
-agent](metrics-collected-by-CloudWatch-agent.md "metrics-collected-by-CloudWatch-agent.md").
+[Metrics collected by the CloudWatch agent](metrics-collected-by-CloudWatch-agent.md "metrics-collected-by-CloudWatch-agent.md").
 
 **Expose JMX ports for the JVM application**
 
@@ -163,13 +161,11 @@ as detailed later in [Step 2: Store the recommended CloudWatch agent configurati
 Replace
 `ProcessGroupName` with the name of your process group. Replace `port-number`
 with the JMX port of your Java application. If JMX was enabled with password authentication or SSL for remote access,
-see [Collect Java Management Extensions (JMX)
-metrics](CloudWatch-Agent-JMX-metrics.md "CloudWatch-Agent-JMX-metrics.md") for information about setting up TLS or authorization in agent configuration as required.
+see [Collect Java Management Extensions (JMX) metrics](CloudWatch-Agent-JMX-metrics.md "CloudWatch-Agent-JMX-metrics.md") for information about setting up TLS or authorization in agent configuration as required.
 
 The EC2 metrics shown in this configuration (configuration shown outside the JMX block)
 only work for Linux and macOS instances. If you are using Windows instances, you can choose to omit these metrics in the configuration.
-For information about metrics collected on Windows instances, see [Metrics collected by the CloudWatch
-agent on Windows Server instances](metrics-collected-by-CloudWatch-agent.md#windows-metrics-enabled-by-CloudWatch-agent "metrics-collected-by-CloudWatch-agent.md#windows-metrics-enabled-by-CloudWatch-agent").
+For information about metrics collected on Windows instances, see [Metrics collected by the CloudWatch agent on Windows Server instances](metrics-collected-by-CloudWatch-agent.md#windows-metrics-enabled-by-CloudWatch-agent "metrics-collected-by-CloudWatch-agent.md#windows-metrics-enabled-by-CloudWatch-agent").
 
 ```
 {
@@ -233,8 +229,7 @@ There are several approaches for installing the CloudWatch agent, depending on t
 We recommend using Systems Manager for this solution. It provides a console experience and makes it simpler to
 manage a fleet of managed servers within a single AWS account. The instructions in this section use Systems Manager and are intended for
 when you don’t have the CloudWatch agent running with existing configurations. You can check whether the CloudWatch agent is
-running by following the steps in [Verify that the CloudWatch agent
-is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running").
+running by following the steps in [Verify that the CloudWatch agent is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running").
 
 If you are already running the CloudWatch agent on the
 EC2 hosts where the workload is deployed and managing the agent configurations,
@@ -342,15 +337,13 @@ be associated with the CloudWatch agents running in the targeted instances. This
 
 ### Step 4: Verify the agent setup is configured properly
 
-You can verify whether the CloudWatch agent is installed by following the steps in [Verify that the CloudWatch agent
-is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running"). If the CloudWatch agent is
+You can verify whether the CloudWatch agent is installed by following the steps in [Verify that the CloudWatch agent is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running"). If the CloudWatch agent is
 not installed and running, make sure you have set up everything correctly.
 
 - Be sure you have attached a role with correct permissions for the
   EC2 instance as described in [Step 1: Ensure the target EC2 instances have the required IAM permissions](#Solution-JVM-Agent-Step1 "#Solution-JVM-Agent-Step1").
 - Be sure you have correctly configured the JSON for the Systems Manager parameter. Follow the steps in
-  [Troubleshooting
-  installation of the CloudWatch agent with CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting "Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting").
+  [Troubleshooting installation of the CloudWatch agent with CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting "Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting").
 
 If everything is set up correctly, then you should see the
 JVM metrics being published to CloudWatch. You can check the CloudWatch console to verify they are being published.
@@ -377,8 +370,7 @@ This helps you to quickly identify outliers or instances that significantly cont
 The solution dashboard doesn't display EC2 metrics.
 To view EC2 metrics, you'll need to use the EC2 automatic dashboard to see EC2 vended metrics and
 use the EC2 console dashboard to see EC2 metrics that are collected by the CloudWatch agent. For more information about automatic dashboards
-for AWS services, see [Viewing a CloudWatch dashboard for a
-single AWS service](CloudWatch_Automatic_Dashboards_Focus_Service.md "CloudWatch_Automatic_Dashboards_Focus_Service.md").
+for AWS services, see [Viewing a CloudWatch dashboard for a single AWS service](CloudWatch_Automatic_Dashboards_Focus_Service.md "CloudWatch_Automatic_Dashboards_Focus_Service.md").
 
 To create the dashboard, you can use the following options:
 

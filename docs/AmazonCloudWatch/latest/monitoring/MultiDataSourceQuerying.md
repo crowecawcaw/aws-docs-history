@@ -25,11 +25,9 @@ functions.
 - Microsoft Azure Monitor– Query metrics from your Microsoft Azure Monitor
   account.
 - Prometheus– Query these metrics using PromQL.
-  After you create connectors to data sources, see [Creating a graph of metrics from
-  another data source](graph_a_metric.md#create-metric-graph-multidatasource "graph_a_metric.md#create-metric-graph-multidatasource") for information about graphing a metric
+  After you create connectors to data sources, see [Creating a graph of metrics from another data source](graph_a_metric.md#create-metric-graph-multidatasource "graph_a_metric.md#create-metric-graph-multidatasource") for information about graphing a metric
   from a data source. For information about setting an alarm on a metric from a data source, see
-  [Create an alarm based on a connected data
-  source](Create_MultiSource_Alarm.md "Create_MultiSource_Alarm.md").
+  [Create an alarm based on a connected data source](Create_MultiSource_Alarm.md "Create_MultiSource_Alarm.md").
 
 ###### Topics
 

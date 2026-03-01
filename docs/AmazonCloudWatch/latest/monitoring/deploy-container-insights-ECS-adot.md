@@ -1,6 +1,4 @@
-# Setting up Container Insights on
-
-Amazon ECS using AWS Distro for OpenTelemetry
+# Setting up Container Insights on Amazon ECS using AWS Distro for OpenTelemetry
 
 Use this section if you want to use AWS Distro for OpenTelemetry to set up CloudWatch
 Container Insights on an Amazon ECS cluster. For more information about AWS Distro for Open
@@ -12,9 +10,7 @@ about using AWS Distro for Open Telemetry with Amazon ECS and setting up an Amaz
 this purpose, see [Setting up AWS
 Distro for OpenTelemetry Collector in Amazon Elastic Container Service](https://aws-otel.github.io/docs/setup/ecs "https://aws-otel.github.io/docs/setup/ecs").
 
-## Step 1: Create a
-
-task role
+## Step 1: Create a task role
 
 The first step is creating a task role in the cluster that the AWS OpenTelemetry
 Collector will use.
@@ -70,9 +66,7 @@ JSON
     `AWSOpenTelemetryTaskRole` and then choose **Create
     role**.
 
-## Step 2:
-
-Create a task execution role
+## Step 2: Create a task execution role
 
 The next step is creating a task execution role for the AWS OpenTelemetry
 Collector.
@@ -102,9 +96,7 @@ Collector.
    `AWSOpenTelemetryTaskExecutionRole` and then choose
    **Create role**.
 
-## Step 3: Create
-
-a task definition
+## Step 3: Create a task definition
 
 The next step is creating a task definition.
 
@@ -127,9 +119,7 @@ For more information about using the AWS OpenTelemetry collector with Amazon ECS
 [Setting up AWS Distro for
 OpenTelemetry Collector in Amazon Elastic Container Service](https://aws-otel.github.io/docs/setup/ecs "https://aws-otel.github.io/docs/setup/ecs").
 
-## Step 4: Run
-
-the task
+## Step 4: Run the task
 
 The final step is running the task that you've created.
 

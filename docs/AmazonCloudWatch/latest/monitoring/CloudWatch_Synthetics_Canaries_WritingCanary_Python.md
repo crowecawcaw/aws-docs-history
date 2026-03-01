@@ -1,6 +1,4 @@
-# Writing a Python canary
-
-script
+# Writing a Python canary script
 
 This script passes as a successful run, and returns a string.
 To see what a failing canary looks like, change fail = False to fail = True
@@ -22,9 +20,7 @@ def handler(event, context):
     return basic_custom_script()
 ```
 
-##
-
-Packaging your Python canary files
+## Packaging your Python canary files
 
 If you have more than one .py file or your script has a dependency, you can bundle them
 all into a single ZIP file. If you use the `syn-python-selenium-1.1` runtime, the
@@ -47,9 +43,7 @@ doesn't apply, and you can also optionally store the canary in a separate folder
 `python/myFolder/my_canary_filename.py`. If you store it in a separate folder,
 specify that path in your script entry point, such as `myFolder/my_canary_filename.functionName`.
 
-##
-
-Changing an existing Selenium script to use a Synthetics canary
+## Changing an existing Selenium script to use a Synthetics canary
 
 You can quickly modify an existing script for Python and Selenium to be used as a canary.
 For more information about Selenium, see

@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-CloudWatch
+# Using service-linked roles for CloudWatch
 
 Amazon CloudWatch uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role
 that is linked directly to CloudWatch. Service-linked roles are predefined by
@@ -27,9 +25,7 @@ That Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 Choose a **Yes** with a link to view the service-linked
 role documentation for that service.
 
-## Service-linked role permissions
-
-for CloudWatch alarms EC2 actions
+## Service-linked role permissions for CloudWatch alarms EC2 actions
 
 CloudWatch uses the service-linked role named **AWSServiceRoleForCloudWatchEvents**
 – CloudWatch uses this service-linked role to perform Amazon EC2 alarm actions.
@@ -53,9 +49,7 @@ role permissions policy allows CloudWatch to complete the following actions:
 
 - `sts:AssumeRole`
 
-## Service-linked role
-
-permissions for CloudWatch telemetry config
+## Service-linked role permissions for CloudWatch telemetry config
 
 CloudWatch observability admin creates and uses a service-linked role named
 **AWSServiceRoleForObservabilityAdmin** – CloudWatch uses this
@@ -197,9 +191,7 @@ JSON
 
 ```
 
-## Service-linked role
-
-permissions for CloudWatch telemetry enablement
+## Service-linked role permissions for CloudWatch telemetry enablement
 
 The `AWSObservabilityAdminTelemetryEnablementServiceRolePolicy` grants
 permissions necessary to enable and manage telemetry configurations for AWS
@@ -229,9 +221,7 @@ The policy enforces security boundaries through conditions that:
 The complete contents of the AWSObservabilityAdminTelemetryEnablementServiceRolePolicy policy can be found
 here: [AWSObservabilityAdminTelemetryEnablementServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSObservabilityAdminTelemetryEnablementServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSObservabilityAdminTelemetryEnablementServiceRolePolicy.md").
 
-## Service-linked role permissions for
-
-CloudWatch Application Signals
+## Service-linked role permissions for CloudWatch Application Signals
 
 CloudWatch Application Signals uses the service-linked role named
 **AWSServiceRoleForCloudWatchApplicationSignals** – CloudWatch
@@ -381,9 +371,7 @@ JSON
 
 ```
 
-## Service-linked role
-
-permissions for CloudWatch alarms Systems Manager OpsCenter actions
+## Service-linked role permissions for CloudWatch alarms Systems Manager OpsCenter actions
 
 CloudWatch uses the service-linked role named
 **AWSServiceRoleForCloudWatchAlarms_ActionSSM** – CloudWatch
@@ -400,9 +388,7 @@ actions:
 
 - `ssm:CreateOpsItem`
 
-## Service-linked
-
-role permissions for CloudWatch alarms Systems Manager Incident Manager actions
+## Service-linked role permissions for CloudWatch alarms Systems Manager Incident Manager actions
 
 CloudWatch uses the service-linked role named
 **AWSServiceRoleForCloudWatchAlarms_ActionSSMIncidents**
@@ -419,9 +405,7 @@ actions:
 
 - `ssm-incidents:StartIncident`
 
-## Service-linked role permissions
-
-for CloudWatch cross-account cross-Region
+## Service-linked role permissions for CloudWatch cross-account cross-Region
 
 CloudWatch uses the service-linked role named
 **AWSServiceRoleForCloudWatchCrossAccount** – CloudWatch uses
@@ -437,9 +421,7 @@ role permissions policy allows CloudWatch to complete the following actions:
 The **AWSServiceRoleForCloudWatchCrossAccount** service-linked
 role trusts the CloudWatch service to assume the role.
 
-## Service-linked role
-
-permissions for CloudWatch database Performance Insights
+## Service-linked role permissions for CloudWatch database Performance Insights
 
 CloudWatch uses the service-linked role named
 **AWSServiceRoleForCloudWatchMetrics_DbPerfInsights** –
@@ -477,9 +459,7 @@ JSON
 The **AWSServiceRoleForCloudWatchMetrics_DbPerfInsights**
 service-linked role trusts the CloudWatch service to assume the role.
 
-## Service-linked role
-
-permissions for CloudWatch Logs centralization
+## Service-linked role permissions for CloudWatch Logs centralization
 
 The **AWSObservabilityAdminLogsCentralizationServiceRolePolicy**
 attaches to appropriate IAM entity in your central management account, such as the
@@ -510,9 +490,7 @@ service-linked role trusts the
 `logs-centralization.observabilityadmin.amazonaws.com` service to
 assume the role.
 
-## Creating a service-linked role for
-
-CloudWatch
+## Creating a service-linked role for CloudWatch
 
 You do not need to manually create any of these service-linked roles. The first
 time you create an alarm in the AWS Management Console, the IAM CLI, or the IAM API,
@@ -535,9 +513,7 @@ you.
 For more information, see [Creating a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role") in the
 _IAM User Guide_.
 
-## Editing a service-linked role for
-
-CloudWatch
+## Editing a service-linked role for CloudWatch
 
 CloudWatch does not allow you to edit the
 **AWSServiceRoleForCloudWatchEvents**,
@@ -548,9 +524,7 @@ After you create these roles, you cannot change their names because various enti
 might reference these roles. However, you can edit the description of these roles
 using IAM.
 
-### Editing a service-linked
-
-role description (IAM console)
+### Editing a service-linked role description (IAM console)
 
 You can use the IAM console to edit the description of a service-linked
 role.
@@ -565,9 +539,7 @@ role.
 4. Type a new description in the box, and choose
    **Save**.
 
-### Editing a service-linked role
-
-description (AWS CLI)
+### Editing a service-linked role description (AWS CLI)
 
 You can use IAM commands from the AWS Command Line Interface to edit the description of a
 service-linked role.
@@ -591,9 +563,7 @@ command:
 `$` `aws iam update-role-description --role-name `role-name` --description `description``
 ```
 
-### Editing a service-linked role
-
-description (IAM API)
+### Editing a service-linked role description (IAM API)
 
 You can use the IAM API to edit the description of a service-linked
 role.
@@ -607,9 +577,7 @@ role.
 
 [UpdateRoleDescription](../../../IAM/latest/APIReference/API_UpdateRoleDescription.md "../../../IAM/latest/APIReference/API_UpdateRoleDescription.md")
 
-## Deleting a service-linked role for
-
-CloudWatch
+## Deleting a service-linked role for CloudWatch
 
 If you no longer have alarms that automatically stop, terminate, or reboot EC2
 instances, we recommend that you delete the AWSServiceRoleForCloudWatchEvents
@@ -627,17 +595,13 @@ That way you don’t have an unused entity that is not actively monitored or
 maintained. However, you must clean up your service-linked role before you can
 delete it.
 
-### Cleaning up a
-
-service-linked role
+### Cleaning up a service-linked role
 
 Before you can use IAM to delete a service-linked role, you must first
 confirm that the role has no active sessions and remove any resources used by
 the role.
 
-###### To check whether the service-linked role has an active session in the
-
-IAM console
+###### To check whether the service-linked role has an active session in the IAM console
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -656,9 +620,7 @@ being used. If the role is being used, then you must wait for the
 session to end before you can delete the role. You cannot revoke the
 session for a service-linked role.
 
-### Deleting a
-
-service-linked role (IAM console)
+### Deleting a service-linked role (IAM console)
 
 You can use the IAM console to delete a service-linked role.
 
@@ -685,9 +647,7 @@ You can use the IAM console to delete a service-linked role.
    the service that are being used by the role, then the reason for the
    failure includes a list of resources.
 
-### Deleting a service-linked
-
-role (AWS CLI)
+### Deleting a service-linked role (AWS CLI)
 
 You can use IAM commands from the AWS Command Line Interface to delete a service-linked
 role.
@@ -717,9 +677,7 @@ The status of the deletion task can be `NOT_STARTED`,
 `FAILED`. If the deletion fails, the call returns the
 reason that it failed so that you can troubleshoot.
 
-### Deleting a service-linked
-
-role (IAM API)
+### Deleting a service-linked role (IAM API)
 
 You can use the IAM API to delete a service-linked role.
 
@@ -740,9 +698,7 @@ The status of the deletion task can be `NOT_STARTED`,
 `FAILED`. If the deletion fails, the call returns the
 reason that it failed so that you can troubleshoot.
 
-## CloudWatch updates to AWS service-linked
-
-roles
+## CloudWatch updates to AWS service-linked roles
 
 View details about updates to AWS managed policies for CloudWatch since this service
 began tracking these changes. For automatic alerts about changes to this page,

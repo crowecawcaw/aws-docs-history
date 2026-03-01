@@ -1,16 +1,12 @@
-# Setting up the CloudWatch agent to collect
-
-cluster metrics
+# Setting up the CloudWatch agent to collect cluster metrics
 
 ###### Important
 
 If you are installing Container Insights on on Amazon EKS cluster, we recommend that
 you use the Amazon CloudWatch Observability EKS add-on for the installation, instead of using
-the instructions in this section. For more information and instructions, see [Quick start with the Amazon CloudWatch
-Observability EKS add-on](Container-Insights-setup-EKS-addon.md "Container-Insights-setup-EKS-addon.md").
+the instructions in this section. For more information and instructions, see [Quick start with the Amazon CloudWatch Observability EKS add-on](Container-Insights-setup-EKS-addon.md "Container-Insights-setup-EKS-addon.md").
 
-To set up Container Insights to collect metrics, you can follow the steps in [Quick Start setup for
-Container Insights on Amazon EKS and Kubernetes](Container-Insights-setup-EKS-quickstart.md "Container-Insights-setup-EKS-quickstart.md") or you can follow the steps
+To set up Container Insights to collect metrics, you can follow the steps in [Quick Start setup for Container Insights on Amazon EKS and Kubernetes](Container-Insights-setup-EKS-quickstart.md "Container-Insights-setup-EKS-quickstart.md") or you can follow the steps
 in this section. In the following steps, you set up the CloudWatch agent to be able to collect
 metrics from your clusters.
 
@@ -32,9 +28,7 @@ created this namespace.
 kubectl apply -f https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/cloudwatch-namespace.yaml
 ```
 
-## Step 2: Create a service account in the
-
-cluster
+## Step 2: Create a service account in the cluster
 
 Use one of the following methods to create a service account for the CloudWatch agent,
 if you do not already have one.
@@ -44,9 +38,7 @@ if you do not already have one.
 
 ### Use `kubectl` for authentication
 
-###### To use `kubectl` to create a service account for the CloudWatch
-
-agent
+###### To use `kubectl` to create a service account for the CloudWatch agent
 
 - Enter the following command.
 
@@ -92,9 +84,7 @@ rules:
 
 ```
 
-### Use `kubeconfig` for
-
-authentication
+### Use `kubeconfig` for authentication
 
 Alternatively, you can use a `kubeconfig` file for authentication.
 This method allows you to bypass the need for a service account b directly
@@ -128,9 +118,7 @@ To create a `kubeconfig` file, create a Certificate Signing Request
 `system:masters` Kubernetes role. Then sign with Kubernetes cluster’s
 Certificate Authority (CA) and create the `kubeconfig` file.
 
-## Step 3: Create a ConfigMap for the CloudWatch
-
-agent
+## Step 3: Create a ConfigMap for the CloudWatch agent
 
 Use the following steps to create a ConfigMap for the CloudWatch agent.
 
@@ -173,8 +161,7 @@ curl -O https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-containe
      CloudWatch Logs agent to also run as a StatsD listener in each worker node of your
      cluster, you can add a `statsd` section to the `metrics`
      section, as in the following example. For information about other StatsD
-     options for this section, see [Retrieve custom metrics with
-     StatsD](CloudWatch-Agent-custom-metrics-statsd.md "CloudWatch-Agent-custom-metrics-statsd.md").
+     options for this section, see [Retrieve custom metrics with StatsD](CloudWatch-Agent-custom-metrics-statsd.md "CloudWatch-Agent-custom-metrics-statsd.md").
 
    ```
    "metrics": {
@@ -223,9 +210,7 @@ curl -O https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-containe
 kubectl apply -f cwagent-configmap-enhanced.yaml
 ```
 
-## Step 4: Deploy the CloudWatch agent as a
-
-DaemonSet
+## Step 4: Deploy the CloudWatch agent as a DaemonSet
 
 To finish the installation of the CloudWatch agent and begin collecting container
 metrics, use the following steps.

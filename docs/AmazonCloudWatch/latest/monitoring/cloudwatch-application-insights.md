@@ -36,8 +36,7 @@ Automation document.
   configurations](component-config.md "component-config.md")
 - [Use CloudFormation
   templates](appinsights-cloudformation.md "appinsights-cloudformation.md")
-- [Tutorial: Set up monitoring for SAP
-  ASE](appinsights-tutorial-sap-ase.md "appinsights-tutorial-sap-ase.md")
+- [Tutorial: Set up monitoring for SAP ASE](appinsights-tutorial-sap-ase.md "appinsights-tutorial-sap-ase.md")
 - [Tutorial: Set up
   monitoring for SAP HANA](appinsights-tutorial-sap-hana.md "appinsights-tutorial-sap-hana.md")
 - [Tutorial: Set up monitoring for SAP NetWeaver](appinsights-tutorial-sap-netweaver.md "appinsights-tutorial-sap-netweaver.md")

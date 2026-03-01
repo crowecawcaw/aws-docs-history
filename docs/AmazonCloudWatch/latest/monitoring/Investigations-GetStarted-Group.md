@@ -53,7 +53,7 @@ different AWS Regions. For more information, see [Cross-Region inference](Invest
     1. (Recommended) Select **Auto-create a new role with default
        investigation permissions**. This role will be granted
        permissions using the AWS managed policies for AI Operations.For more
-       information, see [User permissions for your CloudWatch investigations group](Investigations-Security.md#Investigations-Security-IAM "Investigations-Security.md#Investigations-Security-IAM") .
+       information, see [User permissions for your CloudWatch investigations group](Investigations-Security.md#Investigations-Security-IAM "Investigations-Security.md#Investigations-Security-IAM").
     2. Create a new role yourself and then assign the policy templates.
     3. Choose **Assign an existing role** if you already
        have a role with the permissions that you want to use.
@@ -158,8 +158,7 @@ different AWS Regions. For more information, see [Cross-Region inference](Invest
 
     If you want to integrate with a chat channel, we recommend that you complete
     some additional steps before enabling this enhancement in your investigation
-    group. For more information, see [Integration with third-party chat
-    systems](Investigations-Integrations.md#Investigations-Integrations-Chat "Investigations-Integrations.md#Investigations-Integrations-Chat").
+    group. For more information, see [Integration with third-party chat systems](Investigations-Integrations.md#Investigations-Integrations-Chat "Investigations-Integrations.md#Investigations-Integrations-Chat").
 
 Then, perform the following steps to integrate with a chat channel in chat
 applications:

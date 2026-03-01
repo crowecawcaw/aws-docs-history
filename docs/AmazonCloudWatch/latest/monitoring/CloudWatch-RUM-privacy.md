@@ -1,6 +1,4 @@
-# Data protection and data privacy with CloudWatch
-
-RUM
+# Data protection and data privacy with CloudWatch RUM
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") applies to data protection and data privacy
 in Amazon CloudWatch RUM. As described in this model, AWS is responsible for protecting the
@@ -22,18 +20,14 @@ obligations under applicable law, including any applicable legal requirements to
 provide legally adequate privacy notices and obtain any necessary consents for the
 use of cookies and the processing (including collection) of end user data. For more
 information about how the web client uses cookies (or similar technologies) and what
-end-user data the web client collects, see [Information collected by the CloudWatch RUM
-web client](CloudWatch-RUM-datacollected.md "CloudWatch-RUM-datacollected.md") and [CloudWatch RUM web client cookies (or similar
-technologies)](#CloudWatch-RUM-cookies "#CloudWatch-RUM-cookies").
+end-user data the web client collects, see [Information collected by the CloudWatch RUM web client](CloudWatch-RUM-datacollected.md "CloudWatch-RUM-datacollected.md") and [CloudWatch RUM web client cookies (or similar technologies)](#CloudWatch-RUM-cookies "#CloudWatch-RUM-cookies").
 
 We strongly recommend that you never put sensitive identifying information, such
 as your end users’ account numbers, email addresses, or other personal information,
 into free-form fields. Any data that you enter into Amazon CloudWatch RUM or other services
 might be included in diagnostic logs.
 
-## CloudWatch RUM web client cookies (or similar
-
-technologies)
+## CloudWatch RUM web client cookies (or similar technologies)
 
 The CloudWatch RUM web client collects certain data about user sessions by default.
 You can choose to enable cookies to have the web client collect a user ID and
@@ -57,5 +51,4 @@ client still records certain information about end user sessions such as
 browser type/version, operating system type/version, device type, and so on.
 These are collected to provide aggregated page-specific insights, such as
 web vitals, page views, and pages that experienced errors. For more
-information about the data recorded, see [Information collected by the CloudWatch RUM
-web client](CloudWatch-RUM-datacollected.md "CloudWatch-RUM-datacollected.md").
+information about the data recorded, see [Information collected by the CloudWatch RUM web client](CloudWatch-RUM-datacollected.md "CloudWatch-RUM-datacollected.md").

@@ -1,6 +1,4 @@
-# Create the CloudWatch agent
-
-configuration file
+# Create the CloudWatch agent configuration file
 
 Before running the CloudWatch agent on any servers, you must create one or more CloudWatch agent
 configuration files.
@@ -13,16 +11,14 @@ process is more complex, but you have more control over the metrics collected an
 metrics not available through the wizard.
 
 Any time you change the agent configuration file, you must then restart the agent to have
-the changes take effect. To restart the agent, follow the instructions in [(Optional) Modify the common
-configuration and named profile for CloudWatch agent](installing-cloudwatch-agent-ssm.md#CloudWatch-Agent-profile-instance-fleet "installing-cloudwatch-agent-ssm.md#CloudWatch-Agent-profile-instance-fleet").
+the changes take effect. To restart the agent, follow the instructions in [(Optional) Modify the common configuration and named profile for CloudWatch agent](installing-cloudwatch-agent-ssm.md#CloudWatch-Agent-profile-instance-fleet "installing-cloudwatch-agent-ssm.md#CloudWatch-Agent-profile-instance-fleet").
 
 After you have created a configuration file, you can save it manually as a JSON file and
 then use this file when installing the agent on your servers. Alternatively, you can store it
 in Systems Manager Parameter Store if you're going to use Systems Manager when you install the agent on servers.
 
 The CloudWatch agent supports using multiple configuration files. For more information, see
-[Creating multiple CloudWatch agent
-configuration files](#CloudWatch-Agent-multiple-config-files "#CloudWatch-Agent-multiple-config-files").
+[Creating multiple CloudWatch agent configuration files](#CloudWatch-Agent-multiple-config-files "#CloudWatch-Agent-multiple-config-files").
 
 Metrics, logs, and traces collected by the CloudWatch agent incur charges. For more information
 about pricing, see [Amazon CloudWatch
@@ -30,16 +26,11 @@ Pricing](http://aws.amazon.com/cloudwatch/pricing "http://aws.amazon.com/cloudwa
 
 ###### Contents
 
-- [Create the CloudWatch agent
-  configuration file with the wizard](create-cloudwatch-agent-configuration-file-wizard.md "create-cloudwatch-agent-configuration-file-wizard.md")
-- [Creating multiple CloudWatch agent
-  configuration files](#CloudWatch-Agent-multiple-config-files "#CloudWatch-Agent-multiple-config-files")
-- [Manually create or edit the
-  CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md")
+- [Create the CloudWatch agent configuration file with the wizard](create-cloudwatch-agent-configuration-file-wizard.md "create-cloudwatch-agent-configuration-file-wizard.md")
+- [Creating multiple CloudWatch agent configuration files](#CloudWatch-Agent-multiple-config-files "#CloudWatch-Agent-multiple-config-files")
+- [Manually create or edit the CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md")
 
-## Creating multiple CloudWatch agent
-
-configuration files
+## Creating multiple CloudWatch agent configuration files
 
 On both Linux servers and Windows servers, you can set up the CloudWatch agent to use multiple
 configuration files. For example, you can use a common configuration file that collects a

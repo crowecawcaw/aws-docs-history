@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-CloudWatch Application Insights
+# Using service-linked roles for CloudWatch Application Insights
 
 CloudWatch Application Insights uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to CloudWatch Application Insights. Service-linked roles are predefined by CloudWatch Application Insights and
@@ -17,15 +15,12 @@ For information about other services that support service-linked roles, see [AWS
 with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") and look for the services that have **Yes** in
 the **Service-Linked Role** column. Choose a **Yes** link to view the service-linked role documentation for that service.
 
-## Service-linked role permissions for
-
-CloudWatch Application Insights
+## Service-linked role permissions for CloudWatch Application Insights
 
 CloudWatch Application Insights uses the service-linked role named **AWSServiceRoleForApplicationInsights**.
 Application Insights uses this role to perform operations such as analyzing the resource groups of the customer, creating CloudFormation stacks to create alarms on metrics, and configuring the CloudWatch Agent on EC2 instances. This service-linked role has an IAM policy attached to it named
 `CloudwatchApplicationInsightsServiceLinkedRolePolicy`. For updates to this
-policy, see [Application Insights updates to AWS
-managed policies](security-iam-awsmanpol-appinsights.md#security-iam-awsmanpol-appinsights-updates "security-iam-awsmanpol-appinsights.md#security-iam-awsmanpol-appinsights-updates").
+policy, see [Application Insights updates to AWS managed policies](security-iam-awsmanpol-appinsights.md#security-iam-awsmanpol-appinsights-updates "security-iam-awsmanpol-appinsights.md#security-iam-awsmanpol-appinsights-updates").
 
 The role permissions policy allows CloudWatch Application Insights to complete the following actions on
 resources.
@@ -495,9 +490,7 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-CloudWatch Application Insights
+## Creating a service-linked role for CloudWatch Application Insights
 
 You don't need to manually create a service-linked role. When you
 create a new Application Insights application in the AWS Management Console, CloudWatch Application Insights creates the service-linked role for
@@ -515,9 +508,7 @@ might reference the role. However, you can edit the description of the role usin
 more information, see [Editing a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-CloudWatch Application Insights
+## Deleting a service-linked role for CloudWatch Application Insights
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you avoid having an unused entity that is not

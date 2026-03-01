@@ -18,8 +18,7 @@ instances or on AWS Fargate.
 ## Amazon EKS clusters hosted on Amazon EC2
 
 If you have not already done so, make sure that you have fulfilled the prerequisites
-including the necessary IAM roles. For more information, see [Verifying prerequisites for Container
-Insights in CloudWatch](Container-Insights-prerequisites.md "Container-Insights-prerequisites.md").
+including the necessary IAM roles. For more information, see [Verifying prerequisites for Container Insights in CloudWatch](Container-Insights-prerequisites.md "Container-Insights-prerequisites.md").
 
 Amazon provides a Helm chart that you can use to set up the monitoring of Amazon Elastic Kubernetes Service
 on Amazon EC2. This monitoring uses the AWS Distro for OpenTelemetry(ADOT) Collector for
@@ -55,9 +54,7 @@ For information about how to see your Container Insights metrics in CloudWatch, 
 AWS has also provided documentation on GitHub for this scenario. If you want to
 customize the metrics and logs published by Container Insights, see [https://aws-otel.github.io/docs/getting-started/container-insights/eks-infra](https://aws-otel.github.io/docs/getting-started/container-insights/eks-infra "https://aws-otel.github.io/docs/getting-started/container-insights/eks-infra").
 
-## Amazon EKS clusters hosted on
-
-Fargate
+## Amazon EKS clusters hosted on Fargate
 
 For instructions for how to configure and deploy an ADOT Collector to collect system
 metrics from workloads deployed to an Amazon EKS cluster on Fargate and send them to

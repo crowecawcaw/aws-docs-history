@@ -1,6 +1,4 @@
-# View and continue an open
-
-investigation
+# View and continue an open investigation
 
 Use the steps in this section to view and continue and existing investigation
 
@@ -95,8 +93,7 @@ You have several options:
      the pre-defined _runbooks_ in Systems Manager
      Automation. Each runbook defines a number of steps for performing a task
      on an AWS resource. For information about continuing with a runbook
-     action, see [Reviewing and executing suggested
-     runbook remediations for CloudWatch investigations](suggested-investigation-actions.md "suggested-investigation-actions.md").
+     action, see [Reviewing and executing suggested runbook remediations for CloudWatch investigations](suggested-investigation-actions.md "suggested-investigation-actions.md").
 
    ###### Important
 

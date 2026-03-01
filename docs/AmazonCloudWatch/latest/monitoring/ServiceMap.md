@@ -1,6 +1,4 @@
-# View your application topology and monitor operational health with
-
-the CloudWatch application map
+# View your application topology and monitor operational health with the CloudWatch application map
 
 ###### Note
 
@@ -44,6 +42,9 @@ application's operational health:
 When you visit the application map, by default it shows services grouped by **Related services**. Related services group services based on their dependencies. For example, if Service A calls Service B, which calls Service C, they're grouped under Service A. You can view SLI health, metrics and service count for all services in each group.
 
 ![CloudWatch default application map grouped by related services.](images/explore-application-map-overview.png)
+
+Choose a tab for information about exploring each kind of node and the edges (connections)
+between them.
 
 ### Dynamic grouping and filtering
 
@@ -241,9 +242,6 @@ Application Signals supports cross-account observability, allowing you to monito
 **How It Works:**
 
 Application Signals uses AWS Organizations and cross-account sharing to enable observability across multiple accounts. To setup cross account observability please refer to [CloudWatch cross-account observability](CloudWatch-Unified-Cross-Account.md "CloudWatch-Unified-Cross-Account.md").
-
-Choose a tab for information about exploring each kind of node and the edges (connections)
-between them.
 
 View your application services
 **Service (Instrumented)**

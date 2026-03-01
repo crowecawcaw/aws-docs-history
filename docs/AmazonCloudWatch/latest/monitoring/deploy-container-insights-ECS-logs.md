@@ -1,6 +1,4 @@
-# Set up FireLens to send logs to
-
-CloudWatch Logs
+# Set up FireLens to send logs to CloudWatch Logs
 
 FireLens for Amazon ECS enables you to use task definition parameters to route logs to
 Amazon CloudWatch Logs for log storage and analytics. FireLens works with [Fluent Bit](https://fluentbit.io/ "https://fluentbit.io/") and [Fluentd](https://www.fluentd.org/ "https://www.fluentd.org/"). We provide an AWS for Fluent Bit image, or you can use your own

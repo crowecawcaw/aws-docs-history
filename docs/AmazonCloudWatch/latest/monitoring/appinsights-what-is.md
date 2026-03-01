@@ -389,8 +389,7 @@ the following technologies:
 - SharePoint
 - Databases:
   - Microsoft SQL Server running on Amazon RDS or Amazon EC2 (including SQL
-    Server High Availability configurations. See, [Component configuration
-    examples](component-configuration-examples.md "component-configuration-examples.md")).
+    Server High Availability configurations. See, [Component configuration examples](component-configuration-examples.md "component-configuration-examples.md")).
   - MySQL running on Amazon RDS, Amazon Aurora, or Amazon EC2
   - PostgreSQL running on Amazon RDS or Amazon EC2
   - Amazon DynamoDB table

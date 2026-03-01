@@ -1,6 +1,4 @@
-# Use Metrics Insights queries with metric
-
-math
+# Use Metrics Insights queries with metric math
 
 You can use a Metrics Insights query as an input to a metric math function. For more
 information about metric math, see [Using math expressions with CloudWatch metrics](using-metric-math.md "using-metric-math.md").

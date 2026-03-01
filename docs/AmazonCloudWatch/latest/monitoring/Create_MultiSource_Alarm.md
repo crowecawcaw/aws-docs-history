@@ -1,6 +1,4 @@
-# Create an alarm based on a connected data
-
-source
+# Create an alarm based on a connected data source
 
 You can create alarms that watch metrics from data sources that aren't in CloudWatch. For more
 information about creating connections to these other data sources, see [Query metrics from other data sources](MultiDataSourceQuerying.md "MultiDataSourceQuerying.md").
@@ -39,8 +37,7 @@ information about creating connections to these other data sources, see [Query m
 
 To create an M out of N alarm, specify a number for the first value that is lower
 than the number for the second value. For more information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md"). 12. For **Missing data treatment**, choose how the alarm behaves when
-some data points are missing. For more information, see [Configuring how CloudWatch alarms treat missing
-data](alarms-and-missing-data.md "alarms-and-missing-data.md"). 13. Choose **Next**. 14. For **Notification**, specify an Amazon SNS topic to notify when your
+some data points are missing. For more information, see [Configuring how CloudWatch alarms treat missing data](alarms-and-missing-data.md "alarms-and-missing-data.md"). 13. Choose **Next**. 14. For **Notification**, specify an Amazon SNS topic to notify when your
 alarm transitions to the `ALARM`, `OK`, or
 `INSUFFICIENT_DATA` state.
 

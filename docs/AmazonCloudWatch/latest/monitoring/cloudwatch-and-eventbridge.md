@@ -357,9 +357,7 @@ summary of the number of contributors that caused the alarm to transition in the
 
 ```
 
-## Alarm Configuration Change
-
-Events
+## Alarm Configuration Change Events
 
 This section shows example events sent to EventBridge when an alarm's configuration
 changes. Configuration changes include creating, updating, or deleting alarms.

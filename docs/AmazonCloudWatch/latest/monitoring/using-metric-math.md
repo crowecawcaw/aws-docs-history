@@ -9,9 +9,7 @@ rate. Then add the resulting time series to a graph on your CloudWatch dashboard
 You can also perform metric math programmatically, using the `GetMetricData`
 API operation. For more information, see [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md").
 
-## Add a math expression to a CloudWatch
-
-graph
+## Add a math expression to a CloudWatch graph
 
 You can add a math expression to a graph on your CloudWatch dashboard. Each graph is limited
 to using a maximum of 500 metrics and expressions, so you can add a math expression only if
@@ -154,9 +152,7 @@ To see how these operators are used, suppose we have two time series:
 | **(metric1 >= 30)**                 | **1, 0, 0, 0** |
 | **(metric1 > 15 AND metric2 > 15)** | **1, 0, 0, 0** |
 
-### Functions supported for metric
-
-math
+### Functions supported for metric math
 
 The following table describes the functions that you can use in math expressions.
 Enter all functions in uppercase letters.
@@ -355,9 +351,7 @@ The corresponding output time series value:
 - is an empty time series, if **metric3** is omitted from the
   expression.
 
-### Use case examples for IF
-
-expressions
+### Use case examples for IF expressions
 
 The following examples illustrate the possible uses of the **IF**
 function.
@@ -376,17 +370,13 @@ function.
 
 **IF(latency>threshold, 1, 0)**
 
-### Use metric math with the GetMetricData API
-
-operation
+### Use metric math with the GetMetricData API operation
 
 You can use `GetMetricData` to perform calculations using math expressions,
 and also retrieve large batches of metric data in one API call. For more information, see
 [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md").
 
-## Outlier detection on metric
-
-math
+## Outlier detection on metric math
 
 Outlier detection on metric math is a feature that you can use to create anomaly
 detection alarms on single metrics and the outputs of metric math expressions. You can use

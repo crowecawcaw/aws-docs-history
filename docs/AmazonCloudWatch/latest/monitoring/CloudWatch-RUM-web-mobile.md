@@ -1,6 +1,4 @@
-# Set up a mobile application to use
-
-CloudWatch RUM
+# Set up a mobile application to use CloudWatch RUM
 
 To monitor mobile applications, you create an app monitor, configure it for mobile
 platforms, and integrate the AWS Distro for OpenTelemetry (ADOT) SDK into your
@@ -26,8 +24,7 @@ a dedicated OTLP endpoint.
    a resource-based policy to control who can send requests to your app
    monitor. If you choose **Create public policy**, a resource
    policy will be attached that enables anyone to send requests to your app
-   monitor. For more information, see [Using resource-based policies with
-   CloudWatch RUM](CloudWatch-RUM-resource-policies.md "CloudWatch-RUM-resource-policies.md").
+   monitor. For more information, see [Using resource-based policies with CloudWatch RUM](CloudWatch-RUM-resource-policies.md "CloudWatch-RUM-resource-policies.md").
 8. To enable AWS X-Ray tracing of sampled user sessions, choose
    **Active tracing** and select **Trace my
    service with AWS X-Ray**.

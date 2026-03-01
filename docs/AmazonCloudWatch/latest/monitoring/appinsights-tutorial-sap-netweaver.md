@@ -98,13 +98,11 @@ You must perform the following prerequisites to configure SAP NetWeaver with Clo
 - **Service-linked role** – Application Insights
   uses AWS Identity and Access Management (IAM) service-linked roles. A service-linked role is created
   for you when you create your first Application Insights application in the Application Insights
-  console. For more information, see [Using service-linked roles for
-  CloudWatch Application Insights](CHAP_using-service-linked-roles-appinsights.md "CHAP_using-service-linked-roles-appinsights.md").
+  console. For more information, see [Using service-linked roles for CloudWatch Application Insights](CHAP_using-service-linked-roles-appinsights.md "CHAP_using-service-linked-roles-appinsights.md").
 - **Amazon CloudWatch agent** – Application Insights installs and
   configures the CloudWatch agent. If you have CloudWatch agent installed, Application Insights retains
   your configuration. To avoid a merge conflict, remove the configuration of resources that you want to use in Application Insights from the existing CloudWatch agent configuration file.
-  For more information, see [Manually create or edit the
-  CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").
+  For more information, see [Manually create or edit the CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").
 
 ## Set up your SAP NetWeaver application servers for monitoring
 

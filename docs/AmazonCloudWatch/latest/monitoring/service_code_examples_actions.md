@@ -7,8 +7,7 @@ a link to GitHub, where you can find instructions for setting up and running the
 These excerpts call the CloudWatch API and
 are code excerpts from larger programs that must be run in context.
 You can see actions in context in
-[Scenarios for
-CloudWatch using AWS SDKs](service_code_examples_scenarios.md "service_code_examples_scenarios.md") .
+[Scenarios for CloudWatch using AWS SDKs](service_code_examples_scenarios.md "service_code_examples_scenarios.md").
 
 The following examples include only the most commonly used actions.
 For a complete list, see the

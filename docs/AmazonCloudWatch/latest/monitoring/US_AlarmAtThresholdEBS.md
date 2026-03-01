@@ -1,13 +1,9 @@
-# Create a storage throughput alarm that sends
-
-email
+# Create a storage throughput alarm that sends email
 
 You can set up an SNS notification and configure an alarm that is triggered when Amazon EBS
 exceeds 100 MB throughput.
 
-## Setting up a storage throughput alarm using the
-
-AWS Management Console
+## Setting up a storage throughput alarm using the AWS Management Console
 
 Use these steps to use the AWS Management Console to create an alarm based on Amazon EBS
 throughput.
@@ -51,9 +47,7 @@ to the `ALARM` state. Each email address is sent a topic subscription
 confirmation email. You must confirm the subscription before notifications can be sent
 to an email address. 11. Choose **Create Alarm**.
 
-## Setting up a storage throughput alarm using the
-
-AWS CLI
+## Setting up a storage throughput alarm using the AWS CLI
 
 Use these steps to use the AWS CLI to create an alarm based on Amazon EBS throughput.
 

@@ -1,6 +1,4 @@
-# Enable your applications
-
-on Lambda
+# Enable your applications on Lambda
 
 You can enable Application Signals for your Lambda functions. Application Signals
 automatically instruments your Lambda functions using enhanced AWS Distro for OpenTelemetry
@@ -20,26 +18,19 @@ see [Transaction Search](CloudWatch-Transaction-Search.md "CloudWatch-Transactio
 
 ###### Topics
 
-- [Getting
-  started](#Application-Signals-Enable-Lambda-Methods-Getting-Started "#Application-Signals-Enable-Lambda-Methods-Getting-Started")
-- [Use the CloudWatch Application Signals
-  console](#Enable-Lambda-CWConsole "#Enable-Lambda-CWConsole")
+- [Getting started](#Application-Signals-Enable-Lambda-Methods-Getting-Started "#Application-Signals-Enable-Lambda-Methods-Getting-Started")
+- [Use the CloudWatch Application Signals console](#Enable-Lambda-CWConsole "#Enable-Lambda-CWConsole")
 - [Use the Lambda console](#Enable-Lambda-LambdaConsole "#Enable-Lambda-LambdaConsole")
-- [Enable Application Signals
-  on Lambda using AWS CDK](#CloudWatch-Application-Signals-Lambda-CDK "#CloudWatch-Application-Signals-Lambda-CDK")
+- [Enable Application Signals on Lambda using AWS CDK](#CloudWatch-Application-Signals-Lambda-CDK "#CloudWatch-Application-Signals-Lambda-CDK")
 - [Enable Application Signals on Lambda using Model Context Protocol (MCP)](#CloudWatch-Application-Signals-Lambda-MCP "#CloudWatch-Application-Signals-Lambda-MCP")
-- [(Optional) Monitor your
-  application health](#CloudWatch-Application-Signals-Monitor-Lambda "#CloudWatch-Application-Signals-Monitor-Lambda")
+- [(Optional) Monitor your application health](#CloudWatch-Application-Signals-Monitor-Lambda "#CloudWatch-Application-Signals-Monitor-Lambda")
 - [Manually enable Application Signals.](#Enable-Lambda-Manually "#Enable-Lambda-Manually")
 - [Manually disable Application Signals](#Disable-Lambda-Manually "#Disable-Lambda-Manually")
 - [Configuring Application Signals](#Configuring-Lambda-AppSignals "#Configuring-Lambda-AppSignals")
 - [AWS Lambda Layer for OpenTelemetry ARNs](#Enable-Lambda-Layers "#Enable-Lambda-Layers")
-- [Deploy Lambda functions using Amazon ECR
-  container](#containerized-lambda "#containerized-lambda")
+- [Deploy Lambda functions using Amazon ECR container](#containerized-lambda "#containerized-lambda")
 
-## Getting
-
-started
+## Getting started
 
 There are three methods for enabling Application Signals for your Lambda
 functions.
@@ -55,9 +46,7 @@ telemetry from that function to appear in the Application Signals console.
 Each of these methods adds the AWS Lambda Layer for OpenTelemetry to your
 function.
 
-## Use the CloudWatch Application Signals
-
-console
+## Use the CloudWatch Application Signals console
 
 Use these steps to use the Application Signals console to enable Application Signals
 for a Lambda function.
@@ -91,9 +80,7 @@ function.
    visibility with X-Ray.**.
 6. Choose **Save**.
 
-## Enable Application Signals
-
-on Lambda using AWS CDK
+## Enable Application Signals on Lambda using AWS CDK
 
 If you haven't enabled Application Signals in this account yet, you must grant
 Application Signals the permissions it needs to discover your services. For more
@@ -119,8 +106,7 @@ permissions:
     * `cloudwatch:ListMetrics`
     * `tag:GetResources`
 
-For more information about this role, see [Service-linked role permissions for
-CloudWatch Application Signals](using-service-linked-roles.md#service-linked-role-signals "using-service-linked-roles.md#service-linked-role-signals"). 2. Add the IAM policy
+For more information about this role, see [Service-linked role permissions for CloudWatch Application Signals](using-service-linked-roles.md#service-linked-role-signals "using-service-linked-roles.md#service-linked-role-signals"). 2. Add the IAM policy
 `CloudWatchLambdaApplicationSignalsExecutionRolePolicy` to the
 lambda function.
 
@@ -210,9 +196,7 @@ Using the CloudWatch Application Signals MCP server offers several advantages:
 
 For more information about configuring and using the CloudWatch Application Signals MCP server, see the [MCP server documentation](https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server "https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server").
 
-## (Optional) Monitor your
-
-application health
+## (Optional) Monitor your application health
 
 Once you have enabled your applications on Lambda, you can monitor your application
 health. For more information, see [Monitor the operational health of your applications with Application Signals](Services.md "Services.md").
@@ -287,9 +271,7 @@ see [ADOT Lambda Layer ARNs](https://aws-otel.github.io/docs/getting-started/lam
 in the AWS Distro for OpenTelemetry documentation. The layer is available for Python, Node.js, .NET, and
 Java runtimes.
 
-## Deploy Lambda functions using Amazon ECR
-
-container
+## Deploy Lambda functions using Amazon ECR container
 
 Lambda functions deployed as container images do not support Lambda Layers in the
 traditional way. When using container images, you cannot attach a layer as you would

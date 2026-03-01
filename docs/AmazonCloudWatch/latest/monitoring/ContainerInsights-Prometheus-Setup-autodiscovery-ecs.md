@@ -1,6 +1,4 @@
-# Detailed guide
-
-for autodiscovery on Amazon ECS clusters
+# Detailed guide for autodiscovery on Amazon ECS clusters
 
 Prometheus provides dozens of dynamic service-discovery mechanisms as described in
 [<scrape_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config"). However there is no built-in service discovery for
@@ -112,9 +110,7 @@ Docker labels that don't match the regular expression
 `[a-zA-Z_][a-zA-Z0-9_]*` are filtered out. This matches the Prometheus
 conventions as listed in `label_name` in [Configuration file](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#labelname "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#labelname") in the Prometheus documentation.
 
-## ECS
-
-service discovery configuration examples
+## ECS service discovery configuration examples
 
 This section includes examples that demonstrate ECS service discovery.
 

@@ -1,16 +1,11 @@
-# Using the console to enable Lambda Insights
-
-on an existing Lambda function
+# Using the console to enable Lambda Insights on an existing Lambda function
 
 Use the following steps
 in the Lambda Console
 to enable Lambda Insights
 on an existing Lambda function.
 
-######
-
-To enable Lambda Insights
-on a Lambda function
+###### To enable Lambda Insights on a Lambda function
 
 1. Open the AWS Lambda console at
    [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").

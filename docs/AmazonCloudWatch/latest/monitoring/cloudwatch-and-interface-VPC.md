@@ -1,6 +1,4 @@
-# Using CloudWatch, CloudWatch Synthetics, and CloudWatch Network
-
-Monitoring with interface VPC endpoints
+# Using CloudWatch, CloudWatch Synthetics, and CloudWatch Network Monitoring with interface VPC endpoints
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can establish a private
 connection between your VPC, CloudWatch, CloudWatch Synthetics, and CloudWatch Network Monitoring features.
@@ -41,9 +39,7 @@ other AWS services using either public endpoints or private interface VPC endpoi
 For example, if you create an interface VPC endpoint for CloudWatch, and you already have metrics flowing
 to CloudWatch from resources located on your VPC, these metrics begin flowing through the interface VPC endpoint by default.
 
-### Controlling access to your CloudWatch VPC
-
-endpoint
+### Controlling access to your CloudWatch VPC endpoint
 
 A VPC endpoint policy is an IAM resource policy that you attach to an endpoint when you create or modify
 the endpoint. If you don't attach a policy when you create an endpoint, Amazon VPC
@@ -110,9 +106,7 @@ CloudWatch Synthetics currently supports VPC endpoints in the following AWS Regi
 - Europe (Paris)
 - South America (São Paulo)
 
-### Creating a VPC endpoint for CloudWatch
-
-Synthetics
+### Creating a VPC endpoint for CloudWatch Synthetics
 
 To start using CloudWatch Synthetics with your VPC, create an interface VPC endpoint for
 CloudWatch Synthetics. The service name to choose is
@@ -128,9 +122,7 @@ interface VPC endpoint for CloudWatch Synthetics, and you already have an interf
 endpoint for Amazon S3, CloudWatch Synthetics begins communicating with Amazon S3 through the
 interface VPC endpoint by default.
 
-### Controlling access to your CloudWatch
-
-Synthetics VPC endpoint
+### Controlling access to your CloudWatch Synthetics VPC endpoint
 
 A VPC endpoint policy is an IAM resource policy that you attach to an endpoint when
 you create or modify the endpoint. If you don't attach a policy when you create an
@@ -192,9 +184,7 @@ To see a list of supported Regions for each Network Monitoring feature, see the 
 - **Internet Monitor:** [Supported AWS Regions for Internet Monitor](CloudWatch-InternetMonitor.md "CloudWatch-InternetMonitor.md")
 - **Network Synthetic Monitor:** [Supported AWS Regions for Network Synthetic Monitor](nw-monitor-regions.md "nw-monitor-regions.md")
 
-### Creating a VPC endpoint for a CloudWatch
-
-Network Monitoring feature
+### Creating a VPC endpoint for a CloudWatch Network Monitoring feature
 
 To start using CloudWatch Network Monitoring features with your VPC, create an interface VPC endpoint for
 the feature that you want to use. For Network Monitoring, the following service names are available:
@@ -214,9 +204,7 @@ interface VPC endpoints, whichever are being used. For example, if you create an
 interface VPC endpoint for a Network Monitoring service, and you already have metrics flowing to the
 service from resources located on your VPC, the metrics begin flowing through the interface VPC endpoint by default.
 
-### Controlling access to your CloudWatch
-
-Network Monitoring feature VPC endpoints
+### Controlling access to your CloudWatch Network Monitoring feature VPC endpoints
 
 A VPC endpoint policy is an IAM resource policy that you attach to an endpoint when you create or modify
 the endpoint. An endpoint policy doesn't

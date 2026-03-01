@@ -6,9 +6,7 @@ changes state from `OK` to `ALARM`.
 The alarm changes to the `ALARM` state when the average CPU use of an EC2
 instance exceeds a specified threshold for consecutive specified periods.
 
-## Setting up a CPU usage alarm using the
-
-AWS Management Console
+## Setting up a CPU usage alarm using the AWS Management Console
 
 Use these steps to use the AWS Management Console to create a CPU usage alarm.
 
@@ -48,13 +46,11 @@ Use these steps to use the AWS Management Console to create a CPU usage alarm.
 
     To create an M out of N alarm, specify a lower number for the first value than
     you specify for the second value. For more information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md"). 4. For **Missing data treatment**, choose how to have the alarm
-    behave when some data points are missing. For more information, see [Configuring how CloudWatch alarms treat missing
-    data](alarms-and-missing-data.md "alarms-and-missing-data.md"). 5. If the alarm uses a percentile as the monitored statistic, a
+    behave when some data points are missing. For more information, see [Configuring how CloudWatch alarms treat missing data](alarms-and-missing-data.md "alarms-and-missing-data.md"). 5. If the alarm uses a percentile as the monitored statistic, a
     **Percentiles with low samples** box appears. Use it to choose
     whether to evaluate or ignore cases with low sample rates. If you choose
     **ignore (maintain alarm state)**, the current alarm state is
-    always maintained when the sample size is too low. For more information, see [Percentile-based alarms and low data
-    samples](percentiles-with-low-samples.md "percentiles-with-low-samples.md").
+    always maintained when the sample size is too low. For more information, see [Percentile-based alarms and low data samples](percentiles-with-low-samples.md "percentiles-with-low-samples.md").
 
 11. Choose **Next**.
 12. Under **Notification**, choose **In alarm** and

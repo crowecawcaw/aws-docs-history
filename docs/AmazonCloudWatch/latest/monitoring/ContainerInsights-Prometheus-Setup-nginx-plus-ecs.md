@@ -1,6 +1,4 @@
-# Sample NGINX Plus
-
-workload for Amazon ECS clusters
+# Sample NGINX Plus workload for Amazon ECS clusters
 
 NGINX Plus is the commerical version of NGINX. You must have a licence to use it.
 For more information, see [NGINX
@@ -19,19 +17,13 @@ the NGINX Prometheus Exporter to expose the metrics on a different port or path.
 you change the port or path, update the `ecs_service_discovery` section in
 the CloudWatch agent configuration file.
 
-## Install the
-
-NGINX Plus reverse proxy sample workload for Amazon ECS clusters
+## Install the NGINX Plus reverse proxy sample workload for Amazon ECS clusters
 
 Follow these steps to install the NGINX reverse proxy sample workload.
 
-### Create
+### Create the Docker images
 
-the Docker images
-
-###### To create the Docker images for the NGINX Plus reverse proxy sample
-
-workload
+###### To create the Docker images for the NGINX Plus reverse proxy sample workload
 
 1. Download the following folder from the NGINX reverse proxy repo: [https://github.com/awslabs/ecs-nginx-reverse-proxy/tree/master/reverse-proxy/](https://github.com/awslabs/ecs-nginx-reverse-proxy/tree/master/reverse-proxy/ "https://github.com/awslabs/ecs-nginx-reverse-proxy/tree/master/reverse-proxy/").
 2. Find the `app` directory and build an image from that
@@ -205,9 +197,7 @@ docker build -t nginx-plus-reverse-proxy ./`path-to-your-directory`
 
 5. Upload your new images to an image repository for later use.
 
-### Create
-
-the task definition to run NGINX Plus and the web server app in Amazon ECS
+### Create the task definition to run NGINX Plus and the web server app in Amazon ECS
 
 Next, you set up the task definition.
 
@@ -460,9 +450,7 @@ aws cloudformation create-stack --stack-name CWAgent-Prometheus-ECS-${ECS_CLUSTE
     --region $AWS_REGION
 ```
 
-## Viewing your
-
-NGINX Plus metrics and logs
+## Viewing your NGINX Plus metrics and logs
 
 You can now view the NGINX Plus metrics being collected.
 

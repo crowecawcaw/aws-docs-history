@@ -9,9 +9,7 @@ The extension emits logs into the same log group as your function
 (`/aws/lambda/`function-name`)`. Review those logs
 to see if the error might be related to a setup issue.
 
-## I don't see any metrics
-
-from Lambda Insights
+## I don't see any metrics from Lambda Insights
 
 If you don't see Lambda Insights metrics that you expect to see, check the
 following possibilities:

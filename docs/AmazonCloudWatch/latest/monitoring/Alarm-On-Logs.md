@@ -2,9 +2,7 @@
 
 The steps in the following sections explain how to create CloudWatch alarms on logs.
 
-## Create a CloudWatch alarm based on a log
-
-group-metric filter
+## Create a CloudWatch alarm based on a log group-metric filter
 
 The procedure in this section describes how to create an alarm based on a log
 group-metric filter. With metric filters, you can look for terms and patterns in log data as

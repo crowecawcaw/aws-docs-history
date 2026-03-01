@@ -24,14 +24,12 @@ high-cardinality telemetry as outlined in this section.
   both metrics and traces from your auto-instrumented applications. If you would like to
   optionally pass in custom configuration rules, you can do so by passing in a custom
   agent configuration to the Amazon EKS add-on when you create or update it by using
-  additional configuration, as outlined in [(Optional)
-  Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration "install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration").
+  additional configuration, as outlined in [(Optional) Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration "install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration").
 - For RedHat for OpenShift on AWS (ROSA), when you install the CloudWatch agent operator
   using helm charts, the CloudWatch agent is by default enabled to receive both metrics and
   traces from your auto-instrumented applications. If you would like to optionally pass
   in custom configuration rules, you can do so by passing in a custom agent
-  configuration by using the Helm chart, as outlined in [(Optional)
-  Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration "install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration").
+  configuration by using the Helm chart, as outlined in [(Optional) Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration "install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration").
 - For other supported platforms including Amazon EC2, you must start the CloudWatch agent with
   an agent configuration that enables Application Signals by specifying the
   `application_signals` sections and optionally any custom configuration
@@ -127,10 +125,7 @@ high-cardinality telemetry as outlined in this section.
       		 is expressed as a string with a sequence of numbers and a unit suffix.
       		 Fractions are supported. The supported unit suffixes are
       		 `s`, `m`, `h`, `ms`,
-      		 `us`, and `ns`
-
-
-      		The default is `1h` for one hour.
+      		 `us`, and `ns`. The default is `1h` for one hour.
       		+ `log_dropped_metrics` (Optional) Specifies whether the
       		 agent should write logs to the CloudWatch agent logs when Application
       		 Signals metrics are dropped. The default is `false`.

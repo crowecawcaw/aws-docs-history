@@ -1,6 +1,4 @@
-# Use Serverless Framework to enable Lambda Insights on an
-
-existing Lambda function
+# Use Serverless Framework to enable Lambda Insights on an existing Lambda function
 
 Follow these steps to use Serverless Framework to enable Lambda Insights on an existing Lambda function. For
 more information about Serverless Framework, see

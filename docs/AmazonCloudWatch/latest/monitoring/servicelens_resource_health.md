@@ -81,8 +81,7 @@ settings in step 6 of this procedure. 3. To change what criteria is used to show
 **Color by**. You can choose **CPU Utilization**,
 **Memory Utilization**, or **Status check**. Memory utilization
 metrics are available only for hosts that are running the CloudWatch agent and have it configured to collect
-memory metrics and send them to the default `CWAgent` namespace. For more information, see [Collect metrics, logs, and traces using the CloudWatch
-agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md"). 4. To change the thresholds and the colors that are used for the health indicators in the grid, choose the
+memory metrics and send them to the default `CWAgent` namespace. For more information, see [Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md"). 4. To change the thresholds and the colors that are used for the health indicators in the grid, choose the
 gear icon above the grid. 5. To toggle whether to show alarms in the host grid, choose or clear **Show alarms across
 all metrics**. 6. To split the hosts in the map into groups, choose a grouping criteria for **Group
 by**. 7. To narrow the view to fewer hosts, choose a filter criteria for **Filter

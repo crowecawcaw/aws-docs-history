@@ -10,8 +10,7 @@ correctly, the format can be automatically transformed into Parquet format or
 Optimized Row Columnar (ORC) format before being stored in S3. For more information
 about transforming the format, see [Converting Your Input
 Record Format in Firehose](../../../firehose/latest/dev/record-format-conversion.md "../../../firehose/latest/dev/record-format-conversion.md"). For more information about the correct format
-for AWS Glue, see [Which
-AWS Glue schema should I use for JSON output format?](#CloudWatch-metric-streams-format-glue "#CloudWatch-metric-streams-format-glue").
+for AWS Glue, see [Which AWS Glue schema should I use for JSON output format?](#CloudWatch-metric-streams-format-glue "#CloudWatch-metric-streams-format-glue").
 
 In the JSON format, the valid values for `unit` are the same
 as for the value of `unit` in the `MetricDatum` API structure.
@@ -45,9 +44,7 @@ for easy reading, but in practice the whole format is on a single line.
 }
 ```
 
-## Which
-
-AWS Glue schema should I use for JSON output format?
+## Which AWS Glue schema should I use for JSON output format?
 
 The following is an example of a JSON representation of the
 `StorageDescriptor` for an AWS Glue table, which would then be used

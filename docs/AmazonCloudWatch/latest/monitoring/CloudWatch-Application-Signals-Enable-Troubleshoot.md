@@ -13,16 +13,13 @@ This section contains troubleshooting tips for CloudWatch Application Signals.
 - [My .NET application isn't instrumented or breaks for AWS SDK calls](#Application-Signals-troubleshoot-sdk-calls "#Application-Signals-troubleshoot-sdk-calls")
 - [No application data in Application Signals dashboard](#Application-Signals-troubleshoot-missingdata "#Application-Signals-troubleshoot-missingdata")
 - [Service metrics or dependency metrics have Unknown values](#Application-Signals-troubleshoot-unknown-values "#Application-Signals-troubleshoot-unknown-values")
-- [Handling a ConfigurationConflict when managing the Amazon CloudWatch
-  Observability EKS add-on](#Application-Signals-troubleshoot-conflict "#Application-Signals-troubleshoot-conflict")
+- [Handling a ConfigurationConflict when managing the Amazon CloudWatch Observability EKS add-on](#Application-Signals-troubleshoot-conflict "#Application-Signals-troubleshoot-conflict")
 - [I want to filter out unnecessary metrics and traces](#Application-Signals-troubleshoot-cardinality "#Application-Signals-troubleshoot-cardinality")
 - [What does InternalOperation mean?](#Application-Signals-troubleshoot-InternalOperation "#Application-Signals-troubleshoot-InternalOperation")
-- [How do I enable logging
-  for .NET applications?](#Application-Signals-troubleshoot-dotnet-logging "#Application-Signals-troubleshoot-dotnet-logging")
+- [How do I enable logging for .NET applications?](#Application-Signals-troubleshoot-dotnet-logging "#Application-Signals-troubleshoot-dotnet-logging")
 - [How can I resolve assembly version conflicts in .NET applications?](#Application-Signals-troubleshoot-dotnet-conflicts "#Application-Signals-troubleshoot-dotnet-conflicts")
 - [Can I disable FluentBit?](#Application-Signals-troubleshoot-FluentBit "#Application-Signals-troubleshoot-FluentBit")
-- [Can I filter container logs
-  before exporting to CloudWatch Logs?](#Application-Signals-troubleshoot-filter-logs "#Application-Signals-troubleshoot-filter-logs")
+- [Can I filter container logs before exporting to CloudWatch Logs?](#Application-Signals-troubleshoot-filter-logs "#Application-Signals-troubleshoot-filter-logs")
 - [Resolving TypeError when Using AWS Distro for OpenTelemetry (ADOT) JavaScript Lambda Layer](#lambda-execution "#lambda-execution")
 - [TypeError when using Response Streaming Lambda handlers with AWS Distro for OpenTelemetry (ADOT) JavaScript Lambda Layer](#lambda-execution-streaming "#lambda-execution-streaming")
 - [Update to required versions of agents or Amazon EKS add-on](#CloudWatch-Application-Signals-Agent-Versions "#CloudWatch-Application-Signals-Agent-Versions")
@@ -238,9 +235,7 @@ One solution is to create a custom span around the function that sends out the r
 with the designated value. Another option is to configure the CloudWatch agent to customize the metric value of `RemoteOperation`. For more
 information about customizations in the CloudWatch agent, see [Enable CloudWatch Application Signals](CloudWatch-Agent-Application_Signals.md "CloudWatch-Agent-Application_Signals.md").
 
-## Handling a ConfigurationConflict when managing the Amazon CloudWatch
-
-Observability EKS add-on
+## Handling a ConfigurationConflict when managing the Amazon CloudWatch Observability EKS add-on
 
 When you install or update the Amazon CloudWatch Observability EKS add-on, if you notice a failure caused by
 a `Health Issue` of type `ConfigurationConflict` with a description that
@@ -258,8 +253,7 @@ and then installing the EKS add-on. Be sure to back up any customizations you mi
 to the original CloudWatch agent setup such as a custom agent configuration, and provide these to the
 Amazon CloudWatch Observability EKS add-on when you next install or update it. If you had previously
 installed the CloudWatch agent for onboarding to Container Insights, see
-[Deleting the CloudWatch agent and Fluent Bit
-for Container Insights](ContainerInsights-delete-agent.md "ContainerInsights-delete-agent.md") for more information.
+[Deleting the CloudWatch agent and Fluent Bit for Container Insights](ContainerInsights-delete-agent.md "ContainerInsights-delete-agent.md") for more information.
 
 Alternatively, the add-on supports a conflict resolution configuration option
 that has the capability to specify `OVERWRITE`. You can use this option to proceed
@@ -291,9 +285,7 @@ Some typical examples where you would see `InternalOperation` include the follow
 - **Retrieving host information from a service registry**– Your application talks to a service registry for service discovery.
   All interactions with the discovery system are classified as an `InternalOperation`.
 
-## How do I enable logging
-
-for .NET applications?
+## How do I enable logging for .NET applications?
 
 To enable logging for .NET applications, configure the following environment variables.
 For more information about how to configure these environment variables, see [Troubleshooting .NET automatic instrumentation issues](https://opentelemetry.io/docs/zero-code/net/troubleshooting/#general-steps "https://opentelemetry.io/docs/zero-code/net/troubleshooting/#general-steps") in the OpenTelemetry
@@ -321,12 +313,9 @@ File name: 'Microsoft.Extensions.DependencyInjection.Abstractions, Version=7.0.0
 ## Can I disable FluentBit?
 
 You can disable FluentBit by configuring the Amazon CloudWatch Observability EKS add-on. For more information,
-see [(Optional)
-Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration "install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration").
+see [(Optional) Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration "install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration").
 
-## Can I filter container logs
-
-before exporting to CloudWatch Logs?
+## Can I filter container logs before exporting to CloudWatch Logs?
 
 No, filtering container logs is not yet supported.
 
@@ -509,8 +498,7 @@ If you upgrade to a fixed version, be sure to use a version equal to or later th
      than `0.3.0`.
 
 4. Update the Application Signals environment variables in your app container by following the instructions
-   at [Step 4:
-   Instrument your application with the CloudWatch agent](CloudWatch-Application-Signals-ECS-Sidecar.md#CloudWatch-Application-Signals-Enable-ECS-Instrument "CloudWatch-Application-Signals-ECS-Sidecar.md#CloudWatch-Application-Signals-Enable-ECS-Instrument").
+   at [Step 4: Instrument your application with the CloudWatch agent](CloudWatch-Application-Signals-ECS-Sidecar.md#CloudWatch-Application-Signals-Enable-ECS-Instrument "CloudWatch-Application-Signals-ECS-Sidecar.md#CloudWatch-Application-Signals-Enable-ECS-Instrument").
 5. Deploy your service with the new task definition.
 
 #### Update on Amazon EC2 or other architectures

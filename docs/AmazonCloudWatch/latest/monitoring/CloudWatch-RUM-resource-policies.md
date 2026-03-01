@@ -1,6 +1,4 @@
-# Using resource-based policies with
-
-CloudWatch RUM
+# Using resource-based policies with CloudWatch RUM
 
 You can attach a resource policy to a CloudWatch RUM app monitor. By default, app monitors
 do not have a resource policy attached to them. CloudWatch RUM resource based policies do not
@@ -21,9 +19,7 @@ element reference](../../../IAM/latest/UserGuide/reference_policies_elements.md 
 Resource-based policies on app monitors support the `rum:PutRumEvents`
 action.
 
-## Sample policies to use with CloudWatch
-
-RUM
+## Sample policies to use with CloudWatch RUM
 
 The following example allows anyone to write data to your app monitor, including
 those without SigV4 credentials.

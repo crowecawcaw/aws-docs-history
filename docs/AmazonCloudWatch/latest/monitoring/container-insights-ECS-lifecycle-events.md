@@ -1,6 +1,4 @@
-# Viewing Amazon ECS lifecycle events
-
-within Container Insights
+# Viewing Amazon ECS lifecycle events within Container Insights
 
 You can view Amazon ECS lifecycle events within the Container Insights console. This helps
 you correlate your container metrics, logs, and events in a single view to give you a more

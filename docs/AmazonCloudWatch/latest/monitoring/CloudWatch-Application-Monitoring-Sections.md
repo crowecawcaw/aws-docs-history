@@ -45,8 +45,7 @@ for Canada West (Calgary).
 ###### Topics
 
 - [Features](#application-signals-features "#application-signals-features")
-- [Permissions required for Application
-  Signals](Application_Signals_Permissions.md "Application_Signals_Permissions.md")
+- [Permissions required for Application Signals](Application_Signals_Permissions.md "Application_Signals_Permissions.md")
 - [Supported systems](CloudWatch-Application-Signals-supportmatrix.md "CloudWatch-Application-Signals-supportmatrix.md")
 - [Supported instrumentation setups](Getting-Started-App-Signals.md "Getting-Started-App-Signals.md")
 - [Enable Application Signals in your account](CloudWatch-Application-Signals-Enable.md "CloudWatch-Application-Signals-Enable.md")
@@ -55,8 +54,7 @@ for Canada West (Calgary).
 - [Enable your applications on Amazon EC2](CloudWatch-Application-Signals-Enable-EC2Main.md "CloudWatch-Application-Signals-Enable-EC2Main.md")
 - [Enable your applications on Amazon ECS](CloudWatch-Application-Signals-Enable-ECSMain.md "CloudWatch-Application-Signals-Enable-ECSMain.md")
 - [Enable your applications on Kubernetes](CloudWatch-Application-Signals-Enable-KubernetesMain.md "CloudWatch-Application-Signals-Enable-KubernetesMain.md")
-- [Enable your applications
-  on Lambda](CloudWatch-Application-Signals-Enable-LambdaMain.md "CloudWatch-Application-Signals-Enable-LambdaMain.md")
+- [Enable your applications on Lambda](CloudWatch-Application-Signals-Enable-LambdaMain.md "CloudWatch-Application-Signals-Enable-LambdaMain.md")
 - [Troubleshooting your Application Signals installation](CloudWatch-Application-Signals-Enable-Troubleshoot.md "CloudWatch-Application-Signals-Enable-Troubleshoot.md")
 - [(Optional) Configuring Application Signals](CloudWatch-Application-Signals-Configure.md "CloudWatch-Application-Signals-Configure.md")
 - [Monitor the operational health of your applications with Application Signals](Services.md "Services.md")

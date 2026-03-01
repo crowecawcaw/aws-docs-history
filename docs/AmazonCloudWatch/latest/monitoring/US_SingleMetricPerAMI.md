@@ -1,6 +1,4 @@
-# Aggregate statistics by Amazon Machine Image
-
-(AMI)
+# Aggregate statistics by Amazon Machine Image (AMI)
 
 You can aggregate statistics for the EC2 instances that have detailed monitoring
 enabled. Instances that use basic monitoring aren't included. For more information, see

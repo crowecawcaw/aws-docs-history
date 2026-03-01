@@ -1,6 +1,4 @@
-# Inserting the CloudWatch
-
-app monitor code snippet into your application
+# Inserting the CloudWatch app monitor code snippet into your application
 
 Next, you insert the code snippet that you created in the previous section into
 your application.
@@ -9,12 +7,10 @@ your application.
 
 The web client, downloaded and configured by the code snippet, uses cookies
 (or similar technologies) to help you collect end user data. Before you insert
-the code snippet, see [Filtering by metadata attributes in the
-console](CloudWatch-RUM-privacy.md "CloudWatch-RUM-privacy.md").
+the code snippet, see [Filtering by metadata attributes in the console](CloudWatch-RUM-privacy.md "CloudWatch-RUM-privacy.md").
 
 If you don't have the code snippet that was previously generated, you can find it
-by following the directions in [How do I find a code snippet
-that I've already generated?](CloudWatch-RUM-find-code-snippet.md "CloudWatch-RUM-find-code-snippet.md").
+by following the directions in [How do I find a code snippet that I've already generated?](CloudWatch-RUM-find-code-snippet.md "CloudWatch-RUM-find-code-snippet.md").
 
 ###### To insert the CloudWatch RUM code snippet into your application
 

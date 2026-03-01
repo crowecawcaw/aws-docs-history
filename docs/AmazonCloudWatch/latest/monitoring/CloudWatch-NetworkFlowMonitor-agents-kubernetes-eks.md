@@ -36,9 +36,7 @@ workloads with an additional Amazon EKS Auth API and an agent pod that runs on e
 
 To learn more and see the steps for installing the Amazon EKS Pod Identity add-on, see [Set up the Amazon EKS Pod Identity Agent](../../../eks/latest/userguide/pod-id-agent-setup.md "../../../eks/latest/userguide/pod-id-agent-setup.md") in the Amazon EKS User Guide.
 
-## Install the AWS Network Flow Monitor Agent add-on
-
-by using the console
+## Install the AWS Network Flow Monitor Agent add-on by using the console
 
 Follow the steps in this section to install and configure the AWS Network Flow Monitor Agent add-on
 in the Amazon EKS console.
@@ -64,9 +62,7 @@ see the [previous section](#NFMPodIdentity "#NFMPodIdentity").
 4. On the **Review and add** page, make sure that the add-on configuration looks correct, and then
    choose **Create**.
 
-## Install the AWS Network Flow Monitor Agent add-on
-
-by using the AWS Command Line Interface
+## Install the AWS Network Flow Monitor Agent add-on by using the AWS Command Line Interface
 
 Follow the steps in this section to install the AWS Network Flow Monitor Agent add-on for Amazon EKS by using the AWS Command Line Interface.
 

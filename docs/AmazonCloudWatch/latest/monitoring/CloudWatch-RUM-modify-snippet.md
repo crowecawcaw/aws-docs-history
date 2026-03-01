@@ -1,6 +1,4 @@
-# Modifying the code snippet to
-
-configure the CloudWatch RUM web client (optional)
+# Modifying the code snippet to configure the CloudWatch RUM web client (optional)
 
 You can modify the code snippet before inserting it into your application, to
 activate or deactivate several options. For more information, see the [CloudWatch RUM web client documentation.](https://github.com/aws-observability/aws-rum-web/blob/main/docs/cdn_installation.md "https://github.com/aws-observability/aws-rum-web/blob/main/docs/cdn_installation.md")
@@ -8,9 +6,7 @@ activate or deactivate several options. For more information, see the [CloudWatc
 There are four configuration options that you should definitely be aware of, as
 discussed in these sections.
 
-## Preventing the collection of
-
-resource URLs that might contain personal information
+## Preventing the collection of resource URLs that might contain personal information
 
 By default, the CloudWatch RUM web client is configured to record the URLs of
 resources downloaded by the application. These resources include HTML files,
@@ -50,9 +46,7 @@ cwr('recordPageView', { pageId: 'entityPageId' });
 awsRum.recordPageView({ pageId: 'entityPageId' });
 ```
 
-## Enabling X-Ray end-to-end
-
-tracing
+## Enabling X-Ray end-to-end tracing
 
 When you create the app monitor, selecting **Trace my service with
 AWS X-Ray** enables the tracing of `XMLHttpRequest` and
@@ -101,13 +95,10 @@ a production environment.
 
 For more information, see the [CloudWatch RUM web client documentation](https://github.com/aws-observability/aws-rum-web/blob/main/docs/cdn_installation.md#http "https://github.com/aws-observability/aws-rum-web/blob/main/docs/cdn_installation.md#http")
 
-## Sending unsigned requests to CloudWatch
-
-RUM
+## Sending unsigned requests to CloudWatch RUM
 
 By default, the RUM web client signs all requests sent to RUM. If you set
 `signing:false` in the client configuration, requests will be
 unsigned when they are sent to CloudWatch RUM. Data will be ingested to RUM only if
 there is a public resource based policy attached to the app monitor. For more
-information, see [Using resource-based policies with
-CloudWatch RUM](CloudWatch-RUM-resource-policies.md "CloudWatch-RUM-resource-policies.md").
+information, see [Using resource-based policies with CloudWatch RUM](CloudWatch-RUM-resource-policies.md "CloudWatch-RUM-resource-policies.md").

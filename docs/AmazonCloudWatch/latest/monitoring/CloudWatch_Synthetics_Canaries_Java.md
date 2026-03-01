@@ -1,6 +1,4 @@
-# Library functions available for
-
-Java canary
+# Library functions available for Java canary
 
 The `executeStep` function is used to modularize the canary code and execute it in steps. In CloudWatch Synthetics, a Synthetics step is a way to break down your canary script into a series of clearly defined actions, allowing you to monitor different parts of your application journey separately.
 For each step, CloudWatch Synthetics does the following:

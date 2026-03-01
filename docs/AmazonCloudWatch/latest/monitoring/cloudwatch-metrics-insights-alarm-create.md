@@ -1,6 +1,4 @@
-# Creating a Metrics Insights
-
-CloudWatch alarm
+# Creating a Metrics Insights CloudWatch alarm
 
 ###### To create an alarm on a Metrics Insights query using the console
 
@@ -56,8 +54,7 @@ When using tags, alarms will match the metrics only if the specified tags existe
     To create an M out of N alarm, specify a lower number for the first value than you specify for the second value.
      For more information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md").
     3. For **Missing data treatment**, choose how to have the alarm behave when some data points are missing. For more
-     information, see [Configuring how CloudWatch alarms treat missing
-     data](alarms-and-missing-data.md "alarms-and-missing-data.md").
+     information, see [Configuring how CloudWatch alarms treat missing data](alarms-and-missing-data.md "alarms-and-missing-data.md").
 
 8. Choose **Next**.
 9. Under **Notification**, select an SNS topic to notify when the alarm is in `ALARM` state,

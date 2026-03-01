@@ -1,6 +1,4 @@
-# Set up and configure Prometheus metrics
-
-collection on Amazon EC2 instances
+# Set up and configure Prometheus metrics collection on Amazon EC2 instances
 
 The following sections explain how to install the CloudWatch agent with Prometheus
 monitoring on EC2 instances, and how to configure the agent to scrape additional targets.
@@ -9,8 +7,7 @@ monitoring.
 
 Both Linux and Windows instances are supported.
 
-For information about the operating systems supported by the CloudWatch agent, see [Collect metrics, logs, and traces using the CloudWatch
-agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md")
+For information about the operating systems supported by the CloudWatch agent, see [Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md")
 
 **VPC security group requirements**
 
@@ -24,32 +21,23 @@ If you are using a VPC, the following requirements apply.
 
 ###### Topics
 
-- [Step 1: Install the CloudWatch
-  agent](#CloudWatch-Agent-PrometheusEC2-install "#CloudWatch-Agent-PrometheusEC2-install")
-- [Step 2: Scrape Prometheus
-  sources and import metrics](#CloudWatch-Agent-PrometheusEC2-configure "#CloudWatch-Agent-PrometheusEC2-configure")
-- [Example: Set up Java/JMX sample
-  workloads for Prometheus metric testing](#CloudWatch-Agent-Prometheus-Java "#CloudWatch-Agent-Prometheus-Java")
+- [Step 1: Install the CloudWatch agent](#CloudWatch-Agent-PrometheusEC2-install "#CloudWatch-Agent-PrometheusEC2-install")
+- [Step 2: Scrape Prometheus sources and import metrics](#CloudWatch-Agent-PrometheusEC2-configure "#CloudWatch-Agent-PrometheusEC2-configure")
+- [Example: Set up Java/JMX sample workloads for Prometheus metric testing](#CloudWatch-Agent-Prometheus-Java "#CloudWatch-Agent-Prometheus-Java")
 
-## Step 1: Install the CloudWatch
-
-agent
+## Step 1: Install the CloudWatch agent
 
 The first step is to install the CloudWatch agent on the EC2 instance. For instructions,
 see [Installing the CloudWatch agent](install-CloudWatch-Agent-on-EC2-Instance.md "install-CloudWatch-Agent-on-EC2-Instance.md").
 
-## Step 2: Scrape Prometheus
-
-sources and import metrics
+## Step 2: Scrape Prometheus sources and import metrics
 
 The CloudWatch agent with Prometheus monitoring needs two configurations to scrape the
 Prometheus metrics. One is for the standard Prometheus configurations as documented in
 [<scrape_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config")in the Prometheus documentation. The other is for the
 CloudWatch agent configuration.
 
-### Prometheus scrape
-
-configuration
+### Prometheus scrape configuration
 
 The CloudWatch agent supports the standard Prometheus scrape configurations as
 documented in [<scrape_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config") in the Prometheus documentation. You can edit this
@@ -153,9 +141,7 @@ This example contains the following parameters:
   list. This example filters based on EC2 instance IDs. For more criteria that you
   can filter on, see [DescribeInstances](../../../AWSEC2/latest/APIReference/API_DescribeInstances.md "../../../AWSEC2/latest/APIReference/API_DescribeInstances.md").
 
-### CloudWatch agent
-
-configuration for Prometheus
+### CloudWatch agent configuration for Prometheus
 
 The CloudWatch agent configuration file includes `prometheus` sections under
 both `logs` and `metrics_collected`. It includes the following
@@ -295,9 +281,7 @@ The log event that is sent includes the following highlighted section.
 }
 ```
 
-## Example: Set up Java/JMX sample
-
-workloads for Prometheus metric testing
+## Example: Set up Java/JMX sample workloads for Prometheus metric testing
 
 JMX Exporter is an official Prometheus exporter that can scrape and expose JMX
 mBeans as Prometheus metrics. For more information, see [prometheus/jmx_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter").
@@ -305,16 +289,12 @@ mBeans as Prometheus metrics. For more information, see [prometheus/jmx_exporter
 The CloudWatch agent can collect predefined Prometheus metrics from Java Virtual Machine
 (JVM), Hjava, and Tomcat (Catalina), from a JMX exporter on EC2 instances.
 
-### Step 1: Install the CloudWatch
-
-agent
+### Step 1: Install the CloudWatch agent
 
 The first step is to install the CloudWatch agent on the EC2 instance. For instructions,
 see [Installing the CloudWatch agent](install-CloudWatch-Agent-on-EC2-Instance.md "install-CloudWatch-Agent-on-EC2-Instance.md").
 
-### Step 2: Start the Java/JMX
-
-workload
+### Step 2: Start the Java/JMX workload
 
 The next step is to start the Java/JMX workload.
 
@@ -327,9 +307,7 @@ The example commands in the following sections use
 `SampleJavaApplication-1.0-SNAPSHOT.jar` as the jar file. Replace these
 parts of the commands with the jar for your application.
 
-#### Prepare the JMX
-
-exporter configuration
+#### Prepare the JMX exporter configuration
 
 The `config.yaml` file is the JMX exporter configuration
 file. For more information, see [Configuration](https://github.com/prometheus/jmx_exporter#Configuration "https://github.com/prometheus/jmx_exporter#Configuration") in the JMX exporter documentation.
@@ -385,9 +363,7 @@ rules:
 - pattern: ".*"
 ```
 
-#### Start the Java
-
-application with the Prometheus exporter
+#### Start the Java application with the Prometheus exporter
 
 Start the sample application. This will emit Prometheus metrics to port 9404. Be
 sure to replace the entry point `com.gubupt.sample.app.App` with the
@@ -405,9 +381,7 @@ On Windows, enter the following command.
 PS C:\> java -javaagent:.\jmx_prometheus_javaagent-0.14.0.jar=9404:.\config.yaml -cp  .\SampleJavaApplication-1.0-SNAPSHOT.jar com.gubupt.sample.app.App
 ```
 
-#### Verify the Prometheus
-
-metrics emission
+#### Verify the Prometheus metrics emission
 
 Verify that Prometheus metrics are being emitted.
 
@@ -448,9 +422,7 @@ ParsedHtml        : System.__ComObject
 RawContentLength  : 71908
 ```
 
-### Step 3: Configure the CloudWatch
-
-agent to scrape Prometheus metrics
+### Step 3: Configure the CloudWatch agent to scrape Prometheus metrics
 
 Next, set up the Prometheus scrape configuration in the CloudWatch agent configuration
 file.
@@ -634,9 +606,7 @@ On Windows, enter the following command.
 & "C:\Program Files\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m ec2 -s -c file:C:\ProgramData\Amazon\AmazonCloudWatchAgent\cwagent-config.json
 ```
 
-### Viewing the Prometheus metrics
-
-and logs
+### Viewing the Prometheus metrics and logs
 
 You can now view the Java/JMX metrics being collected.
 

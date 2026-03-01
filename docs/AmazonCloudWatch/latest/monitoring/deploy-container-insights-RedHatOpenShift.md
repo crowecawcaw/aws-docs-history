@@ -1,6 +1,4 @@
-# Setting up Container Insights on
-
-RedHat OpenShift on AWS (ROSA)
+# Setting up Container Insights on RedHat OpenShift on AWS (ROSA)
 
 CloudWatch Container Insights with enhanced observability supports RedHat OpenShift on AWS
 (ROSA). This version supports enhanced observability for ROSA clusters. After you install
@@ -16,12 +14,9 @@ using helm charts, the CloudWatch agent is by default also enabled to receive bo
 traces from your applications that are instrumented for Application Signals. If you would
 like to optionally pass in custom configuration rules, you can do so by passing in a
 custom agent configuration by using the Helm chart, as outlined in (Optional) [Additional
-configuration], as outlined in [(Optional)
-Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration "install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration").
+configuration], as outlined in [(Optional) Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration "install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration").
 
-###### To install Container Insights with enhanced observability on a RedHat OpenShift on
-
-AWS (ROSA) cluster
+###### To install Container Insights with enhanced observability on a RedHat OpenShift on AWS (ROSA) cluster
 
 1. If necessary, install Helm. For more information, see [Quickstart Guide](https://helm.sh/docs/intro/quickstart/ "https://helm.sh/docs/intro/quickstart/") in the Helm
    documentation.
@@ -42,5 +37,4 @@ helm install --wait --create-namespace \
 ```
 
 3. Set up authorization for the agent operator by following the steps in Option 1,
-   Option 2, or Option 3 in [Install the CloudWatch agent with the
-   Amazon CloudWatch Observability EKS add-on or the Helm chart](install-CloudWatch-Observability-EKS-addon.md "install-CloudWatch-Observability-EKS-addon.md").
+   Option 2, or Option 3 in [Install the CloudWatch agent with the Amazon CloudWatch Observability EKS add-on or the Helm chart](install-CloudWatch-Observability-EKS-addon.md "install-CloudWatch-Observability-EKS-addon.md").

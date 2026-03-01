@@ -1,6 +1,4 @@
-# Library functions available for
-
-Node.js canary
+# Library functions available for Node.js canary
 
 This section describes the library functions that are available for canary scripts using the Node.js runtime.
 
@@ -146,8 +144,7 @@ summary includes details about each HTTP request, such as the following:
 ###### Topics
 
 - [Parameters](#Library_function_Nodejs_executeHttpStep_parameters_Nodecanary "#Library_function_Nodejs_executeHttpStep_parameters_Nodecanary")
-- [Examples
-  of using executeHttpStep](#Library_function_Nodejs_executeHttpStep_examples_Nodecanary "#Library_function_Nodejs_executeHttpStep_examples_Nodecanary")
+- [Examples of using executeHttpStep](#Library_function_Nodejs_executeHttpStep_examples_Nodecanary "#Library_function_Nodejs_executeHttpStep_examples_Nodecanary")
 
 ### Parameters
 
@@ -177,9 +174,7 @@ is of the type [Class: http.IncomingMessage](https://nodejs.org/api/http.html#ht
 (Optional) Use this parameter to override global synthetics configurations with a
 different configuration for this step.
 
-### Examples
-
-of using executeHttpStep
+### Examples of using executeHttpStep
 
 The following series of examples build on each other to illustrate the various uses
 of this option.

@@ -2,19 +2,14 @@
 
 ###### Topics
 
-- [Creating a CloudWatch Synthetics
-  canary from scratch](#CloudWatch_Synthetics_Canaries_write_from_scratch "#CloudWatch_Synthetics_Canaries_write_from_scratch")
+- [Creating a CloudWatch Synthetics canary from scratch](#CloudWatch_Synthetics_Canaries_write_from_scratch "#CloudWatch_Synthetics_Canaries_write_from_scratch")
 - [Packaging your Node.js canary files](#CloudWatch_Synthetics_Canaries_package "#CloudWatch_Synthetics_Canaries_package")
 - [Changing an existing Puppeteer script to use as a Synthetics canary](#CloudWatch_Synthetics_Canaries_modify_puppeteer_script "#CloudWatch_Synthetics_Canaries_modify_puppeteer_script")
 - [Environment variables](#CloudWatch_Synthetics_Environment_Variables "#CloudWatch_Synthetics_Environment_Variables")
-- [Integrating your canary with
-  other AWS services](#CloudWatch_Synthetics_Canaries_AWS_integrate "#CloudWatch_Synthetics_Canaries_AWS_integrate")
-- [Forcing your canary
-  to use a static IP address](#CloudWatch_Synthetics_Canaries_staticIP "#CloudWatch_Synthetics_Canaries_staticIP")
+- [Integrating your canary with other AWS services](#CloudWatch_Synthetics_Canaries_AWS_integrate "#CloudWatch_Synthetics_Canaries_AWS_integrate")
+- [Forcing your canary to use a static IP address](#CloudWatch_Synthetics_Canaries_staticIP "#CloudWatch_Synthetics_Canaries_staticIP")
 
-## Creating a CloudWatch Synthetics
-
-canary from scratch
+## Creating a CloudWatch Synthetics canary from scratch
 
 Here is an example minimal Synthetics Canary script. This script passes
 as a successful run, and returns a string.
@@ -101,9 +96,7 @@ exports.handler = async () => {
 };
 ```
 
-##
-
-Packaging your Node.js canary files
+## Packaging your Node.js canary files
 
 **For syn-nodejs-puppeteer-11.0 and above**
 
@@ -184,9 +177,7 @@ you can also optionally store the canary in a separate folder such as
 `nodejs/node_modules/myFolder/my_canary_filename`. If you store it in a separate folder,
 specify that path in your script entry point, such as `myFolder/my_canary_filename.functionName`.
 
-##
-
-Changing an existing Puppeteer script to use as a Synthetics canary
+## Changing an existing Puppeteer script to use as a Synthetics canary
 
 This section explains how to take Puppeteer scripts and modify them to run
 as Synthetics canary scripts. For more information about Puppeteer, see
@@ -349,9 +340,7 @@ exports.handler = async () => {
 };
 ```
 
-### Passing environment variables
-
-to your script
+### Passing environment variables to your script
 
 To pass environment variables to your script when you create a canary in the console,
 specify the keys and values of the environment variables in the **Environment variables**
@@ -391,9 +380,7 @@ aws synthetics create-canary --cli-input-json '{
 
 ```
 
-## Integrating your canary with
-
-other AWS services
+## Integrating your canary with other AWS services
 
 All canaries
 can use the AWS SDK library. You can use this library when you
@@ -481,9 +468,7 @@ exports.handler = async () => {
 };
 ```
 
-## Forcing your canary
-
-to use a static IP address
+## Forcing your canary to use a static IP address
 
 You can set up a canary so that it uses a static IP address.
 

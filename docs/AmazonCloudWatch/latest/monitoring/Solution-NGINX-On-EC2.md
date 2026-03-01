@@ -9,8 +9,7 @@ solutions, see [CloudWatch observability solutions](Monitoring-Solutions.md "Mon
 - [Requirements](#Solution-NGINX-On-EC2-Requirements "#Solution-NGINX-On-EC2-Requirements")
 - [Benefits](#Solution-NGINX-On-EC2-Benefits "#Solution-NGINX-On-EC2-Benefits")
 - [Costs](#Solution-NGINX-On-EC2-Costs "#Solution-NGINX-On-EC2-Costs")
-- [CloudWatch agent configuration for this
-  solution](#Solution-NGINX-CloudWatch-Agent "#Solution-NGINX-CloudWatch-Agent")
+- [CloudWatch agent configuration for this solution](#Solution-NGINX-CloudWatch-Agent "#Solution-NGINX-CloudWatch-Agent")
 - [Deploy the agent for your solution](#Solution-NGINX-Agent-Deploy "#Solution-NGINX-Agent-Deploy")
 - [Create the NGINX solution dashboard](#Solution-NGINX-Dashboard "#Solution-NGINX-Dashboard")
 
@@ -108,16 +107,13 @@ Assuming 1 month retention`. Modify this value if you decide to make custom
 7. You can see your monthly estimated costs at the bottom of the pricing
    calculator.
 
-## CloudWatch agent configuration for this
-
-solution
+## CloudWatch agent configuration for this solution
 
 The CloudWatch agent is software that runs continuously and autonomously on your servers and
 in containerized environments. It collects metrics, logs, and traces from your
 infrastructure and applications and sends them to CloudWatch and X-Ray.
 
-For more information about the CloudWatch agent, see [Collect metrics, logs, and traces using the CloudWatch
-agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md").
+For more information about the CloudWatch agent, see [Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md").
 
 The agent configuration in this solution collects a set of metrics to help you get started monitoring
 and observing your NGINX workload. The CloudWatch agent can be configured to collect more NGINX
@@ -199,9 +195,7 @@ The following example demonstrates a failure response (review the previous steps
           ...
 ```
 
-### Configure Prometheus metric
-
-exporter
+### Configure Prometheus metric exporter
 
 Download the latest NGINX Prometheus exporter release from the [official
 GitHub repository](https://github.com/nginxinc/nginx-prometheus-exporter/releases "https://github.com/nginxinc/nginx-prometheus-exporter/releases"). You must download the relevant binary for your platform.
@@ -284,8 +278,7 @@ tcp6 0 0 :::9113 :::* LISTEN 76398/nginx-prometh
 
 The CloudWatch agent with Prometheus monitoring needs two configurations to scrape the
 Prometheus metrics. Each configuration will be stored as a separate parameter in SSM's
-Parameter Store, as detailed later in [Step 2: Store the recommended CloudWatch
-agent configuration file in Systems Manager Parameter Store](#Solution-NGINX-Agent-Step2 "#Solution-NGINX-Agent-Step2").
+Parameter Store, as detailed later in [Step 2: Store the recommended CloudWatch agent configuration file in Systems Manager Parameter Store](#Solution-NGINX-Agent-Step2 "#Solution-NGINX-Agent-Step2").
 
 The first configuration is for the Prometheus exporter, as documented in Prometheus' [scrape_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config") documentation. The second configuration is for the CloudWatch agent.
 
@@ -359,8 +352,7 @@ recommend using Systems Manager for this solution. It provides a console experie
 simpler to manage a fleet of managed servers within a single AWS account. The instructions
 in this section use Systems Manager and are intended for when you don't have the CloudWatch agent running with
 existing configurations. You can check whether the CloudWatch agent is running by following the
-steps in [Verify that the CloudWatch agent
-is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running").
+steps in [Verify that the CloudWatch agent is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running").
 
 If you are already running the CloudWatch agent on the EC2 hosts where the workload is deployed
 and managing agent configurations, you can skip the instructions in this section and follow
@@ -389,9 +381,7 @@ The deployment process includes the following steps:
   stack.
 - Step 4: Verify the agent setup is configured properly.
 
-### Step 1: Ensure the target EC2
-
-instances have the required IAM permissions
+### Step 1: Ensure the target EC2 instances have the required IAM permissions
 
 You must grant permission for Systems Manager to install and configure the CloudWatch agent. You must
 grant permission for the CloudWatch agent to publish telemetry from your EC2 instance to CloudWatch.
@@ -406,9 +396,7 @@ Make sure that the IAM role attached to the instance has the **CloudWatchAgentSe
   to an EC2 instance, follow the steps in [Attach
   an IAM role to an instance](../../../AWSEC2/latest/UserGuide/attach-iam-role.md "../../../AWSEC2/latest/UserGuide/attach-iam-role.md").
 
-### Step 2: Store the recommended CloudWatch
-
-agent configuration file in Systems Manager Parameter Store
+### Step 2: Store the recommended CloudWatch agent configuration file in Systems Manager Parameter Store
 
 Parameter Store simplifies the installation of the CloudWatch agent on an EC2 instance by
 securely storing and managing configuration parameters,
@@ -459,9 +447,7 @@ a parameter in Parameter Store.
       required. For example, the relevant port number as per `targets`.
    8. Choose **Create parameter**.
 
-### Step 3: Install the CloudWatch agent and
-
-apply the configuration using an CloudFormation template
+### Step 3: Install the CloudWatch agent and apply the configuration using an CloudFormation template
 
 You can use AWS CloudFormation to install the agent and configure it to use the CloudWatch agent
 configuration that you created in the previous steps.
@@ -507,20 +493,15 @@ CloudWatch agents running in the targeted instances. This means that:
    this step again. For more information about associations, see [Working
    with associations in Systems Manager](../../../systems-manager/latest/userguide/state-manager-associations.md "../../../systems-manager/latest/userguide/state-manager-associations.md").
 
-### Step 4: Verify the agent setup is
+### Step 4: Verify the agent setup is configured properly
 
-configured properly
-
-You can verify whether the CloudWatch agent is installed by following the steps in [Verify that the CloudWatch agent
-is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running"). If the CloudWatch agent is
+You can verify whether the CloudWatch agent is installed by following the steps in [Verify that the CloudWatch agent is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running"). If the CloudWatch agent is
 not installed and running, make sure you have set up everything correctly.
 
 - Be sure you have attached a role with correct permissions for the EC2 instance as
-  described in [Step 1: Ensure the target EC2
-  instances have the required IAM permissions](#Solution-NGINX-Agent-Step1 "#Solution-NGINX-Agent-Step1").
+  described in [Step 1: Ensure the target EC2 instances have the required IAM permissions](#Solution-NGINX-Agent-Step1 "#Solution-NGINX-Agent-Step1").
 - Be sure you have correctly configured the JSON for the Systems Manager parameter. Follow the
-  steps in [Troubleshooting
-  installation of the CloudWatch agent with CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting "Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting").
+  steps in [Troubleshooting installation of the CloudWatch agent with CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting "Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting").
 
 If everything is set up correctly, then you should see the NGINX metrics being
 published to CloudWatch.
@@ -599,9 +580,7 @@ see [Creating a stack on CloudFormation console](../../../AWSCloudFormation/late
 You can use the following link to download the template:
 [https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json " https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
 
-### Get started with the NGINX
-
-dashboard
+### Get started with the NGINX dashboard
 
 Here are a few tasks that you can try out with the new NGINX dashboard. These
 tasks allow you to validate that the dashboard is working correctly

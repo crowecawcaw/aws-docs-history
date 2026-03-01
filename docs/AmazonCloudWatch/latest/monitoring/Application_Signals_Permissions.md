@@ -1,13 +1,9 @@
-# Permissions required for Application
-
-Signals
+# Permissions required for Application Signals
 
 This section explains the permissions necessary for you to enable, manage, and operate
 Application Signals.
 
-## Permissions to enable and
-
-manage Application Signals
+## Permissions to enable and manage Application Signals
 
 To manage Application Signals, you must be signed on with the required permissions. To view the contents of the **CloudWatchApplicationSignalsFullAccess** policy, see [CloudWatchApplicationSignalsFullAccess](../../../aws-managed-policy/latest/reference/CloudWatchApplicationSignalsFullAccess.md "../../../aws-managed-policy/latest/reference/CloudWatchApplicationSignalsFullAccess.md").
 
@@ -90,9 +86,7 @@ JSON
 
 ```
 
-## Operating Application
-
-Signals
+## Operating Application Signals
 
 Service operators who are using Application Signals to monitor services and SLOs must
 be signed on to an account with read only permissions. To view the contents of the **CloudWatchApplicationSignalsReadOnlyAccess** policy,

@@ -1,6 +1,4 @@
-# Container Insights performance log
-
-reference
+# Container Insights performance log reference
 
 This section includes reference information about how Container Insights uses
 performance log events to collect metrics. When you deploy Container Insights, it
@@ -9,9 +7,6 @@ this log group yourself.
 
 ###### Topics
 
-- [Container Insights
-  performance log events for Amazon ECS](Container-Insights-reference-performance-logs-ECS.md "Container-Insights-reference-performance-logs-ECS.md")
-- [Container Insights
-  performance log events for Amazon EKS and Kubernetes](Container-Insights-reference-performance-logs-EKS.md "Container-Insights-reference-performance-logs-EKS.md")
-- [Relevant fields in
-  performance log events for Amazon EKS and Kubernetes](Container-Insights-reference-performance-entries-EKS.md "Container-Insights-reference-performance-entries-EKS.md")
+- [Container Insights performance log events for Amazon ECS](Container-Insights-reference-performance-logs-ECS.md "Container-Insights-reference-performance-logs-ECS.md")
+- [Container Insights performance log events for Amazon EKS and Kubernetes](Container-Insights-reference-performance-logs-EKS.md "Container-Insights-reference-performance-logs-EKS.md")
+- [Relevant fields in performance log events for Amazon EKS and Kubernetes](Container-Insights-reference-performance-entries-EKS.md "Container-Insights-reference-performance-entries-EKS.md")

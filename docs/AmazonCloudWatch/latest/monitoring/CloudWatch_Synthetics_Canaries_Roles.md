@@ -1,13 +1,9 @@
-# Required roles and permissions for CloudWatch
-
-canaries
+# Required roles and permissions for CloudWatch canaries
 
 Both the users who create and manage canaries, and the canaries themselves, must have certain
 permissions.
 
-## AWS managed policies for
-
-CloudWatch Synthetics
+## AWS managed policies for CloudWatch Synthetics
 
 To add permissions to users, groups, and roles, it is easier to use AWS
 managed policies than to write policies yourself. It takes time and expertise to create IAM
@@ -22,9 +18,7 @@ permissions in AWS managed policies. Services occasionally change the permission
 AWS managed policy. This type of update affects all identities
 (users, groups, and roles) where the policy is attached.
 
-### CloudWatch Synthetics updates to
-
-AWS managed policies
+### CloudWatch Synthetics updates to AWS managed policies
 
 View details about updates to AWS managed policies for CloudWatch Synthetics since this
 service began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed on

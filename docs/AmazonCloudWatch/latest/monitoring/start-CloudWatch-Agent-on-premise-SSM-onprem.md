@@ -3,18 +3,14 @@
 You can start the CloudWatch agent using either Systems Manager Run Command or the command line.
 
 For information about setting up the agent on a system that has security-enhanced Linux
-(SELinux) enabled, see [Set up the CloudWatch agent with security-enhanced Linux
-(SELinux)](CloudWatch-Agent-SELinux.md "CloudWatch-Agent-SELinux.md").
+(SELinux) enabled, see [Set up the CloudWatch agent with security-enhanced Linux (SELinux)](CloudWatch-Agent-SELinux.md "CloudWatch-Agent-SELinux.md").
 
-## Start the CloudWatch agent using the
-
-command line on Amazon EC2
+## Start the CloudWatch agent using the command line on Amazon EC2
 
 Follow these steps to use the command line to start the CloudWatch agent on on Amazon EC2.
 
 For information about setting up the agent on a system that has security-enhanced Linux
-(SELinux) enabled, see [Set up the CloudWatch agent with security-enhanced Linux
-(SELinux)](CloudWatch-Agent-SELinux.md "CloudWatch-Agent-SELinux.md").
+(SELinux) enabled, see [Set up the CloudWatch agent with security-enhanced Linux (SELinux)](CloudWatch-Agent-SELinux.md "CloudWatch-Agent-SELinux.md").
 
 ###### To use the command line to start the CloudWatch agent on on Amazon EC2
 
@@ -56,9 +52,7 @@ PowerShell console:
 & "C:\Program Files\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m onPremise -s -c file:`configuration-file-path`
 ```
 
-## Start the CloudWatch agent on an on-premises
-
-server
+## Start the CloudWatch agent on an on-premises server
 
 Follow these steps to start the CloudWatch agent on an on-premises server.
 

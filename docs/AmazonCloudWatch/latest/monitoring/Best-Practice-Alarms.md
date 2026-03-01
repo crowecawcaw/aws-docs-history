@@ -1,6 +1,4 @@
-# Best practice alarm recommendations for AWS
-
-services
+# Best practice alarm recommendations for AWS services
 
 CloudWatch provides out-of-the box alarm recommendations. These are CloudWatch alarms that we
 recommend that you create for metrics that are published by other AWS services. These
@@ -32,9 +30,7 @@ You can also get a bulk download of infrastructure-as-code alarm definitions for
 recommended alarms in an AWS namespace, such as `AWS/Lambda` or
 `AWS/S3`. Those instructions are later in this topic.
 
-###### To find the metrics with recommended alarms, and create a single recommended
-
-alarm
+###### To find the metrics with recommended alarms, and create a single recommended alarm
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -89,9 +85,7 @@ alarm recommendations. 5. To see the alarm intent and recommended threshold for 
      select the format that you want. The downloaded code will have the recommended
      settings for the metric name, statistic, and threshold.
 
-###### To download infrastructure-as-code alarm definitions for all recommended alarms for
-
-an AWS service
+###### To download infrastructure-as-code alarm definitions for all recommended alarms for an AWS service
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

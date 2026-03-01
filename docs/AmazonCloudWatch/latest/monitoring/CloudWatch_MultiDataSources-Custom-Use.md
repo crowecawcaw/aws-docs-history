@@ -1,16 +1,12 @@
 # Use your custom data source
 
 After you create a data source, you can use it to query and visualize data from that source, as well as to set alarms.
-If you used a template to create your custom data source connector or you added the tag listed in [Step 3: Attach a resource tag to the Lambda function](CloudWatch_MultiDataSources-Connect-Custom.md#MultiDataSources-Connect-Custom-Lambda-tags "CloudWatch_MultiDataSources-Connect-Custom.md#MultiDataSources-Connect-Custom-Lambda-tags"), you can follow the steps in [Creating a graph of metrics from
-another data source](graph_a_metric.md#create-metric-graph-multidatasource "graph_a_metric.md#create-metric-graph-multidatasource") to query it.
+If you used a template to create your custom data source connector or you added the tag listed in [Step 3: Attach a resource tag to the Lambda function](CloudWatch_MultiDataSources-Connect-Custom.md#MultiDataSources-Connect-Custom-Lambda-tags "CloudWatch_MultiDataSources-Connect-Custom.md#MultiDataSources-Connect-Custom-Lambda-tags"), you can follow the steps in [Creating a graph of metrics from another data source](graph_a_metric.md#create-metric-graph-multidatasource "graph_a_metric.md#create-metric-graph-multidatasource") to query it.
 You can also use the metric math function `LAMBDA` to query it, as explained in the following section.
-For information about creating alarms on metrics from your data source, see [Create an alarm based on a connected data
-source](Create_MultiSource_Alarm.md "Create_MultiSource_Alarm.md").
+For information about creating alarms on metrics from your data source, see [Create an alarm based on a connected data source](Create_MultiSource_Alarm.md "Create_MultiSource_Alarm.md").
 This topic describes how to pass arguments to your Lambda function to your custom data source.
 
-##
-
-How to pass arguments to your Lambda function
+## How to pass arguments to your Lambda function
 
 The recommended way for you to pass arguments to your custom data source is to use the query
 builder in the CloudWatch console when you query the data source.

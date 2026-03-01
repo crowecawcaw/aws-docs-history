@@ -73,9 +73,7 @@ SDKs, see the following:
 - Android applications - [AWS Distro
   for OpenTelemetry (ADOT) Android SDK](https://github.com/aws-observability/aws-otel-android "https://github.com/aws-observability/aws-otel-android").
 
-## Endpoint limits and
-
-restrictions
+## Endpoint limits and restrictions
 
 The table lists the common endpoint limits and restrictions for traces and
 logs.

@@ -1,6 +1,4 @@
-# AWS Systems Manager (SSM) packages used by
-
-CloudWatch Application Insights
+# AWS Systems Manager (SSM) packages used by CloudWatch Application Insights
 
 The packages listed in this section are used by Application Insights, and can be
 independently managed and deployed with AWS Systems Manager Distributor. For more
@@ -35,10 +33,7 @@ following steps.
 - SSM agent version 2.3.1550.0 or later installed
 - The JAVA_HOME environment variable is set
 
-###### Install and configure the
-
-`AWSObservabilityExporter-JMXExporterInstallAndConfigure`
-package
+###### Install and configure the `AWSObservabilityExporter-JMXExporterInstallAndConfigure` package
 
 The `AWSObservabilityExporter-JMXExporterInstallAndConfigure`
 package is an SSM Distributor package that you can use to install and
@@ -208,17 +203,14 @@ scrape_configs:
 ## `AWSObservabilityExporter-SAP-HANADBExporterInstallAndConfigure`
 
 You can retrieve workload-specific SAP HANA metrics from [Prometheus HANA database exporter](https://prometheus.io/docs/instrumenting/exporters/#third-party-exporters "https://prometheus.io/docs/instrumenting/exporters/#third-party-exporters") for Application Insights to configure and
-monitor alarms. For more information, see [Set up your SAP HANA database
-for monitoring](appinsights-tutorial-sap-hana.md#appinsights-tutorial-sap-hana-set-up "appinsights-tutorial-sap-hana.md#appinsights-tutorial-sap-hana-set-up") in this guide.
+monitor alarms. For more information, see [Set up your SAP HANA database for monitoring](appinsights-tutorial-sap-hana.md#appinsights-tutorial-sap-hana-set-up "appinsights-tutorial-sap-hana.md#appinsights-tutorial-sap-hana-set-up") in this guide.
 
 To use [AWS Systems Manager
 Distributor](../../../systems-manager/latest/userguide/distributor.md "../../../systems-manager/latest/userguide/distributor.md") to package, install, and configure the AWS-provided
 Prometheus HANA database exporter package independently of Application Insights, complete
 the following steps.
 
-###### Prerequisites for using the Prometheus HANA database exporter SSM
-
-package
+###### Prerequisites for using the Prometheus HANA database exporter SSM package
 
 - SSM agent version 2.3.1550.0 or later installed
 - SAP HANA database
@@ -237,10 +229,7 @@ package
 }
 ```
 
-###### Install and configure the
-
-`AWSObservabilityExporter-SAP-HANADBExporterInstallAndConfigure`
-package
+###### Install and configure the `AWSObservabilityExporter-SAP-HANADBExporterInstallAndConfigure` package
 
 The
 `AWSObservabilityExporter-SAP-HANADBExporterInstallAndConfigure`
@@ -297,26 +286,20 @@ and choose **Install one time**. 4. Update the SSM parameter you created in the 
 You can retrieve workload-specific High Availability (HA) cluster metrics from
 [Prometheus HANA cluster exporter](https://prometheus.io/docs/instrumenting/exporters/#third-party-exporters "https://prometheus.io/docs/instrumenting/exporters/#third-party-exporters") for Application Insights to configure and
 monitor alarms for an SAP HANA database High Availability setup. For more
-information, see [Set up your SAP HANA database
-for monitoring](appinsights-tutorial-sap-hana.md#appinsights-tutorial-sap-hana-set-up "appinsights-tutorial-sap-hana.md#appinsights-tutorial-sap-hana-set-up") in this guide.
+information, see [Set up your SAP HANA database for monitoring](appinsights-tutorial-sap-hana.md#appinsights-tutorial-sap-hana-set-up "appinsights-tutorial-sap-hana.md#appinsights-tutorial-sap-hana-set-up") in this guide.
 
 To use [AWS Systems Manager
 Distributor](../../../systems-manager/latest/userguide/distributor.md "../../../systems-manager/latest/userguide/distributor.md") to package, install, and configure the AWS-provided
 Prometheus HA cluster exporter package independently of Application Insights, complete the
 following steps.
 
-###### Prerequisites for using the Prometheus HA cluster exporter SSM
-
-package
+###### Prerequisites for using the Prometheus HA cluster exporter SSM package
 
 - SSM agent version 2.3.1550.0 or later installed
 - HA cluster for Pacemaker, Corosync, SBD, and DRBD
 - Linux operating system (SUSE Linux, RedHat Linux)
 
-###### Install and configure the
-
-`AWSObservabilityExporter-HAClusterExporterInstallAndConfigure`
-package
+###### Install and configure the `AWSObservabilityExporter-HAClusterExporterInstallAndConfigure` package
 
 The
 `AWSObservabilityExporter-HAClusterExporterInstallAndConfigure`
@@ -359,18 +342,13 @@ To use [AWS Systems Manager
 Distributor](../../../systems-manager/latest/userguide/distributor.md "../../../systems-manager/latest/userguide/distributor.md") to package, install, and configure the SAP host exporter package independently of Application Insights, complete the
 following steps.
 
-###### Prerequisites for using the Prometheus SAP host exporter SSM
-
-package
+###### Prerequisites for using the Prometheus SAP host exporter SSM package
 
 - SSM agent version 2.3.1550.0 or later installed
 - SAP NetWeaver application servers
 - Linux operating system (SUSE Linux, RedHat Linux)
 
-###### Install and configure the
-
-`AWSObservabilityExporter-SAP-SAPHostExporterInstallAndConfigure`
-package
+###### Install and configure the `AWSObservabilityExporter-SAP-SAPHostExporterInstallAndConfigure` package
 
 The
 `AWSObservabilityExporter-SAP-SAPHostExporterInstallAndConfigure`
@@ -446,9 +424,7 @@ To use [AWS Systems Manager
 Distributor](../../../systems-manager/latest/userguide/distributor.md "../../../systems-manager/latest/userguide/distributor.md") to package, install, and configure the SQL exporter package independently of Application Insights, complete the
 following steps.
 
-###### Prerequisites for using the Prometheus SQL exporter SSM
-
-package
+###### Prerequisites for using the Prometheus SQL exporter SSM package
 
 - SSM agent version 2.3.1550.0 or later installed
 - Amazon EC2 instance running SQL Server on Windows with SQL Server user authentication enabled.
@@ -476,10 +452,7 @@ GRANT VIEW SERVER STATE TO
 
 If the password or username contains special characters, you must percent encode the special characters to ensure a successful connection to the database.
 
-###### Install and configure the
-
-`AWSObservabilityExporter-SQLExporterInstallAndConfigure`
-package
+###### Install and configure the `AWSObservabilityExporter-SQLExporterInstallAndConfigure` package
 
 The `AWSObservabilityExporter-SQLExporterInstallAndConfigure`
 package is an SSM Distributor package that you can use to install and

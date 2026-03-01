@@ -1,6 +1,4 @@
-# Modify the time range or time zone format for a
-
-graph
+# Modify the time range or time zone format for a graph
 
 This section describes how you can modify the date, time, and time zone format on a
 CloudWatch metrics graph. It also describes how you can zoom in on a graph to apply a specific

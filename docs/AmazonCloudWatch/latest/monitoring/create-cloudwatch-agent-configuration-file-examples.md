@@ -1,6 +1,4 @@
-# Examples of
-
-configuration files
+# Examples of configuration files
 
 **Basic system metrics configuration**
 

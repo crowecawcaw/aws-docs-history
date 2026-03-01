@@ -10,8 +10,7 @@ In a monitoring account that is set up for CloudWatch cross-account observabilit
 Metrics Insights alarms can watch resources in source accounts and in the monitoring account
 itself. For more information about how to limit your alarm queries to a specific account or
 to group the results by account ID, see the `WHERE` and `GROUP BY`
-sections in [Query components and syntax in
-CloudWatch Metrics Insights](cloudwatch-metrics-insights-querylanguage.md "cloudwatch-metrics-insights-querylanguage.md").
+sections in [Query components and syntax in CloudWatch Metrics Insights](cloudwatch-metrics-insights-querylanguage.md "cloudwatch-metrics-insights-querylanguage.md").
 
 **Using tags in alarm queries**
 
@@ -29,5 +28,4 @@ Tag-based alarms automatically adapt as you add or remove resources with matchin
 
 ###### Contents
 
-- [Creating a Metrics Insights
-  CloudWatch alarm](cloudwatch-metrics-insights-alarm-create.md "cloudwatch-metrics-insights-alarm-create.md")
+- [Creating a Metrics Insights CloudWatch alarm](cloudwatch-metrics-insights-alarm-create.md "cloudwatch-metrics-insights-alarm-create.md")

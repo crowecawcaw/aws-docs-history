@@ -12,9 +12,7 @@ specific EC2 instance.
   Disable Detailed Monitoring for Your Instances](../../../AWSEC2/latest/UserGuide/using-cloudwatch-new.md "../../../AWSEC2/latest/UserGuide/using-cloudwatch-new.md") in the
   _Amazon EC2 User Guide_.
 
-###### To display the average CPU utilization for a specific instance using the
-
-console
+###### To display the average CPU utilization for a specific instance using the console
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

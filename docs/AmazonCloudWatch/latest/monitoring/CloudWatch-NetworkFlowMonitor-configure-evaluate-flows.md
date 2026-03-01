@@ -1,6 +1,4 @@
-# Evaluate
-
-network flows with workload insights
+# Evaluate network flows with workload insights
 
 Network Flow Monitor provides workload insights about the network flows
 in the scope that you enable monitoring for. By surfacing top contributor network

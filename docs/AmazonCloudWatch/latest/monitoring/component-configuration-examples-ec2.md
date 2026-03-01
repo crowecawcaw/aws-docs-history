@@ -1,6 +1,4 @@
-# Amazon Elastic Compute Cloud (EC2)
-
-instance
+# Amazon Elastic Compute Cloud (EC2) instance
 
 The following example shows a component configuration in JSON format for an
 Amazon EC2 instance.

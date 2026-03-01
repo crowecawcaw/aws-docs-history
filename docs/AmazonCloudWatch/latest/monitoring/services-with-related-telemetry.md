@@ -1,6 +1,4 @@
-# AWS services that support related
-
-telemetry
+# AWS services that support related telemetry
 
 The following table lists the AWS services that support related entity information
 in their CloudWatch telemetry. Services or resources that are not listed in the table do not
@@ -11,8 +9,7 @@ have related entity information exposed in CloudWatch.
 For services that use the [CloudWatch
 agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md"), you may need to update the agent to the latest version to get
 related telemetry. For information about sending related entity information
-with your own custom metrics, see [How to add related information to
-custom telemetry sent to CloudWatch](adding-your-own-related-telemetry.md "adding-your-own-related-telemetry.md").
+with your own custom metrics, see [How to add related information to custom telemetry sent to CloudWatch](adding-your-own-related-telemetry.md "adding-your-own-related-telemetry.md").
 
 | AWS Service                                      | Resource                                     | Metrics | Logs |
 | ------------------------------------------------ | -------------------------------------------- | ------- | ---- |
@@ -125,8 +122,8 @@ custom telemetry sent to CloudWatch](adding-your-own-related-telemetry.md "addin
 | Amazon Managed Service for Prometheus            | `AWS::Prometheus::Resource`                  | Yes     | No   |
 | Amazon Q Business                                |                                              | No      | Yes  |
 | Amazon QLDB                                      | `AWS::QLDB::Ledger`                          | Yes     | No   |
-| Amazon Quick Suite                               | `AWS::Quicksight::Dashboard`                 | Yes     | No   |
-| Amazon Quick Suite                               | `AWS::Quicksight::DataSet`                   | Yes     | No   |
+| Amazon Quick                                     | `AWS::Quicksight::Dashboard`                 | Yes     | No   |
+| Amazon Quick                                     | `AWS::Quicksight::DataSet`                   | Yes     | No   |
 | Amazon Redshift                                  | `AWS::Redshift::Cluster`                     | Yes     | Yes  |
 | Amazon Redshift Serverless                       | `AWS::RedshiftServerless::Workgroup`         | Yes     | No   |
 | Amazon Relational Database Service               | `AWS::RDS::DBCluster`                        | Yes     | Yes  |

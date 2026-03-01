@@ -48,16 +48,12 @@ git clone https://github.com/aws-observability/application-signals-demo.git
 To build and push the sample application images,
 [follow these instructions](https://github.com/aws-observability/application-signals-demo?tab=readme-ov-file#build-the-sample-application-images-and-push-to-ecr "https://github.com/aws-observability/application-signals-demo?tab=readme-ov-file#build-the-sample-application-images-and-push-to-ecr").
 
-### Step 3: Deploy and enable Application Signals
-
-and the sample application
+### Step 3: Deploy and enable Application Signals and the sample application
 
 Be sure that you have completed the requirements listed in [(Optional) Try out Application Signals with a sample app](CloudWatch-Application-Signals-Enable-EKS-sample.md "CloudWatch-Application-Signals-Enable-EKS-sample.md") before you complete the
 following steps.
 
-###### To deploy and enable Application Signals
-
-and the sample application
+###### To deploy and enable Application Signals and the sample application
 
 1. Enter the following command.
    Replace `new-cluster-name` with the name that you want to use

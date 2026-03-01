@@ -93,9 +93,7 @@ JSON
 To use Transaction Search and other CloudWatch features, add the [CloudWatchReadOnlyAccess policy](../../../aws-managed-policy/latest/reference/CloudWatchReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/CloudWatchReadOnlyAccess.md") to your role. For information about how
 to create a role, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md").
 
-## Enabling Transaction
-
-Search in the console
+## Enabling Transaction Search in the console
 
 The following procedure describes how to enable Transaction Search in the
 console.
@@ -111,15 +109,11 @@ console.
    of spans to be indexed. You can index spans at 1% for free and change the
    percentage later based on your requirements.
 
-## Enabling Transaction
-
-Search using an API
+## Enabling Transaction Search using an API
 
 The following procedure describes how to enable Transaction Search using an API.
 
-### Step 1. Create a policy that grants access to ingest spans in
-
-CloudWatch Logs
+### Step 1. Create a policy that grants access to ingest spans in CloudWatch Logs
 
 When using the AWS CLI or SDK to enable Transaction Search, you must configure
 permissions using a resource-based policy with [`PutResourcePolicy`](../../../xray/latest/api/API_PutResourcePolicy.md "../../../xray/latest/api/API_PutResourcePolicy.md").

@@ -1,6 +1,4 @@
-#
-
-How to parse OpenTelemetry 0.7.0 messages
+# How to parse OpenTelemetry 0.7.0 messages
 
 This section provides information to help you get started with parsing
 OpenTelemetry 0.7.0.

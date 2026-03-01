@@ -1,6 +1,4 @@
-# Set up and configure Prometheus
-
-metrics collection on Amazon EKS and Kubernetes clusters
+# Set up and configure Prometheus metrics collection on Amazon EKS and Kubernetes clusters
 
 To collect Prometheus metrics from clusters running Amazon EKS or Kubernetes, you can use
 the CloudWatch agent as a collector or use the AWS Distro for OpenTelemetry collector. For
@@ -14,5 +12,4 @@ Prometheus monitoring.
 
 ###### Topics
 
-- [Install the CloudWatch agent with
-  Prometheus metrics collection on Amazon EKS and Kubernetes clusters](ContainerInsights-Prometheus-Setup.md "ContainerInsights-Prometheus-Setup.md")
+- [Install the CloudWatch agent with Prometheus metrics collection on Amazon EKS and Kubernetes clusters](ContainerInsights-Prometheus-Setup.md "ContainerInsights-Prometheus-Setup.md")

@@ -50,13 +50,11 @@ linked to this monitoring account. For more information, see [CloudWatch cross-a
 
    To create an M out of N alarm, specify a lower number for the first value than you
    specify for the second value. For more information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md"). 3. For **Missing data treatment**, choose how to have the alarm
-   behave when some data points are missing. For more information, see [Configuring how CloudWatch alarms treat missing
-   data](alarms-and-missing-data.md "alarms-and-missing-data.md"). 4. If the alarm uses a percentile as the monitored statistic, a **Percentiles
+   behave when some data points are missing. For more information, see [Configuring how CloudWatch alarms treat missing data](alarms-and-missing-data.md "alarms-and-missing-data.md"). 4. If the alarm uses a percentile as the monitored statistic, a **Percentiles
    with low samples** box appears. Use it to choose whether to evaluate or
    ignore cases with low sample rates. If you choose **ignore (maintain alarm
    state)**, the current alarm state is always maintained when the sample size
-   is too low. For more information, see [Percentile-based alarms and low data
-   samples](percentiles-with-low-samples.md "percentiles-with-low-samples.md").
+   is too low. For more information, see [Percentile-based alarms and low data samples](percentiles-with-low-samples.md "percentiles-with-low-samples.md").
 
 8. Choose **Next**.
 9. Under **Notification**, select an SNS topic to notify when the alarm

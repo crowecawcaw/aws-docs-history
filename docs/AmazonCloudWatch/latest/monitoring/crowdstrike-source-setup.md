@@ -1,8 +1,6 @@
 # Source configuration for CrowdStrike
 
-## Integrating with CrowdStrike
-
-Falcon
+## Integrating with CrowdStrike Falcon
 
 CrowdStrike Falcon Data Replicator (FDR) delivers and enriches endpoint, cloud
 workload and identity data with the CrowdStrike Security Cloud and world-class
@@ -10,9 +8,7 @@ artificial intelligence (AI), enabling your team to derive actionable insights t
 improve security operations center (SOC) performance. Amazon CloudWatch Logs enables you to
 collect this data in CloudWatch Logs.
 
-## Instructions to setup Amazon S3 and
-
-Amazon SQS
+## Instructions to setup Amazon S3 and Amazon SQS
 
 Configuring CrowdStrike FDR to send logs to an Amazon S3 bucket involves several steps,
 primarily focused on setting up the Amazon S3 bucket, Amazon SQS queue, IAM roles, and then
@@ -36,9 +32,7 @@ When configuring the pipeline to read data from CrowdStrike FDR, choose
 CrowdStrike as the data source. After filling in the required information and you
 create the pipeline, data will be available in the selected CloudWatch Logs log group.
 
-## Supported Open Cybersecurity Schema
-
-Framework Event Classes
+## Supported Open Cybersecurity Schema Framework Event Classes
 
 This integration supports OCSF schema version v1.5.0 and the CrowdStrike FDR
 actions that maps to Detection Findings (2004) and Process Activity (1007).

@@ -1,6 +1,4 @@
-# Performance Counter
-
-metrics
+# Performance Counter metrics
 
 Performance Counter metrics are recommended for instances only when the
 corresponding Performance Counter sets are installed on the Windows

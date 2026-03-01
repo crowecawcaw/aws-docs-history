@@ -1,6 +1,4 @@
-# Turning on telemetry auditing and
-
-configuration
+# Turning on telemetry auditing and configuration
 
 Use the CloudWatch console to audit and configure telemetry for your AWS account or
 organization. For an organization, as a AWS organization management account or a CloudWatch delegated
@@ -11,18 +9,12 @@ Telemetry config remains active until you turn it off. For more information, see
 
 ###### Topics
 
-- [Configuring Telemetry Auditing Feature for your
-  organization](#telemetry-config-organization "#telemetry-config-organization")
-- [Configuring Telemetry Auditing Feature for your
-  account](#telemetry-config-turn-on-account "#telemetry-config-turn-on-account")
-- [Deregistering a delegated
-  administrator account](#telemetry-config-deregister-administrator "#telemetry-config-deregister-administrator")
-- [Turning off trusted access for
-  AWS Organizations](#telemetry-config-turn-off-trusted-access "#telemetry-config-turn-off-trusted-access")
+- [Configuring Telemetry Auditing Feature for your organization](#telemetry-config-organization "#telemetry-config-organization")
+- [Configuring Telemetry Auditing Feature for your account](#telemetry-config-turn-on-account "#telemetry-config-turn-on-account")
+- [Deregistering a delegated administrator account](#telemetry-config-deregister-administrator "#telemetry-config-deregister-administrator")
+- [Turning off trusted access for AWS Organizations](#telemetry-config-turn-off-trusted-access "#telemetry-config-turn-off-trusted-access")
 
-## Configuring Telemetry Auditing Feature for your
-
-organization
+## Configuring Telemetry Auditing Feature for your organization
 
 To turn on telemetry auditing and configuration experience for your organization, you must
 use a AWS Organization management account or a delegated administrator account. CloudWatch uses this
@@ -32,8 +24,7 @@ Before you can configure telemetry for your organization, you need to enable tru
 between AWS Organizations and CloudWatch. When you enable trusted access, CloudWatch creates a service-linked role
 named **AWSServiceRoleForObservabilityAdmin** to support resource and telemetry
 configuration discovery for the organization. The role is created in all member accounts of the
-organization. For more information about the service-linked role, see [Service-linked role
-permissions for CloudWatch telemetry config](using-service-linked-roles.md#service-linked-role-telemetry-config "using-service-linked-roles.md#service-linked-role-telemetry-config"). For more information about AWS Organizations,
+organization. For more information about the service-linked role, see [Service-linked role permissions for CloudWatch telemetry config](using-service-linked-roles.md#service-linked-role-telemetry-config "using-service-linked-roles.md#service-linked-role-telemetry-config"). For more information about AWS Organizations,
 see [Amazon CloudWatch and
 AWS Organizations](../../../organizations/latest/userguide/services-that-can-integrate-cloudwatch.md "../../../organizations/latest/userguide/services-that-can-integrate-cloudwatch.md") in the AWS Organizations User Guide.
 
@@ -62,9 +53,7 @@ The time delay before resources appear on the **Telemetry config** page
 depends on the number of member accounts and resources in your organization or
 account.
 
-### Registering a delegated administrator
-
-account for your organization
+### Registering a delegated administrator account for your organization
 
 A delegated administrator account is a member account that shares administrator access for
 service-managed permissions. The account that you register as a delegated administrator must be
@@ -74,8 +63,7 @@ procedure. For more information, see [Amazon CloudWatch and
 AWS Organizations](../../../organizations/latest/userguide/services-that-can-integrate-cloudwatch.md "../../../organizations/latest/userguide/services-that-can-integrate-cloudwatch.md") in the AWS Organizations User Guide.
 
 To remove or change the delegated administrator account, deregister the account first. For
-more information, see [Deregistering a delegated
-administrator account](#telemetry-config-deregister-administrator "#telemetry-config-deregister-administrator").
+more information, see [Deregistering a delegated administrator account](#telemetry-config-deregister-administrator "#telemetry-config-deregister-administrator").
 
 ###### To register a delegated administrator account
 
@@ -93,18 +81,14 @@ administrator account](#telemetry-config-deregister-administrator "#telemetry-co
    registered successfully. To see information about the delegated administrator account, select
    the number below **Delegated administrators**.
 
-### Configuring Telemetry Auditing Feature for your
-
-organization
+### Configuring Telemetry Auditing Feature for your organization
 
 Configure telemetry for AWS Organizations to monitor the telemetry for the AWS resources across
 all your member accounts. This also configures the telemetry for individual accounts. You can
-also configure telemetry for only your account. For more information, see [Configuring Telemetry Auditing Feature for your
-account](#telemetry-config-turn-on-account "#telemetry-config-turn-on-account").
+also configure telemetry for only your account. For more information, see [Configuring Telemetry Auditing Feature for your account](#telemetry-config-turn-on-account "#telemetry-config-turn-on-account").
 
 You can disable trusted access across all your member accounts. For more information, see
-[Turning off trusted access for
-AWS Organizations](#telemetry-config-turn-off-trusted-access "#telemetry-config-turn-off-trusted-access").
+[Turning off trusted access for AWS Organizations](#telemetry-config-turn-off-trusted-access "#telemetry-config-turn-off-trusted-access").
 
 ###### To configure telemetry auditing for your organization
 
@@ -121,14 +105,11 @@ AWS Organizations](#telemetry-config-turn-off-trusted-access "#telemetry-config-
 The delay before resources appear on the **Overview** page depends on
 the number of member accounts and resources in your organization.
 
-## Configuring Telemetry Auditing Feature for your
-
-account
+## Configuring Telemetry Auditing Feature for your account
 
 Configure telemetry for your AWS account to monitor telemetry for the AWS resources in
 that account. If you have an organization in AWS Organizations, configure telemetry for your organization
-instead. For more information, see [Configuring Telemetry Auditing Feature for your
-organization](#telemetry-config-turn-on-organization "#telemetry-config-turn-on-organization").
+instead. For more information, see [Configuring Telemetry Auditing Feature for your organization](#telemetry-config-turn-on-organization "#telemetry-config-turn-on-organization").
 
 ###### To configure telemetry for your AWS account
 
@@ -145,9 +126,7 @@ organization](#telemetry-config-turn-on-organization "#telemetry-config-turn-on-
 The delay before resources appear on the **Overview** page depends on
 the number of resources in your account.
 
-## Deregistering a delegated
-
-administrator account
+## Deregistering a delegated administrator account
 
 Deregister the delegated administrator account before turning off trusted access for
 AWS Organizations. You can also deregister a delegated administrator account if it no longer has access
@@ -166,12 +145,9 @@ AWS Organizations](../../../organizations/latest/userguide/services-that-can-int
 4. On the **Deregister delegated administrator** page, choose
    **Deregister**.
 
-To register an account as a delegated administrator, see [Registering a delegated administrator
-account for your organization](#telemetry-config-register-administrator "#telemetry-config-register-administrator").
+To register an account as a delegated administrator, see [Registering a delegated administrator account for your organization](#telemetry-config-register-administrator "#telemetry-config-register-administrator").
 
-## Turning off trusted access for
-
-AWS Organizations
+## Turning off trusted access for AWS Organizations
 
 Trusted access extends the functionality of the management account in AWS Organizations to other
 AWS services. When you turn off trusted access, trusted access between your organization and
@@ -184,8 +160,7 @@ AWS Organizations](../../../organizations/latest/userguide/services-that-can-int
 ###### Note
 
 Before turning off trusted access for an organization, deregister the delegated
-administrator account. For more information, see [Deregistering a delegated
-administrator account](#telemetry-config-deregister-administrator "#telemetry-config-deregister-administrator").
+administrator account. For more information, see [Deregistering a delegated administrator account](#telemetry-config-deregister-administrator "#telemetry-config-deregister-administrator").
 
 ###### To turn off trusted access for AWS Organizations
 

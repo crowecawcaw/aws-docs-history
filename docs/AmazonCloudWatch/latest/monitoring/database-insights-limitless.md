@@ -1,6 +1,4 @@
-# Monitoring Aurora Limitless databases with
-
-Database Insights
+# Monitoring Aurora Limitless databases with Database Insights
 
 Database Insights supports monitoring [Aurora PostgreSQL
 Limitless Databases](../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.md") at both the fleet and instance levels. Your Aurora PostgreSQL
@@ -21,9 +19,7 @@ group. Database Insights provides a new view per shard group where you can see d
 distributed across the instances in the shard group. From there, you can navigate to the
 specific instance dashboard within a shard group.
 
-## Available features for Aurora
-
-Limitless
+## Available features for Aurora Limitless
 
 The following table displays the features available for Aurora PostgreSQL Limitless
 databases. They indicate whether each feature is supported in the Standard and Advanced
@@ -61,9 +57,7 @@ following standard CloudWatch Logs pricing. For details about how CloudWatch Log
 and pricing examples, see [Amazon CloudWatch
 pricing](https://aws.amazon.com/cloudwatch/pricing/?nc1=h_ls "https://aws.amazon.com/cloudwatch/pricing/?nc1=h_ls").
 
-## Monitoring Aurora Limitless shard
-
-groups in the Fleet Health Dashboard
+## Monitoring Aurora Limitless shard groups in the Fleet Health Dashboard
 
 Database Insights supports monitoring Aurora Limitless shard groups in the Fleet Health
 Dashboard.
@@ -93,9 +87,7 @@ overview of your entire database fleet.
 
 ![Database Insights dashboard showing a list of database instances. The table displays 7 instances with their DB Identifier, Alarm state, Engine type, DB Load Utilization, Last state update, and Database version. Engines include PostgreSQL, SQL Server Enterprise, Oracle Standard, Aurora MySQL, and Aurora PostgreSQL. The SQL Server instance has the highest load at 25.21%. Two Aurora PostgreSQL instances are labeled as 'Limitless' and show separate utilization for Shards and Routers. The interface includes options for filtering, sorting, and viewing additional details.](images/dbi_fhd-limitless-list-view.png)
 
-## Monitoring Aurora PostgreSQL Limitless
-
-Databases in the Instance Dashboard
+## Monitoring Aurora PostgreSQL Limitless Databases in the Instance Dashboard
 
 Database Insights works similarly for Aurora PostgreSQL Limitless Database as it does for standard
 Aurora DB clusters. However, you track metrics at the shard group level for
@@ -128,9 +120,7 @@ subcategories of the metric. The most useful dimensions are the following:
 
 ![Database Insights dashboard showing database performance metrics. The top section displays a line graph tracking database activity from 12:00 to 14:45 on July 14. Below, the DB Load Analysis tab shows a "Top instances" view listing 4 database instances (DTR-3-757, DTR-2-903, DAS-4-112, and DAS-5-992) with their load utilization metrics, all showing values less than 0.01 AAS (Average Active Sessions). The interface includes options for alarm states, filters, and various analysis views.](images/dbi_limitless-top-instances.png)
 
-## Analyze DB load for Aurora PostgreSQL
-
-Limitless Databases with Database Insights
+## Analyze DB load for Aurora PostgreSQL Limitless Databases with Database Insights
 
 With Database Insights, you can track metrics at the shard group level and at the instance level
 for an Aurora PostgreSQL Limitless Database. When analyzing DB load for an Aurora
@@ -142,9 +132,7 @@ vCPU. The Relative view shows the ratio of AAS to the estimated vCPU.
 
 ![Database Insights dashboard showing database load distribution for a shardgroup1 Aurora PostgreSQL cluster. The interface displays a time series graph of average active sessions (AAS) and a pie chart showing load distribution across 5 database instances. The pie chart indicates a total of 261 AAS with percentages split between instances DTR-2-103, DTR-3-650, DAS-4-659, DAS-5-784, and DAS-6-336. The dashboard includes filters, alarm states, and database telemetry options."](images/dbi_limitless-doughnut.png)
 
-### Analyzing relative DB load using the
-
-Database Insights dashboard
+### Analyzing relative DB load using the Database Insights dashboard
 
 You might want to improve the performance of your Aurora PostgreSQL Limitless
 Database by tracking relative DB load. To analyze relative DB load by instance for
@@ -169,17 +157,13 @@ tab. 6. (Optional) To analyze DB load for an instance in your Aurora PostgreSQL
 Limitless Database, choose the instance name in the
 _Instances_ column.
 
-### Analyzing DB load by waits using the
-
-Database Insights dashboard
+### Analyzing DB load by waits using the Database Insights dashboard
 
 You might want to improve the performance for your Aurora PostgreSQL Limitless
 Database by tracking wait events. To analyze DB load by wait events for your
 Aurora PostgreSQL Limitless Database, use the following procedure.
 
-###### To analyze DB load by waits for Aurora PostgreSQL Limitless Database using the
-
-console
+###### To analyze DB load by waits for Aurora PostgreSQL Limitless Database using the console
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -195,17 +179,13 @@ The Average active sessions chart shows the DB load for instances in your
 Aurora PostgreSQL Limitless Database. 5. Scroll down to the _Top SQL_ tab. 6. Choose the SQL statement to expand it into its component
 statements.
 
-### Analyzing load distribution using
-
-the Database Insights dashboard
+### Analyzing load distribution using the Database Insights dashboard
 
 You might want to balance the load distribution for instances on your
 Aurora PostgreSQL Limitless Database. To analyze load distribution of the instances on
 an Aurora PostgreSQL Limitless Database, use the following procedure.
 
-###### To analyze load distribution of the instances on an Aurora PostgreSQL Limitless
-
-Database using the console
+###### To analyze load distribution of the instances on an Aurora PostgreSQL Limitless Database using the console
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

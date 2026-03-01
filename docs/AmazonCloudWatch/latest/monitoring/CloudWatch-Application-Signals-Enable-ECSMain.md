@@ -108,4 +108,6 @@ Using the CloudWatch Application Signals MCP server offers several advantages:
 - **Faster setup:** Get from intention to implementation more quickly
 - **Learning tool:** See the generated configurations and understand how Application Signals works
 
+### Additional resources
+
 For more information about configuring and using the CloudWatch Application Signals MCP server, see the [MCP server documentation](https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server "https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server").

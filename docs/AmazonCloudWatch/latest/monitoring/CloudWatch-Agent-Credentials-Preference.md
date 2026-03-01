@@ -1,6 +1,4 @@
-# CloudWatch agent credentials
-
-preference
+# CloudWatch agent credentials preference
 
 This section outlines the credentials provider chain the CloudWatch agent uses to obtain
 credentials when communicating with other AWS services and APIs. The ordering is as follows:
@@ -12,8 +10,7 @@ defined in the AWS SDK. For more information, see [Specifying
 Credentials](../../../sdk-for-go/v1/developer-guide/configuring-sdk.md#specifying-credentials "../../../sdk-for-go/v1/developer-guide/configuring-sdk.md#specifying-credentials") in the SDK documentation.
 
 1. Shared config and credentials files as defined in the CloudWatch agent’s
-   `common-config.toml` file. For more information, see [Install the CloudWatch agent using
-   AWS Systems Manager](installing-cloudwatch-agent-ssm.md "installing-cloudwatch-agent-ssm.md").
+   `common-config.toml` file. For more information, see [Install the CloudWatch agent using AWS Systems Manager](installing-cloudwatch-agent-ssm.md "installing-cloudwatch-agent-ssm.md").
 2. AWS SDK environment variables
 
 ###### Important
@@ -56,8 +53,7 @@ you use the CloudWatch agent.
 
 ###### Note
 
-If you send telemetry to a different account as explained in [Sending metrics, logs, and
-traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account"), the CloudWatch agent uses the
+If you send telemetry to a different account as explained in [Sending metrics, logs, and traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account"), the CloudWatch agent uses the
 credentials provider chain described in this section to obtain the initial set of
 credentials. It then uses those credentials when assuming the IAM role specified by
 `role_arn` in the CloudWatch agent configuration file.

@@ -1,6 +1,4 @@
-# Metric stream
-
-operation and maintenance
+# Metric stream operation and maintenance
 
 Metric streams are always in one of two states, **Running** or
 **Stopped**.

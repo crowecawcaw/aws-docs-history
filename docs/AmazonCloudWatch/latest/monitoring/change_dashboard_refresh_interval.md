@@ -1,6 +1,4 @@
-# Changing the period override setting or refresh
-
-interval for the CloudWatch dashboard
+# Changing the period override setting or refresh interval for the CloudWatch dashboard
 
 You can specify how the period setting of graphs added to this dashboard are retained or
 modified.

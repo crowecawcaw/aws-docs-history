@@ -5,9 +5,7 @@ Unlike single-instance alarms that trigger actions on individual instances, flee
 alarms let you aggregate metrics across multiple resources and trigger based on fleet-wide
 conditions.
 
-## Setting up a Multi Time Series alarm
-
-using the AWS Management Console
+## Setting up a Multi Time Series alarm using the AWS Management Console
 
 This example shows how to create an alarm that monitors memory utilization across a
 fleet of instances and alerts you when more than two instances exceed a threshold.

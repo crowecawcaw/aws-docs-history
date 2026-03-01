@@ -1,6 +1,4 @@
-# Install the CloudWatch agent with the
-
-Amazon CloudWatch Observability EKS add-on or the Helm chart
+# Install the CloudWatch agent with the Amazon CloudWatch Observability EKS add-on or the Helm chart
 
 You can use either the Amazon CloudWatch Observability EKS add-on or the Amazon CloudWatch Observability
 Helm chart to install the CloudWatch Agent and the Fluent-bit agent on an Amazon EKS cluster. You can
@@ -39,29 +37,19 @@ this:
 
 ###### Topics
 
-- [Option 1: Install
-  using EKS Pod Identity](#install-CloudWatch-Observability-EKS-pod-identity "#install-CloudWatch-Observability-EKS-pod-identity")
-- [Option 2:
-  Install with IAM permissions on worker nodes](#install-CloudWatch-Observability-EKS-addon-workernodes "#install-CloudWatch-Observability-EKS-addon-workernodes")
-- [Option 3:
-  Install using IAM service account role (applies only to using the add-on)](#install-CloudWatch-Observability-EKS-addon-serviceaccountrole "#install-CloudWatch-Observability-EKS-addon-serviceaccountrole")
-- [Considerations for
-  Amazon EKS Hybrid Nodes](#install-CloudWatch-Observability-EKS-addon-hybrid "#install-CloudWatch-Observability-EKS-addon-hybrid")
-- [(Optional)
-  Additional configuration](#install-CloudWatch-Observability-EKS-addon-configuration "#install-CloudWatch-Observability-EKS-addon-configuration")
-- [Collect Java
-  Management Extensions (JMX) metrics](#install-CloudWatch-Observability-EKS-addon-JMX-metrics "#install-CloudWatch-Observability-EKS-addon-JMX-metrics")
+- [Option 1: Install using EKS Pod Identity](#install-CloudWatch-Observability-EKS-pod-identity "#install-CloudWatch-Observability-EKS-pod-identity")
+- [Option 2: Install with IAM permissions on worker nodes](#install-CloudWatch-Observability-EKS-addon-workernodes "#install-CloudWatch-Observability-EKS-addon-workernodes")
+- [Option 3: Install using IAM service account role (applies only to using the add-on)](#install-CloudWatch-Observability-EKS-addon-serviceaccountrole "#install-CloudWatch-Observability-EKS-addon-serviceaccountrole")
+- [Considerations for Amazon EKS Hybrid Nodes](#install-CloudWatch-Observability-EKS-addon-hybrid "#install-CloudWatch-Observability-EKS-addon-hybrid")
+- [(Optional) Additional configuration](#install-CloudWatch-Observability-EKS-addon-configuration "#install-CloudWatch-Observability-EKS-addon-configuration")
+- [Collect Java Management Extensions (JMX) metrics](#install-CloudWatch-Observability-EKS-addon-JMX-metrics "#install-CloudWatch-Observability-EKS-addon-JMX-metrics")
 - [Enable Kueue metrics](#enable-Kueue-metrics "#enable-Kueue-metrics")
-- [Appending
-  OpenTelemetry collector configuration files](#install-CloudWatch-Observability-EKS-addon-OpenTelemetry "#install-CloudWatch-Observability-EKS-addon-OpenTelemetry")
+- [Appending OpenTelemetry collector configuration files](#install-CloudWatch-Observability-EKS-addon-OpenTelemetry "#install-CloudWatch-Observability-EKS-addon-OpenTelemetry")
 - [Enabling APM through Application Signals for your Amazon EKS cluster](#Container-Insights-setup-EKS-appsignalsconfiguration "#Container-Insights-setup-EKS-appsignalsconfiguration")
-- [Troubleshooting the
-  Amazon CloudWatch Observability EKS add-on or the Helm chart](#Container-Insights-setup-EKS-addon-troubleshoot "#Container-Insights-setup-EKS-addon-troubleshoot")
+- [Troubleshooting the Amazon CloudWatch Observability EKS add-on or the Helm chart](#Container-Insights-setup-EKS-addon-troubleshoot "#Container-Insights-setup-EKS-addon-troubleshoot")
 - [Opt out of Application Signals](#Opting-out-App-Signals "#Opting-out-App-Signals")
 
-## Option 1: Install
-
-using EKS Pod Identity
+## Option 1: Install using EKS Pod Identity
 
 If you use version 3.1.0 or later of the add-on, you can use EKS Pod Identity to grant
 the required permissions to the add-on. EKS Pod Identity is the recommended option and
@@ -207,8 +195,7 @@ serviceAccount = "cloudwatch-agent"
 
 
 
-##  Option 2:
- Install with IAM permissions on worker nodes
+## Option 2: Install with IAM permissions on worker nodes
 
 
 To use this method, first attach the **CloudWatchAgentServerPolicy**
@@ -351,8 +338,7 @@ cluster_name = "`my-cluster-name`"
 
 
 
-##  Option 3:
- Install using IAM service account role (applies only to using the add-on)
+## Option 3: Install using IAM service account role (applies only to using the add-on)
 
 
 This method is valid only if you are using the Amazon CloudWatch Observability EKS add-on.
@@ -371,8 +357,7 @@ This method is valid only if you are using the Amazon CloudWatch Observability E
 
 
 AWS CLI
-###### To use the AWS CLI to install the Amazon CloudWatch Observability EKS add-on using the
- IAM service account role
+###### To use the AWS CLI to install the Amazon CloudWatch Observability EKS add-on using the IAM service account role
 
 1. Enter the following command to create an OpenID Connect (OIDC) provider, if
  the cluster doesn't have one already. For more information, see [Configuring a
@@ -423,8 +408,7 @@ aws eks create-addon --addon-name amazon-cloudwatch-observability --cluster-name
 
 
 Amazon EKS console
-###### To use the console to install the Amazon CloudWatch Observability EKS add-on using the
- IAM service account role
+###### To use the console to install the Amazon CloudWatch Observability EKS add-on using the IAM service account role
 
 1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
 2. In the left navigation pane, choose **Clusters**.
@@ -463,8 +447,7 @@ Amazon EKS console
 
 
 
-## Considerations for
- Amazon EKS Hybrid Nodes
+## Considerations for Amazon EKS Hybrid Nodes
 
 
 Node-level metrics aren't available for hybrid nodes because [Container Insights](ContainerInsights.md "ContainerInsights.md") depends on the
@@ -508,29 +491,20 @@ fieldPath: spec.nodeName
 
 ```
 
-## (Optional)
- Additional configuration
+## (Optional) Additional configuration
 
 
 ###### Topics
 
-* [Opt out of
- collecting container logs](#CloudWatch-Observability-EKS-addon-OptOutContainerLogs "#CloudWatch-Observability-EKS-addon-OptOutContainerLogs")
-* [Use a custom Fluent
- Bit configuration](#CloudWatch-Observability-EKS-addon-CustomFluentBit "#CloudWatch-Observability-EKS-addon-CustomFluentBit")
-* [Manage Kubernetes
- tolerations for the installed pod workloads](#CloudWatch-Observability-EKS-addon-Tolerations "#CloudWatch-Observability-EKS-addon-Tolerations")
-* [Opt out of
- accelerated compute metrics collection](#CloudWatch-Observability-EKS-addon-OptOutAccelerated "#CloudWatch-Observability-EKS-addon-OptOutAccelerated")
-* [Use a custom CloudWatch
- agent configuration](#CloudWatch-Observability-EKS-addon-CustomAgentConfig "#CloudWatch-Observability-EKS-addon-CustomAgentConfig")
-* [Manage admission webhook
- TLS certificates](#CloudWatch-Observability-EKS-addon-Webhook "#CloudWatch-Observability-EKS-addon-Webhook")
-* [Collect Amazon EBS volume
- IDs](#CloudWatch-Observability-EKS-addon-VolumeIDs "#CloudWatch-Observability-EKS-addon-VolumeIDs")
+* [Opt out of collecting container logs](#CloudWatch-Observability-EKS-addon-OptOutContainerLogs "#CloudWatch-Observability-EKS-addon-OptOutContainerLogs")
+* [Use a custom Fluent Bit configuration](#CloudWatch-Observability-EKS-addon-CustomFluentBit "#CloudWatch-Observability-EKS-addon-CustomFluentBit")
+* [Manage Kubernetes tolerations for the installed pod workloads](#CloudWatch-Observability-EKS-addon-Tolerations "#CloudWatch-Observability-EKS-addon-Tolerations")
+* [Opt out of accelerated compute metrics collection](#CloudWatch-Observability-EKS-addon-OptOutAccelerated "#CloudWatch-Observability-EKS-addon-OptOutAccelerated")
+* [Use a custom CloudWatch agent configuration](#CloudWatch-Observability-EKS-addon-CustomAgentConfig "#CloudWatch-Observability-EKS-addon-CustomAgentConfig")
+* [Manage admission webhook TLS certificates](#CloudWatch-Observability-EKS-addon-Webhook "#CloudWatch-Observability-EKS-addon-Webhook")
+* [Collect Amazon EBS volume IDs](#CloudWatch-Observability-EKS-addon-VolumeIDs "#CloudWatch-Observability-EKS-addon-VolumeIDs")
 
-### Opt out of
- collecting container logs
+### Opt out of collecting container logs
 
 
 By default, the add-on uses Fluent Bit to collect container logs from all pods and
@@ -569,8 +543,7 @@ To opt out of the collection of container logs if you are using the Helm chart, 
 
 ```
 
-### Use a custom Fluent
- Bit configuration
+### Use a custom Fluent Bit configuration
 
 
 Starting with version 1.7.0 of the Amazon CloudWatch Observability EKS add-on, you can modify
@@ -743,8 +716,7 @@ application-log.conf: ""
 
 ```
 
-### Manage Kubernetes
- tolerations for the installed pod workloads
+### Manage Kubernetes tolerations for the installed pod workloads
 
 
 Starting with version 1.7.0 of the Amazon CloudWatch Observability EKS add-on, the add-on and
@@ -799,8 +771,7 @@ Any changes to tolerations apply to all pod workloads that are installed by the
  add-on or the Helm chart.
 
 
-### Opt out of
- accelerated compute metrics collection
+### Opt out of accelerated compute metrics collection
 
 
 By default, Container Insights with enhanced observability collects metrics for
@@ -818,15 +789,13 @@ NVIDIA GPU metrics from Amazon EKS workloads are collected by default beginning 
 AWS Neuron metrics for AWS Trainium and AWS Inferentia accelerators are
  collected by default beginning with version `v1.5.0-eksbuild.1` of the EKS
  add-on or the Helm chart, and version `1.300036.0` of the CloudWatch agent. For a
- list of metrics collected and prerequisites, see [AWS Neuron metrics for AWS
- Trainium and AWS Inferentia](Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EKS-Neuron "Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EKS-Neuron") .
+ list of metrics collected and prerequisites, see [AWS Neuron metrics for AWS Trainium and AWS Inferentia](Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EKS-Neuron "Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EKS-Neuron").
 
 
 AWS Elastic Fabric Adapter (EFA) metrics from Linux nodes on Amazon EKS clusters are
  collected by default beginning with version `v1.5.2-eksbuild.1` of the EKS
  add-on or the Helm chart and version `1.300037.0` of the CloudWatch agent. For a
- list of metrics collected and prerequisites, see [AWS Elastic Fabric Adapter (EFA)
- metrics](Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EFA "Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EFA") .
+ list of metrics collected and prerequisites, see [AWS Elastic Fabric Adapter (EFA) metrics](Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EFA "Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EFA").
 
 
 You can opt out of collecting these metrics by setting the
@@ -834,8 +803,7 @@ You can opt out of collecting these metrics by setting the
  `false`. This field is in the `kubernetes` section of the
  `metrics_collected` section in the CloudWatch configuration file. The following
  is an example of an opt-out configuration. For more information about how to use custom
- CloudWatch agent configurations, see the following section, [Use a custom CloudWatch
- agent configuration](#CloudWatch-Observability-EKS-addon-CustomAgentConfig "#CloudWatch-Observability-EKS-addon-CustomAgentConfig").
+ CloudWatch agent configurations, see the following section, [Use a custom CloudWatch agent configuration](#CloudWatch-Observability-EKS-addon-CustomAgentConfig "#CloudWatch-Observability-EKS-addon-CustomAgentConfig").
 
 
 
@@ -854,8 +822,7 @@ You can opt out of collecting these metrics by setting the
 
 ```
 
-### Use a custom CloudWatch
- agent configuration
+### Use a custom CloudWatch agent configuration
 
 
 To collect other metrics, logs or traces using the CloudWatch agent, you can specify a
@@ -948,8 +915,7 @@ The following example shows the default agent configuration for the CloudWatch a
 
 ```
 
-### Manage admission webhook
- TLS certificates
+### Manage admission webhook TLS certificates
 
 
 The Amazon CloudWatch Observability EKS add-on and the Helm chart leverage Kubernetes  [admission webhooks](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/ "https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/") to validate and mutate `AmazonCloudWatchAgent`
@@ -1040,8 +1006,7 @@ The advanced configuration discussed in this section will by default use a  [Sel
  issuer.
 
 
-### Collect Amazon EBS volume
- IDs
+### Collect Amazon EBS volume IDs
 
 
 If you want to collect Amazon EBS volume IDs in the performance logs, you must add
@@ -1078,15 +1043,13 @@ JSON
 
 
 
-## Collect Java
- Management Extensions (JMX) metrics
+## Collect Java Management Extensions (JMX) metrics
 
 
 The CloudWatch agent supports Java Management Extensions (JMX) metrics collection on Amazon EKS.
  This allows you to collect additional metrics from Java applications running on Amazon EKS
  clusters enabling insight into performance, memory usage, traffic, and other critical
- metrics. For more information, see [Collect Java Management Extensions (JMX)
- metrics](CloudWatch-Agent-JMX-metrics.md "CloudWatch-Agent-JMX-metrics.md").
+ metrics. For more information, see [Collect Java Management Extensions (JMX) metrics](CloudWatch-Agent-JMX-metrics.md "CloudWatch-Agent-JMX-metrics.md").
 
 
 ## Enable Kueue metrics
@@ -1094,7 +1057,7 @@ The CloudWatch agent supports Java Management Extensions (JMX) metrics collectio
 
 Beginning with version `v2.4.0-eksbuild.1` of the the CloudWatch Observability
  EKS add-on, Container Insights for Amazon EKS supports collecting Kueue metrics from Amazon EKS
- clusters. For more information about these metrics, see [Kueue metrics](Container-Insights-metrics-EKS.md#Container-Insights-metrics-Kueue "Container-Insights-metrics-EKS.md#Container-Insights-metrics-Kueue") .
+ clusters. For more information about these metrics, see [Kueue metrics](Container-Insights-metrics-EKS.md#Container-Insights-metrics-Kueue "Container-Insights-metrics-EKS.md#Container-Insights-metrics-Kueue").
 
 
 If you are using the Amazon SageMaker AI Hyperpod Task Governance EKS add-on, you
@@ -1291,8 +1254,7 @@ Amazon EKS console
 
 
 
-## Appending
- OpenTelemetry collector configuration files
+## Appending OpenTelemetry collector configuration files
 
 
 The CloudWatch agent supports supplemental OpenTelemetry collector configuration files
@@ -1566,8 +1528,7 @@ namespaces: ["python-apps"]
 
 ```
 
-## Troubleshooting the
- Amazon CloudWatch Observability EKS add-on or the Helm chart
+## Troubleshooting the Amazon CloudWatch Observability EKS add-on or the Helm chart
 
 
 Use the following information to help troubleshoot problems with the Amazon CloudWatch
@@ -1576,15 +1537,11 @@ Use the following information to help troubleshoot problems with the Amazon Clou
 
 ###### Topics
 
-* [Updating and deleting the Amazon CloudWatch
- Observability EKS add-on or the Helm chart](#EKS-addon-troubleshoot-update "#EKS-addon-troubleshoot-update")
-* [Verify the version of the CloudWatch agent
- used by the Amazon CloudWatch Observability EKS add-on or the Helm chart](#EKS-addon-troubleshoot-version "#EKS-addon-troubleshoot-version")
-* [Handling a ConfigurationConflict when
- managing the add-on or the Helm chart](#EKS-addon-troubleshoot-conflict "#EKS-addon-troubleshoot-conflict")
+* [Updating and deleting the Amazon CloudWatch Observability EKS add-on or the Helm chart](#EKS-addon-troubleshoot-update "#EKS-addon-troubleshoot-update")
+* [Verify the version of the CloudWatch agent used by the Amazon CloudWatch Observability EKS add-on or the Helm chart](#EKS-addon-troubleshoot-version "#EKS-addon-troubleshoot-version")
+* [Handling a ConfigurationConflict when managing the add-on or the Helm chart](#EKS-addon-troubleshoot-conflict "#EKS-addon-troubleshoot-conflict")
 
-### Updating and deleting the Amazon CloudWatch
- Observability EKS add-on or the Helm chart
+### Updating and deleting the Amazon CloudWatch Observability EKS add-on or the Helm chart
 
 
 For instructions about updating or deleting the Amazon CloudWatch Observability EKS add-on,
@@ -1602,8 +1559,7 @@ helm delete amazon-cloudwatch-observability -n amazon-cloudwatch --wait
 
 ```
 
-### Verify the version of the CloudWatch agent
- used by the Amazon CloudWatch Observability EKS add-on or the Helm chart
+### Verify the version of the CloudWatch agent used by the Amazon CloudWatch Observability EKS add-on or the Helm chart
 
 
 The Amazon CloudWatch Observability EKS add-on and the Helm chart installs a custom resource
@@ -1626,8 +1582,7 @@ In the output of this command, you should be able to check the version of the Cl
  inspect the image being used.
 
 
-### Handling a ConfigurationConflict when
- managing the add-on or the Helm chart
+### Handling a ConfigurationConflict when managing the add-on or the Helm chart
 
 
 When you install or update the Amazon CloudWatch Observability EKS add-on or the Helm chart,
@@ -1657,8 +1612,7 @@ If you are trying to onboard to the Amazon CloudWatch Observability EKS add-on a
  back up any customizations you might have made to the original CloudWatch agent setup such as
  a custom agent configuration, and provide these to the add-on or Helm chart when you
  next install or update it. If you had previously installed the CloudWatch agent for onboarding
- to Container Insights, see [Deleting the CloudWatch agent and Fluent Bit
- for Container Insights](ContainerInsights-delete-agent.md "ContainerInsights-delete-agent.md") for more information.
+ to Container Insights, see [Deleting the CloudWatch agent and Fluent Bit for Container Insights](ContainerInsights-delete-agent.md "ContainerInsights-delete-agent.md") for more information.
 
 
 Alternatively, the add-on supports a conflict resolution configuration option that

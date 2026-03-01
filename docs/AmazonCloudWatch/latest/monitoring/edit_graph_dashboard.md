@@ -1,7 +1,4 @@
-#
-
-Editing a graph
-on a CloudWatch dashboard
+# Editing a graph on a CloudWatch dashboard
 
 You can edit the graphs that you add to your CloudWatch dashboard. You can change a
 graph's title, statistic, or period. You can add, update, and remove metrics
@@ -202,10 +199,7 @@ choose **Custom**.
 11. When you finish making changes,
     choose **Update widget**.
 
-######
-
-To hide or change the position
-of a graph legend
+###### To hide or change the position of a graph legend
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -220,11 +214,7 @@ of a graph legend
    **Bottom**, or
    **Right**.
 
-######
-
-To temporarily hide metrics
-for a graph
-on a dashboard
+###### To temporarily hide metrics for a graph on a dashboard
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -247,9 +237,7 @@ on a dashboard
 
 Original interface
 
-######
-
-To edit a graph on a dashboard
+###### To edit a graph on a dashboard
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -440,10 +428,7 @@ from left to right.
 11. When you finish making changes,
     choose **Update widget**.
 
-######
-
-To hide or change the position
-of a graph legend
+###### To hide or change the position of a graph legend
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -461,11 +446,7 @@ of a graph legend
    Choose **Legend**,
    and select **Hidden**, **Bottom**, or **Right**.
 
-######
-
-To temporarily hide metrics
-for a graph
-on a dashboard
+###### To temporarily hide metrics for a graph on a dashboard
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

@@ -1,6 +1,4 @@
-# Runtime versions using
-
-Node.js and Playwright
+# Runtime versions using Node.js and Playwright
 
 The following sections contain information about the CloudWatch Synthetics runtime versions for Node.js and Playwright.
 Playwright is an open-source automation library for browser testing. For more information about Playwright,
@@ -9,9 +7,7 @@ see [https://playwright.dev/](https://playwright.dev "https://playwright.dev")
 The naming convention for these runtime versions is
 `syn-`language`-`framework`-`majorversion`.`minorversion``.
 
-##
-
-syn-nodejs-playwright-5.1
+## syn-nodejs-playwright-5.1
 
 ###### Important
 
@@ -40,9 +36,7 @@ For more information, see the following:
 
 The following earlier runtime versions for Node.js and Playwright are still supported.
 
-###
-
-syn-nodejs-playwright-5.0
+### syn-nodejs-playwright-5.0
 
 **Major dependencies**:
 
@@ -61,9 +55,7 @@ For more information, see the following:
 - [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
 - [Playwright API reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
 
-###
-
-syn-nodejs-playwright-4.0
+### syn-nodejs-playwright-4.0
 
 **Major dependencies**:
 
@@ -82,9 +74,7 @@ For more information, see the following:
 - [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
 - [Playwright API reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
 
-###
-
-syn-nodejs-playwright-3.0
+### syn-nodejs-playwright-3.0
 
 **Major dependencies**:
 
@@ -103,9 +93,7 @@ For more information, see the following:
 - [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
 - [Playwright API reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
 
-###
-
-syn-nodejs-playwright-2.0
+### syn-nodejs-playwright-2.0
 
 **Major dependencies**:
 
@@ -124,9 +112,7 @@ For more information, see the following:
 - [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
 - [Playwright API reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
 
-###
-
-syn-nodejs-playwright-1.0
+### syn-nodejs-playwright-1.0
 
 **Major dependencies**:
 

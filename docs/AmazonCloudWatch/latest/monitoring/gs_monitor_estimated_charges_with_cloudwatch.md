@@ -1,6 +1,4 @@
-# Scenario: Monitor your estimated
-
-charges using CloudWatch
+# Scenario: Monitor your estimated charges using CloudWatch
 
 In this scenario, you create an Amazon CloudWatch alarm to monitor your estimated charges.
 When you enable the monitoring of estimated charges for your AWS account, the
@@ -84,10 +82,7 @@ that sends a notification
 when your estimated charges
 for AWS exceed a defined threshold.
 
-######
-
-To create a billing alarm
-using the CloudWatch console
+###### To create a billing alarm using the CloudWatch console
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

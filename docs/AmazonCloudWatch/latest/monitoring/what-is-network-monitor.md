@@ -21,8 +21,7 @@ insights into network performance.
 - Network Synthetic Monitor provides a fully-managed agent approach to monitoring, so you don’t need to install
   agents either on VPCs or on-premises. To get started, you just need to specify a VPC subnet and an
   on-premises IP address. You can establish a private connection between your VPC and Network Synthetic Monitor resources
-  by using AWS PrivateLink. For more information, see [Using CloudWatch, CloudWatch Synthetics, and CloudWatch Network
-  Monitoring with interface VPC endpoints](cloudwatch-and-interface-VPC.md "cloudwatch-and-interface-VPC.md").
+  by using AWS PrivateLink. For more information, see [Using CloudWatch, CloudWatch Synthetics, and CloudWatch Network Monitoring with interface VPC endpoints](cloudwatch-and-interface-VPC.md "cloudwatch-and-interface-VPC.md").
 - Network Synthetic Monitor publishes metrics to CloudWatch Metrics. You can create dashboards to view your
   metrics, and also create actionable thresholds and alarms on the metrics that are specific to your
   application.

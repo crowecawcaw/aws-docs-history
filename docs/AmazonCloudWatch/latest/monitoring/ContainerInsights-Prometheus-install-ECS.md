@@ -1,6 +1,4 @@
-# Install the CloudWatch agent with
-
-Prometheus metrics collection on Amazon ECS clusters
+# Install the CloudWatch agent with Prometheus metrics collection on Amazon ECS clusters
 
 This section explains how to set up the CloudWatch agent with Prometheus monitoring in a
 cluster running Amazon ECS. After you do this, the agent automatically scrapes and imports
@@ -11,9 +9,7 @@ metrics for the following workloads running in that cluster.
   You can also configure the agent to scrape and import metrics from additional
   Prometheus workloads and sources.
 
-## Set up IAM
-
-roles
+## Set up IAM roles
 
 You need two IAM roles for the CloudWatch agent task definition. If you specify
 `CreateIAMRoles=True` in the CloudFormation stack to have Container
@@ -42,9 +38,7 @@ roles and permissions are required.
   to store more sensitive data for Amazon ECS to use, see [Specifying
   sensitive data](../../../AmazonECS/latest/developerguide/specifying-sensitive-data.md "../../../AmazonECS/latest/developerguide/specifying-sensitive-data.md").
 
-## Install the CloudWatch agent
-
-with Prometheus monitoring by using CloudFormation
+## Install the CloudWatch agent with Prometheus monitoring by using CloudFormation
 
 You use AWS CloudFormation to install the CloudWatch agent with Prometheus monitoring for Amazon ECS
 clusters. The following list shows the parameters you will use in the CloudFormation
@@ -78,9 +72,7 @@ template.
   **ECSNetworkMode** is `awsvpc`, specify
   the subnet ID here.
 
-### Command
-
-samples
+### Command samples
 
 This section includes sample CloudFormation commands to install Container Insights with
 Prometheus monitoring in various scenarios.
@@ -198,9 +190,7 @@ aws cloudformation create-stack --stack-name CWAgent-Prometheus-ECS-${ECS_CLUSTE
     --profile ${AWS_PROFILE}
 ```
 
-### AWS resources
-
-created by the CloudFormation stack
+### AWS resources created by the CloudFormation stack
 
 The following table lists the AWS resources that are created when you use
 CloudFormation to set up Container Insights with Prometheus monitoring on an Amazon ECS
@@ -215,9 +205,7 @@ cluster.
 | AWS::ECS::TaskDefinition | cwagent-prometheus-$`ECS_CLUSTER_NAME`-$`ECS_LAUNCH_TYPE`-$`ECS_NETWORK_MODE`                    |                                                                                                             |
 | AWS::ECS::Service        | cwagent-prometheus-replica-service-$`ECS_LAUNCH_TYPE`-$`ECS_NETWORK_MODE`                        |                                                                                                             |
 
-### Deleting the CloudFormation stack
-
-for the CloudWatch agent with Prometheus monitoring
+### Deleting the CloudFormation stack for the CloudWatch agent with Prometheus monitoring
 
 To delete the CloudWatch agent from an Amazon ECS cluster, enter these commands.
 

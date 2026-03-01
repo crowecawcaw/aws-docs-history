@@ -24,3 +24,6 @@ which 500 matching metrics are returned.
 - Each [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") operation
   can have only one query, but you can have multiple widgets in a dashboard that each
   include a query.
+- If a query using tag(s) with a **GROUP BY** or **WHERE**
+  matches a metric that has more than 10 tag updates, only the most recent 10 tagged versions
+  of the metric will be included in the query results.

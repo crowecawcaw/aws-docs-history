@@ -22,19 +22,14 @@ read-only permissions for new operations and resources. For a list and descripti
 function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## AWS managed policy:
-
-CloudWatchNetworkMonitorServiceRolePolicy
+## AWS managed policy: CloudWatchNetworkMonitorServiceRolePolicy
 
 The `CloudWatchNetworkMonitorServiceRolePolicy` is attached to a service-linked
 role that allows the service to perform actions on your behalf and access resources associated
 with CloudWatch Network Synthetic Monitor. You cannot attach this policy to your IAM identities. For more
-information, see [Using a service-linked role for
-Network Synthetic Monitor](monitoring-using-service-linked-roles-nw.md "monitoring-using-service-linked-roles-nw.md").
+information, see [Using a service-linked role for Network Synthetic Monitor](monitoring-using-service-linked-roles-nw.md "monitoring-using-service-linked-roles-nw.md").
 
-## Network Synthetic Monitor updates to AWS
-
-managed policies
+## Network Synthetic Monitor updates to AWS managed policies
 
 To view details about updates to AWS managed policies for Network Synthetic Monitor since this service
 began tracking these changes,

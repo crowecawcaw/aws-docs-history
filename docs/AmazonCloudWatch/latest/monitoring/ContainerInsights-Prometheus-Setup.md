@@ -1,6 +1,4 @@
-# Install the CloudWatch agent with
-
-Prometheus metrics collection on Amazon EKS and Kubernetes clusters
+# Install the CloudWatch agent with Prometheus metrics collection on Amazon EKS and Kubernetes clusters
 
 This section explains how to set up the CloudWatch agent with Prometheus monitoring in a
 cluster running Amazon EKS or Kubernetes. After you do this, the agent automatically scrapes
@@ -30,16 +28,11 @@ to connect to the Prometheus workloads' port by private IP.
 
 ###### Topics
 
-- [Install the CloudWatch agent with
-  Prometheus metrics collection on Amazon EKS and Kubernetes clusters](#ContainerInsights-Prometheus-Setup-roles "#ContainerInsights-Prometheus-Setup-roles")
-- [Scraping additional
-  Prometheus sources and importing those metrics](ContainerInsights-Prometheus-Setup-configure.md "ContainerInsights-Prometheus-Setup-configure.md")
-- [(Optional) Set up
-  sample containerized Amazon EKS workloads for Prometheus metric testing](ContainerInsights-Prometheus-Sample-Workloads.md "ContainerInsights-Prometheus-Sample-Workloads.md")
+- [Install the CloudWatch agent with Prometheus metrics collection on Amazon EKS and Kubernetes clusters](#ContainerInsights-Prometheus-Setup-roles "#ContainerInsights-Prometheus-Setup-roles")
+- [Scraping additional Prometheus sources and importing those metrics](ContainerInsights-Prometheus-Setup-configure.md "ContainerInsights-Prometheus-Setup-configure.md")
+- [(Optional) Set up sample containerized Amazon EKS workloads for Prometheus metric testing](ContainerInsights-Prometheus-Sample-Workloads.md "ContainerInsights-Prometheus-Sample-Workloads.md")
 
-## Install the CloudWatch agent with
-
-Prometheus metrics collection on Amazon EKS and Kubernetes clusters
+## Install the CloudWatch agent with Prometheus metrics collection on Amazon EKS and Kubernetes clusters
 
 This section explains how to set up the CloudWatch agent with Prometheus monitoring in a
 cluster running Amazon EKS or Kubernetes. After you do this, the agent automatically
@@ -71,14 +64,10 @@ agent to connect to the Prometheus workloads' port by private IP.
 
 ###### Topics
 
-- [Setting up IAM
-  roles](#ContainerInsights-Prometheus-Setup-roles "#ContainerInsights-Prometheus-Setup-roles")
-- [Installing the
-  CloudWatch agent to collect Prometheus metrics](#ContainerInsights-Prometheus-Setup-install-agent "#ContainerInsights-Prometheus-Setup-install-agent")
+- [Setting up IAM roles](#ContainerInsights-Prometheus-Setup-roles "#ContainerInsights-Prometheus-Setup-roles")
+- [Installing the CloudWatch agent to collect Prometheus metrics](#ContainerInsights-Prometheus-Setup-install-agent "#ContainerInsights-Prometheus-Setup-install-agent")
 
-### Setting up IAM
-
-roles
+### Setting up IAM roles
 
 The first step is to set up the necessary IAM role in the cluster. There are
 two methods:
@@ -128,9 +117,7 @@ type only)**
    Select the check box next to **CloudWatchAgentServerPolicy**,
    and choose **Attach policy**.
 
-### Installing the
-
-CloudWatch agent to collect Prometheus metrics
+### Installing the CloudWatch agent to collect Prometheus metrics
 
 You must install the CloudWatch agent in the cluster to collect the metrics. How to
 install the agent differs for Amazon EKS clusters and Kubernetes clusters.
@@ -148,16 +135,12 @@ without Prometheus support.
 kubectl delete deployment cwagent-prometheus -n amazon-cloudwatch
 ```
 
-#### Installing
-
-the CloudWatch agent on Amazon EKS clusters with the EC2 launch type
+#### Installing the CloudWatch agent on Amazon EKS clusters with the EC2 launch type
 
 To install the CloudWatch agent with Prometheus support on an Amazon EKS cluster, follow
 these steps.
 
-###### To install the CloudWatch agent with Prometheus support on an Amazon EKS
-
-cluster
+###### To install the CloudWatch agent with Prometheus support on an Amazon EKS cluster
 
 1. Enter the following command to check whether the
    `amazon-cloudwatch` namespace has already been
@@ -216,16 +199,12 @@ steps:
     kubectl apply -f prometheus-eks.yaml
     ```
 
-#### Installing the CloudWatch agent on Amazon EKS clusters with the Fargate launch
-
-type
+#### Installing the CloudWatch agent on Amazon EKS clusters with the Fargate launch type
 
 To install the CloudWatch agent with Prometheus support on an Amazon EKS cluster with the
 Fargate launch type, follow these steps.
 
-###### To install the CloudWatch agent with Prometheus support on an Amazon EKS cluster with
-
-the Fargate launch type
+###### To install the CloudWatch agent with Prometheus support on an Amazon EKS cluster with the Fargate launch type
 
 1. Enter the following command to create a Fargate profile for the CloudWatch
    agent so that it can run inside the cluster. Replace
@@ -273,9 +252,7 @@ Replace `region` with the name of the AWS Region
 where you want the metrics to be sent. For example,
 `us-west-1`.
 
-#### Verify
-
-that the agent is running
+#### Verify that the agent is running
 
 On both Amazon EKS and Kubernetes clusters, you can enter the following command to
 confirm that the agent is running.
@@ -287,10 +264,8 @@ kubectl get pod -l "app=cwagent-prometheus" -n amazon-cloudwatch
 If the results include a single CloudWatch agent pod in the `Running`
 state, the agent is running and collecting Prometheus metrics. By default the CloudWatch
 agent collects metrics for App Mesh, NGINX, Memcached, Java/JMX, and HAProxy every
-minute. For more information about those metrics, see [Prometheus metrics collected by the
-CloudWatch agent](ContainerInsights-Prometheus-metrics.md "ContainerInsights-Prometheus-metrics.md"). For instructions on how
+minute. For more information about those metrics, see [Prometheus metrics collected by the CloudWatch agent](ContainerInsights-Prometheus-metrics.md "ContainerInsights-Prometheus-metrics.md"). For instructions on how
 to see your Prometheus metrics in CloudWatch, see [Viewing your Prometheus metrics](ContainerInsights-Prometheus-viewmetrics.md "ContainerInsights-Prometheus-viewmetrics.md")
 
 You can also configure the CloudWatch agent to collect metrics from other Prometheus
-exporters. For more information, see [Scraping additional
-Prometheus sources and importing those metrics](ContainerInsights-Prometheus-Setup-configure.md "ContainerInsights-Prometheus-Setup-configure.md").
+exporters. For more information, see [Scraping additional Prometheus sources and importing those metrics](ContainerInsights-Prometheus-Setup-configure.md "ContainerInsights-Prometheus-Setup-configure.md").

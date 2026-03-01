@@ -28,8 +28,7 @@ of that metric name and namespace are streamed with the additional statistics.
 
 CloudWatch metric streams publishes a new metric, `TotalMetricUpdate`, which reflects the base number of metric
 updates plus extra metric updates incurred by streaming additional
-statistics. For more information, see [Monitoring your metric streams with
-CloudWatch metrics](CloudWatch-metric-streams-monitoring.md "CloudWatch-metric-streams-monitoring.md").
+statistics. For more information, see [Monitoring your metric streams with CloudWatch metrics](CloudWatch-metric-streams-monitoring.md "CloudWatch-metric-streams-monitoring.md").
 
 For more information, see
 [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").

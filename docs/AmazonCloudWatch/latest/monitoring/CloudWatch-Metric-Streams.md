@@ -67,10 +67,8 @@ for the delivery stream used for the metric stream. For more information, see
 
 - [Set up a metric stream](CloudWatch-metric-streams-setup.md "CloudWatch-metric-streams-setup.md")
 - [Statistics that can be streamed](CloudWatch-metric-streams-statistics.md "CloudWatch-metric-streams-statistics.md")
-- [Metric stream
-  operation and maintenance](CloudWatch-metric-streams-operation.md "CloudWatch-metric-streams-operation.md")
-- [Monitoring your metric streams with
-  CloudWatch metrics](CloudWatch-metric-streams-monitoring.md "CloudWatch-metric-streams-monitoring.md")
+- [Metric stream operation and maintenance](CloudWatch-metric-streams-operation.md "CloudWatch-metric-streams-operation.md")
+- [Monitoring your metric streams with CloudWatch metrics](CloudWatch-metric-streams-monitoring.md "CloudWatch-metric-streams-monitoring.md")
 - [Trust between CloudWatch and Firehose](CloudWatch-metric-streams-trustpolicy.md "CloudWatch-metric-streams-trustpolicy.md")
 - [CloudWatch metric stream output in JSON format](CloudWatch-metric-streams-formats-json.md "CloudWatch-metric-streams-formats-json.md")
 - [CloudWatch metric stream output in OpenTelemetry 1.0.0 format](CloudWatch-metric-streams-formats-opentelemetry-100.md "CloudWatch-metric-streams-formats-opentelemetry-100.md")

@@ -5,12 +5,9 @@ CloudWatch Application Insights supports the following metrics:
 ###### Metrics
 
 - [CloudWatch built-in metrics](#appinsights-metrics-ec2-built-in "#appinsights-metrics-ec2-built-in")
-- [CloudWatch agent metrics (Windows
-  server)](#appinsights-metrics-ec2-windows "#appinsights-metrics-ec2-windows")
-- [CloudWatch agent process
-  metrics (Windows server)](#appinsights-metrics-procstat-ec2-windows "#appinsights-metrics-procstat-ec2-windows")
-- [CloudWatch agent metrics (Linux
-  server)](#appinsights-metrics-ec2-linux "#appinsights-metrics-ec2-linux")
+- [CloudWatch agent metrics (Windows server)](#appinsights-metrics-ec2-windows "#appinsights-metrics-ec2-windows")
+- [CloudWatch agent process metrics (Windows server)](#appinsights-metrics-procstat-ec2-windows "#appinsights-metrics-procstat-ec2-windows")
+- [CloudWatch agent metrics (Linux server)](#appinsights-metrics-ec2-linux "#appinsights-metrics-ec2-linux")
 
 ## CloudWatch built-in metrics
 
@@ -58,9 +55,7 @@ StatusCheckFailed_Instance
 
 StatusCheckFailed_System
 
-## CloudWatch agent metrics (Windows
-
-server)
+## CloudWatch agent metrics (Windows server)
 
 .NET CLR Exceptions # of Exceps Thrown
 
@@ -258,9 +253,7 @@ Cluster Handles/sec
 
 Resource Handles/sec
 
-## CloudWatch agent process
-
-metrics (Windows server)
+## CloudWatch agent process metrics (Windows server)
 
 Process metrics are collected using the [CloudWatch agent procstat
 plugin](CloudWatch-Agent-procstat-process-metrics.md "CloudWatch-Agent-procstat-process-metrics.md"). Only Amazon EC2 instances running Windows workloads support
@@ -284,9 +277,7 @@ procstat write_bytes
 
 procstat write_count
 
-## CloudWatch agent metrics (Linux
-
-server)
+## CloudWatch agent metrics (Linux server)
 
 cpu_time_active
 

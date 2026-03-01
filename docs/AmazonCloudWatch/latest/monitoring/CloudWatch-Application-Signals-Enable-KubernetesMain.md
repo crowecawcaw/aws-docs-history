@@ -14,9 +14,7 @@ doesn't autodiscover the names of your services or the hosts or clusters they ru
 - You have kubectl and helm installed on your local terminal. For more information, see
   the [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl "https://kubernetes.io/docs/tasks/tools/#kubectl") and [Helm](https://helm.sh/ "https://helm.sh/") documentation.
 
-## Step 1: Enable Application Signals
-
-in your account
+## Step 1: Enable Application Signals in your account
 
 You must first enable Application Signals in your account. If you haven't, see [Enable Application Signals in your account](CloudWatch-Application-Signals-Enable.md "CloudWatch-Application-Signals-Enable.md").
 

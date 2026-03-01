@@ -9,8 +9,7 @@ see [CloudWatch observability solutions](Monitoring-Solutions.md "Monitoring-Sol
 
 - [Requirements](#Solution-NVIDIA-GPU-On-EC2-Requirements "#Solution-NVIDIA-GPU-On-EC2-Requirements")
 - [Benefits](#Solution-NVIDIA-GPU-On-EC2-Benefits "#Solution-NVIDIA-GPU-On-EC2-Benefits")
-- [CloudWatch agent configuration for this
-  solution](#Solution-NVIDIA-GPU-CloudWatch-Agent "#Solution-NVIDIA-GPU-CloudWatch-Agent")
+- [CloudWatch agent configuration for this solution](#Solution-NVIDIA-GPU-CloudWatch-Agent "#Solution-NVIDIA-GPU-CloudWatch-Agent")
 - [Deploy the agent for your solution](#Solution-NVIDIA-GPU-Agent-Deploy "#Solution-NVIDIA-GPU-Agent-Deploy")
 - [Create the NVIDIA GPU solution dashboard](#Solution-NVIDIA-GPU-Dashboard "#Solution-NVIDIA-GPU-Dashboard")
 
@@ -85,17 +84,14 @@ The pricing calculator can help you estimate approximate monthly costs for using
    Dashboards**, enter `1`.
 7. You can see your monthly estimated costs at the bottom of the pricing calculator.
 
-## CloudWatch agent configuration for this
-
-solution
+## CloudWatch agent configuration for this solution
 
 The CloudWatch agent is software that runs continuously and autonomously on your servers and
 in containerized environments.
 It collects metrics, logs, and traces from your infrastructure and applications and sends
 them to CloudWatch and X-Ray.
 
-For more information about the CloudWatch agent, see [Collect metrics, logs, and traces using the CloudWatch
-agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md").
+For more information about the CloudWatch agent, see [Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md").
 
 The agent configuration in this solution collects a set of metrics to help you get
 started monitoring and observing your NVIDIA GPU. The CloudWatch agent can be configured to
@@ -153,8 +149,7 @@ Configuration will be stored as a parameter in SSM's Parameter Store, as detaile
 There are several approaches for installing the CloudWatch agent, depending on the use case. We recommend using Systems Manager for this solution.
 It provides a console experience and makes it simpler to manage a fleet of managed servers within a single AWS account.
 The instructions in this section use Systems Manager and are intended for when you don't have the CloudWatch agent running with existing configurations.
-You can check whether the CloudWatch agent is running by following the steps in [Verify that the CloudWatch agent
-is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running").
+You can check whether the CloudWatch agent is running by following the steps in [Verify that the CloudWatch agent is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running").
 
 If you are already running the CloudWatch agent on the EC2 hosts where the workload is deployed and managing agent configurations,
 you can skip the instructions in this section and follow your existing deployment mechanism to update the configuration.
@@ -247,15 +242,13 @@ This means that:
 
 ### Step 4: Verify the agent setup is configured properly
 
-You can verify whether the CloudWatch agent is installed by following the steps in [Verify that the CloudWatch agent
-is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running"). If the CloudWatch agent is not installed and running,
+You can verify whether the CloudWatch agent is installed by following the steps in [Verify that the CloudWatch agent is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running"). If the CloudWatch agent is not installed and running,
 make sure you have set up everything correctly.
 
 - Be sure you have attached a role with correct permissions for the EC2 instance as described in
   [Step 1: Ensure the target EC2 instances have the required IAM permissions](#Solution-NVIDIA-GPU-Agent-Step1 "#Solution-NVIDIA-GPU-Agent-Step1").
 - Be sure you have correctly configured the JSON for the Systems Manager parameter. Follow the steps in
-  [Troubleshooting
-  installation of the CloudWatch agent with CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting "Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting").
+  [Troubleshooting installation of the CloudWatch agent with CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting "Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting").
 
 If everything is set up correctly, then you should see the NVIDIA GPU metrics being published to CloudWatch.
 You can check the CloudWatch console to verify they are being published.

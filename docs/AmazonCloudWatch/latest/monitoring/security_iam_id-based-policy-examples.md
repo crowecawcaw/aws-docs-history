@@ -1,6 +1,4 @@
-# Identity-based policy examples
-
-for Amazon CloudWatch
+# Identity-based policy examples for Amazon CloudWatch
 
 By default, users and roles don't have permission to create or modify CloudWatch
 resources. To grant users permission to perform actions on the
@@ -14,14 +12,10 @@ For details about actions and resource types defined by CloudWatch, including th
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the CloudWatch
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the CloudWatch console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete CloudWatch resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -54,9 +48,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the CloudWatch
-
-console
+## Using the CloudWatch console
 
 To access the Amazon CloudWatch console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the CloudWatch resources
@@ -74,9 +66,7 @@ the CloudWatch `ConsoleAccess` or
 entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-### Permissions needed for CloudWatch
-
-console
+### Permissions needed for CloudWatch console
 
 The full set of permissions required to work with the CloudWatch console are listed
 below. These permissions provide full write and read access to the CloudWatch

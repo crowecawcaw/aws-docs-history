@@ -1,6 +1,4 @@
-# Basic monitoring and detailed monitoring
-
-in CloudWatch
+# Basic monitoring and detailed monitoring in CloudWatch
 
 CloudWatch provides two categories of monitoring: _basic monitoring_ and
 _detailed monitoring_.

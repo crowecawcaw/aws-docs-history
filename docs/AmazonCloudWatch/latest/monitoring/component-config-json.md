@@ -1,6 +1,4 @@
-# Component configuration template
-
-fragment
+# Component configuration template fragment
 
 The following example shows a template fragment in JSON format.
 

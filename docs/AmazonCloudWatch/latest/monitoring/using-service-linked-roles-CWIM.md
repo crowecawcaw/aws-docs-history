@@ -19,9 +19,7 @@ IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md 
 **Yes** with a link to view the service-linked role documentation for that
 service.
 
-## Service-linked role permissions for
-
-Internet Monitor
+## Service-linked role permissions for Internet Monitor
 
 Internet Monitor uses the service-linked role named **AWSServiceRoleForInternetMonitor**.
 This role allows Internet Monitor to access resources in your account, such as Amazon Virtual Private Cloud resources, Amazon CloudFront distributions,

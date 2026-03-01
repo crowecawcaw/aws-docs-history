@@ -8,10 +8,7 @@ is
 automatically
 included.
 
-######
-
-To add a number widget
-to a dashboard
+###### To add a number widget to a dashboard
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

@@ -71,9 +71,7 @@ role you created to the instance.
 
 For more information on attaching an IAM role to an instance, see [Attaching an IAM Role to an Instance](../../../AWSEC2/latest/WindowsGuide/iam-roles-for-amazon-ec2.md#attach-iam-role "../../../AWSEC2/latest/WindowsGuide/iam-roles-for-amazon-ec2.md#attach-iam-role") in the Amazon Elastic Compute Cloud User Guide.
 
-### Allowing the CloudWatch agent to set log
-
-retention policy
+### Allowing the CloudWatch agent to set log retention policy
 
 You can configure the CloudWatch agent to set the retention policy for log groups that it
 sends log events to. If you do this, you must grant the

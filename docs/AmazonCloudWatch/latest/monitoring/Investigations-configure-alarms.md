@@ -1,6 +1,4 @@
-# Configure alarms to create
-
-investigations
+# Configure alarms to create investigations
 
 You can configure an existing CloudWatch alarm to automatically create investigations in
 CloudWatch investigations. When the alarm enters the ALARM state, CloudWatch automatically creates a new
@@ -41,9 +39,7 @@ arn:aws:aiops:us-east-1:123456789012:investigation-group/sMwwg1IogXdvL7UZ
 arn:aws:aiops:us-east-1:123456789012:investigation-group/sMwwg1IogXdvL7UZ#DEDUPE_STRING=performance
 ```
 
-### Benefits of
-
-deduplication strings
+### Benefits of deduplication strings
 
 Deduplication strings help you organize related alarms and reduce
 investigation fragmentation. Use deduplication strings when:

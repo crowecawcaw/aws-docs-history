@@ -1,6 +1,4 @@
-# Tutorial for scraping
-
-Redis OSS Prometheus metrics on Amazon ECS Fargate
+# Tutorial for scraping Redis OSS Prometheus metrics on Amazon ECS Fargate
 
 This tutorial provides a hands-on introduction to scrape the Prometheus metrics of
 a sample Redis OSS application in an Amazon ECS Fargate cluster. The Redis OSS Prometheus
@@ -24,24 +22,17 @@ tutorial:
 
 To collect metrics from a sample Prometheus workload for Amazon ECS, you must be
 running Container Insights in the cluster. For information about installing Container
-Insights, see [Setting up Container Insights on
-Amazon ECS](deploy-container-insights-ECS.md "deploy-container-insights-ECS.md").
+Insights, see [Setting up Container Insights on Amazon ECS](deploy-container-insights-ECS.md "deploy-container-insights-ECS.md").
 
 ###### Topics
 
-- [Set the
-  Amazon ECS Fargate cluster environment variable](#ContainerInsights-Prometheus-Setup-redis-ecs-variable "#ContainerInsights-Prometheus-Setup-redis-ecs-variable")
-- [Set the
-  network environment variables for the Amazon ECS Fargate cluster](#ContainerInsights-Prometheus-Setup-redis-ecs-variable2 "#ContainerInsights-Prometheus-Setup-redis-ecs-variable2")
+- [Set the Amazon ECS Fargate cluster environment variable](#ContainerInsights-Prometheus-Setup-redis-ecs-variable "#ContainerInsights-Prometheus-Setup-redis-ecs-variable")
+- [Set the network environment variables for the Amazon ECS Fargate cluster](#ContainerInsights-Prometheus-Setup-redis-ecs-variable2 "#ContainerInsights-Prometheus-Setup-redis-ecs-variable2")
 - [Install the sample Redis OSS workload](#ContainerInsights-Prometheus-Setup-redis-ecs-install-workload "#ContainerInsights-Prometheus-Setup-redis-ecs-install-workload")
-- [Configure the
-  CloudWatch agent to scrape Redis OSS Prometheus metrics](#ContainerInsights-Prometheus-Setup-redis-ecs-agent "#ContainerInsights-Prometheus-Setup-redis-ecs-agent")
-- [Viewing your Redis
-  OSS metrics](#ContainerInsights-Prometheus-Setup-redis-view "#ContainerInsights-Prometheus-Setup-redis-view")
+- [Configure the CloudWatch agent to scrape Redis OSS Prometheus metrics](#ContainerInsights-Prometheus-Setup-redis-ecs-agent "#ContainerInsights-Prometheus-Setup-redis-ecs-agent")
+- [Viewing your Redis OSS metrics](#ContainerInsights-Prometheus-Setup-redis-view "#ContainerInsights-Prometheus-Setup-redis-view")
 
-## Set the
-
-Amazon ECS Fargate cluster environment variable
+## Set the Amazon ECS Fargate cluster environment variable
 
 ###### To set the Amazon ECS Fargate cluster environment variable
 
@@ -78,13 +69,9 @@ Subnet created: subnet-xxxxxxxxxxxxxxxxx
 Cluster creation succeeded.
 ```
 
-## Set the
+## Set the network environment variables for the Amazon ECS Fargate cluster
 
-network environment variables for the Amazon ECS Fargate cluster
-
-###### To set the network environment variables for the Amazon ECS Fargate
-
-cluster
+###### To set the network environment variables for the Amazon ECS Fargate cluster
 
 1. Set your VPC and subnet ID of the Amazon ECS cluster. If you created a new
    cluster in the previous procedure, you'll see these values in the result of the
@@ -124,9 +111,7 @@ ECS_CLUSTER_SECURITY_GROUP=`my-default-security-group`
 
 ## Install the sample Redis OSS workload
 
-###### To install the sample Redis OSS workload which exposes the Prometheus
-
-metrics
+###### To install the sample Redis OSS workload which exposes the Prometheus metrics
 
 1. Download the Redis OSS CloudFormation template by entering the following
    command.
@@ -179,9 +164,7 @@ In the Redis OSS task definition, two containers are defined:
 ECS_PROMETHEUS_EXPORTER_PORT: 9121
 ```
 
-## Configure the
-
-CloudWatch agent to scrape Redis OSS Prometheus metrics
+## Configure the CloudWatch agent to scrape Redis OSS Prometheus metrics
 
 ###### To configure the CloudWatch agent to scrape Redis OSS Prometheus metrics
 
@@ -319,9 +302,7 @@ aws cloudformation create-stack --stack-name CWAgent-Prometheus-ECS-$ECS_CLUSTER
     --region ${AWS_DEFAULT_REGION}
 ```
 
-## Viewing your Redis
-
-OSS metrics
+## Viewing your Redis OSS metrics
 
 This tutorial sends the following metrics to the
 **ECS/ContainerInsights/Prometheus** namespace in CloudWatch. You can

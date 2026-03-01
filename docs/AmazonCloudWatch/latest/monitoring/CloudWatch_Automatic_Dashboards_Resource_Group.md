@@ -1,6 +1,4 @@
-# Viewing a CloudWatch dashboard for a
-
-resource group
+# Viewing a CloudWatch dashboard for a resource group
 
 You can focus your view to display metrics and alarms from a single resource group.
 Using resource groups enables you to use tags to organize projects, focus on a subset of

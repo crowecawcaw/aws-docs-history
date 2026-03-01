@@ -16,5 +16,4 @@ of the following presets for the metrics time frame:
 Additionally, you can choose the time displayed in the charts to be based on either the UTC
 time zone or a local time zone.
 
-For more information, see [Changing the time range or time zone format of a CloudWatch
-dashboard](change_dashboard_time_format.md "change_dashboard_time_format.md").
+For more information, see [Changing the time range or time zone format of a CloudWatch dashboard](change_dashboard_time_format.md "change_dashboard_time_format.md").

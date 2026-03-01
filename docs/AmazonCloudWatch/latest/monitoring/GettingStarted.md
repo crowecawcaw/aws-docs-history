@@ -33,8 +33,7 @@ state. This helps you monitor and quickly diagnose issues.
 The automatic dashboards on the CloudWatch home page display only information from the current
 account, even if the account is a monitoring account set up for CloudWatch cross-account observability.
 For information about creating custom cross-account dashboards, see
-[Creating a CloudWatch cross-account cross-Region dashboard with the
-AWS Management Console](create_xaxr_dashboard.md "create_xaxr_dashboard.md").
+[Creating a CloudWatch cross-account cross-Region dashboard with the AWS Management Console](create_xaxr_dashboard.md "create_xaxr_dashboard.md").
 
 From this overview, you can see a cross-service dashboard of metrics from multiple AWS service, or focus your view to a
 specific resource group or a specific AWS
@@ -44,9 +43,6 @@ interested.
 ###### Topics
 
 - [Viewing the cross-service CloudWatch dashboard](CloudWatch_Automatic_Dashboards_Cross_Service.md "CloudWatch_Automatic_Dashboards_Cross_Service.md")
-- [Removing a service from appearing in
-  the CloudWatch cross-service dashboard](Remove_service_from_Cross_Service_Dashboard.md "Remove_service_from_Cross_Service_Dashboard.md")
-- [Viewing a CloudWatch dashboard for a
-  single AWS service](CloudWatch_Automatic_Dashboards_Focus_Service.md "CloudWatch_Automatic_Dashboards_Focus_Service.md")
-- [Viewing a CloudWatch dashboard for a
-  resource group](CloudWatch_Automatic_Dashboards_Resource_Group.md "CloudWatch_Automatic_Dashboards_Resource_Group.md")
+- [Removing a service from appearing in the CloudWatch cross-service dashboard](Remove_service_from_Cross_Service_Dashboard.md "Remove_service_from_Cross_Service_Dashboard.md")
+- [Viewing a CloudWatch dashboard for a single AWS service](CloudWatch_Automatic_Dashboards_Focus_Service.md "CloudWatch_Automatic_Dashboards_Focus_Service.md")
+- [Viewing a CloudWatch dashboard for a resource group](CloudWatch_Automatic_Dashboards_Resource_Group.md "CloudWatch_Automatic_Dashboards_Resource_Group.md")

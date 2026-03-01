@@ -1,6 +1,4 @@
-# Set up the CloudWatch agent with security-enhanced Linux
-
-(SELinux)
+# Set up the CloudWatch agent with security-enhanced Linux (SELinux)
 
 If your system has security-enhanced Linux (SELinux) enabled, you must apply the
 appropriate security policies to ensure that the CloudWatch agent runs in a confined domain.
@@ -130,5 +128,4 @@ system_u:system_r:confined_t:s0 root 1234 1 0 12:00 ? 00:00:10 /opt/aws/amazon-c
 ```
 
 After SELinux is configured, you can proceed to configure the agent to collect metrics,
-logs, and traces. For more information, see [Manually create or edit the
-CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").
+logs, and traces. For more information, see [Manually create or edit the CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").

@@ -1,6 +1,4 @@
-# Metrics Insights sample
-
-queries
+# Metrics Insights sample queries
 
 This section contains examples of useful CloudWatch Metrics Insights queries that you can copy and use directly
 or copy and modify in query editor. Some of these examples are already available in the
@@ -27,9 +25,7 @@ LIMIT 10
 
 ```
 
-## AWS API usage
-
-examples
+## AWS API usage examples
 
 **Top 20 AWS APIs by the number of calls in your
 account**
@@ -180,9 +176,7 @@ ORDER BY AVG() DESC
 LIMIT 10
 ```
 
-## Amazon Elastic Kubernetes Service Container
-
-Insights examples
+## Amazon Elastic Kubernetes Service Container Insights examples
 
 **Average CPU utilization across all EKS clusters**
 
@@ -227,9 +221,7 @@ GROUP BY ClusterName, PodName
 ORDER BY AVG() DESC LIMIT 10
 ```
 
-## EventBridge
-
-examples
+## EventBridge examples
 
 **Top 10 rules by invocations**
 
@@ -310,9 +302,7 @@ ORDER BY SUM() DESC
 LIMIT 10
 ```
 
-## CloudWatch Logs
-
-examples
+## CloudWatch Logs examples
 
 **Top 10 log groups by incoming events**
 

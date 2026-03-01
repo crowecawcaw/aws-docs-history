@@ -22,8 +22,7 @@ Alarms based on math expressions can't perform Amazon EC2 actions.
 
 For more information about metric math expressions and syntax, see [Using math expressions with CloudWatch metrics](using-metric-math.md "using-metric-math.md").
 
-For more information, see [Create a CloudWatch alarm based on a metric
-math expression](Create-alarm-on-metric-math-expression.md "Create-alarm-on-metric-math-expression.md").
+For more information, see [Create a CloudWatch alarm based on a metric math expression](Create-alarm-on-metric-math-expression.md "Create-alarm-on-metric-math-expression.md").
 
 ## Metrics Insights
 
@@ -101,5 +100,4 @@ For more information on how to create an alarm based on log group-metric filter,
 You can create alarms that watch metrics from data sources that aren't in CloudWatch. For more
 information about creating connections to these other data sources, see [Query metrics from other data sources](MultiDataSourceQuerying.md "MultiDataSourceQuerying.md").
 
-For more information on how to create an alarm based on a connected data source, see [Create an alarm based on a connected data
-source](Create_MultiSource_Alarm.md "Create_MultiSource_Alarm.md").
+For more information on how to create an alarm based on a connected data source, see [Create an alarm based on a connected data source](Create_MultiSource_Alarm.md "Create_MultiSource_Alarm.md").

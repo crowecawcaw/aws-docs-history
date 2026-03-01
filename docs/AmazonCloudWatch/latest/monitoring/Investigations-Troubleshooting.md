@@ -2,42 +2,25 @@
 
 ###### Topics
 
-- [CloudWatch investigations cannot assume
-  the necessary IAM roles or permissions. Please verify required roles and
-  permissions are correctly configured](#Investigations-Troubleshooting-Permissions "#Investigations-Troubleshooting-Permissions")
-- [Unable to identify
-  event source. Verify that the resource exists in your application topology and
-  the resource type is supported.](#Investigations-Troubleshooting-eventsource "#Investigations-Troubleshooting-eventsource")
-- [Analysis complete. Submit
-  additional findings to receive updated suggestions](#Investigations-Troubleshooting-complete "#Investigations-Troubleshooting-complete")
-- [Source account status
-  shows "Pending link to monitoring account"](#Investigations-Troubleshooting-cross-account "#Investigations-Troubleshooting-cross-account")
-- [Incident report
-  generation issues](#Investigations-Troubleshooting-IncidentReports "#Investigations-Troubleshooting-IncidentReports")
+- [CloudWatch investigations cannot assume the necessary IAM roles or permissions. Please verify required roles and permissions are correctly configured](#Investigations-Troubleshooting-Permissions "#Investigations-Troubleshooting-Permissions")
+- [Unable to identify event source. Verify that the resource exists in your application topology and the resource type is supported.](#Investigations-Troubleshooting-eventsource "#Investigations-Troubleshooting-eventsource")
+- [Analysis complete. Submit additional findings to receive updated suggestions](#Investigations-Troubleshooting-complete "#Investigations-Troubleshooting-complete")
+- [Source account status shows "Pending link to monitoring account"](#Investigations-Troubleshooting-cross-account "#Investigations-Troubleshooting-cross-account")
+- [Incident report generation issues](#Investigations-Troubleshooting-IncidentReports "#Investigations-Troubleshooting-IncidentReports")
 
-## CloudWatch investigations cannot assume
-
-the necessary IAM roles or permissions. Please verify required roles and
-permissions are correctly configured
+## CloudWatch investigations cannot assume the necessary IAM roles or permissions. Please verify required roles and permissions are correctly configured
 
 CloudWatch investigations use an IAM role to be able to access information in your topology. This
 IAM role must be configured with adequate permissions. For more information about
-the necessary permissions, see [How to control what data CloudWatch investigations has
-access to during investigations](Investigations-Security.md#Investigations-Security-Data "Investigations-Security.md#Investigations-Security-Data").
+the necessary permissions, see [How to control what data CloudWatch investigations has access to during investigations](Investigations-Security.md#Investigations-Security-Data "Investigations-Security.md#Investigations-Security-Data").
 
-## Unable to identify
-
-event source. Verify that the resource exists in your application topology and
-the resource type is supported.
+## Unable to identify event source. Verify that the resource exists in your application topology and the resource type is supported.
 
 There are several AWS services and features that we recommend you to enable to
 provide additional valuable information to CloudWatch investigations. These services and features can
-help CloudWatch investigations identify event sources. For more information, see [(Recommended) Best practices to
-enhance investigations](Investigations-RecommendedServices.md "Investigations-RecommendedServices.md").
+help CloudWatch investigations identify event sources. For more information, see [(Recommended) Best practices to enhance investigations](Investigations-RecommendedServices.md "Investigations-RecommendedServices.md").
 
-## Analysis complete. Submit
-
-additional findings to receive updated suggestions
+## Analysis complete. Submit additional findings to receive updated suggestions
 
 When you see this message, CloudWatch investigations has finished analyzing your topology and telemetry
 based on the findings that it has found so far. If you think that the root cause
@@ -57,9 +40,7 @@ do the following:
    Then, in the **Investigate** pane, select the name of the
    investigation.
 
-## Source account status
-
-shows "Pending link to monitoring account"
+## Source account status shows "Pending link to monitoring account"
 
 Check that both your monitoring account and source account are set up
 correctly.
@@ -84,9 +65,7 @@ correctly.
 
 ```
 
-## Incident report
-
-generation issues
+## Incident report generation issues
 
 This section describes common issues you might encounter when generating incident
 reports and how to resolve them.
@@ -98,4 +77,4 @@ following:
 
 - The investigation has at least one accepted hypothesis in the
   **Feed**
-- Your user and your investigation group have the necessary permissions, see [User permissions for your CloudWatch investigations group](Investigations-Security.md#Investigations-Security-IAM "Investigations-Security.md#Investigations-Security-IAM") .
+- Your user and your investigation group have the necessary permissions, see [User permissions for your CloudWatch investigations group](Investigations-Security.md#Investigations-Security-IAM "Investigations-Security.md#Investigations-Security-IAM").

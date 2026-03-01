@@ -1,6 +1,4 @@
-# Tutorial for adding a
-
-new Prometheus scrape target: Redis OSS on Amazon EKS and Kubernetes clusters
+# Tutorial for adding a new Prometheus scrape target: Redis OSS on Amazon EKS and Kubernetes clusters
 
 This tutorial provides a hands-on introduction to scrape the Prometheus metrics
 of a sample Redis OSS application on Amazon EKS and Kubernetes. Redis OSS
@@ -18,9 +16,7 @@ tutorial:
 - [redis](https://hub.docker.com/_/redis?tab=description "https://hub.docker.com/_/redis?tab=description")
 - [redis_exporter](https://hub.docker.com/r/oliver006/redis_exporter "https://hub.docker.com/r/oliver006/redis_exporter")
 
-###### To install a sample Redis OSS workload which exposes Prometheus
-
-metrics
+###### To install a sample Redis OSS workload which exposes Prometheus metrics
 
 1. Set the namespace for the sample Redis OSS workload.
 
@@ -166,9 +162,7 @@ cat prometheus-k8s.yaml \
 
 ```
 
-## Viewing your
-
-Redis OSS Prometheus metrics
+## Viewing your Redis OSS Prometheus metrics
 
 This tutorial sends the following metrics to the
 **ContainerInsights/Prometheus** namespace in CloudWatch. You can use

@@ -21,8 +21,7 @@ see [Supported AWS services for data sources](../logs/supported-aws-services-dat
 Third-party log data can extend monitoring capabilities to support identity and
 access management as well as endpoint and network security. CloudWatch pipelines manages collection
 of data from third-party platforms through either direct API integration or an S3
-bucket integration. For more details, see [Third-party data sources
-integration](third-party-integration-setup.md "third-party-integration-setup.md"). For a list of data source names
+bucket integration. For more details, see [Third-party data sources integration](third-party-integration-setup.md "third-party-integration-setup.md"). For a list of data source names
 and types, see [Supported third-party sources for data sources](../logs/supported-third-party-sources-data-sources.md "../logs/supported-third-party-sources-data-sources.md").
 
 - **Custom logs through CloudWatch Logs or S3 buckets**
@@ -38,14 +37,11 @@ sources accommodate unique organizational requirements:
     + **Serverless integration** – Lambda
      function logs and custom serverless application telemetry
 
-For more details, see [Custom log data from CloudWatch Logs or an Amazon S3
-bucket](ingestion-custom-data-sources.md "ingestion-custom-data-sources.md").
+For more details, see [Custom log data from CloudWatch Logs or an Amazon S3 bucket](ingestion-custom-data-sources.md "ingestion-custom-data-sources.md").
 
 ###### Topics
 
-- [Third-party data sources
-  integration](third-party-integration-setup.md "third-party-integration-setup.md")
-- [Custom log data from CloudWatch Logs or an Amazon S3
-  bucket](ingestion-custom-data-sources.md "ingestion-custom-data-sources.md")
+- [Third-party data sources integration](third-party-integration-setup.md "third-party-integration-setup.md")
+- [Custom log data from CloudWatch Logs or an Amazon S3 bucket](ingestion-custom-data-sources.md "ingestion-custom-data-sources.md")
 - [Configuring Custom S3 Bucket Sources](configuring-custom-s3-bucket-sources.md "configuring-custom-s3-bucket-sources.md")
 - [AWS service logs from CloudWatch Logs](aws-service-logs-from-cwl.md "aws-service-logs-from-cwl.md")

@@ -17,12 +17,9 @@ querying up to two weeks of historical data, enabling comprehensive analysis of 
 ###### Topics
 
 - [Metrics concepts](cloudwatch_concepts.md "cloudwatch_concepts.md")
-- [Basic monitoring and detailed monitoring
-  in CloudWatch](cloudwatch-metrics-basic-detailed.md "cloudwatch-metrics-basic-detailed.md")
-- [Query your CloudWatch metrics with
-  CloudWatch Metrics Insights](query_with_cloudwatch-metrics-insights.md "query_with_cloudwatch-metrics-insights.md")
-- [Use metrics explorer to monitor resources by their
-  tags and properties](CloudWatch-Metrics-Explorer.md "CloudWatch-Metrics-Explorer.md")
+- [Basic monitoring and detailed monitoring in CloudWatch](cloudwatch-metrics-basic-detailed.md "cloudwatch-metrics-basic-detailed.md")
+- [Query your CloudWatch metrics with CloudWatch Metrics Insights](query_with_cloudwatch-metrics-insights.md "query_with_cloudwatch-metrics-insights.md")
+- [Use metrics explorer to monitor resources by their tags and properties](CloudWatch-Metrics-Explorer.md "CloudWatch-Metrics-Explorer.md")
 - [Use metric streams](CloudWatch-Metric-Streams.md "CloudWatch-Metric-Streams.md")
 - [View available metrics](viewing_metrics_with_cloudwatch.md "viewing_metrics_with_cloudwatch.md")
 - [Graphing metrics](graph_metrics.md "graph_metrics.md")

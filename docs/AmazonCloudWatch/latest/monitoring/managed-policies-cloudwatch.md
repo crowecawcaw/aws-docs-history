@@ -1,6 +1,4 @@
-# AWS managed (predefined) policies for
-
-CloudWatch
+# AWS managed (predefined) policies for CloudWatch
 
 AWS addresses many common use cases by providing standalone IAM policies
 that are created and administered by AWS. These AWS managed policies grant necessary
@@ -12,8 +10,7 @@ are specific to CloudWatch.
 
 ###### Topics
 
-- [CloudWatch updates to AWS managed
-  policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [CloudWatch updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 - [CloudWatchFullAccessV2](#managed-policies-cloudwatch-CloudWatchFullAccessV2 "#managed-policies-cloudwatch-CloudWatchFullAccessV2")
 - [CloudWatchFullAccess](#managed-policies-cloudwatch-CloudWatchFullAccess "#managed-policies-cloudwatch-CloudWatchFullAccess")
 - [CloudWatchReadOnlyAccess](#managed-policies-cloudwatch-CloudWatchReadOnlyAccess "#managed-policies-cloudwatch-CloudWatchReadOnlyAccess")
@@ -23,22 +20,14 @@ are specific to CloudWatch.
 - [CloudWatchAgentServerPolicy](#managed-policies-cloudwatch-CloudWatchAgentServerPolicy "#managed-policies-cloudwatch-CloudWatchAgentServerPolicy")
 - [CloudWatchAgentAdminPolicy](#managed-policies-cloudwatch-CloudWatchAgentAdminPolicy "#managed-policies-cloudwatch-CloudWatchAgentAdminPolicy")
 - [CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy](#managed-policies-cloudwatch-CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy "#managed-policies-cloudwatch-CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy")
-- [AWS managed
-  (predefined) policies for CloudWatch cross-account observability](#managed-policies-cloudwatch-crossaccount "#managed-policies-cloudwatch-crossaccount")
-- [AWS managed
-  (predefined) policies for CloudWatch investigations](#managed-policies-cloudwatch-QInvestigations "#managed-policies-cloudwatch-QInvestigations")
-- [AWS managed
-  (predefined) policies for CloudWatch Application Signals](#managed-policies-cloudwatch-ApplicationSignals "#managed-policies-cloudwatch-ApplicationSignals")
-- [AWS managed (predefined)
-  policies for CloudWatch Synthetics](#managed-policies-cloudwatch-canaries "#managed-policies-cloudwatch-canaries")
-- [AWS managed (predefined) policies for
-  Amazon CloudWatch RUM](#managed-policies-cloudwatch-RUM "#managed-policies-cloudwatch-RUM")
-- [AWS managed policy
-  for AWS Systems Manager Incident Manager](#managed-policies-cloudwatch-incident-manager "#managed-policies-cloudwatch-incident-manager")
+- [AWS managed (predefined) policies for CloudWatch cross-account observability](#managed-policies-cloudwatch-crossaccount "#managed-policies-cloudwatch-crossaccount")
+- [AWS managed (predefined) policies for CloudWatch investigations](#managed-policies-cloudwatch-QInvestigations "#managed-policies-cloudwatch-QInvestigations")
+- [AWS managed (predefined) policies for CloudWatch Application Signals](#managed-policies-cloudwatch-ApplicationSignals "#managed-policies-cloudwatch-ApplicationSignals")
+- [AWS managed (predefined) policies for CloudWatch Synthetics](#managed-policies-cloudwatch-canaries "#managed-policies-cloudwatch-canaries")
+- [AWS managed (predefined) policies for Amazon CloudWatch RUM](#managed-policies-cloudwatch-RUM "#managed-policies-cloudwatch-RUM")
+- [AWS managed policy for AWS Systems Manager Incident Manager](#managed-policies-cloudwatch-incident-manager "#managed-policies-cloudwatch-incident-manager")
 
-## CloudWatch updates to AWS managed
-
-policies
+## CloudWatch updates to AWS managed policies
 
 View details about updates to AWS managed policies for CloudWatch since this service
 began tracking these changes. For automatic alerts about changes to this page,
@@ -265,9 +254,7 @@ You can also create your own custom IAM policies to allow permissions for
 CloudWatch actions and resources. You can attach these custom policies to
 the IAM users or groups that require those permissions.
 
-## AWS managed
-
-(predefined) policies for CloudWatch cross-account observability
+## AWS managed (predefined) policies for CloudWatch cross-account observability
 
 The policies in this section grant permissions related to CloudWatch cross-account
 observability. For more information, see [CloudWatch cross-account observability](CloudWatch-Unified-Cross-Account.md "CloudWatch-Unified-Cross-Account.md").
@@ -312,9 +299,7 @@ observability. For more information, see [CloudWatch cross-account observability
 To see the full contents of the policy, see [OAMReadOnlyAccess](../../../aws-managed-policy/latest/reference/OAMReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/OAMReadOnlyAccess.md") in the _AWS Managed Policy Reference
 Guide_.
 
-## AWS managed
-
-(predefined) policies for CloudWatch investigations
+## AWS managed (predefined) policies for CloudWatch investigations
 
 The policies in this section grant permissions related to CloudWatch investigations. For more
 information, see [CloudWatch investigations](Investigations.md "Investigations.md").
@@ -406,8 +391,7 @@ You can choose to have the policy assigned automatically when you create an
 investigation, or you can assign the policy manually to the role being used by
 the investigation. This policy is scoped based on the resources that CloudWatch investigations
 analyzes when performing investigations, and will be updated as more resources
-are supported. For a complete list of services that work with CloudWatch investigations see, [AWS services where investigations are
-supported](Investigations-Services.md "Investigations-Services.md").
+are supported. For a complete list of services that work with CloudWatch investigations see, [AWS services where investigations are supported](Investigations-Services.md "Investigations-Services.md").
 
 You can also choose to assign the general AWS [**ReadOnlyAccess**](../../../aws-managed-policy/latest/reference/ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/ReadOnlyAccess.md") to the assistant in
 addition to assigning it **AIOpsAssistantPolicy**.
@@ -436,9 +420,7 @@ generation from investigation findings.
 To see the full contents of the policy, see [AIOpsAssistantIncidentReportPolicy](../../../aws-managed-policy/latest/reference/AIOpsAssistantIncidentReportPolicy.md "../../../aws-managed-policy/latest/reference/AIOpsAssistantIncidentReportPolicy.md") in the _AWS Managed
 Policy Reference Guide_.
 
-## AWS managed
-
-(predefined) policies for CloudWatch Application Signals
+## AWS managed (predefined) policies for CloudWatch Application Signals
 
 The policies in this section grant permissions related to CloudWatch Application
 Signals. For more information, see [Application Signals](CloudWatch-Application-Monitoring-Sections.md "CloudWatch-Application-Monitoring-Sections.md").
@@ -502,9 +484,7 @@ Application Signals.
 To see the full contents of the policy, see [CloudWatchLambdaApplicationSignalsExecutionRolePolicy](../../../aws-managed-policy/latest/reference/CloudWatchLambdaApplicationSignalsExecutionRolePolicy.md "../../../aws-managed-policy/latest/reference/CloudWatchLambdaApplicationSignalsExecutionRolePolicy.md") in the
 _AWS Managed Policy Reference Guide_.
 
-## AWS managed (predefined)
-
-policies for CloudWatch Synthetics
+## AWS managed (predefined) policies for CloudWatch Synthetics
 
 The **CloudWatchSyntheticsFullAccess** and
 **CloudWatchSyntheticsReadOnlyAccess** AWS managed policies
@@ -550,9 +530,7 @@ Policy Reference Guide_.
 To see the full contents of the policy, see [CloudWatchSyntheticsReadOnlyAccess](../../../aws-managed-policy/latest/reference/CloudWatchSyntheticsReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/CloudWatchSyntheticsReadOnlyAccess.md") in the _AWS Managed
 Policy Reference Guide_.
 
-## AWS managed (predefined) policies for
-
-Amazon CloudWatch RUM
+## AWS managed (predefined) policies for Amazon CloudWatch RUM
 
 The **AmazonCloudWatchRUMFullAccess** and
 **AmazonCloudWatchRUMReadOnlyAccess** AWS managed policies
@@ -589,20 +567,16 @@ Policy Reference Guide_.
 You can't attach **AmazonCloudWatchRUMServiceRolePolicy** to
 your IAM entities. This policy is attached to a service-linked role that
 allows CloudWatch RUM to publish monitoring data to other relevant AWS services. For
-more information about this service linked role, see [Using service-linked roles for CloudWatch
-RUM](using-service-linked-roles-RUM.md "using-service-linked-roles-RUM.md").
+more information about this service linked role, see [Using service-linked roles for CloudWatch RUM](using-service-linked-roles-RUM.md "using-service-linked-roles-RUM.md").
 
 To see the full contents of the policy, see [AmazonCloudWatchRUMServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonCloudWatchRUMServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonCloudWatchRUMServiceRolePolicy.md") in the _AWS Managed
 Policy Reference Guide_.
 
-## AWS managed policy
-
-for AWS Systems Manager Incident Manager
+## AWS managed policy for AWS Systems Manager Incident Manager
 
 The **AWSCloudWatchAlarms_ActionSSMIncidentsServiceRolePolicy**
 policy is attached to a service-linked role that allows CloudWatch to start incidents in
-AWS Systems Manager Incident Manager on your behalf. For more information, see [Service-linked
-role permissions for CloudWatch alarms Systems Manager Incident Manager actions](using-service-linked-roles.md#service-linked-role-permissions-incident-manager "using-service-linked-roles.md#service-linked-role-permissions-incident-manager").
+AWS Systems Manager Incident Manager on your behalf. For more information, see [Service-linked role permissions for CloudWatch alarms Systems Manager Incident Manager actions](using-service-linked-roles.md#service-linked-role-permissions-incident-manager "using-service-linked-roles.md#service-linked-role-permissions-incident-manager").
 
 The policy has the following permission:
 

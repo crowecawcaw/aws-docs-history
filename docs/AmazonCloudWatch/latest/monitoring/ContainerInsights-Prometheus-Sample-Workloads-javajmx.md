@@ -1,6 +1,4 @@
-# Set up
-
-Java/JMX sample workload on Amazon EKS and Kubernetes
+# Set up Java/JMX sample workload on Amazon EKS and Kubernetes
 
 JMX Exporter is an official Prometheus exporter that can scrape and expose JMX
 mBeans as Prometheus metrics. For more information, see [prometheus/jmx_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter").
@@ -8,9 +6,7 @@ mBeans as Prometheus metrics. For more information, see [prometheus/jmx_exporter
 Container Insights can collect predefined Prometheus metrics from Java Virtual
 Machine (JVM), Java, and Tomcat (Catalina) using the JMX Exporter.
 
-##
-
-Default Prometheus scrape configuration
+## Default Prometheus scrape configuration
 
 By default, the CloudWatch agent with Prometheus support scrapes the Java/JMX
 Prometheus metrics from `http://CLUSTER_IP:9404/metrics` on each pod in
@@ -45,9 +41,7 @@ relabel_configs:
 
 ```
 
-##
-
-Other Prometheus scrape configuration
+## Other Prometheus scrape configuration
 
 If you expose your application running on a set of pods with Java/JMX
 Prometheus exporters by a Kubernetes Service, you can also switch to use
@@ -59,12 +53,9 @@ More meta labels are provided by these two service discovery modes which could
 be useful for you to build the CloudWatch metrics dimensions. For example, you can
 relabel `__meta_kubernetes_service_name` to `Service` and
 include it into your metrics’ dimension. For more informatio about customizing
-your CloudWatch metrics and their dimensions, see [CloudWatch agent
-configuration for Prometheus](ContainerInsights-Prometheus-Setup-configure-ECS.md#ContainerInsights-Prometheus-Setup-cw-agent-config "ContainerInsights-Prometheus-Setup-configure-ECS.md#ContainerInsights-Prometheus-Setup-cw-agent-config").
+your CloudWatch metrics and their dimensions, see [CloudWatch agent configuration for Prometheus](ContainerInsights-Prometheus-Setup-configure-ECS.md#ContainerInsights-Prometheus-Setup-cw-agent-config "ContainerInsights-Prometheus-Setup-configure-ECS.md#ContainerInsights-Prometheus-Setup-cw-agent-config").
 
-##
-
-Docker image with JMX Exporter
+## Docker image with JMX Exporter
 
 Next, build a Docker image. The following sections provide two example
 Dockerfiles.
@@ -91,9 +82,7 @@ eksctl create fargateprofile --cluster `MyCluster` \
 kubectl exec $JAR_SAMPLE_TRAFFIC_POD -n $JARCAT_SAMPLE_TRAFFIC_NAMESPACE -- curl http://localhost:9404
 ```
 
-##
-
-Example: Apache Tomcat Docker image with Prometheus metrics
+## Example: Apache Tomcat Docker image with Prometheus metrics
 
 Apache Tomcat server exposes JMX mBeans by default. You can integrate JMX
 Exporter with Tomcat to expose JMX mBeans as Prometheus metrics. The following
@@ -191,9 +180,7 @@ export JAVA_OPTS="-javaagent:/opt/jmx_exporter/jmx_prometheus_javaagent-0.12.0.j
 Build a Docker image with this configuration and upload it to an image
 repository.
 
-##
-
-Example: Java Jar Application Docker image with Prometheus metrics
+## Example: Java Jar Application Docker image with Prometheus metrics
 
 The following example Dockerfile shows the steps to build a testing image:
 

@@ -1,6 +1,4 @@
-# Sharing all CloudWatch dashboards in the account by using
-
-SSO
+# Sharing all CloudWatch dashboards in the account by using SSO
 
 Use the steps in this section to share all the dashboards in your account with
 users by using single sign-on (SSO).
@@ -25,8 +23,7 @@ For more information, see [Allowing people that you share with to see composite 
    isn't listed in **Available SSO providers**,
    choose
    **Manage SSO providers** and follow the instructions
-   in [Setting up SSO for CloudWatch dashboard
-   sharing](share-cloudwatch-dashboards-setup-SSO.md "share-cloudwatch-dashboards-setup-SSO.md").
+   in [Setting up SSO for CloudWatch dashboard sharing](share-cloudwatch-dashboards-setup-SSO.md "share-cloudwatch-dashboards-setup-SSO.md").
 
 Then return to the CloudWatch console and refresh the browser. The SSO provider
 that you enabled should now appear in the list. 7. Choose the SSO provider that you want in the **Available SSO providers**

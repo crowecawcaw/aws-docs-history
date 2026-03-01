@@ -21,9 +21,7 @@ To get a high-level view of how Network Synthetic Monitor and other AWS services
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Network Synthetic Monitor
+## Identity-based policies for Network Synthetic Monitor
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Network Synthetic Monitor
 
-Identity-based policy examples for Network Synthetic Monitor
+To view examples of Network Synthetic Monitor identity-based policies, see [Identity-based policy examples for Amazon CloudWatch](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Network Synthetic Monitor identity-based policies, see [Identity-based policy examples
-for Amazon CloudWatch](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Network Synthetic Monitor
+## Resource-based policies within Network Synthetic Monitor
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy
-
-actions for Network Synthetic Monitor
+## Policy actions for Network Synthetic Monitor
 
 **Supports policy actions:**
 
@@ -97,12 +88,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of Network Synthetic Monitor identity-based policies, see [Identity-based policy examples
-for Amazon CloudWatch](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Network Synthetic Monitor identity-based policies, see [Identity-based policy examples for Amazon CloudWatch](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Network Synthetic Monitor
+## Policy resources for Network Synthetic Monitor
 
 **Supports policy resources:**
 
@@ -121,9 +109,7 @@ To see a list of Network Synthetic Monitor resource types and their ARNs, see [R
 in the _Service Authorization Reference_. To learn with which actions you can
 specify the ARN of each resource, see [Actions defined by Network Synthetic Monitor](../../../service-authorization/latest/reference/list_amazoncloudwatchnetworkmonitor.md#amazoncloudwatchnetworkmonitor-actions-as-permissions "../../../service-authorization/latest/reference/list_amazoncloudwatchnetworkmonitor.md#amazoncloudwatchnetworkmonitor-actions-as-permissions").
 
-## Policy
-
-condition keys for Network Synthetic Monitor
+## Policy condition keys for Network Synthetic Monitor
 
 **Supports service-specific policy condition keys:**
 
@@ -168,9 +154,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Network Synthetic Monitor
+## Using temporary credentials with Network Synthetic Monitor
 
 **Supports temporary credentials:**
 
@@ -182,9 +166,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Network Synthetic Monitor
+## Cross-service principal permissions for Network Synthetic Monitor
 
 **Supports forward access sessions (FAS):**
 
@@ -193,9 +175,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Network Synthetic Monitor
+## Service roles for Network Synthetic Monitor
 
 **Supports service roles:**
 
@@ -210,9 +190,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Network Synthetic Monitor functionality. Edit
 service roles only when Network Synthetic Monitor provides guidance to do so.
 
-## Using a service-linked
-
-role for Network Synthetic Monitor
+## Using a service-linked role for Network Synthetic Monitor
 
 **Supports service-linked roles:**
 

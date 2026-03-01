@@ -5,8 +5,7 @@ incidents in your system. It uses generative AI to scan your system's telemetry 
 surface telemetry data and suggestions that might be related to your issue. These
 suggestions include metrics, logs, deployment events, and root-cause hypotheses with visual
 representations when multiple resources are involved. For a complete list of types of data
-that the AI assistant can surface, see [Insights that CloudWatch investigations can surface in
-investigations](Investigations-SuggestionTypes.md "Investigations-SuggestionTypes.md").
+that the AI assistant can surface, see [Insights that CloudWatch investigations can surface in investigations](Investigations-SuggestionTypes.md "Investigations-SuggestionTypes.md").
 
 You can conduct investigations without any additional configuration in CloudWatch operational
 troubleshooting. When you start an investigation, CloudWatch investigations uses the permissions associated with
@@ -104,21 +103,15 @@ or not.
 ###### Topics
 
 - [Methods to create an investigation](creation-methods.md "creation-methods.md")
-- [Understanding hypothesis
-  visualizations](Investigations-HypothesisVisualization.md "Investigations-HypothesisVisualization.md")
+- [Understanding hypothesis visualizations](Investigations-HypothesisVisualization.md "Investigations-HypothesisVisualization.md")
 - [How CloudWatch investigations finds data for suggestions](data-usage-considerations.md "data-usage-considerations.md")
 - [Costs associated with CloudWatch investigations](investigations-costs.md "investigations-costs.md")
-- [Insights that CloudWatch investigations can surface in
-  investigations](Investigations-SuggestionTypes.md "Investigations-SuggestionTypes.md")
-- [AWS services where investigations are
-  supported](Investigations-Services.md "Investigations-Services.md")
-- [Conduct an CloudWatch investigation without
-  additional configuration](Investigations-Ephemeral.md "Investigations-Ephemeral.md")
+- [Insights that CloudWatch investigations can surface in investigations](Investigations-SuggestionTypes.md "Investigations-SuggestionTypes.md")
+- [AWS services where investigations are supported](Investigations-Services.md "Investigations-Services.md")
+- [Conduct an CloudWatch investigation without additional configuration](Investigations-Ephemeral.md "Investigations-Ephemeral.md")
 - [Configure CloudWatch investigations](Investigations-GetStarted.md "Investigations-GetStarted.md")
-- [(Recommended) Best practices to
-  enhance investigations](Investigations-RecommendedServices.md "Investigations-RecommendedServices.md")
-- [Investigate operational issues in your
-  environment](Investigations-Investigate.md "Investigations-Investigate.md")
+- [(Recommended) Best practices to enhance investigations](Investigations-RecommendedServices.md "Investigations-RecommendedServices.md")
+- [Investigate operational issues in your environment](Investigations-Investigate.md "Investigations-Investigate.md")
 - [Cross-account investigations](Investigations-cross-account.md "Investigations-cross-account.md")
 - [Generate incident reports](Investigations-Incident-Reports.md "Investigations-Incident-Reports.md")
 - [Integrations with other systems](Investigations-Integrations.md "Investigations-Integrations.md")

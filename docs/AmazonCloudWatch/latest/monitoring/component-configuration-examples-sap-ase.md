@@ -1,6 +1,4 @@
-# SAP ASE on
-
-Amazon EC2
+# SAP ASE on Amazon EC2
 
 The following example shows a component configuration in JSON format for SAP
 ASE on Amazon EC2.

@@ -86,9 +86,7 @@ AWS Organizations in Amazon CloudWatch. Use the following steps to turn on trust
 Now, as CloudWatch discovers resources, it automatically updates information about accounts that you have permission
 to access the resources for in Network Flow Monitor.
 
-### Register a delegated administrator
-
-account
+### Register a delegated administrator account
 
 As a best practice with AWS Organizations, the management account for your organization should register a member
 account as a delegated administrator account for CloudWatch. After you register a delegated administrator account
@@ -171,9 +169,7 @@ time to update its topology information.
 5. Select accounts to add to your scope, up to a total of 100 accounts, or select accounts to delete.
 6. Complete the steps in the confirmation dialog.
 
-## Set up permissions for multi-account resource
-
-access (console only)
+## Set up permissions for multi-account resource access (console only)
 
 If you plan to create monitors for network flows from the console, a specific policy is required for each member account
 in your scope. This policy enables you to view resources from other accounts when you add local and remote resources to a monitor.

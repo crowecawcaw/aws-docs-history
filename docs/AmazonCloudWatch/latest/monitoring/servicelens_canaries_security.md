@@ -1,6 +1,4 @@
-# Security considerations for Synthetics
-
-canaries
+# Security considerations for Synthetics canaries
 
 The following sections explain security issues that you should consider when creating
 and running canaries in Synthetics.
@@ -59,9 +57,7 @@ https://s3.amazonaws.com/`bucket`/`path`/`object`.zip?versionId=`version-id`
 https://`bucket`.s3-`region`.amazonaws.com/`path`/`object`.zip?versionId=`version-id`
 ```
 
-## Stack traces and exception
-
-messages
+## Stack traces and exception messages
 
 By default, CloudWatch Synthetics canaries capture any exception thrown by your canary script,
 no matter whether
@@ -82,9 +78,7 @@ configuration. If you are logging error messages in your script, you can use
 [getSanitizedErrorMessage](CloudWatch_Synthetics_Canaries_Library_Nodejs.md#CloudWatch_Synthetics_Library_getSanitizedErrorMessage "CloudWatch_Synthetics_Canaries_Library_Nodejs.md#CloudWatch_Synthetics_Library_getSanitizedErrorMessage")
 to redact URLs before logging.
 
-## Scope your IAM roles
-
-narrowly
+## Scope your IAM roles narrowly
 
 We recommend that you do not configure your canary to visit potentially
 malicious URLs or endpoints. Pointing your Canary to untrusted or unknown

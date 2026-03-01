@@ -53,8 +53,7 @@ configuration is done at the alarm level, only the alarms you have configured se
 messages to the selected Amazon SNS topic.
 
 First, create a topic, then subscribe to it. You can optionally publish a test message
-to the topic. For an example, see [Setting up an Amazon SNS topic using the
-AWS Management Console](#set-up-sns-topic-console "#set-up-sns-topic-console"). Or for more information, see [Getting started with
+to the topic. For an example, see [Setting up an Amazon SNS topic using the AWS Management Console](#set-up-sns-topic-console "#set-up-sns-topic-console"). Or for more information, see [Getting started with
 Amazon SNS](../../../sns/latest/dg/sns-getting-started.md "../../../sns/latest/dg/sns-getting-started.md").
 
 Alternatively, if you plan to use the AWS Management Console to create your CloudWatch alarm, you can
@@ -77,8 +76,7 @@ hash of the ARN of the alarm.
 ###### Topics
 
 - [Preventing confused deputy security issues](#SNS_Confused_Deputy "#SNS_Confused_Deputy")
-- [Setting up an Amazon SNS topic using the
-  AWS Management Console](#set-up-sns-topic-console "#set-up-sns-topic-console")
+- [Setting up an Amazon SNS topic using the AWS Management Console](#set-up-sns-topic-console "#set-up-sns-topic-console")
 - [Setting up an SNS topic using the AWS CLI](#set-up-sns-topic-cli "#set-up-sns-topic-cli")
 
 ### Preventing confused deputy security issues
@@ -153,9 +151,7 @@ confused deputy problem.
 If an alarm ARN includes any non-ASCII characters, use only the
 `aws:SourceAccount` global condition key to limit the permissions.
 
-### Setting up an Amazon SNS topic using the
-
-AWS Management Console
+### Setting up an Amazon SNS topic using the AWS Management Console
 
 First, create a topic, then subscribe to it. You can optionally publish a test
 message to the topic.
@@ -280,9 +276,7 @@ Amazon SNS returns the following.
 
 6. Check your email to confirm that you received the message.
 
-## Schema of Amazon SNS notifications when alarms change
-
-state
+## Schema of Amazon SNS notifications when alarms change state
 
 This section lists the schemas of the notifications sent to Amazon SNS topics when alarms
 change their state.

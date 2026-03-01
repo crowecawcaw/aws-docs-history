@@ -1,6 +1,4 @@
-# Use Contributor Insights to analyze high-cardinality
-
-data
+# Use Contributor Insights to analyze high-cardinality data
 
 You can use Contributor Insights to analyze log data and create time series that display
 contributor data. You can see metrics about the top-N contributors, the total number of unique

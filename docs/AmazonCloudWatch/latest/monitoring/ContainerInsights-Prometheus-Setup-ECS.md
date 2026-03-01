@@ -1,6 +1,4 @@
-# Set up and configure Prometheus
-
-metrics collection on Amazon ECS clusters
+# Set up and configure Prometheus metrics collection on Amazon ECS clusters
 
 To collect Prometheus metrics from Amazon ECS clusters, you can use the CloudWatch agent as a
 collector or use the AWS Distro for OpenTelemetry collector. For information about using
@@ -31,9 +29,6 @@ connect to the Prometheus workloads' port by private IP.
 
 ###### Topics
 
-- [Install the CloudWatch agent with
-  Prometheus metrics collection on Amazon ECS clusters](ContainerInsights-Prometheus-install-ECS.md "ContainerInsights-Prometheus-install-ECS.md")
-- [Scraping additional
-  Prometheus sources and importing those metrics](ContainerInsights-Prometheus-Setup-configure-ECS.md "ContainerInsights-Prometheus-Setup-configure-ECS.md")
-- [(Optional) Set up
-  sample containerized Amazon ECS workloads for Prometheus metric testing](ContainerInsights-Prometheus-Sample-Workloads-ECS.md "ContainerInsights-Prometheus-Sample-Workloads-ECS.md")
+- [Install the CloudWatch agent with Prometheus metrics collection on Amazon ECS clusters](ContainerInsights-Prometheus-install-ECS.md "ContainerInsights-Prometheus-install-ECS.md")
+- [Scraping additional Prometheus sources and importing those metrics](ContainerInsights-Prometheus-Setup-configure-ECS.md "ContainerInsights-Prometheus-Setup-configure-ECS.md")
+- [(Optional) Set up sample containerized Amazon ECS workloads for Prometheus metric testing](ContainerInsights-Prometheus-Sample-Workloads-ECS.md "ContainerInsights-Prometheus-Sample-Workloads-ECS.md")

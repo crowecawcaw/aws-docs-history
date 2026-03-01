@@ -1,6 +1,4 @@
-# Basic examples for
-
-CloudWatch using AWS SDKs
+# Basic examples for CloudWatch using AWS SDKs
 
 The following code examples show how to use the basics of Amazon CloudWatch with AWS
 SDKs.

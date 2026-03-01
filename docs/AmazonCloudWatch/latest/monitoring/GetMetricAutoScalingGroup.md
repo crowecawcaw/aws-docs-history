@@ -9,9 +9,7 @@ This example shows you how to get the total bytes written to disk for one Auto S
 The total is computed for 1-minute periods for a 24-hour interval across all EC2 instances
 in the specified Auto Scaling group.
 
-###### To display DiskWriteBytes for the instances in an Auto Scaling group using the
-
-console
+###### To display DiskWriteBytes for the instances in an Auto Scaling group using the console
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

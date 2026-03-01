@@ -23,9 +23,7 @@ If you are already using OpenTelemetry with an application that you intend to en
 Application Signals, see [Supported systems](CloudWatch-Application-Signals-supportmatrix.md "CloudWatch-Application-Signals-supportmatrix.md")
 before you enable Application Signals.
 
-## Step 1: Enable Application Signals
-
-in your account
+## Step 1: Enable Application Signals in your account
 
 You must first enable Application Signals in your account. If you haven't, see [Enable Application Signals in your account](CloudWatch-Application-Signals-Enable.md "CloudWatch-Application-Signals-Enable.md").
 
@@ -631,6 +629,8 @@ Using the CloudWatch Application Signals MCP server offers several advantages:
 - **Reduced errors:** Automated configuration generation minimizes manual typing errors
 - **Faster setup:** Get from intention to implementation more quickly
 - **Learning tool:** See the generated configurations and understand how Application Signals works
+
+### Additional resources
 
 For more information about configuring and using the CloudWatch Application Signals MCP server, see the [MCP server documentation](https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server "https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server").
 

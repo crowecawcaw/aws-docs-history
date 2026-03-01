@@ -1,6 +1,4 @@
-# Stop, terminate, reboot, or recover an EC2
-
-instance
+# Stop, terminate, reboot, or recover an EC2 instance
 
 Using Amazon CloudWatch alarm actions, you can create alarms that automatically stop, terminate,
 reboot, or recover your EC2 instances. You can use the stop or terminate actions
@@ -32,8 +30,7 @@ configured to take stop, terminate, reboot, or recover actions, we recommend tha
 alarms to treat missing data as `missing`, and to have these alarms trigger only when in the ALARM state.
 
 For more information about how you can configure CloudWatch to act on missing metrics that have alarms set
-on them, see [Configuring how CloudWatch alarms treat missing
-data](alarms-and-missing-data.md "alarms-and-missing-data.md").
+on them, see [Configuring how CloudWatch alarms treat missing data](alarms-and-missing-data.md "alarms-and-missing-data.md").
 
 To set up a CloudWatch alarm action that can reboot, stop, or terminate an instance, you must use a service-linked IAM role,
 _AWSServiceRoleForCloudWatchEvents_. The AWSServiceRoleForCloudWatchEvents IAM

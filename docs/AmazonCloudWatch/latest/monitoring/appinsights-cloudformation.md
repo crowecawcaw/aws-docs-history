@@ -1,6 +1,4 @@
-# Create and configure CloudWatch Application Insights monitoring using
-
-CloudFormation templates
+# Create and configure CloudWatch Application Insights monitoring using CloudFormation templates
 
 You can add Application Insights monitoring, including key metrics and telemetry, to your
 application, database, and web server, directly from AWS CloudFormation templates.
@@ -13,21 +11,13 @@ Guide_, see [ApplicationInsights resource type reference](../../../AWSCloudForma
 
 ###### Sample templates
 
-- [Create an Application Insights
-  application for the entire CloudFormation stack](#appinsights-cloudformation-apply-to-stack "#appinsights-cloudformation-apply-to-stack")
-- [Create an Application Insights
-  application with detailed settings](#appinsights-cloudformation-apply-detailed "#appinsights-cloudformation-apply-detailed")
-- [Create an Application Insights application
-  with CUSTOM mode component configuration](#appinsights-cloudformation-custom "#appinsights-cloudformation-custom")
-- [Create an Application Insights
-  application with DEFAULT mode component configuration](#appinsights-cloudformation-default "#appinsights-cloudformation-default")
-- [Create an
-  Application Insights application with DEFAULT_WITH_OVERWRITE mode component
-  configuration](#appinsights-cloudformation-default-with-overwrite "#appinsights-cloudformation-default-with-overwrite")
+- [Create an Application Insights application for the entire CloudFormation stack](#appinsights-cloudformation-apply-to-stack "#appinsights-cloudformation-apply-to-stack")
+- [Create an Application Insights application with detailed settings](#appinsights-cloudformation-apply-detailed "#appinsights-cloudformation-apply-detailed")
+- [Create an Application Insights application with CUSTOM mode component configuration](#appinsights-cloudformation-custom "#appinsights-cloudformation-custom")
+- [Create an Application Insights application with DEFAULT mode component configuration](#appinsights-cloudformation-default "#appinsights-cloudformation-default")
+- [Create an Application Insights application with DEFAULT_WITH_OVERWRITE mode component configuration](#appinsights-cloudformation-default-with-overwrite "#appinsights-cloudformation-default-with-overwrite")
 
-## Create an Application Insights
-
-application for the entire CloudFormation stack
+## Create an Application Insights application for the entire CloudFormation stack
 
 To apply the following template, you must create AWS resources and one or more
 resource groups from which to create Application Insights applications to monitor those
@@ -139,9 +129,7 @@ Resources:
       AutoConfigurationEnabled: true
 ```
 
-## Create an Application Insights
-
-application with detailed settings
+## Create an Application Insights application with detailed settings
 
 The following template performs these actions:
 
@@ -268,9 +256,7 @@ Properties:
       Rank: 10
 ```
 
-## Create an Application Insights application
-
-with `CUSTOM` mode component configuration
+## Create an Application Insights application with `CUSTOM` mode component configuration
 
 The following template performs these actions:
 
@@ -461,9 +447,7 @@ Properties:
           ...
 ```
 
-## Create an Application Insights
-
-application with `DEFAULT` mode component configuration
+## Create an Application Insights application with `DEFAULT` mode component configuration
 
 The following template performs these actions:
 
@@ -508,10 +492,7 @@ Properties:
     ComponentConfigurationMode: DEFAULT
 ```
 
-## Create an
-
-Application Insights application with `DEFAULT_WITH_OVERWRITE` mode component
-configuration
+## Create an Application Insights application with `DEFAULT_WITH_OVERWRITE` mode component configuration
 
 The following template performs these actions:
 

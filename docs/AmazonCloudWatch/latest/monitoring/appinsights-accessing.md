@@ -7,5 +7,4 @@ have created an IAM policy, and have attached permissions if needed.
 
 - [Prerequisites to configure an application for monitoring](appinsights-prereqs.md "appinsights-prereqs.md")
 - [IAM policy for CloudWatch Application Insights](appinsights-iam.md "appinsights-iam.md")
-- [IAM role
-  permissions for account-based application onboarding](appinsights-account-based-onboarding-permissions.md "appinsights-account-based-onboarding-permissions.md")
+- [IAM role permissions for account-based application onboarding](appinsights-account-based-onboarding-permissions.md "appinsights-account-based-onboarding-permissions.md")

@@ -1,6 +1,4 @@
-# How do I find a code snippet
-
-that I've already generated?
+# How do I find a code snippet that I've already generated?
 
 To find a CloudWatch RUM code snippet that you've already generated for an
 application, follow these steps.

@@ -1,6 +1,4 @@
-# Configure CloudWatch agent
-
-service and environment names for related entities
+# Configure CloudWatch agent service and environment names for related entities
 
 The CloudWatch agent can send metrics and logs with entity data to support the [Explore related pane](ExploreRelated.md "ExploreRelated.md") in the CloudWatch console. The service
 name or environment name can be configured by the [CloudWatch Agent JSON
@@ -9,8 +7,7 @@ configuration](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-
 ###### Note
 
 The agent configuration may be overridden. For details about how the agent decides
-what data to send for related entities, see [Using the CloudWatch agent with related
-telemetry](CloudWatch-Agent-RelatedEntities.md "CloudWatch-Agent-RelatedEntities.md").
+what data to send for related entities, see [Using the CloudWatch agent with related telemetry](CloudWatch-Agent-RelatedEntities.md "CloudWatch-Agent-RelatedEntities.md").
 
 For metrics, it can be configured at the agent, metrics, or plugin level. For logs it
 can be configured at the agent, logs, or file level. The most specific configuration is

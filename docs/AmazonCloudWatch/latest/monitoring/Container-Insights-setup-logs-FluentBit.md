@@ -1,6 +1,4 @@
-# Set up Fluent Bit as a
-
-DaemonSet to send logs to CloudWatch Logs
+# Set up Fluent Bit as a DaemonSet to send logs to CloudWatch Logs
 
 The following sections help you deploy Fluent Bit to send logs from containers to
 CloudWatch Logs.
@@ -9,16 +7,14 @@ CloudWatch Logs.
 
 - [Setting up Fluent Bit](#Container-Insights-FluentBit-setup "#Container-Insights-FluentBit-setup")
 - [Multi-line log support](#ContainerInsights-fluentbit-multiline "#ContainerInsights-fluentbit-multiline")
-- [(Optional) Reducing the log
-  volume from Fluent Bit](#ContainerInsights-fluentbit-volume "#ContainerInsights-fluentbit-volume")
+- [(Optional) Reducing the log volume from Fluent Bit](#ContainerInsights-fluentbit-volume "#ContainerInsights-fluentbit-volume")
 - [Troubleshooting](#Container-Insights-FluentBit-troubleshoot "#Container-Insights-FluentBit-troubleshoot")
 - [Dashboard](#Container-Insights-FluentBit-dashboard "#Container-Insights-FluentBit-dashboard")
 
 ## Setting up Fluent Bit
 
 To set up Fluent Bit to collect logs from your containers, you can follow the
-steps in [Quick Start setup for
-Container Insights on Amazon EKS and Kubernetes](Container-Insights-setup-EKS-quickstart.md "Container-Insights-setup-EKS-quickstart.md") or you can follow the
+steps in [Quick Start setup for Container Insights on Amazon EKS and Kubernetes](Container-Insights-setup-EKS-quickstart.md "Container-Insights-setup-EKS-quickstart.md") or you can follow the
 steps in this section.
 
 With either method, the IAM role that is attached to the cluster nodes must have
@@ -117,8 +113,7 @@ The Fluent Bit daemonset configuration by default sets the log level to
 INFO, which can result in higher CloudWatch Logs ingestion costs. If you want to reduce
 log ingestion volume and costs, you can change the log level to ERROR.
 
-For more information about how to reduce the log volume, see [(Optional) Reducing the log
-volume from Fluent Bit](#ContainerInsights-fluentbit-volume "#ContainerInsights-fluentbit-volume") 4. Validate the deployment by entering the following command. Each node should
+For more information about how to reduce the log volume, see [(Optional) Reducing the log volume from Fluent Bit](#ContainerInsights-fluentbit-volume "#ContainerInsights-fluentbit-volume") 4. Validate the deployment by entering the following command. Each node should
 have one pod named **fluent-bit-\***.
 
 ```
@@ -172,9 +167,7 @@ sections of the Fluent Bit documentation:
 - [Multiline Core (v1.8)](https://docs.fluentbit.io/manual/pipeline/inputs/tail#multiline-core-v1.8 "https://docs.fluentbit.io/manual/pipeline/inputs/tail#multiline-core-v1.8")
 - [Always use multiline in the tail input](https://github.com/aws/aws-for-fluent-bit/blob/mainline/troubleshooting/debugging.md#always-use-multiline-the-tail-input "https://github.com/aws/aws-for-fluent-bit/blob/mainline/troubleshooting/debugging.md#always-use-multiline-the-tail-input")
 
-## (Optional) Reducing the log
-
-volume from Fluent Bit
+## (Optional) Reducing the log volume from Fluent Bit
 
 By default, we send Fluent Bit application logs and Kubernetes metadata to CloudWatch.
 If you want to reduce the volume of data being sent to CloudWatch, you can stop one or both
@@ -182,8 +175,7 @@ of these data sources from being sent to CloudWatch. If you have followed the st
 page to set up Fluent Bit, download the Kubernetes manifest YAML file from the kubectl
 `apply` command that you previously ran and modify it with your changes,
 which you can then re-apply to your cluster. Alternatively, if you are using the
-Amazon CloudWatch Observability EKS add-on or Helm chart, see [(Optional)
-Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration "install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration") for
+Amazon CloudWatch Observability EKS add-on or Helm chart, see [(Optional) Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration "install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration") for
 information about managing the Fluent Bit configuration by using the add-on’s advanced
 config or the Helm chart.
 
@@ -262,14 +254,12 @@ You can create a dashboard to monitor metrics of each running plugin. You can se
 data for input and output bytes and for record processing rates as well as output
 errors and retry/failed rates. To view these metrics, you will need to install the
 CloudWatch agent with Prometheus metrics collection for Amazon EKS and Kubernetes clusters. For
-more information about how to set up the dashboard, see [Install the CloudWatch agent with
-Prometheus metrics collection on Amazon EKS and Kubernetes clusters](ContainerInsights-Prometheus-Setup.md "ContainerInsights-Prometheus-Setup.md").
+more information about how to set up the dashboard, see [Install the CloudWatch agent with Prometheus metrics collection on Amazon EKS and Kubernetes clusters](ContainerInsights-Prometheus-Setup.md "ContainerInsights-Prometheus-Setup.md").
 
 ###### Note
 
 Before you can set up this dashboard, you must set up Container Insights for
-Prometheus metrics. For more information, see [Container Insights Prometheus metrics
-monitoring](ContainerInsights-Prometheus.md "ContainerInsights-Prometheus.md").
+Prometheus metrics. For more information, see [Container Insights Prometheus metrics monitoring](ContainerInsights-Prometheus.md "ContainerInsights-Prometheus.md").
 
 ###### To create a dashboard for the Fluent Bit Prometheus metrics
 

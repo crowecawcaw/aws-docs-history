@@ -1,6 +1,4 @@
-# CloudWatch pipelines configuration for Microsoft Entra
-
-ID
+# CloudWatch pipelines configuration for Microsoft Entra ID
 
 Collects log data from Microsoft Entra ID (formerly Azure Active Directory)
 using OAuth2 authentication.

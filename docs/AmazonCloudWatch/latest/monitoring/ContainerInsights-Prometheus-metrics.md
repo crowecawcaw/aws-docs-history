@@ -1,13 +1,10 @@
-# Prometheus metrics collected by the
-
-CloudWatch agent
+# Prometheus metrics collected by the CloudWatch agent
 
 The CloudWatch agent with Prometheus support automatically collects metrics from several
 services and workloads. The metrics that are collected by default are listed in the
 following sections. You can also configure the agent to collect more metrics from these
 services, and to collect Prometheus metrics from other applications and services. For more
-information about collecting additional metrics, see [CloudWatch agent
-configuration for Prometheus](ContainerInsights-Prometheus-Setup-configure-ECS.md#ContainerInsights-Prometheus-Setup-cw-agent-config "ContainerInsights-Prometheus-Setup-configure-ECS.md#ContainerInsights-Prometheus-Setup-cw-agent-config").
+information about collecting additional metrics, see [CloudWatch agent configuration for Prometheus](ContainerInsights-Prometheus-Setup-configure-ECS.md#ContainerInsights-Prometheus-Setup-cw-agent-config "ContainerInsights-Prometheus-Setup-configure-ECS.md#ContainerInsights-Prometheus-Setup-cw-agent-config").
 
 Prometheus metrics collected from Amazon EKS and Kubernetes clusters are in the
 **ContainerInsights/Prometheus** namespace. Prometheus metrics
@@ -16,20 +13,13 @@ collected from Amazon ECS clusters are in the
 
 ###### Topics
 
-- [Prometheus metrics for
-  App Mesh](#ContainerInsights-Prometheus-metrics-appmesh "#ContainerInsights-Prometheus-metrics-appmesh")
-- [Prometheus metrics for
-  NGINX](#ContainerInsights-Prometheus-metrics-nginx "#ContainerInsights-Prometheus-metrics-nginx")
-- [Prometheus metrics for
-  Memcached](#ContainerInsights-Prometheus-metrics-memcached "#ContainerInsights-Prometheus-metrics-memcached")
-- [Prometheus metrics for
-  Java/JMX](#ContainerInsights-Prometheus-metrics-jmx "#ContainerInsights-Prometheus-metrics-jmx")
-- [Prometheus metrics for
-  HAProxy](#ContainerInsights-Prometheus-metrics-haproxy "#ContainerInsights-Prometheus-metrics-haproxy")
+- [Prometheus metrics for App Mesh](#ContainerInsights-Prometheus-metrics-appmesh "#ContainerInsights-Prometheus-metrics-appmesh")
+- [Prometheus metrics for NGINX](#ContainerInsights-Prometheus-metrics-nginx "#ContainerInsights-Prometheus-metrics-nginx")
+- [Prometheus metrics for Memcached](#ContainerInsights-Prometheus-metrics-memcached "#ContainerInsights-Prometheus-metrics-memcached")
+- [Prometheus metrics for Java/JMX](#ContainerInsights-Prometheus-metrics-jmx "#ContainerInsights-Prometheus-metrics-jmx")
+- [Prometheus metrics for HAProxy](#ContainerInsights-Prometheus-metrics-haproxy "#ContainerInsights-Prometheus-metrics-haproxy")
 
-## Prometheus metrics for
-
-App Mesh
+## Prometheus metrics for App Mesh
 
 The following metrics are automatically collected from App Mesh .
 
@@ -110,9 +100,7 @@ for `1xx`), `2` stands for `2xx`), `3`
 stands for `3xx`), `4` stands for `4xx`), or
 `5` stands for `5xx`).
 
-## Prometheus metrics for
-
-NGINX
+## Prometheus metrics for NGINX
 
 The following metrics are automatically collected from NGINX on Amazon EKS and Kubernetes
 clusters.
@@ -128,9 +116,7 @@ clusters.
 | `nginx_ingress_controller_config_last_reload_successful`       | ClusterName, `Namespace`, Service         |
 | `nginx_ingress_controller_requests`                            | ClusterName, `Namespace`, Service, status |
 
-## Prometheus metrics for
-
-Memcached
+## Prometheus metrics for Memcached
 
 The following metrics are automatically collected from Memcached on Amazon EKS and
 Kubernetes clusters.
@@ -147,9 +133,7 @@ Kubernetes clusters.
 | `memcached_items_reclaimed_total` | ClusterName, `Namespace`, Service                                                                                                     |
 | `memcached_commands_total`        | ClusterName, `Namespace`, Service<br>ClusterName, `Namespace`, Service, command<br>ClusterName, `Namespace`, Service, status, command |
 
-## Prometheus metrics for
-
-Java/JMX
+## Prometheus metrics for Java/JMX
 
 **Metrics collected on Amazon EKS and Kubernetes
 clusters**
@@ -243,9 +227,7 @@ also collected for the Tomcat workload on Amazon ECS clusters.
 | `catalina_globalrequestprocessor_errorcount`     | `ClusterName`, `TaskDefinitionFamily` |
 | `catalina_globalrequestprocessor_processingtime` | `ClusterName`, `TaskDefinitionFamily` |
 
-## Prometheus metrics for
-
-HAProxy
+## Prometheus metrics for HAProxy
 
 The following metrics are automatically collected from HAProxy on Amazon EKS and
 Kubernetes clusters.

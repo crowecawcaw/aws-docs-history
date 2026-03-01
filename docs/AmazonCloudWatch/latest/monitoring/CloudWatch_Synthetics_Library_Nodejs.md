@@ -5,9 +5,7 @@ The following section contains information about the CloudWatch Synthetics runti
 The naming convention for these runtime versions is
 `syn-`language`-`majorversion`.`minorversion``.
 
-##
-
-syn-nodejs-3.1
+## syn-nodejs-3.1
 
 ###### Important
 
@@ -25,9 +23,7 @@ Please migrate the canary script to use the new namespace. Legacy namespace will
 
 The following earlier runtime versions for Node.js are still supported.
 
-###
-
-syn-nodejs-3.0
+### syn-nodejs-3.0
 
 **Major dependencies**:
 

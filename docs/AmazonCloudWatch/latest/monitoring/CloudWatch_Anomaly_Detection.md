@@ -21,8 +21,7 @@ You can use the model of expected values in two ways:
 You can choose whether the alarm is triggered when the metric value is above the band of
 expected values, below the band, or both.
 
-For more information, see [Create a CloudWatch alarm based on anomaly
-detection](Create_Anomaly_Detection_Alarm.md "Create_Anomaly_Detection_Alarm.md").
+For more information, see [Create a CloudWatch alarm based on anomaly detection](Create_Anomaly_Detection_Alarm.md "Create_Anomaly_Detection_Alarm.md").
 
 - When viewing a graph of metric data, overlay the expected values onto the graph as a band.
   This makes it visually clear which values in the graph are out of the normal range. For more
@@ -114,8 +113,7 @@ you can view them in the old version, but not edit them.
 For information about how to create, edit, and delete
 alarms and models for outlier detection and metric math, see the following sections:
 
-- [Create a CloudWatch alarm based on anomaly
-  detection](Create_Anomaly_Detection_Alarm.md "Create_Anomaly_Detection_Alarm.md")
+- [Create a CloudWatch alarm based on anomaly detection](Create_Anomaly_Detection_Alarm.md "Create_Anomaly_Detection_Alarm.md")
 - [Editing an outlier detection model](Create_Anomaly_Detection_Alarm.md#Modify_Anomaly_Detection_Model "Create_Anomaly_Detection_Alarm.md#Modify_Anomaly_Detection_Model")
 - [Deleting an outlier detection model](Create_Anomaly_Detection_Alarm.md#Delete_Anomaly_Detection_Model "Create_Anomaly_Detection_Alarm.md#Delete_Anomaly_Detection_Model")
 - [Creating a CloudWatch alarm based on a metric math expression](Create-alarm-on-metric-math-expression.md "Create-alarm-on-metric-math-expression.md")

@@ -1,6 +1,4 @@
-# Tutorial for adding
-
-a new Prometheus scrape target: Memcached on Amazon ECS
+# Tutorial for adding a new Prometheus scrape target: Memcached on Amazon ECS
 
 This tutorial provides a hands-on introduction to scrape the Prometheus metrics of
 a sample Memcached application on an Amazon Amazon ECS cluster with the EC2 launch type.
@@ -26,22 +24,16 @@ tutorial:
 
 To collect metrics from a sample Prometheus workload for Amazon ECS, you must be
 running Container Insights in the cluster. For information about installing Container
-Insights, see [Setting up Container Insights on
-Amazon ECS](deploy-container-insights-ECS.md "deploy-container-insights-ECS.md").
+Insights, see [Setting up Container Insights on Amazon ECS](deploy-container-insights-ECS.md "deploy-container-insights-ECS.md").
 
 ###### Topics
 
-- [Set
-  the Amazon ECS EC2 cluster environment variables](#ContainerInsights-Prometheus-Setup-memcached-ecs-environment "#ContainerInsights-Prometheus-Setup-memcached-ecs-environment")
+- [Set the Amazon ECS EC2 cluster environment variables](#ContainerInsights-Prometheus-Setup-memcached-ecs-environment "#ContainerInsights-Prometheus-Setup-memcached-ecs-environment")
 - [Install the sample Memcached workload](#ContainerInsights-Prometheus-Setup-memcached-ecs-install-workload "#ContainerInsights-Prometheus-Setup-memcached-ecs-install-workload")
-- [Configure
-  the CloudWatch agent to scrape Memcached Prometheus metrics](#ContainerInsights-Prometheus-Setup-memcached-ecs-agent "#ContainerInsights-Prometheus-Setup-memcached-ecs-agent")
-- [Viewing your
-  Memcached metrics](#ContainerInsights-Prometheus-ECS-memcached-view "#ContainerInsights-Prometheus-ECS-memcached-view")
+- [Configure the CloudWatch agent to scrape Memcached Prometheus metrics](#ContainerInsights-Prometheus-Setup-memcached-ecs-agent "#ContainerInsights-Prometheus-Setup-memcached-ecs-agent")
+- [Viewing your Memcached metrics](#ContainerInsights-Prometheus-ECS-memcached-view "#ContainerInsights-Prometheus-ECS-memcached-view")
 
-## Set
-
-the Amazon ECS EC2 cluster environment variables
+## Set the Amazon ECS EC2 cluster environment variables
 
 ###### To set the Amazon ECS EC2 cluster environment variables
 
@@ -83,13 +75,9 @@ Subnet created: subnet-xxxxxxxxxxxxxxxxx
 Cluster creation succeeded.
 ```
 
-##
+## Install the sample Memcached workload
 
-Install the sample Memcached workload
-
-###### To install the sample Memcached workload which exposes the Prometheus
-
-metrics
+###### To install the sample Memcached workload which exposes the Prometheus metrics
 
 1. Download the Memcached CloudFormation template by entering the following
    command.
@@ -137,9 +125,7 @@ In the Memcached task definition, two containers are defined:
   Prometheus metrics on port 9150. This is the container to be discovered and
   scraped by the CloudWatch agent.
 
-## Configure
-
-the CloudWatch agent to scrape Memcached Prometheus metrics
+## Configure the CloudWatch agent to scrape Memcached Prometheus metrics
 
 ###### To configure the CloudWatch agent to scrape Memcached Prometheus metrics
 
@@ -257,9 +243,7 @@ aws cloudformation create-stack --stack-name CWAgent-Prometheus-ECS-${ECS_CLUSTE
     --region $AWS_REGION
 ```
 
-## Viewing your
-
-Memcached metrics
+## Viewing your Memcached metrics
 
 This tutorial sends the following metrics to the
 **ECS/ContainerInsights/Prometheus** namespace in CloudWatch. You can

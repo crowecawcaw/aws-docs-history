@@ -1,6 +1,4 @@
-# Create the CloudWatch agent
-
-configuration file with the wizard
+# Create the CloudWatch agent configuration file with the wizard
 
 The agent configuration file wizard,
 `amazon-cloudwatch-agent-config-wizard`, asks a series of questions to help you
@@ -46,9 +44,7 @@ region = us-west-1
 
 ```
 
-## Run the CloudWatch agent configuration
-
-wizard
+## Run the CloudWatch agent configuration wizard
 
 ###### To create the CloudWatch agent configuration file
 
@@ -82,14 +78,11 @@ file in Systems Manager Parameter Store. You can also choose to store the file i
 aren't using the SSM Agent to install the CloudWatch agent. To be able to store the file in
 Parameter Store, you must use an IAM role with sufficient permissions.
 
-## CloudWatch agent predefined metric
-
-sets
+## CloudWatch agent predefined metric sets
 
 The wizard is configured with predefined sets of metrics, with different detail
 levels. These sets of metrics are shown in the following tables. For more information
-about these metrics, see [Metrics collected by the CloudWatch
-agent](metrics-collected-by-CloudWatch-agent.md "metrics-collected-by-CloudWatch-agent.md").
+about these metrics, see [Metrics collected by the CloudWatch agent](metrics-collected-by-CloudWatch-agent.md "metrics-collected-by-CloudWatch-agent.md").
 
 ###### Note
 

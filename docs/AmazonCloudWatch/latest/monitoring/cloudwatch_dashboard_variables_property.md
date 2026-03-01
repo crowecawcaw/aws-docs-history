@@ -1,6 +1,4 @@
-# Tutorial: Creating
-
-a CloudWatch Lambda dashboard with function name as the variable
+# Tutorial: Creating a CloudWatch Lambda dashboard with function name as the variable
 
 The steps in this procedure illustrate how to create a flexible dashboard that
 shows a variety of metric graphs, using a property variable. This includes a
@@ -28,8 +26,7 @@ different Regions.
    this dashboard.
 
 For more information about adding widgets to a dashboard,
-see [Using widgets
-on CloudWatch dashboards](create-and-work-with-widgets.md "create-and-work-with-widgets.md"). 5. After you add the widgets, as you are viewing the dashboard, choose
+see [Using widgets on CloudWatch dashboards](create-and-work-with-widgets.md "create-and-work-with-widgets.md"). 5. After you add the widgets, as you are viewing the dashboard, choose
 **Actions**, **Variables**,
 **Create a variable**. 6. Choose **Property variable**. 7. For **Property that the variable changes**, choose
 **FunctionName**. 8. For **Input type**, for this use case, we recommend

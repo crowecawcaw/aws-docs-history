@@ -1,6 +1,4 @@
-# (Optional) Enable the Use_Kubelet
-
-feature for large clusters
+# (Optional) Enable the Use_Kubelet feature for large clusters
 
 By default, the Use_Kubelet feature is disabled in the FluentBit Kubernetes plugin.
 Enabling this feature can reduce traffic to the API server and mitigate the issue of the

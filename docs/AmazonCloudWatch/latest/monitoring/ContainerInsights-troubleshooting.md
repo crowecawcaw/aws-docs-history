@@ -1,13 +1,9 @@
-# Troubleshooting Container
-
-Insights
+# Troubleshooting Container Insights
 
 The following sections can help if you're having trouble issues with Container
 Insights.
 
-## Failed deployment on
-
-Amazon EKS or Kubernetes
+## Failed deployment on Amazon EKS or Kubernetes
 
 If the agent doesn't deploy correctly on a Kubernetes cluster, try the
 following:
@@ -30,19 +26,14 @@ kubectl describe pod `pod-name` -n amazon-cloudwatch
 kubectl logs `pod-name` -n amazon-cloudwatch
 ```
 
-## Unauthorized
-
-panic: Cannot retrieve cadvisor data from kubelet
+## Unauthorized panic: Cannot retrieve cadvisor data from kubelet
 
 If your deployment fails with the error `Unauthorized panic: Cannot retrieve
  cadvisor data from kubelet`, your kubelet might not have Webhook authorization
 mode enabled. This mode is required for Container Insights. For more information, see
-[Verifying prerequisites for Container
-Insights in CloudWatch](Container-Insights-prerequisites.md "Container-Insights-prerequisites.md").
+[Verifying prerequisites for Container Insights in CloudWatch](Container-Insights-prerequisites.md "Container-Insights-prerequisites.md").
 
-## Deploying Container Insights
-
-on a deleted and re-created cluster on Amazon ECS
+## Deploying Container Insights on a deleted and re-created cluster on Amazon ECS
 
 If you delete an existing Amazon ECS cluster that does not have Container Insights enabled,
 and you re-create it with the same name, you can't enable Container Insights on this new
@@ -64,17 +55,13 @@ correct information for your deployment.
 "log": "2020-04-02T08:36:16Z E! cloudwatchlogs: code: InvalidEndpointURL, message: invalid endpoint uri, original error: &url.Error{Op:\"parse\", URL:\"https://logs.{{region_name}}.amazonaws.com/\", Err:\"{\"}, &awserr.baseError{code:\"InvalidEndpointURL\", message:\"invalid endpoint uri\", errs:[]error{(*url.Error)(0xc0008723c0)}}\n",
 ```
 
-## Metrics don't
-
-appear in the console
+## Metrics don't appear in the console
 
 If you don't see any Container Insights metrics in the AWS Management Console, be sure that you
 have completed the setup of Container Insights. Metrics don't appear before Container
 Insights has been set up completely. For more information, see [Setting up Container Insights](deploy-container-insights.md "deploy-container-insights.md").
 
-## Pod metrics missing
-
-on Amazon EKS or Kubernetes after upgrading cluster
+## Pod metrics missing on Amazon EKS or Kubernetes after upgrading cluster
 
 This section might be useful if all or some pod metrics are missing after you deploy
 the CloudWatch agent as a daemonset on a new or upgraded cluster, or you see an error log with
@@ -124,9 +111,7 @@ spec:
             path: /run/containerd/containerd.sock
 ```
 
-## No pod metrics when using
-
-Bottlerocket for Amazon EKS
+## No pod metrics when using Bottlerocket for Amazon EKS
 
 Bottlerocket is a Linux-based open source operating system that is purpose-built by
 AWS for running containers.
@@ -147,18 +132,14 @@ volumes:
         path: /run/dockershim.sock
 ```
 
-## No container filesystem
-
-metrics when using the containerd runtime for Amazon EKS or Kubernetes
+## No container filesystem metrics when using the containerd runtime for Amazon EKS or Kubernetes
 
 This is a known issue and is being worked on by community contributors. For more
 information, see [Disk usage
 metric for containerd](https://github.com/google/cadvisor/issues/2785 "https://github.com/google/cadvisor/issues/2785") and [container file system
 metrics is not supported by cadvisor for containerd](https://github.com/aws/amazon-cloudwatch-agent/issues/192 "https://github.com/aws/amazon-cloudwatch-agent/issues/192") on GitHub.
 
-## Unexpected log
-
-volume increase from CloudWatch agent when collecting Prometheus metrics
+## Unexpected log volume increase from CloudWatch agent when collecting Prometheus metrics
 
 This was a regression introduced in version 1.247347.6b250880 of the CloudWatch agent. This
 regression has already been fixed in more recent versions of the agent. It's impact was
@@ -166,9 +147,7 @@ limited to scenarios where customers collected the logs of the CloudWatch agent 
 also using Prometheus. For more information, see [[prometheus] agent is
 printing all the scraped metrics in log](https://github.com/aws/amazon-cloudwatch-agent/issues/209 "https://github.com/aws/amazon-cloudwatch-agent/issues/209") on GitHub.
 
-## Latest docker image
-
-mentioned in release notes not found from Dockerhub
+## Latest docker image mentioned in release notes not found from Dockerhub
 
 We update the release note and tag on Github before we start the actual release
 internally. It usually takes 1-2 weeks to see the latest docker image on registries after
@@ -176,17 +155,12 @@ we bump the version number on Github. There is no nightly release for the CloudW
 container image. You can build the image directly from source at the following location:
 [https://github.com/aws/amazon-cloudwatch-agent/tree/main/amazon-cloudwatch-container-insights/cloudwatch-agent-dockerfile](https://github.com/aws/amazon-cloudwatch-agent/tree/main/amazon-cloudwatch-container-insights/cloudwatch-agent-dockerfile "https://github.com/aws/amazon-cloudwatch-agent/tree/main/amazon-cloudwatch-container-insights/cloudwatch-agent-dockerfile")
 
-## CrashLoopBackoff
-
-error on the CloudWatch agent
+## CrashLoopBackoff error on the CloudWatch agent
 
 If you see a `CrashLoopBackOff` error for the CloudWatch agent, make sure that
-your IAM permissions are set correctly. For more information, see [Verifying prerequisites for Container
-Insights in CloudWatch](Container-Insights-prerequisites.md "Container-Insights-prerequisites.md").
+your IAM permissions are set correctly. For more information, see [Verifying prerequisites for Container Insights in CloudWatch](Container-Insights-prerequisites.md "Container-Insights-prerequisites.md").
 
-## CloudWatch agent or Fluentd pod
-
-stuck in pending
+## CloudWatch agent or Fluentd pod stuck in pending
 
 If you have a CloudWatch agent or Fluentd pod stuck in `Pending` or with a
 `FailedScheduling` error, determine if your nodes have enough compute

@@ -1,6 +1,4 @@
-# Create a CloudWatch alarm based on anomaly
-
-detection
+# Create a CloudWatch alarm based on anomaly detection
 
 You can create an alarm based on CloudWatch outlier detection, which analyzes past metric data
 and creates a model of expected values. The expected values take into account the typical
@@ -92,13 +90,11 @@ visualization. For more information, see [Creating a graph](graph_a_metric.md#cr
 
    To create an M out of N alarm, specify a number for the first value that is lower
    than the number for the second value. For more information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md"). 5. For **Missing data treatment**, choose how the alarm behaves when
-   some data points are missing. For more information, see [Configuring how CloudWatch alarms treat missing
-   data](alarms-and-missing-data.md "alarms-and-missing-data.md"). 6. If the alarm uses a percentile as the monitored statistic, a **Percentiles
+   some data points are missing. For more information, see [Configuring how CloudWatch alarms treat missing data](alarms-and-missing-data.md "alarms-and-missing-data.md"). 6. If the alarm uses a percentile as the monitored statistic, a **Percentiles
    with low samples** box appears. Use it to choose whether to evaluate or
    ignore cases with low sample rates. If you choose **Ignore (maintain alarm
    state)**, the current alarm state is always maintained when the sample size
-   is too low. For more information, see [Percentile-based alarms and low data
-   samples](percentiles-with-low-samples.md "percentiles-with-low-samples.md").
+   is too low. For more information, see [Percentile-based alarms and low data samples](percentiles-with-low-samples.md "percentiles-with-low-samples.md").
 
 9. Choose **Next**.
 10. Under **Notification**, select an SNS topic to notify when the alarm

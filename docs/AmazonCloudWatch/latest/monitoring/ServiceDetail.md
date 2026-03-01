@@ -1,6 +1,4 @@
-# View detailed service activity and operational health with the
-
-service detail page
+# View detailed service activity and operational health with the service detail page
 
 When you instrument your application, [Amazon CloudWatch Application Signals](CloudWatch-Application-Monitoring-Sections.md "CloudWatch-Application-Monitoring-Sections.md") maps
 all of the services that your application discovers. Use the service detail page to see an
@@ -132,9 +130,7 @@ The **Dependencies** column shows the number of dependencies this
 operation calls. Choose this number to open the **Dependencies** tab filtered
 to the selected operation.
 
-### View service operations metrics, correlated traces,
-
-and application logs
+### View service operations metrics, correlated traces, and application logs
 
 Application Signals correlates service operation metrics with AWS X-Ray traces, CloudWatch
 [Container Insights](ContainerInsights.md "ContainerInsights.md"), and application logs. Use

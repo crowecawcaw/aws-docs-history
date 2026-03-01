@@ -1,6 +1,4 @@
-# Download
-
-prebuilt packages of the Network Flow Monitor agent by using the command line
+# Download prebuilt packages of the Network Flow Monitor agent by using the command line
 
 You can use the command line to install the Network Flow Monitor agent as a package in Amazon Linux 2023,
 or download and install prebuilt packages of the Network Flow Monitor agent.
@@ -60,9 +58,7 @@ network-flow-monitor.service - Network Flow Monitor Agent
      Active: active (running) since Wed 2025-04-23 19:17:16 UTC; 1min 9s ago
 ```
 
-##
-
-Verify the signature of the Network Flow Monitor agent package
+## Verify the signature of the Network Flow Monitor agent package
 
 The Network Flow Monitor agent rpm and deb installer packages for Linux instances are cryptographically signed.
 You can use a public key to verify that the agent package is original and unmodified. If the files

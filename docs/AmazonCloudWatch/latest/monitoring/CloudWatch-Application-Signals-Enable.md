@@ -23,5 +23,4 @@ Application Signals the following permissions:
     * `tag:GetResources`
 
 For more information about this role, see
-[Service-linked role permissions for
-CloudWatch Application Signals](using-service-linked-roles.md#service-linked-role-signals "using-service-linked-roles.md#service-linked-role-signals"). 5. Choose **Enable Application Signals**.
+[Service-linked role permissions for CloudWatch Application Signals](using-service-linked-roles.md#service-linked-role-signals "using-service-linked-roles.md#service-linked-role-signals"). 5. Choose **Enable Application Signals**.

@@ -105,9 +105,7 @@ characters in the metric schema part of the search term.
 SEARCH('{"Custom-Namespace", "Dimension Name With Spaces"}, ErrorCount ', 'Maximum')
 ```
 
-## CloudWatch cross-account observability search
-
-expression examples
+## CloudWatch cross-account observability search expression examples
 
 **CloudWatch cross-account observability examples**
 

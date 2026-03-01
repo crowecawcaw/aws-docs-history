@@ -1,6 +1,4 @@
-# AWS managed policies for
-
-Amazon CloudWatch Application Insights
+# AWS managed policies for Amazon CloudWatch Application Insights
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed
 to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
@@ -35,8 +33,7 @@ This policy includes the following permissions.
   AWSServiceRoleForApplicationInsights. This is required so that Application Insights can
   perform operations such as analyze the resource groups of a customer, create
   CloudFormation stacks to create alarms on metrics, and configure the CloudWatch
-  Agent on EC2 instances. For more information, see [Using service-linked roles for
-  CloudWatch Application Insights](CHAP_using-service-linked-roles-appinsights.md "CHAP_using-service-linked-roles-appinsights.md").
+  Agent on EC2 instances. For more information, see [Using service-linked roles for CloudWatch Application Insights](CHAP_using-service-linked-roles-appinsights.md "CHAP_using-service-linked-roles-appinsights.md").
 
 JSON
 
@@ -136,12 +133,9 @@ JSON
 
 You can't attach CloudwatchApplicationInsightsServiceLinkedRolePolicy to your IAM
 entities. This policy is attached to a service-linked role that allows Application Insights to
-monitor customer resources. For more information, see [Using service-linked roles for
-CloudWatch Application Insights](CHAP_using-service-linked-roles-appinsights.md "CHAP_using-service-linked-roles-appinsights.md").
+monitor customer resources. For more information, see [Using service-linked roles for CloudWatch Application Insights](CHAP_using-service-linked-roles-appinsights.md "CHAP_using-service-linked-roles-appinsights.md").
 
-## Application Insights updates to AWS
-
-managed policies
+## Application Insights updates to AWS managed policies
 
 View details about updates to AWS managed policies for Application Insights since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

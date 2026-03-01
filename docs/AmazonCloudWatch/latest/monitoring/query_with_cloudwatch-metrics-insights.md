@@ -1,6 +1,4 @@
-# Query your CloudWatch metrics with
-
-CloudWatch Metrics Insights
+# Query your CloudWatch metrics with CloudWatch Metrics Insights
 
 CloudWatch Metrics Insights is a powerful high-performance SQL query engine that you can use to query your
 metrics at scale. You can identify trends and patterns within all of your CloudWatch metrics in real
@@ -31,19 +29,13 @@ organizational structure, such as by application, environment, or team.
 
 ###### Topics
 
-- [Building your queries in
-  CloudWatch Metrics Insights](cloudwatch-metrics-insights-buildquery.md "cloudwatch-metrics-insights-buildquery.md")
-- [Query components and syntax in
-  CloudWatch Metrics Insights](cloudwatch-metrics-insights-querylanguage.md "cloudwatch-metrics-insights-querylanguage.md")
+- [Building your queries in CloudWatch Metrics Insights](cloudwatch-metrics-insights-buildquery.md "cloudwatch-metrics-insights-buildquery.md")
+- [Query components and syntax in CloudWatch Metrics Insights](cloudwatch-metrics-insights-querylanguage.md "cloudwatch-metrics-insights-querylanguage.md")
 - [Alarms on CloudWatch Metrics Insights queries in CloudWatch](cloudwatch-metrics-insights-alarms.md "cloudwatch-metrics-insights-alarms.md")
-- [Use Metrics Insights queries with metric
-  math](cloudwatch-metrics-insights-math.md "cloudwatch-metrics-insights-math.md")
-- [Use natural language to generate
-  and update CloudWatch Metrics Insights queries](cloudwatch-metrics-insights-query-assist.md "cloudwatch-metrics-insights-query-assist.md")
+- [Use Metrics Insights queries with metric math](cloudwatch-metrics-insights-math.md "cloudwatch-metrics-insights-math.md")
+- [Use natural language to generate and update CloudWatch Metrics Insights queries](cloudwatch-metrics-insights-query-assist.md "cloudwatch-metrics-insights-query-assist.md")
 - [SQL inference](cloudwatch-metrics-insights-inference.md "cloudwatch-metrics-insights-inference.md")
 - [Metrics Insights quotas](cloudwatch-metrics-insights-limits.md "cloudwatch-metrics-insights-limits.md")
-- [Metrics Insights sample
-  queries](cloudwatch-metrics-insights-queryexamples.md "cloudwatch-metrics-insights-queryexamples.md")
+- [Metrics Insights sample queries](cloudwatch-metrics-insights-queryexamples.md "cloudwatch-metrics-insights-queryexamples.md")
 - [Metrics Insights glossary](cloudwatch-metrics-insights-glossary.md "cloudwatch-metrics-insights-glossary.md")
-- [Troubleshooting Metrics
-  Insights](cloudwatch-metrics-insights-troubleshooting.md "cloudwatch-metrics-insights-troubleshooting.md")
+- [Troubleshooting Metrics Insights](cloudwatch-metrics-insights-troubleshooting.md "cloudwatch-metrics-insights-troubleshooting.md")

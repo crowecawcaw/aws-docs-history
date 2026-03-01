@@ -1,6 +1,4 @@
-# Custom log data from CloudWatch Logs or an Amazon S3
-
-bucket
+# Custom log data from CloudWatch Logs or an Amazon S3 bucket
 
 You can create pipelines for custom data sources using the following
 approaches:

@@ -1,6 +1,4 @@
-# Authorize your web
-
-application to send data to AWS
+# Authorize your web application to send data to AWS
 
 You have four options to set up data authentication:
 
@@ -32,13 +30,10 @@ users.
 - Use resource-based policies to manage access to your app monitor. This
   includes the ability to send unauthenticated requests to CloudWatch RUM without
   AWS credentials. To learn more about resource based policies and RUM, see
-  [Using resource-based policies with
-  CloudWatch RUM](CloudWatch-RUM-resource-policies.md "CloudWatch-RUM-resource-policies.md").
+  [Using resource-based policies with CloudWatch RUM](CloudWatch-RUM-resource-policies.md "CloudWatch-RUM-resource-policies.md").
   The following sections include more details about these options.
 
-## Use
-
-an existing Amazon Cognito identity pool
+## Use an existing Amazon Cognito identity pool
 
 If you choose to use a Amazon Cognito identity pool, you specify the identity pool when
 you add the application to CloudWatch RUM. The pool must support enabling access to

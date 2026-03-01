@@ -12,14 +12,10 @@ resources that define the network flows that you want to monitor.
 
 For specific procedures, see the following sections:
 
-- [Create a monitor
-  by specifying network flows](#CloudWatch-NetworkFlowMonitor-configure-monitors-create-workload-insights "#CloudWatch-NetworkFlowMonitor-configure-monitors-create-workload-insights")
-- [Create a monitor
-  by specifying local and remote resources](#CloudWatch-NetworkFlowMonitor-configure-monitors-create-standalone "#CloudWatch-NetworkFlowMonitor-configure-monitors-create-standalone")
+- [Create a monitor by specifying network flows](#CloudWatch-NetworkFlowMonitor-configure-monitors-create-workload-insights "#CloudWatch-NetworkFlowMonitor-configure-monitors-create-workload-insights")
+- [Create a monitor by specifying local and remote resources](#CloudWatch-NetworkFlowMonitor-configure-monitors-create-standalone "#CloudWatch-NetworkFlowMonitor-configure-monitors-create-standalone")
 
-## Create a monitor
-
-by specifying network flows
+## Create a monitor by specifying network flows
 
 To create a monitor by selecting network flows, start on the **Workload insights** tab.
 Select one or more network flows in one of the tables, in a single Region, and then, choose to create a
@@ -50,9 +46,7 @@ These steps are designed to be completed all at once. You won't be able to save 
 5. In the modal window that opens, you can edit the resources that define the network flows
    that you chose, or choose **Create monitor**.
 
-## Create a monitor
-
-by specifying local and remote resources
+## Create a monitor by specifying local and remote resources
 
 You can create a monitor at any time for specific local and remote resources that define network
 flows that you want to see details for.

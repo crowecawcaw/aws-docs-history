@@ -1,6 +1,4 @@
-# Route change timing for
-
-single-page applications
+# Route change timing for single-page applications
 
 In a traditional multi-page application, when a user requests for new content
 to be loaded, the user is actually requesting a new HTML page from the server.

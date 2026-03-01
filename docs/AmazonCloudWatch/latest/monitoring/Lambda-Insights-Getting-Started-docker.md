@@ -1,6 +1,4 @@
-# Enable Lambda Insights on a Lambda container image
-
-deployment
+# Enable Lambda Insights on a Lambda container image deployment
 
 To enable Lambda Insights on a Lambda function that is deployed as a container image, add
 lines in your Dockerfile. These lines install the Lambda Insights agent as an extension
@@ -12,14 +10,10 @@ The Lambda Insights agent is supported only on Lambda runtimes that use Amazon L
 
 ###### Topics
 
-- [x86-64 container image
-  deployment](#Lambda-Insights-Getting-Started-docker-x86-64 "#Lambda-Insights-Getting-Started-docker-x86-64")
-- [ARM64 container image
-  deployment](#Lambda-Insights-Getting-Started-docker-ARM64 "#Lambda-Insights-Getting-Started-docker-ARM64")
+- [x86-64 container image deployment](#Lambda-Insights-Getting-Started-docker-x86-64 "#Lambda-Insights-Getting-Started-docker-x86-64")
+- [ARM64 container image deployment](#Lambda-Insights-Getting-Started-docker-ARM64 "#Lambda-Insights-Getting-Started-docker-ARM64")
 
-## x86-64 container image
-
-deployment
+## x86-64 container image deployment
 
 To enable Lambda Insights on a Lambda function that is deployed as a container image running on
 an x86-64 container, add
@@ -153,9 +147,7 @@ docker push "${`ACCOUNT_ID`}".dkr.ecr."${`REGION`}".amazonaws.com/test-repositor
    **CloudWatchLambdaInsightsExecutionRolePolicy** IAM policy
    to the function's execution role.
 
-## ARM64 container image
-
-deployment
+## ARM64 container image deployment
 
 To enable Lambda Insights on a Lambda function that is deployed as a container image running on an
 AL2_aarch64 container (which uses ARM64 architecture), add

@@ -1,6 +1,4 @@
-# Set up, configure, and manage
-
-your application for monitoring from the CloudWatch console
+# Set up, configure, and manage your application for monitoring from the CloudWatch console
 
 This section provides steps to set up, configure, and manage your application
 for monitoring from the CloudWatch console.
@@ -8,10 +6,8 @@ for monitoring from the CloudWatch console.
 ###### Console procedures
 
 - [Add and configure an application](#appinsights-add-configure "#appinsights-add-configure")
-- [Enable Application Insights for Amazon ECS
-  and Amazon EKS resource monitoring](#appinsights-container-insights "#appinsights-container-insights")
-- [Disable monitoring for an
-  application component](#appinsights-disable-monitoring "#appinsights-disable-monitoring")
+- [Enable Application Insights for Amazon ECS and Amazon EKS resource monitoring](#appinsights-container-insights "#appinsights-container-insights")
+- [Disable monitoring for an application component](#appinsights-disable-monitoring "#appinsights-disable-monitoring")
 - [Delete an application](#appinsights-delete-app "#appinsights-delete-app")
 
 ## Add and configure an application
@@ -55,8 +51,7 @@ When you add your first application for monitoring, CloudWatch Application Insig
 service-linked role in your account, which gives Application Insights
 permissions to call other AWS services on your behalf. For more
 information about the service-linked role created in your account by
-Application Insights, see [Using service-linked roles for
-CloudWatch Application Insights](CHAP_using-service-linked-roles-appinsights.md "CHAP_using-service-linked-roles-appinsights.md"). 3. Resource-based application monitoring
+Application Insights, see [Using service-linked roles for CloudWatch Application Insights](CHAP_using-service-linked-roles-appinsights.md "CHAP_using-service-linked-roles-appinsights.md"). 3. Resource-based application monitoring
 
     1. **Select an application or
      resource group.** On the
@@ -291,9 +286,7 @@ tier, log groups, event logs, metrics, and custom alarms, by
 selecting the bullet next to a component and choosing
 **Manage monitoring**.
 
-## Enable Application Insights for Amazon ECS
-
-and Amazon EKS resource monitoring
+## Enable Application Insights for Amazon ECS and Amazon EKS resource monitoring
 
 You can enable Application Insights to monitor containerized applications and
 microservices from the Container Insights console. Application Insights supports
@@ -327,8 +320,7 @@ Insights.
 For EKS clusters, you can enable additional monitoring with Container
 Insights to provide diagnostics information, such as container restart
 failures, to help you isolate and resolve problems. Additional steps are
-required to set up Container Insights for EKS. For information, see [Setting up Container Insights on Amazon EKS and
-Kubernetes](deploy-container-insights-EKS.md "deploy-container-insights-EKS.md") for steps to set up
+required to set up Container Insights for EKS. For information, see [Setting up Container Insights on Amazon EKS and Kubernetes](deploy-container-insights-EKS.md "deploy-container-insights-EKS.md") for steps to set up
 Container Insights on EKS.
 
 Additional monitoring for EKS with Container Insights is supported on
@@ -337,9 +329,7 @@ Linux instances with EKS.
 For more information about Container Insights support for ECS and EKS
 clusters, see [Container Insights](ContainerInsights.md "ContainerInsights.md").
 
-## Disable monitoring for an
-
-application component
+## Disable monitoring for an application component
 
 To disable monitoring for an application component, from the application
 details page, select the component for which you want to disable monitoring.

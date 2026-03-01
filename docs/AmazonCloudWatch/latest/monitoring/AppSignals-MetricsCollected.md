@@ -38,9 +38,7 @@ Successful responses are
 all responses without a `5XX` error.
 `4XX` responses are treated as successful when Application Signals calculates `Availability`.
 
-### Dimensions collected and dimension
-
-combinations
+### Dimensions collected and dimension combinations
 
 The following dimensions are defined for each of the standard application metrics. For
 more information about dimensions, see [Dimensions](cloudwatch_concepts.md#Dimension "cloudwatch_concepts.md#Dimension").

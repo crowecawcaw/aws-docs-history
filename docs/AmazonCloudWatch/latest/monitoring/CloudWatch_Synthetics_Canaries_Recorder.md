@@ -15,9 +15,7 @@ this script to create a canary in CloudWatch Synthetics.
 **Credits**: The CloudWatch Synthetics Recorder is based on the
 [Headless recorder](https://github.com/checkly/headless-recorder "https://github.com/checkly/headless-recorder") .
 
-## Installing the CloudWatch Synthetics
-
-Recorder extension for Google Chrome
+## Installing the CloudWatch Synthetics Recorder extension for Google Chrome
 
 To use the CloudWatch Synthetics Recorder, you can start creating a canary and choose the
 **Canary Recorder** blueprint. If you do this when you haven't already
@@ -34,9 +32,7 @@ directly.
 2. Choose **Add to Chrome**, then choose
    **Add extension**.
 
-## Using the
-
-CloudWatch Synthetics Recorder for Google Chrome
+## Using the CloudWatch Synthetics Recorder for Google Chrome
 
 To use the CloudWatch Synthetics Recorder to help you create a canary, you can choose
 **Create canary** in the CloudWatch console, and then choose **Use a
@@ -63,9 +59,7 @@ without immediately using them to create a canary.
 8. If you're not immediately creating a canary, you can save your recorded script to a
    file.
 
-## Known limitations of
-
-the CloudWatch Synthetics Recorder
+## Known limitations of the CloudWatch Synthetics Recorder
 
 The CloudWatch Synthetics Recorder for Google Chrome currently has the following
 limitations.

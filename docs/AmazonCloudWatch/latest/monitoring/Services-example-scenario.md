@@ -1,6 +1,4 @@
-# Example: Use Application Signals to resolve an operational health
-
-issue
+# Example: Use Application Signals to resolve an operational health issue
 
 The following scenario provides an example of how Application Signals can be used to monitor your services and
 identify service quality issues. Drill down to identify potential root causes and take action to resolve the issue.

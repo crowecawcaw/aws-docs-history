@@ -4,15 +4,11 @@ CloudWatch Application Insights supports the following metrics:
 
 ###### Metrics
 
-- [CloudWatch built-in
-  metrics](#appinsights-metrics-ecs-built-in-metrics "#appinsights-metrics-ecs-built-in-metrics")
-- [Container
-  Insights metrics](#appinsights-metrics-ecs-container-insights-metrics "#appinsights-metrics-ecs-container-insights-metrics")
+- [CloudWatch built-in metrics](#appinsights-metrics-ecs-built-in-metrics "#appinsights-metrics-ecs-built-in-metrics")
+- [Container Insights metrics](#appinsights-metrics-ecs-container-insights-metrics "#appinsights-metrics-ecs-container-insights-metrics")
 - [Container Insights Prometheus metrics](#appinsights-metrics-ecs-container-insights-prometheus "#appinsights-metrics-ecs-container-insights-prometheus")
 
-## CloudWatch built-in
-
-metrics
+## CloudWatch built-in metrics
 
 CPUReservation
 
@@ -24,9 +20,7 @@ MemoryUtilization
 
 GPUReservation
 
-## Container
-
-Insights metrics
+## Container Insights metrics
 
 ContainerInstanceCount
 

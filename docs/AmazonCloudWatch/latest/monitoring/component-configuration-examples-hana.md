@@ -1,6 +1,4 @@
-# SAP HANA on
-
-Amazon EC2
+# SAP HANA on Amazon EC2
 
 The following example shows a component configuration in JSON format for SAP
 HANA on Amazon EC2.

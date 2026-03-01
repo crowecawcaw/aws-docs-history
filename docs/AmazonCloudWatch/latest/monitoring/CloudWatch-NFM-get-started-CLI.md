@@ -284,8 +284,7 @@ Output:
 
 ```
 
-For more information, see [Evaluate
-network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
+For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
 
 ## See scope information
 
@@ -415,8 +414,7 @@ Output:
     }
 ```
 
-For more information, see [Evaluate
-network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
+For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
 
 ### start-query-workload-insights-top-contributors-data
 
@@ -439,8 +437,7 @@ Output:
     }
 ```
 
-For more information, see [Evaluate
-network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
+For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
 
 ### start-query-workload-insights-top-contributors
 
@@ -463,8 +460,7 @@ Output:
     }
 ```
 
-For more information, see [Evaluate
-network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
+For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
 
 ### stop-query-monitor-top-contributors
 
@@ -478,8 +474,7 @@ aws networkflowmonitor stop-query-monitor-top-contributors \
 
 This command produces no output.
 
-For more information, see [Evaluate
-network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
+For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
 
 ### stop-query-workload-insights-top-contributors-data
 
@@ -493,8 +488,7 @@ aws networkflowmonitor stop-query-workload-insights-top-contributors-data \
 
 This command produces no output.
 
-For more information, see [Evaluate
-network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
+For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
 
 ### stop-query-workload-insights-top-contributors
 
@@ -508,8 +502,7 @@ aws networkflowmonitor stop-query-workload-insights-top-contributors \
 
 This command produces no output.
 
-For more information, see [Evaluate
-network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
+For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
 
 ## Tag a monitor
 

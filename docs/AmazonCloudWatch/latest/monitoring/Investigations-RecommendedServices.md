@@ -1,6 +1,4 @@
-# (Recommended) Best practices to
-
-enhance investigations
+# (Recommended) Best practices to enhance investigations
 
 As a best practice, we recommend that you enable several AWS services and features
 in your account that can help CloudWatch investigations discover more information in your topology and make
@@ -21,8 +19,7 @@ We recommend that you install the latest version of the CloudWatch agent on your
 servers. Using a recent version of the CloudWatch agent enhances the ability to find
 issues in Amazon EC2 and Amazon EBS during investigations. At a minimum, you should use
 Version 1.300049.1 or later of the CloudWatch agent. For more information about the CloudWatch
-agent and how to install it, see [Collect metrics, logs, and traces using the CloudWatch
-agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md").
+agent and how to install it, see [Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md").
 
 ## AWS CloudTrail
 

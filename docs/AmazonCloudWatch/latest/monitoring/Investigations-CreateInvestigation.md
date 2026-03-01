@@ -23,12 +23,9 @@ timestamp of the investigation, update the date and time. 5. Then choose **Start
 The investigation starts. CloudWatch investigations scans your telemetry data to find data that
 might be associated with this situation. 6. To move the investigation data to the larger pane, choose **Open in
 full page**. 7. For detailed instructions about steps that you can take while continuing the
-investigation, see [View and continue an open
-investigation](Investigations-Continue.md "Investigations-Continue.md").
+investigation, see [View and continue an open investigation](Investigations-Continue.md "Investigations-Continue.md").
 
-## Create an investigation
-
-from Amazon Q chat
+## Create an investigation from Amazon Q chat
 
 You can ask questions about issues in your deployment in CloudWatch investigations chat. The question
 could be something like "Why is my Lambda function slow today?"
@@ -40,12 +37,9 @@ you want to start an investigation.
 For more information and more sample questions, see [Chatting with Amazon Q about AWS](../../../amazonq/latest/qdeveloper-ug/chat-with-q.md#example-questions-investigations "../../../amazonq/latest/qdeveloper-ug/chat-with-q.md#example-questions-investigations").
 
 For detailed instructions about steps that you can take while continuing the
-investigation after it has been started, see [View and continue an open
-investigation](Investigations-Continue.md "Investigations-Continue.md").
+investigation after it has been started, see [View and continue an open investigation](Investigations-Continue.md "Investigations-Continue.md").
 
-## Create an
-
-investigation from a CloudWatch alarm action
+## Create an investigation from a CloudWatch alarm action
 
 When you create a CloudWatch alarm, you can specify for it to automatically start an
 investigation when it goes into ALARM state. You can do this for both metric alarms

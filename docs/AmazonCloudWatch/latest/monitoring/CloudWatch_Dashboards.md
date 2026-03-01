@@ -68,8 +68,7 @@ To access CloudWatch dashboards, you need one of the following:
 - [Getting started with automatic dashboards](GettingStarted.md "GettingStarted.md")
 - [Creating a customized dashboard](create_dashboard.md "create_dashboard.md")
 - [Creating a cross-account cross-Region dashboard with the console](create_xaxr_dashboard.md "create_xaxr_dashboard.md")
-- [Create a cross-account cross-Region dashboard
-  programmatically](#create_xaxr_dashboard_API "#create_xaxr_dashboard_API")
+- [Create a cross-account cross-Region dashboard programmatically](#create_xaxr_dashboard_API "#create_xaxr_dashboard_API")
 - [Creating a graph with metrics from different accounts and Regions](#create-graph-xaxr-dashboard "#create-graph-xaxr-dashboard")
 - [Adding an alarm from a different account to a cross-account dashboard](create-alarm-xaxr-dashboard.md "create-alarm-xaxr-dashboard.md")
 - [Creating dashboards with variables](cloudwatch_dashboard_variables.md "cloudwatch_dashboard_variables.md")
@@ -82,9 +81,7 @@ To access CloudWatch dashboards, you need one of the following:
 - [Changing the period override setting or refresh interval](change_dashboard_refresh_interval.md "change_dashboard_refresh_interval.md")
 - [Changing the time range or time zone format](change_dashboard_time_format.md "change_dashboard_time_format.md")
 
-## Create a cross-account cross-Region dashboard
-
-programmatically
+## Create a cross-account cross-Region dashboard programmatically
 
 You can use the AWS APIs and SDKs to create dashboards programmatically. For more information,
 see [PutDashboard](../APIReference/API_PutDashboard.md "../APIReference/API_PutDashboard.md").

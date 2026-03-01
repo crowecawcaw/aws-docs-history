@@ -1,13 +1,9 @@
-# Create an investigation from a
-
-CloudWatch Application Signals Service Level Objective (SLO)
+# Create an investigation from a CloudWatch Application Signals Service Level Objective (SLO)
 
 You can start an investigation from a CloudWatch Application Signals Service Level Objective (SLO)
 metric.
 
-###### To start an investigation from a CloudWatch Application Signals Service Level Objective
-
-(SLO)
+###### To start an investigation from a CloudWatch Application Signals Service Level Objective (SLO)
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -40,5 +36,4 @@ timestamp of the investigation, update the date and time. 7. Then choose **Start
 The investigation starts. CloudWatch investigations scans your telemetry data to find data that
 might be associated with this situation. 8. To move the investigation data to the larger pane, choose **Open in
 full page**. 9. For detailed instructions about steps that you can take while continuing the
-investigation, see [View and continue an open
-investigation](Investigations-Continue.md "Investigations-Continue.md").
+investigation, see [View and continue an open investigation](Investigations-Continue.md "Investigations-Continue.md").

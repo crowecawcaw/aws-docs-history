@@ -1,13 +1,9 @@
-# Prometheus metrics
-
-troubleshooting on Amazon ECS
+# Prometheus metrics troubleshooting on Amazon ECS
 
 This section provides help for troubleshooting your Prometheus metrics setup on
 Amazon ECS clusters.
 
-## I don't
-
-see Prometheus metrics sent to CloudWatch Logs
+## I don't see Prometheus metrics sent to CloudWatch Logs
 
 The Prometheus metrics should be ingested as log events in the log group
 **/aws/ecs/containerinsights/cluster-name/Prometheus**. If the log

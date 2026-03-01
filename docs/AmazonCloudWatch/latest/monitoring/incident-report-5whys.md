@@ -1,6 +1,4 @@
-# Using 5 Whys analysis in incident
-
-reports
+# Using 5 Whys analysis in incident reports
 
 When generating incident reports, CloudWatch investigations can perform a 5 Whys root cause analysis to
 systematically identify the underlying causes of operational issues. This structured
@@ -55,13 +53,9 @@ Including 5 Whys analysis in incident reports provides several advantages:
 - **Structured analysis** - Ensures systematic
   investigation rather than ad-hoc problem solving
 
-## Example scenarios in incident
+## Example scenarios in incident reports
 
-reports
-
-### Database connection failure
-
-incident
+### Database connection failure incident
 
 **Initial incident:** E-commerce application
 experiencing widespread 500 errors
@@ -116,9 +110,7 @@ doesn't reflect production auto scaling scenarios
 testing, optimize application startup, adjust health check timeouts, implement
 configuration caching
 
-### Complex incident with branch
-
-analysis
+### Complex incident with branch analysis
 
 **Initial incident:** OpenSearch Serverless
 customers experienced 48.3% availability degradation for 11 hours
@@ -220,9 +212,7 @@ You can also request a 5 Whys analysis through the chat interface by asking
 questions such as "Perform a 5 Whys analysis for this incident" or "What is the root
 cause using 5 Whys methodology?"
 
-## Handling complex incidents with multiple
-
-causes
+## Handling complex incidents with multiple causes
 
 Some incidents involve multiple contributing factors that require parallel
 analysis paths. CloudWatch investigations supports branch analysis to ensure all significant causes are
@@ -250,9 +240,7 @@ This comprehensive approach ensures that complex incidents receive thorough
 analysis and that all contributing factors are addressed in the final remediation
 plan.
 
-## Best practices for effective 5 Whys
-
-analysis
+## Best practices for effective 5 Whys analysis
 
 To maximize the effectiveness of 5 Whys analysis in your incident reports, follow
 these best practices derived from operational experience:
@@ -300,9 +288,7 @@ Validate your 5 Whys analysis using these criteria:
 - **Insufficient evidence** - Ensure each
   answer is supported by concrete data from your investigation
 
-### Integration with incident report
-
-sections
+### Integration with incident report sections
 
 The 5 Whys analysis integrates with other sections of your incident report to
 provide comprehensive documentation:

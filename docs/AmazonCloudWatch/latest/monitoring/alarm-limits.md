@@ -39,9 +39,7 @@ limits:
 For more information on CloudWatch service quotas and limits, see [CloudWatch Metrics Insights service
 quotas](cloudwatch-metrics-insights-limits.md "cloudwatch-metrics-insights-limits.md").
 
-## Limits that apply to alarms based on connected data
-
-sources
+## Limits that apply to alarms based on connected data sources
 
 - When CloudWatch evaluates an alarm, it does so every minute, even if the period for the
   alarm is longer than one minute. For the alarm to work, the Lambda function must be

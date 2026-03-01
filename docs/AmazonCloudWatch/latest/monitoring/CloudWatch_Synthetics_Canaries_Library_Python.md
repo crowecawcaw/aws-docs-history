@@ -1,22 +1,13 @@
-# Library functions available for
-
-Python canary scripts using Selenium
+# Library functions available for Python canary scripts using Selenium
 
 This section lists the Selenium library functions available for Python canary scripts.
 
 ###### Topics
 
-- [Python and Selenium library classes and functions
-  that apply
-  to all canaries](#CloudWatch_Synthetics_Library_allcanaries_Python "#CloudWatch_Synthetics_Library_allcanaries_Python")
-- [Python and Selenium library classes and functions
-  that apply
-  to UI canaries only](#CloudWatch_Synthetics_Library_Python_UIcanaries "#CloudWatch_Synthetics_Library_Python_UIcanaries")
+- [Python and Selenium library classes and functions that apply to all canaries](#CloudWatch_Synthetics_Library_allcanaries_Python "#CloudWatch_Synthetics_Library_allcanaries_Python")
+- [Python and Selenium library classes and functions that apply to UI canaries only](#CloudWatch_Synthetics_Library_Python_UIcanaries "#CloudWatch_Synthetics_Library_Python_UIcanaries")
 
-## Python and Selenium library classes and functions
-
-that apply
-to all canaries
+## Python and Selenium library classes and functions that apply to all canaries
 
 The following CloudWatch Synthetics Selenium library functions for Python are useful for all canaries.
 
@@ -206,9 +197,7 @@ metric with the `CanaryName` dimension for this canary.
 Accepts a Boolean argument, which specifies whether to emit a `StepSuccess`
 metric with the `CanaryName` dimension for this canary.
 
-##### Methods
-
-to enable or disable metrics
+##### Methods to enable or disable metrics
 
 **disable_aggregated_request_metrics()**
 
@@ -429,10 +418,7 @@ Example:
 synthetics_logger.exception('Error encountered trying to publish %s', 'CloudWatch Metric')
 ```
 
-## Python and Selenium library classes and functions
-
-that apply
-to UI canaries only
+## Python and Selenium library classes and functions that apply to UI canaries only
 
 The following CloudWatch Synthetics Selenium library functions for Python are useful only for UI
 canaries.
@@ -465,9 +451,7 @@ methods.
 - [set_viewport_size(width, height)](#CloudWatch_Synthetics_Library_set_viewport_size "#CloudWatch_Synthetics_Library_set_viewport_size")
 - [save_screenshot(filename, suffix)](#CloudWatch_Synthetics_Library_save_screenshot "#CloudWatch_Synthetics_Library_save_screenshot")
 
-####
-
-set_viewport_size(width, height)
+#### set_viewport_size(width, height)
 
 Sets the viewport of the browser. Example:
 
@@ -475,9 +459,7 @@ Sets the viewport of the browser. Example:
 browser.set_viewport_size(1920, 1080)
 ```
 
-####
-
-save_screenshot(filename, suffix)
+#### save_screenshot(filename, suffix)
 
 Saves screenshots to the `/tmp` directory. The screenshots
 are uploaded from there to the canary artifacts folder in the S3 bucket.
@@ -534,9 +516,7 @@ except Exception as ex:
 
 ```
 
-####
-
-add_user_agent(user_agent_str)
+#### add_user_agent(user_agent_str)
 
 Appends the value of `user_agent_str` to the browser's
 user agent header. You must assign `user_agent_str` before creating
@@ -550,9 +530,7 @@ await synthetics_webdriver.add_user_agent('MyApp-1.0')
 
 `add_user_agent` should be used inside an `async` function.
 
-####
-
-execute_step(step_name, function_to_execute)
+#### execute_step(step_name, function_to_execute)
 
 Processes one function. It also does the following:
 
@@ -587,9 +565,7 @@ def custom_actions():
 
 ```
 
-####
-
-get_http_response(url)
+#### get_http_response(url)
 
 Makes an HTTP request to the provided URL and returns the response code of the
 HTTP request. If an exception occurred during the HTTP request, a string with value
@@ -603,9 +579,7 @@ if not response_code or response_code == "error" or response_code < 200 or respo
     raise Exception("Failed to load page!")
 ```
 
-####
-
-Chrome()
+#### Chrome()
 
 Launches an instance of the Chromium browser and returns the created
 instance of the browser.

@@ -4,18 +4,13 @@ CloudWatch Application Insights provides monitoring of your application resource
 
 ###### Topics
 
-- [How Application Insights monitors
-  applications](#appinsights-how-works-sub "#appinsights-how-works-sub")
+- [How Application Insights monitors applications](#appinsights-how-works-sub "#appinsights-how-works-sub")
 - [Data retention](#appinsights-retention "#appinsights-retention")
 - [Quotas](#appinsights-limits "#appinsights-limits")
-- [AWS Systems Manager (SSM) packages used by
-  CloudWatch Application Insights](appinsights-ssm-packages.md "appinsights-ssm-packages.md")
-- [AWS Systems Manager (SSM) Documents used by
-  CloudWatch Application Insights](appinsights-ssm-documents.md "appinsights-ssm-documents.md")
+- [AWS Systems Manager (SSM) packages used by CloudWatch Application Insights](appinsights-ssm-packages.md "appinsights-ssm-packages.md")
+- [AWS Systems Manager (SSM) Documents used by CloudWatch Application Insights](appinsights-ssm-documents.md "appinsights-ssm-documents.md")
 
-## How Application Insights monitors
-
-applications
+## How Application Insights monitors applications
 
 The following information describes how Application Insights monitors applications.
 

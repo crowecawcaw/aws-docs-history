@@ -1,7 +1,4 @@
-#
-
-Adding a CloudWatch dashboard
-to your favorites list
+# Adding a CloudWatch dashboard to your favorites list
 
 In the CloudWatch console, you can add dashboards, alarms, and log groups to a favorites
 list. You can access the favorites list from the
@@ -12,9 +9,7 @@ procedure
 describes
 how to add a dashboard to the favorites list.
 
-######
-
-To add a dashboard to the favorites list
+###### To add a dashboard to the favorites list
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

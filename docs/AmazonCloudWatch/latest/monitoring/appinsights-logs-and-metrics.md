@@ -1,6 +1,4 @@
-# Logs and metrics supported by
-
-Amazon CloudWatch Application Insights
+# Logs and metrics supported by Amazon CloudWatch Application Insights
 
 The following lists show the supported logs and metrics for Amazon CloudWatch Application Insights.
 
@@ -47,12 +45,9 @@ The following lists show the supported logs and metrics for Amazon CloudWatch Ap
 
 - [Amazon Elastic Compute Cloud (EC2)](appinsights-metrics-ec2.md "appinsights-metrics-ec2.md")
   - [CloudWatch built-in metrics](appinsights-metrics-ec2.md#appinsights-metrics-ec2-built-in "appinsights-metrics-ec2.md#appinsights-metrics-ec2-built-in")
-  - [CloudWatch agent metrics (Windows
-    server)](appinsights-metrics-ec2.md#appinsights-metrics-ec2-windows "appinsights-metrics-ec2.md#appinsights-metrics-ec2-windows")
-  - [CloudWatch agent process
-    metrics (Windows server)](appinsights-metrics-ec2.md#appinsights-metrics-procstat-ec2-windows "appinsights-metrics-ec2.md#appinsights-metrics-procstat-ec2-windows")
-  - [CloudWatch agent metrics (Linux
-    server)](appinsights-metrics-ec2.md#appinsights-metrics-ec2-linux "appinsights-metrics-ec2.md#appinsights-metrics-ec2-linux")
+  - [CloudWatch agent metrics (Windows server)](appinsights-metrics-ec2.md#appinsights-metrics-ec2-windows "appinsights-metrics-ec2.md#appinsights-metrics-ec2-windows")
+  - [CloudWatch agent process metrics (Windows server)](appinsights-metrics-ec2.md#appinsights-metrics-procstat-ec2-windows "appinsights-metrics-ec2.md#appinsights-metrics-procstat-ec2-windows")
+  - [CloudWatch agent metrics (Linux server)](appinsights-metrics-ec2.md#appinsights-metrics-ec2-linux "appinsights-metrics-ec2.md#appinsights-metrics-ec2-linux")
 
 - [Elastic Block Store (EBS)](appinsights-metrics-ebs.md "appinsights-metrics-ebs.md")
 - [Amazon Elastic File System (Amazon EFS)](appinsights-metrics-efs.md "appinsights-metrics-efs.md")
@@ -61,8 +56,7 @@ The following lists show the supported logs and metrics for Amazon CloudWatch Ap
 - [Amazon EC2 Auto Scaling groups](appinsights-metrics-as.md "appinsights-metrics-as.md")
 - [Amazon Simple Queue Server (SQS)](appinsights-metrics-sqs.md "appinsights-metrics-sqs.md")
 - [Amazon Relational Database Service (RDS)](appinsights-metrics-rds.md "appinsights-metrics-rds.md")
-  - [RDS Database
-    instances](appinsights-metrics-rds.md#appinsights-metrics-rds-instances "appinsights-metrics-rds.md#appinsights-metrics-rds-instances")
+  - [RDS Database instances](appinsights-metrics-rds.md#appinsights-metrics-rds-instances "appinsights-metrics-rds.md#appinsights-metrics-rds-instances")
   - [RDS Database clusters](appinsights-metrics-rds.md#appinsights-metrics-rds-clusters "appinsights-metrics-rds.md#appinsights-metrics-rds-clusters")
 
 - [AWS Lambda function](appinsights-metrics-lambda.md "appinsights-metrics-lambda.md")
@@ -71,10 +65,8 @@ The following lists show the supported logs and metrics for Amazon CloudWatch Ap
 - [AWS Step Functions](appinsights-metrics-step-functions.md "appinsights-metrics-step-functions.md")
   - [Execution-level](appinsights-metrics-step-functions.md#appinsights-metrics-step-functions-execution "appinsights-metrics-step-functions.md#appinsights-metrics-step-functions-execution")
   - [Activity](appinsights-metrics-step-functions.md#appinsights-metrics-step-functions-activity "appinsights-metrics-step-functions.md#appinsights-metrics-step-functions-activity")
-  - [Lambda
-    function](appinsights-metrics-step-functions.md#appinsights-metrics-step-functions-lambda "appinsights-metrics-step-functions.md#appinsights-metrics-step-functions-lambda")
-  - [Service
-    integration](appinsights-metrics-step-functions.md#appinsights-metrics-step-functions-service-integration "appinsights-metrics-step-functions.md#appinsights-metrics-step-functions-service-integration")
+  - [Lambda function](appinsights-metrics-step-functions.md#appinsights-metrics-step-functions-lambda "appinsights-metrics-step-functions.md#appinsights-metrics-step-functions-lambda")
+  - [Service integration](appinsights-metrics-step-functions.md#appinsights-metrics-step-functions-service-integration "appinsights-metrics-step-functions.md#appinsights-metrics-step-functions-service-integration")
   - [Step Functions API](appinsights-metrics-step-functions.md#appinsights-metrics-step-functions-api "appinsights-metrics-step-functions.md#appinsights-metrics-step-functions-api")
 
 - [API Gateway REST API stages](appinsights-metrics-api-gateway.md "appinsights-metrics-api-gateway.md")
@@ -85,10 +77,8 @@ The following lists show the supported logs and metrics for Amazon CloudWatch Ap
 - [HA Cluster](appinsights-metrics-ha-cluster.md "appinsights-metrics-ha-cluster.md")
 - [Java](appinsights-metrics-java.md "appinsights-metrics-java.md")
 - [Amazon Elastic Container Service (Amazon ECS)](appinsights-metrics-ecs.md "appinsights-metrics-ecs.md")
-  - [CloudWatch built-in
-    metrics](appinsights-metrics-ecs.md#appinsights-metrics-ecs-built-in-metrics "appinsights-metrics-ecs.md#appinsights-metrics-ecs-built-in-metrics")
-  - [Container
-    Insights metrics](appinsights-metrics-ecs.md#appinsights-metrics-ecs-container-insights-metrics "appinsights-metrics-ecs.md#appinsights-metrics-ecs-container-insights-metrics")
+  - [CloudWatch built-in metrics](appinsights-metrics-ecs.md#appinsights-metrics-ecs-built-in-metrics "appinsights-metrics-ecs.md#appinsights-metrics-ecs-built-in-metrics")
+  - [Container Insights metrics](appinsights-metrics-ecs.md#appinsights-metrics-ecs-container-insights-metrics "appinsights-metrics-ecs.md#appinsights-metrics-ecs-container-insights-metrics")
   - [Container Insights Prometheus metrics](appinsights-metrics-ecs.md#appinsights-metrics-ecs-container-insights-prometheus "appinsights-metrics-ecs.md#appinsights-metrics-ecs-container-insights-prometheus")
 
 - [Kubernetes on AWS](appinsights-metrics-kubernetes.md "appinsights-metrics-kubernetes.md")
@@ -103,13 +93,11 @@ The following lists show the supported logs and metrics for Amazon CloudWatch Ap
 - [Amazon Route 53 Resolver endpoint](appinsights-metrics-resolver-endpoint.md "appinsights-metrics-resolver-endpoint.md")
 - [AWS Network Firewall rule group](appinsights-metrics-firewall-rule-group.md "appinsights-metrics-firewall-rule-group.md")
 - [AWS Network Firewall rule group association](appinsights-metrics-firewall-rule-group-assoc.md "appinsights-metrics-firewall-rule-group-assoc.md")
-- [Metrics with data
-  points requirements](appinsights-metrics-datapoint-requirements.md "appinsights-metrics-datapoint-requirements.md")
+- [Metrics with data points requirements](appinsights-metrics-datapoint-requirements.md "appinsights-metrics-datapoint-requirements.md")
   - [AWS/ApplicationELB](appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-app-elb "appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-app-elb")
   - [AWS/AutoScaling](appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-autoscaling "appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-autoscaling")
   - [AWS/EC2](appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-ec2 "appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-ec2")
-  - [Elastic Block
-    Store (EBS)](appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-ebs "appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-ebs")
+  - [Elastic Block Store (EBS)](appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-ebs "appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-ebs")
   - [AWS/ELB](appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-elb "appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-elb")
   - [AWS/RDS](appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-rds "appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-rds")
   - [AWS/Lambda](appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-lambda "appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-lambda")
@@ -121,7 +109,5 @@ The following lists show the supported logs and metrics for Amazon CloudWatch Ap
   - [AWS/ApiGateway](appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-api-gateway "appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-api-gateway")
   - [AWS/SNS](appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-sns "appinsights-metrics-datapoint-requirements.md#appinsights-metrics-datapoint-requirements-sns")
 
-- [Recommended
-  metrics](application-insights-recommended-metrics.md "application-insights-recommended-metrics.md")
-- [Performance Counter
-  metrics](application-insights-performance-counter.md "application-insights-performance-counter.md")
+- [Recommended metrics](application-insights-recommended-metrics.md "application-insights-recommended-metrics.md")
+- [Performance Counter metrics](application-insights-performance-counter.md "application-insights-performance-counter.md")

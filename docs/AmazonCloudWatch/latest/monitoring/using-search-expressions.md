@@ -26,5 +26,4 @@ expressions can find metrics in the source accounts linked to that monitoring ac
 
 - [CloudWatch search expression syntax](search-expression-syntax.md "search-expression-syntax.md")
 - [CloudWatch search expression examples](search-expression-examples.md "search-expression-examples.md")
-- [Create a CloudWatch graph with a search
-  expression](create-search-expression.md "create-search-expression.md")
+- [Create a CloudWatch graph with a search expression](create-search-expression.md "create-search-expression.md")

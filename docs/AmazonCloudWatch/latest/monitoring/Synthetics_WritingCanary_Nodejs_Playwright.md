@@ -1,19 +1,12 @@
-# Writing a Node.js canary
-
-script using the Playwright runtime
+# Writing a Node.js canary script using the Playwright runtime
 
 ###### Topics
 
-- [Packaging your Node.js
-  canary files for the Playwright runtime](#Synthetics_canary_Nodejs_Playwright_package "#Synthetics_canary_Nodejs_Playwright_package")
-- [Changing an
-  existing Playwright script to use as a CloudWatch Synthetics canary](#CloudWatch_Synthetics_canary_edit_Playwright_script "#CloudWatch_Synthetics_canary_edit_Playwright_script")
-- [CloudWatch Synthetics
-  configurations](#Synthetics_canary_configure_Playwright_script "#Synthetics_canary_configure_Playwright_script")
+- [Packaging your Node.js canary files for the Playwright runtime](#Synthetics_canary_Nodejs_Playwright_package "#Synthetics_canary_Nodejs_Playwright_package")
+- [Changing an existing Playwright script to use as a CloudWatch Synthetics canary](#CloudWatch_Synthetics_canary_edit_Playwright_script "#CloudWatch_Synthetics_canary_edit_Playwright_script")
+- [CloudWatch Synthetics configurations](#Synthetics_canary_configure_Playwright_script "#Synthetics_canary_configure_Playwright_script")
 
-## Packaging your Node.js
-
-canary files for the Playwright runtime
+## Packaging your Node.js canary files for the Playwright runtime
 
 Your canary script comprises of a `.js` (CommonJS syntax) or
 `.mjs` (ES syntax) file containing your Synthetics handler code, together
@@ -66,9 +59,7 @@ script’s entry point. You can optionally store the canary in a separate folder
 folder, specify that path in your script entry point, such as
 `myFolder/my_canary_filename.functionName`.
 
-## Changing an
-
-existing Playwright script to use as a CloudWatch Synthetics canary
+## Changing an existing Playwright script to use as a CloudWatch Synthetics canary
 
 You can edit an existing script for Node.js and Playwright to be used as a canary.
 For more information about Playwright, see the [Playwright library](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
@@ -184,9 +175,7 @@ exports.handler = async (event) => {
 };
 ```
 
-## CloudWatch Synthetics
-
-configurations
+## CloudWatch Synthetics configurations
 
 You can configure the behavior of the Synthetics Playwright runtime by providing an
 optional JSON configuration file named `synthetics.json`. This file
@@ -380,9 +369,7 @@ Configurations for other metrics emitted by CloudWatch Synthetics.
 agent`. The specified configuration is appended to the generated user agent.
   The default user agent value to append is an empty string (`""`).
 
-### CloudWatch Synthetics
-
-environment variables
+### CloudWatch Synthetics environment variables
 
 Configure the logging level and format by using environment variables.
 

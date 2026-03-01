@@ -1,6 +1,4 @@
-# Configure an alarm to
-
-create investigations
+# Configure an alarm to create investigations
 
 After you have an investigation group set up in your account, you can configure
 existing CloudWatch alarms to automatically create investigations when they enter the
@@ -29,9 +27,7 @@ This command requires that you specify an ARN for the
 `alarm-actions` parameter. For information about how to
 create the ARN, see [ARN format and parameters](Investigations-configure-alarms.md#Investigations-arn-format "Investigations-configure-alarms.md#Investigations-arn-format").
 
-###### To configure a CloudWatch alarm with InvestigationGroup action
-
-(AWS CLI)
+###### To configure a CloudWatch alarm with InvestigationGroup action (AWS CLI)
 
 1. Install and configure the AWS CLI, if you haven't already. For
    information, see [Installing or updating the latest version of the

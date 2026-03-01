@@ -1,6 +1,4 @@
-# Monitoring your metric streams with
-
-CloudWatch metrics
+# Monitoring your metric streams with CloudWatch metrics
 
 Metric streams emit CloudWatch metrics about their health and operation in the
 `AWS/CloudWatch/MetricStreams` namespace. The following metrics are

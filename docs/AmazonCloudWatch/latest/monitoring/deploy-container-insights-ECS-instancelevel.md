@@ -1,6 +1,4 @@
-# Deploying the CloudWatch agent to
-
-collect EC2 instance-level metrics on Amazon ECS
+# Deploying the CloudWatch agent to collect EC2 instance-level metrics on Amazon ECS
 
 To deploy the CloudWatch agent to collect instance-level metrics from Amazon ECS clusters that
 are hosted on EC2 instance, use a quick start setup with a default configuration, or
@@ -25,14 +23,10 @@ agent is temporarily unavailable.
 
 ###### Topics
 
-- [Quick setup
-  using CloudFormation](#deploy-container-insights-ECS-instancelevel-quickstart "#deploy-container-insights-ECS-instancelevel-quickstart")
-- [Manual and custom
-  setup](#deploy-container-insights-ECS-instancelevel-manual "#deploy-container-insights-ECS-instancelevel-manual")
+- [Quick setup using CloudFormation](#deploy-container-insights-ECS-instancelevel-quickstart "#deploy-container-insights-ECS-instancelevel-quickstart")
+- [Manual and custom setup](#deploy-container-insights-ECS-instancelevel-manual "#deploy-container-insights-ECS-instancelevel-manual")
 
-## Quick setup
-
-using CloudFormation
+## Quick setup using CloudFormation
 
 To use the quick setup, enter the following command to use CloudFormation to install the
 agent. Replace `cluster-name` and
@@ -133,16 +127,12 @@ Region=`cluster-region`
 aws cloudformation delete-stack --stack-name CWAgentECS-${ClusterName}-${Region} --region ${Region}
 ```
 
-## Manual and custom
-
-setup
+## Manual and custom setup
 
 Follow the steps in this section to manually deploy the CloudWatch agent to collect
 instance-level metrics from your Amazon ECS clusters that are hosted on EC2 instances.
 
-### Necessary IAM
-
-roles and policies
+### Necessary IAM roles and policies
 
 Two IAM roles are required. You must create them if they don't already exist.
 For more information about these roles, see [IAM roles for
@@ -196,9 +186,7 @@ aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/service-role/Ama
     --role-name CWAgentECSExecutionRole
 ```
 
-### Create
-
-the task definition and launch the daemon service
+### Create the task definition and launch the daemon service
 
 Create a task definition and use it to launch the CloudWatch agent as a daemon service.
 To create the task definition, enter the following command. In the first lines,
@@ -256,9 +244,7 @@ aws ecs delete-service \
     --force
 ```
 
-### (Optional)
-
-Advanced configuration
+### (Optional) Advanced configuration
 
 Optionally, you can use SSM to specify other configuration options for the CloudWatch
 agent in your Amazon ECS clusters that are hosted on EC2 instances. These options are as

@@ -1,6 +1,4 @@
-# Tutorial: Set up monitoring for SAP
-
-ASE
+# Tutorial: Set up monitoring for SAP ASE
 
 This tutorial demonstrates how to configure CloudWatch Application Insights to set up monitoring for your SAP
 ASE databases. You can use CloudWatch Application Insights automatic dashboards to visualize problem details,
@@ -9,25 +7,19 @@ ASE databases.
 
 ###### Application Insights for SAP ASE topics
 
-- [Supported
-  environments](#appinsights-tutorial-sap-ase-supported-environments "#appinsights-tutorial-sap-ase-supported-environments")
-- [Supported operating
-  systems](#appinsights-tutorial-sap-ase-supported-os "#appinsights-tutorial-sap-ase-supported-os")
+- [Supported environments](#appinsights-tutorial-sap-ase-supported-environments "#appinsights-tutorial-sap-ase-supported-environments")
+- [Supported operating systems](#appinsights-tutorial-sap-ase-supported-os "#appinsights-tutorial-sap-ase-supported-os")
 - [Features](#appinsights-tutorial-sap-ase-features "#appinsights-tutorial-sap-ase-features")
 - [Prerequisites](#appinsights-tutorial-sap-ase-prerequisites "#appinsights-tutorial-sap-ase-prerequisites")
 - [Set up
   monitoring](#appinsights-tutorial-sap-ase-set-up "#appinsights-tutorial-sap-ase-set-up")
 - [Manage
   monitoring](#appinsights-tutorial-sap-ase-manage "#appinsights-tutorial-sap-ase-manage")
-- [Configure
-  the alarm threshold](#appinsights-tutorial-sap-hana-configure-alarm-threshold "#appinsights-tutorial-sap-hana-configure-alarm-threshold")
-- [View and
-  troubleshoot SAP ASE problems detected by Application Insights](#appinsights-tutorial-sap-ase-troubleshooting-problems "#appinsights-tutorial-sap-ase-troubleshooting-problems")
+- [Configure the alarm threshold](#appinsights-tutorial-sap-hana-configure-alarm-threshold "#appinsights-tutorial-sap-hana-configure-alarm-threshold")
+- [View and troubleshoot SAP ASE problems detected by Application Insights](#appinsights-tutorial-sap-ase-troubleshooting-problems "#appinsights-tutorial-sap-ase-troubleshooting-problems")
 - [Troubleshooting Application Insights](#appinsights-tutorial-sap-ase-troubleshooting-health-dashboard "#appinsights-tutorial-sap-ase-troubleshooting-health-dashboard")
 
-## Supported
-
-environments
+## Supported environments
 
 CloudWatch Application Insights supports the deployment of AWS resources for the following systems and
 patterns. You provide and install SAP ASE database software and supported SAP
@@ -44,9 +36,7 @@ application software.
 CloudWatch Application Insights supports only single SAP system ID (SID) ASE HA environments. If multiple ASE HA SIDs are
 attached, monitoring will be set up for only the first detected SID.
 
-## Supported operating
-
-systems
+## Supported operating systems
 
 CloudWatch Application Insights for SAP ASE supports x86-64 architecture on the following operating
 systems:
@@ -99,8 +89,7 @@ with CloudWatch Application Insights:
 - **SAPHostCtrl** – Install and set up SAPHostCtrl on your Amazon EC2 instance.
 - **Amazon CloudWatch agent** – Make sure that you are not running a preexisting CloudWatch agent on your Amazon EC2 instance.
   If you have CloudWatch agent installed, make sure to remove the configuration of the resources you are using in CloudWatch Application Insights from the existing CloudWatch agent configuration file to avoid a merge conflict. For more information, see
-  [Manually create or edit the
-  CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").
+  [Manually create or edit the CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").
 - **AWS Systems Manager enablement** – Install SSM
   Agent on your instances, and enable the instances enabled for SSM. For
   information about how to install the SSM agent, see [Working with SSM Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md") in the _AWS Systems Manager User
@@ -173,12 +162,9 @@ with CloudWatch Application Insights:
 - **Service-linked role** – Application Insights
   uses AWS Identity and Access Management (IAM) service-linked roles. A service-linked role is
   created for you when you create your first Application Insights application in the
-  Application Insights console. For more information, see [Using service-linked roles for
-  CloudWatch Application Insights](CHAP_using-service-linked-roles-appinsights.md "CHAP_using-service-linked-roles-appinsights.md").
+  Application Insights console. For more information, see [Using service-linked roles for CloudWatch Application Insights](CHAP_using-service-linked-roles-appinsights.md "CHAP_using-service-linked-roles-appinsights.md").
 
-## Set up monitoring on your SAP
-
-ASE database
+## Set up monitoring on your SAP ASE database
 
 Use the following steps to set up monitoring for your SAP ASE database
 
@@ -233,9 +219,7 @@ that you have created. When you submit your configuration, your account
 deploys all of the metrics and alarms for your SAP ASE system, which can
 take up to 2 hours.
 
-## Manage monitoring of your SAP
-
-ASE database
+## Manage monitoring of your SAP ASE database
 
 You can manage user credentials, metrics, and log paths for your SAP ASE database
 by performing the following steps:
@@ -266,9 +250,7 @@ by performing the following steps:
    account updates all of the metrics and alarms for your SAP HANA system,
    which can take up to 2 hours.
 
-## Configure
-
-the alarm threshold
+## Configure the alarm threshold
 
 CloudWatch Application Insights automatically creates a Amazon CloudWatch metric for the alarm to watch, along with
 the threshold for that metric. The alarm changes to the `ALARM` state
@@ -318,8 +300,7 @@ To edit an alarm for a single metric, perform the following steps:
       you choose **ignore (maintain alarm state)**, the
       current alarm state is always maintained when the sample size is too
       low. For more information about percentiles with low samples, see
-      [Percentile-based alarms and low data
-      samples](percentiles-with-low-samples.md "percentiles-with-low-samples.md").
+      [Percentile-based alarms and low data samples](percentiles-with-low-samples.md "percentiles-with-low-samples.md").
 
 7. Choose **Next**.
 8. Under **Notification**, select an SNS topic to notify
@@ -327,9 +308,7 @@ To edit an alarm for a single metric, perform the following steps:
    `INSUFFICIENT_DATA` state.
 9. Choose **Update alarm**.
 
-## View and
-
-troubleshoot SAP ASE problems detected by Application Insights
+## View and troubleshoot SAP ASE problems detected by Application Insights
 
 This section helps you resolve common troubleshooting problems that occur when you configure monitoring for SAP ASE on Application Insights.
 

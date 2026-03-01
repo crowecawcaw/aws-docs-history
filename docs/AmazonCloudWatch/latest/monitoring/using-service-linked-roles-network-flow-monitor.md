@@ -19,18 +19,14 @@ IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md 
 **Yes** with a link to view the service-linked role documentation for that
 service.
 
-## Service-linked role permissions for
-
-Network Flow Monitor
+## Service-linked role permissions for Network Flow Monitor
 
 Network Flow Monitor uses the following service-linked roles:
 
 - **AWSServiceRoleForNetworkFlowMonitor**
 - **AWSServiceRoleForNetworkFlowMonitor_Topology**
 
-### Service-linked role permissions for
-
-AWSServiceRoleForNetworkFlowMonitor
+### Service-linked role permissions for AWSServiceRoleForNetworkFlowMonitor
 
 Network Flow Monitor uses the service-linked role named **AWSServiceRoleForNetworkFlowMonitor**.
 This role allows Network Flow Monitor to publish CloudWatch aggregated telemetry metrics gathered for network
@@ -46,9 +42,7 @@ role:
 
 - `networkflowmonitor.amazonaws.com`
 
-### Service-linked role permissions for
-
-AWSServiceRoleForNetworkFlowMonitor_Topology
+### Service-linked role permissions for AWSServiceRoleForNetworkFlowMonitor_Topology
 
 Network Flow Monitor uses the service-linked role named **AWSServiceRoleForNetworkFlowMonitor_Topology**.
 This role allows Network Flow Monitor to generate a topology snapshot of the resources that you use with Network Flow Monitor.

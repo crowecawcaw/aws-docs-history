@@ -1,6 +1,4 @@
-# Set up
-
-HAProxy with a metric exporter on Amazon EKS and Kubernetes
+# Set up HAProxy with a metric exporter on Amazon EKS and Kubernetes
 
 HAProxy is an open-source proxy application. For more information, see [HAProxy](https://www.haproxy.org "https://www.haproxy.org").
 
@@ -14,9 +12,7 @@ eksctl create fargateprofile --cluster `MyCluster` \
 --namespace haproxy-ingress-sample --name haproxy-ingress-sample
 ```
 
-###### To install HAProxy with a metric exporter to test Container Insights
-
-Prometheus support
+###### To install HAProxy with a metric exporter to test Container Insights Prometheus support
 
 1. Enter the following command to add the Helm incubator repo:
 

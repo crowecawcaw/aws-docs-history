@@ -35,9 +35,7 @@ you can use the JSON string
 from a dashboard
 that already exists.
 
-######
-
-To create a dashboard from the console
+###### To create a dashboard from the console
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

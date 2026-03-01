@@ -1,6 +1,4 @@
-# Container Insights Prometheus metrics
-
-monitoring
+# Container Insights Prometheus metrics monitoring
 
 CloudWatch Container Insights monitoring for Prometheus automates the discovery of Prometheus
 metrics from containerized systems and workloads. Prometheus is an open-source systems
@@ -27,9 +25,7 @@ including collecting, storing, and analyzing. For more information, see [Amazon 
 
 The Container Insights Prometheus solution includes pre-built dashboards for the popular
 workloads that are listed in this section. For sample configurations for these workloads,
-see [(Optional) Set up
-sample containerized Amazon ECS workloads for Prometheus metric testing](ContainerInsights-Prometheus-Sample-Workloads-ECS.md "ContainerInsights-Prometheus-Sample-Workloads-ECS.md") and [(Optional) Set up
-sample containerized Amazon EKS workloads for Prometheus metric testing](ContainerInsights-Prometheus-Sample-Workloads.md "ContainerInsights-Prometheus-Sample-Workloads.md").
+see [(Optional) Set up sample containerized Amazon ECS workloads for Prometheus metric testing](ContainerInsights-Prometheus-Sample-Workloads-ECS.md "ContainerInsights-Prometheus-Sample-Workloads-ECS.md") and [(Optional) Set up sample containerized Amazon EKS workloads for Prometheus metric testing](ContainerInsights-Prometheus-Sample-Workloads.md "ContainerInsights-Prometheus-Sample-Workloads.md").
 
 You can also configure Container Insights to collect Prometheus metrics from other
 containerized services and applications by editing the agent configuration file.

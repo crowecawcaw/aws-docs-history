@@ -89,9 +89,7 @@ section fragment** in JSON format.
 ]
 ```
 
-## Component configuration section
-
-properties
+## Component configuration section properties
 
 This section describes the properties of each component configuration
 section.
@@ -101,15 +99,11 @@ section.
 - [Metric](#component-config-metric "#component-config-metric")
 - [Log](#component-configuration-log "#component-configuration-log")
 - [Process](#component-configuration-process "#component-configuration-process")
-- [JMX Prometheus
-  Exporter](#component-configuration-prometheus "#component-configuration-prometheus")
-- [HANA Prometheus
-  Exporter](#component-configuration-hana-prometheus "#component-configuration-hana-prometheus")
-- [HA Cluster
-  Prometheus Exporter](#component-configuration-ha-cluster-prometheus "#component-configuration-ha-cluster-prometheus")
+- [JMX Prometheus Exporter](#component-configuration-prometheus "#component-configuration-prometheus")
+- [HANA Prometheus Exporter](#component-configuration-hana-prometheus "#component-configuration-hana-prometheus")
+- [HA Cluster Prometheus Exporter](#component-configuration-ha-cluster-prometheus "#component-configuration-ha-cluster-prometheus")
 - [NetWeaver Prometheus Exporter](#component-configuration-netweaver-prometheus "#component-configuration-netweaver-prometheus")
-- [SAP ASE
-  Prometheus Exporter](#component-configuration-sap-ase-prometheus "#component-configuration-sap-ase-prometheus")
+- [SAP ASE Prometheus Exporter](#component-configuration-sap-ase-prometheus "#component-configuration-sap-ase-prometheus")
 - [Windows Events](#windows-events "#windows-events")
 - [Alarm](#component-configuration-alarms "#component-configuration-alarms")
 
@@ -131,8 +125,7 @@ Defines a metric to be monitored for the component.
 - **alarmMetricName (required)**
 
 The name of the metric to be monitored for the component. For
-metrics supported by Application Insights, see [Logs and metrics supported by
-Amazon CloudWatch Application Insights](appinsights-logs-and-metrics.md "appinsights-logs-and-metrics.md").
+metrics supported by Application Insights, see [Logs and metrics supported by Amazon CloudWatch Application Insights](appinsights-logs-and-metrics.md "appinsights-logs-and-metrics.md").
 
 - **monitor (optional)**
 
@@ -242,11 +235,9 @@ process name must not contain a process stem, such as
 
 A list of [metrics](#component-config-metric "#component-config-metric")
 to monitor for this process. To view process metrics supported by
-CloudWatch Application Insights, see [Amazon Elastic Compute Cloud (EC2)](appinsights-metrics-ec2.md "appinsights-metrics-ec2.md") .
+CloudWatch Application Insights, see [Amazon Elastic Compute Cloud (EC2)](appinsights-metrics-ec2.md "appinsights-metrics-ec2.md").
 
-### JMX Prometheus
-
-Exporter
+### JMX Prometheus Exporter
 
 Defines the JMX Prometheus Exporter settings.
 
@@ -277,9 +268,7 @@ specified.
 The target port to send Prometheus metrics to. If not specified,
 the default port 9404 is used.
 
-### HANA Prometheus
-
-Exporter
+### HANA Prometheus Exporter
 
 Defines the HANA Prometheus Exporter settings.
 
@@ -317,9 +306,7 @@ the database and query HANA metrics.
 The target port to which Prometheus sends metrics. If not
 specified, the default port 9668 is used.
 
-### HA Cluster
-
-Prometheus Exporter
+### HA Cluster Prometheus Exporter
 
 Defines the HA Cluster Prometheus Exporter settings.
 
@@ -370,9 +357,7 @@ Array of the instance Numbers of SAP NetWeaver system.
 The target port to which to send Prometheus metrics. If not
 specified, the default port `9680` is used.
 
-### SAP ASE
-
-Prometheus Exporter
+### SAP ASE Prometheus Exporter
 
 Defines the SAP ASE Prometheus Exporter settings.
 

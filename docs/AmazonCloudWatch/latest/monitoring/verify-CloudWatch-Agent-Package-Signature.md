@@ -1,6 +1,4 @@
-# Verifying the signature of the
-
-CloudWatch agent package
+# Verifying the signature of the CloudWatch agent package
 
 GPG signature files are included for CloudWatch agent packages on Linux servers. You can use a
 public key to verify the agent download file is original and unmodified.

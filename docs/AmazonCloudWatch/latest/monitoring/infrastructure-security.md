@@ -22,8 +22,7 @@ AWS resources in the subnets of your VPCs. For example, you can deploy Amazon EC
 EMR clusters, and DynamoDB tables in subnets. For more information, see the [Amazon VPC User Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md").
 
 To enable CloudWatch to communicate with resources in a VPC without going through the public
-internet, use AWS PrivateLink. For more information, see [Using CloudWatch, CloudWatch Synthetics, and CloudWatch Network
-Monitoring with interface VPC endpoints](cloudwatch-and-interface-VPC.md "cloudwatch-and-interface-VPC.md").
+internet, use AWS PrivateLink. For more information, see [Using CloudWatch, CloudWatch Synthetics, and CloudWatch Network Monitoring with interface VPC endpoints](cloudwatch-and-interface-VPC.md "cloudwatch-and-interface-VPC.md").
 
 A private subnet is a subnet with no default route to the public internet. Deploying an
 AWS resource in a private subnet does not prevent Amazon CloudWatch from collecting built-in metrics

@@ -5,8 +5,7 @@ following:
 
 - Check that the metric stream is in the running state. For steps on
   how to use the CloudWatch console to do this, see
-  [Metric stream
-  operation and maintenance](CloudWatch-metric-streams-operation.md "CloudWatch-metric-streams-operation.md").
+  [Metric stream operation and maintenance](CloudWatch-metric-streams-operation.md "CloudWatch-metric-streams-operation.md").
 - Metrics published more than two days in the past are not streamed. To determine
   whether a particular metric will be streamed, graph the metric in the CloudWatch console and check how old
   the last visible datapoint is. If it is more than two days in the past, then

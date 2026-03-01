@@ -1,22 +1,14 @@
-# Library functions available for
-
-Node.js canary scripts using Puppeteer
+# Library functions available for Node.js canary scripts using Puppeteer
 
 This section describes the library functions available for Node.js canary scripts.
 
 ###### Topics
 
-- [Node.js library classes and functions
-  that apply to all canaries](#CloudWatch_Synthetics_Library_allcanaries "#CloudWatch_Synthetics_Library_allcanaries")
-- [Node.js library classes and functions that
-  apply
-  to UI canaries only](#CloudWatch_Synthetics_Library_UIcanaries "#CloudWatch_Synthetics_Library_UIcanaries")
-- [Node.js library classes and functions that
-  apply to API canaries only](#CloudWatch_Synthetics_Library_APIcanaries "#CloudWatch_Synthetics_Library_APIcanaries")
+- [Node.js library classes and functions that apply to all canaries](#CloudWatch_Synthetics_Library_allcanaries "#CloudWatch_Synthetics_Library_allcanaries")
+- [Node.js library classes and functions that apply to UI canaries only](#CloudWatch_Synthetics_Library_UIcanaries "#CloudWatch_Synthetics_Library_UIcanaries")
+- [Node.js library classes and functions that apply to API canaries only](#CloudWatch_Synthetics_Library_APIcanaries "#CloudWatch_Synthetics_Library_APIcanaries")
 
-## Node.js library classes and functions
-
-that apply to all canaries
+## Node.js library classes and functions that apply to all canaries
 
 The following CloudWatch Synthetics library functions for Node.js are useful for all canaries.
 
@@ -267,9 +259,7 @@ Note that `includeResponseHeaders` enables headers in artifacts.
 The `Duration` and `SuccessPercent` metrics are always emitted
 for each canary, both with and without the `CanaryName` metric.
 
-##### Methods
-
-to enable or disable metrics
+##### Methods to enable or disable metrics
 
 **disableAggregatedRequestMetrics()**
 
@@ -423,9 +413,7 @@ metric with the `CanaryName` dimension for this canary.
 Accepts a Boolean argument, which specifies whether to emit a `StepSuccess`
 metric with the `CanaryName` dimension for this canary.
 
-##### Methods
-
-to enable or disable other features
+##### Methods to enable or disable other features
 
 **withHarFile()**
 
@@ -543,9 +531,7 @@ parameters:
 - `screenshotOnStepFailure` (boolean)—
   Whether to take a screenshot after a step fails.
 
-##### Methods
-
-to enable or disable screenshots
+##### Methods to enable or disable screenshots
 
 **disableStepScreenshots()**
 
@@ -779,8 +765,7 @@ logs, reports, HAR files, and canary run errors based on the Synthetics configur
 You have to use `getSanitizedUrl` or `getSanitizedErrorMessage` only if you are logging
 URLs or errors in your script. Synthetics does not store any canary artifacts except for canary errors thrown by the script.
 Canary run artifacts are stored in your customer account. For more information,
-see [Security considerations for Synthetics
-canaries](servicelens_canaries_security.md "servicelens_canaries_security.md").
+see [Security considerations for Synthetics canaries](servicelens_canaries_security.md "servicelens_canaries_security.md").
 
 ###### Topics
 
@@ -948,10 +933,7 @@ The headers specified in the `restrictedHeaders` property are redacted from logs
   this function. If `stepConfig` is not passed in, the global configuration is used to sanitize
   the headers.
 
-## Node.js library classes and functions that
-
-apply
-to UI canaries only
+## Node.js library classes and functions that apply to UI canaries only
 
 The following CloudWatch Synthetics library functions for Node.js are useful only for UI
 canaries.
@@ -1439,9 +1421,7 @@ an instance of `ScreenshotResult` that was returned by the Synthetics function
 - `pageUrl` (optional)
 - `error` (optional)
 
-## Node.js library classes and functions that
-
-apply to API canaries only
+## Node.js library classes and functions that apply to API canaries only
 
 The following CloudWatch Synthetics library functions for Node.js are useful only for API
 canaries.
@@ -1471,8 +1451,7 @@ summary includes details about each HTTP request, such as the following:
 ###### Topics
 
 - [Parameters](#CloudWatch_Synthetics_Library_executeHttpStep_parameters "#CloudWatch_Synthetics_Library_executeHttpStep_parameters")
-- [Examples
-  of using executeHttpStep](#CloudWatch_Synthetics_Library_executeHttpStep_examples "#CloudWatch_Synthetics_Library_executeHttpStep_examples")
+- [Examples of using executeHttpStep](#CloudWatch_Synthetics_Library_executeHttpStep_examples "#CloudWatch_Synthetics_Library_executeHttpStep_examples")
 
 #### Parameters
 
@@ -1502,9 +1481,7 @@ is of the type [Class: http.IncomingMessage](https://nodejs.org/api/http.html#ht
 (Optional) Use this parameter to override global synthetics configurations with a
 different configuration for this step.
 
-#### Examples
-
-of using executeHttpStep
+#### Examples of using executeHttpStep
 
 The following series of examples build on each other to illustrate the various uses
 of this option.

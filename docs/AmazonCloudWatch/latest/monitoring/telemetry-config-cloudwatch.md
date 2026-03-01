@@ -1,6 +1,4 @@
-# Audit and turn on AWS telemetry related
-
-configurations
+# Audit and turn on AWS telemetry related configurations
 
 You can use Amazon CloudWatch to discover and audit the state of telemetry configuration and be able
 to create a rule to enable telemetry for popular AWS resource types from a central view in the
@@ -46,9 +44,7 @@ You are not charged for CIs that CloudWatch uses as part of the Internal Service
 
 ###### Topics
 
-- [Turning on telemetry auditing and
-  configuration](telemetry-config-turn-on.md "telemetry-config-turn-on.md")
-- [Viewing AWS resource telemetry in
-  CloudWatch](telemetry-config-view-resources.md "telemetry-config-view-resources.md")
+- [Turning on telemetry auditing and configuration](telemetry-config-turn-on.md "telemetry-config-turn-on.md")
+- [Viewing AWS resource telemetry in CloudWatch](telemetry-config-view-resources.md "telemetry-config-view-resources.md")
 - [Working with telemetry enablement rules](telemetry-config-rules.md "telemetry-config-rules.md")
 - [Turning off CloudWatch telemetry configuration](telemetry-config-turn-off.md "telemetry-config-turn-off.md")

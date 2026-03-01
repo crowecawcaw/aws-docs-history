@@ -1,10 +1,6 @@
-# Troubleshooting Metrics
+# Troubleshooting Metrics Insights
 
-Insights
-
-## The
-
-results include "Other," but I don't have this as a dimension
+## The results include "Other," but I don't have this as a dimension
 
 This means that the query includes a **GROUP BY** clause that
 specifies a label key that is not used in some of the metrics that are returned by the
@@ -36,9 +32,7 @@ GROUP BY Operation, ServiceName
 This limits the returned results to only the metrics that have both the
 `Operation` and `ServiceName` dimensions.
 
-## The oldest timestamp
-
-in my graph has a lower metric value than the others
+## The oldest timestamp in my graph has a lower metric value than the others
 
 CloudWatch Metrics Insights supports up to two weeks of historical data. When you graph with a period
 larger than one minute, there could be cases where the oldest

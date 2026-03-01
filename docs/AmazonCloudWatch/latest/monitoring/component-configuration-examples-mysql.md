@@ -1,6 +1,4 @@
-# RDS MariaDB and RDS
-
-MySQL
+# RDS MariaDB and RDS MySQL
 
 The following example shows a component configuration in JSON format for RDS
 MariaDB and RDS MySQL.
