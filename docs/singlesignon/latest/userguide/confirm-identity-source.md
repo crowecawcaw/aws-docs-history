@@ -12,8 +12,7 @@ groups in the default Identity Center directory and make any assignments.
 If you are already managing users and groups in one identity source in IAM Identity Center, changing to a
 different identity source might remove all user and group assignments that you configured in
 IAM Identity Center. If this occurs, all users, including the administrative user in IAM Identity Center, will lose single
-sign-on access to their AWS accounts and applications. For more information, see [Considerations for changing
-your identity source](manage-your-identity-source-considerations.md "manage-your-identity-source-considerations.md").
+sign-on access to their AWS accounts and applications. For more information, see [Considerations for changing your identity source](manage-your-identity-source-considerations.md "manage-your-identity-source-considerations.md").
 
 **To confirm your identity source**
 
@@ -34,8 +33,7 @@ When you enable IAM Identity Center for the first time, it is automatically conf
 Identity Center directory as your default identity source. If you aren't already using
 another external identity provider, you can get started creating your users and groups, and
 assign their level of access to your AWS accounts and applications. For a tutorial on
-using this identity source, see [Configure user access with the default IAM Identity Center
-directory](quick-start-default-idc.md "quick-start-default-idc.md").
+using this identity source, see [Configure user access with the default IAM Identity Center directory](quick-start-default-idc.md "quick-start-default-idc.md").
 
 **Active Directory**
 
@@ -44,8 +42,7 @@ Directory Service or your self-managed directory in Active Directory (AD), we re
 that you connect that directory when you enable IAM Identity Center. Don't create any users and groups in
 the default Identity Center directory. IAM Identity Center uses the connection provided by the AWS Directory Service
 to synchronize user, group, and membership information from your source directory in Active
-Directory to the IAM Identity Center identity store. For more information, see [Microsoft AD
-directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
+Directory to the IAM Identity Center identity store. For more information, see [Microsoft AD directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
 
 ###### Note
 
@@ -75,5 +72,4 @@ use by external identity providers. For more information, see [Prompt users for 
 
 If you plan to replicate IAM Identity Center to additional Regions, you will need to
 configure an external identity provider. For more details including the
-prerequisites, see [Using IAM Identity Center across multiple
-AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
+prerequisites, see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").

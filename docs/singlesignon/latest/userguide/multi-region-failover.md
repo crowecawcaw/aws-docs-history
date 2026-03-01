@@ -11,8 +11,7 @@ AWS access portal in an additional Region.
 
 We recommend that you communicate the AWS access portal endpoints in additional Regions and
 the external IdP setup (such as bookmark apps for the additional Regions) to your workforce as
-soon as you complete the setup in [Replicate IAM Identity Center to an
-additional Region](replicate-to-additional-region.md "replicate-to-additional-region.md"). This will
+soon as you complete the setup in [Replicate IAM Identity Center to an additional Region](replicate-to-additional-region.md "replicate-to-additional-region.md"). This will
 enable them to be ready for failover to an additional Region if needed.
 
 Similarly, we recommend that AWS CLI users create [AWS CLI
@@ -29,9 +28,7 @@ break-glass access](../../../wellarchitected/latest/devops-guidance/ag.sad.md ".
 when the external IdP has a service disruption. [Set up emergency access to the AWS Management Console](emergency-access.md "emergency-access.md") is a
 similar option that avoids using IAM users, but it too depends on the external IdP.
 
-## AWS account access
-
-resiliency without multiple ACS URLs
+## AWS account access resiliency without multiple ACS URLs
 
 Some external identity providers (IdPs) don't support multiple assertion consumer service
 (ACS) URLs in their IAM Identity Center application. Multiple ACS URLs are a SAML feature that is required for direct sign-in to a specific Region in a multi-Region IAM Identity Center.

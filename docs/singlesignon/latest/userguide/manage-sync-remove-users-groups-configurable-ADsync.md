@@ -1,6 +1,4 @@
-# Remove users and
-
-groups from your sync scope
+# Remove users and groups from your sync scope
 
 For more information about what happens when you remove users and groups from your sync
 scope, see [How configurable AD sync works](how-it-works-configurable-ADsync.md "how-it-works-configurable-ADsync.md").

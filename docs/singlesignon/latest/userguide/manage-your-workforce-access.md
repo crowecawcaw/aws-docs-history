@@ -16,7 +16,6 @@ environment:
 
 - [Understanding authentication sessions in IAM Identity Center](authconcept.md "authconcept.md")
 - [Configure the session duration in IAM Identity Center](configure-user-session.md "configure-user-session.md")
-- [Disable user access to AWS accounts and
-  applications in IAM Identity Center](disableuser.md "disableuser.md")
+- [Disable user access to AWS accounts and applications in IAM Identity Center](disableuser.md "disableuser.md")
 - [Deny user access with Service Control Policies](authconcept-revoke-access.md "authconcept-revoke-access.md")
 - [Managing access for users in the Identity Center directory](managing-workforce-access-identity-center-directory.md "managing-workforce-access-identity-center-directory.md")

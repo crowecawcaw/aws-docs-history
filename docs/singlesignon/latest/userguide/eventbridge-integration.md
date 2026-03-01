@@ -1,6 +1,4 @@
-# Connect application components with
-
-Amazon EventBridge
+# Connect application components with Amazon EventBridge
 
 You can integrate IAM Identity Center with [Amazon EventBridge](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md") to raise events that
 initiate administrative notifications or invoke automated workflows in response to specific

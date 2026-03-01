@@ -2,8 +2,7 @@
 
 The following procedure describes how to change from a directory that IAM Identity Center provides (the
 default Identity Center directory) to Active Directory or an external identity provider, or the
-other way around. Before you proceed, review the information in [Considerations for changing
-your identity source](manage-your-identity-source-considerations.md "manage-your-identity-source-considerations.md"). To complete this procedure, you'll need an Organization instance of IAM Identity Center.
+other way around. Before you proceed, review the information in [Considerations for changing your identity source](manage-your-identity-source-considerations.md "manage-your-identity-source-considerations.md"). To complete this procedure, you'll need an Organization instance of IAM Identity Center.
 For more information, see [Organization and account instances of IAM Identity Center](identity-center-instances.md "identity-center-instances.md").
 
 ###### Warning
@@ -12,8 +11,7 @@ Depending on your current deployment, this change removes any user and group ass
 that you configured in IAM Identity Center. This change will also remove permission set IAM roles from
 your AWS accounts. As a result, you may need to update your resource policies, and should
 ensure this will not disrupt your access to AWS KMS keys and Amazon EKS clusters. To learn more, see
-[Referencing permission sets in resource
-policies, Amazon EKS Cluster config maps, and AWS KMS key policies](referencingpermissionsets.md "referencingpermissionsets.md").
+[Referencing permission sets in resource policies, Amazon EKS Cluster config maps, and AWS KMS key policies](referencingpermissionsets.md "referencingpermissionsets.md").
 
 When this occurs, all users and groups, including the administrative user in IAM Identity Center, will
 lose single sign-on access to their AWS accounts and applications.
@@ -42,8 +40,7 @@ configured in IAM Identity Center.
 
 If you replicated IAM Identity Center to additional Regions, you won’t be able to change your identity source type. You can only replace the current external IdP
 with another one. To change the identity source type, you will need to remove all additional Regions first. For more information,
-see [Using IAM Identity Center across multiple
-AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md")
+see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md")
 
 If you are switching to an external identity provider, we recommend that you follow the
 steps in [How to connect to an external identity provider](how-to-connect-idp.md "how-to-connect-idp.md"). 5. After you read the disclaimer and are ready to proceed, type

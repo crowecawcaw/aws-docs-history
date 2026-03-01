@@ -1,6 +1,4 @@
-# Predefined permissions for
-
-AWS managed policies
+# Predefined permissions for AWS managed policies
 
 You can create a predefined permission set with AWS managed policies.
 

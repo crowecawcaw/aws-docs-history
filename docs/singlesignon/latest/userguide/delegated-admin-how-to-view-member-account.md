@@ -1,6 +1,4 @@
-# View which member
-
-account has been registered as the delegated administrator
+# View which member account has been registered as the delegated administrator
 
 Use the following procedure to find which member account in your AWS Organizations has been
 configured as the delegated administrator for IAM Identity Center.

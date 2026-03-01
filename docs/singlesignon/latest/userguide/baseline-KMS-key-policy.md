@@ -3,15 +3,12 @@
 The baseline KMS key and identity-based policies provided here serve as a foundation for
 common requirements. We also recommend that you review [Advanced KMS key policy statements](advanced-kms-policy.md "advanced-kms-policy.md") that provide more granular access controls, such as
 ensuring the KMS key is accessible only to a specific IAM Identity Center instance or AWS
-managed application. Before using advanced KMS key policy statements, review the [Considerations for
-choosing baseline vs. advanced KMS key policy statements](considerations-for-customer-managed-kms-keys-advanced.md#kms-policy-considerations-advanced-vs-baseline "considerations-for-customer-managed-kms-keys-advanced.md#kms-policy-considerations-advanced-vs-baseline").
+managed application. Before using advanced KMS key policy statements, review the [Considerations for choosing baseline vs. advanced KMS key policy statements](considerations-for-customer-managed-kms-keys-advanced.md#kms-policy-considerations-advanced-vs-baseline "considerations-for-customer-managed-kms-keys-advanced.md#kms-policy-considerations-advanced-vs-baseline").
 
 The following sections provide baseline policy statements for each use case. Expand the
-sections that match your use cases, and copy the KMS key policy statements. Then, return to [Step 2: Prepare KMS key policy
-statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements").
+sections that match your use cases, and copy the KMS key policy statements. Then, return to [Step 2: Prepare KMS key policy statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements").
 
-Use the following KMS key policy statement template in [Step 2: Prepare KMS key policy
-statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements") to allow IAM Identity Center, its associated
+Use the following KMS key policy statement template in [Step 2: Prepare KMS key policy statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements") to allow IAM Identity Center, its associated
 Identity Store, and IAM Identity Center administrators to use the KMS key.
 
 - In the Principal element for administrator policy statements, specify the AWS
@@ -189,8 +186,7 @@ recreated permission sets. For an example implementation, see [Custom trust poli
 }
 ```
 
-Use the following IAM policy statement template in [Step 4: Configure IAM policies for
-cross-account use of the KMS key](identity-center-customer-managed-keys.md#configure-iam-policies-kms-key "identity-center-customer-managed-keys.md#configure-iam-policies-kms-key") to allow IAM Identity Center
+Use the following IAM policy statement template in [Step 4: Configure IAM policies for cross-account use of the KMS key](identity-center-customer-managed-keys.md#configure-iam-policies-kms-key "identity-center-customer-managed-keys.md#configure-iam-policies-kms-key") to allow IAM Identity Center
 administrators to use the KMS key.
 
 - Replace the example key ARN in the `Resource` element with your
@@ -232,8 +228,7 @@ Some AWS managed applications cannot be used with IAM Identity Center configured
 with a customer managed KMS key. For more information, see [AWS
 managed applications that work with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md").
 
-Use the following KMS key policy statement template in [Step 2: Prepare KMS key policy
-statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements") to allow both AWS managed
+Use the following KMS key policy statement template in [Step 2: Prepare KMS key policy statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements") to allow both AWS managed
 applications and their administrators to use the KMS key.
 
 - Insert your AWS Organizations ID in the PrincipalOrgID and SourceOrgId conditions. For
@@ -245,8 +240,7 @@ applications and their administrators to use the KMS key.
 
 You can restrict access to specific application administrators by replacing `*` with specific IAM principals. To protect against IAM role name changes when
 permission sets are recreated, use the approach in the [Custom trust policy example](referencingpermissionsets.md#custom-trust-policy-example "referencingpermissionsets.md#custom-trust-policy-example").
-For more information, see [Considerations for
-choosing baseline vs. advanced KMS key policy statements](considerations-for-customer-managed-kms-keys-advanced.md#kms-policy-considerations-advanced-vs-baseline "considerations-for-customer-managed-kms-keys-advanced.md#kms-policy-considerations-advanced-vs-baseline").
+For more information, see [Considerations for choosing baseline vs. advanced KMS key policy statements](considerations-for-customer-managed-kms-keys-advanced.md#kms-policy-considerations-advanced-vs-baseline "considerations-for-customer-managed-kms-keys-advanced.md#kms-policy-considerations-advanced-vs-baseline").
 KMS key policy statements
 
 ```
@@ -327,8 +321,7 @@ KMS key policy statements
 }
 ```
 
-Use the following IAM policy statement template in [Step 4: Configure IAM policies for
-cross-account use of the KMS key](identity-center-customer-managed-keys.md#configure-iam-policies-kms-key "identity-center-customer-managed-keys.md#configure-iam-policies-kms-key") to allow administrators of AWS
+Use the following IAM policy statement template in [Step 4: Configure IAM policies for cross-account use of the KMS key](identity-center-customer-managed-keys.md#configure-iam-policies-kms-key "identity-center-customer-managed-keys.md#configure-iam-policies-kms-key") to allow administrators of AWS
 managed applications to use the KMS key from a member account.
 
 - Replace the example ARN in the Resource element with your actual KMS key ARN.
@@ -360,8 +353,7 @@ managed applications to use the KMS key from a member account.
 }
 ```
 
-Use the following KMS key statement templates in [Step 2: Prepare KMS key policy
-statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements") to allow AWS Control Tower
+Use the following KMS key statement templates in [Step 2: Prepare KMS key policy statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements") to allow AWS Control Tower
 administrators to use the KMS key.
 
 - In the Principal element, specify the IAM principals used for access to the
@@ -420,8 +412,7 @@ administrators to use the KMS key.
 AWS Control Tower does not support delegated administration and, therefore, you don't need to
 configure an IAM policy for its administrators.
 
-Use the following KMS key policy statement template in [Step 2: Prepare KMS key policy
-statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements") to allow users of single sign-on
+Use the following KMS key policy statement template in [Step 2: Prepare KMS key policy statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements") to allow users of single sign-on
 (SSO) to Amazon EC2 instances to use the KMS key across accounts.
 
 - Specify the IAM principals used for access to IAM Identity Center in the
@@ -472,8 +463,7 @@ statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-state
 }
 ```
 
-Use the following IAM policy statement template in [Step 4: Configure IAM policies for
-cross-account use of the KMS key](identity-center-customer-managed-keys.md#configure-iam-policies-kms-key "identity-center-customer-managed-keys.md#configure-iam-policies-kms-key") to allow SSO to EC2 instances to use
+Use the following IAM policy statement template in [Step 4: Configure IAM policies for cross-account use of the KMS key](identity-center-customer-managed-keys.md#configure-iam-policies-kms-key "identity-center-customer-managed-keys.md#configure-iam-policies-kms-key") to allow SSO to EC2 instances to use
 the KMS key.
 
 Attach the IAM policy statement to the existing permission set in IAM Identity
@@ -506,8 +496,7 @@ Desktop Protocol connections](../../../systems-manager/latest/userguide/fleet-ma
 }
 ```
 
-Use the following KMS key policy statement templates in [Step 2: Prepare KMS key policy
-statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements") to allow custom workflows, such as
+Use the following KMS key policy statement templates in [Step 2: Prepare KMS key policy statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements") to allow custom workflows, such as
 customer managed applications, in the AWS Organizations management account or delegated
 administration account to use the KMS key. Note that SAML federation into customer
 managed applications does not require KMS key permissions.
@@ -561,8 +550,7 @@ managed applications does not require KMS key permissions.
 }
 ```
 
-Use the following IAM policy statement template in [Step 4: Configure IAM policies for
-cross-account use of the KMS key](identity-center-customer-managed-keys.md#configure-iam-policies-kms-key "identity-center-customer-managed-keys.md#configure-iam-policies-kms-key") to allow the IAM principal
+Use the following IAM policy statement template in [Step 4: Configure IAM policies for cross-account use of the KMS key](identity-center-customer-managed-keys.md#configure-iam-policies-kms-key "identity-center-customer-managed-keys.md#configure-iam-policies-kms-key") to allow the IAM principal
 associated with the custom workflow to use the KMS key across accounts. Add the IAM
 policy statement to the IAM principal.
 
@@ -590,13 +578,9 @@ policy statement to the IAM principal.
 }
 ```
 
-## Examples of KMS key policy
+## Examples of KMS key policy statements for common use cases
 
-statements for common use cases
-
-### IAM Identity Center with delegated
-
-administrators and AWS managed applications
+### IAM Identity Center with delegated administrators and AWS managed applications
 
 This section contains example KMS key policy statements that you can use for an
 IAM Identity Center instance that has delegated administrators and AWS managed applications.
@@ -605,8 +589,7 @@ IAM Identity Center instance that has delegated administrators and AWS managed a
 
 The KMS key policy statements assume that your IAM Identity Center instance is not used in any
 other use cases that require KMS key permissions. To confirm, you can review all [use cases](identity-center-customer-managed-keys.md#identify-use-cases "identity-center-customer-managed-keys.md#identify-use-cases"). Also, to confirm if your AWS
-managed applications require additional configuration, see [Additional configuration in some
-AWS managed applications](identity-center-customer-managed-keys.md#additional-config-in-some-aws-apps "identity-center-customer-managed-keys.md#additional-config-in-some-aws-apps")
+managed applications require additional configuration, see [Additional configuration in some AWS managed applications](identity-center-customer-managed-keys.md#additional-config-in-some-aws-apps "identity-center-customer-managed-keys.md#additional-config-in-some-aws-apps")
 
 Copy the KMS key policy statements below the table and add them to your KMS key
 policy. This example uses the following example values:

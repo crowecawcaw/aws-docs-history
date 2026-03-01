@@ -21,7 +21,6 @@ the activation process you've established for your organization.
 
 ###### Topics
 
-- [Activating the AWS access portal for first-time IAM Identity Center
-  users](howtoactivateaccount.md "howtoactivateaccount.md")
+- [Activating the AWS access portal for first-time IAM Identity Center users](howtoactivateaccount.md "howtoactivateaccount.md")
 - [Customizing the AWS access portal URL](howtochangeURL.md "howtochangeURL.md")
 - [Confirm users can sign in to the AWS access portal](howtosigninprocedure.md "howtosigninprocedure.md")

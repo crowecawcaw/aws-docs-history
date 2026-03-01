@@ -1,6 +1,4 @@
-# Remove user and group access to an
-
-AWS account
+# Remove user and group access to an AWS account
 
 Use this procedure to remove single sign-on access to an AWS account for one or
 more users and groups in your connected directory. Alternatively, you can use the

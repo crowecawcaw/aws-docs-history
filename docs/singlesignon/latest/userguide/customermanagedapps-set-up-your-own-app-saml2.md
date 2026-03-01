@@ -1,6 +1,4 @@
-# Set up your own
-
-SAML 2.0 application
+# Set up your own SAML 2.0 application
 
 You can set up your own applications that allow identity federation using SAML
 2.0 and add them to IAM Identity Center. Most of the steps for setting up your own SAML 2.0
@@ -45,8 +43,7 @@ metadata exchange files so that you can finish setting up the trust.
 You will need these files later when you set up the custom
 application from the service provider's website. 10. (Optional) Under **Application
 properties**, you can also specify the **Application start URL**, **Relay state**, and **Session duration**.
-For more information, see [Understand application properties in the IAM Identity Center
-console](appproperties.md "appproperties.md"). 11. Under **Application metadata**, choose
+For more information, see [Understand application properties in the IAM Identity Center console](appproperties.md "appproperties.md"). 11. Under **Application metadata**, choose
 **Manually type your metadata values**. Then,
 provide the **Application ACS URL** and
 **Application SAML audience** values. 12. Choose **Submit**. You're taken to the

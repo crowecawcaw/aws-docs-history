@@ -1,6 +1,4 @@
-# Understand application properties in the IAM Identity Center
-
-console
+# Understand application properties in the IAM Identity Center console
 
 In IAM Identity Center you can customize the user experience by configuring the application start
 URL, relay state, and session duration.

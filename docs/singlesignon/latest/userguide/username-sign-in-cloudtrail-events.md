@@ -1,6 +1,4 @@
-# Username in sign-in CloudTrail
-
-events
+# Username in sign-in CloudTrail events
 
 IAM Identity Center emits the `UserName` field under the
 `additionalEventData` element once per successful sign-in of an IAM Identity Center user.

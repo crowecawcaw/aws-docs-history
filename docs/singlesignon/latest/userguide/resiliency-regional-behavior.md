@@ -4,8 +4,7 @@ The IAM Identity Center service is fully managed and uses highly available and d
 such as Amazon S3 and Amazon EC2. To ensure availability in the event of an availability zone disruption,
 IAM Identity Center operates across multiple availability zones. You can replicate your IAM Identity Center instance to
 additional Regions to maintain account access in the event of a Regional disruption. For more
-information, see [Using IAM Identity Center across multiple
-AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
+information, see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
 
 You enable IAM Identity Center in your AWS Organizations management account. This is required so that IAM Identity Center can
 provision, de-provision, and update roles across all your AWS accounts. When you enable IAM Identity Center,

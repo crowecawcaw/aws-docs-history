@@ -1,6 +1,4 @@
-# Setting up trusted identity
-
-propagation with SageMaker Studio
+# Setting up trusted identity propagation with SageMaker Studio
 
 The following procedure walks you through setting up SageMaker Studio for trusted identity
 propagation and user background sessions.
@@ -11,8 +9,7 @@ Before you can get started with this tutorial, you'll need to complete the follo
 
 1. [Enable IAM Identity Center](enable-identity-center.md "enable-identity-center.md"). An
    organization instance is required. For more
-   information, see [Prerequisites and
-   considerations](trustedidentitypropagation-overall-prerequisites.md "trustedidentitypropagation-overall-prerequisites.md").
+   information, see [Prerequisites and considerations](trustedidentitypropagation-overall-prerequisites.md "trustedidentitypropagation-overall-prerequisites.md").
 2. [Provision the users and groups from
    your source of identities into IAM Identity Center](tutorials.md "tutorials.md").
 3. [Confirm that user background sessions are enabled](user-background-sessions.md "user-background-sessions.md") in the IAM Identity Center console. By default, user background sessions are enabled and the session duration is set to 7 days. You can change this duration.
@@ -50,9 +47,7 @@ SageMaker Studio uses domains to organize user profiles, applications, and their
 
 2.  Proceed to [Step 2: Configure the default domain execution role](#setting-up-trusted-identity-propagation-sagemaker-studio-domain-execution-role "#setting-up-trusted-identity-propagation-sagemaker-studio-domain-execution-role"). This role is required for users of a SageMaker Studio domain to access other AWS services such as Amazon S3.
 
-## Step 2: Configure the default domain execution role and role trust
-
-policy
+## Step 2: Configure the default domain execution role and role trust policy
 
 A _domain execution role_ is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") that a SageMaker Studio domain assumes on behalf of all users in the domain. The permissions that you assign to this role determine what actions SageMaker Studio can perform.
 

@@ -1,6 +1,4 @@
-# Enable and configure attributes for access
-
-control
+# Enable and configure attributes for access control
 
 To use attribute-based access control (ABAC), you must first enable it in
 either the **Settings** page of the IAM Identity Center console
@@ -27,6 +25,5 @@ IAM Identity Center for mapping.
 ###### Topics
 
 - [Enable attributes for access control](enable-abac.md "enable-abac.md")
-- [Select your attributes for
-  access control](configure-abac-attributes.md "configure-abac-attributes.md")
+- [Select your attributes for access control](configure-abac-attributes.md "configure-abac-attributes.md")
 - [Disable attributes for access control](disable-abac.md "disable-abac.md")

@@ -1,6 +1,4 @@
-# Activating the AWS access portal for first-time IAM Identity Center
-
-users
+# Activating the AWS access portal for first-time IAM Identity Center users
 
 If this is your first time attempting to sign in to the AWS access portal, check your email for
 instructions on how to activate your user credentials.

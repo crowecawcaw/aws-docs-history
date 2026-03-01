@@ -1,6 +1,4 @@
-# Permit account instance creation in member
-
-accounts
+# Permit account instance creation in member accounts
 
 If you enabled IAM Identity Center before November 15, 2023, you have an [organization instance](organization-instances-identity-center.md "organization-instances-identity-center.md") of IAM Identity Center with
 the ability for member accounts to create

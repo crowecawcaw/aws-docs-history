@@ -1,6 +1,4 @@
-# Choose MFA types for user
-
-authentication
+# Choose MFA types for user authentication
 
 Use the following procedure to choose the device types your users can authenticate
 with when prompted for multi-factor authentication (MFA) in the AWS access portal.

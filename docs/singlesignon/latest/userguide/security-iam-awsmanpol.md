@@ -27,9 +27,7 @@ namespace will be updated on this page. When creating your custom IAM policies, 
 `*` after `identitystore-auth` because this applies to all actions
 that exist in the namespace today or in the future.
 
-## AWS managed
-
-policy: AWSSSOMasterAccountAdministrator
+## AWS managed policy: AWSSSOMasterAccountAdministrator
 
 The `AWSSSOMasterAccountAdministrator` policy provides required
 administrative actions to principals. The policy is intended for principals who perform the
@@ -59,8 +57,7 @@ This policy is grouped into statements based on the set of permissions provided.
   information, see [Configure access to AWS accounts](manage-your-accounts.md "manage-your-accounts.md").
 - `AWSSSOMemberAccountAdministrator` – Allows IAM Identity Center to perform
   account administrator actions in a multi-account AWS environment. For more
-  information, see [AWS managed
-  policy: AWSSSOMemberAccountAdministrator](#security-iam-awsmanpol-AWSSSOMemberAccountAdministrator "#security-iam-awsmanpol-AWSSSOMemberAccountAdministrator").
+  information, see [AWS managed policy: AWSSSOMemberAccountAdministrator](#security-iam-awsmanpol-AWSSSOMemberAccountAdministrator "#security-iam-awsmanpol-AWSSSOMemberAccountAdministrator").
 - `AWSSSOManageDelegatedAdministrator` – Allows IAM Identity Center to register
   and deregister a delegated administrator for your organization.
 - `AllowKMSKeyUseViaService` and `AllowKMSKeyDiscovery` – Allows AWS Key Management Service operations for customer managed keys used by IAM Identity Center instances.
@@ -68,17 +65,13 @@ This policy is grouped into statements based on the set of permissions provided.
 To view the permissions for this policy, see [AWSSSOMasterAccountAdministrator](../../../aws-managed-policy/latest/reference/AWSSSOMasterAccountAdministrator.md "../../../aws-managed-policy/latest/reference/AWSSSOMasterAccountAdministrator.md") in _AWS Managed Policy
 Reference_.
 
-### Additional information about
-
-this policy
+### Additional information about this policy
 
 When IAM Identity Center is enabled for the first time, the IAM Identity Center service creates a [service linked role](using-service-linked-roles.md "using-service-linked-roles.md") in the AWS Organizations management account (formerly master
 account) so that IAM Identity Center can manage the resources in your account. The actions required
 are `iam:CreateServiceLinkedRole` and `iam:PassRole`.
 
-## AWS managed
-
-policy: AWSSSOMemberAccountAdministrator
+## AWS managed policy: AWSSSOMemberAccountAdministrator
 
 The `AWSSSOMemberAccountAdministrator` policy provides required
 administrative actions to principals. The policy is intended for principals who perform the
@@ -160,9 +153,7 @@ resources (accounts) for basic IAM Identity Center administrative tasks such as 
 For more information about using a delegated administrator with IAM Identity Center, see [Delegated administration](delegated-admin.md "delegated-admin.md"). For more information
 about how these permissions are used with AWS Organizations, see [Using AWS Organizations with other AWS services](../../../organizations/latest/userguide/orgs_integrate_services.md "../../../organizations/latest/userguide/orgs_integrate_services.md").
 
-## AWS managed policy:
-
-AWSSSODirectoryAdministrator
+## AWS managed policy: AWSSSODirectoryAdministrator
 
 You can attach the `AWSSSODirectoryAdministrator` policy to your IAM
 identities.
@@ -186,9 +177,7 @@ This policy includes the following permissions:
 To view the permissions for this policy, see [AWSSSODirectoryAdministrator](../../../aws-managed-policy/latest/reference/AWSSSODirectoryAdministrator.md "../../../aws-managed-policy/latest/reference/AWSSSODirectoryAdministrator.md") in _AWS Managed Policy
 Reference_.
 
-## AWS managed policy:
-
-AWSSSOReadOnly
+## AWS managed policy: AWSSSOReadOnly
 
 You can attach the `AWSSSOReadOnly` policy to your IAM identities.
 
@@ -203,9 +192,7 @@ This policy also includes AWS Key Management Service permissions required for IA
 To view the permissions for this policy, see [AWSSSOReadOnly](../../../aws-managed-policy/latest/reference/AWSSSOReadOnly.md "../../../aws-managed-policy/latest/reference/AWSSSOReadOnly.md") in
 _AWS Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSSSODirectoryReadOnly
+## AWS managed policy: AWSSSODirectoryReadOnly
 
 You can attach the `AWSSSODirectoryReadOnly` policy to your IAM
 identities.
@@ -221,9 +208,7 @@ This policy also includes AWS Key Management Service permissions required for IA
 To view the permissions for this policy, see [AWSSSODirectoryReadOnly](../../../aws-managed-policy/latest/reference/AWSSSODirectoryReadOnly.md "../../../aws-managed-policy/latest/reference/AWSSSODirectoryReadOnly.md") in _AWS Managed Policy
 Reference_.
 
-## AWS managed policy:
-
-AWSIdentitySyncFullAccess
+## AWS managed policy: AWSIdentitySyncFullAccess
 
 You can attach the `AWSIdentitySyncFullAccess` policy to your IAM
 identities.
@@ -237,9 +222,7 @@ delete sync filters, and start or stop synchronization.
 To view the permissions for this policy, see [AWSIdentitySyncFullAccess](../../../aws-managed-policy/latest/reference/AWSIdentitySyncFullAccess.md "../../../aws-managed-policy/latest/reference/AWSIdentitySyncFullAccess.md") in _AWS Managed Policy
 Reference_.
 
-## AWS managed
-
-policy: AWSIdentitySyncReadOnlyAccess
+## AWS managed policy: AWSIdentitySyncReadOnlyAccess
 
 You can attach the `AWSIdentitySyncReadOnlyAccess` policy to your IAM
 identities.
@@ -253,9 +236,7 @@ profile or filter values.
 To view the permissions for this policy, see [AWSIdentitySyncReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSIdentitySyncReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSIdentitySyncReadOnlyAccess.md") in _AWS Managed Policy
 Reference_.
 
-## AWS managed policy:
-
-AWSSSOServiceRolePolicy
+## AWS managed policy: AWSSSOServiceRolePolicy
 
 You cannot attach the `AWSSSOServiceRolePolicy` policy to your IAM
 identities.
@@ -266,8 +247,7 @@ you enable IAM, a service-linked role is created in all of the AWS accounts with
 organization. IAM Identity Center also creates the same service-linked role in every account that is
 subsequently added to your organization. This role allows IAM Identity Center to access each account's
 resources on your behalf. Service-linked roles that are created in each AWS account are
-named `AWSServiceRoleForSSO`. For more information, see [Using service-linked roles for
-IAM Identity Center](using-service-linked-roles.md "using-service-linked-roles.md").
+named `AWSServiceRoleForSSO`. For more information, see [Using service-linked roles for IAM Identity Center](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ## AWS managed policy: AWSIAMIdentityCenterAllowListForIdentityContext
 
@@ -292,9 +272,7 @@ This policy provides access to manage IAM Identity Center users from an external
 To view the permissions for this policy, see [AWSIdentityCenterExternalManagementPolicy](../../../aws-managed-policy/latest/reference/AWSIdentityCenterExternalManagementPolicy.md "../../../aws-managed-policy/latest/reference/AWSIdentityCenterExternalManagementPolicy.md") in _AWS Managed Policy
 Reference_.
 
-## IAM Identity Center updates to AWS managed
-
-policies
+## IAM Identity Center updates to AWS managed policies
 
 The following table describes the updates to AWS managed policies for IAM Identity Center since this
 service began tracking these changes. For automatic alerts about changes to this page,

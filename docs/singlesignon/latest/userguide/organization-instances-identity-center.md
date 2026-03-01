@@ -9,9 +9,7 @@ If you enabled IAM Identity Center before November 15, 2023, you have an organiz
 
 To enable an organization instance of IAM Identity Center, see [To enable an instance of IAM Identity Center](enable-identity-center.md#to-enable-identity-center-instance "enable-identity-center.md#to-enable-identity-center-instance").
 
-## When to use an organization
-
-instance
+## When to use an organization instance
 
 An organization instance is the primary method of enabling IAM Identity Center and usually, an
 organization instance is recommended. Organization instances offer the following

@@ -1,6 +1,4 @@
-# Trusted identity propagation with
-
-Amazon Athena
+# Trusted identity propagation with Amazon Athena
 
 The steps to enable trusted identity propagation depend on whether your users
 interact with AWS managed applications or customer managed applications. The

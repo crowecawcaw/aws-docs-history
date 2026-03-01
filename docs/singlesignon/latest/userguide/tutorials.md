@@ -21,18 +21,14 @@ Before starting any of these tutorials, enable IAM Identity Center. For more inf
 ###### Topics
 
 - [Using Active Directory as an identity source](gs-ad.md "gs-ad.md")
-- [Setting up SCIM provisioning between CyberArk and
-  IAM Identity Center](cyberark-idp.md "cyberark-idp.md")
+- [Setting up SCIM provisioning between CyberArk and IAM Identity Center](cyberark-idp.md "cyberark-idp.md")
 - [Configure SAML and SCIM with Google Workspace and IAM Identity Center](gs-gwp.md "gs-gwp.md")
-- [Using IAM Identity Center to connect with your JumpCloud
-  Directory Platform](jumpcloud-idp.md "jumpcloud-idp.md")
+- [Using IAM Identity Center to connect with your JumpCloud Directory Platform](jumpcloud-idp.md "jumpcloud-idp.md")
 - [Configure SAML and SCIM with Microsoft Entra ID and IAM Identity Center](idp-microsoft-entra.md "idp-microsoft-entra.md")
 - [Configure SAML and SCIM with Okta and IAM Identity Center](gs-okta.md "gs-okta.md")
-- [Setting up SCIM provisioning between OneLogin and
-  IAM Identity Center](onelogin-idp.md "onelogin-idp.md")
+- [Setting up SCIM provisioning between OneLogin and IAM Identity Center](onelogin-idp.md "onelogin-idp.md")
 - [Using Ping Identity products with IAM Identity Center](pingidentity.md "pingidentity.md")
-- [Configure user access with the default IAM Identity Center
-  directory](quick-start-default-idc.md "quick-start-default-idc.md")
+- [Configure user access with the default IAM Identity Center directory](quick-start-default-idc.md "quick-start-default-idc.md")
 - [Video tutorials](#w2aac15c31 "#w2aac15c31")
 
 ## Video tutorials

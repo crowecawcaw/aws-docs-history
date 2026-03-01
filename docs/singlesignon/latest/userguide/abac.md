@@ -47,6 +47,5 @@ For information about how to configure ABAC using the IAM Identity Center consol
 
 ###### Topics
 
-- [Checklist: Configuring ABAC in AWS using
-  IAM Identity Center](abac-checklist.md "abac-checklist.md")
+- [Checklist: Configuring ABAC in AWS using IAM Identity Center](abac-checklist.md "abac-checklist.md")
 - [Attributes for access control](attributesforaccesscontrol.md "attributesforaccesscontrol.md")

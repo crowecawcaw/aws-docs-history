@@ -1,7 +1,7 @@
 # AWS managed applications
 
 AWS IAM Identity Center streamlines and simplifies the task of connecting your workforce users to
-AWS managed applications such as Kiro and Amazon Quick Suite. With IAM Identity Center, you can connect
+AWS managed applications such as Kiro and Amazon Quick. With IAM Identity Center, you can connect
 your existing identity provider once and synchronize users and groups from your
 directory, or create and manage your users directly in IAM Identity Center. By providing one point of
 federation, IAM Identity Center eliminates the need to set up federation or user and group
@@ -9,12 +9,9 @@ synchronization for each application and reduces your administrative effort. You
 get a common [view of user and group
 assignments](howtoviewandchangepermissionset.md "howtoviewandchangepermissionset.md").
 
-For a table of AWS applications that work with IAM Identity Center, see [AWS managed applications
-that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md").
+For a table of AWS applications that work with IAM Identity Center, see [AWS managed applications that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md").
 
-## Controlling access to AWS managed
-
-applications
+## Controlling access to AWS managed applications
 
 Access to AWS managed applications is controlled in two ways:
 
@@ -49,7 +46,7 @@ The application manages this through independent resource assignments
 that it controls.
 
 AWS managed applications provide an administrative user interface that you can
-use to manage access to application resources. For example, Quick Suite administrators
+use to manage access to application resources. For example, Quick administrators
 can assign users to access dashboards based on their group membership. Most AWS
 managed applications also provide an AWS Management Console experience that enables you to
 assign users to the application. The console experience for these applications might
@@ -58,9 +55,7 @@ to manage access to application resources.
 
 ## Sharing identity information
 
-### Considerations for sharing
-
-identity information in AWS accounts
+### Considerations for sharing identity information in AWS accounts
 
 IAM Identity Center supports most commonly used attributes across applications. These
 attributes include first and last name, phone number, email address, address,
@@ -85,9 +80,7 @@ Service control policies are a feature of AWS Organizations. For instructions on
 attaching an SCP, see [Attaching and detaching service control policies](../../../organizations/latest/userguide/orgs_manage_policies_scps_attach.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_attach.md") in the
 _AWS Organizations User Guide._
 
-### Configuring IAM Identity Center to share identity
-
-information
+### Configuring IAM Identity Center to share identity information
 
 IAM Identity Center provides an identity store that contains user and group attributes,
 excluding sign-in credentials. You can use either of the following methods to
@@ -102,8 +95,7 @@ keep the users and groups in your IAM Identity Center identity store updated:
   store:
 
       + **Active Directory** – For
-       more information, see [Microsoft AD
-       directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
+       more information, see [Microsoft AD directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
       + **External identity provider**
        – For more information, see [External identity providers](manage-your-identity-source-idp.md "manage-your-identity-source-idp.md").
 
@@ -119,9 +111,7 @@ up federation and identity provisioning with each application. This sharing
 feature also makes it easy to give your users access to many applications in
 different AWS accounts.
 
-## Constraining the use of AWS managed
-
-applications
+## Constraining the use of AWS managed applications
 
 When you first enable IAM Identity Center, it becomes available as an identity source for AWS
 managed applications across all accounts in your AWS Organizations. To constrain

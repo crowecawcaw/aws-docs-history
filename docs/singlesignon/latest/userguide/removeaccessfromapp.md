@@ -1,6 +1,4 @@
-# Remove user access to SAML 2.0
-
-applications
+# Remove user access to SAML 2.0 applications
 
 Use this procedure to remove user access to SAML 2.0 applications in the application
 catalog or custom SAML 2.0 applications. For more information on authentication sessions

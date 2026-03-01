@@ -20,13 +20,10 @@ more information, see [Identity-enhanced IAM role session logging](#trustedident
 
 ###### Topics
 
-- [Types of
-  identity-enhanced IAM role sessions](#types-identity-enhanced-iam-role-sessions "#types-identity-enhanced-iam-role-sessions")
+- [Types of identity-enhanced IAM role sessions](#types-identity-enhanced-iam-role-sessions "#types-identity-enhanced-iam-role-sessions")
 - [Identity-enhanced IAM role session logging](#trustedidentitypropagation-identity-enhanced-iam-role-session-logging "#trustedidentitypropagation-identity-enhanced-iam-role-session-logging")
 
-## Types of
-
-identity-enhanced IAM role sessions
+## Types of identity-enhanced IAM role sessions
 
 AWS STS can create two different types of identity-enhanced IAM role
 sessions, depending on the context assertion provided to the
@@ -36,9 +33,7 @@ or `sts:audit_context` (Supported for backward compatibility)
 to IAM role sessions. An identity-enhanced IAM role session can have
 only one of these context assertions, not both.
 
-### Identity-enhanced IAM role sessions created with
-
-`sts:identity_context`
+### Identity-enhanced IAM role sessions created with `sts:identity_context`
 
 When an identity-enhanced role session contains
 `sts:identity_context` the called AWS service
@@ -63,10 +58,7 @@ the value for `ProviderArn`.
 For more information on how the authorization behaves, see the
 documentation for the receiving AWS service.
 
-### Identity-enhanced
-
-IAM role sessions created with
-`sts:audit_context`
+### Identity-enhanced IAM role sessions created with `sts:audit_context`
 
 In the past, `sts:audit_context` was used to enable
 AWS services to log the user identity without using it to make an

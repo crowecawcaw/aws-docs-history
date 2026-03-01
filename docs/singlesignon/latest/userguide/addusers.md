@@ -130,5 +130,4 @@ operation, the users do not have passwords. You can update the settings in IAM I
 send these users a verification email after their first attempt to sign
 on so they can set up a password. If you do not enable this setting, you
 must generate a one-time password and share it with the user. For more
-information, see [Email one-time password to users created with API or
-CLI](userswithoutpwd.md "userswithoutpwd.md").
+information, see [Email one-time password to users created with API or CLI](userswithoutpwd.md "userswithoutpwd.md").

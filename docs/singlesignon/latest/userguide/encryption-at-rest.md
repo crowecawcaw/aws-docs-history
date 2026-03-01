@@ -26,8 +26,7 @@ types:
   - Adding tags
   - Creating key aliases
   - Scheduling keys for deletion
-    To learn how to implement a customer managed KMS key in IAM Identity Center see [Implementing customer managed KMS
-    keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md"). For more information about
+    To learn how to implement a customer managed KMS key in IAM Identity Center see [Implementing customer managed KMS keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md"). For more information about
     customer managed keys, see [customer
     managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the _AWS Key Management Service Developer Guide_.
 
@@ -49,8 +48,7 @@ pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing
 - **Use of IAM Identity Center across multiple AWS Regions**:
   If you plan to replicate your IAM Identity Center instance to additional AWS Regions, you will need to
   use a customer managed KMS key for encryption at rest. The default AWS owned KMS key
-  type is not supported in a multi-regional IAM Identity Center. For more information, see [Using IAM Identity Center across multiple
-  AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
+  type is not supported in a multi-regional IAM Identity Center. For more information, see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
 
 ###### Note
 
@@ -97,25 +95,18 @@ Store API](../IdentityStoreAPIReference/welcome.md "../IdentityStoreAPIReference
 
 ```
 
-## Using
-
-encryption context to control access to your customer
-managed key
+## Using encryption context to control access to your customer managed key
 
 You can use the encryption context in key policies and IAM policies as conditions to
 control access to your symmetric customer managed key. Some of the key policy templates in
 the [Advanced KMS key policy statements](advanced-kms-policy.md "advanced-kms-policy.md") include such
 conditions to ensure the key is used only with a specific IAM Identity Center instance.
 
-## Monitoring your
-
-encryption keys for IAM Identity
-Center
+## Monitoring your encryption keys for IAM Identity Center
 
 When you use a customer managed KMS key with your IAM Identity Center instance, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [Amazon
 CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track requests that IAM Identity Center sends to AWS KMS. The KMS API operations
-that IAM Identity Center calls are listed in [Step 2: Prepare KMS key policy
-statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements"). CloudTrail events for these API operations
+that IAM Identity Center calls are listed in [Step 2: Prepare KMS key policy statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements"). CloudTrail events for these API operations
 contain the encryption context, which enables you to monitor AWS KMS API operations called by
 your IAM Identity Center instance to access data encrypted by your customer managed key.
 
@@ -134,9 +125,7 @@ Example encryption context in a CloudTrail event of an AWS KMS API operation:
 
 ```
 
-## AWS managed applications’
-
-storage, encryption, and deletion of IAM Identity Center identity attributes
+## AWS managed applications’ storage, encryption, and deletion of IAM Identity Center identity attributes
 
 Some AWS managed applications that you deploy with AWS IAM Identity Center, such as AWS Systems
 Manager and Amazon CodeCatalyst, store specific user and group attributes from IAM Identity Center in

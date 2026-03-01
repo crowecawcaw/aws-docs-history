@@ -5,8 +5,7 @@ IAM Identity Center console. Administrators must have physical access to the use
 register it. For example, if you configure MFA for a user who will use an MFA device
 running on a smartphone, you'll need physical access to the smartphone to complete the
 registration process. Alternatively, you can allow users to configure and manage their
-own MFA devices. For more information, see [Allow users to register their own
-MFA devices](how-to-allow-user-registration.md "how-to-allow-user-registration.md").
+own MFA devices. For more information, see [Allow users to register their own MFA devices](how-to-allow-user-registration.md "how-to-allow-user-registration.md").
 
 ###### To register an MFA device
 

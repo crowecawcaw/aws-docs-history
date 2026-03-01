@@ -20,9 +20,7 @@ supported AWS managed application, verify the following use cases:
   account instances of IAM Identity Center. Work with your administrator add your account to the allow
   list.
 
-## You receive an error when you attempt to
-
-view the list of cloud applications that are preconfigured to work with IAM Identity Center
+## You receive an error when you attempt to view the list of cloud applications that are preconfigured to work with IAM Identity Center
 
 This following error occurs when you have a policy that allows
 `sso:ListApplications` but not other IAM Identity Center APIs. Update your policy to address
@@ -95,9 +93,7 @@ generates, use the following steps.
 Some browser configurations and operating systems may not support this procedure. This
 procedure has been tested on Windows 10 using Firefox, Chrome, and Edge browsers.
 
-## Specific users fail to synchronize into IAM Identity Center from an external SCIM
-
-provider
+## Specific users fail to synchronize into IAM Identity Center from an external SCIM provider
 
 If your Identity Provider (IdP) is configured to provision users into IAM Identity Center using SCIM
 synchronization, you may encounter synchronization failures during the user provisioning
@@ -161,9 +157,7 @@ The following are a couple of common reasons for this error:
       the `userName` attribute in SCIM for provisioning to IAM Identity Center will be correct
       and sufficient for most implementations.
 
-## Duplicate user or group error when provisioning
-
-users or groups with an external identity provider
+## Duplicate user or group error when provisioning users or groups with an external identity provider
 
 If you experience IAM Identity Center synchronization issues when provisioning users or groups in an
 external identity provider (IdP), it could be due to your external IdP users or groups not
@@ -214,14 +208,11 @@ portal using either their plain user name, their down-level logon name (DOMAIN\U
 their UPN logon name (`UserName@Corp.Example.com`). The exception to this is when
 IAM Identity Center is using a connected directory that has been enabled with MFA and the verification mode
 has been set to either **Context-aware** or **Always-on**. In this scenario, users must sign in with their down-level logon name
-(DOMAIN\UserName). For more information, see [MFA for Identity Center directory
-users](enable-mfa.md "enable-mfa.md"). For general information about user name formats used to sign
+(DOMAIN\UserName). For more information, see [MFA for Identity Center directory users](enable-mfa.md "enable-mfa.md"). For general information about user name formats used to sign
 in to Active Directory, see [User Name
 Formats](https://docs.microsoft.com/en-us/windows/desktop/secauthn/user-name-formats "https://docs.microsoft.com/en-us/windows/desktop/secauthn/user-name-formats") on the Microsoft documentation website.
 
-## I get a ‘Cannot perform the operation on the protected role' error
-
-when modifying an IAM role
+## I get a ‘Cannot perform the operation on the protected role' error when modifying an IAM role
 
 When reviewing IAM Roles in an account, you may notice role names beginning with
 ‘AWSReservedSSO\_’. These are the roles which the IAM Identity Center service has created in the account, and
@@ -240,8 +231,7 @@ accounts that it is assigned to.
 
 When a directory user resets their password using the **Forgot
 Password?** option during sign-in of the AWS access portal, their new password must
-adhere to the default password policy as described in [Password requirements when managing identities
-in IAM Identity Center](password-requirements.md "password-requirements.md").
+adhere to the default password policy as described in [Password requirements when managing identities in IAM Identity Center](password-requirements.md "password-requirements.md").
 
 If a user enters a password that adheres to the policy and then receives the error
 `We couldn't update your password`, check to see if AWS CloudTrail recorded the
@@ -268,9 +258,7 @@ case.
 
 If the issue persists, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-## My user is referenced in a permission set but can’t access the
-
-assigned accounts or applications
+## My user is referenced in a permission set but can’t access the assigned accounts or applications
 
 This issue can occur if you’re using System for Cross-domain Identity Management (SCIM)
 for Automatic Provisioning with an external identity provider. Specifically, when a user, or
@@ -291,9 +279,7 @@ back again.
 You can also check to see if AWS CloudTrail recorded the failure by searching your CloudTrail logs for
 SCIM synchronization events that reference the name of the user or group in question.
 
-## I cannot get my application from the application catalog configured
-
-correctly
+## I cannot get my application from the application catalog configured correctly
 
 If you added an application from the application catalog in IAM Identity Center, be aware that each
 service provider provides their own detailed documentation. You can access this information
@@ -304,9 +290,7 @@ If the problem is related to setting up the trust between the service provider's
 application and IAM Identity Center, make sure to check the instruction manual for troubleshooting
 steps.
 
-## Error 'An unexpected error has occurred' when a user tries to sign in
-
-using an external identity provider
+## Error 'An unexpected error has occurred' when a user tries to sign in using an external identity provider
 
 This error may occur for multiple reasons, but one common reason is a mis-match between
 the user information carried in the SAML request, and the information for the user in
@@ -350,9 +334,7 @@ going to AWS CloudTrail and filtering on the event name
 This error may occur if the user enabling ABAC does not have the
 `iam:UpdateAssumeRolePolicy` permissions required to enable [Attributes for access control](attributesforaccesscontrol.md "attributesforaccesscontrol.md").
 
-## I get a 'Browser not supported' message when I attempt to register a
-
-device for MFA
+## I get a 'Browser not supported' message when I attempt to register a device for MFA
 
 WebAuthn is currently supported in Google Chrome, Mozilla Firefox, Microsoft Edge and
 Apple Safari web browsers, as well as Windows 10 and Android platforms. Some components of
@@ -363,9 +345,7 @@ that all supported methods are not supported. In these cases, please refer to [F
 Authentication (WebAuthn)](https://fidoalliance.org/fido2/fido2-web-authentication-webauthn/ "https://fidoalliance.org/fido2/fido2-web-authentication-webauthn/") for more information about browser/platform support. For
 more information about WebAuthn in IAM Identity Center, see [FIDO2 authenticators](mfa-types.md#mfa-types-fido2 "mfa-types.md#mfa-types-fido2").
 
-## Active Directory “Domain Users” group does not properly sync into
-
-IAM Identity Center
+## Active Directory “Domain Users” group does not properly sync into IAM Identity Center
 
 The Active Directory Domain Users group is the default “primary group” for AD user
 objects. Active Directory primary groups and their memberships cannot be read by IAM Identity Center. When
@@ -382,9 +362,7 @@ After the user account is provisioned to IAM Identity Center, this issue should 
 the account has been provisioned to IAM Identity Center. If not, check the provisioning logs in the external
 identity provider.
 
-## I get a 'An unexpected error has occurred' message when I attempt to
-
-register or sign in using an authenticator app
+## I get a 'An unexpected error has occurred' message when I attempt to register or sign in using an authenticator app
 
 Time-based one-time password (TOTP) systems, such as those used by IAM Identity Center in combination
 with code-based authenticator apps, rely on time synchronization between the client and the
@@ -421,9 +399,7 @@ All emails sent by the IAM Identity Center service will come from either the add
 system must be configured so that it accepts emails from these sender email addresses and
 doesn't handle them as junk or spam.
 
-## Error: You cannot delete/modify/remove/assign access to permission
-
-sets provisioned in the management account
+## Error: You cannot delete/modify/remove/assign access to permission sets provisioned in the management account
 
 This message indicates that the [Delegated administration](delegated-admin.md "delegated-admin.md") feature has been enabled and that the operation you
 previously attempted can only be successfully performed by someone who has management account

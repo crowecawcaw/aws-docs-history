@@ -1,6 +1,4 @@
-# Set up an application from the IAM Identity Center application
-
-catalog
+# Set up an application from the IAM Identity Center application catalog
 
 You can use the application catalog in the IAM Identity Center console to add many commonly
 used SAML 2.0 applications that work with IAM Identity Center. Examples include Salesforce,
@@ -51,8 +49,7 @@ from the service provider's website. Follow the instructions from
 that provider. 10. (Optional) Under **Application
 properties**, you can specify the **Application start URL**, **Relay
 state**, and **Session duration**. For
-more information, see [Understand application properties in the IAM Identity Center
-console](appproperties.md "appproperties.md"). 11. Under **Application metadata**, do one of
+more information, see [Understand application properties in the IAM Identity Center console](appproperties.md "appproperties.md"). 11. Under **Application metadata**, do one of
 the following:
 
     1. If you have a metadata file, choose **Upload

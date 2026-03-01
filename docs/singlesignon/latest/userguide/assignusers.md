@@ -4,8 +4,7 @@ Use the following procedure to assign single sign-on access to users and groups 
 your connected directory and use permission sets to determine their level of
 access.
 
-To check existing user and group access, see [View and change a permission
-set](howtoviewandchangepermissionset.md "howtoviewandchangepermissionset.md").
+To check existing user and group access, see [View and change a permission set](howtoviewandchangepermissionset.md "howtoviewandchangepermissionset.md").
 
 ###### Note
 

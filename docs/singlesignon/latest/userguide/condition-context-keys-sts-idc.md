@@ -1,6 +1,4 @@
-# AWS STS condition context keys for
-
-IAM Identity Center
+# AWS STS condition context keys for IAM Identity Center
 
 When a [principal](../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal "../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal") makes a [request](../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-request "../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-request") to AWS, AWS gathers the request
 information into a _request context_, which is used to evaluate and authorize the request. You can

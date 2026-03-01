@@ -11,8 +11,7 @@ supported external IdPs. There are step-by-step tutorials available for several 
 - [OneLogin](onelogin-idp.md "onelogin-idp.md")
 - [Ping Identity](pingidentity.md "pingidentity.md")
   For more information on the considerations for external IdPs that IAM Identity Center supports, see
-  [Using SAML and SCIM identity federation with external identity
-  providers](other-idps.md "other-idps.md").
+  [Using SAML and SCIM identity federation with external identity providers](other-idps.md "other-idps.md").
 
 The following procedure provides a general overview of the procedure that is used with all
 external identity providers.

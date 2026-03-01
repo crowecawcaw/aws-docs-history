@@ -1,6 +1,4 @@
-# Renaming and deleting MFA devices in
-
-IAM Identity Center
+# Renaming and deleting MFA devices in IAM Identity Center
 
 IAM Identity Center administrators can use the following procedures to rename or delete a user's MFA
 device.

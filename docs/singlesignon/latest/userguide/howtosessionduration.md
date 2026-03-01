@@ -1,6 +1,4 @@
-# Set session duration for
-
-AWS accounts
+# Set session duration for AWS accounts
 
 For each [permission set](permissionsetsconcept.md "permissionsetsconcept.md"), you can specify a session duration to control the
 length of time that a user can be signed in to an AWS account. When the

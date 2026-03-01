@@ -12,9 +12,7 @@ when the expiration date on the certificate approaches. The process of replacing
 older certificate with a newer one is referred to as _certificate
 rotation_.
 
-## Considerations before rotating a
-
-certificate
+## Considerations before rotating a certificate
 
 Before you start the process of rotating a certificate in IAM Identity Center, consider the
 following:

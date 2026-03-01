@@ -15,8 +15,7 @@ organizational preferences.
   access their email. For example, your users might use Microsoft
   365 in the AWS access portal to read their email. In this case, users
   will not be able to retrieve the verification code and would be unable to sign in
-  to the AWS access portal. For more information, see [Configure MFA device
-  enforcement](how-to-configure-mfa-device-enforcement.md "how-to-configure-mfa-device-enforcement.md").
+  to the AWS access portal. For more information, see [Configure MFA device enforcement](how-to-configure-mfa-device-enforcement.md "how-to-configure-mfa-device-enforcement.md").
 - If you are already using RADIUS MFA that you configured with Directory Service, you do not
   need to enable MFA within IAM Identity Center. MFA in IAM Identity Center is an alternative to RADIUS MFA
   for Microsoft Active Directory users of IAM Identity Center. For more
@@ -26,9 +25,6 @@ organizational preferences.
 ###### Topics
 
 - [Prompt users for MFA](mfa-getting-started.md "mfa-getting-started.md")
-- [Choose MFA types for user
-  authentication](how-to-configure-mfa-types.md "how-to-configure-mfa-types.md")
-- [Configure MFA device
-  enforcement](how-to-configure-mfa-device-enforcement.md "how-to-configure-mfa-device-enforcement.md")
-- [Allow users to register their own
-  MFA devices](how-to-allow-user-registration.md "how-to-allow-user-registration.md")
+- [Choose MFA types for user authentication](how-to-configure-mfa-types.md "how-to-configure-mfa-types.md")
+- [Configure MFA device enforcement](how-to-configure-mfa-device-enforcement.md "how-to-configure-mfa-device-enforcement.md")
+- [Allow users to register their own MFA devices](how-to-allow-user-registration.md "how-to-allow-user-registration.md")

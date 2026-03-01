@@ -5,8 +5,7 @@ AWS IAM Identity Center supports integration with [Security Assertion Markup Lan
 provisioning](provision-automatically.md "provision-automatically.md") (synchronization) of user and group information from Microsoft Entra ID (formerly
 known as Azure Active Directory or Azure AD) into IAM Identity Center using the
 [System for Cross-domain Identity
-Management (SCIM) 2.0](scim-profile-saml.md#scim-profile "scim-profile-saml.md#scim-profile") protocol. For more information, see [Using SAML and SCIM identity federation with external identity
-providers](other-idps.md "other-idps.md").
+Management (SCIM) 2.0](scim-profile-saml.md#scim-profile "scim-profile-saml.md#scim-profile") protocol. For more information, see [Using SAML and SCIM identity federation with external identity providers](other-idps.md "other-idps.md").
 
 **Objective**
 
@@ -32,8 +31,7 @@ your production environment using the SCIM v2 protocol.
 
 Automatic Provisioning
 
-Before you begin deploying SCIM, we recommend that you first review [Considerations for using automatic
-provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations").
+Before you begin deploying SCIM, we recommend that you first review [Considerations for using automatic provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations").
 
 Attributes for access control
 
@@ -481,9 +479,7 @@ Steps 1 through 3 helped you to successfully implement and test your SAML
 connection. Now, to complete the tutorial, we encourage you to move on to Step 4 to
 implement automatic provisioning.
 
-## Step 4: Configure and test your SCIM
-
-synchronization
+## Step 4: Configure and test your SCIM synchronization
 
 In this step, you will set up [automatic
 provisioning](provision-automatically.md "provision-automatically.md") (synchronization) of user information from Microsoft Entra ID into IAM Identity Center using the
@@ -641,9 +637,7 @@ You have successfully set up a SAML connection between Microsoft and AWS and
 have verified that automatic provisioning is working to keep everything in sync. Now
 you can apply what you've learned to more smoothly set up your production environment.
 
-## Step 5: Configure ABAC -
-
-_Optional_
+## Step 5: Configure ABAC - _Optional_
 
 Now that you have successfully configured SAML and SCIM, you can optionally choose to
 configure attribute-based access control (ABAC). ABAC is an authorization strategy that
@@ -662,8 +656,7 @@ attributes to IAM Identity Center through SAML assertions. You will then need to
 to manage access based on the attributes you passed from Microsoft Entra ID.
 
 Before you begin this procedure, you first need to enable the [Attributes for access control](attributesforaccesscontrol.md "attributesforaccesscontrol.md")
-feature. For more information about how to do this, see [Enable and configure attributes for access
-control](configure-abac.md "configure-abac.md").
+feature. For more information about how to do this, see [Enable and configure attributes for access control](configure-abac.md "configure-abac.md").
 
 1. In the [Microsoft Entra admin
    center](https://entra.microsoft.com/ "https://entra.microsoft.com/") console, navigate to **Identity > Applications > Enterprise
@@ -725,9 +718,7 @@ are not required to grant access to AWS applications.
 To complete this step, you'll need an Organization instance of IAM Identity Center. For more
 information, see [Organization and account instances of IAM Identity Center](identity-center-instances.md "identity-center-instances.md").
 
-### Step 1: IAM Identity Center: Grant Microsoft Entra ID users access to
-
-accounts
+### Step 1: IAM Identity Center: Grant Microsoft Entra ID users access to accounts
 
 1.  Return to the **IAM Identity Center** console. In the IAM Identity Center navigation pane,
     under **Multi-account permissions**, choose
@@ -783,9 +774,7 @@ accounts
     applied. When the user sign in they will have the option of choosing the
     `AdministratorAccess` role.
 
-### Step 2: Microsoft Entra ID: Confirm Microsoft Entra ID users access to
-
-AWS resources
+### Step 2: Microsoft Entra ID: Confirm Microsoft Entra ID users access to AWS resources
 
 1. Return to the **Microsoft Entra ID** console and navigate to your IAM Identity Center
    SAML-based Sign-on application.
@@ -797,15 +786,12 @@ AWS resources
    1. For a demo, see [Federate your existing
       IAM Identity Center instance with Microsoft Entra ID](https://youtu.be/iSCuTJNeN6c?si=29HSAK8DgBEhSVad "https://youtu.be/iSCuTJNeN6c?si=29HSAK8DgBEhSVad")
 
-## Microsoft Entra ID configuration for access to
-
-additional Regions of IAM Identity Center - Optional
+## Microsoft Entra ID configuration for access to additional Regions of IAM Identity Center - Optional
 
 If you replicated IAM Identity Center to additional Regions, you must update your identity provider
 configuration to enable access to AWS managed applications and AWS accounts through the
 additional Regions. The steps below guide you through the procedure. For more details about
-this topic including the prerequisites, see [Using IAM Identity Center across multiple
-AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
+this topic including the prerequisites, see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
 
 1. Retrieve ACS URLs for the additional regions from the IAM Identity Center console as outlined in [ACS endpoints in the primary and additional AWS Regions](multi-region-workforce-access.md#acs-endpoints "multi-region-workforce-access.md#acs-endpoints").
 2. In the [Microsoft Entra admin
@@ -830,18 +816,13 @@ AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-cent
 
 For general SCIM and SAML troubleshooting with Microsoft Entra ID, see the following sections:
 
-- [Synchronization issues with Microsoft Entra ID and
-  IAM Identity Center](#entra-scim-troubleshooting "#entra-scim-troubleshooting")
-- [Specific users fail to synchronize into IAM Identity Center from an external SCIM
-  provider](troubleshooting.md#issue2 "troubleshooting.md#issue2")
+- [Synchronization issues with Microsoft Entra ID and IAM Identity Center](#entra-scim-troubleshooting "#entra-scim-troubleshooting")
+- [Specific users fail to synchronize into IAM Identity Center from an external SCIM provider](troubleshooting.md#issue2 "troubleshooting.md#issue2")
 - [Issues regarding contents of SAML assertions created by IAM Identity Center](troubleshooting.md#issue1 "troubleshooting.md#issue1")
-- [Duplicate user or group error when provisioning
-  users or groups with an external identity provider](troubleshooting.md#duplicate-user-group-idp "troubleshooting.md#duplicate-user-group-idp")
+- [Duplicate user or group error when provisioning users or groups with an external identity provider](troubleshooting.md#duplicate-user-group-idp "troubleshooting.md#duplicate-user-group-idp")
 - [Additional resources](#entra-scim-troubleshooting-resources "#entra-scim-troubleshooting-resources")
 
-### Synchronization issues with Microsoft Entra ID and
-
-IAM Identity Center
+### Synchronization issues with Microsoft Entra ID and IAM Identity Center
 
 If you are experiencing issues with Microsoft Entra ID users not synchronizing to IAM Identity Center, it might be
 due to a syntax issue that IAM Identity Center has flagged when a new user is being added to IAM Identity Center. You

@@ -25,10 +25,8 @@ Enabling delegated administration provides the following benefits:
 - [Best practices](#delegated-admin-best-practices "#delegated-admin-best-practices")
 - [Prerequisites](#delegated-admin-prereqs "#delegated-admin-prereqs")
 - [Register a member account](delegated-admin-how-to-register.md "delegated-admin-how-to-register.md")
-- [Deregister a member
-  account](delegated-admin-how-to-deregister.md "delegated-admin-how-to-deregister.md")
-- [View which member
-  account has been registered as the delegated administrator](delegated-admin-how-to-view-member-account.md "delegated-admin-how-to-view-member-account.md")
+- [Deregister a member account](delegated-admin-how-to-deregister.md "delegated-admin-how-to-deregister.md")
+- [View which member account has been registered as the delegated administrator](delegated-admin-how-to-view-member-account.md "delegated-admin-how-to-view-member-account.md")
 
 ## Best practices
 
@@ -77,10 +75,7 @@ administration:
   management account as the delegated administrator won't have the necessary
   permissions to complete it.
 
-### Limit IAM Identity Center identity
-
-store actions in the delegated administration account with external identity
-sources
+### Limit IAM Identity Center identity store actions in the delegated administration account with external identity sources
 
 If you use an external identity source such as an IdP or Directory Service, you should
 implement policies that limit the identity store actions that an IAM Identity Center admin can
@@ -163,10 +158,7 @@ complete those tasks.
     }
 ```
 
-### Limit IAM Identity Center
-
-identity store actions in the delegated administration account for locally
-managed users
+### Limit IAM Identity Center identity store actions in the delegated administration account for locally managed users
 
 If you create your users and groups directly in IAM Identity Center, rather than using an
 external IdP or Directory Service, then you should take precautions for who can create
@@ -199,9 +191,7 @@ Secondly, it prevents the issuance of SCIM bearer tokens.
 
 ```
 
-### Segregate
-
-IAM Identity Center configuration management from PermissionSet management
+### Segregate IAM Identity Center configuration management from PermissionSet management
 
 Separate the administrative tasks including modification of external identity source, SCIM token management, session
 timeout configuration from the tasks to create, modify, and assign permission sets by creating distinct admin permission sets
@@ -223,10 +213,7 @@ to this API to allow the delegated administrator to complete those tasks.
 }
 ```
 
-### Use
-
-permission set tags and account lists to delegate administration of specific
-accounts
+### Use permission set tags and account lists to delegate administration of specific accounts
 
 You can create permissions sets that you assign to your IAM Identity Center administrators
 to delegate who can create permission sets, and who can assign which permission
@@ -252,6 +239,5 @@ have the following environment deployed:
 
 - AWS Organizations must be enabled and configured with at least one member account
   in addition to your default management account.
-- If your identity source is set to Active Directory, the [IAM Identity Center configurable AD
-  sync](provision-users-from-ad-configurable-ADsync.md "provision-users-from-ad-configurable-ADsync.md") feature
+- If your identity source is set to Active Directory, the [IAM Identity Center configurable AD sync](provision-users-from-ad-configurable-ADsync.md "provision-users-from-ad-configurable-ADsync.md") feature
   must be enabled.

@@ -1,6 +1,4 @@
-# Certificate expiration status
-
-indicators
+# Certificate expiration status indicators
 
 In the IAM Identity Center console, the **Applications** page displays status
 indicator icons in the properties of each application. These icons display in the

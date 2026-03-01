@@ -12,9 +12,6 @@ in those systems.
 
 ###### Topics
 
-- [Password requirements when managing identities
-  in IAM Identity Center](password-requirements.md "password-requirements.md")
-- [Email one-time password to users created with API or
-  CLI](userswithoutpwd.md "userswithoutpwd.md")
-- [Reset the IAM Identity Center user password for an end
-  user](reset-password-for-user.md "reset-password-for-user.md")
+- [Password requirements when managing identities in IAM Identity Center](password-requirements.md "password-requirements.md")
+- [Email one-time password to users created with API or CLI](userswithoutpwd.md "userswithoutpwd.md")
+- [Reset the IAM Identity Center user password for an end user](reset-password-for-user.md "reset-password-for-user.md")

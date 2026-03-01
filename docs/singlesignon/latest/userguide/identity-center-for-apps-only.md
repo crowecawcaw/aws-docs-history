@@ -1,6 +1,4 @@
-# Using IAM Identity Center for user access to applications
-
-only
+# Using IAM Identity Center for user access to applications only
 
 You can use IAM Identity Center for user access to applications such as Kiro, AWS accounts, or
 both. You can connect your existing identity provider and synchronize users and groups from

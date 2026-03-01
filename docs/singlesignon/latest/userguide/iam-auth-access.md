@@ -29,16 +29,11 @@ permissions to create an IAM Identity Center connected directory.
 
 ###### Note
 
-If your IAM Identity Center instance is configured with a customer managed KMS key, your IAM Identity Center administrators and other actors who need access to the KMS key will need additional permissions. Refer to [Implementing customer managed KMS
-keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md").
+If your IAM Identity Center instance is configured with a customer managed KMS key, your IAM Identity Center administrators and other actors who need access to the KMS key will need additional permissions. Refer to [Implementing customer managed KMS keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md").
 
 The following sections describe how to manage permissions for IAM Identity Center. We recommend that you read the overview first.
 
-- [Overview of managing access permissions to your
-  IAM Identity Center resources](iam-auth-access-overview.md "iam-auth-access-overview.md")
-- [Identity-based policy examples for
-  IAM Identity Center](iam-auth-access-using-id-policies.md "iam-auth-access-using-id-policies.md")
-- [Resource-based policy example for IAM Identity Center
-  IAM Identity Center](iam-auth-access-using-resource-based-policies.md "iam-auth-access-using-resource-based-policies.md")
-- [Using service-linked roles for
-  IAM Identity Center](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Overview of managing access permissions to your IAM Identity Center resources](iam-auth-access-overview.md "iam-auth-access-overview.md")
+- [Identity-based policy examples for IAM Identity Center](iam-auth-access-using-id-policies.md "iam-auth-access-using-id-policies.md")
+- [Resource-based policy example for IAM Identity Center IAM Identity Center](iam-auth-access-using-resource-based-policies.md "iam-auth-access-using-resource-based-policies.md")
+- [Using service-linked roles for IAM Identity Center](using-service-linked-roles.md "using-service-linked-roles.md")

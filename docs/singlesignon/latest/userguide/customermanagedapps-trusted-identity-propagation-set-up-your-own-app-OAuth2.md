@@ -1,6 +1,4 @@
-# Set up customer managed OAuth 2.0 applications for trusted identity
-
-propagation
+# Set up customer managed OAuth 2.0 applications for trusted identity propagation
 
 To set up a customer managed OAuth 2.0 application for trusted identity
 propagation, you must first add it to IAM Identity Center. Use the following procedure to add
@@ -89,8 +87,7 @@ AWS managed applications (receiving applications).
      1. Choose **Create trusted token
         issuer**.
      2. A new browser tab opens. Follow steps 5 through 8
-        in [How to add a trusted
-        token issuer to the IAM Identity Center console](setuptrustedtokenissuer.md#how-to-add-trustedtokenissuer "setuptrustedtokenissuer.md#how-to-add-trustedtokenissuer").
+        in [How to add a trusted token issuer to the IAM Identity Center console](setuptrustedtokenissuer.md#how-to-add-trustedtokenissuer "setuptrustedtokenissuer.md#how-to-add-trustedtokenissuer").
      3. After you complete these steps, return to the
         browser window that you are using for your
         application setup and select the trusted token
@@ -134,8 +131,7 @@ be taken on specific resources under specific conditions, also known as
 least-privilege permissions.
 
 This policy requires the [`CreateTokenWithIAM`](../OIDCAPIReference/API_CreateTokenWithIAM.md "../OIDCAPIReference/API_CreateTokenWithIAM.md")
-API action. For more information about this policy, and an example that you can adapt as required for your environment, see [Resource-based policy example for IAM Identity Center
-IAM Identity Center](iam-auth-access-using-resource-based-policies.md "iam-auth-access-using-resource-based-policies.md").
+API action. For more information about this policy, and an example that you can adapt as required for your environment, see [Resource-based policy example for IAM Identity Center IAM Identity Center](iam-auth-access-using-resource-based-policies.md "iam-auth-access-using-resource-based-policies.md").
 
 1. On the **Specify application credentials** page,
    do either of the following:
@@ -186,4 +182,4 @@ IAM Identity Center](iam-auth-access-using-resource-based-policies.md "iam-auth-
    customer managed application and access data in the trusted
    application.
 
-For more information, see [Specify trusted applications](trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.md "trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.md") .
+For more information, see [Specify trusted applications](trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.md "trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.md").

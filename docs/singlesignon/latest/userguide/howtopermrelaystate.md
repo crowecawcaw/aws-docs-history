@@ -1,6 +1,4 @@
-# Set relay state for quick access to the
-
-AWS Management Console
+# Set relay state for quick access to the AWS Management Console
 
 By default, when a user signs into the AWS access portal, chooses an account, and
 then chooses the role that AWS creates from the assigned permission set, IAM Identity Center

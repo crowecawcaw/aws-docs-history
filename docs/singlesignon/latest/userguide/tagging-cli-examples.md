@@ -69,9 +69,7 @@ commands:
 For the `--tag-keys` parameter, specify one or more tag keys, and
 do not include the tag values.
 
-## Applying tags when you create a
-
-permission set
+## Applying tags when you create a permission set
 
 Use the following commands to assign tags at the moment you create a permission
 set.

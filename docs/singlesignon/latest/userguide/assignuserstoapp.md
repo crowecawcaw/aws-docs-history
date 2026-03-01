@@ -1,6 +1,4 @@
-# Assign user access to applications in the IAM Identity Center
-
-console
+# Assign user access to applications in the IAM Identity Center console
 
 You can assign users single sign-on access to SAML 2.0 applications in the application
 catalog or to custom SAML 2.0 applications.

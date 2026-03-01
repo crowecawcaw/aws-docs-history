@@ -1,6 +1,4 @@
-# Example events for IAM Identity Center sign-in
-
-scenarios
+# Example events for IAM Identity Center sign-in scenarios
 
 The following examples illustrate the typical CloudTrail event sequences
 generated during various AWS sign-in scenarios. These examples serve as reference
@@ -10,20 +8,13 @@ functioning correctly.
 
 ###### Topics
 
-- [Successful sign-in when authenticating
-  with password only](#sign-in-events-examples-1 "#sign-in-events-examples-1")
-- [Successful sign-in when authenticating
-  with an external identity provider](#sign-in-events-examples-2 "#sign-in-events-examples-2")
-- [Successful sign-in when authenticating
-  with a password and a time-based one-time password (TOTP) authenticator app](#sign-in-events-examples-3 "#sign-in-events-examples-3")
-- [Successful sign-in when authenticating
-  with a password and forced MFA registration is required](#sign-in-events-examples-4 "#sign-in-events-examples-4")
-- [Failed sign-in due to incorrect password
-  authentication](#sign-in-events-examples-5 "#sign-in-events-examples-5")
+- [Successful sign-in when authenticating with password only](#sign-in-events-examples-1 "#sign-in-events-examples-1")
+- [Successful sign-in when authenticating with an external identity provider](#sign-in-events-examples-2 "#sign-in-events-examples-2")
+- [Successful sign-in when authenticating with a password and a time-based one-time password (TOTP) authenticator app](#sign-in-events-examples-3 "#sign-in-events-examples-3")
+- [Successful sign-in when authenticating with a password and forced MFA registration is required](#sign-in-events-examples-4 "#sign-in-events-examples-4")
+- [Failed sign-in due to incorrect password authentication](#sign-in-events-examples-5 "#sign-in-events-examples-5")
 
-## Successful sign-in when authenticating
-
-with password only
+## Successful sign-in when authenticating with password only
 
 The following sequence of events captures an example of a successful password only
 sign-in.
@@ -154,9 +145,7 @@ Only)**
 }
 ```
 
-## Successful sign-in when authenticating
-
-with an external identity provider
+## Successful sign-in when authenticating with an external identity provider
 
 The following sequence of events captures an example of a successful sign-in when
 authenticated through the SAML protocol using an external identity provider.
@@ -205,9 +194,7 @@ Provider)**
 }
 ```
 
-## Successful sign-in when authenticating
-
-with a password and a time-based one-time password (TOTP) authenticator app
+## Successful sign-in when authenticating with a password and a time-based one-time password (TOTP) authenticator app
 
 The following sequence of events captures an example where multi-factor
 authentication was required during sign-in and the user successfully signed in using a
@@ -422,9 +409,7 @@ TOTP)**
 }
 ```
 
-## Successful sign-in when authenticating
-
-with a password and forced MFA registration is required
+## Successful sign-in when authenticating with a password and forced MFA registration is required
 
 The following sequence of events demonstrates a successful password authentication where
 the user was required to register and successfully complete multi-factor
@@ -558,9 +543,7 @@ Required)**
 }
 ```
 
-## Failed sign-in due to incorrect password
-
-authentication
+## Failed sign-in due to incorrect password authentication
 
 The following sequence of events demonstrates an authentication attempt where the
 user successfully entered their username but failed the password verification

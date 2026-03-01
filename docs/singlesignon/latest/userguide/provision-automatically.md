@@ -10,8 +10,7 @@ in IAM Identity Center.
 
 ###### Topics
 
-- [Considerations for using automatic
-  provisioning](#auto-provisioning-considerations "#auto-provisioning-considerations")
+- [Considerations for using automatic provisioning](#auto-provisioning-considerations "#auto-provisioning-considerations")
 - [How to monitor access token expiry](#access-token-expiry "#access-token-expiry")
 - [Generate an access token](generate-token.md "generate-token.md")
 - [Enable automatic provisioning](how-to-with-scim.md "how-to-with-scim.md")
@@ -21,9 +20,7 @@ in IAM Identity Center.
 - [Audit and reconcile auto-provisioned resources](reconcile-auto-provisioning.md "reconcile-auto-provisioning.md")
 - [Manual provisioning](#provision-manually "#provision-manually")
 
-## Considerations for using automatic
-
-provisioning
+## Considerations for using automatic provisioning
 
 Before you begin deploying SCIM, we recommend that you first review the following
 important considerations about how it works with IAM Identity Center. For additional provisioning

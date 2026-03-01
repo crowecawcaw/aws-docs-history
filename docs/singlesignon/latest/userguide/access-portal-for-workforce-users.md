@@ -25,8 +25,7 @@ request additional access in the these situations:
 
 - [Signing in to the AWS access portal](howtosignin.md "howtosignin.md")
 - [Resetting your AWS access portal user password](resetpassword-accessportal.md "resetpassword-accessportal.md")
-- [Getting IAM Identity Center user credentials for the AWS CLI or AWS
-  SDKs](howtogetcredentials.md "howtogetcredentials.md")
+- [Getting IAM Identity Center user credentials for the AWS CLI or AWS SDKs](howtogetcredentials.md "howtogetcredentials.md")
 - [Creating shortcut links to AWS Management Console destinations](createshortcutlink.md "createshortcutlink.md")
 - [Registering your device for MFA](user-device-registration.md "user-device-registration.md")
 - [Viewing and ending your active session](end-user-how-to-end-active-sessions-accessportal.md "end-user-how-to-end-active-sessions-accessportal.md")

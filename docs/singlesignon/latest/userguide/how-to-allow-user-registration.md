@@ -1,6 +1,4 @@
-# Allow users to register their own
-
-MFA devices
+# Allow users to register their own MFA devices
 
 IAM Identity Center administrators can allow users to self-register their own MFA
 devices.

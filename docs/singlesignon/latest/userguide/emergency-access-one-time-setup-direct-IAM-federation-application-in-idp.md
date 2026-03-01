@@ -23,10 +23,7 @@ group by using your existing provisioning mechanism. 7. In the emergency access 
 the emergency access role to be assumed during a disruption. Following is an example
 statement for a custom **trust policy** that is attached
 to the `EmergencyAccess_Role1_RO` role. For an illustration, see the
-emergency account in the diagram under [How to design
-e
-mergency
-role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md") .
+emergency account in the diagram under [How to design e mergency role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md") .
 
 JSON
 
@@ -63,10 +60,7 @@ JSON
 
 8. The following is an example statement for a **permissions
    policy** that is attached to the `EmergencyAccess_Role1_RO`
-   role. For an illustration, see the emergency account in the diagram under [How to design
-   e
-   mergency
-   role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md") .
+   role. For an illustration, see the emergency account in the diagram under [How to design e mergency role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md") .
 
 JSON
 
@@ -88,10 +82,7 @@ JSON
 ```
 
 9. On the workload accounts, configure a custom trust policy. Following is an example statement for a **trust policy** that is attached to the `EmergencyAccess_RO` role. In this example, account `123456789012` is the emergency access account.
-   For an illustration, see workload account in the diagram under [How to design
-   e
-   mergency
-   role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md") .
+   For an illustration, see workload account in the diagram under [How to design e mergency role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md") .
 
 JSON
 

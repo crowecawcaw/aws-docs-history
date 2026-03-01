@@ -1,6 +1,4 @@
-# IAM Identity Center prerequisites and
-
-considerations
+# IAM Identity Center prerequisites and considerations
 
 You can use IAM Identity Center for access to AWS managed applications only, AWS accounts only, or
 both. If you are using IAM federation to manage access to AWS accounts, you can
@@ -19,14 +17,12 @@ support. Also, most AWS managed applications require IAM Identity Center to be a
 the same Region as the application. This can be achieved by co-locating them in the same Region,
 or when supported, by replicating the IAM Identity Center instance to the desired deployment Region of
 an AWS managed application. For more
-information, see [Considerations for choosing an
-AWS Region](identity-center-region-considerations.md "identity-center-region-considerations.md").
+information, see [Considerations for choosing an AWS Region](identity-center-region-considerations.md "identity-center-region-considerations.md").
 
 - Application access only
 
 You can use IAM Identity Center only for user access to applications such as Kiro, using
-your existing identity provider. For more information, see [Using IAM Identity Center for user access to applications
-only](identity-center-for-apps-only.md "identity-center-for-apps-only.md").
+your existing identity provider. For more information, see [Using IAM Identity Center for user access to applications only](identity-center-for-apps-only.md "identity-center-for-apps-only.md").
 
 ###### Note
 

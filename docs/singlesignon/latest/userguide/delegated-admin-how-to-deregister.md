@@ -1,6 +1,4 @@
-# Deregister a member
-
-account
+# Deregister a member account
 
 You can only deregister a member account while signed in with credentials from the
 management account.

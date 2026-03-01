@@ -1,6 +1,4 @@
-# Manage AWS accounts with permission
-
-sets
+# Manage AWS accounts with permission sets
 
 A permission set is a template that you create and maintain that defines a collection
 of one or more [IAM
@@ -75,8 +73,7 @@ the session. By default, the value for **Session
 duration**, which determines the length of time that a user can be
 signed into an AWS account before AWS signs the user out of the session,
 is set to one hour. You can specify a maximum value of 12 hours. For more
-information, see [Set session duration for
-AWS accounts](howtosessionduration.md "howtosessionduration.md").
+information, see [Set session duration for AWS accounts](howtosessionduration.md "howtosessionduration.md").
 
 - **You can also configure the AWS access portal
   session duration to control the length of time that a workforce user is
@@ -103,9 +100,7 @@ For information, see, [Assign user or group access to AWS accounts](assignusers.
 
 ###### Topics
 
-- [Predefined permissions for
-  AWS managed policies](permissionsetpredefined.md "permissionsetpredefined.md")
-- [Custom permissions for AWS managed and
-  customer managed policies](permissionsetcustom.md "permissionsetcustom.md")
+- [Predefined permissions for AWS managed policies](permissionsetpredefined.md "permissionsetpredefined.md")
+- [Custom permissions for AWS managed and customer managed policies](permissionsetcustom.md "permissionsetcustom.md")
 - [Create, manage, and delete permission sets](permissionsets.md "permissionsets.md")
 - [Configure permission set properties](permproperties.md "permproperties.md")

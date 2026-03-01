@@ -1,6 +1,4 @@
-# Pause and resume your
-
-sync
+# Pause and resume your sync
 
 Pausing your sync pauses all future sync cycles and prevents any changes that you make
 to users and groups in Active Directory from being reflected in IAM Identity Center. After you resume the

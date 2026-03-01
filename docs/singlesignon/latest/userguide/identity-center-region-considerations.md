@@ -1,6 +1,4 @@
-# Considerations for choosing an
-
-AWS Region
+# Considerations for choosing an AWS Region
 
 You can enable IAM Identity Center in a single, supported AWS Region of your choice and it is available to
 users globally. This global availability makes it easier for you to configure user access to
@@ -15,14 +13,12 @@ AWS Region.
   Region, you must enable it. For more information, see [Managing IAM Identity Center in an opt-in Region](regions.md#manually-enabled-regions "regions.md#manually-enabled-regions").
 - Replicating IAM Identity Center to additional Regions – If you
   plan to replicate IAM Identity Center to additional AWS Regions, you must choose a Region enabled by
-  default. For more information, see [Using IAM Identity Center across multiple
-  AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
+  default. For more information, see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
 - Choosing deployment Regions for AWS managed applications – AWS
   managed applications can operate only in the AWS Regions in which they are available. Many
   AWS managed applications can also operate only in a Region where IAM Identity Center is enabled or
   replicated to (primary or additional Region). To confirm if your IAM Identity Center instance supports
-  replication to additional Regions, see [Using IAM Identity Center across multiple
-  AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
+  replication to additional Regions, see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
   If replication is not an option, consider enabling IAM Identity Center in the Region where you plan to
   use AWS managed applications.
 - Digital sovereignty – Digital sovereignty regulations
@@ -41,5 +37,4 @@ AWS Region.
 
 - [IAM Identity Center Region data storage and operations](regions.md "regions.md")
 - [Switching AWS Regions](switching-regions.md "switching-regions.md")
-- [Disabling an AWS Region where IAM Identity Center is
-  enabled](disabling-region-with-identity-center.md "disabling-region-with-identity-center.md")
+- [Disabling an AWS Region where IAM Identity Center is enabled](disabling-region-with-identity-center.md "disabling-region-with-identity-center.md")

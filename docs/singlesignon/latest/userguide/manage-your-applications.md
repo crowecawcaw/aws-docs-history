@@ -25,16 +25,10 @@ your organization. For more information, see [Configure access to AWS accounts](
 
 - [AWS managed applications](awsapps.md "awsapps.md")
 - [Customer managed applications](customermanagedapps.md "customermanagedapps.md")
-- [Trusted identity propagation
-  overview](trustedidentitypropagation-overview.md "trustedidentitypropagation-overview.md")
-- [Setting up your own OAuth 2.0
-  application](trustedidentitypropagation-using-customermanagedapps-setup.md "trustedidentitypropagation-using-customermanagedapps-setup.md")
+- [Trusted identity propagation overview](trustedidentitypropagation-overview.md "trustedidentitypropagation-overview.md")
+- [Setting up your own OAuth 2.0 application](trustedidentitypropagation-using-customermanagedapps-setup.md "trustedidentitypropagation-using-customermanagedapps-setup.md")
 - [Rotate IAM Identity Center certificates](managecerts.md "managecerts.md")
-- [Understand application properties in the IAM Identity Center
-  console](appproperties.md "appproperties.md")
-- [Assign user access to applications in the IAM Identity Center
-  console](assignuserstoapp.md "assignuserstoapp.md")
-- [Remove user access to SAML 2.0
-  applications](removeaccessfromapp.md "removeaccessfromapp.md")
-- [Map attributes in your application to IAM Identity Center
-  attributes](mapawsssoattributestoapp.md "mapawsssoattributestoapp.md")
+- [Understand application properties in the IAM Identity Center console](appproperties.md "appproperties.md")
+- [Assign user access to applications in the IAM Identity Center console](assignuserstoapp.md "assignuserstoapp.md")
+- [Remove user access to SAML 2.0 applications](removeaccessfromapp.md "removeaccessfromapp.md")
+- [Map attributes in your application to IAM Identity Center attributes](mapawsssoattributestoapp.md "mapawsssoattributestoapp.md")

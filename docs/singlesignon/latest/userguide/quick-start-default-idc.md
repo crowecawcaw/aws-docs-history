@@ -1,6 +1,4 @@
-# Configure user access with the default IAM Identity Center
-
-directory
+# Configure user access with the default IAM Identity Center directory
 
 When you enable IAM Identity Center for the first time, it is automatically configured with an Identity Center
 directory as your default identity source, so you do not need to choose an identity source. If
@@ -211,8 +209,7 @@ Each permission set has two management methods you can use, either
     * **Access keys** - Provides credentials that you can use with
      the AWS CLI or and AWS SDK. Includes the information for using either short-term
      credentials that automatically refresh or short-term access keys. For more
-     information, see [Getting IAM Identity Center user credentials for the AWS CLI or AWS
-     SDKs](howtogetcredentials.md "howtogetcredentials.md").
+     information, see [Getting IAM Identity Center user credentials for the AWS CLI or AWS SDKs](howtogetcredentials.md "howtogetcredentials.md").
 
 4. Choose the **Role** link to sign in to the AWS Console Home.
    You are signed in and navigated to the AWS Console Home page. Explore the console and

@@ -14,16 +14,11 @@ credentials.
 
 ###### Topics
 
-- [Prerequisites and
-  considerations](#prereqs-and-considerations "#prereqs-and-considerations")
-- [How to enable
-  identity-enhanced-console sessions](#enable-identity-enhanced-sessions-q "#enable-identity-enhanced-sessions-q")
-- [How identity-enhanced console sessions
-  work](#how-identity-enhanced-sessions-work "#how-identity-enhanced-sessions-work")
+- [Prerequisites and considerations](#prereqs-and-considerations "#prereqs-and-considerations")
+- [How to enable identity-enhanced-console sessions](#enable-identity-enhanced-sessions-q "#enable-identity-enhanced-sessions-q")
+- [How identity-enhanced console sessions work](#how-identity-enhanced-sessions-work "#how-identity-enhanced-sessions-work")
 
-## Prerequisites and
-
-considerations
+## Prerequisites and considerations
 
 Before you enable identity-enhanced console sessions, review the following
 prerequisites and considerations:
@@ -59,9 +54,7 @@ subscriptions.
   identity-based policy. For information, see [Granting users permissions to use identity-enhanced console
   sessions](../../../IAM/latest/UserGuide/id_credentials_temp_control-access_sts-setcontext.md "../../../IAM/latest/UserGuide/id_credentials_temp_control-access_sts-setcontext.md").
 
-## How to enable
-
-identity-enhanced-console sessions
+## How to enable identity-enhanced-console sessions
 
 You can enable identity-enhanced console sessions in the Kiro console or in the
 IAM Identity Center console.
@@ -108,9 +101,7 @@ console.
    **Identity-enhanced sessions** is
    **Enabled**.
 
-## How identity-enhanced console sessions
-
-work
+## How identity-enhanced console sessions work
 
 IAM Identity Center enhances a user's current console session to include the active IAM Identity Center
 user's ID and the IAM Identity Center session ID.

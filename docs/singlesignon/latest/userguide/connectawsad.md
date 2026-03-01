@@ -23,5 +23,4 @@ source**.
 
 To specify a user in Active Directory as an administrative user in IAM Identity Center, you must
 first synchronize the user to whom you want to grant administrative permissions from
-Active Directory into IAM Identity Center. To do so, follow the steps in [Synchronize an administrative user into
-IAM Identity Center](get-started-connect-id-source-ad-idp-specify-user.md#sync-admin-user-from-ad "get-started-connect-id-source-ad-idp-specify-user.md#sync-admin-user-from-ad").
+Active Directory into IAM Identity Center. To do so, follow the steps in [Synchronize an administrative user into IAM Identity Center](get-started-connect-id-source-ad-idp-specify-user.md#sync-admin-user-from-ad "get-started-connect-id-source-ad-idp-specify-user.md#sync-admin-user-from-ad").

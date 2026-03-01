@@ -139,12 +139,10 @@ IAM Identity Center. For more information, see [Organization and account instanc
    appears in the IAM Identity Center console only, not the AWS access portal. 3. (Optional) Specify the value for **Session
    duration**. This value determines the length of
    time that a user can be logged on before the console logs them
-   out of their session. For more information, see [Set session duration for
-   AWS accounts](howtosessionduration.md "howtosessionduration.md"). 4. (Optional) Specify the value for **Relay
+   out of their session. For more information, see [Set session duration for AWS accounts](howtosessionduration.md "howtosessionduration.md"). 4. (Optional) Specify the value for **Relay
    state**. This value is used in the federation
    process to redirect users within the account. For more
-   information, see [Set relay state for quick access to the
-   AWS Management Console](howtopermrelaystate.md "howtopermrelaystate.md").
+   information, see [Set relay state for quick access to the AWS Management Console](howtopermrelaystate.md "howtopermrelaystate.md").
 
    ###### Note
 

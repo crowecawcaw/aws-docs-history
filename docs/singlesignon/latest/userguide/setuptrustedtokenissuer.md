@@ -1,6 +1,4 @@
-# Setting up a trusted token
-
-issuer
+# Setting up a trusted token issuer
 
 To enable trusted identity propagation for an application that
 authenticates externally to IAM Identity Center, one or more administrators must set up a
@@ -12,14 +10,10 @@ on behalf of their users to a receiving application (an AWS service).
 ###### Topics
 
 - [Coordinating administrative roles and responsibilities](#coordinating-administrative-roles-responsibilities "#coordinating-administrative-roles-responsibilities")
-- [Tasks for setting up a
-  trusted token issuer](#setuptrustedtokenissuer-tasks "#setuptrustedtokenissuer-tasks")
-- [How to add a trusted
-  token issuer to the IAM Identity Center console](#how-to-add-trustedtokenissuer "#how-to-add-trustedtokenissuer")
-- [How to view or edit
-  trusted token issuer settings in the IAM Identity Center console](#view-edit-trusted-token-issuers "#view-edit-trusted-token-issuers")
-- [Setup process and request flow for applications that use a trusted
-  token issuer](#setuptrustedtokenissuer-setup-process-request-flow "#setuptrustedtokenissuer-setup-process-request-flow")
+- [Tasks for setting up a trusted token issuer](#setuptrustedtokenissuer-tasks "#setuptrustedtokenissuer-tasks")
+- [How to add a trusted token issuer to the IAM Identity Center console](#how-to-add-trustedtokenissuer "#how-to-add-trustedtokenissuer")
+- [How to view or edit trusted token issuer settings in the IAM Identity Center console](#view-edit-trusted-token-issuers "#view-edit-trusted-token-issuers")
+- [Setup process and request flow for applications that use a trusted token issuer](#setuptrustedtokenissuer-setup-process-request-flow "#setuptrustedtokenissuer-setup-process-request-flow")
 
 ## Coordinating administrative roles and responsibilities
 
@@ -34,8 +28,7 @@ to set up a trusted token issuer and configure AWS service to use it.
 The application can be any AWS service that is integrated with
 IAM Identity Center and supports trusted identity propagation.
 
-For more information, see [Tasks for setting up a
-trusted token issuer](#setuptrustedtokenissuer-tasks "#setuptrustedtokenissuer-tasks").
+For more information, see [Tasks for setting up a trusted token issuer](#setuptrustedtokenissuer-tasks "#setuptrustedtokenissuer-tasks").
 
 | Role                                                 | Performs these tasks                                                                                                                                                                                                                                                                                                 | Coordinates with                                                                          |
 | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
@@ -43,9 +36,7 @@ trusted token issuer](#setuptrustedtokenissuer-tasks "#setuptrustedtokenissuer-t
 | External IdP (trusted token issuer)<br>administrator | Configures the external IdP to issue<br>tokens.<br>Helps set up the correct attribute mapping between<br>IAM Identity Center and the external IdP.<br>Provides the audience name (Aud claim) to the<br>AWS service administrator.                                                                                    | IAM Identity Center administrator<br>AWS service administrator                            |
 | AWS service administrator                            | Checks the AWS service console for the trusted<br>token issuer. The trusted token issuer will be<br>visible in the AWS service console after the IAM Identity Center<br>administrator adds it to the IAM Identity Center console.<br>Configures the AWS service to use the trusted<br>token issuer.                  | IAM Identity Center administrator<br>External IdP (trusted token issuer)<br>administrator |
 
-## Tasks for setting up a
-
-trusted token issuer
+## Tasks for setting up a trusted token issuer
 
 To set up a trusted token issuer, an IAM Identity Center administrator, external IdP
 (trusted token issuer) administrator, and application administrator must
@@ -92,9 +83,7 @@ token it issues to indicate that the token is intended for use
 by the AWS service. To obtain this value, contact the
 administrator for the trusted token issuer.
 
-## How to add a trusted
-
-token issuer to the IAM Identity Center console
+## How to add a trusted token issuer to the IAM Identity Center console
 
 In an organization that has multiple administrators, this task is
 performed by an IAM Identity Center administrator. If you are the IAM Identity Center administrator,
@@ -152,9 +141,7 @@ issuer in the applicable console to enable user access to the
 application from applications that are configured for trusted
 identity propagation.
 
-## How to view or edit
-
-trusted token issuer settings in the IAM Identity Center console
+## How to view or edit trusted token issuer settings in the IAM Identity Center console
 
 After you add a trusted token issuer to the IAM Identity Center console, you can
 view and edit the relevant settings.
@@ -166,9 +153,7 @@ access, we recommend that you coordinate with the administrators for any
 applications that are configured to use the trusted token issuer before
 you edit settings.
 
-###### To view or edit trusted token issuer settings in the IAM Identity Center
-
-console
+###### To view or edit trusted token issuer settings in the IAM Identity Center console
 
 1. Open the [IAM Identity Center
    console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon").
@@ -187,9 +172,7 @@ console
    box, you are prompted to confirm that you want to make changes.
    Choose **Confirm**.
 
-## Setup process and request flow for applications that use a trusted
-
-token issuer
+## Setup process and request flow for applications that use a trusted token issuer
 
 This section describes the setup process and request flow for
 applications that use a trusted token issuer for trusted identity
@@ -202,8 +185,7 @@ The following steps provide additional information about this
 process.
 
 1. Set up IAM Identity Center and the receiving AWS managed application to
-   use a trusted token issuer. For information, see [Tasks for setting up a
-   trusted token issuer](#setuptrustedtokenissuer-tasks "#setuptrustedtokenissuer-tasks").
+   use a trusted token issuer. For information, see [Tasks for setting up a trusted token issuer](#setuptrustedtokenissuer-tasks "#setuptrustedtokenissuer-tasks").
 2. The request flow begins when a user opens the requesting
    application.
 3. The requesting application requests a token from the trusted

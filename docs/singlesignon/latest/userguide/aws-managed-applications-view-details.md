@@ -1,6 +1,4 @@
-# Viewing and changing details
-
-about an AWS managed application
+# Viewing and changing details about an AWS managed application
 
 After you connect an AWS managed application to IAM Identity Center by using the console or
 APIs for the application, the application is registered with IAM Identity Center. After an
@@ -9,12 +7,9 @@ application in the IAM Identity Center console.
 
 Information about the application includes whether user and group assignments are
 required, and if applicable, assigned users and groups and trusted applications for
-identity propagation. For information about trusted identity propagation, see [Trusted identity propagation
-overview](trustedidentitypropagation-overview.md "trustedidentitypropagation-overview.md").
+identity propagation. For information about trusted identity propagation, see [Trusted identity propagation overview](trustedidentitypropagation-overview.md "trustedidentitypropagation-overview.md").
 
-###### To view and change information about an AWS managed application in the
-
-IAM Identity Center console
+###### To view and change information about an AWS managed application in the IAM Identity Center console
 
 1. Open the [IAM Identity Center
    console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon").

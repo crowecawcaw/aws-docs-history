@@ -29,17 +29,9 @@ understands what to do if IAM Identity Center is disrupted.
 ###### Topics
 
 - [Summary of emergency access configuration](emergency-access-implementation.md "emergency-access-implementation.md")
-- [How to
-  d
-  esign
-
-your critical operations roles](emergency-access-implementation-design.md "emergency-access-implementation-design.md")
-
+- [How to d esign your critical operations roles](emergency-access-implementation-design.md "emergency-access-implementation-design.md")
 - [How to plan your access model](emergency-access-planning.md "emergency-access-planning.md")
-- [How to design
-  e
-  mergency
-  role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md")
+- [How to design e mergency role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md")
 - [How to create your emergency access configuration](emergency-access-role-idp-group-creation-mapping-plan.md "emergency-access-role-idp-group-creation-mapping-plan.md")
 - [Emergency preparation tasks](emergency-access-prepare-configuration.md "emergency-access-prepare-configuration.md")
 - [Emergency failover process](emergency-access-failover-steps.md "emergency-access-failover-steps.md")

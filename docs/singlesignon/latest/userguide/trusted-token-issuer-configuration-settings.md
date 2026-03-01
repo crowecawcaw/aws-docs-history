@@ -1,21 +1,15 @@
-# Trusted token
-
-issuer configuration settings
+# Trusted token issuer configuration settings
 
 The following sections describe the settings required to set up and use a
 trusted token issuer.
 
 ###### Topics
 
-- [OIDC discovery endpoint
-  URL (issuer URL)](#oidc-discovery-endpoint-url "#oidc-discovery-endpoint-url")
-- [Attribute
-  mapping](#trusted-token-issuer-attribute-mappings "#trusted-token-issuer-attribute-mappings")
+- [OIDC discovery endpoint URL (issuer URL)](#oidc-discovery-endpoint-url "#oidc-discovery-endpoint-url")
+- [Attribute mapping](#trusted-token-issuer-attribute-mappings "#trusted-token-issuer-attribute-mappings")
 - [Aud claim](#trusted-token-issuer-aud-claim "#trusted-token-issuer-aud-claim")
 
-## OIDC discovery endpoint
-
-URL (issuer URL)
+## OIDC discovery endpoint URL (issuer URL)
 
 When you add a trusted token issuer to the IAM Identity Center console, you must
 specify the OIDC discovery endpoint URL. This URL is commonly referred
@@ -45,9 +39,7 @@ To find the URL, see the documentation for the OAuth 2.0 authorization
 server provider that you use to generate tokens for your application, or
 contact the provider directly for assistance.
 
-## Attribute
-
-mapping
+## Attribute mapping
 
 Attribute mappings enable IAM Identity Center to match the user that is represented
 in a token issued by a trusted token issuer to a single user in IAM Identity Center.

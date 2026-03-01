@@ -1,6 +1,4 @@
-# Custom permissions for AWS managed and
-
-customer managed policies
+# Custom permissions for AWS managed and customer managed policies
 
 You can create a permission set with **Custom permissions**,
 combining any of the AWS managed and customer managed policies that you have in

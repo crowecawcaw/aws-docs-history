@@ -17,12 +17,9 @@ the following:
 
 - [Enable IAM Identity Center](enable-identity-center.md "enable-identity-center.md").
   [Organization instance](organization-instances-identity-center.md "organization-instances-identity-center.md") is recommended. For more
-  information, see [Prerequisites and
-  considerations](trustedidentitypropagation-overall-prerequisites.md "trustedidentitypropagation-overall-prerequisites.md").
+  information, see [Prerequisites and considerations](trustedidentitypropagation-overall-prerequisites.md "trustedidentitypropagation-overall-prerequisites.md").
 
-## Steps to set up trusted identity
-
-propagation
+## Steps to set up trusted identity propagation
 
 1. **Integrate IAM Identity Center with AWS Lake Formation** following
    the guidance in [Connecting Lake Formation with IAM Identity Center](../../../lake-formation/latest/dg/connect-lf-identity-center.md "../../../lake-formation/latest/dg/connect-lf-identity-center.md").
@@ -168,9 +165,7 @@ WorkGroup).
     4. After creating the IAM role, select
      **Register location**.
 
-## Trusted identity propagation with
-
-Lake Formation across AWS accounts
+## Trusted identity propagation with Lake Formation across AWS accounts
 
 AWS Lake Formation supports using [AWS Resource Access Manager (RAM)](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md") to
 share tables across AWS accounts and it works with trusted identity

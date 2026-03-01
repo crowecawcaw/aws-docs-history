@@ -1,6 +1,4 @@
-# Add users and groups to
-
-your sync scope
+# Add users and groups to your sync scope
 
 ###### Note
 

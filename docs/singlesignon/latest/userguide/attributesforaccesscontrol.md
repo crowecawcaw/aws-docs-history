@@ -23,9 +23,7 @@ after you have selected your attributes you need to create or edit permission
 set policies. These policies must grant user identities access to AWS
 resources.
 
-### Choosing attributes when using
-
-IAM Identity Center as your identity source
+### Choosing attributes when using IAM Identity Center as your identity source
 
 When you configure IAM Identity Center as the identity source, you first add users and
 configure their attributes. Next, navigate to the **Attributes for
@@ -34,9 +32,7 @@ in policies. Finally, navigate to the **AWS accounts**
 page to create or edit permission sets to use the attributes for
 ABAC.
 
-### Choosing attributes when using
-
-AWS Managed Microsoft AD as your identity source
+### Choosing attributes when using AWS Managed Microsoft AD as your identity source
 
 When you configure IAM Identity Center with AWS Managed Microsoft AD as your identity source, you
 first map a set of attributes from Active Directory to user attributes in
@@ -46,12 +42,9 @@ ABAC configuration based on the existing set of SSO attributes mapped from
 Active Directory. Finally, author ABAC rules using the access control
 attributes in permission sets to grant user identities access to AWS
 resources. For a list of the default mappings for user attributes in IAM Identity Center
-to the user attributes in your AWS Managed Microsoft AD directory, see [Default mappings between IAM Identity Center and
-Microsoft AD](attributemappingsconcept.md#defaultattributemappings "attributemappingsconcept.md#defaultattributemappings").
+to the user attributes in your AWS Managed Microsoft AD directory, see [Default mappings between IAM Identity Center and Microsoft AD](attributemappingsconcept.md#defaultattributemappings "attributemappingsconcept.md#defaultattributemappings").
 
-### Choosing attributes when using an
-
-external identity provider as your identity source
+### Choosing attributes when using an external identity provider as your identity source
 
 When you configure IAM Identity Center with an external identity provider (IdP) as your
 identity source, there are two ways to use attributes for ABAC.
@@ -95,14 +88,11 @@ in access control decisions.
     and choose the attributes you want to use in policies.
 
 For a complete list of supported attributes for user attributes in IAM Identity Center to
-the user attributes in your external IdPs, see [Supported external identity provider
-attributes](attributemappingsconcept.md#supportedidpattributes "attributemappingsconcept.md#supportedidpattributes").
+the user attributes in your external IdPs, see [Supported external identity provider attributes](attributemappingsconcept.md#supportedidpattributes "attributemappingsconcept.md#supportedidpattributes").
 
 To get started with ABAC in IAM Identity Center, see the following topics.
 
 ###### Topics
 
-- [Enable and configure attributes for access
-  control](configure-abac.md "configure-abac.md")
-- [Create permission policies for ABAC in
-  IAM Identity Center](configure-abac-policies.md "configure-abac-policies.md")
+- [Enable and configure attributes for access control](configure-abac.md "configure-abac.md")
+- [Create permission policies for ABAC in IAM Identity Center](configure-abac-policies.md "configure-abac-policies.md")

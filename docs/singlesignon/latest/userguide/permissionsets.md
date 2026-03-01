@@ -3,8 +3,7 @@
 Permission sets define the level of access that users and groups have to an
 AWS account. Permission sets are stored in IAM Identity Center and can be provisioned to one or
 more AWS accounts. You can assign more than one permission set to a user. For more
-information about permission sets and how they are used in IAM Identity Center, see [Manage AWS accounts with permission
-sets](permissionsetsconcept.md "permissionsetsconcept.md").
+information about permission sets and how they are used in IAM Identity Center, see [Manage AWS accounts with permission sets](permissionsetsconcept.md "permissionsetsconcept.md").
 
 ###### Note
 
@@ -38,8 +37,7 @@ console and asked to sign in again. As a security best practice, we
 recommend that you do not set the session duration length longer than is
 needed to perform the role. By default, the value for **Session
 duration** is one hour. You can specify a maximum value of 12
-hours. For more information, see [Set session duration for
-AWS accounts](howtosessionduration.md "howtosessionduration.md").
+hours. For more information, see [Set session duration for AWS accounts](howtosessionduration.md "howtosessionduration.md").
 
 - **Limit workforce user portal session
   duration**
@@ -69,12 +67,8 @@ those permission sets.
 ###### Topics
 
 - [Create a permission set](howtocreatepermissionset.md "howtocreatepermissionset.md")
-- [View and change a permission
-  set](howtoviewandchangepermissionset.md "howtoviewandchangepermissionset.md")
-- [Delegate permission set
-  administration](permissionsetdelegation.md "permissionsetdelegation.md")
+- [View and change a permission set](howtoviewandchangepermissionset.md "howtoviewandchangepermissionset.md")
+- [Delegate permission set administration](permissionsetdelegation.md "permissionsetdelegation.md")
 - [Use IAM policies in permission sets](howtocmp.md "howtocmp.md")
-- [Remove permission sets in
-  IAM Identity Center](howtoremovepermissionset.md "howtoremovepermissionset.md")
-- [Delete permission sets in
-  IAM Identity Center](howtodeletepermissionset.md "howtodeletepermissionset.md")
+- [Remove permission sets in IAM Identity Center](howtoremovepermissionset.md "howtoremovepermissionset.md")
+- [Delete permission sets in IAM Identity Center](howtodeletepermissionset.md "howtodeletepermissionset.md")

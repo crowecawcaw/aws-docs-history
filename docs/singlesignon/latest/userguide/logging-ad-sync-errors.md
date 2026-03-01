@@ -1,6 +1,4 @@
-# Logging configurable AD sync
-
-errors
+# Logging configurable AD sync errors
 
 You can enable logging on your configurable Active Directory (AD) sync
 configurations to receive logs with information about errors that can occur during the sync
@@ -17,9 +15,7 @@ You are charged for logging. For more information, see [Vended Logs](https://aws
 [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/")
 page.
 
-## To enable configurable AD sync
-
-error logs
+## To enable configurable AD sync error logs
 
 1. Sign in to the [IAM Identity Center
    console](https://console.aws.amazon.com/singlesignon/ "https://console.aws.amazon.com/singlesignon/").
@@ -38,9 +34,7 @@ error logs
 
 5. Choose **Submit**.
 
-## To disable configurable AD
-
-sync error logs
+## To disable configurable AD sync error logs
 
 1. Sign in to the [IAM Identity Center
    console](https://console.aws.amazon.com/singlesignon/ "https://console.aws.amazon.com/singlesignon/").
@@ -51,9 +45,7 @@ sync error logs
 4. Choose **Remove** for the destination that you want to remove.
 5. Choose **Submit**.
 
-## Configurable AD sync error log
-
-fields
+## Configurable AD sync error log fields
 
 See the following list for possible error log fields.
 
@@ -96,9 +88,7 @@ The type of entity causing the error. The value can be `USER` or
 
 The timestamp when the error occurred.
 
-## Configurable AD sync error
-
-log examples
+## Configurable AD sync error log examples
 
 **Example 1: An error log for an expired password for an AD
 directory**

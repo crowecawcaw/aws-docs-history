@@ -34,18 +34,13 @@ scenarios applies:
 If you plan to use IAM Identity Center to support applications in multiple accounts, use an
 organization instance. Account instances do not support this use case.
 
-## AWS managed applications that support account
+## AWS managed applications that support account instances
 
-instances
-
-See [AWS managed applications
-that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md") to learn which AWS managed
+See [AWS managed applications that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md") to learn which AWS managed
 applications support account instances of IAM Identity Center. Verify the availability of account instance
 creation with your AWS managed application.
 
-## Availability constraints for
-
-member accounts
+## Availability constraints for member accounts
 
 To deploy account instances of IAM Identity Center in AWS Organizations member accounts, one of the following
 conditions must be true:
@@ -57,8 +52,7 @@ conditions must be true:
 - There is an organization instance of IAM Identity Center in your organization and the instance
   administrator manually enabled creation of account instances by member accounts in the
   organization (for organization instances created before November 15, 2023). For
-  instructions, see [Permit account instance creation in member
-  accounts](enable-account-instance-console.md "enable-account-instance-console.md").
+  instructions, see [Permit account instance creation in member accounts](enable-account-instance-console.md "enable-account-instance-console.md").
 
 After one of the preceding conditions is met, all of the following conditions must be
 true:
@@ -71,9 +65,7 @@ true:
 - You're working in an AWS Region where IAM Identity Center is available. For information about
   Regions, see [IAM Identity Center Region data storage and operations](regions.md "regions.md").
 
-## Account
-
-instance considerations
+## Account instance considerations
 
 An account instance is designed for specialized use cases, and offers a subset of
 features available to an organization instance. Consider the following before creating an

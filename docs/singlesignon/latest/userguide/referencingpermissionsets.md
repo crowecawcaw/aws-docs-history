@@ -1,6 +1,4 @@
-# Referencing permission sets in resource
-
-policies, Amazon EKS Cluster config maps, and AWS KMS key policies
+# Referencing permission sets in resource policies, Amazon EKS Cluster config maps, and AWS KMS key policies
 
 When you assign a permission set to an AWS account, IAM Identity Center creates a role with a name
 that begins with `AWSReservedSSO_`.
@@ -65,9 +63,7 @@ in your key policies. If you don’t have a backup IAM role with permissions to 
 the `aws-auth ConfigMap` or the AWS KMS key policy, contact Support to regain
 access to those resources.
 
-## Recommendations to avoid access
-
-disruptions
+## Recommendations to avoid access disruptions
 
 To avoid access disruptions due to changes in the ARN for a role that corresponds
 to a permission set, we recommend that you do the following.

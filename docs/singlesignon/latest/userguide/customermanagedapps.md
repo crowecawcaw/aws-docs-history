@@ -15,8 +15,7 @@ exclusively using SAML and are therefore categorized as customer managed applica
   Trusted identity propagation is built on the OAuth 2.0 Authorization Framework
   and includes an option for applications to exchange identity tokens that come
   from an external OAuth 2.0 authorization server for tokens issued by IAM Identity Center and
-  recognized by AWS services. For more information, see [Trusted identity
-  propagation use cases](trustedidentitypropagation-integrations.md "trustedidentitypropagation-integrations.md").
+  recognized by AWS services. For more information, see [Trusted identity propagation use cases](trustedidentitypropagation-integrations.md "trustedidentitypropagation-integrations.md").
 - If your application supports **SAML 2.0**, you can connect it
   to an [organization instance of
   IAM Identity Center](identity-center-instances.md "identity-center-instances.md"). You can use IAM Identity Center to assign access to your SAML 2.0
@@ -31,7 +30,5 @@ in the IAM Identity Center User Guide's [baseline KMS key policies](baseline-KMS
 
 ###### Topics
 
-- [Single sign-on access to SAML 2.0
-  and OAuth 2.0 applications](customermanagedapps-saml2-oauth2.md "customermanagedapps-saml2-oauth2.md")
-- [Setting up customer managed SAML
-  2.0 applications](customermanagedapps-saml2-setup.md "customermanagedapps-saml2-setup.md")
+- [Single sign-on access to SAML 2.0 and OAuth 2.0 applications](customermanagedapps-saml2-oauth2.md "customermanagedapps-saml2-oauth2.md")
+- [Setting up customer managed SAML 2.0 applications](customermanagedapps-saml2-setup.md "customermanagedapps-saml2-setup.md")

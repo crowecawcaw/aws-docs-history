@@ -8,17 +8,14 @@ desired destination URL in the AWS Management Console (for example, an Amazon S3
 multiple pages, including AWS access portal, you can use a shortcut link to get to the same
 destination automatically.
 
-## Shortcut link destination
-
-options
+## Shortcut link destination options
 
 Shortcut links have three destination options, listed here by priority:
 
 - (Optional) Any destination URL in the AWS Management Console specified in the shortcut link. For
   example, the Amazon S3 bucket instance page.
 - (Optional) Administrator-configured relay state URL for the permission set in
-  question. For more information about setting the relay state, see [Set relay state for quick access to the
-  AWS Management Console](howtopermrelaystate.md "howtopermrelaystate.md").
+  question. For more information about setting the relay state, see [Set relay state for quick access to the AWS Management Console](howtopermrelaystate.md "howtopermrelaystate.md").
 - AWS Management Console home. The default destination if you do not specify one.
 
 ###### Note
@@ -57,9 +54,7 @@ in the previous list), you can copy the URL to a clipboard to share it.
    access to the same account with the same permission set or another sufficient
    permission set.
 
-## Constructing secure AWS Management Console shortcut links
-
-with URL encoding
+## Constructing secure AWS Management Console shortcut links with URL encoding
 
 All parameter values of the URL, including the account ID, permission set name, and
 destination URL, must be URL-encoded.

@@ -14,8 +14,7 @@ from PingOne to IAM Identity Center using the SCIM protocol.
 
 ###### Note
 
-Before you begin deploying SCIM, we recommend that you first review the [Considerations for using automatic
-provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations"). Then continue reviewing additional
+Before you begin deploying SCIM, we recommend that you first review the [Considerations for using automatic provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations"). Then continue reviewing additional
 considerations in the next section.
 
 ###### Topics
@@ -23,12 +22,9 @@ considerations in the next section.
 - [Prerequisites](#pingone-prereqs "#pingone-prereqs")
 - [Considerations](#pingone-considerations "#pingone-considerations")
 - [Step 1: Enable provisioning in IAM Identity Center](#pingone-step1 "#pingone-step1")
-- [Step 2: Configure provisioning in
-  PingOne](#pingone-step2 "#pingone-step2")
-- [(Optional) Step 3: Configure user attributes in
-  PingOne for access control in IAM Identity Center](#pingone-step3 "#pingone-step3")
-- [(Optional) Passing attributes for access
-  control](#pingone-passing-abac "#pingone-passing-abac")
+- [Step 2: Configure provisioning in PingOne](#pingone-step2 "#pingone-step2")
+- [(Optional) Step 3: Configure user attributes in PingOne for access control in IAM Identity Center](#pingone-step3 "#pingone-step3")
+- [(Optional) Passing attributes for access control](#pingone-passing-abac "#pingone-passing-abac")
 - [Troubleshooting](#pingone-troubleshooting "#pingone-troubleshooting")
 
 ## Prerequisites
@@ -125,9 +121,7 @@ Now that you have set up provisioning in the IAM Identity Center console, you ne
 remaining tasks using the PingOne IAM Identity Center application. These steps are
 described in the following procedure.
 
-## Step 2: Configure provisioning in
-
-PingOne
+## Step 2: Configure provisioning in PingOne
 
 Use the following procedure in the PingOne IAM Identity Center application to
 enable provisioning with IAM Identity Center. This procedure assumes that you have already added the
@@ -175,9 +169,7 @@ Remember that PingOne does not support provisioning of groups or
 group memberships through SCIM. Contact Ping for more
 information.
 
-## (Optional) Step 3: Configure user attributes in
-
-PingOne for access control in IAM Identity Center
+## (Optional) Step 3: Configure user attributes in PingOne for access control in IAM Identity Center
 
 This is an optional procedure for PingOne if you choose to configure
 attributes for IAM Identity Center to manage access to your AWS resources. The attributes that you
@@ -186,12 +178,9 @@ a permission set in IAM Identity Center to manage access based on the attributes
 PingOne.
 
 Before you begin this procedure, you must first enable the [Attributes for access control](attributesforaccesscontrol.md "attributesforaccesscontrol.md")
-feature. For more information about how to do this, see [Enable and configure attributes for access
-control](configure-abac.md "configure-abac.md").
+feature. For more information about how to do this, see [Enable and configure attributes for access control](configure-abac.md "configure-abac.md").
 
-###### To configure user attributes in PingOne for access control in
-
-IAM Identity Center
+###### To configure user attributes in PingOne for access control in IAM Identity Center
 
 1. Open the PingOne IAM Identity Center application that you installed as part of
    configuring SAML for PingOne (**Applications > My
@@ -212,9 +201,7 @@ you are expecting in IAM Identity Center. For example,`https://aws.amazon.com/SA
 4. Choose **Next** a few times, and then choose
    **Finish**.
 
-## (Optional) Passing attributes for access
-
-control
+## (Optional) Passing attributes for access control
 
 You can optionally use the [Attributes for access control](attributesforaccesscontrol.md "attributesforaccesscontrol.md") feature in IAM Identity Center to pass an
 `Attribute` element with the `Name` attribute set to
@@ -242,11 +229,9 @@ element for each tag.
 
 For general SCIM and SAML troubleshooting with PingOne, see the following sections:
 
-- [Specific users fail to synchronize into IAM Identity Center from an external SCIM
-  provider](troubleshooting.md#issue2 "troubleshooting.md#issue2")
+- [Specific users fail to synchronize into IAM Identity Center from an external SCIM provider](troubleshooting.md#issue2 "troubleshooting.md#issue2")
 - [Issues regarding contents of SAML assertions created by IAM Identity Center](troubleshooting.md#issue1 "troubleshooting.md#issue1")
-- [Duplicate user or group error when provisioning
-  users or groups with an external identity provider](troubleshooting.md#duplicate-user-group-idp "troubleshooting.md#duplicate-user-group-idp")
+- [Duplicate user or group error when provisioning users or groups with an external identity provider](troubleshooting.md#duplicate-user-group-idp "troubleshooting.md#duplicate-user-group-idp")
 - For more information on PingOne, see [PingOne documentation](https://docs.pingidentity.com/pingone/p1_cloud__platform_main_landing_page.html "https://docs.pingidentity.com/pingone/p1_cloud__platform_main_landing_page.html").
 
 The following resources can help you troubleshoot as you work with AWS:

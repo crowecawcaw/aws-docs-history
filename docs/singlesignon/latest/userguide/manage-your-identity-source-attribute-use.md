@@ -1,6 +1,4 @@
-# Supported user and group attributes in
-
-IAM Identity Center
+# Supported user and group attributes in IAM Identity Center
 
 This guide provides a reference for SCIM attribute support in IAM Identity Center. It lists which user and group attributes from the SCIM
 specification are supported in the IAM Identity Center identity store, and identifies specific attributes and sub-attributes that aren't
@@ -13,10 +11,8 @@ provisioning.
 
 - For information about the System for Cross-Domain Identity Management (SCIM)
   specification, see [https://tools.ietf.org/html/rfc7642](https://tools.ietf.org/html/rfc7642 "https://tools.ietf.org/html/rfc7642").
-- For information about manual and automatic provisioning, see [Provisioning when users come from an external
-  IdP](manage-your-identity-source-idp.md#provisioning-when-external-idp "manage-your-identity-source-idp.md#provisioning-when-external-idp").
-- For information about attribute mapping, see [Attribute mappings between IAM Identity Center and External
-  Identity Providers directory](attributemappingsconcept.md "attributemappingsconcept.md").
+- For information about manual and automatic provisioning, see [Provisioning when users come from an external IdP](manage-your-identity-source-idp.md#provisioning-when-external-idp "manage-your-identity-source-idp.md#provisioning-when-external-idp").
+- For information about attribute mapping, see [Attribute mappings between IAM Identity Center and External Identity Providers directory](attributemappingsconcept.md "attributemappingsconcept.md").
   Because IAM Identity Center supports SCIM for automatic provisioning use cases, the Identity Center
   directory supports all of the same user and group attributes that are listed in the SCIM
   specification, with a few exceptions. The following sections describe which attributes

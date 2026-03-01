@@ -1,6 +1,4 @@
-# Connect a self-managed directory in Active Directory to
-
-IAM Identity Center
+# Connect a self-managed directory in Active Directory to IAM Identity Center
 
 Users in your self-managed directory in Active Directory (AD) can also have single sign-on
 access to AWS accounts and applications in the AWS access portal. To configure single sign-on

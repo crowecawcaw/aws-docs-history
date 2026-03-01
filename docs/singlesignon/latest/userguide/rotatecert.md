@@ -10,9 +10,7 @@ following:
   Use all of the following procedures in the following order to complete the
   certificate rotation process for a given application.
 
-## Step 1: Generate a new
-
-certificate
+## Step 1: Generate a new certificate
 
 New IAM Identity Center certificates that you generate can be configured to use the
 following properties:
@@ -46,9 +44,7 @@ following properties:
    dialog box, specify the appropriate values for **Validity period**, **Algorithm**, and **Key
    size**. Then choose **Generate**.
 
-## Step 2: Update the service
-
-provider's website
+## Step 2: Update the service provider's website
 
 Use the following procedure to reestablish the trust with the application's
 service provider.

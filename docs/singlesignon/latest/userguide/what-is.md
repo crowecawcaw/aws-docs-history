@@ -1,7 +1,7 @@
 # What is IAM Identity Center?
 
 AWS IAM Identity Center is the AWS solution for connecting your workforce users to AWS managed
-applications such as Kiro and Amazon Quick Suite, and other AWS resources. You can connect your
+applications such as Kiro and Amazon Quick, and other AWS resources. You can connect your
 existing identity provider and synchronize users and groups from your directory, or create and
 manage your users directly in IAM Identity Center. You can then use IAM Identity Center for either or both of the
 following:
@@ -28,14 +28,13 @@ with a common view of users and groups.
 **Trusted
 identity propagation across applications**
 
-With trusted identity propagation, AWS managed applications such as Amazon Quick Suite can
+With trusted identity propagation, AWS managed applications such as Amazon Quick can
 securely share a user’s identity with other AWS managed applications such as
 Amazon Redshift and authorize access to AWS resources based on the user’s
 identity. You can more easily audit user activity because CloudTrail events are logged based
 on the user and the actions the user initiated. This makes it easier to understand who
 accessed what. For information about supported use cases, including end-to-end
-configuration guidance, see [Trusted identity
-propagation use cases](trustedidentitypropagation-integrations.md "trustedidentitypropagation-integrations.md").
+configuration guidance, see [Trusted identity propagation use cases](trustedidentitypropagation-integrations.md "trustedidentitypropagation-integrations.md").
 
 **One place to assign permissions to multiple
 AWS accounts**

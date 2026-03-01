@@ -1,6 +1,4 @@
-# Attribute mappings between IAM Identity Center and External
-
-Identity Providers directory
+# Attribute mappings between IAM Identity Center and External Identity Providers directory
 
 Attribute mappings are used to map attribute types that exist in IAM Identity Center with like
 attributes in your external identity source such as Google Workspace, Microsoft Active Directory
@@ -16,17 +14,13 @@ mappings** tab found on its configuration page. IAM Identity Center uses these u
 populate SAML assertions (as SAML attributes) that are sent to the application. These user
 attributes are in turn retrieved from your identity source. Each application determines the
 list of SAML 2.0 attributes it needs for successful single sign-on. For more information, see
-[Map attributes in your application to IAM Identity Center
-attributes](mapawsssoattributestoapp.md "mapawsssoattributestoapp.md").
+[Map attributes in your application to IAM Identity Center attributes](mapawsssoattributestoapp.md "mapawsssoattributestoapp.md").
 
 IAM Identity Center also manages a set of attributes for you under the **Attribute
 mappings** section of your **Active Directory configuration page**
-if you're using Active Directory as an identity source. For more information, see [Mapping user attributes between IAM Identity Center and
-Microsoft AD directory](mapssoattributestocdattributes.md "mapssoattributestocdattributes.md").
+if you're using Active Directory as an identity source. For more information, see [Mapping user attributes between IAM Identity Center and Microsoft AD directory](mapssoattributestocdattributes.md "mapssoattributestocdattributes.md").
 
-## Supported external identity provider
-
-attributes
+## Supported external identity provider attributes
 
 The following table lists all external identity provider (IdP) attributes supported and
 can be mapped to attributes you can use when configuring [Attributes for access control](attributesforaccesscontrol.md "attributesforaccesscontrol.md") in
@@ -59,9 +53,7 @@ supports.
 | `${path:enterprise.department}`                   |
 | `${path:enterprise.manager.value}`                |
 
-## Default mappings between IAM Identity Center and
-
-Microsoft AD
+## Default mappings between IAM Identity Center and Microsoft AD
 
 The following table lists the default mappings for user attributes in IAM Identity Center to the user
 attributes in your Microsoft AD directory. IAM Identity Center only supports the list of
@@ -90,8 +82,7 @@ attributes in the **User attribute in IAM Identity Center** column.
 
 - If you do not have any assignments for your users and groups in IAM Identity Center when you enable
   configurable AD sync, the default mappings in the previous tables are used. For
-  information about how to customize these mappings, see [Configure
-  attribute mappings for your sync](manage-sync-configure-attribute-mapping-configurable-ADsync.md "manage-sync-configure-attribute-mapping-configurable-ADsync.md").
+  information about how to customize these mappings, see [Configure attribute mappings for your sync](manage-sync-configure-attribute-mapping-configurable-ADsync.md "manage-sync-configure-attribute-mapping-configurable-ADsync.md").
 - Certain IAM Identity Center attributes cannot be modified because they are immutable and mapped by
   default to specific Microsoft AD directory attributes.
 
@@ -102,9 +93,7 @@ change the attribute mapping for "username" from your current mapping, confirm I
 flows with dependency on "username" will continue to work as expected, before making the
 change.
 
-## Supported Microsoft AD
-
-attributes for IAM Identity Center
+## Supported Microsoft AD attributes for IAM Identity Center
 
 The following table lists all Microsoft AD directory attributes that are
 supported and that can be mapped to user attributes in IAM Identity Center.
@@ -132,9 +121,7 @@ supported and that can be mapped to user attributes in IAM Identity Center.
 - You can specify any combination of supported Microsoft AD directory
   attributes to map to a single mutable attribute in IAM Identity Center.
 
-## Supported IAM Identity Center attributes for Microsoft
-
-AD
+## Supported IAM Identity Center attributes for Microsoft AD
 
 The following table lists all IAM Identity Center attributes that are supported and that can be mapped
 to user attributes in your Microsoft AD directory. After you set up your

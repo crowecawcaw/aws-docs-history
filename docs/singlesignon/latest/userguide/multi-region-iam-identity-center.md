@@ -1,6 +1,4 @@
-# Using IAM Identity Center across multiple
-
-AWS Regions
+# Using IAM Identity Center across multiple AWS Regions
 
 This topic explains how to use AWS IAM Identity Center across multiple AWS Regions. Learn how to replicate
 your instance
@@ -43,12 +41,10 @@ Before you replicate your IAM Identity Center instance, ensure the following req
 - **KMS key type for encryption at rest** - Your IAM Identity Center
   instance must be configured with a multi-Region [customer managed
   KMS key](../../../kms/latest/cryptographic-details/basic-concepts.md "../../../kms/latest/cryptographic-details/basic-concepts.md"). The KMS key must be located in the same AWS account as IAM Identity Center. For more
-  information, see [Implementing customer managed KMS
-  keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md").
+  information, see [Implementing customer managed KMS keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md").
 - **AWS managed application compatibility** - Visit the
   application table in
-  [AWS managed applications
-  that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md")
+  [AWS managed applications that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md")
   to confirm the following two application requirements:
   - All AWS managed applications that are in use by your organization must support IAM Identity Center
     that is configured with a customer managed KMS key.
@@ -61,8 +57,7 @@ Before you replicate your IAM Identity Center instance, ensure the following req
   PingFederate, PingOne, and JumpCloud.
 
 If you use an IdP that doesn't support multiple ACS URLs, such as Google Workspace, we recommend
-that you work with your IdP vendor to enable this feature. For options that are available without multiple ACS URLs, see [Using AWS managed applications without multiple ACS URLs](multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls "multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls") and [AWS account access
-resiliency without multiple ACS URLs](multi-region-failover.md#account-access-resiliency-without-multiple-acs-url "multi-region-failover.md#account-access-resiliency-without-multiple-acs-url").
+that you work with your IdP vendor to enable this feature. For options that are available without multiple ACS URLs, see [Using AWS managed applications without multiple ACS URLs](multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls "multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls") and [AWS account access resiliency without multiple ACS URLs](multi-region-failover.md#account-access-resiliency-without-multiple-acs-url "multi-region-failover.md#account-access-resiliency-without-multiple-acs-url").
 
 ## Choosing an additional Region
 

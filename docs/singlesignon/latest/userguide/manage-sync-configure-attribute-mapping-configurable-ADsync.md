@@ -1,9 +1,6 @@
-# Configure
+# Configure attribute mappings for your sync
 
-attribute mappings for your sync
-
-For more information about available attributes, see [Attribute mappings between IAM Identity Center and External
-Identity Providers directory](attributemappingsconcept.md "attributemappingsconcept.md").
+For more information about available attributes, see [Attribute mappings between IAM Identity Center and External Identity Providers directory](attributemappingsconcept.md "attributemappingsconcept.md").
 
 ###### To configure attribute mappings in IAM Identity Center to your directory
 

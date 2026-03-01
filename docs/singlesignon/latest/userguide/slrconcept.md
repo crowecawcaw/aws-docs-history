@@ -13,8 +13,7 @@ account that is subsequently added to your organization. This role allows IAM Id
 access each account's resources on your behalf. For more information, see [Configure access to AWS accounts](manage-your-accounts.md "manage-your-accounts.md").
 
 Service-linked roles that are created in each AWS account are named
-`AWSServiceRoleForSSO`. For more information, see [Using service-linked roles for
-IAM Identity Center](using-service-linked-roles.md "using-service-linked-roles.md").
+`AWSServiceRoleForSSO`. For more information, see [Using service-linked roles for IAM Identity Center](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ###### Notes
 

@@ -1,6 +1,4 @@
-# Deploying and managing applications across multiple AWS
-
-Regions
+# Deploying and managing applications across multiple AWS Regions
 
 The topic of application access through IAM Identity Center is covered extensively in [Configure access to applications](manage-your-applications.md "manage-your-applications.md"). This section provides additional details relevant to
 the deployment and management of applications across multiple AWS Regions.
@@ -43,8 +41,7 @@ deploy in the primary Region.
 
 If your IAM Identity Center instance is multi-regional, all AWS managed applications in use by
 your organization must support IAM Identity Center configured with a customer-managed KMS key regardless
-of the application deployment Region. Confirm this in the [AWS managed applications
-that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md") before deploying an application and
+of the application deployment Region. Confirm this in the [AWS managed applications that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md") before deploying an application and
 before configuring a customer-managed KMS key in your IAM Identity Center.
 
 ### An application's management Region

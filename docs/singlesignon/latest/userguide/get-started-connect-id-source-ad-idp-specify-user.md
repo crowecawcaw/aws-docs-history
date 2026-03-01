@@ -1,6 +1,4 @@
-# Connect Active Directory
-
-and specify a user
+# Connect Active Directory and specify a user
 
 If you are already using Active Directory, the following topics will help you prepare to
 connect your directory to IAM Identity Center.
@@ -14,21 +12,16 @@ IAM Identity Center doesn't support SAMBA4-based Simple AD as an identity source
 
 **AWS Managed Microsoft AD**
 
-1. Review the guidance in [Microsoft AD
-   directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
+1. Review the guidance in [Microsoft AD directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
 2. Follow the steps in [Connect a directory in AWS Managed Microsoft AD to IAM Identity Center](connectawsad.md "connectawsad.md").
 3. Configure Active Directory to synchronize the user to whom you want to grant
-   administrative permissions into IAM Identity Center. For more information, see [Synchronize an administrative user into
-   IAM Identity Center](#sync-admin-user-from-ad "#sync-admin-user-from-ad").
+   administrative permissions into IAM Identity Center. For more information, see [Synchronize an administrative user into IAM Identity Center](#sync-admin-user-from-ad "#sync-admin-user-from-ad").
    **Self-managed directory in Active Directory**
 
-4. Review the guidance in [Microsoft AD
-   directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
-5. Follow the steps in [Connect a self-managed directory in Active Directory to
-   IAM Identity Center](connectonpremad.md "connectonpremad.md").
+4. Review the guidance in [Microsoft AD directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
+5. Follow the steps in [Connect a self-managed directory in Active Directory to IAM Identity Center](connectonpremad.md "connectonpremad.md").
 6. Configure Active Directory to synchronize the user to whom you want to grant
-   administrative permissions into IAM Identity Center. For more information, see [Synchronize an administrative user into
-   IAM Identity Center](#sync-admin-user-from-ad "#sync-admin-user-from-ad").
+   administrative permissions into IAM Identity Center. For more information, see [Synchronize an administrative user into IAM Identity Center](#sync-admin-user-from-ad "#sync-admin-user-from-ad").
    **External IdP**
 
 7. Review the guidance in [External identity providers](manage-your-identity-source-idp.md "manage-your-identity-source-idp.md").
@@ -41,9 +34,7 @@ Before you set up automatic, group-based provisioning of all your workforce
 identities from your IdP into IAM Identity Center, we recommend that you sync the one user to whom you
 want to grant administrative permissions into IAM Identity Center.
 
-## Synchronize an administrative user into
-
-IAM Identity Center
+## Synchronize an administrative user into IAM Identity Center
 
 After you connect your Active Directory to IAM Identity Center, you can specify a user to whom you
 want to grant administrative permissions, and then synchronize that user from your directory

@@ -1,6 +1,4 @@
-# Certificate expiration status
-
-indicators
+# Certificate expiration status indicators
 
 The **Manage SAML 2.0 certificates** page displays
 colored status indicator icons in the **Expires on** column

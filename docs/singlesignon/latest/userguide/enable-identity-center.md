@@ -31,8 +31,7 @@ Policy.
 
 For a comparison of the different capabilities provided by the different instance types, see [Organization and account instances of IAM Identity Center](identity-center-instances.md "identity-center-instances.md").
 
-Before enabling IAM Identity Center, we recommend you review the [IAM Identity Center prerequisites and
-considerations](identity-center-prerequisites.md "identity-center-prerequisites.md").
+Before enabling IAM Identity Center, we recommend you review the [IAM Identity Center prerequisites and considerations](identity-center-prerequisites.md "identity-center-prerequisites.md").
 
 ## To enable an instance of IAM Identity Center
 
@@ -55,8 +54,7 @@ Organization (recommended)
      management account credentials.
 
 2. Open the [IAM Identity Center console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon").
-3. (Optional) If you want to use a customer managed KMS key for encryption at rest rather than the default AWS managed key, configure the customer managed key in the **Key for encrypting IAM Identity Center data at rest** section. For more information, refer to [Implementing customer managed KMS
-   keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md").
+3. (Optional) If you want to use a customer managed KMS key for encryption at rest rather than the default AWS managed key, configure the customer managed key in the **Key for encrypting IAM Identity Center data at rest** section. For more information, refer to [Implementing customer managed KMS keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md").
 
 ###### Important
 
@@ -83,8 +81,7 @@ following steps to finish setting up your environment:
 - IAM Identity Center provides you an access portal to AWS resources. If you filter
   access to specific AWS domains or URL endpoints by using a web content
   filtering solution such as next-generation firewalls (NGFW) or Secure
-  Web Gateways (SWG), see [Update firewalls and gateways to
-  allow access to the AWS access portal](enable-identity-center-portal-access.md "enable-identity-center-portal-access.md").
+  Web Gateways (SWG), see [Update firewalls and gateways to allow access to the AWS access portal](enable-identity-center-portal-access.md "enable-identity-center-portal-access.md").
 
 Account
 
@@ -130,6 +127,4 @@ IAM Identity Center.
      15, 2023 the ability for member account to create account instances
      is enabled by default. However, service control policies can be used
      to prevent the creation of account instances of IAM Identity Center within an
-     organization.For more information, see [Permit account instance creation in member
-
-accounts](enable-account-instance-console.md "enable-account-instance-console.md") and [Use Service Control Policies to control account instance creation](control-account-instance.md "control-account-instance.md").
+     organization.For more information, see [Permit account instance creation in member accounts](enable-account-instance-console.md "enable-account-instance-console.md") and [Use Service Control Policies to control account instance creation](control-account-instance.md "control-account-instance.md").

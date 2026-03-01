@@ -1,6 +1,4 @@
-# Mapping user attributes between IAM Identity Center and
-
-Microsoft AD directory
+# Mapping user attributes between IAM Identity Center and Microsoft AD directory
 
 You can use the following procedure to specify how your user attributes in IAM Identity Center should
 map to corresponding attributes in your Microsoft AD directory.

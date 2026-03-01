@@ -1,6 +1,4 @@
-# MFA for Identity Center directory
-
-users
+# MFA for Identity Center directory users
 
 ###### Important
 
@@ -30,5 +28,4 @@ authenticators, which include built-in authenticators and security keys, for a t
 - [Available MFA types for IAM Identity Center](mfa-types.md "mfa-types.md")
 - [Configure MFA in IAM Identity Center](mfa-configure.md "mfa-configure.md")
 - [Register an MFA device for users](how-to-register-device.md "how-to-register-device.md")
-- [Renaming and deleting MFA devices in
-  IAM Identity Center](how-to-manage-device.md "how-to-manage-device.md")
+- [Renaming and deleting MFA devices in IAM Identity Center](how-to-manage-device.md "how-to-manage-device.md")

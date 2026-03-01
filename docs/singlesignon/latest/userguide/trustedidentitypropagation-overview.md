@@ -1,6 +1,4 @@
-# Trusted identity propagation
-
-overview
+# Trusted identity propagation overview
 
 Trusted identity propagation is a feature of IAM Identity Center that enables administrators of
 AWS services to grant permissions based on user attributes such as group associations.
@@ -15,9 +13,7 @@ is requested (for example, Amazon Redshift), and the scope of access (for exampl
 access). The receiving AWS service uses this context, and any permissions assigned to
 the user, to authorize access to its resources.
 
-## Benefits of trusted identity
-
-propagation
+## Benefits of trusted identity propagation
 
 Trusted identity propagation allows the administrators of AWS services to grant
 permissions to resources, such as data, using the corporate identities of your
@@ -51,8 +47,7 @@ provider that authenticates the application users and IAM Identity Center. This 
 application to take advantage of the trusted identity propagation flow
 previously described.
 
-For more information, see [Using applications with a
-trusted token issuer](using-apps-with-trusted-token-issuer.md "using-apps-with-trusted-token-issuer.md").
+For more information, see [Using applications with a trusted token issuer](using-apps-with-trusted-token-issuer.md "using-apps-with-trusted-token-issuer.md").
 
 ## How trusted identity propagation works
 
@@ -62,7 +57,7 @@ propagation:
 ![Simplified trusted identity propagation workflow.](images/simplied-tip-1.png)
 
 1. Users authenticate with a client-facing application, for example
-   Quick Suite.
+   Quick.
 2. The client-facing application requests access to use an AWS service to
    query data and includes information on the user.
 
@@ -84,8 +79,6 @@ trusted identity propagation workflow:
 
 ###### Topics
 
-- [Prerequisites and
-  considerations](trustedidentitypropagation-overall-prerequisites.md "trustedidentitypropagation-overall-prerequisites.md")
-- [Trusted identity
-  propagation use cases](trustedidentitypropagation-integrations.md "trustedidentitypropagation-integrations.md")
+- [Prerequisites and considerations](trustedidentitypropagation-overall-prerequisites.md "trustedidentitypropagation-overall-prerequisites.md")
+- [Trusted identity propagation use cases](trustedidentitypropagation-integrations.md "trustedidentitypropagation-integrations.md")
 - [Authorization services](authorization-services.md "authorization-services.md")

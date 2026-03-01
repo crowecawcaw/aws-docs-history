@@ -82,9 +82,6 @@ manages MFA settings, rather than IAM Identity Center managing them.
 
 **Related Topics**
 
-    * [Choose MFA types for user
-     authentication](how-to-configure-mfa-types.md "how-to-configure-mfa-types.md")
-    * [Configure MFA device
-     enforcement](how-to-configure-mfa-device-enforcement.md "how-to-configure-mfa-device-enforcement.md")
-    * [Allow users to register their own
-     MFA devices](how-to-allow-user-registration.md "how-to-allow-user-registration.md")
+    * [Choose MFA types for user authentication](how-to-configure-mfa-types.md "how-to-configure-mfa-types.md")
+    * [Configure MFA device enforcement](how-to-configure-mfa-device-enforcement.md "how-to-configure-mfa-device-enforcement.md")
+    * [Allow users to register their own MFA devices](how-to-allow-user-registration.md "how-to-allow-user-registration.md")

@@ -1,6 +1,4 @@
-# Setting up trusted identity propagation
-
-with Amazon EMR Studio
+# Setting up trusted identity propagation with Amazon EMR Studio
 
 The following procedure walks you through setting up Amazon EMR
 Studio for trusted identity propagation in queries
@@ -14,17 +12,14 @@ the following:
 
 1. [Enable IAM Identity Center](enable-identity-center.md "enable-identity-center.md").
    [Organization instance](organization-instances-identity-center.md "organization-instances-identity-center.md") is recommended. For more
-   information, see [Prerequisites and
-   considerations](trustedidentitypropagation-overall-prerequisites.md "trustedidentitypropagation-overall-prerequisites.md").
+   information, see [Prerequisites and considerations](trustedidentitypropagation-overall-prerequisites.md "trustedidentitypropagation-overall-prerequisites.md").
 2. [Provision the users and groups from
    your source of identities into IAM Identity Center](tutorials.md "tutorials.md").
 
 To complete setting up trusted identity propagation from Amazon EMR Studio,
 the EMR Studio administrator must perform the following steps.
 
-## Step 1. Create the required
-
-IAM roles for EMR Studio
+## Step 1. Create the required IAM roles for EMR Studio
 
 In this step, the Amazon EMR Studio administrator creates
 and IAM service role and an IAM user role for EMR
@@ -308,9 +303,7 @@ Additional permissions are needed to leverage EMR Studio
 Workspaces and EMR Notebooks. See [Create permissions policies for EMR Studio
 users](../../../emr/latest/ManagementGuide/emr-studio-user-permissions.md#emr-studio-permissions-policies "../../../emr/latest/ManagementGuide/emr-studio-user-permissions.md#emr-studio-permissions-policies") for more information.
 
-###### You can find more information with the following
-
-links:
+###### You can find more information with the following links:
 
     * [Define custom IAM permissions with customer managed
      policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md")
@@ -318,13 +311,10 @@ links:
 
 [Show moreShow less](# "#")
 
-## Step 2. Create and configure
-
-your EMR Studio
+## Step 2. Create and configure your EMR Studio
 
 In this step, you'll create an Amazon EMR Studio in the EMR Studio console
-and use the IAM roles you created in [Step 1. Create the required
-IAM roles for EMR Studio](#setting-up-tip-emr-step1 "#setting-up-tip-emr-step1").
+and use the IAM roles you created in [Step 1. Create the required IAM roles for EMR Studio](#setting-up-tip-emr-step1 "#setting-up-tip-emr-step1").
 
 1. Navigate to the EMR Studio console, select **Create
    Studio** and the **Custom Setup**
@@ -335,12 +325,10 @@ IAM roles for EMR Studio](#setting-up-tip-emr-step1 "#setting-up-tip-emr-step1")
 
 ![Step 1 Create EMR Studio in the EMR console.](images/emr-tutorial-step-3.1.png) 2. Under **Service role to let Studio access your
 resources**, select the service role created in
-[Step 1. Create the required
-IAM roles for EMR Studio](#setting-up-tip-emr-step1 "#setting-up-tip-emr-step1") from the
+[Step 1. Create the required IAM roles for EMR Studio](#setting-up-tip-emr-step1 "#setting-up-tip-emr-step1") from the
 menu. 3. Choose **IAM Identity Center** under
 **Authentication**. Select the user role
-created in [Step 1. Create the required
-IAM roles for EMR Studio](#setting-up-tip-emr-step1 "#setting-up-tip-emr-step1").
+created in [Step 1. Create the required IAM roles for EMR Studio](#setting-up-tip-emr-step1 "#setting-up-tip-emr-step1").
 
 ![Step 3 Create EMR Studio in the EMR console, selecting IAM Identity Center for the authentication method.](images/emr-tutorial-step-3.3.png) 4. Check the **Trusted identity
 propagation** box. Choose **Only assigned users and groups** under the

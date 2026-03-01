@@ -1,11 +1,8 @@
-# Setting up SCIM provisioning between CyberArk and
-
-IAM Identity Center
+# Setting up SCIM provisioning between CyberArk and IAM Identity Center
 
 IAM Identity Center supports automatic provisioning (synchronization) of user information from
 CyberArk Directory Platform into IAM Identity Center. This provisioning uses the System
-for Cross-domain Identity Management (SCIM) v2.0 protocol. For more information, see [Using SAML and SCIM identity federation with external identity
-providers](other-idps.md "other-idps.md").
+for Cross-domain Identity Management (SCIM) v2.0 protocol. For more information, see [Using SAML and SCIM identity federation with external identity providers](other-idps.md "other-idps.md").
 
 ###### Note
 
@@ -15,11 +12,9 @@ you plan to replicate IAM Identity Center to additional Regions, be aware that u
 may affect the user experience in those additional Regions. Your primary Region will
 continue to function normally. We recommend that you work with your IdP vendor to enable
 this feature. For more information about the user experience in additional Regions with
-a single ACS URL, see [Using AWS managed applications without multiple ACS URLs](multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls "multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls") and [AWS account access
-resiliency without multiple ACS URLs](multi-region-failover.md#account-access-resiliency-without-multiple-acs-url "multi-region-failover.md#account-access-resiliency-without-multiple-acs-url").
+a single ACS URL, see [Using AWS managed applications without multiple ACS URLs](multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls "multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls") and [AWS account access resiliency without multiple ACS URLs](multi-region-failover.md#account-access-resiliency-without-multiple-acs-url "multi-region-failover.md#account-access-resiliency-without-multiple-acs-url").
 
-Before you begin deploying SCIM, we recommend that you first review the [Considerations for using automatic
-provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations"). Then continue reviewing
+Before you begin deploying SCIM, we recommend that you first review the [Considerations for using automatic provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations"). Then continue reviewing
 additional considerations in the next section.
 
 ###### Topics
@@ -27,12 +22,9 @@ additional considerations in the next section.
 - [Prerequisites](#cyberark-prereqs "#cyberark-prereqs")
 - [SCIM considerations](#cyberark-considerations "#cyberark-considerations")
 - [Step 1: Enable provisioning in IAM Identity Center](#cyberark-step1 "#cyberark-step1")
-- [Step 2: Configure provisioning in
-  CyberArk](#cyberark-step2 "#cyberark-step2")
-- [(Optional) Step 3: Configure user attributes in
-  CyberArk for access control (ABAC) in IAM Identity Center](#cyberark-step3 "#cyberark-step3")
-- [(Optional) Passing attributes for access
-  control](#cyberark-passing-abac "#cyberark-passing-abac")
+- [Step 2: Configure provisioning in CyberArk](#cyberark-step2 "#cyberark-step2")
+- [(Optional) Step 3: Configure user attributes in CyberArk for access control (ABAC) in IAM Identity Center](#cyberark-step3 "#cyberark-step3")
+- [(Optional) Passing attributes for access control](#cyberark-passing-abac "#cyberark-passing-abac")
 
 ## Prerequisites
 
@@ -102,9 +94,7 @@ Now that you have set up provisioning in the IAM Identity Center console, you ne
 remaining tasks using the CyberArk IAM Identity Center application. These steps are
 described in the following procedure.
 
-## Step 2: Configure provisioning in
-
-CyberArk
+## Step 2: Configure provisioning in CyberArk
 
 Use the following procedure in the CyberArk IAM Identity Center application to
 enable provisioning with IAM Identity Center. This procedure assumes that you have already added the
@@ -146,9 +136,7 @@ complete this procedure to configure SCIM provisioning.
     CyberArk will appear on the **Users** page.
     These users can now be assigned to accounts and can connect within IAM Identity Center.
 
-## (Optional) Step 3: Configure user attributes in
-
-CyberArk for access control (ABAC) in IAM Identity Center
+## (Optional) Step 3: Configure user attributes in CyberArk for access control (ABAC) in IAM Identity Center
 
 This is an optional procedure for CyberArk should you choose to
 configure attributes for IAM Identity Center to manage access to your AWS resources. The attributes
@@ -157,12 +145,9 @@ then create a permission set in IAM Identity Center to manage access based on th
 passed from CyberArk.
 
 Before you begin this procedure, you must first enable the [Attributes for access control](attributesforaccesscontrol.md "attributesforaccesscontrol.md")
-feature. For more information about how to do this, see [Enable and configure attributes for access
-control](configure-abac.md "configure-abac.md").
+feature. For more information about how to do this, see [Enable and configure attributes for access control](configure-abac.md "configure-abac.md").
 
-###### To configure user attributes in CyberArk for access control in
-
-IAM Identity Center
+###### To configure user attributes in CyberArk for access control in IAM Identity Center
 
 1. Open the CyberArk IAM Identity Center application that you installed as part
    of configuring SAML for CyberArk (**Apps > Web
@@ -177,9 +162,7 @@ IAM Identity Center
 
 4. Choose **Save**.
 
-## (Optional) Passing attributes for access
-
-control
+## (Optional) Passing attributes for access control
 
 You can optionally use the [Attributes for access control](attributesforaccesscontrol.md "attributesforaccesscontrol.md") feature in IAM Identity Center to pass an
 `Attribute` element with the `Name` attribute set to

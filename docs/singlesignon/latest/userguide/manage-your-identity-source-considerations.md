@@ -1,6 +1,4 @@
-# Considerations for changing
-
-your identity source
+# Considerations for changing your identity source
 
 Although you can change your identity source at any time, we recommend that you consider
 how this change might affect your current deployment.
@@ -13,9 +11,7 @@ single sign-on access to their AWS accounts and applications.
 Before you change the identity source for IAM Identity Center, review the following considerations
 before you proceed. If you want to proceed with changing your identity source, see [Change your identity source](manage-your-identity-source-change.md "manage-your-identity-source-change.md") for more information.
 
-## Changing between IAM Identity Center
-
-directory and Active Directory
+## Changing between IAM Identity Center directory and Active Directory
 
 If you are already managing users and groups in Active Directory, we recommend that you
 consider connecting your directory when you enable IAM Identity Center and choose your identity
@@ -61,12 +57,9 @@ groups in the Identity Center directory, and then make assignments.
   accounts. For information about authentication session duration
   and user behavior, see [Understanding authentication sessions in IAM Identity Center](authconcept.md "authconcept.md").
 
-For information about how IAM Identity Center provisions users and groups, see [Microsoft AD
-directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
+For information about how IAM Identity Center provisions users and groups, see [Microsoft AD directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
 
-## Changing from IAM Identity Center to an external
-
-IdP
+## Changing from IAM Identity Center to an external IdP
 
 If you change your identity source from IAM Identity Center to an external identity provider (IdP),
 consider the following:
@@ -82,11 +75,9 @@ consider the following:
 - SCIM provisioning – if you are using
   SCIM provisioning, changes to users and groups in your identity provider reflect
   only in IAM Identity Center after your identity provider sends those changes to IAM Identity Center. See
-  [Considerations for using automatic
-  provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations").
+  [Considerations for using automatic provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations").
 - Rollback – you can revert your identity
-  source back to using IAM Identity Center at any time. See [Changing from an external IdP to
-  IAM Identity Center](#changing-from-idp-and-idc "#changing-from-idp-and-idc").
+  source back to using IAM Identity Center at any time. See [Changing from an external IdP to IAM Identity Center](#changing-from-idp-and-idc "#changing-from-idp-and-idc").
 - Existing user sessions are revoked on session duration
   expiry – Once you change your identity source to an external
   identity provider, active user sessions persist for the remainder of the maximum
@@ -107,9 +98,7 @@ you've deleted the user.
 
 For information about how IAM Identity Center provisions users and groups, see [External identity providers](manage-your-identity-source-idp.md "manage-your-identity-source-idp.md").
 
-## Changing from an external IdP to
-
-IAM Identity Center
+## Changing from an external IdP to IAM Identity Center
 
 If you change your identity source from an external identity provider (IdP) to IAM Identity Center,
 consider the following:
@@ -139,14 +128,11 @@ you've deleted the user.
 
 - Multi-Region support – If you have replicated IAM Identity Center to additional Regions or plan to do so,
   you must use an external identity provider as the identity source. For more information including other prerequisites, see
-  [Using IAM Identity Center across multiple
-  AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
+  [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
 
 For information about how IAM Identity Center provisions users and groups, see [Manage users in the Identity Center directory](manage-your-identity-source-sso.md "manage-your-identity-source-sso.md").
 
-## Changing from one external IdP to
-
-another external IdP
+## Changing from one external IdP to another external IdP
 
 If you are already using an external IdP as your identity source for IAM Identity Center and you
 change to a different external IdP, consider the following:
@@ -183,9 +169,7 @@ you've deleted the user.
 
 For information about how IAM Identity Center provisions users and groups, see [External identity providers](manage-your-identity-source-idp.md "manage-your-identity-source-idp.md").
 
-## Changing
-
-between Active Directory and an external IdP
+## Changing between Active Directory and an external IdP
 
 If you change your identity source from an external IdP to Active Directory, or from
 Active Directory to an external IdP, consider the following:
@@ -206,8 +190,6 @@ Active Directory to an external IdP, consider the following:
   and user behavior, see [Understanding authentication sessions in IAM Identity Center](authconcept.md "authconcept.md").
 - Multi-Region support – If you have replicated IAM Identity Center to additional Regions or plan to do so,
   you must use an external identity provider as the identity source. For more information including other prerequisites, see
-  [Using IAM Identity Center across multiple
-  AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
+  [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
 
-For information about how IAM Identity Center provisions users and groups, see [Microsoft AD
-directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
+For information about how IAM Identity Center provisions users and groups, see [Microsoft AD directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").

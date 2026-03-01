@@ -1,6 +1,4 @@
-# Temporary elevated access for
-
-AWS accounts
+# Temporary elevated access for AWS accounts
 
 All access to your AWS account involves some level of privilege. Sensitive
 operations, such as changing the configuration for a

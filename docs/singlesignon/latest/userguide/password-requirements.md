@@ -1,6 +1,4 @@
-# Password requirements when managing identities
-
-in IAM Identity Center
+# Password requirements when managing identities in IAM Identity Center
 
 ###### Note
 

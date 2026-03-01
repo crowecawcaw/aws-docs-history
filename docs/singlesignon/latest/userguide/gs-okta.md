@@ -3,8 +3,7 @@
 You can automatically provision or synchronize user and group information from Okta into
 IAM Identity Center using the [System for
 Cross-domain Identity Management (SCIM) 2.0 protocol](scim-profile-saml.md#scim-profile "scim-profile-saml.md#scim-profile"). For more information, see
-[Using SAML and SCIM identity federation with external identity
-providers](other-idps.md "other-idps.md").
+[Using SAML and SCIM identity federation with external identity providers](other-idps.md "other-idps.md").
 
 To configure this connection in Okta, you use your SCIM endpoint for IAM Identity Center and a bearer
 token that is created automatically by IAM Identity Center. When you configure SCIM synchronization, you
@@ -58,8 +57,7 @@ If you haven't enabled IAM Identity Center yet, see [Enable IAM Identity Center]
 ## Considerations
 
 - Before you configure SCIM provisioning between Okta and IAM Identity Center, we
-  recommend that you first review [Considerations for using automatic
-  provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations").
+  recommend that you first review [Considerations for using automatic provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations").
 - Every Okta user must have a **First name**,
   **Last name**, **Username** and
   **Display name** value specified.
@@ -84,14 +82,11 @@ If you haven't enabled IAM Identity Center yet, see [Enable IAM Identity Center]
 - If you replicated IAM Identity Center to additional Regions, you must update your identity
   provider configuration to enable access to AWS managed applications and
   AWS accounts through additional Regions. For more details including the
-  prerequisites, see [Using IAM Identity Center across multiple
-  AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
+  prerequisites, see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
   Okta-specific steps are described in [Okta configuration for access to
   additional Regions](#gs-okta-multi-region "#gs-okta-multi-region")
 
-## Step 1: Okta: Obtain the SAML metadata from your
-
-Okta account
+## Step 1: Okta: Obtain the SAML metadata from your Okta account
 
 1. Sign in to the Okta admin dashboard, expand **Applications**, then
    select **Applications**.
@@ -110,9 +105,7 @@ Okta account
 
 Leave the Okta admin dashboard open, you will continue using this console in the later steps.
 
-## Step 2: IAM Identity Center: Configure Okta as the identity
-
-source for IAM Identity Center
+## Step 2: IAM Identity Center: Configure Okta as the identity source for IAM Identity Center
 
 1.  Open the [IAM Identity Center
     console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon") as a user with administrative privileges.
@@ -180,9 +173,7 @@ following:
 You are now ready to provision users from Okta to IAM Identity Center. Leave the Okta admin dashboard
 open, and return to the IAM Identity Center console for the next step.
 
-## Step 3: IAM Identity Center and Okta: Provision Okta
-
-users
+## Step 3: IAM Identity Center and Okta: Provision Okta users
 
 1. In the IAM Identity Center console on the **Settings** page, locate the
    **Automatic provisioning** information box, and then
@@ -227,9 +218,7 @@ For this tutorial, select all the options. 11. Choose **Save**.
 
 You are now ready to synchronize your users from Okta with IAM Identity Center.
 
-## Step 4: Okta: Synchronize users from Okta with
-
-IAM Identity Center
+## Step 4: Okta: Synchronize users from Okta with IAM Identity Center
 
 By default, no groups or users are assigned to your Okta IAM Identity Center app. Provisioning
 groups provisions the users that are members of the group. Complete the following
@@ -311,9 +300,7 @@ tutorial, in the next step let's designate one of the users as the IAM Identity 
 administrator by granting them administrative permissions to the
 management account.
 
-## Passing attributes for access
-
-control - _Optional_
+## Passing attributes for access control - _Optional_
 
 You can optionally use the [Attributes for access control](attributesforaccesscontrol.md "attributesforaccesscontrol.md") feature in IAM Identity Center to pass an
 `Attribute` element with the `Name` attribute set to
@@ -347,9 +334,7 @@ These steps are not required to grant access to AWS applications.
 To complete this step, you'll need an Organization instance of IAM Identity Center. For more
 information, see [Organization and account instances of IAM Identity Center](identity-center-instances.md "identity-center-instances.md").
 
-### Step 1: IAM Identity Center: Grant Okta users access to
-
-accounts
+### Step 1: IAM Identity Center: Grant Okta users access to accounts
 
 1.  In the IAM Identity Center navigation pane, under **Multi-account
     permissions**, choose
@@ -417,9 +402,7 @@ accounts
     user signs-in they will have the option of choosing the
     `AdministratorAccess` role.
 
-### Step 2: Okta: Confirm Okta users access to AWS
-
-resources
+### Step 2: Okta: Confirm Okta users access to AWS resources
 
 1. Sign in using a test account to the Okta
    dashboard.
@@ -441,16 +424,12 @@ resources
 
 You can also use the AWS access portal. This redirects you to sign in through the Okta portal before taking you to the AWS access portal. This path follows the SP-initiated SAML sign-in flow.
 
-## Okta configuration for access to additional
-
-Regions of
-IAM Identity Center - Optional
+## Okta configuration for access to additional Regions of IAM Identity Center - Optional
 
 If you replicated IAM Identity Center to additional Regions, you must update your identity provider
 configuration to enable access to AWS managed applications and AWS accounts through
 the additional Regions. The steps below guide you through the procedure. For more
-details about this topic including the prerequisites, see [Using IAM Identity Center across multiple
-AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
+details about this topic including the prerequisites, see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
 
 1. Retrieve ACS URLs for the additional regions from the IAM Identity Center console as
    outlined in [ACS endpoints in the primary and additional AWS Regions](multi-region-workforce-access.md#acs-endpoints "multi-region-workforce-access.md#acs-endpoints").
@@ -477,8 +456,7 @@ Now that you've configured Okta as an identity provider and provisioned users in
 IAM Identity Center, you can:
 
 - Grant access to AWS accounts, see [Assign user or group access to AWS accounts](assignusers.md "assignusers.md").
-- Grant access to cloud applications, see [Assign user access to applications in the IAM Identity Center
-  console](assignuserstoapp.md "assignuserstoapp.md").
+- Grant access to cloud applications, see [Assign user access to applications in the IAM Identity Center console](assignuserstoapp.md "assignuserstoapp.md").
 - Configure permissions based on job functions, see [Create a permission
   set](howtocreatepermissionset.md "howtocreatepermissionset.md").
 
@@ -487,20 +465,14 @@ IAM Identity Center, you can:
 For general SCIM and SAML troubleshooting with Okta, see the following
 sections:
 
-- [Reprovisioning users and
-  groups deleted from IAM Identity Center](#reprovisioning-deleted-users-groups "#reprovisioning-deleted-users-groups")
-- [Automatic Provisioning Error in
-  Okta](#okta-auto-provisioning-error "#okta-auto-provisioning-error")
-- [Specific users fail to synchronize into IAM Identity Center from an external SCIM
-  provider](troubleshooting.md#issue2 "troubleshooting.md#issue2")
+- [Reprovisioning users and groups deleted from IAM Identity Center](#reprovisioning-deleted-users-groups "#reprovisioning-deleted-users-groups")
+- [Automatic Provisioning Error in Okta](#okta-auto-provisioning-error "#okta-auto-provisioning-error")
+- [Specific users fail to synchronize into IAM Identity Center from an external SCIM provider](troubleshooting.md#issue2 "troubleshooting.md#issue2")
 - [Issues regarding contents of SAML assertions created by IAM Identity Center](troubleshooting.md#issue1 "troubleshooting.md#issue1")
-- [Duplicate user or group error when provisioning
-  users or groups with an external identity provider](troubleshooting.md#duplicate-user-group-idp "troubleshooting.md#duplicate-user-group-idp")
+- [Duplicate user or group error when provisioning users or groups with an external identity provider](troubleshooting.md#duplicate-user-group-idp "troubleshooting.md#duplicate-user-group-idp")
 - [Additional resources](#gs-okta-troubleshooting-resources "#gs-okta-troubleshooting-resources")
 
-### Reprovisioning users and
-
-groups deleted from IAM Identity Center
+### Reprovisioning users and groups deleted from IAM Identity Center
 
 - You could receive the following error message in the Okta Console,
   if you're attempting to change either a user or group in Okta
@@ -553,9 +525,7 @@ recreated in Okta using Group Push. When the user is recreated in Okta, it
 will also be reprovisioned into the IAM Identity Center through SCIM. For
 more information on deleting a group, see [Okta documentation](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-group-push-troubleshoot.htm "https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-group-push-troubleshoot.htm").
 
-### Automatic Provisioning Error in
-
-Okta
+### Automatic Provisioning Error in Okta
 
 If you receive the following error message in Okta:
 

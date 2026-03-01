@@ -1,6 +1,4 @@
-# Getting IAM Identity Center user credentials for the AWS CLI or AWS
-
-SDKs
+# Getting IAM Identity Center user credentials for the AWS CLI or AWS SDKs
 
 You can access AWS services programmatically by using the AWS Command Line Interface or AWS Software
 Development Kits (SDKs) with user credentials from IAM Identity Center. This topic describes how to get
@@ -71,8 +69,7 @@ following considerations in mind:
   which your IAM Identity Center user is assigned appears as an available role. IAM Identity Center creates a separate
   session for this role. This session can be from one to 12 hours, depending the session
   duration configured for the permission set. The default session duration is one hour.
-  For more information, see [Set session duration for
-  AWS accounts](howtosessionduration.md "howtosessionduration.md").
+  For more information, see [Set session duration for AWS accounts](howtosessionduration.md "howtosessionduration.md").
 
 ## Getting and refreshing temporary credentials
 
@@ -81,13 +78,10 @@ manually.
 
 ###### Topics
 
-- [Automatic credential refresh
-  (recommended)](#how-to-get-temp-credentials-automatic "#how-to-get-temp-credentials-automatic")
+- [Automatic credential refresh (recommended)](#how-to-get-temp-credentials-automatic "#how-to-get-temp-credentials-automatic")
 - [Manual credential refresh](#how-to-get-temp-credentials-manual "#how-to-get-temp-credentials-manual")
 
-### Automatic credential refresh
-
-(recommended)
+### Automatic credential refresh (recommended)
 
 Automatic credential refresh uses the Open ID Connect (OIDC) Device Code Authorization
 standard. With this method, you initiate access directly by using the `aws configure

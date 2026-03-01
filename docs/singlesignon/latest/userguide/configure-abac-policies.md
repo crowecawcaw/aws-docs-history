@@ -1,15 +1,11 @@
-# Create permission policies for ABAC in
-
-IAM Identity Center
+# Create permission policies for ABAC in IAM Identity Center
 
 You can create permissions policies that determine who can access your AWS
 resources based on the configured attribute value. When you enable ABAC and
 specify attributes, IAM Identity Center passes the attribute value of the authenticated user
 into IAM for use in policy evaluation.
 
-## aws:PrincipalTag
-
-condition key
+## aws:PrincipalTag condition key
 
 You can use access control attributes in your permission sets using the
 `aws:PrincipalTag` condition key for creating access control
@@ -62,5 +58,4 @@ tags](../../../IAM/latest/UserGuide/reference_policies_examples_ec2-start-stop-m
 
 If policies contain invalid attributes in their conditions, then the
 policy condition will fail and access will be denied. For more information,
-see [Error 'An unexpected error has occurred' when a user tries to sign in
-using an external identity provider](troubleshooting.md#issue8 "troubleshooting.md#issue8").
+see [Error 'An unexpected error has occurred' when a user tries to sign in using an external identity provider](troubleshooting.md#issue8 "troubleshooting.md#issue8").

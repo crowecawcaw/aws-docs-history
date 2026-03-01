@@ -1,6 +1,4 @@
-# Configure MFA device
-
-enforcement
+# Configure MFA device enforcement
 
 Use the following procedure to determine whether your users must have a registered
 MFA device when signing in to the

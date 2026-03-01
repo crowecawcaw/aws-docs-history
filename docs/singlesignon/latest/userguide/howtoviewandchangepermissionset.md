@@ -1,12 +1,9 @@
-# View and change a permission
-
-set
+# View and change a permission set
 
 You can use permission sets to grant users access to AWS accounts. You can
 view and change a permission set with the AWS IAM Identity Center console. You can search and
 sort permission sets by name in the IAM Identity Center console. For more information about
-permission sets and how they are used in IAM Identity Center, see [Manage AWS accounts with permission
-sets](permissionsetsconcept.md "permissionsetsconcept.md").
+permission sets and how they are used in IAM Identity Center, see [Manage AWS accounts with permission sets](permissionsetsconcept.md "permissionsetsconcept.md").
 
 Permission sets are not required to manage user access to applications.
 
@@ -15,9 +12,7 @@ Permission sets are not required to manage user access to applications.
 To use permission sets, you'll need to use an Organization instance of
 IAM Identity Center. For more information, see [Organization and account instances of IAM Identity Center](identity-center-instances.md "identity-center-instances.md").
 
-## View permission set
-
-assignments
+## View permission set assignments
 
 Use this procedure to view applied permission set in the AWS IAM Identity Center
 console.

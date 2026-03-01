@@ -1,6 +1,4 @@
-# Setting up customer managed SAML
-
-2.0 applications
+# Setting up customer managed SAML 2.0 applications
 
 If you use customer managed applications that support [SAML 2.0](https://wiki.oasis-open.org/security "https://wiki.oasis-open.org/security"), you can federate
 your IdP to IAM Identity Center through SAML 2.0 and use IAM Identity Center to manage user access to those
@@ -17,7 +15,5 @@ access data in AWS services.
 
 ###### Topics
 
-- [Set up an application from the IAM Identity Center application
-  catalog](saasapps.md "saasapps.md")
-- [Set up your own
-  SAML 2.0 application](customermanagedapps-set-up-your-own-app-saml2.md "customermanagedapps-set-up-your-own-app-saml2.md")
+- [Set up an application from the IAM Identity Center application catalog](saasapps.md "saasapps.md")
+- [Set up your own SAML 2.0 application](customermanagedapps-set-up-your-own-app-saml2.md "customermanagedapps-set-up-your-own-app-saml2.md")

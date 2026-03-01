@@ -1,6 +1,4 @@
-# Overview of managing access permissions to your
-
-IAM Identity Center resources
+# Overview of managing access permissions to your IAM Identity Center resources
 
 Every AWS resource is owned by an AWS account, and permissions to create or access the
 resources are governed by permissions policies. To provide access, an account administrator can add permissions to IAM identities (that is, users, groups, and roles). Some services (such as
@@ -17,8 +15,7 @@ _IAM User Guide_.
 - [IAM Identity Center resources and operations](#creatingiampolicies "#creatingiampolicies")
 - [Understanding resource ownership](#accesscontrolresourceowner "#accesscontrolresourceowner")
 - [Managing access to resources](#accesscontrolmanagingaccess "#accesscontrolmanagingaccess")
-- [Specifying policy elements: actions, effects, resources,
-  and principals](#policyactions "#policyactions")
+- [Specifying policy elements: actions, effects, resources, and principals](#policyactions "#policyactions")
 - [Specifying conditions in a policy](#specifyiampolicyconditions "#specifyiampolicyconditions")
 
 ## IAM Identity Center resources and operations
@@ -64,14 +61,10 @@ only identity-based policies (IAM policies).
 
 ###### Topics
 
-- [Identity-based policies (IAM
-  policies)](#accesscontrolidentitybased "#accesscontrolidentitybased")
-- [Resource-based
-  policies](#accesscontrolresourcebased "#accesscontrolresourcebased")
+- [Identity-based policies (IAM policies)](#accesscontrolidentitybased "#accesscontrolidentitybased")
+- [Resource-based policies](#accesscontrolresourcebased "#accesscontrolresourcebased")
 
-### Identity-based policies (IAM
-
-policies)
+### Identity-based policies (IAM policies)
 
 You can add permissions to IAM identities. For example, you can do the
 following:
@@ -112,22 +105,17 @@ JSON
 
 ```
 
-For more information about using identity-based policies with IAM Identity Center, see [Identity-based policy examples for
-IAM Identity Center](iam-auth-access-using-id-policies.md "iam-auth-access-using-id-policies.md"). For more information about
+For more information about using identity-based policies with IAM Identity Center, see [Identity-based policy examples for IAM Identity Center](iam-auth-access-using-id-policies.md "iam-auth-access-using-id-policies.md"). For more information about
 users, groups, roles, and permissions, see [Identities (users, groups, and roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in the
 _IAM User Guide_.
 
-### Resource-based
-
-policies
+### Resource-based policies
 
 Other services, such as Amazon S3, also support resource-based permissions policies.
 For example, you can attach a policy to an S3 bucket to manage access permissions to
 that bucket. IAM Identity Center doesn't support resource-based policies.
 
-## Specifying policy elements: actions, effects, resources,
-
-and principals
+## Specifying policy elements: actions, effects, resources, and principals
 
 For each IAM Identity Center resource (see [IAM Identity Center resources and operations](#creatingiampolicies "#creatingiampolicies")), the service defines a set of API operations.
 

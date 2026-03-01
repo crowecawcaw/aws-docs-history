@@ -1,6 +1,4 @@
-# Single sign-on access to SAML 2.0
-
-and OAuth 2.0 applications
+# Single sign-on access to SAML 2.0 and OAuth 2.0 applications
 
 IAM Identity Center enables you to provide your users with single sign-on access to SAML 2.0 or
 OAuth 2.0 applications. The following topics provide a high-level overview of SAML
@@ -84,13 +82,10 @@ configuring a client application, refer to that application’s
 documentation.
 
 The end user experience for signing into an application and providing
-consent depends on whether the application uses the [Authorization Code Grant with
-PKCE](#auth-code-grant-pkce "#auth-code-grant-pkce") or
+consent depends on whether the application uses the [Authorization Code Grant with PKCE](#auth-code-grant-pkce "#auth-code-grant-pkce") or
 [Device Authorization Grant](#device-auth-grant "#device-auth-grant").
 
-#### Authorization Code Grant with
-
-PKCE
+#### Authorization Code Grant with PKCE
 
 This flow is used by applications that run on a device that has a
 browser.
@@ -167,9 +162,7 @@ AWS adds scopes to IAM Identity Center for supported AWS services. The following
 table lists the scopes that the IAM Identity Center OIDC service supports when you
 register a public client.
 
-#### Access scopes supported by the
-
-IAM Identity Center OIDC service when registering a public client
+#### Access scopes supported by the IAM Identity Center OIDC service when registering a public client
 
 | Scope                                 | Description                                                                                              | Services supported by                  |
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------- |

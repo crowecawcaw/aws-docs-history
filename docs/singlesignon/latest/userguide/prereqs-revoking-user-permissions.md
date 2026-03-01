@@ -1,6 +1,4 @@
-# Use a Deny policy to revoke
-
-active user permissions
+# Use a Deny policy to revoke active user permissions
 
 You might need to revoke an IAM Identity Center user’s access to AWS accounts while the
 user is actively using a permission set. You can remove their ability to use
@@ -9,9 +7,7 @@ unspecified user in advance, then when needed, you can update the Deny policy to
 specify the user whose access you want to block. This topic explains how to
 create a Deny policy and considerations for how to deploy the policy.
 
-## Prepare to revoke an active
-
-IAM role session created by a permission set
+## Prepare to revoke an active IAM role session created by a permission set
 
 You can prevent the user from taking actions with an IAM role they are
 actively using by applying a deny all policy for a specific user through the

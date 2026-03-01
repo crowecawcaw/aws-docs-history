@@ -12,12 +12,10 @@ you plan to replicate IAM Identity Center to additional Regions, be aware that u
 may affect the user experience in those additional Regions. Your primary Region will
 continue to function normally. We recommend that you work with your IdP vendor to enable
 this feature. For more information about the user experience in additional Regions with
-a single ACS URL, see [Using AWS managed applications without multiple ACS URLs](multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls "multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls") and [AWS account access
-resiliency without multiple ACS URLs](multi-region-failover.md#account-access-resiliency-without-multiple-acs-url "multi-region-failover.md#account-access-resiliency-without-multiple-acs-url").
+a single ACS URL, see [Using AWS managed applications without multiple ACS URLs](multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls "multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls") and [AWS account access resiliency without multiple ACS URLs](multi-region-failover.md#account-access-resiliency-without-multiple-acs-url "multi-region-failover.md#account-access-resiliency-without-multiple-acs-url").
 
 User information from Google Workspace is synchronized into IAM Identity Center using the [System for Cross-domain Identity
-Management (SCIM) 2.0 protocol](scim-profile-saml.md#scim-profile "scim-profile-saml.md#scim-profile"). For more information, see [Using SAML and SCIM identity federation with external identity
-providers](other-idps.md "other-idps.md").
+Management (SCIM) 2.0 protocol](scim-profile-saml.md#scim-profile "scim-profile-saml.md#scim-profile"). For more information, see [Using SAML and SCIM identity federation with external identity providers](other-idps.md "other-idps.md").
 
 You configure this connection in Google Workspace using your
 SCIM endpoint for IAM Identity Center and an IAM Identity Center bearer token. When you configure SCIM synchronization,
@@ -44,8 +42,7 @@ If you haven't enabled IAM Identity Center yet, see [Enable IAM Identity Center]
 ## Considerations
 
 - Before you configure SCIM provisioning between Google Workspace and IAM Identity Center, we
-  recommend that you first review [Considerations for using automatic
-  provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations").
+  recommend that you first review [Considerations for using automatic provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations").
 - SCIM automatic synchronization from Google Workspace is currently limited to user
   provisioning. Automatic group provisioning is not supported at this time.
   Groups can be manually created with AWS CLI Identity Store [create-group](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/identitystore/create-group.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/identitystore/create-group.html") command or AWS Identity and Access Management (IAM) API [CreateGroup](../../../IAM/latest/APIReference/API_CreateGroup.md "../../../IAM/latest/APIReference/API_CreateGroup.md"). Alternatively, you can use [ssosync](https://github.com/awslabs/ssosync "https://github.com/awslabs/ssosync") to synchronize
@@ -67,8 +64,7 @@ If you haven't enabled IAM Identity Center yet, see [Enable IAM Identity Center]
   username and email, the user will be overwritten and synchronized using SCIM
   from Google Workspace.
 - There are additional considerations when changing your identity source.
-  For more information, see [Changing from IAM Identity Center to an external
-  IdP](manage-your-identity-source-considerations.md#changing-from-idc-and-idp "manage-your-identity-source-considerations.md#changing-from-idc-and-idp").
+  For more information, see [Changing from IAM Identity Center to an external IdP](manage-your-identity-source-considerations.md#changing-from-idc-and-idp "manage-your-identity-source-considerations.md#changing-from-idc-and-idp").
 
 ## Step 1: Google Workspace: Configure the SAML application
 
@@ -90,9 +86,7 @@ If you haven't enabled IAM Identity Center yet, see [Enable IAM Identity Center]
 6. Before moving to the next step in the Google Admin console,
    leave this page open and move to the IAM Identity Center console.
 
-## Step 2: IAM Identity Center and Google Workspace: Change the IAM Identity Center identity
-
-source and setup Google Workspace as an SAML identity provider
+## Step 2: IAM Identity Center and Google Workspace: Change the IAM Identity Center identity source and setup Google Workspace as an SAML identity provider
 
 1. Sign in to the [IAM Identity Center console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon") using a role with administrative
    permissions.
@@ -201,9 +195,7 @@ complete this tutorial you change the **Service status** to
 should have the service enabled. You can use Google Workspace groups or organizational
 units to give user access to a particular subset of your users.
 
-## Step 4: IAM Identity Center: Set up IAM Identity Center automatic
-
-provisioning
+## Step 4: IAM Identity Center: Set up IAM Identity Center automatic provisioning
 
 1. Return to the IAM Identity Center console.
 2. On the **Settings** page, locate the **Automatic
@@ -228,9 +220,7 @@ access token. Ensure you copy these values before moving forward. 4. Choose **Cl
 Now that you've set up provisioning in the IAM Identity Center console, in the next step
 you will configure auto provisioning in Google Workspace.
 
-## Step 5:
-
-Google Workspace: Configure auto provisioning
+## Step 5: Google Workspace: Configure auto provisioning
 
 1.  Return to the Google Admin console and your AWS IAM Identity Center
     application which can be found under **Apps** and
@@ -297,9 +287,7 @@ For this tutorial, in the next step let's designate one of the users as the
 IAM Identity Center administrator by granting them administrative permissions to the
 management account.
 
-## Passing attributes for access
-
-control - _Optional_
+## Passing attributes for access control - _Optional_
 
 You can optionally use the [Attributes for access control](attributesforaccesscontrol.md "attributesforaccesscontrol.md") feature in IAM Identity Center to pass an
 `Attribute` element with the `Name` attribute set to
@@ -333,9 +321,7 @@ steps are not required to grant access to AWS applications.
 To complete this step, you'll need an Organization instance of IAM Identity Center. For more
 information, see [Organization and account instances of IAM Identity Center](identity-center-instances.md "identity-center-instances.md").
 
-### Step 1:
-
-IAM Identity Center: Grant Google Workspace users access to accounts
+### Step 1: IAM Identity Center: Grant Google Workspace users access to accounts
 
 1.  Return to the **IAM Identity Center** console. In the IAM Identity Center navigation
     pane, under **Multi-account permissions**, choose
@@ -410,9 +396,7 @@ IAM Identity Center: Grant Google Workspace users access to accounts
     users using the AWS Management Console. After provisioning users, you can
     create groups using AWS CLI Identity Store [create-group](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/identitystore/create-group.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/identitystore/create-group.html") command or IAM API [CreateGroup](../../../IAM/latest/APIReference/API_CreateGroup.md "../../../IAM/latest/APIReference/API_CreateGroup.md").
 
-### Step 2:
-
-Google Workspace: Confirm Google Workspace users access to AWS resources
+### Step 2: Google Workspace: Confirm Google Workspace users access to AWS resources
 
 1. Sign in to Google using a test user account. To learn how
    to add users to Google Workspace, see [Google Workspace documentation](https://knowledge.workspace.google.com/kb/how-to-create-a-new-user-000007668 "https://knowledge.workspace.google.com/kb/how-to-create-a-new-user-000007668").
@@ -468,11 +452,9 @@ SAML certificates](managesamlcerts.md "managesamlcerts.md") for Google Workspace
 
 For general SCIM and SAML troubleshooting with Google Workspace, see the following sections:
 
-- [Specific users fail to synchronize into IAM Identity Center from an external SCIM
-  provider](troubleshooting.md#issue2 "troubleshooting.md#issue2")
+- [Specific users fail to synchronize into IAM Identity Center from an external SCIM provider](troubleshooting.md#issue2 "troubleshooting.md#issue2")
 - [Issues regarding contents of SAML assertions created by IAM Identity Center](troubleshooting.md#issue1 "troubleshooting.md#issue1")
-- [Duplicate user or group error when provisioning
-  users or groups with an external identity provider](troubleshooting.md#duplicate-user-group-idp "troubleshooting.md#duplicate-user-group-idp")
+- [Duplicate user or group error when provisioning users or groups with an external identity provider](troubleshooting.md#duplicate-user-group-idp "troubleshooting.md#duplicate-user-group-idp")
 - For Google Workspace troubleshooting, see [Google Workspace documentation](https://support.google.com/a/topic/7579248?sjid=11091727091254312767-NA "https://support.google.com/a/topic/7579248?sjid=11091727091254312767-NA").
 
 The following resources can help you troubleshoot as you work with AWS:

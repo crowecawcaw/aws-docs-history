@@ -1,6 +1,4 @@
-# Trusted identity propagation with
-
-Amazon Redshift
+# Trusted identity propagation with Amazon Redshift
 
 The steps to enable trusted identity propagation depend on whether your users
 interact with AWS managed applications or customer managed applications. The
@@ -9,15 +7,13 @@ client-facing applications - either AWS managed or external to AWS - that
 query Amazon Redshift data with access control provided either by Amazon Redshift or by authorization
 services, such as AWS Lake Formation or Amazon S3 Access Grants.
 
-![Diagram of trusted identity propagation using Amazon Redshift, Quick Suite, Lake Formation, and IAM Identity Center](images/rs-tip-diagram.png)
+![Diagram of trusted identity propagation using Amazon Redshift, Quick, Lake Formation, and IAM Identity Center](images/rs-tip-diagram.png)
 When trusted identity propagation to Amazon Redshift is enabled, Redshift administrators
 can configure Redshift to [automatically create roles](../../../redshift/latest/mgmt/redshift-iam-access-control-sso-autocreate.md "../../../redshift/latest/mgmt/redshift-iam-access-control-sso-autocreate.md") for IAM Identity Center as the identity provider, map
 Redshift roles to groups in IAM Identity Center, and use [Redshift role-based access
 control to grant access](../../../redshift/latest/dg/r_tutorial-RBAC.md "../../../redshift/latest/dg/r_tutorial-RBAC.md").
 
-## Supported
-
-client-facing applications
+## Supported client-facing applications
 
 ###### AWS managed applications
 
@@ -26,7 +22,7 @@ identity propagation to Amazon Redshift:
 
 - [Amazon Redshift Query Editor
   V2](setting-up-tip-redshift.md "setting-up-tip-redshift.md")
-- [Quick Suite](../../../quicksight/latest/user/redshift-trusted-identity-propagation.md "../../../quicksight/latest/user/redshift-trusted-identity-propagation.md")
+- [Quick](../../../quicksight/latest/user/redshift-trusted-identity-propagation.md "../../../quicksight/latest/user/redshift-trusted-identity-propagation.md")
 
 ###### Note
 

@@ -14,9 +14,6 @@ You might need to grant users or groups permissions to operate in the AWS Organi
 ###### Topics
 
 - [Assign user or group access to AWS accounts](assignusers.md "assignusers.md")
-- [Remove user and group access to an
-  AWS account](howtoremoveaccess.md "howtoremoveaccess.md")
-- [Revoke active IAM role sessions created
-  by permission sets](revoke-user-permissions.md "revoke-user-permissions.md")
-- [Delegate who can assign single sign-on
-  access to users and groups in the management account](howtodelegatessoaccess.md "howtodelegatessoaccess.md")
+- [Remove user and group access to an AWS account](howtoremoveaccess.md "howtoremoveaccess.md")
+- [Revoke active IAM role sessions created by permission sets](revoke-user-permissions.md "revoke-user-permissions.md")
+- [Delegate who can assign single sign-on access to users and groups in the management account](howtodelegatessoaccess.md "howtodelegatessoaccess.md")

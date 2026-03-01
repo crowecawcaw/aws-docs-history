@@ -54,8 +54,7 @@ Use the following table to compare the capabilities provided by the instance typ
 | Encryption at rest using a customer-managed KMS key                          | Yes                                                                | No                           | No                                   |
 | Replicating IAM Identity Center to additional Regions                        | Yes                                                                | No                           | No                                   |
 
-For more information about AWS managed applications and IAM Identity Center, see [AWS managed applications
-that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md").
+For more information about AWS managed applications and IAM Identity Center, see [AWS managed applications that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md").
 
 ###### Topics
 

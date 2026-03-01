@@ -23,11 +23,8 @@ IAM Identity Center does not support SAMBA4-based Simple AD as an identity sourc
 
 ###### Topics
 
-- [Considerations for changing
-  your identity source](manage-your-identity-source-considerations.md "manage-your-identity-source-considerations.md")
+- [Considerations for changing your identity source](manage-your-identity-source-considerations.md "manage-your-identity-source-considerations.md")
 - [Change your identity source](manage-your-identity-source-change.md "manage-your-identity-source-change.md")
-- [Supported user and group attributes in
-  IAM Identity Center](manage-your-identity-source-attribute-use.md "manage-your-identity-source-attribute-use.md")
+- [Supported user and group attributes in IAM Identity Center](manage-your-identity-source-attribute-use.md "manage-your-identity-source-attribute-use.md")
 - [External identity providers](manage-your-identity-source-idp.md "manage-your-identity-source-idp.md")
-- [Microsoft AD
-  directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md")
+- [Microsoft AD directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md")

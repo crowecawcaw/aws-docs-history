@@ -1,8 +1,7 @@
 # Switching AWS Regions
 
 We recommend that you install IAM Identity Center in a Region that you intend to keep available for
-users, not a Region that you might need to disable. For more information, see [Considerations for choosing an
-AWS Region](identity-center-region-considerations.md "identity-center-region-considerations.md").
+users, not a Region that you might need to disable. For more information, see [Considerations for choosing an AWS Region](identity-center-region-considerations.md "identity-center-region-considerations.md").
 
 You can switch your IAM Identity Center Region only by [deleting your current
 IAM Identity Center instance](delete-config.md "delete-config.md") and creating an instance in another Region. If you already enabled an
@@ -13,8 +12,7 @@ deleting IAM Identity Center. For instructions on disabling AWS managed applicat
 
 If you are considering switching your IAM Identity Center Region to enable the deployment of an AWS managed application in another Region,
 consider replicating your IAM Identity Center instance to that Region instead.
-For more information, see [Using IAM Identity Center across multiple
-AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
+For more information, see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
 
 ###### Configuration considerations in the new Region
 

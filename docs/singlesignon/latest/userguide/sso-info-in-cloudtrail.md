@@ -47,9 +47,7 @@ following APIs that IAM Identity Center supports:
 - [SCIM
   API](#cloudtrail-events-scim-api-operations "#cloudtrail-events-scim-api-operations")
 
-## CloudTrail events of IAM Identity Center
-
-API operations
+## CloudTrail events of IAM Identity Center API operations
 
 The following list contains the CloudTrail events that the public IAM Identity Center operations emit with
 the `sso.amazonaws.com` event source. For more information about
@@ -132,9 +130,7 @@ console relies on. For more information about these console APIs, see the [Servi
 - [UpdatePermissionSet](../APIReference/API_UpdatePermissionSet.md "../APIReference/API_UpdatePermissionSet.md")
 - [UpdateTrustedTokenIssuer](../APIReference/API_UpdateTrustedTokenIssuer.md "../APIReference/API_UpdateTrustedTokenIssuer.md")
 
-## CloudTrail events of Identity Store API
-
-operations
+## CloudTrail events of Identity Store API operations
 
 The following list contains the CloudTrail events that the public Identity Store operations emit
 with the `identitystore.amazonaws.com` event source. For more
@@ -167,9 +163,7 @@ console API operations. For more information about these console APIs, see the [
 - [UpdateGroup](../IdentityStoreAPIReference/API_UpdateGroup.md "../IdentityStoreAPIReference/API_UpdateGroup.md")
 - [UpdateUser](../IdentityStoreAPIReference/API_UpdateUser.md "../IdentityStoreAPIReference/API_UpdateUser.md")
 
-## CloudTrail events of OIDC API
-
-operations
+## CloudTrail events of OIDC API operations
 
 The following list contains the CloudTrail events that the public OIDC operations emit. For
 more information about the public OIDC API operations, see the [OIDC API
@@ -180,9 +174,7 @@ Reference](../OIDCAPIReference/Welcome.md "../OIDCAPIReference/Welcome.md").
 - [CreateTokenWithIAM](../OIDCAPIReference/API_CreateTokenWithIAM.md "../OIDCAPIReference/API_CreateTokenWithIAM.md") (event source
   `sso-oauth.amazonaws.com`)
 
-## CloudTrail events of AWS access portal
-
-API operations
+## CloudTrail events of AWS access portal API operations
 
 The following list contains the CloudTrail events that the AWS access portal API operations emit
 with the `sso.amazonaws.com` event source. The API operations
@@ -205,17 +197,13 @@ Reference](../PortalAPIReference/Welcome.md "../PortalAPIReference/Welcome.md").
 - [GetRoleCredentials](../PortalAPIReference/API_GetRoleCredentials.md "../PortalAPIReference/API_GetRoleCredentials.md")
 - [Logout](../PortalAPIReference/API_Logout.md "../PortalAPIReference/API_Logout.md")
 
-## CloudTrail events of SCIM
-
-API operations
+## CloudTrail events of SCIM API operations
 
 For information about
 public SCIM API operations, see [AWS access portal API
 Reference](scim-logging-using-cloudtrail.md "scim-logging-using-cloudtrail.md").
 
-## Identity information in IAM Identity Center CloudTrail
-
-events
+## Identity information in IAM Identity Center CloudTrail events
 
 Every event or log entry contains information about who generated the request. The
 identity information helps you determine the following:
@@ -228,8 +216,7 @@ identity information helps you determine the following:
 - Whether the request was made by an IAM Identity Center user. If so, the
   `userId` and
   `identityStoreArn` fields are available in the CloudTrail events
-  to identify the IAM Identity Center user who initiated the request. For more information, see [Identifying the user in
-  IAM Identity Center user-initiated CloudTrail events](sso-cloudtrail-use-cases.md#user-session-iam-identity-center "sso-cloudtrail-use-cases.md#user-session-iam-identity-center") .
+  to identify the IAM Identity Center user who initiated the request. For more information, see [Identifying the user in IAM Identity Center user-initiated CloudTrail events](sso-cloudtrail-use-cases.md#user-session-iam-identity-center "sso-cloudtrail-use-cases.md#user-session-iam-identity-center").
 
 For more information, see the [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 

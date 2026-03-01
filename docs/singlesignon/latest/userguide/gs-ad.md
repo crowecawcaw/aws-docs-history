@@ -20,8 +20,7 @@ must reside within your AWS Organizations management account. You can connect on
 AWS Managed Microsoft AD at a time. If you need to support multiple domains or forests, use AWS Managed Microsoft AD. For more information, see:
 
     + [Connect a directory in AWS Managed Microsoft AD to IAM Identity Center](connectawsad.md "connectawsad.md")
-    + [Connect a self-managed directory in Active Directory to
-     IAM Identity Center](connectonpremad.md "connectonpremad.md")
+    + [Connect a self-managed directory in Active Directory to IAM Identity Center](connectonpremad.md "connectonpremad.md")
 
 - Use an Active Directory residing in the delegated
   administrator account:
@@ -46,21 +45,16 @@ Directory and you are not using RADIUS MFA with AWS Directory Service, enable MF
 
 **AWS Managed Microsoft AD**
 
-1. Review the guidance in [Microsoft AD
-   directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
+1. Review the guidance in [Microsoft AD directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
 2. Follow the steps in [Connect a directory in AWS Managed Microsoft AD to IAM Identity Center](connectawsad.md "connectawsad.md").
 3. Configure Active Directory to synchronize the user to whom you want to grant
-   administrative permissions into IAM Identity Center. For more information, see [Synchronize an administrative user into
-   IAM Identity Center](get-started-connect-id-source-ad-idp-specify-user.md#sync-admin-user-from-ad "get-started-connect-id-source-ad-idp-specify-user.md#sync-admin-user-from-ad").
+   administrative permissions into IAM Identity Center. For more information, see [Synchronize an administrative user into IAM Identity Center](get-started-connect-id-source-ad-idp-specify-user.md#sync-admin-user-from-ad "get-started-connect-id-source-ad-idp-specify-user.md#sync-admin-user-from-ad").
    **Self-managed directory in Active Directory**
 
-4. Review the guidance in [Microsoft AD
-   directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
-5. Follow the steps in [Connect a self-managed directory in Active Directory to
-   IAM Identity Center](connectonpremad.md "connectonpremad.md").
+4. Review the guidance in [Microsoft AD directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
+5. Follow the steps in [Connect a self-managed directory in Active Directory to IAM Identity Center](connectonpremad.md "connectonpremad.md").
 6. Configure Active Directory to synchronize the user to whom you want to grant
-   administrative permissions into IAM Identity Center. For more information, see [Synchronize an administrative user into
-   IAM Identity Center](get-started-connect-id-source-ad-idp-specify-user.md#sync-admin-user-from-ad "get-started-connect-id-source-ad-idp-specify-user.md#sync-admin-user-from-ad").
+   administrative permissions into IAM Identity Center. For more information, see [Synchronize an administrative user into IAM Identity Center](get-started-connect-id-source-ad-idp-specify-user.md#sync-admin-user-from-ad "get-started-connect-id-source-ad-idp-specify-user.md#sync-admin-user-from-ad").
    After you connect your directory to IAM Identity Center, you can specify a user to whom you want to
    grant administrative permissions, and then synchronize that user from your directory into
    IAM Identity Center.

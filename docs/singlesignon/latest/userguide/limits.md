@@ -37,8 +37,7 @@ console for each AWS account where you want to deploy the permission set.
 
 ###### Note
 
-[Manage AWS accounts with permission
-sets](permissionsetsconcept.md "permissionsetsconcept.md") are
+[Manage AWS accounts with permission sets](permissionsetsconcept.md "permissionsetsconcept.md") are
 provisioned in AWS accounts as IAM roles, or use existing IAM roles in
 AWS accounts, and therefore follow IAM quotas. For more information about quotas
 that are associated with IAM roles, see [IAM and STS quotas](../../../IAM/latest/UserGuide/reference_iam-quotas.md "../../../IAM/latest/UserGuide/reference_iam-quotas.md").

@@ -1,6 +1,4 @@
-# IAM Identity Center configurable AD
-
-sync
+# IAM Identity Center configurable AD sync
 
 IAM Identity Center configurable Active Directory (AD) sync enables you to explicitly configure the
 identities in Microsoft Active Directory that are automatically synchronized into IAM Identity Center and
@@ -43,13 +41,11 @@ users and groups in Active Directory to sync, and then sync them into IAM Identi
     	- Existing users and groups: If you have users and groups that are already
     	 synced into IAM Identity Center, the sync scope in configurable AD sync is prepopulated with a
     	 list of those users and groups. To assign new users or groups, you must
-    	 specifically add them to the sync scope. For more information, see [Add users and groups to
-    	 your sync scope](manage-sync-add-users-groups-configurable-ADsync.md "manage-sync-add-users-groups-configurable-ADsync.md").
+    	 specifically add them to the sync scope. For more information, see [Add users and groups to your sync scope](manage-sync-add-users-groups-configurable-ADsync.md "manage-sync-add-users-groups-configurable-ADsync.md").
     	- New users and groups: If you want to assign new users and groups access to
     	 AWS accounts and to applications, you must specify which users and groups to
     	 add to the sync scope in configurable AD sync before you can use IAM Identity Center to make
-    	 the assignment. For more information, see [Add users and groups to
-    	 your sync scope](manage-sync-add-users-groups-configurable-ADsync.md "manage-sync-add-users-groups-configurable-ADsync.md").
+    	 the assignment. For more information, see [Add users and groups to your sync scope](manage-sync-add-users-groups-configurable-ADsync.md "manage-sync-add-users-groups-configurable-ADsync.md").
 
 - **Making assignments to nested groups in Active
   Directory**
@@ -78,21 +74,14 @@ in which queries are performed.
      occurs first, and it is not automatically performed. Instead, you must first
      explicitly add users and groups to the identity store by adding them to your sync
      scope. For information about the recommended steps for automating your sync
-     configuration for configurable AD sync, see [Automate your sync
-     configuration for configurable AD sync](automate-sync-configuration-configurable-ADsync.md "automate-sync-configuration-configurable-ADsync.md").
+     configuration for configurable AD sync, see [Automate your sync configuration for configurable AD sync](automate-sync-configuration-configurable-ADsync.md "automate-sync-configuration-configurable-ADsync.md").
 
 ###### Topics
 
 - [How configurable AD sync works](how-it-works-configurable-ADsync.md "how-it-works-configurable-ADsync.md")
-- [Configure
-  attribute mappings for your sync](manage-sync-configure-attribute-mapping-configurable-ADsync.md "manage-sync-configure-attribute-mapping-configurable-ADsync.md")
-- [First-time Active Directory to IAM Identity Center sync
-  setup](manage-sync-configurable-ADsync.md "manage-sync-configurable-ADsync.md")
-- [Add users and groups to
-  your sync scope](manage-sync-add-users-groups-configurable-ADsync.md "manage-sync-add-users-groups-configurable-ADsync.md")
-- [Remove users and
-  groups from your sync scope](manage-sync-remove-users-groups-configurable-ADsync.md "manage-sync-remove-users-groups-configurable-ADsync.md")
-- [Pause and resume your
-  sync](manage-sync-pause-resume-sync-configurable-ADsync.md "manage-sync-pause-resume-sync-configurable-ADsync.md")
-- [Automate your sync
-  configuration for configurable AD sync](automate-sync-configuration-configurable-ADsync.md "automate-sync-configuration-configurable-ADsync.md")
+- [Configure attribute mappings for your sync](manage-sync-configure-attribute-mapping-configurable-ADsync.md "manage-sync-configure-attribute-mapping-configurable-ADsync.md")
+- [First-time Active Directory to IAM Identity Center sync setup](manage-sync-configurable-ADsync.md "manage-sync-configurable-ADsync.md")
+- [Add users and groups to your sync scope](manage-sync-add-users-groups-configurable-ADsync.md "manage-sync-add-users-groups-configurable-ADsync.md")
+- [Remove users and groups from your sync scope](manage-sync-remove-users-groups-configurable-ADsync.md "manage-sync-remove-users-groups-configurable-ADsync.md")
+- [Pause and resume your sync](manage-sync-pause-resume-sync-configurable-ADsync.md "manage-sync-pause-resume-sync-configurable-ADsync.md")
+- [Automate your sync configuration for configurable AD sync](automate-sync-configuration-configurable-ADsync.md "automate-sync-configuration-configurable-ADsync.md")

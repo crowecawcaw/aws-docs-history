@@ -1,6 +1,4 @@
-# Map attributes in your application to IAM Identity Center
-
-attributes
+# Map attributes in your application to IAM Identity Center attributes
 
 Some service providers require custom SAML assertions to pass additional data about
 your user sign-ins. In that case, use the following procedure to specify how your
@@ -21,8 +19,7 @@ applications user attributes should map to corresponding attributes in IAM Ident
    the application attribute. For example, you might want to map the application
    attribute `Username` to the IAM Identity Center user attribute
    `email`. To see the list of allowed user attributes in
-   IAM Identity Center, see the table in [Attribute mappings between IAM Identity Center and External
-   Identity Providers directory](attributemappingsconcept.md "attributemappingsconcept.md").
+   IAM Identity Center, see the table in [Attribute mappings between IAM Identity Center and External Identity Providers directory](attributemappingsconcept.md "attributemappingsconcept.md").
 8. In the third column of the table, choose the appropriate format for the
    attribute from the menu.
 9. Choose **Save changes**.

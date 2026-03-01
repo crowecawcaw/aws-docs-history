@@ -3,8 +3,7 @@
 IAM Identity Center supports automatic provisioning (synchronization) of user and group information
 from the PingFederate product by Ping Identity (hereafter
 “Ping”) into IAM Identity Center. This provisioning uses the System for Cross-domain
-Identity Management (SCIM) v2.0 protocol. For more information, see [Using SAML and SCIM identity federation with external identity
-providers](other-idps.md "other-idps.md").
+Identity Management (SCIM) v2.0 protocol. For more information, see [Using SAML and SCIM identity federation with external identity providers](other-idps.md "other-idps.md").
 
 You configure this connection in
 PingFederate using your IAM Identity Center SCIM endpoint and access token. When you
@@ -21,8 +20,7 @@ groups from PingFederate to IAM Identity Center using the SCIM protocol.
 
 ###### Note
 
-Before you begin deploying SCIM, we recommend that you first review the [Considerations for using automatic
-provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations"). Then continue reviewing additional
+Before you begin deploying SCIM, we recommend that you first review the [Considerations for using automatic provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations"). Then continue reviewing additional
 considerations in the next section.
 
 ###### Topics
@@ -30,12 +28,9 @@ considerations in the next section.
 - [Prerequisites](#pingfederate-prereqs "#pingfederate-prereqs")
 - [Considerations](#pingfederate-considerations "#pingfederate-considerations")
 - [Step 1: Enable provisioning in IAM Identity Center](#pingfederate-step1 "#pingfederate-step1")
-- [Step 2: Configure provisioning in
-  PingFederate](#pingfederate-step2 "#pingfederate-step2")
-- [(Optional) Step 3: Configure user attributes in
-  PingFederate for access control in IAM Identity Center](#pingfederate-step3 "#pingfederate-step3")
-- [(Optional) Passing attributes for access
-  control](#pingfederate-passing-abac "#pingfederate-passing-abac")
+- [Step 2: Configure provisioning in PingFederate](#pingfederate-step2 "#pingfederate-step2")
+- [(Optional) Step 3: Configure user attributes in PingFederate for access control in IAM Identity Center](#pingfederate-step3 "#pingfederate-step3")
+- [(Optional) Passing attributes for access control](#pingfederate-passing-abac "#pingfederate-passing-abac")
 - [Troubleshooting](#pingfederate-troubleshooting "#pingfederate-troubleshooting")
 
 ## Prerequisites
@@ -104,9 +99,7 @@ Now that you have set up provisioning in the IAM Identity Center console, you mu
 remaining tasks using the PingFederate administrative console., The steps
 are described in the following procedure.
 
-## Step 2: Configure provisioning in
-
-PingFederate
+## Step 2: Configure provisioning in PingFederate
 
 Use the following procedure in the PingFederate administrative
 console to enable integration between IAM Identity Center and the IAM Identity Center Connector. This procedure
@@ -212,9 +205,7 @@ Active Directory as an LDAP directory:
     page. You can also view synchronized groups on the **Groups**
     page.
 
-## (Optional) Step 3: Configure user attributes in
-
-PingFederate for access control in IAM Identity Center
+## (Optional) Step 3: Configure user attributes in PingFederate for access control in IAM Identity Center
 
 This is an optional procedure for PingFederate if you choose to
 configure attributes you will use in IAM Identity Center to manage access to your AWS resources. The
@@ -223,12 +214,9 @@ to IAM Identity Center. You will then create a permission set in IAM Identity Ce
 attributes you passed from PingFederate.
 
 Before you begin this procedure, you must first enable the [Attributes for access control](attributesforaccesscontrol.md "attributesforaccesscontrol.md")
-feature. For more information about how to do this, see [Enable and configure attributes for access
-control](configure-abac.md "configure-abac.md").
+feature. For more information about how to do this, see [Enable and configure attributes for access control](configure-abac.md "configure-abac.md").
 
-###### To configure user attributes in PingFederate for access control in
-
-IAM Identity Center
+###### To configure user attributes in PingFederate for access control in IAM Identity Center
 
 1. Sign on to the PingFederate administrative console.
 2. Choose **Applications** from the top of the page, then click
@@ -271,9 +259,7 @@ configure a data source in PingFederate. 10. Click **Next** repeatedly until you
 **Activation & Summary** page, and then click
 **Save**.
 
-## (Optional) Passing attributes for access
-
-control
+## (Optional) Passing attributes for access control
 
 You can optionally use the [Attributes for access control](attributesforaccesscontrol.md "attributesforaccesscontrol.md") feature in IAM Identity Center to pass an
 `Attribute` element with the `Name` attribute set to
@@ -301,11 +287,9 @@ element for each tag.
 
 For general SCIM and SAML troubleshooting with PingFederate, see the following sections:
 
-- [Specific users fail to synchronize into IAM Identity Center from an external SCIM
-  provider](troubleshooting.md#issue2 "troubleshooting.md#issue2")
+- [Specific users fail to synchronize into IAM Identity Center from an external SCIM provider](troubleshooting.md#issue2 "troubleshooting.md#issue2")
 - [Issues regarding contents of SAML assertions created by IAM Identity Center](troubleshooting.md#issue1 "troubleshooting.md#issue1")
-- [Duplicate user or group error when provisioning
-  users or groups with an external identity provider](troubleshooting.md#duplicate-user-group-idp "troubleshooting.md#duplicate-user-group-idp")
+- [Duplicate user or group error when provisioning users or groups with an external identity provider](troubleshooting.md#duplicate-user-group-idp "troubleshooting.md#duplicate-user-group-idp")
 - For more information on PingFederate, see [PingFederate documentation](https://docs.pingidentity.com/pingfederate/latest/pf_pf_landing_page.html "https://docs.pingidentity.com/pingfederate/latest/pf_pf_landing_page.html").
 
 The following resources can help you troubleshoot as you work with AWS:

@@ -1,6 +1,4 @@
-# Implementing customer managed KMS
-
-keys in AWS IAM Identity Center
+# Implementing customer managed KMS keys in AWS IAM Identity Center
 
 Customer managed keys are AWS Key Management Service keys that you create, own, and
 manage. To implement a customer managed KMS key for encryption at rest in AWS IAM Identity Center,
@@ -9,32 +7,27 @@ follow these steps:
 ###### Important
 
 Some AWS managed applications cannot be used with AWS IAM Identity Center configured with a
-customer managed KMS key. See [AWS managed applications
-that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md").
+customer managed KMS key. See [AWS managed applications that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md").
 
 1. [Step 1: Identify use cases for your organization](#identify-use-cases "#identify-use-cases") - To define
    correct permissions for use of the KMS key you need to identify the relevant use cases
    across your organization. The KMS key permissions consist of KMS key policy statements
    and identity-based policies that work together to allow appropriate IAM principals to
    use the KMS key for their specific use cases.
-2. [Step 2: Prepare KMS key policy
-   statements](#choose-kms-key-policy-statements "#choose-kms-key-policy-statements") - Choose pertinent KMS key policy
+2. [Step 2: Prepare KMS key policy statements](#choose-kms-key-policy-statements "#choose-kms-key-policy-statements") - Choose pertinent KMS key policy
    statement templates based on the use cases identified in Step 1, and fill in required
    identifiers and IAM principal names. Start with the baseline KMS key policy statements,
    and if your security policies require it, refine them as described in Advanced KMS key
    policy statements.
-3. [Step 3: Create a customer managed KMS
-   key](#create-customer-managed-kms-key "#create-customer-managed-kms-key") - Create a KMS key in AWS KMS
+3. [Step 3: Create a customer managed KMS key](#create-customer-managed-kms-key "#create-customer-managed-kms-key") - Create a KMS key in AWS KMS
    that meets the IAM Identity Center requirements, and add the KMS key policy statements prepared in
    Step 2 to the KMS key policy.
-4. [Step 4: Configure IAM policies for
-   cross-account use of the KMS key](#configure-iam-policies-kms-key "#configure-iam-policies-kms-key") - Choose pertinent IAM policy
+4. [Step 4: Configure IAM policies for cross-account use of the KMS key](#configure-iam-policies-kms-key "#configure-iam-policies-kms-key") - Choose pertinent IAM policy
    statement templates based on the use cases identified in Step 1, and prepare them for
    use by filling in the key ARN. Then, allow the IAM principals for each specific use case
    to use the KMS key across accounts by adding the prepared IAM policy statements to the
    principals' IAM policies.
-5. [Step 5: Configure the KMS key
-   in IAM Identity Center](#configure-kms-key-in-iam-identity-center "#configure-kms-key-in-iam-identity-center") - Enable the customer
+5. [Step 5: Configure the KMS key in IAM Identity Center](#configure-kms-key-in-iam-identity-center "#configure-kms-key-in-iam-identity-center") - Enable the customer
    managed KMS key in your IAM Identity Center instance to use it for encryption at rest.
 
 ## Step 1: Identify use cases for your organization
@@ -52,10 +45,8 @@ the IAM principals.
 
 The KMS key permissions consist of:
 
-1. KMS key policy statements that you specify on the KMS key during its creation in [Step 3: Create a customer managed KMS
-   key](#create-customer-managed-kms-key "#create-customer-managed-kms-key").
-2. IAM policy statements for IAM principals that you specify in [Step 4: Configure IAM policies for
-   cross-account use of the KMS key](#configure-iam-policies-kms-key "#configure-iam-policies-kms-key") after you create the KMS key.
+1. KMS key policy statements that you specify on the KMS key during its creation in [Step 3: Create a customer managed KMS key](#create-customer-managed-kms-key "#create-customer-managed-kms-key").
+2. IAM policy statements for IAM principals that you specify in [Step 4: Configure IAM policies for cross-account use of the KMS key](#configure-iam-policies-kms-key "#configure-iam-policies-kms-key") after you create the KMS key.
 
 The following table specifies the relevant use cases and IAM principals that need
 permissions to use your KMS key.
@@ -74,9 +65,7 @@ Multiple IAM principals listed in the table require AWS KMS API permissions. How
 to protect your user and group data in IAM Identity Center, only IAM Identity Center and Identity Store services
 directly call the AWS KMS API.
 
-## Step 2: Prepare KMS key policy
-
-statements
+## Step 2: Prepare KMS key policy statements
 
 After identifying the use cases relevant to your organization, you can prepare the
 corresponding KMS key policy statements.
@@ -84,8 +73,7 @@ corresponding KMS key policy statements.
 1. Choose the KMS key policy statements that match the use cases for your
    organization. Begin with the baseline policy templates. If you need more specific
    policies based on your security requirements, you can modify the policy statements
-   using the examples in [Advanced KMS key policy statements](advanced-kms-policy.md "advanced-kms-policy.md"). For guidance on this decision, see [Considerations for
-   choosing baseline vs. advanced KMS key policy statements](considerations-for-customer-managed-kms-keys-advanced.md#kms-policy-considerations-advanced-vs-baseline "considerations-for-customer-managed-kms-keys-advanced.md#kms-policy-considerations-advanced-vs-baseline"). In addition, each
+   using the examples in [Advanced KMS key policy statements](advanced-kms-policy.md "advanced-kms-policy.md"). For guidance on this decision, see [Considerations for choosing baseline vs. advanced KMS key policy statements](considerations-for-customer-managed-kms-keys-advanced.md#kms-policy-considerations-advanced-vs-baseline "considerations-for-customer-managed-kms-keys-advanced.md#kms-policy-considerations-advanced-vs-baseline"). In addition, each
    baseline section in [Baseline KMS key and IAM policy statements](baseline-KMS-key-policy.md "baseline-KMS-key-policy.md") includes relevant considerations.
 2. Copy the relevant policies to an editor and insert the required identifiers and
    IAM principal names in the KMS key policy statements. For help finding the values of
@@ -95,16 +83,11 @@ Following are baseline policy templates for each use case. Only the first set of
 permissions for AWS IAM Identity Center is required to use a KMS key. We recommend that you review the
 applicable subsections for additional use case-specific information.
 
-- [Baseline
-  KMS key policy statements for use of IAM Identity Center (required)](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-iam-identity-center-mandatory "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-iam-identity-center-mandatory")
-- [Baseline
-  KMS key and IAM policy statements for use of AWS managed applications](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-aws-managed-applications "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-aws-managed-applications")
-- [Baseline KMS
-  key statement for use of AWS Control Tower](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-specific-use-cases "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-specific-use-cases")
-- [Baseline
-  KMS key and IAM policy statements for use of IAM Identity Center to instances](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-sso-to-amazon-ec2-windows-instances "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-sso-to-amazon-ec2-windows-instances")
-- [Baseline
-  KMS key and IAM policy statements for use of custom workflows with IAM Identity Center](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-custom-workflows-with-iam-identity-center "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-custom-workflows-with-iam-identity-center")
+- [Baseline KMS key policy statements for use of IAM Identity Center (required)](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-iam-identity-center-mandatory "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-iam-identity-center-mandatory")
+- [Baseline KMS key and IAM policy statements for use of AWS managed applications](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-aws-managed-applications "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-aws-managed-applications")
+- [Baseline KMS key statement for use of AWS Control Tower](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-specific-use-cases "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-specific-use-cases")
+- [Baseline KMS key and IAM policy statements for use of IAM Identity Center to instances](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-sso-to-amazon-ec2-windows-instances "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-sso-to-amazon-ec2-windows-instances")
+- [Baseline KMS key and IAM policy statements for use of custom workflows with IAM Identity Center](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-custom-workflows-with-iam-identity-center "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-custom-workflows-with-iam-identity-center")
 
 ###### Important
 
@@ -124,9 +107,7 @@ only the initiating IAM principal (such as an administrator) needs KMS key permi
 Notably, end users using the AWS access portal and AWS managed applications don't
 need direct KMS key permissions, as they are granted through the respective services.
 
-## Step 3: Create a customer managed KMS
-
-key
+## Step 3: Create a customer managed KMS key
 
 You can create a customer managed key using the AWS Management Console or the AWS
 KMS APIs. While creating the key, add the KMS key policy statements you prepared in Step 2
@@ -149,12 +130,9 @@ The key must meet the following requirements:
 
 If you plan to replicate this KMS key to Regions where you want to replicate your
 IAM Identity Center, we recommend you first complete the setup in this section, and then follow the
-guidance in [Replicate IAM Identity Center to an
-additional Region](replicate-to-additional-region.md "replicate-to-additional-region.md")
+guidance in [Replicate IAM Identity Center to an additional Region](replicate-to-additional-region.md "replicate-to-additional-region.md")
 
-## Step 4: Configure IAM policies for
-
-cross-account use of the KMS key
+## Step 4: Configure IAM policies for cross-account use of the KMS key
 
 Any IAM principal that uses the IAM Identity Center service APIs from another AWS account, such as
 IAM Identity Center delegated administrators, also needs an IAM policy statement that allows use of the
@@ -184,9 +162,7 @@ The IAM policies described here are identity-based policies. While such policies
 be attached to IAM users, groups, and roles, we recommend the use of IAM roles when
 possible. See the IAM user guide for more information about IAM roles versus IAM users.
 
-### Additional configuration in some
-
-AWS managed applications
+### Additional configuration in some AWS managed applications
 
 Some AWS managed applications require you to configure a service role to allow the
 applications to use the IAM Identity Center service APIs. If your organization uses AWS managed
@@ -205,9 +181,7 @@ recommend that you check the user guides of all deployed AWS managed application
 You only need to perform this configuration once for each application that requires
 the configuration.
 
-## Step 5: Configure the KMS key
-
-in IAM Identity Center
+## Step 5: Configure the KMS key in IAM Identity Center
 
 ###### Important
 
@@ -228,14 +202,11 @@ Before proceeding with this step:
   APIs. Refer to the User Guide of each deployed AWS managed application to confirm
   whether you need to add specific KMS key permissions.
 
-### Specify a KMS key when enabling new
-
-organization instance of IAM Identity Center
+### Specify a KMS key when enabling new organization instance of IAM Identity Center
 
 When enabling a new organization instance of IAM Identity Center, you can specify a
 customer managed KMS key during setup. This ensures the instance uses your key for
-encryption at rest from the start. Before you start, refer to [Considerations for
-customer managed KMS keys and advanced KMS key policies](considerations-for-customer-managed-kms-keys-advanced.md "considerations-for-customer-managed-kms-keys-advanced.md").
+encryption at rest from the start. Before you start, refer to [Considerations for customer managed KMS keys and advanced KMS key policies](considerations-for-customer-managed-kms-keys-advanced.md "considerations-for-customer-managed-kms-keys-advanced.md").
 
 1. On the **Enable IAM Identity Center** page, expand
    the **Encryption at rest** section.
@@ -253,9 +224,7 @@ customer managed KMS keys and advanced KMS key policies](considerations-for-cust
 For more information, see [Enable
 IAM Identity Center](enable-identity-center.md "enable-identity-center.md").
 
-### Change the key configuration for an
-
-existing organization instance of IAM Identity Center
+### Change the key configuration for an existing organization instance of IAM Identity Center
 
 You can change your customer managed KMS key to another key or switch to an AWS
 owned key at any time.

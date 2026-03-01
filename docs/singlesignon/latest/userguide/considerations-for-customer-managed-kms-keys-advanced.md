@@ -1,13 +1,9 @@
-# Considerations for
-
-customer managed KMS keys and advanced KMS key policies
+# Considerations for customer managed KMS keys and advanced KMS key policies
 
 When implementing customer managed KMS keys with IAM Identity Center, consider these factors that
 affect setup, security, and ongoing maintenance of your encryption configuration.
 
-## Considerations for
-
-choosing baseline vs. advanced KMS key policy statements
+## Considerations for choosing baseline vs. advanced KMS key policy statements
 
 When deciding whether to make the KMS key permissions more specific using [Advanced KMS key policy statements](advanced-kms-policy.md "advanced-kms-policy.md"), consider the
 management overhead and the security needs of your organization. More specific policy
@@ -18,9 +14,7 @@ deployments, you'll need to update the key policy whenever your organization wan
 deploy or undeploy an application. Less restrictive policies reduce administrative
 burden but may grant broader permissions than necessary for your security requirements.
 
-## Considerations for enabling a
-
-new IAM Identity Center instance with a customer managed KMS key
+## Considerations for enabling a new IAM Identity Center instance with a customer managed KMS key
 
 The considerations here apply if you're using the encryption context as described
 in [Advanced KMS key policy statements](advanced-kms-policy.md "advanced-kms-policy.md") to

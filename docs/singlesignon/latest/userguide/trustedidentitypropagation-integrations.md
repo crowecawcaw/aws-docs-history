@@ -1,6 +1,4 @@
-# Trusted identity
-
-propagation use cases
+# Trusted identity propagation use cases
 
 As an IAM Identity Center administrator, you might be asked to help configure trusted identity
 propagation from user facing applications to AWS services. To support this
@@ -32,24 +30,18 @@ as:
 2. Enabling IAM Identity Center to recognize the third-party or custom-developed
    application.
 3. Configuring your IdP as a trusted token issuer in IAM Identity Center. For more
-   information, see [Using applications with a
-   trusted token issuer](using-apps-with-trusted-token-issuer.md "using-apps-with-trusted-token-issuer.md").
+   information, see [Using applications with a trusted token issuer](using-apps-with-trusted-token-issuer.md "using-apps-with-trusted-token-issuer.md").
    The administrators of the connected applications and AWS services should refer
    to the respective user guides for comprehensive service-specific guidance.
 
-## Analytics, data
-
-lakehouse, and machine learning use cases
+## Analytics, data lakehouse, and machine learning use cases
 
 You can enable trusted propagation use cases with the following analytics and
 machine learning services:
 
-- **Amazon Redshift** - For guidance, see [Trusted identity propagation with
-  Amazon Redshift](tip-usecase-redshift.md "tip-usecase-redshift.md").
-- **Amazon EMR** - For guidance, see [Trusted identity propagation with
-  Amazon EMR](tip-usecase-emr.md "tip-usecase-emr.md").
-- **Amazon Athena** - For guidance, see [Trusted identity propagation with
-  Amazon Athena](tip-usecase-ate.md "tip-usecase-ate.md").
+- **Amazon Redshift** - For guidance, see [Trusted identity propagation with Amazon Redshift](tip-usecase-redshift.md "tip-usecase-redshift.md").
+- **Amazon EMR** - For guidance, see [Trusted identity propagation with Amazon EMR](tip-usecase-emr.md "tip-usecase-emr.md").
+- **Amazon Athena** - For guidance, see [Trusted identity propagation with Amazon Athena](tip-usecase-ate.md "tip-usecase-ate.md").
 - **SageMaker Studio** - For guidance, see [Trusted identity propagation with Amazon SageMaker Studio](trusted-identity-propagation-usecase-sagemaker-studio.md "trusted-identity-propagation-usecase-sagemaker-studio.md").
 
 ## Additional use cases
@@ -76,10 +68,7 @@ AWS services:
 
 ###### Topics
 
-- [Trusted identity propagation with
-  Amazon Redshift](tip-usecase-redshift.md "tip-usecase-redshift.md")
-- [Trusted identity propagation with
-  Amazon EMR](tip-usecase-emr.md "tip-usecase-emr.md")
-- [Trusted identity propagation with
-  Amazon Athena](tip-usecase-ate.md "tip-usecase-ate.md")
+- [Trusted identity propagation with Amazon Redshift](tip-usecase-redshift.md "tip-usecase-redshift.md")
+- [Trusted identity propagation with Amazon EMR](tip-usecase-emr.md "tip-usecase-emr.md")
+- [Trusted identity propagation with Amazon Athena](tip-usecase-ate.md "tip-usecase-ate.md")
 - [Trusted identity propagation with Amazon SageMaker Studio](trusted-identity-propagation-usecase-sagemaker-studio.md "trusted-identity-propagation-usecase-sagemaker-studio.md")

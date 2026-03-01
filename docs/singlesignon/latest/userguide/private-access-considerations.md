@@ -1,6 +1,4 @@
-# Considerations for AWS Management Console Private
-
-Access
+# Considerations for AWS Management Console Private Access
 
 If your organization uses the AWS Management Console Private Access feature, you should consider how
 your users will sign-in to IAM Identity Center.

@@ -14,5 +14,4 @@ with a newer one is referred to as certificate rotation.
 ###### Topics
 
 - [Rotate a SAML 2.0 certificate](rotatesamlcert.md "rotatesamlcert.md")
-- [Certificate expiration status
-  indicators](samlcertexpirationindicators.md "samlcertexpirationindicators.md")
+- [Certificate expiration status indicators](samlcertexpirationindicators.md "samlcertexpirationindicators.md")

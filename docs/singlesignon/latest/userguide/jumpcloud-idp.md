@@ -1,11 +1,8 @@
-# Using IAM Identity Center to connect with your JumpCloud
-
-Directory Platform
+# Using IAM Identity Center to connect with your JumpCloud Directory Platform
 
 IAM Identity Center supports automatic provisioning (synchronization) of user information from
 JumpCloud Directory Platform into IAM Identity Center. This provisioning uses the [Security Assertion Markup
-Language (SAML) 2.0](scim-profile-saml.md "scim-profile-saml.md") protocol. For more information, see [Using SAML and SCIM identity federation with external identity
-providers](other-idps.md "other-idps.md").
+Language (SAML) 2.0](scim-profile-saml.md "scim-profile-saml.md") protocol. For more information, see [Using SAML and SCIM identity federation with external identity providers](other-idps.md "other-idps.md").
 
 You configure this connection in JumpCloud using your IAM Identity Center SCIM endpoint
 and access token. When you configure SCIM synchronization, you create a mapping of your user
@@ -21,8 +18,7 @@ groups from JumpCloud to IAM Identity Center using the SCIM protocol.
 
 ###### Note
 
-Before you begin deploying SCIM, we recommend that you first review the [Considerations for using automatic
-provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations"). Then continue reviewing
+Before you begin deploying SCIM, we recommend that you first review the [Considerations for using automatic provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations"). Then continue reviewing
 additional considerations in the next section.
 
 ###### Topics
@@ -31,10 +27,8 @@ additional considerations in the next section.
 - [SCIM considerations](#jumpcloud-scim "#jumpcloud-scim")
 - [Step 1: Enable provisioning in IAM Identity Center](#jumpcloud-step1 "#jumpcloud-step1")
 - [Step 2: Configure provisioning in JumpCloud](#jumpcloud-step2 "#jumpcloud-step2")
-- [(Optional) Step 3: Configure user attributes in
-  JumpCloud for access control in IAM Identity Center](#jumpcloud-step3 "#jumpcloud-step3")
-- [(Optional) Passing attributes for access
-  control](#jumpcloud-passing-abac "#jumpcloud-passing-abac")
+- [(Optional) Step 3: Configure user attributes in JumpCloud for access control in IAM Identity Center](#jumpcloud-step3 "#jumpcloud-step3")
+- [(Optional) Passing attributes for access control](#jumpcloud-passing-abac "#jumpcloud-passing-abac")
 
 ## Prerequisites
 
@@ -135,9 +129,7 @@ this procedure to configure SCIM provisioning.
     JumpCloud appear on the **Users** page. These users can
     now be assigned to accounts within IAM Identity Center.
 
-## (Optional) Step 3: Configure user attributes in
-
-JumpCloud for access control in IAM Identity Center
+## (Optional) Step 3: Configure user attributes in JumpCloud for access control in IAM Identity Center
 
 This is an optional procedure for JumpCloud should you choose to
 configure attributes for IAM Identity Center to manage access to your AWS resources. The attributes
@@ -148,9 +140,7 @@ passed from JumpCloud.
 Before you begin this procedure, you must first enable the [Attributes
 for access control](attributesforaccesscontrol.md "attributesforaccesscontrol.md") feature. For more information about how to do this, see [Enable and configure attributes for access control](configure-abac.md "configure-abac.md").
 
-###### \*\*To configure user attributes in JumpCloud for access
-
-control in IAM Identity Center\*\*
+###### **To configure user attributes in JumpCloud for access control in IAM Identity Center**
 
 1. Open the JumpCloud IAM Identity Center connector that you installed as part
    of configuring SAML for JumpCloud (**User
@@ -170,9 +160,7 @@ control in IAM Identity Center\*\*
 
 4. Choose **Save**.
 
-## (Optional) Passing attributes for access
-
-control
+## (Optional) Passing attributes for access control
 
 You can optionally use the [Attributes for access control](attributesforaccesscontrol.md "attributesforaccesscontrol.md") feature in IAM Identity Center to pass an
 `Attribute` element with the `Name` attribute set to

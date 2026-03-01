@@ -14,8 +14,7 @@ the accounts and applications in your AWS organization. In addition, developers 
 sign in to the AWS Command Line Interface (AWS CLI) using their existing credentials, and benefit from automatic
 short-term credential generation and rotation.
 
-If you are using a self-managed directory in Active Directory or an AWS Managed Microsoft AD, see [Microsoft AD
-directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
+If you are using a self-managed directory in Active Directory or an AWS Managed Microsoft AD, see [Microsoft AD directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
 
 ###### Note
 
@@ -23,9 +22,7 @@ The SAML protocol does not provide a way to query the IdP to learn about users a
 Therefore, you must make IAM Identity Center aware of those users and groups by provisioning them into
 IAM Identity Center.
 
-## Provisioning when users come from an external
-
-IdP
+## Provisioning when users come from an external IdP
 
 When using an external IdP, you must provision all applicable users and groups into IAM Identity Center
 before you can make any assignments to AWS accounts or applications. To do this, you can
@@ -38,8 +35,6 @@ information about provisioning, see [User and group provisioning](users-groups-p
 ###### Topics
 
 - [How to connect to an external identity provider](how-to-connect-idp.md "how-to-connect-idp.md")
-- [How to change an external identity provider's
-  metadata in IAM Identity Center](how-to-change-idp-metadata.md "how-to-change-idp-metadata.md")
-- [Using SAML and SCIM identity federation with external identity
-  providers](other-idps.md "other-idps.md")
+- [How to change an external identity provider's metadata in IAM Identity Center](how-to-change-idp-metadata.md "how-to-change-idp-metadata.md")
+- [Using SAML and SCIM identity federation with external identity providers](other-idps.md "other-idps.md")
 - [SCIM profile and SAML 2.0 implementation](scim-profile-saml.md "scim-profile-saml.md")

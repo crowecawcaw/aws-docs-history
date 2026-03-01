@@ -1,6 +1,4 @@
-# Setting up trusted identity
-
-propagation with Amazon Redshift Query Editor V2
+# Setting up trusted identity propagation with Amazon Redshift Query Editor V2
 
 The following procedure walks you through how to achieve trusted identity
 propagation from Amazon Redshift Query Editor V2 to Amazon Redshift.
@@ -12,8 +10,7 @@ the following:
 
 1. [Enable IAM Identity Center](enable-identity-center.md "enable-identity-center.md").
    [Organization instance](organization-instances-identity-center.md "organization-instances-identity-center.md") is recommended. For more
-   information, see [Prerequisites and
-   considerations](trustedidentitypropagation-overall-prerequisites.md "trustedidentitypropagation-overall-prerequisites.md").
+   information, see [Prerequisites and considerations](trustedidentitypropagation-overall-prerequisites.md "trustedidentitypropagation-overall-prerequisites.md").
 2. [Provision the users and groups from
    your source of identities into IAM Identity Center](tutorials.md "tutorials.md").
 
@@ -21,9 +18,7 @@ Enabling trusted identity propagation includes tasks performed by an
 IAM Identity Center administrator in the IAM Identity Center console and tasks performed by an Amazon Redshift
 administrator in the Amazon Redshift console.
 
-## Tasks performed by
-
-the IAM Identity Center administrator
+## Tasks performed by the IAM Identity Center administrator
 
 The following tasks needed to be complete by the IAM Identity Center
 administrator:
@@ -197,8 +192,7 @@ administrator:
 
         ![Step j, Sign in to AWS access portal.](images/setting-up-redshift-step-j.png)
 
-        For more information about permission set, see [Manage AWS accounts with permission
-         sets](permissionsetsconcept.md "permissionsetsconcept.md").
+        For more information about permission set, see [Manage AWS accounts with permission sets](permissionsetsconcept.md "permissionsetsconcept.md").
 
     [Show moreShow less](# "#")
 
@@ -227,9 +221,7 @@ administrator:
 
     [Show moreShow less](# "#")
 
-## Tasks performed by
-
-an Amazon Redshift administrator
+## Tasks performed by an Amazon Redshift administrator
 
 Enabling trusted identity propagation to Amazon Redshift requires an Amazon Redshift cluster
 administrator or Amazon Redshift Serverless administrator to perform a number of

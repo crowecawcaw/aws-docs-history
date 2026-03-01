@@ -1,6 +1,4 @@
-# Select your attributes for
-
-access control
+# Select your attributes for access control
 
 Use the following procedure to set up attributes for your ABAC
 configuration.
@@ -30,8 +28,7 @@ and need to pass your organization's cost center data along as
 session tags. In **Key**, you would enter a
 similarly matched name like **CostCenter** as your
 key name. It's important to note that whichever name you choose
-here, it must also be named exactly the same in your `aws:PrincipalTag
- condition key` (that is,
+here, it must also be named exactly the same in your `aws:PrincipalTag condition key` (that is,
 `"ec2:ResourceTag/CostCenter":
  "${aws:PrincipalTag/CostCenter}"`).
 
@@ -44,8 +41,7 @@ multi-value attributes for ABAC, for example,
 
 **Value** represents the content of the attribute
 coming from your configured identity source. Here you can enter any
-value from the appropriate identity source table listed in [Attribute mappings between IAM Identity Center and External
-Identity Providers directory](attributemappingsconcept.md "attributemappingsconcept.md"). For example, using
+value from the appropriate identity source table listed in [Attribute mappings between IAM Identity Center and External Identity Providers directory](attributemappingsconcept.md "attributemappingsconcept.md"). For example, using
 the context provided in the above mentioned example, you would
 review the list of supported IdP attributes and determine that the
 closest match of a supported attribute would be
@@ -59,5 +55,4 @@ Now that you have configured mapping your access control attributes, you
 need to complete the ABAC configuration process. To do this, create your
 ABAC rules and add them to your permission sets and/or resource-based
 policies. This is required so that you can grant user identities access to
-AWS resources. For more information, see [Create permission policies for ABAC in
-IAM Identity Center](configure-abac-policies.md "configure-abac-policies.md").
+AWS resources. For more information, see [Create permission policies for ABAC in IAM Identity Center](configure-abac-policies.md "configure-abac-policies.md").

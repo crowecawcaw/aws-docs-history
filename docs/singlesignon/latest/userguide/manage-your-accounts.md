@@ -92,17 +92,14 @@ programmatically, users complete the following steps:
    for command line or programmatic access by choosing **Access
    keys**.
 
-For step-by-step guidance that you can provide to your workforce users, see [Setting up and using the AWS access portal](using-the-portal.md "using-the-portal.md") and [Getting IAM Identity Center user credentials for the AWS CLI or AWS
-SDKs](howtogetcredentials.md "howtogetcredentials.md").
+For step-by-step guidance that you can provide to your workforce users, see [Setting up and using the AWS access portal](using-the-portal.md "using-the-portal.md") and [Getting IAM Identity Center user credentials for the AWS CLI or AWS SDKs](howtogetcredentials.md "howtogetcredentials.md").
 
 ## Enforcing and limiting access
 
 When you enable IAM Identity Center, IAM Identity Center creates a service-linked role. You can also use service
 control policies (SCPs).
 
-### Delegating and enforcing
-
-access
+### Delegating and enforcing access
 
 A _service-linked role_ is a type of IAM role that is linked
 directly to an AWS service. After you enable IAM Identity Center, IAM Identity Center can create a
@@ -111,12 +108,9 @@ predefined permissions that allow IAM Identity Center to delegate and enforce wh
 single sign-on access to specific AWS accounts in your organization in AWS Organizations.
 You need to assign one or more users with access to an account, to use this role.
 For more information, see [Understanding service-linked roles in IAM Identity Center](slrconcept.md "slrconcept.md")
-and [Using service-linked roles for
-IAM Identity Center](using-service-linked-roles.md "using-service-linked-roles.md").
+and [Using service-linked roles for IAM Identity Center](using-service-linked-roles.md "using-service-linked-roles.md").
 
-### Limiting access to the
-
-identity store from member accounts
+### Limiting access to the identity store from member accounts
 
 For the identity store service used by IAM Identity Center, users who have access to a member
 account can use API actions that require **Read** permissions.

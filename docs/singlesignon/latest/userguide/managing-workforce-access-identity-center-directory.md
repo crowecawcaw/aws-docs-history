@@ -33,5 +33,4 @@ Administrators can register and manage MFA devices for users.
 ###### Topics
 
 - [Setting up user passwords](set-up-user-passwords.md "set-up-user-passwords.md")
-- [MFA for Identity Center directory
-  users](enable-mfa.md "enable-mfa.md")
+- [MFA for Identity Center directory users](enable-mfa.md "enable-mfa.md")

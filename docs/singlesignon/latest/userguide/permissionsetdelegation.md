@@ -1,6 +1,4 @@
-# Delegate permission set
-
-administration
+# Delegate permission set administration
 
 IAM Identity Center enables you to delegate management of permission sets and assignments in
 accounts by creating [IAM policies](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") that reference the [Amazon Resource Names (ARNs)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") of IAM Identity Center resources. For example, you

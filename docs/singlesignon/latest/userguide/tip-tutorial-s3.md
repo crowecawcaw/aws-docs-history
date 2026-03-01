@@ -1,6 +1,4 @@
-# Setting up Amazon S3 Access Grants with
-
-IAM Identity Center
+# Setting up Amazon S3 Access Grants with IAM Identity Center
 
 [Amazon S3
 Access Grants](../../../AmazonS3/latest/userguide/access-grants-get-started.md "../../../AmazonS3/latest/userguide/access-grants-get-started.md") provides the flexibility to
@@ -17,24 +15,17 @@ the following:
 
 - [Enable IAM Identity Center](enable-identity-center.md "enable-identity-center.md").
   [Organization instance](organization-instances-identity-center.md "organization-instances-identity-center.md") is recommended. For more
-  information, see [Prerequisites and
-  considerations](trustedidentitypropagation-overall-prerequisites.md "trustedidentitypropagation-overall-prerequisites.md").
+  information, see [Prerequisites and considerations](trustedidentitypropagation-overall-prerequisites.md "trustedidentitypropagation-overall-prerequisites.md").
 
-## Configuring S3 Access Grants for
+## Configuring S3 Access Grants for trusted identity propagation through IAM Identity Center
 
-trusted identity propagation through IAM Identity Center
-
-###### If you already have an Amazon S3 Access Grants instance
-
-with a registered location, follow these steps:
+###### If you already have an Amazon S3 Access Grants instance with a registered location, follow these steps:
 
 1. [Associate your IAM Identity Center instance](../../../AmazonS3/latest/userguide/access-grants-instance-idc.md "../../../AmazonS3/latest/userguide/access-grants-instance-idc.md").
 2. [Create a
    grant](#tip-tutorial-s3-create-grant "#tip-tutorial-s3-create-grant").
 
-###### If you have not created an Amazon S3 Access Grants yet,
-
-follow these steps:
+###### If you have not created an Amazon S3 Access Grants yet, follow these steps:
 
 1. [**Create an S3 Access Grants
    instance**](../../../AmazonS3/latest/userguide/access-grants-instance-create.md "../../../AmazonS3/latest/userguide/access-grants-instance-create.md") - You can create one S3
@@ -252,9 +243,7 @@ principal to assume the IAM role.
 
     ```
 
-## Create an Amazon S3 Access
-
-Grant
+## Create an Amazon S3 Access Grant
 
 If you have an Amazon S3 Access Grants instance with a
 registered location and you have associated your IAM Identity Center instance with it,

@@ -1,6 +1,4 @@
-# Automate your sync
-
-configuration for configurable AD sync
+# Automate your sync configuration for configurable AD sync
 
 To ensure that your automated workflow works as expected with configurable AD sync, we
 recommend that you perform the following steps to automate your sync configuration.

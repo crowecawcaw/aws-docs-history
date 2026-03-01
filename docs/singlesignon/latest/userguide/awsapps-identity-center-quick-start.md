@@ -1,6 +1,4 @@
-# Quick start: Setting up IAM Identity Center
-
-to test AWS managed applications
+# Quick start: Setting up IAM Identity Center to test AWS managed applications
 
 If your administrator hasn’t already provided you with access to IAM Identity Center, you can use the steps
 in this topic to set up IAM Identity Center to test AWS managed applications. You'll learn how
@@ -26,8 +24,7 @@ Before you enable IAM Identity Center, confirm the following:
   started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md") in the _AWS Account
   Management Reference Guide._
 - **The AWS managed application works with
-  IAM Identity Center** – Review the list of [AWS managed applications
-  that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md") to confirm
+  IAM Identity Center** – Review the list of [AWS managed applications that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md") to confirm
   that the AWS managed application you want to test works with
   IAM Identity Center.
 - **You’ve reviewed Regional
@@ -41,9 +38,7 @@ Before you enable IAM Identity Center, confirm the following:
 You must deploy your AWS managed application in the same Region
 where you plan to enable IAM Identity Center.
 
-##
-
-Setting up an organization instance of IAM Identity Center to test AWS managed applications
+## Setting up an organization instance of IAM Identity Center to test AWS managed applications
 
 ###### Note
 
@@ -167,8 +162,7 @@ AWS application you want to test.
 
 All AWS managed applications that work with IAM Identity Center can be used with organization instances of
 IAM Identity Center. However, only some of these applications can be used with account instances of IAM Identity Center.
-Review the list of [AWS managed applications
-that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md").
+Review the list of [AWS managed applications that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md").
 
 ### Step1. Enable an account instance of IAM Identity Center
 
@@ -192,9 +186,7 @@ that you can use with IAM Identity Center](awsapps-that-work-with-identity-cente
    information and optionally add tags that you want to associate with this account instance.
    Then choose **Enable**.
 
-### Step 2.
-
-Create a user in IAM Identity Center
+### Step 2. Create a user in IAM Identity Center
 
 This procedure describes how to create a user directly in the built-in
 Identity Center directory. This directory isn't connected to any other directory

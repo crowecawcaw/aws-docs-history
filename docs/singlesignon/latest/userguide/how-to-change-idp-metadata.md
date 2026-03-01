@@ -1,6 +1,4 @@
-# How to change an external identity provider's
-
-metadata in IAM Identity Center
+# How to change an external identity provider's metadata in IAM Identity Center
 
 You can change your external identity provider's metadata which you previously supplied to
 the IAM Identity Center. These changes affect your users' ability to sign in and access AWS resources

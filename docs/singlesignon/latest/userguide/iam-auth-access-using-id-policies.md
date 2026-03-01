@@ -1,6 +1,4 @@
-# Identity-based policy examples for
-
-IAM Identity Center
+# Identity-based policy examples for IAM Identity Center
 
 This topic provides examples of IAM policies that you can create to grant users and roles permissions to administer IAM Identity Center.
 
@@ -8,14 +6,12 @@ This topic provides examples of IAM policies that you can create to grant users 
 
 We recommend that you first review the introductory topics that explain the basic concepts
 and options available for you to manage access to your IAM Identity Center resources. For more information,
-see [Overview of managing access permissions to your
-IAM Identity Center resources](iam-auth-access-overview.md "iam-auth-access-overview.md").
+see [Overview of managing access permissions to your IAM Identity Center resources](iam-auth-access-overview.md "iam-auth-access-overview.md").
 
 The sections in this topic cover the following:
 
 - [Custom policy examples](#policyexample "#policyexample")
-- [Permissions required to use the IAM Identity Center
-  console](#requiredpermissionsconsole "#requiredpermissionsconsole")
+- [Permissions required to use the IAM Identity Center console](#requiredpermissionsconsole "#requiredpermissionsconsole")
 
 ## Custom policy examples
 
@@ -40,12 +36,9 @@ _IAM User Guide_.
 ###### Topics
 
 - [Example 1: Allow a user to view IAM Identity Center](#policyexamplesetupenable "#policyexamplesetupenable")
-- [Example 2: Allow a user to manage
-  permissions to AWS accounts in IAM Identity Center](#policyexamplemanageconnecteddirectory "#policyexamplemanageconnecteddirectory")
-- [Example 3: Allow a user to manage
-  applications in IAM Identity Center](#policyexamplemanageapplication "#policyexamplemanageapplication")
-- [Example 4: Allow a user to manage users and
-  groups in your Identity Center directory](#policyexamplemanageusersgroups "#policyexamplemanageusersgroups")
+- [Example 2: Allow a user to manage permissions to AWS accounts in IAM Identity Center](#policyexamplemanageconnecteddirectory "#policyexamplemanageconnecteddirectory")
+- [Example 3: Allow a user to manage applications in IAM Identity Center](#policyexamplemanageapplication "#policyexamplemanageapplication")
+- [Example 4: Allow a user to manage users and groups in your Identity Center directory](#policyexamplemanageusersgroups "#policyexamplemanageusersgroups")
 
 ### Example 1: Allow a user to view IAM Identity Center
 
@@ -98,9 +91,7 @@ JSON
 
 ```
 
-### Example 2: Allow a user to manage
-
-permissions to AWS accounts in IAM Identity Center
+### Example 2: Allow a user to manage permissions to AWS accounts in IAM Identity Center
 
 The following permissions policy grants permissions to allow a user to create, manage,
 and deploy permission sets for your AWS accounts.
@@ -173,9 +164,7 @@ and `"Sid": "AccessToSSOProvisionedRoles"` sections are required only to enable
 the user to create assignments in the AWS Organizations management account. In certain cases, you
 may also need to add `iam:UpdateSAMLProvider` to these sections.
 
-### Example 3: Allow a user to manage
-
-applications in IAM Identity Center
+### Example 3: Allow a user to manage applications in IAM Identity Center
 
 The following permissions policy grants permissions to allow a user to view and
 configure applications in IAM Identity Center, including pre-integrated SaaS applications from within the
@@ -187,8 +176,7 @@ The `sso:AssociateProfile` operation used in the following policy example
 is required for management of user and group assignments to applications. It also allows a
 user to assign users and groups to AWS accounts by using existing permission sets. If a
 user must manage AWS account access within IAM Identity Center, and requires permissions necessary to
-manage permission sets, see [Example 2: Allow a user to manage
-permissions to AWS accounts in IAM Identity Center](#policyexamplemanageconnecteddirectory "#policyexamplemanageconnecteddirectory").
+manage permission sets, see [Example 2: Allow a user to manage permissions to AWS accounts in IAM Identity Center](#policyexamplemanageconnecteddirectory "#policyexamplemanageconnecteddirectory").
 
 As of October 2020, many of these operations are available only through the AWS
 console. This example policy includes “read” actions such as list, get, and search, which
@@ -248,9 +236,7 @@ JSON
 
 ```
 
-### Example 4: Allow a user to manage users and
-
-groups in your Identity Center directory
+### Example 4: Allow a user to manage users and groups in your Identity Center directory
 
 The following permissions policy grants permissions to allow a user to create, view,
 modify, and delete users and groups in IAM Identity Center.
@@ -294,9 +280,7 @@ JSON
 
 ```
 
-## Permissions required to use the IAM Identity Center
-
-console
+## Permissions required to use the IAM Identity Center console
 
 For a user to work with the IAM Identity Center console without errors, additional permissions are
 required. If an IAM policy has been created that is more restrictive than the minimum

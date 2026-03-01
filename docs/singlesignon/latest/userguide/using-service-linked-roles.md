@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-IAM Identity Center
+# Using service-linked roles for IAM Identity Center
 
 AWS IAM Identity Center uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to IAM Identity Center. It is predefined by IAM Identity Center and includes all the
@@ -80,8 +78,7 @@ following on
 
 - `identity-sync:DeleteSyncProfile`
 
-For more information on updates to the AWSSSOServiceRolePolicy service-linked role permissions policy, see [IAM Identity Center updates to AWS managed
-policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
+For more information on updates to the AWSSSOServiceRolePolicy service-linked role permissions policy, see [IAM Identity Center updates to AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
 
 JSON
 
@@ -298,11 +295,9 @@ again.
 
 ###### To delete IAM Identity Center resources used by the AWSServiceRoleForSSO
 
-1. [Remove user and group access to an
-   AWS account](howtoremoveaccess.md "howtoremoveaccess.md") for all users
+1. [Remove user and group access to an AWS account](howtoremoveaccess.md "howtoremoveaccess.md") for all users
    and groups that have access to the AWS account.
-2. [Remove permission sets in
-   IAM Identity Center](howtoremovepermissionset.md "howtoremovepermissionset.md")
+2. [Remove permission sets in IAM Identity Center](howtoremovepermissionset.md "howtoremovepermissionset.md")
    that you have associated with the AWS account.
 
 **To manually delete the service-linked role using

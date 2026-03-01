@@ -1,6 +1,4 @@
-# Microsoft AD
-
-directory
+# Microsoft AD directory
 
 With AWS IAM Identity Center, you can connect a self-managed directory in Active Directory (AD) or a
 directory in AWS Managed Microsoft AD by using AWS Directory Service. This Microsoft AD directory defines the pool of
@@ -29,9 +27,7 @@ name when performing sign-ins to IAM Identity Center.
   For a demonstration on the process of using Active Directory as an identity source for
   IAM Identity Center, see the following YouTube video:
 
-## Considerations for using Active
-
-Directory
+## Considerations for using Active Directory
 
 If you want to use Active Directory as your identity source, your configuration must meet
 the following prerequisites:
@@ -49,8 +45,7 @@ one AD Connector directory or one directory in AWS Managed Microsoft AD at a tim
 support multiple domains or forests, use AWS Managed Microsoft AD. For more information, see:
 
     + [Connect a directory in AWS Managed Microsoft AD to IAM Identity Center](connectawsad.md "connectawsad.md")
-    + [Connect a self-managed directory in Active Directory to
-     IAM Identity Center](connectonpremad.md "connectonpremad.md")
+    + [Connect a self-managed directory in Active Directory to IAM Identity Center](connectonpremad.md "connectonpremad.md")
 
 - Use an Active Directory residing in the delegated admin account:
 
@@ -63,9 +58,7 @@ Directory, or change it from Active Directory to any other source, the directory
 reside in (be owned by) the IAM Identity Center delegated administrator member account if one exists;
 otherwise, it must be in the management account.
 
-## Provisioning when users come from Active
-
-Directory
+## Provisioning when users come from Active Directory
 
 IAM Identity Center uses the connection provided by the Directory Service to synchronize user, group, and membership
 information from your source directory in Active Directory to the IAM Identity Center identity store. No
@@ -79,9 +72,6 @@ For more information above provisioning, see [User and group provisioning](users
 ###### Topics
 
 - [Connect a directory in AWS Managed Microsoft AD to IAM Identity Center](connectawsad.md "connectawsad.md")
-- [Connect a self-managed directory in Active Directory to
-  IAM Identity Center](connectonpremad.md "connectonpremad.md")
-- [Attribute mappings between IAM Identity Center and External
-  Identity Providers directory](attributemappingsconcept.md "attributemappingsconcept.md")
-- [IAM Identity Center configurable AD
-  sync](provision-users-from-ad-configurable-ADsync.md "provision-users-from-ad-configurable-ADsync.md")
+- [Connect a self-managed directory in Active Directory to IAM Identity Center](connectonpremad.md "connectonpremad.md")
+- [Attribute mappings between IAM Identity Center and External Identity Providers directory](attributemappingsconcept.md "attributemappingsconcept.md")
+- [IAM Identity Center configurable AD sync](provision-users-from-ad-configurable-ADsync.md "provision-users-from-ad-configurable-ADsync.md")

@@ -1,6 +1,4 @@
-# Using applications with a
-
-trusted token issuer
+# Using applications with a trusted token issuer
 
 Trusted token issuers enable you to use trusted identity propagation with
 applications that authenticate outside of AWS. With trusted token issuers, you
@@ -12,21 +10,14 @@ guidance.
 
 ###### Topics
 
-- [Trusted token issuer
-  overview](#trusted-token-issuer-overview "#trusted-token-issuer-overview")
-- [Prerequisites and
-  considerations for trusted token issuers](#trusted-token-issuer-prerequisites "#trusted-token-issuer-prerequisites")
-- [JTI claim
-  details](#trusted-token-issuer-configuration-jti-claim "#trusted-token-issuer-configuration-jti-claim")
-- [Trusted token
-  issuer configuration settings](trusted-token-issuer-configuration-settings.md "trusted-token-issuer-configuration-settings.md")
-- [Setting up a trusted token
-  issuer](setuptrustedtokenissuer.md "setuptrustedtokenissuer.md")
+- [Trusted token issuer overview](#trusted-token-issuer-overview "#trusted-token-issuer-overview")
+- [Prerequisites and considerations for trusted token issuers](#trusted-token-issuer-prerequisites "#trusted-token-issuer-prerequisites")
+- [JTI claim details](#trusted-token-issuer-configuration-jti-claim "#trusted-token-issuer-configuration-jti-claim")
+- [Trusted token issuer configuration settings](trusted-token-issuer-configuration-settings.md "trusted-token-issuer-configuration-settings.md")
+- [Setting up a trusted token issuer](setuptrustedtokenissuer.md "setuptrustedtokenissuer.md")
 - [Identity-enhanced IAM role sessions](trustedidentitypropagation-identity-enhanced-iam-role-sessions.md "trustedidentitypropagation-identity-enhanced-iam-role-sessions.md")
 
-## Trusted token issuer
-
-overview
+## Trusted token issuer overview
 
 Trusted identity propagation provides a mechanism that enables
 applications that authenticate outside of AWS to make requests on behalf
@@ -65,9 +56,7 @@ tasks:
 - Generate a token that IAM Identity Center can exchange for an IAM Identity Center created
   token.
 
-## Prerequisites and
-
-considerations for trusted token issuers
+## Prerequisites and considerations for trusted token issuers
 
 Before you set up a trusted token issuer, review the following
 prerequisites and considerations.
@@ -91,8 +80,7 @@ token issuer to a corresponding user in IAM Identity Center.
 - The OAuth 2.0 authorization server (the trusted token issuer) that
   creates the token must have an [OpenID Connect (OIDC)](https://openid.net/specs/openid-connect-discovery-1_0.html "https://openid.net/specs/openid-connect-discovery-1_0.html") discovery endpoint that IAM Identity Center can
   use to obtain public keys to verify the token signatures. For more
-  information, see [OIDC discovery endpoint
-  URL (issuer URL)](trusted-token-issuer-configuration-settings.md#oidc-discovery-endpoint-url "trusted-token-issuer-configuration-settings.md#oidc-discovery-endpoint-url").
+  information, see [OIDC discovery endpoint URL (issuer URL)](trusted-token-issuer-configuration-settings.md#oidc-discovery-endpoint-url "trusted-token-issuer-configuration-settings.md#oidc-discovery-endpoint-url").
 - **Tokens issued by the trusted token
   issuer**
 
@@ -140,8 +128,7 @@ this RFC.
 
 For example, the token can contain a [JTI (JWT ID) claim](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.7 "https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.7"). This claim, when present, prevents
 tokens that have the same JTI from being reused for token exchanges.
-For more information about JTI claims, see [JTI claim
-details](#trusted-token-issuer-configuration-jti-claim "#trusted-token-issuer-configuration-jti-claim").
+For more information about JTI claims, see [JTI claim details](#trusted-token-issuer-configuration-jti-claim "#trusted-token-issuer-configuration-jti-claim").
 
 - **IAM Identity Center configuration to work with a trusted
   token issuer**
@@ -156,9 +143,7 @@ To do this, you must do either of the following:
      Cross-domain Identity Management (SCIM) 2.0 protocol.
     + Create the users directly in IAM Identity Center.
 
-## JTI claim
-
-details
+## JTI claim details
 
 If IAM Identity Center receives a request to exchange a token that IAM Identity Center has already
 exchanged, the request fails. To detect and prevent reuse of a token for

@@ -19,13 +19,11 @@ applications. For more information, see [User and group provisioning](users-grou
 
 If you prefer to manage users in AWS Managed Microsoft AD, you can stop using your Identity Center
 directory at any time and instead connect IAM Identity Center to your directory in Microsoft AD by
-using Directory Service. For more information, see considerations for [Changing between IAM Identity Center
-directory and Active Directory](manage-your-identity-source-considerations.md#changing-between-sso-and-active-directory "manage-your-identity-source-considerations.md#changing-between-sso-and-active-directory").
+using Directory Service. For more information, see considerations for [Changing between IAM Identity Center directory and Active Directory](manage-your-identity-source-considerations.md#changing-between-sso-and-active-directory "manage-your-identity-source-considerations.md#changing-between-sso-and-active-directory").
 
 If you prefer to manage users in an external identity provider (IdP), you can connect
 IAM Identity Center to your IdP and enable automatic provisioning. For more information, see
-considerations for [Changing from IAM Identity Center to an external
-IdP](manage-your-identity-source-considerations.md#changing-from-idc-and-idp "manage-your-identity-source-considerations.md#changing-from-idc-and-idp").
+considerations for [Changing from IAM Identity Center to an external IdP](manage-your-identity-source-considerations.md#changing-from-idc-and-idp "manage-your-identity-source-considerations.md#changing-from-idc-and-idp").
 
 ###### Topics
 

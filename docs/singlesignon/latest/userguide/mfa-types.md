@@ -20,9 +20,7 @@ browser-based console access as well as using the AWS CLI v2 with IAM Identity C
   one AWS account. You can also configure MFA settings to require MFA whenever they
   attempt to sign-in from a new device or browser, or when signing in from an unknown IP
   address. For more information about how to configure MFA settings for your users, see
-  [Choose MFA types for user
-  authentication](how-to-configure-mfa-types.md "how-to-configure-mfa-types.md") and [Configure MFA device
-  enforcement](how-to-configure-mfa-device-enforcement.md "how-to-configure-mfa-device-enforcement.md").
+  [Choose MFA types for user authentication](how-to-configure-mfa-types.md "how-to-configure-mfa-types.md") and [Configure MFA device enforcement](how-to-configure-mfa-device-enforcement.md "how-to-configure-mfa-device-enforcement.md").
 
 ## FIDO2 authenticators
 
@@ -40,8 +38,7 @@ common types of FIDO authenticators.
 
 - [Built-in authenticators](#mfa-types-built-in-auth "#mfa-types-built-in-auth")
 - [Security keys](#mfa-types-keys "#mfa-types-keys")
-- [Password managers, passkey providers, and
-  other FIDO authenticators](#mfa-types-other "#mfa-types-other")
+- [Password managers, passkey providers, and other FIDO authenticators](#mfa-types-other "#mfa-types-other")
 
 ### Built-in authenticators
 
@@ -60,9 +57,7 @@ security keys create device-bound FIDO credentials. For a list of all
 FIDO-certified security keys, see [FIDO
 Certified Products](https://fidoalliance.org/certification/fido-certified-products/ "https://fidoalliance.org/certification/fido-certified-products/").
 
-### Password managers, passkey providers, and
-
-other FIDO authenticators
+### Password managers, passkey providers, and other FIDO authenticators
 
 Multiple third party providers support FIDO authentication in mobile
 applications, as features in password managers, smart cards with a FIDO mode,

@@ -29,9 +29,7 @@ the name of the policy is not case sensitive.
 - The permissions that the policy grants do not have to be an exact match
   between accounts.
 
-# Assign an IAM policy to a
-
-permission set
+# Assign an IAM policy to a permission set
 
 1. Create an IAM policy in each of the AWS accounts where you want to
    assign the permission set.

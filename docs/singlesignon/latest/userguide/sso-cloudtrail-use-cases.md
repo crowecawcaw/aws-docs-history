@@ -11,9 +11,7 @@ visibility into changes made to user permissions and configurations over time.
 The following sections describe the foundational use cases that inform your workflows
 such as audit, incident investigation, and troubleshooting.
 
-## Identifying the user in
-
-IAM Identity Center user-initiated CloudTrail events
+## Identifying the user in IAM Identity Center user-initiated CloudTrail events
 
 IAM Identity Center emits two CloudTrail fields that enable you to identify the IAM Identity Center user behind the CloudTrail
 events, such as signing into IAM Identity Center or AWS CLI, and using the AWS access portal, including managing
@@ -52,12 +50,10 @@ identifying the user behind IAM Identity Center CloudTrail events. The `userName
 longer available. If your workflows, such as audit or incident response, depend on
 having access to the `username`, you have two options:
 
-- Retrieve the username from the IAM Identity Center directory as explained in [Username in sign-in CloudTrail
-  events](username-sign-in-cloudtrail-events.md "username-sign-in-cloudtrail-events.md").
+- Retrieve the username from the IAM Identity Center directory as explained in [Username in sign-in CloudTrail events](username-sign-in-cloudtrail-events.md "username-sign-in-cloudtrail-events.md").
 - Get the `UserName` that IAM Identity Center emits under the
   `additionalEventData` element in Sign-in. This option doesn't require
-  access to the IAM Identity Center directory. For more information, see [Username in sign-in CloudTrail
-  events](username-sign-in-cloudtrail-events.md "username-sign-in-cloudtrail-events.md").
+  access to the IAM Identity Center directory. For more information, see [Username in sign-in CloudTrail events](username-sign-in-cloudtrail-events.md "username-sign-in-cloudtrail-events.md").
 
 To retrieve the details of a user, including the `username` field, you
 query the Identity Store with user ID and Identity Store ID as parameters. You can perform this
@@ -123,9 +119,7 @@ For IAM Identity Center [user background sessions](user-background-sessions.md "
 
 ```
 
-## Correlating users between IAM Identity Center and external
-
-directories
+## Correlating users between IAM Identity Center and external directories
 
 IAM Identity Center provides two user attributes that you can use to correlate a user in its
 directory to the same user in an external directory (for example, Microsoft Active
@@ -142,13 +136,11 @@ Directory and Okta Universal Directory).
 
 If you have access to the CloudTrail events but not the IAM Identity Center directory, you can use
 the username emitted under the `additionalEventData` element at sign-in.
-For more details about username in `additionalEventData`, refer to [Username in sign-in CloudTrail
-events](username-sign-in-cloudtrail-events.md "username-sign-in-cloudtrail-events.md").
+For more details about username in `additionalEventData`, refer to [Username in sign-in CloudTrail events](username-sign-in-cloudtrail-events.md "username-sign-in-cloudtrail-events.md").
 
 The mapping of these two user attributes to corresponding user attributes in an
 external directory is defined in IAM Identity Center when the identity source is the Directory Service. For
-infomration, see [Attribute mappings between IAM Identity Center and External
-Identity Providers directory](attributemappingsconcept.md "attributemappingsconcept.md"). External IdPs that provision users with SCIM
+infomration, see [Attribute mappings between IAM Identity Center and External Identity Providers directory](attributemappingsconcept.md "attributemappingsconcept.md"). External IdPs that provision users with SCIM
 have their own mapping. Even if you use the IAM Identity Center directory as the identity source, you
 can use the `externalId` attribute to cross-reference security principals to
 your external directory.
@@ -156,9 +148,7 @@ your external directory.
 The following section explains how you can look up an IAM Identity Center user given the user’s
 `username` and `externalId`.
 
-## Viewing an IAM Identity Center user by username and
-
-externalId
+## Viewing an IAM Identity Center user by username and externalId
 
 You can retrieve user attributes from the IAM Identity Center directory for a known username by
 first requesting a corresponding `userId` using the [`GetUserId`](../IdentityStoreAPIReference/API_GetUserId.md "../IdentityStoreAPIReference/API_GetUserId.md") API request, then issue a [`DescribeUser`](../IdentityStoreAPIReference/API_DescribeUser.md "../IdentityStoreAPIReference/API_DescribeUser.md") API request, as shown in the previous example. The
@@ -184,9 +174,7 @@ Update the attribute path in the previous example with the `externalId` value,
 and the attribute value with the specific `externalId` for which you are
 searching.
 
-## Viewing a user’s Secure Identifier (SID) in Microsoft
-
-Active Directory (AD) and externalId
+## Viewing a user’s Secure Identifier (SID) in Microsoft Active Directory (AD) and externalId
 
 In certain cases, IAM Identity Center emits a user’s SID in the `principalId` field of
 CloudTrail events, such as those that the AWS access portal and OIDC APIs emit. **These cases are being phased out.** We recommend your workflows use the AD

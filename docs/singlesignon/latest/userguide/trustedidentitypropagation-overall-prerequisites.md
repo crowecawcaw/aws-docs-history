@@ -1,6 +1,4 @@
-# Prerequisites and
-
-considerations
+# Prerequisites and considerations
 
 Before you set up trusted identity propagation, review the following prerequisites
 and considerations.
@@ -9,8 +7,7 @@ and considerations.
 
 - [Prerequisites](#trustedidentitypropagation-prerequisites "#trustedidentitypropagation-prerequisites")
 - [Considerations](#trustedidentitypropagation-considerations "#trustedidentitypropagation-considerations")
-- [Considerations for
-  customer managed applications](#trustedidentitypropagation-customer-apps "#trustedidentitypropagation-customer-apps")
+- [Considerations for customer managed applications](#trustedidentitypropagation-customer-apps "#trustedidentitypropagation-customer-apps")
 
 ## Prerequisites
 
@@ -53,8 +50,7 @@ identity propagation:
     use an organization instance, your use case may be supported
     with account instances of IAM Identity Center. To learn more about which
     AWS services in your use case support account instances of
-    IAM Identity Center, see [AWS managed applications
-    that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md").
+    IAM Identity Center, see [AWS managed applications that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md").
 
 - **Multi-account permissions (permission sets) not
   required**
@@ -63,9 +59,7 @@ identity propagation:
     permissions](manage-your-accounts.md "manage-your-accounts.md") (permission sets). You can enable IAM Identity Center
     and use it for trusted identity propagation only.
 
-## Considerations for
-
-customer managed applications
+## Considerations for customer managed applications
 
 Your workforce can benefit from trusted identity propagation even if your
 users interact with client-facing applications that are not managed by AWS,
@@ -73,8 +67,7 @@ for example Tableau or your custom-developed applications. The users of these
 applications may not be provisioned in IAM Identity Center. To enable the smooth recognition
 and authorization of user access to AWS resources, IAM Identity Center enables you to
 configure a trusted relationship between the identity provider authenticating
-your users and IAM Identity Center. For more information, see [Using applications with a
-trusted token issuer](using-apps-with-trusted-token-issuer.md "using-apps-with-trusted-token-issuer.md").
+your users and IAM Identity Center. For more information, see [Using applications with a trusted token issuer](using-apps-with-trusted-token-issuer.md "using-apps-with-trusted-token-issuer.md").
 
 In addition, configuring trusted identity propagation for your application
 will require:

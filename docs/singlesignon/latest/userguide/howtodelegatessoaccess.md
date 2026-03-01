@@ -1,6 +1,4 @@
-# Delegate who can assign single sign-on
-
-access to users and groups in the management account
+# Delegate who can assign single sign-on access to users and groups in the management account
 
 Assigning single sign-on access to the management account using the IAM Identity Center console
 is a privileged action. By default, only an AWS account root user or a user who has the
@@ -21,9 +19,7 @@ permission sets. The following lists the commands for each step:
   Use the following steps to delegate permissions to manage single sign-on access to
   users and groups in your directory.
 
-###### To grant permissions to manage single sign-on access to users and groups in
-
-your directory
+###### To grant permissions to manage single sign-on access to users and groups in your directory
 
 1. Sign in to the IAM Identity Center console as a root user of the management account or with
    another user who has administrator permissions to the
@@ -45,8 +41,7 @@ your directory
 
    `https://console.aws.amazon.com/ec2/`
 
-   For more information, see [Set relay state for quick access to the
-   AWS Management Console](howtopermrelaystate.md "howtopermrelaystate.md"). 3. Under **What policies do you want to include in your
+   For more information, see [Set relay state for quick access to the AWS Management Console](howtopermrelaystate.md "howtopermrelaystate.md"). 3. Under **What policies do you want to include in your
    permission set?**, select the **Attach AWS
    managed policies** check box. 4. In the list of IAM policies, choose both the
    **AWSSSOMasterAccountAdministrator**

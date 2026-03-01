@@ -1,6 +1,4 @@
-# Resource-based policy example for IAM Identity Center
-
-IAM Identity Center
+# Resource-based policy example for IAM Identity Center IAM Identity Center
 
 Every application that works with IAM Identity Center and uses [OAuth 2.0](customermanagedapps-saml2-oauth2.md#oidc-concept "customermanagedapps-saml2-oauth2.md#oidc-concept")
 requires a resource-based policy. The application can be customer managed or AWS managed. The required resource-based policy, called the
@@ -18,8 +16,7 @@ this policy by specifying which IAM principals are authorized to call
 `CreateTokenWithIAM`. When an authorized principal calls this API action, the
 principal receives access and refresh tokens for the application.
 
-If you are using the IAM Identity Center console to set up a customer managed application for [trusted identity propagation](trustedidentitypropagation-overview.md "trustedidentitypropagation-overview.md"), see Step 4 in [Set up customer managed OAuth 2.0 applications](customermanagedapps-trusted-identity-propagation-set-up-your-own-app-OAuth2.md "customermanagedapps-trusted-identity-propagation-set-up-your-own-app-OAuth2.md") for information about how to configure the application policy. For an example policy, see [Example policy: Allow an IAM role to create access
-and refresh tokens](#oauth-application-policy-example "#oauth-application-policy-example") later in this topic.
+If you are using the IAM Identity Center console to set up a customer managed application for [trusted identity propagation](trustedidentitypropagation-overview.md "trustedidentitypropagation-overview.md"), see Step 4 in [Set up customer managed OAuth 2.0 applications](customermanagedapps-trusted-identity-propagation-set-up-your-own-app-OAuth2.md "customermanagedapps-trusted-identity-propagation-set-up-your-own-app-OAuth2.md") for information about how to configure the application policy. For an example policy, see [Example policy: Allow an IAM role to create access and refresh tokens](#oauth-application-policy-example "#oauth-application-policy-example") later in this topic.
 
 ## Policy requirements
 
@@ -74,9 +71,7 @@ means "this application."
 For more information about AWS policy syntax, see [AWS IAM Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in the
 _IAM User Guide_.
 
-## Example policy: Allow an IAM role to create access
-
-and refresh tokens
+## Example policy: Allow an IAM role to create access and refresh tokens
 
 The following permissions policy grants permissions to
 `ExampleAppClientRole`, an IAM role assumed by a workload, to create

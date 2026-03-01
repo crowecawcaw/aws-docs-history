@@ -1,6 +1,4 @@
-# Logging IAM Identity Center SCIM API calls with
-
-AWS CloudTrail
+# Logging IAM Identity Center SCIM API calls with AWS CloudTrail
 
 [IAM Identity Center SCIM](other-idps.md "other-idps.md") is integrated with AWS CloudTrail, a service that
 provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures API
@@ -111,9 +109,7 @@ protocol.
 }
 ```
 
-### Failed `PatchGroup`
-
-operation: Missing required path attribute
+### Failed `PatchGroup` operation: Missing required path attribute
 
 This CloudTrail event shows a failed `PatchGroup` operation that resulted in a
 `ValidationException` with the error message `"Missing path in
@@ -167,9 +163,7 @@ was missing from the request.
 
 ```
 
-### Failed `CreateGroup`
-
-operation: Group name already exists
+### Failed `CreateGroup` operation: Group name already exists
 
 This CloudTrail event shows a failed `CreateGroup` operation that resulted in a
 `ConflictException` with the error message `"Duplicate
@@ -214,9 +208,7 @@ name or update the existing group instead of creating a new one.
 
 ```
 
-### Failed `PatchUser` operation:
-
-Multiple email addresses not supported
+### Failed `PatchUser` operation: Multiple email addresses not supported
 
 This CloudTrail event shows a failed `PatchUser` operation that resulted in a
 `ValidationException` with the error message `"List attribute

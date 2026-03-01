@@ -1,6 +1,4 @@
-# Update firewalls and gateways to
-
-allow access to the AWS access portal
+# Update firewalls and gateways to allow access to the AWS access portal
 
 The AWS access portal provides users with single sign-on access to all your AWS accounts and
 most commonly used cloud applications such as Office 365, Concur, Salesforce, and many more.

@@ -1,6 +1,4 @@
-# Replicate IAM Identity Center to an
-
-additional Region
+# Replicate IAM Identity Center to an additional Region
 
 If your environment meets the [prerequisites](multi-region-iam-identity-center.md#multi-region-prerequisites "multi-region-iam-identity-center.md#multi-region-prerequisites"), follow the steps below to
 replicate your IAM Identity Center instance to an additional Region:
@@ -116,8 +114,7 @@ sections for relevant details:
 
 - [Workforce access through an additional Region](multi-region-workforce-access.md "multi-region-workforce-access.md")
 - [Failover to an additional Region for AWS account access](multi-region-failover.md "multi-region-failover.md")
-- [Deploying and managing applications across multiple AWS
-  Regions](multi-region-application-use.md "multi-region-application-use.md")
+- [Deploying and managing applications across multiple AWS Regions](multi-region-application-use.md "multi-region-application-use.md")
 
 ## Region changes beyond adding the first Region
 

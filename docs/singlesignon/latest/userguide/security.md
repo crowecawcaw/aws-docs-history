@@ -25,8 +25,7 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 
 - [Identity and access management for IAM Identity Center](iam-auth-access.md "iam-auth-access.md")
 - [IAM Identity Center console and API authorization](security-authorization.md "security-authorization.md")
-- [AWS STS condition context keys for
-  IAM Identity Center](condition-context-keys-sts-idc.md "condition-context-keys-sts-idc.md")
+- [AWS STS condition context keys for IAM Identity Center](condition-context-keys-sts-idc.md "condition-context-keys-sts-idc.md")
 - [Logging and monitoring in IAM Identity Center](security-logging-and-monitoring.md "security-logging-and-monitoring.md")
 - [Compliance validation for IAM Identity Center](compliance-validation.md "compliance-validation.md")
 - [Resilience in IAM Identity Center](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
