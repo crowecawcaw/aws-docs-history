@@ -30,9 +30,7 @@ your Amazon EMR cluster resides. You can use `script-runner.jar` to run
 scripts saved locally or on Amazon S3 on your cluster. You must specify the
 full URI of `script-runner.jar` when you submit a step.
 
-## Submit a custom JAR step to run a script or
-
-command
+## Submit a custom JAR step to run a script or command
 
 The following AWS CLI examples illustrate some common use cases of
 `command-runner.jar` and `script-runner.jar` on Amazon EMR.
@@ -77,9 +75,7 @@ aws emr add-steps \
 --steps Type=CUSTOM_JAR,Name="Run a script from S3 with script-runner.jar",ActionOnFailure=CONTINUE,Jar=s3://`us-west-2`.elasticmapreduce/libs/script-runner/script-runner.jar,Args=[`s3://amzn-s3-demo-bucket/my-script.sh`]
 ```
 
-## Other ways to use
-
-`command-runner.jar`
+## Other ways to use `command-runner.jar`
 
 You can also use `command-runner.jar` to submit work to a cluster with
 tools such as `spark-submit` or `hadoop-streaming`. When you

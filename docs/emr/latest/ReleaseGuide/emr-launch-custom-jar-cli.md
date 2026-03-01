@@ -11,9 +11,7 @@ This section covers the basics of submitting a custom JAR step in Amazon EMR. Su
 custom JAR step enables you to write a script to process your data with the Java
 programming language.
 
-## Submit a custom JAR step with the
-
-console
+## Submit a custom JAR step with the console
 
 This example describes how to use the Amazon EMR console to submit a custom JAR step to
 a running cluster.
@@ -45,9 +43,7 @@ a running cluster.
    step runs. To update the status, choose the **Refresh**
    icon above the Actions column.
 
-## Launching a cluster and submitting a custom
-
-JAR step with the AWS CLI
+## Launching a cluster and submitting a custom JAR step with the AWS CLI
 
 ###### To launch a cluster and submit a custom JAR step with the AWS CLI
 
@@ -92,8 +88,7 @@ with your program. You have two options for doing this:
 
 - Include the `--libjars
 s3://`URI_to_JAR`` in the step options
-  for the procedure in [Launching a cluster and submitting a custom
-  JAR step with the AWS CLI](#emr-dev-create-jar-cli "#emr-dev-create-jar-cli").
+  for the procedure in [Launching a cluster and submitting a custom JAR step with the AWS CLI](#emr-dev-create-jar-cli "#emr-dev-create-jar-cli").
 - Launch the cluster with a modified
   `mapreduce.application.classpath` setting in
   `mapred-site.xml`. Use the

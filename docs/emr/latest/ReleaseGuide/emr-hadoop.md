@@ -41,7 +41,6 @@ Beginning with Amazon EMR 5.18.0, you can use the Amazon EMR artifact repository
 - [Transparent encryption in HDFS on Amazon EMR](emr-encryption-tdehdfs.md "emr-encryption-tdehdfs.md")
 - [Create or run a Hadoop application](emr-hadoop-application.md "emr-hadoop-application.md")
 - [Read restored objects](emr-hadoop-read-restore-objects.md "emr-hadoop-read-restore-objects.md")
-- [Turn on non-uniform memory access awareness for YARN
-  containers](hadoop-numa.md "hadoop-numa.md")
+- [Turn on non-uniform memory access awareness for YARN containers](hadoop-numa.md "hadoop-numa.md")
 - [YARN container bin packing](Hadoop-container-yarn.md "Hadoop-container-yarn.md")
 - [Hadoop version history](Hadoop-release-history.md "Hadoop-release-history.md")

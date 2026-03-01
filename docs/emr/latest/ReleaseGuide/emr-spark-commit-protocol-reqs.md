@@ -1,6 +1,4 @@
-# Requirements for the EMRFS
-
-S3-optimized commit protocol
+# Requirements for the EMRFS S3-optimized commit protocol
 
 The EMRFS S3-optimized commit protocol is used when the following conditions
 are met:
@@ -10,8 +8,7 @@ are met:
 - You run Spark jobs whose partition overwrite mode is
   `dynamic`.
 - Multipart uploads are enabled in Amazon EMR . This is the default. For more
-  information, see [The EMRFS S3-optimized
-  commit protocol and multipart uploads](emr-spark-commit-protocol-multipart.md "emr-spark-commit-protocol-multipart.md").
+  information, see [The EMRFS S3-optimized commit protocol and multipart uploads](emr-spark-commit-protocol-multipart.md "emr-spark-commit-protocol-multipart.md").
 - The filesystem cache for EMRFS is enabled. This is the default. Check
   that the setting `fs.s3.impl.disable.cache` is set to
   `false`.
@@ -86,29 +83,25 @@ dataset.write.mode("overwrite")                 // "overwrite" instead of "inser
   .parquet("s3://amzn-s3-demo-bucket1/output")    // "s3://" to use Amazon EMR file system, instead of "s3a://" or "hdfs://"
 ```
 
-## When the EMRFS S3-optimized
-
-commit protocol is not used
+## When the EMRFS S3-optimized commit protocol is not used
 
 Generally, the EMRFS S3-optimized commit protocol works the same as open
 source default Spark commit protocol,
 `org.apache.spark.sql.execution.datasources.SQLHadoopMapReduceCommitProtocol`.
 Optimization won't occur in the following situations.
 
-| Situation                                               | Why the commit protocol is not used                                                                                                                                                                                 |
-| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| When you write to HDFS                                  | The commit protocol only supports writing to<br>Amazon S3 using EMRFS.                                                                                                                                              |
-| When you use the S3A file system                        | The commit protocol only supports EMRFS.                                                                                                                                                                            |
-| When you use MapReduce or Spark's RDD API               | The commit protocol only supports using SparkSQL,<br>DataFrame, or Dataset APIs.                                                                                                                                    |
-| When the dynamic partition overwrite isn't<br>triggered | The commit protocol only optimizes dynamic partition<br>overwrite cases. For other cases, see [Use the EMRFS S3-optimized<br>committer](emr-spark-s3-optimized-committer.md "emr-spark-s3-optimized-committer.md"). |
+| Situation                                               | Why the commit protocol is not used                                                                                                                                                                              |
+| ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| When you write to HDFS                                  | The commit protocol only supports writing to<br>Amazon S3 using EMRFS.                                                                                                                                           |
+| When you use the S3A file system                        | The commit protocol only supports EMRFS.                                                                                                                                                                         |
+| When you use MapReduce or Spark's RDD API               | The commit protocol only supports using SparkSQL,<br>DataFrame, or Dataset APIs.                                                                                                                                 |
+| When the dynamic partition overwrite isn't<br>triggered | The commit protocol only optimizes dynamic partition<br>overwrite cases. For other cases, see [Use the EMRFS S3-optimized committer](emr-spark-s3-optimized-committer.md "emr-spark-s3-optimized-committer.md"). |
 
 The following Scala examples demonstrate some additional situations that
 the EMRFS S3-optimized commit protocol delegates to
 `SQLHadoopMapReduceCommitProtocol`.
 
-###### Example– Dynamic partition overwrite mode with custom partition
-
-location
+###### Example– Dynamic partition overwrite mode with custom partition location
 
 In this example, the Scala programs overwrites two partitions in
 dynamic partition overwrite mode. One partition has a custom partition

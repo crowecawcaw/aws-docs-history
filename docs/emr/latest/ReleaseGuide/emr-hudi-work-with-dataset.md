@@ -147,9 +147,7 @@ hdfs dfs -copyFromLocal /usr/lib/spark/external/lib/spark-avro.jar /apps/hudi/li
           }}
 ```
 
-## Initialize a Spark session for
-
-Hudi
+## Initialize a Spark session for Hudi
 
 When you use Scala, you must import the following classes in your Spark session.
 This needs to be done once per Spark session.

@@ -42,9 +42,7 @@ The Spark Troubleshooting Agent is available in the following regions:
 - **South America**: São Paulo (sa-east-1)
 - **United States**: North Virginia (us-east-1), Ohio (us-east-2), and Oregon (us-west-2)
 
-## Scope of Spark Troubleshooting and User
-
-Requirements
+## Scope of Spark Troubleshooting and User Requirements
 
 - **Supported Spark workload states**: The tools
   will only support responses for failed Spark workloads.

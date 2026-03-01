@@ -1,10 +1,6 @@
-# Amazon EMR 7.2.0 - Hive
+# Amazon EMR 7.2.0 - Hive release notes
 
-release notes
-
-## Amazon EMR 7.2.0 -
-
-Hive changes
+## Amazon EMR 7.2.0 - Hive changes
 
 | Type        | Description                                                                                                                                                                                                                                                           |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -15,9 +11,7 @@ Hive changes
 | Bug Fix     | [HIVE-28085](https://issues.apache.org/jira/browse/HIVE-28085 "https://issues.apache.org/jira/browse/HIVE-28085") –<br>YarnQueueHelper fails to access HTTPS enabled YARN WebService.                                                                                 |
 | Bug Fix     | [HIVE-26436](https://issues.apache.org/jira/browse/HIVE-26436 "https://issues.apache.org/jira/browse/HIVE-26436") –<br>Hive on MR NullPointerException When initializeOp has not been called and close called. If the operator has not been initialized, skip close.. |
 
-### Amazon EMR 7.2.0 -
-
-New configurations
+### Amazon EMR 7.2.0 - New configurations
 
 | Classification | Name                          | Default | Description                                                                                  |
 | -------------- | ----------------------------- | ------- | -------------------------------------------------------------------------------------------- |

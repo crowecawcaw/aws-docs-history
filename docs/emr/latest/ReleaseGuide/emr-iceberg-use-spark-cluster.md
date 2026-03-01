@@ -1,6 +1,4 @@
-# Use an Iceberg cluster with
-
-Spark
+# Use an Iceberg cluster with Spark
 
 Starting with Amazon EMR version 6.5.0, you can use Iceberg with your Spark cluster
 with no requirement to include bootstrap actions. For Amazon EMR versions 6.4.0 and
@@ -22,9 +20,7 @@ AWS Glue](https://aws.amazon.com/blogs//big-data/build-an-apache-iceberg-data-la
 
 To use Iceberg on Amazon EMR with the AWS CLI, first create a cluster with the
 following steps. For information on specifying the Iceberg classification
-using the AWS CLI, see [Supply a configuration using
-the AWS CLI when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli") or [Supply a configuration using
-the Java SDK when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk").
+using the AWS CLI, see [Supply a configuration using the AWS CLI when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli") or [Supply a configuration using the Java SDK when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk").
 
 1. Create a `configurations.json` file with the
    following content:
@@ -67,9 +63,7 @@ configuration property to the Spark application:
 For more information about Spark job dependencies, see [Dependency Management](https://spark.apache.org/docs/latest/running-on-kubernetes.html#dependency-management "https://spark.apache.org/docs/latest/running-on-kubernetes.html#dependency-management") in the Apache Spark document [Running
 Spark on Kubernetes](https://spark.apache.org/docs/latest/running-on-kubernetes.html "https://spark.apache.org/docs/latest/running-on-kubernetes.html").
 
-## Initialize a Spark
-
-session for Iceberg
+## Initialize a Spark session for Iceberg
 
 The following examples demonstrate how to launch the interactive Spark shell,
 use Spark submit, or use Amazon EMR Notebooks to work with Iceberg on Amazon EMR.
@@ -209,9 +203,7 @@ location 's3://`amzn-s3-demo-bucket`/`example-prefix`/db/iceberg_table'""")
 data.writeTo("dev.db.iceberg_table").append()
 ```
 
-## Read from an Iceberg
-
-table
+## Read from an Iceberg table
 
 PySpark
 

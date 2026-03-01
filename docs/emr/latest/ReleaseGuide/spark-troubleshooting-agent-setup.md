@@ -3,9 +3,7 @@
 ###### Note
 
 The Apache Spark Troubleshooting Agent uses cross-region inference to process natural
-language requests and generate responses. For more details, please refer to [Cross-Region Processing for
-the Apache Spark
-Troubleshooting Agent](spark-troubleshooting-cross-region-processing.md "spark-troubleshooting-cross-region-processing.md"). The Amazon
+language requests and generate responses. For more details, please refer to [Cross-Region Processing for the Apache Spark Troubleshooting Agent](spark-troubleshooting-cross-region-processing.md "spark-troubleshooting-cross-region-processing.md"). The Amazon
 SageMaker Unified Studio MCP server is in preview and is subject to change.
 
 ## Prerequisites

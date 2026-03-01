@@ -1,10 +1,6 @@
-# Amazon EMR 7.6.0 - Hive
+# Amazon EMR 7.6.0 - Hive release notes
 
-release notes
-
-## Amazon EMR 7.6.0 -
-
-Hive changes
+## Amazon EMR 7.6.0 - Hive changes
 
 | Type        | Description                                                              |
 | ----------- | ------------------------------------------------------------------------ |
@@ -16,9 +12,7 @@ Hive changes
 - For Hive Insert Over-write queries with Amazon S3 Express One Zone as the output location, set
   the core-site config: `fs.s3a.directory.operations.purge.uploads` to `false`.
 
-### Amazon EMR 7.6.0 -
-
-New configurations
+### Amazon EMR 7.6.0 - New configurations
 
 | Classification | Name                                                                    | Default | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | -------------- | ----------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

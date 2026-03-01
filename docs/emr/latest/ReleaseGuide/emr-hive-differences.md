@@ -142,9 +142,7 @@ StepFactory stepFactory = new StepFactory();
 
 ```
 
-### Amazon EMR Hive queries to accommodate partial DynamoDB
-
-schemas
+### Amazon EMR Hive queries to accommodate partial DynamoDB schemas
 
 Amazon EMR Hive provides maximum flexibility when querying DynamoDB tables by allowing you to
 specify a subset of columns on which you can filter data, rather than requiring your
@@ -187,9 +185,7 @@ DynamoDB.
 | SELECT `column1_name`,<br>`column2_name`,<br>`column3_name` FROM<br>`table_name`;                                   | Selects all items (rows) from a given table and includes data from<br>some columns available for those items.  |
 | SELECT `column1_name`,<br>`column2_name`,<br>`column3_name` FROM<br>`table_name` WHERE<br>`field_name`<br>=`value`; | Selects some items (rows) from a given table and includes data from<br>some columns available for those items. |
 
-### Copy data between DynamoDB tables in different
-
-AWS Regions
+### Copy data between DynamoDB tables in different AWS Regions
 
 Amazon EMR Hive provides a `dynamodb.region` property you can set per DynamoDB
 table. When `dynamodb.region` is set differently on two tables, any data you

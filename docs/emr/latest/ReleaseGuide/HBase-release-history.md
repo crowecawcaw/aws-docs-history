@@ -153,5 +153,4 @@ For component versions in each release, see the Component Version section for yo
 
 ###### Topics
 
-- [Amazon EMR 7.9.0 -
-  HBase release notes](HBase-release-history-changes-790.md "HBase-release-history-changes-790.md")
+- [Amazon EMR 7.9.0 - HBase release notes](HBase-release-history-changes-790.md "HBase-release-history-changes-790.md")

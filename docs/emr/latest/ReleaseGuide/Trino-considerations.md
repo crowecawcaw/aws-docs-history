@@ -2,9 +2,7 @@
 
 Consider the following when you run Trino on Amazon EMR.
 
-## Non-configurable Trino deployment
-
-properties
+## Non-configurable Trino deployment properties
 
 The following table shows
 the different configuration options for Trino `properties` files.

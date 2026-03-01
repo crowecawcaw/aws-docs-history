@@ -1,6 +1,4 @@
-# Amazon EMR 7.3.0 - Trino
-
-release notes
+# Amazon EMR 7.3.0 - Trino release notes
 
 ## Amazon EMR 7.3.0 - Trino changes
 

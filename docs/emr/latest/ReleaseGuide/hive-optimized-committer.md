@@ -1,6 +1,4 @@
-# Enabling Hive EMRFS S3 optimized
-
-committer
+# Enabling Hive EMRFS S3 optimized committer
 
 The Hive EMRFS S3 Optimized Committer is an alternative way using which EMR Hive
 writes files for insert queries when using EMRFS. The Committer eliminates list and

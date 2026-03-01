@@ -44,8 +44,7 @@ For the version of components installed with Spark in this release, see [Release
 
 ###### Note
 
-Amazon EMR release 6.8.0 comes with Apache Spark 3.3.0. This Spark release uses Apache Log4j 2 and the `log4j2.properties` file to configure Log4j in Spark processes. If you use Spark in the cluster or create EMR clusters with custom configuration parameters, and you want to upgrade to Amazon EMR release 6.8.0, you must migrate to the new `spark-log4j2` configuration classification and key format for Apache Log4j 2. For more information, see [Migrating from Apache Log4j 1.x to Log4j
-2.x](emr-spark-configure.md#spark-migrate-logj42 "emr-spark-configure.md#spark-migrate-logj42").
+Amazon EMR release 6.8.0 comes with Apache Spark 3.3.0. This Spark release uses Apache Log4j 2 and the `log4j2.properties` file to configure Log4j in Spark processes. If you use Spark in the cluster or create EMR clusters with custom configuration parameters, and you want to upgrade to Amazon EMR release 6.8.0, you must migrate to the new `spark-log4j2` configuration classification and key format for Apache Log4j 2. For more information, see [Migrating from Apache Log4j 1.x to Log4j 2.x](emr-spark-configure.md#spark-migrate-logj42 "emr-spark-configure.md#spark-migrate-logj42").
 
 The following table lists the version of Spark included in the latest release of the Amazon EMR 5.x series, along with the components that Amazon EMR installs with Spark.
 
@@ -58,18 +57,14 @@ For the version of components installed with Spark in this release, see [Release
 ###### Topics
 
 - [Create a cluster with Apache Spark](emr-spark-launch.md "emr-spark-launch.md")
-- [Run Spark applications with Docker on Amazon EMR
-  6.x](emr-spark-docker.md "emr-spark-docker.md")
+- [Run Spark applications with Docker on Amazon EMR 6.x](emr-spark-docker.md "emr-spark-docker.md")
 - [Use AWS Glue Data Catalog catalog with Spark on Amazon EMR](emr-spark-glue.md "emr-spark-glue.md")
-- [Working with a multi-catalog hierarchy in
-  AWS Glue Data Catalog with Spark on Amazon EMR](emr-multi-catalog.md "emr-multi-catalog.md")
+- [Working with a multi-catalog hierarchy in AWS Glue Data Catalog with Spark on Amazon EMR](emr-multi-catalog.md "emr-multi-catalog.md")
 - [Configure Spark](emr-spark-configure.md "emr-spark-configure.md")
 - [What is Apache Spark Troubleshooting Agent for Amazon EMR](spark-troubleshoot.md "spark-troubleshoot.md")
 - [Optimize Spark performance](emr-spark-performance.md "emr-spark-performance.md")
-- [Spark Result Fragment
-  Caching](emr-spark-fragment-result-caching.md "emr-spark-fragment-result-caching.md")
-- [Use the Nvidia RAPIDS Accelerator for Apache
-  Spark](emr-spark-rapids.md "emr-spark-rapids.md")
+- [Spark Result Fragment Caching](emr-spark-fragment-result-caching.md "emr-spark-fragment-result-caching.md")
+- [Use the Nvidia RAPIDS Accelerator for Apache Spark](emr-spark-rapids.md "emr-spark-rapids.md")
 - [Access the Spark shell](emr-spark-shell.md "emr-spark-shell.md")
 - [Use Amazon SageMaker Spark for machine learning](emr-spark-sagemaker.md "emr-spark-sagemaker.md")
 - [Write a Spark application](emr-spark-application.md "emr-spark-application.md")
@@ -77,9 +72,7 @@ For the version of components installed with Spark in this release, see [Release
 - [Add a Spark step](emr-spark-submit-step.md "emr-spark-submit-step.md")
 - [View Spark application history](emr-spark-application-history.md "emr-spark-application-history.md")
 - [Access the Spark web UIs](emr-spark-webui.md "emr-spark-webui.md")
-- [Using the Spark structured
-  streaming Amazon Kinesis Data Streams connector](emr-spark-structured-streaming-kinesis.md "emr-spark-structured-streaming-kinesis.md")
+- [Using the Spark structured streaming Amazon Kinesis Data Streams connector](emr-spark-structured-streaming-kinesis.md "emr-spark-structured-streaming-kinesis.md")
 - [Using Amazon Redshift integration for Apache Spark with Amazon EMR](emr-spark-redshift.md "emr-spark-redshift.md")
 - [Spark release history](Spark-release-history.md "Spark-release-history.md")
-- [Using materialized views with
-  Amazon EMR](emr-spark-materialized-views.md "emr-spark-materialized-views.md")
+- [Using materialized views with Amazon EMR](emr-spark-materialized-views.md "emr-spark-materialized-views.md")

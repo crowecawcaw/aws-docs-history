@@ -1,6 +1,4 @@
-# EMR Spark
-
-MagicCommitProtocol
+# EMR Spark MagicCommitProtocol
 
 From EMR 6.15.0 onwards, MagicCommitProtocol becomes the default
 FileCommitProtocol for Spark when utilizing the S3A
@@ -24,9 +22,7 @@ insert overwrite operations, the files written by task attempts only appear in
 the job's output location upon job commit. This is achieved by exporting the
 commit metadata back to the Spark driver on the task commit call.
 
-## Enabling
-
-MagicCommitProtocol
+## Enabling MagicCommitProtocol
 
 The MagicCommitProtocol is enabled by default for Spark running on Amazon
 Elastic Map Reduce (EMR) when using the S3A filesystem.
@@ -39,9 +35,7 @@ In order to use the S3A filesystem, you can either:
    `fs.s3.impl=org.apache.hadoop.fs.s3a.S3AFileSystem` in
    core-site.xml.
 
-## Disabling the
-
-MagicCommitProtocol
+## Disabling the MagicCommitProtocol
 
 1. You can set
    `spark.sql.execution.datasources.SQLEmrOptimizedCommitProtocol.leverageMagicCommitProtocol`
@@ -67,9 +61,7 @@ spark-sql \
    property to false. For more information, see [Configure
    applications](emr-configure-apps.md "emr-configure-apps.md").
 
-## MagicCommitProtocol
-
-considerations
+## MagicCommitProtocol considerations
 
 - For static partition insert, On Spark executors, the
   MagicCommitProtocol consumes a small amount of memory for each file

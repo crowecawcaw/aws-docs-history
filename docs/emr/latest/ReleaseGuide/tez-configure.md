@@ -87,9 +87,7 @@ Configuration notes:
 | Matching values                    | The values of the configuration settings should be the same in<br>both `hive-site` and `tez-site`.                   |
 | LLAP recommendation                | It isn't recommended to use this feature when LLAP is enabled.                                                       |
 
-### Benchmarking for Tez
-
-asynchronous split opening
+### Benchmarking for Tez asynchronous split opening
 
 We used the following environments and configurations for benchmarking the Tez
 asynchronous split opening capability:

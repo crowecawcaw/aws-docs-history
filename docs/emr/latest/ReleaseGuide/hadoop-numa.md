@@ -1,6 +1,4 @@
-# Turn on non-uniform memory access awareness for YARN
-
-containers
+# Turn on non-uniform memory access awareness for YARN containers
 
 With Amazon EMR versions 6.x and later, you can use non-uniform memory access (NUMA) for
 multiprocessing your data on clusters. NUMA is a computer memory design pattern where

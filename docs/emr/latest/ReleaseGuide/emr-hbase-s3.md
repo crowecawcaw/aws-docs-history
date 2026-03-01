@@ -271,9 +271,7 @@ With Amazon EMR 5.17.0 and earlier, the cleaner operation can affect query perfo
 - `cleaner_chore_switch` enables or disables the cleaner and returns the previous state of the cleaner. For example, `cleaner_chore_switch
 true` enables the cleaner.
 
-### Properties for HBase on Amazon S3 performance
-
-tuning
+### Properties for HBase on Amazon S3 performance tuning
 
 The following parameters can be adjusted to tune the performance of your workload when you
 use HBase on Amazon S3.
@@ -286,9 +284,7 @@ use HBase on Amazon S3.
 | `hbase.hstore.blockingStoreFiles`         | 10            | The maximum number of StoreFiles that can exist in a store before updates are blocked.                                                                                                                                                                        |
 | `hbase.hregion.max.filesize`              | 10737418240   | The maximum size of a region before the region is split.                                                                                                                                                                                                      |
 
-### Shutting down and restoring a cluster without data
-
-loss
+### Shutting down and restoring a cluster without data loss
 
 To shut down an Amazon EMR cluster without losing data that hasn't been written to Amazon S3, you
 should flush your MemStore cache to Amazon S3 to write new store files. First, you'll need to disable all tables.

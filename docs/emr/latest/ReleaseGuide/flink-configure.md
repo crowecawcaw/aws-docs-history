@@ -1,8 +1,6 @@
 # Configuring Flink in Amazon EMR
 
-## Configure Flink with Hive Metastore and Glue
-
-Catalog
+## Configure Flink with Hive Metastore and Glue Catalog
 
 Amazon EMR releases 6.9.0 and higher support both Hive Metastore and AWS Glue Catalog with
 the Apache Flink connector to Hive. This section outlines the steps required to
@@ -66,9 +64,7 @@ sudo chmod 755 /usr/lib/flink/lib/flink-connector-hive_2.12-1.15.2.jar
 
 ![Form to add a Custom JAR step with fields for step type, name, JAR location, arguments, and failure action.](images/hive.png)
 
-## Configure Flink with a configuration
-
-file
+## Configure Flink with a configuration file
 
 You can use the Amazon EMR configuration API to configure Flink with a configuration
 file. The files that are configurable within the API are:
@@ -80,9 +76,7 @@ file. The files that are configurable within the API are:
 
 The main configuration file for Flink is `flink-conf.yaml`.
 
-###### To configure the number of task slots that are used for Flink from the
-
-AWS CLI
+###### To configure the number of task slots that are used for Flink from the AWS CLI
 
 1. Create a file, `configurations.json`, with the
    following content:
@@ -131,9 +125,7 @@ exceed the number of [virtual cores](https://aws.amazon.com/ec2/virtualcores/ "h
 architecture, see [_Concepts_](https://ci.apache.org/projects/flink/flink-docs-master/concepts/index.html "https://ci.apache.org/projects/flink/flink-docs-master/concepts/index.html") in the Flink
 documentation.
 
-## Configuring Flink on an EMR cluster with
-
-multiple primary nodes
+## Configuring Flink on an EMR cluster with multiple primary nodes
 
 The JobManager of Flink remains available during the primary node failover process
 in an Amazon EMR cluster with multiple primary nodes. Beginning with Amazon EMR 5.28.0, JobManager high availability
@@ -255,9 +247,7 @@ The following example configuration demonstrates the log4j format.
 ]
 ```
 
-## Configure Flink to run with
-
-Java 11
+## Configure Flink to run with Java 11
 
 Amazon EMR releases 6.12.0 and higher provide Java 11 runtime support for Flink.
 The following sections describe how to configure the cluster to provide Java 11
@@ -265,16 +255,11 @@ runtime support for Flink.
 
 ###### Topics
 
-- [Configure Flink for Java 11
-  when you create a cluster](#flink-configure-java11-create "#flink-configure-java11-create")
-- [Configure Flink for Java 11
-  on a running cluster](#flink-configure-java11-update "#flink-configure-java11-update")
-- [Confirm the Java runtime for
-  Flink on a running cluster](#flink-configure-java11-confirm "#flink-configure-java11-confirm")
+- [Configure Flink for Java 11 when you create a cluster](#flink-configure-java11-create "#flink-configure-java11-create")
+- [Configure Flink for Java 11 on a running cluster](#flink-configure-java11-update "#flink-configure-java11-update")
+- [Confirm the Java runtime for Flink on a running cluster](#flink-configure-java11-confirm "#flink-configure-java11-confirm")
 
-### Configure Flink for Java 11
-
-when you create a cluster
+### Configure Flink for Java 11 when you create a cluster
 
 Use the following steps to create an EMR cluster with Flink and Java 11
 runtime. The configuration file where you add Java 11 runtime support is
@@ -282,9 +267,7 @@ runtime. The configuration file where you add Java 11 runtime support is
 
 Console
 
-###### To create a cluster with Flink and Java 11 runtime in
-
-the console
+###### To create a cluster with Flink and Java 11 runtime in the console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
@@ -316,9 +299,7 @@ the console
 
 AWS CLI
 
-###### To create a cluster with Flink and Java 11 runtime from
-
-the CLI
+###### To create a cluster with Flink and Java 11 runtime from the CLI
 
 1. Create a configuration file
    `configurations.json`that configures Flink to
@@ -354,9 +335,7 @@ aws emr create-cluster --release-label `emr-6.12.0` \
 
 ```
 
-### Configure Flink for Java 11
-
-on a running cluster
+### Configure Flink for Java 11 on a running cluster
 
 Use the following steps to update a running EMR cluster with Flink and
 Java 11 runtime. The configuration file where you add Java 11 runtime
@@ -364,9 +343,7 @@ support is `flink-conf.yaml`.
 
 Console
 
-###### To update a running cluster with Flink and Java 11
-
-runtime in the console
+###### To update a running cluster with Flink and Java 11 runtime in the console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
@@ -397,9 +374,7 @@ one.
 
 AWS CLI
 
-###### To update a running cluster to use Flink and Java 11
-
-runtime from the CLI
+###### To update a running cluster to use Flink and Java 11 runtime from the CLI
 
 Use the `modify-instance-groups` command to specify
 a new configuration for an instance group in a running
@@ -440,9 +415,7 @@ aws emr modify-instance-groups --cluster-id `j-2AL4XXXXXX5T9` \
 --instance-groups file://configurations.json
 ```
 
-### Confirm the Java runtime for
-
-Flink on a running cluster
+### Confirm the Java runtime for Flink on a running cluster
 
 To determine the Java runtime for a running cluster, log in to the primary
 node with SSH as described in [Connect to the primary

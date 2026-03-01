@@ -13,17 +13,13 @@ Separate charges apply for AWS Glue. There is a monthly rate for storing and acc
 
 If you created tables using Amazon Athena or Amazon Redshift Spectrum before August 14, 2017, databases and tables are stored in an Athena-managed catalog, which is separate from the AWS Glue Data Catalog. To integrate Amazon EMR with these tables, you must upgrade to the AWS Glue Data Catalog. For more information, see [Upgrading to the AWS Glue Data Catalog](../../../athena/latest/ug/glue-upgrade.md "../../../athena/latest/ug/glue-upgrade.md") in the _Amazon Athena User Guide_.
 
-## Specifying AWS Glue Data Catalog as the
-
-metastore
+## Specifying AWS Glue Data Catalog as the metastore
 
 You can specify the AWS Glue Data Catalog as the metastore using the AWS Management Console, AWS CLI, or Amazon EMR API. When you use the CLI or API, you use the configuration classification for Presto to specify the Data Catalog. In addition, with Amazon EMR 5.16.0 and later, you can use the configuration classification to specify a Data Catalog in a different AWS account. When you use the console, you can specify the Data Catalog using **Advanced Options** or **Quick Options**.
 
 Console
 
-###### To specify AWS Glue Data Catalog as the Hive metastore with the new
-
-console
+###### To specify AWS Glue Data Catalog as the Hive metastore with the new console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
@@ -41,9 +37,7 @@ console
 
 CLI
 
-###### To specify the AWS Glue Data Catalog as the default Hive metastore using
-
-the AWS CLI
+###### To specify the AWS Glue Data Catalog as the default Hive metastore using the AWS CLI
 
 For examples of how to specify the following configuration
 classifications when you create a cluster, see [Configure applications](emr-configure-apps.md "emr-configure-apps.md").
@@ -186,9 +180,7 @@ arn:aws:iam::`acct-id`:role/`EMR_EC2_DefaultRole`
 
 The `acct-id` can be different from the AWS Glue account ID. This enables access from EMR clusters in different accounts. You can specify multiple principals, each from a different account.
 
-## Considerations when using
-
-AWS Glue Data Catalog
+## Considerations when using AWS Glue Data Catalog
 
 Consider the following items when using AWS Glue Data Catalog as a metastore with
 Presto:

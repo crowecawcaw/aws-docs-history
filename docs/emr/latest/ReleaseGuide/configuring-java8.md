@@ -1,6 +1,4 @@
-# Configure applications to use a specific Java
-
-Virtual Machine
+# Configure applications to use a specific Java Virtual Machine
 
 Amazon EMR releases have different default Java Virtual Machine (JVM) versions. This page
 explains the JVM support for different releases and applications.
@@ -41,7 +39,7 @@ your runtime version:
 | Hadoop                                        | To update the JVM for Hadoop, modify<br>`hadoop-env`. For examples, see [Override the JVM](#configuring-java8-override "#configuring-java8-override").                                                                                                                                                                                                                                                                                                                                                   |
 | Hive                                          | To set the Java version to 11 or 17 for Hive, configure the<br>Hadoop JVM setting to the Java version that you want to use.                                                                                                                                                                                                                                                                                                                                                                              |
 | HBase                                         | To update the JVM for HBase, modify `hbase-env`.<br>By default, Amazon EMR sets the HBase JVM based on the JVM<br>configuration for Hadoop unless you override the settings in<br>`hbase-env`. For examples, see [Override the JVM](#configuring-java8-override "#configuring-java8-override").                                                                                                                                                                                                          |
-| Flink                                         | To update the JVM for Flink, modify<br>`flink-conf`. By default, Amazon EMR sets the Flink JVM<br>based on the JVM configuration for Hadoop unless you override<br>the settings in `flink-conf`. For more information,<br>see [Configure Flink to run with<br>Java 11](flink-configure.md#flink-configure-java11 "flink-configure.md#flink-configure-java11").                                                                                                                                           |
+| Flink                                         | To update the JVM for Flink, modify<br>`flink-conf`. By default, Amazon EMR sets the Flink JVM<br>based on the JVM configuration for Hadoop unless you override<br>the settings in `flink-conf`. For more information,<br>see [Configure Flink to run with Java 11](flink-configure.md#flink-configure-java11 "flink-configure.md#flink-configure-java11").                                                                                                                                              |
 | Oozie                                         | To configure Oozie to run on Java 11 or 17, configure Oozie<br>Server, the Oozie LauncherAM Launcher AM, and change your<br>client-side executable and job configurations. You can also<br>configure `EmbeddedOozieServer` to run on Java 17.<br>For more information, see [Configure Java version for Oozie](oozie-java.md "oozie-java.md").                                                                                                                                                            |
 | Pig                                           | Pig only supports Java 8. You can't use Java 11 or 17 with<br>Hadoop and run Pig on the same cluster.                                                                                                                                                                                                                                                                                                                                                                                                    |
 
@@ -52,21 +50,15 @@ with a cluster that uses Amazon EMR release 6.12.0 - supply the `JAVA_HOME`
 setting to its environment classification, which is
 ``application`-env`for all applications
  except Flink. For Flink, the environment classification is`flink-conf`.
-For steps to configure the Java runtime with Flink, see [Configure Flink to run with
-Java 11](flink-configure.md#flink-configure-java11 "flink-configure.md#flink-configure-java11").
+For steps to configure the Java runtime with Flink, see [Configure Flink to run with Java 11](flink-configure.md#flink-configure-java11 "flink-configure.md#flink-configure-java11").
 
 ###### Topics
 
-- [Override the JVM setting with
-  Apache Spark](#configuring-java8-override-spark "#configuring-java8-override-spark")
-- [Override the JVM setting with
-  Apache HBase](#configuring-java8-override-hbase "#configuring-java8-override-hbase")
-- [Override the JVM setting
-  with Apache Hadoop and Hive](#configuring-java8-override-hadoop "#configuring-java8-override-hadoop")
+- [Override the JVM setting with Apache Spark](#configuring-java8-override-spark "#configuring-java8-override-spark")
+- [Override the JVM setting with Apache HBase](#configuring-java8-override-hbase "#configuring-java8-override-hbase")
+- [Override the JVM setting with Apache Hadoop and Hive](#configuring-java8-override-hadoop "#configuring-java8-override-hadoop")
 
-### Override the JVM setting with
-
-Apache Spark
+### Override the JVM setting with Apache Spark
 
 When you use Spark with Amazon EMR releases 6.12 and higher, you can set the
 environment so that the executors use Java 11 or 17. And when you use Spark with
@@ -151,9 +143,7 @@ The following example shows how to add required configuration parameters for EMR
 ]
 ```
 
-### Override the JVM setting with
-
-Apache HBase
+### Override the JVM setting with Apache HBase
 
 To configure HBase to use Java 11, you can set the following configuration
 when you launch the cluster.
@@ -177,9 +167,7 @@ when you launch the cluster.
 ]
 ```
 
-### Override the JVM setting
-
-with Apache Hadoop and Hive
+### Override the JVM setting with Apache Hadoop and Hive
 
 The following example shows how to set the JVM to version 17 for Hadoop and
 Hive.

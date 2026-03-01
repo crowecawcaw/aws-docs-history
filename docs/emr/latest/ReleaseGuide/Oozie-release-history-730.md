@@ -1,10 +1,6 @@
-# Amazon EMR 7.3.0 - Oozie
+# Amazon EMR 7.3.0 - Oozie release notes
 
-release notes
-
-## Amazon EMR 7.3.0 -
-
-Oozie changes
+## Amazon EMR 7.3.0 - Oozie changes
 
 | Type        | Description                                                                                                                                                                                             |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -13,9 +9,7 @@ Oozie changes
 | Improvement | [OOZIE-3673](https://issues.apache.org/jira/browse/OOZIE-3673 "https://issues.apache.org/jira/browse/OOZIE-3673"): Add possibility to configure custom SSL/TLS protocols when executing an email action |
 | Improvement | [OOZIE-3677](https://issues.apache.org/jira/browse/OOZIE-3677 "https://issues.apache.org/jira/browse/OOZIE-3677"): Oozie should accept a keyStoreType and trustStoreType property in oozie-site.xml     |
 
-## Amazon EMR 7.3.0 -
-
-New configurations
+## Amazon EMR 7.3.0 - New configurations
 
 | Classification | Name                           | Default | Description                                                                                                                                        |
 | -------------- | ------------------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -1,6 +1,4 @@
-# Using the
-
-Troubleshooting Agent
+# Using the Troubleshooting Agent
 
 ## Supported Deployment Modes
 
@@ -19,18 +17,14 @@ understand the detailed features, capacities and limitations.
 
 ## Supported Interfaces
 
-### Troubleshooting Cells within
-
-Amazon SageMaker Notebooks
+### Troubleshooting Cells within Amazon SageMaker Notebooks
 
 A demonstration of troubleshooting experience with Amazon SageMaker Notebooks. For
 any Notebook cell failure, you can ask the Amazon SageMaker Notebook Agent to
 troubleshoot the failure to request the analysis followed by possible code fix if
 the error resulted from code, by clicking the `Fix with AI` button.
 
-### Troubleshooting Glue and EMR
-
-Spark applications with Kiro CLI
+### Troubleshooting Glue and EMR Spark applications with Kiro CLI
 
 Start Kiro CLI or your AI Assistant and verify the loaded tools for the
 troubleshooting process.

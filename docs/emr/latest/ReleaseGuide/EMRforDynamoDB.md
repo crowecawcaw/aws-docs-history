@@ -1,6 +1,4 @@
-# Export, import, query, and join tables in DynamoDB using
-
-Amazon EMR
+# Export, import, query, and join tables in DynamoDB using Amazon EMR
 
 ###### Note
 
@@ -70,9 +68,6 @@ metrics to evaluate the aggregate throughput that a table has used.
 
 ###### Topics
 
-- [Set up a Hive table to run Hive
-  commands](EMR_Interactive_Hive.md "EMR_Interactive_Hive.md")
-- [Hive command examples for exporting, importing,
-  and querying data in DynamoDB](EMR_Hive_Commands.md "EMR_Hive_Commands.md")
-- [Optimizing performance for Amazon EMR operations in
-  DynamoDB](EMR_Hive_Optimizing.md "EMR_Hive_Optimizing.md")
+- [Set up a Hive table to run Hive commands](EMR_Interactive_Hive.md "EMR_Interactive_Hive.md")
+- [Hive command examples for exporting, importing, and querying data in DynamoDB](EMR_Hive_Commands.md "EMR_Hive_Commands.md")
+- [Optimizing performance for Amazon EMR operations in DynamoDB](EMR_Hive_Optimizing.md "EMR_Hive_Optimizing.md")

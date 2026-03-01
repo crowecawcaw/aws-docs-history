@@ -1,6 +1,4 @@
-# Use a Delta Lake cluster with Spark and
-
-AWS Glue
+# Use a Delta Lake cluster with Spark and AWS Glue
 
 To use the AWS Glue Catalog as the Metastore for Delta Lake tables, create a cluster
 with following steps. For information on specifying the Delta Lake classification using

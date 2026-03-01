@@ -1,6 +1,4 @@
-# Amazon EMR 7.6.0 -
-
-Oozie release notes
+# Amazon EMR 7.6.0 - Oozie release notes
 
 **Oozie known issues:**
 

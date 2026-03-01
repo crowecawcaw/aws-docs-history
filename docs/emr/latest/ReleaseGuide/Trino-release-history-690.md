@@ -1,6 +1,4 @@
-# Amazon EMR 6.9.0 - Trino
-
-release notes
+# Amazon EMR 6.9.0 - Trino release notes
 
 ## Amazon EMR 6.9.0 - Trino new features
 

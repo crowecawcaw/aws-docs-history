@@ -1,10 +1,6 @@
-# Amazon EMR 6.7.0 - Hive release
+# Amazon EMR 6.7.0 - Hive release notes
 
-notes
-
-## Amazon EMR 6.7.0 -
-
-Hive changes
+## Amazon EMR 6.7.0 - Hive changes
 
 | Type     | Description                                                                                                                                                                                                                                                                                                                                                                                                           |
 | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -28,9 +24,7 @@ Hive changes
 | Backport | [HIVE-25971](https://issues.apache.org/jira/browse/HIVE-25971 "https://issues.apache.org/jira/browse/HIVE-25971"): Tez task shutdown getting delayed<br>due to cached thread pool not closed                                                                                                                                                                                                                          |
 | Backport | [HIVE-26036](https://issues.apache.org/jira/browse/HIVE-26036 "https://issues.apache.org/jira/browse/HIVE-26036"): NPE caused by getMTable() in<br>ObjectStore                                                                                                                                                                                                                                                        |
 
-## Amazon EMR 6.7.0 - Hive known
-
-issues
+## Amazon EMR 6.7.0 - Hive known issues
 
 - Queries with windowing functions on the same column as join may
   lead to invalid transformations as reported in [HIVE-25278](https://issues.apache.org/jira/browse/HIVE-25278 "https://issues.apache.org/jira/browse/HIVE-25278") and cause incorrect results or query

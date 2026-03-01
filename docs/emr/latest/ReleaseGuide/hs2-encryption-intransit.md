@@ -1,10 +1,7 @@
-# In-transit encryption in
-
-HiveServer2
+# In-transit encryption in HiveServer2
 
 Starting with Amazon EMR release 6.9.0, HiveServer2 (HS2) is TLS/SSL-enabled as part of
-In-transit encryption in
-HiveServer2 security configuration. This affects
+In-transit encryption in HiveServer2 security configuration. This affects
 how you connect to HS2 running on an Amazon EMR cluster with in-transit encryption
 enabled. To connect to HS2, you must modify the `TRUSTSTORE_PATH` and
 `TRUSTSTORE_PASSWORD` parameter values in the JDBC URL. The following

@@ -1,6 +1,4 @@
-# Set up a Hive table to run Hive
-
-commands
+# Set up a Hive table to run Hive commands
 
 Apache Hive is a data warehouse application you can use to query data contained in
 Amazon EMR clusters using a SQL-like language. For more information about Hive, see
@@ -32,9 +30,7 @@ use to set MapReduce as the execution engine for Hive:
              ]
 ```
 
-###### To run Hive commands
-
-interactively
+###### To run Hive commands interactively
 
 1. Connect to the master node. For more information, see [Connect to the
    master node using SSH](../ManagementGuide/emr-connect-master-node-ssh.md "../ManagementGuide/emr-connect-master-node-ssh.md") in the
@@ -154,8 +150,7 @@ statistics. For more information, see the following topics:
 - [View the
   Hadoop web interfaces](../ManagementGuide/UsingtheHadoopUserInterface.md "../ManagementGuide/UsingtheHadoopUserInterface.md")
   For more information about sample HiveQL statements to perform tasks such as
-  exporting or importing data from DynamoDB and joining tables, see [Hive command examples for exporting, importing,
-  and querying data in DynamoDB](EMR_Hive_Commands.md "EMR_Hive_Commands.md").
+  exporting or importing data from DynamoDB and joining tables, see [Hive command examples for exporting, importing, and querying data in DynamoDB](EMR_Hive_Commands.md "EMR_Hive_Commands.md").
 
 ###### To cancel a Hive request
 

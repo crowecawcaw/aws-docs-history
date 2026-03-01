@@ -57,7 +57,6 @@ For the version of components installed with Flink in this release, see [Release
 - [Use the Scala shell](flink-scala.md "flink-scala.md")
 - [Finding the Flink web interface](flink-web-interface.md "flink-web-interface.md")
 - [Flink autoscaler](flink-autoscaler.md "flink-autoscaler.md")
-- [Optimizing job restart times for task recovery and
-  scaling operations](flink-restart.md "flink-restart.md")
+- [Optimizing job restart times for task recovery and scaling operations](flink-restart.md "flink-restart.md")
 - [Working with Flink jobs from Zeppelin in Amazon EMR](flink-zeppelin.md "flink-zeppelin.md")
 - [Flink release history](Flink-release-history.md "Flink-release-history.md")

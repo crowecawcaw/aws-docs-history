@@ -1,6 +1,4 @@
-# Pig application specifics for earlier AMI versions of
-
-Amazon EMR
+# Pig application specifics for earlier AMI versions of Amazon EMR
 
 ## Supported Pig versions
 
@@ -38,26 +36,20 @@ versions and the patches applied to the versions loaded on Amazon EMR.
 This section describes the custom patches applied to Pig versions available
 with Amazon EMR.
 
-#### Pig 0.11.1.1
-
-patches
+#### Pig 0.11.1.1 patches
 
 The Amazon EMR version of Pig 0.11.1.1 is a maintenance release that improves
 performance of LOAD command with PigStorage if the input resides in
 Amazon S3.
 
-#### Pig 0.11.1
-
-patches
+#### Pig 0.11.1 patches
 
 The Amazon EMR version of Pig 0.11.1 contains all the updates provided by the
 Apache Software Foundation and the cumulative Amazon EMR patches from Pig version
 0.9.2.2. However, there are no new Amazon EMR-specific patches in Pig
 0.11.1.
 
-#### Pig 0.9.2
-
-patches
+#### Pig 0.9.2 patches
 
 Apache Pig 0.9.2 is a maintenance release of Pig. The Amazon EMR team has
 applied the following patches to the Amazon EMR version of Pig 0.9.2.
@@ -70,9 +62,7 @@ applied the following patches to the Amazon EMR version of Pig 0.9.2.
 | PIG-2456 | Add a ~/.pigbootup file where the user can specify<br>default Pig statements. For more information, go to<br>[https://issues.apache.org/jira/browse/PIG-2456](https://issues.apache.org/jira/browse/PIG-2456 "https://issues.apache.org/jira/browse/PIG-2456").<br>**Status:\*<br>• Committed<br>**Fixed in Apache Pig Version:\*<br>• 0.11 |
 | PIG-2623 | Support using Amazon S3 paths to register UDFs. For more<br>information, go to [https://issues.apache.org/jira/browse/PIG-2623](https://issues.apache.org/jira/browse/PIG-2623 "https://issues.apache.org/jira/browse/PIG-2623").<br>**Status:\*<br>• Committed<br>**Fixed in Apache Pig Version:\*<br>• 0.10,<br>0.11                      |
 
-#### Pig 0.9.1
-
-patches
+#### Pig 0.9.1 patches
 
 The Amazon EMR team has applied the following patches to the Amazon EMR version of
 Pig 0.9.1.
@@ -83,9 +73,7 @@ Pig 0.9.1.
 | Support multiple file systems in Pig     | Add support for Pig scripts to read data from one<br>file system and write it to another. For more<br>information, go to [https://issues.apache.org/jira/browse/PIG-1564](https://issues.apache.org/jira/browse/PIG-1564 "https://issues.apache.org/jira/browse/PIG-1564").<br>**Status:\*<br>• Not Committed<br>**Fixed in Apache Pig Version:\*<br>• n/a                                |
 | Add Piggybank datetime and string UDFs   | Add datetime and string UDFs to support custom Pig<br>scripts. For more information, go to [https://issues.apache.org/jira/browse/PIG-1565](https://issues.apache.org/jira/browse/PIG-1565 "https://issues.apache.org/jira/browse/PIG-1565").<br>**Status:\*<br>• Not Committed<br>**Fixed in Apache Pig Version:\*<br>• n/a                                                              |
 
-## Interactive and batch Pig
-
-clusters
+## Interactive and batch Pig clusters
 
 Amazon EMR enables you to run Pig scripts in two modes:
 

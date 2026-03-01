@@ -1,6 +1,4 @@
-# The EMRFS S3-optimized
-
-commit protocol and multipart uploads
+# The EMRFS S3-optimized commit protocol and multipart uploads
 
 To use make use of the optimization for dynamic partition overwrite in the
 EMRFS S3-optimized commit protocol, multipart uploads must be enabled in Amazon EMR .

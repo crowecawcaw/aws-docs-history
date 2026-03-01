@@ -1,10 +1,6 @@
-# Amazon EMR 6.9.0 - Hive release
+# Amazon EMR 6.9.0 - Hive release notes
 
-notes
-
-## Amazon EMR 6.9.0 -
-
-Hive changes
+## Amazon EMR 6.9.0 - Hive changes
 
 | Type        | Description                                                                                                                                                                                                                                                                   |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -13,7 +9,7 @@ Hive changes
 | Feature     | Amazon EMR Hive integration with Lake Formation for<br>interactive workloads using GCSC API.                                                                                                                                                                                  |
 | Feature     | Amazon EMR Hive integration with Iceberg.                                                                                                                                                                                                                                     |
 | Improvement | Enable SSL in HiveServer2 when [in-transit encryption](../ManagementGuide/emr-data-encryption-options.md#emr-encryption-intransit "../ManagementGuide/emr-data-encryption-options.md#emr-encryption-intransit") is enabled using Amazon EMR<br>security configurations.       |
-| Improvement | Enable Hive EMRFS Amazon S3 optimized committer by default.<br>For more information see, [Enabling Hive EMRFS S3 optimized<br>committer](hive-optimized-committer.md "hive-optimized-committer.md").                                                                          |
+| Improvement | Enable Hive EMRFS Amazon S3 optimized committer by default.<br>For more information see, [Enabling Hive EMRFS S3 optimized committer](hive-optimized-committer.md "hive-optimized-committer.md").                                                                             |
 | Improvement | Add `HiveHBaseTableInputFormatV2` that<br>inherits only mapred version of InputFormat to fix [SPARK-34210](https://issues.apache.org/jira/browse/SPARK-34210 "https://issues.apache.org/jira/browse/SPARK-34210"). Set<br>`hive.hbase.inputformat.v2` to<br>`true` to use it. |
 | Improvement | Wait for TezAM to launch in background with<br>hive.cli.tez.session.async instead of<br>terminating it and launching new immediately. Use<br>`hive.emr.cli.tez.session.open.timeout` to<br>set this timeout in seconds.                                                       |
 | Improvement | Add option<br>hive.conf.restricted.list.append to<br>append comma-separated configs to existing restricted config<br>list `hive.conf.restricted.list`.                                                                                                                        |
@@ -35,8 +31,6 @@ Hive changes
 | Backport    | [HIVE-21987](https://issues.apache.org/jira/browse/HIVE-21987 "https://issues.apache.org/jira/browse/HIVE-21987"): Hive is unable to read Parquet<br>int32 annotated with decimal.                                                                                            |
 | Backport    | [HIVE-20038](https://issues.apache.org/jira/browse/HIVE-20038 "https://issues.apache.org/jira/browse/HIVE-20038"): Update queries on non-bucketed and<br>partitioned tables throws NPE.                                                                                       |
 
-## Amazon EMR 6.9.0 - Hive known
-
-issues
+## Amazon EMR 6.9.0 - Hive known issues
 
 - With Amazon EMR 6.6.0 through 6.9.x, INSERT queries with dynamic partition and an ORDER BY or SORT BY clause will always have two reducers. This issue is caused by OSS change [HIVE-20703](https://issues.apache.org/jira/browse/HIVE-20703 "https://issues.apache.org/jira/browse/HIVE-20703"), which puts dynamic sort partition optimization under cost-based decision. If your workload doesn't require sorting of dynamic partitions, we recommend that you set the `hive.optimize.sort.dynamic.partition.threshold` property to `-1` to disable the new feature and get the correctly calculated number of reducers. This issue is fixed in OSS Hive as part of [HIVE-22269](https://issues.apache.org/jira/browse/HIVE-22269 "https://issues.apache.org/jira/browse/HIVE-22269") and is fixed in Amazon EMR 6.10.0.

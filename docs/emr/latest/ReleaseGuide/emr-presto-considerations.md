@@ -1,6 +1,4 @@
-# Considerations with Presto on
-
-Amazon EMR
+# Considerations with Presto on Amazon EMR
 
 Consider the following limitations when you run [Presto](https://aws.amazon.com/big-data/what-is-presto/ "https://aws.amazon.com/big-data/what-is-presto/") on
 Amazon EMR.
@@ -14,9 +12,7 @@ In Amazon EMR, PrestoDB and Trino both use the same command line executable,
 presto-cli --catalog hive
 ```
 
-## Non-configurable Presto deployment
-
-properties
+## Non-configurable Presto deployment properties
 
 The version of Amazon EMR that you use determines the Presto deployment configurations
 that are available. For more information about these configuration properties, see
@@ -40,9 +36,7 @@ You can install either PrestoDB or Trino, but you can't install both on a single
 cluster. If you specify both PrestoDB and Trino when you attempt to create a
 cluster, a validation error occurs and the cluster creation request fails.
 
-## EMRFS and PrestoS3FileSystem
-
-configuration
+## EMRFS and PrestoS3FileSystem configuration
 
 With Amazon EMR versions 5.12.0 and later, PrestoDB can use EMRFS. For more information, see [EMR File System (EMRFS)](emr-fs.md "emr-fs.md") in the
 _Amazon EMR Management Guide_. With earlier versions of Amazon EMR,
@@ -88,9 +82,7 @@ configure PrestoS3FileSystem properties. For more information about available
 properties, see [Amazon S3 configuration](https://prestodb.io/docs/current/connector/hive.html#amazon-s3-configuration "https://prestodb.io/docs/current/connector/hive.html#amazon-s3-configuration") in the Hive Connector section of the Presto
 documentation. These settings do not apply to EMRFS.
 
-## Default setting for end user
-
-impersonation
+## Default setting for end user impersonation
 
 By default, Amazon EMR versions 5.12.0 and later enable end user impersonation for
 access to HDFS. For more information, see [End user impersonation](https://prestodb.io/docs/current/connector/hive-security.html#end-user-impersonation "https://prestodb.io/docs/current/connector/hive-security.html#end-user-impersonation") in the Presto documentation. To change this
@@ -98,9 +90,7 @@ setting with the `presto-config` configuration classification, set the
 `hive.hdfs.impersonation.enabled` property to
 `false`.
 
-## Default port for Presto web
-
-interface
+## Default port for Presto web interface
 
 By default, Amazon EMR configures the Presto web interface on the Presto coordinator to
 use port 8889 (for PrestoDB and Trino). To change the port, use the
@@ -108,9 +98,7 @@ use port 8889 (for PrestoDB and Trino). To change the port, use the
 `http-server.http.port` property. For more information, see [Config properties](https://prestodb.io/docs/current/installation/deployment.html#config-properties "https://prestodb.io/docs/current/installation/deployment.html#config-properties") in the _Deploying Presto_ section
 of Presto Documentation.
 
-## Issue with Hive Bucket execution in
-
-some releases
+## Issue with Hive Bucket execution in some releases
 
 Presto version 152.3 has an issue with Hive bucket execution that causes
 significantly slower Presto query performance in some circumstances. Amazon EMR versions

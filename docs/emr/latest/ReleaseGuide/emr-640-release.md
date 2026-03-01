@@ -8,8 +8,7 @@ The table below lists the application versions available in this release of Amaz
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following topics:
 
-- [Application versions in Amazon EMR 7.x
-  releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
+- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
 - [Application versions in Amazon EMR 6.x releases](emr-release-app-versions-6.md "emr-release-app-versions-6.md")
 - [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.md "emr-release-app-versions-5.md")
 - [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.md "emr-release-app-versions-4.md")
@@ -360,8 +359,7 @@ Some components in Amazon EMR differ from community versions. These components h
 
 Configuration classifications allow you to customize applications. These often correspond to a configuration XML file for the application, such as `hive-site.xml`. For more information, see [Configure applications](emr-configure-apps.md "emr-configure-apps.md").
 
-Reconfiguration actions occur when you specify a configuration for instance groups in a running cluster. Amazon EMR only initiates reconfiguration actions for the classifications that you modify. For more information, see [Reconfigure an instance group in a
-running cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-running-cluster.md").
+Reconfiguration actions occur when you specify a configuration for instance groups in a running cluster. Amazon EMR only initiates reconfiguration actions for the classifications that you modify. For more information, see [Reconfigure an instance group in a running cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-running-cluster.md").
 
 | emr-6.4.0 classifications       | Classifications                                                             | Description                                                                                                                                                                                                                                                                                                                                                   | Reconfiguration Actions |
 | ------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |

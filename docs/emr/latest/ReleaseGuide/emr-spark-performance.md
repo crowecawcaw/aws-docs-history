@@ -5,9 +5,7 @@ explains each optimization feature in detail.
 
 For more information on how to set Spark configuration, see [Configure Spark](emr-spark-configure.md "emr-spark-configure.md").
 
-## Adaptive query
-
-execution
+## Adaptive query execution
 
 Adaptive query execution is a framework for reoptimizing query plans based on
 runtime statistics. Starting with Amazon EMR 5.30.0, the following adaptive query

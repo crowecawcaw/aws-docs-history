@@ -43,8 +43,7 @@ Beginning with Amazon EMR 5.18.0, you can use the Amazon EMR artifact repository
 ###### Topics
 
 - [Differences and considerations for Hive on Amazon EMR](emr-hive-differences.md "emr-hive-differences.md")
-- [Configuring an external metastore for
-  Hive](emr-metastore-external-hive.md "emr-metastore-external-hive.md")
+- [Configuring an external metastore for Hive](emr-metastore-external-hive.md "emr-metastore-external-hive.md")
 - [Use the Hive JDBC driver](HiveJDBCDriver.md "HiveJDBCDriver.md")
 - [Improve Hive performance](emr-hive-s3-performance.md "emr-hive-s3-performance.md")
 - [Using Hive Live Long and Process (LLAP)](emr-hive-llap.md "emr-hive-llap.md")

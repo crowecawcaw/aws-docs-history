@@ -1,6 +1,4 @@
-# Run Spark applications with Docker on Amazon EMR
-
-6.x
+# Run Spark applications with Docker on Amazon EMR 6.x
 
 ###### Note
 
@@ -18,9 +16,7 @@ image and run the Spark application inside a Docker container. This allows you t
 define and isolate dependencies. It reduces the time for bootstrapping or preparing
 instances in the Amazon EMR cluster with the libraries needed for job execution.
 
-## Considerations when running Spark
-
-with Docker
+## Considerations when running Spark with Docker
 
 When you run Spark with Docker, make sure the following prerequisites are
 met:

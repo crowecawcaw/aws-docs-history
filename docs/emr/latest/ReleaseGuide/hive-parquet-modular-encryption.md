@@ -1,6 +1,4 @@
-# Parquet modular encryption in
-
-Hive
+# Parquet modular encryption in Hive
 
 Parquet modular encryption provides columnar level access control and encryption
 to enhance privacy and data integrity for data stored in Parquet file format. This

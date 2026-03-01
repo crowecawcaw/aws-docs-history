@@ -1,6 +1,4 @@
-# Using SSL/TLS and configuring LDAPS with Presto on
-
-Amazon EMR
+# Using SSL/TLS and configuring LDAPS with Presto on Amazon EMR
 
 With Amazon EMR release version 5.6.0 and later, you can enable SSL/TLS to help [secure
 internal communication](https://prestodb.io/docs/current/security/internal-communication.html "https://prestodb.io/docs/current/security/internal-communication.html") between Presto nodes. You do this by setting up a
@@ -34,8 +32,7 @@ following for Presto:
   This setup uses secure LDAP (LDAPS). TLS must be enabled on your LDAP server, and the
   Presto cluster must use a security configuration with in-transit data encryption
   enabled. Additional configuration is required. The configuration options are different
-  depending on the release version of Amazon EMR that you use. For more information, see [Using LDAP authentication for Presto on
-  Amazon EMR](emr-presto-ldap.md "emr-presto-ldap.md").
+  depending on the release version of Amazon EMR that you use. For more information, see [Using LDAP authentication for Presto on Amazon EMR](emr-presto-ldap.md "emr-presto-ldap.md").
 
 Presto on Amazon EMR uses port 8446 for internal HTTPS by default. The port used for
 internal communication must be the same port used for client HTTPS access to the Presto

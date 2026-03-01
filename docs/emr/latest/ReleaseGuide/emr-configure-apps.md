@@ -108,11 +108,7 @@ potentially configure multiple settings on your behalf.
 
 ###### Topics
 
-- [Configure applications when you
-  create a cluster](emr-configure-apps-create-cluster.md "emr-configure-apps-create-cluster.md")
-- [Reconfigure an instance group in a
-  running cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-running-cluster.md")
-- [Store sensitive configuration data in
-  AWS Secrets Manager](storing-sensitive-data.md "storing-sensitive-data.md")
-- [Configure applications to use a specific Java
-  Virtual Machine](configuring-java8.md "configuring-java8.md")
+- [Configure applications when you create a cluster](emr-configure-apps-create-cluster.md "emr-configure-apps-create-cluster.md")
+- [Reconfigure an instance group in a running cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-running-cluster.md")
+- [Store sensitive configuration data in AWS Secrets Manager](storing-sensitive-data.md "storing-sensitive-data.md")
+- [Configure applications to use a specific Java Virtual Machine](configuring-java8.md "configuring-java8.md")

@@ -1,6 +1,4 @@
-# Using security configurations with Amazon EMR
-
-WAL
+# Using security configurations with Amazon EMR WAL
 
 Amazon EMR automatically encrypts both data in transit between your cluster and Amazon EMR
 WAL service, and the data at rest in Amazon EMR WAL. For more information, see [Encryption at rest for Amazon EMR WAL](../ManagementGuide/emr-data-encryption-options.md#emr-encryption-WAL "../ManagementGuide/emr-data-encryption-options.md#emr-encryption-WAL"). You can also use a security configuration

@@ -4,9 +4,7 @@ You can enable Amazon S3 server-side encryption or consistent view for EMRFS usi
 AWS Management Console, AWS CLI, or
 the `emrfs-site` configuration classification.
 
-###### To configure consistent view using the
-
-console
+###### To configure consistent view using the console
 
 1. Navigate to the new Amazon EMR console and select **Switch to the old console** from the side navigation. For more information on what to expect when you switch to the old console, see [Using the old console](../ManagementGuide/whats-new-in-console.md#console-opt-in "../ManagementGuide/whats-new-in-console.md#console-opt-in").
 2. Choose **Create cluster**, **Go to advanced options**.
@@ -51,9 +49,7 @@ aws emr create-cluster --instance-type `m5.xlarge` --instance-count `3` --emrfs 
   **Cluster Details**. The "EMRFS consistent view" field has
   a value of `Enabled` or `Disabled`.
 
-###### To check if consistent view is enabled by examining the
-
-`emrfs-site.xml` file
+###### To check if consistent view is enabled by examining the `emrfs-site.xml` file
 
 - You can check if consistency is enabled by inspecting the
   `emrfs-site.xml` configuration file on the master

@@ -25,8 +25,7 @@ For AWS CLI instructions, see the appropriate section for your encryption type b
 **S3 server-side encryption with KMS Key Management** (SSE-KMS) is not available when using Amazon EMR release version 4.4 or earlier.
 
     * If you choose an option that uses **AWS Key Management**, choose an **AWS KMS Key ID**. For more information, see [Using AWS KMS keys for EMRFS encryption](#emr-emrfs-awskms "#emr-emrfs-awskms").
-    * If you choose **S3 client-side encryption with custom materials provider**, provide the **Class name** and the **JAR location**. For more information, see [Amazon S3 client-side
-     encryption](emr-emrfs-encryption-cse.md "emr-emrfs-encryption-cse.md").
+    * If you choose **S3 client-side encryption with custom materials provider**, provide the **Class name** and the **JAR location**. For more information, see [Amazon S3 client-side encryption](emr-emrfs-encryption-cse.md "emr-emrfs-encryption-cse.md").
 
 7. Choose other options as appropriate for your application and then choose **Create Cluster**.
 
@@ -56,9 +55,7 @@ using the AWS Management Console. It assumes that you have already created a KMS
 create a new KMS key, see [Creating
 Keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the _AWS Key Management Service Developer Guide_.
 
-###### To add the EC2 instance profile for Amazon EMR to the list of encryption
-
-key users
+###### To add the EC2 instance profile for Amazon EMR to the list of encryption key users
 
 1. Sign in to the AWS Management Console and open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
 2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
@@ -68,9 +65,7 @@ key users
 5. In the **Add key users** dialog box, select the appropriate role. The name of the default role is `EMR_EC2_DefaultRole`.
 6. Choose **Add**.
 
-## Amazon S3 server-side
-
-encryption
+## Amazon S3 server-side encryption
 
 All Amazon S3 buckets have encryption configured by default, and all new objects that are uploaded to an S3 bucket are automatically encrypted at rest, Amazon S3 encrypts data at the object level as it writes
 the data to disk and decrypts the data when it is accessed. For more information

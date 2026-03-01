@@ -8,8 +8,7 @@ Configuration classifications for Spark on Amazon EMR include the following:
 - `spark` – Sets the
   `maximizeResourceAllocation` property to true or false. When
   true, Amazon EMR automatically configures `spark-defaults` properties
-  based on cluster hardware configuration. For more information, see [Using
-  maximizeResourceAllocation](#emr-spark-maximizeresourceallocation "#emr-spark-maximizeresourceallocation").
+  based on cluster hardware configuration. For more information, see [Using maximizeResourceAllocation](#emr-spark-maximizeresourceallocation "#emr-spark-maximizeresourceallocation").
 - `spark-defaults` – Sets
   values in the `spark-defaults.conf` file. For more information, see
   [Spark
@@ -37,16 +36,12 @@ customers see improved performance with our default settings.
 ###### Topics
 
 - [Spark defaults set by Amazon EMR](#spark-defaults "#spark-defaults")
-- [Configuring Spark garbage collection on Amazon EMR
-  6.1.0](#spark-gc-config "#spark-gc-config")
-- [Using
-  maximizeResourceAllocation](#emr-spark-maximizeresourceallocation "#emr-spark-maximizeresourceallocation")
-- [Configuring node decommissioning
-  behavior](#spark-decommissioning "#spark-decommissioning")
+- [Configuring Spark garbage collection on Amazon EMR 6.1.0](#spark-gc-config "#spark-gc-config")
+- [Using maximizeResourceAllocation](#emr-spark-maximizeresourceallocation "#emr-spark-maximizeresourceallocation")
+- [Configuring node decommissioning behavior](#spark-decommissioning "#spark-decommissioning")
 - [Spark ThriftServer environment variable](#spark-thriftserver "#spark-thriftserver")
 - [Changing Spark default settings](#spark-change-defaults "#spark-change-defaults")
-- [Migrating from Apache Log4j 1.x to Log4j
-  2.x](#spark-migrate-logj42 "#spark-migrate-logj42")
+- [Migrating from Apache Log4j 1.x to Log4j 2.x](#spark-migrate-logj42 "#spark-migrate-logj42")
 
 ## Spark defaults set by Amazon EMR
 
@@ -61,9 +56,7 @@ The following table shows how Amazon EMR sets default values in
 | `spark.sql.hive.advancedPartitionPredicatePushdown.enabled`   | When true, advanced partition predicate pushdown into Hive<br>metastore is enabled.                                                                                                                                                                                                                                                             | `true`                                                                                                                |
 | `spark.sql.hive.stringLikePartitionPredicatePushdown.enabled` | Pushes down `startsWith`, `contains`,<br>and `endsWith` filters into Hive metastore.<br>NoteGlue doesn't support predicate push down for<br>`startsWith`, `contains`, or<br>`endsWith`. If you are using Glue metastore<br>and you encounter errors due to the predicate pushdown for<br>these functions, set this configuration to<br>`false`. | `true`                                                                                                                |
 
-## Configuring Spark garbage collection on Amazon EMR
-
-6.1.0
+## Configuring Spark garbage collection on Amazon EMR 6.1.0
 
 Setting custom garbage collection configurations with
 `spark.driver.extraJavaOptions` and
@@ -76,9 +69,7 @@ to Amazon EMR 6.1.0. JVM options not related to garbage collection, such as thos
 configuring logging (`-verbose:class`), can still be set through
 `extraJavaOptions`. For more information, see [Spark application properties.](https://spark.apache.org/docs/latest/configuration.html#application-properties "https://spark.apache.org/docs/latest/configuration.html#application-properties")
 
-## Using
-
-`maximizeResourceAllocation`
+## Using `maximizeResourceAllocation`
 
 To configure your executors to use the maximum resources possible on each node in
 a cluster, set `maximizeResourceAllocation` to `true` in your
@@ -118,18 +109,15 @@ The following is an example Spark configuration classification with
 ]
 ```
 
-Settings configured in `spark-defaults` when
-`maximizeResourceAllocation` is enabled| Setting | Description | Value |
-| --- | --- | --- |
-| spark.default.parallelism | Default number of partitions in RDDs returned by transformations<br>like join, reduceByKey, and parallelize when not set by<br>user. | 2X number of CPU cores available to YARN containers. |
-| spark.driver.memory | Amount of memory to use for the driver process, i.e. where<br>SparkContext is initialized. (for example, 1g, 2g). | Setting is configured based on the instance types in the<br>cluster. However, because the Spark driver application may run<br>on either the primary or one of the core instances (for example,<br>in YARN client and cluster modes, respectively), this is set<br>based on the smaller of the instance types in these two instance<br>groups. |
-| spark.executor.memory | Amount of memory to use per executor process. (for example, 1g,<br>2g) | Setting is configured based on the core and task instance<br>types in the cluster. |
-| spark.executor.cores | The number of cores to use on each executor. | Setting is configured based on the core and task instance types<br>in the cluster. |
-| spark.executor.instances | The number of executors. | Setting is configured based on the core and task instance<br>types in the cluster. Set unless<br>`spark.dynamicAllocation.enabled` explicitly set<br>to true at the same time. |
+| Settings configured in `spark-defaults` when `maximizeResourceAllocation`is enabled | Setting                                                                                                                              | Description                                                                                                                                                                                                                                                                                                                                   | Value |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| spark.default.parallelism                                                           | Default number of partitions in RDDs returned by transformations<br>like join, reduceByKey, and parallelize when not set by<br>user. | 2X number of CPU cores available to YARN containers.                                                                                                                                                                                                                                                                                          |
+| spark.driver.memory                                                                 | Amount of memory to use for the driver process, i.e. where<br>SparkContext is initialized. (for example, 1g, 2g).                    | Setting is configured based on the instance types in the<br>cluster. However, because the Spark driver application may run<br>on either the primary or one of the core instances (for example,<br>in YARN client and cluster modes, respectively), this is set<br>based on the smaller of the instance types in these two instance<br>groups. |
+| spark.executor.memory                                                               | Amount of memory to use per executor process. (for example, 1g,<br>2g)                                                               | Setting is configured based on the core and task instance<br>types in the cluster.                                                                                                                                                                                                                                                            |
+| spark.executor.cores                                                                | The number of cores to use on each executor.                                                                                         | Setting is configured based on the core and task instance types<br>in the cluster.                                                                                                                                                                                                                                                            |
+| spark.executor.instances                                                            | The number of executors.                                                                                                             | Setting is configured based on the core and task instance<br>types in the cluster. Set unless<br>`spark.dynamicAllocation.enabled` explicitly set<br>to true at the same time.                                                                                                                                                                |
 
-## Configuring node decommissioning
-
-behavior
+## Configuring node decommissioning behavior
 
 With Amazon EMR release 5.9.0 and higher, Spark on Amazon EMR includes a set of features to
 help ensure that Spark gracefully handles node termination because of a manual
@@ -176,9 +164,7 @@ configuration classification.
 The following procedures show how to modify settings using the CLI or
 console.
 
-###### To create a cluster with spark.executor.memory set to 2g using the
-
-CLI
+###### To create a cluster with spark.executor.memory set to 2g using the CLI
 
 - Create a cluster with Spark installed and
   `spark.executor.memory` set to 2g, using the following
@@ -208,9 +194,7 @@ Linux line continuation characters (\) are included for readability. They can be
 
 ```
 
-###### To create a cluster with spark.executor.memory set to 2g using the
-
-console
+###### To create a cluster with spark.executor.memory set to 2g using the console
 
 1. Navigate to the new Amazon EMR console and select **Switch to the old console** from the side navigation. For more information on what to expect when you switch to the old console, see [Using the old console](../ManagementGuide/whats-new-in-console.md#console-opt-in "../ManagementGuide/whats-new-in-console.md#console-opt-in").
 2. Choose **Create cluster**, **Go to advanced options**.
@@ -258,9 +242,7 @@ Linux line continuation characters (\) are included for readability. They can be
 
 With Amazon EMR version 5.21.0 and later, you can override cluster configurations and specify additional configuration classifications for each instance group in a running cluster. You do this by using the Amazon EMR console, the AWS Command Line Interface (AWS CLI), or the AWS SDK. For more information, see [Supplying a Configuration for an Instance Group in a Running Cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-running-cluster.md").
 
-## Migrating from Apache Log4j 1.x to Log4j
-
-2.x
+## Migrating from Apache Log4j 1.x to Log4j 2.x
 
 [Apache Spark](https://aws.amazon.com/emr/features/spark/ "https://aws.amazon.com/emr/features/spark/") releases 3.2.x and earlier use the legacy Apache Log4j 1.x and
 the `log4j.properties` file to configure Log4j in Spark processes. Apache

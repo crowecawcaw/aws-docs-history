@@ -34,9 +34,7 @@ In Amazon EMR, KMS over HTTPS is not enabled by default with Hadoop KMS. For mor
 information about how to enable KMS over HTTPS, see the [Hadoop KMS
 documentation](http://hadoop.apache.org/docs/current/hadoop-kms/index.html "http://hadoop.apache.org/docs/current/hadoop-kms/index.html").
 
-## Configuring HDFS
-
-transparent encryption
+## Configuring HDFS transparent encryption
 
 You can configure transparent encryption in Amazon EMR by creating keys and adding
 encryption zones. You can do this in several ways:
@@ -52,9 +50,7 @@ encryption zones. You can do this in several ways:
 For more information about the REST APIs, see the respective documentation for
 Hadoop KMS and HDFS.
 
-###### To create encryption zones and their keys at cluster creation using the
-
-CLI
+###### To create encryption zones and their keys at cluster creation using the CLI
 
 The `hdfs-encryption-zones` classification in the configuration API operation
 allows you to specify a key name and an encryption zone when you create a
@@ -135,9 +131,7 @@ Type=CUSTOM_JAR,Name="Create Second Encryption Zone",Jar="command-runner.jar",Ac
 
 Linux line continuation characters (\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
 
-## Considerations for
-
-HDFS transparent encryption
+## Considerations for HDFS transparent encryption
 
 A best practice is to create an encryption zone for each application where they
 may write files. Also, you can encrypt all of HDFS by using the
@@ -179,9 +173,7 @@ documentation](http://hadoop.apache.org/docs/current/hadoop-kms/index.html "http
 Hadoop KMS requires your key names to be lowercase. If you use a key that has
 uppercase characters, then your cluster will fail during launch.
 
-### Configuring Hadoop KMS in
-
-Amazon EMR
+### Configuring Hadoop KMS in Amazon EMR
 
 Using Amazon EMR release version 4.6.0 or later, the `kms-http-port` is
 9700 and `kms-admin-port` is 9701.
@@ -254,9 +246,7 @@ Linux line continuation characters (\) are included for readability. They can be
 
 ```
 
-###### To set environment variables in the `kms-env.sh`
-
-script using the CLI
+###### To set environment variables in the `kms-env.sh` script using the CLI
 
 - Change settings in `kms-env.sh` via the
   `hadoop-kms-env` configuration. Create a cluster with
@@ -297,9 +287,7 @@ Linux line continuation characters (\) are included for readability. They can be
 For information about configuring Hadoop KMS, see the [Hadoop KMS
 documentation](http://hadoop.apache.org/docs/current/hadoop-kms/index.html "http://hadoop.apache.org/docs/current/hadoop-kms/index.html").
 
-## HDFS transparent encryption on EMR
-
-clusters with multiple master nodes
+## HDFS transparent encryption on EMR clusters with multiple master nodes
 
 [Apache
 Ranger](http://hadoop.apache.org/docs/current/hadoop-kms/index.html "http://hadoop.apache.org/docs/current/hadoop-kms/index.html") KMS is used in an Amazon EMR cluster with multiple primary nodes for transparent encryption

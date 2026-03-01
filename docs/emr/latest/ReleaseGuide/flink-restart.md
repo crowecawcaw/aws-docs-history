@@ -1,6 +1,4 @@
-# Optimizing job restart times for task recovery and
-
-scaling operations
+# Optimizing job restart times for task recovery and scaling operations
 
 When a task fails or when a scaling operation occurs, Flink attempts to re-execute the
 task from the last completed checkpoint. The restart process could take a minute or longer
@@ -15,11 +13,9 @@ during task recovery or scaling operations.
 ###### Topics
 
 - [Task-local recovery](#flink-restart-task-local "#flink-restart-task-local")
-- [Generic log-based incremental
-  checkpoint](#flink-restart-log-check "#flink-restart-log-check")
+- [Generic log-based incremental checkpoint](#flink-restart-log-check "#flink-restart-log-check")
 - [Fine-grained recovery](#flink-restart-fine-grained "#flink-restart-fine-grained")
-- [Combined restart mechanism in adaptive
-  scheduler](#flink-restart-combined "#flink-restart-combined")
+- [Combined restart mechanism in adaptive scheduler](#flink-restart-combined "#flink-restart-combined")
 
 ## Task-local recovery
 
@@ -59,9 +55,7 @@ in milliseconds.
     execution.checkpointing.interval: `15000`
 ```
 
-## Generic log-based incremental
-
-checkpoint
+## Generic log-based incremental checkpoint
 
 ###### Note
 
@@ -139,9 +133,7 @@ jobmanager.execution.failover-strategy: region
 restart-strategy: `exponential-delay or fixed-delay`
 ```
 
-## Combined restart mechanism in adaptive
-
-scheduler
+## Combined restart mechanism in adaptive scheduler
 
 ###### Note
 

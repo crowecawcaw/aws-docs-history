@@ -1,10 +1,6 @@
-# Authenticating with
+# Authenticating with Amazon Redshift integration for Apache Spark
 
-Amazon Redshift integration for Apache Spark
-
-## Using AWS Secrets Manager to retrieve
-
-credentials and connect to Amazon Redshift
+## Using AWS Secrets Manager to retrieve credentials and connect to Amazon Redshift
 
 The following code sample shows how you can use AWS Secrets Manager to retrieve
 credentials to connect to an Amazon Redshift cluster with the PySpark interface for Apache
@@ -36,9 +32,7 @@ df = sql_context.read \
     .load()
 ```
 
-## Using IAM to retrieve credentials and
-
-connect to Amazon Redshift
+## Using IAM to retrieve credentials and connect to Amazon Redshift
 
 You can use the Amazon Redshift-provided JDBC version 2 driver to connect to Amazon Redshift with
 the Spark connector. To use AWS Identity and Access Management (IAM), [configure your JDBC URL to use IAM authentication](../../../redshift/latest/mgmt/generating-iam-credentials-configure-jdbc-odbc.md "../../../redshift/latest/mgmt/generating-iam-credentials-configure-jdbc-odbc.md"). To connect to

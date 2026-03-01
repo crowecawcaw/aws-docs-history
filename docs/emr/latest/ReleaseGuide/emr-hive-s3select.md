@@ -1,6 +1,4 @@
-# Using S3 Select with Hive to improve
-
-performance
+# Using S3 Select with Hive to improve performance
 
 ###### Important
 
@@ -16,12 +14,9 @@ Amazon S3.
 
 S3 Select is supported with Hive tables based on CSV and JSON files and by setting
 the `s3select.filter` configuration variable to `true` during
-your Hive session. For more information and examples, see [Specifying S3 Select in your
-code](#emr-hive-s3select-specify "#emr-hive-s3select-specify").
+your Hive session. For more information and examples, see [Specifying S3 Select in your code](#emr-hive-s3select-specify "#emr-hive-s3select-specify").
 
-## Is S3 Select right for my
-
-application?
+## Is S3 Select right for my application?
 
 We recommend that you benchmark your applications with and without S3 Select
 to see if using it may be suitable for your application.
@@ -38,9 +33,7 @@ for using S3 Select:
   responses, so the response size is likely to increase for compressed
   input files.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 - Amazon S3 server-side encryption with customer-provided encryption keys
   (SSE-C) and client-side encryption are not supported.
@@ -55,9 +48,7 @@ limitations
   supports. For more information, see [Data types](../../../AmazonS3/latest/userguide/s3-glacier-select-sql-reference-data-types.md "../../../AmazonS3/latest/userguide/s3-glacier-select-sql-reference-data-types.md") in the
   _Amazon Simple Storage Service User Guide_.
 
-## Specifying S3 Select in your
-
-code
+## Specifying S3 Select in your code
 
 To use S3 Select in your Hive table, create the table by specifying
 `com.amazonaws.emr.s3select.hive.S3SelectableTextInputFormat` as

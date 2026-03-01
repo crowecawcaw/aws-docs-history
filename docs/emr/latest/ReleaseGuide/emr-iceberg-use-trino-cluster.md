@@ -7,15 +7,11 @@ cluster. To use the console to create a cluster with Iceberg installed, follow t
 steps in [Build an Apache Iceberg data lake using Amazon Athena, Amazon EMR, and
 AWS Glue](https://aws.amazon.com/blogs//big-data/build-an-apache-iceberg-data-lake-using-amazon-athena-amazon-emr-and-aws-glue/ "https://aws.amazon.com/blogs//big-data/build-an-apache-iceberg-data-lake-using-amazon-athena-amazon-emr-and-aws-glue/").
 
-## Create an Iceberg
-
-cluster
+## Create an Iceberg cluster
 
 To use Iceberg on Amazon EMR with the AWS CLI, first create a cluster with the
 following steps. For information on specifying the Iceberg classification
-using the AWS CLI, see [Supply a configuration using
-the AWS CLI when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli") or [Supply a configuration using
-the Java SDK when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk").
+using the AWS CLI, see [Supply a configuration using the AWS CLI when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli") or [Supply a configuration using the Java SDK when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk").
 
 1. Create an `configurations.json` file with the following
    content. For example, if you want to use the Hive
@@ -79,9 +75,7 @@ aws emr create-cluster --release-label emr-6.7.0 \
 --ec2-attributes KeyName=`<key-name>`
 ```
 
-## Initialize a Trino session for
-
-Iceberg
+## Initialize a Trino session for Iceberg
 
 To initialize a Trino session, run the following command.
 
@@ -89,9 +83,7 @@ To initialize a Trino session, run the following command.
 trino-cli --catalog iceberg
 ```
 
-## Write to an Iceberg
-
-table
+## Write to an Iceberg table
 
 Create and write to your table with the following SQL commands.
 
@@ -109,9 +101,7 @@ trino> CREATE TABLE default.iceberg_table (
 trino> INSERT INTO default.iceberg_table VALUES (1,'a','c1'), (2,'b','c2'), (3,'c','c3');
 ```
 
-## Read from a table for
-
-Iceberg
+## Read from a table for Iceberg
 
 To read from your Iceberg table, run the following command.
 
@@ -119,9 +109,7 @@ To read from your Iceberg table, run the following command.
 trino> SELECT * from default.iceberg_table;
 ```
 
-## Considerations for using Iceberg with
-
-Trino
+## Considerations for using Iceberg with Trino
 
 - Amazon EMR 6.5 does not offer Trino Iceberg Catalog support for Iceberg
   natively. Trino needs Iceberg v0.11, so we recommend launching an Amazon EMR

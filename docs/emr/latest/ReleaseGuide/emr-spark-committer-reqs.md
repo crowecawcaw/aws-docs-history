@@ -1,6 +1,4 @@
-# Requirements for the EMRFS
-
-S3-optimized committer
+# Requirements for the EMRFS S3-optimized committer
 
 The EMRFS S3-optimized committer is used when the following conditions are
 met:
@@ -11,8 +9,7 @@ met:
   (including CSV and JSON). For releases prior to Amazon EMR 6.4.0, only the
   Parquet format is supported.
 - Multipart uploads are enabled in Amazon EMR . This is the default. For more
-  information, see [The EMRFS S3-optimized committer
-  and multipart uploads](emr-spark-committer-multipart.md "emr-spark-committer-multipart.md").
+  information, see [The EMRFS S3-optimized committer and multipart uploads](emr-spark-committer-multipart.md "emr-spark-committer-multipart.md").
 - Spark's built-in file format support is used. The built-in file format
   support is used in the following circumstances:
   - For Hive metastore tables, when
@@ -42,8 +39,7 @@ met:
     property must be set to `true`. This is the default
     setting with Amazon EMR 5.20.0 and later. With Amazon EMR 5.19.0, the
     default value is `false`. For information about
-    configuring this value, see [Enable the EMRFS S3-optimized
-    committer for Amazon EMR 5.19.0](emr-spark-committer-enable.md "emr-spark-committer-enable.md").
+    configuring this value, see [Enable the EMRFS S3-optimized committer for Amazon EMR 5.19.0](emr-spark-committer-enable.md "emr-spark-committer-enable.md").
   - If writing to non-partitioned Hive metastore tables, only
     Parquet and Orc file formats are supported.
     `spark.sql.hive.convertMetastoreParquet` must be
@@ -82,9 +78,7 @@ met:
   `spark.sql.sources.partitionOverwriteMode`
   property.
 
-## Occasions when EMRFS S3-optimized
-
-committer is not used
+## Occasions when EMRFS S3-optimized committer is not used
 
 Generally, the EMRFS S3-optimized committer isn't used in the following
 situations.
@@ -128,8 +122,7 @@ temporary directory created under the output location that starts with
 `.spark-staging`. The algorithm sequentially renames
 partition directories, which can negatively impact performance. For more
 information about Amazon EMR releases 5.30.0 and later and 6.2.0 and later,
-see [Use the EMRFS S3-optimized
-commit protocol](emr-spark-s3-optimized-commit-protocol.md "emr-spark-s3-optimized-commit-protocol.md").
+see [Use the EMRFS S3-optimized commit protocol](emr-spark-s3-optimized-commit-protocol.md "emr-spark-s3-optimized-commit-protocol.md").
 
 The algorithm in Spark 2.4.0 follows these steps:
 

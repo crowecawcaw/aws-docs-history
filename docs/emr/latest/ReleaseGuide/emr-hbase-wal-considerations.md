@@ -1,6 +1,4 @@
-# Considerations and Regions for Amazon EMR
-
-WAL
+# Considerations and Regions for Amazon EMR WAL
 
 ## Considerations for Amazon EMR WAL
 
@@ -10,8 +8,7 @@ WAL:
 - Amazon EMR WAL is available to use with Amazon EMR releases 6.15.0 and
   higher.
 - Amazon EMR WAL is an opt-in, paid service. You pay for what you use: reads,
-  writes, and data storage. For more information, see [Understanding Amazon EMR WAL pricing and
-  metrics](emr-hbase-wal-metrics.md "emr-hbase-wal-metrics.md")
+  writes, and data storage. For more information, see [Understanding Amazon EMR WAL pricing and metrics](emr-hbase-wal-metrics.md "emr-hbase-wal-metrics.md")
   and the [Amazon EMR
   pricing](https://aws.amazon.com/emr/pricing/ "https://aws.amazon.com/emr/pricing/") page.
 - Amazon EMR WAL uses HBase Write Ahead Log (WAL). To use Amazon EMR WAL, your

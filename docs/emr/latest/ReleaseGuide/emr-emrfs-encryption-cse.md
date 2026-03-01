@@ -1,6 +1,4 @@
-# Amazon S3 client-side
-
-encryption
+# Amazon S3 client-side encryption
 
 With Amazon S3 client-side encryption, the Amazon S3 encryption and decryption takes place in the EMRFS
 client on your cluster. Objects are encrypted before being uploaded to Amazon S3 and
@@ -136,9 +134,7 @@ your `EncryptionMaterialsProvider` object, and
 from which Amazon EMR copies `CustomProviderClass` to each node in
 the cluster and places it in the classpath.
 
-## Specifying a custom
-
-materials provider using an SDK
+## Specifying a custom materials provider using an SDK
 
 To use an SDK, you can set the property
 `fs.s3.cse.encryptionMaterialsProvider.uri` to download
@@ -182,9 +178,7 @@ look like the following:
 </snip>
 ```
 
-## Custom
-
-EncryptionMaterialsProvider with arguments
+## Custom EncryptionMaterialsProvider with arguments
 
 You may need to pass arguments directly to the provider. To do this, you can use the
 `emrfs-site` configuration classification with custom arguments defined as properties. An example configuration is shown below, which is saved as a file, `myConfig.json`:
@@ -230,9 +224,7 @@ To configure EMRFS to use S3EC V2, add the following configuration:
 }
 ```
 
-## `emrfs-site.xml` Properties for
-
-Amazon S3 client-side encryption
+## `emrfs-site.xml` Properties for Amazon S3 client-side encryption
 
 | Property                                    | Default value    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

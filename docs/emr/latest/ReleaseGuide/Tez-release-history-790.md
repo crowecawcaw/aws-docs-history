@@ -1,9 +1,5 @@
-# Amazon EMR 7.9.0 - Tez
+# Amazon EMR 7.9.0 - Tez release notes
 
-release notes
-
-## Amazon EMR 7.9.0 -
-
-Tez changes
+## Amazon EMR 7.9.0 - Tez changes
 
 No changes for the 7.9.0 release.

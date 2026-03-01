@@ -1,6 +1,4 @@
-# Retry Amazon S3 requests with
-
-EMRFS
+# Retry Amazon S3 requests with EMRFS
 
 This topic provides information about the retry strategies that you can use when
 making requests to Amazon S3 with EMRFS. When your request rate increases,
@@ -16,9 +14,7 @@ You can adjust your retry strategy in the following ways.
 - Enable and configure the additive-increase/multiplicative-decrease (AIMD)
   retry strategy. AIMD is supported for Amazon EMR releases 6.4.0 and later.
 
-## Use the default
-
-exponential backoff strategy
+## Use the default exponential backoff strategy
 
 By default, EMRFS uses an exponential backoff strategy to retry
 Amazon S3 requests. The default EMRFS retry limit is 15. To avoid an S3
@@ -71,9 +67,7 @@ To enable the AIMD retry strategy, you must set the
 
 For more information about working with configuration objects, see [Configure applications](emr-configure-apps.md "emr-configure-apps.md").
 
-## Advanced AIMD retry
-
-settings
+## Advanced AIMD retry settings
 
 You can configure the properties listed in the following table to refine retry
 behavior when you use the AIMD retry strategy. For most use cases, we recommend

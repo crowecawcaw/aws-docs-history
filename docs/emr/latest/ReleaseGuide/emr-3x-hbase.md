@@ -1,6 +1,4 @@
-# HBase application specifics for earlier AMI versions of
-
-Amazon EMR
+# HBase application specifics for earlier AMI versions of Amazon EMR
 
 ## Supported HBase versions
 
@@ -172,9 +170,7 @@ aws emr create-cluster --name "`Test cluster`" --ami-version `3.3` \
 Args=[`"--hbase-zookeeper-opts=-Xmx1024m -XX:GCTimeRatio=19","--hbase-master-opts=-Xmx2048m","--hbase-regionserver-opts=-Xmx4096m"`]
 ```
 
-### Configure HBase site
-
-settings
+### Configure HBase site settings
 
 Amazon EMR provides a bootstrap action,
 `s3://elasticmapreduce/bootstrap-actions/configure-hbase`, that
@@ -320,9 +316,7 @@ old backup files.
 The HBase backup process uses S3DistCp for the copy operation, which has certain
 limitations regarding temporary file storage space.
 
-### Back up and restore HBase
-
-using the console
+### Back up and restore HBase using the console
 
 The console provides the ability to launch a new cluster and populate it with
 data from a previous HBase backup. It also gives you the ability to schedule
@@ -331,9 +325,7 @@ functionality, such as the ability to restore data to an already running
 cluster, do manual backups, and schedule automated full backups, is available
 using the CLI.
 
-###### To populate a new cluster with archived HBase data using the
-
-console
+###### To populate a new cluster with archived HBase data using the console
 
 1. Navigate to the new Amazon EMR console and select **Switch to the old console** from the side navigation. For more information on what to expect when you switch to the old console, see [Using the old console](../ManagementGuide/whats-new-in-console.md#console-opt-in "../ManagementGuide/whats-new-in-console.md#console-opt-in").
 2. Choose **Create cluster**.

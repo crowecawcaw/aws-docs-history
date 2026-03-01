@@ -1,6 +1,4 @@
-# Use the Nvidia RAPIDS Accelerator for Apache
-
-Spark
+# Use the Nvidia RAPIDS Accelerator for Apache Spark
 
 With Amazon EMR release 6.2.0 and later, you can use the [RAPIDS
 Accelerator for Apache Spark](https://docs.nvidia.com/spark-rapids/user-guide/latest/overview.html "https://docs.nvidia.com/spark-rapids/user-guide/latest/overview.html") plugin by Nvidia to accelerate Spark using EC2
@@ -21,9 +19,7 @@ instance types](../ManagementGuide/emr-supported-instance-types.md "../Managemen
 type for the primary instance group can be either GPU or non-GPU types, but ARM
 instance types aren't supported.
 
-## Set up application configurations for
-
-your cluster
+## Set up application configurations for your cluster
 
 **1. Enable Amazon EMR to install the plugins on your new
 cluster**
@@ -335,9 +331,7 @@ Amazon EMR 6.x
 ]
 ```
 
-## Add a bootstrap action for your
-
-cluster
+## Add a bootstrap action for your cluster
 
 For more information on how to supply bootstrap action scripts when you create
 your cluster, see [Bootstrap

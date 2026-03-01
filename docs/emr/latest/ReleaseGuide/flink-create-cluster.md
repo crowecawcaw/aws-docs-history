@@ -2,9 +2,7 @@
 
 You can launch a cluster with the AWS Management Console, AWS CLI, or an AWS SDK.
 
-###### To launch a cluster with Flink installed from
-
-the console
+###### To launch a cluster with Flink installed from the console
 
 1. Open the Amazon EMR console at
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr/ "https://console.aws.amazon.com/emr/").

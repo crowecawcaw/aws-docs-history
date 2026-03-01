@@ -6,8 +6,7 @@ with the AWS Command Line Interface.
 ###### Note
 
 You can't enable Amazon EMR WAL for a cluster that is already running, and you can't
-launch two clusters with the same S3 root directory. For more information, see [Considerations and Regions for Amazon EMR
-WAL](emr-hbase-wal-considerations.md "emr-hbase-wal-considerations.md").
+launch two clusters with the same S3 root directory. For more information, see [Considerations and Regions for Amazon EMR WAL](emr-hbase-wal-considerations.md "emr-hbase-wal-considerations.md").
 
 1. Before you can create an Amazon EMR WAL enabled cluster, you must add the required
    permissions to the instance profile that you plan to use with your cluster. For

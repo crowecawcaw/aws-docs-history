@@ -1,10 +1,6 @@
-# Amazon EMR 6.7.0 - Tez release
+# Amazon EMR 6.7.0 - Tez release notes
 
-notes
-
-## Amazon EMR 6.7.0 -
-
-Tez changes
+## Amazon EMR 6.7.0 - Tez changes
 
 | Type     | Description                                                                                                                                               |
 | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |

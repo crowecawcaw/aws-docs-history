@@ -1,10 +1,6 @@
-# Amazon EMR 6.15.0 - Tez
+# Amazon EMR 6.15.0 - Tez release notes
 
-release notes
-
-## Amazon EMR 6.15.0 -
-
-Tez changes
+## Amazon EMR 6.15.0 - Tez changes
 
 | Type    | Description                                                                                                                                       |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -48,9 +44,7 @@ to tez-site.xml:
 </property>
 ```
 
-## Amazon EMR 6.15.0 -
-
-Tez features
+## Amazon EMR 6.15.0 - Tez features
 
 - [Tez
   asynchronous split opening](tez-configure.md#tez-configure-async "tez-configure.md#tez-configure-async") – Amazon EMR

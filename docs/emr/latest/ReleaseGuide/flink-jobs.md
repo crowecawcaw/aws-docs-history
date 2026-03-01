@@ -15,9 +15,7 @@ only charged for the resources and time used. You can submit a Flink job with th
 `RunJobFlow` operation, and through the AWS CLI `add-steps` or
 `create-cluster` commands.
 
-## Start a Flink YARN application as a step on a
-
-long-running cluster
+## Start a Flink YARN application as a step on a long-running cluster
 
 To start a Flink application that multiple clients can submit work to through YARN
 API operations, you need to either create a cluster or add a Flink application an
@@ -66,9 +64,7 @@ an existing cluster.
 aws emr add-steps --cluster-id `<j-XXXXXXXX>` --steps Type=CUSTOM_JAR,Name=`<example-flink-step-name>`,Jar=command-runner.jar,Args="flink-yarn-session","-d"
 ```
 
-## Submit work to an existing Flink application on
-
-a long-running cluster
+## Submit work to an existing Flink application on a long-running cluster
 
 If you already have an existing Flink application on a long-running cluster, you
 can specify the cluster's Flink application ID in order to submit work to it. To

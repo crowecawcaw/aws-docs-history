@@ -1,6 +1,4 @@
-# Store sensitive configuration data in
-
-AWS Secrets Manager
+# Store sensitive configuration data in AWS Secrets Manager
 
 The Amazon EMR describe and list API operations that emit custom configuration data (such
 as `DescribeCluster` and `ListInstanceGroups`) do so in plaintext.
@@ -52,9 +50,7 @@ For more information, see [Authentication and
 access control for AWS Secrets Manager](../../../secretsmanager/latest/userguide/auth-and-access.md "../../../secretsmanager/latest/userguide/auth-and-access.md") in the
 _AWS Secrets Manager User Guide_.
 
-## Use the secret in a configuration
-
-classification
+## Use the secret in a configuration classification
 
 You can add the `EMR.secret@` annotation to any configuration property
 to indicate that its key-value pair contains an ARN for a secret stored in
@@ -112,5 +108,4 @@ attached instance group is starting, reconfiguring, or resizing. You can use
 Secrets Manager to modify the value of a secret used in the configuration of a running
 cluster. When you do, you can submit a reconfiguration request to each instance
 group that you want to receive the updated value. For more information on how to
-reconfigure an instance group, and things to consider when you do it, see [Reconfigure an instance group in a
-running cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-running-cluster.md").
+reconfigure an instance group, and things to consider when you do it, see [Reconfigure an instance group in a running cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-running-cluster.md").

@@ -1,20 +1,15 @@
-# Create an EMR cluster that uses
-
-Amazon CloudWatch agent
+# Create an EMR cluster that uses Amazon CloudWatch agent
 
 The procedures in this section describe the steps to create a cluster in Amazon EMR with
 Amazon CloudWatch agent from the AWS Management Console and the AWS CLI.
 
 ###### Topics
 
-- [Required IAM permissions for
-  CloudWatch agent](#AmazonCloudWatchAgent-permissions "#AmazonCloudWatchAgent-permissions")
+- [Required IAM permissions for CloudWatch agent](#AmazonCloudWatchAgent-permissions "#AmazonCloudWatchAgent-permissions")
 - [Required CloudWatch agent endpoint](#AmazonCloudWatchAgent-endpoints "#AmazonCloudWatchAgent-endpoints")
 - [Create an EMR cluster](#AmazonCloudWatchAgent-create-cluster "#AmazonCloudWatchAgent-create-cluster")
 
-## Required IAM permissions for
-
-CloudWatch agent
+## Required IAM permissions for CloudWatch agent
 
 The CloudWatch agent requires the AWS Identity and Access Management (IAM) `cloudwatch:PutMetricData`
 permission in the Amazon EC2 instance profile for Amazon EMR. The Amazon EMR default role already

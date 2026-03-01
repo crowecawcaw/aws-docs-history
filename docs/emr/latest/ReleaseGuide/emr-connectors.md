@@ -7,8 +7,7 @@ operate on that data.
 
 ###### Topics
 
-- [Export, import, query, and join tables in DynamoDB using
-  Amazon EMR](EMRforDynamoDB.md "EMRforDynamoDB.md")
+- [Export, import, query, and join tables in DynamoDB using Amazon EMR](EMRforDynamoDB.md "EMRforDynamoDB.md")
 - [Kinesis](emr-kinesis.md "emr-kinesis.md")
 - [S3DistCp (s3-dist-cp)](UsingEMR_s3distcp.md "UsingEMR_s3distcp.md")
 - [Cleaning up after failed S3DistCp jobs](#s3distcp-cleanup "#s3distcp-cleanup")

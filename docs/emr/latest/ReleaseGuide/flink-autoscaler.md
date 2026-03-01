@@ -84,9 +84,7 @@ _hours_.
 - [Backlog configurations](#flink-autoscaler-config-backlog "#flink-autoscaler-config-backlog")
 - [Scale operation configurations](#flink-autoscaler-config-scale "#flink-autoscaler-config-scale")
 
-### Autoscaler loop
-
-configurations
+### Autoscaler loop configurations
 
 Autoscaler fetches the job vertex level metrics for every few configurable time
 interval, converts them into scale actionables, estimates new job vertex
@@ -101,9 +99,7 @@ the job restart time and cluster stabilization interval.
 | `job.autoscaler.stabilization.interval` | `300s`        | Stabilization period in which no new scaling will be<br>executed.                              | `30` (default unit is milliseconds), `5m`,<br>`1h` |
 | `job.autoscaler.debug.logs.interval`    | `300s`        | Autoscaler debug logs interval.                                                                | `30` (default unit is milliseconds), `5m`,<br>`1h` |
 
-### Metrics aggregation and history
-
-configurations
+### Metrics aggregation and history configurations
 
 Autoscaler fetches the metrics, aggregates them over time based sliding window and
 these are evaluated into scaling decisions. The scaling decision history for each
@@ -116,9 +112,7 @@ expiry as well as history size (at-least 1).
 | `job.autoscaler.history.max.count` | `3`           | Maximum number of past scaling decisions to retain per<br>vertex. | `1` to `Integer.MAX_VALUE`                         |
 | `job.autoscaler.history.max.age`   | `24h`         | Minimum number of past scaling decisions to retain per<br>vertex. | `30` (default unit is milliseconds), `5m`,<br>`1h` |
 
-### Job vertex level
-
-configurations
+### Job vertex level configurations
 
 The parallelism of each job vertex is modified on the basis of target utilisation
 and bounded by the min-max parallelism limits. It’s not recommended to set target
@@ -132,9 +126,7 @@ buffer to handle the intermediate load fluctuations.
 | `job.autoscaler.vertex.min-parallelism`      | `1`           | The minimum parallelism that the autoscaler can use.                                                                                                                                                                        | `0`<br>• `200` |
 | `job.autoscaler.vertex.max-parallelism`      | `200`         | The maximum parallelism the autoscaler can use. Note that this<br>limit will be ignored if it is higher than the max parallelism<br>configured in the Flink config or directly on each operator.                            | `0`<br>• `200` |
 
-### Backlog processing
-
-configurations
+### Backlog processing configurations
 
 The job vertex needs extra resources to handle the pending events, or backlogs,
 that accumulate during the scale operation time period. This is also referred as the
@@ -148,9 +140,7 @@ backlog processes.
 | `job.autoscaler.backlog-processing.lag-threshold` | `5m`          | Lag threshold which will prevent unnecessary scalings while<br>removing the pending messages responsible for the lag.            | `30` (default unit is milliseconds), `5m`,<br>`1h` |
 | `job.autoscaler.catch-up.duration`                | `15m`         | The target duration for fully processing any backlog after a<br>scaling operation. Set to 0 to disable backlog based<br>scaling. | `30` (default unit is milliseconds), `5m`,<br>`1h` |
 
-### Scale operation
-
-configurations
+### Scale operation configurations
 
 Autoscaler doesn’t perform scale down operation immediately after a scale up
 operation within grace time period. This prevents un-necessary cycle of scale

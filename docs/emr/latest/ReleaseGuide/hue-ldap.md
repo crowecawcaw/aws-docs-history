@@ -48,9 +48,7 @@ setting). In this instance, the server searches for a matching
 `ldap_username_pattern` value in all directory subtrees beginning at
 the base distinguished name.
 
-###### To launch a cluster with LDAP properties for Hue using the
-
-AWS CLI
+###### To launch a cluster with LDAP properties for Hue using the AWS CLI
 
 - To specify LDAP properties for `hue-ini`, create a
   cluster with Hue installed and reference a json file with

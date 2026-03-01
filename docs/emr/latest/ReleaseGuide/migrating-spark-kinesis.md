@@ -1,6 +1,4 @@
-# Migrating Spark Kinesis connector to SDK
-
-2.x for Amazon EMR 7.0
+# Migrating Spark Kinesis connector to SDK 2.x for Amazon EMR 7.0
 
 The AWS SDK provides a rich set of APIs and libraries to interact with AWS
 cloud computing services, such as managing credentials, connecting to S3 and Kinesis
@@ -15,9 +13,7 @@ Apache Spark. If you use the Spark Kinesis connector from a release that's lower
 than 7.0, you must migrate your application codes to run on SDK 2.x before you can
 migrate to Amazon EMR 7.0.
 
-## Migration
-
-guides
+## Migration guides
 
 This section describes the steps to migrate an application to the upgraded
 Spark Kinesis connector. It includes guides to migrate to the Kinesis Client
@@ -26,20 +22,13 @@ AWS SDK 2.x. For reference, it also includes a sample [WordCount](https://github
 
 ###### Topics
 
-- [Migrating KCL
-  from 1.x to 2.x](#migrating-spark-kinesis-KCL-from-1.x-to-2.x "#migrating-spark-kinesis-KCL-from-1.x-to-2.x")
-- [Migrating
-  AWS credentials providers from AWS SDK 1.x to 2.x](#migrating-spark-kinesis-creds-from-1.x-to-2.x "#migrating-spark-kinesis-creds-from-1.x-to-2.x")
-- [Migrating
-  AWS service clients from AWS SDK 1.x to 2.x](#migrating-spark-kinesis-service-from-1.x-to-2.x "#migrating-spark-kinesis-service-from-1.x-to-2.x")
-- [Code examples
-  for streaming applications](#migrating-spark-kinesis-streaming-examples "#migrating-spark-kinesis-streaming-examples")
-- [Considerations when
-  using the upgraded Spark Kinesis connector](#migrating-spark-kinesis-considerations "#migrating-spark-kinesis-considerations")
+- [Migrating KCL from 1.x to 2.x](#migrating-spark-kinesis-KCL-from-1.x-to-2.x "#migrating-spark-kinesis-KCL-from-1.x-to-2.x")
+- [Migrating AWS credentials providers from AWS SDK 1.x to 2.x](#migrating-spark-kinesis-creds-from-1.x-to-2.x "#migrating-spark-kinesis-creds-from-1.x-to-2.x")
+- [Migrating AWS service clients from AWS SDK 1.x to 2.x](#migrating-spark-kinesis-service-from-1.x-to-2.x "#migrating-spark-kinesis-service-from-1.x-to-2.x")
+- [Code examples for streaming applications](#migrating-spark-kinesis-streaming-examples "#migrating-spark-kinesis-streaming-examples")
+- [Considerations when using the upgraded Spark Kinesis connector](#migrating-spark-kinesis-considerations "#migrating-spark-kinesis-considerations")
 
-### Migrating KCL
-
-from 1.x to 2.x
+### Migrating KCL from 1.x to 2.x
 
 - **Metrics level and dimensions in
   `KinesisInputDStream`**
@@ -198,9 +187,7 @@ For more information about migrating from KCL 1.x to 2.x, see
 [Migrating Consumers
 from KCL 1.x to KCL 2.x](../../../streams/latest/dev/kcl-migration.md "../../../streams/latest/dev/kcl-migration.md").
 
-### Migrating
-
-AWS credentials providers from AWS SDK 1.x to 2.x
+### Migrating AWS credentials providers from AWS SDK 1.x to 2.x
 
 Credentials providers are used to obtain AWS credentials for
 interactions with AWS. There are several interface and class changes
@@ -253,9 +240,7 @@ val credentialProvider = basicSparkCredentials.provider
 assert (credentialProvider.isInstanceOf[AwsCredentialsProvider], "Type should be AwsCredentialsProvider")
 ```
 
-### Migrating
-
-AWS service clients from AWS SDK 1.x to 2.x
+### Migrating AWS service clients from AWS SDK 1.x to 2.x
 
 AWS service clients have different package names in 2.x (i.e.
 `software.amazon.awssdk`). whereas the SDK 1.x uses
@@ -302,9 +287,7 @@ For more information about migrating AWS SDK from 1.x to 2.x,
 see [What's different between the AWS SDK for Java 1.x and
 2.x](../../../sdk-for-java/latest/developer-guide/migration-whats-different.md "../../../sdk-for-java/latest/developer-guide/migration-whats-different.md")
 
-### Code examples
-
-for streaming applications
+### Code examples for streaming applications
 
 ```
 import java.net.URI
@@ -405,9 +388,7 @@ object KinesisWordCountASLSDKV2 {
 }
 ```
 
-### Considerations when
-
-using the upgraded Spark Kinesis connector
+### Considerations when using the upgraded Spark Kinesis connector
 
 - If your applications uses the
   `Kinesis-producer-library` with JDK version lower

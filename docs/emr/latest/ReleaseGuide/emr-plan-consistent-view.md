@@ -17,9 +17,7 @@ uses so that you don't accrue additional costs. The following procedures explain
 check for the CV feature, turn it off, and delete the DynamoDB database that the feature
 uses.
 
-###### To check if you're using the EMRFS
-
-CV feature
+###### To check if you're using the EMRFS CV feature
 
 1. Navigate to the **Configuration** tab. If your cluster
    has the following configuration, it uses EMRFS CV.
@@ -38,9 +36,7 @@ To turn off the EMRFS CV feature, use one of the following three
 options. You should test these options in your testing environment before
 applying them to your production environments.
 
-1. ###### To stop your existing cluster and start a new cluster without
-
-   EMRFS CV options.
+1. ###### To stop your existing cluster and start a new cluster without EMRFS CV options.
    1. Before you stop your cluster, ensure that you back up your data
       and notify your users.
    2. To stop your cluster, follow the instructions in [Terminate a cluster](../ManagementGuide/UsingEMR_TerminateJobFlow.md "../ManagementGuide/UsingEMR_TerminateJobFlow.md").
@@ -83,9 +79,7 @@ applying them to your production environments.
    ]
    ```
 
-3. ###### To remove EMRFS CV from a cluster that uses instance
-
-   groups
+3. ###### To remove EMRFS CV from a cluster that uses instance groups
    1. Use the following command to check if a single EMR cluster uses
       the DynamoDB table that is associated with EMRFS CV, or if
       multiple clusters share the table. The table name is specified in
@@ -172,11 +166,9 @@ aws sqs delete-queue –queue-url `<your-queue-url>`
 ###### Topics
 
 - [Enable consistent view](enable-consistent-view.md "enable-consistent-view.md")
-- [Understanding how EMRFS consistent view tracks
-  objects in Amazon S3](emrfs-files-tracked.md "emrfs-files-tracked.md")
+- [Understanding how EMRFS consistent view tracks objects in Amazon S3](emrfs-files-tracked.md "emrfs-files-tracked.md")
 - [Retry logic](emrfs-retry-logic.md "emrfs-retry-logic.md")
 - [EMRFS consistent view metadata](emrfs-metadata.md "emrfs-metadata.md")
-- [Configure consistency notifications for CloudWatch and
-  Amazon SQS](emrfs-configure-sqs-cw.md "emrfs-configure-sqs-cw.md")
+- [Configure consistency notifications for CloudWatch and Amazon SQS](emrfs-configure-sqs-cw.md "emrfs-configure-sqs-cw.md")
 - [Configure consistent view](emrfs-configure-consistent-view.md "emrfs-configure-consistent-view.md")
 - [EMRFS CLI Command Reference](emrfs-cli-reference.md "emrfs-cli-reference.md")

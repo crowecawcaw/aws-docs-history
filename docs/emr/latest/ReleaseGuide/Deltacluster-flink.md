@@ -9,9 +9,7 @@ cluster.
 Amazon EMR supports the Flink DataStream API when you use Delta Lake with a Flink
 cluster.
 
-## Create a Delta Lake
-
-cluster
+## Create a Delta Lake cluster
 
 1. Create a file, `delta_configurations.json`, with the
    following content:
@@ -38,9 +36,7 @@ aws emr create-cluster
 --ec2-attributes  InstanceProfile=EMR_EC2_DefaultRole,SubnetId=subnet-1234567890abcdef0
 ```
 
-## Initialize a Flink yarn
-
-session
+## Initialize a Flink yarn session
 
 To initialize a Flink yarn session, run the following command:
 
@@ -48,9 +44,7 @@ To initialize a Flink yarn session, run the following command:
 flink-yarn-session -d
 ```
 
-## Build a Flink job with
-
-Delta Lake
+## Build a Flink job with Delta Lake
 
 The following examples show how to use sbt or Maven to build your Flink job
 with Delta Lake.
@@ -131,9 +125,7 @@ job with Delta Lake on Amazon EMR.
 </dependencies>
 ```
 
-## Write to
-
-a Delta table with Flink Datastream API
+## Write to a Delta table with Flink Datastream API
 
 Use the following example to create a DeltaSink to write to the table with a
 `deltaTablePath:`
@@ -155,9 +147,7 @@ public static DataStream<RowData> createDeltaSink(
 }
 ```
 
-## Read from
-
-a Delta table with Flink Datastream API
+## Read from a Delta table with Flink Datastream API
 
 Use the following example to create a bounded DeltaSource to read from the
 table with a `deltaTablePath:`
@@ -177,9 +167,7 @@ public static DataStream<RowData> createBoundedDeltaSourceAllColumns(
 }
 ```
 
-## Sink creation with
-
-multi-cluster support for Delta Lake standalone
+## Sink creation with multi-cluster support for Delta Lake standalone
 
 Use the following example to create a DeltaSink to write to table with a
 `deltaTablePath` and [multi cluster support](https://docs.delta.io/latest/delta-standalone.html#multi-cluster-setup "https://docs.delta.io/latest/delta-standalone.html#multi-cluster-setup"):

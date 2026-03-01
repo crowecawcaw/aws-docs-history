@@ -1,6 +1,4 @@
-# Reconfigure an instance group in a
-
-running cluster
+# Reconfigure an instance group in a running cluster
 
 With Amazon EMR version 5.21.0 and later, you can reconfigure cluster applications and
 specify additional configuration classifications for each instance group in a running
@@ -25,9 +23,7 @@ and the file that you supply, Amazon EMR resets manually modified configurations
 configurations that you have modified while connected to your cluster using SSH, to
 the cluster defaults for the specified instance group.
 
-## Considerations
-
-when you reconfigure an instance group
+## Considerations when you reconfigure an instance group
 
 **Reconfiguration actions**
 
@@ -46,8 +42,7 @@ Amazon EMR performs some default actions during every instance group
 reconfiguration. These default actions might conflict with cluster
 customizations that you have made, and result in reconfiguration
 failures. For information about how to troubleshoot reconfiguration
-failures, see [Troubleshoot
-instance group reconfiguration](#emr-configure-apps-running-cluster-troubleshoot "#emr-configure-apps-running-cluster-troubleshoot").
+failures, see [Troubleshoot instance group reconfiguration](#emr-configure-apps-running-cluster-troubleshoot "#emr-configure-apps-running-cluster-troubleshoot").
 
 Amazon EMR also initiates reconfiguration actions for the configuration
 classifications that you specify in your request. For a complete list of
@@ -154,9 +149,7 @@ following limitations:
   capacity scheduler that require restarting the YARN ResourceManager. For
   example, you cannot completely remove a queue.
 
-## Reconfigure an instance
-
-group in the console
+## Reconfigure an instance group in the console
 
 ###### Note
 
@@ -199,9 +192,7 @@ table. Then, provide a specific property and value for this
 classification. 6. (Optional) Select **Apply this configuration to all active
 instance groups**. 7. Save the changes.
 
-## Reconfigure an instance
-
-group using the CLI
+## Reconfigure an instance group using the CLI
 
 Use the **modify-instance-groups** command to specify a new
 configuration for an instance group in a running cluster.
@@ -427,9 +418,7 @@ instance group in the same request.
 
 ```
 
-## Reconfigure an instance
-
-group using the Java SDK
+## Reconfigure an instance group using the Java SDK
 
 ###### Note
 
@@ -487,9 +476,7 @@ emr.modifyInstanceGroups(migRequest);
 
 ```
 
-## Troubleshoot
-
-instance group reconfiguration
+## Troubleshoot instance group reconfiguration
 
 If the reconfiguration process for an instance group fails, Amazon EMR reverts the
 reconfiguration and logs a failure message using an Amazon CloudWatch event. The event

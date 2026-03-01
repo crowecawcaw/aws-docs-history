@@ -1,6 +1,4 @@
-# Amazon EMR 7.9.0 -
-
-HBase release notes
+# Amazon EMR 7.9.0 - HBase release notes
 
 **HBase changes:**
 

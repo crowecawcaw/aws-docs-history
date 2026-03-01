@@ -3,9 +3,7 @@
 To install Tez, choose Apache Tez as an application when you create your
 cluster.
 
-###### To create a cluster with Tez installed using the
-
-console
+###### To create a cluster with Tez installed using the console
 
 1. Navigate to the new Amazon EMR console and select **Switch to the old console** from the side navigation. For more information on what to expect when you switch to the old console, see [Using the old console](../ManagementGuide/whats-new-in-console.md#console-opt-in "../ManagementGuide/whats-new-in-console.md#console-opt-in").
 2. Choose **Create cluster**, **Go to advanced options**.

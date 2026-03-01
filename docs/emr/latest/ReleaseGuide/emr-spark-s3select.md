@@ -1,6 +1,4 @@
-# Use S3 Select with Spark to improve query
-
-performance
+# Use S3 Select with Spark to improve query performance
 
 ###### Important
 
@@ -17,12 +15,9 @@ between Amazon EMR and Amazon S3.
 
 S3 Select is supported with CSV and JSON files using `s3selectCSV` and
 `s3selectJSON` values to specify the data format. For more
-information and examples, see [Specify S3 Select in your
-code](#emr-spark-s3select-specify "#emr-spark-s3select-specify").
+information and examples, see [Specify S3 Select in your code](#emr-spark-s3select-specify "#emr-spark-s3select-specify").
 
-## Is S3 Select right for my
-
-application?
+## Is S3 Select right for my application?
 
 We recommend that you benchmark your applications with and without S3 Select
 to see if using it may be suitable for your application.
@@ -36,9 +31,7 @@ for using S3 Select:
   responses, so the response size is likely to increase for compressed
   input files.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 - Amazon S3 server-side encryption with customer-provided encryption keys
   (SSE-C) and client-side encryption are not supported.
@@ -69,9 +62,7 @@ limitations
   - Only [S3 Select supported data types](../../../AmazonS3/latest/userguide/s3-glacier-select-sql-reference-data-types.md "../../../AmazonS3/latest/userguide/s3-glacier-select-sql-reference-data-types.md") are supported with
     the documented limitations.
 
-## Specify S3 Select in your
-
-code
+## Specify S3 Select in your code
 
 The following examples demonstrate how to specify S3 Select for CSV using
 Scala, SQL, R, and PySpark. You can use S3 Select for JSON in the same way. For

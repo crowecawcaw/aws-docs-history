@@ -1,6 +1,4 @@
-# Using the Spark structured
-
-streaming Amazon Kinesis Data Streams connector
+# Using the Spark structured streaming Amazon Kinesis Data Streams connector
 
 Amazon EMR releases 7.1.0 and higher include a spark structured streaming Amazon Kinesis Data Streams
 connector in the release image. With this connector, you can use Spark on Amazon EMR to

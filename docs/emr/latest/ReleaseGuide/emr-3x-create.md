@@ -1,6 +1,4 @@
-# Creating a cluster with earlier AMI versions of
-
-Amazon EMR
+# Creating a cluster with earlier AMI versions of Amazon EMR
 
 Amazon EMR 2.x and 3.x releases are referenced by _AMI version_. With
 Amazon EMR release 4.0.0 and later, releases are referenced by release version, using a

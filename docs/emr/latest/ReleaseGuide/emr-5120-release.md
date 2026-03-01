@@ -8,8 +8,7 @@ The table below lists the application versions available in this release of Amaz
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following topics:
 
-- [Application versions in Amazon EMR 7.x
-  releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
+- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
 - [Application versions in Amazon EMR 6.x releases](emr-release-app-versions-6.md "emr-release-app-versions-6.md")
 - [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.md "emr-release-app-versions-5.md")
 - [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.md "emr-release-app-versions-4.md")
@@ -74,8 +73,7 @@ are relative to 5.11.1.
 
 - **Presto**
   - Added the `presto-connector-redshift` configuration classification, which you can use to configure values in the Presto `redshift.properties` configuration file. For more information, see [Redshift Connector](https://prestodb.io/docs/current/connector/redshift.html "https://prestodb.io/docs/current/connector/redshift.html") in Presto documentation, and [Configure applications](emr-configure-apps.md "emr-configure-apps.md").
-  - Presto support for EMRFS has been added and is the default configuration. Earlier Amazon EMR releases used PrestoS3FileSystem, which was the only option. For more information, see [EMRFS and PrestoS3FileSystem
-    configuration](emr-presto-considerations.md#emr-presto-prestos3 "emr-presto-considerations.md#emr-presto-prestos3").
+  - Presto support for EMRFS has been added and is the default configuration. Earlier Amazon EMR releases used PrestoS3FileSystem, which was the only option. For more information, see [EMRFS and PrestoS3FileSystem configuration](emr-presto-considerations.md#emr-presto-prestos3 "emr-presto-considerations.md#emr-presto-prestos3").
 
   ###### Note
 

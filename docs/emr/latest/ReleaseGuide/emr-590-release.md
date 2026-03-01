@@ -8,8 +8,7 @@ The table below lists the application versions available in this release of Amaz
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following topics:
 
-- [Application versions in Amazon EMR 7.x
-  releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
+- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
 - [Application versions in Amazon EMR 6.x releases](emr-release-app-versions-6.md "emr-release-app-versions-6.md")
 - [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.md "emr-release-app-versions-5.md")
 - [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.md "emr-release-app-versions-4.md")
@@ -73,8 +72,7 @@ Latest feature update: October 12, 2017
 ###### Changes, enhancements, and resolved issues
 
 - Spark
-  - Added a new set of features that help ensure Spark handles node termination because of a manual resize or an automatic scaling policy request more gracefully. For more information, see [Configuring node decommissioning
-    behavior](emr-spark-configure.md#spark-decommissioning "emr-spark-configure.md#spark-decommissioning").
+  - Added a new set of features that help ensure Spark handles node termination because of a manual resize or an automatic scaling policy request more gracefully. For more information, see [Configuring node decommissioning behavior](emr-spark-configure.md#spark-decommissioning "emr-spark-configure.md#spark-decommissioning").
   - SSL is used instead of 3DES for in-transit encryption for the block transfer service, which enhances performance when using Amazon EC2 instance types with AES-NI.
   - Backported [SPARK-21494](https://issues.apache.org/jira/browse/SPARK-21494 "https://issues.apache.org/jira/browse/SPARK-21494").
 

@@ -1,6 +1,4 @@
-# Hadoop release notes by
-
-version
+# Hadoop release notes by version
 
 ###### Topics
 
@@ -13,5 +11,4 @@ version
 - [Amazon EMR 7.4.0 - Hadoop release notes](Hadoop-release-history-740.md "Hadoop-release-history-740.md")
 - [Amazon EMR 7.3.0 - Hadoop release notes](Hadoop-release-history-730.md "Hadoop-release-history-730.md")
 - [Amazon EMR 7.2.0 - Hadoop release notes](Hadoop-release-history-720.md "Hadoop-release-history-720.md")
-- [Amazon EMR 6.6.0 - Hadoop release
-  notes](Hadoop-release-history-660.md "Hadoop-release-history-660.md")
+- [Amazon EMR 6.6.0 - Hadoop release notes](Hadoop-release-history-660.md "Hadoop-release-history-660.md")

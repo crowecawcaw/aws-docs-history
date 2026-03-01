@@ -180,9 +180,7 @@ To create a local user manually, use the following command.
 sudo docker exec jupyterhub bash -c "echo '`shirley`:x:$uidNumber:$gidNumber::/home/`shirley`:/bin/bash' >> /etc/passwd"
 ```
 
-## Restart the JupyterHub
-
-container
+## Restart the JupyterHub container
 
 Run the following commands to restart the `jupyterhub`
 container:

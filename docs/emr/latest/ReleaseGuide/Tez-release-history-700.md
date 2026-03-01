@@ -1,12 +1,8 @@
-# Amazon EMR 7.0.0 - Tez
-
-release notes
+# Amazon EMR 7.0.0 - Tez release notes
 
 Amazon EMR 7.0.0 Tez contains all the changes and updates made up to and including Amazon EMR-6.15.0 Tez.
 
-## Amazon EMR 7.0.0 -
-
-Tez changes
+## Amazon EMR 7.0.0 - Tez changes
 
 | Type    | Description                                                                                                                                |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |

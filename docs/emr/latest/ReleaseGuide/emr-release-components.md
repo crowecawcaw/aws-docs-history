@@ -31,8 +31,7 @@ New Amazon EMR releases are made available in different Regions over a period of
 - [Amazon EMR archive of release notes](emr-whatsnew-history.md "emr-whatsnew-history.md")
   **A comprehensive history of application versions** in each Amazon EMR release:
 
-- [Application versions in Amazon EMR 7.x
-  releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
+- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
 - [Application versions in Amazon EMR 6.x releases](emr-release-app-versions-6.md "emr-release-app-versions-6.md")
 - [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.md "emr-release-app-versions-5.md")
 - [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.md "emr-release-app-versions-4.md")

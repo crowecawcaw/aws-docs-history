@@ -1,6 +1,4 @@
-# Customizing cluster and application
-
-configuration with earlier AMI versions of Amazon EMR
+# Customizing cluster and application configuration with earlier AMI versions of Amazon EMR
 
 Amazon EMR release version 4.0.0 introduced a simplified method of configuring applications
 using configuration classifications. For more information, see [Configure applications](emr-configure-apps.md "emr-configure-apps.md"). When using an AMI
@@ -144,9 +142,7 @@ When using an AMI version, the user `hadoop` runs all processes and
 owns all files. In Amazon EMR release version 4.0.0 and later, users exist at the
 application and component level.
 
-## Installation sequence, installed artifacts, and
-
-log file locations
+## Installation sequence, installed artifacts, and log file locations
 
 When using an AMI version, application artifacts and their configuration
 directories are installed in the

@@ -4,9 +4,7 @@ Starting with Amazon EMR version 6.9.0, you can use Iceberg with a Flink cluster
 without the setup steps required when using the open source Iceberg Flink
 Integration.
 
-## Creating an Iceberg
-
-cluster
+## Creating an Iceberg cluster
 
 You can create a cluster with Iceberg installed using the AWS Management Console, the
 AWS CLI, or the Amazon EMR API. In this tutorial, you use the AWS CLI to work with
@@ -16,9 +14,7 @@ AWS Glue](https://aws.amazon.com/blogs/big-data/build-an-apache-iceberg-data-lak
 
 To use Iceberg on Amazon EMR with the AWS CLI, first create a cluster with the
 following steps. For information on specifying the Iceberg classification
-using the AWS CLI, see [Supply a configuration using
-the AWS CLI when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli") or [Supply a configuration using
-the Java SDK when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk"). Create a file
+using the AWS CLI, see [Supply a configuration using the AWS CLI when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli") or [Supply a configuration using the Java SDK when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk"). Create a file
 called `configurations.json` with the following content:
 
 ```
@@ -168,9 +164,7 @@ env.execute("Datastream Write");
 
 ```
 
-### Read from an Iceberg
-
-table
+### Read from an Iceberg table
 
 **Flink SQL**
 
@@ -218,8 +212,7 @@ batch.print().name("print-sink");
 
 ## Using the Hive catalog
 
-Make sure the Flink and Hive dependencies are resolved as described in [Configure Flink with Hive Metastore and Glue
-Catalog](flink-configure.md#flink-configure-hive "flink-configure.md#flink-configure-hive").
+Make sure the Flink and Hive dependencies are resolved as described in [Configure Flink with Hive Metastore and Glue Catalog](flink-configure.md#flink-configure-hive "flink-configure.md#flink-configure-hive").
 
 ## Running a Flink Job
 
@@ -230,9 +223,7 @@ can be launched with the following command:
 sudo flink run -m yarn-cluster -p 4 -yjm 1024m -ytm 4096m $JAR_FILE_NAME
 ```
 
-## Considerations for using Iceberg with
-
-Flink
+## Considerations for using Iceberg with Flink
 
 - When using AWS Glue as a catalog for Iceberg, make sure the database in which you
   are creating a table exists in AWS Glue. If you are using services such as AWS Lake Formation and

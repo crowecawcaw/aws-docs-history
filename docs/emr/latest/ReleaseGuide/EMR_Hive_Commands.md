@@ -1,6 +1,4 @@
-# Hive command examples for exporting, importing,
-
-and querying data in DynamoDB
+# Hive command examples for exporting, importing, and querying data in DynamoDB
 
 The following examples use Hive commands to perform operations such as exporting
 data to Amazon S3 or HDFS, importing data to DynamoDB, joining tables, querying tables, and
@@ -77,9 +75,7 @@ FROM `hiveTableName`;
 
 ```
 
-###### To export a DynamoDB table to an Amazon S3 bucket without specifying a column
-
-mapping
+###### To export a DynamoDB table to an Amazon S3 bucket without specifying a column mapping
 
 - Create a Hive table that references data stored in DynamoDB. This is
   similar to the preceding example, except that you are not specifying a
@@ -172,9 +168,7 @@ You can also export data to HDFS using formatting and compression as
 shown above for the export to Amazon S3. To do so, simply replace the Amazon S3
 directory in the examples above with an HDFS directory.
 
-###### To read non-printable UTF-8
-
-character data in Hive
+###### To read non-printable UTF-8 character data in Hive
 
 - You can read and write non-printable UTF-8 character data with Hive by
   using the `STORED AS SEQUENCEFILE` clause when you create the
@@ -238,9 +232,7 @@ INSERT OVERWRITE TABLE `hiveTableName` SELECT * FROM `s3_import`;
 
 ```
 
-###### To import a table from an Amazon S3 bucket to DynamoDB without specifying a
-
-column mapping
+###### To import a table from an Amazon S3 bucket to DynamoDB without specifying a column mapping
 
 - Create an `EXTERNAL` table that references data stored in
   Amazon S3 that was previously exported from DynamoDB. Before importing, ensure

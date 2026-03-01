@@ -21,9 +21,7 @@ previous point in time. For more information about the actions that Hudi records
 and the state of actions, see [Timeline](https://hudi.apache.org/docs/concepts.html#timeline "https://hudi.apache.org/docs/concepts.html#timeline") in the
 Apache Hudi documentation.
 
-## Understanding dataset storage types: Copy
-
-on write vs. merge on read
+## Understanding dataset storage types: Copy on write vs. merge on read
 
 When you create a Hudi dataset, you specify that the dataset is either copy
 on write or merge on read.
@@ -71,9 +69,7 @@ that you specified, which is a read-optimized view, and a table with the same na
 appended with `_rt`, which is a real-time view. You can query both
 tables.
 
-## Registering a Hudi dataset with your
-
-metastore
+## Registering a Hudi dataset with your metastore
 
 When you register a Hudi table with the Hive metastore, you can query
 Hudi tables using Hive, Spark SQL or Presto as you would any other table. In

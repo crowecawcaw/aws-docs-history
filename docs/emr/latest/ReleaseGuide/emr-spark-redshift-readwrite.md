@@ -1,6 +1,4 @@
-# Reading and writing from and to
-
-Amazon Redshift
+# Reading and writing from and to Amazon Redshift
 
 The following code examples use PySpark to read and write sample data from and to
 an Amazon Redshift database with data source API and using SparkSQL.

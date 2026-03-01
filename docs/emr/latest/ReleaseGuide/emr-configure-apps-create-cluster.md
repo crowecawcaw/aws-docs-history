@@ -1,6 +1,4 @@
-# Configure applications when you
-
-create a cluster
+# Configure applications when you create a cluster
 
 When you create a cluster, you can override the default configurations for
 applications using the Amazon EMR console, the AWS Command Line Interface (AWS CLI), or the AWS SDK.
@@ -14,9 +12,7 @@ configuration classifications that are available in a specific release version, 
 release detail page. For example, [Amazon EMR release
 6.4.0.](emr-640-release.md#emr-640-class "emr-640-release.md#emr-640-class")
 
-## Supply a configuration
-
-in the console when you create a cluster
+## Supply a configuration in the console when you create a cluster
 
 To supply a configuration, navigate to the **Create cluster**
 page and expand **Software settings**. You can then enter the
@@ -28,9 +24,7 @@ To supply a configuration for an instance group, choose a cluster in your list o
 **Configurations** tab. In the **Instance group configurations** table, choose
 the instance group to edit, then choose **Reconfigure**.
 
-## Supply a configuration using
-
-the AWS CLI when you create a cluster
+## Supply a configuration using the AWS CLI when you create a cluster
 
 You can provide a configuration to **create-cluster** by supplying
 a path to a JSON file stored locally or in Amazon S3. The following example assumes that
@@ -61,9 +55,7 @@ Configurations=`curl $ConfigurationURL | jq -c .`
 aws emr create-cluster --use-default-roles --release-label emr-5.34.0 --instance-type m5.xlarge --instance-count 2 --applications Name=Hadoop Name=Spark --configurations $Configurations
 ```
 
-## Supply a configuration using
-
-the Java SDK when you create a cluster
+## Supply a configuration using the Java SDK when you create a cluster
 
 The following program excerpt shows how to supply a configuration using the
 AWS SDK for Java.

@@ -1,6 +1,4 @@
-# S3DistCp utility differences with earlier AMI versions of
-
-Amazon EMR
+# S3DistCp utility differences with earlier AMI versions of Amazon EMR
 
 ## S3DistCp versions supported in Amazon EMR
 

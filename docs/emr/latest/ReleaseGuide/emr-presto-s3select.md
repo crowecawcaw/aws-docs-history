@@ -1,6 +1,4 @@
-# Using S3 Select Pushdown with Presto to improve
-
-performance
+# Using S3 Select Pushdown with Presto to improve performance
 
 ###### Important
 
@@ -14,9 +12,7 @@ of projection operations (for example, `SELECT`) and predicate operations
 data from Amazon S3, which can improve performance and reduce the amount of data transferred
 between Amazon EMR and Amazon S3 in some applications.
 
-## Is S3 Select Pushdown right for my
-
-application?
+## Is S3 Select Pushdown right for my application?
 
 We recommend that you benchmark your applications with and without S3 Select
 Pushdown to see if using it may be suitable for your application.
@@ -36,9 +32,7 @@ using S3 Select:
   responses, so the response size is likely to increase for compressed input
   files.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 - Only objects stored in CSV format are supported. Objects can be
   uncompressed or optionally compressed with gzip or bzip2.
@@ -50,9 +44,7 @@ limitations
   file formats such as ORC or Parquet.
 - Amazon S3 Select does not support cross-region queries for Presto and Trino.
 
-## Enabling S3 Select Pushdown with
-
-PrestoDB or Trino
+## Enabling S3 Select Pushdown with PrestoDB or Trino
 
 To enable S3 Select Pushdown for PrestoDB on Amazon EMR, use the
 `presto-connector-hive` configuration classification to set
@@ -60,8 +52,7 @@ To enable S3 Select Pushdown for PrestoDB on Amazon EMR, use the
 example below. For more information, see [Configure applications](emr-configure-apps.md "emr-configure-apps.md"). The hive.s3select-pushdown.max-connections value
 must also be set. For most applications, the default setting of
 `500` should be adequate. For more
-information, see [Understanding and tuning
-hive.s3select-pushdown.max-connections](#emr-presto-s3select-max "#emr-presto-s3select-max") below.
+information, see [Understanding and tuning hive.s3select-pushdown.max-connections](#emr-presto-s3select-max "#emr-presto-s3select-max") below.
 
 For PrestoSQL on EMR versions 6.1.0 - 6.3.0, replace
 `presto-connector-hive` in the example
@@ -84,9 +75,7 @@ the example below with `trino-connector-hive`
 
 ```
 
-### Understanding and tuning
-
-hive.s3select-pushdown.max-connections
+### Understanding and tuning hive.s3select-pushdown.max-connections
 
 By default, Presto uses EMRFS as its file system. The setting
 `fs.s3.maxConnections` in the `emrfs-site`

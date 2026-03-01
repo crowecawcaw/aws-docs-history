@@ -21,8 +21,7 @@ The AI assistant will orchestrate the troubleshooting using specialized tools pr
 ###### Topics
 
 - [Setup for Troubleshooting Agent](spark-troubleshooting-agent-setup.md "spark-troubleshooting-agent-setup.md")
-- [Using the
-  Troubleshooting Agent](spark-troubleshooting-using-troubleshooting-agent.md "spark-troubleshooting-using-troubleshooting-agent.md")
+- [Using the Troubleshooting Agent](spark-troubleshooting-using-troubleshooting-agent.md "spark-troubleshooting-using-troubleshooting-agent.md")
 - [Features and Capabilities](spark-troubleshooting-features.md "spark-troubleshooting-features.md")
 - [Troubleshooting and Q&A](spark-troubleshooting-agent-troubleshooting.md "spark-troubleshooting-agent-troubleshooting.md")
 - [Spark Troubleshooting Agent Workflow in Details](spark-troubleshooting-agent-workflow.md "spark-troubleshooting-agent-workflow.md")
@@ -30,8 +29,6 @@ The AI assistant will orchestrate the troubleshooting using specialized tools pr
 - [IAM Role Setup](spark-troubleshooting-agent-iam-setup.md "spark-troubleshooting-agent-iam-setup.md")
 - [Using Spark Troubleshooting Tools](spark-troubleshooting-agent-using-tools.md "spark-troubleshooting-agent-using-tools.md")
 - [Configuring Interface VPC Endpoints for Amazon SageMaker Unified Studio MCP](spark-troubleshooting-agent-vpc-endpoints.md "spark-troubleshooting-agent-vpc-endpoints.md")
-- [Cross-Region Processing for
-  the Apache Spark
-  Troubleshooting Agent](spark-troubleshooting-cross-region-processing.md "spark-troubleshooting-cross-region-processing.md")
+- [Cross-Region Processing for the Apache Spark Troubleshooting Agent](spark-troubleshooting-cross-region-processing.md "spark-troubleshooting-cross-region-processing.md")
 - [Logging Amazon SageMaker Unified Studio MCP calls using AWS CloudTrail](spark-troubleshooting-cloudtrail-integration.md "spark-troubleshooting-cloudtrail-integration.md")
 - [Service Improvements for Apache Spark Agents](spark-agents-service-improvements.md "spark-agents-service-improvements.md")

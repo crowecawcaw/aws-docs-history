@@ -19,8 +19,7 @@ from your EMR cluster. CloudWatchAgent is supported on Runtime Role Clusters for
 and publishes the metrics from that node to the cloud.
 
 You can install the agent when you create a new cluster in the console, or when you use
-the `create-cluster` API. For more information, see [Create an EMR cluster that uses
-Amazon CloudWatch agent](AmazonCloudWatchAgent-create.md "AmazonCloudWatchAgent-create.md"). By default, an Amazon EMR cluster that runs the release 7.x series publishes [34 system-level metrics](AmazonCloudWatchAgent-metrics.md "AmazonCloudWatchAgent-metrics.md") to CloudWatch at 60-second
+the `create-cluster` API. For more information, see [Create an EMR cluster that uses Amazon CloudWatch agent](AmazonCloudWatchAgent-create.md "AmazonCloudWatchAgent-create.md"). By default, an Amazon EMR cluster that runs the release 7.x series publishes [34 system-level metrics](AmazonCloudWatchAgent-metrics.md "AmazonCloudWatchAgent-metrics.md") to CloudWatch at 60-second
 intervals, but you can configure the agent to publish different metrics. Another option is to publish metrics to Amazon Managed Service for Prometheus, and you can
 choose which metrics to publish as well.
 For different use cases and setups, you might configure the agent to
@@ -49,8 +48,7 @@ For the version of components installed with AmazonCloudWatchAgent in this relea
 
 ###### Topics
 
-- [Create an EMR cluster that uses
-  Amazon CloudWatch agent](AmazonCloudWatchAgent-create.md "AmazonCloudWatchAgent-create.md")
+- [Create an EMR cluster that uses Amazon CloudWatch agent](AmazonCloudWatchAgent-create.md "AmazonCloudWatchAgent-create.md")
 - [Default metrics for CloudWatch agent with Amazon EMR](AmazonCloudWatchAgent-metrics.md "AmazonCloudWatchAgent-metrics.md")
 - [Configuring CloudWatch agent for Amazon EMR](AmazonCloudWatchAgent-config.md "AmazonCloudWatchAgent-config.md")
 - [Considerations and limitations](AmazonCloudWatchAgent-considerations.md "AmazonCloudWatchAgent-considerations.md")

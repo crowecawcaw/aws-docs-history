@@ -8,8 +8,7 @@ The table below lists the application versions available in this release of Amaz
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following topics:
 
-- [Application versions in Amazon EMR 7.x
-  releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
+- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
 - [Application versions in Amazon EMR 6.x releases](emr-release-app-versions-6.md "emr-release-app-versions-6.md")
 - [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.md "emr-release-app-versions-5.md")
 - [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.md "emr-release-app-versions-4.md")
@@ -73,8 +72,7 @@ Initial release date: July 19, 2018
   - Backported [HBASE-20723](https://issues.apache.org/jira/browse/HBASE-20723 "https://issues.apache.org/jira/browse/HBASE-20723")
 
 - Presto
-  - Configuration changes to support LDAP authentication. For more information, see [Using LDAP authentication for Presto on
-    Amazon EMR](emr-presto-ldap.md "emr-presto-ldap.md").
+  - Configuration changes to support LDAP authentication. For more information, see [Using LDAP authentication for Presto on Amazon EMR](emr-presto-ldap.md "emr-presto-ldap.md").
 
 - Spark
   - Apache Spark version 2.3.1, available beginning with Amazon EMR release 5.16.0, addresses [CVE-2018-8024](https://nvd.nist.gov/vuln/detail/CVE-2018-8024 "https://nvd.nist.gov/vuln/detail/CVE-2018-8024") and [CVE-2018-1334](https://nvd.nist.gov/vuln/detail/CVE-2018-1334 "https://nvd.nist.gov/vuln/detail/CVE-2018-1334"). We recommend that you migrate earlier versions of Spark to Spark version 2.3.1 or later.

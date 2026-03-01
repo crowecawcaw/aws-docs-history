@@ -49,9 +49,7 @@ aws emr create-cluster
     --ec2-attributes  InstanceProfile=EMR_EC2_DefaultRole,SubnetId=`subnet-1234567890abcdef0`
 ```
 
-## Initialize Trino session for
-
-Delta Lake
+## Initialize Trino session for Delta Lake
 
 To initialize Trino session, run the following command
 

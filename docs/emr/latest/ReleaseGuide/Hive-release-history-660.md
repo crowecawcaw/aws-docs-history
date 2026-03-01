@@ -1,10 +1,6 @@
-# Amazon EMR 6.6.0 - Hive release
+# Amazon EMR 6.6.0 - Hive release notes
 
-notes
-
-## Amazon EMR 6.6.0 -
-
-Hive changes
+## Amazon EMR 6.6.0 - Hive changes
 
 | Type     | Description                                                                                                                                                                                                                                                                                                       |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
@@ -387,9 +383,7 @@ Hive changes
 | Backport | [HIVE-10296](https://issues.apache.org/jira/browse/HIVE-10296 "https://issues.apache.org/jira/browse/HIVE-10296"): Cast exception observed when hive<br>runs a multi join query on metastore                                                                                                                      |
 | Backport | [HIVE-6980](https://issues.apache.org/jira/browse/HIVE-6980 "https://issues.apache.org/jira/browse/HIVE-6980"): Drop table by using direct<br>sql                                                                                                                                                                 |
 
-## Amazon EMR 6.6.0 - Hive
-
-configuration changes
+## Amazon EMR 6.6.0 - Hive configuration changes
 
 - As part of OSS change [HIVE-20703](https://issues.apache.org/jira/browse/HIVE-20703 "https://issues.apache.org/jira/browse/HIVE-20703"), the property to sort dynamic partitions,
   `hive.optimize.sort.dynamic.partition`, has been
@@ -406,9 +400,7 @@ configuration has the following potential values:
 | `1`                              | Enables global sorting of dynamic partitions.<br>This keeps only one record writer open for each<br>partition value in the reducer, thereby reducing<br>the memory pressure on reducers.                                                                                                                                         |
 | `2`<br>_(or greater<br>integer)_ | Tells Hive to use the specified integer as<br>threshold for the maximum number of<br>writers.                                                                                                                                                                                                                                    |
 
-## Amazon EMR 6.6.0 - Hive known
-
-issues
+## Amazon EMR 6.6.0 - Hive known issues
 
 - Queries with windowing functions on the same column as join may
   lead to invalid transformations as reported in [HIVE-25278](https://issues.apache.org/jira/browse/HIVE-25278 "https://issues.apache.org/jira/browse/HIVE-25278") and cause incorrect results or query

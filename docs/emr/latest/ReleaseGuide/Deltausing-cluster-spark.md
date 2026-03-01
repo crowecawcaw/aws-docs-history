@@ -1,6 +1,4 @@
-# Use a Delta Lake cluster with
-
-Spark
+# Use a Delta Lake cluster with Spark
 
 Starting with Amazon EMR version 6.9.0, you can use Delta Lake with your Spark cluster
 without the need for bootstrap actions. For Amazon EMR releases 6.8.0 and lower, you can
@@ -74,9 +72,7 @@ If you use Amazon EMR releases 7.0.0 or higher, add the `/usr/share/aws/delta/li
      /usr/share/aws/delta/lib/delta-storage-s3-dynamodb.jar"
 ```
 
-## Initialize a Spark session
-
-for Delta Lake
+## Initialize a Spark session for Delta Lake
 
 The following examples show how to launch the interactive Spark shell, use
 Spark submit, or use Amazon EMR Notebooks to work with Delta Lake on Amazon EMR.

@@ -1,6 +1,4 @@
-# Job tuning
-
-considerations
+# Job tuning considerations
 
 On Spark executors, the EMRFS S3-optimized commit protocol consumes a small
 amount of memory for each file written by a task attempt until the task gets

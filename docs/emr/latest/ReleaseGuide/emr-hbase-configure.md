@@ -43,8 +43,7 @@ with memory greater than 64 GB, HBase RegionServer memory is capped at 32 GB. As
 general rule, YARN setting memory is some multiple of MapReduce reducer task
 memory.
 
-The tables in [Default values for task configuration
-settings](emr-hadoop-task-config.md#emr-hadoop-task-jvm "emr-hadoop-task-config.md#emr-hadoop-task-jvm") show changes to YARN settings based on the
+The tables in [Default values for task configuration settings](emr-hadoop-task-config.md#emr-hadoop-task-jvm "emr-hadoop-task-config.md#emr-hadoop-task-jvm") show changes to YARN settings based on the
 memory needed for HBase.
 
 ## HBase port numbers

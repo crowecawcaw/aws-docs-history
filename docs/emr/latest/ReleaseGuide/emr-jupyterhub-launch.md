@@ -12,9 +12,7 @@ credentials](../ManagementGuide/emr-plan-access-ssh.md "../ManagementGuide/emr-p
 Use the following procedure to create a cluster with JupyterHub installed using
 **Advanced Options** in the Amazon EMR console.
 
-###### To create an Amazon EMR cluster with JupyterHub installed using the Amazon EMR
-
-console
+###### To create an Amazon EMR cluster with JupyterHub installed using the Amazon EMR console
 
 1. Navigate to the new Amazon EMR console and select **Switch to the old console** from the side navigation. For more information on what to expect when you switch to the old console, see [Using the old console](../ManagementGuide/whats-new-in-console.md#console-opt-in "../ManagementGuide/whats-new-in-console.md#console-opt-in").
 2. Choose **Create cluster**, **Go to advanced options**.

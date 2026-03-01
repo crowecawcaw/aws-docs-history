@@ -1,10 +1,6 @@
-# Amazon EMR 6.8.0 - Hive release
+# Amazon EMR 6.8.0 - Hive release notes
 
-notes
-
-## Amazon EMR 6.8.0 -
-
-Hive changes
+## Amazon EMR 6.8.0 - Hive changes
 
 | Type        | Description                                                                                                                                                                                                           |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -25,8 +21,6 @@ Hive changes
 | Bug         | Fix multiple SLF4J bindings warning logs in stderr during<br>launch                                                                                                                                                   |
 | Bug         | Fix SHOW TABLE EXTENDED query failing with Wrong FS error<br>when partition and table are on different file<br>systems.                                                                                               |
 
-## Amazon EMR 6.8.0 - Hive known
-
-issues
+## Amazon EMR 6.8.0 - Hive known issues
 
 - With Amazon EMR 6.6.0 through 6.9.x, INSERT queries with dynamic partition and an ORDER BY or SORT BY clause will always have two reducers. This issue is caused by OSS change [HIVE-20703](https://issues.apache.org/jira/browse/HIVE-20703 "https://issues.apache.org/jira/browse/HIVE-20703"), which puts dynamic sort partition optimization under cost-based decision. If your workload doesn't require sorting of dynamic partitions, we recommend that you set the `hive.optimize.sort.dynamic.partition.threshold` property to `-1` to disable the new feature and get the correctly calculated number of reducers. This issue is fixed in OSS Hive as part of [HIVE-22269](https://issues.apache.org/jira/browse/HIVE-22269 "https://issues.apache.org/jira/browse/HIVE-22269") and is fixed in Amazon EMR 6.10.0.

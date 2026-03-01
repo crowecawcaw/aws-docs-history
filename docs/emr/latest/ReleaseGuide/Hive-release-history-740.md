@@ -1,10 +1,6 @@
-# Amazon EMR 7.4.0 - Hive
+# Amazon EMR 7.4.0 - Hive release notes
 
-release notes
-
-## Amazon EMR 7.4.0 -
-
-Hive changes
+## Amazon EMR 7.4.0 - Hive changes
 
 | Type        | Description                                                                                                                                                                                                    |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -21,9 +17,7 @@ Hive changes
 | Bug Fix     | [HIVE-13781](https://issues.apache.org/jira/browse/HIVE-13781 "https://issues.apache.org/jira/browse/HIVE-13781"): Tez Job failed with FileNotFoundException when partition dir doesnt exists                  |
 | Bug Fix     | [HIVE-28480](https://issues.apache.org/jira/browse/HIVE-28480 "https://issues.apache.org/jira/browse/HIVE-28480"): Disable SMB on partition hash generator mismatch across join branches in previous RS        |
 
-### Amazon EMR 7.4.0 -
-
-New configurations
+### Amazon EMR 7.4.0 - New configurations
 
 | Classification | Name                                        | Default | Description                                                                                                                                                                                                                                                                                                                                                       |
 | -------------- | ------------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

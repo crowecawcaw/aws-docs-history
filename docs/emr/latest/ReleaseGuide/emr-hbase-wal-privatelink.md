@@ -1,6 +1,4 @@
-# Access Amazon EMR WAL through
-
-AWS PrivateLink
+# Access Amazon EMR WAL through AWS PrivateLink
 
 If you want to keep your connection within the AWS network, Amazon EMR WAL offers
 AWS PrivateLink support. To set up AWS PrivateLink, use the AWS Management Console or AWS Command Line Interface (AWS CLI)

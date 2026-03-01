@@ -28,19 +28,11 @@ covered in this section.
 
 ###### Topics
 
-- [Creating a cluster with earlier AMI versions of
-  Amazon EMR](emr-3x-create.md "emr-3x-create.md")
-- [Installing applications with earlier AMI versions
-  of Amazon EMR](emr-3x-install-apps.md "emr-3x-install-apps.md")
-- [Customizing cluster and application
-  configuration with earlier AMI versions of Amazon EMR](emr-3x-customizeappconfig.md "emr-3x-customizeappconfig.md")
-- [Hive application specifics for earlier AMI versions of
-  Amazon EMR](emr-3x-hive.md "emr-3x-hive.md")
-- [HBase application specifics for earlier AMI versions of
-  Amazon EMR](emr-3x-hbase.md "emr-3x-hbase.md")
-- [Pig application specifics for earlier AMI versions of
-  Amazon EMR](emr-3x-pig.md "emr-3x-pig.md")
-- [Spark application specifics with earlier AMI versions of
-  Amazon EMR](emr-3x-spark.md "emr-3x-spark.md")
-- [S3DistCp utility differences with earlier AMI versions of
-  Amazon EMR](emr-3x-s3distcp.md "emr-3x-s3distcp.md")
+- [Creating a cluster with earlier AMI versions of Amazon EMR](emr-3x-create.md "emr-3x-create.md")
+- [Installing applications with earlier AMI versions of Amazon EMR](emr-3x-install-apps.md "emr-3x-install-apps.md")
+- [Customizing cluster and application configuration with earlier AMI versions of Amazon EMR](emr-3x-customizeappconfig.md "emr-3x-customizeappconfig.md")
+- [Hive application specifics for earlier AMI versions of Amazon EMR](emr-3x-hive.md "emr-3x-hive.md")
+- [HBase application specifics for earlier AMI versions of Amazon EMR](emr-3x-hbase.md "emr-3x-hbase.md")
+- [Pig application specifics for earlier AMI versions of Amazon EMR](emr-3x-pig.md "emr-3x-pig.md")
+- [Spark application specifics with earlier AMI versions of Amazon EMR](emr-3x-spark.md "emr-3x-spark.md")
+- [S3DistCp utility differences with earlier AMI versions of Amazon EMR](emr-3x-s3distcp.md "emr-3x-s3distcp.md")

@@ -1,6 +1,4 @@
-# Hive application specifics for earlier AMI versions of
-
-Amazon EMR
+# Hive application specifics for earlier AMI versions of Amazon EMR
 
 ## Log files
 
@@ -55,9 +53,7 @@ server to operate on the following ports.
 
 For more information about thrift services, see [http://wiki.apache.org/thrift/](http://wiki.apache.org/thrift/ "http://wiki.apache.org/thrift/").
 
-## Use Hive to recover
-
-partitions
+## Use Hive to recover partitions
 
 Amazon EMR includes a statement in the Hive query language that recovers the partitions
 of a table from table data located in Amazon S3. The following example shows this.
@@ -104,9 +100,7 @@ INPUT=`s3://elasticmapreduce/samples/hive-ads/tables`,-d,OUTPUT=`s3://amzn-s3-de
 -d,`SAMPLE`=`s3://elasticmapreduce/samples/hive-ads/`]
 ```
 
-## Specify an external metastore
-
-location
+## Specify an external metastore location
 
 The following procedure shows you how to override the default configuration values
 for the Hive metastore location and start a cluster using the reconfigured metastore

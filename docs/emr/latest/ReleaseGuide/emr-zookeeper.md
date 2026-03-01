@@ -30,5 +30,4 @@ For the version of components installed with ZooKeeper in this release, see [Rel
 ###### Topics
 
 - [ZooKeeper release history](ZooKeeper-release-history.md "ZooKeeper-release-history.md")
-- [ZooKeeper release notes by
-  version](ZooKeeper-release-history-versions.md "ZooKeeper-release-history-versions.md")
+- [ZooKeeper release notes by version](ZooKeeper-release-history-versions.md "ZooKeeper-release-history-versions.md")

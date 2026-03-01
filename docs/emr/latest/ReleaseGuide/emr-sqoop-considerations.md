@@ -11,9 +11,7 @@ Hadoop `-D mapred.output.direct.NativeS3FileSystem=false` and `-D
 direct write, no error occurs, but the table is created in Amazon S3 and no data is
 written.
 
-## Sqoop JDBC and database
-
-support
+## Sqoop JDBC and database support
 
 By default, Sqoop has a MariaDB and PostgreSQL driver installed. The PostgreSQL
 driver installed for Sqoop only works for PostgreSQL 8.4. To install an alternate

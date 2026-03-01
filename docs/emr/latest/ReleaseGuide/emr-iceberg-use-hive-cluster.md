@@ -20,9 +20,7 @@ AWS Glue](https://aws.amazon.com/blogs/big-data/build-an-apache-iceberg-data-lak
 
 To use Iceberg on Amazon EMR with the AWS CLI, first create a cluster using the
 steps below. For information on specifying the Iceberg classification using
-the AWS CLI or the Java SDK, see [Supply a configuration using
-the AWS CLI when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli") or [Supply a configuration using
-the Java SDK when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk"). Create a file named
+the AWS CLI or the Java SDK, see [Supply a configuration using the AWS CLI when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli") or [Supply a configuration using the Java SDK when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk"). Create a file named
 `configurations.json` with the following content:
 
 ```
@@ -170,9 +168,7 @@ location '<location>'
 TBLPROPERTIES ('table_type'='iceberg', 'iceberg.catalog'='<catalog_name>');
 ```
 
-## Considerations for using Iceberg with
-
-Hive
+## Considerations for using Iceberg with Hive
 
 - Iceberg supports the following query types:
   - Create table

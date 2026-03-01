@@ -19,8 +19,7 @@ The table below lists the application versions available in this release of Amaz
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following topics:
 
-- [Application versions in Amazon EMR 7.x
-  releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
+- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
 - [Application versions in Amazon EMR 6.x releases](emr-release-app-versions-6.md "emr-release-app-versions-6.md")
 - [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.md "emr-release-app-versions-5.md")
 - [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.md "emr-release-app-versions-4.md")
@@ -93,6 +92,28 @@ The following release notes include information for Amazon EMR release 7.12.0.
 Amazon EMR release 7.12.0 ships with Amazon Corretto 17 (built on OpenJDK) by default for applications that support Corretto 17 (JDK 17), with the exception of Apache Livy.
 
 The following table shows the default Java versions for applications in Amazon EMR 7.12.0.
+
+| Application  | Java / Amazon Corretto version (default is<br>bold) |
+| ------------ | --------------------------------------------------- |
+| Delta        | **17**, 11, 8                                       |
+| Flink        | **17**, 11, 8                                       |
+| HBase        | **17**, 11, 8                                       |
+| HCatalog     | **17**, 11, 8                                       |
+| Hadoop       | **17**, 11, 8                                       |
+| Hive         | **17**, 11, 8                                       |
+| Hudi         | **17**, 11, 8                                       |
+| Iceberg      | **17**, 11                                          |
+| Livy         | 17, 11, **8**                                       |
+| Oozie        | **17**, 11, 8                                       |
+| Phoenix      | **17**, 11, 8                                       |
+| PrestoDB     | **8**                                               |
+| Spark        | **17**, 11, 8                                       |
+| Spark RAPIDS | **17**, 11, 8                                       |
+| Tez          | **17**, 11, 8                                       |
+| Trino        | **21**, 17                                          |
+| Zeppelin     | 17, **11**, 8                                       |
+| Pig          | **17**, 11, 8                                       |
+| Zookeeper    | **17**, 11, 8                                       |
 
 ## 7.12.0 component versions
 
@@ -182,8 +203,7 @@ Some components in Amazon EMR differ from community versions. These components h
 
 Configuration classifications allow you to customize applications. These often correspond to a configuration XML file for the application, such as `hive-site.xml`. For more information, see [Configure applications](emr-configure-apps.md "emr-configure-apps.md").
 
-Reconfiguration actions occur when you specify a configuration for instance groups in a running cluster. Amazon EMR only initiates reconfiguration actions for the classifications that you modify. For more information, see [Reconfigure an instance group in a
-running cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-running-cluster.md").
+Reconfiguration actions occur when you specify a configuration for instance groups in a running cluster. Amazon EMR only initiates reconfiguration actions for the classifications that you modify. For more information, see [Reconfigure an instance group in a running cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-running-cluster.md").
 
 | emr-7.12.0 classifications      | Classifications                                                             | Description                                                                                                                                                                                                                                                                                                                                                   | Reconfiguration Actions |
 | ------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |

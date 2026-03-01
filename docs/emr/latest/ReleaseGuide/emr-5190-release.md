@@ -8,8 +8,7 @@ The table below lists the application versions available in this release of Amaz
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following topics:
 
-- [Application versions in Amazon EMR 7.x
-  releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
+- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
 - [Application versions in Amazon EMR 6.x releases](emr-release-app-versions-6.md "emr-release-app-versions-6.md")
 - [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.md "emr-release-app-versions-5.md")
 - [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.md "emr-release-app-versions-4.md")
@@ -70,8 +69,7 @@ Last updated date: November 19, 2018
 ###### New features
 
 - (Nov. 19, 2018) EMR Notebooks is a managed environment based on Jupyter Notebook. It supports Spark magic kernels for PySpark, Spark SQL, Spark R, and Scala. EMR Notebooks can be used with clusters created using Amazon EMR release 5.18.0 and later. For more information, see [Using EMR Notebooks](../ManagementGuide/emr-managed-notebooks.md "../ManagementGuide/emr-managed-notebooks.md") in the _Amazon EMR Management Guide_.
-- The EMRFS S3-optimized committer is available when writing Parquet files using Spark and EMRFS. This committer improves write performance. For more information, see [Use the EMRFS S3-optimized
-  committer](emr-spark-s3-optimized-committer.md "emr-spark-s3-optimized-committer.md").
+- The EMRFS S3-optimized committer is available when writing Parquet files using Spark and EMRFS. This committer improves write performance. For more information, see [Use the EMRFS S3-optimized committer](emr-spark-s3-optimized-committer.md "emr-spark-s3-optimized-committer.md").
 
 ###### Changes, enhancements, and resolved issues
 

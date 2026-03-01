@@ -1,6 +1,4 @@
-# Using an external MySQL database or
-
-Amazon Aurora
+# Using an external MySQL database or Amazon Aurora
 
 To use an external MySQL database or Amazon Aurora as your Hive metastore, you override the
 default configuration values for the metastore in Hive to specify the external database

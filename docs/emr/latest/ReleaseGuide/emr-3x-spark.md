@@ -1,10 +1,6 @@
-# Spark application specifics with earlier AMI versions of
+# Spark application specifics with earlier AMI versions of Amazon EMR
 
-Amazon EMR
-
-## Use Spark interactively or in batch
-
-mode
+## Use Spark interactively or in batch mode
 
 Amazon EMR enables you to run Spark applications in two modes:
 
@@ -24,9 +20,7 @@ In batch mode, upload your Spark script to Amazon S3 or the local master node fi
 system, and then submit the work to the cluster as a step. Spark steps can be
 submitted to a long-running cluster or a transient cluster.
 
-## Creating a cluster with Spark
-
-installed
+## Creating a cluster with Spark installed
 
 ###### To launch a cluster with Spark installed using the console
 
@@ -78,12 +72,9 @@ installing, for example, `2.2.0`
 You can also configure Spark dynamically at the time of each application
 submission. A setting to automatically maximize the resource allocation for an
 executor is available using the `spark` configuration file. For
-more information, see [Overriding Spark default
-configuration settings](#emr-3x-spark-dynamic-configuration "#emr-3x-spark-dynamic-configuration").
+more information, see [Overriding Spark default configuration settings](#emr-3x-spark-dynamic-configuration "#emr-3x-spark-dynamic-configuration").
 
-### Changing Spark default
-
-settings
+### Changing Spark default settings
 
 The following example shows how to create a cluster with
 `spark.executor.memory` set to 2G using the AWS CLI.
@@ -123,9 +114,7 @@ req.withSteps(stepConfigs);
 AddJobFlowStepsResult result = emr.addJobFlowSteps(req);
 ```
 
-### Overriding Spark default
-
-configuration settings
+### Overriding Spark default configuration settings
 
 You may want to override Spark default configuration values on a
 per-application basis. You can do this when you submit applications using a

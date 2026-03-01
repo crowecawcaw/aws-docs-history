@@ -50,14 +50,10 @@ EMR cluster.
 - [Required permissions for Amazon EMR WAL](emr-hbase-wal-permissions.md "emr-hbase-wal-permissions.md")
 - [Enabling Amazon EMR WAL](emr-hbase-wal-enabling.md "emr-hbase-wal-enabling.md")
 - [Restoring from Amazon EMR WAL](emr-hbase-wal-restoring.md "emr-hbase-wal-restoring.md")
-- [Using security configurations with Amazon EMR
-  WAL](emr-hbase-wal-security.md "emr-hbase-wal-security.md")
-- [Access Amazon EMR WAL through
-  AWS PrivateLink](emr-hbase-wal-privatelink.md "emr-hbase-wal-privatelink.md")
-- [Understanding Amazon EMR WAL pricing and
-  metrics](emr-hbase-wal-metrics.md "emr-hbase-wal-metrics.md")
+- [Using security configurations with Amazon EMR WAL](emr-hbase-wal-security.md "emr-hbase-wal-security.md")
+- [Access Amazon EMR WAL through AWS PrivateLink](emr-hbase-wal-privatelink.md "emr-hbase-wal-privatelink.md")
+- [Understanding Amazon EMR WAL pricing and metrics](emr-hbase-wal-metrics.md "emr-hbase-wal-metrics.md")
 - [Tagging WAL workspaces](emr-hbase-wal-tagging.md "emr-hbase-wal-tagging.md")
 - [EMR WAL cross-cluster replication](emr-hbase-wal-cross-cluster.md "emr-hbase-wal-cross-cluster.md")
-- [Considerations and Regions for Amazon EMR
-  WAL](emr-hbase-wal-considerations.md "emr-hbase-wal-considerations.md")
+- [Considerations and Regions for Amazon EMR WAL](emr-hbase-wal-considerations.md "emr-hbase-wal-considerations.md")
 - [Amazon EMR WAL (EMRWAL) CLI reference](emrwalcli-ref.md "emrwalcli-ref.md")

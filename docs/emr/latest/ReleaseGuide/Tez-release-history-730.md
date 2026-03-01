@@ -1,19 +1,13 @@
-# Amazon EMR 7.3.0 - Tez
+# Amazon EMR 7.3.0 - Tez release notes
 
-release notes
-
-## Amazon EMR 7.3.0 -
-
-Tez changes
+## Amazon EMR 7.3.0 - Tez changes
 
 | Type        | Description                                            |
 | ----------- | ------------------------------------------------------ |
 | Improvement | Provide option to enable SSL for Tez AM Web UI Service |
 |             |                                                        |
 
-## Amazon EMR 7.3.0 -
-
-New configurations
+## Amazon EMR 7.3.0 - New configurations
 
 | Classification | Name                                        | Default | Description                                                       |
 | -------------- | ------------------------------------------- | ------- | ----------------------------------------------------------------- |

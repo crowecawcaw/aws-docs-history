@@ -8,8 +8,7 @@ The table below lists the application versions available in this release of Amaz
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following topics:
 
-- [Application versions in Amazon EMR 7.x
-  releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
+- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
 - [Application versions in Amazon EMR 6.x releases](emr-release-app-versions-6.md "emr-release-app-versions-6.md")
 - [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.md "emr-release-app-versions-5.md")
 - [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.md "emr-release-app-versions-4.md")
@@ -86,8 +85,7 @@ Last updated date: June 25, 2020
   in Amazon S3 with an AWS KMS customer managed key. For more information, see [Encrypt log files stored in Amazon S3](../ManagementGuide/emr-plan-debugging.md#emr-log-encryption "../ManagementGuide/emr-plan-debugging.md#emr-log-encryption") in the
   _Amazon EMR Management Guide_.
 - **Amazon Linux 2 support** – In EMR version 5.30.0 and later, EMR usesAmazon Linux 2 OS. New custom AMIs (Amazon Machine Image) must be based on theAmazon Linux 2 AMI. For more information, see [Using a Custom AMI](../ManagementGuide/emr-custom-ami.md "../ManagementGuide/emr-custom-ami.md").
-- **Presto Graceful Auto Scale** – EMR clusters using 5.30.0 can be set with an auto scaling timeout period that gives Presto tasks time to finish running before their node is decommissioned. For more information, see [Using Presto automatic scaling with Graceful
-  Decommission](presto-graceful-autoscale.md "presto-graceful-autoscale.md").
+- **Presto Graceful Auto Scale** – EMR clusters using 5.30.0 can be set with an auto scaling timeout period that gives Presto tasks time to finish running before their node is decommissioned. For more information, see [Using Presto automatic scaling with Graceful Decommission](presto-graceful-autoscale.md "presto-graceful-autoscale.md").
 - **Fleet Instance creation with new allocation strategy option** – A new allocation strategy option is available in EMR version 5.12.1 and later. It offers faster cluster provisioning, more accurate spot allocation, and less spot instance interruption. Updates to non-default EMR service roles are required. See [Configure Instance Fleets](../ManagementGuide/emr-instance-fleet.md "../ManagementGuide/emr-instance-fleet.md").
 - **sudo systemctl stop and sudo systemctl start commands** – In EMR version 5.30.0 and later, which useAmazon Linux 2 OS, EMR uses `sudo systemctl stop` and `sudo systemctl start` commands to restart services. For more information, see [How do I restart a service in Amazon EMR?](https://aws.amazon.com/premiumsupport/knowledge-center/restart-service-emr/ "https://aws.amazon.com/premiumsupport/knowledge-center/restart-service-emr/").
 

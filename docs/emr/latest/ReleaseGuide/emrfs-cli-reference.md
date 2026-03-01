@@ -37,9 +37,7 @@ below.
 | ------------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | `-m `METADATA_NAME`                   | <br>--metadata-name<br>`METADATA_NAME`` | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`. | No       |
 
-###### Example emrfs describe-metadata
-
-example
+###### Example emrfs describe-metadata example
 
 The following example describes the default metadata table.
 
@@ -52,9 +50,7 @@ EmrFSMetadata
   approximate-item-count (6 hour delay): 12
 ```
 
-## emrfs set-metadata-capacity
-
-sub-command
+## emrfs set-metadata-capacity sub-command
 
 | [Options] for emrfs set-metadata-capacity | Option                                    | Description                                                                                                                                                    | Required |
 | ----------------------------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -76,9 +72,7 @@ $ emrfs set-metadata-capacity --metadata-name EmrMetadataAlt  --read-capacity 60
   approximate-item-count (6 hour delay): 0
 ```
 
-## emrfs delete-metadata
-
-sub-command
+## emrfs delete-metadata sub-command
 
 | [Options] for emrfs delete-metadata | Option                                  | Description                                                                                                                                                    | Required |
 | ----------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -92,9 +86,7 @@ The following example deletes the default metadata table.
 $ emrfs delete-metadata
 ```
 
-## emrfs create-metadata
-
-sub-command
+## emrfs create-metadata sub-command
 
 | [Options] for emrfs create-metadata | Option                                    | Description                                                                                                                                                    | Required |
 | ----------------------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -117,9 +109,7 @@ EmrFSMetadataAlt
   approximate-item-count (6 hour delay): 0
 ```
 
-## emrfs list-metadata-stores
-
-sub-command
+## emrfs list-metadata-stores sub-command
 
 The **emrfs list-metadata-stores** sub-command has no
 [options].
@@ -243,9 +233,7 @@ folders written: 3
 | ------------------------------ | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | `-q `QUEUE_NAME`               | <br>--queue-name<br>`QUEUE_NAME`` | `QUEUE_NAME` is the name of the<br>Amazon SQS queue configured in<br>`emrfs-site.xml`. The default value<br>is<br>`EMRFS-Inconsistency-<jobFlowId>`. | Yes      |
 
-## Submitting EMRFS CLI commands as
-
-steps
+## Submitting EMRFS CLI commands as steps
 
 The following example shows how to use the `emrfs` utility on the
 master node by leveraging the AWS CLI or API and the

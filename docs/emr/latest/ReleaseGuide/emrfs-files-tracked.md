@@ -1,6 +1,4 @@
-# Understanding how EMRFS consistent view tracks
-
-objects in Amazon S3
+# Understanding how EMRFS consistent view tracks objects in Amazon S3
 
 EMRFS creates a consistent view of objects in Amazon S3 by adding information about those
 objects to the EMRFS metadata. EMRFS adds these listings to its metadata when:

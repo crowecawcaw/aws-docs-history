@@ -57,9 +57,7 @@ configuration classifications using a single JSON file. For more information, se
 
 With Amazon EMR version 5.21.0 and later, you can override cluster configurations and specify additional configuration classifications for each instance group in a running cluster. You do this by using the Amazon EMR console, the AWS Command Line Interface (AWS CLI), or the AWS SDK. For more information, see [Supplying a Configuration for an Instance Group in a Running Cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-running-cluster.md").
 
-## Default values for task configuration
-
-settings
+## Default values for task configuration settings
 
 ###### Note
 

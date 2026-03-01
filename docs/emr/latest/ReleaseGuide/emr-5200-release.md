@@ -8,8 +8,7 @@ The table below lists the application versions available in this release of Amaz
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following topics:
 
-- [Application versions in Amazon EMR 7.x
-  releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
+- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
 - [Application versions in Amazon EMR 6.x releases](emr-release-app-versions-6.md "emr-release-app-versions-6.md")
 - [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.md "emr-release-app-versions-5.md")
 - [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.md "emr-release-app-versions-4.md")
@@ -79,8 +78,7 @@ Last updated date: January 22, 2019
   - Python3 package was upgraded from python 3.4 to 3.6.
 
 - The EMRFS S3-optimized committer
-  - The EMRFS S3-optimized committer is now enabled by default, which improves write performance. For more information, see [Use the EMRFS S3-optimized
-    committer](emr-spark-s3-optimized-committer.md "emr-spark-s3-optimized-committer.md").
+  - The EMRFS S3-optimized committer is now enabled by default, which improves write performance. For more information, see [Use the EMRFS S3-optimized committer](emr-spark-s3-optimized-committer.md "emr-spark-s3-optimized-committer.md").
 
 - Hive
   - Backported [HIVE-16686](https://issues.apache.org/jira/browse/HIVE-16686 "https://issues.apache.org/jira/browse/HIVE-16686").

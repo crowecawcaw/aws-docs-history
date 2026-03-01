@@ -1,10 +1,6 @@
-# Amazon EMR 7.3.0 - Hive
+# Amazon EMR 7.3.0 - Hive release notes
 
-release notes
-
-## Amazon EMR 7.3.0 -
-
-Hive changes
+## Amazon EMR 7.3.0 - Hive changes
 
 | Type        | Description                                                                                                                                                                                      |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -17,9 +13,7 @@ Hive changes
 | Bug Fix     | Fix \*_IOException_<br>• where end of orc split overlaps with the start of a block location.                                                                                                     |
 | Bug Fix     | Use column name delimiter instead of always splitting by comma when column names contain comma character and using CSVSerde.                                                                     |
 
-### Amazon EMR 7.3.0 -
-
-New configurations
+### Amazon EMR 7.3.0 - New configurations
 
 | Classification        | Name                                                            | Default      | Description                                                                                                             |
 | --------------------- | --------------------------------------------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------- |

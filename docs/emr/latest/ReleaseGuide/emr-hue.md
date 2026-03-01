@@ -20,8 +20,7 @@ console when you launch a cluster, or by explicitly specifying the
 ###### Topics
 
 - [Hue version information](#emr-Hue-versions "#emr-Hue-versions")
-- [Supported and unsupported features of
-  Hue on Amazon EMR](emr-hue-supported-features.md "emr-hue-supported-features.md")
+- [Supported and unsupported features of Hue on Amazon EMR](emr-hue-supported-features.md "emr-hue-supported-features.md")
 - [Considerations](emr-hue-considerations.md "emr-hue-considerations.md")
 - [Connecting to the Hue web user interface](accessing-hue.md "accessing-hue.md")
 - [Using Hue with a remote database in Amazon RDS](hue-rds.md "hue-rds.md")

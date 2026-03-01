@@ -8,8 +8,7 @@ The table below lists the application versions available in this release of Amaz
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following topics:
 
-- [Application versions in Amazon EMR 7.x
-  releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
+- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
 - [Application versions in Amazon EMR 6.x releases](emr-release-app-versions-6.md "emr-release-app-versions-6.md")
 - [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.md "emr-release-app-versions-5.md")
 - [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.md "emr-release-app-versions-4.md")
@@ -70,8 +69,7 @@ Initial release date: August 30, 2018
   - Added support for notebook persistence in Amazon S3. For more information, see [Configuring persistence for notebooks in Amazon S3](emr-jupyterhub-s3.md "emr-jupyterhub-s3.md").
 
 - Spark
-  - Added support for [S3 Select](https://aws.amazon.com/blogs/aws/s3-glacier-select/ "https://aws.amazon.com/blogs/aws/s3-glacier-select/"). For more information, see [Use S3 Select with Spark to improve query
-    performance](emr-spark-s3select.md "emr-spark-s3select.md").
+  - Added support for [S3 Select](https://aws.amazon.com/blogs/aws/s3-glacier-select/ "https://aws.amazon.com/blogs/aws/s3-glacier-select/"). For more information, see [Use S3 Select with Spark to improve query performance](emr-spark-s3select.md "emr-spark-s3select.md").
 
 - Resolved the issues with the Cloudwatch metrics and the automatic scaling feature in Amazon EMR version 5.14.0, 5.15.0, or 5.16.0.
 

@@ -1,6 +1,4 @@
-# Amazon EMR 7.5.0 -
-
-Oozie release notes
+# Amazon EMR 7.5.0 - Oozie release notes
 
 | Type    | Description                                                                               |
 | ------- | ----------------------------------------------------------------------------------------- |

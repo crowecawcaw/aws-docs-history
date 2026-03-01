@@ -8,9 +8,7 @@ Amazon S3 or DynamoDB for post-processing activities. For information about Amaz
 highlights and pricing, see the [Amazon Kinesis](https://aws.amazon.com//kinesis "https://aws.amazon.com//kinesis")
 page.
 
-## What can I do with Amazon EMR and Amazon Kinesis
-
-integration?
+## What can I do with Amazon EMR and Amazon Kinesis integration?
 
 Integration between Amazon EMR and Amazon Kinesis makes certain scenarios much easier; for
 example:
@@ -62,9 +60,7 @@ parameters:
 | kinesis.checkpoint.iteration.no              | Iteration number for processing associated with the logical<br>name                                                    |
 | kinesis.rerun.iteration.without.wait         | Boolean value that indicates if a failed iteration can be rerun<br>without waiting for timeout; the default is `false` |
 
-### Provisioned IOPS recommendations for
-
-Amazon DynamoDB tables
+### Provisioned IOPS recommendations for Amazon DynamoDB tables
 
 The Amazon EMR connector for Amazon Kinesis uses the DynamoDB database as its backing for
 checkpointing metadata. You must create a table in DynamoDB before consuming data

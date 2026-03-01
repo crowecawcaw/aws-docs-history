@@ -1,6 +1,4 @@
-# Optimizing performance for Amazon EMR operations in
-
-DynamoDB
+# Optimizing performance for Amazon EMR operations in DynamoDB
 
 Amazon EMR operations on a DynamoDB table count as read operations, and are subject to
 the table's provisioned throughput settings. Amazon EMR implements its own logic to try
@@ -14,9 +12,7 @@ table in subsequent requests.
 The following factors influence Hive query performance when working with DynamoDB
 tables.
 
-## Provisioned read capacity
-
-units
+## Provisioned read capacity units
 
 When you run Hive queries against a DynamoDB table, you need to ensure that you
 have provisioned a sufficient amount of read capacity units.

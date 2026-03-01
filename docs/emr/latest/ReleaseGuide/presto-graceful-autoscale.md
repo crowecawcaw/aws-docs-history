@@ -1,6 +1,4 @@
-# Using Presto automatic scaling with Graceful
-
-Decommission
+# Using Presto automatic scaling with Graceful Decommission
 
 Amazon EMR release versions 5.30.0 and later include a feature you can use to set a grace
 period for certain scaling actions. The grace period allows Presto tasks to keep running

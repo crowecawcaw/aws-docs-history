@@ -1,26 +1,17 @@
-# Using LDAP authentication for Presto on
-
-Amazon EMR
+# Using LDAP authentication for Presto on Amazon EMR
 
 Follow the steps in this section to configure LDAP. See each step for examples and
 links to more information.
 
 ###### Steps to Configure LDAP Authentication
 
-- [Step 1: Gather information about
-  your LDAP server and copy the server certificate to Amazon S3](#emr-presto-ldap-server-prereq "#emr-presto-ldap-server-prereq")
-- [Step 2: Set up a security
-  configuration](#emr-presto-ldap-seccfg "#emr-presto-ldap-seccfg")
-- [Step 3: Create a configuration
-  JSON with Presto properties for LDAP](#emr-presto-ldap-prestoconfig "#emr-presto-ldap-prestoconfig")
-- [Step 4: Create the script to copy
-  the LDAP server certificate and upload it to Amazon S3](#emr-presto-ldap-servercert "#emr-presto-ldap-servercert")
-- [Step 5: Create the
-  cluster](#emr-presto-ldap-createcluster "#emr-presto-ldap-createcluster")
+- [Step 1: Gather information about your LDAP server and copy the server certificate to Amazon S3](#emr-presto-ldap-server-prereq "#emr-presto-ldap-server-prereq")
+- [Step 2: Set up a security configuration](#emr-presto-ldap-seccfg "#emr-presto-ldap-seccfg")
+- [Step 3: Create a configuration JSON with Presto properties for LDAP](#emr-presto-ldap-prestoconfig "#emr-presto-ldap-prestoconfig")
+- [Step 4: Create the script to copy the LDAP server certificate and upload it to Amazon S3](#emr-presto-ldap-servercert "#emr-presto-ldap-servercert")
+- [Step 5: Create the cluster](#emr-presto-ldap-createcluster "#emr-presto-ldap-createcluster")
 
-## Step 1: Gather information about
-
-your LDAP server and copy the server certificate to Amazon S3
+## Step 1: Gather information about your LDAP server and copy the server certificate to Amazon S3
 
 You'll need the information and items in the following section from your LDAP
 server to configure LDAP authentication.
@@ -35,8 +26,7 @@ implementation requires a custom port, you can specify it using the
 `authentication.ldap.url` with earlier versions. Substitute
 the custom port for `636` as shown in the
 `presto-config` configuration classification examples in
-[Step 3: Create a configuration
-JSON with Presto properties for LDAP](#emr-presto-ldap-prestoconfig "#emr-presto-ldap-prestoconfig"). Ensure that any
+[Step 3: Create a configuration JSON with Presto properties for LDAP](#emr-presto-ldap-prestoconfig "#emr-presto-ldap-prestoconfig"). Ensure that any
 firewalls and security groups allow inbound and outbound traffic on port 636
 (or your custom port) and also port 8446 (or your custom port), which is
 used for internal cluster communications.
@@ -48,8 +38,7 @@ more information, see [How do I
 upload files and folders to an S3 Bucket](../../../AmazonS3/latest/userguide/upload-objects.md "../../../AmazonS3/latest/userguide/upload-objects.md") in the
 _Amazon Simple Storage Service User Guide_. You create a bootstrap action that
 copies this certificate from Amazon S3 to each node in the cluster when the
-cluster launches. In [Step 4: Create the script to copy
-the LDAP server certificate and upload it to Amazon S3](#emr-presto-ldap-servercert "#emr-presto-ldap-servercert"). The example certificate is
+cluster launches. In [Step 4: Create the script to copy the LDAP server certificate and upload it to Amazon S3](#emr-presto-ldap-servercert "#emr-presto-ldap-servercert"). The example certificate is
 `s3://amzn-s3-demo-bucket/ldap_server.crt`.
 
 ### The LDAP server's settings for anonymous binding
@@ -84,9 +73,7 @@ ldap_bind: Inappropriate authentication (48)
 additional info: anonymous bind disallowed
 ```
 
-###### To verify that an account has permissions to an LDAP server that uses
-
-simple authentication
+###### To verify that an account has permissions to an LDAP server that uses simple authentication
 
 - Use the[ldapwhoami](https://linux.die.net/man/1/ldapwhoami "https://linux.die.net/man/1/ldapwhoami") command from a Linux client, as shown in the
   following example. The example uses a fictitious user,
@@ -108,8 +95,7 @@ command returns:
 dn:uid=presto,ou=admins,dc=ec2,dc=internal
 ```
 
-The example configurations in [Step 3: Create a configuration
-JSON with Presto properties for LDAP](#emr-presto-ldap-prestoconfig "#emr-presto-ldap-prestoconfig") include this account for
+The example configurations in [Step 3: Create a configuration JSON with Presto properties for LDAP](#emr-presto-ldap-prestoconfig "#emr-presto-ldap-prestoconfig") include this account for
 clarity, with the exception of the 5.10.0 example, where it is not
 supported. If the LDAP server uses anonymous binding, remove the
 `internal-communication.authentication.ldap.user` and
@@ -138,12 +124,9 @@ actual User ID (UID). For more information, see the [Fn::Sub](../../../AWSCloudF
 When using Amazon EMR 5.10.0, you can specify only one such pattern. Using
 Amazon EMR 5.11.0 or later, you can specify multiple patterns separated by a
 colon (:). Users attempting to authenticate to Presto are compared to the
-first pattern, then the second, and so on. For an example, see [Step 3: Create a configuration
-JSON with Presto properties for LDAP](#emr-presto-ldap-prestoconfig "#emr-presto-ldap-prestoconfig").
+first pattern, then the second, and so on. For an example, see [Step 3: Create a configuration JSON with Presto properties for LDAP](#emr-presto-ldap-prestoconfig "#emr-presto-ldap-prestoconfig").
 
-## Step 2: Set up a security
-
-configuration
+## Step 2: Set up a security configuration
 
 Create a security configuration with in-transit encryption enabled. For more
 information, see [Create a security
@@ -154,9 +137,7 @@ information, see [Providing certificates for in-transit data encryption](../Mana
 server certificate is used to authenticate client connections to the Presto
 server.
 
-## Step 3: Create a configuration
-
-JSON with Presto properties for LDAP
+## Step 3: Create a configuration JSON with Presto properties for LDAP
 
 You use the `presto-config` configuration classification to set
 Presto properties for LDAP. The format and contents of
@@ -173,8 +154,7 @@ locally.
 
 ###### Example Amazon EMR 6.1.0 and later with PrestoSQL (Trino)
 
-The following example uses the LDAP host name from [Step 1: Gather information about
-your LDAP server and copy the server certificate to Amazon S3](#emr-presto-ldap-server-prereq "#emr-presto-ldap-server-prereq") to authenticate to the
+The following example uses the LDAP host name from [Step 1: Gather information about your LDAP server and copy the server certificate to Amazon S3](#emr-presto-ldap-server-prereq "#emr-presto-ldap-server-prereq") to authenticate to the
 LDAP server for binding. Two user bind patterns are specified, which
 indicates that users within the `admins` OU and the
 `datascientists` OU on the LDAP server are eligible for
@@ -211,8 +191,7 @@ with `trino-password-authenticator`.
 ###### Example Amazon EMR 5.16.0 and later
 
 The following example uses the LDAP user ID and password, and the LDAP
-host name from [Step 1: Gather information about
-your LDAP server and copy the server certificate to Amazon S3](#emr-presto-ldap-server-prereq "#emr-presto-ldap-server-prereq") to authenticate to the
+host name from [Step 1: Gather information about your LDAP server and copy the server certificate to Amazon S3](#emr-presto-ldap-server-prereq "#emr-presto-ldap-server-prereq") to authenticate to the
 LDAP server for binding. Two user bind patterns are specified, which
 indicates that users within the `admins` OU and the
 `datascientists` OU on the LDAP server are eligible for
@@ -273,14 +252,11 @@ omitted. In addition, only a single bind pattern can be specified.
         }]
 ```
 
-## Step 4: Create the script to copy
-
-the LDAP server certificate and upload it to Amazon S3
+## Step 4: Create the script to copy the LDAP server certificate and upload it to Amazon S3
 
 Create a script that copies the certificate file to each node in the cluster
 and adds it to the keystore. Create the script using a text editor, save it, and
-then upload it to Amazon S3. In [Step 5: Create the
-cluster](#emr-presto-ldap-createcluster "#emr-presto-ldap-createcluster"), the script file is
+then upload it to Amazon S3. In [Step 5: Create the cluster](#emr-presto-ldap-createcluster "#emr-presto-ldap-createcluster"), the script file is
 referenced as `s3://amzn-s3-demo-bucket/LoadLDAPCert.sh`.
 
 The following example script uses the default keystore password,
@@ -294,18 +270,14 @@ aws s3 cp s3://amzn-s3-demo-bucket/ldap_server.crt .
 sudo keytool -import -keystore /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/lib/security/cacerts -trustcacerts -alias ldap_server -file ./ldap_server.crt -storepass `changeit` -noprompt
 ```
 
-## Step 5: Create the
-
-cluster
+## Step 5: Create the cluster
 
 When you create the cluster, you specify Presto and other applications that
 you want Amazon EMR to install. The following examples also reference the
 configuration classification properties within a JSON, but you can also specify
 the configuration classification inline.
 
-###### To create a Presto cluster with LDAP authentication using the Amazon EMR
-
-console
+###### To create a Presto cluster with LDAP authentication using the Amazon EMR console
 
 1. Navigate to the new Amazon EMR console and select **Switch to the old console** from the side navigation. For more information on what to expect when you switch to the old console, see [Using the old console](../ManagementGuide/whats-new-in-console.md#console-opt-in "../ManagementGuide/whats-new-in-console.md#console-opt-in").
 2. Choose **Create cluster**, **Go to advanced options**.
@@ -315,8 +287,7 @@ console
    authentication is supported only with Amazon EMR 5.10.0 and later.
 4. Under **Edit software settings**, choose
    **Load JSON from S3** , enter the location in Amazon S3
-   of the JSON configuration file you created in [Step 3: Create a configuration
-   JSON with Presto properties for LDAP](#emr-presto-ldap-prestoconfig "#emr-presto-ldap-prestoconfig"), and then choose
+   of the JSON configuration file you created in [Step 3: Create a configuration JSON with Presto properties for LDAP](#emr-presto-ldap-prestoconfig "#emr-presto-ldap-prestoconfig"), and then choose
    **Next**.
 5. Configure cluster hardware and networking, and then choose
    **Next**.
@@ -325,8 +296,7 @@ console
    action**, and then choose **Configure and
    add**.
 7. Enter a **Name** for the bootstrap action, enter the
-   **Script location** that you created in [Step 4: Create the script to copy
-   the LDAP server certificate and upload it to Amazon S3](#emr-presto-ldap-servercert "#emr-presto-ldap-servercert"), for example
+   **Script location** that you created in [Step 4: Create the script to copy the LDAP server certificate and upload it to Amazon S3](#emr-presto-ldap-servercert "#emr-presto-ldap-servercert"), for example
    **s3://amzn-s3-demo-bucket/LoadLDAPCert.sh**, and then choose
    **Add**.
 8. Under **General Options**, **Tags**,
@@ -335,14 +305,11 @@ console
    **Next**.
 9. Choose **Authentication and encryption**, and then
    select the **Security configuration** that you created
-   in [Step 2: Set up a security
-   configuration](#emr-presto-ldap-seccfg "#emr-presto-ldap-seccfg").
+   in [Step 2: Set up a security configuration](#emr-presto-ldap-seccfg "#emr-presto-ldap-seccfg").
 10. Choose other security options as appropriate for your application, and
     then choose **Create cluster**.
 
-###### To create a Presto cluster with LDAP authentication using the
-
-AWS CLI
+###### To create a Presto cluster with LDAP authentication using the AWS CLI
 
 - Use the `aws emr create-cluster` command. At a minimum,
   specify the Presto application, and also the Presto configuration

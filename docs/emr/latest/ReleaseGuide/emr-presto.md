@@ -39,15 +39,11 @@ For the version of components installed with Presto in this release, see [Releas
 ###### Topics
 
 - [Using Presto with the AWS Glue Data Catalog](emr-presto-glue.md "emr-presto-glue.md")
-- [Using S3 Select Pushdown with Presto to improve
-  performance](emr-presto-s3select.md "emr-presto-s3select.md")
+- [Using S3 Select Pushdown with Presto to improve performance](emr-presto-s3select.md "emr-presto-s3select.md")
 - [Adding database connectors](presto-adding-db-connectors.md "presto-adding-db-connectors.md")
-- [Using SSL/TLS and configuring LDAPS with Presto on
-  Amazon EMR](presto-ssl.md "presto-ssl.md")
+- [Using SSL/TLS and configuring LDAPS with Presto on Amazon EMR](presto-ssl.md "presto-ssl.md")
 - [Activating Presto strict mode](presto-strict-mode.md "presto-strict-mode.md")
 - [Handling Spot Instance loss in Presto](presto-spot-loss.md "presto-spot-loss.md")
-- [Using Presto automatic scaling with Graceful
-  Decommission](presto-graceful-autoscale.md "presto-graceful-autoscale.md")
-- [Considerations with Presto on
-  Amazon EMR](emr-presto-considerations.md "emr-presto-considerations.md")
+- [Using Presto automatic scaling with Graceful Decommission](presto-graceful-autoscale.md "presto-graceful-autoscale.md")
+- [Considerations with Presto on Amazon EMR](emr-presto-considerations.md "emr-presto-considerations.md")
 - [Presto release history](Presto-release-history.md "Presto-release-history.md")

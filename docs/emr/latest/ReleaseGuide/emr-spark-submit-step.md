@@ -129,9 +129,7 @@ AddJobFlowStepsResult result = emr.addJobFlowSteps(req);
    `stderr`. To see the logs available, choose **View
    Logs**.
 
-## Overriding Spark default configuration
-
-settings
+## Overriding Spark default configuration settings
 
 You may want to override Spark default configuration values on a per-application
 basis. You can do this when you submit applications using a step, which essentially

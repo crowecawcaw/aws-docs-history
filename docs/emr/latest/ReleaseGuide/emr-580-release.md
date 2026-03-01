@@ -8,8 +8,7 @@ The table below lists the application versions available in this release of Amaz
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following topics:
 
-- [Application versions in Amazon EMR 7.x
-  releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
+- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
 - [Application versions in Amazon EMR 6.x releases](emr-release-app-versions-6.md "emr-release-app-versions-6.md")
 - [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.md "emr-release-app-versions-5.md")
 - [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.md "emr-release-app-versions-4.md")
@@ -70,8 +69,7 @@ Latest feature update: September 25, 2017
 ###### Changes, enhancements, and resolved issues
 
 - **Integration with AWS Glue Data Catalog**
-  - Added ability for Hive and Spark SQL to use AWS Glue Data Catalog as the Hive metadata store. For more information, see [Using the AWS Glue Data Catalog as the metastore for
-    Hive](emr-hive-metastore-glue.md "emr-hive-metastore-glue.md") and [Use AWS Glue Data Catalog catalog with Spark on Amazon EMR](emr-spark-glue.md "emr-spark-glue.md").
+  - Added ability for Hive and Spark SQL to use AWS Glue Data Catalog as the Hive metadata store. For more information, see [Using the AWS Glue Data Catalog as the metastore for Hive](emr-hive-metastore-glue.md "emr-hive-metastore-glue.md") and [Use AWS Glue Data Catalog catalog with Spark on Amazon EMR](emr-spark-glue.md "emr-spark-glue.md").
 
 - Added **Application history** to cluster details, which allows you to view historical data for YARN applications and additional details for Spark applications. For more information, see [View Application History](../ManagementGuide/emr-cluster-application-history.md "../ManagementGuide/emr-cluster-application-history.md") in the _Amazon EMR Management Guide_.
 - **Oozie**

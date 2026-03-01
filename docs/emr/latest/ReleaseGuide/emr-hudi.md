@@ -57,10 +57,8 @@ For the version of components installed with Hudi in this release, see [Release 
 ###### Topics
 
 - [How Hudi works](emr-hudi-how-it-works.md "emr-hudi-how-it-works.md")
-- [Considerations and limitations for using
-  Hudi on Amazon EMR](emr-hudi-considerations.md "emr-hudi-considerations.md")
-- [Create a cluster with
-  Hudi installed](emr-hudi-installation-and-configuration.md "emr-hudi-installation-and-configuration.md")
+- [Considerations and limitations for using Hudi on Amazon EMR](emr-hudi-considerations.md "emr-hudi-considerations.md")
+- [Create a cluster with Hudi installed](emr-hudi-installation-and-configuration.md "emr-hudi-installation-and-configuration.md")
 - [Work with a Hudi dataset](emr-hudi-work-with-dataset.md "emr-hudi-work-with-dataset.md")
 - [Use the Hudi CLI](emr-hudi-cli.md "emr-hudi-cli.md")
 - [Hudi release history](Hudi-release-history.md "Hudi-release-history.md")

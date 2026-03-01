@@ -1,6 +1,4 @@
-# Spark Result Fragment
-
-Caching
+# Spark Result Fragment Caching
 
 Amazon EMR 6.6.0 and higher include the optional Spark Result Fragment Caching feature that
 automatically caches result fragments. These result fragments are parts of results from
@@ -44,9 +42,7 @@ results. After the feature computes the result fragment, the feature caches the
 fragment. As a result, cache-enabled query times are fast and they remain constant for
 each subsequent query.
 
-## Enabling Spark Result Fragment
-
-Caching
+## Enabling Spark Result Fragment Caching
 
 To enable Spark Result Fragment Caching, perform the following steps:
 
@@ -69,9 +65,7 @@ spark.sql.subResultCache.reductionRatioThreshold
 spark.sql.subResultCache.maxBufferSize
 ```
 
-## Considerations when using Result
-
-Fragment Caching
+## Considerations when using Result Fragment Caching
 
 The cost savings when you use results already cached in Amazon S3 rather than recompute
 them grows with the number of times the same cached results can be used. Queries

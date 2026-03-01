@@ -1,6 +1,4 @@
-# Considerations and limitations for using
-
-Hudi on Amazon EMR
+# Considerations and limitations for using Hudi on Amazon EMR
 
 - **Record key field cannot be null or empty**
   – The field that you specify as the record key field cannot have

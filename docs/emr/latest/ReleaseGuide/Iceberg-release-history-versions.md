@@ -1,6 +1,3 @@
-# Iceberg release notes by
+# Iceberg release notes by version
 
-version
-
-- [Amazon EMR 6.9.0 - Iceberg release
-  notes](Iceberg-release-history-690.md "Iceberg-release-history-690.md")
+- [Amazon EMR 6.9.0 - Iceberg release notes](Iceberg-release-history-690.md "Iceberg-release-history-690.md")

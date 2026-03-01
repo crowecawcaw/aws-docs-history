@@ -34,9 +34,7 @@ interpreters are as follows:
   more information, see [Configure proxy settings to view websites hosted on the primary
   node](../ManagementGuide/emr-connect-master-node-proxy.md "../ManagementGuide/emr-connect-master-node-proxy.md").
 
-## Configure Zeppelin-Flink on an
-
-EMR cluster
+## Configure Zeppelin-Flink on an EMR cluster
 
 Use the following steps to configure Apache Flink on Apache Zeppelin to run on an
 EMR cluster:
@@ -58,9 +56,7 @@ default interpreter.
 ![You can create a new note in a Zeppelin notebook with Flink as the default interpreter.](images/emr-flink-zeppelin-create-notebook.png) 5. Refer to the following code examples that demonstrate how to run Flink
 jobs from a Zeppelin notebook.
 
-## Run Flink jobs with Zeppelin-Flink on an
-
-EMR cluster
+## Run Flink jobs with Zeppelin-Flink on an EMR cluster
 
 - Example 1, Flink Scala
 

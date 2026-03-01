@@ -68,9 +68,7 @@ S3DistCp arguments are shown in the following table.
 
 In addition to the options above, S3DistCp implements the [Tool interface](https://hadoop.apache.org/docs/current/api/org/apache/hadoop/util/Tool.html "https://hadoop.apache.org/docs/current/api/org/apache/hadoop/util/Tool.html") which means that it supports the generic options.
 
-## Adding S3DistCp as a step in a
-
-cluster
+## Adding S3DistCp as a step in a cluster
 
 You can call S3DistCp by adding it as a step in your cluster. Steps can be added
 to a cluster at launch or to a running cluster using the console, CLI, or API. The

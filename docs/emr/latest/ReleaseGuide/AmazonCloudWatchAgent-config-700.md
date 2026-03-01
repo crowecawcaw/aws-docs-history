@@ -8,16 +8,11 @@ will provide additional configuration options through the Amazon EMR API.
 
 ###### Topics
 
-- [Configure additional system
-  metrics with Amazon EMR 7.0.0](#AmazonCloudWatchAgent-config-700-add-metrics "#AmazonCloudWatchAgent-config-700-add-metrics")
-- [Configure application metrics
-  with Amazon EMR 7.0.0](#AmazonCloudWatchAgent-config-700-app-metrics "#AmazonCloudWatchAgent-config-700-app-metrics")
-- [Configure Amazon Managed Service for Prometheus as cloud
-  storage for metrics with Amazon EMR 7.0.0](#AmazonCloudWatchAgent-config-700-prometheus "#AmazonCloudWatchAgent-config-700-prometheus")
+- [Configure additional system metrics with Amazon EMR 7.0.0](#AmazonCloudWatchAgent-config-700-add-metrics "#AmazonCloudWatchAgent-config-700-add-metrics")
+- [Configure application metrics with Amazon EMR 7.0.0](#AmazonCloudWatchAgent-config-700-app-metrics "#AmazonCloudWatchAgent-config-700-app-metrics")
+- [Configure Amazon Managed Service for Prometheus as cloud storage for metrics with Amazon EMR 7.0.0](#AmazonCloudWatchAgent-config-700-prometheus "#AmazonCloudWatchAgent-config-700-prometheus")
 
-## Configure additional system
-
-metrics with Amazon EMR 7.0.0
+## Configure additional system metrics with Amazon EMR 7.0.0
 
 Use the following steps to configure the agent to use a different set of
 system metrics in Amazon EMR 7.0.0:
@@ -71,9 +66,7 @@ system metrics in Amazon EMR 7.0.0:
 When your cluster launches, the CloudWatch agent publishes the system metrics that
 you specified in the configuration file to CloudWatch.
 
-## Configure application metrics
-
-with Amazon EMR 7.0.0
+## Configure application metrics with Amazon EMR 7.0.0
 
 You can configure the Amazon CloudWatch agent to publish application metrics for HDFS
 and YARN in addition to system metrics. Use the following steps to configure the
@@ -139,9 +132,7 @@ agent to publish application metrics:
 When your cluster launches, The CloudWatch agent publishes the application metrics
 that you specified along with the system metrics to CloudWatch.
 
-## Configure Amazon Managed Service for Prometheus as cloud
-
-storage for metrics with Amazon EMR 7.0.0
+## Configure Amazon Managed Service for Prometheus as cloud storage for metrics with Amazon EMR 7.0.0
 
 You can configure the Amazon CloudWatch agent to publish metrics to Amazon Managed Service for Prometheus instead of
 CloudWatch.

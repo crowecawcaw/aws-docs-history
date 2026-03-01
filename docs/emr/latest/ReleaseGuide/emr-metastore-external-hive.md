@@ -1,6 +1,4 @@
-# Configuring an external metastore for
-
-Hive
+# Configuring an external metastore for Hive
 
 By default, Hive records metastore information in a MySQL database on the primary node's
 file system. The metastore contains a description of the table and the underlying data on
@@ -14,13 +12,11 @@ You have two options for an external metastore:
 
 - AWS Glue Data Catalog (Amazon EMR release 5.8.0 or later only).
 
-For more information, see [Using the AWS Glue Data Catalog as the metastore for
-Hive](emr-hive-metastore-glue.md "emr-hive-metastore-glue.md").
+For more information, see [Using the AWS Glue Data Catalog as the metastore for Hive](emr-hive-metastore-glue.md "emr-hive-metastore-glue.md").
 
 - Amazon RDS or Amazon Aurora.
 
-For more information, see [Using an external MySQL database or
-Amazon Aurora](emr-hive-metastore-external.md "emr-hive-metastore-external.md").
+For more information, see [Using an external MySQL database or Amazon Aurora](emr-hive-metastore-external.md "emr-hive-metastore-external.md").
 
 ###### Note
 

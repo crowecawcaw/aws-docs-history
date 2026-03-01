@@ -37,9 +37,7 @@ First, create the remote database for Oozie.
    the dbname, username, password, and RDS instance hostname. You use this
    information when you create and configure your cluster.
 
-###### To specify an external MySQL database for Oozie when launching a cluster using
-
-the AWS CLI
+###### To specify an external MySQL database for Oozie when launching a cluster using the AWS CLI
 
 To specify an external MySQL database for Oozie when launching a cluster using the
 AWS CLI, use the information you noted when creating your RDS instance for configuring

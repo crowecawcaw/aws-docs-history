@@ -11,7 +11,7 @@ Before you install and work with SQL Workbench/J, download the driver package an
 
 - **The latest JDBC and ODBC driver packages**
 
-[http://awssupportdatasvcs.com/bootstrap-actions/Simba/latest/](http://awssupportdatasvcs.com/bootstrap-actions/Simba/latest/ "http://awssupportdatasvcs.com/bootstrap-actions/Simba/latest/")
+[http://awssupportdatasvcs.com/bootstrap-actions/Simba/](http://awssupportdatasvcs.com/bootstrap-actions/Simba/ "http://awssupportdatasvcs.com/bootstrap-actions/Simba/")
 
 ###### To install and configure SQL Workbench
 
