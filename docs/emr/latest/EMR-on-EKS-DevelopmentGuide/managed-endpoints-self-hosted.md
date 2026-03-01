@@ -9,16 +9,11 @@ cluster.
 ###### Creating a self-hosted Jupyter notebook on an EKS cluster
 
 - [Create a security group](#managed-endpoints-self-hosted-security "#managed-endpoints-self-hosted-security")
-- [Create an Amazon EMR on EKS interactive
-  endpoint](#managed-endpoints-self-hosted-create-me "#managed-endpoints-self-hosted-create-me")
-- [Retrieve the gateway server URL of
-  your interactive endpoint](#managed-endpoints-self-hosted-gateway "#managed-endpoints-self-hosted-gateway")
-- [Retrieve an auth token to connect to
-  the interactive endpoint](#managed-endpoints-self-hosted-auth "#managed-endpoints-self-hosted-auth")
-- [Example: Deploy a JupyterLab
-  notebook](#managed-endpoints-self-hosted-example "#managed-endpoints-self-hosted-example")
-- [Delete a self-hosted Jupyter
-  notebook](#managed-endpoints-self-hosted-cleanup "#managed-endpoints-self-hosted-cleanup")
+- [Create an Amazon EMR on EKS interactive endpoint](#managed-endpoints-self-hosted-create-me "#managed-endpoints-self-hosted-create-me")
+- [Retrieve the gateway server URL of your interactive endpoint](#managed-endpoints-self-hosted-gateway "#managed-endpoints-self-hosted-gateway")
+- [Retrieve an auth token to connect to the interactive endpoint](#managed-endpoints-self-hosted-auth "#managed-endpoints-self-hosted-auth")
+- [Example: Deploy a JupyterLab notebook](#managed-endpoints-self-hosted-example "#managed-endpoints-self-hosted-example")
+- [Delete a self-hosted Jupyter notebook](#managed-endpoints-self-hosted-cleanup "#managed-endpoints-self-hosted-cleanup")
 
 ## Create a security group
 
@@ -37,12 +32,9 @@ connection](../../../vpc/latest/peering/create-vpc-peering-connection.md "../../
 You need the ID for the security group to [create an Amazon EMR on EKS interactive
 endpoint](../../../index.md "../../../index.md") in the next step.
 
-## Create an Amazon EMR on EKS interactive
+## Create an Amazon EMR on EKS interactive endpoint
 
-endpoint
-
-After you create security group for your notebook, use the steps provided in [Creating an interactive endpoint for your virtual
-cluster](create-managed-endpoint.md "create-managed-endpoint.md") to create an
+After you create security group for your notebook, use the steps provided in [Creating an interactive endpoint for your virtual cluster](create-managed-endpoint.md "create-managed-endpoint.md") to create an
 interactive endpoint. You must provide the security group ID that you created for your
 notebook in [Create a security group](#managed-endpoints-self-hosted-security "#managed-endpoints-self-hosted-security").
 
@@ -64,9 +56,7 @@ override settings:
     ...'
 ```
 
-## Retrieve the gateway server URL of
-
-your interactive endpoint
+## Retrieve the gateway server URL of your interactive endpoint
 
 After you create an interactive endpoint, retrieve the gateway server URL with the
 `describe-managed-endpoint` command in the AWS CLI. You need this URL to connect
@@ -88,9 +78,7 @@ Take note of the `serverUrl` attribute that the `aws emr-containers
 URL to connect your notebook to the endpoint when you [deploy your self-hosted Jupyter or
 JupyterLab notebook](../../../index.md "../../../index.md").
 
-## Retrieve an auth token to connect to
-
-the interactive endpoint
+## Retrieve an auth token to connect to the interactive endpoint
 
 To connect to an interactive endpoint from a Jupyter or JupyterLab notebook, you must
 generate a session token with the `GetManagedEndpointSessionCredentials` API. The
@@ -145,9 +133,7 @@ self-hosted Jupyter or JupyterLab notebook](../../../index.md "../../../index.md
 }
 ```
 
-## Example: Deploy a JupyterLab
-
-notebook
+## Example: Deploy a JupyterLab notebook
 
 Once you've completed the steps above, you can try this example procedure to deploy a
 JupyterLab notebook into the Amazon EKS cluster with your interactive endpoint.
@@ -204,14 +190,12 @@ The Kubernetes namespace that the notebook deploys into.
 **`serverUrl`**
 
 The `serverUrl` attribute that the
-`describe-managed-endpoint` command returned in [Retrieve the gateway server URL of
-your interactive endpoint](#managed-endpoints-self-hosted-gateway "#managed-endpoints-self-hosted-gateway") .
+`describe-managed-endpoint` command returned in [Retrieve the gateway server URL of your interactive endpoint](#managed-endpoints-self-hosted-gateway "#managed-endpoints-self-hosted-gateway").
 
 **`session-token`**
 
 The `session-token` attribute that the
-`get-managed-endpoint-session-credentials` command returned in [Retrieve an auth token to connect to
-the interactive endpoint](#managed-endpoints-self-hosted-auth "#managed-endpoints-self-hosted-auth").
+`get-managed-endpoint-session-credentials` command returned in [Retrieve an auth token to connect to the interactive endpoint](#managed-endpoints-self-hosted-auth "#managed-endpoints-self-hosted-auth").
 
 **`KERNEL_LAUNCH_TIMEOUT`**
 
@@ -339,9 +323,7 @@ session.stop()
 
 ![Screenshot of example Scala notebook code in JupyterLab.](images/emr-on-eks-Jupyter-notebook-scala-program.png)
 
-## Delete a self-hosted Jupyter
-
-notebook
+## Delete a self-hosted Jupyter notebook
 
 When you're ready to delete your self-hosted notebook, you can also delete the
 interactive endpoint and security group, too. Perform the actions in the following

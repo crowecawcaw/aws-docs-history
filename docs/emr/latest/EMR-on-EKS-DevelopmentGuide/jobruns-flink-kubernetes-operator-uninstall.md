@@ -1,6 +1,4 @@
-# Uninstalling the Flink
-
-Kubernetes operator for Amazon EMR on EKS
+# Uninstalling the Flink Kubernetes operator for Amazon EMR on EKS
 
 Follow these steps to uninstall the Flink Kubernetes operator.
 

@@ -1,6 +1,4 @@
-# Use vertical autoscaling with the Spark operator for
-
-Amazon EMR on EKS
+# Use vertical autoscaling with the Spark operator for Amazon EMR on EKS
 
 Starting with Amazon EMR 7.0, you can use Amazon EMR on EKS vertical autoscaling to simplify resource management. It automatically tunes
 memory and CPU resources to adapt to the needs of the workload that you provide for Amazon EMR
@@ -86,9 +84,7 @@ kubectl delete crd scheduledSparkApplication
    spark.executor.extraLibraryPath: /usr/lib/hadoop/lib/native:/usr/lib/hadoop-lzo/lib/native:/docker/usr/lib/hadoop/lib/native:/docker/usr/lib/hadoop-lzo/lib/native
   ```
 
-## Run a job with vertical autoscaling on the Spark
-
-operator
+## Run a job with vertical autoscaling on the Spark operator
 
 Before you can run a Spark application with the Spark operator, you must complete the
 steps in [Prerequisites](#spark-operator-vas-prereqs "#spark-operator-vas-prereqs").
@@ -170,9 +166,7 @@ For more information on submitting applications to Spark through the Spark opera
 see [Using a `SparkApplication`](https://www.kubeflow.org/docs/components/spark-operator/user-guide/using-sparkapplication/ "https://www.kubeflow.org/docs/components/spark-operator/user-guide/using-sparkapplication/") in the `spark-on-k8s-operator`
 documentation on GitHub.
 
-## Verifying the vertical autoscaling
-
-functionality
+## Verifying the vertical autoscaling functionality
 
 To verify that vertical autoscaling works correctly for the submitted job, use kubectl
 to get the `verticalpodautoscaler` custom resource and view your scaling
@@ -190,8 +184,7 @@ NAMESPACE        NAME                                                          M
 spark-operator   ds-p73j6mkosvc4xeb3gr7x4xol2bfcw5evqimzqojrlysvj3giozuq-vpa   Off          580026651   True       15m
 ```
 
-If your output doesn't look similar or contains an error code, see [Troubleshooting Amazon EMR on EKS vertical
-autoscaling](troubleshooting-vas.md "troubleshooting-vas.md") for steps to help
+If your output doesn't look similar or contains an error code, see [Troubleshooting Amazon EMR on EKS vertical autoscaling](troubleshooting-vas.md "troubleshooting-vas.md") for steps to help
 resolve the issue.
 
 To remove the pods and applications, run the following command:

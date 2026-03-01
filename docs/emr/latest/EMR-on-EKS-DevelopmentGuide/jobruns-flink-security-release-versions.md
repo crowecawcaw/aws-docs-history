@@ -1,6 +1,4 @@
-# Supported releases for Amazon EMR on EKS with
-
-Apache Flink
+# Supported releases for Amazon EMR on EKS with Apache Flink
 
 Apache Flink is available with the following Amazon EMR on EKS releases. For information on all of
 the releases that are available, see [Amazon EMR on EKS releases](emr-eks-releases.md "emr-eks-releases.md").

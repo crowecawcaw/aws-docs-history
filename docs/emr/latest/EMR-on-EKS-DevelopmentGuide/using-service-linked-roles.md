@@ -142,9 +142,7 @@ If the Amazon EMR on EKS service is using the role when you try to delete the re
 the deletion might fail. If that happens, wait for a few minutes and try the operation
 again.
 
-###### To delete Amazon EMR on EKS resources used by the
-
-`AWSServiceRoleForAmazonEMRContainers`
+###### To delete Amazon EMR on EKS resources used by the `AWSServiceRoleForAmazonEMRContainers`
 
 1. Open the Amazon EMR console.
 2. Choose a virtual cluster.

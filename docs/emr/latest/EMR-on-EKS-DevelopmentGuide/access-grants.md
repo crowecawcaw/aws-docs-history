@@ -25,9 +25,7 @@ the following documentation:
 - [Using S3 Access Grants with
   EMR Serverless](../EMR-Serverless-UserGuide/access-grants.md "../EMR-Serverless-UserGuide/access-grants.md")
 
-## Launch an Amazon EMR on EKS cluster with S3 Access Grants for data
-
-management
+## Launch an Amazon EMR on EKS cluster with S3 Access Grants for data management
 
 You can enable S3 Access Grants on Amazon EMR on EKS and launch a Spark job. When your application makes a
 request for S3 data, Amazon S3 provides temporary credentials that are scoped to the specific

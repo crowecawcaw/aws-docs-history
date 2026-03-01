@@ -9,9 +9,7 @@ covers the basic permissions that you need to set up your Amazon EMR on EKS envi
 that you refine the permissions to specific resources whenever possible based on your business
 needs.
 
-## Creating a new IAM policy and attaching it to a
-
-user in the IAM console
+## Creating a new IAM policy and attaching it to a user in the IAM console
 
 ###### Create a new IAM policy
 
@@ -42,9 +40,7 @@ user in the IAM console
    entities. After choosing the user or role to attach the policy to, choose
    **Attach policy**.
 
-## Permissions for managing virtual
-
-clusters
+## Permissions for managing virtual clusters
 
 To manage virtual clusters in your AWS account, create an IAM policy with the
 following permissions. These permissions allow you to create, list, describe, and delete
@@ -152,9 +148,7 @@ JSON
 
 ```
 
-## Permissions for debugging and
-
-monitoring
+## Permissions for debugging and monitoring
 
 To get access to logs pushed to Amazon S3 and CloudWatch, or to view application event logs in the
 Amazon EMR console, create an IAM policy with the following permissions. We recommend that you

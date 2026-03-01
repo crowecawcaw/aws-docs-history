@@ -50,9 +50,7 @@ job submitters in Amazon EMR on EKS managed namespaces.
 - Kubernetes RBAC permissions to deploy mutating webhook ‐ to prevent users from using the mutating webhook to mutate Kubernetes ServiceAccount name for pods created by Amazon EMR on EKS.
 - Kubernetes RBAC permissions to read Kubernetes secrets ‐ to prevent users from reading confidential data stored in these secrets.
 
-## Restrict access to nodegroup IAM role or instance
-
-profile credentials
+## Restrict access to nodegroup IAM role or instance profile credentials
 
 - We recommend that you assign minimum AWS permissions to nodegroup’s IAM role(s). This helps to avoid privilege escalation by code that may run using instance profile credentials of EKS worker nodes.
 - To completely block access to instance profile credentials to all pods that runs in Amazon EMR on EKS managed namespaces, we recommend that you run `iptables` commands on EKS nodes. For more information, see [Restricting access to Amazon EC2 instance profile credentials](../../../eks/latest/userguide/restrict-ec2-credential-access.md "../../../eks/latest/userguide/restrict-ec2-credential-access.md"). However, it is important to properly scope your service account IAM roles so that your pods have all of the necessary permissions. For example, the node IAM role is assigned permissions to pull container images from Amazon ECR. If a pod isn't assigned those permissions, the pod can't pull container images from Amazon ECR. The VPC CNI plugin also needs to be updated. For more information, see [Walkthrough: Updating the VPC CNI plugin to use IAM roles for service accounts](../../../eks/latest/userguide/iam-roles-for-service-accounts-cni-walkthrough.md "../../../eks/latest/userguide/iam-roles-for-service-accounts-cni-walkthrough.md").

@@ -2,9 +2,7 @@
 
 Delta Lake is an open-source storage framework for building a Lakehouse architecture. The following shows how to set it up for use.
 
-###### To use [Delta Lake](https://delta.io/ "https://delta.io/") with Amazon EMR on EKS
-
-applications
+###### To use [Delta Lake](https://delta.io/ "https://delta.io/") with Amazon EMR on EKS applications
 
 1. When you start a job run to submit a Spark job in the application configuration,
    include the Delta Lake JAR files:

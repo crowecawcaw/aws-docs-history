@@ -1,6 +1,4 @@
-# Uninstall the Amazon EMR on EKS vertical
-
-autoscaling operator
+# Uninstall the Amazon EMR on EKS vertical autoscaling operator
 
 If you want to remove the vertical autoscaling operator from your Amazon EKS cluster, use the
 `cleanup` command with the Operator SDK CLI as shown in the following example.

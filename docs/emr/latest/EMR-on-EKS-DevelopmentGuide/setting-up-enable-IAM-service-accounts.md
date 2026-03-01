@@ -1,6 +1,4 @@
-# Option 2: Enable IAM Roles for Service Accounts (IRSA) on the
-
-EKS cluster
+# Option 2: Enable IAM Roles for Service Accounts (IRSA) on the EKS cluster
 
 The IAM roles for service accounts feature is available on Amazon EKS versions 1.14 and
 later and for EKS clusters that are updated to versions 1.13 or later on or after September
@@ -30,9 +28,7 @@ https://oidc.eks.<region-code>.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E
 To use IAM roles for service accounts in your cluster, you must create an OIDC identity
 provider using either [eksctl](../../../eks/latest/userguide/enable-iam-roles-for-service-accounts.md#create-oidc-eksctl "../../../eks/latest/userguide/enable-iam-roles-for-service-accounts.md#create-oidc-eksctl") or the [AWS Management Console](../../../eks/latest/userguide/enable-iam-roles-for-service-accounts.md#create-oidc-console "../../../eks/latest/userguide/enable-iam-roles-for-service-accounts.md#create-oidc-console").
 
-## To create an IAM OIDC identity provider for your
-
-cluster with `eksctl`
+## To create an IAM OIDC identity provider for your cluster with `eksctl`
 
 Check your `eksctl` version with the following command. This procedure
 assumes that you have installed `eksctl` and that your `eksctl`
@@ -52,9 +48,7 @@ Create your OIDC identity provider for your cluster with the following command. 
 eksctl utils associate-iam-oidc-provider --cluster `cluster_name` --approve
 ```
 
-## To create an IAM OIDC identity provider for your
-
-cluster with the AWS Management Console
+## To create an IAM OIDC identity provider for your cluster with the AWS Management Console
 
 Retrieve the OIDC issuer URL from the Amazon EKS console description of your cluster, or
 use the following AWS CLI command.

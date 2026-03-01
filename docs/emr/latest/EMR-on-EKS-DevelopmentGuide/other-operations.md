@@ -65,9 +65,7 @@ and name.
  }
 ```
 
-## List all interactive endpoints associated with
-
-a virtual cluster
+## List all interactive endpoints associated with a virtual cluster
 
 Use the `list-managed-endpoints` AWS CLI command to fetch a list of all the
 interactive endpoints associated with a specified virtual cluster. Replace

@@ -4,24 +4,19 @@ Follow these steps to customize Docker images for Amazon EMR on EKS. The steps s
 publish it, and submit a workload using the image.
 
 - [Prerequisites](#docker-custom-images-prereq "#docker-custom-images-prereq")
-- [Step 1: Retrieve a base image from Amazon Elastic Container Registry
-  (Amazon ECR)](#docker-custom-images-retrieve "#docker-custom-images-retrieve")
+- [Step 1: Retrieve a base image from Amazon Elastic Container Registry (Amazon ECR)](#docker-custom-images-retrieve "#docker-custom-images-retrieve")
 - [Step 2: Customize a base image](#docker-custom-images-customize "#docker-custom-images-customize")
-- [Step 3: (Optional but recommended) Validate
-  a custom image](#docker-custom-images-validate "#docker-custom-images-validate")
+- [Step 3: (Optional but recommended) Validate a custom image](#docker-custom-images-validate "#docker-custom-images-validate")
 - [Step 4: Publish a custom image](#docker-custom-images-publish "#docker-custom-images-publish")
-- [Step 5: Submit a Spark workload in Amazon EMR using
-  a custom image](#docker-custom-images-submit "#docker-custom-images-submit")
+- [Step 5: Submit a Spark workload in Amazon EMR using a custom image](#docker-custom-images-submit "#docker-custom-images-submit")
 
 ###### Note
 
 Other options you may want to consider when customizing Docker images are customizing for interactive endpoints, which you do to ensure you have your required dependencies, or
 using multi-architectural container images:
 
-- [Customize Docker images for interactive
-  endpoints](docker-custom-images-managed-endpoint.md "docker-custom-images-managed-endpoint.md")
-- [Work with multi-architecture
-  images](docker-custom-images-multi-architecture.md "docker-custom-images-multi-architecture.md")
+- [Customize Docker images for interactive endpoints](docker-custom-images-managed-endpoint.md "docker-custom-images-managed-endpoint.md")
+- [Work with multi-architecture images](docker-custom-images-multi-architecture.md "docker-custom-images-multi-architecture.md")
 
 ## Prerequisites
 
@@ -29,9 +24,7 @@ using multi-architectural container images:
   Amazon EMR on EKS.
 - Install Docker in your environment. For more information, see [Get Docker](https://docs.docker.com/get-docker/ "https://docs.docker.com/get-docker/").
 
-## Step 1: Retrieve a base image from Amazon Elastic Container Registry
-
-(Amazon ECR)
+## Step 1: Retrieve a base image from Amazon Elastic Container Registry (Amazon ECR)
 
 The base image contains the Amazon EMR runtime and connectors that are used to access other
 AWS services. For Amazon EMR 6.9.0 and higher, you can get the base images from the
@@ -111,9 +104,7 @@ USER hadoop:hadoop
 docker build -t `emr6.6_custom` .
 ```
 
-## Step 3: (Optional but recommended) Validate
-
-a custom image
+## Step 3: (Optional but recommended) Validate a custom image
 
 We recommend that you test the compatibility of your custom image before publishing it.
 You can use the [Amazon EMR on EKS custom image CLI](https://github.com/awslabs/amazon-emr-on-eks-custom-image-cli "https://github.com/awslabs/amazon-emr-on-eks-custom-image-cli") to check if your image has the required file
@@ -226,9 +217,7 @@ docker push `aws_account_id`.dkr.ecr.us-west-2.amazonaws.com/`emr6.6_custom_repo
 For more information, see [Push an image
 to Amazon ECR](../../../AmazonECR/latest/userguide/getting-started-cli.md#cli-push-image "../../../AmazonECR/latest/userguide/getting-started-cli.md#cli-push-image") in the _Amazon ECR User Guide_.
 
-## Step 5: Submit a Spark workload in Amazon EMR using
-
-a custom image
+## Step 5: Submit a Spark workload in Amazon EMR using a custom image
 
 After a custom image is built and published, you can submit an Amazon EMR on EKS job using a
 custom image.

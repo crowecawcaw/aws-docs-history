@@ -1,6 +1,4 @@
-# Setting up IAM roles for service accounts (IRSA)
-
-for spark-submit
+# Setting up IAM roles for service accounts (IRSA) for spark-submit
 
 The following sections explain how to set up IAM roles for service accounts (IRSA)
 to authenticate and authorize Kubernetes service accounts so you can run Spark applications stored in Amazon S3.

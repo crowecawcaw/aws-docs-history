@@ -21,9 +21,7 @@ cross-account access:
 - A job execution role in `AccountA` that has the required permissions to run jobs in
   the virtual cluster. For more information, see [Create a job execution role](creating-job-execution-role.md "creating-job-execution-role.md") and [Using job execution roles with Amazon EMR on EKS](iam-execution-role.md "iam-execution-role.md").
 
-## How to access a cross-account Amazon S3 bucket or DynamoDB
-
-table
+## How to access a cross-account Amazon S3 bucket or DynamoDB table
 
 To set up cross-account access for Amazon EMR on EKS, complete the following steps.
 

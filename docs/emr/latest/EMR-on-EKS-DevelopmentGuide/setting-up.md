@@ -18,5 +18,4 @@ Guide](https://aws.github.io/aws-emr-containers-best-practices/ "https://aws.git
 4. [Enable cluster access for Amazon EMR on EKS](setting-up-cluster-access.md "setting-up-cluster-access.md")
 5. [Enable IAM Roles for the EKS cluster](setting-up-enable-IAM-roles.md "setting-up-enable-IAM-roles.md")
 6. [Grant users access to Amazon EMR on EKS](setting-up-iam.md "setting-up-iam.md")
-7. [Register the Amazon EKS cluster with Amazon
-   EMR](setting-up-registration.md "setting-up-registration.md")
+7. [Register the Amazon EKS cluster with Amazon EMR](setting-up-registration.md "setting-up-registration.md")

@@ -61,8 +61,7 @@ custom image.**
     }
     ```
     2. Create an interactive endpoint with the configurations specified in the JSON
-     file as shown in the following example. For more information, see [Create an interactive endpoint with the
-     create-managed-endpoint command](create-managed-endpoint.md#create-using-json-file "create-managed-endpoint.md#create-using-json-file").
+     file as shown in the following example. For more information, see [Create an interactive endpoint with the create-managed-endpoint command](create-managed-endpoint.md#create-using-json-file "create-managed-endpoint.md#create-using-json-file").
 
 
 

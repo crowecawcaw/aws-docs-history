@@ -1,6 +1,4 @@
-# Graceful decommission of Spot Instances
-
-with Flink on Amazon EMR on EKS
+# Graceful decommission of Spot Instances with Flink on Amazon EMR on EKS
 
 Flink with Amazon EMR on EKS can improve the job restart time during task recovery or
 scaling operations.

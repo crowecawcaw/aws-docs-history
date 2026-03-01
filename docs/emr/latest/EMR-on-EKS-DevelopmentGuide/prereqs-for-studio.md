@@ -1,6 +1,4 @@
-# Prerequisites to create an interactive endpoint on
-
-Amazon EMR on EKS
+# Prerequisites to create an interactive endpoint on Amazon EMR on EKS
 
 This section describes prerequisites to set up an interactive endpoint that EMR Studio
 can use to connect to an Amazon EMR on EKS cluster and run interactive workloads.
@@ -102,12 +100,9 @@ Set up a virtual cluster and map it to the namespace in the Amazon EKS cluster w
 to run your jobs. For AWS Fargate-only clusters, use the same namespace for both the
 Amazon EMR on EKS virtual cluster and Fargate profile.
 
-For information on setting up an Amazon EMR on EKS virtual cluster, see [Register the Amazon EKS cluster with Amazon
-EMR](setting-up-registration.md "setting-up-registration.md").
+For information on setting up an Amazon EMR on EKS virtual cluster, see [Register the Amazon EKS cluster with Amazon EMR](setting-up-registration.md "setting-up-registration.md").
 
-## Deploy AWS Load Balancer Controller to Amazon EKS
-
-cluster
+## Deploy AWS Load Balancer Controller to Amazon EKS cluster
 
 An AWS Application Load Balancer is required for your Amazon EKS cluster. You only need to set up one Application Load Balancer
 controller per Amazon EKS cluster. For information on setting up the AWS Application Load Balancer controller, see

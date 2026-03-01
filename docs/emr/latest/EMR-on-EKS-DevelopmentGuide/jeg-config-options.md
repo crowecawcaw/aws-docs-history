@@ -1,6 +1,4 @@
-# Jupyter Enterprise Gateway (JEG) configuration
-
-options
+# Jupyter Enterprise Gateway (JEG) configuration options
 
 Amazon EMR on EKS uses Jupyter Enterprise Gateway (JEG) to turn on interactive endpoints. You
 can set the following values for the allow-listed JEG configurations when you create the endpoint.

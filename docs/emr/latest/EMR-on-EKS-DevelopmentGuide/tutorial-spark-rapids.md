@@ -1,6 +1,4 @@
-# Using RAPIDS Accelerator for Apache Spark with
-
-Amazon EMR on EKS
+# Using RAPIDS Accelerator for Apache Spark with Amazon EMR on EKS
 
 With Amazon EMR on EKS, you can run jobs for the Nvidia RAPIDS Accelerator for Apache Spark. This
 tutorial covers how to run Spark jobs using RAPIDS on EC2 graphics processing unit (GPU)

@@ -8,9 +8,6 @@ stored in Amazon Redshift. The integration is based on the [`spark-redshift` ope
 ###### Topics
 
 - [Launching a Spark application using the Amazon Redshift integration for Apache Spark](emr-spark-redshift-launch.md "emr-spark-redshift-launch.md")
-- [Authenticating with the
-  Amazon Redshift integration for Apache Spark](emr-spark-redshift-auth.md "emr-spark-redshift-auth.md")
-- [Reading and writing from and to
-  Amazon Redshift](emr-spark-redshift-readwrite.md "emr-spark-redshift-readwrite.md")
-- [Considerations and limitations
-  when using the Spark connector](emr-spark-redshift-considerations.md "emr-spark-redshift-considerations.md")
+- [Authenticating with the Amazon Redshift integration for Apache Spark](emr-spark-redshift-auth.md "emr-spark-redshift-auth.md")
+- [Reading and writing from and to Amazon Redshift](emr-spark-redshift-readwrite.md "emr-spark-redshift-readwrite.md")
+- [Considerations and limitations when using the Spark connector](emr-spark-redshift-considerations.md "emr-spark-redshift-considerations.md")

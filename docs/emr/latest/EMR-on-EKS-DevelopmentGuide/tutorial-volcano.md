@@ -1,6 +1,4 @@
-# Using Volcano as a custom scheduler for Apache Spark
-
-on Amazon EMR on EKS
+# Using Volcano as a custom scheduler for Apache Spark on Amazon EMR on EKS
 
 With Amazon EMR on EKS, you can use Spark operator or spark-submit to run Spark jobs with
 Kubernetes custom schedulers. This tutorial covers how to run Spark jobs with a Volcano
@@ -72,9 +70,7 @@ EOF
 aws s3 mv podGroup.yaml s3://`bucket-name`
 ```
 
-## Run a Spark application with Volcano
-
-scheduler with the Spark operator
+## Run a Spark application with Volcano scheduler with the Spark operator
 
 1. If you haven't already, complete the steps in the following sections to get set up:
    1. [Install and set up Volcano](#tutorial-volcano-install "#tutorial-volcano-install")
@@ -157,9 +153,7 @@ Type    Reason     Age   From                Message
 Normal  Scheduled  23s   volcano             Successfully assigned default/spark-pi-driver to integration-worker2
 ```
 
-## Run a Spark application with Volcano
-
-scheduler with `spark-submit`
+## Run a Spark application with Volcano scheduler with `spark-submit`
 
 1. First, complete the steps in the [Setting up spark-submit for Amazon EMR on EKS](spark-submit-setup.md "spark-submit-setup.md") section. You must build your `spark-submit` distribution with Volcano support. For more information, see the **Build section** of [Using Volcano as Customized Scheduler for Spark on Kubernetes](https://spark.apache.org/docs/latest/running-on-kubernetes.html#build "https://spark.apache.org/docs/latest/running-on-kubernetes.html#build") in the _Apache Spark documentation_.
 2. Set the values for the following environment variables:

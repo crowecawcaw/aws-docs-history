@@ -1,6 +1,4 @@
-# Update the trust policy of the job execution
-
-role
+# Update the trust policy of the job execution role
 
 When you use IAM Roles for Service Accounts (IRSA) to run jobs on a Kubernetes namespace,
 an administrator must create a trust relationship between the job execution role and the

@@ -38,26 +38,17 @@ submitter pod runs is subject to a Spot Instance interruption. You can also [pla
 Availability Zone](#emr-eks-job-submitter-ex-1az "#emr-eks-job-submitter-ex-1az"), or [use any Kubernetes
 labels that are applied to the nodes](#emr-eks-job-submitter-ex-ec2 "#emr-eks-job-submitter-ex-ec2").
 
-## Job submitter classification
-
-examples
+## Job submitter classification examples
 
 ###### In this section
 
-- [StartJobRun request with
-  On-Demand node placement for the job submitter pod](#emr-eks-job-submitter-ex-od "#emr-eks-job-submitter-ex-od")
-- [StartJobRun request with
-  single-AZ node placement for the job submitter pod](#emr-eks-job-submitter-ex-1az "#emr-eks-job-submitter-ex-1az")
-- [StartJobRun request with
-  single-AZ and Amazon EC2 instance type placement for the job submitter pod](#emr-eks-job-submitter-ex-ec2 "#emr-eks-job-submitter-ex-ec2")
-- [StartJobRun request with
-  custom logging container image, CPU, and memory](#emr-eks-job-submitter-custom "#emr-eks-job-submitter-custom")
-- [StartJobRun request with
-  with custom container image](#emr-eks-job-submitter-custom-container "#emr-eks-job-submitter-custom-container")
+- [StartJobRun request with On-Demand node placement for the job submitter pod](#emr-eks-job-submitter-ex-od "#emr-eks-job-submitter-ex-od")
+- [StartJobRun request with single-AZ node placement for the job submitter pod](#emr-eks-job-submitter-ex-1az "#emr-eks-job-submitter-ex-1az")
+- [StartJobRun request with single-AZ and Amazon EC2 instance type placement for the job submitter pod](#emr-eks-job-submitter-ex-ec2 "#emr-eks-job-submitter-ex-ec2")
+- [StartJobRun request with custom logging container image, CPU, and memory](#emr-eks-job-submitter-custom "#emr-eks-job-submitter-custom")
+- [StartJobRun request with with custom container image](#emr-eks-job-submitter-custom-container "#emr-eks-job-submitter-custom-container")
 
-### `StartJobRun` request with
-
-On-Demand node placement for the job submitter pod
+### `StartJobRun` request with On-Demand node placement for the job submitter pod
 
 ```
 cat >spark-python-in-s3-nodeselector-job-submitter.json << EOF
@@ -102,9 +93,7 @@ EOF
 aws emr-containers start-job-run --cli-input-json file:///spark-python-in-s3-nodeselector-job-submitter.json
 ```
 
-### `StartJobRun` request with
-
-single-AZ node placement for the job submitter pod
+### `StartJobRun` request with single-AZ node placement for the job submitter pod
 
 ```
 cat >spark-python-in-s3-nodeselector-job-submitter-az.json << EOF
@@ -149,9 +138,7 @@ EOF
 aws emr-containers start-job-run --cli-input-json file:///spark-python-in-s3-nodeselector-job-submitter-az.json
 ```
 
-### `StartJobRun` request with
-
-single-AZ and Amazon EC2 instance type placement for the job submitter pod
+### `StartJobRun` request with single-AZ and Amazon EC2 instance type placement for the job submitter pod
 
 ```
 {
@@ -194,9 +181,7 @@ single-AZ and Amazon EC2 instance type placement for the job submitter pod
 }
 ```
 
-### `StartJobRun` request with
-
-custom logging container image, CPU, and memory
+### `StartJobRun` request with custom logging container image, CPU, and memory
 
 ```
 {
@@ -233,9 +218,7 @@ custom logging container image, CPU, and memory
 }
 ```
 
-### `StartJobRun` request with
-
-with custom container image
+### `StartJobRun` request with with custom container image
 
 ```
 cat >spark-python-in-s3-nodeselector-custom-container-image-job-submitter.json << EOF

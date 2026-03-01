@@ -19,8 +19,7 @@ prerequisites, you can skip those and move on to the next one.
   `spark-submit` command is supported with Amazon EMR releases 6.10.0 and
   higher.
 - Confirm that the driver service account has appropriate permissions to create and
-  watch executor pods. For more information, see [Verify Spark driver service account security requirements
-  for spark-submit](spark-submit-security.md "spark-submit-security.md").
+  watch executor pods. For more information, see [Verify Spark driver service account security requirements for spark-submit](spark-submit-security.md "spark-submit-security.md").
 - Set up your local [AWS credentials
   profile](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md").
 - From the Amazon EKS console, choose your EKS cluster, then find the EKS cluster endpoint, located

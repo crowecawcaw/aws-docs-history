@@ -1,6 +1,4 @@
-# Considerations and limitations
-
-when using the Spark connector
+# Considerations and limitations when using the Spark connector
 
 The Spark connector supports a variety of ways to manage credentials, to configure security, and to connect with other AWS services. Get familiar with the recommendations in this
 list in order to configure a functional and resilient connection.

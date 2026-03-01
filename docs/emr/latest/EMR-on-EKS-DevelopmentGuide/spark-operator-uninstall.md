@@ -1,6 +1,4 @@
-# Uninstalling the Spark operator for
-
-Amazon EMR on EKS
+# Uninstalling the Spark operator for Amazon EMR on EKS
 
 Use the following steps to uninstall the Spark operator.
 

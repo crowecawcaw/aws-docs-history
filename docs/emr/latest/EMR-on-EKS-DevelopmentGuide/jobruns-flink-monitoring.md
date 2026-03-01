@@ -7,5 +7,4 @@ job status and metrics, or using a monitoring configuration to send log data to 
 
 - [Use Amazon Managed Service for Prometheus to monitor Flink jobs](jobruns-flink-monitoring-prometheus.md "jobruns-flink-monitoring-prometheus.md")
 - [Use the Flink UI to monitor Flink jobs](jobruns-flink-monitoring-ui.md "jobruns-flink-monitoring-ui.md")
-- [Use monitoring configuration
-  to monitor Flink Kubernetes operator and Flink jobs](jobruns-flink-monitoring-configuration.md "jobruns-flink-monitoring-configuration.md")
+- [Use monitoring configuration to monitor Flink Kubernetes operator and Flink jobs](jobruns-flink-monitoring-configuration.md "jobruns-flink-monitoring-configuration.md")

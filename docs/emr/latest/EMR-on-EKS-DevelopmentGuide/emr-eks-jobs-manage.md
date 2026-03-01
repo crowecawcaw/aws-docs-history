@@ -7,8 +7,7 @@ want to set up and complete a job run to process data.
 ###### Topics
 
 - [Managing job runs with the AWS CLI](emr-eks-jobs-CLI.md "emr-eks-jobs-CLI.md")
-- [Running Spark SQL scripts through the
-  StartJobRun API](emr-eks-jobs-spark-sql-parameters.md "emr-eks-jobs-spark-sql-parameters.md")
+- [Running Spark SQL scripts through the StartJobRun API](emr-eks-jobs-spark-sql-parameters.md "emr-eks-jobs-spark-sql-parameters.md")
 - [Job run states](emr-eks-jobs-states.md "emr-eks-jobs-states.md")
 - [Viewing jobs in the Amazon EMR console](emr-eks-jobs-console.md "emr-eks-jobs-console.md")
 - [Common errors when running jobs](emr-eks-jobs-error.md "emr-eks-jobs-error.md")

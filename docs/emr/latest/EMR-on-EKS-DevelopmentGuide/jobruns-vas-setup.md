@@ -7,10 +7,8 @@ following sections:
 ###### Topics
 
 - [Prerequisites](#jobruns-vas-prereqs "#jobruns-vas-prereqs")
-- [Install the Operator Lifecycle Manager (OLM) on
-  your Amazon EKS cluster](#jobruns-vas-install-olm "#jobruns-vas-install-olm")
-- [Install the Amazon EMR on EKS vertical autoscaling
-  operator](#jobruns-vas-install-operator "#jobruns-vas-install-operator")
+- [Install the Operator Lifecycle Manager (OLM) on your Amazon EKS cluster](#jobruns-vas-install-olm "#jobruns-vas-install-olm")
+- [Install the Amazon EMR on EKS vertical autoscaling operator](#jobruns-vas-install-operator "#jobruns-vas-install-operator")
 
 ## Prerequisites
 
@@ -44,9 +42,7 @@ skip those and move on to the next one.
   base image URI](docker-custom-images-tag.md "docker-custom-images-tag.md") (release 6.10.0 or higher) – Vertical
   autoscaling is supported with Amazon EMR releases 6.10.0 and higher.
 
-## Install the Operator Lifecycle Manager (OLM) on
-
-your Amazon EKS cluster
+## Install the Operator Lifecycle Manager (OLM) on your Amazon EKS cluster
 
 Use the Operator SDK CLI to install the Operator Lifecycle Manager (OLM) on the
 Amazon EMR on EKS cluster where you want to set up vertical autoscaling, as shown in the following
@@ -71,12 +67,9 @@ output:
 INFO[0007] Successfully got OLM status for version `X.XX`
 ```
 
-If your installation doesn't succeed, see [Troubleshooting Amazon EMR on EKS vertical
-autoscaling](troubleshooting-vas.md "troubleshooting-vas.md").
+If your installation doesn't succeed, see [Troubleshooting Amazon EMR on EKS vertical autoscaling](troubleshooting-vas.md "troubleshooting-vas.md").
 
-## Install the Amazon EMR on EKS vertical autoscaling
-
-operator
+## Install the Amazon EMR on EKS vertical autoscaling operator
 
 Use the following steps to install the vertical autoscaling operator on your Amazon EKS
 cluster:
@@ -124,8 +117,7 @@ $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/dynamic-sizing-k8s-operator-olm-bundle
 ###### Note
 
 If the namespace that you specify doesn't exist, OLM won't install the operator.
-For more information, see [Kubernetes namespace not
-found](troubleshooting-vas.md "troubleshooting-vas.md"). 4. Verify that you successfully installed the operator with the kubectl Kubernetes
+For more information, see [Kubernetes namespace not found](troubleshooting-vas.md "troubleshooting-vas.md"). 4. Verify that you successfully installed the operator with the kubectl Kubernetes
 command-line tool.
 
 ```
@@ -134,5 +126,4 @@ kubectl get csv -n `operator-namespace`
 
 The `kubectl` command should return your newly-deployed vertical
 autoscaler operator with a **Phase** status of **Succeeded**. If you've trouble with installation or setup, see
-[Troubleshooting Amazon EMR on EKS vertical
-autoscaling](troubleshooting-vas.md "troubleshooting-vas.md").
+[Troubleshooting Amazon EMR on EKS vertical autoscaling](troubleshooting-vas.md "troubleshooting-vas.md").

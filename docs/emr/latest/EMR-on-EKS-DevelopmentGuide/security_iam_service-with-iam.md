@@ -21,9 +21,7 @@ To get a high-level view of how Amazon EMR on EKS and other AWS services work wi
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Amazon EMR on EKS
+## Identity-based policies for Amazon EMR on EKS
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Amazon EMR on EKS
 
-Identity-based policy examples for Amazon EMR on EKS
+To view examples of Amazon EMR on EKS identity-based policies, see [Identity-based policy examples for Amazon EMR on EKS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Amazon EMR on EKS identity-based policies, see [Identity-based policy examples for
-Amazon EMR on EKS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Amazon EMR on EKS
+## Resource-based policies within Amazon EMR on EKS
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Amazon EMR on EKS
+## Policy actions for Amazon EMR on EKS
 
 **Supports policy actions:**
 
@@ -97,12 +88,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of Amazon EMR on EKS identity-based policies, see [Identity-based policy examples for
-Amazon EMR on EKS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon EMR on EKS identity-based policies, see [Identity-based policy examples for Amazon EMR on EKS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Amazon EMR on EKS
+## Policy resources for Amazon EMR on EKS
 
 **Supports policy resources:**
 
@@ -121,12 +109,9 @@ To see a list of Amazon EMR on EKS resource types and their ARNs, see [Resources
 in the _Service Authorization Reference_. To learn which actions you can specify the
 ARN of each resource, see [Actions, resources, and condition keys for Amazon EMR on EKS](../../../service-authorization/latest/reference/list_amazonemroneksemrcontainers.md "../../../service-authorization/latest/reference/list_amazonemroneksemrcontainers.md").
 
-To view examples of Amazon EMR on EKS identity-based policies, see [Identity-based policy examples for
-Amazon EMR on EKS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon EMR on EKS identity-based policies, see [Identity-based policy examples for Amazon EMR on EKS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Amazon EMR on EKS
+## Policy condition keys for Amazon EMR on EKS
 
 **Supports service-specific policy condition keys:**
 
@@ -144,12 +129,9 @@ _IAM User Guide_.
 To see a list of Amazon EMR on EKS condition keys and to learn which actions and resources you can use a condition key, see [Actions, resources, and condition keys for Amazon EMR on EKS](../../../service-authorization/latest/reference/list_amazonemroneksemrcontainers.md "../../../service-authorization/latest/reference/list_amazonemroneksemrcontainers.md") in the
 _Service Authorization Reference_.
 
-To view examples of Amazon EMR on EKS identity-based policies, see [Identity-based policy examples for
-Amazon EMR on EKS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon EMR on EKS identity-based policies, see [Identity-based policy examples for Amazon EMR on EKS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control lists (ACLs) in
-
-Amazon EMR on EKS
+## Access control lists (ACLs) in Amazon EMR on EKS
 
 **Supports ACLs:**
 
@@ -158,9 +140,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with Amazon EMR on EKS
+## Attribute-based access control (ABAC) with Amazon EMR on EKS
 
 |                                  |     |
 | -------------------------------- | --- |
@@ -177,9 +157,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using Temporary
-
-credentials with Amazon EMR on EKS
+## Using Temporary credentials with Amazon EMR on EKS
 
 **Supports temporary credentials:**
 
@@ -191,9 +169,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Amazon EMR on EKS
+## Cross-service principal permissions for Amazon EMR on EKS
 
 **Supports forward access sessions (FAS):**
 
@@ -202,17 +178,13 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon EMR on EKS
+## Service roles for Amazon EMR on EKS
 
 |                        |     |
 | ---------------------- | --- |
 | Supports service roles | No  |
 
-## Service-linked
-
-roles for Amazon EMR on EKS
+## Service-linked roles for Amazon EMR on EKS
 
 |                               |     |
 | ----------------------------- | --- |

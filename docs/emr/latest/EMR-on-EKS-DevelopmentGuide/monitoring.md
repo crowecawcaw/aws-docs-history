@@ -9,8 +9,7 @@ the health of your resources.
 - [Monitor jobs with Amazon CloudWatch Events](#monitoring-cloudwatch-events "#monitoring-cloudwatch-events")
 - [Automate Amazon EMR on EKS with CloudWatch Events](#monitoring-automate-emr-on-eks "#monitoring-automate-emr-on-eks")
 - [Example: Set up a rule that invokes Lambda](#monitoring-example-rule "#monitoring-example-rule")
-- [Monitor job’s driver pod with a retry policy
-  using Amazon CloudWatch Events](#monitor-jobs-with-retry-policies "#monitor-jobs-with-retry-policies")
+- [Monitor job’s driver pod with a retry policy using Amazon CloudWatch Events](#monitor-jobs-with-retry-policies "#monitor-jobs-with-retry-policies")
 
 ## Monitor jobs with Amazon CloudWatch Events
 
@@ -99,9 +98,7 @@ aws lambda add-permission \
 You cannot write a program that depends on the order or existence of notification events,
 as they might be out of sequence or missing. Events are emitted on a best effort basis.
 
-## Monitor job’s driver pod with a retry policy
-
-using Amazon CloudWatch Events
+## Monitor job’s driver pod with a retry policy using Amazon CloudWatch Events
 
 Using CloudWatch events, you can monitor driver pods that have been created in jobs that have
 retry policies. For more information, see [Monitoring a job with a retry policy](jobruns-using-retry-policies.md#monitoring-retry "jobruns-using-retry-policies.md#monitoring-retry") in this guide.

@@ -30,8 +30,7 @@ Amazon EMR on EKS jobs use Amazon CloudWatch and Amazon S3 as destination target
 You can monitor job progress and troubleshoot failures by viewing the job logs sent to these
 destinations. To enable logging, the IAM policy associated with the IAM role for job execution
 must have the required permissions to access the target resources. If the IAM policy doesn't
-have the required permissions, you must follow the steps outlined in [Update the trust policy of the job execution
-role](setting-up-trust-policy.md "setting-up-trust-policy.md"), [Configure
+have the required permissions, you must follow the steps outlined in [Update the trust policy of the job execution role](setting-up-trust-policy.md "setting-up-trust-policy.md"), [Configure
 a job run to use Amazon S3 logs](emr-eks-jobs-CLI.md#emr-eks-jobs-s3 "emr-eks-jobs-CLI.md#emr-eks-jobs-s3"), and [Configure a job run to use CloudWatch Logs](emr-eks-jobs-CLI.md#emr-eks-jobs-cloudwatch "emr-eks-jobs-CLI.md#emr-eks-jobs-cloudwatch") before running this sample job.
 
 ## Run a Spark application
@@ -165,8 +164,7 @@ The output data from this job will be available at
 
 You can also create a JSON file with specified parameters for your job run. Then run
 the `start-job-run` command with a path to the JSON file. For more information,
-see [Submit a job run with
-StartJobRun](emr-eks-jobs-submit.md "emr-eks-jobs-submit.md"). For more
+see [Submit a job run with StartJobRun](emr-eks-jobs-submit.md "emr-eks-jobs-submit.md"). For more
 details about configuring job run parameters, see [Options for configuring a job run](emr-eks-jobs-CLI.md#emr-eks-jobs-parameters "emr-eks-jobs-CLI.md#emr-eks-jobs-parameters"). 3. To run a Spark SQL application, use the following command. Replace all the
 `red italicized` values with appropriate values. The
 `REGION` is the Region in which your Amazon EMR on EKS virtual

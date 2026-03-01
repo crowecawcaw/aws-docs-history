@@ -39,9 +39,7 @@ Each interactive endpoint metric has the following dimensions attached to it:
 
 ## Examples
 
-### To access the total number of kernels launched for an
-
-interactive endpoint on a given day:
+### To access the total number of kernels launched for an interactive endpoint on a given day:
 
 1. Select the custom namespace: `EMRContainers`
 2. Select your `ManagedEndpointId`, `OperationName –
@@ -53,9 +51,7 @@ CreateKernel`
 day` will provide all the successful kernel launch requests made in the last
    24 hours.
 
-### To access the number of kernel failures for an interactive
-
-endpoint on a given day:
+### To access the number of kernel failures for an interactive endpoint on a given day:
 
 1. Select the custom namespace: EMRContainers
 2. Select your `ManagedEndpointId`, `OperationName –

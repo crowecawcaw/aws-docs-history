@@ -1,11 +1,8 @@
-# Configuring vertical autoscaling for
-
-Amazon EMR on EKS
+# Configuring vertical autoscaling for Amazon EMR on EKS
 
 You can configure vertical autoscaling when you submit Amazon EMR Spark jobs through the
 [StartJobRun](../../../emr-on-eks/latest/APIReference/API_StartJobRun.md "../../../emr-on-eks/latest/APIReference/API_StartJobRun.md") API. Set the autoscaling-related configuration parameters on the
-Spark driver pod as shown in the example in [Submitting a Spark job with vertical
-autoscaling](jobruns-vas-gs.md#jobruns-vas-spark-submit "jobruns-vas-gs.md#jobruns-vas-spark-submit").
+Spark driver pod as shown in the example in [Submitting a Spark job with vertical autoscaling](jobruns-vas-gs.md#jobruns-vas-spark-submit "jobruns-vas-gs.md#jobruns-vas-spark-submit").
 
 The Amazon EMR on EKS vertical autoscaling operator listens to driver pods that have
 autoscaling, then sets up integration with the Kubernetes Vertical Pod Autoscaler (VPA) with
@@ -99,9 +96,7 @@ resources. Set the `dynamic.sizing.scale.cpu` and
 `false`. By default, CPU scaling is set to `false`, and memory
 scaling is set to `true`.
 
-### Resource minimums and maximums
-
-(Bounds)
+### Resource minimums and maximums (Bounds)
 
 Optionally, you can also set boundaries on the CPU and memory resources. Choose a
 minimum and maximum value for these resources with the

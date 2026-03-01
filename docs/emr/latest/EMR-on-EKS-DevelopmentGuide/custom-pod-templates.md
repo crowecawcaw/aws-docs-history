@@ -1,6 +1,4 @@
-# Specifying custom pod templates with interactive
-
-endpoints
+# Specifying custom pod templates with interactive endpoints
 
 You can create interactive endpoints where you specify custom pod templates
 for drivers and executors. _Pod templates_ are specifications that determine how to run each

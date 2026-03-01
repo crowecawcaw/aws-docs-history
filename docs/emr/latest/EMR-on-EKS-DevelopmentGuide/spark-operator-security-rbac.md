@@ -1,6 +1,4 @@
-# Setting up cluster access permissions
-
-with role-based access control (RBAC)
+# Setting up cluster access permissions with role-based access control (RBAC)
 
 To deploy the Spark operator, Amazon EMR on EKS creates two roles and service accounts for
 the Spark operator and the Spark apps.

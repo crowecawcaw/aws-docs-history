@@ -1,6 +1,4 @@
-# Setting up cluster access permissions
-
-with IAM roles for service accounts (IRSA)
+# Setting up cluster access permissions with IAM roles for service accounts (IRSA)
 
 This section uses an example to demonstrate how to configure a Kubernetes service
 account to assume an AWS Identity and Access Management role. Pods that use the service account can then access
@@ -31,9 +29,7 @@ prerequisites:
   to S3, see [Upload an object
   to your bucket](../../../AmazonS3/latest/userguide/uploading-an-object-bucket.md "../../../AmazonS3/latest/userguide/uploading-an-object-bucket.md") in the _Amazon Simple Storage Service User Guide_.
 
-## Configure a Kubernetes service
-
-account to assume an IAM role
+## Configure a Kubernetes service account to assume an IAM role
 
 Use the following steps to configure a Kubernetes service account to assume an
 IAM role that pods can use to access AWS services that the role has permissions to
@@ -118,9 +114,7 @@ serviceaccount/driver-account-sa created
 clusterrolebinding.rbac.authorization.k8s.io/spark-role configured
 ```
 
-## Running an application from the
-
-Spark operator
+## Running an application from the Spark operator
 
 After you configure the
 Kubernetes service account, you can run a Spark application that counts the

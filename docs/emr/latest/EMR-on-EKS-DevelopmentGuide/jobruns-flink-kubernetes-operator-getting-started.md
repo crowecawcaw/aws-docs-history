@@ -1,6 +1,4 @@
-# Installing the
-
-Flink Kubernetes operator for Amazon EMR on EKS
+# Installing the Flink Kubernetes operator for Amazon EMR on EKS
 
 This topic helps you start to use the Flink Kubernetes operator on Amazon EKS by preparing a
 Flink deployment.
@@ -9,8 +7,7 @@ Flink deployment.
 
 Use the following steps to install the Kubernetes operator for Apache Flink.
 
-1. If you haven't already, complete the steps in [Setting up the Flink Kubernetes
-   operator for Amazon EMR on EKS](jobruns-flink-kubernetes-operator-setup.md "jobruns-flink-kubernetes-operator-setup.md").
+1. If you haven't already, complete the steps in [Setting up the Flink Kubernetes operator for Amazon EMR on EKS](jobruns-flink-kubernetes-operator-setup.md "jobruns-flink-kubernetes-operator-setup.md").
 2. Install the `cert-manager` (once per Amazon EKS cluster) to
    enable adding the webhook component.
 
@@ -61,8 +58,7 @@ helm list --namespace $NAMESPACE
 
 The following shows example output, where the app version `x.y.z-amzn-n`
 would correspond with the Flink operator version for your Amazon EMR on EKS release. For more
-information, see [Supported releases for Amazon EMR on EKS with
-Apache Flink](jobruns-flink-security-release-versions.md "jobruns-flink-security-release-versions.md").
+information, see [Supported releases for Amazon EMR on EKS with Apache Flink](jobruns-flink-security-release-versions.md "jobruns-flink-security-release-versions.md").
 
 ```
 NAME                              NAMESPACE    REVISION    UPDATED                                STATUS      CHART                                   APP VERSION

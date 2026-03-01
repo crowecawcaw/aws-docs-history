@@ -18,7 +18,6 @@ invocations when starting a job run. It supports two use cases:
 
 ###### Topics
 
-- [Create and using a job template to start a job
-  run](create-job-template.md "create-job-template.md")
+- [Create and using a job template to start a job run](create-job-template.md "create-job-template.md")
 - [Defining job template parameters](use-job-template-parameters.md "use-job-template-parameters.md")
 - [Controlling access to job templates](iam-job-template.md "iam-job-template.md")

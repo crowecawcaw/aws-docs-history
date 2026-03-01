@@ -1,6 +1,4 @@
-# Troubleshooting Amazon EMR on EKS Spark
-
-operator
+# Troubleshooting Amazon EMR on EKS Spark operator
 
 Refer to the following sections if you encounter problems with the Amazon EMR on EKS Spark operator. For more information including steps to complete the installation, see [Running Spark jobs with the Spark operator](spark-operator.md "spark-operator.md").
 

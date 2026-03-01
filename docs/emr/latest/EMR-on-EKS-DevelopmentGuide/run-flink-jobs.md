@@ -15,5 +15,4 @@ Flink applications with the operator. The operator manages the lifecycle of Flin
 - [How Flink supports high availability and job resiliency](jobruns-flink-resiliency.md "jobruns-flink-resiliency.md")
 - [Using Autoscaler for Flink applications](jobruns-flink-autoscaler.md "jobruns-flink-autoscaler.md")
 - [Maintenance and troubleshooting for Flink jobs on Amazon EMR on EKS](jobruns-flink-troubleshooting.md "jobruns-flink-troubleshooting.md")
-- [Supported releases for Amazon EMR on EKS with
-  Apache Flink](jobruns-flink-security-release-versions.md "jobruns-flink-security-release-versions.md")
+- [Supported releases for Amazon EMR on EKS with Apache Flink](jobruns-flink-security-release-versions.md "jobruns-flink-security-release-versions.md")

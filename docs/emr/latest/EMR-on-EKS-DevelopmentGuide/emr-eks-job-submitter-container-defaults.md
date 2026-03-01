@@ -22,9 +22,7 @@ Sets a custom value for the number of CPUs, in CPU units, for the logging contai
 Sets a custom value for the amount of memory, in bytes, for the logging container on the driver and
 executor pods. By default, this is set to **512Mi**. A mebibyte is a unit of measure that's similar to a megabyte.
 
-## Job submitter classification
-
-examples
+## Job submitter classification examples
 
 ###### In this section
 

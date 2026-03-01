@@ -1,6 +1,4 @@
-# Using YuniKorn as a custom scheduler for Apache Spark on
-
-Amazon EMR on EKS
+# Using YuniKorn as a custom scheduler for Apache Spark on Amazon EMR on EKS
 
 With Amazon EMR on EKS, you can use Spark operator or spark-submit to run Spark jobs with
 Kubernetes custom schedulers. This tutorial covers how to run Spark jobs with a YuniKorn
@@ -15,9 +13,7 @@ when the minimal resource request for the app can be satisfied. For more informa
 see [What is
 gang scheduling](https://yunikorn.apache.org/docs/user_guide/gang_scheduling/ "https://yunikorn.apache.org/docs/user_guide/gang_scheduling/") on the Apache YuniKorn documentation site.
 
-## Create your cluster and get set up for
-
-YuniKorn
+## Create your cluster and get set up for YuniKorn
 
 Use the following steps to deploy an Amazon EKS cluster. You can change the AWS Region
 (`region`) and Availability Zones (`availabilityZones`).
@@ -137,14 +133,11 @@ helm repo update
 helm install yunikorn yunikorn/yunikorn --namespace yunikorn
 ```
 
-## Run a Spark application with YuniKorn
-
-scheduler with the Spark operator
+## Run a Spark application with YuniKorn scheduler with the Spark operator
 
 1. If you haven't already, complete the steps in the following sections to get
    set up:
-   1. [Create your cluster and get set up for
-      YuniKorn](#tutorial-yunikorn-setup "#tutorial-yunikorn-setup")
+   1. [Create your cluster and get set up for YuniKorn](#tutorial-yunikorn-setup "#tutorial-yunikorn-setup")
    2. [Install and set up YuniKorn](#tutorial-yunikorn-install "#tutorial-yunikorn-install")
    3. [Setting up the Spark operator for Amazon EMR on EKS](spark-operator-setup.md "spark-operator-setup.md")
    4. [Install the Spark operator](spark-operator-gs.md#spark-operator-install "spark-operator-gs.md#spark-operator-install")
@@ -170,8 +163,7 @@ application. Then, the example creates **task
 groups**, or "gangs" of tasks, to specify the minimum capacity that
 must be available before scheduling the pods to start the job execution. And
 finally, it specifies in the task group definition to use node groups with the
-`"app": "spark"` label, as defined in the [Create your cluster and get set up for
-YuniKorn](#tutorial-yunikorn-setup "#tutorial-yunikorn-setup")
+`"app": "spark"` label, as defined in the [Create your cluster and get set up for YuniKorn](#tutorial-yunikorn-setup "#tutorial-yunikorn-setup")
 section.
 
 ```
@@ -271,9 +263,7 @@ Normal TaskCompleted     2m3s  yunikorn   Task spark-operator/
 Normal Pulling           3m10s kubelet    Pulling
 ```
 
-## Run a Spark application with YuniKorn
-
-scheduler with `spark-submit`
+## Run a Spark application with YuniKorn scheduler with `spark-submit`
 
 1. First, complete the steps in the [Setting up spark-submit for Amazon EMR on EKS](spark-submit-setup.md "spark-submit-setup.md") section.
 2. Set the values for the following environment variables:
@@ -291,8 +281,7 @@ application. Then, the example creates **task
 groups**, or "gangs" of tasks, to specify the minimum capacity that
 must be available before scheduling the pods to start the job execution. And
 finally, it specifies in the task group definition to use node groups with the
-`"app": "spark"` label, as defined in the [Create your cluster and get set up for
-YuniKorn](#tutorial-yunikorn-setup "#tutorial-yunikorn-setup")
+`"app": "spark"` label, as defined in the [Create your cluster and get set up for YuniKorn](#tutorial-yunikorn-setup "#tutorial-yunikorn-setup")
 section.
 
 ```

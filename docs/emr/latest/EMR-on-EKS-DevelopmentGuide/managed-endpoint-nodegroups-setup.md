@@ -1,14 +1,10 @@
-# Deploying a JEG pod to a node
-
-group
+# Deploying a JEG pod to a node group
 
 JEG (Jupyter Enterprise Gateway) pod placement is a feature that allows you to deploy an
 interactive endpoint on a specific node group. With this feature, you can configure settings
 such as `instance type` for the interactive endpoint.
 
-## Associating a JEG pod to a managed node
-
-group
+## Associating a JEG pod to a managed node group
 
 The following configuration property allows you to specify the name of a managed node
 group on your Amazon EKS cluster where the JEG pod will be deployed.
@@ -81,9 +77,7 @@ tag to the node group security group. Use the steps below to attach this tag.
    `for-use-with-emr-containers-managed-endpoint-sg=`ClusterName`/`NodeGroupName``
    using the **Manage tags** button.
 
-## Associating a JEG pod to a
-
-self-managed node group
+## Associating a JEG pod to a self-managed node group
 
 The following configuration property allows you to specify the name of a self-managed
 or unmanaged node group on the Amazon EKS cluster where the JEG pod will be deployed.
@@ -147,9 +141,7 @@ AWS Management Console.
 Replace `ClusterName`and`NodeGroupName`` with appropriate
    values.
 
-## Associating a JEG pod to a
-
-managed node group with On-Demand instances
+## Associating a JEG pod to a managed node group with On-Demand instances
 
 You can also define additional labels, known as _Kubernetes label
 selectors_, to specify additional constraints or restrictions to run an

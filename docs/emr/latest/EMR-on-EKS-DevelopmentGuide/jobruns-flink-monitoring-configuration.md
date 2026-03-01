@@ -1,6 +1,4 @@
-# Use monitoring configuration
-
-to monitor Flink Kubernetes operator and Flink jobs
+# Use monitoring configuration to monitor Flink Kubernetes operator and Flink jobs
 
 Monitoring configuration lets you easily set up log archiving of your Flink application and
 operator logs to S3 and/or CloudWatch (you can choose either one or both). Doing so adds a FluentD sidecar
@@ -11,8 +9,7 @@ forwards these components' logs to your configured sinks.
 
 You must set up IAM Roles for the service account for your Flink operator and your Flink job (Service Accounts)
 to be able to use this feature, as it requires interacting with other AWS services. You must set this up using IRSA in
-[Setting up the Flink Kubernetes
-operator for Amazon EMR on EKS](jobruns-flink-kubernetes-operator-setup.md "jobruns-flink-kubernetes-operator-setup.md").
+[Setting up the Flink Kubernetes operator for Amazon EMR on EKS](jobruns-flink-kubernetes-operator-setup.md "jobruns-flink-kubernetes-operator-setup.md").
 
 ## Flink application logs
 

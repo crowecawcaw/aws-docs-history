@@ -1,6 +1,4 @@
-# Customize Docker images for interactive
-
-endpoints
+# Customize Docker images for interactive endpoints
 
 You can also customize Docker images for interactive endpoints so that you can run
 customized base kernel images. This helps you ensure that you have the dependencies you need

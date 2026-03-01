@@ -4,9 +4,7 @@ You can use the **kubectl** Kubernetes command line tool to list the active, ver
 autoscaling-related recommendations on your cluster. You can also view your tracked job
 signatures, and purge any unneeded resources that are associated with the signatures.
 
-## List the vertical autoscaling recommendations
-
-for your cluster
+## List the vertical autoscaling recommendations for your cluster
 
 Use kubectl to get the `verticalpodautoscaler` resource, and view the
 current status and recommendations. The following example query returns all active
@@ -29,9 +27,7 @@ ds-`example-id-1`-vpa   `job-signature-1`          Off       `none`
 ds-`example-id-2`-vpa   `job-signature-2`          Initial   12936384283
 ```
 
-## Query and delete the vertical autoscaling
-
-recommendations for your cluster
+## Query and delete the vertical autoscaling recommendations for your cluster
 
 When you delete an Amazon EMR vertical autoscaling job-run resource, it automatically
 deletes the associated VPA object that tracks and stores recommendations.

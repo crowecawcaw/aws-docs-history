@@ -1,6 +1,4 @@
-# Submit a job run with
-
-`StartJobRun`
+# Submit a job run with `StartJobRun`
 
 ###### To submit a job run with a JSON file with specified parameters
 

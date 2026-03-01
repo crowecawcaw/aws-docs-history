@@ -1,6 +1,4 @@
-# Verify Spark driver service account security requirements
-
-for spark-submit
+# Verify Spark driver service account security requirements for spark-submit
 
 The Spark driver pod uses a Kubernetes service account to access the Kubernetes API
 server to create and watch executor pods. Driver service account must have appropriate

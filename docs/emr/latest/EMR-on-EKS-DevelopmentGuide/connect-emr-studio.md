@@ -16,12 +16,9 @@ datasets in data stores like [Amazon S3](../../../AmazonS3/latest/userguide.md "
 ###### Topics
 
 - [Overview of interactive endpoints](how-it-works.md "how-it-works.md")
-- [Prerequisites to create an interactive endpoint on
-  Amazon EMR on EKS](prereqs-for-studio.md "prereqs-for-studio.md")
-- [Creating an interactive endpoint for your virtual
-  cluster](create-managed-endpoint.md "create-managed-endpoint.md")
-- [Configuring settings for interactive
-  endpoints](managed-endpoint-parameters.md "managed-endpoint-parameters.md")
+- [Prerequisites to create an interactive endpoint on Amazon EMR on EKS](prereqs-for-studio.md "prereqs-for-studio.md")
+- [Creating an interactive endpoint for your virtual cluster](create-managed-endpoint.md "create-managed-endpoint.md")
+- [Configuring settings for interactive endpoints](managed-endpoint-parameters.md "managed-endpoint-parameters.md")
 - [Monitoring interactive endpoints](managed-endpoints-customer-metrics.md "managed-endpoints-customer-metrics.md")
 - [Using self-hosted Jupyter notebooks](managed-endpoints-self-hosted.md "managed-endpoints-self-hosted.md")
 - [Getting information about interactive endpoints with CLI commands](other-operations.md "other-operations.md")

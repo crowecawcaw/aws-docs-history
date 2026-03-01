@@ -15,12 +15,8 @@ starts from when you download your Amazon EMR application image until the Amazon
 ###### Topics
 
 - [Setting up the Spark operator for Amazon EMR on EKS](spark-operator-setup.md "spark-operator-setup.md")
-- [Getting started with the Spark operator for
-  Amazon EMR on EKS](spark-operator-gs.md "spark-operator-gs.md")
-- [Use vertical autoscaling with the Spark operator for
-  Amazon EMR on EKS](spark-operator-vas.md "spark-operator-vas.md")
-- [Uninstalling the Spark operator for
-  Amazon EMR on EKS](spark-operator-uninstall.md "spark-operator-uninstall.md")
+- [Getting started with the Spark operator for Amazon EMR on EKS](spark-operator-gs.md "spark-operator-gs.md")
+- [Use vertical autoscaling with the Spark operator for Amazon EMR on EKS](spark-operator-vas.md "spark-operator-vas.md")
+- [Uninstalling the Spark operator for Amazon EMR on EKS](spark-operator-uninstall.md "spark-operator-uninstall.md")
 - [Using monitoring configuration to monitor the Spark Kubernetes operator and Spark jobs](spark-operator-monitoring-configuration.md "spark-operator-monitoring-configuration.md")
-- [Security and the Spark operator with
-  Amazon EMR on EKS](spark-operator-security.md "spark-operator-security.md")
+- [Security and the Spark operator with Amazon EMR on EKS](spark-operator-security.md "spark-operator-security.md")

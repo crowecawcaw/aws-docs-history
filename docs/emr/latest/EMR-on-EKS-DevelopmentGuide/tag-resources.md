@@ -9,8 +9,7 @@ create tags.
 - [Tag basics](#tag-resources-tag-basics "#tag-resources-tag-basics")
 - [Tag your resources](#tag-resources-add-tags "#tag-resources-add-tags")
 - [Tag restrictions](#tag-resources-restrictions "#tag-resources-restrictions")
-- [Work with tags using the AWS CLI and the Amazon EMR on EKS
-  API](#tag-resources-work-with-tags "#tag-resources-work-with-tags")
+- [Work with tags using the AWS CLI and the Amazon EMR on EKS API](#tag-resources-work-with-tags "#tag-resources-work-with-tags")
 
 ## Tag basics
 
@@ -88,9 +87,7 @@ The following basic restrictions apply to tags:
 - Don't use `aws:`, `AWS:`, or any upper or lowercase combination of
   such as a prefix for either keys or values. These are reserved only for AWS use.
 
-## Work with tags using the AWS CLI and the Amazon EMR on EKS
-
-API
+## Work with tags using the AWS CLI and the Amazon EMR on EKS API
 
 Use the following AWS CLI commands or Amazon EMR on EKS API operations to add, update, list, and
 delete the tags for your resources.

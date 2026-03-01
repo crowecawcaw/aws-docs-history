@@ -1,13 +1,9 @@
-# Authenticating with the
-
-Amazon Redshift integration for Apache Spark
+# Authenticating with the Amazon Redshift integration for Apache Spark
 
 The following sections show authentication options with Amazon Redshift when you're integrating with Apache Spark. The sections show how to
 retrieve login credentials and also details regarding using the JDBC driver with IAM authentication.
 
-## Use AWS Secrets Manager to retrieve
-
-credentials and connect to Amazon Redshift
+## Use AWS Secrets Manager to retrieve credentials and connect to Amazon Redshift
 
 You can store credentials in Secrets Manager to authenticate securely to Amazon Redshift. You
 can have your Spark job call the `GetSecretValue` API to fetch the
@@ -34,9 +30,7 @@ url = "jdbc:redshift://redshifthost:5439/database?user=" + `username` + "&passwo
 
 ```
 
-## Use IAM based authentication with
-
-Amazon EMR on EKS job execution role
+## Use IAM based authentication with Amazon EMR on EKS job execution role
 
 Starting with Amazon EMR on EKS release 6.9.0, the Amazon Redshift JDBC driver version 2.1 or
 higher is packaged into the environment. With JDBC driver 2.1 and higher, you
@@ -83,9 +77,7 @@ Your job execution role policy should have the following permissions.
         }
 ```
 
-## Authenticate to Amazon Redshift with a JDBC
-
-driver
+## Authenticate to Amazon Redshift with a JDBC driver
 
 **Set username and password inside the JDBC
 URL**

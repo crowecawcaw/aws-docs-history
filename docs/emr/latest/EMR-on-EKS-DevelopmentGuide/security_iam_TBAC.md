@@ -16,9 +16,7 @@ Explicitly denying permission for tagging actions is an important consideration.
 
 The examples below demonstrate identity-based permissions policies that are used to control the actions that are allowed with Amazon EMR on EKS virtual clusters.
 
-## Allow actions only on resources with specific tag
-
-values
+## Allow actions only on resources with specific tag values
 
 In the following policy example, the StringEquals condition operator tries to match dev with the value for the tag department. If the tag department hasn't been added to the virtual cluster, or doesn't contain the value dev, the policy doesn't apply, and the actions aren't allowed by this policy. If no other policy statements allow the actions, the user can only work with virtual clusters that have this tag with this value.
 

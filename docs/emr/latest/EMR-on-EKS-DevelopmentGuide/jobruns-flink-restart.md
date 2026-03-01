@@ -1,6 +1,4 @@
-# Optimizing Flink job restart times for task
-
-recovery and scaling operations with Amazon EMR on EKS
+# Optimizing Flink job restart times for task recovery and scaling operations with Amazon EMR on EKS
 
 When a task fails or when a scaling operation occurs, Flink attempts to re-execute the
 task from the last completed checkpoint. The restart process could take a minute or
@@ -16,13 +14,10 @@ interruptions, so it's important to understand how Amazon EMR on EKS handles the
 ###### Topics
 
 - [Task-local recovery](#flink-restart-task-local "#flink-restart-task-local")
-- [Task-local recovery by Amazon EBS volume
-  mount](#flink-restart-task-local-ebs "#flink-restart-task-local-ebs")
-- [Generic log-based incremental
-  checkpoint](#flink-restart-log-check "#flink-restart-log-check")
+- [Task-local recovery by Amazon EBS volume mount](#flink-restart-task-local-ebs "#flink-restart-task-local-ebs")
+- [Generic log-based incremental checkpoint](#flink-restart-log-check "#flink-restart-log-check")
 - [Fine-grained recovery](#flink-restart-fine-grained "#flink-restart-fine-grained")
-- [Combined restart mechanism in adaptive
-  scheduler](#flink-restart-combined "#flink-restart-combined")
+- [Combined restart mechanism in adaptive scheduler](#flink-restart-combined "#flink-restart-combined")
 
 ## Task-local recovery
 
@@ -64,9 +59,7 @@ value in milliseconds.
     execution.checkpointing.interval: `15000`
 ```
 
-## Task-local recovery by Amazon EBS volume
-
-mount
+## Task-local recovery by Amazon EBS volume mount
 
 ###### Note
 
@@ -190,9 +183,7 @@ commands:
   kubectl delete -f storage-class.yaml
 ```
 
-## Generic log-based incremental
-
-checkpoint
+## Generic log-based incremental checkpoint
 
 ###### Note
 
@@ -273,9 +264,7 @@ jobmanager.execution.failover-strategy: region
 restart-strategy: `exponential-delay or fixed-delay`
 ```
 
-## Combined restart mechanism in adaptive
-
-scheduler
+## Combined restart mechanism in adaptive scheduler
 
 ###### Note
 

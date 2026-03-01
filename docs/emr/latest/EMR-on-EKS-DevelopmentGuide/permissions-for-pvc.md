@@ -1,6 +1,4 @@
-# Troubleshooting jobs that use
-
-PersistentVolumeClaims (PVC)
+# Troubleshooting jobs that use PersistentVolumeClaims (PVC)
 
 If you need to create, list, or delete PersistentVolumeClaims (PVC) for a job but
 don't add PVC permissions to the default Kubernetes role

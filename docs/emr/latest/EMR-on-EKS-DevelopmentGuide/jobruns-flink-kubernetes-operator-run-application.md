@@ -1,6 +1,4 @@
-# Run a Flink
-
-application
+# Run a Flink application
 
 With Amazon EMR 6.13.0 and higher, you can run a Flink application with the Flink Kubernetes
 operator in Application mode on Amazon EMR on EKS. With Amazon EMR 6.15.0 and higher, you can also run a
@@ -16,8 +14,7 @@ submit your Flink job. If you don’t want to use this feature, you can disable 
 enabled by default.
 
 **Prerequisite** – Before you can run a Flink application with the Flink Kubernetes operator, complete
-the steps in [Setting up the Flink Kubernetes
-operator for Amazon EMR on EKS](jobruns-flink-kubernetes-operator-setup.md "jobruns-flink-kubernetes-operator-setup.md") and [Install the Kubernetes operator](jobruns-flink-kubernetes-operator-getting-started.md#jobruns-flink-kubernetes-operator-getting-started-install-operator "jobruns-flink-kubernetes-operator-getting-started.md#jobruns-flink-kubernetes-operator-getting-started-install-operator").
+the steps in [Setting up the Flink Kubernetes operator for Amazon EMR on EKS](jobruns-flink-kubernetes-operator-setup.md "jobruns-flink-kubernetes-operator-setup.md") and [Install the Kubernetes operator](jobruns-flink-kubernetes-operator-getting-started.md#jobruns-flink-kubernetes-operator-getting-started-install-operator "jobruns-flink-kubernetes-operator-getting-started.md#jobruns-flink-kubernetes-operator-getting-started-install-operator").
 
 Application mode
 With Amazon EMR 6.13.0 and higher, you can run a Flink application with the Flink Kubernetes

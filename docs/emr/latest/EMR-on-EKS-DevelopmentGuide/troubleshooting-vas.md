@@ -1,6 +1,4 @@
-# Troubleshooting Amazon EMR on EKS vertical
-
-autoscaling
+# Troubleshooting Amazon EMR on EKS vertical autoscaling
 
 Refer to the following sections if you encounter problems when you set up the
 Amazon EMR on EKS vertical autoscaling operator on an Amazon EKS cluster with Operator Lifecycle
@@ -8,14 +6,12 @@ Manager. For more information including steps to complete the installation, see 
 
 ## 403 Forbidden error
 
-If you followed the steps in [Install the Operator Lifecycle Manager (OLM) on
-your Amazon EKS cluster](jobruns-vas-setup.md#jobruns-vas-install-olm "jobruns-vas-setup.md#jobruns-vas-install-olm"), ran the `olm status`
+If you followed the steps in [Install the Operator Lifecycle Manager (OLM) on your Amazon EKS cluster](jobruns-vas-setup.md#jobruns-vas-install-olm "jobruns-vas-setup.md#jobruns-vas-install-olm"), ran the `olm status`
 command, and it returned a `403 Forbidden` error like the one below, you
 might not have obtained the authentication tokens to the Amazon ECR repository for the
 operator.
 
-To resolve this issue, repeat the step in [Install the Amazon EMR on EKS vertical autoscaling
-operator](jobruns-vas-setup.md#jobruns-vas-install-operator "jobruns-vas-setup.md#jobruns-vas-install-operator") to obtain the tokens. Then, try
+To resolve this issue, repeat the step in [Install the Amazon EMR on EKS vertical autoscaling operator](jobruns-vas-setup.md#jobruns-vas-install-operator "jobruns-vas-setup.md#jobruns-vas-install-operator") to obtain the tokens. Then, try
 the installation again.
 
 ```
@@ -23,9 +19,7 @@ Error: FATA[0002] Failed to run bundle: pull bundle image: error pulling image `
 error resolving name : unexpected status code [manifests latest]: 403 Forbidden
 ```
 
-## Kubernetes namespace not
-
-found
+## Kubernetes namespace not found
 
 When you [set up the Amazon EMR on EKS vertical
 autoscaling operator](jobruns-vas-setup.md "jobruns-vas-setup.md") on an Amazon EKS cluster, you might get a

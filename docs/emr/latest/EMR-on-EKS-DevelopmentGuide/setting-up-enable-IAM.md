@@ -102,9 +102,7 @@ Agent](../../../eks/latest/userguide/pod-id-agent-setup.md "../../../eks/latest/
 
 ## Create a Job Execution Role
 
-### Create or update job execution role that allows
-
-EKS Pod Identity
+### Create or update job execution role that allows EKS Pod Identity
 
 To run workloads with Amazon EMR on EKS, you need to create an IAM role. We refer to this role as the job execution role in this documentation. For more information
 about how to create the IAM role, see [Creating IAM roles](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the user Guide.
@@ -334,25 +332,19 @@ will occur.
 
 ## Troubleshooting
 
-### My job failed with NoClassDefinitionFound or ClassNotFound Exception
-
-for Credentials Provider, or failed to get credentials provider.
+### My job failed with NoClassDefinitionFound or ClassNotFound Exception for Credentials Provider, or failed to get credentials provider.
 
 EKS Pod Identity uses the Container Credentials Provider to retrieve the necessary credentials. If you have specified a custom credentials
 provider, ensure it is working correctly. Alternatively, make sure you are using a correct AWS SDK version that supports the EKS Pod Identity. For more
 information, refer to [Get started with Amazon EKS](../../../eks/latest/userguide/getting-started.md "../../../eks/latest/userguide/getting-started.md").
 
-### Job failed with the "Failed to Retrieve Credentials Due to [x] Size Limit" error shown in
-
-the eks-pod-identity-agent log.
+### Job failed with the "Failed to Retrieve Credentials Due to [x] Size Limit" error shown in the eks-pod-identity-agent log.
 
 EMR on EKS creates Kubernetes Service Accounts based on the job execution role name. If the role name is too long, EKS Auth will fail to retrieve credentials
 because the combination of `cluster_name`, `pod_name`, and `service_account_name` exceeds the length limit. Identify which component
 is taking up the most space and adjust the size accordingly.
 
-### Job failed with "Failed to Retrieve Credentials xxx" error shown in the
-
-eks-pod-identity log.
+### Job failed with "Failed to Retrieve Credentials xxx" error shown in the eks-pod-identity log.
 
 One possible cause of this issue could be that the EKS cluster is configured under private subnets without correctly configuring PrivateLink for the cluster.
 Check if your cluster is in a private network and configure AWS PrivateLink to address the issue. For detailed instructions, refer to [Get started with Amazon EKS](../../../eks/latest/userguide/getting-started.md "../../../eks/latest/userguide/getting-started.md")..

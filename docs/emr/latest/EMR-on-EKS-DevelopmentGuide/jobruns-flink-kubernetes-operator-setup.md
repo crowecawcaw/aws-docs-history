@@ -1,6 +1,4 @@
-# Setting up the Flink Kubernetes
-
-operator for Amazon EMR on EKS
+# Setting up the Flink Kubernetes operator for Amazon EMR on EKS
 
 Complete the following tasks to get set up before you install the Flink Kubernetes
 operator on Amazon EKS. If you've already signed up for Amazon Web Services (AWS) and have used Amazon EKS, you

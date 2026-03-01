@@ -13,5 +13,4 @@ starts from when you download your Amazon EMR application image until the Amazon
 
 - [Setting up spark-submit for Amazon EMR on EKS](spark-submit-setup.md "spark-submit-setup.md")
 - [Getting started with spark-submit for Amazon EMR on EKS](spark-submit-gs.md "spark-submit-gs.md")
-- [Verify Spark driver service account security requirements
-  for spark-submit](spark-submit-security.md "spark-submit-security.md")
+- [Verify Spark driver service account security requirements for spark-submit](spark-submit-security.md "spark-submit-security.md")

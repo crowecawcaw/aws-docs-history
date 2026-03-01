@@ -46,8 +46,7 @@ Use the following options to configure job run parameters:
       the SQL query file you want to run.
 
     For a list of additional Spark parameters you can use for a Spark SQL job,
-    see [Running Spark SQL scripts through the
-    StartJobRun API](emr-eks-jobs-spark-sql-parameters.md "emr-eks-jobs-spark-sql-parameters.md").
+    see [Running Spark SQL scripts through the StartJobRun API](emr-eks-jobs-spark-sql-parameters.md "emr-eks-jobs-spark-sql-parameters.md").
 
 - `--configuration-overrides`: You can override the default
   configurations for applications by supplying a configuration object. You can use a

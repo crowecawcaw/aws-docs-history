@@ -1,6 +1,4 @@
-# Running Spark SQL scripts through the
-
-StartJobRun API
+# Running Spark SQL scripts through the StartJobRun API
 
 Amazon EMR on EKS releases 6.7.0 and higher include a Spark SQL job driver so that you can run
 Spark SQL scripts through the `StartJobRun` API. You can supply SQL entry-point

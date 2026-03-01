@@ -1,13 +1,13 @@
-# emr-6.3.0-20220802
+# emr-6.3.0-20211008
 
-**Release notes**: `emr-6.3.0-20220802` was
-released on Sep 27, 2022. Compared to the previous version, this version has been refreshed with
-the recently updated Amazon Linux packages.
+**Release notes**: `emr-6.3.0-20211008` was
+released on Dec 9, 2021. Compared to the previous version, this version contains issue fixes and
+security updates.
 
 **Regions:**
-`emr-6.3.0-20220802` is available in all Regions supported by Amazon EMR on EKS. For more
+`emr-6.3.0-20211008` is available in all Regions supported by Amazon EMR on EKS. For more
 information, see [Amazon EMR on EKS
 service endpoints](service-quotas.md#service-endpoints "service-quotas.md#service-endpoints").
 
 **Container image tag**:
-`emr-6.3.0:20220802`
+`emr-6.3.0:20211008`

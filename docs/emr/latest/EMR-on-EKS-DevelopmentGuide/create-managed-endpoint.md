@@ -1,13 +1,9 @@
-# Creating an interactive endpoint for your virtual
-
-cluster
+# Creating an interactive endpoint for your virtual cluster
 
 This topic describes a couple ways to create an interactive endpoint using the AWS Command Line
 Interface (AWS CLI) and includes details on available configuration parameters.
 
-## Create an interactive endpoint with the
-
-`create-managed-endpoint` command
+## Create an interactive endpoint with the `create-managed-endpoint` command
 
 Specify the parameters in the `create-managed-endpoint` command as follows.
 Amazon EMR on EKS supports creating interactive endpoints with Amazon EMR releases 6.7.0 and
@@ -40,12 +36,9 @@ aws emr-containers create-managed-endpoint \
 }'
 ```
 
-For more information, see [Parameters for creating an interactive
-endpoint](#parameters-for-creating "#parameters-for-creating").
+For more information, see [Parameters for creating an interactive endpoint](#parameters-for-creating "#parameters-for-creating").
 
-## Create an interactive endpoint with specified
-
-parameters in a JSON file
+## Create an interactive endpoint with specified parameters in a JSON file
 
 1. Create a `create-managed-endpoint-request.json` file and specify the
    required parameters for your endpoint, as shown in the following JSON file:
@@ -95,9 +88,7 @@ aws emr-containers create-managed-endpoint \
 ‐‐cli-input-json  file://./create-managed-endpoint-request.json ‐‐region `AWS-Region`
 ```
 
-## Output of create interactive
-
-endpoint
+## Output of create interactive endpoint
 
 You should see the following output in the terminal. The output includes the name and
 identifier of your new interactive endpoint:
@@ -118,20 +109,14 @@ endpoint server.
 If you run `create-managed-endpoint` and haven't completed the prerequisites,
 Amazon EMR returns an error message with the actions that you must take to continue.
 
-## Parameters for creating an interactive
-
-endpoint
+## Parameters for creating an interactive endpoint
 
 ###### Topics
 
-- [Required parameters for interactive
-  endpoints](#parameters-for-creating-required "#parameters-for-creating-required")
-- [Optional parameters for interactive
-  endpoints](#parameters-for-creating-optional "#parameters-for-creating-optional")
+- [Required parameters for interactive endpoints](#parameters-for-creating-required "#parameters-for-creating-required")
+- [Optional parameters for interactive endpoints](#parameters-for-creating-optional "#parameters-for-creating-optional")
 
-### Required parameters for interactive
-
-endpoints
+### Required parameters for interactive endpoints
 
 You must specify the following parameters when you create an interactive
 endpoint:
@@ -161,9 +146,7 @@ The release label of the Amazon EMR release to use for the endpoint. For example
 `emr-6.9.0-latest`. Amazon EMR on EKS supports interactive endpoints with Amazon EMR
 releases 6.7.0 and higher.
 
-### Optional parameters for interactive
-
-endpoints
+### Optional parameters for interactive endpoints
 
 Optionally, you can also specify the following parameters when you create an
 interactive endpoint:
@@ -181,5 +164,4 @@ a single JSON object. The configuration classifications that are available vary 
 Amazon EMR on EKS release. For a list of configuration classifications that are available
 for each release of Amazon EMR on EKS, see [Amazon EMR on EKS releases](emr-eks-releases.md "emr-eks-releases.md"). In addition to the configuration
 classifications listed for each release, interactive endpoints bring in the
-additional classification `jeg-config`. For more information, see [Jupyter Enterprise Gateway (JEG) configuration
-options](jeg-config-options.md "jeg-config-options.md").
+additional classification `jeg-config`. For more information, see [Jupyter Enterprise Gateway (JEG) configuration options](jeg-config-options.md "jeg-config-options.md").

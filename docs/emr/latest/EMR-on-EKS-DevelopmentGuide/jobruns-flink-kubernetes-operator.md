@@ -5,12 +5,8 @@ Flink jobs with Amazon EMR on EKS. The topics available include required prerequ
 
 ###### Topics
 
-- [Setting up the Flink Kubernetes
-  operator for Amazon EMR on EKS](jobruns-flink-kubernetes-operator-setup.md "jobruns-flink-kubernetes-operator-setup.md")
-- [Installing the
-  Flink Kubernetes operator for Amazon EMR on EKS](jobruns-flink-kubernetes-operator-getting-started.md "jobruns-flink-kubernetes-operator-getting-started.md")
-- [Run a Flink
-  application](jobruns-flink-kubernetes-operator-run-application.md "jobruns-flink-kubernetes-operator-run-application.md")
+- [Setting up the Flink Kubernetes operator for Amazon EMR on EKS](jobruns-flink-kubernetes-operator-setup.md "jobruns-flink-kubernetes-operator-setup.md")
+- [Installing the Flink Kubernetes operator for Amazon EMR on EKS](jobruns-flink-kubernetes-operator-getting-started.md "jobruns-flink-kubernetes-operator-getting-started.md")
+- [Run a Flink application](jobruns-flink-kubernetes-operator-run-application.md "jobruns-flink-kubernetes-operator-run-application.md")
 - [Security role permissions for running a Flink application](jobruns-flink-kubernetes-security.md "jobruns-flink-kubernetes-security.md")
-- [Uninstalling the Flink
-  Kubernetes operator for Amazon EMR on EKS](jobruns-flink-kubernetes-operator-uninstall.md "jobruns-flink-kubernetes-operator-uninstall.md")
+- [Uninstalling the Flink Kubernetes operator for Amazon EMR on EKS](jobruns-flink-kubernetes-operator-uninstall.md "jobruns-flink-kubernetes-operator-uninstall.md")
