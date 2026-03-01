@@ -134,8 +134,7 @@ variance, and perform root cause analysis on reported variance to
 act and adjust forecasts.
 
 As mentioned in
-the [COST01-BP02 Establish a partnership between finance and
-technology](cost_cloud_financial_management_partnership.md "cost_cloud_financial_management_partnership.md"), it is important to foster a
+the [COST01-BP02 Establish a partnership between finance and technology](cost_cloud_financial_management_partnership.md "cost_cloud_financial_management_partnership.md"), it is important to foster a
 partnership and cadence between IT, finance, and other
 stakeholders to verify that they are all using the same tools or
 processes for consistency. In cases where budgets may need to
@@ -183,7 +182,7 @@ more quickly.
 - [AWS Cost and Usage Report](../../../cur/latest/userguide/what-is-cur.md "../../../cur/latest/userguide/what-is-cur.md")
 - [Forecasting
   with Cost Explorer](../../../cost-management/latest/userguide/ce-forecast.md "../../../cost-management/latest/userguide/ce-forecast.md")
-- [Quick Suite Forecasting](../../../quicksight/latest/user/forecasts-and-whatifs.md "../../../quicksight/latest/user/forecasts-and-whatifs.md")
+- [Quick Forecasting](../../../quicksight/latest/user/forecasts-and-whatifs.md "../../../quicksight/latest/user/forecasts-and-whatifs.md")
 - [AWS Budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/ "https://aws.amazon.com/aws-cost-management/aws-budgets/")
 
 **Related videos:**

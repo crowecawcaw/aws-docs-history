@@ -1,6 +1,4 @@
-# COST07-BP05 Perform pricing model analysis at the management
-
-account level
+# COST07-BP05 Perform pricing model analysis at the management account level
 
 Check billing and cost management tools and see recommended
 discounts with commitments and reservations to perform regular

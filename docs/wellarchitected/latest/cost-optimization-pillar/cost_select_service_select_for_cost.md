@@ -1,6 +1,4 @@
-# COST05-BP05 Select components of this workload to optimize cost
-
-in line with organization priorities
+# COST05-BP05 Select components of this workload to optimize cost in line with organization priorities
 
 Factor in cost when selecting all components for your workload. This
 includes using application-level and managed services or serverless,

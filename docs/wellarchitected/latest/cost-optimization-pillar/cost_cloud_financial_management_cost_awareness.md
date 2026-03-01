@@ -1,6 +1,4 @@
-# COST01-BP04 Implement cost awareness in your organizational
-
-processes
+# COST01-BP04 Implement cost awareness in your organizational processes
 
 Implement cost awareness, create transparency, and accountability of costs into new or
 existing processes that impact usage, and leverage existing processes for cost awareness.

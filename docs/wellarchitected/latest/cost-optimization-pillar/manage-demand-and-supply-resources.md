@@ -22,6 +22,5 @@ to use these approaches.
 ###### Best practices
 
 - [COST09-BP01 Perform an analysis on the workload demand](cost_manage_demand_resources_cost_analysis.md "cost_manage_demand_resources_cost_analysis.md")
-- [COST09-BP02 Implement a buffer or throttle to manage
-  demand](cost_manage_demand_resources_buffer_throttle.md "cost_manage_demand_resources_buffer_throttle.md")
+- [COST09-BP02 Implement a buffer or throttle to manage demand](cost_manage_demand_resources_buffer_throttle.md "cost_manage_demand_resources_buffer_throttle.md")
 - [COST09-BP03 Supply resources dynamically](cost_manage_demand_resources_dynamic.md "cost_manage_demand_resources_dynamic.md")

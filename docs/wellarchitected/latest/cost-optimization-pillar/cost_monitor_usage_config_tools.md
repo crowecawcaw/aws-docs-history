@@ -86,7 +86,7 @@ You can use
 opportunities consolidated from a centralized location and create
 data exports for integration with Amazon Athena. You can also use
 the AWS Cost Optimization Hub to deploy the Cost and Usage
-Dashboard, which utilizes Quick Suite for interactive cost
+Dashboard, which utilizes Quick for interactive cost
 analysis and secure cost insight sharing.
 
 If you don't have essential skills or bandwidth in your
@@ -146,13 +146,13 @@ ensure you validate the value proposition.
   You can optionally create visuals to facilitate interactive
   analysis and sharing of cost insights. With Data Exports on
   AWS Cost Optimization Hub, you can create cost and usage
-  dashboard powered by Quick Suite for your organization that
+  dashboard powered by Quick for your organization that
   provides additional detail and granularity. You can also
   implement advanced analysis capability by using data
   exports in
   [Amazon Athena](../../../athena.md "../../../athena.md") for advanced queries, and create
   dashboards on
-  [Quick Suite](../../../quicksight.md "../../../quicksight.md"). Work with
+  [Quick](../../../quicksight.md "../../../quicksight.md"). Work with
   [AWS Partners](https://aws.amazon.com/marketplace/solutions/business-applications/cloud-cost-management "https://aws.amazon.com/marketplace/solutions/business-applications/cloud-cost-management") to adopt cloud management
   solutions for consolidated cloud bill monitoring and
   optimization.
@@ -188,5 +188,5 @@ ensure you validate the value proposition.
 **Related examples:**
 
 - [Cost
-  and Usage Dashboard powered](https://aws.amazon.com/blogs/aws-cloud-financial-management/new-cost-and-usage-dashboard-powered-by-amazon-quicksight/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/new-cost-and-usage-dashboard-powered-by-amazon-quicksight/") by Quick Suite
+  and Usage Dashboard powered](https://aws.amazon.com/blogs/aws-cloud-financial-management/new-cost-and-usage-dashboard-powered-by-amazon-quicksight/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/new-cost-and-usage-dashboard-powered-by-amazon-quicksight/") by Quick
 - [AWS Cost and Usage Governance Workshop](https://catalog.workshops.aws/well-architected-cost-optimization/en-US/2-expenditure-and-usage-awareness/20-cost-and-usage-governance "https://catalog.workshops.aws/well-architected-cost-optimization/en-US/2-expenditure-and-usage-awareness/20-cost-and-usage-governance")

@@ -1,6 +1,4 @@
-# COST05-BP06 Perform cost analysis for different usage over
-
-time
+# COST05-BP06 Perform cost analysis for different usage over time
 
 Workloads can change over time. Some services or features are more
 cost effective at different usage levels. By performing the analysis

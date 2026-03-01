@@ -1,6 +1,4 @@
-# COST09-BP02 Implement a buffer or throttle to manage
-
-demand
+# COST09-BP02 Implement a buffer or throttle to manage demand
 
 Buffering and throttling modify the demand on your workload,
 smoothing out any peaks. Implement throttling when your clients

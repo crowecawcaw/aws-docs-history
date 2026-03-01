@@ -1,6 +1,4 @@
-# COST01-BP02 Establish a partnership between finance and
-
-technology
+# COST01-BP02 Establish a partnership between finance and technology
 
 Involve finance and technology teams in cost and usage discussions at all stages of your
 cloud journey. Teams regularly meet and discuss topics such as organizational goals and targets,

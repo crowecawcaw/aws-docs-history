@@ -45,13 +45,13 @@ you can create your own contextualized monitor and receive alerts
 when any anomalous spend is detected.
 
 You can also
-use [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") with AWS Cost and Usage Report (CUR) data, to
+use [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") with AWS Cost and Usage Report (CUR) data, to
 provide highly customized reporting with more granular data.
-Quick Suite allows you to schedule reports and receive
+Quick allows you to schedule reports and receive
 periodic Cost Report emails for historical cost and usage or
 cost-saving opportunities. Check our
 [Cost
-Intelligence Dashboard](https://aws.amazon.com/blogs/aws-cloud-financial-management/a-detailed-overview-of-the-cost-intelligence-dashboard/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/a-detailed-overview-of-the-cost-intelligence-dashboard/") (CID) solution built on Quick Suite, which gives you advanced visibility.
+Intelligence Dashboard](https://aws.amazon.com/blogs/aws-cloud-financial-management/a-detailed-overview-of-the-cost-intelligence-dashboard/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/a-detailed-overview-of-the-cost-intelligence-dashboard/") (CID) solution built on Quick, which gives you advanced visibility.
 
 Use [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/ "https://aws.amazon.com/premiumsupport/technology/trusted-advisor/"), which provides guidance to verify whether
 provisioned resources are aligned with AWS best practices for cost
