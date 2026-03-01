@@ -46,9 +46,7 @@ languages: [[English]](https://d2cwqplnsdeec3.cloudfront.net/EN-Video2-CostAlloc
 [[Italian]](https://d2cwqplnsdeec3.cloudfront.net/IT-Video2-CostAllocationTagsMAP2.mp4 "https://d2cwqplnsdeec3.cloudfront.net/IT-Video2-CostAllocationTagsMAP2.mp4")
 [[Spanish]](https://d2cwqplnsdeec3.cloudfront.net/ES-Video2-CostAllocationTagsMAP2.mp4 "https://d2cwqplnsdeec3.cloudfront.net/ES-Video2-CostAllocationTagsMAP2.mp4")
 
-## General best practices for tagging resources
-
-on AWS
+## General best practices for tagging resources on AWS
 
 AWS Documentation: [Tagging AWS Resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md") .
 
