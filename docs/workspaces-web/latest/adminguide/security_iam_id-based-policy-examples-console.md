@@ -1,6 +1,4 @@
-# Using the Amazon WorkSpaces Secure Browser
-
-console
+# Using the Amazon WorkSpaces Secure Browser console
 
 To access the Amazon WorkSpaces Secure Browser console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the WorkSpaces Secure Browser resources

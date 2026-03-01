@@ -24,11 +24,7 @@ job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md ".
 
 ###### Topics
 
-- [AWS managed
-  policy: AmazonWorkSpacesWebServiceRolePolicy](security-iam-awsmanpol-AmazonWorkSpacesWebServiceRolePolicy.md "security-iam-awsmanpol-AmazonWorkSpacesWebServiceRolePolicy.md")
-- [AWS managed policy:
-  AmazonWorkSpacesSecureBrowserReadOnly](security-iam-awsmanpol-AmazonWorkSpacesSecureBrowserReadOnly.md "security-iam-awsmanpol-AmazonWorkSpacesSecureBrowserReadOnly.md")
-- [AWS managed policy:
-  AmazonWorkSpacesWebReadOnly](security-iam-awsmanpol-AmazonWorkSpacesWebReadOnly.md "security-iam-awsmanpol-AmazonWorkSpacesWebReadOnly.md")
-- [WorkSpaces Secure Browser updates to AWS managed
-  policies](security-iam-awsmanpol-updates.md "security-iam-awsmanpol-updates.md")
+- [AWS managed policy: AmazonWorkSpacesWebServiceRolePolicy](security-iam-awsmanpol-AmazonWorkSpacesWebServiceRolePolicy.md "security-iam-awsmanpol-AmazonWorkSpacesWebServiceRolePolicy.md")
+- [AWS managed policy: AmazonWorkSpacesSecureBrowserReadOnly](security-iam-awsmanpol-AmazonWorkSpacesSecureBrowserReadOnly.md "security-iam-awsmanpol-AmazonWorkSpacesSecureBrowserReadOnly.md")
+- [AWS managed policy: AmazonWorkSpacesWebReadOnly](security-iam-awsmanpol-AmazonWorkSpacesWebReadOnly.md "security-iam-awsmanpol-AmazonWorkSpacesWebReadOnly.md")
+- [WorkSpaces Secure Browser updates to AWS managed policies](security-iam-awsmanpol-updates.md "security-iam-awsmanpol-updates.md")

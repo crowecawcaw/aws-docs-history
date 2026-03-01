@@ -1,6 +1,4 @@
-# Creating an interface VPC endpoint for
-
-Amazon WorkSpaces Secure Browser
+# Creating an interface VPC endpoint for Amazon WorkSpaces Secure Browser
 
 You can create an interface VPC endpoint for the Amazon WorkSpaces Secure Browser service using either the
 Amazon VPC console or the AWS Command Line Interface (AWS CLI). For more information, see [Creating an interface

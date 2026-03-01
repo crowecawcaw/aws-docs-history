@@ -6,9 +6,7 @@ compliant IdP. To configure the standard authentication type, follow the steps b
 
 ###### Topics
 
-- [Configuring your identity provider on
-  Amazon WorkSpaces Secure Browser](configure-idp-step1.md "configure-idp-step1.md")
-- [Configuring your IdP on your own
-  IdP](configure-idp-step2.md "configure-idp-step2.md")
+- [Configuring your identity provider on Amazon WorkSpaces Secure Browser](configure-idp-step1.md "configure-idp-step1.md")
+- [Configuring your IdP on your own IdP](configure-idp-step2.md "configure-idp-step2.md")
 - [Finishing IdP configuration on Amazon WorkSpaces Secure Browser](upload-metadata.md "upload-metadata.md")
 - [Guidance for using specific IdPs with Amazon WorkSpaces Secure Browser](idp-guidance.md "idp-guidance.md")

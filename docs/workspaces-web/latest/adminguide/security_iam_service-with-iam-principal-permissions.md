@@ -1,6 +1,4 @@
-# Cross-service
-
-principal permissions for WorkSpaces Secure Browser
+# Cross-service principal permissions for WorkSpaces Secure Browser
 
 **Supports forward access sessions (FAS):**
 

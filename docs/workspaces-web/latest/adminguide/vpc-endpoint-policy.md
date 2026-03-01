@@ -1,6 +1,4 @@
-# Creating an endpoint policy for your interface VPC
-
-endpoint
+# Creating an endpoint policy for your interface VPC endpoint
 
 An endpoint policy is an IAM resource that you can attach to an interface VPC
 endpoint. The default endpoint policy gives you full access to Amazon WorkSpaces Secure Browser APIs through the

@@ -1,6 +1,4 @@
-# Policy
-
-condition keys for WorkSpaces Secure Browser
+# Policy condition keys for WorkSpaces Secure Browser
 
 **Supports service-specific policy condition keys:**
 
@@ -19,5 +17,4 @@ To see a list of WorkSpaces Secure Browser condition keys, see [Condition keys f
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by Amazon WorkSpaces Secure Browser](../../../service-authorization/latest/reference/list_amazonworkspacesweb.md#amazonworkspacesweb-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonworkspacesweb.md#amazonworkspacesweb-actions-as-permissions").
 
-To view examples of WorkSpaces Secure Browser identity-based policies, see [Identity-based policy
-examples for Amazon WorkSpaces Secure Browser](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of WorkSpaces Secure Browser identity-based policies, see [Identity-based policy examples for Amazon WorkSpaces Secure Browser](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").

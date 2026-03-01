@@ -1,6 +1,4 @@
-# Configuring your identity provider on
-
-Amazon WorkSpaces Secure Browser
+# Configuring your identity provider on Amazon WorkSpaces Secure Browser
 
 Complete the following steps to configure your identity provider:
 

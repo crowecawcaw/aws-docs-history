@@ -1,6 +1,4 @@
-# I am not authorized to
-
-perform an action in WorkSpaces Secure Browser
+# I am not authorized to perform an action in WorkSpaces Secure Browser
 
 If you receive an error that you're not authorized to perform an action, your
 policies must be updated to allow you to perform the action.

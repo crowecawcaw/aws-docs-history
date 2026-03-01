@@ -28,7 +28,6 @@ in each AWS Region where you need more resources. For more information, [Amazon 
 
 - [Requesting a service quota increase in Amazon WorkSpaces Secure Browser](quota-increase.md "quota-increase.md")
 - [Requesting a portal increase in Amazon WorkSpaces Secure Browser](request-portal-increase.md "request-portal-increase.md")
-- [Requesting a maximum concurrent sessions
-  increase in Amazon WorkSpaces Secure Browser](request-max-concurrent-session.md "request-max-concurrent-session.md")
+- [Requesting a maximum concurrent sessions increase in Amazon WorkSpaces Secure Browser](request-max-concurrent-session.md "request-max-concurrent-session.md")
 - [Limit example for Amazon WorkSpaces Secure Browser](limit-example.md "limit-example.md")
 - [Other service quotas in Amazon WorkSpaces Secure Browser](other-quotas.md "other-quotas.md")

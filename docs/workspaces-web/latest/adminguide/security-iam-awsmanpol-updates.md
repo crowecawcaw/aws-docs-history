@@ -1,6 +1,4 @@
-# WorkSpaces Secure Browser updates to AWS managed
-
-policies
+# WorkSpaces Secure Browser updates to AWS managed policies
 
 View details about updates to AWS managed policies for WorkSpaces Secure Browser since this
 service began tracking these changes. For automatic alerts about changes to this page,

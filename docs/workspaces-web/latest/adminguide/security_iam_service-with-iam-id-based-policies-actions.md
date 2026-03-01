@@ -1,6 +1,4 @@
-# Policy actions
-
-for WorkSpaces Secure Browser
+# Policy actions for WorkSpaces Secure Browser
 
 **Supports policy actions:**
 
@@ -30,5 +28,4 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of WorkSpaces Secure Browser identity-based policies, see [Identity-based policy
-examples for Amazon WorkSpaces Secure Browser](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of WorkSpaces Secure Browser identity-based policies, see [Identity-based policy examples for Amazon WorkSpaces Secure Browser](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").

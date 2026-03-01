@@ -10,8 +10,7 @@ role:
   The role permissions policy named `AmazonWorkSpacesWebServiceRolePolicy` allows WorkSpaces Secure Browser to
   complete the following actions on the specified
   resources. For more
-  information, see [AWS managed
-  policy: AmazonWorkSpacesWebServiceRolePolicy](security-iam-awsmanpol-AmazonWorkSpacesWebServiceRolePolicy.md "security-iam-awsmanpol-AmazonWorkSpacesWebServiceRolePolicy.md").
+  information, see [AWS managed policy: AmazonWorkSpacesWebServiceRolePolicy](security-iam-awsmanpol-AmazonWorkSpacesWebServiceRolePolicy.md "security-iam-awsmanpol-AmazonWorkSpacesWebServiceRolePolicy.md").
 
 - Action: `ec2:DescribeVpcs` on
   `all AWS resources`

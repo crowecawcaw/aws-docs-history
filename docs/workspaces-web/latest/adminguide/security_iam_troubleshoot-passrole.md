@@ -1,6 +1,4 @@
-# I am not authorized to perform
-
-iam:PassRole
+# I am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to WorkSpaces Secure Browser.
 

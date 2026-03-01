@@ -1,6 +1,4 @@
-# Using Temporary
-
-credentials with WorkSpaces Secure Browser
+# Using Temporary credentials with WorkSpaces Secure Browser
 
 **Supports temporary credentials:**
 

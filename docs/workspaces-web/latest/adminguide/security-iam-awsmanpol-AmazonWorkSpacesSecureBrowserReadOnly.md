@@ -1,6 +1,4 @@
-# AWS managed policy:
-
-AmazonWorkSpacesSecureBrowserReadOnly
+# AWS managed policy: AmazonWorkSpacesSecureBrowserReadOnly
 
 You can attach the `AmazonWorkSpacesSecureBrowserReadOnly` policy to your
 IAM identities.

@@ -1,11 +1,8 @@
-# AWS managed
-
-policy: AmazonWorkSpacesWebServiceRolePolicy
+# AWS managed policy: AmazonWorkSpacesWebServiceRolePolicy
 
 You can't attach the `AmazonWorkSpacesWebServiceRolePolicy` policy to your
 IAM entities. This policy is attached to a service-linked role that allows WorkSpaces Secure Browser
-to perform actions on your behalf. For more information, see [Using service-linked roles for
-Amazon WorkSpaces Secure Browser](using-service-linked-roles.md "using-service-linked-roles.md").
+to perform actions on your behalf. For more information, see [Using service-linked roles for Amazon WorkSpaces Secure Browser](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy grants administrative permissions that allow access to AWS services and
 resources used or managed by WorkSpaces Secure Browser.

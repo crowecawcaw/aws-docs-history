@@ -1,6 +1,4 @@
-# Requesting a maximum concurrent sessions
-
-increase in Amazon WorkSpaces Secure Browser
+# Requesting a maximum concurrent sessions increase in Amazon WorkSpaces Secure Browser
 
 The _maximum concurrent sessions_ quota is the highest amount of users
 that can be connected at the same time to a portal. If the service quota limit for maximum

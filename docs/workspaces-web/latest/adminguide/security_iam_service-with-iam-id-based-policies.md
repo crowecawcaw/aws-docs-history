@@ -1,6 +1,4 @@
-# Identity-based
-
-policies for WorkSpaces Secure Browser
+# Identity-based policies for WorkSpaces Secure Browser
 
 **Supports identity-based policies:**
 
@@ -17,9 +15,6 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-##
+## Identity-based policy examples for WorkSpaces Secure Browser
 
-Identity-based policy examples for WorkSpaces Secure Browser
-
-To view examples of WorkSpaces Secure Browser identity-based policies, see [Identity-based policy
-examples for Amazon WorkSpaces Secure Browser](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of WorkSpaces Secure Browser identity-based policies, see [Identity-based policy examples for Amazon WorkSpaces Secure Browser](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").

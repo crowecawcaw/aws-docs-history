@@ -1,6 +1,4 @@
-# Resource-based
-
-policies within WorkSpaces Secure Browser
+# Resource-based policies within WorkSpaces Secure Browser
 
 **Supports resource-based policies:**
 

@@ -19,12 +19,9 @@ controls:
 
 - [Step 1: Create a web portal](#browser-policies-custom-step1 "#browser-policies-custom-step1")
 - [Step 2: Gather policies](#browser-policies-custom-step2 "#browser-policies-custom-step2")
-- [Step 3: Create a custom JSON policy
-  file](#browser-policies-custom-step3 "#browser-policies-custom-step3")
-- [Step 4: Add your policies to the
-  template](#browser-policies-custom-step4 "#browser-policies-custom-step4")
-- [Step 5: Upload your policy JSON file to your
-  web portal](#browser-policies-custom-step5 "#browser-policies-custom-step5")
+- [Step 3: Create a custom JSON policy file](#browser-policies-custom-step3 "#browser-policies-custom-step3")
+- [Step 4: Add your policies to the template](#browser-policies-custom-step4 "#browser-policies-custom-step4")
+- [Step 5: Upload your policy JSON file to your web portal](#browser-policies-custom-step5 "#browser-policies-custom-step5")
 
 ## Step 1: Create a web portal
 
@@ -61,9 +58,7 @@ create a JSON file in the next step.
    - **IncognitoModeAvailability** – Configures whether users can
      access incognito mode.
 
-## Step 3: Create a custom JSON policy
-
-file
+## Step 3: Create a custom JSON policy file
 
 Create a JSON file using a text editor, template, and the policies you found in the
 previous step.
@@ -137,9 +132,7 @@ previous step.
 
 ```
 
-## Step 4: Add your policies to the
-
-template
+## Step 4: Add your policies to the template
 
 Add your custom policies to the template for each business requirement.
 
@@ -254,9 +247,7 @@ Add your custom policies to the template for each business requirement.
 
 ```
 
-## Step 5: Upload your policy JSON file to your
-
-web portal
+## Step 5: Upload your policy JSON file to your web portal
 
 1. Open the WorkSpaces Secure Browser console at [https://console.aws.amazon.com/workspaces-web/home?region=us-east-1#/](https://console.aws.amazon.com/workspaces-web/home?region=us-east-1#/ "https://console.aws.amazon.com/workspaces-web/home?region=us-east-1#/").
 2. Choose **WorkSpaces Secure Browser**, then choose **Web

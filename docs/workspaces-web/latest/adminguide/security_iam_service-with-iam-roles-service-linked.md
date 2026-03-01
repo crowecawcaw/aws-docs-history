@@ -1,6 +1,4 @@
-# Service-linked
-
-roles for WorkSpaces Secure Browser
+# Service-linked roles for WorkSpaces Secure Browser
 
 **Supports service-linked roles:**
 

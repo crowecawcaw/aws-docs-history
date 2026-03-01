@@ -1,6 +1,4 @@
-# Configuring your IdP on your own
-
-IdP
+# Configuring your IdP on your own IdP
 
 To configure your IdP on your own IdP, follow these steps.
 
@@ -22,12 +20,10 @@ format. 4. Optional: Configure the **Relay State** for IdP-initiated
 authentication.
 
 If you chose **Accept SP-initiated and IdP-initiated SAML assertions**
-in the previous step, follow steps in step 2 of [Configuring your identity provider on
-Amazon WorkSpaces Secure Browser](configure-idp-step1.md "configure-idp-step1.md") to set
+in the previous step, follow steps in step 2 of [Configuring your identity provider on Amazon WorkSpaces Secure Browser](configure-idp-step1.md "configure-idp-step1.md") to set
 the default **Relay State** for your IdP application. 5. Optional: Configure **Request signing**. If you chose **Sign
 SAML requests to this provider** in the previous step, follow steps in step 3 of
-[Configuring your identity provider on
-Amazon WorkSpaces Secure Browser](configure-idp-step1.md "configure-idp-step1.md") to upload the signing certificate onto your IdP and
+[Configuring your identity provider on Amazon WorkSpaces Secure Browser](configure-idp-step1.md "configure-idp-step1.md") to upload the signing certificate onto your IdP and
 enable request signing. Some IdPs such as Okta might require your
 **NameID** to belong to the “persistent” type to use **Request
 signing**. Make sure to confirm your **NameID** for your SAML
@@ -35,8 +31,7 @@ assertion by following the steps above. 6. Optional: Configure **Assertion encry
 **Require encrypted SAML assertions from this provider**, wait until
 portal creation is complete, then follow step 4 in "Upload metadata" below to upload the
 encryption certificate onto your IdP and enable assertion encryption. 7. Optional: Configure **Single Logout**. If you chose **Single
-Logout**, follow the steps in step 5 of [Configuring your identity provider on
-Amazon WorkSpaces Secure Browser](configure-idp-step1.md "configure-idp-step1.md") to
+Logout**, follow the steps in step 5 of [Configuring your identity provider on Amazon WorkSpaces Secure Browser](configure-idp-step1.md "configure-idp-step1.md") to
 upload the signing certificate onto your IdP, fill in **Single Logout
 URL**, and enable **Single Logout**. 8. Grant access to your users in your IdP to use WorkSpaces Secure Browser. 9. Download a metadata exchange file from your IdP. You will upload this metadata to WorkSpaces Secure Browser
 in the next step.

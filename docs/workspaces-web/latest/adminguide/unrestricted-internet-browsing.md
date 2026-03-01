@@ -1,6 +1,4 @@
-# Enabling unrestricted internet browsing for Amazon WorkSpaces Secure Browser
-
-(recommended)
+# Enabling unrestricted internet browsing for Amazon WorkSpaces Secure Browser (recommended)
 
 Follow these steps to configure a VPC with a NAT gateway for unrestricted internet
 browsing. This grants WorkSpaces Secure Browser access to sites on the public internet, and private sites

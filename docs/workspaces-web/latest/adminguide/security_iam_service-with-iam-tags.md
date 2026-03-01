@@ -1,6 +1,4 @@
-# Attribute-based access control
-
-(ABAC) with WorkSpaces Secure Browser
+# Attribute-based access control (ABAC) with WorkSpaces Secure Browser
 
 **Supports ABAC (tags in policies):**
 

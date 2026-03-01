@@ -2,8 +2,7 @@
 
 The recommended network setup of a WorkSpaces Secure Browser portal is to use private subnets with NAT
 gateway, so that the portal can browse both public internet and private content. For more
-information, see [Enabling unrestricted internet browsing for Amazon WorkSpaces Secure Browser
-(recommended)](unrestricted-internet-browsing.md "unrestricted-internet-browsing.md"). However, you might be
+information, see [Enabling unrestricted internet browsing for Amazon WorkSpaces Secure Browser (recommended)](unrestricted-internet-browsing.md "unrestricted-internet-browsing.md"). However, you might be
 required to control outbound communication from a WorkSpaces Secure Browser portal to the internet by using a
 web proxy. For example, if you use a web proxy as the gateway to the internet, you can
 implement preventive security controls, such as domain allow-listing and content

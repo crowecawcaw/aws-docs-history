@@ -1,6 +1,4 @@
-# AWS managed policy:
-
-AmazonWorkSpacesWebReadOnly
+# AWS managed policy: AmazonWorkSpacesWebReadOnly
 
 You can attach the `AmazonWorkSpacesWebReadOnly` policy to your IAM
 identities.

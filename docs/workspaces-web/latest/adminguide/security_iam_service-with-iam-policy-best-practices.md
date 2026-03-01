@@ -1,6 +1,4 @@
-# Identity-based policy best
-
-practices for Amazon WorkSpaces Secure Browser
+# Identity-based policy best practices for Amazon WorkSpaces Secure Browser
 
 Identity-based policies determine whether someone can create, access, or delete WorkSpaces Secure Browser resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and

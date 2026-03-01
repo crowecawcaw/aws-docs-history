@@ -1,6 +1,4 @@
-# Access control lists (ACLs) in
-
-WorkSpaces Secure Browser
+# Access control lists (ACLs) in WorkSpaces Secure Browser
 
 **Supports ACLs:**
 

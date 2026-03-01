@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples for Amazon WorkSpaces Secure Browser
+# Identity-based policy examples for Amazon WorkSpaces Secure Browser
 
 By default, users and roles don't have permission to create or modify WorkSpaces Secure Browser
 resources. To grant users permission to perform actions on the
@@ -14,9 +12,6 @@ For details about actions and resource types defined by WorkSpaces Secure Browse
 
 ###### Topics
 
-- [Identity-based policy best
-  practices for Amazon WorkSpaces Secure Browser](security_iam_service-with-iam-policy-best-practices.md "security_iam_service-with-iam-policy-best-practices.md")
-- [Using the Amazon WorkSpaces Secure Browser
-  console](security_iam_id-based-policy-examples-console.md "security_iam_id-based-policy-examples-console.md")
-- [Allowing users
-  to view their own permissions for Amazon WorkSpaces Secure Browser](security_iam_id-based-policy-examples-view-own-permissions.md "security_iam_id-based-policy-examples-view-own-permissions.md")
+- [Identity-based policy best practices for Amazon WorkSpaces Secure Browser](security_iam_service-with-iam-policy-best-practices.md "security_iam_service-with-iam-policy-best-practices.md")
+- [Using the Amazon WorkSpaces Secure Browser console](security_iam_id-based-policy-examples-console.md "security_iam_id-based-policy-examples-console.md")
+- [Allowing users to view their own permissions for Amazon WorkSpaces Secure Browser](security_iam_id-based-policy-examples-view-own-permissions.md "security_iam_id-based-policy-examples-view-own-permissions.md")

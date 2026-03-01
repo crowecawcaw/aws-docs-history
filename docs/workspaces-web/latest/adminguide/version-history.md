@@ -12,8 +12,7 @@ compatibility. As a result, the following resources are still the same:
 - Service endpoints. For more information, see [Amazon WorkSpaces Secure Browser endpoints and quotas](../../../general/latest/gr/workspacesweb.md "../../../general/latest/gr/workspacesweb.md").
 - AWS CloudFormation resources. For more information, see [Amazon WorkSpaces Secure Browser resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_WorkSpacesWeb.md "../../../AWSCloudFormation/latest/UserGuide/AWS_WorkSpacesWeb.md").
 - Service-linked role containing _workspaces-web_. For more information,
-  see [Using service-linked roles for
-  Amazon WorkSpaces Secure Browser](using-service-linked-roles.md "using-service-linked-roles.md").
+  see [Using service-linked roles for Amazon WorkSpaces Secure Browser](using-service-linked-roles.md "using-service-linked-roles.md").
 - Console URLs containing _workspaces-web_.
 - Documentation URLs containing _workspaces-web_. For more information,
   see [Amazon WorkSpaces Secure Browser

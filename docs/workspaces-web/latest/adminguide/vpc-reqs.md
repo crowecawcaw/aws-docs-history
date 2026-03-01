@@ -20,5 +20,4 @@ WorkSpaces Secure Browser doesn't assign any public IP address to streaming inst
 access. This would make your streaming instances accessible from the internet. Therefore,
 any streaming instance connected to your public subnet won’t have internet access. If you
 want your WorkSpaces Secure Browser portal to have access to both public internet content and private VPC
-content, complete the steps in [Enabling unrestricted internet browsing for Amazon WorkSpaces Secure Browser
-(recommended)](unrestricted-internet-browsing.md "unrestricted-internet-browsing.md").
+content, complete the steps in [Enabling unrestricted internet browsing for Amazon WorkSpaces Secure Browser (recommended)](unrestricted-internet-browsing.md "unrestricted-internet-browsing.md").

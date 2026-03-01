@@ -1,6 +1,4 @@
-# Service roles for
-
-WorkSpaces Secure Browser
+# Service roles for WorkSpaces Secure Browser
 
 **Supports service roles:**
 
