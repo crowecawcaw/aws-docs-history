@@ -38,9 +38,7 @@ protect the key during transport to the AWS KMS HSM. The RSA key pairs are gener
 HSMs. The imported key material is decrypted on an AWS KMS HSM and re-encrypted under AES-GCM
 before being stored by the service.
 
-## Asymmetric key operations (encryption, digital signing
-
-and signature verification)
+## Asymmetric key operations (encryption, digital signing and signature verification)
 
 AWS KMS supports the use of asymmetric key operations for both encryption and digital
 signature operations. Asymmetric key operations rely on a mathematically related public key
