@@ -1,6 +1,4 @@
-# Set up projects within an IAM-based
-
-domain
+# Set up projects within an IAM-based domain
 
 To create a project within an IAM-based domain you assign Member IAM role or user and
 Execution IAM role, configure execution permissions for the execution role, and set up
@@ -24,9 +22,7 @@ across AWS accounts and regions.
   services. A trust policy is needed to allow Amazon SageMaker Unified Studio and related services to
   assume this execution IAM role.
 
-## Create new project from domain
-
-administration page
+## Create new project from domain administration page
 
 1. From the domain administration page, choose Projects in the left navigation
    pane.
@@ -40,9 +36,7 @@ administration page
 8. Once the project is successfully created, you should see an entry in the
    projects table with the project name.
 
-## Prepare other IAM roles for other users
-
-to self-service setup projects
+## Prepare other IAM roles for other users to self-service setup projects
 
 You can configure other IAM roles in your account to self-setup their Amazon SageMaker Unified Studio
 project within your IAM-based domain. You must add additional permissions and policies

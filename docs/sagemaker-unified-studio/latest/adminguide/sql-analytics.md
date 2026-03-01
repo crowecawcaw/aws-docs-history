@@ -9,14 +9,10 @@ your Amazon SageMaker unified domain.
 
 ###### Topics
 
-- [Configure SQL analytics for your Amazon SageMaker
-  unified domain](#configure-sql-analytics "#configure-sql-analytics")
-- [Create a SQL analytics project
-  profile](#create-sql-analytics-project-profile "#create-sql-analytics-project-profile")
+- [Configure SQL analytics for your Amazon SageMaker unified domain](#configure-sql-analytics "#configure-sql-analytics")
+- [Create a SQL analytics project profile](#create-sql-analytics-project-profile "#create-sql-analytics-project-profile")
 
-## Configure SQL analytics for your Amazon SageMaker
-
-unified domain
+## Configure SQL analytics for your Amazon SageMaker unified domain
 
 Complete the following procedure to configure SQL analytics capability for your Amazon
 SageMaker unified domain.
@@ -40,8 +36,7 @@ SageMaker unified domain.
 Note that by configuring the SQL analytics capability for your domain (this
 procedure), you can only enable the Tooling blueprint in the same AWS account and
 region as your domain. To enable the Tooling blueprint in an account or region that's
-different from that of your domain's, see [Create a SQL analytics project
-profile](#create-sql-analytics-project-profile "#create-sql-analytics-project-profile") or [Custom project profile](custom.md "custom.md"). 6. On the **Create project profile: SQL analytics** page, in the
+different from that of your domain's, see [Create a SQL analytics project profile](#create-sql-analytics-project-profile "#create-sql-analytics-project-profile") or [Custom project profile](custom.md "custom.md"). 6. On the **Create project profile: SQL analytics** page, in the
 **Enable blueprints** section, review the following blueprints that
 will be enabled for this project profile.
 
@@ -50,8 +45,7 @@ will be enabled for this project profile.
 Note that by configuring SQL analytics for your domain (this procedure), you can
 only enable these blueprints in the same AWS account and region as your domain. To
 enable these blueprints in an account or region that's different from that of your
-domain's, see [Create a SQL analytics project
-profile](#create-sql-analytics-project-profile "#create-sql-analytics-project-profile") and [Custom project profile](custom.md "custom.md").
+domain's, see [Create a SQL analytics project profile](#create-sql-analytics-project-profile "#create-sql-analytics-project-profile") and [Custom project profile](custom.md "custom.md").
 
     * LakehouseCatalog
     * RedshiftServerless
@@ -98,9 +92,7 @@ Projects do not provide strong security isolation. To limit cross-domain and
 cross-project resource discovery you can consider creating projects in separate
 accounts. 14. Choose **Create project profile**.
 
-## Create a SQL analytics project
-
-profile
+## Create a SQL analytics project profile
 
 Complete the following procedure to create a SQL analytics project profile for your
 Amazon SageMaker unified domain. Once this procedure is complete, your SQL analytics project

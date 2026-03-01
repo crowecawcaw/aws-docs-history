@@ -1,6 +1,4 @@
-# Update Individual Projects with VPC
-
-Configuration
+# Update Individual Projects with VPC Configuration
 
 When you configure VPC networking for your domain with the "Update projects separately"
 option, existing projects are not automatically updated with the VPC configuration. You must

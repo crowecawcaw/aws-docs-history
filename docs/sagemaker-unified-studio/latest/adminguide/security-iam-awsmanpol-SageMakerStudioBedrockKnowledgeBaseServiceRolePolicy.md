@@ -1,6 +1,4 @@
-# AWS policy:
-
-SageMakerStudioBedrockKnowledgeBaseServiceRolePolicy
+# AWS policy: SageMakerStudioBedrockKnowledgeBaseServiceRolePolicy
 
 This policy allows Amazon Bedrock Knowledge Bases to access Amazon Bedrock models and
 data sources in Amazon SageMaker Unified Studio.

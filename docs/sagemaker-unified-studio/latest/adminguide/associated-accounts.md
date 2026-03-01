@@ -9,19 +9,13 @@ associated accounts in Amazon SageMaker Unified Studio.
 
 ###### Topics
 
-- [Request association with other AWS
-  accounts](#invite-account-to-associate "#invite-account-to-associate")
-- [Accept an account association request from an
-  Amazon SageMaker Unified Studio domain and enable an environment blueprint](#accept-invitation-to-associate "#accept-invitation-to-associate")
-- [Reject an account association request from an
-  Amazon SageMaker Unified Studio domain](#reject-invitation-to-associate "#reject-invitation-to-associate")
+- [Request association with other AWS accounts](#invite-account-to-associate "#invite-account-to-associate")
+- [Accept an account association request from an Amazon SageMaker Unified Studio domain and enable an environment blueprint](#accept-invitation-to-associate "#accept-invitation-to-associate")
+- [Reject an account association request from an Amazon SageMaker Unified Studio domain](#reject-invitation-to-associate "#reject-invitation-to-associate")
 - [Remove an associated account in Amazon SageMaker Unified Studio](#remove-associated-account "#remove-associated-account")
-- [Configure Amazon Bedrock in SageMaker Unified Studio
-  in an associated account](#configure-generative-ai "#configure-generative-ai")
+- [Configure Amazon Bedrock in SageMaker Unified Studio in an associated account](#configure-generative-ai "#configure-generative-ai")
 
-## Request association with other AWS
-
-accounts
+## Request association with other AWS accounts
 
 ###### Note
 
@@ -45,9 +39,7 @@ Notice that the account IDs to which you sent an association request now appear 
 list of accounts in the **Associated accounts** tab with the
 **Requested** status.
 
-## Accept an account association request from an
-
-Amazon SageMaker Unified Studio domain and enable an environment blueprint
+## Accept an account association request from an Amazon SageMaker Unified Studio domain and enable an environment blueprint
 
 Complete the following procedure to accept association with an Amazon SageMaker unified
 domain.
@@ -68,8 +60,7 @@ domain.
    - Configure Data analytics and AI/ML model development capability under the
      **Next steps for your domain**. For more information, see [All capabilities project profile](all-capabilities.md "all-capabilities.md").
    - Configure Generative AI application development capability under the
-     **Next steps for your domain**. For more information, see [Configure Amazon Bedrock in SageMaker Unified Studio
-     in an associated account](#configure-generative-ai "#configure-generative-ai").
+     **Next steps for your domain**. For more information, see [Configure Amazon Bedrock in SageMaker Unified Studio in an associated account](#configure-generative-ai "#configure-generative-ai").
    - Configure SQL analytics capability under the **Next steps for your
      domain**. For more information, see [SQL analytics project profile](sql-analytics.md "sql-analytics.md").
    - View the permissions that govern the association between this account and the
@@ -82,9 +73,7 @@ domain.
      generative AI playground model selector in this account. For more information, see
      [Amazon Bedrock in SageMaker Unified Studio](amazon-bedrock.md "amazon-bedrock.md").
 
-## Reject an account association request from an
-
-Amazon SageMaker Unified Studio domain
+## Reject an account association request from an Amazon SageMaker Unified Studio domain
 
 Complete the following to reject an association request from an Amazon SageMaker unified
 domain.
@@ -108,9 +97,7 @@ domain.
    **Disassociate account** pop up window, confirm disassociation by
    typing **disassociate** in the field.
 
-## Configure Amazon Bedrock in SageMaker Unified Studio
-
-in an associated account
+## Configure Amazon Bedrock in SageMaker Unified Studio in an associated account
 
 In Amazon SageMaker Unified Studio, Generative AI enables project users to explore, build, and collaborate on
 generative AI applications using Amazon Bedrock foundation models and tools.
@@ -196,5 +183,4 @@ directly from **Amazon Bedrock models** tab. For more information, see
 [Amazon Bedrock in SageMaker Unified Studio](amazon-bedrock.md "amazon-bedrock.md"). Also, if you want to
 publish models from your associated account, the IAM identity of the associated account
 must be added to the **GenerativeAIModelGovernanceProject** project. For
-more information, see [Publishing models from associated
-accounts](amazon-bedrock.md#publishing-models-associated-account "amazon-bedrock.md#publishing-models-associated-account").
+more information, see [Publishing models from associated accounts](amazon-bedrock.md#publishing-models-associated-account "amazon-bedrock.md#publishing-models-associated-account").

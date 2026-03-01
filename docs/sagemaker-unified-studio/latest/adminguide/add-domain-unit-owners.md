@@ -1,6 +1,4 @@
-# Manage
-
-domain unit owners in Amazon SageMaker Unified Studio
+# Manage domain unit owners in Amazon SageMaker Unified Studio
 
 In Amazon SageMaker Unified Studio, domain units enable you to organize your assets and other domain
 entities under specific business units and teams. For more information, see [Amazon SageMaker Unified Studio terminology and concepts](concepts.md "concepts.md").

@@ -1,6 +1,4 @@
-# AWS policy:
-
-SageMakerStudioBedrockEvaluationJobServiceRolePolicy
+# AWS policy: SageMakerStudioBedrockEvaluationJobServiceRolePolicy
 
 This policy allows Amazon Bedrock to access Amazon Bedrock models and datasets for
 evaluation jobs in Amazon SageMaker Unified Studio.

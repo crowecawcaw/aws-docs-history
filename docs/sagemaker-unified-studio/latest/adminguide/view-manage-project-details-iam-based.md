@@ -1,6 +1,4 @@
-# View and Manage Project
-
-Details
+# View and Manage Project Details
 
 Project details include storage configuration, execution role assignments, member
 information, and networking settings that determine how resources within the project

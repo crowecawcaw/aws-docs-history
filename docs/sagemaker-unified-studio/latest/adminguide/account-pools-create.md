@@ -14,5 +14,4 @@ To use the AWS CLI to create an account pool, you run the
 ###### Topics
 
 - [Create an account pool with a custom handler source](account-pools-create-handler.md "account-pools-create-handler.md")
-- [Create an account pool with a static
-  list of account and region pairs](account-pools-create-static.md "account-pools-create-static.md")
+- [Create an account pool with a static list of account and region pairs](account-pools-create-static.md "account-pools-create-static.md")

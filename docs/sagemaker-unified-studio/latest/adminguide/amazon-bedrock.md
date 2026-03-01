@@ -31,8 +31,7 @@ different level of customization:
        playgrounds.
 
   For more informaiton about creating an Amazon SageMaker unified domain with
-  **Quick setup**, see [Create a Amazon SageMaker Unified Studio domain -
-  quick setup](create-domain-sagemaker-unified-studio-quick.md "create-domain-sagemaker-unified-studio-quick.md").
+  **Quick setup**, see [Create a Amazon SageMaker Unified Studio domain - quick setup](create-domain-sagemaker-unified-studio-quick.md "create-domain-sagemaker-unified-studio-quick.md").
 
 - **Guided setup** - this is the guided setup with a
   step-by-step walkthrough of configuring Generative AI capabilities for your Amazon SageMaker
@@ -52,8 +51,7 @@ different level of customization:
        Bedrock in SageMaker Unified Studio projects and domain playgrounds.
 
   For detailed steps of using the guided setup of Generative AI capabilities for your
-  Amazon SageMaker unified domain, see [Configure Amazon Bedrock in SageMaker Unified Studio
-  for your domain](genai-application-development.md#configure-bedrock-ide "genai-application-development.md#configure-bedrock-ide").
+  Amazon SageMaker unified domain, see [Configure Amazon Bedrock in SageMaker Unified Studio for your domain](genai-application-development.md#configure-bedrock-ide "genai-application-development.md#configure-bedrock-ide").
 
 - **Manual setup** - this is a step-by-step configuration of
   project profiles, blueprints, and model access with granular control over configurations.
@@ -74,16 +72,11 @@ different level of customization:
 
 ###### Topics
 
-- [Configure access to your Amazon Bedrock serverless models for
-  the selected AWS accounts and regions](#manage-models "#manage-models")
-- [Set default models for the generative AI
-  playgrounds in Amazon SageMaker Unified Studio](#set-default-models-for-playground "#set-default-models-for-playground")
-- [Publishing models from associated
-  accounts](#publishing-models-associated-account "#publishing-models-associated-account")
+- [Configure access to your Amazon Bedrock serverless models for the selected AWS accounts and regions](#manage-models "#manage-models")
+- [Set default models for the generative AI playgrounds in Amazon SageMaker Unified Studio](#set-default-models-for-playground "#set-default-models-for-playground")
+- [Publishing models from associated accounts](#publishing-models-associated-account "#publishing-models-associated-account")
 
-## Configure access to your Amazon Bedrock serverless models for
-
-the selected AWS accounts and regions
+## Configure access to your Amazon Bedrock serverless models for the selected AWS accounts and regions
 
 You can configure access to your Amazon Bedrock serverless models for Amazon Bedrock in
 SageMaker Unified Studio projects and playgrounds by enabling or disabling access in the
@@ -144,9 +137,7 @@ models:
    disable your models. If you choose to disable a model in a project, confirm the disable
    action in the pop up window that appears.
 
-## Set default models for the generative AI
-
-playgrounds in Amazon SageMaker Unified Studio
+## Set default models for the generative AI playgrounds in Amazon SageMaker Unified Studio
 
 Amazon Bedrock in SageMaker Unified Studio supports generative AI playgrounds that enable
 the Amazon SageMaker unified domain users to easily experiment with Amazon Bedrock models.
@@ -177,9 +168,7 @@ default model is preselected for them to begin interacting.
    - Choose **Save** to save your choices for the default playgrounds
      and their respective default models.
 
-## Publishing models from associated
-
-accounts
+## Publishing models from associated accounts
 
 Amazon Bedrock models are published to the domain as model assets through the
 **GenerativeAIModelGovernanceProject** project. This project is is created

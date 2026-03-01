@@ -14,14 +14,10 @@ section.
 
 ###### Topics
 
-- [Using IAM to configure access in
-  Amazon SageMaker Unified Studio](#security-accesss-control-patterns-iam "#security-accesss-control-patterns-iam")
-- [Data access and
-  subscription workflows using Amazon SageMaker catalog](#security-accesss-control-patterns-datazone "#security-accesss-control-patterns-datazone")
+- [Using IAM to configure access in Amazon SageMaker Unified Studio](#security-accesss-control-patterns-iam "#security-accesss-control-patterns-iam")
+- [Data access and subscription workflows using Amazon SageMaker catalog](#security-accesss-control-patterns-datazone "#security-accesss-control-patterns-datazone")
 
-## Using IAM to configure access in
-
-Amazon SageMaker Unified Studio
+## Using IAM to configure access in Amazon SageMaker Unified Studio
 
 In Amazon SageMaker Unified Studio, a domain is the fundamental organizational unit that enables you to
 manage multiple AWS Regions, accounts, and workloads through a single interface. Each
@@ -121,11 +117,9 @@ controls and resource isolation. This role is attached with the following AWS ma
 policies:
 
 - [AWS policy: SageMakerStudioBedrockAgentServiceRolePolicy](security-iam-awsmanpol-SageMakerStudioBedrockAgentServiceRolePolicy.md "security-iam-awsmanpol-SageMakerStudioBedrockAgentServiceRolePolicy.md")
-- [AWS policy:
-  SageMakerStudioBedrockKnowledgeBaseServiceRolePolicy](security-iam-awsmanpol-SageMakerStudioBedrockKnowledgeBaseServiceRolePolicy.md "security-iam-awsmanpol-SageMakerStudioBedrockKnowledgeBaseServiceRolePolicy.md")
+- [AWS policy: SageMakerStudioBedrockKnowledgeBaseServiceRolePolicy](security-iam-awsmanpol-SageMakerStudioBedrockKnowledgeBaseServiceRolePolicy.md "security-iam-awsmanpol-SageMakerStudioBedrockKnowledgeBaseServiceRolePolicy.md")
 - [AWS policy: SageMakerStudioBedrockFlowServiceRolePolicy](security-iam-awsmanpol-SageMakerStudioBedrockFlowServiceRolePolicy.md "security-iam-awsmanpol-SageMakerStudioBedrockFlowServiceRolePolicy.md")
-- [AWS policy:
-  SageMakerStudioBedrockEvaluationJobServiceRolePolicy](security-iam-awsmanpol-SageMakerStudioBedrockEvaluationJobServiceRolePolicy.md "security-iam-awsmanpol-SageMakerStudioBedrockEvaluationJobServiceRolePolicy.md")
+- [AWS policy: SageMakerStudioBedrockEvaluationJobServiceRolePolicy](security-iam-awsmanpol-SageMakerStudioBedrockEvaluationJobServiceRolePolicy.md "security-iam-awsmanpol-SageMakerStudioBedrockEvaluationJobServiceRolePolicy.md")
 
 **Amazon Bedrock Lambda execution role** - in each
 Generative AI app development project, Amazon SageMaker Unified Studio creates an IAM role that allows the
@@ -145,10 +139,8 @@ appropriate access controls. This role is attached with the following AWS manage
 policies:
 
 - [AWSLambdaBasicExecutionRole](../../../aws-managed-policy/latest/reference/AWSLambdaBasicExecutionRole.md "../../../aws-managed-policy/latest/reference/AWSLambdaBasicExecutionRole.md")
-- [AWS policy:
-  SageMakerStudioBedrockFunctionExecutionRolePolicy](security-iam-awsmanpol-SageMakerStudioBedrockFunctionExecutionRolePolicy.md "security-iam-awsmanpol-SageMakerStudioBedrockFunctionExecutionRolePolicy.md")
-- [AWS policy:
-  SageMakerStudioBedrockKnowledgeBaseCustomResourcePolicy](security-iam-awsmanpol-SageMakerStudioBedrockKnowledgeBaseCustomResourcePolicy.md "security-iam-awsmanpol-SageMakerStudioBedrockKnowledgeBaseCustomResourcePolicy.md")
+- [AWS policy: SageMakerStudioBedrockFunctionExecutionRolePolicy](security-iam-awsmanpol-SageMakerStudioBedrockFunctionExecutionRolePolicy.md "security-iam-awsmanpol-SageMakerStudioBedrockFunctionExecutionRolePolicy.md")
+- [AWS policy: SageMakerStudioBedrockKnowledgeBaseCustomResourcePolicy](security-iam-awsmanpol-SageMakerStudioBedrockKnowledgeBaseCustomResourcePolicy.md "security-iam-awsmanpol-SageMakerStudioBedrockKnowledgeBaseCustomResourcePolicy.md")
 
 **Amazon Bedrock chat agent user role** - in each Amazon
 Bedrock chat agent, Amazon SageMaker Unified Studio creates an IAM role that allows the Amazon DataZone
@@ -223,9 +215,7 @@ partner apps owned by the same AWS account as the requesting principal (enforced
 the aws:ResourceAccount condition). This ensures that the user can only interact with
 partner apps within their own AWS account, preventing cross-account access.
 
-## Data access and
-
-subscription workflows using Amazon SageMaker catalog
+## Data access and subscription workflows using Amazon SageMaker catalog
 
 You get a comprehensive framework for data discovery, subscription, and consumption
 through the Amazon SageMaker catalog. It enables seamless collaboration between data

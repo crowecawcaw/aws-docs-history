@@ -10,8 +10,7 @@ setup Amazon SageMaker Unified Studio following these steps to
 1. Verify your current role has AWS IAM administrator privileges or ask your AWS IAM
    administrator to perform the next step.
 2. Navigate to the IAM console. Choose "Add permission" followed by "Attach policy" and
-   search for the managed policy [AWS
-   policy: SageMakerStudioAdminIAMConsolePolicy](security-iam-awsmanpol-SageMakerStudioAdminIAMConsolePolicy.md "security-iam-awsmanpol-SageMakerStudioAdminIAMConsolePolicy.md"). Select it
+   search for the managed policy [AWS policy: SageMakerStudioAdminIAMConsolePolicy](security-iam-awsmanpol-SageMakerStudioAdminIAMConsolePolicy.md "security-iam-awsmanpol-SageMakerStudioAdminIAMConsolePolicy.md"). Select it
    to add it to your existing role.
    This policy provides initial administrative and individual setup privileges for Amazon SageMaker Unified Studio
    via the AWS Management Console and SDK. It grants permissions for launching Amazon SageMaker Unified Studio. To

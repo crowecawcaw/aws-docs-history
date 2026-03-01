@@ -1,6 +1,4 @@
-# Assign authorization
-
-policies to asset types
+# Assign authorization policies to asset types
 
 In Amazon SageMaker Unified Studio, asset types define how assets are represented in the Amazon SageMaker
 catalog. An asset type defines the schema for a specific type of asset. You can complete

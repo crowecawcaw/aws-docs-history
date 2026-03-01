@@ -1,8 +1,6 @@
 # Network Configuration for Remote Access
 
-## Configuring
-
-Amazon SageMaker Unified Studio Project Profiles to allow Internet Access
+## Configuring Amazon SageMaker Unified Studio Project Profiles to allow Internet Access
 
 To allow Spaces to be created with internet access, you can set the tooling blueprint
 parameter `sagemakerDomainNetworkType` to `PublicInternetOnly`. By
@@ -15,17 +13,13 @@ project. For more details see [Update Project Profiles](update-project-profile.m
 This configuration is only applicable for enabling Local IDE support in Identity Center
 based domains, not in IAM-based domains.
 
-## Configuring Isolated VPC for Remote
-
-Access
+## Configuring Isolated VPC for Remote Access
 
 To configure a VPC isolated from the internet and also enable remote access from VS Code,
 you need to create VPC endpoints and attach them to the VPC along with security groups to allow
 traffic to flow through the SSH tunnel. The recommended network setup is:
 
-### Use service created project
-
-security group
+### Use service created project security group
 
 - When you create a Project, the service always creates the Security group on your
   behalf. You can identify the security group by:

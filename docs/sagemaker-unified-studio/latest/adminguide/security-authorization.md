@@ -16,9 +16,7 @@ Amazon SageMaker Unified Studio is designed to be used principally by AWS IAM Id
 users or third party Identity Providers who support SAML to manage access to data and
 perform data publishing, discovery, subscription, and analytics tasks.
 
-## Authorization in the Amazon SageMaker Unified Studio
-
-console
+## Authorization in the Amazon SageMaker Unified Studio console
 
 The Amazon SageMaker Unified Studio console authorization model uses IAM authorization. The console is used
 by administrators primarily for setup. Amazon SageMaker Unified Studio uses the concept of a domain

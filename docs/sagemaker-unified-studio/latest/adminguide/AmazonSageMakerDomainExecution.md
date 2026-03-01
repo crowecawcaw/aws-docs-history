@@ -1,9 +1,6 @@
-# AmazonSageMakerDomainExecution
+# AmazonSageMakerDomainExecution role
 
-role
-
-The AmazonSageMakerDomainExecution role has the [AWS
-policy: SageMakerStudioDomainExecutionRolePolicy](security-iam-awsmanpol-SageMakerStudioDomainExecutionRolePolicy.md "security-iam-awsmanpol-SageMakerStudioDomainExecutionRolePolicy.md")
+The AmazonSageMakerDomainExecution role has the [AWS policy: SageMakerStudioDomainExecutionRolePolicy](security-iam-awsmanpol-SageMakerStudioDomainExecutionRolePolicy.md "security-iam-awsmanpol-SageMakerStudioDomainExecutionRolePolicy.md")
 attached. This is an IAM role that Amazon SageMaker Unified Studio requires to call APIs
 on behalf of authorized users, including those logged in to Amazon SageMaker Unified
 Studio.

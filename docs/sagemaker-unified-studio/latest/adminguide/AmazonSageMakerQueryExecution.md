@@ -3,8 +3,7 @@
 This role is used while running a query execution. AWS LakeFormation assumes this
 role to vend credentials needed by Amazon Athena during query execution.
 
-The AmazonSageMakerQueryExecution role has the [AWS
-policy: SageMakerStudioQueryExecutionRolePolicy](security-iam-awsmanpol-SageMakerStudioQueryExecutionRolePolicy.md "security-iam-awsmanpol-SageMakerStudioQueryExecutionRolePolicy.md")
+The AmazonSageMakerQueryExecution role has the [AWS policy: SageMakerStudioQueryExecutionRolePolicy](security-iam-awsmanpol-SageMakerStudioQueryExecutionRolePolicy.md "security-iam-awsmanpol-SageMakerStudioQueryExecutionRolePolicy.md")
 attached.
 
 The default `AmazonSageMakerQueryExecution` role has the following trust

@@ -1,6 +1,4 @@
-# AWS
-
-policy: SageMakerStudioDomainExecutionRolePolicy
+# AWS policy: SageMakerStudioDomainExecutionRolePolicy
 
 Default policy for the SageMakerUnifiedStudioDomainExecutionRole service role. This
 role is used by Amazon SageMaker Unified Studio to catalog, discover, govern, share, and analyze data in the

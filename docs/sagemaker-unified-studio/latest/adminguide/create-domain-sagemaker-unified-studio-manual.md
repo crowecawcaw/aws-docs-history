@@ -1,6 +1,4 @@
-# Create a Amazon SageMaker Unified Studio domain -
-
-manual setup
+# Create a Amazon SageMaker Unified Studio domain - manual setup
 
 Complete the following procedure to create a Amazon SageMaker Unified Studio domain with the quick setup
 option.
@@ -24,8 +22,7 @@ following:
 3. In **Name**, specify the domain name.
 4. In **Description**, specify the domain description.
 5. Under **Permissions**, specify the domain execution role. For more
-   information, see [AmazonSageMakerDomainExecution
-   role](AmazonSageMakerDomainExecution.md "AmazonSageMakerDomainExecution.md").
+   information, see [AmazonSageMakerDomainExecution role](AmazonSageMakerDomainExecution.md "AmazonSageMakerDomainExecution.md").
 6. Under **Permissions**, specify the domain service role. For more
    information, see [AmazonSageMakerDomainService role](AmazonSageMakerDomainService.md "AmazonSageMakerDomainService.md").
 7. Under **Data encryption**, specify the data encryption settings.

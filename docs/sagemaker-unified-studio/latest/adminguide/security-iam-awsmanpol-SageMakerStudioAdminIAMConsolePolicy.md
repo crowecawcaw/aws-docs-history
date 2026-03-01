@@ -1,6 +1,4 @@
-# AWS
-
-policy: SageMakerStudioAdminIAMConsolePolicy
+# AWS policy: SageMakerStudioAdminIAMConsolePolicy
 
 This policy provides initial administrative and individual setup privileges for
 Amazon SageMaker Unified Studio via the AWS Management Console and SDK. It grants permissions for launching

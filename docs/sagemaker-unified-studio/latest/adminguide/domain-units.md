@@ -34,17 +34,10 @@ your users and groups to grant them specific permissions:
 
 ###### Topics
 
-- [Create
-  domain units in Amazon SageMaker Unified Studio](create-domain-unit.md "create-domain-unit.md")
-- [Edit
-  domain units in Amazon SageMaker Unified Studio](edit-domain-unit.md "edit-domain-unit.md")
-- [Delete
-  domain units in Amazon SageMaker Unified Studio](delete-domain-unit.md "delete-domain-unit.md")
-- [Manage
-  domain unit owners in Amazon SageMaker Unified Studio](add-domain-unit-owners.md "add-domain-unit-owners.md")
-- [Assign
-  authorization policies to users and groups within an Amazon SageMaker Unified Studio domain unit](assign-authorization-policies-to-users-in-domain-unit.md "assign-authorization-policies-to-users-in-domain-unit.md")
-- [Assign
-  authorization policies to projects within an Amazon SageMaker Unified Studio domain unit](assign-authorization-policies-to-projects-in-domain-unit.md "assign-authorization-policies-to-projects-in-domain-unit.md")
-- [Assign authorization
-  policies to asset types](assign-authorization-policies-to-asset-types.md "assign-authorization-policies-to-asset-types.md")
+- [Create domain units in Amazon SageMaker Unified Studio](create-domain-unit.md "create-domain-unit.md")
+- [Edit domain units in Amazon SageMaker Unified Studio](edit-domain-unit.md "edit-domain-unit.md")
+- [Delete domain units in Amazon SageMaker Unified Studio](delete-domain-unit.md "delete-domain-unit.md")
+- [Manage domain unit owners in Amazon SageMaker Unified Studio](add-domain-unit-owners.md "add-domain-unit-owners.md")
+- [Assign authorization policies to users and groups within an Amazon SageMaker Unified Studio domain unit](assign-authorization-policies-to-users-in-domain-unit.md "assign-authorization-policies-to-users-in-domain-unit.md")
+- [Assign authorization policies to projects within an Amazon SageMaker Unified Studio domain unit](assign-authorization-policies-to-projects-in-domain-unit.md "assign-authorization-policies-to-projects-in-domain-unit.md")
+- [Assign authorization policies to asset types](assign-authorization-policies-to-asset-types.md "assign-authorization-policies-to-asset-types.md")

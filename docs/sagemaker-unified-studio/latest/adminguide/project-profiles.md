@@ -15,6 +15,5 @@ In Amazon SageMaker Unified Studio, you can create the following template projec
 
 - [All capabilities project profile](all-capabilities.md "all-capabilities.md")
 - [SQL analytics project profile](sql-analytics.md "sql-analytics.md")
-- [Generative AI application development project
-  profile](genai-application-development.md "genai-application-development.md")
+- [Generative AI application development project profile](genai-application-development.md "genai-application-development.md")
 - [Custom project profile](custom.md "custom.md")

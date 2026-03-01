@@ -58,8 +58,7 @@ In order to disable Amazon Q in your domain, you must update your permissions to
 statements and update your domain level configuration. Do this by completing the following
 steps:
 
-- Update your permissions in the [AWS
-  policy: SageMakerStudioDomainExecutionRolePolicy](security-iam-awsmanpol-SageMakerStudioDomainExecutionRolePolicy.md "security-iam-awsmanpol-SageMakerStudioDomainExecutionRolePolicy.md") to Deny
+- Update your permissions in the [AWS policy: SageMakerStudioDomainExecutionRolePolicy](security-iam-awsmanpol-SageMakerStudioDomainExecutionRolePolicy.md "security-iam-awsmanpol-SageMakerStudioDomainExecutionRolePolicy.md") to Deny
   “q:\*”.
 
 JSON
@@ -82,8 +81,7 @@ JSON
 
 ```
 
-- Update your permissions in the [AWS
-  policy: SageMakerStudioProjectUserRolePolicy](security-iam-awsmanpol-SageMakerStudioProjectUserRolePolicy.md "security-iam-awsmanpol-SageMakerStudioProjectUserRolePolicy.md") to Deny
+- Update your permissions in the [AWS policy: SageMakerStudioProjectUserRolePolicy](security-iam-awsmanpol-SageMakerStudioProjectUserRolePolicy.md "security-iam-awsmanpol-SageMakerStudioProjectUserRolePolicy.md") to Deny
   “q:\*”.
 
 ```

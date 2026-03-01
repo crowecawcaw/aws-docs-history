@@ -2,8 +2,7 @@
 
 ###### Topics
 
-- [AmazonSageMakerDomainExecution
-  role](AmazonSageMakerDomainExecution.md "AmazonSageMakerDomainExecution.md")
+- [AmazonSageMakerDomainExecution role](AmazonSageMakerDomainExecution.md "AmazonSageMakerDomainExecution.md")
 - [AmazonSageMakerDomainService role](AmazonSageMakerDomainService.md "AmazonSageMakerDomainService.md")
 - [AmazonSageMakerManageAccess-<region>-<domainId> role](AmazonSageMakerManageAccess.md "AmazonSageMakerManageAccess.md")
 - [AmazonSageMakerProvisioning-<domainAccountId> role](AmazonSageMakerProvisioning.md "AmazonSageMakerProvisioning.md")

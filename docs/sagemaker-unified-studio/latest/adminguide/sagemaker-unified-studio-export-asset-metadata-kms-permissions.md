@@ -1,18 +1,11 @@
-# KMS
-
-permissions for exporting asset metadata in Amazon SageMaker Unified Studio
+# KMS permissions for exporting asset metadata in Amazon SageMaker Unified Studio
 
 ###### Topics
 
-- [Granting
-  the Amazon SageMaker Catalog export service principal and S3 Tables maintenance
-  service principal permissions to your KMS key](#export-asset-metadata-kms-permissions-service-principal "#export-asset-metadata-kms-permissions-service-principal")
+- [Granting the Amazon SageMaker Catalog export service principal and S3 Tables maintenance service principal permissions to your KMS key](#export-asset-metadata-kms-permissions-service-principal "#export-asset-metadata-kms-permissions-service-principal")
 - [IAM permissions required for the principal for exporting](#export-asset-metadata-kms-permissions-service-principal-exporting "#export-asset-metadata-kms-permissions-service-principal-exporting")
 
-## Granting
-
-the Amazon SageMaker Catalog export service principal and S3 Tables maintenance
-service principal permissions to your KMS key
+## Granting the Amazon SageMaker Catalog export service principal and S3 Tables maintenance service principal permissions to your KMS key
 
 All data in S3 tables are encrypted with SSE-S3 encryption by default. You can
 choose to encrypt your data with AWS Key Management Service (AWS KMS) keys

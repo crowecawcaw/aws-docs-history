@@ -1,6 +1,4 @@
-# View VPC Networking Details for Your
-
-Domain
+# View VPC Networking Details for Your Domain
 
 After configuring VPC networking for your Amazon SageMaker Unified Studio domain, you can view the VPC and
 subnet details from the domain settings. This information shows the current networking

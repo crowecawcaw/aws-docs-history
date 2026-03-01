@@ -29,13 +29,9 @@ provider. Additional details to setup an Identity Center based domain are availa
 
 - [Overview of IAM-based domains](iam-based-domains-overview.md "iam-based-domains-overview.md")
 - [Set up IAM-based domains in Amazon SageMaker Unified Studio](setup-iam-based-domains.md "setup-iam-based-domains.md")
-- [Manage data encryption in
-  IAM-based domains](manage-data-encryption-iam-based-domains.md "manage-data-encryption-iam-based-domains.md")
-- [Access the Domain Administration
-  Page](access-domain-administration-page.md "access-domain-administration-page.md")
-- [Configure VPC Networking for
-  Amazon SageMaker Unified Studio Domain](vpc-networking-iam-based-domains.md "vpc-networking-iam-based-domains.md")
-- [Manage Projects from Domain
-  Administration](manage-projects-domain-administration.md "manage-projects-domain-administration.md")
+- [Manage data encryption in IAM-based domains](manage-data-encryption-iam-based-domains.md "manage-data-encryption-iam-based-domains.md")
+- [Access the Domain Administration Page](access-domain-administration-page.md "access-domain-administration-page.md")
+- [Configure VPC Networking for Amazon SageMaker Unified Studio Domain](vpc-networking-iam-based-domains.md "vpc-networking-iam-based-domains.md")
+- [Manage Projects from Domain Administration](manage-projects-domain-administration.md "manage-projects-domain-administration.md")
 - [Configure Domain Settings](configure-domain-settings-iam-based.md "configure-domain-settings-iam-based.md")
 - [Projects in IAM-based domains](projects-iam-based-domains.md "projects-iam-based-domains.md")

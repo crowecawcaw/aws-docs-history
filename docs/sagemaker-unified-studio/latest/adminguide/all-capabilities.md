@@ -9,14 +9,10 @@ You can use the following procedures to create an all capabilities project profi
 
 ###### Topics
 
-- [Configure all capabilities for your Amazon
-  SageMaker unified domain](#configure-all-capabilities "#configure-all-capabilities")
-- [Create an All capabilities project
-  profile](#create-all-capabilities-project-profile "#create-all-capabilities-project-profile")
+- [Configure all capabilities for your Amazon SageMaker unified domain](#configure-all-capabilities "#configure-all-capabilities")
+- [Create an All capabilities project profile](#create-all-capabilities-project-profile "#create-all-capabilities-project-profile")
 
-## Configure all capabilities for your Amazon
-
-SageMaker unified domain
+## Configure all capabilities for your Amazon SageMaker unified domain
 
 Complete the following procedure to configure all capabilities for your Amazon SageMaker
 unified domain.
@@ -42,8 +38,7 @@ unified domain.
 Note that by configuring all capabilities for your domain (this procedure), you
 can only enable the Tooling blueprint in the same AWS account and region as your
 domain. To enable the Tooling blueprint in an account or region that's different from
-that of your domain's, see [Create an All capabilities project
-profile](#create-all-capabilities-project-profile "#create-all-capabilities-project-profile") or [Custom project profile](custom.md "custom.md"). 6. On the **Create project profile: All capabilities**, in the
+that of your domain's, see [Create an All capabilities project profile](#create-all-capabilities-project-profile "#create-all-capabilities-project-profile") or [Custom project profile](custom.md "custom.md"). 6. On the **Create project profile: All capabilities**, in the
 **Enable blueprints** section, review the following blueprints that
 will be enabled for this project profile.
 
@@ -52,8 +47,7 @@ will be enabled for this project profile.
 Note that by configuring all capabilities for your domain (this procedure), you
 can only enable these blueprints in the same AWS account and region as your domain.
 To enable these blueprints in an account or region that's different from that of your
-domain's, see [Create an All capabilities project
-profile](#create-all-capabilities-project-profile "#create-all-capabilities-project-profile") or [Custom project profile](custom.md "custom.md").
+domain's, see [Create an All capabilities project profile](#create-all-capabilities-project-profile "#create-all-capabilities-project-profile") or [Custom project profile](custom.md "custom.md").
 
     * MLExperiments
     * Workflows
@@ -109,9 +103,7 @@ After you complete this procedure, your All capabilities project profile for thi
 is created and all the supported blueprints for it are enabled. Your domain users can then
 proceed to use this project profile to create projects in Amazon SageMaker Unified Studio.
 
-## Create an All capabilities project
-
-profile
+## Create an All capabilities project profile
 
 Complete the following procedure to create a All capabilities project profile for your
 Amazon SageMaker unified domain. Once this procedure is complete, your All capabilities

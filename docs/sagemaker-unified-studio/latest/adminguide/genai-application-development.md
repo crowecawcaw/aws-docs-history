@@ -1,6 +1,4 @@
-# Generative AI application development project
-
-profile
+# Generative AI application development project profile
 
 A Generative AI application development project profile enables generative AI solutions
 from Amazon Bedrock for your Amazon SageMaker unified domains. It provides project users in
@@ -13,14 +11,10 @@ development project profile in an Amazon Sagemaker unified domain.
 
 ###### Topics
 
-- [Configure Amazon Bedrock in SageMaker Unified Studio
-  for your domain](#configure-bedrock-ide "#configure-bedrock-ide")
-- [Create a generative
-  AI application development project profile](#create-genai-application-development-project-profile "#create-genai-application-development-project-profile")
+- [Configure Amazon Bedrock in SageMaker Unified Studio for your domain](#configure-bedrock-ide "#configure-bedrock-ide")
+- [Create a generative AI application development project profile](#create-genai-application-development-project-profile "#create-genai-application-development-project-profile")
 
-## Configure Amazon Bedrock in SageMaker Unified Studio
-
-for your domain
+## Configure Amazon Bedrock in SageMaker Unified Studio for your domain
 
 Complete the following procedure to configure Amazon Bedrock in SageMaker Unified Studio
 for your domain.
@@ -65,8 +59,7 @@ when you create this project profile as part of this procedure:
 Note that by configuring Amazon Bedrock in SageMaker Unified Studio for your
 domain (this procedure), you can only enable the generative AI blueprints for this
 project profile in this domain's AWS account and Region. To enable these blueprints
-in an associated account, see [Configure Amazon Bedrock in SageMaker Unified Studio
-in an associated account](associated-accounts.md#configure-generative-ai "associated-accounts.md#configure-generative-ai").
+in an associated account, see [Configure Amazon Bedrock in SageMaker Unified Studio in an associated account](associated-accounts.md#configure-generative-ai "associated-accounts.md#configure-generative-ai").
 
 Under **Provisioning role**, specify a new or existing service role
 that is to be used by Amazon SageMaker Unified Studio to provision and manage resources defined in the
@@ -85,8 +78,7 @@ modify any of the Tooling blueprint settings.
      configuring Amazon Bedrock in SageMaker Unified Studio capability for your domain
      (this procedure), you can only enable the Tooling blueprint in the same AWS
      account and region as your domain. To enable the Tooling blueprint in an associated
-     account, see [Configure Amazon Bedrock in SageMaker Unified Studio
-     in an associated account](associated-accounts.md#configure-generative-ai "associated-accounts.md#configure-generative-ai").
+     account, see [Configure Amazon Bedrock in SageMaker Unified Studio in an associated account](associated-accounts.md#configure-generative-ai "associated-accounts.md#configure-generative-ai").
     * In the **Amazon S3 bucket for blueprints** section, specify an
      Amazon S3 bucket for blueprints in your AWS account.
     * In the **Networking** section, in the **Virtual private
@@ -200,9 +192,7 @@ where you can find the enabled generative AI blueprints under the
 directly from **Amazon Bedrock models** tab. For more information, see
 [Amazon Bedrock in SageMaker Unified Studio](amazon-bedrock.md "amazon-bedrock.md")
 
-## Create a generative
-
-AI application development project profile
+## Create a generative AI application development project profile
 
 Complete the following procedure to create a Generative AI application development
 project profile for your Amazon SageMaker unified domain. Once this procedure is complete,

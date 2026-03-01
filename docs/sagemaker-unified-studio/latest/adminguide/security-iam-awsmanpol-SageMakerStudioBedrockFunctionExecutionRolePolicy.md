@@ -1,6 +1,4 @@
-# AWS policy:
-
-SageMakerStudioBedrockFunctionExecutionRolePolicy
+# AWS policy: SageMakerStudioBedrockFunctionExecutionRolePolicy
 
 This policy allows AWS Lambda to access an Amazon Bedrock function component's
 configuration in Amazon SageMaker Unified Studio.

@@ -26,12 +26,9 @@ _of_ the cloud and security _in_ the cloud:
 - [Data protection in Amazon SageMaker Unified Studio](data-protection.md "data-protection.md")
 - [Authorization in Amazon SageMaker Unified Studio](security-authorization.md "security-authorization.md")
 - [Compliance validation for Amazon SageMaker Unified Studio](compliance-validation.md "compliance-validation.md")
-- [Security Best Practices for Amazon SageMaker
-  Unified Studio](security-best-practices.md "security-best-practices.md")
+- [Security Best Practices for Amazon SageMaker Unified Studio](security-best-practices.md "security-best-practices.md")
 - [Resilience in Amazon SageMaker Unified Studio](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in Amazon SageMaker Unified Studio](infrastructure-security.md "infrastructure-security.md")
 - [Network isolation in Amazon SageMaker Unified Studio](network-isolation.md "network-isolation.md")
-- [Configuration and vulnerability
-  analysis for Amazon SageMaker Unified Studio](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Configuration and vulnerability analysis for Amazon SageMaker Unified Studio](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")

@@ -1,6 +1,4 @@
-# Manage data encryption in
-
-IAM-based domains
+# Manage data encryption in IAM-based domains
 
 Data encryption in IAM-based domains protects your data at rest and in transit within
 Amazon SageMaker Unified Studio. You can choose between AWS-managed encryption keys for simplified

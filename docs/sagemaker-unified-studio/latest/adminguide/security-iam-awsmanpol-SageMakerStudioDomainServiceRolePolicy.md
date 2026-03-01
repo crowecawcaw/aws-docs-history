@@ -1,6 +1,4 @@
-# AWS
-
-policy: SageMakerStudioDomainServiceRolePolicy
+# AWS policy: SageMakerStudioDomainServiceRolePolicy
 
 This is the default policy for the SageMakerUnifiedStudioDomainServiceRole service
 role. This policy is used by Amazon SageMaker Unified Studio to access the SSM parameters in the user’s

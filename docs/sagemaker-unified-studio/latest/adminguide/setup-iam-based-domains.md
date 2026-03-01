@@ -290,16 +290,14 @@ details:
         * Check **Customize encryption settings (advanced)** to specify a
          custom AWS KMS key
 
-    If using custom encryption, see [Manage data encryption in
-    IAM-based domains](manage-data-encryption-iam-based-domains.md "manage-data-encryption-iam-based-domains.md")
+    If using custom encryption, see [Manage data encryption in IAM-based domains](manage-data-encryption-iam-based-domains.md "manage-data-encryption-iam-based-domains.md")
 
 1.  Choose **Set up** to begin the domain creation process.
 1.  Monitor the setup progress in the **Setting up Amazon SageMaker Unified Studio**
     dialog. The process typically takes 1-2 minutes to complete.
 1.  Once the setup is completed, project will automatically be created using the same
     Execution role. Then you will be redirected to the Administrative pages for managing the
-    domain. See [Access the Domain Administration
-    Page](access-domain-administration-page.md "access-domain-administration-page.md") for details.
+    domain. See [Access the Domain Administration Page](access-domain-administration-page.md "access-domain-administration-page.md") for details.
 1.  You can also access the project associated with your Login IAM role by choosing on
     the first project. See **Navigating within Amazon SageMaker Unified Studio** for
     details.

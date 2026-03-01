@@ -1,6 +1,4 @@
-# Connect your local Visual Studio Code to Amazon SageMaker Unified Studio spaces with
-
-remote access
+# Connect your local Visual Studio Code to Amazon SageMaker Unified Studio spaces with remote access
 
 You can connect remotely from Visual Studio Code (VS Code) to Amazon SageMaker Unified Studio Spaces. You can use
 your customized local VS Code setup, including AI-assisted development tools and custom

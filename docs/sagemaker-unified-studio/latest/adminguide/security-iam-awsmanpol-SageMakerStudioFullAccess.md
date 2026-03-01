@@ -1,6 +1,4 @@
-# AWS policy:
-
-SageMakerStudioFullAccess
+# AWS policy: SageMakerStudioFullAccess
 
 This policy provides full access to Amazon SageMaker Unified Studio via the Amazon
 SageMaker management console.

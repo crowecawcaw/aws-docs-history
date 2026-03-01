@@ -1,6 +1,4 @@
-# Modify the OnDemandWorkflows
-
-blueprint for creating workflow environments in a shared VPC
+# Modify the OnDemandWorkflows blueprint for creating workflow environments in a shared VPC
 
 In order to support creating workflow environments in a shared VPC setup, where the
 VPC is in one AWS account and the project and the Amazon Managed Workflows for Apache

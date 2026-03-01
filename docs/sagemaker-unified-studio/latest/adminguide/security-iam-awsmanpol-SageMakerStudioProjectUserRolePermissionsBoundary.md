@@ -1,6 +1,4 @@
-# AWS policy:
-
-SageMakerStudioProjectUserRolePermissionsBoundary
+# AWS policy: SageMakerStudioProjectUserRolePermissionsBoundary
 
 Amazon SageMaker Unified Studio creates IAM roles for Projects users to perform data analytics, artificial
 intelligence, and machine learning actions, and uses this policy when creating these

@@ -1,6 +1,4 @@
-# AWS policy:
-
-SageMakerStudioProjectRoleMachineLearningPolicy
+# AWS policy: SageMakerStudioProjectRoleMachineLearningPolicy
 
 Amazon SageMaker Unified Studio creates IAM roles for projects users to perform data analytics, artificial
 intelligence, and machine learning actions, and uses this policy when creating these

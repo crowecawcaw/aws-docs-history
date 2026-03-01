@@ -1,6 +1,4 @@
-# Create an account pool with a static
-
-list of account and region pairs
+# Create an account pool with a static list of account and region pairs
 
 You can create an account pool where the accounts are provided as a list of static
 accounts. Use these steps when your account pool source is a static list and not

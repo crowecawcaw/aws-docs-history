@@ -1,6 +1,4 @@
-# Configuring Amazon SageMaker Unified Studio for
-
-Remote Access
+# Configuring Amazon SageMaker Unified Studio for Remote Access
 
 ## Prerequisites
 

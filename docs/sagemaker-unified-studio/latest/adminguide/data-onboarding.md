@@ -28,8 +28,7 @@ management and governance.
   SageMaker unified domain or for an existing domain.
 
 - If you create your new domain using the quick set up option, data onboarding is
-  supported as part of domain creation. For more information, see [Create a Amazon SageMaker Unified Studio domain -
-  quick setup](create-domain-sagemaker-unified-studio-quick.md "create-domain-sagemaker-unified-studio-quick.md").
+  supported as part of domain creation. For more information, see [Create a Amazon SageMaker Unified Studio domain - quick setup](create-domain-sagemaker-unified-studio-quick.md "create-domain-sagemaker-unified-studio-quick.md").
 - If you create your new domain using the manual setup option, once the domain is created
   you must first enable the Tooling blueprint before you can onboard your data. To do this,
   complete the steps in [Enable or disable blueprints](enable-disable-blueprints.md "enable-disable-blueprints.md") (choose the Tooling blueprint in the
