@@ -18,8 +18,7 @@ immediately that an update is available.
 
 Amazon Cognito Sync requires an Amazon Cognito identity pool to provide user identities. Before you use
 Amazon Cognito Sync you must first set up an identity pool. To create an identity pool and install the
-SDK, see [Getting started with Amazon Cognito identity
-pools](getting-started-with-identity-pools.md "getting-started-with-identity-pools.md").
+SDK, see [Getting started with Amazon Cognito identity pools](getting-started-with-identity-pools.md "getting-started-with-identity-pools.md").
 
 ## Store and sync data
 

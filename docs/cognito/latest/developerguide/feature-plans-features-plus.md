@@ -18,23 +18,17 @@ pages.
 
 ###### Additional resources
 
-- Adaptive authentication: [Working with adaptive
-  authentication](cognito-user-pool-settings-adaptive-authentication.md "cognito-user-pool-settings-adaptive-authentication.md")
-- Compromised credentials: [Working with
-  compromised-credentials detection](cognito-user-pool-settings-compromised-credentials.md "cognito-user-pool-settings-compromised-credentials.md")
+- Adaptive authentication: [Working with adaptive authentication](cognito-user-pool-settings-adaptive-authentication.md "cognito-user-pool-settings-adaptive-authentication.md")
+- Compromised credentials: [Working with compromised-credentials detection](cognito-user-pool-settings-compromised-credentials.md "cognito-user-pool-settings-compromised-credentials.md")
 - Log export: [Exporting logs from Amazon Cognito user pools](exporting-quotas-and-usage.md "exporting-quotas-and-usage.md")
 
 ###### Topics
 
-- [Threat protection: adaptive
-  authentication](#features-adaptive-authentication "#features-adaptive-authentication")
-- [Threat protection:
-  compromised-credentials detection](#features-compromised-credentials "#features-compromised-credentials")
+- [Threat protection: adaptive authentication](#features-adaptive-authentication "#features-adaptive-authentication")
+- [Threat protection: compromised-credentials detection](#features-compromised-credentials "#features-compromised-credentials")
 - [Threat protection: user activity logging](#features-user-logs "#features-user-logs")
 
-## Threat protection: adaptive
-
-authentication
+## Threat protection: adaptive authentication
 
 The Plus plan includes an _adaptive authentication_
 feature. When you activate this feature, your user pool makes a risk assessment of every
@@ -59,14 +53,10 @@ on the risk ratings from your user pool to adjust future ratings.
 
 ###### Learn more
 
-- [Working with adaptive
-  authentication](cognito-user-pool-settings-adaptive-authentication.md "cognito-user-pool-settings-adaptive-authentication.md")
-- [Collecting data for
-  threat protection in applications](user-pool-settings-viewing-threat-protection-app.md "user-pool-settings-viewing-threat-protection-app.md")
+- [Working with adaptive authentication](cognito-user-pool-settings-adaptive-authentication.md "cognito-user-pool-settings-adaptive-authentication.md")
+- [Collecting data for threat protection in applications](user-pool-settings-viewing-threat-protection-app.md "user-pool-settings-viewing-threat-protection-app.md")
 
-## Threat protection:
-
-compromised-credentials detection
+## Threat protection: compromised-credentials detection
 
 The Plus plan includes a _compromised-credentials
 detection_ feature. This feature guards against the use of insecure passwords
@@ -99,8 +89,7 @@ wherever users enter them.
 
 ###### Learn more
 
-- [Working with
-  compromised-credentials detection](cognito-user-pool-settings-compromised-credentials.md "cognito-user-pool-settings-compromised-credentials.md")
+- [Working with compromised-credentials detection](cognito-user-pool-settings-compromised-credentials.md "cognito-user-pool-settings-compromised-credentials.md")
 
 ## Threat protection: user activity logging
 

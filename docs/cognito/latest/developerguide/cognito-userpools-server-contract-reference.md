@@ -1,6 +1,4 @@
-# User pool endpoints and
-
-managed login reference
+# User pool endpoints and managed login reference
 
 Amazon Cognito has two models of user pool authentication: with the user pools API and with the
 OAuth 2.0 authorization server. Use the API when you want to retrieve OpenID Connect (OIDC)
@@ -10,8 +8,7 @@ like [federated sign-in](cognito-user-pools-identity-federation.md "cognito-user
 access token scopes](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md"), and [managed
 login](cognito-user-pools-managed-login.md "cognito-user-pools-managed-login.md"). You can use the API and OIDC models each on their own or together,
 configured at the user pool level or at the [app client](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md") level. This section is a reference for the implementation of the OIDC
-model. For more information about the two authentication models, see [Understanding API, OIDC, and managed login pages
-authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations").
+model. For more information about the two authentication models, see [Understanding API, OIDC, and managed login pages authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations").
 
 Amazon Cognito activates the public webpages listed here when you assign a domain to your user
 pool. Your domain serves as a central access point for all of your app clients. They include
@@ -48,12 +45,8 @@ more information, see best practices and recommendations at [Certificate pinning
 
 ###### Topics
 
-- [User-interactive managed login and classic
-  hosted UI endpoints](managed-login-endpoints.md "managed-login-endpoints.md")
-- [Identity provider and relying party
-  endpoints](federation-endpoints.md "federation-endpoints.md")
+- [User-interactive managed login and classic hosted UI endpoints](managed-login-endpoints.md "managed-login-endpoints.md")
+- [Identity provider and relying party endpoints](federation-endpoints.md "federation-endpoints.md")
 - [OAuth 2.0 grants](federation-endpoints-oauth-grants.md "federation-endpoints-oauth-grants.md")
-- [Using PKCE in authorization code
-  grants](using-pkce-in-authorization-code.md "using-pkce-in-authorization-code.md")
-- [Managed login and federation error
-  responses](federation-endpoint-idp-responses.md "federation-endpoint-idp-responses.md")
+- [Using PKCE in authorization code grants](using-pkce-in-authorization-code.md "using-pkce-in-authorization-code.md")
+- [Managed login and federation error responses](federation-endpoint-idp-responses.md "federation-endpoint-idp-responses.md")

@@ -84,9 +84,7 @@ To integrate Sign in with Apple with a native iOS application, see [Implementing
 
 To integrate Sign in with Apple in a platform other than native iOS, see [Sign in with Apple JS.](https://developer.apple.com/documentation/signinwithapplejs/ "https://developer.apple.com/documentation/signinwithapplejs/")
 
-## Configure the external provider in the
-
-Amazon Cognito federated identities console
+## Configure the external provider in the Amazon Cognito federated identities console
 
 Use the following procedure to configure your external provider.
 
@@ -130,9 +128,7 @@ Use the following procedure to configure your external provider.
 
 8. Select **Save changes**.
 
-## Sign in with Apple as a provider in the
-
-Amazon Cognito federated identities CLI examples
+## Sign in with Apple as a provider in the Amazon Cognito federated identities CLI examples
 
 This example creates an identity pool named `MyIdentityPool` with Sign in
 with Apple as an IdP.

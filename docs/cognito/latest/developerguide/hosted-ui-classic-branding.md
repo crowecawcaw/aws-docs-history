@@ -1,6 +1,4 @@
-# Customizing hosted UI (classic)
-
-branding
+# Customizing hosted UI (classic) branding
 
 You can use the AWS Management Console, or the AWS CLI or API, to specify classic customization
 settings for the hosted UI. You can upload a custom logo image to be displayed in the
@@ -25,9 +23,7 @@ separately.
 
 To customize your UI, you must set up a domain for your user pool.
 
-## Specifying a custom
-
-logo in classic branding
+## Specifying a custom logo in classic branding
 
 Amazon Cognito centers your custom logo above the input fields at the [Login endpoint](login-endpoint.md "login-endpoint.md").
 
@@ -37,9 +33,7 @@ KB after Amazon Cognito encodes to Base64. To set an `ImageFile` in [SetUICustom
 a Base64-encoded text string or, in the AWS CLI, provide a file path and let Amazon Cognito
 encode it for you.
 
-## Specifying CSS
-
-customizations in classic branding
+## Specifying CSS customizations in classic branding
 
 You can customize the CSS for the hosted app pages, with the following
 restrictions:
@@ -262,9 +256,7 @@ social identity providers in the sign-in page.
   `"Password check valid"` message. It can be any
   standard CSS color value.
 
-## Customizing the
-
-hosted UI with classic branding in the AWS Management Console
+## Customizing the hosted UI with classic branding in the AWS Management Console
 
 You can use the AWS Management Console to specify UI customization settings for your
 app.
@@ -308,23 +300,17 @@ under **App clients**.
    file, choose **Choose file** or **Replace current
    file** to upload your custom CSS file.
 
-## Customizing the
-
-hosted UI with classic branding in the user pools API and with the AWS CLI
+## Customizing the hosted UI with classic branding in the user pools API and with the AWS CLI
 
 Use the following commands to specify app UI customization settings for your user
 pool.
 
-###### To get the UI customization settings for a user pool's built-in app UI, use
-
-the following API operations.
+###### To get the UI customization settings for a user pool's built-in app UI, use the following API operations.
 
 - AWS CLI: `aws cognito-idp get-ui-customization`
 - AWS API: [GetUICustomization](../../../cognito-user-identity-pools/latest/APIReference/API_GetUICustomization.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetUICustomization.md")
 
-###### To set the UI customization settings for a user pool's built-in app UI, use
-
-the following API operations.
+###### To set the UI customization settings for a user pool's built-in app UI, use the following API operations.
 
 - AWS CLI from image file: `aws cognito-idp set-ui-customization
 --user-pool-id `<your-user-pool-id>`--client-id`<your-app-client-id>`

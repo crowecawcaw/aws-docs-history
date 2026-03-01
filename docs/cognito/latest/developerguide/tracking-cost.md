@@ -105,8 +105,7 @@ monthly active users (MAUs) that are used to calculate your bill for user pools.
 M2M authorization bills based on two factors: the rate of token requests and the
 number of app clients that do client credentials grants. When app clients for M2M
 authorization aren’t in use, delete them or remove their authorization to issue client
-credentials. For more information about managing app client configuration, see [Application-specific settings with app
-clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
+credentials. For more information about managing app client configuration, see [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
 
 ###### Manage feature plans
 

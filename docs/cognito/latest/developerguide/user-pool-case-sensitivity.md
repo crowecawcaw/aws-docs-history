@@ -23,8 +23,7 @@ created.
 Regardless of the case sensitivity settings of your user pool, Amazon Cognito requires that a
 federated user from a SAML or OIDC identity provider (IdP) pass a unique and case-sensitive
 `NameId` or `sub` claim. For more information about unique
-identifier case sensitivity and SAML IdPs, see [Implement
-SP-initated SAML sign-in](cognito-user-pools-SAML-session-initiation.md#cognito-user-pools-saml-idp-authentication "cognito-user-pools-SAML-session-initiation.md#cognito-user-pools-saml-idp-authentication").
+identifier case sensitivity and SAML IdPs, see [Implement SP-initated SAML sign-in](cognito-user-pools-SAML-session-initiation.md#cognito-user-pools-saml-idp-authentication "cognito-user-pools-SAML-session-initiation.md#cognito-user-pools-saml-idp-authentication").
 
 Creating a case-sensitive user pool
 

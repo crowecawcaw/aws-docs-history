@@ -1,6 +1,4 @@
-# Accessing AWS services with temporary
-
-credentials
+# Accessing AWS services with temporary credentials
 
 The result of a successful authentication with an identity pool is a set of AWS
 credentials. With these credentials, your application can make requests to AWS resources

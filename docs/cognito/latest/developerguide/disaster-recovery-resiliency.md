@@ -13,5 +13,4 @@ infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https:/
 
 ###### Topics
 
-- [Regional data
-  considerations](security-cognito-regional-data-considerations.md "security-cognito-regional-data-considerations.md")
+- [Regional data considerations](security-cognito-regional-data-considerations.md "security-cognito-regional-data-considerations.md")

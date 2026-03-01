@@ -1,6 +1,4 @@
-# Configuring email or phone
-
-verification
+# Configuring email or phone verification
 
 You can choose settings for email or phone verification under the
 **Authentication methods** menu. For more information on multi-factor authentication
@@ -32,8 +30,7 @@ The verification code or link is valid for 24 hours.
 
 If you choose to require verification for an email address or phone number, Amazon Cognito
 automatically sends the verification code or link when a user signs up. If the user pool has a
-[Custom SMS sender Lambda trigger](user-pool-lambda-custom-sms-sender.md "user-pool-lambda-custom-sms-sender.md") or [Custom email sender Lambda
-trigger](user-pool-lambda-custom-email-sender.md "user-pool-lambda-custom-email-sender.md") configured, that function is invoked
+[Custom SMS sender Lambda trigger](user-pool-lambda-custom-sms-sender.md "user-pool-lambda-custom-sms-sender.md") or [Custom email sender Lambda trigger](user-pool-lambda-custom-email-sender.md "user-pool-lambda-custom-email-sender.md") configured, that function is invoked
 instead.
 
 ###### Notes
@@ -42,8 +39,7 @@ instead.
   There is no charge to send email messages. For information about Amazon SNS pricing, see [Worldwide SMS pricing](https://aws.amazon.com/sns/sms-pricing/ "https://aws.amazon.com/sns/sms-pricing/"). For the current
   list of countries where SMS messaging is available, see [Supported regions and countries](../../../sns/latest/dg/sms_supported-countries.md "../../../sns/latest/dg/sms_supported-countries.md").
 - When you test actions in your app that generate email messages from Amazon Cognito, use a real
-  email address that Amazon Cognito can reach without hard bounces. For more information, see [Sending emails while testing your
-  app](signing-up-users-in-your-app.md#managing-users-accounts-email-testing "signing-up-users-in-your-app.md#managing-users-accounts-email-testing").
+  email address that Amazon Cognito can reach without hard bounces. For more information, see [Sending emails while testing your app](signing-up-users-in-your-app.md#managing-users-accounts-email-testing "signing-up-users-in-your-app.md#managing-users-accounts-email-testing").
 - The forgotten password flow requires either the user's email or the user's phone
   number to verify the user.
 
@@ -64,8 +60,7 @@ work?** in the [Amazon SNS FAQs](https://aws.amazon.com/sns/faqs/ "https://aws.a
 Amazon Cognito sends SMS messages using Amazon SNS resources in either the AWS Region where you created
 the user pool or in a **Legacy Amazon SNS alternate Region** from the following
 table. The exception is Amazon Cognito user pools in the Asia Pacific (Seoul) Region. These user pools use your
-Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [Choose the AWS Region for SMS
-messages](user-pool-sms-settings.md#sms-choose-a-region "user-pool-sms-settings.md#sms-choose-a-region").
+Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [Choose the AWS Region for SMS messages](user-pool-sms-settings.md#sms-choose-a-region "user-pool-sms-settings.md#sms-choose-a-region").
 
 | Amazon Cognito Region | Legacy Amazon SNS alternate Region |
 | --------------------- | ---------------------------------- |
@@ -80,9 +75,7 @@ messages](user-pool-sms-settings.md#sms-choose-a-region "user-pool-sms-settings.
 have increased your spend limit in ap-southeast-1, you might not want to request a separate
 increase in ap-south-1. Instead, you can use your Amazon SNS resources in Asia Pacific (Singapore).
 
-## Verifying updates
-
-to email addresses and phone numbers
+## Verifying updates to email addresses and phone numbers
 
 An email address or phone number attribute can become active and unverified immediately
 after your user changes its value. Amazon Cognito can also require that your user verifies the new
@@ -106,9 +99,7 @@ resubmits the form in your app to update her email address to `sue2@example.com`
 She receives this email, provides the verification code to your app, and begins signing in as
 `sue2@example.com`.
 
-###### When a user updates an attribute and your user pool verifies new attribute
-
-values
+###### When a user updates an attribute and your user pool verifies new attribute values
 
 - They can sign in with the original attribute value before they have confirmed the code
   to verify the new value.
@@ -118,9 +109,7 @@ values
   `true` in an [AdminUpdateUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.md") API request, they can sign in before they have
   confirmed the code that Amazon Cognito sent to them.
 
-###### When a user updates an attribute and your user pool doesn't verify new attribute
-
-values
+###### When a user updates an attribute and your user pool doesn't verify new attribute values
 
 - They can’t sign in with, or receive messages at, the original attribute value.
 - They can’t sign in with, or receive messages other than a confirmation code at, the
@@ -129,9 +118,7 @@ values
   `true` in an [AdminUpdateUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.md") API request, they can sign in before they have
   confirmed the code that Amazon Cognito sent to them.
 
-## To require attribute
-
-verification when users update their email address or phone number
+## To require attribute verification when users update their email address or phone number
 
 1. Sign in to the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home"). If
    prompted, enter your AWS credentials.
@@ -149,9 +136,7 @@ verification when users update their email address or phone number
 To require attribute update verification with the Amazon Cognito API, you can set the
 `AttributesRequireVerificationBeforeUpdate` parameter in an [UpdateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md") request.
 
-## Authorizing Amazon Cognito to send
-
-SMS messages on your behalf
+## Authorizing Amazon Cognito to send SMS messages on your behalf
 
 To send SMS messages to your users on your behalf, Amazon Cognito needs your permission. To grant
 that permission, you can create an AWS Identity and Access Management (IAM) role. In the **Authentication

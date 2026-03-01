@@ -1,6 +1,4 @@
-# The branding editor and customizing
-
-managed login
+# The branding editor and customizing managed login
 
 The branding editor is a visual design and editing tool for your managed login
 webpages. It's built in to the Amazon Cognito console. In the branding editor, you start with a
@@ -273,9 +271,7 @@ Styles for in-page text.
 
 Styles for the text around form inputs.
 
-## API and SDK operations for managed login
-
-branding
+## API and SDK operations for managed login branding
 
 You can also apply branding to a managed login style with the API operations
 [CreateManagedLoginBranding](../../../cognito-user-identity-pools/latest/APIReference/API_CreateManagedLoginBranding.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateManagedLoginBranding.md") and [UpdateManagedLoginBranding](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateManagedLoginBranding.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateManagedLoginBranding.md"). These operations are ideal for creating
@@ -346,9 +342,7 @@ Elements
 svg, a, altglyph, altglyphdef, altglyphitem, animatecolor, animatemotion, animatetransform, audio, canvas, circle, clippath, defs, desc, ellipse, filter, font, g, glyph, glyphref, hkern, image, line, lineargradient, marker, mask, metadata, mpath, path, pattern, polygon, polyline, radialgradient, rect, stop, style, switch, symbol, text, textpath, title, tref, tspan, video, view, vkern, feBlend, feColorMatrix, feComponentTransfer, feComposite, feConvolveMatrix, feDiffuseLighting, feDisplacementMap, feDistantLight, feFlood, feFuncA, feFuncB, feFuncG, feFuncR, feGaussianBlur, feMerge, feMergeNode, feMorphology, feOffset, fePointLight, feSpecularLighting, feSpotLight, feTile, feTurbulence
 ```
 
-### Tools for managed login branding
-
-operations
+### Tools for managed login branding operations
 
 Amazon Cognito manages a file in the [JSON-Schema format](https://json-schema.org/docs "https://json-schema.org/docs") for the managed-login branding settings object.
 The following is how to programmatically update your branding style.

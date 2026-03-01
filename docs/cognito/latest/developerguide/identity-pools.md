@@ -14,16 +14,12 @@ you can implement identity pool authentication.
 
 - [Create an identity pool](#identity-pools-create "#identity-pools-create")
 - [User IAM roles](#user-iam-roles "#user-iam-roles")
-- [Authenticated and
-  unauthenticated identities](#authenticated-and-unauthenticated-identities "#authenticated-and-unauthenticated-identities")
-- [Activate or deactivate guest
-  access](#enable-or-disable-unauthenticated-identities "#enable-or-disable-unauthenticated-identities")
-- [Change the role
-  associated with an identity type](#change-the-role-associated-with-an-identity-type "#change-the-role-associated-with-an-identity-type")
+- [Authenticated and unauthenticated identities](#authenticated-and-unauthenticated-identities "#authenticated-and-unauthenticated-identities")
+- [Activate or deactivate guest access](#enable-or-disable-unauthenticated-identities "#enable-or-disable-unauthenticated-identities")
+- [Change the role associated with an identity type](#change-the-role-associated-with-an-identity-type "#change-the-role-associated-with-an-identity-type")
 - [Edit identity providers](#enable-or-edit-authentication-providers "#enable-or-edit-authentication-providers")
 - [Delete an identity pool](#delete-an-identity-pool "#delete-an-identity-pool")
-- [Delete an identity from an
-  identity pool](#delete-an-identity-from-an-identity-pool "#delete-an-identity-from-an-identity-pool")
+- [Delete an identity from an identity pool](#delete-an-identity-from-an-identity-pool "#delete-an-identity-from-an-identity-pool")
 - [Using Amazon Cognito Sync with identity pools](#identity-pools-sync "#identity-pools-sync")
 
 ## Create an identity pool
@@ -67,8 +63,7 @@ you can implement identity pool authentication.
       configured your **Authenticated role**, or you can **Choose
       role with rules**. With a Amazon Cognito user pool IdP, you can also
       **Choose role with preferred_role in tokens**. For more
-      information about the `cognito:preferred_role` claim, see [Assigning precedence values to
-      groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
+      information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
       1. If you chose **Choose role with rules**, enter the source
          **Claim** from your user's authentication, the
          **Operator** that you want to compare the claim by, the
@@ -112,31 +107,23 @@ An IAM role defines the permissions for your users to access AWS resources, like
 will assume the roles you create. You can specify different roles for authenticated and
 unauthenticated users. To learn more about IAM roles, see [IAM roles](iam-roles.md "iam-roles.md").
 
-## Authenticated and
-
-unauthenticated identities
+## Authenticated and unauthenticated identities
 
 Amazon Cognito identity pools support both authenticated and unauthenticated identities.
 Authenticated identities belong to users who are authenticated by any supported identity
 provider. Unauthenticated identities typically belong to guest users.
 
-- To configure authenticated identities with a public login provider, see [Identity pools third-party identity
-  providers](external-identity-providers.md "external-identity-providers.md").
+- To configure authenticated identities with a public login provider, see [Identity pools third-party identity providers](external-identity-providers.md "external-identity-providers.md").
 - To configure your own backend authentication process, see [Developer-authenticated identities](developer-authenticated-identities.md "developer-authenticated-identities.md").
 
-## Activate or deactivate guest
-
-access
+## Activate or deactivate guest access
 
 Amazon Cognito identity pools guest access (unauthenticated identities) provides a unique
 identifier and AWS credentials for users who do not authenticate with an identity
 provider. If your application allows users who do not log in, you can activate access for
-unauthenticated identities. To learn more, see [Getting started with Amazon Cognito identity
-pools](getting-started-with-identity-pools.md "getting-started-with-identity-pools.md").
+unauthenticated identities. To learn more, see [Getting started with Amazon Cognito identity pools](getting-started-with-identity-pools.md "getting-started-with-identity-pools.md").
 
-###### To update guest
-
-access in an identity pool
+###### To update guest access in an identity pool
 
 1. Choose **Identity pools** from the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home"). Select an identity
    pool.
@@ -167,9 +154,7 @@ access in an identity pool
          4. To activate guest access, select **Activate** in the
             **User access** tab.
 
-## Change the role
-
-associated with an identity type
+## Change the role associated with an identity type
 
 Every identity in your identity pool is either authenticated or unauthenticated.
 Authenticated identities belong to users who are authenticated by a public login provider
@@ -226,8 +211,7 @@ provider. For more information, see [Using role-based access control](role-based
 ###### Warning
 
 Changing the linked IdP application ID in your identity pool prevents existing users
-from authenticating with that identity pool. For more information, see [Identity pools third-party identity
-providers](external-identity-providers.md "external-identity-providers.md").
+from authenticating with that identity pool. For more information, see [Identity pools third-party identity providers](external-identity-providers.md "external-identity-providers.md").
 
 ###### To update an identity pool identity provider (IdP)
 
@@ -249,8 +233,7 @@ providers](external-identity-providers.md "external-identity-providers.md").
       you set up when you configured your **Authenticated role**, or you
       can **Choose role with rules**. With a Amazon Cognito user pool IdP, you can
       also **Choose role with preferred_role in tokens**. For more
-      information about the `cognito:preferred_role` claim, see [Assigning precedence values to
-      groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
+      information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
       1. If you chose **Choose role with rules**, enter the source
          **Claim** from your user's authentication, the
          **Operator** that you want to compare the claim by, the
@@ -294,9 +277,7 @@ When you select the Delete button, you will permanently delete your identity poo
 all the user data it contains. Deleting an identity pool will cause applications and other
 services using the identity pool to stop working.
 
-## Delete an identity from an
-
-identity pool
+## Delete an identity from an identity pool
 
 When you delete an identity from an identity pool, you remove the identifying
 information that Amazon Cognito has stored for that federated user. When your user requests
@@ -321,9 +302,7 @@ data locally so that your app can read and write data regardless of device conne
 status. When the device is online, you can synchronize data. If you set up push sync, you
 can notify other devices immediately that an update is available.
 
-### Managing
-
-datasets
+### Managing datasets
 
 If you have implemented Amazon Cognito Sync functionality in your application, the Amazon Cognito
 identity pools console enables you to manually create and delete datasets and records for
@@ -334,9 +313,7 @@ in the console. The change isn't visible to the end user until the identity call
 individual identities is visible once you refresh the list datasets page for a particular
 identity.
 
-#### Create a dataset for an
-
-identity
+#### Create a dataset for an identity
 
 Amazon Cognito Sync associates a dataset with one identity. You can populate your dataset with
 identifying information about the user that the identity represents, then sync that
@@ -358,9 +335,7 @@ information to all of your user's devices.
 7. Enter a **Key** and **Value** for your record.
    Choose **Confirm**. Repeat to add more records.
 
-#### Delete a dataset
-
-associated with an identity
+#### Delete a dataset associated with an identity
 
 ###### To delete a dataset and its records from an identity
 

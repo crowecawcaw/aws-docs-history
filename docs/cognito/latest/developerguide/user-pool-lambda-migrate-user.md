@@ -3,24 +3,18 @@
 When a user doesn't exist in the user pool at sign-in with a password, or in the
 forgot-password flow, Amazon Cognito invokes this trigger. After the Lambda function returns
 successfully, Amazon Cognito creates the user in the user pool. For details on the authentication
-flow with the user migration Lambda trigger, see [Importing users with a user migration
-Lambda trigger](cognito-user-pools-import-using-lambda.md "cognito-user-pools-import-using-lambda.md").
+flow with the user migration Lambda trigger, see [Importing users with a user migration Lambda trigger](cognito-user-pools-import-using-lambda.md "cognito-user-pools-import-using-lambda.md").
 
 To migrate users from your existing user directory into Amazon Cognito user pools at sign-in, or during the
 forgot-password flow, use this Lambda trigger.
 
 ###### Topics
 
-- [Migrate user Lambda
-  trigger sources](#user-pool-lambda-migrate-user-trigger-source "#user-pool-lambda-migrate-user-trigger-source")
-- [Migrate user
-  Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-user-migration "#cognito-user-pools-lambda-trigger-syntax-user-migration")
-- [Example: Migrate a user
-  with an existing password](#aws-lambda-triggers-user-migration-example-1 "#aws-lambda-triggers-user-migration-example-1")
+- [Migrate user Lambda trigger sources](#user-pool-lambda-migrate-user-trigger-source "#user-pool-lambda-migrate-user-trigger-source")
+- [Migrate user Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-user-migration "#cognito-user-pools-lambda-trigger-syntax-user-migration")
+- [Example: Migrate a user with an existing password](#aws-lambda-triggers-user-migration-example-1 "#aws-lambda-triggers-user-migration-example-1")
 
-## Migrate user Lambda
-
-trigger sources
+## Migrate user Lambda trigger sources
 
 | triggerSource value                                                                                                  | Event                                       |
 | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
@@ -30,9 +24,7 @@ trigger sources
 1 Amazon Cognito doesn't invoke this trigger when users
 authenticate with [passwordless sign-in](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless").
 
-## Migrate user
-
-Lambda trigger parameters
+## Migrate user Lambda trigger parameters
 
 The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the
 [common parameters](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared") that Amazon Cognito adds to all requests.
@@ -178,9 +170,7 @@ in. Your user pool must have MFA enabled. Your user's attributes in the
 request parameters must include a phone number, or else the migration of
 that user will fail.
 
-## Example: Migrate a user
-
-with an existing password
+## Example: Migrate a user with an existing password
 
 This example Lambda function migrates the user with an existing password and suppresses
 the welcome message from Amazon Cognito.

@@ -1,6 +1,4 @@
-# Authorization models for API and SDK
-
-authentication
+# Authorization models for API and SDK authentication
 
 When you're starting development of your application with user pools authentication, you
 must decide on the API authorization model that fits your application type. An authorization
@@ -33,8 +31,7 @@ immediately set the value of any attribute, although [special considerations app
 numbers when they're used for sign-in.
 
 To compare API authentication and see a full list of API operations and their
-authorization models, see [Understanding API, OIDC, and managed login pages
-authentication](#user-pools-API-operations "#user-pools-API-operations").
+authorization models, see [Understanding API, OIDC, and managed login pages authentication](#user-pools-API-operations "#user-pools-API-operations").
 
 Client-side (public) authentication
 The following is a typical sequence of requests in a client-side application
@@ -48,9 +45,7 @@ The following is a typical sequence of requests in a client-side application
    device to the user's profile. Access token authorization indicates requests that are
    for user self-service operations after they have completed authentication.
 
-For more information, see [Client-side
-authentication options](#amazon-cognito-user-pools-client-side-authentication-flow "#amazon-cognito-user-pools-client-side-authentication-flow") and [Understanding API, OIDC, and managed login pages
-authentication](#user-pools-API-operations "#user-pools-API-operations").
+For more information, see [Client-side authentication options](#amazon-cognito-user-pools-client-side-authentication-flow "#amazon-cognito-user-pools-client-side-authentication-flow") and [Understanding API, OIDC, and managed login pages authentication](#user-pools-API-operations "#user-pools-API-operations").
 
 Server-side authentication
 The following is a typical sequence of requests from a server-side operation. Each
@@ -66,9 +61,7 @@ application server.
    `AdminInitiateAuth`
    [response](../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md#API_AdminInitiateAuth_ResponseSyntax "../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md#API_AdminInitiateAuth_ResponseSyntax") as remembered.
 
-For more information, see [Server-side
-authentication options](#amazon-cognito-user-pools-server-side-authentication-flow "#amazon-cognito-user-pools-server-side-authentication-flow") and [Understanding API, OIDC, and managed login pages
-authentication](#user-pools-API-operations "#user-pools-API-operations").
+For more information, see [Server-side authentication options](#amazon-cognito-user-pools-server-side-authentication-flow "#amazon-cognito-user-pools-server-side-authentication-flow") and [Understanding API, OIDC, and managed login pages authentication](#user-pools-API-operations "#user-pools-API-operations").
 
 A user authenticates by answering successive challenges until authentication either fails
 or Amazon Cognito issues tokens to the user. You can repeat these steps with Amazon Cognito, in a process
@@ -76,18 +69,12 @@ that includes different challenges, to support any custom authentication flow.
 
 ###### Topics
 
-- [Server-side
-  authentication options](#amazon-cognito-user-pools-server-side-authentication-flow "#amazon-cognito-user-pools-server-side-authentication-flow")
-- [Client-side
-  authentication options](#amazon-cognito-user-pools-client-side-authentication-flow "#amazon-cognito-user-pools-client-side-authentication-flow")
-- [Understanding API, OIDC, and managed login pages
-  authentication](#user-pools-API-operations "#user-pools-API-operations")
-- [List of API operations grouped by authorization
-  model](#user-pool-apis-auth-unauth "#user-pool-apis-auth-unauth")
+- [Server-side authentication options](#amazon-cognito-user-pools-server-side-authentication-flow "#amazon-cognito-user-pools-server-side-authentication-flow")
+- [Client-side authentication options](#amazon-cognito-user-pools-client-side-authentication-flow "#amazon-cognito-user-pools-client-side-authentication-flow")
+- [Understanding API, OIDC, and managed login pages authentication](#user-pools-API-operations "#user-pools-API-operations")
+- [List of API operations grouped by authorization model](#user-pool-apis-auth-unauth "#user-pool-apis-auth-unauth")
 
-## Server-side
-
-authentication options
+## Server-side authentication options
 
 Web applications and other _server-side_ applications
 implement authentication on a remote server that a client loads in a remote-display
@@ -132,9 +119,7 @@ Because backend admin implementations use the admin authentication flow, the flo
 doesn't support remembered devices. When you have turned on device tracking, admin
 authentication succeeds, but any call to refresh the access token fails.
 
-## Client-side
-
-authentication options
+## Client-side authentication options
 
 Mobile apps and other _client-side_ application types
 are installed on users' devices and perform the logic of authentication and user interface
@@ -175,9 +160,7 @@ returns no tokens. Instead, the call returns a session. 4. If `RespondToAuthChal
 `RespondToAuthChallenge` again, this time with the session and the
 challenge response (for example, MFA code).
 
-## Understanding API, OIDC, and managed login pages
-
-authentication
+## Understanding API, OIDC, and managed login pages authentication
 
 Amazon Cognito user pools are a combination of several authentication technologies. They are relying
 parties to external identity providers (IdPs). They are IdPs to applications that implement
@@ -224,8 +207,7 @@ providers (IdPs). The services that they perform include the following.
    `aws.cognito.signin.user.admin` scope. To generate an access token
    with additional scopes, for example to authorize a request to a third-party API,
    request scopes during authentication through your user pool endpoints or add
-   custom scopes in a [Pre token generation Lambda
-   trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md"). Access token customization
+   custom scopes in a [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md"). Access token customization
    adds costs to your AWS bill. 3. A refresh token that authorizes requests for new ID and access tokens, and
    refreshes user identity and access-control properties.
 
@@ -233,8 +215,7 @@ You can link a federated user, who would normally sign in through the user pools
 endpoints, with a user whose profile is _local_ to your
 user pool. A local user exists exclusively in your user pool directory without federation
 through an external IdP. If you link their federated identity to a local user in an [AdminLinkProviderForUser](../../../cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.md") API request, they can sign in with the user pools API.
-For more information, see [Linking
-federated users to an existing user profile](cognito-user-pools-identity-federation-consolidate-users.md "cognito-user-pools-identity-federation-consolidate-users.md").
+For more information, see [Linking federated users to an existing user profile](cognito-user-pools-identity-federation-consolidate-users.md "cognito-user-pools-identity-federation-consolidate-users.md").
 
 The Amazon Cognito user pools API is dual-purpose.
 
@@ -261,8 +242,7 @@ The Amazon Cognito user pools API is dual-purpose.
 
 In the Amazon Cognito user pools API, you can't sign in users who federate through an IdP. You must
 authenticate these users through your user pool endpoints. For more information about the
-user pool endpoints that include managed login, see [User pool endpoints and
-managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md").
+user pool endpoints that include managed login, see [User pool endpoints and managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md").
 
 Your federated users can start in managed login and select their IdP, or you can skip
 managed login and send your users directly to your IdP to sign in. When your API request to
@@ -289,9 +269,7 @@ throughout this guide. The following sections examine how the user pools API fur
 into classes that support your sign-up, sign-in, and resource-management
 requirements.
 
-## List of API operations grouped by authorization
-
-model
+## List of API operations grouped by authorization model
 
 The Amazon Cognito user pools API, both a resource-management interface and a user-facing authentication
 and authorization interface, combines the authorization models that follow in its
@@ -302,9 +280,7 @@ authenticated and unauthenticated versions of the request. Unauthenticated opera
 best security practice for apps that you distribute to your users, like mobile apps; you
 don't need to include any secrets in your code.
 
-You can only assign permissions in IAM policies for [IAM-authorized
-management operations](#user-pool-apis-auth-unauth-sigv4-management "#user-pool-apis-auth-unauth-sigv4-management") and [IAM-authorized user
-operations](#user-pool-apis-auth-unauth-sigv4-user "#user-pool-apis-auth-unauth-sigv4-user").
+You can only assign permissions in IAM policies for [IAM-authorized management operations](#user-pool-apis-auth-unauth-sigv4-management "#user-pool-apis-auth-unauth-sigv4-management") and [IAM-authorized user operations](#user-pool-apis-auth-unauth-sigv4-user "#user-pool-apis-auth-unauth-sigv4-user").
 
 IAM-authorized management operations modify and view your user pool and app client
 configuration, like you would do in the AWS Management Console.
@@ -391,8 +367,7 @@ requests](../../../general/latest/gr/signing_aws_api_requests.md "../../../gener
 If your app client has a client secret, you must provide both your IAM credentials
 and, depending on the operation, either the `SecretHash` parameter or the
 `SECRET_HASH` value in `AuthParameters`. For more information,
-see [Computing secret hash
-values](signing-up-users-in-your-app.md#cognito-user-pools-computing-secret-hash "signing-up-users-in-your-app.md#cognito-user-pools-computing-secret-hash").
+see [Computing secret hash values](signing-up-users-in-your-app.md#cognito-user-pools-computing-secret-hash "signing-up-users-in-your-app.md#cognito-user-pools-computing-secret-hash").
 
 | IAM-authorized user operations                                                                                                                                                                                              |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -440,8 +415,7 @@ authorization.
 
 If your app client has a client secret, you must provide, depending on the
 operation, either the `SecretHash` parameter or the `SECRET_HASH`
-value in `AuthParameters`. For more information, see [Computing secret hash
-values](signing-up-users-in-your-app.md#cognito-user-pools-computing-secret-hash "signing-up-users-in-your-app.md#cognito-user-pools-computing-secret-hash").
+value in `AuthParameters`. For more information, see [Computing secret hash values](signing-up-users-in-your-app.md#cognito-user-pools-computing-secret-hash "signing-up-users-in-your-app.md#cognito-user-pools-computing-secret-hash").
 
 | Unauthenticated user operations                                                                                                                                                                           |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -1,6 +1,4 @@
-# Pre token generation Lambda
-
-trigger
+# Pre token generation Lambda trigger
 
 Because Amazon Cognito invokes this trigger before token generation, you can customize the
 claims in user pool tokens. With the **Basic features** of the version one
@@ -28,9 +26,7 @@ before Amazon Cognito issues them to your app. To use this feature, associate a 
 the Amazon Cognito user pools console or update your user pool `LambdaConfig` through the AWS Command Line Interface
 (AWS CLI).
 
-## Event
-
-versions
+## Event versions
 
 Your user pool can deliver different versions of a pre token generation trigger event
 to your Lambda function. A `V1_0` trigger delivers the parameters for
@@ -76,9 +72,7 @@ one and two of the pre token generation trigger. User pools in this legacy tier
 _without_ advanced security features have
 access to event version one. Version three is _only_ available in Essentials and Plus.
 
-## Claims and
-
-scopes reference
+## Claims and scopes reference
 
 Amazon Cognito limits the claims and scopes that you can add, modify, or suppress in access and
 identity tokens. The following table describes the claims that your Lambda function can
@@ -139,15 +133,12 @@ identities.
 its value must match the app client ID of the current session. You can derive the client
 ID in the request event from `event.callerContext.clientId`.
 
-## Customizing the identity
-
-token
+## Customizing the identity token
 
 With all event versions of the pre token generation Lambda trigger, you can customize
 the content of an identity (ID) token from your user pool. The ID token provides user
 attributes from a trusted identity source for sign-in to a web or mobile app. For more
-information about ID tokens, see [Understanding the identity (ID)
-token](amazon-cognito-user-pools-using-the-id-token.md "amazon-cognito-user-pools-using-the-id-token.md").
+information about ID tokens, see [Understanding the identity (ID) token](amazon-cognito-user-pools-using-the-id-token.md "amazon-cognito-user-pools-using-the-id-token.md").
 
 The uses of the pre token generation Lambda trigger with an ID token include the
 following.
@@ -160,9 +151,7 @@ following.
   scopes and the read access to attributes that you granted to your app client,
   would otherwise be passed to your app.
 
-## Customizing the
-
-access token
+## Customizing the access token
 
 With event versions two and three of the pre token generation Lambda trigger, you can
 customize the content of an access token from your user pool. The access token
@@ -170,8 +159,7 @@ authorizes users to retrieve information from access-protected resources like Am
 token-authorized API operations and third-party APIs. For machine-to-machine (M2M)
 authorization with a client credentials grant, Amazon Cognito only invokes the pre token
 generation trigger when your user pool is configured for a version three
-(`V3_0`) event. For more information about access tokens, see [Understanding the access
-token](amazon-cognito-user-pools-using-the-access-token.md "amazon-cognito-user-pools-using-the-access-token.md").
+(`V3_0`) event. For more information about access tokens, see [Understanding the access token](amazon-cognito-user-pools-using-the-access-token.md "amazon-cognito-user-pools-using-the-access-token.md").
 
 The uses of the pre token generation Lambda trigger with an access token include the
 following.
@@ -190,9 +178,7 @@ the following procedure.
 
 AWS Management Console
 
-###### To support access token customization in a pre token generation Lambda
-
-trigger
+###### To support access token customization in a pre token generation Lambda trigger
 
 1. Go to the [Amazon Cognito
    console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home"), and then choose **User
@@ -217,8 +203,7 @@ generation Lambda trigger**
 
 Generate a [CreateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md") or [UpdateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md") API request. You must
 specify a value for all parameters that you don't want set to a default
-value. For more information, see [Updating user pool and app client
-configuration](cognito-user-pool-updating.md "cognito-user-pool-updating.md").
+value. For more information, see [Updating user pool and app client configuration](cognito-user-pool-updating.md "cognito-user-pool-updating.md").
 
 Include the following content in the `LambdaVersion` parameter
 of your request. A `LambdaVersion` value of `V2_0`
@@ -239,8 +224,7 @@ version as the value of `LambdaArn`.
 
 You can pass [client
 metadata](cognito-user-pools-working-with-lambda-triggers.md#working-with-lambda-trigger-client-metadata "cognito-user-pools-working-with-lambda-triggers.md#working-with-lambda-trigger-client-metadata") in M2M requests. Client metadata is additional information from a
-user or application environment that can contribute to the outcomes of a [Pre token generation Lambda
-trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md"). In authentication operations with a user principal, you can pass client metadata
+user or application environment that can contribute to the outcomes of a [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md"). In authentication operations with a user principal, you can pass client metadata
 to the pre token generation trigger in the body of [AdminRespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md") and [RespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md") API requests. Because applications conduct the
 flow for generation of access tokens for M2M with direct requests to the [Token endpoint](token-endpoint.md "token-endpoint.md"), they have a different
 model. In the POST body of token requests for client credentials, pass an
@@ -259,24 +243,14 @@ aws_client_metadata=%7B%22environment%22%3A%20%22dev%22,%20%22language%22%3A%20%
 
 ###### Topics
 
-- [Pre token
-  generation Lambda trigger sources](#user-pool-lambda-pre-token-generation-trigger-source "#user-pool-lambda-pre-token-generation-trigger-source")
-- [Pre
-  token generation Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-pre-token-generation "#cognito-user-pools-lambda-trigger-syntax-pre-token-generation")
-- [Pre token trigger event version two example: Add and suppress claims, scopes, and
-  groups](#aws-lambda-triggers-pre-token-generation-example-version-2-overview "#aws-lambda-triggers-pre-token-generation-example-version-2-overview")
-- [Pre token generation event version two example: Add claims with complex
-  objects](#aws-lambda-triggers-pre-token-generation-example-version-2-complex-objects "#aws-lambda-triggers-pre-token-generation-example-version-2-complex-objects")
-- [Pre token
-  generation event version one example: Add a new claim and suppress an existing
-  claim](#aws-lambda-triggers-pre-token-generation-version-1-add-claim "#aws-lambda-triggers-pre-token-generation-version-1-add-claim")
-- [Pre
-  token generation event version one example: Modify the user's group
-  membership](#aws-lambda-triggers-pre-token-generation-version-1-change-group "#aws-lambda-triggers-pre-token-generation-version-1-change-group")
+- [Pre token generation Lambda trigger sources](#user-pool-lambda-pre-token-generation-trigger-source "#user-pool-lambda-pre-token-generation-trigger-source")
+- [Pre token generation Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-pre-token-generation "#cognito-user-pools-lambda-trigger-syntax-pre-token-generation")
+- [Pre token trigger event version two example: Add and suppress claims, scopes, and groups](#aws-lambda-triggers-pre-token-generation-example-version-2-overview "#aws-lambda-triggers-pre-token-generation-example-version-2-overview")
+- [Pre token generation event version two example: Add claims with complex objects](#aws-lambda-triggers-pre-token-generation-example-version-2-complex-objects "#aws-lambda-triggers-pre-token-generation-example-version-2-complex-objects")
+- [Pre token generation event version one example: Add a new claim and suppress an existing claim](#aws-lambda-triggers-pre-token-generation-version-1-add-claim "#aws-lambda-triggers-pre-token-generation-version-1-add-claim")
+- [Pre token generation event version one example: Modify the user's group membership](#aws-lambda-triggers-pre-token-generation-version-1-change-group "#aws-lambda-triggers-pre-token-generation-version-1-change-group")
 
-## Pre token
-
-generation Lambda trigger sources
+## Pre token generation Lambda trigger sources
 
 | triggerSource value                    | Event                                                                                                                    |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
@@ -287,9 +261,7 @@ generation Lambda trigger sources
 | `TokenGeneration_AuthenticateDevice`   | Called at the end of the authentication of a user device.                                                                |
 | `TokenGeneration_RefreshTokens`        | Called when a user tries to refresh the identity and access<br>tokens.                                                   |
 
-## Pre
-
-token generation Lambda trigger parameters
+## Pre token generation Lambda trigger parameters
 
 The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the
 [common parameters](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared") that Amazon Cognito adds to all requests. When you add a pre token generation Lambda trigger to your user pool, you can
@@ -428,9 +400,7 @@ Lambda function can return the following types of data in the value of
 strings. Response objects to version two and three events can return [complex
 objects](#user-pool-lambda-pre-token-generation-event-versions "#user-pool-lambda-pre-token-generation-event-versions").
 
-## Pre token trigger event version two example: Add and suppress claims, scopes, and
-
-groups
+## Pre token trigger event version two example: Add and suppress claims, scopes, and groups
 
 This example makes the following modifications to a user's tokens.
 
@@ -456,8 +426,7 @@ This example makes the following modifications to a user's tokens.
 The removal of `phone_number` from scopes only prevents
 retrieval of a user's phone number if the remaining scopes in the access
 token include `openid` and at least one more standard scope. For
-more information, see [About
-scopes](cognito-user-pools-define-resource-servers.md#cognito-user-pools-define-resource-servers-about-scopes "cognito-user-pools-define-resource-servers.md#cognito-user-pools-define-resource-servers-about-scopes"). 7. Sets their ID and access token `cognito:groups` claim to
+more information, see [About scopes](cognito-user-pools-define-resource-servers.md#cognito-user-pools-define-resource-servers-about-scopes "cognito-user-pools-define-resource-servers.md#cognito-user-pools-define-resource-servers-about-scopes"). 7. Sets their ID and access token `cognito:groups` claim to
 `"new-group-A","new-group-B","new-group-C"`.
 
 JavaScript
@@ -548,9 +517,7 @@ JSON
 }
 ```
 
-## Pre token generation event version two example: Add claims with complex
-
-objects
+## Pre token generation event version two example: Add claims with complex objects
 
 This example makes the following modifications to a user's tokens.
 
@@ -674,10 +641,7 @@ JSON
 }
 ```
 
-## Pre token
-
-generation event version one example: Add a new claim and suppress an existing
-claim
+## Pre token generation event version one example: Add a new claim and suppress an existing claim
 
 This example uses a version 1 trigger event with a pre token generation Lambda function
 to add a new claim and suppresses an existing claim.
@@ -707,8 +671,7 @@ Amazon Cognito passes event information to your Lambda function. The function th
 object to Amazon Cognito, with any changes in the response. In the Lambda console, you can set up a test
 event with data that is relevant to your Lambda trigger. The following is a test event for this code sample: Because the code example doesn't process any request parameters, you can use
 a test event with an empty request. For more information about common request
-parameters, see [User pool
-Lambda trigger event](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-event-parameter-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-event-parameter-shared").
+parameters, see [User pool Lambda trigger event](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-event-parameter-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-event-parameter-shared").
 
 JSON
 
@@ -719,10 +682,7 @@ JSON
 }
 ```
 
-## Pre
-
-token generation event version one example: Modify the user's group
-membership
+## Pre token generation event version one example: Modify the user's group membership
 
 This example uses a version 1 trigger event with a pre token generation Lambda function
 to modify the user's group membership.

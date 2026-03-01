@@ -1,6 +1,4 @@
-# Updating user pool and app client
-
-configuration
+# Updating user pool and app client configuration
 
 When you want to change a setting in a user pool or app client, you can apply the update in
 the Amazon Cognito console with a few clicks. You navigate through the feature-based tabs in your user
@@ -24,8 +22,7 @@ you can't change them unless you create a new resource.
 
 - [Settings you can't change](#cognito-user-pool-updating-fixed-settings "#cognito-user-pool-updating-fixed-settings")
 - [SMS configuration](#cognito-user-pool-updating-sms "#cognito-user-pool-updating-sms")
-- [Updating a user pool with an AWS SDK,
-  AWS CDK, or REST API](#cognito-user-pool-updating-api-cli "#cognito-user-pool-updating-api-cli")
+- [Updating a user pool with an AWS SDK, AWS CDK, or REST API](#cognito-user-pool-updating-api-cli "#cognito-user-pool-updating-api-cli")
 
 ## Settings you can't change
 
@@ -67,8 +64,7 @@ user pool.
 API parameter name: [GenerateSecret](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md#CognitoUserPools-CreateUserPoolClient-request-GenerateSecret "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md#CognitoUserPools-CreateUserPoolClient-request-GenerateSecret")
 
 When you create an app client, you can generate a client secret so that only trusted
-sources can make requests to your user pool. For more information, see [Application-specific settings with app
-clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md"). To change a client secret, create a
+sources can make requests to your user pool. For more information, see [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md"). To change a client secret, create a
 new app client in the same user pool.
 
 **Required attributes**
@@ -102,9 +98,7 @@ After you activate SMS messages in your user pool, you can't deactivate them.
 - SMS message configuration includes an IAM role that you delegate to Amazon Cognito to send
   messages with Amazon SNS. You can change the assigned role at any time.
 
-## Updating a user pool with an AWS SDK,
-
-AWS CDK, or REST API
+## Updating a user pool with an AWS SDK, AWS CDK, or REST API
 
 In the Amazon Cognito console, you can change your user pool settings one parameter at a time. For
 example, to add a Lambda trigger, you choose **Add Lambda trigger** and choose

@@ -91,9 +91,7 @@ the Lambda function itself. When creating a rule that invokes a Lambda function,
 pass a role, so the user creating the rule does not need the `iam:PassRole`
 permission. For more information about Lambda function authorization, see [Manage Permissions: Using a Lambda Function Policy](../../../lambda/latest/dg/intro-permission-model.md#intro-permission-model-access-policy "../../../lambda/latest/dg/intro-permission-model.md#intro-permission-model-access-policy").
 
-## Using tokens to assign roles to
-
-users
+## Using tokens to assign roles to users
 
 For users who log in through Amazon Cognito user pools, roles can be passed in the ID token
 that was assigned by the user pool. The roles appear in the following claims in the ID
@@ -127,9 +125,7 @@ the user, Amazon Cognito identity pools (federated identities) chooses the role 
   of the [SetIdentityPoolRoles](../../../cognitoidentity/latest/APIReference/API_SetIdentityPoolRoles.md "../../../cognitoidentity/latest/APIReference/API_SetIdentityPoolRoles.md") API) is used to determine the role to be
   assigned.
 
-## Using rule-based mapping to assign
-
-roles to users
+## Using rule-based mapping to assign roles to users
 
 Rules allow you to map claims from an identity provider token to IAM roles.
 
@@ -212,9 +208,7 @@ pool, you can create up to 25 rules. This limit is not adjustable. For more info
 [Quotas in Amazon
 Cognito](limits.md "limits.md").
 
-## Token claims to use in
-
-rule-based mapping
+## Token claims to use in rule-based mapping
 
 **Amazon Cognito**
 
@@ -273,9 +267,7 @@ additional claims that are available.
 Claims are parsed from the received SAML assertion. All the claims that are available in
 the SAML assertion can be used in rule-based mapping.
 
-## Best practices for role-based
-
-access control
+## Best practices for role-based access control
 
 ###### Important
 

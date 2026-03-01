@@ -1,6 +1,4 @@
-# App-client multi-tenancy best
-
-practices
+# App-client multi-tenancy best practices
 
 Create
 an [app client](user-pool-settings-client-apps.md#user-pool-settings-client-apps.title "user-pool-settings-client-apps.md#user-pool-settings-client-apps.title") for each

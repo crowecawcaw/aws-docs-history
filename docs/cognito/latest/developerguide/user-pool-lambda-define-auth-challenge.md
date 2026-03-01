@@ -1,6 +1,4 @@
-# Define Auth challenge Lambda
-
-trigger
+# Define Auth challenge Lambda trigger
 
 The define auth challenge trigger is a Lambda function that maintains the challenge
 sequence in a custom authentication flow. It declares success or failure of the challenge
@@ -21,14 +19,10 @@ that the user receives.
 
 ###### Topics
 
-- [Define
-  Auth challenge Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-define-auth-challenge "#cognito-user-pools-lambda-trigger-syntax-define-auth-challenge")
-- [Define Auth
-  challenge example](#aws-lambda-triggers-define-auth-challenge-example "#aws-lambda-triggers-define-auth-challenge-example")
+- [Define Auth challenge Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-define-auth-challenge "#cognito-user-pools-lambda-trigger-syntax-define-auth-challenge")
+- [Define Auth challenge example](#aws-lambda-triggers-define-auth-challenge-example "#aws-lambda-triggers-define-auth-challenge-example")
 
-## Define
-
-Auth challenge Lambda trigger parameters
+## Define Auth challenge Lambda trigger parameters
 
 The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the
 [common parameters](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared") that Amazon Cognito adds to all requests.
@@ -166,9 +160,7 @@ If you want to end the current authentication process, set to
 `true`. To continue the current authentication process,
 set to `false`.
 
-## Define Auth
-
-challenge example
+## Define Auth challenge example
 
 This example defines a series of challenges for authentication and issues tokens only
 if the user has completed all of the challenges successfully. When users complete SRP

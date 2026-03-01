@@ -1,6 +1,4 @@
-# Using SAML identity providers with a user
-
-pool
+# Using SAML identity providers with a user pool
 
 You can choose to have your web and mobile app users sign in through a SAML identity
 provider (IdP) like [Microsoft Active Directory Federation Services (ADFS)](https://msdn.microsoft.com/en-us/library/bb897402.aspx "https://msdn.microsoft.com/en-us/library/bb897402.aspx"), or [Shibboleth](http://www.shibboleth.net/ "http://www.shibboleth.net/"). You must choose a SAML IdP
@@ -12,8 +10,7 @@ JSON web tokens (JWTs). With the tokens that Amazon Cognito issues, you can cons
 identity sources into a universal OpenID Connect (OIDC) standard across all of your
 apps. Amazon Cognito can process SAML assertions from your third-party providers into that SSO
 standard. You can create and manage a SAML IdP in the AWS Management Console, through the AWS CLI, or
-with the Amazon Cognito user pools API. To create your first SAML IdP in the AWS Management Console, see [Adding and managing SAML
-identity providers in a user pool](cognito-user-pools-managing-saml-idp.md "cognito-user-pools-managing-saml-idp.md").
+with the Amazon Cognito user pools API. To create your first SAML IdP in the AWS Management Console, see [Adding and managing SAML identity providers in a user pool](cognito-user-pools-managing-saml-idp.md "cognito-user-pools-managing-saml-idp.md").
 
 ![Authentication overview with SAML sign-in](images/scenario-authentication-saml.png)
 
@@ -25,9 +22,7 @@ implementation of federation that you must set up separately in each identity po
 A user pool can be a third-party IdP to an identity pool. For more information, see
 [Amazon Cognito identity pools](cognito-identity.md "cognito-identity.md").
 
-## Quick reference for IdP
-
-configuration
+## Quick reference for IdP configuration
 
 You must configure your SAML IdP to accept request and send responses to your user
 pool. The documentation for your SAML IdP will contain information about how to add
@@ -55,32 +50,21 @@ steps to add an external SAML IdP are as follows.
 1. Download SAML metadata from your IdP, or retrieve the URL to your metadata
    endpoint. See [Configuring your third-party SAML identity provider](cognito-user-pools-integrating-3rd-party-saml-providers.md "cognito-user-pools-integrating-3rd-party-saml-providers.md").
 2. Add a new IdP to your user pool. Upload the SAML metadata or provide the
-   metadata URL. See [Adding and managing SAML
-   identity providers in a user pool](cognito-user-pools-managing-saml-idp.md "cognito-user-pools-managing-saml-idp.md").
-3. Assign the IdP to your app clients. See [Application-specific settings with app
-   clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
+   metadata URL. See [Adding and managing SAML identity providers in a user pool](cognito-user-pools-managing-saml-idp.md "cognito-user-pools-managing-saml-idp.md").
+3. Assign the IdP to your app clients. See [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
 
 ###### Topics
 
-- [Things to know about
-  SAML IdPs in Amazon Cognito user pools](cognito-user-pools-saml-idp-things-to-know.md "cognito-user-pools-saml-idp-things-to-know.md")
-- [Case sensitivity of SAML user
-  names](#saml-nameid-case-sensitivity "#saml-nameid-case-sensitivity")
+- [Things to know about SAML IdPs in Amazon Cognito user pools](cognito-user-pools-saml-idp-things-to-know.md "cognito-user-pools-saml-idp-things-to-know.md")
+- [Case sensitivity of SAML user names](#saml-nameid-case-sensitivity "#saml-nameid-case-sensitivity")
 - [Configuring your third-party SAML identity provider](cognito-user-pools-integrating-3rd-party-saml-providers.md "cognito-user-pools-integrating-3rd-party-saml-providers.md")
-- [Adding and managing SAML
-  identity providers in a user pool](cognito-user-pools-managing-saml-idp.md "cognito-user-pools-managing-saml-idp.md")
-- [SAML session initiation
-  in Amazon Cognito user pools](cognito-user-pools-SAML-session-initiation.md "cognito-user-pools-SAML-session-initiation.md")
-- [Signing out SAML users with
-  single sign-out](cognito-user-pools-saml-idp-sign-out.md "cognito-user-pools-saml-idp-sign-out.md")
-- [SAML signing and
-  encryption](cognito-user-pools-SAML-signing-encryption.md "cognito-user-pools-SAML-signing-encryption.md")
-- [SAML identity provider
-  names and identifiers](cognito-user-pools-managing-saml-idp-naming.md "cognito-user-pools-managing-saml-idp-naming.md")
+- [Adding and managing SAML identity providers in a user pool](cognito-user-pools-managing-saml-idp.md "cognito-user-pools-managing-saml-idp.md")
+- [SAML session initiation in Amazon Cognito user pools](cognito-user-pools-SAML-session-initiation.md "cognito-user-pools-SAML-session-initiation.md")
+- [Signing out SAML users with single sign-out](cognito-user-pools-saml-idp-sign-out.md "cognito-user-pools-saml-idp-sign-out.md")
+- [SAML signing and encryption](cognito-user-pools-SAML-signing-encryption.md "cognito-user-pools-SAML-signing-encryption.md")
+- [SAML identity provider names and identifiers](cognito-user-pools-managing-saml-idp-naming.md "cognito-user-pools-managing-saml-idp-naming.md")
 
-## Case sensitivity of SAML user
-
-names
+## Case sensitivity of SAML user names
 
 When a federated user attempts to sign in, the SAML identity provider (IdP) passes
 a unique `NameId` to Amazon Cognito in the user's SAML assertion. Amazon Cognito identifies
@@ -107,13 +91,8 @@ they sign in.
 ###### Topics
 
 - [Configuring your third-party SAML identity provider](cognito-user-pools-integrating-3rd-party-saml-providers.md "cognito-user-pools-integrating-3rd-party-saml-providers.md")
-- [Adding and managing SAML
-  identity providers in a user pool](cognito-user-pools-managing-saml-idp.md "cognito-user-pools-managing-saml-idp.md")
-- [SAML session initiation
-  in Amazon Cognito user pools](cognito-user-pools-SAML-session-initiation.md "cognito-user-pools-SAML-session-initiation.md")
-- [Signing out SAML users with
-  single sign-out](cognito-user-pools-saml-idp-sign-out.md "cognito-user-pools-saml-idp-sign-out.md")
-- [SAML signing and
-  encryption](cognito-user-pools-SAML-signing-encryption.md "cognito-user-pools-SAML-signing-encryption.md")
-- [SAML identity provider
-  names and identifiers](cognito-user-pools-managing-saml-idp-naming.md "cognito-user-pools-managing-saml-idp-naming.md")
+- [Adding and managing SAML identity providers in a user pool](cognito-user-pools-managing-saml-idp.md "cognito-user-pools-managing-saml-idp.md")
+- [SAML session initiation in Amazon Cognito user pools](cognito-user-pools-SAML-session-initiation.md "cognito-user-pools-SAML-session-initiation.md")
+- [Signing out SAML users with single sign-out](cognito-user-pools-saml-idp-sign-out.md "cognito-user-pools-saml-idp-sign-out.md")
+- [SAML signing and encryption](cognito-user-pools-SAML-signing-encryption.md "cognito-user-pools-SAML-signing-encryption.md")
+- [SAML identity provider names and identifiers](cognito-user-pools-managing-saml-idp-naming.md "cognito-user-pools-managing-saml-idp-naming.md")

@@ -1,6 +1,4 @@
-# User-pool multi-tenancy best
-
-practices
+# User-pool multi-tenancy best practices
 
 Create a user pool for each tenant in your app. This approach provides maximum
 isolation for each tenant. You can implement different configurations for each tenant.

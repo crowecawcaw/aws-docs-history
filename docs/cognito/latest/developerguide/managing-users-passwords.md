@@ -1,6 +1,4 @@
-# Passwords, account recovery, and password
-
-policies
+# Passwords, account recovery, and password policies
 
 All users who sign in to a user pool, even [federated
 users](cognito-terms.md#terms-federateduser "cognito-terms.md#terms-federateduser"), have passwords assigned to their user profiles. [Local users](cognito-terms.md#terms-localuser "cognito-terms.md#terms-localuser") and [linked users](cognito-terms.md#terms-linkeduser "cognito-terms.md#terms-linkeduser") must provide a
@@ -43,9 +41,7 @@ password reset. `AdminSetUserPassword` sets a temporary or permanent password,
 and `AdminResetUserPassword` sends users a password-reset code in the same way as
 `ForgotPassword`.
 
-### Configure password reset
-
-and recovery
+### Configure password reset and recovery
 
 Amazon Cognito automatically selects your account-recovery options from the required attributes
 and sign-in options that you choose when you create a user pool in the console. You can

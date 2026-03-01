@@ -1,6 +1,4 @@
-# Authentication
-
-flows
+# Authentication flows
 
 The process of authentication with Amazon Cognito user pools can best be described as a _flow_ where users make an initial choice, submit credentials, and
 respond to additional challenges. When you implement managed login authentication in your
@@ -39,27 +37,17 @@ settings.
 
 ###### Topics
 
-- [Sign-in
-  with third-party IdPs](#amazon-cognito-user-pools-authentication-flow-methods-federated "#amazon-cognito-user-pools-authentication-flow-methods-federated")
-- [Sign-in
-  with persistent passwords](#amazon-cognito-user-pools-authentication-flow-methods-password "#amazon-cognito-user-pools-authentication-flow-methods-password")
-- [Sign-in with
-  persistent passwords and secure payload](#amazon-cognito-user-pools-authentication-flow-methods-srp "#amazon-cognito-user-pools-authentication-flow-methods-srp")
+- [Sign-in with third-party IdPs](#amazon-cognito-user-pools-authentication-flow-methods-federated "#amazon-cognito-user-pools-authentication-flow-methods-federated")
+- [Sign-in with persistent passwords](#amazon-cognito-user-pools-authentication-flow-methods-password "#amazon-cognito-user-pools-authentication-flow-methods-password")
+- [Sign-in with persistent passwords and secure payload](#amazon-cognito-user-pools-authentication-flow-methods-srp "#amazon-cognito-user-pools-authentication-flow-methods-srp")
 - [Passwordless sign-in with one-time passwords](#amazon-cognito-user-pools-authentication-flow-methods-passwordless "#amazon-cognito-user-pools-authentication-flow-methods-passwordless")
-- [Passwordless
-  sign-in with WebAuthn passkeys](#amazon-cognito-user-pools-authentication-flow-methods-passkey "#amazon-cognito-user-pools-authentication-flow-methods-passkey")
-- [MFA after
-  sign-in](#amazon-cognito-user-pools-authentication-flow-methods-mfa "#amazon-cognito-user-pools-authentication-flow-methods-mfa")
-- [Refresh
-  tokens](#amazon-cognito-user-pools-authentication-flow-methods-refresh "#amazon-cognito-user-pools-authentication-flow-methods-refresh")
-- [Custom
-  authentication](#amazon-cognito-user-pools-authentication-flow-methods-custom "#amazon-cognito-user-pools-authentication-flow-methods-custom")
-- [User
-  migration authentication flow](#amazon-cognito-user-pools-user-migration-authentication-flow "#amazon-cognito-user-pools-user-migration-authentication-flow")
+- [Passwordless sign-in with WebAuthn passkeys](#amazon-cognito-user-pools-authentication-flow-methods-passkey "#amazon-cognito-user-pools-authentication-flow-methods-passkey")
+- [MFA after sign-in](#amazon-cognito-user-pools-authentication-flow-methods-mfa "#amazon-cognito-user-pools-authentication-flow-methods-mfa")
+- [Refresh tokens](#amazon-cognito-user-pools-authentication-flow-methods-refresh "#amazon-cognito-user-pools-authentication-flow-methods-refresh")
+- [Custom authentication](#amazon-cognito-user-pools-authentication-flow-methods-custom "#amazon-cognito-user-pools-authentication-flow-methods-custom")
+- [User migration authentication flow](#amazon-cognito-user-pools-user-migration-authentication-flow "#amazon-cognito-user-pools-user-migration-authentication-flow")
 
-## Sign-in
-
-with third-party IdPs
+## Sign-in with third-party IdPs
 
 Amazon Cognito user pools serve as an intermediate broker of authentication sessions between IdPs
 like Sign in with Apple, Login with Amazon, and OpenID Connect (OIDC) services. This process
@@ -78,12 +66,9 @@ browser-based flow.
 
 ###### Implementation resources
 
-- [User pool sign-in with third party
-  identity providers](cognito-user-pools-identity-federation.md "cognito-user-pools-identity-federation.md")
+- [User pool sign-in with third party identity providers](cognito-user-pools-identity-federation.md "cognito-user-pools-identity-federation.md")
 
-## Sign-in
-
-with persistent passwords
+## Sign-in with persistent passwords
 
 In Amazon Cognito user pools, every user has a username. This might be a phone number, an email address,
 or a chosen or administrator-provided identifier. Users of this type can sign in with their
@@ -242,9 +227,7 @@ sign-in. Additional parameters are available.
 Amazon Cognito responds to successful requests with tokens or an additional required
 challenge like multi-factor authentication (MFA).
 
-## Sign-in with
-
-persistent passwords and secure payload
+## Sign-in with persistent passwords and secure payload
 
 Another form of the username-password sign-in methods in user pools is with the Secure
 Remote Password (SRP) protocol. This option sends proof of knowledge of a password—a
@@ -445,8 +428,7 @@ Passwordless authentication flows aren't compatible with required multi-factor
 authentication (MFA) in your user pool. If MFA is optional in your user pool, users who have
 activated MFA can't sign in with a passwordless first factor. Users who don't have an MFA
 preference in an MFA-optional user pool can sign in with passwordless factors. For more
-information, see [Things to know about user pool
-MFA](user-pool-settings-mfa.md#user-pool-settings-mfa-prerequisites "user-pool-settings-mfa.md#user-pool-settings-mfa-prerequisites").
+information, see [Things to know about user pool MFA](user-pool-settings-mfa.md#user-pool-settings-mfa-prerequisites "user-pool-settings-mfa.md#user-pool-settings-mfa-prerequisites").
 
 When a user correctly enters a code they received in an SMS or email message as part of
 passwordless authentication, in addition to authenticating the user, your user pool marks
@@ -612,9 +594,7 @@ This would also be the next challenge response if you requested
 }
 ```
 
-## Passwordless
-
-sign-in with WebAuthn passkeys
+## Passwordless sign-in with WebAuthn passkeys
 
 Passkeys are secure and impose a relatively low effort level on users. Passkey sign-in
 makes use of _authenticators_, external devices that users
@@ -640,8 +620,7 @@ Passwordless authentication flows aren't compatible with required multi-factor
 authentication (MFA) in your user pool. If MFA is optional in your user pool, users who have
 activated MFA can't sign in with a passwordless first factor. Users who don't have an MFA
 preference in an MFA-optional user pool can sign in with passwordless factors. For more
-information, see [Things to know about user pool
-MFA](user-pool-settings-mfa.md#user-pool-settings-mfa-prerequisites "user-pool-settings-mfa.md#user-pool-settings-mfa-prerequisites").
+information, see [Things to know about user pool MFA](user-pool-settings-mfa.md#user-pool-settings-mfa-prerequisites "user-pool-settings-mfa.md#user-pool-settings-mfa-prerequisites").
 
 ### What are passkeys?
 
@@ -952,9 +931,7 @@ provider. It will return an [AuthenticationResponseJSON](https://www.w3.org/TR/w
 }
 ```
 
-## MFA after
-
-sign-in
+## MFA after sign-in
 
 You can set up users who complete sign-in with a username-password flow to be prompted
 for additional verification with a one-time password from an email message, SMS message, or
@@ -968,9 +945,7 @@ device.
 
 - [Adding MFA to a user pool](user-pool-settings-mfa.md "user-pool-settings-mfa.md")
 
-## Refresh
-
-tokens
+## Refresh tokens
 
 When you want to keep users signed in without re-entering their credentials, _refresh tokens_ are the tool that your application has to persist
 a user's session. Applications can present refresh tokens to your user pool and exchange
@@ -982,9 +957,7 @@ without user intervention.
 
 - [Refresh tokens](amazon-cognito-user-pools-using-the-refresh-token.md "amazon-cognito-user-pools-using-the-refresh-token.md")
 
-## Custom
-
-authentication
+## Custom authentication
 
 You might want to configure a method of authentication for your users that isn't listed
 here. You can do that with _custom authentication_ with
@@ -996,12 +969,9 @@ sequence.
 
 ###### Implementation resources
 
-- [Custom authentication challenge Lambda
-  triggers](user-pool-lambda-challenge.md "user-pool-lambda-challenge.md")
+- [Custom authentication challenge Lambda triggers](user-pool-lambda-challenge.md "user-pool-lambda-challenge.md")
 
-### Custom
-
-authentication flow
+### Custom authentication flow
 
 Amazon Cognito user pools also make it possible to use custom authentication flows, which can
 help you create a challenge/response-based authentication model using AWS Lambda
@@ -1032,9 +1002,7 @@ successfully signs in or an error is returned. For more details about the
 the [API
 documentation](../../../cognito-user-identity-pools/latest/APIReference/Welcome.md "../../../cognito-user-identity-pools/latest/APIReference/Welcome.md").
 
-### Custom authentication flow and
-
-challenges
+### Custom authentication flow and challenges
 
 An app can initiate a custom authentication flow by calling `InitiateAuth`
 with `CUSTOM_AUTH` as the `Authflow`. With a custom authentication
@@ -1058,9 +1026,7 @@ A custom authentication flow can also use a combination of built-in challenges, 
 as SRP password verification and MFA through SMS. It can use custom challenges such as
 CAPTCHA or secret questions.
 
-### Use SRP
-
-password verification in custom authentication flow
+### Use SRP password verification in custom authentication flow
 
 If you want to include SRP in a custom authentication flow, you must begin with
 SRP.
@@ -1089,15 +1055,11 @@ true`. At that point, the `DefineAuthChallenge` Lambda trigger
 
 ###### Note
 
-The Amazon Cognito hosted sign-in webpage can't activate [Custom authentication challenge Lambda
-triggers](user-pool-lambda-challenge.md "user-pool-lambda-challenge.md").
+The Amazon Cognito hosted sign-in webpage can't activate [Custom authentication challenge Lambda triggers](user-pool-lambda-challenge.md "user-pool-lambda-challenge.md").
 
-For more information about the Lambda triggers, including sample code, see [Customizing user pool
-workflows with Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md "cognito-user-pools-working-with-lambda-triggers.md").
+For more information about the Lambda triggers, including sample code, see [Customizing user pool workflows with Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md "cognito-user-pools-working-with-lambda-triggers.md").
 
-## User
-
-migration authentication flow
+## User migration authentication flow
 
 A user migration Lambda trigger helps migrate users from a legacy user management system
 into your user pool. If you choose the `USER_PASSWORD_AUTH` authentication flow,
@@ -1107,8 +1069,6 @@ passwords to the service over an encrypted SSL connection during authentication.
 When you have migrated all your users, switch flows to the more secure SRP flow. The SRP
 flow doesn't send any passwords over the network.
 
-To learn more about Lambda triggers, see [Customizing user pool
-workflows with Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md "cognito-user-pools-working-with-lambda-triggers.md").
+To learn more about Lambda triggers, see [Customizing user pool workflows with Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md "cognito-user-pools-working-with-lambda-triggers.md").
 
-For more information about migrating users with a Lambda trigger, see [Importing users with a user migration
-Lambda trigger](cognito-user-pools-import-using-lambda.md "cognito-user-pools-import-using-lambda.md").
+For more information about migrating users with a Lambda trigger, see [Importing users with a user migration Lambda trigger](cognito-user-pools-import-using-lambda.md "cognito-user-pools-import-using-lambda.md").

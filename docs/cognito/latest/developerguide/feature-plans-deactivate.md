@@ -1,6 +1,4 @@
-# Turning off features to change feature
-
-plans
+# Turning off features to change feature plans
 
 Feature plans add configuration options to your user pool. You can configure and use
 these features only when the related feature plan is active. For example, you can configure

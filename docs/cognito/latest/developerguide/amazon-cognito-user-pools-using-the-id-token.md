@@ -1,6 +1,4 @@
-# Understanding the identity (ID)
-
-token
+# Understanding the identity (ID) token
 
 The ID token is a [JSON Web Token
 (JWT)](https://tools.ietf.org/html/rfc7519 "https://tools.ietf.org/html/rfc7519") that contains claims about the identity of the authenticated user, such as
@@ -8,8 +6,7 @@ The ID token is a [JSON Web Token
 identity information inside your application. The ID token can also be used to authenticate
 users to your resource servers or server applications. You can also use an ID token outside of
 the application with your web API operations. In those cases, you must verify the signature of
-the ID token before you can trust any claims inside the ID token. See [Verifying JSON web
-tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md "amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md").
+the ID token before you can trust any claims inside the ID token. See [Verifying JSON web tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md "amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md").
 
 You can set the ID token expiration to any value between 5 minutes and 1 day. You can set
 this value per app client.
@@ -56,8 +53,7 @@ For more information about the `alg` parameter, see [Algorithm (alg) header para
 This is a example payload from an ID token. It contains claims about the authenticated
 user. For more information about OpenID Connect (OIDC) standard claims, see the list of
 [OIDC
-standard claims](http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims "http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims"). You can add claims of your own design with a [Pre token generation Lambda
-trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md").
+standard claims](http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims "http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims"). You can add claims of your own design with a [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md").
 
 ```
 `<header>`.{
@@ -115,8 +111,7 @@ a preferred IAM role from an identity pool.
 
 The ARN of the IAM role that you associated with your user's highest-priority
 user pool group. For more information about how your user pool selects this role
-claim, see [Assigning precedence values to
-groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
+claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
 
 **`iss`**
 
@@ -205,5 +200,4 @@ User pool custom attributes are always prefixed with `custom:`.
 
 The signature of the ID token is calculated based on the header and payload of the JWT
 token. Before you accept the claims in any ID token that your app receives, verify the
-signature of the token. For more information, see Verifying a JSON Web Token. [Verifying JSON web
-tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md "amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md").
+signature of the token. For more information, see Verifying a JSON Web Token. [Verifying JSON web tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md "amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md").

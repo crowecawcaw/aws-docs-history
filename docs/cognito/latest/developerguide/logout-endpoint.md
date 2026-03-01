@@ -1,6 +1,4 @@
-# The managed login sign-out endpoint:
-
-`/logout`
+# The managed login sign-out endpoint: `/logout`
 
 The `/logout` endpoint is a redirection endpoint. It signs out the user
 and redirects either to an authorized sign-out URL for your app client, or to the
@@ -29,8 +27,7 @@ With single logout (SLO) for SAML 2.0 IdPs, Amazon Cognito first redirects your 
 SLO endpoint you defined in your IdP configuration. After your IdP redirects your
 user back to `saml2/logout`, Amazon Cognito responds with one more redirect to the
 `redirect_uri` or `logout_uri` from your request. For more
-information, see [Signing out SAML users with
-single sign-out](cognito-user-pools-saml-idp-sign-out.md "cognito-user-pools-saml-idp-sign-out.md").
+information, see [Signing out SAML users with single sign-out](cognito-user-pools-saml-idp-sign-out.md "cognito-user-pools-saml-idp-sign-out.md").
 
 The logout endpoint doesn't sign users out of OIDC or social identity providers
 (IdPs). To sign users out from their session with an external IdP, direct them to
@@ -49,8 +46,7 @@ _client_id_
 
 The app client ID for your app. To get an app client ID, you
 must register the app in the user pool. For more information,
-see [Application-specific settings with app
-clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
+see [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
 
 Required.
 
@@ -59,8 +55,7 @@ _logout_uri_
 Redirect your user to a custom sign-out page with a _logout_uri_ parameter. Set its value
 to the app client **sign-out URL** where you
 want to redirect your user after they sign out. Use _logout_uri_ only with a _client_id_ parameter. For more
-information, see [Application-specific settings with app
-clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
+information, see [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
 
 You can also use the _logout_uri_ parameter to redirect your user to
 the sign-in page for another app client. Set the sign-in page

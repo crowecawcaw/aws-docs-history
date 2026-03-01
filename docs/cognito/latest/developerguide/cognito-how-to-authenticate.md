@@ -17,18 +17,12 @@ identity pool credentials.
 
 ###### Topics
 
-- [User pool authentication with
-  managed login](#cognito-authentication-concepts-managed-login "#cognito-authentication-concepts-managed-login")
-- [User pool API authentication and
-  authorization with an AWS SDK](#cognito-authentication-concepts-apiauth "#cognito-authentication-concepts-apiauth")
-- [User pool authentication with a
-  third-party identity provider](#cognito-authentication-concepts-thirdparty "#cognito-authentication-concepts-thirdparty")
-- [Identity pool
-  authentication](#cognito-authentication-concepts-identitypools "#cognito-authentication-concepts-identitypools")
+- [User pool authentication with managed login](#cognito-authentication-concepts-managed-login "#cognito-authentication-concepts-managed-login")
+- [User pool API authentication and authorization with an AWS SDK](#cognito-authentication-concepts-apiauth "#cognito-authentication-concepts-apiauth")
+- [User pool authentication with a third-party identity provider](#cognito-authentication-concepts-thirdparty "#cognito-authentication-concepts-thirdparty")
+- [Identity pool authentication](#cognito-authentication-concepts-identitypools "#cognito-authentication-concepts-identitypools")
 
-## User pool authentication with
-
-managed login
+## User pool authentication with managed login
 
 [Managed login](cognito-user-pools-managed-login.md "cognito-user-pools-managed-login.md") is a website that
 is linked to your user pool and app client. It can perform sign-in, sign-up, and
@@ -87,20 +81,15 @@ configuration.
 ###### Related resources
 
 - [User pool managed login](cognito-user-pools-managed-login.md "cognito-user-pools-managed-login.md")
-- [Scopes, M2M, and resource
-  servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
-- [User pool endpoints and
-  managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md")
+- [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
+- [User pool endpoints and managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md")
 
-## User pool API authentication and
-
-authorization with an AWS SDK
+## User pool API authentication and authorization with an AWS SDK
 
 AWS has developed components for Amazon Cognito user pools, or _Amazon Cognito identity
 provider_, in [a variety of
 developer frameworks](cognito-integrate-apps.md#amazon-cognito-authentication-with-sdks "cognito-integrate-apps.md#amazon-cognito-authentication-with-sdks"). The methods built into these SDKs call the [Amazon Cognito user pools API](../../../cognito-user-identity-pools/latest/APIReference/Welcome.md "../../../cognito-user-identity-pools/latest/APIReference/Welcome.md"). The same user pools API namespace has operations for configuration of
-user pools and for user authentication. For a more thorough overview, see [Understanding API, OIDC, and managed login pages
-authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations").
+user pools and for user authentication. For a more thorough overview, see [Understanding API, OIDC, and managed login pages authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations").
 
 API authentication fits the model where your applications have existing UI components and
 primarily rely on the user pool as a user directory. This design adds Amazon Cognito as a component
@@ -114,8 +103,7 @@ build your authentication with the Amazon Cognito SDK in your development enviro
 
 API authentication with custom OAuth scopes is less oriented toward external API
 authorization. To add custom scopes to an access token from API
-authentication, modify the token at runtime with a [Pre token generation Lambda
-trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md").
+authentication, modify the token at runtime with a [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md").
 
 The following diagram illustrates a typical sign-in session for API authentication.
 
@@ -159,14 +147,10 @@ user attributes, and reset passwords. Most of these flows have duplicate public
 - [Amazon Cognito user pools
   API](../../../cognito-user-identity-pools/latest/APIReference/Welcome.md "../../../cognito-user-identity-pools/latest/APIReference/Welcome.md")
 - [Getting started with user pools](getting-started-user-pools.md "getting-started-user-pools.md")
-- [Integrating Amazon Cognito authentication and authorization with
-  web and mobile apps](cognito-integrate-apps.md "cognito-integrate-apps.md")
-- [Understanding API, OIDC, and managed login pages
-  authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations")
+- [Integrating Amazon Cognito authentication and authorization with web and mobile apps](cognito-integrate-apps.md "cognito-integrate-apps.md")
+- [Understanding API, OIDC, and managed login pages authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations")
 
-## User pool authentication with a
-
-third-party identity provider
+## User pool authentication with a third-party identity provider
 
 Sign-in with an external identity provider (IdP), or _federated
 authentication_, is a similar model to [managed login](#cognito-authentication-concepts-managed-login "#cognito-authentication-concepts-managed-login"). Your
@@ -233,16 +217,11 @@ to silently redirect to their IdP sign-in page.
 
 ###### Related resources
 
-- [User pool sign-in with third party
-  identity providers](cognito-user-pools-identity-federation.md "cognito-user-pools-identity-federation.md")
-- [Scopes, M2M, and resource
-  servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
-- [User pool endpoints and
-  managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md")
+- [User pool sign-in with third party identity providers](cognito-user-pools-identity-federation.md "cognito-user-pools-identity-federation.md")
+- [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
+- [User pool endpoints and managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md")
 
-## Identity pool
-
-authentication
+## Identity pool authentication
 
 An identity pool is a component for your application that is distinct from a user pool in
 function, API namespace, and SDK model. Where user pools offer token-based authentication and

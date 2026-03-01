@@ -7,9 +7,7 @@ This chapter provides solutions to common problems you might encounter while wor
 When configuring custom domain names in Amazon Cognito, you might receive error messages. Common
 errors include validation issues, certificate problems, or domain conflicts.
 
-### `Custom domain is not a valid
-
-subdomain`
+### `Custom domain is not a valid subdomain`
 
 This error indicates an issue with DNS resolution for the parent domain. Amazon Cognito does not
 support top-level domains and requires the parent domain to have a DNS A record for
@@ -52,9 +50,7 @@ yourdomain.com +short`
 For more information, see [Using
 your own domain for the hosted UI](cognito-user-pools-add-custom-domain.md "cognito-user-pools-add-custom-domain.md").
 
-### `Domain already associated
-
-with another user pool`
+### `Domain already associated with another user pool`
 
 Custom domain names must be unique across all AWS accounts and Regions.
 
@@ -71,9 +67,7 @@ Custom domain names must be unique across all AWS accounts and Regions.
   domain with the same name immediately after deletion might still result in this
   error. Wait a few minutes before trying again.
 
-### `One or more of the CNAMEs that
-
-you provided are already associated with a different resource`
+### `One or more of the CNAMEs that you provided are already associated with a different resource`
 
 When you create a custom domain, Amazon Cognito creates an AWS-managed Amazon CloudFront distribution. A
 domain name can only be used with one Amazon CloudFront distribution. This error occurs if the domain
@@ -93,9 +87,7 @@ Amazon CloudFront distribution.
 - **Option 2:** If you use the domain name for
   Amazon Cognito, do not use it with another Amazon CloudFront distribution.
 
-### `The specified SSL certificate
-
-doesn't exist`
+### `The specified SSL certificate doesn't exist`
 
 Amazon Cognito uses Amazon CloudFront, which requires the AWS Certificate Manager (ACM) certificate to be in the
 `us-east-1` (N. Virginia) AWS Region, regardless of the user pool's
@@ -124,9 +116,7 @@ Region.
   denials on `kms:DescribeKey`, `kms:CreateGrant`, or
   `kms:*` actions.
 
-## `Invalid refresh token`
-
-error
+## `Invalid refresh token` error
 
 **Problem**
 
@@ -167,20 +157,15 @@ and API usage:
   tracking:** If you are using device tracking, the initial authentication
   flow must be `USER_SRP_AUTH`.
 
-For more information, see [Working with user devices in your
-user pool](amazon-cognito-user-pools-device-tracking.md "amazon-cognito-user-pools-device-tracking.md").
+For more information, see [Working with user devices in your user pool](amazon-cognito-user-pools-device-tracking.md "amazon-cognito-user-pools-device-tracking.md").
 
-## Invalid SAML response errors in
-
-federation
+## Invalid SAML response errors in federation
 
 Users receive various `Invalid SAML response` and similar errors when
 attempting to federate into Amazon Cognito using SAML 2.0. These errors can occur due to attribute
 mapping issues, certificate problems, or configuration mismatches.
 
-### `Invalid user attributes:
-
-Required attribute`
+### `Invalid user attributes: Required attribute`
 
 **Problem**
 
@@ -204,9 +189,7 @@ the IdP is attempting to remove or update an immutable attribute.
   immutable Amazon Cognito attribute. Alternately, update the destination attribute to a
   different, mutable attribute.
 
-### `Invalid SAML response received:
-
-SAML Response signature is invalid`
+### `Invalid SAML response received: SAML Response signature is invalid`
 
 **Problem**
 
@@ -220,9 +203,7 @@ certificate in the SAML response and the metadata file stored in Amazon Cognito.
    providers** for your user pool, edit your SAML provider, and replace
    the existing metadata file with the newly downloaded file.
 
-### `Audience restriction`
-
-or `Application with identifier not found`
+### `Audience restriction` or `Application with identifier not found`
 
 **Problem**
 
@@ -239,9 +220,7 @@ user pool's Uniform Resource Name (URN).
 Replace `USER_POOL_ID` with the user pool ID from the previous
    step.
 
-### `An error was encountered with the
-
-requested page`
+### `An error was encountered with the requested page`
 
 **Problem**
 
@@ -260,9 +239,7 @@ binding.
 - **Custom domain format:**
   `https://`auth.example.com`/saml2/idpresponse`
 
-### `Invalid relayState from identity
-
-provider`
+### `Invalid relayState from identity provider`
 
 **Problem**
 
@@ -282,12 +259,9 @@ mismatched between the IdP and Amazon Cognito.
   `/saml2/idpresponse` endpoint, using the required format:
   `redirect_uri=REDIRECT_URI&state=STATE`.
 
-For more information, see [Using SAML identity providers with a user
-pool](cognito-user-pools-saml-idp.md "cognito-user-pools-saml-idp.md").
+For more information, see [Using SAML identity providers with a user pool](cognito-user-pools-saml-idp.md "cognito-user-pools-saml-idp.md").
 
-## Managed login users can't select an MFA
-
-factor
+## Managed login users can't select an MFA factor
 
 **Problem**
 
@@ -314,9 +288,7 @@ individual users, and set one method as preferred.
 
 For more information, see [Adding MFA to a user pool](user-pool-settings-mfa.md "user-pool-settings-mfa.md").
 
-### Passwordless and passkey users can't use
-
-MFA
+### Passwordless and passkey users can't use MFA
 
 **Problem**
 
@@ -332,9 +304,7 @@ password-based authentication flows.
 For more information, see [Authentication with
 user pools](getting-started-identity-pools-application.md#user-pool-authentication "getting-started-identity-pools-application.md#user-pool-authentication").
 
-## Not able to receive password reset code
-
-through email/SMS
+## Not able to receive password reset code through email/SMS
 
 **Problem**
 
@@ -380,8 +350,7 @@ Review your user pool's account recovery configuration and the affected user's v
 - **Resolve MFA conflicts:** Users whose preferred MFA method is email can't receive password-reset codes by email, and users with SMS MFA can't receive codes by SMS. Update your **Recovery message delivery method** to provide alternative options such as **SMS if available, otherwise email** or **Email if available, otherwise SMS**.
 - **Administrative verification:** Use the API operation [AdminUpdateUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.md") to programmatically verify user attributes when console access isn't available.
 
-For more information, see [Passwords, account recovery, and password
-policies](managing-users-passwords.md "managing-users-passwords.md").
+For more information, see [Passwords, account recovery, and password policies](managing-users-passwords.md "managing-users-passwords.md").
 
 ## `SECRET_HASH` errors
 
@@ -410,12 +379,9 @@ To get the client secret, you can:
 2. Generate a [DescribeUserPoolClient](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.md") request. The client secret is
    included in the response.
 
-For more information, see [Computing secret hash
-values](signing-up-users-in-your-app.md#cognito-user-pools-computing-secret-hash "signing-up-users-in-your-app.md#cognito-user-pools-computing-secret-hash").
+For more information, see [Computing secret hash values](signing-up-users-in-your-app.md#cognito-user-pools-computing-secret-hash "signing-up-users-in-your-app.md#cognito-user-pools-computing-secret-hash").
 
-## The Amazon Cognito console chooses a default
-
-configuration for a new user pool
+## The Amazon Cognito console chooses a default configuration for a new user pool
 
 **Problem**
 

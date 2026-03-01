@@ -1,6 +1,4 @@
-# Configuring MFA,
-
-authentication, verification and invitation messages
+# Configuring MFA, authentication, verification and invitation messages
 
 With Amazon Cognito, you can customize SMS and email authentication, verification, and user invitation
 messages to enhance the security and user experience of your application. You can
@@ -32,15 +30,11 @@ the MFA setting is **required** or **optional**.
 ###### Topics
 
 - [Message templates](#cognito-user-pool-settings-message-templates "#cognito-user-pool-settings-message-templates")
-- [Customizing email and SMS
-  MFA messages](#cognito-user-pool-settings-SMS-message-customization "#cognito-user-pool-settings-SMS-message-customization")
+- [Customizing email and SMS MFA messages](#cognito-user-pool-settings-SMS-message-customization "#cognito-user-pool-settings-SMS-message-customization")
 - [Customizing email verification messages](#cognito-user-pool-settings-email-verification-message-customization "#cognito-user-pool-settings-email-verification-message-customization")
-- [Customizing
-  user invitation messages](#cognito-user-pool-settings-user-invitation-message-customization "#cognito-user-pool-settings-user-invitation-message-customization")
-- [Customizing your email
-  address](#cognito-user-pool-settings-email-address-customization "#cognito-user-pool-settings-email-address-customization")
-- [Authorizing Amazon Cognito
-  to send Amazon SES email on your behalf (from a custom FROM email address)](#cognito-user-pool-settings-ses-authorization-to-send-email "#cognito-user-pool-settings-ses-authorization-to-send-email")
+- [Customizing user invitation messages](#cognito-user-pool-settings-user-invitation-message-customization "#cognito-user-pool-settings-user-invitation-message-customization")
+- [Customizing your email address](#cognito-user-pool-settings-email-address-customization "#cognito-user-pool-settings-email-address-customization")
+- [Authorizing Amazon Cognito to send Amazon SES email on your behalf (from a custom FROM email address)](#cognito-user-pool-settings-ses-authorization-to-send-email "#cognito-user-pool-settings-ses-authorization-to-send-email")
 
 ## Message templates
 
@@ -89,9 +83,7 @@ console, or submit templates in a [SetRiskConfiguration](../../../cognito-user-i
 | Event ID                                | `{event-id}`               |
 | Feedback token                          | `{feedback-token}`         |
 
-## Customizing email and SMS
-
-MFA messages
+## Customizing email and SMS MFA messages
 
 To customize the SMS and email messages for [multi-factor authentication (MFA)](user-pool-settings-mfa.md "user-pool-settings-mfa.md"), edit **MFA
 message** from the **Message templates** menu in the Amazon Cognito user pools
@@ -151,9 +143,7 @@ https://`<your user pool domain>`/confirmUser/?client_id=`abcdefg12345678`&user_
 The maximum length for the message, including the verification code (if present), is 20,000
 UTF-8 characters. You can use HTML tags in this message to format the contents.
 
-## Customizing
-
-user invitation messages
+## Customizing user invitation messages
 
 You can customize the user invitation message that Amazon Cognito sends to new users by SMS or email
 message by editing the **Invitation messages** template in the
@@ -169,9 +159,7 @@ The maximum length of an SMS message, including the verification code, is 140 UT
 characters. The maximum length of an email message, including the verification code, is 20,000
 UTF-8 characters. You may use HTML tags in your email messages to format the contents.
 
-## Customizing your email
-
-address
+## Customizing your email address
 
 By default, Amazon Cognito sends email messages to users in your user pools from the address
 **no-reply@verificationemail.com**. You can choose to specify
@@ -198,9 +186,7 @@ custom FROM and REPLY-TO email addresses instead of **no-reply@verificationemail
 8. To customize the REPLY-TO email address, enter a valid email address in the
    **REPLY-TO email address** field.
 
-## Authorizing Amazon Cognito
-
-to send Amazon SES email on your behalf (from a custom FROM email address)
+## Authorizing Amazon Cognito to send Amazon SES email on your behalf (from a custom FROM email address)
 
 You can configure Amazon Cognito to send email from a custom FROM email address instead of its
 default address. To use a custom address, you must give Amazon Cognito permission to send email message
@@ -216,8 +202,7 @@ only need to add a sending authorization policy when you use both the default em
 functionality in your user pool _and_ a verified Amazon SES identity
 as the FROM address.
 
-For more information about the service-linked role that Amazon Cognito creates, see [Using service-linked roles for
-Amazon Cognito](using-service-linked-roles.md "using-service-linked-roles.md").
+For more information about the service-linked role that Amazon Cognito creates, see [Using service-linked roles for Amazon Cognito](using-service-linked-roles.md "using-service-linked-roles.md").
 
 The following example sending authorization policy grants Amazon Cognito a limited ability to use an
 Amazon SES verified identity. Amazon Cognito can only send email messages when it does so on behalf of

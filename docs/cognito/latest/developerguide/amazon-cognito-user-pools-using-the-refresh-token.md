@@ -5,9 +5,7 @@ refresh token expires 30 days after your application user signs into your user p
 create an application for your user pool, you can set the application's refresh token
 expiration to any value between 60 minutes and 10 years.
 
-## Getting
-
-new access and identity tokens with a refresh token
+## Getting new access and identity tokens with a refresh token
 
 Amazon Cognito issues refresh tokens in response to successful authentication with the managed
 login authorization-code flow and with API operations or SDK methods. The refresh token
@@ -77,8 +75,7 @@ As a security best practice, enable refresh token rotation on your app clients.
 Enable refresh token rotation (console)
 The following procedure turns refresh token rotation on or off for your app
 client. This procedure requires an existing app client. To learn more about creating
-an app client, see [Application-specific settings with app
-clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
+an app client, see [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
 
 ###### To enable refresh token rotation
 
@@ -191,9 +188,7 @@ Content-Length: **
 client_id=`1example23456789`&grant_type=refresh_token&refresh_token=`eyJjd123abcEXAMPLE`
 ```
 
-## Revoking
-
-refresh tokens
+## Revoking refresh tokens
 
 You can revoke refresh tokens that belong to a user. For more information about revoking
 tokens, see [Ending user sessions with token revocation](token-revocation.md "token-revocation.md").
@@ -231,5 +226,4 @@ username as parameters. The `AdminUserGlobalSignOut` API can sign out any user i
 the user pool.
 
 For more information about requests that you can authorize with either AWS credentials
-or a user's access token, see [List of API operations grouped by authorization
-model](authentication-flows-public-server-side.md#user-pool-apis-auth-unauth "authentication-flows-public-server-side.md#user-pool-apis-auth-unauth").
+or a user's access token, see [List of API operations grouped by authorization model](authentication-flows-public-server-side.md#user-pool-apis-auth-unauth "authentication-flows-public-server-side.md#user-pool-apis-auth-unauth").

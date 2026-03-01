@@ -8,9 +8,7 @@ identities involves interaction between the end user device, your backend for au
 and Amazon Cognito. For more details, see [Understanding Amazon Cognito Authentication Part 2: Developer Authenticated
 Identities](https://aws.amazon.com/blogs/mobile/understanding-amazon-cognito-authentication-part-2-developer-authenticated-identities/ "https://aws.amazon.com/blogs/mobile/understanding-amazon-cognito-authentication-part-2-developer-authenticated-identities/") in the AWS blog.
 
-## Understanding the authentication
-
-flow
+## Understanding the authentication flow
 
 The [GetOpenIdTokenForDeveloperIdentity](../../../cognitoidentity/latest/APIReference/API_GetOpenIdTokenForDeveloperIdentity.md "../../../cognitoidentity/latest/APIReference/API_GetOpenIdTokenForDeveloperIdentity.md") API operation can initiate developer
 authentication for both enhanced and basic authentication. This API authenticates a request
@@ -52,9 +50,7 @@ defined](iam-roles.md#role-trust-and-permissions "iam-roles.md#role-trust-and-pe
 For information on the developer-authenticated identities authflow and how they differ
 from external-provider identities, see [Identity pools authentication flow](authentication-flow.md "authentication-flow.md").
 
-## Define a developer provider name and associate
-
-it with an identity pool
+## Define a developer provider name and associate it with an identity pool
 
 To use developer-authenticated identities, you'll need an identity pool associated with
 your developer provider. To do so, follow these steps:
@@ -427,9 +423,7 @@ public class DeveloperAuthenticatedCredentials : CognitoAWSCredentials
 }
 ```
 
-## Updating the logins map (Android and iOS
-
-only)
+## Updating the logins map (Android and iOS only)
 
 ### Android
 
@@ -535,9 +529,7 @@ Following the preceding steps, you should be able to integrate developer-authent
 identities in your app. If you have any issues or questions please feel free to post in our
 [forums](https://forums.aws.amazon.com/forum.jspa?forumID=173 "https://forums.aws.amazon.com/forum.jspa?forumID=173").
 
-## Connect to an existing social
-
-identity
+## Connect to an existing social identity
 
 All linking of providers when you are using developer-authenticated identities must be
 done from your backend. To connect a custom identity to a user's social identity (Login with
@@ -555,9 +547,7 @@ logins.put("YOUR_IDENTITY_PROVIDER_NAME","YOUR_END_USER_IDENTIFIER");
 logins.put("graph.facebook.com","END_USERS_FACEBOOK_ACCESSTOKEN");
 ```
 
-## Supporting transition between
-
-providers
+## Supporting transition between providers
 
 ### Android
 

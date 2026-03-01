@@ -1,6 +1,4 @@
-# Using the Amazon Cognito prefix domain for
-
-managed login
+# Using the Amazon Cognito prefix domain for managed login
 
 The default experience for managed login is hosted on a domain that AWS owns. This
 approach has a low barrier to entry—choose a prefix name and it's active—but
@@ -39,16 +37,13 @@ auth-fips.`Region`.amazoncognito.com
 
 ```
 
-To add an app client and a user pool domain with the AWS Management Console, see [Creating an app
-client](user-pool-settings-client-apps.md#cognito-user-pools-app-idp-settings-console-create "user-pool-settings-client-apps.md#cognito-user-pools-app-idp-settings-console-create").
+To add an app client and a user pool domain with the AWS Management Console, see [Creating an app client](user-pool-settings-client-apps.md#cognito-user-pools-app-idp-settings-console-create "user-pool-settings-client-apps.md#cognito-user-pools-app-idp-settings-console-create").
 
 ###### Topics
 
 - [Prerequisites](#cognito-user-pools-assign-domain-prefix-prereq "#cognito-user-pools-assign-domain-prefix-prereq")
-- [Configure an Amazon Cognito
-  domain prefix](#cognito-user-pools-assign-domain-prefix-step-1 "#cognito-user-pools-assign-domain-prefix-step-1")
-- [Verify your sign-in
-  page](#cognito-user-pools-assign-domain-prefix-verify "#cognito-user-pools-assign-domain-prefix-verify")
+- [Configure an Amazon Cognito domain prefix](#cognito-user-pools-assign-domain-prefix-step-1 "#cognito-user-pools-assign-domain-prefix-step-1")
+- [Verify your sign-in page](#cognito-user-pools-assign-domain-prefix-verify "#cognito-user-pools-assign-domain-prefix-verify")
 
 ## Prerequisites
 
@@ -56,9 +51,7 @@ Before you begin, you need:
 
 - A user pool with an app client. For more information, see [Getting started with user pools](getting-started-user-pools.md "getting-started-user-pools.md").
 
-## Configure an Amazon Cognito
-
-domain prefix
+## Configure an Amazon Cognito domain prefix
 
 You can use either the AWS Management Console or the AWS CLI or API to configure a user pool
 domain.
@@ -76,8 +69,7 @@ Amazon Cognito console
    before creating your new custom domain.
 3. Enter an available domain prefix to use with a **Amazon Cognito
    domain**. For information on setting up a
-   **Custom domain**, see [Using your own domain for managed
-   login](cognito-user-pools-add-custom-domain.md "cognito-user-pools-add-custom-domain.md").
+   **Custom domain**, see [Using your own domain for managed login](cognito-user-pools-add-custom-domain.md "cognito-user-pools-add-custom-domain.md").
 4. Choose a **Branding version**. Your branding
    version applies to all user-interactive pages at that domain. Your
    user pool can host either managed login or hosted UI branding for
@@ -127,9 +119,7 @@ describe-user-pool-domain`
 
 - User pools API operation: [DeleteUserPoolDomain](../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserPoolDomain.md "../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserPoolDomain.md")
 
-## Verify your sign-in
-
-page
+## Verify your sign-in page
 
 - Verify that the sign-in page is available from your Amazon Cognito hosted
   domain.

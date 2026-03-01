@@ -1,6 +1,4 @@
-# The redirect and authorization
-
-endpoint
+# The redirect and authorization endpoint
 
 The `/oauth2/authorize` endpoint is a redirection endpoint that
 supports two redirect destinations. If you include an `identity_provider`
@@ -35,9 +33,7 @@ endpoint over HTTPS.
 You can learn more about the definition of the authorization endpoint in the
 OpenID Connect (OIDC) standard at [Authorization Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#ImplicitAuthorizationEndpoint "http://openid.net/specs/openid-connect-core-1_0.html#ImplicitAuthorizationEndpoint").
 
-### Request
-
-parameters
+### Request parameters
 
 **`response_type`**
 
@@ -183,8 +179,7 @@ Optional.
 
 The proof of key code exchange (PKCE) challenge that you
 generated from the `code_verifier`. For more
-information, see [Using PKCE in authorization code
-grants](using-pkce-in-authorization-code.md "using-pkce-in-authorization-code.md").
+information, see [Using PKCE in authorization code grants](using-pkce-in-authorization-code.md "using-pkce-in-authorization-code.md").
 
 Required only when you specify a
 `code_challenge_method` parameter.
@@ -317,9 +312,7 @@ custom URL scheme like `myapp://`.
 
 Resource binding is defined in [RFC 8707](https://www.rfc-editor.org/rfc/rfc8707.html "https://www.rfc-editor.org/rfc/rfc8707.html"). For more information about resource servers and resource binding, see [Resource binding](cognito-user-pools-define-resource-servers.md#cognito-user-pools-resource-binding "cognito-user-pools-define-resource-servers.md#cognito-user-pools-resource-binding").
 
-## Example: authorization code
-
-grant
+## Example: authorization code grant
 
 This is an example request for an authorization code grant.
 
@@ -348,9 +341,7 @@ Location: https://`www.example.com`?code=a1b2c3d4-5678-90ab-cdef-EXAMPLE11111&st
 
 ```
 
-## Example:
-
-authorization code grant with PKCE
+## Example: authorization code grant with PKCE
 
 This example flow performs an authorization code grant with [PKCE](using-pkce-in-authorization-code.md#using-pkce-in-authorization-code.title "using-pkce-in-authorization-code.md#using-pkce-in-authorization-code.title").
 
@@ -380,9 +371,7 @@ Location: `https://www.example.com`?code=a1b2c3d4-5678-90ab-cdef-EXAMPLE11111&st
 
 ```
 
-## Example: require
-
-re-authentication with `prompt=login`
+## Example: require re-authentication with `prompt=login`
 
 The following request adds a `prompt=login` parameter that requires
 the user to authenticate again, even if they have an existing session.
@@ -404,9 +393,7 @@ endpoint](login-endpoint.md "login-endpoint.md"), requiring re-authentication.
 HTTP/1.1 302 Found Location: https://`mydomain.auth.us-east-1.amazoncognito.com`/login?response_type=code&client_id=`1example23456789`&redirect_uri=`https://www.example.com`&state=`abcdefg`&scope=`openid+profile+aws.cognito.signin.user.admin`&prompt=login
 ```
 
-## Example: silent
-
-authentication with `prompt=none`
+## Example: silent authentication with `prompt=none`
 
 The following request adds a `prompt=none` parameter that silently
 checks if the user has a valid session.
@@ -460,9 +447,7 @@ access token with an `aud` claim of
 HTTP/1.1 302 Found Location: https://`www.example.com`?code=`AUTHORIZATION_CODE`&state=`abcdefg`
 ```
 
-## Example: Token
-
-(implicit) grant without `openid` scope
+## Example: Token (implicit) grant without `openid` scope
 
 This example flow generates an implicit grant and returns JWTs directly to the
 user's session.
@@ -492,9 +477,7 @@ Location: `https://example.com/callback`#access_token=`eyJra456defEXAMPLE`&token
 
 ```
 
-## Example: Token (implicit)
-
-grant with `openid` scope
+## Example: Token (implicit) grant with `openid` scope
 
 This example flow generates an implicit grant and returns tokens to the user's
 browser.

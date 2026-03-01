@@ -70,8 +70,7 @@ support the following:
 Amazon Cognito user pools and identity pools have IAM-authenticated, unauthenticated, and token-authorized
 API operations. Unauthenticated and token-authorized API operations are intended for use by
 your customers, the end users of your app. Unauthenticated and token-authorized API operations
-are encrypted at rest and in transit. For more information, see [List of API operations grouped by authorization
-model](authentication-flows-public-server-side.md#user-pool-apis-auth-unauth "authentication-flows-public-server-side.md#user-pool-apis-auth-unauth").
+are encrypted at rest and in transit. For more information, see [List of API operations grouped by authorization model](authentication-flows-public-server-side.md#user-pool-apis-auth-unauth "authentication-flows-public-server-side.md#user-pool-apis-auth-unauth").
 
 ###### Note
 

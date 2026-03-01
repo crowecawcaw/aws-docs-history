@@ -1,6 +1,4 @@
-# Authorizing access to client or server resources with
-
-Amazon Verified Permissions
+# Authorizing access to client or server resources with Amazon Verified Permissions
 
 Your app can pass the tokens from a signed-in user to [Amazon Verified Permissions](../../../verifiedpermissions/latest/userguide/what-is-avp.md "../../../verifiedpermissions/latest/userguide/what-is-avp.md"). Verified Permissions is a
 scalable, fine-grained permissions management and authorization service for

@@ -50,9 +50,7 @@ Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started/
 For more information about how to integrate JavaScript web apps with Facebook Login,
 see the [Facebook Getting Started Guide](https://developers.facebook.com/docs/facebook-login/login-flow-for-web/v2.3 "https://developers.facebook.com/docs/facebook-login/login-flow-for-web/v2.3").
 
-## Configure an
-
-identity provider in the Amazon Cognito identity pools console
+## Configure an identity provider in the Amazon Cognito identity pools console
 
 Use the following procedure to configure your identity provider.
 

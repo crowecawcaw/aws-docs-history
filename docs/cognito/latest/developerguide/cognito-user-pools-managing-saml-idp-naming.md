@@ -1,6 +1,4 @@
-# SAML identity provider
-
-names and identifiers
+# SAML identity provider names and identifiers
 
 When you name your SAML identity providers (IdPs) and assign IdP identifiers, you
 can automate the flow of SP-initiated sign-in and sign-out requests to that
@@ -110,5 +108,4 @@ requests.
   a new IdP, your SAML users will create new user profiles. This duplication
   of active users might have a billing impact in the month that you change
   your IdP configuration.
-  For more information about IdP setup, see [Configuring identity providers for
-  your user pool](cognito-user-pools-identity-provider.md "cognito-user-pools-identity-provider.md").
+  For more information about IdP setup, see [Configuring identity providers for your user pool](cognito-user-pools-identity-provider.md "cognito-user-pools-identity-provider.md").

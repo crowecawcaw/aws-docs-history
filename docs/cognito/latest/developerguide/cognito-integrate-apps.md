@@ -1,6 +1,4 @@
-# Integrating Amazon Cognito authentication and authorization with
-
-web and mobile apps
+# Integrating Amazon Cognito authentication and authorization with web and mobile apps
 
 Implementation of Amazon Cognito is a mix of AWS Management Console or AWS SDK administrative tools, and SDK
 libraries in applications. The Amazon Cognito console is the visual interface for setup and management of
@@ -33,8 +31,7 @@ Amazon Cognito as an OpenID Connect identity provider, use [OpenID Connect devel
 tools](https://openid.net/certified-open-id-developer-tools/ "https://openid.net/certified-open-id-developer-tools/").
 
 Before you use Amazon Cognito authentication and authorization, choose an app platform and prepare
-your code to integrate with the service. For available platforms for AWS SDKs, see [Authentication with AWS
-SDKs](#amazon-cognito-authentication-with-sdks "#amazon-cognito-authentication-with-sdks"). The AWS CLI is a command-line SDK for Amazon Cognito
+your code to integrate with the service. For available platforms for AWS SDKs, see [Authentication with AWS SDKs](#amazon-cognito-authentication-with-sdks "#amazon-cognito-authentication-with-sdks"). The AWS CLI is a command-line SDK for Amazon Cognito
 and other AWS services, and is a valuable place to begin to familiarize yourself with Amazon Cognito
 API operations and their syntax.
 
@@ -52,14 +49,12 @@ unauthenticated operations for your users in a public client to sign in, sign ou
 their profiles. The final class of API operations performs user operations that you authorize
 with your own AWS credentials in a confidential server-side client. You must know your
 intended app architecture before you begin to implement app code. For more information, see
-[Understanding API, OIDC, and managed login pages
-authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations").
+[Understanding API, OIDC, and managed login pages authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations").
 
 ###### Topics
 
 - [Authentication with AWS Amplify](#cognito-integrate-apps-amplify "#cognito-integrate-apps-amplify")
-- [Authentication with AWS
-  SDKs](#amazon-cognito-authentication-with-sdks "#amazon-cognito-authentication-with-sdks")
+- [Authentication with AWS SDKs](#amazon-cognito-authentication-with-sdks "#amazon-cognito-authentication-with-sdks")
 - [How authentication works with Amazon Cognito](cognito-how-to-authenticate.md "cognito-how-to-authenticate.md")
 - [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md")
 - [Authorization with Amazon Verified Permissions](amazon-cognito-authorization-with-avp.md "amazon-cognito-authorization-with-avp.md")
@@ -94,9 +89,7 @@ implements Amazon Cognito authentication, visit the following libraries.
 - [amplify-flutter](https://github.com/aws-amplify/amplify-flutter/tree/main/packages/auth "https://github.com/aws-amplify/amplify-flutter/tree/main/packages/auth")
 - [amplify-android](https://github.com/aws-amplify/amplify-android/tree/main/aws-auth-cognito "https://github.com/aws-amplify/amplify-android/tree/main/aws-auth-cognito")
 
-### Creating a user interface (UI) with
-
-Amplify
+### Creating a user interface (UI) with Amplify
 
 [User pool managed login](cognito-user-pools-managed-login.md "cognito-user-pools-managed-login.md") can fulfill the essential needs of an
 authentication front-end for a web or mobile app. To customize your user interface (UI)
@@ -116,9 +109,7 @@ documentation for the Authenticator component.
 - [Authenticator for Swift](https://ui.docs.amplify.aws/swift/connected-components/authenticator "https://ui.docs.amplify.aws/swift/connected-components/authenticator")
 - [Authenticator for Vue](https://ui.docs.amplify.aws/vue/connected-components/authenticator "https://ui.docs.amplify.aws/vue/connected-components/authenticator")
 
-## Authentication with AWS
-
-SDKs
+## Authentication with AWS SDKs
 
 To use a secure backend to build your own identity microservice that interacts with Amazon Cognito,
 connect to the Amazon Cognito user pools and Amazon Cognito identity pools API with an AWS SDK in the language of your

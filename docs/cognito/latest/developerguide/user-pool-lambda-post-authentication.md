@@ -1,6 +1,4 @@
-# Post authentication Lambda
-
-trigger
+# Post authentication Lambda trigger
 
 The post authentication trigger doesn't change the authentication flow for a user. Amazon Cognito
 invokes this Lambda after authentication is complete, before a user has received tokens. Add
@@ -9,30 +7,21 @@ events, for example logging or user profile adjustments that will be reflected o
 sign-in.
 
 A post authentication Lambda that doesn't return the request body to Amazon Cognito can still cause
-authentication to fail to complete. For more information, see [Things to know about Lambda
-triggers](cognito-user-pools-working-with-lambda-triggers.md#important-lambda-considerations "cognito-user-pools-working-with-lambda-triggers.md#important-lambda-considerations").
+authentication to fail to complete. For more information, see [Things to know about Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md#important-lambda-considerations "cognito-user-pools-working-with-lambda-triggers.md#important-lambda-considerations").
 
 ###### Topics
 
-- [Authentication flow
-  overview](#user-pool-lambda-post-authentication-1 "#user-pool-lambda-post-authentication-1")
-- [Post authentication
-  Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-post-auth "#cognito-user-pools-lambda-trigger-syntax-post-auth")
-- [Post authentication
-  example](#aws-lambda-triggers-post-authentication-example "#aws-lambda-triggers-post-authentication-example")
+- [Authentication flow overview](#user-pool-lambda-post-authentication-1 "#user-pool-lambda-post-authentication-1")
+- [Post authentication Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-post-auth "#cognito-user-pools-lambda-trigger-syntax-post-auth")
+- [Post authentication example](#aws-lambda-triggers-post-authentication-example "#aws-lambda-triggers-post-authentication-example")
 
-## Authentication flow
-
-overview
+## Authentication flow overview
 
 ![Post authentication Lambda trigger - client flow](images/lambda-post-authentication-1.png)
 
-For more information, see [An example authentication
-session](authentication.md#amazon-cognito-user-pools-authentication-flow "authentication.md#amazon-cognito-user-pools-authentication-flow").
+For more information, see [An example authentication session](authentication.md#amazon-cognito-user-pools-authentication-flow "authentication.md#amazon-cognito-user-pools-authentication-flow").
 
-## Post authentication
-
-Lambda trigger parameters
+## Post authentication Lambda trigger parameters
 
 The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the
 [common parameters](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared") that Amazon Cognito adds to all requests.
@@ -56,9 +45,7 @@ JSON
 }
 ```
 
-### Post
-
-authentication request parameters
+### Post authentication request parameters
 
 **newDeviceUsed**
 
@@ -80,17 +67,13 @@ data from the ClientMetadata parameter in [AdminInitiateAuth](../../../cognito-u
 operations in the request that it passes to the post authentication
 function.
 
-### Post
-
-authentication response parameters
+### Post authentication response parameters
 
 Amazon Cognito doesn't expect any additional return information in the response. Your
 function can use API operations to query and modify your resources, or record event
 metadata to an external system.
 
-## Post authentication
-
-example
+## Post authentication example
 
 This post authentication sample Lambda function sends data from a successful sign-in to
 CloudWatch Logs.

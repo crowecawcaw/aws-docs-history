@@ -1,6 +1,4 @@
-# Security best practices for Amazon Cognito
-
-identity pools
+# Security best practices for Amazon Cognito identity pools
 
 Amazon Cognito identity pools provide temporary AWS credentials for your application.
 AWS accounts often contain both the resources that your application users need, and
@@ -14,14 +12,10 @@ application that you want to release to production.
 
 ###### Topics
 
-- [IAM configuration best
-  practices](#identity-pools-security-best-practices-iam "#identity-pools-security-best-practices-iam")
-- [Identity pool configuration
-  best practices](#identity-pools-security-best-practices-cib "#identity-pools-security-best-practices-cib")
+- [IAM configuration best practices](#identity-pools-security-best-practices-iam "#identity-pools-security-best-practices-iam")
+- [Identity pool configuration best practices](#identity-pools-security-best-practices-cib "#identity-pools-security-best-practices-cib")
 
-## IAM configuration best
-
-practices
+## IAM configuration best practices
 
 When a guest or authenticated user initiates a session in your application that
 requires identity pool credentials, your application retrieves temporary AWS
@@ -33,9 +27,7 @@ resources.
 For more information about general IAM best practices, see [IAM best
 practices](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the AWS Identity and Access Management User Guide.
 
-### Use trust
-
-policy conditions in IAM roles
+### Use trust policy conditions in IAM roles
 
 IAM requires that roles for identity pools have at least one trust policy
 condition. This condition can, for example, set the role’s scope to authenticated
@@ -95,9 +87,7 @@ JSON
 - `"cognito-identity.amazonaws.com:amr": "authenticated"`: Users
   must be authenticated. Guest users can’t assume the role.
 
-### Apply
-
-least privilege permissions
+### Apply least privilege permissions
 
 When you set permissions with IAM policies for authenticated access or guest
 access, grant only the specific permissions required to perform specific tasks, or
@@ -123,17 +113,13 @@ JSON
 
 ```
 
-## Identity pool configuration
-
-best practices
+## Identity pool configuration best practices
 
 Identity pools have flexible options for the generation of AWS credentials. Don’t
 take design shortcuts when your application can work with the most secure
 methods.
 
-### Understand the
-
-effects of guest access
+### Understand the effects of guest access
 
 Unauthenticated guest access permits users to retrieve data from your
 AWS account before they sign in. Anyone who knows your identity pool ID can
@@ -154,9 +140,7 @@ before sign-in, take the following precautions.
 - Activate guest access only when you are confident that you would grant the
   permissions in your IAM role to anyone on the internet.
 
-### Use enhanced
-
-authentication by default
+### Use enhanced authentication by default
 
 With basic (classic) authentication, Amazon Cognito delegates selection of the IAM role
 to your app. In contrast, the enhanced flow uses the centralized logic in your
@@ -174,9 +158,7 @@ the logic and the assume-role request behind identity pool automation.
 When you configure basic authentication, apply [IAM best practices](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") to
 your IAM roles and their permissions.
 
-### Use developer
-
-providers securely
+### Use developer providers securely
 
 Developer authenticated identities are a feature of identity pools for server-side
 applications. The only evidence of authentication that identity pools require for

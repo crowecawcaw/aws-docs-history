@@ -6,9 +6,7 @@ application. We recommend that at a minimum, you apply least privilege to admini
 operations and take action to guard application and user secrets. Another advanced but effective
 step that you can take is to configure and apply AWS WAF web ACLs to your user pools.
 
-## Protect your user pool at the
-
-network level
+## Protect your user pool at the network level
 
 AWS WAF web ACLs can protect the performance and cost of the authentication mechanisms that
 you build with Amazon Cognito. With web ACLs, you can implement guardrails in front of API and
@@ -17,9 +15,7 @@ traffic or require a CAPTCHA based on rules that you devise. Requests aren’t p
 Amazon Cognito resources until they meet the qualifications in your web ACL rules. For more
 information, see [AWS WAF web ACLs](user-pool-waf.md "user-pool-waf.md").
 
-## Protect against SMS message
-
-abuse
+## Protect against SMS message abuse
 
 When you permit public sign-up in your user pool, you can configure account verification
 with codes that Amazon Cognito sends in SMS text messages. SMS messages can be associated with unwanted
@@ -31,9 +27,7 @@ posts from AWS Blogs.
 - [Defending Against SMS Pumping: New AWS Features to Help Combat Artificially Inflated
   Traffic](https://aws.amazon.com/blogs/messaging-and-targeting/defending-against-sms-pumping-new-aws-features-to-help-combat-artificially-inflated-traffic/ "https://aws.amazon.com/blogs/messaging-and-targeting/defending-against-sms-pumping-new-aws-features-to-help-combat-artificially-inflated-traffic/")
 
-## Understand public
-
-authentication
+## Understand public authentication
 
 Amazon Cognito user pools have customer identity and access management (CIAM) features that support use
 cases where members of the general public can sign up for a user account and access your
@@ -58,9 +52,7 @@ authentication requests in your user pools and app clients.
 | [Authorization<br>server](cognito-user-pools-assign-domain.md "cognito-user-pools-assign-domain.md")                                                                                                                | Host or don't host public webpages for authentication                                     | User pool               | Turn off public webpages and allow only SDK-based authentication                                                                                                                                                        | **Domain**                                                                 | [CreateUserPoolDomain](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolDomain.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolDomain.md")<br>Creation of any user pool domain makes public webpages available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | [Threat<br>protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md")                                                                                           | Enable or disable monitoring for signs of malicious activity or unsafe<br>passwords       | User pool or app client | Can automatically block sign-in or require MFA when users show indicators of<br>compromise                                                                                                                              | **Threat protection\*<br>• – **Protection<br>settings\*\*                  | [SetRiskConfiguration](../../../cognito-user-identity-pools/latest/APIReference/API_SetRiskConfiguration.md "../../../cognito-user-identity-pools/latest/APIReference/API_SetRiskConfiguration.md")<br>The parameters of `SetRiskConfiguration` define your threat<br>protection settings.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-## Protect confidential clients
-
-with client secrets
+## Protect confidential clients with client secrets
 
 The client secret is an optional string that’s associated with an [app client](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md"). All authentication requests to
 app clients with client secrets must include a [secret hash](signing-up-users-in-your-app.md#cognito-user-pools-computing-secret-hash "signing-up-users-in-your-app.md#cognito-user-pools-computing-secret-hash") that’s generated from
@@ -77,9 +69,7 @@ applications](cognito-user-pools-define-resource-servers.md "cognito-user-pools-
 local storage or AWS Secrets Manager. Never let your client secret be visible on the public
 internet.
 
-## Protect other
-
-secrets
+## Protect other secrets
 
 You authentication system with Amazon Cognito user pools might handle private data, passwords, and AWS
 credentials. The following are some best practices for handling secrets that your application
@@ -121,9 +111,7 @@ The use of a static or predictable code verifier means that an attacker is only 
 required to intercept the hardcoded verifier and the authorization code. Design your
 application so that it doesn’t expose code verifier values to users.
 
-## User pool administration
-
-least privilege
+## User pool administration least privilege
 
 IAM policies can define the level of access that principals have to Amazon Cognito user pool
 administration and administrative authentication operations. For example:
@@ -248,9 +236,7 @@ JSON
 
 ```
 
-## Secure and verify
-
-tokens
+## Secure and verify tokens
 
 Tokens can contain internal references to group membership and user attributes that you
 might not want to disclose to the end user. Don’t store ID and access tokens in local storage.
@@ -263,9 +249,7 @@ Use access tokens to authorize access only to systems that independently verify 
 token is valid and unexpired. For verification resources, see [Verifying a JSON web
 token](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md "amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md").
 
-## Determine the identity
-
-providers that you want to trust
+## Determine the identity providers that you want to trust
 
 When you configure your user pool with [SAML](cognito-user-pools-saml-idp.md "cognito-user-pools-saml-idp.md") or [OIDC](cognito-user-pools-oidc-idp.md "cognito-user-pools-oidc-idp.md") identity providers
 (IdPs), your IdPs can create new users, set user attributes, and access your application
@@ -278,9 +262,7 @@ to anyone on the internet and are less under your control than enterprise provid
 activate social IdPs in your app client when you’re ready to allow public customers to sign in
 and access resources in your application.
 
-## Understand the effect of scopes on
-
-access to user profiles
+## Understand the effect of scopes on access to user profiles
 
 You can request access-control scopes in your authentication requests to the user pool
 authorization server. These scopes can grant your users access to external resources, and they
@@ -304,9 +286,7 @@ scope from your request to your [Authorize endpoint](authorization-endpoint.md "
 a refresh token. For more information, see **OpenID Connect
 scopes** at [App client terms](user-pool-settings-client-apps.md#cognito-user-pools-app-idp-settings-about "user-pool-settings-client-apps.md#cognito-user-pools-app-idp-settings-about").
 
-## Sanitize inputs for user
-
-attributes
+## Sanitize inputs for user attributes
 
 User attributes that might end up as delivery methods and usernames, for example
 `email`, have [format

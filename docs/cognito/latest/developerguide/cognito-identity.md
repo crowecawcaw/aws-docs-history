@@ -65,8 +65,7 @@ Amazon Cognito identity pools support the following identity providers:
 - Public providers: [Setting up Login with Amazon as an identity pools IdP](amazon.md "amazon.md"), [Setting up Facebook as an identity pools IdP](facebook.md "facebook.md"), [Setting up Google as an identity pool IdP](google.md "google.md"), [Setting up Sign in with Apple as an identity pool IdP](apple.md "apple.md"), Twitter.
 - [Amazon Cognito user pools](cognito-user-pools.md "cognito-user-pools.md")
 - [Setting up an OIDC provider as an identity pool IdP](open-id.md "open-id.md")
-- [Setting up a SAML provider as an identity pool
-  IdP](saml-identity-provider.md "saml-identity-provider.md")
+- [Setting up a SAML provider as an identity pool IdP](saml-identity-provider.md "saml-identity-provider.md")
 - [Developer-authenticated identities](developer-authenticated-identities.md "developer-authenticated-identities.md")
   For information about Amazon Cognito identity pools Region availability, see [AWS Service
   Region Availability](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/").
@@ -78,14 +77,11 @@ For more information about Amazon Cognito identity pools, see the following topi
 - [Identity pools console overview](identity-pools.md "identity-pools.md")
 - [Identity pools authentication flow](authentication-flow.md "authentication-flow.md")
 - [IAM roles](iam-roles.md "iam-roles.md")
-- [Security best practices for Amazon Cognito
-  identity pools](identity-pools-security-best-practices.md "identity-pools-security-best-practices.md")
+- [Security best practices for Amazon Cognito identity pools](identity-pools-security-best-practices.md "identity-pools-security-best-practices.md")
 - [Using attributes for access control](attributes-for-access-control.md "attributes-for-access-control.md")
 - [Using role-based access control](role-based-access-control.md "role-based-access-control.md")
 - [Getting credentials](getting-credentials.md "getting-credentials.md")
-- [Accessing AWS services with temporary
-  credentials](accessing-aws-services.md "accessing-aws-services.md")
-- [Identity pools third-party identity
-  providers](external-identity-providers.md "external-identity-providers.md")
+- [Accessing AWS services with temporary credentials](accessing-aws-services.md "accessing-aws-services.md")
+- [Identity pools third-party identity providers](external-identity-providers.md "external-identity-providers.md")
 - [Developer-authenticated identities](developer-authenticated-identities.md "developer-authenticated-identities.md")
 - [Switching unauthenticated users to authenticated users](switching-identities.md "switching-identities.md")

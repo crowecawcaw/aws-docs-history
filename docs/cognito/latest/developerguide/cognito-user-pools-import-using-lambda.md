@@ -1,14 +1,11 @@
-# Importing users with a user migration
-
-Lambda trigger
+# Importing users with a user migration Lambda trigger
 
 With this approach, you can seamlessly migrate users from your existing user directory to
 user pools when a user signs in for the first time with your app or requests a password reset.
 Add a [Migrate user Lambda trigger](user-pool-lambda-migrate-user.md "user-pool-lambda-migrate-user.md") function to your user pool and it receives metadata
 about users who try to sign in, and returns user profile information from an external identity
 source. For details and example code for this Lambda trigger, including request and response
-parameters, see [Migrate user
-Lambda trigger parameters](user-pool-lambda-migrate-user.md#cognito-user-pools-lambda-trigger-syntax-user-migration "user-pool-lambda-migrate-user.md#cognito-user-pools-lambda-trigger-syntax-user-migration").
+parameters, see [Migrate user Lambda trigger parameters](user-pool-lambda-migrate-user.md#cognito-user-pools-lambda-trigger-syntax-user-migration "user-pool-lambda-migrate-user.md#cognito-user-pools-lambda-trigger-syntax-user-migration").
 
 Before you start to migrate users, create a user migration Lambda function in your
 AWS account, and set the Lambda function as the user migration trigger in your user pool. Add
@@ -20,8 +17,7 @@ policies for AWS Lambda (Lambda function policies)](../../../lambda/latest/dg/ac
 **Sign-in process**
 
 1. The user opens your app and signs in with the Amazon Cognito user pools API or through managed login. For
-   more information about how to facilitate sign-in with Amazon Cognito APIs, see [Integrating Amazon Cognito authentication and authorization with
-   web and mobile apps](cognito-integrate-apps.md "cognito-integrate-apps.md").
+   more information about how to facilitate sign-in with Amazon Cognito APIs, see [Integrating Amazon Cognito authentication and authorization with web and mobile apps](cognito-integrate-apps.md "cognito-integrate-apps.md").
 2. Your app sends the user name and password to Amazon Cognito. If your app has a custom sign-in UI
    that you built with an AWS SDK, your app must use [InitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md") or [AdminInitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md") with the `USER_PASSWORD_AUTH` or
    `ADMIN_USER_PASSWORD_AUTH` flow. When your app uses one of these flows, the SDK
@@ -42,8 +38,7 @@ that Amazon Cognito stores in the user's profile in the user pool. You can retur
 `username` parameter only if the submitted user name matches an alias
 attribute. If you want users to continue to use their existing passwords, your function sets
 the attribute `finalUserStatus` to `CONFIRMED` in the Lambda response.
-Your app must return all `"response"` parameters shown at [Migrate user
-Lambda trigger parameters](user-pool-lambda-migrate-user.md#cognito-user-pools-lambda-trigger-syntax-user-migration "user-pool-lambda-migrate-user.md#cognito-user-pools-lambda-trigger-syntax-user-migration").
+Your app must return all `"response"` parameters shown at [Migrate user Lambda trigger parameters](user-pool-lambda-migrate-user.md#cognito-user-pools-lambda-trigger-syntax-user-migration "user-pool-lambda-migrate-user.md#cognito-user-pools-lambda-trigger-syntax-user-migration").
 
 ###### Important
 

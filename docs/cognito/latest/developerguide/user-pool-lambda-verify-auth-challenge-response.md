@@ -1,6 +1,4 @@
-# Verify Auth challenge
-
-response Lambda trigger
+# Verify Auth challenge response Lambda trigger
 
 The verify auth challenge trigger is a Lambda function that compares a user's provided
 response to a known answer. This function tells your user pool whether the user answered the
@@ -30,14 +28,10 @@ The challenge loop repeats until the users answers all challenges.
 
 ###### Topics
 
-- [Verify
-  Auth challenge Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-verify-auth-challenge "#cognito-user-pools-lambda-trigger-syntax-verify-auth-challenge")
-- [Verify Auth
-  challenge response example](#aws-lambda-triggers-verify-auth-challenge-response-example "#aws-lambda-triggers-verify-auth-challenge-response-example")
+- [Verify Auth challenge Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-verify-auth-challenge "#cognito-user-pools-lambda-trigger-syntax-verify-auth-challenge")
+- [Verify Auth challenge response example](#aws-lambda-triggers-verify-auth-challenge-response-example "#aws-lambda-triggers-verify-auth-challenge-response-example")
 
-## Verify
-
-Auth challenge Lambda trigger parameters
+## Verify Auth challenge Lambda trigger parameters
 
 The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the
 [common parameters](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared") that Amazon Cognito adds to all requests.
@@ -117,9 +111,7 @@ If the user successfully completes the challenge, Amazon Cognito sets this
 parameter to `true`. If the user doesn't successfully
 complete the challenge, Amazon Cognito sets the parameter to `false`.
 
-## Verify Auth
-
-challenge response example
+## Verify Auth challenge response example
 
 This verify auth challenge function checks whether the user's response to a challenge
 matches the expected response. The user's answer is defined by input from your

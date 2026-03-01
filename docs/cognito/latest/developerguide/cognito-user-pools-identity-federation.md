@@ -1,6 +1,4 @@
-# User pool sign-in with third party
-
-identity providers
+# User pool sign-in with third party identity providers
 
 Your app users can either sign in directly through a user pool, or they can federate through a
 third-party identity provider (IdP). The user pool manages the overhead of handling the tokens
@@ -9,9 +7,7 @@ Connect (OIDC) and SAML IdPs. With the built-in hosted web UI, Amazon Cognito pr
 authenticated users from all IdPs. This way, your backend systems can standardize on one set
 of user pool tokens.
 
-## How federated
-
-sign-in works in Amazon Cognito user pools
+## How federated sign-in works in Amazon Cognito user pools
 
 Sign-in through a third party (federation) is available in Amazon Cognito user pools. This
 feature is independent of federation through Amazon Cognito identity pools (federated
@@ -39,8 +35,7 @@ can also add more attributes independent of those from the IdP.
 After Amazon Cognito creates a profile for your federated user, it changes its function and
 presents itself as the IdP to your app, which is now the SP. Amazon Cognito is a combination OIDC
 and OAuth 2.0 IdP. It generates access tokens, ID tokens, and refresh tokens. For more
-information about tokens, see [Understanding
-user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md "amazon-cognito-user-pools-using-tokens-with-identity-providers.md").
+information about tokens, see [Understanding user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md "amazon-cognito-user-pools-using-tokens-with-identity-providers.md").
 
 You must design an app that integrates with Amazon Cognito to authenticate and authorize your
 users, whether federated or local.
@@ -66,8 +61,7 @@ receives a response from Amazon Cognito.
 
 - If you want your users to sign in with federated providers, you must choose a
   domain. This sets up the pages for [managed login](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md").
-  For more information, see [Using your own domain for managed
-  login](cognito-user-pools-add-custom-domain.md "cognito-user-pools-add-custom-domain.md").
+  For more information, see [Using your own domain for managed login](cognito-user-pools-add-custom-domain.md "cognito-user-pools-add-custom-domain.md").
 - You can't sign in federated users with API operations like [InitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md") and [AdminInitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md"). Federated users can only sign in with the [Login endpoint](login-endpoint.md "login-endpoint.md") or the [Authorize endpoint](authorization-endpoint.md "authorization-endpoint.md").
 - The [Authorize endpoint](authorization-endpoint.md "authorization-endpoint.md") is a _redirection_ endpoint. If you provide an
   `idp_identifier` or `identity_provider` parameter in
@@ -95,8 +89,7 @@ name]`, for example `us-east-1_EXAMPLE_MYSSO` or
   attribute, and a claim in the ID token, called `identities`. This
   claim contains your user's provider and their unique ID from the provider. You
   can't change the `identities` attribute in a user profile directly.
-  For more information about how to link a federated user, see [Linking
-  federated users to an existing user profile](cognito-user-pools-identity-federation-consolidate-users.md "cognito-user-pools-identity-federation-consolidate-users.md").
+  For more information about how to link a federated user, see [Linking federated users to an existing user profile](cognito-user-pools-identity-federation-consolidate-users.md "cognito-user-pools-identity-federation-consolidate-users.md").
 - When you update your IdP in an [UpdateIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.md") API request, your changes
   can take up to a minute to appear in managed login.
 - Amazon Cognito supports up to 20 HTTP redirects between itself and your IdP.
@@ -113,15 +106,9 @@ only sign in with an IdP that you assigned to their app client.
 
 ###### Topics
 
-- [Configuring identity providers for
-  your user pool](cognito-user-pools-identity-provider.md "cognito-user-pools-identity-provider.md")
-- [Using social identity providers with a
-  user pool](cognito-user-pools-social-idp.md "cognito-user-pools-social-idp.md")
-- [Using SAML identity providers with a user
-  pool](cognito-user-pools-saml-idp.md "cognito-user-pools-saml-idp.md")
-- [Using OIDC identity providers with a user
-  pool](cognito-user-pools-oidc-idp.md "cognito-user-pools-oidc-idp.md")
-- [Mapping IdP attributes
-  to profiles and tokens](cognito-user-pools-specifying-attribute-mapping.md "cognito-user-pools-specifying-attribute-mapping.md")
-- [Linking
-  federated users to an existing user profile](cognito-user-pools-identity-federation-consolidate-users.md "cognito-user-pools-identity-federation-consolidate-users.md")
+- [Configuring identity providers for your user pool](cognito-user-pools-identity-provider.md "cognito-user-pools-identity-provider.md")
+- [Using social identity providers with a user pool](cognito-user-pools-social-idp.md "cognito-user-pools-social-idp.md")
+- [Using SAML identity providers with a user pool](cognito-user-pools-saml-idp.md "cognito-user-pools-saml-idp.md")
+- [Using OIDC identity providers with a user pool](cognito-user-pools-oidc-idp.md "cognito-user-pools-oidc-idp.md")
+- [Mapping IdP attributes to profiles and tokens](cognito-user-pools-specifying-attribute-mapping.md "cognito-user-pools-specifying-attribute-mapping.md")
+- [Linking federated users to an existing user profile](cognito-user-pools-identity-federation-consolidate-users.md "cognito-user-pools-identity-federation-consolidate-users.md")

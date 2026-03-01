@@ -1,6 +1,4 @@
-# Managing user pool
-
-token expiration and caching
+# Managing user pool token expiration and caching
 
 Your app must successfully complete one of the following requests each time you want to
 get a new JSON Web Token (JWT).
@@ -26,9 +24,7 @@ managed login authorization code requests. [Service endpoints](../../../general/
 `RespondToAuthChallenge`. Each type of request has its own limit. For more
 information about limits, see [Quotas in Amazon Cognito](quotas.md "quotas.md").
 
-## Caching
-
-machine-to-machine access tokens with Amazon API Gateway
+## Caching machine-to-machine access tokens with Amazon API Gateway
 
 With API Gateway token caching, your app can scale in response to events larger than the
 default request rate quota of Amazon Cognito OAuth endpoints.

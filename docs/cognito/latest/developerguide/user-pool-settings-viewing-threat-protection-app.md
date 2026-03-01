@@ -1,6 +1,4 @@
-# Collecting data for
-
-threat protection in applications
+# Collecting data for threat protection in applications
 
 Amazon Cognito [adaptive
 authentication](cognito-user-pool-settings-adaptive-authentication.md "cognito-user-pool-settings-adaptive-authentication.md") evaluates risk levels for attempted account takeover from contextual
@@ -25,9 +23,7 @@ collection without any additional configuration:
 - All AWS Amplify libraries have context-data collection built into their
   authentication methods.
 
-## Submitting user
-
-context data in client-only applications with Amplify
+## Submitting user context data in client-only applications with Amplify
 
 ![An overview of data collection for threat protection in an Amplify application.](images/user-pools-asf-amplify-data-collection.png)
 
@@ -43,9 +39,7 @@ like [InitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API
 operations. The Amplify SDKs add device and session information to an
 `EncodedData`parameter of `UserContextData`.
 
-## Collecting
-
-context data in client-server applications
+## Collecting context data in client-server applications
 
 Some applications have a front-end tier that collects user authentication data and an
 application back-end tier that submits authentication requests to Amazon Cognito. This is a common

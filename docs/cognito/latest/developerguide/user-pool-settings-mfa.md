@@ -19,8 +19,7 @@ sign-in factor to use during each sign-in attempt after the first.
 
 With adaptive authentication, you can configure your user pool to require an additional
 authentication factor in response to an increased risk level. To add adaptive authentication
-to your user pool, see [Advanced security with threat
-protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md").
+to your user pool, see [Advanced security with threat protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md").
 
 When you set MFA to `required` for a user pool, all users must complete MFA to
 sign in. To sign in, each user must set up at least one MFA factor. When MFA is required, you
@@ -35,20 +34,14 @@ sign-in factor.
 
 ###### Topics
 
-- [Things to know about user pool
-  MFA](#user-pool-settings-mfa-prerequisites "#user-pool-settings-mfa-prerequisites")
+- [Things to know about user pool MFA](#user-pool-settings-mfa-prerequisites "#user-pool-settings-mfa-prerequisites")
 - [User MFA preferences](#user-pool-settings-mfa-preferences "#user-pool-settings-mfa-preferences")
-- [Details of MFA logic at user
-  runtime](#user-pool-settings-mfa-user-outcomes "#user-pool-settings-mfa-user-outcomes")
-- [Configure a user pool for multi-factor
-  authentication](#user-pool-configuring-mfa "#user-pool-configuring-mfa")
-- [SMS and email message
-  MFA](user-pool-settings-mfa-sms-email-message.md "user-pool-settings-mfa-sms-email-message.md")
+- [Details of MFA logic at user runtime](#user-pool-settings-mfa-user-outcomes "#user-pool-settings-mfa-user-outcomes")
+- [Configure a user pool for multi-factor authentication](#user-pool-configuring-mfa "#user-pool-configuring-mfa")
+- [SMS and email message MFA](user-pool-settings-mfa-sms-email-message.md "user-pool-settings-mfa-sms-email-message.md")
 - [TOTP software token MFA](user-pool-settings-mfa-totp.md "user-pool-settings-mfa-totp.md")
 
-## Things to know about user pool
-
-MFA
+## Things to know about user pool MFA
 
 Before you set up MFA, consider the following:
 
@@ -63,10 +56,8 @@ Before you set up MFA, consider the following:
       + [Choice-based
        sign-in](authentication-flows-selection-sdk.md#authentication-flows-selection-choice "authentication-flows-selection-sdk.md#authentication-flows-selection-choice") only offers `PASSWORD` and `PASSWORD_SRP`
        factors in all app clients when MFA is required in the user pool. For more
-       information about username-password flows, see [Sign-in
-       with persistent passwords](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-password "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-password") and
-       [Sign-in with
-       persistent passwords and secure payload](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-srp "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-srp") in the
+       information about username-password flows, see [Sign-in with persistent passwords](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-password "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-password") and
+       [Sign-in with persistent passwords and secure payload](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-srp "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-srp") in the
        **Authentication** chapter of this guide.
       + In user pools where MFA is optional, users who have configured an MFA factor can
        only sign in with username-password authentication flows in choice-based sign-in.
@@ -125,15 +116,13 @@ _not_ the user's MFA factor.
   completes MFA, Amazon Cognito sets their `phone_number_verified` or
   `email_verified` attribute to `true`.
 - After five unsuccessful attempts to present an MFA code, Amazon Cognito begins the
-  exponential-timeout lockout process described at [Lockout behavior for failed sign-in
-  attempts](authentication.md#authentication-flow-lockout-behavior "authentication.md#authentication-flow-lockout-behavior").
+  exponential-timeout lockout process described at [Lockout behavior for failed sign-in attempts](authentication.md#authentication-flow-lockout-behavior "authentication.md#authentication-flow-lockout-behavior").
 - If your account is in the SMS sandbox in the AWS Region that contains the
   Amazon Simple Notification Service (Amazon SNS) resources for your user pool, you must verify phone numbers in Amazon SNS
   before you can send an SMS message. For more information, see [SMS message settings for Amazon Cognito user pools](user-pool-sms-settings.md "user-pool-sms-settings.md").
 - To change the MFA status of users in response to detected events with threat
   protection, activate MFA and set it as optional in the Amazon Cognito user pool console. For more
-  information, see [Advanced security with threat
-  protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md").
+  information, see [Advanced security with threat protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md").
 - Email and SMS messages require that your users have email address and phone number
   attributes respectively. You can set `email` or `phone_number` as
   required attributes in your user pool. In this case, users can't complete sign-up unless
@@ -170,9 +159,7 @@ meet the following conditions:
 3. At least one MFA factor is active.
 4. One MFA factor is set as preferred.
 
-### Prevent the use of the
-
-same factor for sign-in and MFA
+### Prevent the use of the same factor for sign-in and MFA
 
 It's possible to configure your user pool in a way that makes one sign-in factor the
 only available sign-in and MFA option for some or all users. This result can happen when
@@ -201,9 +188,7 @@ supports OTP authentication for both sign-in and MFA.
 2. Enable both email and SMS OTP as MFA factors.
 3. Collect
 
-### User pool settings and
-
-their effect on MFA options
+### User pool settings and their effect on MFA options
 
 The configuration of your user pool influences the MFA methods that users can choose.
 The following are some user pool settings that influence users’ ability to set up
@@ -267,9 +252,7 @@ attributes as required.
   and the setup of TOTP. The diagram that follows demonstrates the logic behind the
   options that Amazon Cognito presents to users.
 
-### Configure MFA preferences
-
-for users
+### Configure MFA preferences for users
 
 You can configure MFA preferences for users in a self-service model with access-token
 authorization, or in an administrator-managed model with administrative API operations.
@@ -286,12 +269,9 @@ challenge.
 
 You can also set user MFA preferences from the **Users** menu of the
 Amazon Cognito console. For more information about the public and confidential authentication
-models in the Amazon Cognito user pools API, see [Understanding API, OIDC, and managed login pages
-authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations").
+models in the Amazon Cognito user pools API, see [Understanding API, OIDC, and managed login pages authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations").
 
-## Details of MFA logic at user
-
-runtime
+## Details of MFA logic at user runtime
 
 To determine the steps to take when users sign in, your user pool evaluates user MFA
 preferences, [user attributes](user-pool-settings-attributes.md "user-pool-settings-attributes.md"), the [user pool MFA setting](#user-pool-configuring-mfa "#user-pool-configuring-mfa"), [threat protection](cognito-user-pool-settings-adaptive-authentication.md "cognito-user-pool-settings-adaptive-authentication.md")
@@ -450,9 +430,7 @@ For email MFA, respond with `"ChallengeName": "MFA_SETUP",
      challenge, they're signed in.
     ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
 
-## Configure a user pool for multi-factor
-
-authentication
+## Configure a user pool for multi-factor authentication
 
 You can configure MFA in the Amazon Cognito console or with the [SetUserPoolMfaConfig](../../../cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.md "../../../cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.md") API operation and SDK methods.
 
@@ -476,8 +454,7 @@ You can configure MFA in the Amazon Cognito console or with the [SetUserPoolMfaC
     2. **Optional MFA**. You can give your users the option to
      register an additional sign-in factor but still permit users who haven't configured
      MFA to sign in. If you use adaptive authentication, choose this option. For more
-     information about adaptive authentication, see [Advanced security with threat
-     protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md").
+     information about adaptive authentication, see [Advanced security with threat protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md").
     3. **No MFA**. Your users can't register an additional sign-in
      factor.
 

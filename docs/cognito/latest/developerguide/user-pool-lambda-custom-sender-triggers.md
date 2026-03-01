@@ -1,6 +1,4 @@
-# Custom sender Lambda
-
-triggers
+# Custom sender Lambda triggers
 
 The Lambda triggers `CustomEmailSender` and `CustomSMSSender` support
 third-party email and SMS notifications in user pools. You can choose SMS and email
@@ -19,9 +17,7 @@ Amazon Cognito invokes this trigger to send email notifications to users.
 
 Amazon Cognito invokes this trigger to send SMS notifications to users.
 
-## Encryption
-
-concepts
+## Encryption concepts
 
 Amazon Cognito doesn't send users' codes in plaintext in the events that it sends to custom
 sender triggers. The Lambda functions must decrypt codes in the events. The following
@@ -48,9 +44,7 @@ unencrypted. To use a symmetric KMS key, you must call AWS KMS. Amazon Cognito u
 symmetric keys. The same key encrypts and decrypts. For more information
 see, [Symmetric KMS keys](../../../kms/latest/developerguide/concepts.md#symmetric-cmks "../../../kms/latest/developerguide/concepts.md#symmetric-cmks").
 
-## Things to know
-
-about custom sender Lambda triggers
+## Things to know about custom sender Lambda triggers
 
 - To configure your user pools to use these Lambda triggers, you can use the
   AWS CLI or SDK. These configurations aren't available from Amazon Cognito console.
@@ -60,8 +54,7 @@ to this operation require all the parameters of your user pool _and_ the paramet
 don't provide all relevant parameters, Amazon Cognito sets the values of any missing
 parameters to their defaults. As demonstrated in the AWS CLI example that
 follows, include entries for all Lambda functions that you want to add to or keep
-in your user pool. For more information, see [Updating user pool and app client
-configuration](cognito-user-pool-updating.md "cognito-user-pool-updating.md").
+in your user pool. For more information, see [Updating user pool and app client configuration](cognito-user-pool-updating.md "cognito-user-pool-updating.md").
 
 ```
 
@@ -111,9 +104,7 @@ the rest of your user pool configuration.
   must unescape these characters after it decrypts the password, and before it
   sends the message to your user.
 
-## Activating custom sender Lambda
-
-triggers
+## Activating custom sender Lambda triggers
 
 To use custom logic to send SMS or email messages for your user pool, set up custom
 sender triggers. The following procedure assigns a custom SMS trigger, a custom email

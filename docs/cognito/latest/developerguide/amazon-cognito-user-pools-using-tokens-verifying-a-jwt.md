@@ -1,6 +1,4 @@
-# Verifying JSON web
-
-tokens
+# Verifying JSON web tokens
 
 JSON web tokens (JWTs) can be decoded, read, and modified easily. A modified access token
 creates a risk of privilege escalation. A modified ID token creates a risk of impersonation.
@@ -26,10 +24,8 @@ These steps describe verifying a user pool JSON Web Token (JWT).
 ###### Topics
 
 - [Prerequisites](#amazon-cognito-user-pools-using-tokens-prerequisites "#amazon-cognito-user-pools-using-tokens-prerequisites")
-- [Validate tokens with
-  aws-jwt-verify](#amazon-cognito-user-pools-using-tokens-aws-jwt-verify "#amazon-cognito-user-pools-using-tokens-aws-jwt-verify")
-- [Understanding and
-  inspecting tokens](#amazon-cognito-user-pools-using-tokens-manually-inspect "#amazon-cognito-user-pools-using-tokens-manually-inspect")
+- [Validate tokens with aws-jwt-verify](#amazon-cognito-user-pools-using-tokens-aws-jwt-verify "#amazon-cognito-user-pools-using-tokens-aws-jwt-verify")
+- [Understanding and inspecting tokens](#amazon-cognito-user-pools-using-tokens-manually-inspect "#amazon-cognito-user-pools-using-tokens-manually-inspect")
 
 ## Prerequisites
 
@@ -39,8 +35,7 @@ AWS Amplify includes functions to retrieve and refresh Amazon Cognito tokens.
 
 For more information, see the following pages.
 
-- [Integrating Amazon Cognito authentication and authorization with
-  web and mobile apps](cognito-integrate-apps.md "cognito-integrate-apps.md")
+- [Integrating Amazon Cognito authentication and authorization with web and mobile apps](cognito-integrate-apps.md "cognito-integrate-apps.md")
 - [Code examples for Amazon Cognito
   Identity Provider using AWS SDKs](service_code_examples.md "service_code_examples.md")
 - [Advanced workflows](https://docs.amplify.aws/lib/auth/advanced/q/platform/js/#retrieve-jwt-tokens "https://docs.amplify.aws/lib/auth/advanced/q/platform/js/#retrieve-jwt-tokens") in the _Amplify Dev
@@ -51,9 +46,7 @@ want to manually process tokens for server-side API processing, or if you are us
 programming languages, these libraries can help. See the [OpenID foundation list of libraries for working
 with JWT tokens](http://openid.net/developers/jwt/ "http://openid.net/developers/jwt/").
 
-## Validate tokens with
-
-aws-jwt-verify
+## Validate tokens with aws-jwt-verify
 
 In a Node.js app, AWS recommends the [aws-jwt-verify
 library](https://github.com/awslabs/aws-jwt-verify "https://github.com/awslabs/aws-jwt-verify") to validate the parameters in the token that your user passes to your app.
@@ -77,9 +70,7 @@ user's token. You can find the JWKS URI for your user pool at
 For more information and example code that you can use in a Node.js app or a AWS Lambda
 authorizer, see [aws-jwt-verify](https://github.com/awslabs/aws-jwt-verify "https://github.com/awslabs/aws-jwt-verify") on GitHub.
 
-## Understanding and
-
-inspecting tokens
+## Understanding and inspecting tokens
 
 Before you integrate token inspection with your app, consider how Amazon Cognito assembles JWTs.
 Retrieve example tokens from your user pool. Decode and examine them in detail to understand
@@ -89,9 +80,7 @@ might want to examine group membership in one scenario, and scopes in another.
 The following sections describe a process to manually inspect Amazon Cognito JWTs as you prepare
 your app.
 
-### Confirm the structure of
-
-the JWT
+### Confirm the structure of the JWT
 
 A JSON Web Token (JWT) includes three sections with a `.` (dot) delimiter
 between them.

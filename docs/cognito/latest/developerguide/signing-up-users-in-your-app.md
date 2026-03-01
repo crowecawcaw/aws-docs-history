@@ -4,8 +4,7 @@ User accounts are added to your user pool in one of the following ways:
 
 - The user signs up in your user pool's client app. This can be a mobile or web
   app.
-- You can import the user's account into your user pool. For more information, see [Importing users into user pools from a
-  CSV file](cognito-user-pools-using-import-tool.md "cognito-user-pools-using-import-tool.md").
+- You can import the user's account into your user pool. For more information, see [Importing users into user pools from a CSV file](cognito-user-pools-using-import-tool.md "cognito-user-pools-using-import-tool.md").
 - You can create the user's account in your user pool and invite the user to sign in. For
   more information, see [Creating user accounts as administrator](how-to-create-user-accounts.md "how-to-create-user-accounts.md").
   Users who sign themselves up must be confirmed before they can sign in. Imported and created
@@ -30,9 +29,7 @@ omit passwords in sign-up operations.
 5. For any given [SignUp](../../../cognito-user-identity-pools/latest/APIReference/API_SignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_SignUp.md")
    request, the user doesn't provide a value for the [Password](../../../cognito-user-identity-pools/latest/APIReference/API_SignUp.md#CognitoUserPools-SignUp-request-Password "../../../cognito-user-identity-pools/latest/APIReference/API_SignUp.md#CognitoUserPools-SignUp-request-Password") parameter.
 
-## Overview of user account
-
-confirmation
+## Overview of user account confirmation
 
 The following diagram illustrates the confirmation process:
 
@@ -83,9 +80,7 @@ user.
 
 - [Detecting and remediating inactive user accounts with Amazon Cognito](https://aws.amazon.com/blogs/security/detecting-and-remediating-inactive-user-accounts-with-amazon-cognito/ "https://aws.amazon.com/blogs/security/detecting-and-remediating-inactive-user-accounts-with-amazon-cognito/")
 
-## Verifying contact
-
-information at sign-up
+## Verifying contact information at sign-up
 
 When new users sign up in your app, you probably want them to provide at least one contact
 method. For example, with your users' contact information, you might:
@@ -125,9 +120,7 @@ If a user has a verified contact method, Amazon Cognito automatically sends a me
 when the user requests a password
 reset.
 
-### Other
-
-actions that confirm and verify user attributes
+### Other actions that confirm and verify user attributes
 
 The following user activity verifies user attributes. You're not required to set these
 attributes to automatically verify: the listed actions mark them as verified in all
@@ -146,9 +139,7 @@ cases.
 2. Successfully completing [MFA](user-pool-settings-mfa.md "user-pool-settings-mfa.md") with
    an SMS OTP.
 
-### To configure your user pool to require email or
-
-phone verification
+### To configure your user pool to require email or phone verification
 
 When you verify your users' email addresses and phone numbers, you ensure that you can
 contact your users. Complete the following steps in the AWS Management Console to configure your user pool
@@ -234,12 +225,9 @@ verification code only to the phone number.
 If you require users to verify both an email address and a phone number, choose
 this option. Amazon Cognito verifies one contact method when the user signs up, and your app
 must verify the other contact method after the user signs in. For more information,
-see [If you require users to confirm both email
-addresses and phone numbers](#verification-email-plus-phone "#verification-email-plus-phone"). 6. Choose **Save changes**.
+see [If you require users to confirm both email addresses and phone numbers](#verification-email-plus-phone "#verification-email-plus-phone"). 6. Choose **Save changes**.
 
-### Authentication flow with email or phone
-
-verification
+### Authentication flow with email or phone verification
 
 If your user pool requires users to verify their contact information, your app must
 facilitate the following flow when a user signs up:
@@ -267,9 +255,7 @@ facilitate the following flow when a user signs up:
 7. At this point the user's account is in a confirmed state, and the user can sign
    in.
 
-### If you require users to confirm both email
-
-addresses and phone numbers
+### If you require users to confirm both email addresses and phone numbers
 
 Amazon Cognito verifies only one contact method when a user signs up. In cases where Amazon Cognito must
 choose between verifying an email address or phone number, it chooses to verify the phone
@@ -323,9 +309,7 @@ following:
 
     At this point, the email address is verified.
 
-## Allowing users to
-
-sign up in your app but confirming them as a user pool administrator
+## Allowing users to sign up in your app but confirming them as a user pool administrator
 
 You might not want your user pool to automatically send verification messages in your user
 pool, but still want to allow anyone to sign up for an account. This model leaves room, for
@@ -355,9 +339,7 @@ that you create as an administrator, create an [AdminSetUserPassword](../../../c
 4. At this point the user's account is in a confirmed state, and the user can sign
    in.
 
-## Computing secret hash
-
-values
+## Computing secret hash values
 
 Assign a client secret to your confidential app client as a best practice. When you assign
 a client secret to your app client, your Amazon Cognito user pools API requests must include a hash that
@@ -456,9 +438,7 @@ secret_hash = base64.b64encode(hmac.new(key, message, digestmod=hashlib.sha256).
 print("SECRET HASH:",secret_hash)
 ```
 
-## Confirming
-
-user accounts without verifying email or phone number
+## Confirming user accounts without verifying email or phone number
 
 The pre sign-up Lambda trigger can be used to auto-confirm user accounts at sign-up,
 without requiring a confirmation code or verifying email or phone number. Users who are
@@ -480,16 +460,13 @@ doesn't have a verified email address or phone number, the user is locked out of
 because the forgot-password flow requires a verified email or phone number in order to send a
 verification code to the user.
 
-## Verifying when users
-
-change their email or phone number
+## Verifying when users change their email or phone number
 
 In user pools that you configure with multiple sign-in names, users can enter a phone
 number or an email address as their username at sign-in. When they update their email address
 or phone number in your app, Amazon Cognito can immediately send them a message with a code that
 verifies their ownership of the new attribute value. To enable automatic sending of these
-verification codes, see [Configuring email or phone
-verification](user-pool-settings-email-phone-verification.md "user-pool-settings-email-phone-verification.md").
+verification codes, see [Configuring email or phone verification](user-pool-settings-email-phone-verification.md "user-pool-settings-email-phone-verification.md").
 
 Users who receive a verification code must provide that code back to Amazon Cognito in a [VerifyUserAttribute](../../../cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.md "../../../cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.md") request. After they provide the code, their attribute is marked
 as verified. Typically, when users update their email address or phone number, you'll want to
@@ -553,37 +530,29 @@ send verification messages. They request to update their email address to
 `user3+baz@example.com`, but they _can immediately sign
 in_ with no additional action taken with the verification code.
 
-## Confirmation and verification processes for user accounts created by administrators or
-
-developers
+## Confirmation and verification processes for user accounts created by administrators or developers
 
 User accounts that are created by an administrator or developer are already in the
 confirmed state, so users aren't required to enter a confirmation code. The invitation message
 that the Amazon Cognito service sends to these users includes the username and a temporary password.
 The user is required to change the password before signing in. For more information, see the
-[Customize email and SMS
-messages](how-to-create-user-accounts.md#creating-a-new-user-customize-messages "how-to-create-user-accounts.md#creating-a-new-user-customize-messages") in [Creating user accounts as administrator](how-to-create-user-accounts.md "how-to-create-user-accounts.md") and the
-Custom Message trigger in [Customizing user pool
-workflows with Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md "cognito-user-pools-working-with-lambda-triggers.md").
+[Customize email and SMS messages](how-to-create-user-accounts.md#creating-a-new-user-customize-messages "how-to-create-user-accounts.md#creating-a-new-user-customize-messages") in [Creating user accounts as administrator](how-to-create-user-accounts.md "how-to-create-user-accounts.md") and the
+Custom Message trigger in [Customizing user pool workflows with Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md "cognito-user-pools-working-with-lambda-triggers.md").
 
 ## Confirmation and verification processes for imported user accounts
 
 User accounts that are created by using the user import feature in the AWS Management Console, CLI, or
-API (see [Importing users into user pools from a
-CSV file](cognito-user-pools-using-import-tool.md "cognito-user-pools-using-import-tool.md")) are already in the confirmed state, so
+API (see [Importing users into user pools from a CSV file](cognito-user-pools-using-import-tool.md "cognito-user-pools-using-import-tool.md")) are already in the confirmed state, so
 users aren't required to enter a confirmation code. No invitation message is sent. However,
 imported user accounts require users to first request a code by calling the
 `ForgotPassword` API and then create a password using the delivered code by
 calling `ConfirmForgotPassword` API before they sign in. For more information, see
-[Requiring imported users
-to reset their passwords](cognito-user-pools-using-import-tool.md#cognito-user-pools-using-import-tool-password-reset "cognito-user-pools-using-import-tool.md#cognito-user-pools-using-import-tool-password-reset").
+[Requiring imported users to reset their passwords](cognito-user-pools-using-import-tool.md#cognito-user-pools-using-import-tool-password-reset "cognito-user-pools-using-import-tool.md#cognito-user-pools-using-import-tool-password-reset").
 
 Either the user's email or phone number must be marked as verified when the user account
 is imported, so no verification is required when the user signs in.
 
-## Sending emails while testing your
-
-app
+## Sending emails while testing your app
 
 Amazon Cognito sends email messages to your users when they create and manage their accounts in the
 client app for your user pool. If you configure your user pool to require email verification,

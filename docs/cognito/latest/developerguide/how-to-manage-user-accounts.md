@@ -45,9 +45,7 @@ disables the user’s current password by changing the user state to
 `RESET_REQUIRED`. The **Reset password** code is valid for 1
 hour.
 
-## Enable, disable, and delete user
-
-accounts
+## Enable, disable, and delete user accounts
 
 You can delete unused user profiles or, if you want to temporarily prevent access, disable
 them. Users can delete their own accounts, but only user pool administrators can enable and
@@ -163,9 +161,7 @@ Administrators can enable user accounts with the IAM-authorized [AdminEnableUser
 }
 ```
 
-## Searching user
-
-attributes
+## Searching user attributes
 
 If you have already created a user pool, you can search from the
 **Users** panel in the AWS Management Console. You can also use the Amazon Cognito [ListUsers API](../../../cognito-user-identity-pools/latest/APIReference/API_ListUsers.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListUsers.md"), which accepts a **Filter** parameter.
@@ -219,9 +215,7 @@ You can also find users by adjusting the search filter to narrow the scope down 
 other user properties, such as **Email**, **Phone
 number**, or **Last name**.
 
-## Searching for
-
-users with the `ListUsers` API
+## Searching for users with the `ListUsers` API
 
 To search for users from your app, use the Amazon Cognito [ListUsers API](../../../cognito-user-identity-pools/latest/APIReference/API_ListUsers.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListUsers.md"). This API uses the following parameters:
 
@@ -260,9 +254,7 @@ To search for users from your app, use the Amazon Cognito [ListUsers API](../../
 All searches are case-insensitive. Search results are sorted by the attribute named by the
 `AttributeName` string, in ascending order.
 
-## Examples of
-
-using the `ListUsers` API
+## Examples of using the `ListUsers` API
 
 The following example returns all users and includes all attributes.
 

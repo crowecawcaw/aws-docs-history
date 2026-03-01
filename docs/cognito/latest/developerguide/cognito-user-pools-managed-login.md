@@ -48,8 +48,7 @@ The branding editor isn't available in all feature plans for user pools. For mor
 information, see [User pool feature plans](cognito-sign-in-feature-plans.md "cognito-sign-in-feature-plans.md").
 
 For more information about constructing requests to managed login and hosted UI services,
-see [User pool endpoints and
-managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md").
+see [User pool endpoints and managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md").
 
 ###### Note
 
@@ -60,16 +59,11 @@ with [custom authentication challenge Lambda triggers](user-pool-lambda-challeng
 
 - [Managed login localization](#managed-login-localization "#managed-login-localization")
 - [Terms documents](#managed-login-terms-documents "#managed-login-terms-documents")
-- [Setting up managed login
-  with AWS Amplify](#cognito-user-pools-app-integration-amplify "#cognito-user-pools-app-integration-amplify")
-- [Setting up managed login with the Amazon Cognito
-  console](#set-up-managed-login "#set-up-managed-login")
-- [Viewing your sign-in
-  page](#view-login-pages "#view-login-pages")
-- [Customizing
-  your authentication pages](#cognito-user-pools-app-integration-customize-hosted-ui "#cognito-user-pools-app-integration-customize-hosted-ui")
-- [Things to know about managed login and
-  the hosted UI](#managed-login-things-to-know "#managed-login-things-to-know")
+- [Setting up managed login with AWS Amplify](#cognito-user-pools-app-integration-amplify "#cognito-user-pools-app-integration-amplify")
+- [Setting up managed login with the Amazon Cognito console](#set-up-managed-login "#set-up-managed-login")
+- [Viewing your sign-in page](#view-login-pages "#view-login-pages")
+- [Customizing your authentication pages](#cognito-user-pools-app-integration-customize-hosted-ui "#cognito-user-pools-app-integration-customize-hosted-ui")
+- [Things to know about managed login and the hosted UI](#managed-login-things-to-know "#managed-login-things-to-know")
 - [Configuring a user pool domain](cognito-user-pools-assign-domain.md "cognito-user-pools-assign-domain.md")
 - [Apply branding to managed login pages](managed-login-branding.md "managed-login-branding.md")
 
@@ -184,9 +178,7 @@ sign-up page.
 You must create both a terms of use and a privacy policy document for your app
 client before Amazon Cognito will display terms documents in your managed login pages.
 
-## Setting up managed login
-
-with AWS Amplify
+## Setting up managed login with AWS Amplify
 
 If you use AWS Amplify to add authentication to your web or mobile app, you can set
 up your managed login pages in the Amplify command line interface (CLI) and libraries
@@ -207,9 +199,7 @@ social providers in your app.
 - [Flutter](https://docs.amplify.aws/flutter/build-a-backend/auth/concepts/external-identity-providers/ "https://docs.amplify.aws/flutter/build-a-backend/auth/concepts/external-identity-providers/")
 - [Android](https://docs.amplify.aws/android/build-a-backend/auth/concepts/external-identity-providers/ "https://docs.amplify.aws/android/build-a-backend/auth/concepts/external-identity-providers/")
 
-## Setting up managed login with the Amazon Cognito
-
-console
+## Setting up managed login with the Amazon Cognito console
 
 The first requirement for managed login and hosted UI is a user pool domain. In the
 user pools console, navigate to the **Domain** tab of your user pool
@@ -235,9 +225,7 @@ is the URL that your application runs from, for example
 After you configure a domain and app client with a branding style in your user pool,
 your managed login pages become available on the internet.
 
-## Viewing your sign-in
-
-page
+## Viewing your sign-in page
 
 In the Amazon Cognito console, choose the **View login pages** button in the
 **Login pages** tab for your app client under the **App
@@ -257,8 +245,7 @@ customize your sign-in URL with additional and modified parameters. In most case
 automatically-generated parameters of the **View login page** link
 don’t fully match the needs of your app. In these cases, you must customize the URL that
 your app invokes when it signs in your users. For more information about sign-in
-parameter keys and values, see [User pool endpoints and
-managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md").
+parameter keys and values, see [User pool endpoints and managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md").
 
 The sign-in webpage uses the following URL format. This example requests an
 authorization code grant with the `response_type=code` parameter.
@@ -300,9 +287,7 @@ The following is an example response from an implicit grant request.
 
 ```
 
-## Customizing
-
-your authentication pages
+## Customizing your authentication pages
 
 In the past, Amazon Cognito only hosted login pages with the classic _hosted UI_, a simple design that grants a universal look to
 authentication webpages. You could customize Amazon Cognito user pools with a logo image and tweak some
@@ -315,9 +300,7 @@ introduced custom background images and a dark mode theme.
 You can switch between the managed login and hosted UI branding experiences in user
 pools. To learn more about customizing your managed login pages, see [Apply branding to managed login pages](managed-login-branding.md "managed-login-branding.md").
 
-## Things to know about managed login and
-
-the hosted UI
+## Things to know about managed login and the hosted UI
 
 ###### The one-hour managed login and hosted UI session cookie
 
@@ -343,8 +326,7 @@ pages display an error message after sign-up. In this state, Amazon Cognito has 
 new user, but hasn't been able to send a verification message. You can still confirm
 users as an administrator, but they might contact your support desk after they
 encounter an error. For more information about administrative confirmation, see
-[Allowing users to
-sign up in your app but confirming them as a user pool administrator](signing-up-users-in-your-app.md#signing-up-users-in-your-app-and-confirming-them-as-admin "signing-up-users-in-your-app.md#signing-up-users-in-your-app-and-confirming-them-as-admin").
+[Allowing users to sign up in your app but confirming them as a user pool administrator](signing-up-users-in-your-app.md#signing-up-users-in-your-app-and-confirming-them-as-admin "signing-up-users-in-your-app.md#signing-up-users-in-your-app-and-confirming-them-as-admin").
 
 ###### Managed login scope of operations
 

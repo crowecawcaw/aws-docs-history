@@ -17,27 +17,17 @@ API calls, so they do not appear in any specific order.
 
 ###### Topics
 
-- [Example CloudTrail events for a
-  hosted UI sign-up](#cognito-cloudtrail-events-federated-sign-up "#cognito-cloudtrail-events-federated-sign-up")
-- [Example CloudTrail event for a SAML
-  request](#cognito-cloudtrail-event-saml-post "#cognito-cloudtrail-event-saml-post")
-- [Example CloudTrail events
-  for requests to the token endpoint](#cognito-cloudtrail-events-token-endpoint-requests "#cognito-cloudtrail-events-token-endpoint-requests")
-- [Example CloudTrail event for
-  CreateIdentityPool](#cognito-cloudtrail-events-createidentitypool "#cognito-cloudtrail-events-createidentitypool")
-- [Example CloudTrail event
-  for GetCredentialsForIdentity](#cognito-cloudtrail-events-getcredentialsforidentity "#cognito-cloudtrail-events-getcredentialsforidentity")
+- [Example CloudTrail events for a hosted UI sign-up](#cognito-cloudtrail-events-federated-sign-up "#cognito-cloudtrail-events-federated-sign-up")
+- [Example CloudTrail event for a SAML request](#cognito-cloudtrail-event-saml-post "#cognito-cloudtrail-event-saml-post")
+- [Example CloudTrail events for requests to the token endpoint](#cognito-cloudtrail-events-token-endpoint-requests "#cognito-cloudtrail-events-token-endpoint-requests")
+- [Example CloudTrail event for CreateIdentityPool](#cognito-cloudtrail-events-createidentitypool "#cognito-cloudtrail-events-createidentitypool")
+- [Example CloudTrail event for GetCredentialsForIdentity](#cognito-cloudtrail-events-getcredentialsforidentity "#cognito-cloudtrail-events-getcredentialsforidentity")
 - [Example CloudTrail event for GetId](#cognito-cloudtrail-events-getid "#cognito-cloudtrail-events-getid")
-- [Example CloudTrail event for
-  GetOpenIdToken](#cognito-cloudtrail-events-getopenidtoken "#cognito-cloudtrail-events-getopenidtoken")
-- [Example
-  CloudTrail event for GetOpenIdTokenForDeveloperIdentity](#cognito-cloudtrail-events-getopenidtokenfordeveloperidentity "#cognito-cloudtrail-events-getopenidtokenfordeveloperidentity")
-- [Example CloudTrail event for
-  UnlinkIdentity](#cognito-cloudtrail-events-unlinkidentity "#cognito-cloudtrail-events-unlinkidentity")
+- [Example CloudTrail event for GetOpenIdToken](#cognito-cloudtrail-events-getopenidtoken "#cognito-cloudtrail-events-getopenidtoken")
+- [Example CloudTrail event for GetOpenIdTokenForDeveloperIdentity](#cognito-cloudtrail-events-getopenidtokenfordeveloperidentity "#cognito-cloudtrail-events-getopenidtokenfordeveloperidentity")
+- [Example CloudTrail event for UnlinkIdentity](#cognito-cloudtrail-events-unlinkidentity "#cognito-cloudtrail-events-unlinkidentity")
 
-## Example CloudTrail events for a
-
-hosted UI sign-up
+## Example CloudTrail events for a hosted UI sign-up
 
 The following example CloudTrail events demonstrate the information that Amazon Cognito logs when a
 user signs up through the hosted UI.
@@ -368,9 +358,7 @@ user enters a code that Amazon Cognito sent them in an email message.
 }
 ```
 
-## Example CloudTrail event for a SAML
-
-request
+## Example CloudTrail event for a SAML request
 
 Amazon Cognito logs the following event when a user who has authenticated with your SAML IdP
 submits the SAML assertion to your `/saml2/idpresponse` endpoint.
@@ -424,9 +412,7 @@ submits the SAML assertion to your `/saml2/idpresponse` endpoint.
 }
 ```
 
-## Example CloudTrail events
-
-for requests to the token endpoint
+## Example CloudTrail events for requests to the token endpoint
 
 The following are example events from requests to the [Token endpoint](token-endpoint.md "token-endpoint.md").
 
@@ -599,9 +585,7 @@ and access token with your `/oauth2/token` endpoint.
 }
 ```
 
-## Example CloudTrail event for
-
-CreateIdentityPool
+## Example CloudTrail event for CreateIdentityPool
 
 The following example is a log entry for a request for the
 `CreateIdentityPool` action. The request was made by an IAM user named
@@ -646,9 +630,7 @@ Alice.
 }
 ```
 
-## Example CloudTrail event
-
-for GetCredentialsForIdentity
+## Example CloudTrail event for GetCredentialsForIdentity
 
 The following example is a log entry for a request for the
 `GetCredentialsForIdentity` action.
@@ -735,9 +717,7 @@ action.
 }
 ```
 
-## Example CloudTrail event for
-
-GetOpenIdToken
+## Example CloudTrail event for GetOpenIdToken
 
 The following example is a log entry for a request for the `GetOpenIdToken`
 action.
@@ -778,9 +758,7 @@ action.
 }
 ```
 
-## Example
-
-CloudTrail event for GetOpenIdTokenForDeveloperIdentity
+## Example CloudTrail event for GetOpenIdTokenForDeveloperIdentity
 
 The following example is a log entry for a request for the
 `GetOpenIdTokenForDeveloperIdentity` action.
@@ -839,9 +817,7 @@ The following example is a log entry for a request for the
 }
 ```
 
-## Example CloudTrail event for
-
-UnlinkIdentity
+## Example CloudTrail event for UnlinkIdentity
 
 The following example is a log entry for a request for the `UnlinkIdentity`
 action.

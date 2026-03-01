@@ -12,12 +12,9 @@ pages.
 
 ###### Additional resources
 
-- Access token customization: [Pre token generation Lambda
-  trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md")
-- Email MFA: [SMS and email message
-  MFA](user-pool-settings-mfa-sms-email-message.md "user-pool-settings-mfa-sms-email-message.md")
-- Password history: [Passwords, account recovery, and password
-  policies](managing-users-passwords.md "managing-users-passwords.md")
+- Access token customization: [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md")
+- Email MFA: [SMS and email message MFA](user-pool-settings-mfa-sms-email-message.md "user-pool-settings-mfa-sms-email-message.md")
+- Password history: [Passwords, account recovery, and password policies](managing-users-passwords.md "managing-users-passwords.md")
 - Enhanced UI: [Apply branding to managed login pages](managed-login-branding.md "managed-login-branding.md")
 
 ###### Topics
@@ -25,8 +22,7 @@ pages.
 - [Access token customization](#features-access-token-customization "#features-access-token-customization")
 - [Email MFA](#features-email-mfa "#features-email-mfa")
 - [Password reuse prevention](#features-password-reuse "#features-password-reuse")
-- [Managed login hosted sign-in and authorization
-  server](#features-enhanced-ui "#features-enhanced-ui")
+- [Managed login hosted sign-in and authorization server](#features-enhanced-ui "#features-enhanced-ui")
 - [Choice-based authentication](#features-user-auth "#features-user-auth")
 
 ## Access token customization
@@ -60,8 +56,7 @@ available to machine-to-machine (M2M) [client credentials grants](federation-end
 
 ###### Learn more
 
-- [Customizing the
-  access token](user-pool-lambda-pre-token-generation.md#user-pool-lambda-pre-token-generation-accesstoken "user-pool-lambda-pre-token-generation.md#user-pool-lambda-pre-token-generation-accesstoken")
+- [Customizing the access token](user-pool-lambda-pre-token-generation.md#user-pool-lambda-pre-token-generation-accesstoken "user-pool-lambda-pre-token-generation.md#user-pool-lambda-pre-token-generation-accesstoken")
 - [How to customize access tokens in Amazon Cognito user pools](https://aws.amazon.com/blogs/security/how-to-customize-access-tokens-in-amazon-cognito-user-pools/ "https://aws.amazon.com/blogs/security/how-to-customize-access-tokens-in-amazon-cognito-user-pools/")
 
 ## Email MFA
@@ -80,8 +75,7 @@ gain access. This ensures that even if a user's username and password are compro
 they must provide an additional factor—the emailed code—before they can
 access your application resources.
 
-For more information, see [SMS and email message
-MFA](user-pool-settings-mfa-sms-email-message.md "user-pool-settings-mfa-sms-email-message.md"). The following is an overview of
+For more information, see [SMS and email message MFA](user-pool-settings-mfa-sms-email-message.md "user-pool-settings-mfa-sms-email-message.md"). The following is an overview of
 how to set up your user pool and users for email MFA.
 
 ###### To set up email MFA in the Amazon Cognito console
@@ -100,8 +94,7 @@ how to set up your user pool and users for email MFA.
 
 ###### Learn more
 
-- [SMS and email message
-  MFA](user-pool-settings-mfa-sms-email-message.md "user-pool-settings-mfa-sms-email-message.md")
+- [SMS and email message MFA](user-pool-settings-mfa-sms-email-message.md "user-pool-settings-mfa-sms-email-message.md")
 
 ## Password reuse prevention
 
@@ -122,12 +115,9 @@ your user pool with a password-history policy.
 
 ###### Learn more
 
-- [Passwords, account recovery, and password
-  policies](managing-users-passwords.md "managing-users-passwords.md")
+- [Passwords, account recovery, and password policies](managing-users-passwords.md "managing-users-passwords.md")
 
-## Managed login hosted sign-in and authorization
-
-server
+## Managed login hosted sign-in and authorization server
 
 Amazon Cognito user pools have optional webpages that support the following functions: an OpenID Connect
 (OIDC) IdP, a service provider or relying party to third-party IdPs, and public

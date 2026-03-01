@@ -1,6 +1,4 @@
-# Configuring identity providers for
-
-your user pool
+# Configuring identity providers for your user pool
 
 With user pools, you can implement sign-in through a variety of external identity
 providers (IdPs). This section of the guide has instructions for setting up these identity
@@ -17,21 +15,15 @@ your application with their existing accounts from the connected identity provid
 
 The **Social and external providers** menu under
 **Authentication** adds and updates user pool IdPs. For more
-information, see [User pool sign-in with third party
-identity providers](cognito-user-pools-identity-federation.md "cognito-user-pools-identity-federation.md").
+information, see [User pool sign-in with third party identity providers](cognito-user-pools-identity-federation.md "cognito-user-pools-identity-federation.md").
 
 ###### Topics
 
-- [Set up user sign-in with a social
-  IdP](#cognito-user-pools-facebook-provider "#cognito-user-pools-facebook-provider")
-- [Set up user sign-in with an OIDC
-  IdP](#cognito-user-pools-oidc-providers "#cognito-user-pools-oidc-providers")
-- [Set up user sign-in with a SAML
-  IdP](#cognito-user-pools-saml-providers "#cognito-user-pools-saml-providers")
+- [Set up user sign-in with a social IdP](#cognito-user-pools-facebook-provider "#cognito-user-pools-facebook-provider")
+- [Set up user sign-in with an OIDC IdP](#cognito-user-pools-oidc-providers "#cognito-user-pools-oidc-providers")
+- [Set up user sign-in with a SAML IdP](#cognito-user-pools-saml-providers "#cognito-user-pools-saml-providers")
 
-## Set up user sign-in with a social
-
-IdP
+## Set up user sign-in with a social IdP
 
 You can use federation to integrate Amazon Cognito user pools with social identity providers such as
 Facebook, Google, and Login with Amazon.
@@ -62,8 +54,7 @@ app, and you configure those values in your Amazon Cognito user pools.
    **Amazon**, or **Apple** identity provider
    you have configured, locate **Identity provider information**,
    and choose **Edit**. For more information about adding a social
-   identity provider, see [Using social identity providers with a
-   user pool](cognito-user-pools-social-idp.md "cognito-user-pools-social-idp.md").
+   identity provider, see [Using social identity providers with a user pool](cognito-user-pools-social-idp.md "cognito-user-pools-social-idp.md").
 5. Enter your social identity provider's information by completing one of the
    following steps, based on your choice of IdP:
 
@@ -115,12 +106,9 @@ choice of IdP:
    provider to the app client under **Identity providers**.
 9. Choose **Save changes**.
 
-For more information on social IdPs, see [Using social identity providers with a
-user pool](cognito-user-pools-social-idp.md "cognito-user-pools-social-idp.md").
+For more information on social IdPs, see [Using social identity providers with a user pool](cognito-user-pools-social-idp.md "cognito-user-pools-social-idp.md").
 
-## Set up user sign-in with an OIDC
-
-IdP
+## Set up user sign-in with an OIDC IdP
 
 You can integrate user sign-in with an OpenID Connect (OIDC) identity provider (IdP)
 such as Salesforce or Ping Identity.
@@ -187,12 +175,9 @@ list. To add the new SAML identity provider to the app client, navigate to the
 **Login pages** tab and select **Edit** on
 **Managed login pages configuration**. 17. Choose **Save changes**.
 
-For more information on OIDC IdPs, see [Using OIDC identity providers with a user
-pool](cognito-user-pools-oidc-idp.md "cognito-user-pools-oidc-idp.md").
+For more information on OIDC IdPs, see [Using OIDC identity providers with a user pool](cognito-user-pools-oidc-idp.md "cognito-user-pools-oidc-idp.md").
 
-## Set up user sign-in with a SAML
-
-IdP
+## Set up user sign-in with a SAML IdP
 
 You can use federation for Amazon Cognito user pools to integrate with a SAML identity provider (IdP).
 You supply a metadata document, either by uploading the file or by entering a metadata
@@ -271,5 +256,4 @@ example of such an exception would be "Error retrieving metadata from
   2.  Select your SAML provider,
   3.  Choose **View signing certificate.**
 
-For more information on SAML IdPs see [Using SAML identity providers with a user
-pool](cognito-user-pools-saml-idp.md "cognito-user-pools-saml-idp.md").
+For more information on SAML IdPs see [Using SAML identity providers with a user pool](cognito-user-pools-saml-idp.md "cognito-user-pools-saml-idp.md").

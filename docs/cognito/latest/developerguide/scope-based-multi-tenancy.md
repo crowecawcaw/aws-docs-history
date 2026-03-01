@@ -1,6 +1,4 @@
-# Custom scope multi-tenancy best
-
-practices
+# Custom scope multi-tenancy best practices
 
 Amazon Cognito supports custom OAuth 2.0 scopes for [resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md"). You
 can implement app client multi-tenancy in users pools for machine-to-machine (M2M)

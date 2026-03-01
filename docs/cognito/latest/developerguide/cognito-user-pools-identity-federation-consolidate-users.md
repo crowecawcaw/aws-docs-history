@@ -1,6 +1,4 @@
-# Linking
-
-federated users to an existing user profile
+# Linking federated users to an existing user profile
 
 Often, the same user has a profile with multiple identity providers (IdPs) that you
 have connected to your user pool. Amazon Cognito can link each occurrence of a user to the same

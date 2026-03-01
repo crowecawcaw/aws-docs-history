@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-Amazon Cognito
+# Using service-linked roles for Amazon Cognito
 
 Amazon Cognito uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role with a
 trust policy that permits an AWS service to assume the role. Service-linked roles are

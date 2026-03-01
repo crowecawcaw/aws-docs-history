@@ -1,6 +1,4 @@
-# User-interactive managed login and classic
-
-hosted UI endpoints
+# User-interactive managed login and classic hosted UI endpoints
 
 Amazon Cognito activates the managed login endpoints in this section when you add a domain to
 your user pool. They are webpages where your users can complete the core authentication
@@ -11,8 +9,7 @@ verification.
 The webpages that make up managed login are a front-end web application for
 interactive user sessions with your customers. Your app must invoke managed login in
 your users' browsers. Amazon Cognito doesn't support programmatic access to the webpages in this
-chapter. Those federation endpoints in the [Identity provider and relying party
-endpoints](federation-endpoints.md "federation-endpoints.md") that return a JSON response can be queried directly
+chapter. Those federation endpoints in the [Identity provider and relying party endpoints](federation-endpoints.md "federation-endpoints.md") that return a JSON response can be queried directly
 in your app code. The [Authorize endpoint](authorization-endpoint.md "authorization-endpoint.md") redirects either to managed login or to an IdP
 sign-in page and also must be opened in users' browsers.
 
@@ -40,7 +37,5 @@ pool.
 
 ###### Topics
 
-- [The managed login sign-in endpoint:
-  /login](login-endpoint.md "login-endpoint.md")
-- [The managed login sign-out endpoint:
-  /logout](logout-endpoint.md "logout-endpoint.md")
+- [The managed login sign-in endpoint: /login](login-endpoint.md "login-endpoint.md")
+- [The managed login sign-out endpoint: /logout](logout-endpoint.md "logout-endpoint.md")

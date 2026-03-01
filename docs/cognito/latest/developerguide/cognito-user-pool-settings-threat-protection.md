@@ -1,14 +1,11 @@
-# Advanced security with threat
-
-protection
+# Advanced security with threat protection
 
 After you create your user pool, you have access to **Threat protection**
 in the navigation menu in the Amazon Cognito console. You can turn threat protection features on and
 customize the actions that are taken in response to different risks. Or you can use audit mode
 to gather metrics on detected risks without applying any security mitigations. In audit mode,
 threat protection publishes metrics to Amazon CloudWatch. You can see metrics after Amazon Cognito generates its
-first event. See [Viewing threat
-protection metrics](metrics-for-cognito-user-pools.md#user-pool-settings-viewing-threat-protection-metrics "metrics-for-cognito-user-pools.md#user-pool-settings-viewing-threat-protection-metrics").
+first event. See [Viewing threat protection metrics](metrics-for-cognito-user-pools.md#user-pool-settings-viewing-threat-protection-metrics "metrics-for-cognito-user-pools.md#user-pool-settings-viewing-threat-protection-metrics").
 
 Threat protection, formerly called _advanced security
 features_, is a set of monitoring tools for unwanted activity in your user pool,
@@ -45,8 +42,7 @@ find more information about the event.
 
 ###### Learn more
 
-[Working with
-compromised-credentials detection](cognito-user-pool-settings-compromised-credentials.md "cognito-user-pool-settings-compromised-credentials.md")
+[Working with compromised-credentials detection](cognito-user-pool-settings-compromised-credentials.md "cognito-user-pool-settings-compromised-credentials.md")
 
 **Adaptive authentication**
 
@@ -67,8 +63,7 @@ actions.
 
 ###### Learn more
 
-[Working with adaptive
-authentication](cognito-user-pool-settings-adaptive-authentication.md "cognito-user-pool-settings-adaptive-authentication.md")
+[Working with adaptive authentication](cognito-user-pool-settings-adaptive-authentication.md "cognito-user-pool-settings-adaptive-authentication.md")
 
 **IP address allowlist and denylist**
 
@@ -98,37 +93,25 @@ Threat protection logs granular details of users' authentication requests to you
 user pool. These logs feature threat assessments, user information, and session metadata
 like location and device. You can create external archives of these logs for retention
 and analysis. Amazon Cognito user pools export threat protection logs to Amazon S3, CloudWatch Logs, and Amazon Data Firehose. For
-more information, see [Viewing
-and exporting user event history](cognito-user-pool-settings-adaptive-authentication.md#user-pool-settings-adaptive-authentication-event-user-history "cognito-user-pool-settings-adaptive-authentication.md#user-pool-settings-adaptive-authentication-event-user-history").
+more information, see [Viewing and exporting user event history](cognito-user-pool-settings-adaptive-authentication.md#user-pool-settings-adaptive-authentication-event-user-history "cognito-user-pool-settings-adaptive-authentication.md#user-pool-settings-adaptive-authentication-event-user-history").
 
 ###### Learn more
 
-[Exporting threat protection user
-activity logs](exporting-quotas-and-usage.md#exporting-quotas-and-usage-user-activity "exporting-quotas-and-usage.md#exporting-quotas-and-usage-user-activity")
+[Exporting threat protection user activity logs](exporting-quotas-and-usage.md#exporting-quotas-and-usage-user-activity "exporting-quotas-and-usage.md#exporting-quotas-and-usage-user-activity")
 
 ###### Topics
 
-- [Considerations and
-  limitations for threat protection](#cognito-user-pool-threat-protection-considerations "#cognito-user-pool-threat-protection-considerations")
-- [Turning on threat
-  protection in user pools](#cognito-user-pool-threat-protection-activating "#cognito-user-pool-threat-protection-activating")
+- [Considerations and limitations for threat protection](#cognito-user-pool-threat-protection-considerations "#cognito-user-pool-threat-protection-considerations")
+- [Turning on threat protection in user pools](#cognito-user-pool-threat-protection-activating "#cognito-user-pool-threat-protection-activating")
 - [Threat protection enforcement concepts](#cognito-user-pool-settings-threat-protection-threat-protection-enforcement "#cognito-user-pool-settings-threat-protection-threat-protection-enforcement")
-- [Threat protection for standard authentication and custom
-  authentication](#cognito-user-pool-settings-threat-protection-threat-protection-types "#cognito-user-pool-settings-threat-protection-threat-protection-types")
-- [Threat protection
-  prerequisites](#cognito-user-pool-threat-protection-prerequisites "#cognito-user-pool-threat-protection-prerequisites")
-- [Setting up threat
-  protection](#cognito-user-pool-settings-configure-threat-protection "#cognito-user-pool-settings-configure-threat-protection")
-- [Working with
-  compromised-credentials detection](cognito-user-pool-settings-compromised-credentials.md "cognito-user-pool-settings-compromised-credentials.md")
-- [Working with adaptive
-  authentication](cognito-user-pool-settings-adaptive-authentication.md "cognito-user-pool-settings-adaptive-authentication.md")
-- [Collecting data for
-  threat protection in applications](user-pool-settings-viewing-threat-protection-app.md "user-pool-settings-viewing-threat-protection-app.md")
+- [Threat protection for standard authentication and custom authentication](#cognito-user-pool-settings-threat-protection-threat-protection-types "#cognito-user-pool-settings-threat-protection-threat-protection-types")
+- [Threat protection prerequisites](#cognito-user-pool-threat-protection-prerequisites "#cognito-user-pool-threat-protection-prerequisites")
+- [Setting up threat protection](#cognito-user-pool-settings-configure-threat-protection "#cognito-user-pool-settings-configure-threat-protection")
+- [Working with compromised-credentials detection](cognito-user-pool-settings-compromised-credentials.md "cognito-user-pool-settings-compromised-credentials.md")
+- [Working with adaptive authentication](cognito-user-pool-settings-adaptive-authentication.md "cognito-user-pool-settings-adaptive-authentication.md")
+- [Collecting data for threat protection in applications](user-pool-settings-viewing-threat-protection-app.md "user-pool-settings-viewing-threat-protection-app.md")
 
-## Considerations and
-
-limitations for threat protection
+## Considerations and limitations for threat protection
 
 ###### Threat protection options differ between authentication flows
 
@@ -162,9 +145,7 @@ passwords in your user pool. To implement security features with your M2M activi
 consider the capabilities of AWS WAF for monitoring request rates and content. For more
 information, see [Associate an AWS WAF web ACL with a user pool](user-pool-waf.md "user-pool-waf.md").
 
-## Turning on threat
-
-protection in user pools
+## Turning on threat protection in user pools
 
 Amazon Cognito user pools console
 
@@ -200,8 +181,7 @@ flows.
 
 Threat protection [generates
 logs](cognito-user-pool-settings-adaptive-authentication.md#user-pool-settings-adaptive-authentication-event-user-history "cognito-user-pool-settings-adaptive-authentication.md#user-pool-settings-adaptive-authentication-event-user-history") that detail users' sign-in, sign-out, and other activity. You can export these
-logs to a third-party system. For more information, see [Viewing
-and exporting user event history](cognito-user-pool-settings-adaptive-authentication.md#user-pool-settings-adaptive-authentication-event-user-history "cognito-user-pool-settings-adaptive-authentication.md#user-pool-settings-adaptive-authentication-event-user-history").
+logs to a third-party system. For more information, see [Viewing and exporting user event history](cognito-user-pool-settings-adaptive-authentication.md#user-pool-settings-adaptive-authentication-event-user-history "cognito-user-pool-settings-adaptive-authentication.md#user-pool-settings-adaptive-authentication-event-user-history").
 
 ## Threat protection enforcement concepts
 
@@ -224,9 +204,7 @@ Additionally, you can configure threat protection separately for
 standard
 and custom authentication types.
 
-## Threat protection for standard authentication and custom
-
-authentication
+## Threat protection for standard authentication and custom authentication
 
 The ways that you can configure threat protection depend on the type of authentication
 you're doing in your user pool and app clients. Each of the following types of
@@ -273,9 +251,7 @@ enforcement**. The **No enforcement** option disables
 threat monitoring for custom authentication without affecting other threat protection
 features.
 
-## Threat protection
-
-prerequisites
+## Threat protection prerequisites
 
 Before you begin, you need the following:
 
@@ -288,9 +264,7 @@ Before you begin, you need the following:
   information about Amazon SES, see [Verifying
   Identities in Amazon SES](../../../ses/latest/dg/verify-addresses-and-domains.md "../../../ses/latest/dg/verify-addresses-and-domains.md").
 
-## Setting up threat
-
-protection
+## Setting up threat protection
 
 Follow these instructions to set up user pool threat protection.
 
@@ -409,8 +383,7 @@ applies a compromised-credentials block to sign-up operations.
 
 To enforce this configuration, you must set `AdvancedSecurityMode` to
 `ENFORCED` in a separate [CreateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md") or [UpdateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md") API request. For more information about the placeholder
-templates like `{username}` in this example, see [Configuring MFA,
-authentication, verification and invitation messages](cognito-user-pool-settings-message-customizations.md "cognito-user-pool-settings-message-customizations.md").
+templates like `{username}` in this example, see [Configuring MFA, authentication, verification and invitation messages](cognito-user-pool-settings-message-customizations.md "cognito-user-pool-settings-message-customizations.md").
 
 ```
 {
@@ -470,8 +443,7 @@ blocks to sign-up, sign-in, and password-reset operations.
 
 To enforce this configuration, you must set `AdvancedSecurityMode` to
 `ENFORCED` in a separate [CreateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md") or [UpdateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md") API request. For more information about the placeholder
-templates like `{username}` in this example, see [Configuring MFA,
-authentication, verification and invitation messages](cognito-user-pool-settings-message-customizations.md "cognito-user-pool-settings-message-customizations.md").
+templates like `{username}` in this example, see [Configuring MFA, authentication, verification and invitation messages](cognito-user-pool-settings-message-customizations.md "cognito-user-pool-settings-message-customizations.md").
 
 ```
 {

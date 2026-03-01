@@ -1,6 +1,4 @@
-# Getting started with Amazon Cognito identity
-
-pools
+# Getting started with Amazon Cognito identity pools
 
 With Amazon Cognito identity pools, you can create unique identities and assign permissions for
 users. Your identity pool can bring in identities from the following types of authentication
@@ -20,8 +18,7 @@ services:
 - [Set up an SDK](#install-the-mobile-or-javascript-sdk "#install-the-mobile-or-javascript-sdk")
 - [Integrate the identity providers](#integrate-the-identity-providers "#integrate-the-identity-providers")
 - [Get credentials](#get-credentials "#get-credentials")
-- [Example application for
-  identity pools](getting-started-identity-pools-application.md "getting-started-identity-pools-application.md")
+- [Example application for identity pools](getting-started-identity-pools-application.md "getting-started-identity-pools-application.md")
 
 ## Create an identity pool in Amazon Cognito
 
@@ -72,8 +69,7 @@ follow the guided experience and inline help content.
       configured your **Authenticated role**, or you can **Choose
       role with rules**. With an Amazon Cognito user pool IdP, you can also
       **Choose role with preferred_role in tokens**. For more
-      information about the `cognito:preferred_role` claim, see [Assigning precedence values to
-      groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
+      information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
       1. If you chose **Choose role with rules**, enter the source
          **Claim** from your user's authentication, the
          **Operator** that you want to compare the claim by, the
@@ -132,11 +128,9 @@ users via your own backend authentication process.
 
 To learn more about using an Amazon Cognito user pool to create your own user directory, see
 [Amazon Cognito user pools](cognito-user-pools.md "cognito-user-pools.md")
-and [Accessing
-AWS services using an identity pool after sign-in](amazon-cognito-integrating-user-pools-with-identity-pools.md "amazon-cognito-integrating-user-pools-with-identity-pools.md").
+and [Accessing AWS services using an identity pool after sign-in](amazon-cognito-integrating-user-pools-with-identity-pools.md "amazon-cognito-integrating-user-pools-with-identity-pools.md").
 
-To learn more about using external identity providers, see [Identity pools third-party identity
-providers](external-identity-providers.md "external-identity-providers.md").
+To learn more about using external identity providers, see [Identity pools third-party identity providers](external-identity-providers.md "external-identity-providers.md").
 
 To learn more about integrating your own backend authentication process, see [Developer-authenticated identities](developer-authenticated-identities.md "developer-authenticated-identities.md").
 

@@ -23,9 +23,7 @@ You can activate or deactivate deletion protection status in the **Deletion
 protection** container in the **Settings** menu in the
 Amazon Cognito console.
 
-# To configure
-
-deletion protection
+# To configure deletion protection
 
 1. Go to the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home"). You might
    be prompted for your AWS credentials.

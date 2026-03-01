@@ -193,9 +193,7 @@ dataset.Delete();
 dataset.SynchronizeAsync();
 ```
 
-## Reading
-
-and writing data in datasets
+## Reading and writing data in datasets
 
 Amazon Cognito datasets function as dictionaries, with values accessible by key. You can read,
 add, or modify keys and values of a dataset just as if the dataset were a dictionary, as

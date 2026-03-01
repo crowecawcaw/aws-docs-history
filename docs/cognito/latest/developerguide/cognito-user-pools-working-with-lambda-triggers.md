@@ -1,6 +1,4 @@
-# Customizing user pool
-
-workflows with Lambda triggers
+# Customizing user pool workflows with Lambda triggers
 
 Amazon Cognito works with AWS Lambda functions to modify the authentication behavior of your user
 pool. You can configure your user pool to automatically invoke Lambda functions before their
@@ -35,55 +33,43 @@ unchanged for external and administrator-created users.
 The following table summarizes some of the ways you can use Lambda triggers to customize
 user pool operations:
 
-| User Pool Flow                                                                                                                    | Operation                                                                                                                         | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| **Custom Authentication Flow**                                                                                                    | **Define Auth Challenge**                                                                                                         | Determines the next challenge in a custom auth flow                                                 |
-| **Create Auth Challenge**                                                                                                         | Creates a challenge in a custom auth flow                                                                                         |
-| **Verify Auth Challenge Response**                                                                                                | Determines if a response is correct in a custom auth flow                                                                         |
-| **Authentication<br>Events**                                                                                                      | **[Pre authentication Lambda<br>trigger](user-pool-lambda-pre-authentication.md "user-pool-lambda-pre-authentication.md")**       | Custom validation to accept or deny the sign-in request                                             |
-| **[Post authentication Lambda<br>trigger](user-pool-lambda-post-authentication.md "user-pool-lambda-post-authentication.md")**    | Logs events for custom analytics                                                                                                  |
-| **[Pre token generation Lambda<br>trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md")** | Augments or suppresses token claims                                                                                               |
-| **Federation**                                                                                                                    | **[Inbound federation Lambda trigger](user-pool-lambda-inbound-federation.md "user-pool-lambda-inbound-federation.md")**          | Transforms federated user attributes before user creation or update in<br>Amazon Cognito user pools |
-| **Sign-Up**                                                                                                                       | **[Pre sign-up Lambda trigger](user-pool-lambda-pre-sign-up.md "user-pool-lambda-pre-sign-up.md")**                               | Performs custom validation that accepts or denies the sign-up<br>request                            |
-| **[Post confirmation Lambda trigger](user-pool-lambda-post-confirmation.md "user-pool-lambda-post-confirmation.md")**             | Adds custom welcome messages or event logging for custom<br>analytics                                                             |
-| **[Migrate user Lambda trigger](user-pool-lambda-migrate-user.md "user-pool-lambda-migrate-user.md")**                            | Migrates a user from an existing user directory to user pools                                                                     |
-| **Messages**                                                                                                                      | **[Custom message Lambda trigger](user-pool-lambda-custom-message.md "user-pool-lambda-custom-message.md")**                      | Performs advanced customization and localization of messages                                        |
-| **Token Creation**                                                                                                                | **[Pre token generation Lambda<br>trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md")** | Adds or removes attributes in ID and access tokens                                                  |
-| **Email and SMS third-party<br>providers**                                                                                        | **[Custom sender Lambda<br>triggers](user-pool-lambda-custom-sender-triggers.md "user-pool-lambda-custom-sender-triggers.md")**   | Uses a third-party provider to send SMS and email messages                                          |
+| User Pool Flow                                                                                                                 | Operation                                                                                                                      | Description                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------- |
+| **Custom Authentication Flow**                                                                                                 | **Define Auth Challenge**                                                                                                      | Determines the next challenge in a custom auth flow                                                 |
+| **Create Auth Challenge**                                                                                                      | Creates a challenge in a custom auth flow                                                                                      |
+| **Verify Auth Challenge Response**                                                                                             | Determines if a response is correct in a custom auth flow                                                                      |
+| **Authentication<br>Events**                                                                                                   | **[Pre authentication Lambda trigger](user-pool-lambda-pre-authentication.md "user-pool-lambda-pre-authentication.md")**       | Custom validation to accept or deny the sign-in request                                             |
+| **[Post authentication Lambda trigger](user-pool-lambda-post-authentication.md "user-pool-lambda-post-authentication.md")**    | Logs events for custom analytics                                                                                               |
+| **[Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md")** | Augments or suppresses token claims                                                                                            |
+| **Federation**                                                                                                                 | **[Inbound federation Lambda trigger](user-pool-lambda-inbound-federation.md "user-pool-lambda-inbound-federation.md")**       | Transforms federated user attributes before user creation or update in<br>Amazon Cognito user pools |
+| **Sign-Up**                                                                                                                    | **[Pre sign-up Lambda trigger](user-pool-lambda-pre-sign-up.md "user-pool-lambda-pre-sign-up.md")**                            | Performs custom validation that accepts or denies the sign-up<br>request                            |
+| **[Post confirmation Lambda trigger](user-pool-lambda-post-confirmation.md "user-pool-lambda-post-confirmation.md")**          | Adds custom welcome messages or event logging for custom<br>analytics                                                          |
+| **[Migrate user Lambda trigger](user-pool-lambda-migrate-user.md "user-pool-lambda-migrate-user.md")**                         | Migrates a user from an existing user directory to user pools                                                                  |
+| **Messages**                                                                                                                   | **[Custom message Lambda trigger](user-pool-lambda-custom-message.md "user-pool-lambda-custom-message.md")**                   | Performs advanced customization and localization of messages                                        |
+| **Token Creation**                                                                                                             | **[Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md")** | Adds or removes attributes in ID and access tokens                                                  |
+| **Email and SMS third-party<br>providers**                                                                                     | **[Custom sender Lambda triggers](user-pool-lambda-custom-sender-triggers.md "user-pool-lambda-custom-sender-triggers.md")**   | Uses a third-party provider to send SMS and email messages                                          |
 
 ###### Topics
 
-- [Things to know about Lambda
-  triggers](#important-lambda-considerations "#important-lambda-considerations")
+- [Things to know about Lambda triggers](#important-lambda-considerations "#important-lambda-considerations")
 - [Add a user pool Lambda trigger](#triggers-working-with-lambda "#triggers-working-with-lambda")
-- [User pool
-  Lambda trigger event](#cognito-user-pools-lambda-trigger-event-parameter-shared "#cognito-user-pools-lambda-trigger-event-parameter-shared")
-- [User pool Lambda
-  trigger common parameters](#cognito-user-pools-lambda-trigger-syntax-shared "#cognito-user-pools-lambda-trigger-syntax-shared")
+- [User pool Lambda trigger event](#cognito-user-pools-lambda-trigger-event-parameter-shared "#cognito-user-pools-lambda-trigger-event-parameter-shared")
+- [User pool Lambda trigger common parameters](#cognito-user-pools-lambda-trigger-syntax-shared "#cognito-user-pools-lambda-trigger-syntax-shared")
 - [Client metadata](#working-with-lambda-trigger-client-metadata "#working-with-lambda-trigger-client-metadata")
-- [Connecting API operations to Lambda
-  triggers](#lambda-triggers-by-event "#lambda-triggers-by-event")
-- [Connecting Lambda triggers to user
-  pool functional operations](#working-with-lambda-trigger-sources "#working-with-lambda-trigger-sources")
+- [Connecting API operations to Lambda triggers](#lambda-triggers-by-event "#lambda-triggers-by-event")
+- [Connecting Lambda triggers to user pool functional operations](#working-with-lambda-trigger-sources "#working-with-lambda-trigger-sources")
 - [Pre sign-up Lambda trigger](user-pool-lambda-pre-sign-up.md "user-pool-lambda-pre-sign-up.md")
 - [Post confirmation Lambda trigger](user-pool-lambda-post-confirmation.md "user-pool-lambda-post-confirmation.md")
-- [Pre authentication Lambda
-  trigger](user-pool-lambda-pre-authentication.md "user-pool-lambda-pre-authentication.md")
-- [Post authentication Lambda
-  trigger](user-pool-lambda-post-authentication.md "user-pool-lambda-post-authentication.md")
+- [Pre authentication Lambda trigger](user-pool-lambda-pre-authentication.md "user-pool-lambda-pre-authentication.md")
+- [Post authentication Lambda trigger](user-pool-lambda-post-authentication.md "user-pool-lambda-post-authentication.md")
 - [Inbound federation Lambda trigger](user-pool-lambda-inbound-federation.md "user-pool-lambda-inbound-federation.md")
-- [Custom authentication challenge Lambda
-  triggers](user-pool-lambda-challenge.md "user-pool-lambda-challenge.md")
-- [Pre token generation Lambda
-  trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md")
+- [Custom authentication challenge Lambda triggers](user-pool-lambda-challenge.md "user-pool-lambda-challenge.md")
+- [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md")
 - [Migrate user Lambda trigger](user-pool-lambda-migrate-user.md "user-pool-lambda-migrate-user.md")
 - [Custom message Lambda trigger](user-pool-lambda-custom-message.md "user-pool-lambda-custom-message.md")
-- [Custom sender Lambda
-  triggers](user-pool-lambda-custom-sender-triggers.md "user-pool-lambda-custom-sender-triggers.md")
+- [Custom sender Lambda triggers](user-pool-lambda-custom-sender-triggers.md "user-pool-lambda-custom-sender-triggers.md")
 
-## Things to know about Lambda
-
-triggers
+## Things to know about Lambda triggers
 
 When you are preparing your user pools for Lambda functions, consider the
 following:
@@ -96,12 +82,10 @@ following:
 - You can choose one of multiple versions of the events that Amazon Cognito sends to some
   triggers. Some versions might require you to accept a change to your Amazon Cognito
   pricing. For more information about pricing, see [Amazon Cognito Pricing](https://aws.amazon.com/cognito/pricing/ "https://aws.amazon.com/cognito/pricing/"). To
-  customize access tokens in a [Pre token generation Lambda
-  trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md"), you must configure your
+  customize access tokens in a [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md"), you must configure your
   user pool with a feature plan other than _Lite_
   and update your Lambda trigger configuration to use event version 2.
-- Except for [Custom sender Lambda
-  triggers](user-pool-lambda-custom-sender-triggers.md "user-pool-lambda-custom-sender-triggers.md"), Amazon Cognito invokes Lambda
+- Except for [Custom sender Lambda triggers](user-pool-lambda-custom-sender-triggers.md "user-pool-lambda-custom-sender-triggers.md"), Amazon Cognito invokes Lambda
   functions synchronously. When Amazon Cognito calls your Lambda function, it must respond
   within 5 seconds. If it doesn't and if the call can be retried, Amazon Cognito retries
   the call. After three unsuccessful attempts, the function times out. You can't
@@ -136,8 +120,7 @@ the sign-in prompt. The Amazon Cognito user pools API returns trigger errors in 
  `[error text from response]``. As a best
 practice, only generate errors in your Lambda functions that you want your users
 to see. Use output methods like `print()` to log any sensitive or
-debugging information to CloudWatch Logs. For an example, see [Pre sign-up example:
-Deny sign-up if user name has fewer than five characters](user-pool-lambda-pre-sign-up.md#aws-lambda-triggers-pre-registration-example-3 "user-pool-lambda-pre-sign-up.md#aws-lambda-triggers-pre-registration-example-3").
+debugging information to CloudWatch Logs. For an example, see [Pre sign-up example: Deny sign-up if user name has fewer than five characters](user-pool-lambda-pre-sign-up.md#aws-lambda-triggers-pre-registration-example-3 "user-pool-lambda-pre-sign-up.md#aws-lambda-triggers-pre-registration-example-3").
 
 - You can add a Lambda function in another AWS account as a trigger for your
   user pool. You must add cross-account triggers with the [CreateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md") and [UpdateUserPool](../../../index.md "../../../index.md") API operations, or their equivalents in CloudFormation and
@@ -213,13 +196,10 @@ If your AWS Identity and Access Management (IAM) credentials have permission to 
 function, Amazon Cognito adds a Lambda resource-based policy. With this policy, Amazon Cognito
 can invoke the function that you select. If the signed-in credentials do not
 have sufficient IAM permissions, you must update the resource-based policy
-separately. For more information, see [Things to know about Lambda
-triggers](#important-lambda-considerations "#important-lambda-considerations"). 8. Choose **Save changes**. 9. You can use CloudWatch in the Lambda console to log your Lambda function . For more
+separately. For more information, see [Things to know about Lambda triggers](#important-lambda-considerations "#important-lambda-considerations"). 8. Choose **Save changes**. 9. You can use CloudWatch in the Lambda console to log your Lambda function . For more
 information, see [Accessing CloudWatch Logs for Lambda](../../../lambda/latest/dg/monitoring-functions-logs.md "../../../lambda/latest/dg/monitoring-functions-logs.md").
 
-## User pool
-
-Lambda trigger event
+## User pool Lambda trigger event
 
 Amazon Cognito passes event information to your Lambda function. The Lambda function returns the
 same event object back to Amazon Cognito with any changes in the response. If your function
@@ -253,9 +233,7 @@ JSON
 }
 ```
 
-## User pool Lambda
-
-trigger common parameters
+## User pool Lambda trigger common parameters
 
 **version**
 
@@ -264,8 +242,7 @@ The version number of your Lambda function.
 **triggerSource**
 
 The name of the event that triggered the Lambda function. For a description
-of each triggerSource see [Connecting Lambda triggers to user
-pool functional operations](#working-with-lambda-trigger-sources "#working-with-lambda-trigger-sources").
+of each triggerSource see [Connecting Lambda triggers to user pool functional operations](#working-with-lambda-trigger-sources "#working-with-lambda-trigger-sources").
 
 **region**
 
@@ -419,8 +396,7 @@ function.
 
 You can pass client
 metadata in M2M requests. Client metadata is additional information from a
-user or application environment that can contribute to the outcomes of a [Pre token generation Lambda
-trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md"). In authentication operations with a user principal, you can pass client metadata
+user or application environment that can contribute to the outcomes of a [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md"). In authentication operations with a user principal, you can pass client metadata
 to the pre token generation trigger in the body of [AdminRespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md") and [RespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md") API requests. Because applications conduct the
 flow for generation of access tokens for M2M with direct requests to the [Token endpoint](token-endpoint.md "token-endpoint.md"), they have a different
 model. In the POST body of token requests for client credentials, pass an
@@ -447,33 +423,25 @@ triggers.
 To map API operations to the functions that they can pass client metadata to, refer to
 the trigger source sections that follow.
 
-## Connecting API operations to Lambda
-
-triggers
+## Connecting API operations to Lambda triggers
 
 The following sections describe the Lambda triggers that Amazon Cognito invokes from the
 activity in your user pool.
 
 When your app signs in users through the Amazon Cognito user pools API, managed login, or user pool
 endpoints, Amazon Cognito invokes your Lambda functions based on the session context. For more
-information about the Amazon Cognito user pools API and user pool endpoints, see [Understanding API, OIDC, and managed login pages
-authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations"). The
+information about the Amazon Cognito user pools API and user pool endpoints, see [Understanding API, OIDC, and managed login pages authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations"). The
 tables in the sections that follow describe events that cause Amazon Cognito to invoke a
 function, and the `triggerSource` string that Amazon Cognito includes in the
 request.
 
 ###### Topics
 
-- [Lambda triggers in the
-  Amazon Cognito API](#lambda-triggers-native-users-native-api "#lambda-triggers-native-users-native-api")
-- [Lambda triggers for Amazon Cognito
-  local users in managed login](#lambda-triggers-native-users-hosted-UI "#lambda-triggers-native-users-hosted-UI")
-- [Lambda triggers for federated
-  users](#lambda-triggers-for-federated-users "#lambda-triggers-for-federated-users")
+- [Lambda triggers in the Amazon Cognito API](#lambda-triggers-native-users-native-api "#lambda-triggers-native-users-native-api")
+- [Lambda triggers for Amazon Cognito local users in managed login](#lambda-triggers-native-users-hosted-UI "#lambda-triggers-native-users-hosted-UI")
+- [Lambda triggers for federated users](#lambda-triggers-for-federated-users "#lambda-triggers-for-federated-users")
 
-### Lambda triggers in the
-
-Amazon Cognito API
+### Lambda triggers in the Amazon Cognito API
 
 The following table describes the source strings for the Lambda triggers that Amazon Cognito
 can invoke when your app creates, signs in, or updates a local user.
@@ -521,9 +489,7 @@ can invoke when your app creates, signs in, or updates a local user.
 | Custom SMS sender                                                                                                                                                                                                                                                                                                                                                                                                                     | `CustomSMSSender_VerifyUserAttribute`                                                                       |
 | [GetTokensFromRefreshToken](../../../cognito-user-identity-pools/latest/APIReference/API_GetTokensFromRefreshToken.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetTokensFromRefreshToken.md")                                                                                                                                                                                                                    | Pre token generation                                                                                        | `TokenGeneration_Authentication`         |
 
-### Lambda triggers for Amazon Cognito
-
-local users in managed login
+### Lambda triggers for Amazon Cognito local users in managed login
 
 The following table describes the source strings for the Lambda triggers that Amazon Cognito
 can invoke when a local user signs in to your user pool with managed login.
@@ -547,9 +513,7 @@ can invoke when a local user signs in to your user pool with managed login.
 | Custom SMS sender                           | `CustomSMSSender_ForgotPassword`                                                                            |
 | `/confirmforgotpassword`                    | Post confirmation                                                                                           | `PostConfirmation_ConfirmForgotPassword` |
 
-### Lambda triggers for federated
-
-users
+### Lambda triggers for federated users
 
 You can use the following Lambda triggers to customize your user pool workflows for
 users who sign in with a federated provider.
@@ -570,13 +534,9 @@ user pools API.
 | Post authentication            | `PostAuthentication_Authentication` |
 | Pre token generation           | `TokenGeneration_HostedAuth`        |
 
-Federated sign-in does not invoke any [Custom authentication challenge Lambda
-triggers](user-pool-lambda-challenge.md "user-pool-lambda-challenge.md"), [Migrate user Lambda trigger](user-pool-lambda-migrate-user.md "user-pool-lambda-migrate-user.md"), [Custom message Lambda trigger](user-pool-lambda-custom-message.md "user-pool-lambda-custom-message.md"), or [Custom sender Lambda
-triggers](user-pool-lambda-custom-sender-triggers.md "user-pool-lambda-custom-sender-triggers.md") in your user pool.
+Federated sign-in does not invoke any [Custom authentication challenge Lambda triggers](user-pool-lambda-challenge.md "user-pool-lambda-challenge.md"), [Migrate user Lambda trigger](user-pool-lambda-migrate-user.md "user-pool-lambda-migrate-user.md"), [Custom message Lambda trigger](user-pool-lambda-custom-message.md "user-pool-lambda-custom-message.md"), or [Custom sender Lambda triggers](user-pool-lambda-custom-sender-triggers.md "user-pool-lambda-custom-sender-triggers.md") in your user pool.
 
-## Connecting Lambda triggers to user
-
-pool functional operations
+## Connecting Lambda triggers to user pool functional operations
 
 Each Lambda trigger serves a functional role in your user pool. For example, a trigger
 can modify your sign-up flow, or add a custom authentication challenge. The event that

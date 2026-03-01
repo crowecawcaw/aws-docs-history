@@ -36,13 +36,11 @@ directory.
 
 ###### Topics
 
-- [Configuring policies for user
-  creation](user-pool-settings-admin-create-user-policy.md "user-pool-settings-admin-create-user-policy.md")
+- [Configuring policies for user creation](user-pool-settings-admin-create-user-policy.md "user-pool-settings-admin-create-user-policy.md")
 - [Signing up and confirming user accounts](signing-up-users-in-your-app.md "signing-up-users-in-your-app.md")
 - [Creating user accounts as administrator](how-to-create-user-accounts.md "how-to-create-user-accounts.md")
 - [Adding groups to a user pool](cognito-user-pools-user-groups.md "cognito-user-pools-user-groups.md")
 - [Managing and searching for user accounts](how-to-manage-user-accounts.md "how-to-manage-user-accounts.md")
-- [Passwords, account recovery, and password
-  policies](managing-users-passwords.md "managing-users-passwords.md")
+- [Passwords, account recovery, and password policies](managing-users-passwords.md "managing-users-passwords.md")
 - [Importing users into a user pool](cognito-user-pools-import-users.md "cognito-user-pools-import-users.md")
 - [Working with user attributes](user-pool-settings-attributes.md "user-pool-settings-attributes.md")

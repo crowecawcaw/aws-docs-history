@@ -1,6 +1,4 @@
-# Using social identity providers with a
-
-user pool
+# Using social identity providers with a user pool
 
 Your web and mobile app users can sign in through social identity providers (IdP) like
 Facebook, Google, Amazon, and Apple. With the built-in hosted web UI, Amazon Cognito provides
@@ -20,16 +18,11 @@ identities).
 
 ###### Topics
 
-- [Set up a social IdP developer
-  account and application](#cognito-user-pools-social-idp-step-1 "#cognito-user-pools-social-idp-step-1")
-- [Configure your user pool with
-  a social IdP](#cognito-user-pools-social-idp-step-2 "#cognito-user-pools-social-idp-step-2")
-- [Test your social IdP
-  configuration](#cognito-user-pools-social-idp-step-3 "#cognito-user-pools-social-idp-step-3")
+- [Set up a social IdP developer account and application](#cognito-user-pools-social-idp-step-1 "#cognito-user-pools-social-idp-step-1")
+- [Configure your user pool with a social IdP](#cognito-user-pools-social-idp-step-2 "#cognito-user-pools-social-idp-step-2")
+- [Test your social IdP configuration](#cognito-user-pools-social-idp-step-3 "#cognito-user-pools-social-idp-step-3")
 
-## Set up a social IdP developer
-
-account and application
+## Set up a social IdP developer account and application
 
 Before you create a social IdP with Amazon Cognito, you must register your application with
 the social IdP to receive a client ID and client secret.
@@ -205,9 +198,7 @@ For the most up-to-date information about setting up Sign in with
 Apple, see [Configuring Your Environment for Sign in with Apple](https://developer.apple.com/documentation/signinwithapple/configuring-your-environment-for-sign-in-with-apple "https://developer.apple.com/documentation/signinwithapple/configuring-your-environment-for-sign-in-with-apple") in the
 Apple Developer documentation.
 
-###### How to register an application with Sign in with Apple
-
-(SIWA)
+###### How to register an application with Sign in with Apple (SIWA)
 
 1. Create a [developer
    account with Apple](https://developer.apple.com/programs/enroll/ "https://developer.apple.com/programs/enroll/").
@@ -232,8 +223,7 @@ Apple Developer documentation.
       **Bundle ID**. Make a note of the
       value under **App ID Prefix**. You will
       use this value after you choose Apple as your identity
-      provider in [Configure your user pool with
-      a social IdP](#cognito-user-pools-social-idp-step-2 "#cognito-user-pools-social-idp-step-2").
+      provider in [Configure your user pool with a social IdP](#cognito-user-pools-social-idp-step-2 "#cognito-user-pools-social-idp-step-2").
    3. Under **Capabilities**, choose
       **Sign In with Apple**, and then
       choose **Edit**.
@@ -257,8 +247,7 @@ Apple Developer documentation.
     2. Under **Identifier**, type an
        identifier. Make a note of this Services ID as you will
        need this value after you choose Apple as your identity
-       provider in [Configure your user pool with
-       a social IdP](#cognito-user-pools-social-idp-step-2 "#cognito-user-pools-social-idp-step-2").
+       provider in [Configure your user pool with a social IdP](#cognito-user-pools-social-idp-step-2 "#cognito-user-pools-social-idp-step-2").
     3. Choose **Continue**, then
        **Register**.
 
@@ -315,12 +304,9 @@ Apple Developer documentation.
     and note the **Key ID** shown, and then choose
     **Done**. You will need this private key
     and the **Key ID** value shown on this page
-    after you choose Apple as your identity provider in [Configure your user pool with
-    a social IdP](#cognito-user-pools-social-idp-step-2 "#cognito-user-pools-social-idp-step-2").
+    after you choose Apple as your identity provider in [Configure your user pool with a social IdP](#cognito-user-pools-social-idp-step-2 "#cognito-user-pools-social-idp-step-2").
 
-## Configure your user pool with
-
-a social IdP
+## Configure your user pool with a social IdP
 
 ###### To configure a user pool social IdP with the AWS Management Console
 
@@ -395,9 +381,7 @@ might not be returned:
     configuration**.
 11. Choose **Save changes**.
 
-## Test your social IdP
-
-configuration
+## Test your social IdP configuration
 
 In your application, you must invoke a browser in the user's client so that they
 can sign in with their social provider. Test sign-in with your social provider after
@@ -414,8 +398,7 @@ This link is the page that Amazon Cognito directs you to when you go to the **Ap
 clients** menu, select an app client, navigate to the **Login
 pages** tab, and select **View login page**. For more
 information about user pool domains, see [Configuring a user pool domain](cognito-user-pools-assign-domain.md "cognito-user-pools-assign-domain.md"). For more information about app
-clients, including client IDs and callback URLs, see [Application-specific settings with app
-clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
+clients, including client IDs and callback URLs, see [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
 
 The following example link sets up silent redirect to a social provider from the
 [Authorize endpoint](authorization-endpoint.md "authorization-endpoint.md")

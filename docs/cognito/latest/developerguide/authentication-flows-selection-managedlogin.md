@@ -1,6 +1,4 @@
-# Configure authentication methods
-
-for managed login
+# Configure authentication methods for managed login
 
 You can invoke [managed login
 pages](cognito-user-pools-managed-login.md "cognito-user-pools-managed-login.md"), a web front end for user pool authentication, when you want users to sign in,
@@ -29,9 +27,7 @@ The path to `openid-configuration` isn't linked to your user pool domain, so
 applications that autodiscover service endpoints will automatically pick up your domain
 change.
 
-## User pool settings
-
-for managed login
+## User pool settings for managed login
 
 You might want to allow sign in with multiple providers for your application, or you might
 want to use Amazon Cognito as an independent user directory. You might also want to collect user

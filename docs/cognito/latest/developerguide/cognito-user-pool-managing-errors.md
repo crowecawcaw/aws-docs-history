@@ -1,6 +1,4 @@
-# Managing user existence error
-
-responses
+# Managing user existence error responses
 
 Amazon Cognito supports customizing error responses returned by user pools. Custom error responses
 are available for user creation and authentication, password recovery, and confirmation
@@ -44,9 +42,7 @@ following effects when you submit a request for a username that doesn't exist:
   The following information details the behaviors of user pool operations when
   `PreventUserExistenceErrors` is set to `ENABLED`.
 
-## Authentication and user creation
-
-operations
+## Authentication and user creation operations
 
 You can configure error responses in username-password, and Secure Remote Password (SRP)
 authentication.
@@ -96,8 +92,7 @@ returns the same salt and an internal user ID in [UUID](cognito-terms.md#terms-u
 format for the same username and user pool combination. When you send a
 `RespondToAuthChallenge` API request with proof of password, Amazon Cognito returns
 a generic `NotAuthorizedException` error when either username or password is
-incorrect. For more information about implementation of SRP authentication, see [Sign-in with
-persistent passwords and secure payload](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-srp "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-srp").
+incorrect. For more information about implementation of SRP authentication, see [Sign-in with persistent passwords and secure payload](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-srp "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-srp").
 
 ###### Note
 
@@ -138,30 +133,23 @@ and phone numbers when you sign up users in your app, use verification-based ali
 attributes. For more information about aliases, see [Customizing sign-in attributes](user-pool-settings-attributes.md#user-pool-settings-aliases "user-pool-settings-attributes.md#user-pool-settings-aliases").
 
 For an example of how Amazon Cognito can prevent the use of `SignUp` API requests
-to discover users in your user pool, see [Preventing
-UsernameExistsException errors for email addresses and phone numbers on
-sign-up](#cognito-user-pool-managing-errors-prevent-userexistence-errors "#cognito-user-pool-managing-errors-prevent-userexistence-errors").
+to discover users in your user pool, see [Preventing UsernameExistsException errors for email addresses and phone numbers on sign-up](#cognito-user-pool-managing-errors-prevent-userexistence-errors "#cognito-user-pool-managing-errors-prevent-userexistence-errors").
 
 **Imported users**
 
 If `PreventUserExistenceErrors` is enabled, during authentication of
 imported users a generic `NotAuthorizedException` error is returned
 indicating either the username or password was incorrect instead of returning
-`PasswordResetRequiredException`. See [Requiring imported users
-to reset their passwords](cognito-user-pools-using-import-tool.md#cognito-user-pools-using-import-tool-password-reset "cognito-user-pools-using-import-tool.md#cognito-user-pools-using-import-tool-password-reset") for more
+`PasswordResetRequiredException`. See [Requiring imported users to reset their passwords](cognito-user-pools-using-import-tool.md#cognito-user-pools-using-import-tool-password-reset "cognito-user-pools-using-import-tool.md#cognito-user-pools-using-import-tool-password-reset") for more
 information.
 
 **Migrate user Lambda trigger**
 
 Amazon Cognito returns a simulated response for users that don't exist when an empty response
 was set in the original event context by the Lambda trigger. For more information, see
-[Importing users with a user migration
-Lambda trigger](cognito-user-pools-import-using-lambda.md "cognito-user-pools-import-using-lambda.md").
+[Importing users with a user migration Lambda trigger](cognito-user-pools-import-using-lambda.md "cognito-user-pools-import-using-lambda.md").
 
-### Preventing
-
-`UsernameExistsException` errors for email addresses and phone numbers on
-sign-up
+### Preventing `UsernameExistsException` errors for email addresses and phone numbers on sign-up
 
 The following example demonstrates how, when you configure alias attributes in your user
 pool, you can keep duplicate email addresses and phone numbers from generating
@@ -269,9 +257,7 @@ aws cognito-idp sign-up --client-id 1example23456789 --username jie --password P
 An error occurred (UsernameExistsException) when calling the SignUp operation: User already exists
 ```
 
-## Password reset
-
-operations
+## Password reset operations
 
 Amazon Cognito returns the following responses to user password reset operations when you prevent
 user existence errors.
@@ -289,9 +275,7 @@ Amazon Cognito returns the `CodeMismatchException` error for users that don't
 exist or are disabled. If a code isn't requested when using `ForgotPassword`,
 Amazon Cognito returns the `ExpiredCodeException` error.
 
-## Confirmation
-
-operations
+## Confirmation operations
 
 Amazon Cognito returns the following responses to user confirmation and verification operations
 when you prevent user existence errors.

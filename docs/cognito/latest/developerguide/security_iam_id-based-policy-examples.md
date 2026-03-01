@@ -1,6 +1,4 @@
-# Identity-based policy examples for
-
-Amazon Cognito
+# Identity-based policy examples for Amazon Cognito
 
 By default, users and roles don't have permission to create or modify Amazon Cognito
 resources. To grant users permission to perform actions on the
@@ -14,20 +12,13 @@ For details about actions and resource types defined by Amazon Cognito, includin
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Amazon Cognito
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Restricting console access to
-  a specific identity pool](#security_amazon-cognito-example-policies "#security_amazon-cognito-example-policies")
-- [Allowing access to
-  specific dataset for all identities in a pool](#security_amazon-cognito-example-allow-access "#security_amazon-cognito-example-allow-access")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Amazon Cognito console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Restricting console access to a specific identity pool](#security_amazon-cognito-example-policies "#security_amazon-cognito-example-policies")
+- [Allowing access to specific dataset for all identities in a pool](#security_amazon-cognito-example-allow-access "#security_amazon-cognito-example-allow-access")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Cognito resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -71,9 +62,7 @@ original console, but not the new console. To work in the Amazon Cognito console
 `aws:ViaAWSService` condition on Amazon Cognito permissions in
 your IAM policy.
 
-## Using the Amazon Cognito
-
-console
+## Using the Amazon Cognito console
 
 To access the Amazon Cognito console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Amazon Cognito resources
@@ -90,9 +79,7 @@ Amazon Cognito `ConsoleAccess` or `ReadOnly` AWS managed policy to
 the entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -132,9 +119,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Restricting console access to
-
-a specific identity pool
+## Restricting console access to a specific identity pool
 
 JSON
 
@@ -168,9 +153,7 @@ JSON
 
 ```
 
-## Allowing access to
-
-specific dataset for all identities in a pool
+## Allowing access to specific dataset for all identities in a pool
 
 JSON
 

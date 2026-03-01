@@ -1,6 +1,4 @@
-# Create a new application in the Amazon Cognito
-
-console
+# Create a new application in the Amazon Cognito console
 
 User pools add authentication options to software applications. For the easiest
 getting-started experience, step into the Amazon Cognito console and follow the instructions there. The
@@ -14,11 +12,9 @@ programming-language options.
 ###### Additional resources for authentication concepts
 
 - [Authentication with Amazon Cognito user pools](authentication.md "authentication.md")
-- [Understanding API, OIDC, and managed login pages
-  authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations")
+- [Understanding API, OIDC, and managed login pages authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations")
 - [How authentication works with Amazon Cognito](cognito-how-to-authenticate.md "cognito-how-to-authenticate.md")
-- [Integrating Amazon Cognito authentication and authorization with
-  web and mobile apps](cognito-integrate-apps.md "cognito-integrate-apps.md")
+- [Integrating Amazon Cognito authentication and authorization with web and mobile apps](cognito-integrate-apps.md "cognito-integrate-apps.md")
 
 ###### To create Amazon Cognito resources for your application
 
@@ -81,11 +77,10 @@ programming-language options.
 
 Amazon Cognito makes some default configurations in this process that you can't reverse. For more
 information about user pool settings that you can't change and those options that you can
-choose in the console, see [Updating user pool and app client
-configuration](cognito-user-pool-updating.md "cognito-user-pool-updating.md").
+choose in the console, see [Updating user pool and app client configuration](cognito-user-pool-updating.md "cognito-user-pool-updating.md").
 
 | Setting            | Effect                                                                                                         | How to change                                                                                                         | More information                                                                                                                                            |
 | ------------------ | -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Client secret      | Requires a client secret hash in authentication requests.                                                      | Create a new app client with a **Traditional web application**<br>or \*_Machine-to-machine application_<br>• profile. | [Application-specific settings with app<br>clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md")                                  |
+| Client secret      | Requires a client secret hash in authentication requests.                                                      | Create a new app client with a **Traditional web application**<br>or \*_Machine-to-machine application_<br>• profile. | [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md")                                     |
 | Preferred username | User pool doesn't accept the `preferred_username` attribute as an<br>alias.                                    | Create a user pool programmatically with an AWS SDK.                                                                  | [Customizing sign-in attributes](user-pool-settings-attributes.md#user-pool-settings-aliases "user-pool-settings-attributes.md#user-pool-settings-aliases") |
 | Case sensitivity   | User pool usernames are case insensitive, for example `JohnD` is<br>considered to be the same user as `johnd`. | Create a user pool programmatically with an AWS SDK.                                                                  | [User pool case sensitivity](user-pool-case-sensitivity.md "user-pool-case-sensitivity.md")                                                                 |

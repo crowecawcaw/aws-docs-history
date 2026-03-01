@@ -12,8 +12,7 @@ operations, for example when you want to manage multiple origination IDs or cros
 AWS Regions. Your function also might redirect messages to another delivery medium or
 third-party service.
 
-To learn how to configure a custom email sender trigger, see [Activating custom sender Lambda
-triggers](user-pool-lambda-custom-sender-triggers.md#enable-custom-sender-lambda-trigger "user-pool-lambda-custom-sender-triggers.md#enable-custom-sender-lambda-trigger").
+To learn how to configure a custom email sender trigger, see [Activating custom sender Lambda triggers](user-pool-lambda-custom-sender-triggers.md#enable-custom-sender-lambda-trigger "user-pool-lambda-custom-sender-triggers.md#enable-custom-sender-lambda-trigger").
 
 ## Custom SMS sender Lambda trigger sources
 
@@ -30,9 +29,7 @@ Lambda code.
 | `CustomSMSSender_Authentication`      | A user signs in and Amazon Cognito sends an SMS OTP or MFA code.                                                         |
 | `CustomSMSSender_AdminCreateUser`     | You create a new user in your user pool and Amazon Cognito sends them a<br>temporary password.                           |
 
-## Custom SMS sender Lambda trigger
-
-parameters
+## Custom SMS sender Lambda trigger parameters
 
 The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the
 [common parameters](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared") that Amazon Cognito adds to all requests.
@@ -55,9 +52,7 @@ JSON
 }
 ```
 
-### Custom SMS sender request
-
-parameters
+### Custom SMS sender request parameters
 
 **type**
 
@@ -82,9 +77,7 @@ function.
 
 One or more key-value pairs that represent user attributes.
 
-### Custom SMS sender response
-
-parameters
+### Custom SMS sender response parameters
 
 Amazon Cognito doesn't expect any additional return information in the response. Your
 function can use API operations to query and modify your resources, or record event
@@ -186,17 +179,13 @@ export const handler = async (event) => {
 
 ###### Topics
 
-- [Evaluate SMS message capabilities with a custom
-  SMS sender function](#sms-to-email-example "#sms-to-email-example")
+- [Evaluate SMS message capabilities with a custom SMS sender function](#sms-to-email-example "#sms-to-email-example")
 
-## Evaluate SMS message capabilities with a custom
-
-SMS sender function
+## Evaluate SMS message capabilities with a custom SMS sender function
 
 A custom SMS sender Lambda function accepts the SMS messages that your user pool would
 send, and the function delivers the content based on your custom logic. Amazon Cognito sends the
-[Custom SMS sender Lambda trigger
-parameters](#custom-sms-sender-parameters "#custom-sms-sender-parameters") to your function. Your function can
+[Custom SMS sender Lambda trigger parameters](#custom-sms-sender-parameters "#custom-sms-sender-parameters") to your function. Your function can
 do what you want with this information. For example, you can send the code to an
 Amazon Simple Notification Service (Amazon SNS) topic. An Amazon SNS topic subscriber can be an SMS message, an HTTPS
 endpoint, or an email address.

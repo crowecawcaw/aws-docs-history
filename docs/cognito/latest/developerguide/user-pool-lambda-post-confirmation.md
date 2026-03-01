@@ -13,14 +13,10 @@ login](cognito-user-pools-managed-login.md "cognito-user-pools-managed-login.md"
 
 ###### Topics
 
-- [Post
-  confirmation Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-post-confirmation "#cognito-user-pools-lambda-trigger-syntax-post-confirmation")
-- [Post confirmation
-  example](#aws-lambda-triggers-post-confirmation-example "#aws-lambda-triggers-post-confirmation-example")
+- [Post confirmation Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-post-confirmation "#cognito-user-pools-lambda-trigger-syntax-post-confirmation")
+- [Post confirmation example](#aws-lambda-triggers-post-confirmation-example "#aws-lambda-triggers-post-confirmation-example")
 
-## Post
-
-confirmation Lambda trigger parameters
+## Post confirmation Lambda trigger parameters
 
 The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the
 [common parameters](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared") that Amazon Cognito adds to all requests.
@@ -60,9 +56,7 @@ ClientMetadata parameter in the following API actions: [AdminConfirmSignUp](../.
 
 No additional return information is expected in the response.
 
-## Post confirmation
-
-example
+## Post confirmation example
 
 This example Lambda function sends a confirmation email message to your user using
 Amazon SES. For more information see [Amazon Simple Email Service Developer Guide](../../../ses/latest/DeveloperGuide.md "../../../ses/latest/DeveloperGuide.md").

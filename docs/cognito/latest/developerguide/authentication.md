@@ -22,18 +22,12 @@ passkeys.
 ###### Topics
 
 - [Implement authentication flows](#authentication-implement "#authentication-implement")
-- [Things to know about authentication with
-  user pools](#authentication-flow-things-to-know "#authentication-flow-things-to-know")
-- [An example authentication
-  session](#amazon-cognito-user-pools-authentication-flow "#amazon-cognito-user-pools-authentication-flow")
-- [Configure authentication methods
-  for managed login](authentication-flows-selection-managedlogin.md "authentication-flows-selection-managedlogin.md")
-- [Manage authentication methods in AWS
-  SDKs](authentication-flows-selection-sdk.md "authentication-flows-selection-sdk.md")
-- [Authentication
-  flows](amazon-cognito-user-pools-authentication-flow-methods.md "amazon-cognito-user-pools-authentication-flow-methods.md")
-- [Authorization models for API and SDK
-  authentication](authentication-flows-public-server-side.md "authentication-flows-public-server-side.md")
+- [Things to know about authentication with user pools](#authentication-flow-things-to-know "#authentication-flow-things-to-know")
+- [An example authentication session](#amazon-cognito-user-pools-authentication-flow "#amazon-cognito-user-pools-authentication-flow")
+- [Configure authentication methods for managed login](authentication-flows-selection-managedlogin.md "authentication-flows-selection-managedlogin.md")
+- [Manage authentication methods in AWS SDKs](authentication-flows-selection-sdk.md "authentication-flows-selection-sdk.md")
+- [Authentication flows](amazon-cognito-user-pools-authentication-flow-methods.md "amazon-cognito-user-pools-authentication-flow-methods.md")
+- [Authorization models for API and SDK authentication](authentication-flows-public-server-side.md "authentication-flows-public-server-side.md")
 
 ## Implement authentication flows
 
@@ -111,9 +105,7 @@ Client-based authentication with SRP:
 "AuthFlow": "USER_SRP_AUTH"
 ```
 
-## Things to know about authentication with
-
-user pools
+## Things to know about authentication with user pools
 
 Consider the following information in the design of your authentication model with
 Amazon Cognito user pools.
@@ -153,8 +145,7 @@ migration. When passwordless sign-in is active:
    even if passwordless authentication is permitted. For more information, see [Signing up and confirming user accounts](signing-up-users-in-your-app.md "signing-up-users-in-your-app.md").
 3. Users imported from a CSV file can sign in immediatelywith passwordless options,
    without a password reset, if their attributes include an email address or phone
-   number for an available passwordless sign-in option. For more information, see [Importing users into user pools from a
-   CSV file](cognito-user-pools-using-import-tool.md "cognito-user-pools-using-import-tool.md").
+   number for an available passwordless sign-in option. For more information, see [Importing users into user pools from a CSV file](cognito-user-pools-using-import-tool.md "cognito-user-pools-using-import-tool.md").
 4. Passwordless authentication doesn't invoke the [user migration Lambda
    trigger](user-pool-lambda-migrate-user.md "user-pool-lambda-migrate-user.md").
 5. Users who sign in with a passwordless first factor can't add a [multi-factor authentication (MFA)](user-pool-settings-mfa.md "user-pool-settings-mfa.md") factor
@@ -170,14 +161,10 @@ domain on the PSL.
 
 ###### Topics
 
-- [Authentication session flow
-  duration](#authentication-flow-session-duration "#authentication-flow-session-duration")
-- [Lockout behavior for failed sign-in
-  attempts](#authentication-flow-lockout-behavior "#authentication-flow-lockout-behavior")
+- [Authentication session flow duration](#authentication-flow-session-duration "#authentication-flow-session-duration")
+- [Lockout behavior for failed sign-in attempts](#authentication-flow-lockout-behavior "#authentication-flow-lockout-behavior")
 
-### Authentication session flow
-
-duration
+### Authentication session flow duration
 
 Depending on the features of your user pool, you can end up responding to several
 challenges to `InitiateAuth` and `RespondToAuthChallenge` before your
@@ -197,9 +184,7 @@ multi-factor authentication and 8 minutes for password-reset codes.
 
 Amazon Cognito console
 
-###### To configure app client authentication flow session duration
-
-(AWS Management Console)
+###### To configure app client authentication flow session duration (AWS Management Console)
 
 1. From the **App integration** tab in your user pool, select
    the name of your app client from the **App clients and
@@ -214,9 +199,7 @@ Amazon Cognito console
 
 User pools API
 
-###### To configure app client authentication flow session duration (Amazon Cognito
-
-API)
+###### To configure app client authentication flow session duration (Amazon Cognito API)
 
 1. Prepare an `UpdateUserPoolClient` request with your existing user
    pool settings from a `DescribeUserPoolClient` request. Your
@@ -227,12 +210,9 @@ API)
    that any user has to complete any authentication challenge in your app
    client.
 
-For more information about app clients, see [Application-specific settings with app
-clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
+For more information about app clients, see [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
 
-### Lockout behavior for failed sign-in
-
-attempts
+### Lockout behavior for failed sign-in attempts
 
 After five failed sign-in attempts with a user's password, regardless of whether those
 are requested with unauthenticated or IAM-authorized API operations, Amazon Cognito locks out your
@@ -249,9 +229,7 @@ minutes at any time after a lockout. This behavior is subject to change. This be
 doesn't apply to custom challenges unless they also perform password-based
 authentication.
 
-## An example authentication
-
-session
+## An example authentication session
 
 The following diagram and step-by-step guide illustrate a typical scenario where a user
 signs in to an application. The example application presents a user with several sign-in

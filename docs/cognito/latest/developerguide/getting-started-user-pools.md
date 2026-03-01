@@ -24,14 +24,10 @@ and interact with IdPs.
 If you don't want to use the [managed login pages](cognito-terms.md#terms-managedlogin "cognito-terms.md#terms-managedlogin"),
 you can create an application with custom-built authentication interfaces using an AWS SDK or
 AWS Amplify. Applications that you build in this way interact with the [user
-pools API](../../../cognito-user-identity-pools/latest/APIReference/Welcome.md "../../../cognito-user-identity-pools/latest/APIReference/Welcome.md") and are suitable only for authenticating [local users](cognito-terms.md#terms-localuser "cognito-terms.md#terms-localuser"). Continue learning about this authentication model at [Other application
-options](getting-started-user-pools-application-other-options.md "getting-started-user-pools-application-other-options.md").
+pools API](../../../cognito-user-identity-pools/latest/APIReference/Welcome.md "../../../cognito-user-identity-pools/latest/APIReference/Welcome.md") and are suitable only for authenticating [local users](cognito-terms.md#terms-localuser "cognito-terms.md#terms-localuser"). Continue learning about this authentication model at [Other application options](getting-started-user-pools-application-other-options.md "getting-started-user-pools-application-other-options.md").
 
 ###### Topics
 
-- [Create a new application in the Amazon Cognito
-  console](getting-started-user-pools-application.md "getting-started-user-pools-application.md")
-- [Other application
-  options](getting-started-user-pools-application-other-options.md "getting-started-user-pools-application-other-options.md")
-- [Add more features and security options to your user
-  pool](user-pool-next-steps.md "user-pool-next-steps.md")
+- [Create a new application in the Amazon Cognito console](getting-started-user-pools-application.md "getting-started-user-pools-application.md")
+- [Other application options](getting-started-user-pools-application-other-options.md "getting-started-user-pools-application-other-options.md")
+- [Add more features and security options to your user pool](user-pool-next-steps.md "user-pool-next-steps.md")

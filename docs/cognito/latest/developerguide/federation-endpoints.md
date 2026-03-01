@@ -1,6 +1,4 @@
-# Identity provider and relying party
-
-endpoints
+# Identity provider and relying party endpoints
 
 _Federation endpoints_ are user pool endpoints that serve
 a purpose for one of the authentication standards used by user pools. They include SAML
@@ -44,10 +42,8 @@ For more information on the OpenID Connect and OAuth standards, see [OpenID Conn
 
 ###### Topics
 
-- [The redirect and authorization
-  endpoint](authorization-endpoint.md "authorization-endpoint.md")
+- [The redirect and authorization endpoint](authorization-endpoint.md "authorization-endpoint.md")
 - [The token issuer endpoint](token-endpoint.md "token-endpoint.md")
 - [The user attributes endpoint](userinfo-endpoint.md "userinfo-endpoint.md")
 - [The token revocation endpoint](revocation-endpoint.md "revocation-endpoint.md")
-- [The IdP SAML assertion
-  endpoint](saml2-idpresponse-endpoint.md "saml2-idpresponse-endpoint.md")
+- [The IdP SAML assertion endpoint](saml2-idpresponse-endpoint.md "saml2-idpresponse-endpoint.md")

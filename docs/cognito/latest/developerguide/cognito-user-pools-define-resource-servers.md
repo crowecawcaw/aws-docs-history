@@ -1,6 +1,4 @@
-# Scopes, M2M, and resource
-
-servers
+# Scopes, M2M, and resource servers
 
 After you configure a domain for your user pool, Amazon Cognito automatically provisions an OAuth
 2.0 authorization server and a hosted web UI with sign-up and sign-in pages that your app
@@ -14,8 +12,7 @@ scopes that authorize the requested method and path in the API that it protects.
 the issuer based on the token signature, validity based on token expiration time, and access
 level based on the scopes in token claims. User pool scopes are in the access token
 `scope` claim. For more information about the claims in Amazon Cognito access tokens,
-see [Understanding the access
-token](amazon-cognito-user-pools-using-the-access-token.md "amazon-cognito-user-pools-using-the-access-token.md").
+see [Understanding the access token](amazon-cognito-user-pools-using-the-access-token.md "amazon-cognito-user-pools-using-the-access-token.md").
 
 With Amazon Cognito, the scopes in access tokens can authorize access to external APIs or to user
 attributes. You can issue access tokens to local users, federated users, or machine
@@ -23,17 +20,13 @@ identities.
 
 ###### Topics
 
-- [API
-  authorization](#cognito-user-pools-define-resource-servers-about-api-authz "#cognito-user-pools-define-resource-servers-about-api-authz")
+- [API authorization](#cognito-user-pools-define-resource-servers-about-api-authz "#cognito-user-pools-define-resource-servers-about-api-authz")
 - [Machine-to-machine (M2M) authorization](#cognito-user-pools-define-resource-servers-about-m2m "#cognito-user-pools-define-resource-servers-about-m2m")
-- [About
-  scopes](#cognito-user-pools-define-resource-servers-about-scopes "#cognito-user-pools-define-resource-servers-about-scopes")
+- [About scopes](#cognito-user-pools-define-resource-servers-about-scopes "#cognito-user-pools-define-resource-servers-about-scopes")
 - [About resource servers](#cognito-user-pools-define-resource-servers-about-resource-servers "#cognito-user-pools-define-resource-servers-about-resource-servers")
 - [Resource binding](#cognito-user-pools-resource-binding "#cognito-user-pools-resource-binding")
 
-## API
-
-authorization
+## API authorization
 
 The following are some of the ways that you can authorize requests to APIs with Amazon Cognito
 tokens:
@@ -80,8 +73,7 @@ credentials grants. To support client credentials, your app client must have a c
 secret and you must have a user pool domain. In this flow, your machine identity
 requests an access token directly from the [Token endpoint](token-endpoint.md "token-endpoint.md"). You can authorize only custom scopes from [resource
 servers](#cognito-user-pools-define-resource-servers-about-resource-servers "#cognito-user-pools-define-resource-servers-about-resource-servers") in access tokens for client credentials grants. For more information
-about setting up app clients, see [Application-specific settings with app
-clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
+about setting up app clients, see [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
 
 The access token from a client credentials grant is a verifiable statement of the
 operations that you want to permit your machine identity to request from an API. To
@@ -94,8 +86,7 @@ users (MAUs) are billed. Where user authentication carries a cost per active use
 billing reflects active client credentials app clients and total token-request volume.
 For more information, see [Amazon Cognito
 Pricing](https://aws.amazon.com/cognito/pricing "https://aws.amazon.com/cognito/pricing"). To control costs for M2M authorization, optimize the duration of
-access tokens and the number of token requests that your applications make. See [Managing user pool
-token expiration and caching](amazon-cognito-user-pools-using-tokens-caching-tokens.md "amazon-cognito-user-pools-using-tokens-caching-tokens.md") for a way to use
+access tokens and the number of token requests that your applications make. See [Managing user pool token expiration and caching](amazon-cognito-user-pools-using-tokens-caching-tokens.md "amazon-cognito-user-pools-using-tokens-caching-tokens.md") for a way to use
 API Gateway caching to reduce requests for new tokens in M2M authorization.
 
 For information about optimizing Amazon Cognito operations that add costs to your AWS bill,
@@ -105,8 +96,7 @@ see [Managing costs](tracking-cost.md#tracking-cost-managing "tracking-cost.md#t
 
 You can pass [client
 metadata](cognito-user-pools-working-with-lambda-triggers.md#working-with-lambda-trigger-client-metadata "cognito-user-pools-working-with-lambda-triggers.md#working-with-lambda-trigger-client-metadata") in M2M requests. Client metadata is additional information from a
-user or application environment that can contribute to the outcomes of a [Pre token generation Lambda
-trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md"). In authentication operations with a user principal, you can pass client metadata
+user or application environment that can contribute to the outcomes of a [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md"). In authentication operations with a user principal, you can pass client metadata
 to the pre token generation trigger in the body of [AdminRespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md") and [RespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md") API requests. Because applications conduct the
 flow for generation of access tokens for M2M with direct requests to the [Token endpoint](token-endpoint.md "token-endpoint.md"), they have a different
 model. In the POST body of token requests for client credentials, pass an
@@ -119,9 +109,7 @@ see [Client credentials with basic authorization](token-endpoint.md#exchanging-c
 aws_client_metadata=%7B%22environment%22%3A%20%22dev%22,%20%22language%22%3A%20%22en-US%22%7D
 ```
 
-## About
-
-scopes
+## About scopes
 
 A _scope_ is a level of access that an app can request to a
 resource. In an Amazon Cognito access token, the scope is backed up by the trust that you set up
@@ -230,8 +218,7 @@ requests to tokens with `photos.write`. These are _custom scopes_.
 
 Your resource server must verify the access token signature and expiration date
 before processing any claims inside the token. For more information about verifying
-tokens, see [Verifying JSON web
-tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md "amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md"). For more
+tokens, see [Verifying JSON web tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md "amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md"). For more
 information about verifying and using user pool tokens in Amazon API Gateway, see the blog
 [Integrating Amazon Cognito User Pools with API Gateway](https://aws.amazon.com/blogs/mobile/integrating-amazon-cognito-user-pools-with-api-gateway/ "https://aws.amazon.com/blogs/mobile/integrating-amazon-cognito-user-pools-with-api-gateway/"). API Gateway
 is a good option for inspecting access tokens and protecting your resources. For
@@ -317,9 +304,7 @@ server, authentication fails.
 You can use the AWS Management Console, API, or CLI to define resource servers and scopes for your
 user pool.
 
-### Defining a
-
-resource server for your user pool (AWS Management Console)
+### Defining a resource server for your user pool (AWS Management Console)
 
 You can use the AWS Management Console to define a resource server for your user pool.
 
@@ -352,9 +337,7 @@ client, locate **Login pages** and choose
 **Edit**. Add **Custom scopes** and choose
 **Save changes**.
 
-### Defining a
-
-resource server for your user pool (AWS CLI and AWS API)
+### Defining a resource server for your user pool (AWS CLI and AWS API)
 
 Use the following commands to specify resource server settings for your user
 pool.

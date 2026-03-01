@@ -1,6 +1,4 @@
-# Add social sign-in to your user
-
-pool
+# Add social sign-in to your user pool
 
 Providing users with the ability to sign in to your application through their existing
 public, or social, identity providers can improve their authentication experience. Amazon Cognito user pools
@@ -164,8 +162,7 @@ then choose **Edit**. 9. Enter your user pool domain into **Allowed Origins**.
     2.  Under **App ID Prefix**, enter a **Bundle
         ID**. Make a note of the value under **App ID
         Prefix**. You will use this value after you choose Apple as your
-        identity provider in [Configure your user pool with
-        a social IdP](cognito-user-pools-social-idp.md#cognito-user-pools-social-idp-step-2 "cognito-user-pools-social-idp.md#cognito-user-pools-social-idp-step-2").
+        identity provider in [Configure your user pool with a social IdP](cognito-user-pools-social-idp.md#cognito-user-pools-social-idp-step-2 "cognito-user-pools-social-idp.md#cognito-user-pools-social-idp-step-2").
     3.  Under **Capabilities**, choose **Sign In with
         Apple**, and then choose **Edit**.
     4.  On the **Sign in with Apple: App ID Configuration** page,
@@ -185,8 +182,7 @@ then choose **Edit**. 9. Enter your user pool domain into **Allowed Origins**.
     1.  Under **Description**, enter a description.
     2.  Under **Identifier**, enter an identifier. Make a note of
         this Services ID because you'll need this value after you choose Apple as your
-        identity provider in [Configure your user pool with
-        a social IdP](cognito-user-pools-social-idp.md#cognito-user-pools-social-idp-step-2 "cognito-user-pools-social-idp.md#cognito-user-pools-social-idp-step-2").
+        identity provider in [Configure your user pool with a social IdP](cognito-user-pools-social-idp.md#cognito-user-pools-social-idp-step-2 "cognito-user-pools-social-idp.md#cognito-user-pools-social-idp-step-2").
     3.  Choose **Continue** and then choose
         **Register**.
 
@@ -234,12 +230,9 @@ then choose **Edit**. 9. Enter your user pool domain into **Allowed Origins**.
     **Download** to download the private key, note the
     **Key ID** shown, and then choose **Done**.
     You will need this private key and the **Key ID** value shown on
-    this page after you choose Apple as your identity provider in [Configure your user pool with
-    a social IdP](cognito-user-pools-social-idp.md#cognito-user-pools-social-idp-step-2 "cognito-user-pools-social-idp.md#cognito-user-pools-social-idp-step-2").
+    this page after you choose Apple as your identity provider in [Configure your user pool with a social IdP](cognito-user-pools-social-idp.md#cognito-user-pools-social-idp-step-2 "cognito-user-pools-social-idp.md#cognito-user-pools-social-idp-step-2").
 
-## Add a social IdP to your user
-
-pool
+## Add a social IdP to your user pool
 
 In this section, you configure a social IdP in your user pool using the client ID and
 client secret from the previous section.
@@ -315,9 +308,7 @@ be returned:
     provider to the app client under **Identity providers**.
 11. Choose **Save changes**.
 
-## Test your social IdP
-
-configuration
+## Test your social IdP configuration
 
 You can create a login URL by using the elements from the previous two sections.
 Use it to test your social IdP configuration.

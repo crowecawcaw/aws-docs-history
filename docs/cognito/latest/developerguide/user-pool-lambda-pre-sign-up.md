@@ -17,18 +17,12 @@ analyze the sign-in event with custom logic, and modify or deny the new user.
 
 ###### Topics
 
-- [Pre sign-up Lambda
-  trigger parameters](#cognito-user-pools-lambda-trigger-syntax-pre-signup "#cognito-user-pools-lambda-trigger-syntax-pre-signup")
-- [Pre sign-up example:
-  Auto-confirm users from a registered domain](#aws-lambda-triggers-pre-registration-example "#aws-lambda-triggers-pre-registration-example")
-- [Pre sign-up example:
-  Auto-confirm and auto-verify all users](#aws-lambda-triggers-pre-registration-example-2 "#aws-lambda-triggers-pre-registration-example-2")
-- [Pre sign-up example:
-  Deny sign-up if user name has fewer than five characters](#aws-lambda-triggers-pre-registration-example-3 "#aws-lambda-triggers-pre-registration-example-3")
+- [Pre sign-up Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-pre-signup "#cognito-user-pools-lambda-trigger-syntax-pre-signup")
+- [Pre sign-up example: Auto-confirm users from a registered domain](#aws-lambda-triggers-pre-registration-example "#aws-lambda-triggers-pre-registration-example")
+- [Pre sign-up example: Auto-confirm and auto-verify all users](#aws-lambda-triggers-pre-registration-example-2 "#aws-lambda-triggers-pre-registration-example-2")
+- [Pre sign-up example: Deny sign-up if user name has fewer than five characters](#aws-lambda-triggers-pre-registration-example-3 "#aws-lambda-triggers-pre-registration-example-3")
 
-## Pre sign-up Lambda
-
-trigger parameters
+## Pre sign-up Lambda trigger parameters
 
 The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the
 [common parameters](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared") that Amazon Cognito adds to all requests.
@@ -60,9 +54,7 @@ JSON
 }
 ```
 
-### Pre
-
-sign-up request parameters
+### Pre sign-up request parameters
 
 **userAttributes**
 
@@ -87,9 +79,7 @@ the Lambda function that you specify for the pre sign-up trigger. You can
 pass this data to your Lambda function by using the ClientMetadata
 parameter in the following API actions: [AdminCreateUser](../../../cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.md"), [AdminRespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md"), [ForgotPassword](../../../cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.md "../../../cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.md"), and [SignUp](../../../cognito-user-identity-pools/latest/APIReference/API_SignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_SignUp.md").
 
-### Pre
-
-sign-up response parameters
+### Pre sign-up response parameters
 
 In the response, you can set `autoConfirmUser` to `true` if
 you want to auto-confirm the user. You can set `autoVerifyEmail` to
@@ -140,9 +130,7 @@ number already exists, the alias will be moved to the new user and the
 previous user's phone number will be marked as unverified. For more
 information, see [Customizing sign-in attributes](user-pool-settings-attributes.md#user-pool-settings-aliases "user-pool-settings-attributes.md#user-pool-settings-aliases").
 
-## Pre sign-up example:
-
-Auto-confirm users from a registered domain
+## Pre sign-up example: Auto-confirm users from a registered domain
 
 This is example Lambda trigger code. The pre sign-up trigger is invoked immediately
 before Amazon Cognito processes the sign-up request. It uses a custom attribute
@@ -211,9 +199,7 @@ JSON
 }
 ```
 
-## Pre sign-up example:
-
-Auto-confirm and auto-verify all users
+## Pre sign-up example: Auto-confirm and auto-verify all users
 
 This example confirms all users and sets the user's `email` and
 `phone_number` attributes to verified if the attribute is present. Also,
@@ -288,9 +274,7 @@ JSON
 }
 ```
 
-## Pre sign-up example:
-
-Deny sign-up if user name has fewer than five characters
+## Pre sign-up example: Deny sign-up if user name has fewer than five characters
 
 This example checks the length of the user name in a sign-up request. The example
 returns an error if the user has entered a name less than five characters long.

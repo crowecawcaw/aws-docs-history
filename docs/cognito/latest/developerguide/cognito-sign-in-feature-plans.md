@@ -28,8 +28,7 @@ Essentials.
 
 You can switch between feature plans at any time to fit the requirements of your
 applications. Some changes between plans require that you turn off active features. For more
-information, see [Turning off features to change feature
-plans](feature-plans-deactivate.md "feature-plans-deactivate.md").
+information, see [Turning off features to change feature plans](feature-plans-deactivate.md "feature-plans-deactivate.md").
 
 ###### User pool feature plans
 
@@ -71,8 +70,7 @@ structure are now under either the Essentials or Plus plan.
 - [Features by plan](#cognito-sign-in-feature-plans-list "#cognito-sign-in-feature-plans-list")
 - [Essentials plan features](feature-plans-features-essentials.md "feature-plans-features-essentials.md")
 - [Plus plan features](feature-plans-features-plus.md "feature-plans-features-plus.md")
-- [Turning off features to change feature
-  plans](feature-plans-deactivate.md "feature-plans-deactivate.md")
+- [Turning off features to change feature plans](feature-plans-deactivate.md "feature-plans-deactivate.md")
 
 ## Select a feature plan
 

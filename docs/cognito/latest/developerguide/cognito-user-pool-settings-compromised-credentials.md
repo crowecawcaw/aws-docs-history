@@ -1,6 +1,4 @@
-# Working with
-
-compromised-credentials detection
+# Working with compromised-credentials detection
 
 Amazon Cognito can detect if a user's username and password have been compromised elsewhere.
 This can happen when users reuse credentials at more than one site, or when they use
@@ -15,8 +13,7 @@ whether to allow or block the user if compromised credentials are detected. Amaz
 for compromised credentials during sign-in, sign-up, and password changes.
 
 When you choose **Allow sign-in**, you can review Amazon CloudWatch Logs to monitor
-the evaluations that Amazon Cognito makes on user events. For more information, see [Viewing threat
-protection metrics](metrics-for-cognito-user-pools.md#user-pool-settings-viewing-threat-protection-metrics "metrics-for-cognito-user-pools.md#user-pool-settings-viewing-threat-protection-metrics"). When you choose
+the evaluations that Amazon Cognito makes on user events. For more information, see [Viewing threat protection metrics](metrics-for-cognito-user-pools.md#user-pool-settings-viewing-threat-protection-metrics "metrics-for-cognito-user-pools.md#user-pool-settings-viewing-threat-protection-metrics"). When you choose
 **Block sign-in**, Amazon Cognito prevents sign-in by users who use compromised
 credentials. When Amazon Cognito blocks sign-in for a user, it sets the user's [`UserStatus`](../../../cognito-user-identity-pools/latest/APIReference/API_UserType.md "../../../cognito-user-identity-pools/latest/APIReference/API_UserType.md") to `RESET_REQUIRED`. A user with a
 `RESET_REQUIRED` status must change their password before they can sign in
@@ -53,5 +50,4 @@ passwords set with [AdminSetUserPassword](../../../cognito-user-identity-pools/l
 checks passwords from responses to the `NEW_PASSWORD_REQUIRED` challenge in
 [RespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md") and [AdminRespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md").
 
-To add compromised credentials protections to your user pool, see [Advanced security with threat
-protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md").
+To add compromised credentials protections to your user pool, see [Advanced security with threat protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md").

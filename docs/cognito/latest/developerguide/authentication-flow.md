@@ -25,9 +25,7 @@ Identity pools accept the following artifacts from providers:
 | SAML 2.0                 | SAML assertion          |
 | Social provider          | Access token            |
 
-## The enhanced (simplified) authentication
-
-flow
+## The enhanced (simplified) authentication flow
 
 When you use the enhanced authflow, your app first presents a proof of authentication
 from an authorized Amazon Cognito user pool or third-party identity provider in a [GetId](../../../cognitoidentity/latest/APIReference/API_GetId.md "../../../cognitoidentity/latest/APIReference/API_GetId.md") request.
@@ -97,9 +95,7 @@ Basic (classic) flow is not supported with RoleMappings, please use enhanced flo
 
 ![A diagram that shows the flow of basic authentication](images/amazon-cognito-ext-auth-basic-flow.png)
 
-## The developer-authenticated authentication
-
-flow
+## The developer-authenticated authentication flow
 
 When using [Developer-authenticated identities](developer-authenticated-identities.md "developer-authenticated-identities.md"), your client uses a different
 authflow that includes code outside of Amazon Cognito to validate the user in your own authentication
@@ -127,9 +123,7 @@ IAM credentials that you encode in your application.
 
 ![A diagram that shows the flow of developer-authenticated basic authentication](images/amazon-cognito-dev-auth-basic-flow.png)
 
-## Which authentication flow should I
-
-implement?
+## Which authentication flow should I implement?
 
 The **enhanced flow** is the most secure choice with the
 lowest level of developer effort:
@@ -159,9 +153,7 @@ credentials that authorize a [GetOpenIdTokenForDeveloperIdentity](../../../cogni
 request contents. Secure the secrets that authorize developer authentication from access by
 users.
 
-## Authentication flow API operations
-
-overview
+## Authentication flow API operations overview
 
 **GetId**
 

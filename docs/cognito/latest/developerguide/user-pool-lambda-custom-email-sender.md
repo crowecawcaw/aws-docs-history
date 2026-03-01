@@ -1,6 +1,4 @@
-# Custom email sender Lambda
-
-trigger
+# Custom email sender Lambda trigger
 
 When you assign a custom email sender trigger to your user pool, Amazon Cognito invokes a Lambda
 function instead of its default behavior when a user event requires that it send an email
@@ -14,8 +12,7 @@ operations, for example when you want to manage multiple verified identities or 
 AWS Regions. Your function also might redirect messages to another delivery medium or
 third-party service.
 
-To learn how to configure a custom email sender trigger, see [Activating custom sender Lambda
-triggers](user-pool-lambda-custom-sender-triggers.md#enable-custom-sender-lambda-trigger "user-pool-lambda-custom-sender-triggers.md#enable-custom-sender-lambda-trigger").
+To learn how to configure a custom email sender trigger, see [Activating custom sender Lambda triggers](user-pool-lambda-custom-sender-triggers.md#enable-custom-sender-lambda-trigger "user-pool-lambda-custom-sender-triggers.md#enable-custom-sender-lambda-trigger").
 
 ## Custom email sender Lambda trigger sources
 
@@ -33,9 +30,7 @@ your Lambda code.
 | `CustomEmailSender_AdminCreateUser`             | You create a new user in your user pool and Amazon Cognito sends them a<br>temporary password.                           |
 | `CustomEmailSender_AccountTakeOverNotification` | Amazon Cognito detects an attempt to take over a user account and sends the<br>user a notification.                      |
 
-## Custom email sender Lambda trigger
-
-parameters
+## Custom email sender Lambda trigger parameters
 
 The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the
 [common parameters](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared") that Amazon Cognito adds to all requests.
@@ -96,9 +91,7 @@ functions in events with the following trigger sources:
 
 One or more key-value pairs that represent user attributes.
 
-### Custom email sender
-
-response parameters
+### Custom email sender response parameters
 
 Amazon Cognito doesn't expect any additional return information in the custom email sender
 response. Your Lambda function must interpret the event and decrypt the code, then

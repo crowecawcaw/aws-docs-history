@@ -1,6 +1,4 @@
-# Custom authentication challenge Lambda
-
-triggers
+# Custom authentication challenge Lambda triggers
 
 As you build out your authentication flows for your Amazon Cognito user pool, you might find that
 you want to extend your authentication model beyond the built-in flows. One common use case
@@ -49,8 +47,7 @@ API and handle the resulting challenge with a custom-built login interface that 
 question at the center of the custom authentication challenge.
 
 ![Challenge Lambda triggers](images/lambda-challenges.png)
-For more information about implementing custom authentication, see [Custom authentication flow and
-challenges](amazon-cognito-user-pools-authentication-flow-methods.md#Custom-authentication-flow-and-challenges "amazon-cognito-user-pools-authentication-flow-methods.md#Custom-authentication-flow-and-challenges")
+For more information about implementing custom authentication, see [Custom authentication flow and challenges](amazon-cognito-user-pools-authentication-flow-methods.md#Custom-authentication-flow-and-challenges "amazon-cognito-user-pools-authentication-flow-methods.md#Custom-authentication-flow-and-challenges")
 
 Authentication between the API operations [InitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md") or [AdminInitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md"), and [RespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md") or [AdminRespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md"). In this flow, a user authenticates by answering
 successive challenges until authentication either fails or the user is issued tokens. A
@@ -62,12 +59,9 @@ answered, and returns `IssueTokens`.
 ###### Topics
 
 - [SRP authentication in custom challenge flows](#user-pool-lambda-challenge-srp-authentication "#user-pool-lambda-challenge-srp-authentication")
-- [Define Auth challenge Lambda
-  trigger](user-pool-lambda-define-auth-challenge.md "user-pool-lambda-define-auth-challenge.md")
-- [Create Auth challenge Lambda
-  trigger](user-pool-lambda-create-auth-challenge.md "user-pool-lambda-create-auth-challenge.md")
-- [Verify Auth challenge
-  response Lambda trigger](user-pool-lambda-verify-auth-challenge-response.md "user-pool-lambda-verify-auth-challenge-response.md")
+- [Define Auth challenge Lambda trigger](user-pool-lambda-define-auth-challenge.md "user-pool-lambda-define-auth-challenge.md")
+- [Create Auth challenge Lambda trigger](user-pool-lambda-create-auth-challenge.md "user-pool-lambda-create-auth-challenge.md")
+- [Verify Auth challenge response Lambda trigger](user-pool-lambda-verify-auth-challenge-response.md "user-pool-lambda-verify-auth-challenge-response.md")
 
 ## SRP authentication in custom challenge flows
 
@@ -95,9 +89,7 @@ The following is an example of a starting `InitiateAuth` request that precedes c
 }
 ```
 
-### Password reset in
-
-the custom authentication SRP flow
+### Password reset in the custom authentication SRP flow
 
 When users are in `FORCE_CHANGE_PASSWORD` status, your custom
 authentication flow must integrate the password change step while maintaining the
@@ -120,8 +112,7 @@ through SRP authentication, password reset, and subsequent custom challenges. Th
 trigger receives an array of completed challenges in the `session`
 parameter, including both `PASSWORD_VERIFIER` and
 `NEW_PASSWORD_REQUIRED` results. For an example implementation, see
-[Define Auth
-challenge example](user-pool-lambda-define-auth-challenge.md#aws-lambda-triggers-define-auth-challenge-example "user-pool-lambda-define-auth-challenge.md#aws-lambda-triggers-define-auth-challenge-example").
+[Define Auth challenge example](user-pool-lambda-define-auth-challenge.md#aws-lambda-triggers-define-auth-challenge-example "user-pool-lambda-define-auth-challenge.md#aws-lambda-triggers-define-auth-challenge-example").
 
 #### Authentication flow steps
 

@@ -1,6 +1,4 @@
-# Custom-attribute multi-tenancy
-
-best practices
+# Custom-attribute multi-tenancy best practices
 
 Amazon Cognito supports [custom
 attributes](user-pool-settings-attributes.md#user-pool-settings-custom-attributes.title "user-pool-settings-attributes.md#user-pool-settings-custom-attributes.title") with names that you choose. One scenario where custom attributes

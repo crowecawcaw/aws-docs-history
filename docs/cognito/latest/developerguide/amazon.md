@@ -41,9 +41,7 @@ You enter the **Security Profile ID** in the **App
 ID** field of the Login with Amazon IdP in your identity pool. This differs
 from user pools, which use **client ID**.
 
-## Configure the external provider in
-
-the Amazon Cognito console
+## Configure the external provider in the Amazon Cognito console
 
 ###### To add a Login with Amazon identity provider (IdP)
 

@@ -11,8 +11,7 @@ Facebook.
 - [User pools](#what-is-amazon-cognito-user-pools "#what-is-amazon-cognito-user-pools")
 - [Identity pools](#what-is-amazon-cognito-identity-pools "#what-is-amazon-cognito-identity-pools")
 - [Features of Amazon Cognito](#what-is-amazon-cognito-features "#what-is-amazon-cognito-features")
-- [Amazon Cognito user pools and identity pools
-  comparison](#what-is-amazon-cognito-features-comparison "#what-is-amazon-cognito-features-comparison")
+- [Amazon Cognito user pools and identity pools comparison](#what-is-amazon-cognito-features-comparison "#what-is-amazon-cognito-features-comparison")
 - [Getting started with Amazon Cognito](#getting-started-overview "#getting-started-overview")
 - [Regional availability](#getting-started-regional-availability "#getting-started-regional-availability")
 - [Pricing for Amazon Cognito](#pricing-for-amazon-cognito "#pricing-for-amazon-cognito")
@@ -156,9 +155,7 @@ identities](identity-pools.md#authenticated-and-unauthenticated-identities "iden
 With identity pools, you have two ways to integrate with IAM policies in your
 AWS account. You can use these two features together or individually.
 
-###### Role-based access
-
-control
+###### Role-based access control
 
 When your user passes claims to your identity pool, Amazon Cognito chooses the IAM role that
 it requests. To customize the role’s permissions to your needs, you apply IAM policies
@@ -169,9 +166,7 @@ query your user’s claims, or a role based on your user’s group membership in
 You can also configure the role trust policy so that IAM trusts only your identity pool
 to generate temporary sessions.
 
-###### Attributes for access
-
-control
+###### Attributes for access control
 
 Your identity pool reads attributes from your user’s claims, and maps them to
 principal tags in your user’s temporary session. You can then configure your IAM
@@ -192,13 +187,10 @@ demonstrates that they are in the marketing department, AWS STS tags their sessi
 | Role-based access control | Choose an IAM role for your authenticated user based on<br>their claims, and configure your roles to only be assumed in the context of your<br>identity pool |
 | Attribute-based access control | Convert claims into principal tags for your AWS STS temporary<br>session, and use IAM policies to filter resource access based on principal tags |
 
-For more information about identity pools, see [Getting started with Amazon Cognito identity
-pools](getting-started-with-identity-pools.md "getting-started-with-identity-pools.md") and the [Amazon Cognito identity
+For more information about identity pools, see [Getting started with Amazon Cognito identity pools](getting-started-with-identity-pools.md "getting-started-with-identity-pools.md") and the [Amazon Cognito identity
 pools API reference](../../../cognitoidentity/latest/APIReference.md "../../../cognitoidentity/latest/APIReference.md").
 
-## Amazon Cognito user pools and identity pools
-
-comparison
+## Amazon Cognito user pools and identity pools comparison
 
 | Feature                                                     | Description                                                                                                                                                              | User pools | Identity pools |
 | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | -------------- |
@@ -233,8 +225,7 @@ comparison
 
 For example user pool applications, see [Getting started with user pools](getting-started-user-pools.md "getting-started-user-pools.md").
 
-For an introduction to identity pools, see [Getting started with Amazon Cognito identity
-pools](getting-started-with-identity-pools.md "getting-started-with-identity-pools.md").
+For an introduction to identity pools, see [Getting started with Amazon Cognito identity pools](getting-started-with-identity-pools.md "getting-started-with-identity-pools.md").
 
 For links to guided setup experiences with user pools and identity pools, see [Guided setup options for Amazon Cognito](cognito-guided-setup.md "cognito-guided-setup.md").
 

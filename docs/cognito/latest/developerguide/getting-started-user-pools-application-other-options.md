@@ -1,6 +1,4 @@
-# Other application
-
-options
+# Other application options
 
 You might have an existing application UI that you want to integrate with Amazon Cognito
 authentication. You might even have your own existing authentication pages with a
@@ -14,19 +12,14 @@ interactive sign-in pages and OpenID Connect (OIDC) services. The process of use
 creation in the console automatically generates a domain for you. You can delete this domain
 from the **Domain** tab of your user pool. Other options include programmatic
 creation of Amazon Cognito resources for you application with API requests in AWS SDKs and with the
-automated-setup options in the AWS Amplify CLI. For more information, see [Integrating Amazon Cognito authentication and authorization with
-web and mobile apps](cognito-integrate-apps.md "cognito-integrate-apps.md").
+automated-setup options in the AWS Amplify CLI. For more information, see [Integrating Amazon Cognito authentication and authorization with web and mobile apps](cognito-integrate-apps.md "cognito-integrate-apps.md").
 
 ###### Topics
 
-- [Set up an example React single page
-  application](#getting-started-test-application-react "#getting-started-test-application-react")
-- [Set up an example Android app
-  with Flutter](#getting-started-test-application-flutter "#getting-started-test-application-flutter")
+- [Set up an example React single page application](#getting-started-test-application-react "#getting-started-test-application-react")
+- [Set up an example Android app with Flutter](#getting-started-test-application-flutter "#getting-started-test-application-flutter")
 
-## Set up an example React single page
-
-application
+## Set up an example React single page application
 
 In this tutorial, you'll create a React single page application where you can test user
 sign-up, confirmation, and sign-in. React is a JavaScript-based library for web and mobile
@@ -60,9 +53,7 @@ To set up this application, your user pool must meet the following requirements:
   **Authentication flows**:
   `ALLOW_USER_PASSWORD_AUTH`.
 
-### Create an
-
-application
+### Create an application
 
 To build this application, you must set up a developer environment. The developer
 environment requirements are:
@@ -141,9 +132,7 @@ npm run dev
     code into the application.
 12. Sign in with your username and password.
 
-### Creating a React
-
-developer environment with Amazon Lightsail
+### Creating a React developer environment with Amazon Lightsail
 
 A quick way to get started with this application is to create a virtual cloud server
 with Amazon Lightsail.
@@ -174,9 +163,7 @@ IP address.
 9. Proceed to [configure your
    React application](#getting-started-test-application-react "#getting-started-test-application-react").
 
-## Set up an example Android app
-
-with Flutter
+## Set up an example Android app with Flutter
 
 In this tutorial, you'll create a mobile application in Android Studio where you can
 emulate a device and test user sign-up, confirmation, and sign-in. This example application
@@ -208,9 +195,7 @@ To set up this application, you user pool must meet the following requirements:
   **Authentication flows**:
   `ALLOW_USER_PASSWORD_AUTH`.
 
-### Create an
-
-application
+### Create an application
 
 ###### To create an example Android app
 

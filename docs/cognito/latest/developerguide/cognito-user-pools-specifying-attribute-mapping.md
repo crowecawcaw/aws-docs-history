@@ -1,6 +1,4 @@
-# Mapping IdP attributes
-
-to profiles and tokens
+# Mapping IdP attributes to profiles and tokens
 
 Identity provider (IdP) services, including Amazon Cognito, can typically record more
 information about a user. You might want to know what company they work for, how to
@@ -125,9 +123,7 @@ user pool.
       rule applies the blank value to the destination attribute.
   2.  You clear the value of the mapped attribute with an [DeleteUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserAttributes.md") or [AdminDeleteUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_AdminDeleteUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminDeleteUserAttributes.md") request.
 
-## Specifying
-
-identity provider attribute mappings for your user pool (AWS Management Console)
+## Specifying identity provider attribute mappings for your user pool (AWS Management Console)
 
 You can use the AWS Management Console to specify attribute mappings for the IdP your user
 pool.
@@ -154,8 +150,7 @@ repopulate from the incoming token.
    configured. Locate **Attribute mapping** and choose
    **Edit**.
 
-For more information about adding a social IdP, see [Using social identity providers with a
-user pool](cognito-user-pools-social-idp.md "cognito-user-pools-social-idp.md"). 5. For each attribute you need to map, complete the following steps:
+For more information about adding a social IdP, see [Using social identity providers with a user pool](cognito-user-pools-social-idp.md "cognito-user-pools-social-idp.md"). 5. For each attribute you need to map, complete the following steps:
 
     1. Select an attribute from the **User pool
      attribute** column. This is the attribute that is
@@ -181,8 +176,7 @@ user pool](cognito-user-pools-social-idp.md "cognito-user-pools-social-idp.md").
 4. Choose **Add an identity provider**, or choose the SAML
    IdP you have configured. Locate **Attribute mapping**, and
    choose **Edit**. For more information about adding a SAML
-   IdP, see [Using SAML identity providers with a user
-   pool](cognito-user-pools-saml-idp.md "cognito-user-pools-saml-idp.md").
+   IdP, see [Using SAML identity providers with a user pool](cognito-user-pools-saml-idp.md "cognito-user-pools-saml-idp.md").
 5. For each attribute you need to map, complete the following steps:
    1. Select an attribute from the **User pool
       attribute** column. This is the attribute that is
@@ -205,10 +199,7 @@ user pool](cognito-user-pools-social-idp.md "cognito-user-pools-social-idp.md").
 
 6. Choose **Save changes**.
 
-## Specifying
-
-identity provider attribute mappings for your user pool (AWS CLI and AWS
-API)
+## Specifying identity provider attribute mappings for your user pool (AWS CLI and AWS API)
 
 The following request body for [CreateIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.md") or [UpdateIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.md") maps the SAML provider "MyIdP" attributes
 `emailaddress`, `birthdate`, and `phone` to the

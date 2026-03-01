@@ -1,6 +1,4 @@
-# Multi-tenant application best
-
-practices
+# Multi-tenant application best practices
 
 Amazon Cognito user pools operate with multi-tenant applications that generate a volume of requests that
 must remain within Amazon Cognito quotas. To scale up this capacity when your customer base grows,
@@ -88,15 +86,9 @@ cookie.
 
 ###### Topics
 
-- [User-pool multi-tenancy best
-  practices](bp_user-pool-based-multi-tenancy.md "bp_user-pool-based-multi-tenancy.md")
-- [App-client multi-tenancy best
-  practices](application-client-based-multi-tenancy.md "application-client-based-multi-tenancy.md")
-- [User group multi-tenancy best
-  practices](group-based-multi-tenancy.md "group-based-multi-tenancy.md")
-- [Custom-attribute multi-tenancy
-  best practices](custom-attribute-based-multi-tenancy.md "custom-attribute-based-multi-tenancy.md")
-- [Custom scope multi-tenancy best
-  practices](scope-based-multi-tenancy.md "scope-based-multi-tenancy.md")
-- [Multi-tenancy security
-  recommendations](multi-tenancy-security-recommendations.md "multi-tenancy-security-recommendations.md")
+- [User-pool multi-tenancy best practices](bp_user-pool-based-multi-tenancy.md "bp_user-pool-based-multi-tenancy.md")
+- [App-client multi-tenancy best practices](application-client-based-multi-tenancy.md "application-client-based-multi-tenancy.md")
+- [User group multi-tenancy best practices](group-based-multi-tenancy.md "group-based-multi-tenancy.md")
+- [Custom-attribute multi-tenancy best practices](custom-attribute-based-multi-tenancy.md "custom-attribute-based-multi-tenancy.md")
+- [Custom scope multi-tenancy best practices](scope-based-multi-tenancy.md "scope-based-multi-tenancy.md")
+- [Multi-tenancy security recommendations](multi-tenancy-security-recommendations.md "multi-tenancy-security-recommendations.md")

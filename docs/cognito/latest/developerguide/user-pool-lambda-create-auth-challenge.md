@@ -1,6 +1,4 @@
-# Create Auth challenge Lambda
-
-trigger
+# Create Auth challenge Lambda trigger
 
 The create auth challenge trigger is a Lambda function that has the details of each
 challenge declared by the define auth challenge trigger. It processes the challenge name
@@ -28,14 +26,10 @@ The challenge loop will repeat until all challenges are answered.
 
 ###### Topics
 
-- [Create
-  Auth challenge Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-create-auth-challenge "#cognito-user-pools-lambda-trigger-syntax-create-auth-challenge")
-- [Create Auth
-  challenge example](#aws-lambda-triggers-create-auth-challenge-example "#aws-lambda-triggers-create-auth-challenge-example")
+- [Create Auth challenge Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-create-auth-challenge "#cognito-user-pools-lambda-trigger-syntax-create-auth-challenge")
+- [Create Auth challenge example](#aws-lambda-triggers-create-auth-challenge-example "#aws-lambda-triggers-create-auth-challenge-example")
 
-## Create
-
-Auth challenge Lambda trigger parameters
+## Create Auth challenge Lambda trigger parameters
 
 The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the
 [common parameters](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared") that Amazon Cognito adds to all requests.
@@ -150,9 +144,7 @@ for the question.
 Your name for the custom challenge, if this is a custom
 challenge.
 
-## Create Auth
-
-challenge example
+## Create Auth challenge example
 
 This function has two custom challenges that correspond to the challenge sequence in
 our [define auth

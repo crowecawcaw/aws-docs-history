@@ -1,6 +1,4 @@
-# OIDC user pool IdP authentication
-
-flow
+# OIDC user pool IdP authentication flow
 
 With OpenID Connect (OIDC) sign-in, your user pool automates an authorization-code
 sign-in flow with your identity provider (IdP). After your user completes sign-in

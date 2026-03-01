@@ -34,8 +34,7 @@ method.
 When you have an AWS WAF web ACL associated with a user pool, and a rule in your web
 ACL presents a CAPTCHA, this can cause an unrecoverable error in managed login TOTP
 registration. To create a rule that has a CAPTCHA action and doesn't affect managed login
-TOTP, see [Configuring your AWS WAF web ACL for managed login TOTP
-MFA](#totp-waf "#totp-waf"). For more information about
+TOTP, see [Configuring your AWS WAF web ACL for managed login TOTP MFA](#totp-waf "#totp-waf"). For more information about
 AWS WAF web ACLs and Amazon Cognito, see [Associate an AWS WAF web ACL with a user pool](user-pool-waf.md "user-pool-waf.md").
 
 To implement TOTP MFA in a custom-built UI with an AWS SDK and the [Amazon Cognito user pools API](../../../cognito-user-identity-pools/latest/APIReference/Welcome.md "../../../cognito-user-identity-pools/latest/APIReference/Welcome.md"), see [Configuring TOTP MFA for a user](#totp-mfa-set-up-api "#totp-mfa-set-up-api").
@@ -79,20 +78,16 @@ configures their authenticator app and provides a TOTP for subsequent sign-in at
 Your app or managed login presents the TOTP to Amazon Cognito in MFA challenge responses.
 
 Under some circumstances, managed login prompts new users to set up a TOTP
-authenticator. for more information, see [Details of MFA logic at user
-runtime](user-pool-settings-mfa.md#user-pool-settings-mfa-user-outcomes "user-pool-settings-mfa.md#user-pool-settings-mfa-user-outcomes").
+authenticator. for more information, see [Details of MFA logic at user runtime](user-pool-settings-mfa.md#user-pool-settings-mfa-user-outcomes "user-pool-settings-mfa.md#user-pool-settings-mfa-user-outcomes").
 
 ###### Topics
 
-- [Associate the TOTP
-  software token](#user-pool-settings-mfa-totp-associate-token "#user-pool-settings-mfa-totp-associate-token")
+- [Associate the TOTP software token](#user-pool-settings-mfa-totp-associate-token "#user-pool-settings-mfa-totp-associate-token")
 - [Verify the TOTP token](#user-pool-settings-mfa-totp-verification "#user-pool-settings-mfa-totp-verification")
 - [Sign in with TOTP MFA](#user-pool-settings-mfa-totp-sign-in "#user-pool-settings-mfa-totp-sign-in")
 - [Remove the TOTP token](#user-pool-settings-mfa-totp-remove "#user-pool-settings-mfa-totp-remove")
 
-### Associate the TOTP
-
-software token
+### Associate the TOTP software token
 
 To associate the TOTP token, send your user a secret code that they must validate
 with a one-time password. Associating the token requires three steps.
@@ -161,9 +156,7 @@ MFA.
 3. In your app, communicate to your user that they have deactivated MFA and prompt
    them to sign in again.
 
-## Configuring your AWS WAF web ACL for managed login TOTP
-
-MFA
+## Configuring your AWS WAF web ACL for managed login TOTP MFA
 
 When you have an AWS WAF web ACL associated with a user pool, and a rule in your web
 ACL presents a CAPTCHA, this can cause an unrecoverable error in managed login TOTP

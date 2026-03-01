@@ -1,6 +1,4 @@
-# SAML signing and
-
-encryption
+# SAML signing and encryption
 
 SAML 2.0 sign-in is built around the user of an application as a bearer of
 requests and responses in their authentication flow. You might want to ensure that
@@ -30,13 +28,10 @@ practice, update the certificate in your provider configuration annually.
 
 ###### Topics
 
-- [Accepting encrypted SAML
-  responses from your IdP](#cognito-user-pools-SAML-encryption "#cognito-user-pools-SAML-encryption")
+- [Accepting encrypted SAML responses from your IdP](#cognito-user-pools-SAML-encryption "#cognito-user-pools-SAML-encryption")
 - [Signing SAML requests](#cognito-user-pools-SAML-signing "#cognito-user-pools-SAML-signing")
 
-## Accepting encrypted SAML
-
-responses from your IdP
+## Accepting encrypted SAML responses from your IdP
 
 Amazon Cognito and your IdP can establish confidentiality in SAML responses when users
 sign in and sign out. Amazon Cognito assigns a public-private RSA key pair and a

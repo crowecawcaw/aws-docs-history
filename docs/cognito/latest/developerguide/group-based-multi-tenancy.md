@@ -1,6 +1,4 @@
-# User group multi-tenancy best
-
-practices
+# User group multi-tenancy best practices
 
 Group-based multi-tenancy works best when your architecture requires Amazon Cognito user pools
 with identity pools.

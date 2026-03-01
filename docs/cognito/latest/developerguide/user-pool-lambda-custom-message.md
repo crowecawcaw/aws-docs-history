@@ -30,12 +30,9 @@ practice, reference the input values instead of hardcoding the variable names.
 ###### Topics
 
 - [Custom message Lambda trigger sources](#cognito-user-pools-lambda-trigger-syntax-custom-message-trigger-source "#cognito-user-pools-lambda-trigger-syntax-custom-message-trigger-source")
-- [Custom message
-  Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-custom-message "#cognito-user-pools-lambda-trigger-syntax-custom-message")
-- [Custom message for sign-up
-  example](#aws-lambda-triggers-custom-message-example "#aws-lambda-triggers-custom-message-example")
-- [Custom message for
-  admin create user example](#aws-lambda-triggers-custom-message-admin-example "#aws-lambda-triggers-custom-message-admin-example")
+- [Custom message Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-custom-message "#cognito-user-pools-lambda-trigger-syntax-custom-message")
+- [Custom message for sign-up example](#aws-lambda-triggers-custom-message-example "#aws-lambda-triggers-custom-message-example")
+- [Custom message for admin create user example](#aws-lambda-triggers-custom-message-admin-example "#aws-lambda-triggers-custom-message-admin-example")
 
 ## Custom message Lambda trigger sources
 
@@ -49,9 +46,7 @@ practice, reference the input values instead of hardcoding the variable names.
 | `CustomMessage_VerifyUserAttribute` | Custom message – This trigger sends a verification code to the user<br>when they manually request it for a new email or phone number.                                         |
 | `CustomMessage_Authentication`      | Custom message – To send MFA code during authentication.                                                                                                                      |
 
-## Custom message
-
-Lambda trigger parameters
+## Custom message Lambda trigger parameters
 
 The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the
 [common parameters](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared") that Amazon Cognito adds to all requests.
@@ -158,9 +153,7 @@ The `EmailSendingAccount` attribute of a user pool is
 send email messages. Otherwise, the value is
 `COGNITO_DEFAULT`.
 
-## Custom message for sign-up
-
-example
+## Custom message for sign-up example
 
 This example Lambda function customizes an email or SMS message when the service
 requires an app to send a verification code to the user.
@@ -232,9 +225,7 @@ JSON
 }
 ```
 
-## Custom message for
-
-admin create user example
+## Custom message for admin create user example
 
 The request that Amazon Cognito sent to this example custom message Lambda function has a
 `triggerSource` value of `CustomMessage_AdminCreateUser` and a

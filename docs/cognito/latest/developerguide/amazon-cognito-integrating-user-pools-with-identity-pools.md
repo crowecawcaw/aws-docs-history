@@ -1,6 +1,4 @@
-# Accessing
-
-AWS services using an identity pool after sign-in
+# Accessing AWS services using an identity pool after sign-in
 
 After your users sign in with a user pool, they can access AWS services with temporary
 API credentials that are issued from an identity pool.
@@ -58,8 +56,7 @@ with one or more user pools and client apps.
       set up when you configured your **Authenticated role**, or you can
       **Choose role with rules**. With an Amazon Cognito user pool IdP, you can
       also **Choose role with preferred_role claim in tokens**. For more
-      information about the `cognito:preferred_role` claim, see [Assigning precedence values to
-      groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
+      information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
       1. If you chose **Choose role with rules**, enter the source
          **Claim** from your user's authentication, the
          **Operator** that you want to use to compare the claim to the

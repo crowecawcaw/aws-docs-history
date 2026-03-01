@@ -1,6 +1,4 @@
-# The managed login sign-in endpoint:
-
-`/login`
+# The managed login sign-in endpoint: `/login`
 
 The login endpoint is an authentication server and a redirect destination from
 [Authorize endpoint](authorization-endpoint.md "authorization-endpoint.md").

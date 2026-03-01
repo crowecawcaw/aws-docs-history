@@ -1,6 +1,4 @@
-# Application-specific settings with app
-
-clients
+# Application-specific settings with app clients
 
 A user pool app client is a configuration within a user pool that interacts with one mobile
 or web application that authenticates with Amazon Cognito. App clients can call authenticated and
@@ -59,9 +57,14 @@ API requests to the app client. Your app client must have a client secret to per
 `client_credentials` grants. For more information, see [IETF RFC 6749
 #2.3.1](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1 "https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1").
 
-You can't change secrets after you create an app. You can create a new app with a
-new secret if you want to rotate the secret. You can also delete an app to block access
-from apps that use that app client ID.
+Each app client can have up to two secrets at a time, enabling secret rotation without
+downtime. When you create an app client, you can either let Amazon Cognito generate a secret
+value or provide your own custom secret value. You can't change secrets after you create an app.
+You can add a second secret with the [AddUserPoolClientSecret](../../../cognito-user-identity-pools/latest/APIReference/API_AddUserPoolClientSecret.md "../../../cognito-user-identity-pools/latest/APIReference/API_AddUserPoolClientSecret.md") API operation to rotate secrets. When you add a secret,
+you can either let Amazon Cognito generate a secret value or provide your own custom secret value.
+To delete a secret, use the [DeleteUserPoolClientSecret](../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserPoolClientSecret.md "../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserPoolClientSecret.md") API operation. You cannot delete the only secret
+associated with an app client. You can also delete an app to block access from apps that use
+that app client ID.
 
 ###### Note
 
@@ -85,8 +88,7 @@ A verifiable statement that your user is authenticated from your user pool. Open
 Connect (OIDC) added the [ID token
 specification](https://openid.net/specs/openid-connect-core-1_0.html#IDToken "https://openid.net/specs/openid-connect-core-1_0.html#IDToken") to the access and refresh token standards defined by OAuth 2.0.
 The ID token contains identity information, like user attributes, that your app can use
-to create a user profile and provision resources. See [Understanding the identity (ID)
-token](amazon-cognito-user-pools-using-the-id-token.md "amazon-cognito-user-pools-using-the-id-token.md") for more information.
+to create a user profile and provision resources. See [Understanding the identity (ID) token](amazon-cognito-user-pools-using-the-id-token.md "amazon-cognito-user-pools-using-the-id-token.md") for more information.
 
 **Access token**
 
@@ -96,8 +98,7 @@ a feature of OIDC and OAuth 2.0. Your app can present scopes to back-end resourc
 prove that your user pool authorized a user or machine to access data from an API, or
 their own user data. An access token with _custom
 scopes_, often from an M2M client-credentials grant, authorizes access to a
-resource server. See [Understanding the access
-token](amazon-cognito-user-pools-using-the-access-token.md "amazon-cognito-user-pools-using-the-access-token.md") for more
+resource server. See [Understanding the access token](amazon-cognito-user-pools-using-the-access-token.md "amazon-cognito-user-pools-using-the-access-token.md") for more
 information.
 
 **Refresh token**
@@ -173,8 +174,7 @@ custom-built applications.
 A custom scope is one that you define for your own resource server in the
 **Resource Servers**. The format is
 `resource-server-identifier`/`scope`.
-See [Scopes, M2M, and resource
-servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
+See [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
 
 **Default redirect URI**
 
@@ -199,8 +199,7 @@ authenticate your users. Your app client can also authenticate only local users 
 user pool. When you add an IdP to your app client, you can generate authorization links
 to the IdP and display it on your managed login sign-in page. You can assign multiple
 IdPs, but you must assign at least one. For more information on using external IdPs, see
-[User pool sign-in with third party
-identity providers](cognito-user-pools-identity-federation.md "cognito-user-pools-identity-federation.md").
+[User pool sign-in with third party identity providers](cognito-user-pools-identity-federation.md "cognito-user-pools-identity-federation.md").
 
 **OpenID Connect scopes**
 
@@ -295,15 +294,12 @@ scope is one that you define for your own resource server. Default scopes like
 `openid` and `profile` don't apply to nonhuman users.
 
 Because ID tokens are a validation of user attributes, they aren't relevant to M2M
-communication, and a client credentials grants doesn't issue them. See [Scopes, M2M, and resource
-servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
+communication, and a client credentials grants doesn't issue them. See [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
 
 Client credentials grants add costs to your AWS bill. For more information, see
 [Amazon Cognito Pricing](https://aws.amazon.com/cognito/pricing "https://aws.amazon.com/cognito/pricing").
 
-## Creating an app
-
-client
+## Creating an app client
 
 AWS Management Console
 
@@ -346,9 +342,7 @@ Amazon Cognito user pools API
 Generate a [CreateUserPoolClient](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md") API request. You must specify a
 value for all parameters that you don't want set to a default value.
 
-## Updating
-
-a user pool app client (AWS CLI and AWS API)
+## Updating a user pool app client (AWS CLI and AWS API)
 
 At the AWS CLI, enter the following command:
 
@@ -401,9 +395,7 @@ See the AWS CLI command reference for more information: [describe-user-pool-clie
 
 AWS API: [DescribeUserPoolClient](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.md")
 
-## Listing
-
-all app client information in a user pool (AWS CLI and AWS API)
+## Listing all app client information in a user pool (AWS CLI and AWS API)
 
 ```
 aws cognito-idp list-user-pool-clients --user-pool-id "`MyUserPoolID`" --max-results 3
@@ -413,9 +405,7 @@ See the AWS CLI command reference for more information: [list-user-pool-clients]
 
 AWS API: [ListUserPoolClients](../../../cognito-user-identity-pools/latest/APIReference/API_ListUserPoolClients.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListUserPoolClients.md")
 
-## Deleting
-
-a user pool app client (AWS CLI and AWS API)
+## Deleting a user pool app client (AWS CLI and AWS API)
 
 ```
 aws cognito-idp delete-user-pool-client --user-pool-id "`MyUserPoolID`" --client-id "`MyAppClientID`"

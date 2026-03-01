@@ -11,9 +11,7 @@ non-confidential headers and contents of requests from your users to AWS WAF. AW
 contents of the request, compares it to the rules that you specified in your web ACL, and
 returns a response to Amazon Cognito.
 
-## Things to know about AWS WAF web ACLs and
-
-Amazon Cognito
+## Things to know about AWS WAF web ACLs and Amazon Cognito
 
 - You can't configure web ACL rules to match on personally identifiable information
   (PII) in user pool requests, for example usernames, passwords, phone numbers, or email
@@ -44,23 +42,20 @@ Amazon Cognito
 - When you have an AWS WAF web ACL associated with a user pool, and a rule in your
   web ACL presents a CAPTCHA, this can cause an unrecoverable error in managed login TOTP
   registration. To create a rule that has a CAPTCHA action and doesn't affect managed
-  login TOTP, see [Configuring your AWS WAF web ACL for managed login TOTP
-  MFA](user-pool-settings-mfa-totp.md#totp-waf "user-pool-settings-mfa-totp.md#totp-waf").
+  login TOTP, see [Configuring your AWS WAF web ACL for managed login TOTP MFA](user-pool-settings-mfa-totp.md#totp-waf "user-pool-settings-mfa-totp.md#totp-waf").
 
 AWS WAF inspects requests to the following endpoints.
 
 **Managed login and the classic hosted UI**
 
-Requests to all endpoints in the [User pool endpoints and
-managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md").
+Requests to all endpoints in the [User pool endpoints and managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md").
 
 **Public API operations**
 
 Requests from your app to the Amazon Cognito API that don't use AWS credentials to
 authorize. This includes API operations like [InitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md"), [RespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md"), and [GetUser](../../../cognito-user-identity-pools/latest/APIReference/API_GetUser.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetUser.md"). The API operations that are in scope of AWS WAF don't require
 authentication with AWS credentials. They are unauthenticated, or authorized with a
-session string or access token. For more information, see [List of API operations grouped by authorization
-model](authentication-flows-public-server-side.md#user-pool-apis-auth-unauth "authentication-flows-public-server-side.md#user-pool-apis-auth-unauth").
+session string or access token. For more information, see [List of API operations grouped by authorization model](authentication-flows-public-server-side.md#user-pool-apis-auth-unauth "authentication-flows-public-server-side.md#user-pool-apis-auth-unauth").
 
 You can configure the rules in your web ACL with rule actions that
 **Count**, **Allow**, **Block**, or
@@ -144,9 +139,7 @@ Though you must grant IAM permissions, the listed actions are permission-only an
 don't correspond to any [API
 operation](../../../cognito-user-identity-pools/latest/APIReference/Welcome.md "../../../cognito-user-identity-pools/latest/APIReference/Welcome.md").
 
-###### To activate AWS WAF for your user pool and associate
-
-a web ACL
+###### To activate AWS WAF for your user pool and associate a web ACL
 
 1. Sign in to the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home") .
 2. In the navigation pane, choose **User Pools**, and choose the user
@@ -164,9 +157,7 @@ To programmatically associate a web ACL with your user pool in the AWS Command L
 use [AssociateWebACL](../../../waf/latest/APIReference/API_AssociateWebACL.md "../../../waf/latest/APIReference/API_AssociateWebACL.md") from the AWS WAF API. Amazon Cognito doesn't have a separate API operation
 that associates a web ACL.
 
-## Testing and logging AWS WAF web
-
-ACLs
+## Testing and logging AWS WAF web ACLs
 
 When you set a rule action to **Count** in your web ACL, AWS WAF adds the
 request to a count of requests that match the rule. To test a web ACL with your user pool,

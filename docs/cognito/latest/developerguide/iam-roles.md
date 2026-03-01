@@ -116,9 +116,7 @@ JSON
 
 ```
 
-### Trust policies for IAM roles in Basic (Classic)
-
-authentication
+### Trust policies for IAM roles in Basic (Classic) authentication
 
 ###### Summary
 
@@ -289,9 +287,7 @@ Among the parameters in this request, Amazon Cognito includes the following.
 4. A `PolicyArns.member.N` parameter whose value is an _AWS managed policy_ that grants additional permissions in
    Amazon CloudWatch.
 
-### Services that unauthenticated users
-
-can access
+### Services that unauthenticated users can access
 
 When you use the enhanced flow, the scope-down policies that Amazon Cognito applies to your
 user's session prevent them from using any services other than those listed in the
@@ -332,9 +328,7 @@ To grant access to AWS services beyond this list, activate the **basic
 policies assigned to the IAM role for unauthenticated users, evaluate whether you can
 remove that service from your use case. If you can't, switch to the basic flow.
 
-### The inline session policy for guest
-
-users
+### The inline session policy for guest users
 
 Amazon Cognito first applies an inline policy in the request for IAM credentials. The inline
 session policy restricts your user's effective permissions from including access to any
@@ -346,8 +340,7 @@ Guide_.
 
 Amazon Cognito adds the following inline policy to sessions for your users in AWS Regions
 that are enabled by default. For an overview of the net effect of the inline policy and
-other session policies, see [Services that unauthenticated users
-can access](#access-policies-scope-down-services "#access-policies-scope-down-services").
+other session policies, see [Services that unauthenticated users can access](#access-policies-scope-down-services "#access-policies-scope-down-services").
 
 JSON
 
@@ -412,9 +405,7 @@ default Regions except for the following `Action` statements.
                 "sdb:*"
 ```
 
-### The AWS managed session policy for
-
-guests
+### The AWS managed session policy for guests
 
 Amazon Cognito also applies an AWS managed policy as a session policy to the enhanced-flow
 sessions of unauthenticated guests. This policy limits the scope of unauthenticated users'
@@ -428,8 +419,7 @@ For more information, see [Session
 policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _AWS Identity and Access Management User Guide_.
 
 For an overview of the net effect of this AWS managed policy and other session
-policies, see [Services that unauthenticated users
-can access](#access-policies-scope-down-services "#access-policies-scope-down-services").
+policies, see [Services that unauthenticated users can access](#access-policies-scope-down-services "#access-policies-scope-down-services").
 
 The `AmazonCognitoUnAuthedIdentitiesSessionPolicy` managed policy has the
 following permissions.
@@ -511,9 +501,7 @@ JSON
 
 ```
 
-###### Grant an identity both read and write access to identity specific paths in
-
-Amazon S3
+###### Grant an identity both read and write access to identity specific paths in Amazon S3
 
 The following access policy grants read and write permissions to access a specific
 prefix "folder" in an S3 bucket by mapping the prefix to the

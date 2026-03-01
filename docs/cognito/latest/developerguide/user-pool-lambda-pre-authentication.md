@@ -1,6 +1,4 @@
-# Pre authentication Lambda
-
-trigger
+# Pre authentication Lambda trigger
 
 Amazon Cognito invokes this trigger when a user attempts to sign in so that you can create custom
 validation that performs preparatory actions. For example, you can deny the authentication
@@ -16,10 +14,8 @@ activate this trigger.
 ###### Topics
 
 - [Flow overview](#user-pool-lambda-pre-authentication-1 "#user-pool-lambda-pre-authentication-1")
-- [Pre authentication
-  Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-pre-auth "#cognito-user-pools-lambda-trigger-syntax-pre-auth")
-- [Pre authentication
-  example](#aws-lambda-triggers-pre-authentication-example "#aws-lambda-triggers-pre-authentication-example")
+- [Pre authentication Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-pre-auth "#cognito-user-pools-lambda-trigger-syntax-pre-auth")
+- [Pre authentication example](#aws-lambda-triggers-pre-authentication-example "#aws-lambda-triggers-pre-authentication-example")
 
 ## Flow overview
 
@@ -29,12 +25,9 @@ The request includes client validation data from the `ClientMetadata`
 values that your app passes to the user pool `InitiateAuth` and
 `AdminInitiateAuth` API operations.
 
-For more information, see [An example authentication
-session](authentication.md#amazon-cognito-user-pools-authentication-flow "authentication.md#amazon-cognito-user-pools-authentication-flow").
+For more information, see [An example authentication session](authentication.md#amazon-cognito-user-pools-authentication-flow "authentication.md#amazon-cognito-user-pools-authentication-flow").
 
-## Pre authentication
-
-Lambda trigger parameters
+## Pre authentication Lambda trigger parameters
 
 The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the
 [common parameters](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared") that Amazon Cognito adds to all requests.
@@ -58,9 +51,7 @@ JSON
 }
 ```
 
-### Pre
-
-authentication request parameters
+### Pre authentication request parameters
 
 **userAttributes**
 
@@ -78,17 +69,13 @@ One or more key-value pairs that contain the validation data in the
 user's sign-in request. To pass this data to your Lambda function, use
 the ClientMetadata parameter in the [InitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md") and [AdminInitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md") API actions.
 
-### Pre
-
-authentication response parameters
+### Pre authentication response parameters
 
 Amazon Cognito doesn't process any added information that your function returns in the
 response. Your function can return an error to reject the sign-in attempt, or use
 API operations to query and modify your resources.
 
-## Pre authentication
-
-example
+## Pre authentication example
 
 This example function prevents users from signing in to your user pool with a specific
 app client. Because the pre authentication Lambda function doesn't invoke when your user

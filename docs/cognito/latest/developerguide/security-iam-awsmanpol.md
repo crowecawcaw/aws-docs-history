@@ -53,12 +53,9 @@ it limits the scope of permissions that you can apply to guest users in the iden
 - `AmazonCognitoUnAuthedIdentitiesSessionPolicy` - In combination with an
   inline session policy, limits the permissions that IAM administrators can grant to
   identity pool guest users. Amazon Cognito automatically applies this policy to guest sessions.
-  For more information, see [The AWS managed session policy for
-  guests](iam-roles.md#access-policies-managed-policy "iam-roles.md#access-policies-managed-policy").
+  For more information, see [The AWS managed session policy for guests](iam-roles.md#access-policies-managed-policy "iam-roles.md#access-policies-managed-policy").
 
-## Amazon Cognito updates to AWS managed
-
-policies
+## Amazon Cognito updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Cognito since this service began
 tracking these changes. For automatic alerts about changes to this page, subscribe to the

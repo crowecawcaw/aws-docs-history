@@ -1,6 +1,4 @@
-# Managed login and federation error
-
-responses
+# Managed login and federation error responses
 
 A sign-in process in managed login or federated sign-in might return an error. The
 following are some conditions that can cause authentication to end with an error.

@@ -49,8 +49,7 @@ template.
 
 AWS End User Messaging SMS charges for SMS messages. For more information, see [AWS End User Messaging SMS pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").
 
-To learn more about MFA, see [SMS and email message
-MFA](user-pool-settings-mfa-sms-email-message.md "user-pool-settings-mfa-sms-email-message.md").
+To learn more about MFA, see [SMS and email message MFA](user-pool-settings-mfa-sms-email-message.md "user-pool-settings-mfa-sms-email-message.md").
 
 Amazon Cognito might prevent delivery of additional email or SMS messages to a single destination
 in a short time period. If you believe your user pool is affected, configure and review
@@ -70,8 +69,7 @@ MMS country capabilities and limitations](../../../sms-voice/latest/userguide/ph
 The use of SMS messages to authenticate and verify users isn't a security best
 practice. Phone numbers can change owners, and might not reliably represent a _something you have_ factor of MFA for your users. Instead,
 implement TOTP MFA in your app or with your third-party IdP. You can also create
-additional custom authentication factors with [Custom authentication challenge Lambda
-triggers](user-pool-lambda-challenge.md "user-pool-lambda-challenge.md").
+additional custom authentication factors with [Custom authentication challenge Lambda triggers](user-pool-lambda-challenge.md "user-pool-lambda-challenge.md").
 
 Review the following links for information about securing your SMS message delivery
 architecture.
@@ -81,9 +79,7 @@ architecture.
 - [Defending Against SMS Pumping: New AWS Features to Help Combat
   Artificially Inflated Traffic](https://aws.amazon.com/blogs/messaging-and-targeting/defending-against-sms-pumping-new-aws-features-to-help-combat-artificially-inflated-traffic/ "https://aws.amazon.com/blogs/messaging-and-targeting/defending-against-sms-pumping-new-aws-features-to-help-combat-artificially-inflated-traffic/")
 
-## Setting up SMS messaging for the
-
-first time in Amazon Cognito user pools
+## Setting up SMS messaging for the first time in Amazon Cognito user pools
 
 Amazon Cognito uses Amazon SNS, and indirectly AWS End User Messaging SMS, to send SMS messages from your user pools.
 You can also use a [Custom SMS sender Lambda trigger](user-pool-lambda-custom-sms-sender.md "user-pool-lambda-custom-sms-sender.md") to use your own resources to
@@ -98,24 +94,15 @@ can't send messages to your users' phone numbers.
 
 ###### Topics
 
-- [Prepare an IAM role that Amazon Cognito can use to send
-  SMS messages with AWS End User Messaging SMS](#sms-create-a-role "#sms-create-a-role")
-- [Choose the AWS Region for SMS
-  messages](#sms-choose-a-region "#sms-choose-a-region")
-- [Obtain an
-  origination identity to send SMS messages to US phone numbers](#user-pool-sms-settings-first-time-origination "#user-pool-sms-settings-first-time-origination")
-- [Confirm that you
-  are in the SMS sandbox](#user-pool-sms-settings-first-time-confirm-sandbox "#user-pool-sms-settings-first-time-confirm-sandbox")
-- [Move your account
-  out of the sandbox](#user-pool-sms-settings-first-time-out-sandbox "#user-pool-sms-settings-first-time-out-sandbox")
-- [Use simulator
-  numbers or verified phone numbers with AWS End User Messaging SMS](#user-pool-sms-settings-first-time-verify-numbers "#user-pool-sms-settings-first-time-verify-numbers")
-- [Complete user
-  pool setup in Amazon Cognito](#user-pool-sms-settings-first-time-finish-user-pool "#user-pool-sms-settings-first-time-finish-user-pool")
+- [Prepare an IAM role that Amazon Cognito can use to send SMS messages with AWS End User Messaging SMS](#sms-create-a-role "#sms-create-a-role")
+- [Choose the AWS Region for SMS messages](#sms-choose-a-region "#sms-choose-a-region")
+- [Obtain an origination identity to send SMS messages to US phone numbers](#user-pool-sms-settings-first-time-origination "#user-pool-sms-settings-first-time-origination")
+- [Confirm that you are in the SMS sandbox](#user-pool-sms-settings-first-time-confirm-sandbox "#user-pool-sms-settings-first-time-confirm-sandbox")
+- [Move your account out of the sandbox](#user-pool-sms-settings-first-time-out-sandbox "#user-pool-sms-settings-first-time-out-sandbox")
+- [Use simulator numbers or verified phone numbers with AWS End User Messaging SMS](#user-pool-sms-settings-first-time-verify-numbers "#user-pool-sms-settings-first-time-verify-numbers")
+- [Complete user pool setup in Amazon Cognito](#user-pool-sms-settings-first-time-finish-user-pool "#user-pool-sms-settings-first-time-finish-user-pool")
 
-### Prepare an IAM role that Amazon Cognito can use to send
-
-SMS messages with AWS End User Messaging SMS
+### Prepare an IAM role that Amazon Cognito can use to send SMS messages with AWS End User Messaging SMS
 
 When you send an SMS message from your user pool, Amazon Cognito assumes an IAM role in
 your account. Amazon Cognito uses the `sns:Publish` permission assigned to that
@@ -177,15 +164,12 @@ you use an existing IAM role.
 You must update the user pool `ExternalId` parameter in an [UpdateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md") API request and update the IAM role trust policy with an
 `sts:externalId` condition with the same value. To learn how to use
 the API to update a user pool in a way that preserves the original configuration,
-see [Updating user pool and app client
-configuration](cognito-user-pool-updating.md "cognito-user-pool-updating.md").
+see [Updating user pool and app client configuration](cognito-user-pool-updating.md "cognito-user-pool-updating.md").
 
 For more information about IAM roles and trust policies, see [Roles terms and concepts](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md") in the _AWS Identity and Access Management User
 Guide_.
 
-### Choose the AWS Region for SMS
-
-messages
+### Choose the AWS Region for SMS messages
 
 ###### Note
 
@@ -264,9 +248,7 @@ Region**.
 | Israel (Tel Aviv)         | Israel (Tel Aviv)                               |
 | Africa (Cape Town)        | Africa (Cape Town)                              |
 
-### Obtain an
-
-origination identity to send SMS messages to US phone numbers
+### Obtain an origination identity to send SMS messages to US phone numbers
 
 If you plan to send SMS text messages to US phone numbers, you must obtain an
 origination identity, regardless of whether you build an SMS sandbox testing
@@ -284,9 +266,7 @@ short code, 10DLC, toll-free number. You can't change this priority. For more
 information, see [AWS End User Messaging SMS
 FAQs](https://aws.amazon.com/end-user-messaging/faqs/ "https://aws.amazon.com/end-user-messaging/faqs/").
 
-### Confirm that you
-
-are in the SMS sandbox
+### Confirm that you are in the SMS sandbox
 
 Use the following procedure to confirm that you are in the SMS sandbox. Repeat for
 each AWS Region where you have production Amazon Cognito user pools.
@@ -309,8 +289,7 @@ each AWS Region where you have production Amazon Cognito user pools.
 SMS message setup**
 
 If you don’t see this message, then someone has set up SMS
-messages in your account already. Skip to [Complete user
-pool setup in Amazon Cognito](#user-pool-sms-settings-first-time-finish-user-pool "#user-pool-sms-settings-first-time-finish-user-pool"). 6. Choose the [Amazon SNS](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home") link
+messages in your account already. Skip to [Complete user pool setup in Amazon Cognito](#user-pool-sms-settings-first-time-finish-user-pool "#user-pool-sms-settings-first-time-finish-user-pool"). 6. Choose the [Amazon SNS](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home") link
 under **Move to Amazon SNS production
 environment**. This opens the Amazon SNS console in a new
 tab. 7. Verify that you are in the sandbox environment. The console
@@ -320,9 +299,7 @@ follows:
 `This account is in the SMS sandbox in
  US East (N. Virginia).`
 
-### Move your account
-
-out of the sandbox
+### Move your account out of the sandbox
 
 To use your app in production, move your account out of the SMS sandbox and into
 production. After you have configured an origination identity in the AWS Region
@@ -335,9 +312,7 @@ You can create a request to exit the sandbox from either the AWS End User Messag
 the Amazon SNS console. For detailed instructions, see [Moving from the SMS Sandbox](../../../sms-voice/latest/userguide/sandbox.md#sandbox-sms-move-to-production "../../../sms-voice/latest/userguide/sandbox.md#sandbox-sms-move-to-production") in the _AWS End User Messaging SMS
 User Guide_.
 
-### Use simulator
-
-numbers or verified phone numbers with AWS End User Messaging SMS
+### Use simulator numbers or verified phone numbers with AWS End User Messaging SMS
 
 If you have moved your account out of the SMS sandbox, skip this step.
 
@@ -354,9 +329,7 @@ information, see [Simulator phone
 numbers](../../../sms-voice/latest/userguide/test-phone-numbers.md "../../../sms-voice/latest/userguide/test-phone-numbers.md") in the _AWS End User Messaging SMS User
 Guide_.
 
-### Complete user
-
-pool setup in Amazon Cognito
+### Complete user pool setup in Amazon Cognito
 
 Return to the browser tab where you were creating or [editing](signing-up-users-in-your-app.md#verification-configure "signing-up-users-in-your-app.md#verification-configure") your user pool. Complete the
 procedure. When you have successfully added SMS configuration to your user pool,

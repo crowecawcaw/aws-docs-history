@@ -1,6 +1,4 @@
-# Using Amazon Pinpoint for user pool
-
-analytics
+# Using Amazon Pinpoint for user pool analytics
 
 ###### Note
 
@@ -29,8 +27,7 @@ creates additional endpoints for user email addresses and phone numbers.
 When you activate Amazon Pinpoint analytics in your user pool with the Amazon Cognito console, you also
 create a [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") that Amazon Cognito assumes when it makes an API request to Amazon Pinpoint
 for your user pool. The IAM principal that adds your analytics configuration must have
-[CreateServiceLinkedRole](../../../IAM/latest/APIReference/API_CreateServiceLinkedRole.md "../../../IAM/latest/APIReference/API_CreateServiceLinkedRole.md") permissions. The service-linked role is [AWSServiceRoleForAmazonCognitoIdp](https://console.aws.amazon.com/iamv2/home?region=us-east-1#/roles/details/AWSServiceRoleForAmazonCognitoIdp "https://console.aws.amazon.com/iamv2/home?region=us-east-1#/roles/details/AWSServiceRoleForAmazonCognitoIdp"). For more information, see [Using service-linked roles for
-Amazon Cognito](using-service-linked-roles.md "using-service-linked-roles.md").
+[CreateServiceLinkedRole](../../../IAM/latest/APIReference/API_CreateServiceLinkedRole.md "../../../IAM/latest/APIReference/API_CreateServiceLinkedRole.md") permissions. The service-linked role is [AWSServiceRoleForAmazonCognitoIdp](https://console.aws.amazon.com/iamv2/home?region=us-east-1#/roles/details/AWSServiceRoleForAmazonCognitoIdp "https://console.aws.amazon.com/iamv2/home?region=us-east-1#/roles/details/AWSServiceRoleForAmazonCognitoIdp"). For more information, see [Using service-linked roles for Amazon Cognito](using-service-linked-roles.md "using-service-linked-roles.md").
 
 When you apply an `AnalyticsConfiguration` to your app client in the Amazon Cognito API,
 you can assign a custom IAM role for Amazon Pinpoint and an external ID to assume the role. The role
@@ -42,9 +39,7 @@ for your **Amazon Pinpoint project**.
 - `mobiletargeting:UpdateEndpoint`
 - `mobiletargeting:PutEvents`
 
-## Amazon Cognito and Amazon Pinpoint Region
-
-availability
+## Amazon Cognito and Amazon Pinpoint Region availability
 
 The following table shows the AWS Region mappings between Amazon Cognito and Amazon Pinpoint that meet
 one of the following conditions.
@@ -102,15 +97,12 @@ Region where you built your user pool, and it's not listed in the table, then Am
 doesn't support Amazon Pinpoint analytics in that Region. For detailed AWS Region
 information, see [Amazon Pinpoint endpoints and quotas](../../../general/latest/gr/pinpoint.md "../../../general/latest/gr/pinpoint.md").
 
-### Specifying Amazon Pinpoint
-
-analytics settings (AWS Management Console)
+### Specifying Amazon Pinpoint analytics settings (AWS Management Console)
 
 You can configure your Amazon Cognito user pool to send analytics data to Amazon Pinpoint. Amazon Cognito only
 sends analytics data to Amazon Pinpoint for local users. After you configure your user pool to
 associate with a Amazon Pinpoint project, you must include `AnalyticsMetadata` in
-your API requests. For more information, see [Integrating your app
-with Amazon Pinpoint](#cognito-user-pools-pinpoint-integration-client "#cognito-user-pools-pinpoint-integration-client").
+your API requests. For more information, see [Integrating your app with Amazon Pinpoint](#cognito-user-pools-pinpoint-integration-client "#cognito-user-pools-pinpoint-integration-client").
 
 ###### To specify analytics settings
 
@@ -151,23 +143,17 @@ which you can send push notifications with Amazon Pinpoint. For more information
 about endpoints, see [Adding
 endpoints](../../../pinpoint/latest/developerguide/endpoints.md "../../../pinpoint/latest/developerguide/endpoints.md") in the _Amazon Pinpoint Developer Guide_. 8. Choose **Save changes**.
 
-### Specifying Amazon Pinpoint
-
-analytics settings (AWS CLI and AWS API)
+### Specifying Amazon Pinpoint analytics settings (AWS CLI and AWS API)
 
 Use the following commands to specify Amazon Pinpoint analytics settings for your user
 pool.
 
-###### To specify the analytics settings for your user pool's existing client app at
-
-app creation time
+###### To specify the analytics settings for your user pool's existing client app at app creation time
 
 - AWS CLI: `aws cognito-idp create-user-pool-client`
 - AWS API: [CreateUserPoolClient](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md")
 
-###### To update the analytics settings for your user pool's existing client
-
-app
+###### To update the analytics settings for your user pool's existing client app
 
 - AWS CLI: `aws cognito-idp update-user-pool-client`
 - AWS API: [UpdateUserPoolClient](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.md")
@@ -177,9 +163,7 @@ app
 Amazon Cognito supports in-Region integrations when you use
 `ApplicationArn`
 
-## Integrating your app
-
-with Amazon Pinpoint
+## Integrating your app with Amazon Pinpoint
 
 You can publish analytics metadata to Amazon Pinpoint for Amazon Cognito _local
 users_ in the _user pools API_.

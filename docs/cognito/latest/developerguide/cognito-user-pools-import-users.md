@@ -15,7 +15,5 @@ attributes for all users. The following sections describe both these approaches.
 
 ###### Topics
 
-- [Importing users with a user migration
-  Lambda trigger](cognito-user-pools-import-using-lambda.md "cognito-user-pools-import-using-lambda.md")
-- [Importing users into user pools from a
-  CSV file](cognito-user-pools-using-import-tool.md "cognito-user-pools-using-import-tool.md")
+- [Importing users with a user migration Lambda trigger](cognito-user-pools-import-using-lambda.md "cognito-user-pools-import-using-lambda.md")
+- [Importing users into user pools from a CSV file](cognito-user-pools-using-import-tool.md "cognito-user-pools-using-import-tool.md")

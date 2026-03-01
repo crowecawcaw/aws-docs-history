@@ -21,12 +21,9 @@ as federation through third-party IdPs.
 
 - [Authenticate with a user pool](#scenario-basic-user-pool "#scenario-basic-user-pool")
 - [Access back-end resources with user pool tokens](#scenario-backend "#scenario-backend")
-- [Access resources with API Gateway and Lambda with a user
-  pool](#scenario-api-gateway "#scenario-api-gateway")
-- [Access AWS services with a user pool and an
-  identity pool](#scenario-aws-and-user-pool "#scenario-aws-and-user-pool")
-- [Authenticate with a third party and access AWS
-  services with an identity pool](#scenario-identity-pool "#scenario-identity-pool")
+- [Access resources with API Gateway and Lambda with a user pool](#scenario-api-gateway "#scenario-api-gateway")
+- [Access AWS services with a user pool and an identity pool](#scenario-aws-and-user-pool "#scenario-aws-and-user-pool")
+- [Authenticate with a third party and access AWS services with an identity pool](#scenario-identity-pool "#scenario-identity-pool")
 - [Access AWS AppSync resources with Amazon Cognito](#scenario-appsync "#scenario-appsync")
 
 ## Authenticate with a user pool
@@ -41,9 +38,7 @@ from Amazon Cognito. You can use those tokens to retrieve AWS credentials that a
 other AWS services, or you might choose to use them to control access to your server-side
 resources, or to the Amazon API Gateway.
 
-For more information, see [An example authentication
-session](authentication.md#amazon-cognito-user-pools-authentication-flow "authentication.md#amazon-cognito-user-pools-authentication-flow") and [Understanding
-user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md "amazon-cognito-user-pools-using-tokens-with-identity-providers.md").
+For more information, see [An example authentication session](authentication.md#amazon-cognito-user-pools-authentication-flow "authentication.md#amazon-cognito-user-pools-authentication-flow") and [Understanding user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md "amazon-cognito-user-pools-using-tokens-with-identity-providers.md").
 
 ![Authentication overview](images/scenario-authentication-cup.png)
 
@@ -59,16 +54,11 @@ For more information on using groups to control access to your resources, see [A
 After you configure a domain for your user pool, Amazon Cognito provisions a hosted web UI that
 allows you to add sign-up and sign-in pages to your app. Using this OAuth 2.0 foundation, you
 can create your own resource server to enable your users to access protected resources. For
-more information, see [Scopes, M2M, and resource
-servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
+more information, see [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
 
-For more information about user pool authentication, see [An example authentication
-session](authentication.md#amazon-cognito-user-pools-authentication-flow "authentication.md#amazon-cognito-user-pools-authentication-flow") and [Understanding
-user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md "amazon-cognito-user-pools-using-tokens-with-identity-providers.md").
+For more information about user pool authentication, see [An example authentication session](authentication.md#amazon-cognito-user-pools-authentication-flow "authentication.md#amazon-cognito-user-pools-authentication-flow") and [Understanding user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md "amazon-cognito-user-pools-using-tokens-with-identity-providers.md").
 
-## Access resources with API Gateway and Lambda with a user
-
-pool
+## Access resources with API Gateway and Lambda with a user pool
 
 You can enable your users to access your API through API Gateway. API Gateway validates the tokens
 from a successful user pool authentication, and uses them to grant your users access to
@@ -85,27 +75,20 @@ Amazon Cognito user pools](../../../apigateway/latest/developerguide/apigateway-
 
 ![Access API Gateway through a user pool](images/scenario-api-gateway.png)
 
-## Access AWS services with a user pool and an
-
-identity pool
+## Access AWS services with a user pool and an identity pool
 
 After a successful user pool authentication, your app will receive user pool tokens from
 Amazon Cognito. You can exchange them for temporary access to other AWS services with an identity pool.
-For more information, see [Accessing
-AWS services using an identity pool after sign-in](amazon-cognito-integrating-user-pools-with-identity-pools.md "amazon-cognito-integrating-user-pools-with-identity-pools.md") and [Getting started with Amazon Cognito identity
-pools](getting-started-with-identity-pools.md "getting-started-with-identity-pools.md").
+For more information, see [Accessing AWS services using an identity pool after sign-in](amazon-cognito-integrating-user-pools-with-identity-pools.md "amazon-cognito-integrating-user-pools-with-identity-pools.md") and [Getting started with Amazon Cognito identity pools](getting-started-with-identity-pools.md "getting-started-with-identity-pools.md").
 
 ![Access AWS credentials through a user pool with an identity pool](images/scenario-cup-cib.png)
 
-## Authenticate with a third party and access AWS
-
-services with an identity pool
+## Authenticate with a third party and access AWS services with an identity pool
 
 You can enable your users access to AWS services through an identity pool. An identity
 pool requires an IdP token from a user that's authenticated by a third-party identity provider
 (or nothing if it's an anonymous guest). In exchange, the identity pool grants temporary AWS
-credentials that you can use to access other AWS services. For more information, see [Getting started with Amazon Cognito identity
-pools](getting-started-with-identity-pools.md "getting-started-with-identity-pools.md").
+credentials that you can use to access other AWS services. For more information, see [Getting started with Amazon Cognito identity pools](getting-started-with-identity-pools.md "getting-started-with-identity-pools.md").
 
 ![Access AWS credentials through a third-party identity provider with an identity pool](images/scenario-identity-pool.png)
 

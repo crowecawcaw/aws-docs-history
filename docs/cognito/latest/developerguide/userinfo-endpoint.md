@@ -35,9 +35,7 @@ scope combinations that influence the data returned from the `userInfo`
 endpoint. The reserved Amazon Cognito scope `aws.cognito.signin.user.admin` has no
 effect on the data returned from this endpoint.
 
-###### Example scopes in access token and their effect on the `userInfo`
-
-response
+###### Example scopes in access token and their effect on the `userInfo` response
 
 **`openid`**
 
@@ -78,16 +76,12 @@ specification.
 
 ###### Topics
 
-- [Request parameters in
-  header](#get-userinfo-request-header-parameters "#get-userinfo-request-header-parameters")
+- [Request parameters in header](#get-userinfo-request-header-parameters "#get-userinfo-request-header-parameters")
 - [Example – request](#get-userinfo-positive-exchanging-authorization-code-for-userinfo-sample-request "#get-userinfo-positive-exchanging-authorization-code-for-userinfo-sample-request")
-- [Example – positive
-  response](#get-userinfo-response-sample "#get-userinfo-response-sample")
+- [Example – positive response](#get-userinfo-response-sample "#get-userinfo-response-sample")
 - [Example negative responses](#get-userinfo-negative "#get-userinfo-negative")
 
-## Request parameters in
-
-header
+## Request parameters in header
 
 **`Authorization: Bearer
  `<access_token>``**
@@ -109,9 +103,7 @@ Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 ```
 
-## Example – positive
-
-response
+## Example – positive response
 
 ```
 HTTP/1.1 200 OK
@@ -145,9 +137,7 @@ strings.
 
 ## Example negative responses
 
-### Example – bad
-
-request
+### Example – bad request
 
 ```
 HTTP/1.1 400 Bad Request
@@ -161,9 +151,7 @@ The request is missing a required parameter, it includes an
 unsupported parameter value, or it is otherwise
 malformed.
 
-### Example – bad
-
-token
+### Example – bad token
 
 ```
 HTTP/1.1 401 Unauthorized

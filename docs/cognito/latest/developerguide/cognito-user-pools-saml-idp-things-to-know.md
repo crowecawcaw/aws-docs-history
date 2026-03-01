@@ -1,6 +1,4 @@
-# Things to know about
-
-SAML IdPs in Amazon Cognito user pools
+# Things to know about SAML IdPs in Amazon Cognito user pools
 
 Implementation of a SAML 2.0 IdP comes with some requirements and restrictions.
 Refer to this section when you're implementing your IdP. You'll also find
@@ -96,8 +94,7 @@ common required attribute for user pools. Before your users can sign in,
 your SAML IdP assertions must include a claim that you map to the
 **User pool attribute**
 `email`. For more information about attribute mapping, see
-[Mapping IdP attributes
-to profiles and tokens](cognito-user-pools-specifying-attribute-mapping.md "cognito-user-pools-specifying-attribute-mapping.md").
+[Mapping IdP attributes to profiles and tokens](cognito-user-pools-specifying-attribute-mapping.md "cognito-user-pools-specifying-attribute-mapping.md").
 
 **Assertion format has specific requirements**
 

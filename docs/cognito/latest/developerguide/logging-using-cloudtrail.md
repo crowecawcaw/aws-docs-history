@@ -18,15 +18,11 @@ CloudTrail events: Examples](../../../awscloudtrail/latest/userguide/cloudwatch-
 
 ###### Topics
 
-- [Information that Amazon Cognito sends to
-  CloudTrail](#amazon-cognito-info-in-cloudtrail "#amazon-cognito-info-in-cloudtrail")
-- [Analyzing Amazon Cognito CloudTrail events with Amazon CloudWatch Logs
-  Insights](#analyzingcteventscwinsight "#analyzingcteventscwinsight")
+- [Information that Amazon Cognito sends to CloudTrail](#amazon-cognito-info-in-cloudtrail "#amazon-cognito-info-in-cloudtrail")
+- [Analyzing Amazon Cognito CloudTrail events with Amazon CloudWatch Logs Insights](#analyzingcteventscwinsight "#analyzingcteventscwinsight")
 - [Example Amazon Cognito events](understanding-amazon-cognito-entries.md "understanding-amazon-cognito-entries.md")
 
-## Information that Amazon Cognito sends to
-
-CloudTrail
+## Information that Amazon Cognito sends to CloudTrail
 
 CloudTrail is turned on when you create your AWS account. When supported event activity
 occurs in Amazon Cognito, that activity is recorded in a CloudTrail event along with other AWS service
@@ -197,9 +193,7 @@ Amazon Cognito logs all Amazon Cognito Sync API operations as management events.
 Amazon Cognito Sync API operations that Amazon Cognito logs to CloudTrail, see the [Amazon Cognito Sync API
 Reference](../../../cognitosync/latest/APIReference/API_Operations.md "../../../cognitosync/latest/APIReference/API_Operations.md").
 
-## Analyzing Amazon Cognito CloudTrail events with Amazon CloudWatch Logs
-
-Insights
+## Analyzing Amazon Cognito CloudTrail events with Amazon CloudWatch Logs Insights
 
 You can search and analyze your Amazon Cognito CloudTrail events with Amazon CloudWatch Logs Insights. When you
 configure your trail to send events to CloudWatch Logs, CloudTrail sends only the events that match your

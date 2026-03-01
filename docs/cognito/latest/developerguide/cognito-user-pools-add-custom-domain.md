@@ -1,6 +1,4 @@
-# Using your own domain for managed
-
-login
+# Using your own domain for managed login
 
 After you set up an app client, you can configure your user pool with a custom domain for
 the domain services of [managed
@@ -29,21 +27,14 @@ zone](../../../Route53/latest/DeveloperGuide/CreatingHostedZone.md "../../../Rou
 
 ###### Topics
 
-- [Adding a custom domain to
-  a user pool](#cognito-user-pools-add-custom-domain-adding "#cognito-user-pools-add-custom-domain-adding")
+- [Adding a custom domain to a user pool](#cognito-user-pools-add-custom-domain-adding "#cognito-user-pools-add-custom-domain-adding")
 - [Prerequisites](#cognito-user-pools-add-custom-domain-prereq "#cognito-user-pools-add-custom-domain-prereq")
-- [Step 1: Enter your
-  custom domain name](#cognito-user-pools-add-custom-domain-console-step-1 "#cognito-user-pools-add-custom-domain-console-step-1")
-- [Step 2: Add an
-  alias target and subdomain](#cognito-user-pools-add-custom-domain-console-step-2 "#cognito-user-pools-add-custom-domain-console-step-2")
-- [Step 3: Verify
-  your sign-in page](#cognito-user-pools-add-custom-domain-console-step-3 "#cognito-user-pools-add-custom-domain-console-step-3")
-- [Changing the
-  SSL certificate for your custom domain](#cognito-user-pools-add-custom-domain-changing-certificate "#cognito-user-pools-add-custom-domain-changing-certificate")
+- [Step 1: Enter your custom domain name](#cognito-user-pools-add-custom-domain-console-step-1 "#cognito-user-pools-add-custom-domain-console-step-1")
+- [Step 2: Add an alias target and subdomain](#cognito-user-pools-add-custom-domain-console-step-2 "#cognito-user-pools-add-custom-domain-console-step-2")
+- [Step 3: Verify your sign-in page](#cognito-user-pools-add-custom-domain-console-step-3 "#cognito-user-pools-add-custom-domain-console-step-3")
+- [Changing the SSL certificate for your custom domain](#cognito-user-pools-add-custom-domain-changing-certificate "#cognito-user-pools-add-custom-domain-changing-certificate")
 
-## Adding a custom domain to
-
-a user pool
+## Adding a custom domain to a user pool
 
 To add a custom domain to your user pool, you specify the domain name in the Amazon Cognito
 console, and you provide a certificate you manage with [AWS Certificate Manager](../../../acm/latest/userguide.md "../../../acm/latest/userguide.md") (ACM). After you add your domain, Amazon Cognito provides an alias
@@ -121,9 +112,7 @@ configuration of the CloudFront distribution that Amazon Cognito associated with
 pool. For example, you can't update the supported TLS versions in the security
 policy.
 
-## Step 1: Enter your
-
-custom domain name
+## Step 1: Enter your custom domain name
 
 You can add your domain to your user pool by using the Amazon Cognito console or API.
 
@@ -189,9 +178,7 @@ domain.
 }
 ```
 
-## Step 2: Add an
-
-alias target and subdomain
+## Step 2: Add an alias target and subdomain
 
 In this step, you set up an alias through your Domain Name Server (DNS) service
 provider that points back to the alias target from the previous step. If you are using
@@ -289,9 +276,7 @@ Your new records can take around 60 seconds to propagate to all
 Route 53 DNS servers. You can use the Route 53 [GetChange](../../../Route53/latest/APIReference/API_GetChange.md "../../../Route53/latest/APIReference/API_GetChange.md") API
 method to verify that your changes have propagated.
 
-## Step 3: Verify
-
-your sign-in page
+## Step 3: Verify your sign-in page
 
 - Verify that the sign-in page is available from your custom domain.
 
@@ -306,9 +291,7 @@ your browser. This is an example URL of a custom domain
 
 ```
 
-## Changing the
-
-SSL certificate for your custom domain
+## Changing the SSL certificate for your custom domain
 
 When necessary, you can use Amazon Cognito to change the certificate that you applied to your
 custom domain.

@@ -52,8 +52,7 @@ _Amazon Verified Permissions User Guide_.
 ###### Customizing tokens
 
 To change, add, and remove the user claims that you want to present to Verified Permissions, customize
-the content in your access and identity tokens with a [Pre token generation Lambda
-trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md"). With a pre token generation trigger,
+the content in your access and identity tokens with a [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md"). With a pre token generation trigger,
 you can add and modify claims in your tokens. For example, you can query a database for
 additional user attributes and encode them into your ID token.
 
@@ -71,9 +70,7 @@ requests fail.
 - [Authorize API Gateway APIs using Amazon Verified Permissions and Amazon Cognito](https://aws.amazon.com/blogs/security/authorize-api-gateway-apis-using-amazon-verified-permissions-and-amazon-cognito/ "https://aws.amazon.com/blogs/security/authorize-api-gateway-apis-using-amazon-verified-permissions-and-amazon-cognito/")
 - [Workshop: Authentication and authorization with Amazon Cognito and Verified Permissions](https://catalog.workshops.aws/app-auth "https://catalog.workshops.aws/app-auth")
 
-## API authorization
-
-with Verified Permissions
+## API authorization with Verified Permissions
 
 Your ID or access tokens can authorize requests to back-end Amazon API Gateway REST APIs with
 Verified Permissions. You can create a [policy store](../../../verifiedpermissions/latest/userguide/policy-stores.md "../../../verifiedpermissions/latest/userguide/policy-stores.md") with
@@ -126,9 +123,7 @@ You can also configure a policy store to accept tokens with an `aud` or
 `client_id` claim that matches a list of acceptable app clients that you
 provide.
 
-### Example
-
-policy for role-based API authorization
+### Example policy for role-based API authorization
 
 The following example policy was created by the setup of a Verified Permissions policy store for a
 [PetStore](../../../apigateway/latest/developerguide/api-gateway-create-api-from-example.md "../../../apigateway/latest/developerguide/api-gateway-create-api-from-example.md") example REST API.
@@ -152,9 +147,7 @@ application when:
    `https://myapi.example.com/pets` or
    `https://myapi.example.com/pets/scrappy`.
 
-## Example policy for an
-
-Amazon Cognito user
+## Example policy for an Amazon Cognito user
 
 Your user pool can also generate authorization requests to Verified Permissions in conditions other
 than API requests. You can submit any access control decisions in your application to your

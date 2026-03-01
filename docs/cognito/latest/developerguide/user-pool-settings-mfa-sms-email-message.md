@@ -1,6 +1,4 @@
-# SMS and email message
-
-MFA
+# SMS and email message MFA
 
 SMS and email MFA messages confirm that users have access to a message destination
 before they can sign in. They confirm that they not only have access to a password, but to
@@ -35,9 +33,7 @@ messages at production volumes. See the following links for more information:
 - [Email settings for Amazon Cognito user pools](user-pool-email.md "user-pool-email.md")
 - [Amazon SES pricing](https://aws.amazon.com/ses/pricing "https://aws.amazon.com/ses/pricing")
 
-## Considerations
-
-for SMS and email message MFA
+## Considerations for SMS and email message MFA
 
 - To permit users to sign in with email MFA, your user pool must have the following
   configuration options:
@@ -53,8 +49,7 @@ Set the duration of an authentication flow session in the Amazon Cognito console
 **App clients** menu when you **Edit** your app
 client. You can also set the authentication flow session duration in a
 `CreateUserPoolClient` or `UpdateUserPoolClient` API request.
-For more information, see [An example authentication
-session](authentication.md#amazon-cognito-user-pools-authentication-flow "authentication.md#amazon-cognito-user-pools-authentication-flow").
+For more information, see [An example authentication session](authentication.md#amazon-cognito-user-pools-authentication-flow "authentication.md#amazon-cognito-user-pools-authentication-flow").
 
 - When a user successfully provides a code from an SMS or email message that Amazon Cognito
   sent to an unverified phone number or email address, Amazon Cognito marks the corresponding

@@ -1,6 +1,4 @@
-# Working with adaptive
-
-authentication
+# Working with adaptive authentication
 
 With adaptive authentication, you can configure your user pool to block suspicious
 sign-ins or add second factor authentication in response to an increased risk level. For
@@ -18,23 +16,17 @@ app offers to help them set up MFA, and optionally Amazon Cognito prevents them 
 until they have configured an additional factor.
 
 Amazon Cognito publishes metrics about sign-in attempts, their risk levels, and failed challenges
-to Amazon CloudWatch. For more information, see [Viewing threat
-protection metrics](metrics-for-cognito-user-pools.md#user-pool-settings-viewing-threat-protection-metrics "metrics-for-cognito-user-pools.md#user-pool-settings-viewing-threat-protection-metrics").
+to Amazon CloudWatch. For more information, see [Viewing threat protection metrics](metrics-for-cognito-user-pools.md#user-pool-settings-viewing-threat-protection-metrics "metrics-for-cognito-user-pools.md#user-pool-settings-viewing-threat-protection-metrics").
 
-To add adaptive authentication to your user pool, see [Advanced security with threat
-protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md").
+To add adaptive authentication to your user pool, see [Advanced security with threat protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md").
 
 ###### Topics
 
 - [Adaptive authentication overview](#security-cognito-user-pool-settings-adaptive-authentication-overview "#security-cognito-user-pool-settings-adaptive-authentication-overview")
-- [Adding
-  user device and session data to API requests](#user-pool-settings-adaptive-authentication-device-fingerprint "#user-pool-settings-adaptive-authentication-device-fingerprint")
-- [Viewing
-  and exporting user event history](#user-pool-settings-adaptive-authentication-event-user-history "#user-pool-settings-adaptive-authentication-event-user-history")
-- [Providing event
-  feedback](#user-pool-settings-adaptive-authentication-feedback "#user-pool-settings-adaptive-authentication-feedback")
-- [Sending notification
-  messages](#user-pool-settings-adaptive-authentication-messages "#user-pool-settings-adaptive-authentication-messages")
+- [Adding user device and session data to API requests](#user-pool-settings-adaptive-authentication-device-fingerprint "#user-pool-settings-adaptive-authentication-device-fingerprint")
+- [Viewing and exporting user event history](#user-pool-settings-adaptive-authentication-event-user-history "#user-pool-settings-adaptive-authentication-event-user-history")
+- [Providing event feedback](#user-pool-settings-adaptive-authentication-feedback "#user-pool-settings-adaptive-authentication-feedback")
+- [Sending notification messages](#user-pool-settings-adaptive-authentication-messages "#user-pool-settings-adaptive-authentication-messages")
 
 ## Adaptive authentication overview
 
@@ -68,9 +60,7 @@ high-risk, Amazon Cognito considers similar sessions to have a lower risk.
 You don't have to verify phone numbers to use them for SMS as a second
 authentication factor.
 
-## Adding
-
-user device and session data to API requests
+## Adding user device and session data to API requests
 
 You can collect and pass information about your user's session to Amazon Cognito threat
 protection when you use the API to sign them up, sign them in, and reset their password.
@@ -86,10 +76,8 @@ address. However, it does not record other device information like the
 
 Generate this data with the Amazon Cognito context data collection library and submit it to
 Amazon Cognito threat protection with the [ContextData](../../../cognito-user-identity-pools/latest/APIReference/API_ContextDataType.md "../../../cognito-user-identity-pools/latest/APIReference/API_ContextDataType.md") and [UserContextData](../../../cognito-user-identity-pools/latest/APIReference/API_UserContextDataType.md "../../../cognito-user-identity-pools/latest/APIReference/API_UserContextDataType.md") parameters. The context data collection library is included in
-the AWS SDKs. For more information, see [Integrating Amazon Cognito authentication and authorization with
-web and mobile apps](cognito-integrate-apps.md "cognito-integrate-apps.md"). You can submit `ContextData` if you have
-the Plus feature plan. For more information, see [Setting up threat
-protection](cognito-user-pool-settings-threat-protection.md#cognito-user-pool-settings-configure-threat-protection "cognito-user-pool-settings-threat-protection.md#cognito-user-pool-settings-configure-threat-protection").
+the AWS SDKs. For more information, see [Integrating Amazon Cognito authentication and authorization with web and mobile apps](cognito-integrate-apps.md "cognito-integrate-apps.md"). You can submit `ContextData` if you have
+the Plus feature plan. For more information, see [Setting up threat protection](cognito-user-pool-settings-threat-protection.md#cognito-user-pool-settings-configure-threat-protection "cognito-user-pool-settings-threat-protection.md#cognito-user-pool-settings-configure-threat-protection").
 
 When you call the following Amazon Cognito authenticated API operations from your application
 server, pass the IP of the user’s device in the `ContextData` parameter. In
@@ -106,8 +94,7 @@ fingerprint in the `EncodedData` parameter. You can also submit an
 following conditions:
 
 - Your user pool is on the Plus feature plan. For more information, see [User pool feature plans](cognito-sign-in-feature-plans.md "cognito-sign-in-feature-plans.md").
-- Your app client has a client secret. For more information, see [Application-specific settings with app
-  clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
+- Your app client has a client secret. For more information, see [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
 - You have activated **Accept additional user context data** in
   your app client. For more information, see [Accepting additional user context data (AWS Management Console)](#user-pool-settings-adaptive-authentication-accept-user-context-data "#user-pool-settings-adaptive-authentication-accept-user-context-data").
 
@@ -123,9 +110,7 @@ unauthenticated API operations.
 - [ConfirmForgotPassword](../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.md "../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.md")
 - [ResendConfirmationCode](../../../cognito-user-identity-pools/latest/APIReference/API_ResendConfirmationCode.md "../../../cognito-user-identity-pools/latest/APIReference/API_ResendConfirmationCode.md")
 
-###
-
-Accepting additional user context data (AWS Management Console)
+### Accepting additional user context data (AWS Management Console)
 
 Your user pool accepts an IP address in a `UserContextData` parameter
 after you activate the **Accept additional user context data** feature.
@@ -152,8 +137,7 @@ user context data.
 
 To configure your app client to accept user context data in the Amazon Cognito API, set
 `EnablePropagateAdditionalUserContextData` to `true` in a [CreateUserPoolClient](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md") or [UpdateUserPoolClient](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.md") request. For information about how to work with threat
-protection in your web or mobile app, see [Collecting data for
-threat protection in applications](user-pool-settings-viewing-threat-protection-app.md "user-pool-settings-viewing-threat-protection-app.md"). When your app calls
+protection in your web or mobile app, see [Collecting data for threat protection in applications](user-pool-settings-viewing-threat-protection-app.md "user-pool-settings-viewing-threat-protection-app.md"). When your app calls
 Amazon Cognito from your server, collect user context data from the client side. The following is
 an example that uses the JavaScript SDK method `getData`.
 
@@ -176,9 +160,7 @@ parameter is a valid IPv4 or IPv6 address.
 - AWS Amplify SDK for iOS: [userContextData](https://github.com/aws-amplify/aws-sdk-ios/blob/d3cd4fa0086b526f2f5c9c6c58880c9da7004c66/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.m#L21 "https://github.com/aws-amplify/aws-sdk-ios/blob/d3cd4fa0086b526f2f5c9c6c58880c9da7004c66/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.m#L21")
 - JavaScript: [amazon-cognito-advanced-security-data.min.js](https://amazon-cognito-assets.us-east-1.amazoncognito.com/amazon-cognito-advanced-security-data.min.js "https://amazon-cognito-assets.us-east-1.amazoncognito.com/amazon-cognito-advanced-security-data.min.js")
 
-## Viewing
-
-and exporting user event history
+## Viewing and exporting user event history
 
 Amazon Cognito generates a log for each authentication event by a user when you enable threat
 protection. By default, you can view user logs in the **Users** menu in
@@ -209,8 +191,7 @@ that it recorded the event. The ID and access tokens include this event ID in th
 payload. Amazon Cognito also correlates refresh token use to the original event ID. You can trace
 the original event ID back to the event ID of the sign-in event that resulted in issuing
 the Amazon Cognito tokens. You can trace token usage within your system to a particular
-authentication event. For more information, see [Understanding
-user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md "amazon-cognito-user-pools-using-tokens-with-identity-providers.md").
+authentication event. For more information, see [Understanding user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md "amazon-cognito-user-pools-using-tokens-with-identity-providers.md").
 
 ### Viewing user event history (API/CLI)
 
@@ -278,8 +259,7 @@ risk factors:
 Configure your user pool to export user events from threat protection to an external
 system. The supported external systems–Amazon S3, CloudWatch Logs, and Amazon Data Firehose–might add
 costs to your AWS bill for data that you send or retrieve. For more information, see
-[Exporting threat protection user
-activity logs](exporting-quotas-and-usage.md#exporting-quotas-and-usage-user-activity "exporting-quotas-and-usage.md#exporting-quotas-and-usage-user-activity").
+[Exporting threat protection user activity logs](exporting-quotas-and-usage.md#exporting-quotas-and-usage-user-activity "exporting-quotas-and-usage.md#exporting-quotas-and-usage-user-activity").
 
 AWS Management Console
 
@@ -359,9 +339,7 @@ body that sets a CloudWatch log group as the log destination.
 }
 ```
 
-## Providing event
-
-feedback
+## Providing event feedback
 
 Event feedback affects risk evaluation in real time and improves the risk evaluation
 algorithm over time. You can provide feedback on the validity of sign-in attempts through
@@ -388,9 +366,7 @@ you trust a user session where Amazon Cognito has evaluated some level of risk. 
 you don't trust a user session, or you don't believe that Amazon Cognito evaluated a
 high-enough risk level.
 
-## Sending notification
-
-messages
+## Sending notification messages
 
 With threat protection, Amazon Cognito can notify your users of risky sign-in attempts. Amazon Cognito
 can also prompt users to select links to indicate if the sign-in was valid or not valid.

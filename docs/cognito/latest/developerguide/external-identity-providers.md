@@ -1,6 +1,4 @@
-# Identity pools third-party identity
-
-providers
+# Identity pools third-party identity providers
 
 With Amazon Cognito identity pools, you can integrate with a variety of external identity providers
 (IdPs) to provide temporary AWS credentials through federated authentication in your
@@ -25,5 +23,4 @@ identity pools support.
 - [Setting up Google as an identity pool IdP](google.md "google.md")
 - [Setting up Sign in with Apple as an identity pool IdP](apple.md "apple.md")
 - [Setting up an OIDC provider as an identity pool IdP](open-id.md "open-id.md")
-- [Setting up a SAML provider as an identity pool
-  IdP](saml-identity-provider.md "saml-identity-provider.md")
+- [Setting up a SAML provider as an identity pool IdP](saml-identity-provider.md "saml-identity-provider.md")

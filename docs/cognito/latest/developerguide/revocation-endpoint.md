@@ -20,9 +20,7 @@ The `/oauth2/revoke` endpoint only supports `HTTPS
  POST`. The user pool client makes requests to this endpoint directly and
 not through the system browser.
 
-### Request parameters in
-
-header
+### Request parameters in header
 
 **`Authorization`**
 
@@ -37,9 +35,7 @@ The secret is [Basic](https://en.wikipedia.org/wiki/Basic_access_authentication#
 Must always be
 `'application/x-www-form-urlencoded'`.
 
-#### Request parameters
-
-in body
+#### Request parameters in body
 
 **`token`**
 

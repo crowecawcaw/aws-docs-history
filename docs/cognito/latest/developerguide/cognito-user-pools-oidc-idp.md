@@ -1,6 +1,4 @@
-# Using OIDC identity providers with a user
-
-pool
+# Using OIDC identity providers with a user pool
 
 Users can sign in to your application using their existing accounts from OpenID
 Connect (OIDC) identity providers (IdPs). With OIDC providers, users of independent
@@ -28,8 +26,7 @@ enter them manually. You must also examine provider ID tokens and create attribu
 mappings between the IdP and the attributes in your user pool.
 
 ![User pool OIDC IdP authentication flow](images/flow-cup-oidc-endpoints.png)
-See [OIDC user pool IdP authentication
-flow](cognito-user-pools-oidc-flow.md "cognito-user-pools-oidc-flow.md") for more details about this authentication
+See [OIDC user pool IdP authentication flow](cognito-user-pools-oidc-flow.md "cognito-user-pools-oidc-flow.md") for more details about this authentication
 flow.
 
 ###### Note
@@ -43,14 +40,10 @@ the user pool API method [CreateIdentityProvider](../../../cognito-user-identity
 ###### Topics
 
 - [Prerequisites](#cognito-user-pools-oidc-idp-prerequisites "#cognito-user-pools-oidc-idp-prerequisites")
-- [Register an application with an
-  OIDC IdP](#cognito-user-pools-oidc-idp-step-1 "#cognito-user-pools-oidc-idp-step-1")
-- [Add an OIDC IdP to your user
-  pool](#cognito-user-pools-oidc-idp-step-2 "#cognito-user-pools-oidc-idp-step-2")
-- [Test your OIDC IdP
-  configuration](#cognito-user-pools-oidc-idp-step-3 "#cognito-user-pools-oidc-idp-step-3")
-- [OIDC user pool IdP authentication
-  flow](cognito-user-pools-oidc-flow.md "cognito-user-pools-oidc-flow.md")
+- [Register an application with an OIDC IdP](#cognito-user-pools-oidc-idp-step-1 "#cognito-user-pools-oidc-idp-step-1")
+- [Add an OIDC IdP to your user pool](#cognito-user-pools-oidc-idp-step-2 "#cognito-user-pools-oidc-idp-step-2")
+- [Test your OIDC IdP configuration](#cognito-user-pools-oidc-idp-step-3 "#cognito-user-pools-oidc-idp-step-3")
+- [OIDC user pool IdP authentication flow](cognito-user-pools-oidc-flow.md "cognito-user-pools-oidc-flow.md")
 
 ## Prerequisites
 
@@ -79,9 +72,7 @@ Before you begin, you need the following:
   - Presents a non-expired public key with a valid root CA trust
     chain.
 
-## Register an application with an
-
-OIDC IdP
+## Register an application with an OIDC IdP
 
 Before you add an OIDC IdP to your user pool configuration and assign it to app
 clients, you set up an OIDC client application in your IdP. Your user pool is the
@@ -181,9 +172,7 @@ Key**, and the client secret is a **Consumer
 Secret**. Note your client ID and client secret. You will use
 them in the next section.
 
-## Add an OIDC IdP to your user
-
-pool
+## Add an OIDC IdP to your user pool
 
 After you set up your IdP, you can configure your user pool to handle
 authentication requests with an OIDC IdP.
@@ -266,8 +255,7 @@ response. Amazon Cognito automatically maps the OIDC claim
 **sub** to `username` in the
 destination user profile.
 
-For more information, see [Mapping IdP attributes
-to profiles and tokens](cognito-user-pools-specifying-attribute-mapping.md "cognito-user-pools-specifying-attribute-mapping.md"). 13. Choose **Add identity provider**. 14. From the **App clients** menu, select an app
+For more information, see [Mapping IdP attributes to profiles and tokens](cognito-user-pools-specifying-attribute-mapping.md "cognito-user-pools-specifying-attribute-mapping.md"). 13. Choose **Add identity provider**. 14. From the **App clients** menu, select an app
 client from the list. Navigate to the **Login
 pages** tab and under **Managed login pages
 configuration**, select **Edit**.
@@ -280,9 +268,7 @@ it as the request body of `CreateIdentityProvider`,
 `UpdateIdentityProvider`, or the
 `--cli-input-json` input file for [create-identity-provider](../../../cli/latest/reference/cognito-idp/create-identity-provider.md "../../../cli/latest/reference/cognito-idp/create-identity-provider.md").
 
-## Test your OIDC IdP
-
-configuration
+## Test your OIDC IdP configuration
 
 In your application, you must invoke a browser in the user's client so that they
 can sign in with their OIDC provider. Test sign-in with your provider after you have
@@ -299,8 +285,7 @@ This link is the page that Amazon Cognito directs you to when you go to the **Ap
 clients** menu, select an app client, navigate to the **Login
 pages** tab, and select **View login page**. For more
 information about user pool domains, see [Configuring a user pool domain](cognito-user-pools-assign-domain.md "cognito-user-pools-assign-domain.md"). For more information about app
-clients, including client IDs and callback URLs, see [Application-specific settings with app
-clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
+clients, including client IDs and callback URLs, see [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
 
 The following example link sets up silent redirect to the `MyOIDCIdP`
 provider from the [Authorize endpoint](authorization-endpoint.md "authorization-endpoint.md") with an `identity_provider` query

@@ -1,6 +1,4 @@
-# Example application for
-
-identity pools
+# Example application for identity pools
 
 The most common use case for Amazon Cognito identity pools is to federate users from multiple
 sign-in systems and deliver temporary, limited-access AWS credentials directly to the
@@ -51,11 +49,9 @@ you see the following options.
 ###### Topics
 
 - [Prerequisites](#demo-prerequisites "#demo-prerequisites")
-- [Authentication provider
-  setup](#demo-authentication-provider-setup "#demo-authentication-provider-setup")
+- [Authentication provider setup](#demo-authentication-provider-setup "#demo-authentication-provider-setup")
 - [Deploy the demo application](#demo-deploy-application "#demo-deploy-application")
-- [Explore
-  authentication methods in your identity pool](#explore-authentication-methods-in-identity-pools-application "#explore-authentication-methods-in-identity-pools-application")
+- [Explore authentication methods in your identity pool](#explore-authentication-methods-in-identity-pools-application "#explore-authentication-methods-in-identity-pools-application")
 - [Next steps](#next-steps "#next-steps")
 
 ## Prerequisites
@@ -73,9 +69,7 @@ Before you begin, you'll need the following resources configured.
 For more information about implementing AWS credentials and identity pool federation
 in your specific SDK, see [Getting credentials](getting-credentials.md "getting-credentials.md").
 
-## Authentication provider
-
-setup
+## Authentication provider setup
 
 For best results with this application, set up and integrate one or more third-party
 identity providers (IdPs) or Amazon Cognito user pools with your Amazon Cognito identity pool. After you complete
@@ -86,8 +80,7 @@ process of configuring identity pools and providers.
 **Amazon Cognito user pools**
 
 - [Authentication with Amazon Cognito user pools](authentication.md "authentication.md")
-- [Application-specific settings with app
-  clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md")
+- [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md")
 
 **Social identity providers**
 
@@ -101,8 +94,7 @@ process of configuring identity pools and providers.
 
 **SAML providers**
 
-- [Setting up a SAML provider as an identity pool
-  IdP](saml-identity-provider.md "saml-identity-provider.md")
+- [Setting up a SAML provider as an identity pool IdP](saml-identity-provider.md "saml-identity-provider.md")
 
 ###### Note
 
@@ -152,9 +144,7 @@ To create an Amazon Cognito identity pool for your application, follow the instr
    the identity pool ID and other configuration information in your application
    setup.
 
-### Configure and run the
-
-application
+### Configure and run the application
 
 The following steps guide you through initial setup of your demo
 application.
@@ -197,9 +187,7 @@ python -m http.server 8001
    application interface, ready for testing identity pools
    authentication.
 
-## Explore
-
-authentication methods in your identity pool
+## Explore authentication methods in your identity pool
 
 This section guides you through basic and enhanced authentication flows using the
 Amazon Cognito identity pools demo application. With this demo, you'll learn how identity pools
@@ -446,9 +434,7 @@ generation.
       step:** Once validated: returns temporary
       AWS credentials
 
-### Use the temporary
-
-credentials
+### Use the temporary credentials
 
 These temporary credentials function as standard AWS credentials but with
 limited permissions defined by your identity pool's unauthenticated IAM role.
@@ -567,9 +553,7 @@ in a user and, using the enhanced flow, exchange the provider token in
 an Amazon Cognito identity pool for temporary credentials to request AWS
 resources.
 
-###### Use social sign-in with the enhanced flow in the example
-
-application
+###### Use social sign-in with the enhanced flow in the example application
 
 1. In the demo application, navigate to **Interactive demo** section
 2. Choose the **Authenticated
@@ -715,9 +699,7 @@ This section shows how you can use a social identity provider to sign
 in a user and, using the basic flow, exchange the provider token in an
 Amazon Cognito identity pool for temporary credentials to call AWS services.
 
-###### Use social sign-in with the basic flow in the example
-
-application
+###### Use social sign-in with the basic flow in the example application
 
 1. In the demo application, navigate to **Interactive demo** section
 2. Choose the **Authenticated
@@ -901,9 +883,7 @@ The enhanced flow provides a streamlined approach to obtaining AWS
 credentials through Amazon Cognito identity pools with a single API
 request.
 
-###### Use Amazon Cognito user pool authentication with the identity pool
-
-enhanced flow
+###### Use Amazon Cognito user pool authentication with the identity pool enhanced flow
 
 1. In the demo application, navigate to **Interactive demo** section
 2. Choose the **Authenticated
@@ -1060,9 +1040,7 @@ The basic flow provides granular control over the authentication
 process with separate API requests for identity retrieval and credential
 generation.
 
-###### Use Amazon Cognito user pool authentication with the identity pool basic
-
-flow
+###### Use Amazon Cognito user pool authentication with the identity pool basic flow
 
 1. In the demo application, navigate to **Interactive demo** section
 2. Choose the **Authenticated
@@ -1254,9 +1232,7 @@ a user and, using the enhanced flow, exchange the SAML assertion in an
 Amazon Cognito identity pool for temporary AWS credentials to call AWS
 services.
 
-###### Use SAML authentication with the identity pool enhanced
-
-flow
+###### Use SAML authentication with the identity pool enhanced flow
 
 1. In the demo application, navigate to **Interactive demo** section
 2. Choose the **Authenticated
@@ -1720,9 +1696,7 @@ OIDC token against the configured provider and returned an OpenID token.
 The application called AWS STS directly to assume the appropriate IAM
 role and received short-lived credentials.
 
-### Understand OIDC
-
-authentication
+### Understand OIDC authentication
 
 - Standards-based: OIDC is built on OAuth 2.0 and provides standardized
   identity information.

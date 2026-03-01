@@ -49,9 +49,7 @@ for automatically choosing the IAM role when a user is in multiple groups:
   `CustomRoleARN` parameter. The specified IAM role must match a role that is
   available to the user.
 
-## Assigning precedence values to
-
-groups
+## Assigning precedence values to groups
 
 A user can belong to more than one group. In the user's access and ID tokens, the
 `cognito:groups` claim contains the list of all the groups a user belongs to. The
@@ -72,9 +70,7 @@ ARN, that role is used in the `cognito:preferred_role` claim in ID tokens for us
 in each group. If the two groups have different role ARNs, the
 `cognito:preferred_role` claim is not set in users' ID tokens.
 
-## Using groups to
-
-control permission with Amazon API Gateway
+## Using groups to control permission with Amazon API Gateway
 
 You can use groups in a user pool to control permission with Amazon API Gateway. The groups that a
 user is a member of are included in both the ID token and access token from a user pool in the
@@ -96,9 +92,7 @@ User groups are subject to the following limitations:
 - You cannot search for users in a group.
 - You cannot search for groups by name, but you can list groups.
 
-## Creating a new group in the
-
-AWS Management Console
+## Creating a new group in the AWS Management Console
 
 Use the following procedure to create a new group.
 
@@ -119,8 +113,7 @@ Use the following procedure to create a new group.
    - **Precedence** - Amazon Cognito evaluates and applies all group
      permissions for a given user based on which groups that they belong to has a lower
      precedence value. The group with the lower precedence will be chosen and its
-     associated IAM role will be applied. For more information, see [Assigning precedence values to
-     groups](#assigning-precedence-values-to-groups "#assigning-precedence-values-to-groups").
+     associated IAM role will be applied. For more information, see [Assigning precedence values to groups](#assigning-precedence-values-to-groups "#assigning-precedence-values-to-groups").
    - **IAM role** - You can assign an IAM role to your group when
      you need to control permissions to your resources. If you are integrating a user pool
      with an identity pool, the **IAM role** setting determines which

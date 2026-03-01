@@ -1,6 +1,4 @@
-# Basic examples for
-
-Amazon Cognito Identity using AWS SDKs
+# Basic examples for Amazon Cognito Identity using AWS SDKs
 
 The following code examples show how to use the basics of Amazon Cognito Identity with AWS
 SDKs.

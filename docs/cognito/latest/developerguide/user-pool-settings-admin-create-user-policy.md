@@ -1,6 +1,4 @@
-# Configuring policies for user
-
-creation
+# Configuring policies for user creation
 
 Your user pool can allow users to sign up, or you can create them as an administrator. You
 can also control how much of the process of verification and confirmation after sign-up is in
@@ -36,8 +34,7 @@ for sign-up and administrative creation of users in your user pool.
 2. **Verifying attribute changes** isn't significant when you're
    creating users, but relates to attribute verification. You can permit users who have
    changed but not yet verified their [sign-in attributes](user-pool-settings-attributes.md#user-pool-settings-aliases.title "user-pool-settings-attributes.md#user-pool-settings-aliases.title") to continue to sign in either with their new attribute
-   value or with their original. For more information, see [Verifying when users
-   change their email or phone number](signing-up-users-in-your-app.md#verifying-when-users-change-their-email-or-phone-number "signing-up-users-in-your-app.md#verifying-when-users-change-their-email-or-phone-number").
+   value or with their original. For more information, see [Verifying when users change their email or phone number](signing-up-users-in-your-app.md#verifying-when-users-change-their-email-or-phone-number "signing-up-users-in-your-app.md#verifying-when-users-change-their-email-or-phone-number").
 3. **Required attributes** displays the attributes that must be
    provided a value before a user can sign up or you can create a user. You can only set
    required attributes when you create a user pool.

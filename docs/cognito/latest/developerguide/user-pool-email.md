@@ -41,8 +41,7 @@ template.
 
 Amazon SES charges for email messages. For more information, see [Amazon SES pricing](https://aws.amazon.com/ses/pricing/ "https://aws.amazon.com/ses/pricing/").
 
-To learn more about email MFA, see [SMS and email message
-MFA](user-pool-settings-mfa-sms-email-message.md "user-pool-settings-mfa-sms-email-message.md").
+To learn more about email MFA, see [SMS and email message MFA](user-pool-settings-mfa-sms-email-message.md "user-pool-settings-mfa-sms-email-message.md").
 
 Amazon Cognito might prevent delivery of additional email or SMS messages to a single destination
 in a short time period. If you believe your user pool is affected, configure and review
@@ -95,9 +94,7 @@ When you use your Amazon SES configuration, the following conditions apply:
   your account as a sender. For more information, see [Using the Amazon SES account-level suppression list](../../../ses/latest/dg/sending-email-suppression-list.md "../../../ses/latest/dg/sending-email-suppression-list.md") in the Amazon Simple Email Service
   Developer Guide.
 
-### Amazon SES email configuration
-
-Regions
+### Amazon SES email configuration Regions
 
 The AWS Region where you create a user pool will have one of three requirements
 for the configuration of email messages with Amazon SES. You might send email messages
@@ -143,8 +140,7 @@ is available.
 
 The Amazon SES sending authorization policy for your verified identity in
 the alternate Region must trust the Amazon Cognito service principal of the
-originating Region. For more information, see [To grant permissions
-to use the default email configuration](#user-pool-email-permissions-default "#user-pool-email-permissions-default").
+originating Region. For more information, see [To grant permissions to use the default email configuration](#user-pool-email-permissions-default "#user-pool-email-permissions-default").
 
 In some of these Regions, Amazon Cognito splits email messages between two
 alternate Regions for the default email configuration of
@@ -152,8 +148,7 @@ alternate Regions for the default email configuration of
 `FROM` email address, the Amazon SES sending authorization
 policy for your verified identity in each alternate Region must trust
 the Amazon Cognito service principal of the originating Region. For more
-information, see [To grant permissions
-to use the default email configuration](#user-pool-email-permissions-default "#user-pool-email-permissions-default"). With the Amazon SES
+information, see [To grant permissions to use the default email configuration](#user-pool-email-permissions-default "#user-pool-email-permissions-default"). With the Amazon SES
 email configuration of `DEVELOPER` in these Regions, you must
 use a verified identity in the _first_
 listed Region and configure it to trust the Amazon Cognito service principal in
@@ -250,9 +245,7 @@ AWS accounts. For example, you can't configure a user pool in one account, and
 then use it with an Amazon SES email address in a different account. If you use Amazon Cognito in
 multiple accounts, repeat these steps for each account.
 
-### Step 1: Verify your email
-
-address or domain with Amazon SES
+### Step 1: Verify your email address or domain with Amazon SES
 
 Before you configure your user pool, you must verify one or more domains or email
 addresses with Amazon SES if you want to do either of the following:
@@ -268,9 +261,7 @@ Address](../../../ses/latest/DeveloperGuide/verify-email-addresses-procedure.md 
 information on verifying a domain with Amazon SES, see [Verifying
 domains](../../../ses/latest/DeveloperGuide/verify-domains.md "../../../ses/latest/DeveloperGuide/verify-domains.md").
 
-### Step 2: Move your account out of
-
-the Amazon SES sandbox
+### Step 2: Move your account out of the Amazon SES sandbox
 
 Omit this step if you are using the default Amazon Cognito email configuration.
 
@@ -289,9 +280,7 @@ messages to your users' email addresses.
 To remove your AWS account from the sandbox, see [Moving out of the Amazon SES
 sandbox](../../../ses/latest/DeveloperGuide/request-production-access.md "../../../ses/latest/DeveloperGuide/request-production-access.md") in the _Amazon Simple Email Service Developer Guide._
 
-### Step 3: Grant email permissions to
-
-Amazon Cognito
+### Step 3: Grant email permissions to Amazon Cognito
 
 You might need to grant specific permissions to Amazon Cognito before it can email your
 users. The permissions that you grant, and the process that you use to grant them,
@@ -458,12 +447,9 @@ session must include the `iam:CreateServiceLinkedRole` action.
 For more information about permissions in IAM, see [Access management for AWS resources](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the _IAM User Guide_.
 
 For more information about the service-linked role that Amazon Cognito creates, see
-[Using service-linked roles for
-Amazon Cognito](using-service-linked-roles.md "using-service-linked-roles.md").
+[Using service-linked roles for Amazon Cognito](using-service-linked-roles.md "using-service-linked-roles.md").
 
-### Step 4: Configure your user
-
-pool
+### Step 4: Configure your user pool
 
 Complete the following steps if you want to configure your user pool with any of the
 following:
@@ -518,5 +504,4 @@ address.
 **Related Topics**
 
 - [Customizing email verification messages](cognito-user-pool-settings-message-customizations.md#cognito-user-pool-settings-email-verification-message-customization "cognito-user-pool-settings-message-customizations.md#cognito-user-pool-settings-email-verification-message-customization")
-- [Customizing
-  user invitation messages](cognito-user-pool-settings-message-customizations.md#cognito-user-pool-settings-user-invitation-message-customization "cognito-user-pool-settings-message-customizations.md#cognito-user-pool-settings-user-invitation-message-customization")
+- [Customizing user invitation messages](cognito-user-pool-settings-message-customizations.md#cognito-user-pool-settings-user-invitation-message-customization "cognito-user-pool-settings-message-customizations.md#cognito-user-pool-settings-user-invitation-message-customization")

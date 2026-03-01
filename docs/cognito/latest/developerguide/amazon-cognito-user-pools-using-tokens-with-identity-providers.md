@@ -1,6 +1,4 @@
-# Understanding
-
-user pool JSON web tokens (JWTs)
+# Understanding user pool JSON web tokens (JWTs)
 
 Tokens are artifacts of authentication that your applications can use as proof of OIDC
 authentication and to request access to resources. The _claims_
@@ -48,8 +46,7 @@ information about the security model that you use for your user pool.
 
 ###### Customizing tokens
 
-You can customize the access and ID tokens that Amazon Cognito passes to your app. In a [Pre token generation Lambda
-trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md"), you can add, modify, and suppress token
+You can customize the access and ID tokens that Amazon Cognito passes to your app. In a [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md"), you can add, modify, and suppress token
 claims. The pre token generation trigger is a Lambda function that Amazon Cognito sends a default set of
 claims to. The claims include OAuth 2.0 scopes, user pool group membership, user attributes,
 and others. The function can then take the opportunity to make changes at runtime and return
@@ -60,13 +57,9 @@ information, see [Amazon Cognito Pricing](https://aws.amazon.com/cognito/pricing
 
 ###### Topics
 
-- [Understanding the identity (ID)
-  token](amazon-cognito-user-pools-using-the-id-token.md "amazon-cognito-user-pools-using-the-id-token.md")
-- [Understanding the access
-  token](amazon-cognito-user-pools-using-the-access-token.md "amazon-cognito-user-pools-using-the-access-token.md")
+- [Understanding the identity (ID) token](amazon-cognito-user-pools-using-the-id-token.md "amazon-cognito-user-pools-using-the-id-token.md")
+- [Understanding the access token](amazon-cognito-user-pools-using-the-access-token.md "amazon-cognito-user-pools-using-the-access-token.md")
 - [Refresh tokens](amazon-cognito-user-pools-using-the-refresh-token.md "amazon-cognito-user-pools-using-the-refresh-token.md")
 - [Ending user sessions with token revocation](token-revocation.md "token-revocation.md")
-- [Verifying JSON web
-  tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md "amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md")
-- [Managing user pool
-  token expiration and caching](amazon-cognito-user-pools-using-tokens-caching-tokens.md "amazon-cognito-user-pools-using-tokens-caching-tokens.md")
+- [Verifying JSON web tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md "amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md")
+- [Managing user pool token expiration and caching](amazon-cognito-user-pools-using-tokens-caching-tokens.md "amazon-cognito-user-pools-using-tokens-caching-tokens.md")

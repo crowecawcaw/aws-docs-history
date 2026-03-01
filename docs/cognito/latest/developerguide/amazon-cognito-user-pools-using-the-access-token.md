@@ -1,6 +1,4 @@
-# Understanding the access
-
-token
+# Understanding the access token
 
 The user pool access token contains claims about the authenticated user, a list of the
 user's groups, and a list of scopes. The purpose of the access token is to authorize API
@@ -19,8 +17,7 @@ endpoints](cognito-userpools-server-contract-reference.md "cognito-userpools-ser
 
 With the Essentials or Plus [feature
 plan](cognito-sign-in-feature-plans.md "cognito-sign-in-feature-plans.md"), you can also implement a pre token generation Lambda trigger that adds scopes to
-your access tokens at runtime. For more information, see [Pre token generation Lambda
-trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md").
+your access tokens at runtime. For more information, see [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md").
 
 A user's access token with the `openid` scope is permission to request more
 information about your user's attributes from the [userInfo endpoint](userinfo-endpoint.md "userinfo-endpoint.md"). The amount of information from the `userInfo`
@@ -39,8 +36,7 @@ signs access tokens with a different key from the key that signs ID tokens. The 
 access key ID (`kid`) claim won't match the value of the `kid` claim in
 an ID token from the same user session. In your app code, verify ID tokens and access tokens
 independently. Don't trust the claims in an access token until you verify the signature. For
-more information, see [Verifying JSON web
-tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md "amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md"). You can set the access
+more information, see [Verifying JSON web tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md "amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md"). You can set the access
 token expiration to any value between 5 minutes and 1 day. You can set this value per app
 client.
 
@@ -83,8 +79,7 @@ For more information about the `alg` parameter, see [Algorithm (alg) header para
 ## Access token default payload
 
 This is a sample payload from an access token. For more information, see [JWT claims](https://tools.ietf.org/html/rfc7519#section-4 "https://tools.ietf.org/html/rfc7519#section-4"). You can add claims
-of your own design with a [Pre token generation Lambda
-trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md").
+of your own design with a [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md").
 
 ```
 `<header>`.
@@ -192,5 +187,4 @@ The signature of the access token, signed with the key advertised at the
 `.well-known/jwks.json` endpoint, validates the integrity of the token header
 and payload. When you use access tokens to authorize access to external APIs, always
 configure your API authorizer to verify this signature against the key that signed it. For
-more information, see [Verifying JSON web
-tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md "amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md").
+more information, see [Verifying JSON web tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md "amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md").

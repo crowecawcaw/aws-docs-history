@@ -14,20 +14,13 @@ profile.
 
 ###### Topics
 
-- [Flow
-  overview](#cognito-user-pools-lambda-trigger-inbound-federation-flow "#cognito-user-pools-lambda-trigger-inbound-federation-flow")
-- [Inbound
-  federation Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-inbound-federation "#cognito-user-pools-lambda-trigger-syntax-inbound-federation")
-- [Inbound
-  federation example: Group membership management](#aws-lambda-triggers-inbound-federation-example-groups "#aws-lambda-triggers-inbound-federation-example-groups")
-- [Inbound
-  federation example: Truncate large attributes](#aws-lambda-triggers-inbound-federation-example-truncate "#aws-lambda-triggers-inbound-federation-example-truncate")
-- [Inbound
-  federation example: Logging federation events](#aws-lambda-triggers-inbound-federation-example-logging "#aws-lambda-triggers-inbound-federation-example-logging")
+- [Flow overview](#cognito-user-pools-lambda-trigger-inbound-federation-flow "#cognito-user-pools-lambda-trigger-inbound-federation-flow")
+- [Inbound federation Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-inbound-federation "#cognito-user-pools-lambda-trigger-syntax-inbound-federation")
+- [Inbound federation example: Group membership management](#aws-lambda-triggers-inbound-federation-example-groups "#aws-lambda-triggers-inbound-federation-example-groups")
+- [Inbound federation example: Truncate large attributes](#aws-lambda-triggers-inbound-federation-example-truncate "#aws-lambda-triggers-inbound-federation-example-truncate")
+- [Inbound federation example: Logging federation events](#aws-lambda-triggers-inbound-federation-example-logging "#aws-lambda-triggers-inbound-federation-example-logging")
 
-## Flow
-
-overview
+## Flow overview
 
 When a user authenticates with an external identity provider, Amazon Cognito invokes the
 inbound federation trigger before creating or updating the user profile. The trigger
@@ -37,9 +30,7 @@ sign in again through federation.
 
 ![Inbound federation Lambda trigger flow](images/lambda-inbound-federation.png)
 
-## Inbound
-
-federation Lambda trigger parameters
+## Inbound federation Lambda trigger parameters
 
 The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the
 [common parameters](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared") that Amazon Cognito adds to all requests.
@@ -168,9 +159,7 @@ The structure of `request.attributes` varies based on the
 objects. SAML providers include only the `samlResponse`
 object.
 
-## Inbound
-
-federation example: Group membership management
+## Inbound federation example: Group membership management
 
 This example shows how to map federated identity provider groups to Amazon Cognito user pools groups.
 This function extracts group membership from the federated response and automatically
@@ -252,9 +241,7 @@ JSON
 }
 ```
 
-## Inbound
-
-federation example: Truncate large attributes
+## Inbound federation example: Truncate large attributes
 
 This example shows how to truncate attribute values that exceed Amazon Cognito's storage
 limits. This function checks each attribute from the identity provider. If an attribute
@@ -345,9 +332,7 @@ JSON
 }
 ```
 
-## Inbound
-
-federation example: Logging federation events
+## Inbound federation example: Logging federation events
 
 This example shows how to log federated authentication events for monitoring and
 debugging. This example function captures detailed information about federated users and

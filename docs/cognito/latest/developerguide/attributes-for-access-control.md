@@ -24,10 +24,8 @@ on the value of membership level and tag on the content files.
 
 ###### Topics
 
-- [Using attributes for access
-  control with Amazon Cognito identity pools](#using-afac-with-cognito-identity-pools "#using-afac-with-cognito-identity-pools")
-- [Using attributes
-  for access control policy example](#using-attributes-for-access-control-policy-example "#using-attributes-for-access-control-policy-example")
+- [Using attributes for access control with Amazon Cognito identity pools](#using-afac-with-cognito-identity-pools "#using-afac-with-cognito-identity-pools")
+- [Using attributes for access control policy example](#using-attributes-for-access-control-policy-example "#using-attributes-for-access-control-policy-example")
 - [Turn off attributes for access control (console)](#disable-afac "#disable-afac")
 - [Default provider mappings](#provider-mappings "#provider-mappings")
   Using attributes to control access has several benefits:
@@ -45,9 +43,7 @@ on the value of membership level and tag on the content files.
 - Attributes can be passed as principal tags to a policy that allows or denies
   permissions based on the values of those attributes.
 
-## Using attributes for access
-
-control with Amazon Cognito identity pools
+## Using attributes for access control with Amazon Cognito identity pools
 
 Before you can use attributes for access control, ensure that you meet the following
 prerequisites:
@@ -76,8 +72,7 @@ tags in AWS Security Token Service](../../../IAM/latest/UserGuide/id_session-tag
 Guide_. For an example trust policy that grants
 `sts:AssumeRoleWithWebIdentity` and `sts:TagSession`
 permissions to the Amazon Cognito service principal `cognito-identity.amazonaws.com`,
-see [Using attributes
-for access control policy example](#using-attributes-for-access-control-policy-example "#using-attributes-for-access-control-policy-example").
+see [Using attributes for access control policy example](#using-attributes-for-access-control-policy-example "#using-attributes-for-access-control-policy-example").
 
 ###### To configure attributes for access control in the console
 
@@ -104,9 +99,7 @@ for access control policy example](#using-attributes-for-access-control-policy-e
 
 5. Select **Save changes**.
 
-## Using attributes
-
-for access control policy example
+## Using attributes for access control policy example
 
 Consider a scenario where an employee from the legal department of a company needs to
 list all files in buckets that belong to their department and are classified with their

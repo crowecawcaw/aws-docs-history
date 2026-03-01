@@ -25,8 +25,7 @@ variety of programming languages.
 developers who want to develop and host an application and user interface. Amazon Cognito is the
 authentication component of Amplify. When you add authentication to your application,
 Amplify can automate the deployment of Amazon Cognito user pool and identity pool resources.
-Also, see [Integrating Amazon Cognito authentication and authorization with
-web and mobile apps](cognito-integrate-apps.md "cognito-integrate-apps.md").
+Also, see [Integrating Amazon Cognito authentication and authorization with web and mobile apps](cognito-integrate-apps.md "cognito-integrate-apps.md").
 
 ###### More Amazon Cognito application resources on GitHub
 

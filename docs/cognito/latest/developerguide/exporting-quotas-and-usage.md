@@ -12,16 +12,11 @@ pool.
 
 ###### Topics
 
-- [Things to know about log
-  export](#exporting-quotas-and-usage-things-to-know "#exporting-quotas-and-usage-things-to-know")
-- [Exporting email and SMS message
-  delivery errors](#exporting-quotas-and-usage-messages "#exporting-quotas-and-usage-messages")
-- [Exporting threat protection user
-  activity logs](#exporting-quotas-and-usage-user-activity "#exporting-quotas-and-usage-user-activity")
+- [Things to know about log export](#exporting-quotas-and-usage-things-to-know "#exporting-quotas-and-usage-things-to-know")
+- [Exporting email and SMS message delivery errors](#exporting-quotas-and-usage-messages "#exporting-quotas-and-usage-messages")
+- [Exporting threat protection user activity logs](#exporting-quotas-and-usage-user-activity "#exporting-quotas-and-usage-user-activity")
 
-## Things to know about log
-
-export
+## Things to know about log export
 
 **Cost impact**
 
@@ -63,9 +58,7 @@ pools.
 1. CloudTrail logs of routine user activity like sign-up and sign-in.
 2. Analysis of user activity at scale with CloudWatch metrics.
 
-Separately, you can also find logs from [Viewing the user pool import
-results in the CloudWatch console](cognito-user-pools-using-import-tool.md#cognito-user-pools-using-import-tool-cloudwatch "cognito-user-pools-using-import-tool.md#cognito-user-pools-using-import-tool-cloudwatch") and [Customizing user pool
-workflows with Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md "cognito-user-pools-working-with-lambda-triggers.md") in CloudWatch Logs. Amazon Cognito and
+Separately, you can also find logs from [Viewing the user pool import results in the CloudWatch console](cognito-user-pools-using-import-tool.md#cognito-user-pools-using-import-tool-cloudwatch "cognito-user-pools-using-import-tool.md#cognito-user-pools-using-import-tool-cloudwatch") and [Customizing user pool workflows with Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md "cognito-user-pools-working-with-lambda-triggers.md") in CloudWatch Logs. Amazon Cognito and
 Lambda store these logs in different log groups from the ones that you specify for user
 activity logs.
 
@@ -115,9 +108,7 @@ When you configure threat protection log export to an Amazon S3 bucket, Amazon C
 create an `AWSLogs` folder in your bucket. That folder is not created in
 all cases, and the configuration can succeed without creating it.
 
-## Exporting email and SMS message
-
-delivery errors
+## Exporting email and SMS message delivery errors
 
 For email and SMS message delivery errors, you can deliver **Error**-level user notification logs from your user pool. When you activate this
 feature, you can choose the log group where you want Amazon Cognito to send logs. User notification
@@ -212,9 +203,7 @@ change. Some fields might be logged with null values.
 }
 ```
 
-## Exporting threat protection user
-
-activity logs
+## Exporting threat protection user activity logs
 
 User pools with the Plus feature plan and threat protection log user activity events:
 the details and security assessment of user sign-in, sign-out, and other authentication

@@ -26,9 +26,7 @@ Create and configure an Amazon SNS app for your supported platforms, as describe
 [SNS Developer
 Guide](../../../sns/latest/dg/SNSMobilePush.md "../../../sns/latest/dg/SNSMobilePush.md").
 
-## Enable push sync in the Amazon Cognito
-
-console
+## Enable push sync in the Amazon Cognito console
 
 You can enable push sync via the Amazon Cognito console. From the [console home page](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home"):
 

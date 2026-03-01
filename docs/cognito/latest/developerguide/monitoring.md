@@ -24,6 +24,5 @@ it.
 
 - [Monitoring and managing costs](tracking-cost.md "tracking-cost.md")
 - [Exporting logs from Amazon Cognito user pools](exporting-quotas-and-usage.md "exporting-quotas-and-usage.md")
-- [Tracking quotas
-  and usage in CloudWatch and Service Quotas](tracking-quotas-and-usage-in-cloud-watch-and-service-quotas.md "tracking-quotas-and-usage-in-cloud-watch-and-service-quotas.md")
+- [Tracking quotas and usage in CloudWatch and Service Quotas](tracking-quotas-and-usage-in-cloud-watch-and-service-quotas.md "tracking-quotas-and-usage-in-cloud-watch-and-service-quotas.md")
 - [Amazon Cognito logging in AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")

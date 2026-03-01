@@ -49,12 +49,9 @@ The following are some examples of how administrators can manage users in user p
 - Allow users to sign themselves up or require that new users only be added by the
   administrator.
   Administrators can also sign users in with AWS credentials in a server-side application.
-  For more information, see [Authorization models for API and SDK
-  authentication](authentication-flows-public-server-side.md "authentication-flows-public-server-side.md").
+  For more information, see [Authorization models for API and SDK authentication](authentication-flows-public-server-side.md "authentication-flows-public-server-side.md").
 
-## User authentication flows and creating
-
-users
+## User authentication flows and creating users
 
 Administrative creation of users has options that differ based on the configuration of
 your user pool. The _authentication flows_, or methods
@@ -71,9 +68,7 @@ pools.
 
 For more information about how to configure these sign-in factors, see [Authentication with Amazon Cognito user pools](authentication.md "authentication.md").
 
-## Create users without
-
-passwords
+## Create users without passwords
 
 If you have enabled passwordless sign-in for your user pool, you can create users without
 passwords. To create a user without a password, you must provide attribute values for an
@@ -118,9 +113,7 @@ request only succeeds if the user provides values for all attributes that you ha
 required in your user pool. This applies to any required attribute, not only the phone
 number and email attributes required for OTP delivery.
 
-## Creating
-
-users who will provide required-attribute values later
+## Creating users who will provide required-attribute values later
 
 You might want to require attributes in your user pool but collect those attributes after
 you administratively create users, during user interaction in your application. Administrators
@@ -139,16 +132,12 @@ they sign in with.
 When you set a permanent password for an administrator-created user, their status changes
 to `CONFIRMED` and your user pool doesn't prompt them for a new password _or_ required attributes at their first sign-in.
 
-## Creating a new user in the
-
-AWS Management Console
+## Creating a new user in the AWS Management Console
 
 You can set user password requirements, configure the invitation and verification messages
 sent to users, and add new users with the Amazon Cognito console.
 
-### Set a password policy and enable
-
-self-registration
+### Set a password policy and enable self-registration
 
 You can configure settings for minimum password complexity and whether users can sign up
 using public APIs in your user pool.
@@ -188,9 +177,7 @@ If you do not enable self-registration, new users must be created by
 administrative API actions using IAM API credentials or by sign-in with federated
 providers. 5. Choose **Save changes**.
 
-### Customize email and SMS
-
-messages
+### Customize email and SMS messages
 
 ###### Customize user messages
 

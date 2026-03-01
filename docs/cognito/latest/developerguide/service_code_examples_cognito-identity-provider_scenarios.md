@@ -1,6 +1,4 @@
-# Scenarios for
-
-Amazon Cognito Identity Provider using AWS SDKs
+# Scenarios for Amazon Cognito Identity Provider using AWS SDKs
 
 The following code examples show you how to implement common scenarios in Amazon Cognito Identity Provider
 with AWS SDKs. These scenarios show you how to accomplish specific tasks by calling multiple functions

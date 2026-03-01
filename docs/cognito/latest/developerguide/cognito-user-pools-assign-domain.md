@@ -19,29 +19,22 @@ overhead, like managing the SSL certificate and DNS configuration.
 
 The OIDC discovery endpoints, `/.well-known/openid-configuration` for endpoint
 URLs and `/.well-known/jwks.json` for token signing keys, aren't hosted on your
-domain. For more information, see [Identity provider and relying party
-endpoints](federation-endpoints.md "federation-endpoints.md").
+domain. For more information, see [Identity provider and relying party endpoints](federation-endpoints.md "federation-endpoints.md").
 
 Understanding how to configure and manage the domain for your user pool is an important
 step in integrating authentication into your application. Sign-in with the user pools API
 and an AWS SDK can be an alternative to configuring a domain. The API-based model delivers
 tokens directly in an API response, but for implementations that use the extended
 capabilities of user pools as an OIDC IdP, you must configure a domain. For more information
-about the authentication models that are available in user pools, see [Understanding API, OIDC, and managed login pages
-authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations").
+about the authentication models that are available in user pools, see [Understanding API, OIDC, and managed login pages authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations").
 
 ###### Topics
 
-- [Things to know about
-  user pool domains](#cognito-user-pools-assign-domain-things-to-know "#cognito-user-pools-assign-domain-things-to-know")
-- [Using the Amazon Cognito prefix domain for
-  managed login](cognito-user-pools-assign-domain-prefix.md "cognito-user-pools-assign-domain-prefix.md")
-- [Using your own domain for managed
-  login](cognito-user-pools-add-custom-domain.md "cognito-user-pools-add-custom-domain.md")
+- [Things to know about user pool domains](#cognito-user-pools-assign-domain-things-to-know "#cognito-user-pools-assign-domain-things-to-know")
+- [Using the Amazon Cognito prefix domain for managed login](cognito-user-pools-assign-domain-prefix.md "cognito-user-pools-assign-domain-prefix.md")
+- [Using your own domain for managed login](cognito-user-pools-add-custom-domain.md "cognito-user-pools-add-custom-domain.md")
 
-## Things to know about
-
-user pool domains
+## Things to know about user pool domains
 
 User pool domains are a point of service for OIDC relying parties in your applications
 and for UI elements. Consider the following details when you're planning your

@@ -1,6 +1,4 @@
-# Add a SAML 2.0
-
-identity provider
+# Add a SAML 2.0 identity provider
 
 Your app users can sign in with a SAML 2.0 identity provider (IdP). You might choose
 SAML 2.0 IdPs over social IdPs when your customers are the internal customers or linked
@@ -10,8 +8,7 @@ controls. Whether your users sign in directly or through a third party, all user
 profile in the user pool. Skip this step if you don't want to add sign in through a SAML
 identity provider.
 
-For more information, see [Using SAML identity providers with a user
-pool](cognito-user-pools-saml-idp.md "cognito-user-pools-saml-idp.md").
+For more information, see [Using SAML identity providers with a user pool](cognito-user-pools-saml-idp.md "cognito-user-pools-saml-idp.md").
 
 You must update your SAML identity provider and configure your user pool. For
 information about how to add your user pool as a relying party or application for your SAML

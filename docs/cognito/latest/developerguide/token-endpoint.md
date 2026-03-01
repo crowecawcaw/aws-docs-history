@@ -41,11 +41,9 @@ PKCE, see [IETF RFC
 7636](https://datatracker.ietf.org/doc/html/rfc7636 "https://datatracker.ietf.org/doc/html/rfc7636").
 
 You can learn more about the user pool app clients and their grant types, client
-secrets, allowed scopes, and client IDs at [Application-specific settings with app
-clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md"). You can learn more about M2M
+secrets, allowed scopes, and client IDs at [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md"). You can learn more about M2M
 authorization, client credentials grants, and authorization with access token scopes
-at [Scopes, M2M, and resource
-servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
+at [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
 
 To retrieve information about a user from their access token, pass it to your
 [userInfo endpoint](userinfo-endpoint.md "userinfo-endpoint.md") or to a
@@ -62,9 +60,7 @@ The token endpoint supports `client_secret_basic` and
 the OIDC specification, see [Client Authentication](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication "https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication"). For more information about the token
 endpoint from the OpenID Connect specification, see [Token Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#TokenEndpoint "http://openid.net/specs/openid-connect-core-1_0.html#TokenEndpoint").
 
-### Request parameters in
-
-header
+### Request parameters in header
 
 You can pass the following parameters in the header of your request to the
 token endpoint.
@@ -95,9 +91,7 @@ Authorization: Basic ZGpjOTh1M2ppZWRtaTI4M2V1OTI4OmFiY2RlZjAxMjM0NTY3ODkw
 Set the value of this parameter to
 `'application/x-www-form-urlencoded'`.
 
-### Request parameters
-
-in body
+### Request parameters in body
 
 The following are parameters that you can request in
 `x-www-form-urlencoded` format in the request body to the
@@ -209,8 +203,7 @@ included a `grant_type` of
 
 _Optional._
 
-Information that you want to pass to the [Pre token generation Lambda
-trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md") in [machine-to-machine (M2M)](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md") authorization flows. Your
+Information that you want to pass to the [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md") in [machine-to-machine (M2M)](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md") authorization flows. Your
 application can collect context information about the session
 and pass it in this parameter. When you pass
 `aws_client_metadata` in URL-encoded JSON format,
@@ -472,9 +465,7 @@ Content-Type: application/json
     "expires_in": `3600`}
 ```
 
-## Token refresh with
-
-refresh token rotation
+## Token refresh with refresh token rotation
 
 The following example requests provides a refresh token to an app client where
 [refresh token

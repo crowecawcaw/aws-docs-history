@@ -16,8 +16,7 @@ server appends an authorization code in a `code` parameter to
 your callback URL. You must then exchange the code for ID, access, and
 refresh tokens with the [Token endpoint](token-endpoint.md "token-endpoint.md"). To request an authorization code grant, set
 `response_type` to `code` in your request. For an
-example request, see [Example: authorization code
-grant](authorization-endpoint.md#sample-authorization-code-grant "authorization-endpoint.md#sample-authorization-code-grant"). Amazon Cognito supports [Proof Key for Code Exchange
+example request, see [Example: authorization code grant](authorization-endpoint.md#sample-authorization-code-grant "authorization-endpoint.md#sample-authorization-code-grant"). Amazon Cognito supports [Proof Key for Code Exchange
 (PKCE)](using-pkce-in-authorization-code.md "using-pkce-in-authorization-code.md") in authorization code grants.
 
 The authorization code grant is the most secure form of authorization
@@ -37,8 +36,7 @@ and an ID token in an `id_token` parameter, to your callback URL.
 An implicit grant requires no additional interaction with the [Token endpoint](token-endpoint.md "token-endpoint.md"). To request an
 implicit grant, set `response_type` to `token` in your
 request. The implicit grant only generates an ID and access token. For an
-example request, see [Example: Token
-(implicit) grant without openid scope](authorization-endpoint.md#sample-token-grant-without-openid-scope "authorization-endpoint.md#sample-token-grant-without-openid-scope").
+example request, see [Example: Token (implicit) grant without openid scope](authorization-endpoint.md#sample-token-grant-without-openid-scope "authorization-endpoint.md#sample-token-grant-without-openid-scope").
 
 The implicit grant is a legacy authorization grant. Unlike with the
 authorization code grant, users can intercept and inspect your tokens. To
@@ -56,8 +54,7 @@ access token.
 The access token from a client credentials grant is an authorization
 mechanism that contains OAuth 2.0 scopes. Typically, the token contains
 custom scope claims that authorize HTTP operations to access-protected APIs.
-For more information, see [Scopes, M2M, and resource
-servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
+For more information, see [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
 
 Client credentials grants add costs to your AWS bill. For more
 information, see [Amazon Cognito

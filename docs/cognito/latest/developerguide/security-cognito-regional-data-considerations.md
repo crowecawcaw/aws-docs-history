@@ -1,6 +1,4 @@
-# Regional data
-
-considerations
+# Regional data considerations
 
 Amazon Cognito user pools are each created in one AWS Region, and they store the user profile
 data only in that region. User pools can send user data to a different AWS Region,

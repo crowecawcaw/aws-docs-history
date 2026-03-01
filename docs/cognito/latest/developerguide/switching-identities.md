@@ -75,9 +75,7 @@ func identityDidChange(notification: NSNotification!) {
 
 ## JavaScript
 
-### Initially unauthenticated
-
-user
+### Initially unauthenticated user
 
 Users typically start with the unauthenticated role. For this role, you set the
 credentials property of your configuration object without a Logins property. In this case,
@@ -92,9 +90,7 @@ var creds = new AWS.CognitoIdentityCredentials({
 AWS.config.credentials = creds;
 ```
 
-### Switch to authenticated
-
-user
+### Switch to authenticated user
 
 When an unauthenticated user logs in to an IdP and you have a token, you can switch the
 user from unauthenticated to authenticated by calling a custom function that updates the

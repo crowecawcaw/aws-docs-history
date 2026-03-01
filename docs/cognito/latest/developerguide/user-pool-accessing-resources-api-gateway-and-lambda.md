@@ -1,6 +1,4 @@
-# Accessing resources
-
-with API Gateway after sign-in
+# Accessing resources with API Gateway after sign-in
 
 A common use of Amazon Cognito user pools tokens is to authorize requests to an [API Gateway REST
 API](../../../apigateway/latest/developerguide/apigateway-integrate-with-cognito.md "../../../apigateway/latest/developerguide/apigateway-integrate-with-cognito.md"). The OAuth 2.0 scopes in access tokens can authorize a method and path, like

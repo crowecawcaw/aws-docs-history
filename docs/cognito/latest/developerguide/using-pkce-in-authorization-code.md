@@ -1,6 +1,4 @@
-# Using PKCE in authorization code
-
-grants
+# Using PKCE in authorization code grants
 
 Amazon Cognito supports Proof Key for Code Exchange (PKCE) authentication in authorization code
 grants. PKCE is an extension to the OAuth 2.0 authorization code grant
@@ -104,5 +102,4 @@ code_verifier=`9D-aW_iygXrgQcWJd0y0tNVMPSXSChIc2xceDhvYVdGLCBk-JWFTmBNjvKSdOrjTT
 ```
 
 8. Review the response. It will contain ID, access, and refresh tokens. For
-   more information about using Amazon Cognito user pool tokens, see [Understanding
-   user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md "amazon-cognito-user-pools-using-tokens-with-identity-providers.md").
+   more information about using Amazon Cognito user pool tokens, see [Understanding user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md "amazon-cognito-user-pools-using-tokens-with-identity-providers.md").

@@ -1,6 +1,4 @@
-# Adding and managing SAML
-
-identity providers in a user pool
+# Adding and managing SAML identity providers in a user pool
 
 After you configure your identity provider to work with Amazon Cognito, you can add it to
 your user pools and app clients. The following procedures demonstrate how to create,
@@ -53,8 +51,7 @@ configuration. As a security best practice, choose
 only**. If you have prepared your environment to
 securely accept unsolicited SAML sign-in sessions, choose
 **Accept SP-initiated and IdP-initiated SAML
-assertions**. For more information, see [SAML session initiation
-in Amazon Cognito user pools](cognito-user-pools-SAML-session-initiation.md "cognito-user-pools-SAML-session-initiation.md"). 10. Choose a **Metadata document source**. If
+assertions**. For more information, see [SAML session initiation in Amazon Cognito user pools](cognito-user-pools-SAML-session-initiation.md "cognito-user-pools-SAML-session-initiation.md"). 10. Choose a **Metadata document source**. If
 your IdP offers SAML metadata at a public URL, you can choose
 **Metadata document URL** and enter that
 public URL. Otherwise, choose **Upload metadata

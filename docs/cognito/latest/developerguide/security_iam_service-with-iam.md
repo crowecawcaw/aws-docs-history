@@ -21,9 +21,7 @@ To get a high-level view of how Amazon Cognito and other AWS services work with 
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Amazon Cognito
+## Identity-based policies for Amazon Cognito
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Amazon Cognito
 
-Identity-based policy examples for Amazon Cognito
+To view examples of Amazon Cognito identity-based policies, see [Identity-based policy examples for Amazon Cognito](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Amazon Cognito identity-based policies, see [Identity-based policy examples for
-Amazon Cognito](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Amazon Cognito
+## Resource-based policies within Amazon Cognito
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Amazon Cognito
+## Policy actions for Amazon Cognito
 
 **Supports policy actions:**
 
@@ -97,9 +88,7 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-### Signed versus
-
-unsigned APIs
+### Signed versus unsigned APIs
 
 When you sign Amazon Cognito API requests with AWS credentials, you can restrict them
 in an AWS Identity and Access Management (IAM) policy. API requests that you must sign with AWS
@@ -121,8 +110,7 @@ an `IdentityId` parameter as displayed in the [Amazon Cognito
 Federated Identities API Reference](../../../cognitoidentity/latest/APIReference/Welcome.md "../../../cognitoidentity/latest/APIReference/Welcome.md").
 
 For more information about the authorization models and roles of Amazon Cognito user pools API
-operations, see [List of API operations grouped by authorization
-model](authentication-flows-public-server-side.md#user-pool-apis-auth-unauth "authentication-flows-public-server-side.md#user-pool-apis-auth-unauth").
+operations, see [List of API operations grouped by authorization model](authentication-flows-public-server-side.md#user-pool-apis-auth-unauth "authentication-flows-public-server-side.md#user-pool-apis-auth-unauth").
 
 ###### Amazon Cognito identity pools API operations
 
@@ -160,12 +148,9 @@ model](authentication-flows-public-server-side.md#user-pool-apis-auth-unauth "au
 - `VerifySoftwareToken`
 - `VerifyUserAttribute`
 
-To view examples of Amazon Cognito identity-based policies, see [Identity-based policy examples for
-Amazon Cognito](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Cognito identity-based policies, see [Identity-based policy examples for Amazon Cognito](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Amazon Cognito
+## Policy resources for Amazon Cognito
 
 **Supports policy resources:**
 
@@ -180,9 +165,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-### Amazon resource names
-
-(ARNs)
+### Amazon resource names (ARNs)
 
 **ARNs for Amazon Cognito federated identities**
 
@@ -236,12 +219,9 @@ To see a list of Amazon Cognito resource types and their ARNs, see [Resources de
 in the _Service Authorization Reference_. To learn with which actions you can
 specify the ARN of each resource, see [Actions defined by Amazon Cognito](../../../service-authorization/latest/reference/list_amazoncognitoidentity.md#amazoncognitoidentity-actions-as-permissions "../../../service-authorization/latest/reference/list_amazoncognitoidentity.md#amazoncognitoidentity-actions-as-permissions").
 
-To view examples of Amazon Cognito identity-based policies, see [Identity-based policy examples for
-Amazon Cognito](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Cognito identity-based policies, see [Identity-based policy examples for Amazon Cognito](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Amazon Cognito
+## Policy condition keys for Amazon Cognito
 
 **Supports service-specific policy condition keys:**
 
@@ -261,12 +241,9 @@ To see a list of Amazon Cognito condition keys, see
 which actions and resources you can use a condition key, see
 [Actions defined by Amazon Cognito](../../../service-authorization/latest/reference/list_amazoncognitoidentity.md#amazoncognitoidentity-actions-as-permissions "../../../service-authorization/latest/reference/list_amazoncognitoidentity.md#amazoncognitoidentity-actions-as-permissions").
 
-To view examples of Amazon Cognito identity-based policies, see [Identity-based policy examples for
-Amazon Cognito](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Cognito identity-based policies, see [Identity-based policy examples for Amazon Cognito](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control lists (ACLs) in
-
-Amazon Cognito
+## Access control lists (ACLs) in Amazon Cognito
 
 **Supports ACLs:**
 
@@ -275,9 +252,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with Amazon Cognito
+## Attribute-based access control (ABAC) with Amazon Cognito
 
 **Supports ABAC (tags in policies):**
 
@@ -294,9 +269,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Amazon Cognito
+## Using temporary credentials with Amazon Cognito
 
 **Supports temporary credentials:**
 
@@ -308,9 +281,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Amazon Cognito
+## Cross-service principal permissions for Amazon Cognito
 
 **Supports forward access sessions (FAS):**
 
@@ -319,9 +290,7 @@ No
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon Cognito
+## Service roles for Amazon Cognito
 
 **Supports service roles:**
 
@@ -339,9 +308,7 @@ and [Implementing push synchronization](push-sync.md "push-sync.md").
 Changing the permissions for a service role might break Amazon Cognito functionality.
 Edit service roles only when Amazon Cognito provides guidance to do so.
 
-## Service-linked
-
-roles for Amazon Cognito
+## Service-linked roles for Amazon Cognito
 
 **Supports service-linked roles:**
 
@@ -351,5 +318,4 @@ A service-linked role is a type of service role that is linked to an AWS service
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
 but not edit the permissions for service-linked roles.
 
-For details about creating or managing Amazon Cognito service-linked roles, see [Using service-linked roles for
-Amazon Cognito](using-service-linked-roles.md "using-service-linked-roles.md").
+For details about creating or managing Amazon Cognito service-linked roles, see [Using service-linked roles for Amazon Cognito](using-service-linked-roles.md "using-service-linked-roles.md").

@@ -1,6 +1,4 @@
-# Importing users into user pools from a
-
-CSV file
+# Importing users into user pools from a CSV file
 
 When you have an external identity store and the time to prepare your user pool for new
 local users, a bulk user import from a comma-separated values (CSV) file can be a low-effort,
@@ -19,8 +17,7 @@ change their passwords the first time they sign in. Your users are in a
 The lowest-effort way to import users from a CSV is to activate [passwordless
 sign-in](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless") in your user pool. With email address and phone number attributes and the right
 user pool configuration, users can sign in with email or SMS one-time passwords (OTPs)
-immediately after your import job completes. For more information, see [Requiring imported users
-to reset their passwords](#cognito-user-pools-using-import-tool-password-reset "#cognito-user-pools-using-import-tool-password-reset").
+immediately after your import job completes. For more information, see [Requiring imported users to reset their passwords](#cognito-user-pools-using-import-tool-password-reset "#cognito-user-pools-using-import-tool-password-reset").
 
 You can also set your users' passwords with an [AdminSetUserPassword](../../../cognito-user-identity-pools/latest/APIReference/API_AdminSetUserPassword.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminSetUserPassword.md") API request that sets the
 `Permanent` parameter to `true`. CSV import doesn't contribute to the
@@ -51,20 +48,13 @@ pool. Creation date is not one of the imported attributes.
 
 ###### Topics
 
-- [Creating the
-  CloudWatch Logs IAM role](#cognito-user-pools-using-import-tool-cli-cloudwatch-iam-role "#cognito-user-pools-using-import-tool-cli-cloudwatch-iam-role")
-- [Creating the user import CSV
-  file](#cognito-user-pools-using-import-tool-csv-header "#cognito-user-pools-using-import-tool-csv-header")
-- [Creating and running the Amazon Cognito user
-  pool import job](#cognito-user-pools-creating-import-job "#cognito-user-pools-creating-import-job")
-- [Viewing the user pool import
-  results in the CloudWatch console](#cognito-user-pools-using-import-tool-cloudwatch "#cognito-user-pools-using-import-tool-cloudwatch")
-- [Requiring imported users
-  to reset their passwords](#cognito-user-pools-using-import-tool-password-reset "#cognito-user-pools-using-import-tool-password-reset")
+- [Creating the CloudWatch Logs IAM role](#cognito-user-pools-using-import-tool-cli-cloudwatch-iam-role "#cognito-user-pools-using-import-tool-cli-cloudwatch-iam-role")
+- [Creating the user import CSV file](#cognito-user-pools-using-import-tool-csv-header "#cognito-user-pools-using-import-tool-csv-header")
+- [Creating and running the Amazon Cognito user pool import job](#cognito-user-pools-creating-import-job "#cognito-user-pools-creating-import-job")
+- [Viewing the user pool import results in the CloudWatch console](#cognito-user-pools-using-import-tool-cloudwatch "#cognito-user-pools-using-import-tool-cloudwatch")
+- [Requiring imported users to reset their passwords](#cognito-user-pools-using-import-tool-password-reset "#cognito-user-pools-using-import-tool-password-reset")
 
-## Creating the
-
-CloudWatch Logs IAM role
+## Creating the CloudWatch Logs IAM role
 
 If you're using the Amazon Cognito CLI or API, then you need to create a CloudWatch IAM role. The
 following procedure describes how to create an IAM role that Amazon Cognito can use to write the
@@ -142,16 +132,13 @@ JSON
 7. Choose **Update policy**.
 8. Note the role ARN. You'll provide the ARN when you create your import job.
 
-## Creating the user import CSV
-
-file
+## Creating the user import CSV file
 
 Before you can import your existing users into your user pool, you must create a
 comma-separated values (CSV) file that contains the users that you want to import, and their
 attributes. From your user pool, you can retrieve a user import file with headers that reflect
 the attribute schema of your user pool. You can then insert user information that matches the
-formatting requirements in [Formatting the CSV
-file](#cognito-user-pools-using-import-tool-formatting-csv-file "#cognito-user-pools-using-import-tool-formatting-csv-file").
+formatting requirements in [Formatting the CSV file](#cognito-user-pools-using-import-tool-formatting-csv-file "#cognito-user-pools-using-import-tool-formatting-csv-file").
 
 ### Downloading the CSV file header (console)
 
@@ -214,9 +201,7 @@ Sample response:
 }
 ```
 
-### Formatting the CSV
-
-file
+### Formatting the CSV file
 
 The downloaded user import CSV header file looks like the following string. It also
 includes any custom attributes you have added to your user pool.
@@ -261,8 +246,7 @@ see [Working with user attributes](user-pool-settings-attributes.md "user-pool-s
   For users to reset their passwords, they must have a verified email or phone
   number. Amazon Cognito sends a message containing a reset password code to the email or phone
   number specified in the CSV file. If the message is sent to the phone number, it is
-  sent by SMS message. For more information, see [Verifying contact
-  information at sign-up](signing-up-users-in-your-app.md#allowing-users-to-sign-up-and-confirm-themselves "signing-up-users-in-your-app.md#allowing-users-to-sign-up-and-confirm-themselves").
+  sent by SMS message. For more information, see [Verifying contact information at sign-up](signing-up-users-in-your-app.md#allowing-users-to-sign-up-and-confirm-themselves "signing-up-users-in-your-app.md#allowing-users-to-sign-up-and-confirm-themselves").
   - **email** (if **email_verified** is
     `true`)
   - **phone_number** (if **phone_number_verified**
@@ -310,22 +294,17 @@ Jane,,Jane,Roe,,,,,,,janeroe@example.com,TRUE,,01/01/1985,,,+12345550199,TRUE,10
 
 ```
 
-## Creating and running the Amazon Cognito user
-
-pool import job
+## Creating and running the Amazon Cognito user pool import job
 
 This section describes how to create and run the user pool import job by using the Amazon Cognito
 console and the AWS Command Line Interface (AWS CLI).
 
 ###### Topics
 
-- [Importing users from a CSV file
-  (console)](#cognito-user-pools-using-import-tool-console "#cognito-user-pools-using-import-tool-console")
+- [Importing users from a CSV file (console)](#cognito-user-pools-using-import-tool-console "#cognito-user-pools-using-import-tool-console")
 - [Importing users (AWS CLI)](#cognito-user-pools-using-import-tool-cli "#cognito-user-pools-using-import-tool-cli")
 
-### Importing users from a CSV file
-
-(console)
+### Importing users from a CSV file (console)
 
 The following procedure describes how to import the users from the CSV file.
 
@@ -348,8 +327,7 @@ The following procedure describes how to import the users from the CSV file.
       permissions to create IAM roles.
    2. If you chose **Use an existing IAM role**, choose a role from
       the list under **IAM role selection**. This role must have the
-      permissions and trust policy described in [Creating the
-      CloudWatch Logs IAM role](#cognito-user-pools-using-import-tool-cli-cloudwatch-iam-role "#cognito-user-pools-using-import-tool-cli-cloudwatch-iam-role").
+      permissions and trust policy described in [Creating the CloudWatch Logs IAM role](#cognito-user-pools-using-import-tool-cli-cloudwatch-iam-role "#cognito-user-pools-using-import-tool-cli-cloudwatch-iam-role").
 
 8. Under **Upload CSV**, choose **Choose file** and
    attach the CSV file that you prepared.
@@ -383,16 +361,13 @@ command line option. For example:
 aws cognito-idp get-csv-header help
 ```
 
-#### Creating
-
-a user import job
+#### Creating a user import job
 
 After you create your CSV file, create a user import job by
 running the following CLI command, where `JOB_NAME` is the name
 you're choosing for the job, `USER_POOL_ID` is the user pool ID for
 the user pool into which the new users will be added, and
-`ROLE_ARN` is the role ARN you received in [Creating the
-CloudWatch Logs IAM role](#cognito-user-pools-using-import-tool-cli-cloudwatch-iam-role "#cognito-user-pools-using-import-tool-cli-cloudwatch-iam-role"):
+`ROLE_ARN` is the role ARN you received in [Creating the CloudWatch Logs IAM role](#cognito-user-pools-using-import-tool-cli-cloudwatch-iam-role "#cognito-user-pools-using-import-tool-cli-cloudwatch-iam-role"):
 
 ```
 aws cognito-idp create-user-import-job --job-name "`JOB_NAME`" --user-pool-id "`USER_POOL_ID`" --cloud-watch-logs-role-arn "`ROLE_ARN`"
@@ -440,9 +415,7 @@ In the responses to your user import commands, you'll see one of the following
   hours. All data associated with the job was deleted, and the job can't be
   started.
 
-#### Uploading the
-
-CSV file
+#### Uploading the CSV file
 
 Use the following `curl` command to upload the CSV file containing your user
 data to the presigned URL that you obtained from the response of the
@@ -492,9 +465,7 @@ that you uploaded the CSV file to. The
 `ROLE_ARN` is the CloudWatch Logs role ARN that you received when you
 created the role.
 
-#### Listing
-
-your user import jobs
+#### Listing your user import jobs
 
 To list your user import jobs, use the following command:
 
@@ -548,9 +519,7 @@ there are additional results for this list command. To list the additional resul
 aws cognito-idp list-user-import-jobs --user-pool-id "`USER_POOL_ID`" --max-results 10 --pagination-token "`PAGINATION_TOKEN`"
 ```
 
-#### Starting
-
-a user import job
+#### Starting a user import job
 
 To start a user import job, use the following command:
 
@@ -580,9 +549,7 @@ Only one import job can be active at a time per account.
 }
 ```
 
-#### Stopping
-
-a user import job
+#### Stopping a user import job
 
 To stop a user import job while it is in progress, use the following command. After you
 stop the job, it cannot be restarted.
@@ -613,22 +580,16 @@ aws cognito-idp stop-user-import-job --user-pool-id "`USER_POOL_ID`" --job-id "`
 }
 ```
 
-## Viewing the user pool import
-
-results in the CloudWatch console
+## Viewing the user pool import results in the CloudWatch console
 
 You can view the results of your import job in the Amazon CloudWatch console.
 
 ###### Topics
 
-- [Viewing the
-  results](#cognito-user-pools-using-import-tool-viewing-the-results "#cognito-user-pools-using-import-tool-viewing-the-results")
-- [Interpreting
-  the results](#cognito-user-pools-using-import-tool-interpreting-the-results "#cognito-user-pools-using-import-tool-interpreting-the-results")
+- [Viewing the results](#cognito-user-pools-using-import-tool-viewing-the-results "#cognito-user-pools-using-import-tool-viewing-the-results")
+- [Interpreting the results](#cognito-user-pools-using-import-tool-interpreting-the-results "#cognito-user-pools-using-import-tool-interpreting-the-results")
 
-### Viewing the
-
-results
+### Viewing the results
 
 The following steps describe how to view the user pool import results.
 
@@ -648,9 +609,7 @@ The following steps describe how to view the user pool import results.
    - `[FAILED] Line Number 5956 - The User Record does not set any of the auto
 verified attributes to true. (Example: email_verified to true).`
 
-### Interpreting
-
-the results
+### Interpreting the results
 
 Successfully imported users have their status set to "PasswordReset".
 
@@ -668,9 +627,7 @@ In the following cases, the import job will fail:
 - The user pool has been deleted.
 - Amazon Cognito is unable to parse the .csv file.
 
-## Requiring imported users
-
-to reset their passwords
+## Requiring imported users to reset their passwords
 
 If your user pool only offers password-based sign-in, users must reset their passwords
 after they are imported. The first time they sign in, they can enter _any_ password. Amazon Cognito prompts them to enter a new password in the API response to

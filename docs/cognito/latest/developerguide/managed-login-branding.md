@@ -36,9 +36,7 @@ of your hosted authentication service. Currently, you can't modify the text that
 displayed on your managed login pages, except to apply localization into one of several
 languages. For more information about localization, see [Managed login localization](cognito-user-pools-managed-login.md#managed-login-localization "cognito-user-pools-managed-login.md#managed-login-localization").
 
-## Choose a branding experience and assign
-
-styles
+## Choose a branding experience and assign styles
 
 In the Amazon Cognito console, new user pools default to the **Managed login**
 branding experience. User pools that you set up before managed login was available will
@@ -74,8 +72,7 @@ you can't copy settings between styles. You must do this programmatically. To
 replicate settings between styles and app clients, get the settings for a style with
 the [DescribeManagedLoginBranding](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBranding.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBranding.md") API operation and apply them with [CreateManagedLoginBranding](../../../cognito-user-identity-pools/latest/APIReference/API_CreateManagedLoginBranding.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateManagedLoginBranding.md") or [UpdateManagedLoginBranding](../../../index.md "../../../index.md"). You can't change the assigned styles of an
 app client—you can only delete the original and set a new one. For more
-information about managing styles with API and SDK operations, see [API and SDK operations for managed login
-branding](managed-login-brandingeditor.md#branding-designer-api "managed-login-brandingeditor.md#branding-designer-api").
+information about managing styles with API and SDK operations, see [API and SDK operations for managed login branding](managed-login-brandingeditor.md#branding-designer-api "managed-login-brandingeditor.md#branding-designer-api").
 
 ###### Note
 
@@ -110,7 +107,5 @@ following steps.
 
 ###### Topics
 
-- [The branding editor and customizing
-  managed login](managed-login-brandingeditor.md "managed-login-brandingeditor.md")
-- [Customizing hosted UI (classic)
-  branding](hosted-ui-classic-branding.md "hosted-ui-classic-branding.md")
+- [The branding editor and customizing managed login](managed-login-brandingeditor.md "managed-login-brandingeditor.md")
+- [Customizing hosted UI (classic) branding](hosted-ui-classic-branding.md "hosted-ui-classic-branding.md")

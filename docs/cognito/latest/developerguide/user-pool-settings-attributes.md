@@ -23,8 +23,7 @@ _members_.
 - [Username and preferred username](#user-pool-settings-usernames "#user-pool-settings-usernames")
 - [Customizing sign-in attributes](#user-pool-settings-aliases "#user-pool-settings-aliases")
 - [Custom attributes](#user-pool-settings-custom-attributes "#user-pool-settings-custom-attributes")
-- [Attribute permissions
-  and scopes](#user-pool-settings-attribute-permissions-and-scopes "#user-pool-settings-attribute-permissions-and-scopes")
+- [Attribute permissions and scopes](#user-pool-settings-attribute-permissions-and-scopes "#user-pool-settings-attribute-permissions-and-scopes")
 
 ## Standard attributes
 
@@ -74,9 +73,7 @@ register unless they provide a value for the attribute. To create users and not 
 for required attributes, administrators can use the [AdminCreateUser](../../../cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.md") API. After you create a user pool, you can't switch an attribute
 between required and not required.
 
-###### Standard attribute
-
-details and format restrictions
+###### Standard attribute details and format restrictions
 
 **birthdate**
 
@@ -183,9 +180,7 @@ email address, or phone number.
 
 After you create a user pool, you can't change this setting.
 
-### How to choose between alias attributes
-
-and username attributes
+### How to choose between alias attributes and username attributes
 
 | Your requirement                                                                                               | Alias attributes | Username attributes |
 | -------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------- |
@@ -487,8 +482,7 @@ types are only available in the `SchemaAttributes` property of [CreateUserPool](
   more information, see [Quotas in Amazon Cognito](quotas.md "quotas.md").
 - It can be _mutable_ or _immutable_. You can only write a value to an immutable attribute when you
   create a user. You can change the value of a mutable attribute if your app client has
-  write permission to the attribute. See [Attribute permissions
-  and scopes](#user-pool-settings-attribute-permissions-and-scopes "#user-pool-settings-attribute-permissions-and-scopes") for more
+  write permission to the attribute. See [Attribute permissions and scopes](#user-pool-settings-attribute-permissions-and-scopes "#user-pool-settings-attribute-permissions-and-scopes") for more
   information.
 
 ###### Note
@@ -523,9 +517,7 @@ Use the following procedure to create a new custom attribute.
 
 6. Choose **Save changes**.
 
-## Attribute permissions
-
-and scopes
+## Attribute permissions and scopes
 
 For each app client, you can set read and write permissions for each user attribute. This
 way, you can control the access that any app has to read and modify each attribute that you
@@ -592,9 +584,7 @@ an immutable attribute with the following methods.
   attribute.
 - `AdminCreateUser`: You provide a value for an immutable attribute.
 
-### Attribute permissions
-
-with scopes
+### Attribute permissions with scopes
 
 In user pools that you configure with an AWS SDK or CDK, the REST API, or the AWS CLI,
 you can configure app client read or write access with the OIDC scope
@@ -619,8 +609,7 @@ This list is the OIDC standard attributes minus `email`,
 `phone_number`, `sub`, and `address`, as defined in
 [section 2.4 of
 the OIDC specification](https://openid.net/specs/openid-connect-basic-1_0.html#Scopes "https://openid.net/specs/openid-connect-basic-1_0.html#Scopes"). For information about the scopes that you can assign to
-your app clients, see [Scopes, M2M, and resource
-servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
+your app clients, see [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
 
 To configure your app client to write to the attributes under the
 `oidc:profile` scope, set the value of [WriteAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md#CognitoUserPools-CreateUserPoolClient-request-WriteAttributes "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md#CognitoUserPools-CreateUserPoolClient-request-WriteAttributes") to `oidc:profile`, plus any other attributes that you

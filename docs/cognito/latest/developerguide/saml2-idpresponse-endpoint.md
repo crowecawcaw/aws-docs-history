@@ -1,14 +1,11 @@
-# The IdP SAML assertion
-
-endpoint
+# The IdP SAML assertion endpoint
 
 The `/saml2/idpresponse` receives SAML assertions. In
 service-provider-initiated (SP-initiated) sign-in, your application doesn't interact
 directly with this endpoint—your SAML 2.0 identity provider (IdP) redirects
 your user here with their SAML response. For SP-initiated sign-in, configure your
 IdP with the path to your `saml2/idpresponse` as the assertion consumer
-service (ACS) URL. For more information about session initiation, see [SAML session initiation
-in Amazon Cognito user pools](cognito-user-pools-SAML-session-initiation.md "cognito-user-pools-SAML-session-initiation.md").
+service (ACS) URL. For more information about session initiation, see [SAML session initiation in Amazon Cognito user pools](cognito-user-pools-SAML-session-initiation.md "cognito-user-pools-SAML-session-initiation.md").
 
 In IdP-initiated sign-in, invoke requests to this endpoint in your application
 after you sign in user with your SAML 2.0 provider. Your users sign in with your IdP
@@ -21,9 +18,7 @@ For more information, see [Implement IdP-initiated SAML sign-in](cognito-user-po
 The `saml2/idpresponse` endpoint can accept SAML assertions of up to
 100,000 characters in length.
 
-## POST
-
-`/saml2/idpresponse`
+## POST `/saml2/idpresponse`
 
 To use the `/saml2/idpresponse` endpoint in an IdP-initiated
 sign-in, generate a POST request with parameters that provide your user pool
@@ -35,9 +30,7 @@ with information about your user's session.
   token.
 - The IdP that initiated the sign-in request.
 
-### IdP-initiated
-
-request body parameters
+### IdP-initiated request body parameters
 
 _SAMLResponse_
 
@@ -79,9 +72,7 @@ _scope_
 The OAuth 2.0 scopes that you want your user to
 request from the authorization server.
 
-### Example requests
-
-with positive responses
+### Example requests with positive responses
 
 ###### Example – POST request
 

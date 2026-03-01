@@ -1,6 +1,4 @@
-# SAML session initiation
-
-in Amazon Cognito user pools
+# SAML session initiation in Amazon Cognito user pools
 
 Amazon Cognito supports service provider-initiated (SP-initiated) single sign-on (SSO)
 and IdP-initiated SSO. As a best security practice, implement SP-initiated SSO in
@@ -25,13 +23,10 @@ guard against cross-site request forgery (CSRF).
 
 ###### Topics
 
-- [Implement
-  SP-initated SAML sign-in](#cognito-user-pools-saml-idp-authentication "#cognito-user-pools-saml-idp-authentication")
+- [Implement SP-initated SAML sign-in](#cognito-user-pools-saml-idp-authentication "#cognito-user-pools-saml-idp-authentication")
 - [Implement IdP-initiated SAML sign-in](#cognito-user-pools-SAML-session-initiation-idp-initiation "#cognito-user-pools-SAML-session-initiation-idp-initiation")
 
-## Implement
-
-SP-initated SAML sign-in
+## Implement SP-initated SAML sign-in
 
 As a best practice, implement service-provider-initiated (SP-initiated)
 sign-in to your user pool. Amazon Cognito initiates your user's session and redirects

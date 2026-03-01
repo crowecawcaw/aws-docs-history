@@ -209,9 +209,7 @@ include the tag values.
 After you delete a user or identity pool, tags related to the deleted pool can still appear in
 the console or API calls for up to 30 days after deletion.
 
-### Applying tags when you create
-
-resources
+### Applying tags when you create resources
 
 Use the following commands to assign tags at the moment you create a user pool or
 identity pool.
@@ -262,9 +260,7 @@ pools.
 - [UntagResource](../../../cognito-user-identity-pools/latest/APIReference/API_UntagResource.md "../../../cognito-user-identity-pools/latest/APIReference/API_UntagResource.md")
 - [CreateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md")
 
-### API actions for identity pool
-
-tags
+### API actions for identity pool tags
 
 Use the following API actions to assign, view, and remove tags for identity
 pools.

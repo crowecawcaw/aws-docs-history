@@ -18,21 +18,16 @@ AWS Lambda functions that modify or overhaul the default behavior of Amazon Cogn
 - [User pool feature plans](cognito-sign-in-feature-plans.md "cognito-sign-in-feature-plans.md")
 - [Security best practices for Amazon Cognito user pools](user-pool-security-best-practices.md "user-pool-security-best-practices.md")
 - [Authentication with Amazon Cognito user pools](authentication.md "authentication.md")
-- [User pool sign-in with third party
-  identity providers](cognito-user-pools-identity-federation.md "cognito-user-pools-identity-federation.md")
+- [User pool sign-in with third party identity providers](cognito-user-pools-identity-federation.md "cognito-user-pools-identity-federation.md")
 - [User pool managed login](cognito-user-pools-managed-login.md "cognito-user-pools-managed-login.md")
-- [Customizing user pool
-  workflows with Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md "cognito-user-pools-working-with-lambda-triggers.md")
+- [Customizing user pool workflows with Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md "cognito-user-pools-working-with-lambda-triggers.md")
 - [Managing users in your user pool](managing-users.md "managing-users.md")
-- [Understanding
-  user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md "amazon-cognito-user-pools-using-tokens-with-identity-providers.md")
+- [Understanding user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md "amazon-cognito-user-pools-using-tokens-with-identity-providers.md")
 - [Accessing resources after successful sign-in](accessing-resources.md "accessing-resources.md")
-- [Scopes, M2M, and resource
-  servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
+- [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
 - [Configure user pool features](user-pools-configure-features.md "user-pools-configure-features.md")
 - [Using Amazon Cognito user pools security features](managing-security.md "managing-security.md")
-- [User pool endpoints and
-  managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md")
+- [User pool endpoints and managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md")
 
 ## Features
 
@@ -76,8 +71,7 @@ an identity pool.
 ###### Related topics
 
 - [Managing users in your user pool](managing-users.md "managing-users.md")
-- [Understanding API, OIDC, and managed login pages
-  authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations")
+- [Understanding API, OIDC, and managed login pages authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations")
 - [Code examples for Amazon Cognito Identity Provider using AWS SDKs](service_code_examples_cognito-identity-provider.md "service_code_examples_cognito-identity-provider.md")
 
 ### Sign-in
@@ -107,10 +101,8 @@ built in to Amazon Cognito, you can add the following integrations.
 
 ###### Related topics
 
-- [User pool sign-in with third party
-  identity providers](cognito-user-pools-identity-federation.md "cognito-user-pools-identity-federation.md")
-- [Linking
-  federated users to an existing user profile](cognito-user-pools-identity-federation-consolidate-users.md "cognito-user-pools-identity-federation-consolidate-users.md")
+- [User pool sign-in with third party identity providers](cognito-user-pools-identity-federation.md "cognito-user-pools-identity-federation.md")
+- [Linking federated users to an existing user profile](cognito-user-pools-identity-federation-consolidate-users.md "cognito-user-pools-identity-federation-consolidate-users.md")
 
 ###### Machine-to-machine authorization
 
@@ -121,8 +113,7 @@ generates [client-credentials grants](https://www.rfc-editor.org/rfc/rfc6749#sec
 
 ###### Related topics
 
-- [Scopes, M2M, and resource
-  servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
+- [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
 
 ### Managed login
 
@@ -154,8 +145,7 @@ action with AWS WAF web ACLs.
 ###### Related topics
 
 - [Adding MFA to a user pool](user-pool-settings-mfa.md "user-pool-settings-mfa.md")
-- [Advanced security with threat
-  protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md")
+- [Advanced security with threat protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md")
 - [Associate an AWS WAF web ACL with a user pool](user-pool-waf.md "user-pool-waf.md")
 
 ### Custom user experience
@@ -170,15 +160,11 @@ your users.
 
 ###### Related topics
 
-- [Customizing user pool
-  workflows with Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md "cognito-user-pools-working-with-lambda-triggers.md")
-- [Custom authentication challenge Lambda
-  triggers](user-pool-lambda-challenge.md "user-pool-lambda-challenge.md")
+- [Customizing user pool workflows with Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md "cognito-user-pools-working-with-lambda-triggers.md")
+- [Custom authentication challenge Lambda triggers](user-pool-lambda-challenge.md "user-pool-lambda-challenge.md")
 - [Apply branding to managed login pages](managed-login-branding.md "managed-login-branding.md")
 
-### Monitoring and
-
-analytics
+### Monitoring and analytics
 
 Amazon Cognito user pools log API requests, including requests to managed login, to AWS CloudTrail. You can
 review performance metrics in Amazon CloudWatch Logs, push custom logs to CloudWatch with Lambda triggers,
@@ -197,15 +183,11 @@ of user activity.
 ###### Related topics
 
 - [Amazon Cognito logging in AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
-- [Tracking quotas
-  and usage in CloudWatch and Service Quotas](tracking-quotas-and-usage-in-cloud-watch-and-service-quotas.md "tracking-quotas-and-usage-in-cloud-watch-and-service-quotas.md")
+- [Tracking quotas and usage in CloudWatch and Service Quotas](tracking-quotas-and-usage-in-cloud-watch-and-service-quotas.md "tracking-quotas-and-usage-in-cloud-watch-and-service-quotas.md")
 - [Exporting logs from Amazon Cognito user pools](exporting-quotas-and-usage.md "exporting-quotas-and-usage.md")
-- [Using Amazon Pinpoint for user pool
-  analytics](cognito-user-pools-pinpoint-integration.md "cognito-user-pools-pinpoint-integration.md")
+- [Using Amazon Pinpoint for user pool analytics](cognito-user-pools-pinpoint-integration.md "cognito-user-pools-pinpoint-integration.md")
 
-### Amazon Cognito identity
-
-pools integration
+### Amazon Cognito identity pools integration
 
 The other half of Amazon Cognito is identity pools. Identity pools provide credentials that
 authorize and monitor API requests to AWS services, for example Amazon DynamoDB or Amazon S3, from
@@ -216,6 +198,5 @@ authentication.
 
 ###### Related topics
 
-- [Accessing
-  AWS services using an identity pool after sign-in](amazon-cognito-integrating-user-pools-with-identity-pools.md "amazon-cognito-integrating-user-pools-with-identity-pools.md")
+- [Accessing AWS services using an identity pool after sign-in](amazon-cognito-integrating-user-pools-with-identity-pools.md "amazon-cognito-integrating-user-pools-with-identity-pools.md")
 - [Amazon Cognito identity pools](cognito-identity.md "cognito-identity.md")

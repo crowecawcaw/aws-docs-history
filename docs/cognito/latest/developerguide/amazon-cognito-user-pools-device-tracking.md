@@ -1,6 +1,4 @@
-# Working with user devices in your
-
-user pool
+# Working with user devices in your user pool
 
 When you sign in local user pool users with the Amazon Cognito user pools API, you can associate your users’
 activity logs from [threat
@@ -14,18 +12,12 @@ prompt for an MFA code at sign-in.
 
 ###### Topics
 
-- [Setting up
-  remembered devices](#amazon-cognito-user-pools-setting-up-remembered-devices "#amazon-cognito-user-pools-setting-up-remembered-devices")
-- [Getting a device
-  key](#user-pools-remembered-devices-getting-a-device-key "#user-pools-remembered-devices-getting-a-device-key")
-- [Signing in with a
-  device](#user-pools-remembered-devices-signing-in-with-a-device "#user-pools-remembered-devices-signing-in-with-a-device")
-- [Viewing, updating
-  and forgetting devices](#user-pools-remembered-devices-viewing-updating-forgetting "#user-pools-remembered-devices-viewing-updating-forgetting")
+- [Setting up remembered devices](#amazon-cognito-user-pools-setting-up-remembered-devices "#amazon-cognito-user-pools-setting-up-remembered-devices")
+- [Getting a device key](#user-pools-remembered-devices-getting-a-device-key "#user-pools-remembered-devices-getting-a-device-key")
+- [Signing in with a device](#user-pools-remembered-devices-signing-in-with-a-device "#user-pools-remembered-devices-signing-in-with-a-device")
+- [Viewing, updating and forgetting devices](#user-pools-remembered-devices-viewing-updating-forgetting "#user-pools-remembered-devices-viewing-updating-forgetting")
 
-## Setting up
-
-remembered devices
+## Setting up remembered devices
 
 With Amazon Cognito user pools, you can associate each of your users' devices with a unique device
 identifier: a device key. When you present the device key and perform device authentication at
@@ -43,8 +35,7 @@ be remembered again after successful authentication.
 1. Remembered devices can override MFA only in user pools with MFA active.
 
 When your user signs in with a remembered device, you must perform an additional device
-authentication during their authentication flow. For more information, see [Signing in with a
-device](#user-pools-remembered-devices-signing-in-with-a-device "#user-pools-remembered-devices-signing-in-with-a-device").
+authentication during their authentication flow. For more information, see [Signing in with a device](#user-pools-remembered-devices-signing-in-with-a-device "#user-pools-remembered-devices-signing-in-with-a-device").
 
 Configure your user pool to remember devices in the **Sign-in** menu of
 your user pool, under **Device tracking**. When setting up the remembered
@@ -88,12 +79,9 @@ The Amazon Cognito user pools API has additional operations for remembered devic
    their profile.
 
 API operations with names that begin with `Admin` are for use in server-side
-apps and must be authorized with IAM credentials. For more information, see [Understanding API, OIDC, and managed login pages
-authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations").
+apps and must be authorized with IAM credentials. For more information, see [Understanding API, OIDC, and managed login pages authentication](authentication-flows-public-server-side.md#user-pools-API-operations "authentication-flows-public-server-side.md#user-pools-API-operations").
 
-## Getting a device
-
-key
+## Getting a device key
 
 Any time that your user signs in with the user pools API and doesn’t include a device key
 in the authentication parameters as `DEVICE_KEY`, Amazon Cognito returns a new device key in
@@ -139,9 +127,7 @@ the confirmed device.
    instead of an MFA challenge, they’re presented with a `DEVICE_SRP_AUTH`
    challenge.
 
-## Signing in with a
-
-device
+## Signing in with a device
 
 After you configure a user’s device to be remembered, Amazon Cognito no longer requires them to
 submit an MFA code when they sign in with the same device key. Device authentication only
@@ -200,9 +186,7 @@ K_USER = HKDF_HMAC_SHA256(salt=u, ikm=S_USER, info="Caldera Derived Key", length
 PASSWORD_CLAIM_SIGNATURE = Base64(HMAC_SHA256(key=K_USER, message=(DeviceGroupKey || DeviceKey || PASSWORD_CLAIM_SECRET_BLOCK || TIMESTAMP)))
 ```
 
-## Viewing, updating
-
-and forgetting devices
+## Viewing, updating and forgetting devices
 
 You can implement the following features in your app with the Amazon Cognito API.
 

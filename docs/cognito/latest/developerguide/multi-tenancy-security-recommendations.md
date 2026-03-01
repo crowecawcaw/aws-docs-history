@@ -1,6 +1,4 @@
-# Multi-tenancy security
-
-recommendations
+# Multi-tenancy security recommendations
 
 To help make your application more secure, we recommend the following:
 

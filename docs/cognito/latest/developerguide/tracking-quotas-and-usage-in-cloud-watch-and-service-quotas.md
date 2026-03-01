@@ -1,6 +1,4 @@
-# Tracking quotas
-
-and usage in CloudWatch and Service Quotas
+# Tracking quotas and usage in CloudWatch and Service Quotas
 
 You can monitor Amazon Cognito user pools using Amazon CloudWatch or using Service Quotas. You can also monitor
 identity pools usage in Service Quotas. CloudWatch collects raw data and processes it into readable, near

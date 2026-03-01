@@ -1,6 +1,4 @@
-# Access Amazon Cognito using an interface endpoint
-
-(AWS PrivateLink)
+# Access Amazon Cognito using an interface endpoint (AWS PrivateLink)
 
 You can use AWS PrivateLink to create a private connection between your VPC and Amazon Cognito. You
 can access Amazon Cognito as if it were in your VPC, without the use of an internet gateway, NAT
@@ -27,22 +25,15 @@ AWS PrivateLink:
 
 ###### Topics
 
-- [Authentication flows for
-  AWS PrivateLink integration](#privatelink-authentication-flows "#privatelink-authentication-flows")
-- [Operational modes for
-  AWS PrivateLink](#privatelink-operational-modes "#privatelink-operational-modes")
+- [Authentication flows for AWS PrivateLink integration](#privatelink-authentication-flows "#privatelink-authentication-flows")
+- [Operational modes for AWS PrivateLink](#privatelink-operational-modes "#privatelink-operational-modes")
 - [Considerations for Amazon Cognito](#vpc-endpoint-considerations "#vpc-endpoint-considerations")
-- [Controlling access with resource
-  control policies](#vpc-endpoint-considerations-rcps "#vpc-endpoint-considerations-rcps")
+- [Controlling access with resource control policies](#vpc-endpoint-considerations-rcps "#vpc-endpoint-considerations-rcps")
 - [Create an interface endpoint for Amazon Cognito](#vpc-endpoint-create "#vpc-endpoint-create")
-- [Create an endpoint policy for your interface
-  endpoint](#vpc-endpoint-policy "#vpc-endpoint-policy")
-- [Create an identity-based policy for
-  AWS PrivateLink operations](#identity-based-vpc-policy "#identity-based-vpc-policy")
+- [Create an endpoint policy for your interface endpoint](#vpc-endpoint-policy "#vpc-endpoint-policy")
+- [Create an identity-based policy for AWS PrivateLink operations](#identity-based-vpc-policy "#identity-based-vpc-policy")
 
-## Authentication flows for
-
-AWS PrivateLink integration
+## Authentication flows for AWS PrivateLink integration
 
 The following table describes the authentication flows available to clients in VPCs,
 and the IAM policies that you can apply to govern them. The policies that you can
@@ -71,9 +62,7 @@ with AWS PrivateLink.
 3
 User pool must _not_ have a domain assigned.
 
-## Operational modes for
-
-AWS PrivateLink
+## Operational modes for AWS PrivateLink
 
 The following example implementation models are supported with AWS PrivateLink and
 Amazon Cognito.
@@ -98,14 +87,10 @@ AWS PrivateLink for Amazon Cognito is only available in commercial AWS Regions.
 
 ###### Topics
 
-- [User pools and
-  AWS PrivateLink](#vpc-endpoint-considerations-user-pools "#vpc-endpoint-considerations-user-pools")
-- [Identity pools and
-  AWS PrivateLink](#vpc-endpoint-considerations-identity-pools "#vpc-endpoint-considerations-identity-pools")
+- [User pools and AWS PrivateLink](#vpc-endpoint-considerations-user-pools "#vpc-endpoint-considerations-user-pools")
+- [Identity pools and AWS PrivateLink](#vpc-endpoint-considerations-identity-pools "#vpc-endpoint-considerations-identity-pools")
 
-### User pools and
-
-AWS PrivateLink
+### User pools and AWS PrivateLink
 
 You can make requests to all user pools API operations through the interface
 endpoint, but not to operations that your application requests from the user pool
@@ -123,19 +108,14 @@ allow requests for otherwise-public operations.
 Requests to domain endpoints are also public, but you can't evaluate them in
 policies. VPC private DNS doesn't route requests for user pool domains to your VPC
 endpoint. You can only make requests for domain services through public-internet
-paths. For more information, see [Effects of policies
-on user pool operations](#vpc-endpoint-considerations-policy-effects "#vpc-endpoint-considerations-policy-effects").
+paths. For more information, see [Effects of policies on user pool operations](#vpc-endpoint-considerations-policy-effects "#vpc-endpoint-considerations-policy-effects").
 
 ###### Topics
 
-- [Supported
-  operations](#vpc-endpoint-considerations-supported-operations "#vpc-endpoint-considerations-supported-operations")
-- [Effects of policies
-  on user pool operations](#vpc-endpoint-considerations-policy-effects "#vpc-endpoint-considerations-policy-effects")
+- [Supported operations](#vpc-endpoint-considerations-supported-operations "#vpc-endpoint-considerations-supported-operations")
+- [Effects of policies on user pool operations](#vpc-endpoint-considerations-policy-effects "#vpc-endpoint-considerations-policy-effects")
 
-#### Supported
-
-operations
+#### Supported operations
 
 Systems in a VPC can send requests to [user pool API actions](../../../service-authorization/latest/reference/list_amazoncognitouserpools.md "../../../service-authorization/latest/reference/list_amazoncognitouserpools.md") but _not_ to
 user pool [domain
@@ -180,9 +160,7 @@ endpoints remain always accessible through public-internet paths. To address
 access from public sources, implement [AWS WAF
 web ACLs](user-pool-waf.md "user-pool-waf.md").
 
-#### Effects of policies
-
-on user pool operations
+#### Effects of policies on user pool operations
 
 All user pool API operations, even those that are typically public and
 unauthenticated, can be controlled in VPC endpoint policies and resource control
@@ -196,8 +174,7 @@ application of any type of policies to their actions.
 ###### Unauthenticated operations
 
 Amazon Cognito operations for client-side applications aren't authenticated with
-SigV4. Example operations are in the example policy at [Create an endpoint policy for your interface
-endpoint](#vpc-endpoint-policy "#vpc-endpoint-policy").
+SigV4. Example operations are in the example policy at [Create an endpoint policy for your interface endpoint](#vpc-endpoint-policy "#vpc-endpoint-policy").
 Additional examples of unauthenticated operations are `GetUser`
 and `AssociateSoftwareToken`. When you add these operations to
 [identity-based policies](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md"), they have no effect. However, you can
@@ -218,20 +195,16 @@ VPC-aware with [network-based condition keys](../../../IAM/latest/UserGuide/refe
 and `aws:SourceVpce`.
 
 For more information about server-side, client-side, and administrative
-classes of API operations for user pools, see [Authorization models for API and SDK
-authentication](authentication-flows-public-server-side.md "authentication-flows-public-server-side.md").
+classes of API operations for user pools, see [Authorization models for API and SDK authentication](authentication-flows-public-server-side.md "authentication-flows-public-server-side.md").
 
-### Identity pools and
-
-AWS PrivateLink
+### Identity pools and AWS PrivateLink
 
 Amazon Cognito identity pools support all API operations through AWS PrivateLink.
 
 ###### Topics
 
 - [Supported operations](#vpc-endpoint-considerations-identity-pools-operations "#vpc-endpoint-considerations-identity-pools-operations")
-- [Network context
-  limitations with AWS STS integration](#vpc-endpoint-considerations-identity-pools-sts "#vpc-endpoint-considerations-identity-pools-sts")
+- [Network context limitations with AWS STS integration](#vpc-endpoint-considerations-identity-pools-sts "#vpc-endpoint-considerations-identity-pools-sts")
 - [Service-specific context keys](#vpc-endpoint-considerations-identity-pools-context-keys "#vpc-endpoint-considerations-identity-pools-context-keys")
 
 #### Supported operations
@@ -241,9 +214,7 @@ endpoint. Identity pools don't have domain endpoints and aren't subject to the
 same limitations. However, identity pools have specific considerations for
 network-based access controls due to their integration with AWS STS.
 
-#### Network context
-
-limitations with AWS STS integration
+#### Network context limitations with AWS STS integration
 
 Identity pools use AWS STS `AssumeRoleWithWebIdentity` operations to
 provide temporary AWS credentials. When identity pools call AWS STS through
@@ -301,9 +272,7 @@ authorization in VPC endpoint policies and RCPs. With these context keys, you
 can enable fine-grained access control and distinguish between authenticated and
 unauthenticated users in policies.
 
-###### Available service-specific context keys for non-SigV4 operations like [GetId](../../../cognitoidentity/latest/APIReference/API_GetId.md "../../../cognitoidentity/latest/APIReference/API_GetId.md"),
-
-[GetCredentialsForIdentity](../../../cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.md "../../../cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.md"), [GetOpenIdToken](../../../cognitoidentity/latest/APIReference/API_GetOpenIdToken.md "../../../cognitoidentity/latest/APIReference/API_GetOpenIdToken.md"), [UnlinkIdentity](../../../cognitoidentity/latest/APIReference/API_UnlinkIdentity.md "../../../cognitoidentity/latest/APIReference/API_UnlinkIdentity.md")
+###### Available service-specific context keys for non-SigV4 operations like [GetId](../../../cognitoidentity/latest/APIReference/API_GetId.md "../../../cognitoidentity/latest/APIReference/API_GetId.md"), [GetCredentialsForIdentity](../../../cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.md "../../../cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.md"), [GetOpenIdToken](../../../cognitoidentity/latest/APIReference/API_GetOpenIdToken.md "../../../cognitoidentity/latest/APIReference/API_GetOpenIdToken.md"), [UnlinkIdentity](../../../cognitoidentity/latest/APIReference/API_UnlinkIdentity.md "../../../cognitoidentity/latest/APIReference/API_UnlinkIdentity.md")
 
 - `cognito-identity-unauth:IdentityPoolArn` - Filters access
   by the identity pool ARN for unauthenticated users
@@ -344,9 +313,7 @@ based on authentication status, as demonstrated in the following example:
 }
 ```
 
-## Controlling access with resource
-
-control policies
+## Controlling access with resource control policies
 
 Amazon Cognito supports controlling access to your resources with [resource control
 policies](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") (RCPs). With [network-based condition keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-network-properties "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-network-properties"), RCPs can define the networks and actions that
@@ -402,9 +369,7 @@ Amazon Cognito using its default Regional DNS name. For example,
 `cognito-identity.us-east-1.amazonaws.com` for identity
 pools.
 
-## Create an endpoint policy for your interface
-
-endpoint
+## Create an endpoint policy for your interface endpoint
 
 An endpoint policy is an IAM resource that you can attach to an interface endpoint.
 The default endpoint policy allows full access to Amazon Cognito through the interface endpoint.
@@ -488,9 +453,7 @@ from a specific identity pool.
 }
 ```
 
-## Create an identity-based policy for
-
-AWS PrivateLink operations
+## Create an identity-based policy for AWS PrivateLink operations
 
 [Identity-based
 policies](../../../IAM/latest/UserGuide/access_policies.md#policies_id-based "../../../IAM/latest/UserGuide/access_policies.md#policies_id-based") are IAM resources that you can attach to AWS principals. You
@@ -537,9 +500,7 @@ IAM role for your web application.
 }
 ```
 
-###### Example: identity-based policy for identity pool administrative
-
-operations
+###### Example: identity-based policy for identity pool administrative operations
 
 The following example policy grants access to identity pool administrative actions
 from the specified VPC endpoint. Apply this policy to the IAM principal that needs

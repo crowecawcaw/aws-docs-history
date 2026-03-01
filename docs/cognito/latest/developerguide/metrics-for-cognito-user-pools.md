@@ -35,9 +35,7 @@ commands in the AWS CLI.
 | `CallCount`             | Provides the total number of calls customers made related to a category. This<br>metric includes all the calls, such as throttled calls, failed calls, and<br>successful calls.<br>The category quota is enforced for each AWS account across all user pools in<br>an account and Region.<br>You can count the total number of calls in a category using the<br>`Sum` statistic for this metric.<br>Metric dimension: Service, Type, Resource, Class<br>Units: Count                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | `AWS/Usage`   |
 | `ThrottleCount`         | Provides the total number of throttled calls related to a category.<br>This metric is published at the account level.<br>You can count the total number of calls in a category, using the<br>`Sum` statistic for this metric.<br>Metric dimension: Service, Type, Resource, Class<br>Units: Count                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `AWS/Usage`   |
 
-## Viewing threat
-
-protection metrics
+## Viewing threat protection metrics
 
 The metrics that your user pool publishes have statistical information about the effect
 that your threat protection settings have on user authentication activity. You might want to
@@ -98,9 +96,7 @@ metrics.
 | Resource  | The type of resource that is running. The only valid value is category name.                                                                   |
 | Class     | The class of resource being tracked. Amazon Cognito doesn't use the class<br>dimension.                                                        |
 
-## Use the CloudWatch console to track
-
-metrics
+## Use the CloudWatch console to track metrics
 
 You can track and collect Amazon Cognito user pools metrics using CloudWatch. The CloudWatch dashboard will display
 metrics about every AWS service you use. You can use CloudWatch to create metric alarms. The
