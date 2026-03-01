@@ -5,8 +5,7 @@ After careful consideration, we decided to end support for Amazon FinSpace, effe
 
 The following sections provide a detailed overview of the operations that you can
 perform by using Managed kdb Insights users. A kdb user is required in order to
-establish a connection to a Managed kdb cluster. For more information, see [Interacting with a kdb
-cluster](interacting-with-kdb-clusters.md "interacting-with-kdb-clusters.md").
+establish a connection to a Managed kdb cluster. For more information, see [Interacting with a kdb cluster](interacting-with-kdb-clusters.md "interacting-with-kdb-clusters.md").
 
 ## Creating a kdb user
 

@@ -40,16 +40,14 @@ catalog as a Lake Formation table.
     + If you want to disable data view sharing for your FinSpace environment, you need to create a new technical support case.
 
 - Make sure that users or roles in the customer account have access to
-  use Lake Formation and other required analytics engines such as Amazon Redshift, Athena, Quick Suite, Amazon EMR,
+  use Lake Formation and other required analytics engines such as Amazon Redshift, Athena, Quick, Amazon EMR,
   and SageMaker AI.
 - If you want to request data from an integrated service like Amazon Athena,
   ensure that an Amazon S3 location is configured.
 - At least one user must be a Lake Formation data lake administrator to view shared
   resources.
 
-## Step 1: Enable the link to the shared
-
-database
+## Step 1: Enable the link to the shared database
 
 To enable access to the shared data view, first you need to create a resource
 link. A resource link is a Data Catalog object that is a link to a shared database or
@@ -107,9 +105,7 @@ Granting permissions on a resource link doesn't grant permissions on the target
 (shared) database or table. You must grant permissions on the target database
 separately.
 
-## Step 2: Enable access to the target
-
-database and tables
+## Step 2: Enable access to the target database and tables
 
 After creating the resource link with permissions, you can use it to grant access
 to the shared database and tables.

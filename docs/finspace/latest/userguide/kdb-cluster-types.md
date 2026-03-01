@@ -178,9 +178,7 @@ determined by CPU consumed by the kdb+ node.
 Auto scaling is only available for dedicated clusters and is not supported
 for clusters running on scaling groups.
 
-## Summary of capabilities by cluster
-
-type
+## Summary of capabilities by cluster type
 
 | Capability                                                    | General purpose | Gateway         | RDB             | TP     | HDB             |
 | ------------------------------------------------------------- | --------------- | --------------- | --------------- | ------ | --------------- |

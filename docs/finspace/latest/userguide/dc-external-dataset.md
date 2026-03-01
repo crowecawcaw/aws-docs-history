@@ -15,9 +15,7 @@ that resides outside of FinSpace. You can use external datasets to discover and 
 that reside in an external data repository from within FinSpace—without having to copy
 the data into a FinSpace environment.
 
-## External datasets in the FinSpace
-
-catalog
+## External datasets in the FinSpace catalog
 
 You can access the external datasets by using the FinSpace web application. Currently,
 FinSpace only supports the Goldman Sachs Financial Cloud for Data as an external datasets source. In the catalog,
@@ -56,9 +54,7 @@ following ways:
    required dataset. The dataset details page opens, and you can view details about
    the selected dataset.
 
-## Access external datasets from FinSpace
-
-notebook using Spark
+## Access external datasets from FinSpace notebook using Spark
 
 The process of accessing external data using a FinSpace notebook is same as accessing any
 other datasets. For more information, see [Access datasets from a notebook](access-datasets-notebook.md "access-datasets-notebook.md").

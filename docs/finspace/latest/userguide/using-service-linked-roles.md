@@ -1,9 +1,7 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see
 [Amazon FinSpace end of support](amazon-finspace-end-of-support.md "amazon-finspace-end-of-support.md").
 
-# Using service-linked roles for
-
-FinSpace
+# Using service-linked roles for FinSpace
 
 Amazon FinSpace uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to FinSpace. Service-linked roles are predefined by FinSpace and
@@ -25,9 +23,7 @@ IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md 
 **Service-linked roles** column. Choose a **Yes** with a link to view the service-linked role documentation for that
 service.
 
-## Service-linked role permissions for
-
-FinSpace
+## Service-linked role permissions for FinSpace
 
 FinSpace uses the service-linked role named **AWSServiceRoleForFinSpace** –
 Policy to enable access to AWS service and resources used or managed by Amazon FinSpace.
@@ -48,9 +44,7 @@ For more information about this policy, including the JSON policy document, see 
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-## Creating a service-linked role for
-
-FinSpace
+## Creating a service-linked role for FinSpace
 
 You don't need to manually create a service-linked role. When you
 create a FinSpace environment in the AWS Management Console, the AWS CLI, or the AWS API, FinSpace
@@ -68,9 +62,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 same process to recreate the role in your account. When you create a FinSpace environment,
 FinSpace creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-FinSpace
+## Editing a service-linked role for FinSpace
 
 FinSpace does not allow you to edit the AWSServiceRoleForFinSpace service-linked role. After you
 create a service-linked role, you cannot change the name of the role because various entities
@@ -101,8 +93,6 @@ IAM**
 Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForFinSpace service-linked
 role. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported regions for
-
-FinSpace service-linked roles
+## Supported regions for FinSpace service-linked roles
 
 FinSpace supports using service-linked roles in all of the regions where the service is available. For more information, see [Regions and IP ranges](regions-ip-ranges.md "regions-ip-ranges.md").

@@ -1,9 +1,7 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see
 [Amazon FinSpace end of support](amazon-finspace-end-of-support.md "amazon-finspace-end-of-support.md").
 
-# Interacting with a kdb
-
-cluster
+# Interacting with a kdb cluster
 
 To run commands on a Managed kdb Insights cluster, you must establish a q
 connection to a cluster endpoint or individual node in a cluster. If you don’t care
@@ -28,8 +26,7 @@ capabilities:
 - Listing all nodes running in a kdb cluster. For more information on this,
   see [Listing clusters and cluster nodes](#finding-kdb-clusters "#finding-kdb-clusters").
 - Connect to the underlying node from an existing cluster. For more
-  information on this, see [Connecting to a cluster endpoint or node in
-  a cluster](#connect-kdb-clusters "#connect-kdb-clusters").
+  information on this, see [Connecting to a cluster endpoint or node in a cluster](#connect-kdb-clusters "#connect-kdb-clusters").
 
 ## Listing clusters and cluster nodes
 
@@ -74,9 +71,7 @@ cluster:
    call the `GetKxConnectionString` API operation, which returns a
    signed connection string.
 
-## Connecting to a cluster endpoint or node in
-
-a cluster
+## Connecting to a cluster endpoint or node in a cluster
 
 Amazon FinSpace uses the model based on AWS Identity and Access Management that allows users to control access
 to clusters and their associated kdb databases using IAM roles and policies.

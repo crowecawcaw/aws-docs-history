@@ -24,9 +24,7 @@ view the most recent events in the CloudTrail console.
 For more information about CloudTrail, see the [AWS CloudTrail User
 Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
 
-## FinSpace information in
-
-CloudTrail
+## FinSpace information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. In the CloudTrail
 console in **Event history**, you can view, search, and
@@ -63,9 +61,7 @@ identity information helps you determine:
 
 For more information, see [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the AWS CloudTrail User Guide.
 
-## Understanding FinSpace log
-
-file entries
+## Understanding FinSpace log file entries
 
 CloudTrail delivers events as log files that contain one or more log entries. An event
 represents a single request from any source and includes information about the requested

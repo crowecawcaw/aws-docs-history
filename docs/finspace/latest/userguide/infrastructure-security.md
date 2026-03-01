@@ -58,9 +58,7 @@ VPC endpoint.
 For more information, see Interface [VPC endpoints](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") (AWS
 PrivateLink) in the Amazon VPC User Guide.
 
-### Create a VPC endpoint
-
-policy for FinSpace
+### Create a VPC endpoint policy for FinSpace
 
 You can create a policy for Amazon VPC endpoints for FinSpace to specify the
 following:

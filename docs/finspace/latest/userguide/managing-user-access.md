@@ -37,9 +37,7 @@ dataset).
 
 Topics
 
-- [Managing user access with email and
-  password](managing-user-email-pwd.md "managing-user-email-pwd.md")
+- [Managing user access with email and password](managing-user-email-pwd.md "managing-user-email-pwd.md")
 - [Managing user access with SSO](managing-user-sso.md "managing-user-sso.md")
-- [Managing user permissions with permission
-  groups](managing-user-permissions.md "managing-user-permissions.md")
+- [Managing user permissions with permission groups](managing-user-permissions.md "managing-user-permissions.md")
 - [Temporary credentials in Amazon FinSpace](temporary-credentials.md "temporary-credentials.md")

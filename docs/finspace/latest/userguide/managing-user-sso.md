@@ -32,9 +32,7 @@ with SAML based SSO authentication.
    If above steps are not followed, a user will not be successfully authenticated to
    use FinSpace.
 
-## Creating the first
-
-superuser
+## Creating the first superuser
 
 The first superuser must be created after a new FinSpace environment is created.
 The user must be assigned to the FinSpace application created in your IdP. See details
@@ -72,9 +70,7 @@ When you choose **Yes**, you are required to specify the
 them with the new user. The user can sign in to FinSpace with their SSO
 credentials.
 
-## Viewing user
-
-details
+## Viewing user details
 
 ###### To view details of a user
 
@@ -82,9 +78,7 @@ details
 2. On the left navigation bar of the home page, choose **Users and Groups**. The **Users and Permission Groups** page, displays the list of users under the **FinSpace Users** tab.
 3. Select a user to view their details.
 
-## Deactivating a
-
-user
+## Deactivating a user
 
 ###### To deactivate a user
 

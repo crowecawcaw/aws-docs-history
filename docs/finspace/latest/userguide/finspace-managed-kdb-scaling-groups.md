@@ -36,9 +36,7 @@ will all remain within a certain known memory footprint. You can place all of th
 
 ![A diagram that shows an example of four clusters running on a scaling group host.](images/11-managed-kx/finspace-scalinggroup-fig2.png)
 
-## High level workflow for running clusters on a
-
-scaling group
+## High level workflow for running clusters on a scaling group
 
 Before running a cluster on a scaling group, you need to create the scaling group itself. Once you
 create the scaling group, you can launch one or more clusters on it. You can display clusters

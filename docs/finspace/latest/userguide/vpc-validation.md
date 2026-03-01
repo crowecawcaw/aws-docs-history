@@ -18,9 +18,7 @@ two types of connectivity testing available.
 - Advanced testing – You can use the file upload capability in the SageMaker AI
   Studio notebook to upload your own network diagnostic utilities to test.
 
-## Basic connectivity testing using Amazon FinSpace
-
-notebooks
+## Basic connectivity testing using Amazon FinSpace notebooks
 
 If you're testing connectivity to an HTTP/HTTPS endpoint, you can use a FinSpace
 notebook to test basic connectivity using curl.

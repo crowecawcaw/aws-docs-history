@@ -35,9 +35,7 @@ environment.
 8. (Optional) Export the audit report to Comma-separated values (CSV) file by
    choosing **DOWNLOAD FULL REPORT (.CSV)**.
 
-## Definitions of columns in
-
-the audit report
+## Definitions of columns in the audit report
 
 | Audit report column | Description                                                                    |
 | ------------------- | ------------------------------------------------------------------------------ |

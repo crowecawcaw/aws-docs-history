@@ -1,9 +1,7 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see
 [Amazon FinSpace end of support](amazon-finspace-end-of-support.md "amazon-finspace-end-of-support.md").
 
-# Tutorial: Creating an Amazon FinSpace environment
-
-with Okta SSO
+# Tutorial: Creating an Amazon FinSpace environment with Okta SSO
 
 ###### Important
 
@@ -22,9 +20,7 @@ When creating users, make sure to include an email address for each user. Email
 addresses are required to connect the users in Active Directory Federation
 Services with their corresponding users in FinSpace.
 
-## Step 1: Creating an Okta
-
-application
+## Step 1: Creating an Okta application
 
 ###### Note
 
@@ -74,9 +70,7 @@ following:
 Now that you have the SAML metadata document or its URL, let's create a FinSpace
 environment.
 
-## Step 2: Creating a FinSpace
-
-environment
+## Step 2: Creating a FinSpace environment
 
 ###### To create a FinSpace environment
 
@@ -110,9 +104,7 @@ environment
 
 Your FinSpace is now created. Finish configuration in Okta.
 
-## Step 3: Finish
-
-application configuration in Okta
+## Step 3: Finish application configuration in Okta
 
 Finish configuration of your FinSpace Okta app with the **Redirect /
 Sign-in URL** and **URN**.
@@ -136,9 +128,7 @@ Sign-in URL** and **URN**.
 
 ![A screenshot that shows the General tab in the SAML settings page.](images/09-security/finspace-security-9d00f.png) 10. Choose **Next**. 11. Choose **Finish**.
 
-## Step 4:
-
-Assign user to the FinSpace application in Okta
+## Step 4: Assign user to the FinSpace application in Okta
 
 Now that the application is setup. Assign at least one user to the FinSpace app in
 Okta who can be created as a superuser for FinSpace.
@@ -158,9 +148,7 @@ Okta who can be created as a superuser for FinSpace.
    too.
 8. Choose **Save and Go back**.
 
-## Step 5:
-
-Create superuser in your FinSpace environment
+## Step 5: Create superuser in your FinSpace environment
 
 Now that a user is assigned, they can be created as a superuser in FinSpace.
 
@@ -179,9 +167,7 @@ Now that a user is assigned, they can be created as a superuser in FinSpace.
    receive a password as you will use the Okta Idp credentials for
    authentication.
 
-## Step 6:
-
-Sign in to FinSpace with Okta IdP credentials
+## Step 6: Sign in to FinSpace with Okta IdP credentials
 
 ###### To sign in with Okta IdP credentials
 

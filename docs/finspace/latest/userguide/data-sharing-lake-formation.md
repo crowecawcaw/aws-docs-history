@@ -21,7 +21,7 @@ querying through an interface that is compatible with AWS Glue tables. You can q
 interface by using the managed Apache Spark clusters in FinSpace.
 
 With FinSpace data view sharing, you can share these tables with a Lake Formation data lake. When you
-do this, you can easily query the data with AWS analytics engines like Amazon Redshift, Athena, Quick Suite,
+do this, you can easily query the data with AWS analytics engines like Amazon Redshift, Athena, Quick,
 Amazon EMR, and SageMaker AI.
 
 The following diagram illustrates how you can access FinSpace data views with AWS
@@ -40,5 +40,5 @@ integrated services.
   shared database, and the shared tables to other principals in the customer
   account.
 - Finally, principals in the customer’s account are able to access the FinSpace data
-  view tables with AWS integrated services such as Athena, Amazon Redshift, Quick Suite, and
+  view tables with AWS integrated services such as Athena, Amazon Redshift, Quick, and
   SageMaker AI.

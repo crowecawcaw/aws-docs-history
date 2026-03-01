@@ -10,9 +10,7 @@ you call these API operations. These credentials are unique for each user and ar
 only valid for 60 minutes. After the credentials expire, you need to obtain new
 credentials before making subsequent API calls.
 
-## Obtaining the credentials using
-
-FinSpace
+## Obtaining the credentials using FinSpace
 
 You can obtain credentials from the web application if you're one of the
 following:
@@ -46,9 +44,7 @@ following:
 
 ```
 
-## Obtaining the credentials
-
-programmatically
+## Obtaining the credentials programmatically
 
 You can also obtain the credentials using a program or a script without signing
 in to the FinSpace web application. For this, you can use the

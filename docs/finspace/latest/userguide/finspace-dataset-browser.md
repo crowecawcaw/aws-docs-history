@@ -35,7 +35,7 @@ With Amazon FinSpace Dataset browser, you can:
 3. **Track versions of data** – Create bi-temporal views that let you analyze data the way it looked at a particular date and time. Reproduce historical financial models for audit and compliance purposes.
 4. **Prepare and analyze data at scale** – Use FinSpace notebook with integrated managed Spark clusters to run analysis on petabytes of data. Scale compute with spark clusters on an as-needed basis.
    For more information, see [Prepare and analyze data](finspace-prepare-data.md "finspace-prepare-data.md").
-5. **Share data managed in FinSpace** – Share data view tables with a Lake Formation data lake so that the data can be easily queried with AWS analytics engines like Amazon Redshift, Athena, Quick Suite,Amazon EMR, and SageMaker AI.
+5. **Share data managed in FinSpace** – Share data view tables with a Lake Formation data lake so that the data can be easily queried with AWS analytics engines like Amazon Redshift, Athena, Quick,Amazon EMR, and SageMaker AI.
    For more information, see [Data views sharing](data-sharing-lake-formation.md "data-sharing-lake-formation.md").
 6. **Financial time series analysis** – Run financial time series analysis on high density market data using integrated time series library with over 100 embedded functions including statistical and technical indicators such as Bollinger Bands.
    For more information, see [Time series library](finspace-time-series-library.md "finspace-time-series-library.md").

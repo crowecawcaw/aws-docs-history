@@ -50,8 +50,7 @@ familiar kdb interfaces.
 Topics
 
 - [Permissions required for Managed kdb](permissions-managed-kdb.md "permissions-managed-kdb.md")
-- [Managed kdb Insights
-  environments](finspace-managed-kdb-environment.md "finspace-managed-kdb-environment.md")
+- [Managed kdb Insights environments](finspace-managed-kdb-environment.md "finspace-managed-kdb-environment.md")
 - [Managed kdb Insights databases](finspace-managed-kdb-db.md "finspace-managed-kdb-db.md")
 - [Managed kdb scaling groups](finspace-managed-kdb-scaling-groups.md "finspace-managed-kdb-scaling-groups.md")
 - [Managed kdb volumes](finspace-managed-kdb-volumes.md "finspace-managed-kdb-volumes.md")

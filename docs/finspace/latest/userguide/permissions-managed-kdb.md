@@ -41,16 +41,12 @@ The following table shows a list of permissions and what they are needed for.
 | "s3:GetObjectVersion"                   |
 | "s3:ListBucket"                         |
 
-## Permissions FinSpace needs to resources in your
-
-account
+## Permissions FinSpace needs to resources in your account
 
 You will need to grant permission to FinSpace to access certain resources in your
 account. To do this, follow steps in the following sections.
 
-### Granting permission to your AWS KMS key to
-
-encrypt data and code stored in Managed kdb
+### Granting permission to your AWS KMS key to encrypt data and code stored in Managed kdb
 
 You must grant the FinSpace service access by using the AWS KMS key policy to create
 Managed kdb changesets and load code onto a cluster. The following is an example of
@@ -91,9 +87,7 @@ JSON
 
 ```
 
-### Granting permission to your Amazon S3 code bucket to
-
-load code onto your Managed kdb cluster
+### Granting permission to your Amazon S3 code bucket to load code onto your Managed kdb cluster
 
 To load code onto your cluster you must first grant the FinSpace service access to the
 Amazon S3 bucket that stores the code you want to load. The following is an example of the
@@ -190,9 +184,7 @@ prevent access to resources. For example, you can use the
 `*Deny*` policy
 to prevent access to resources in another account.
 
-### Granting permission to your Amazon S3 data staging
-
-bucket to ingest data into Managed kdb
+### Granting permission to your Amazon S3 data staging bucket to ingest data into Managed kdb
 
 To ingest data from Amazon S3 into your database through a changeset, you must first
 grant FinSpace access to the S3 bucket that stores the data you want to import as Managed

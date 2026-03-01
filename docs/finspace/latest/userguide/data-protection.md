@@ -42,5 +42,4 @@ data in the following ways:
 Topics
 
 - [Data encryption in Amazon FinSpace](data-encryption.md "data-encryption.md")
-- [Inter-network traffic privacy in
-  Amazon FinSpace Dataset browser](inter-network-traffic-privacy.md "inter-network-traffic-privacy.md")
+- [Inter-network traffic privacy in Amazon FinSpace Dataset browser](inter-network-traffic-privacy.md "inter-network-traffic-privacy.md")

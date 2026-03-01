@@ -1,9 +1,7 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see
 [Amazon FinSpace end of support](amazon-finspace-end-of-support.md "amazon-finspace-end-of-support.md").
 
-# Tutorial: Creating an Amazon FinSpace environment
-
-with AD FS
+# Tutorial: Creating an Amazon FinSpace environment with AD FS
 
 ###### Important
 
@@ -28,16 +26,12 @@ FinSpace. When creating users, make sure to include an email address for each us
 Email addresses are required to connect the users in AD FS with their
 corresponding users in FinSpace.
 
-## Step
-
-1: Access the SAML metadata document or URL from AD FS
+## Step 1: Access the SAML metadata document or URL from AD FS
 
 Access the SAML metadata document or URL from your AD FS installation. You will
 need this document or URL to create the FinSpace environment.
 
-## Step 2: Creating a FinSpace
-
-environment
+## Step 2: Creating a FinSpace environment
 
 ###### To create a FinSpace environment
 
@@ -67,9 +61,7 @@ environment
 11. After the FinSpace environment is ready, copy and save the **Redirect
     / Sign-in URL** and **URN**.
 
-## Step 3: Configure AD FS for
-
-FinSpace
+## Step 3: Configure AD FS for FinSpace
 
 ###### To configure ADFS for FinSpace
 
@@ -123,9 +115,7 @@ FinSpace
 Ensure that any user to be enabled for FinSpace has a valid email in their user
 record in AD FS.
 
-## Step 5:
-
-Create superuser in your FinSpace environment
+## Step 5: Create superuser in your FinSpace environment
 
 ###### To create a superuser
 
@@ -142,9 +132,7 @@ Create superuser in your FinSpace environment
    receive a password as you will use the IAM Identity Center credentials for
    authentication.
 
-## Step 6:
-
-Sign in to FinSpace with AWS SSO credentials
+## Step 6: Sign in to FinSpace with AWS SSO credentials
 
 ###### To sign in with IAM Identity Center credentials
 

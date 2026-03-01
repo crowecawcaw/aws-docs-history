@@ -16,13 +16,10 @@ network.
 - [Step 1: Configuring a network connection to create FinSpace VPC transit gateway attachment](step1-config-ntw.md "step1-config-ntw.md")
 - [Step 2: Adding DNS details to your network connection](step2-dns-details.md "step2-dns-details.md")
 - [Step 3: Setting up a transit gateway VPC attachment from your VPC](step3-setup-tgw-attachment.md "step3-setup-tgw-attachment.md")
-- [Step 4: Configuring routes in your VPC route
-  tables](step4-config-routing-tgw.md "step4-config-routing-tgw.md")
-- [Step 5: Configuring security group inbound
-  rules](step5-config-inbound-rule.md "step5-config-inbound-rule.md")
+- [Step 4: Configuring routes in your VPC route tables](step4-config-routing-tgw.md "step4-config-routing-tgw.md")
+- [Step 5: Configuring security group inbound rules](step5-config-inbound-rule.md "step5-config-inbound-rule.md")
 - [Step 6: Validating network connectivity](step6-validate-ntw.md "step6-validate-ntw.md")
-- [Step 7: Validating connection using the
-  DNS server configuration](step7-validate-connection-dns-server.md "step7-validate-connection-dns-server.md")
+- [Step 7: Validating connection using the DNS server configuration](step7-validate-connection-dns-server.md "step7-validate-connection-dns-server.md")
 
 ## Prerequisites
 

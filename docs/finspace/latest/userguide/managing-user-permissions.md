@@ -1,9 +1,7 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see
 [Amazon FinSpace end of support](amazon-finspace-end-of-support.md "amazon-finspace-end-of-support.md").
 
-# Managing user permissions with permission
-
-groups
+# Managing user permissions with permission groups
 
 ###### Important
 
@@ -55,9 +53,7 @@ environment's application. It should only be granted to trusted users.
 | Access Notebooks                              | Group members will have access to the FinSpace notebooks                                                                                                                                                                                   |
 | Get Temporary Credentials                     | Group members will be able to get temporary API<br>credentials                                                                                                                                                                             |
 
-## Supported dataset
-
-permissions
+## Supported dataset permissions
 
 When a dataset is created by a user, all other members of the same permission
 group will inherit access to the dataset. The members can permission the dataset
@@ -76,9 +72,7 @@ Datasets**.
 | Manage Permissions    | Group members can view and edit this dataset permissions                                                                               |
 | Delete Dataset        | Group members can remove the dataset including all data and data<br>views                                                              |
 
-## Creating
-
-and adding a user to the group
+## Creating and adding a user to the group
 
 ###### To create a permission group and add a new user to it
 

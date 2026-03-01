@@ -13,8 +13,7 @@ transition.
 When you sign in to the Amazon FinSpace web application, you see the FinSpace homepage. For details on how to sign in, see [Signing in to the Amazon FinSpace web application](signing-into-amazon-finspace.md "signing-into-amazon-finspace.md").
 This section walks you through the various parts of the homepage.
 Note that most features are enabled by permissions and if your user is not a member of a permission group with permissions, such as **Access Notebooks**, you will not see the **Go to Notebook** button at the left side of the homepage.
-For more information on permissions, see [Managing user permissions with permission
-groups](managing-user-permissions.md "managing-user-permissions.md").
+For more information on permissions, see [Managing user permissions with permission groups](managing-user-permissions.md "managing-user-permissions.md").
 
 ![A screenshot that shows FinSpace home page.](images/03-finspace-homepage/home-page.png)
 
@@ -33,8 +32,7 @@ The navigation bar on the left consists of the following controls:
   - **Manage Data** – Opens the **Manage Data** page, where you can configure a business data catalog for browsing datasets by using categories, controlled vocabularies, and attribute sets. You can also add data from this page.
 
   ![A screenshot of the Manage Data page in FinSpace.](images/03-finspace-homepage/manage-data.png)
-  - **Users and Groups** – Opens the **Users and Permission Groups** page, where you can create permission groups and assign users. For more information, see [Managing user permissions with permission
-    groups](managing-user-permissions.md "managing-user-permissions.md").
+  - **Users and Groups** – Opens the **Users and Permission Groups** page, where you can create permission groups and assign users. For more information, see [Managing user permissions with permission groups](managing-user-permissions.md "managing-user-permissions.md").
   - **API Credentials** – Opens the **API Credentials** page, from where you can get the credentials to access the FinSpace data API operations. These credentials are only valid for 60 minutes. After the credentials expire, you need to choose the
     refresh icon to generate new credentials.
   - **Audit Report** – Opens the **Generate Audit Report** page, from where you can generate audit reports to identify the type of user activity that has occurred within FinSpace for a period of time.

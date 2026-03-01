@@ -22,8 +22,7 @@ _IAM User Guide_.
 
 You can't attach AWSFinSpaceServiceRolePolicy to your IAM entities. This policy is attached to a
 service-linked role that allows FinSpace to perform actions on your behalf. For more
-information, see [Using service-linked roles for
-FinSpace](using-service-linked-roles.md "using-service-linked-roles.md").
+information, see [Using service-linked roles for FinSpace](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy grants FinSpace permissions to publish metrics.
 
@@ -58,9 +57,7 @@ JSON
 
 ```
 
-## FinSpace updates to AWS managed
-
-policies
+## FinSpace updates to AWS managed policies
 
 View details about updates to AWS managed policies for FinSpace since this service
 began tracking these changes.

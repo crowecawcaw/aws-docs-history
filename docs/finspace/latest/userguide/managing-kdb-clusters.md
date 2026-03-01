@@ -11,12 +11,10 @@ perform by using Managed kdb clusters.
 Topics
 
 - [Activating your Managed kdb Insights license](kdb-licensing.md "kdb-licensing.md")
-- [Managed kdb Insights cluster software
-  bundles](kdb-software-bundles.md "kdb-software-bundles.md")
+- [Managed kdb Insights cluster software bundles](kdb-software-bundles.md "kdb-software-bundles.md")
 - [Maintaining a Managed kdb Insights cluster](maintaining-kdb-clusters.md "maintaining-kdb-clusters.md")
 - [Creating a Managed kdb Insights cluster](create-kdb-clusters.md "create-kdb-clusters.md")
 - [Viewing kdb cluster detail](view-kdb-clusters.md "view-kdb-clusters.md")
 - [Updating code configurations on a running cluster](update-cluster-code.md "update-cluster-code.md")
-- [Updating a kdb cluster
-  database](update-kdb-clusters-databases.md "update-kdb-clusters-databases.md")
+- [Updating a kdb cluster database](update-kdb-clusters-databases.md "update-kdb-clusters-databases.md")
 - [Deleting a kdb cluster](delete-kdb-clusters.md "delete-kdb-clusters.md")

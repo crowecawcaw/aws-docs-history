@@ -1,9 +1,7 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see
 [Amazon FinSpace end of support](amazon-finspace-end-of-support.md "amazon-finspace-end-of-support.md").
 
-# Tutorial: Setup an Identity Provider with your
-
-Amazon FinSpace environment
+# Tutorial: Setup an Identity Provider with your Amazon FinSpace environment
 
 ###### Important
 
@@ -24,17 +22,13 @@ Inside your organization's network, configure your identity store, such as
 Windows Active Directory, to work with a SAML-based IdP. SAML based IdPs include
 Microsoft Windows Active Directory Federation Services, Okta, and so on.
 
-## Step 1: Generate a SAML
-
-metadata document
+## Step 1: Generate a SAML metadata document
 
 Using your IdP, generate a metadata document that describes your organization
 as an identity provider. You will need the metadata document or the URL to the
 metadata document when creating the FinSpace environment.
 
-## Step 2: Determine
-
-the SAML attribute for email
+## Step 2: Determine the SAML attribute for email
 
 Determine the SAML attribute name that contains the email address in the SAML
 assertion. Email address is required to identify the user in FinSpace. For example,
@@ -42,9 +36,7 @@ assertion. Email address is required to identify the user in FinSpace. For examp
 Check your IdP documentation for details. You will need the SAML attribute when
 creating the FinSpace environment.
 
-## Step 3: Create a
-
-FinSpace environment
+## Step 3: Create a FinSpace environment
 
 Create a [FinSpace
 environment](create-an-amazon-finspace-environment.md "create-an-amazon-finspace-environment.md"). Once the FinSpace environment is ready, copy and save the

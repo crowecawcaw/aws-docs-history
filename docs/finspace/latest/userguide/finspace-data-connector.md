@@ -26,7 +26,6 @@ FinSpace currently supports the following provider:
 
 Topics
 
-- [Tutorial: Creating a connector for
-  Goldman Sachs Financial Cloud for Data](tutorial-creating-connector-gsm.md "tutorial-creating-connector-gsm.md")
+- [Tutorial: Creating a connector for Goldman Sachs Financial Cloud for Data](tutorial-creating-connector-gsm.md "tutorial-creating-connector-gsm.md")
 - [Connector details](connector-summary.md "connector-summary.md")
 - [Using external datasets in Amazon FinSpace](dc-external-dataset.md "dc-external-dataset.md")

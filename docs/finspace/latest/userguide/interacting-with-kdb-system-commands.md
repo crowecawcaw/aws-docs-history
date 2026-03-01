@@ -68,9 +68,7 @@ system commands that FinSpace supports.
 | `\1`            | Redirects stdout to files from within the q session.                                                            |
 | `\2`            | Redirects stderr to files from within the q session.                                                            |
 
-## Helper environment
-
-variables
+## Helper environment variables
 
 You can quickly access user directories through the following environment
 variables that return a string of the folder path.
@@ -81,9 +79,7 @@ variables that return a string of the folder path.
 | `.aws.akcsp`                 | Secondary user code path that's available only for<br>\*_General purpose_<br>• cluster. | `/opt/kx/app/code_scratch` |
 | `.aws.akscp`                 | Primarily used for handling savedown functionality with an<br>RDB cluster.              | `/opt/kx/app/scratch`      |
 
-## Loading databases relative to code
-
-directory
+## Loading databases relative to code directory
 
 We have added a symlink to the code directory to allow loading of database
 relative to the code path. For example, if the database is labeled as _kxDatabase_ and the current working directory is

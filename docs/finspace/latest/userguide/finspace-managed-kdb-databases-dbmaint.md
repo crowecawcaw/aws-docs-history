@@ -25,5 +25,4 @@ For more information, see the following sections.
 ###### Topics
 
 - [Setting up for database maintenance](dbmaint-writable-database-dataviews.md "dbmaint-writable-database-dataviews.md")
-- [Performing database
-  maintenance](dbmaint-long-running-dbmaint.md "dbmaint-long-running-dbmaint.md")
+- [Performing database maintenance](dbmaint-long-running-dbmaint.md "dbmaint-long-running-dbmaint.md")

@@ -89,9 +89,7 @@ The `AWS/Usage` namespace includes the following metrics.
 
 Amazon CloudWatch aggregates these metrics at one-minute intervals.
 
-## Monitoring Managed kdb cluster
-
-metrics
+## Monitoring Managed kdb cluster metrics
 
 You can monitor the health and activity of Managed kdb Insights clusters by using
 CloudWatch. When you interact with Managed kdb clusters, the following metrics are sent
@@ -110,9 +108,7 @@ dimension combinations within each namespace.
 3. Under the **All metrics** tab, choose
    **FinSpace** and then choose the **KxClusterId**.
 
-## Monitoring Managed kdb scaling groups
-
-metrics
+## Monitoring Managed kdb scaling groups metrics
 
 You can monitor the health and activity of Managed kdb scaling groups by using
 CloudWatch. When you interact with Managed kdb scaling groups, the following metrics are sent

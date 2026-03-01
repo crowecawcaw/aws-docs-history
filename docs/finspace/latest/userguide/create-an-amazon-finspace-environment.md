@@ -52,8 +52,7 @@ After the environment is created, a domain URL will be generated which is the si
 
 ###### Note
 
-Review [Inter-network traffic privacy in
-Amazon FinSpace Dataset browser](inter-network-traffic-privacy.md "inter-network-traffic-privacy.md") to ensure that your FinSpace web application is accessible to users.
+Review [Inter-network traffic privacy in Amazon FinSpace Dataset browser](inter-network-traffic-privacy.md "inter-network-traffic-privacy.md") to ensure that your FinSpace web application is accessible to users.
 
 ## Setup additional superusers
 
