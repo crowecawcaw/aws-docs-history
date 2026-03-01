@@ -3,9 +3,7 @@ AWS Wickr, see [AWS Wickr
 Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md") or [AWS Wickr
 User Guide](../userguide/what-is-wickr.md "../userguide/what-is-wickr.md").
 
-# Installation of Wickr Enterprise embedded cluster
-
-(standard)
+# Installation of Wickr Enterprise embedded cluster (standard)
 
 Once you have the download instructions, download the Wickr Enterprise bundle to the
 destination machine and unpack it.

@@ -11,9 +11,7 @@ License file (a `.yaml` file provided by Wickr) and your Config Values file,
 which were saved to the file `wickr-config.json` in the Generate KOTS Config
 section. For more information about Generate KOTS Config, see [Generate KOTS Config](getting-started.md#getting-started-generate-kots-config "getting-started.md#getting-started-generate-kots-config").
 
-## Installing
-
-Wickr Enterprise manually
+## Installing Wickr Enterprise manually
 
 The following command will begin the installation of Wickr Enterprise:
 
@@ -35,9 +33,7 @@ Console. You can change or monitor the status of your Wickr Enterprise installat
 this site, or begin setting up Wickr by visiting the domain name that you configured for
 your installation in your browser.
 
-## Installing
-
-Wickr Enterprise with Lambda
+## Installing Wickr Enterprise with Lambda
 
 During the CDK deployment, a Lambda is created and invoked to complete the
 Wickr Enterprise installation on your behalf automatically. To invoke it manually,

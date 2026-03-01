@@ -5,9 +5,7 @@ User Guide](../userguide/what-is-wickr.md "../userguide/what-is-wickr.md").
 
 # Troubleshooting
 
-## Deleting the Wickr
-
-namespace
+## Deleting the Wickr namespace
 
 If you need to delete the `wickr` namespace to start over, it's important
 that you first back up any Service Accounts that were created by CDK within that
@@ -26,9 +24,7 @@ kubectl -n wickr get sa fileproxy -o yaml > fileproxy-sa.yaml && \
 
 ```
 
-## Resetting
-
-the KOTS Admin Console password
+## Resetting the KOTS Admin Console password
 
 You can reset your KOTS Admin Console password with the following command:
 
@@ -40,9 +36,7 @@ When you change this password you may also want to update the `wickr/kots`
 Secrets Manager secret as well, although it will generally not be used again by any
 automation.
 
-## Issues connecting to
-
-EKS cluster with bastion
+## Issues connecting to EKS cluster with bastion
 
 If your connection to the EKS cluster through the bastion seems slow or is timing out
 occasionally, you may see the following error when running `kubectl`

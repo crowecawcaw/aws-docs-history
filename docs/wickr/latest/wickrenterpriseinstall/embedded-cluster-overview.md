@@ -14,14 +14,10 @@ the overall hardware requirements for a Wickr Enterprise installation by providi
 
 ###### Topics
 
-- [Getting started with Wickr Enterprise
-  embedded cluster](getting-started-enterprise-embedded.md "getting-started-enterprise-embedded.md")
-- [Wickr Enterprise embedded cluster
-  requirements](embedded-cluster-requirements.md "embedded-cluster-requirements.md")
-- [Installation of Wickr Enterprise embedded cluster
-  (standard)](standard-installation.md "standard-installation.md")
+- [Getting started with Wickr Enterprise embedded cluster](getting-started-enterprise-embedded.md "getting-started-enterprise-embedded.md")
+- [Wickr Enterprise embedded cluster requirements](embedded-cluster-requirements.md "embedded-cluster-requirements.md")
+- [Installation of Wickr Enterprise embedded cluster (standard)](standard-installation.md "standard-installation.md")
 - [Multi-Node installation](multi-node-installation.md "multi-node-installation.md")
 - [KOTS admin console configuration](kots-admin-console-config.md "kots-admin-console-config.md")
 - [Additional Common Installation Requirements](common-installation-requirements.md "common-installation-requirements.md")
-- [Troubleshooting Wickr embedded cluster
-  installations](troubleshooting-installation.md "troubleshooting-installation.md")
+- [Troubleshooting Wickr embedded cluster installations](troubleshooting-installation.md "troubleshooting-installation.md")

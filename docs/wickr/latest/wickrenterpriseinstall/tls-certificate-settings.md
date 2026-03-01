@@ -45,9 +45,7 @@ listed below their certificates have been validated with the software explicitly
 - Digicert
 - RapidSSL
 
-## Generating a self-signed
-
-certificate
+## Generating a self-signed certificate
 
 If you would like to create your own self signed certificate for use with Wickr
 Enterprise, the example command below contains all required flags for generation.

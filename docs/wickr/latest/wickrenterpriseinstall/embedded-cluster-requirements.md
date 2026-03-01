@@ -3,9 +3,7 @@ AWS Wickr, see [AWS Wickr
 Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md") or [AWS Wickr
 User Guide](../userguide/what-is-wickr.md "../userguide/what-is-wickr.md").
 
-# Wickr Enterprise embedded cluster
-
-requirements
+# Wickr Enterprise embedded cluster requirements
 
 Before you start to install Wickr Enterprise embedded cluster, verify that the following
 requirements are met.

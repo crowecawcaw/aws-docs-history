@@ -34,9 +34,7 @@ not open to the wider internet.
 The Wickr Embedded Cluster Multi-Node configuration options require additional license
 privileges. Contact Support to make sure your license supports this feature.
 
-## Creating an additional node during initial
-
-setup
+## Creating an additional node during initial setup
 
 When you initially configure the Wickr Enterprise Embedded Cluster, you can create an
 additional calling node during the setup process. Start by following the procedure described in
@@ -79,9 +77,7 @@ After the join command completes successfully, the new node appears on the
 assigned. Choose **Continue** to proceed to the Wickr Enterprise
 configuration page. Follow directions for embedded node configuration options outlined in [KOTS admin console configuration](kots-admin-console-config.md "kots-admin-console-config.md").
 
-## Adding an additional node to an existing
-
-embedded cluster installation
+## Adding an additional node to an existing embedded cluster installation
 
 To add a calling node to an existing Wickr Enterprise Embedded Cluster installation,
 navigate to the KOTS Admin Console. To do this, log in to the node through ssh or other

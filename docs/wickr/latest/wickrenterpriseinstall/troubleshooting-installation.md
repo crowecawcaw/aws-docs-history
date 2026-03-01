@@ -3,9 +3,7 @@ AWS Wickr, see [AWS Wickr
 Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md") or [AWS Wickr
 User Guide](../userguide/what-is-wickr.md "../userguide/what-is-wickr.md").
 
-# Troubleshooting Wickr embedded cluster
-
-installations
+# Troubleshooting Wickr embedded cluster installations
 
 All instances of these troubleshooting steps assume you have shell access to the instance
 running the Wickr Embedded Cluster installation and have run the `./wickr-enterprise-ha

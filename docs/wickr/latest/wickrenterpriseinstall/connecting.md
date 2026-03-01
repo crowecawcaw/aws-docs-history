@@ -9,9 +9,7 @@ The Amazon EKS API is accessible only through a bastion host that is created as 
 deployment. As a result, all `kubectl` commands must either be run on the bastion
 host itself or be proxied through the bastion host.
 
-## Proxying
-
-connections through the bastion
+## Proxying connections through the bastion
 
 The first time you're connecting to the cluster, you must update your local kubeconfig
 file using the `aws eks update-kubeconfig` command, and then set the
