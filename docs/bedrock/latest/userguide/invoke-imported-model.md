@@ -8,8 +8,7 @@ The import job is complete if the Status for the model is **Complete**.
 After your imported model is available in Amazon Bedrock, you can use the model with on demand throughput by sending [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") requests to make inference calls to the model. For more information,
 see [Submit a single prompt with InvokeModel](inference-invoke.md "inference-invoke.md").
 
-To interface with your imported model using the messages format, you can call the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") or [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") operations. For more information, see [Using the Converse
-API](conversation-inference-call.md "conversation-inference-call.md").
+To interface with your imported model using the messages format, you can call the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") or [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") operations. For more information, see [Using the Converse API](conversation-inference-call.md "conversation-inference-call.md").
 
 ###### Note
 

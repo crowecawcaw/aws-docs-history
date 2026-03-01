@@ -30,9 +30,7 @@ automatically.
 
 The following sections will go through a few examples of using projects.
 
-## Using Projects with Standard
-
-Output
+## Using Projects with Standard Output
 
 Let's consider a use case in which you're only interested in extracting transcript summaries
 of your full audio and video files. By default, when you send audio and video files to BDA, you
@@ -53,9 +51,7 @@ was no configuration performed for documents or images. This means that if you p
 document to BDA using that project ARN, you will receive the default standard output for those
 files.
 
-## Using projects with custom output and standard
-
-output
+## Using projects with custom output and standard output
 
 For this use case, let's assume that you want to generate standard output summaries for
 documents and audio files, and to also extract custom fields from your documents. After you

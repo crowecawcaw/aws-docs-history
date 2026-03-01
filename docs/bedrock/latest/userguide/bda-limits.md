@@ -3,6 +3,11 @@
 Files for BDA need to meet certain requirements in order to be processed. The following tables show what those
 requirements are for different file types.
 
+Async
+**Async document file requirements**
+
+The following tables show the requirements for files processed using the Invoke Data Automation Async API.
+
 | Document file requirements                                     | Requirement Description                                                                                                                                                                                                                                                                                           | Requirement Details |
 | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
 | (Console) Maximum number of pages per document file            | 20                                                                                                                                                                                                                                                                                                                |
@@ -28,6 +33,50 @@ Blueprint instruction optimization supports all the limits above for documents w
 - 20 pages per document asset example on console and API
 - 200MB for the total document asset example
 - Only PDF, DOCX, and TIFF document file formats
+
+Sync
+**Sync document file requirements**
+
+The following tables show the requirements for files processed using the Invoke Data Automation API.
+
+| Document file requirements                                            | Requirement Description                                                                                                                                                                                                                                                                                           | Requirement Details |
+| --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| (Console) Maximum number of pages per document file                   | 10                                                                                                                                                                                                                                                                                                                |
+| Maximum number of pages per document file (splitter is not available) | 10                                                                                                                                                                                                                                                                                                                |
+| (Console) Maximum file size (MB)                                      | 50                                                                                                                                                                                                                                                                                                                |
+| Maximum file size (MB)                                                | 50                                                                                                                                                                                                                                                                                                                |
+| Supported File Formats                                                | PDF, TIFF, JPEG, PNG                                                                                                                                                                                                                                                                                              |
+| PDF Specific Limits                                                   | The maximum height and width<br>is 40 inches and 9000 points. PDFs cannot be password protected.<br>PDFs can contain JPEG 2000 formatted images.                                                                                                                                                                  |
+| Document Rotation and Image Size                                      | BDA supports all in-plane document rotations, for example<br>45-degree in-plane rotation.<br>BDA supports images with a resolution less than or equal to<br>10000 pixels on all sides.                                                                                                                            |
+| Text Alignment                                                        | Text can be text aligned horizontally within the document.<br>Horizontally arrayed text can be read regardless of the degree of<br>rotation of a document. BDA does not support vertical text<br>(text written vertically, as is common in languages like Japanese<br>and Chinese) alignment within the document. |
+| Character Size                                                        | The minimum height for text to be detected is 15 pixels.<br>At 150 DPI, this would be the same as 8 point font.                                                                                                                                                                                                   |
+| Character Type                                                        | BDA supports both handwritten and printed character recognition.                                                                                                                                                                                                                                                  |
+
+###### Note
+
+Figure captioning works on 20 images per 10 page docuement (sync) and 20 images per page (async).
+
+###### Tip
+
+Tips to speed up sync API processing:
+
+- Disable Generative fields unless absolutely required.
+- Select only the granularity and Output text format that you need (vs selecting multiple).
+- Simplify your Blueprint to reduce the number of fields extracted as much as possible.
+- Reduce the number of table and list fields in your blueprint where possible.
+
+| Blueprint requirements                       | Requirement Description                                       | Requirement Details |
+| -------------------------------------------- | ------------------------------------------------------------- | ------------------- |
+| Maximum number of blueprints per project     | 40                                                            |
+| Maximum number of projects per account       | 100                                                           |
+| Maximum number of blueprints per account     | 1000                                                          |
+| Maximum number of blueprint versions         | 100                                                           |
+| Maximum number of blueprint leaf fields      | 100                                                           |
+| Maximum number of blueprint list leaf fields | 30                                                            |
+| Maximum blueprint name length                | 60 characters                                                 |
+| Maximum blueprint field description length   | 600 characters (document), 500 characters (image/video/audio) |
+| Maximum blueprint field name length          | 60 characters                                                 |
+| Maximum blueprint size                       | 100,000 characters (JSON formatted)                           |
 
 | Image file requirements | Requirement Description | Requirement Details |
 | ----------------------- | ----------------------- | ------------------- |

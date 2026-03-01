@@ -6,8 +6,7 @@ Instead of choosing a supported data source service, you can connect to a custom
 - The ability to use the `KnowledgeBaseDocuments` API operations to directly ingest or delete documents without the need to sync changes.
 - The ability to view documents in your data source directly through the Amazon Bedrock console or API.
 - The ability to upload documents into the data source directly in the AWS Management Console or to add them inline.
-- The ability to add metadata directly to each document for when adding or updating a document in the data source. For more information on how to use metadata for filtering when retrieving information from a data source, see the **Metadata and filtering** tab in [Configure and customize queries and response
-  generation](kb-test-config.md "kb-test-config.md").
+- The ability to add metadata directly to each document for when adding or updating a document in the data source. For more information on how to use metadata for filtering when retrieving information from a data source, see the **Metadata and filtering** tab in [Configure and customize queries and response generation](kb-test-config.md "kb-test-config.md").
 
 ###### Multimodal content support
 

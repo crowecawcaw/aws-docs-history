@@ -8,8 +8,7 @@ that you want to use. To get the model ID, see [Supported foundation models in A
 For conversational applications, we recommend that you use the
 Converse API. The Converse API
 provides a unified set of parameters that work across all models that support messages.
-For more information, see [Carry out a conversation with the
-Converse API operations](conversation-inference.md "conversation-inference.md").
+For more information, see [Carry out a conversation with the Converse API operations](conversation-inference.md "conversation-inference.md").
 
 ###### Topics
 

@@ -8,6 +8,10 @@ The Reserved tier provides the ability to reserve prioritized compute capacity f
 
 To get access to the Reserved tier, please contact your AWS account team.
 
+###### Note
+
+Billing continues until you delete the Reserved Tier reservation with the help of your AWS account manager.
+
 ## Priority Tier
 
 The Priority tier delivers the fastest response times for a price premium over standard on-demand pricing. It is best suited for mission-critical applications with customer-facing business workflows that do not warrant 24X7 capacity reservation. Priority tier does not require prior reservation. You can simply set the "service_tier" optional parameter to "priority" to avail request level prioritization. Priority tier requests are prioritized over Standard and Flex tier requests.

@@ -57,9 +57,7 @@ This page focuses on the `ApplyGuardrail` API because it provides the
 most flexibility for implementing the rewriting and clarification patterns described
 below. For information about using guardrails with the other APIs, see [Use a guardrail](guardrails-use.md "guardrails-use.md").
 
-## Open-source rewriting chatbot
-
-sample
+## Open-source rewriting chatbot sample
 
 For a complete, production-style implementation of the patterns described on this
 page, see the [Automated Reasoning checks rewriting chatbot](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/responsible_ai/automated-reasoning-rewriting-chatbot "https://github.com/aws-samples/amazon-bedrock-samples/tree/main/responsible_ai/automated-reasoning-rewriting-chatbot") on GitHub. This sample
@@ -88,9 +86,7 @@ In a production deployment, you would typically use RAG content or feed the LLM 
 original natural language document instead of the Automated Reasoning policy source
 code.
 
-## Call ApplyGuardrail with Automated Reasoning
-
-checks
+## Call ApplyGuardrail with Automated Reasoning checks
 
 Use the `ApplyGuardrail` API to validate content against your guardrail.
 The API accepts one or more content blocks and returns an assessment that includes
@@ -121,9 +117,7 @@ An array of content blocks to validate. Each block contains a
 question and the LLM response as separate content blocks, or combine them
 into a single block.
 
-### Example: Validate an LLM
-
-response using the AWS CLI
+### Example: Validate an LLM response using the AWS CLI
 
 ```
 aws bedrock-runtime apply-guardrail \
@@ -139,9 +133,7 @@ aws bedrock-runtime apply-guardrail \
   ]'
 ```
 
-### Example: Validate an LLM
-
-response using Python (boto3)
+### Example: Validate an LLM response using Python (boto3)
 
 ```
 import boto3
@@ -250,8 +242,7 @@ result:
   the conditions under which the claims are true and false.
 
 These rules and scenarios are the key inputs for the rewriting pattern described
-in [Rewrite invalid responses using AR
-feedback](#rewrite-invalid-responses "#rewrite-invalid-responses").
+in [Rewrite invalid responses using AR feedback](#rewrite-invalid-responses "#rewrite-invalid-responses").
 
 ### Determine the aggregate result
 
@@ -284,26 +275,22 @@ def get_aggregate_result(findings):
     return worst
 ```
 
-## Handle validation outcomes in your
-
-application
+## Handle validation outcomes in your application
 
 Use the aggregate result to decide what your application does next. The following
 table summarizes the recommended action for each result type.
 
-| Result                 | What it means                                                                                                                                | Recommended action                                                                                                                                                                                                                                           |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `valid`                | The response is mathematically proven correct given the premises and your<br>policy rules.                                                   | Serve the response to the user. Log the finding for audit purposes (see<br>[Build an audit trail](#build-audit-trail "#build-audit-trail")).                                                                                                                 |
-| `invalid`              | The response contradicts your policy rules. The<br>`contradictingRules` field identifies which rules were<br>violated.                       | Rewrite the response using the AR feedback (see [Rewrite invalid responses using AR<br>feedback](#rewrite-invalid-responses "#rewrite-invalid-responses")). If rewriting fails after<br>multiple attempts, block the response and return a fallback message. |
-| `satisfiable`          | The response is correct under some conditions but not all. It's not wrong,<br>but it's incomplete — it doesn't mention all the requirements. | Rewrite the response to include the missing conditions. Use the<br>`claimsFalseScenario` to identify what's missing. Alternatively,<br>you can let your LLM ask the user clarifying questions.                                                               |
-| `impossible`           | The premises are contradictory, or the policy contains conflicting<br>rules.                                                                 | Ask the user to clarify their input (see [Ask clarifying questions](#ask-clarifying-questions "#ask-clarifying-questions")). If the issue persists, it may<br>indicate a policy problem — review the quality report.                                         |
-| `translationAmbiguous` | The input has multiple valid interpretations. The translation models<br>disagreed on how to map the natural language to policy variables.    | Ask the user for clarification to resolve the ambiguity. Use the<br>`options` and `differenceScenarios` fields to generate<br>targeted clarifying questions.                                                                                                 |
-| `tooComplex`           | The input exceeds processing limits for logical analysis.                                                                                    | Simplify the input by breaking it into smaller parts, or return a fallback<br>message explaining that the response could not be verified.                                                                                                                    |
-| `noTranslations`       | The input is not relevant to your policy's domain. No policy variables<br>could be mapped.                                                   | The content is off-topic for this policy. Serve the response without AR<br>validation, or use other guardrail components (such as topic policies) to<br>handle off-topic content.                                                                            |
+| Result                 | What it means                                                                                                                                | Recommended action                                                                                                                                                                                                                                        |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `valid`                | The response is mathematically proven correct given the premises and your<br>policy rules.                                                   | Serve the response to the user. Log the finding for audit purposes (see<br>[Build an audit trail](#build-audit-trail "#build-audit-trail")).                                                                                                              |
+| `invalid`              | The response contradicts your policy rules. The<br>`contradictingRules` field identifies which rules were<br>violated.                       | Rewrite the response using the AR feedback (see [Rewrite invalid responses using AR feedback](#rewrite-invalid-responses "#rewrite-invalid-responses")). If rewriting fails after<br>multiple attempts, block the response and return a fallback message. |
+| `satisfiable`          | The response is correct under some conditions but not all. It's not wrong,<br>but it's incomplete — it doesn't mention all the requirements. | Rewrite the response to include the missing conditions. Use the<br>`claimsFalseScenario` to identify what's missing. Alternatively,<br>you can let your LLM ask the user clarifying questions.                                                            |
+| `impossible`           | The premises are contradictory, or the policy contains conflicting<br>rules.                                                                 | Ask the user to clarify their input (see [Ask clarifying questions](#ask-clarifying-questions "#ask-clarifying-questions")). If the issue persists, it may<br>indicate a policy problem — review the quality report.                                      |
+| `translationAmbiguous` | The input has multiple valid interpretations. The translation models<br>disagreed on how to map the natural language to policy variables.    | Ask the user for clarification to resolve the ambiguity. Use the<br>`options` and `differenceScenarios` fields to generate<br>targeted clarifying questions.                                                                                              |
+| `tooComplex`           | The input exceeds processing limits for logical analysis.                                                                                    | Simplify the input by breaking it into smaller parts, or return a fallback<br>message explaining that the response could not be verified.                                                                                                                 |
+| `noTranslations`       | The input is not relevant to your policy's domain. No policy variables<br>could be mapped.                                                   | The content is off-topic for this policy. Serve the response without AR<br>validation, or use other guardrail components (such as topic policies) to<br>handle off-topic content.                                                                         |
 
-## Rewrite invalid responses using AR
-
-feedback
+## Rewrite invalid responses using AR feedback
 
 The most powerful integration pattern for Automated Reasoning checks is the
 _rewriting loop_: when a response is `invalid` or

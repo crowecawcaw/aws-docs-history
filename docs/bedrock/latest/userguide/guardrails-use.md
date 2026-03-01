@@ -24,6 +24,5 @@ selectively evaluate user input and can configure streaming response behavior.
 
 ###### Topics
 
-- [Use your guardrail with
-  inference operations to evaluate user input](guardrails-input-tagging-base-inference.md "guardrails-input-tagging-base-inference.md")
+- [Use your guardrail with inference operations to evaluate user input](guardrails-input-tagging-base-inference.md "guardrails-input-tagging-base-inference.md")
 - [Use the ApplyGuardrail API in your application](guardrails-use-independent-api.md "guardrails-use-independent-api.md")

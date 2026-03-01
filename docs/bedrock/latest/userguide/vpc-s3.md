@@ -5,8 +5,7 @@ You can use a VPC to restrict access to data in your Amazon S3 buckets. For furt
 ###### Topics
 
 - [Create an Amazon S3 VPC Endpoint](#vpc-s3-create "#vpc-s3-create")
-- [(Optional) Use IAM policies to restrict access
-  to your S3 files](#vpc-policy-rbp "#vpc-policy-rbp")
+- [(Optional) Use IAM policies to restrict access to your S3 files](#vpc-policy-rbp "#vpc-policy-rbp")
 
 ## Create an Amazon S3 VPC Endpoint
 
@@ -18,9 +17,7 @@ Create the S3 VPC endpoint by following the steps at [Create a gateway endpoint 
 
 If you don't use the default DNS settings for your VPC, you need to ensure that the URLs for the locations of the data in your training jobs resolve by configuring the endpoint route tables. For information about VPC endpoint route tables, see [Routing for Gateway endpoints](../../../AmazonVPC/latest/UserGuide/vpce-gateway.md#vpc-endpoints-routing "../../../AmazonVPC/latest/UserGuide/vpce-gateway.md#vpc-endpoints-routing").
 
-## (Optional) Use IAM policies to restrict access
-
-to your S3 files
+## (Optional) Use IAM policies to restrict access to your S3 files
 
 You can use [resource-based policies](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md") to more tightly control access to your S3 files. You can use any combination of the following types of resource-based policies.
 

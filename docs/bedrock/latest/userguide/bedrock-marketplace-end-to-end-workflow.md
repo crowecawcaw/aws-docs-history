@@ -1,6 +1,4 @@
-# End-to-end
-
-workflow
+# End-to-end workflow
 
 After you've set up Amazon Bedrock Marketplace, you can use the following example code in your
 end-to-end

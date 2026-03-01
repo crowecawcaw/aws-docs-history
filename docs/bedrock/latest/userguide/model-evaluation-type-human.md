@@ -1,22 +1,17 @@
-# Creating your first model evaluation that uses
-
-human workers
+# Creating your first model evaluation that uses human workers
 
 A model evaluation job that uses human workers requires access to the following service
 level resources. Use the linked topics to learn more about getting setting up.
 
-###### Required service level resources to start a model evaluation job that uses human
+###### Required service level resources to start a model evaluation job that uses human workers
 
-workers
-
-1. Model evaluation job that use human workers allow you to rate/compare the
+1. Model evaluation jobs that use human workers allow you to rate/compare the
    responses for up two different foundation models. To start a job, at least one Amazon Bedrock
    foundation model is required. To learn more accessing Amazon Bedrock foundation models, see
    [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
 2. To create a model evaluation job using human workers, you need access to the
    [https://console.aws.amazon.com/bedrock/](https://console.aws.amazon.com/bedrock/ "https://console.aws.amazon.com/bedrock/"), AWS Command Line Interface, or a supported AWS SDK. To learn more about the
-   required IAM actions and resources, see [Required console permissions to create a human-based
-   model evaluation job](#more-for-human "#more-for-human").
+   required IAM actions and resources, see [Required console permissions to create a human-based model evaluation job](#more-for-human "#more-for-human").
 3. When the model evaluation job starts, a service role is used to perform actions on
    your behalf. To learn more about required IAM actions and the trust policy
    requirements, see [Service role requirements for automatic model evaluation jobs](automatic-service-roles.md "automatic-service-roles.md").
@@ -24,12 +19,9 @@ workers
    in a Amazon S3 bucket. To learn more about the prompt dataset requirements, see [Create a custom prompt dataset for a model evaluation job that uses human workers](model-evaluation-prompt-datasets-custom-human.md "model-evaluation-prompt-datasets-custom-human.md")
 5. The human evaluators are managed as a workteam. You can create a new Amazon Cognito
    managed workteam using the Amazon Bedrock console. To learn more about managing your
-   workforce, see [Manage a work team for human evaluations of
-   models in Amazon Bedrock](human-worker-evaluations.md "human-worker-evaluations.md").
+   workforce, see [Manage a work team for human evaluations of models in Amazon Bedrock](human-worker-evaluations.md "human-worker-evaluations.md").
 
-## Required console permissions to create a human-based
-
-model evaluation job
+## Required console permissions to create a human-based model evaluation job
 
 To create a model evaluation job that uses human workers from the Amazon Bedrock console you
 need to have additional permissions added to your user, group, or role.

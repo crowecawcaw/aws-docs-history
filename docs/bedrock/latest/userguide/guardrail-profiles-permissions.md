@@ -1,14 +1,10 @@
-# Permissions for using cross-Region
-
-inference with Amazon Bedrock Guardrails
+# Permissions for using cross-Region inference with Amazon Bedrock Guardrails
 
 Using [cross-Region inference](guardrails-cross-region.md "guardrails-cross-region.md") with Amazon Bedrock Guardrails
 requires adding specific permissions to your IAM role, including allowing access to
 guardrail profiles in other Regions.
 
-## Permissions to create
-
-and manage guardrails for cross-Region inference
+## Permissions to create and manage guardrails for cross-Region inference
 
 Use the following IAM policy to [create](guardrails-components.md "guardrails-components.md"),
 [view](guardrails-view.md "guardrails-view.md"), [modify](guardrails-edit.md "guardrails-edit.md"), and [delete](guardrails-delete.md "guardrails-delete.md") a guardrail
@@ -41,9 +37,7 @@ JSON
 
 ```
 
-## Permissions for invoking
-
-guardrails with cross-Region inference
+## Permissions for invoking guardrails with cross-Region inference
 
 When invoking a guardrail with cross-Region inference, you need an IAM policy
 that specifies the destination Regions defined in your guardrail profile.

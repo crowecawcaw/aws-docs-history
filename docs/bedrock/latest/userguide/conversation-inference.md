@@ -1,6 +1,4 @@
-# Carry out a conversation with the
-
-Converse API operations
+# Carry out a conversation with the Converse API operations
 
 You can use the Amazon Bedrock Converse API to create conversational applications
 that send and receive messages to and from an Amazon Bedrock model. For example, you can create a
@@ -29,8 +27,7 @@ applications.
 - Restrictions apply to the following operations: `InvokeModel`, `InvokeModelWithResponseStream`, `Converse`, and `ConverseStream`. See [API restrictions](inference-api-restrictions.md "inference-api-restrictions.md") for details.
   For code examples, see the following:
 
-- Python examples for this topic – [Converse API
-  examples](conversation-inference-examples.md "conversation-inference-examples.md")
+- Python examples for this topic – [Converse API examples](conversation-inference-examples.md "conversation-inference-examples.md")
 - Various languages and models – [Code examples for Amazon Bedrock Runtime using AWS SDKs](service_code_examples_bedrock-runtime.md "service_code_examples_bedrock-runtime.md")
 - Java tutorial – [A Java developer's guide to Bedrock's new Converse
   API](https://community.aws/content/2hUiEkO83hpoGF5nm3FWrdfYvPt/amazon-bedrock-converse-api-java-developer-guide "https://community.aws/content/2hUiEkO83hpoGF5nm3FWrdfYvPt/amazon-bedrock-converse-api-java-developer-guide")
@@ -38,9 +35,6 @@ applications.
 
 ###### Topics
 
-- [Supported models and
-  model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md")
-- [Using the Converse
-  API](conversation-inference-call.md "conversation-inference-call.md")
-- [Converse API
-  examples](conversation-inference-examples.md "conversation-inference-examples.md")
+- [Supported models and model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md")
+- [Using the Converse API](conversation-inference-call.md "conversation-inference-call.md")
+- [Converse API examples](conversation-inference-examples.md "conversation-inference-examples.md")

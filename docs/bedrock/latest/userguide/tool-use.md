@@ -475,3 +475,119 @@ The `tasks` tool provides a Last-In-First-Out (LIFO) stack for managing tasks wi
 | `summary`     | string | No          | Optional summary about the task item (only for `"push"` operation)      |
 
 You can call the Tasks tool by either using natural languages (e.g. "Add a task to review the budget", "Push a reminder to call the client", "What's the next task I need to do?", "Pop the most recent task", "Get the latest task from my stack") or you can call the tool directly in your prompt ("Use the tasks tool to push 'finish presentation'", "Pop a task from the stack", "Add 'schedule meeting' to my task list").
+
+## Server-side tool-use integration with AgentCore Gateway
+
+Amazon Bedrock now supports [AgentCore Gateway](../../../bedrock-agentcore/latest/devguide/gateway.md "../../../bedrock-agentcore/latest/devguide/gateway.md") as a server-side tool calling integration type. This feature allows you to connect your models directly to AgentCore Gateway endpoints, enabling seamless access to tools managed through the gateway infrastructure.
+
+The AgentCore Gateway integration follows the same pattern as Lambda function integration, with one key difference.
+
+**Lambda Integration:**
+
+- Uses Lambda function ARNs
+- Directly invokes AWS Lambda functions
+
+**AgentCore Gateway Integration:**
+
+- Uses AgentCore Gateway ARNs
+- Routes tool calls through the AgentCore Gateway infrastructure
+- Provides centralized tool management and discovery
+
+### Configuration
+
+**Request Structure**
+
+When configuring AgentCore Gateway as a tool source, use the following structure in your `tools` array in your Responses API request.
+
+```
+{
+  "type":"mcp",
+  "server_label":"agentcore_tools",
+  "connector_id":"arn:aws:bedrock-agentcore:us-west-2:342789630635:gateway/agentcore-intro-gateway-v2-swvq44sovp",
+  "server_description":"AgentCore Gateway providing custom tools",
+  "require_approval":"never"
+}
+```
+
+**Parameters**
+
+| Parameter            | Type   | Required | Description                                                      |
+| -------------------- | ------ | -------- | ---------------------------------------------------------------- |
+| `type`               | string | Yes      | Must be set to `mcp`                                             |
+| `server_label`       | string | Yes      | A unique identifier for this tool connector within your request  |
+| `connector_id`       | string | Yes      | The ARN of your AgentCore Gateway                                |
+| `server_description` | string | No       | Human-readable description of the tools provided by this gateway |
+| `require_approval`   | string | Yes      | Field has to be `"never"`                                        |
+
+**Complete Request Example**
+
+```
+{
+  "model":"openai.gpt-oss-120b",
+  "stream":true,
+  "background":false,
+  "store":false,
+  "tools": [
+    {
+      "type":"mcp",
+      "server_label":"agentcore_tools",
+      "connector_id":"arn:aws:bedrock-agentcore:us-west-2:342789630635:gateway/agentcore-intro-gateway-v2-swvq44sovp",
+      "server_description":"AgentCore Gateway providing custom tools",
+      "require_approval":"never"
+    }
+  ],
+  "input": [
+    {
+      "type":"message",
+      "role":"user",
+      "content": [
+        {
+          "type":"input_text",
+          "text":"What is the weather in Seattle?"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Prerequisites
+
+Before using AgentCore Gateway integration, ensure you have:
+
+1. **Created an AgentCore Gateway** with configured targets (Lambda functions, API Gateway stages, OpenAPI schemas, or MCP servers)
+2. **Configured IAM permissions** allowing your Bedrock service role to invoke the gateway. Note that Bedrock only supports gateways with IAM authentication.
+3. **Gateway ARN** in the correct format
+
+### Benefits of AgentCore Gateway Integration
+
+- **Centralized Tool Management**: Manage all your tools through a single gateway endpoint
+- **Tool Discovery**: Agents can dynamically discover available tools through the gateway
+- **Security**: Built-in authentication and authorization through IAM and gateway policies
+- **Observability**: Comprehensive monitoring and logging of tool invocations
+- **Flexibility**: Support for multiple target types (Lambda, API Gateway, OpenAPI, MCP servers)
+
+### IAM Permissions
+
+Your Bedrock execution role needs permission to invoke the AgentCore Gateway:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "bedrock-agentcore:InvokeGateway"
+      ],
+      "Resource": "arn:aws:bedrock-agentcore:us-west-2:342789630635:gateway/agentcore-intro-gateway-v2-swvq44sovp"
+    }
+  ]
+}
+```
+
+### Next Steps
+
+- Learn more about [creating AgentCore Gateways](../../../bedrock-agentcore/latest/devguide/gateway-create.md "../../../bedrock-agentcore/latest/devguide/gateway-create.md")
+- Explore [gateway target types](../../../bedrock-agentcore/latest/devguide/gateway-targets.md "../../../bedrock-agentcore/latest/devguide/gateway-targets.md")
+- Review [gateway security best practices](../../../bedrock-agentcore/latest/devguide/gateway-security.md "../../../bedrock-agentcore/latest/devguide/gateway-security.md")

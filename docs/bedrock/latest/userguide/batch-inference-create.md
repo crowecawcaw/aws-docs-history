@@ -17,23 +17,24 @@ Console
 2. From the left navigation pane, select **Batch inference**.
 3. In the **Batch inference jobs** section, choose **Create job**.
 4. In the **Job details** section, give the batch inference job a **Job name** and select a model to use for the batch inference job by choosing **Select model**.
-5. In the **Input data** section, choose **Browse S3** and select an S3 location for your batch inference job. Batch inference processes all JSONL and accompanying content files at that S3 location, whether the location is an S3 folder or a single JSONL file.
+5. In the **Model invocation type** section, choose the API format for your input data. Choose **InvokeModel** if your input data uses model-specific request formats, or choose **Converse** if your input data uses the Converse API format. The default is **InvokeModel**.
+6. In the **Input data** section, choose **Browse S3** and select an S3 location for your batch inference job. Batch inference processes all JSONL and accompanying content files at that S3 location, whether the location is an S3 folder or a single JSONL file.
 
 ###### Note
 
-If the input data is in an S3 bucket that belongs to a different account from the one from which you're submitting the job, you must use the API to submit the batch inference job. To learn how to do this, select the API tab above. 6. In the **Output data** section, choose **Browse S3** and select an S3 location to store the outtput files from your batch inference job. By default, the output data will be encrypted by an AWS managed key. To choose a custom KMS key, select **Customize encryption settings (advanced)** and choose a key. For more information about encryption of Amazon Bedrock resources and setting up a custom KMS key see [Data encryption](data-encryption.md "data-encryption.md").
+If the input data is in an S3 bucket that belongs to a different account from the one from which you're submitting the job, you must use the API to submit the batch inference job. To learn how to do this, select the API tab above. 7. In the **Output data** section, choose **Browse S3** and select an S3 location to store the outtput files from your batch inference job. By default, the output data will be encrypted by an AWS managed key. To choose a custom KMS key, select **Customize encryption settings (advanced)** and choose a key. For more information about encryption of Amazon Bedrock resources and setting up a custom KMS key see [Data encryption](data-encryption.md "data-encryption.md").
 
 ###### Note
 
-If you plan to write the output data to an S3 bucket that belongs to a different account from the one from which you're submitting the job, you must use the API to submit the batch inference job. To learn how to do this, select the API tab above. 7. In the **Service access** section, select one of the following options:
+If you plan to write the output data to an S3 bucket that belongs to a different account from the one from which you're submitting the job, you must use the API to submit the batch inference job. To learn how to do this, select the API tab above. 8. In the **Service access** section, select one of the following options:
 
     * **Use an existing service role** –
      Select a service role from the drop-down list. For more information on setting up a custom role with the appropriate permissions, see [Required permissions for batch inference](batch-inference-permissions.md "batch-inference-permissions.md").
     * **Create and use a new service role** –
      Enter a name for the service role.
 
-8. (Optional) To associate tags with the batch inference job, expand the **Tags** section and add a key and optional value for each tag. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").
-9. Choose **Create batch inference job**.
+9. (Optional) To associate tags with the batch inference job, expand the **Tags** section and add a key and optional value for each tag. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").
+10. Choose **Create batch inference job**.
 
 API
 To create a batch inference job, send a [CreateModelInvocationJob](../APIReference/API_CreateModelInvocationJob.md "../APIReference/API_CreateModelInvocationJob.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp").
@@ -50,11 +51,12 @@ The following fields are required:
 
 The following fields are optional:
 
-| Field                  | Use case                                                                                                                                                                                                    |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| timeoutDurationInHours | To specify the duration in hours after which the job will time out.                                                                                                                                         |
-| tags                   | To specify any tags to associate with the job. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").                                                                       |
-| vpcConfig              | To specify the VPC configuration to use to protect your data during the job. For more information, see [Protect batch inference jobs using a VPC](batch-vpc.md "batch-vpc.md").                             |
-| clientRequestToken     | To ensure the API request completes only once. For more information, see [Ensuring idempotency](../../../ec2/latest/devguide/ec2-api-idempotency.md "../../../ec2/latest/devguide/ec2-api-idempotency.md"). |
+| Field                  | Use case                                                                                                                                                                                                                                                                                                                    |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| modelInvocationType    | To specify the API format of the input data. Set to `Converse` to use the Converse API format, or `InvokeModel` (default) to use model-specific request formats. For more information about the Converse request format, see [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md"). |
+| timeoutDurationInHours | To specify the duration in hours after which the job will time out.                                                                                                                                                                                                                                                         |
+| tags                   | To specify any tags to associate with the job. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").                                                                                                                                                                                       |
+| vpcConfig              | To specify the VPC configuration to use to protect your data during the job. For more information, see [Protect batch inference jobs using a VPC](batch-vpc.md "batch-vpc.md").                                                                                                                                             |
+| clientRequestToken     | To ensure the API request completes only once. For more information, see [Ensuring idempotency](../../../ec2/latest/devguide/ec2-api-idempotency.md "../../../ec2/latest/devguide/ec2-api-idempotency.md").                                                                                                                 |
 
 The response returns a `jobArn` that you can use to refer to the job when carrying out other batch inference-related API calls.

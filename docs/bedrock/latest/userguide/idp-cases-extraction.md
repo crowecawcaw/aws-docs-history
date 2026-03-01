@@ -3,9 +3,7 @@
 BDA allows you to define the specific data fields you want to extract from your documents when creating a blueprint.
 This acts as a set of instructions that guide BDA on what information to look for and how to interpret it.
 
-###### Defining
-
-fields
+###### Defining fields
 
 To get started, you can create a property for each field that requires extraction, such as employee_id or product_name.
 For each field, you need to provide a description, data type, and inference type.

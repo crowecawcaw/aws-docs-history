@@ -1,6 +1,4 @@
-# Understanding intelligent prompt routing in
-
-Amazon Bedrock
+# Understanding intelligent prompt routing in Amazon Bedrock
 
 Amazon Bedrock intelligent prompt routing provides a single serverless endpoint to
 efficiently route requests between different foundational models within the same model
@@ -14,8 +12,7 @@ for both response quality and cost.
 - [Benefits](#prompt-routing-benefits "#prompt-routing-benefits")
 - [Default and configured prompt routers](#prompt-routing-types "#prompt-routing-types")
 - [Considerations and limitations](#prompt-routing-limitations "#prompt-routing-limitations")
-- [Prompt router criteria and fallback
-  model](#prompt-router-criteria "#prompt-router-criteria")
+- [Prompt router criteria and fallback model](#prompt-router-criteria "#prompt-router-criteria")
 - [How intelligent prompt routing works](#prompt-routing-works "#prompt-routing-works")
 - [How to use intelligent prompt routing](#prompt-routing-use "#prompt-routing-use")
 
@@ -85,9 +82,7 @@ Amazon Bedrock.
   routing for unique or specialized use cases. How effective the routing is
   depends on the initial training data.
 
-## Prompt router criteria and fallback
-
-model
+## Prompt router criteria and fallback model
 
 When configuring your prompt routers, you can specify the routing criteria, which is
 used to determine which model to select for processing a request based on the
@@ -102,9 +97,7 @@ accuracy or reduce costs compared to the fallback model. The fallback model acts
 as an anchor, and the routing criteria determines when to switch to the other
 model based on the response quality difference.
 
-### Response quality
-
-difference
+### Response quality difference
 
 The response quality difference measures the disparity between the responses
 of the fallback model and the other models. A smaller value indicates that the

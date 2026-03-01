@@ -28,9 +28,7 @@ In each of the following sections, you can see an examples of the 5 possible
 rating methods your work team saw in the evaluation UI. The examples also show what
 key value pair is used to save the results in Amazon S3.
 
-## Likert scale, comparison of multiple model
-
-outputs
+## Likert scale, comparison of multiple model outputs
 
 Human evaluators indicate their preference between the two responses from the
 model on a 5 point Likert scale in accordance with your
@@ -110,9 +108,7 @@ selected rating method is returned. In the output file saved to your Amazon S3
 bucket, the results from each worker are saved to the
 `"evaluationResults": "thumbsUpDown"` key value pair.
 
-## Likert scale, evaluation of a single model
-
-response
+## Likert scale, evaluation of a single model response
 
 Allows a human evaluator to indicate how strongly they approved of the model's
 response based on your instructions on a 5 point Likert scale. The results in

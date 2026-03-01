@@ -19,8 +19,7 @@ You can manually create, configure, modify, and delete your agent in the console
 After you’ve created your agent, you can optionally use _Conversational Builder_ to configure your agent.
 Conversational builder is an interactive assistant that is available in the Amazon Bedrock console. Conversational builder helps in configuring an agent for you. With conversational builder,
 you interact with the assistant using natural language to describe the purpose of your agent and information your agent might
-require to fulfill the purpose. The agent is built for you using the information you provide. Use conversational builder if you want to quickly configure or modify an agent. You can modify and delete your agent at any time in the console, using the conversational builder. For more information, see [Configure your agent using conversational
-builder](agents-create-cb.md "agents-create-cb.md").
+require to fulfill the purpose. The agent is built for you using the information you provide. Use conversational builder if you want to quickly configure or modify an agent. You can modify and delete your agent at any time in the console, using the conversational builder. For more information, see [Configure your agent using conversational builder](agents-create-cb.md "agents-create-cb.md").
 
 **Configure and invoke an agent dynamically at runtime**
 
@@ -35,8 +34,7 @@ Amazon Bedrock provides you with _Agent Blueprints_ to jumpstart your use of Ama
 
 ###### Topics
 
-- [Configure your agent using conversational
-  builder](agents-create-cb.md "agents-create-cb.md")
+- [Configure your agent using conversational builder](agents-create-cb.md "agents-create-cb.md")
 - [Configure an inline agent at runtime](agents-create-inline.md "agents-create-inline.md")
 - [Create and configure agent manually](agents-create.md "agents-create.md")
 - [View information about an agent](agents-view.md "agents-view.md")

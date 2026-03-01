@@ -14,8 +14,7 @@ and batch size.
 - (Optional) Encrypt input and output data, your customization job, or inference
   requests made to custom models. For more information, see [Encryption of custom models](encryption-custom-job.md "encryption-custom-job.md").
 - (Optional) Create a virtual private cloud (VPC) to protect your customization
-  job. For more information, see [(Optional) Protect your model customization jobs
-  using a VPC](custom-model-job-access-security.md#vpc-model-customization "custom-model-job-access-security.md#vpc-model-customization").
+  job. For more information, see [(Optional) Protect your model customization jobs using a VPC](custom-model-job-access-security.md#vpc-model-customization "custom-model-job-access-security.md#vpc-model-customization").
 
 ## Submit your job
 

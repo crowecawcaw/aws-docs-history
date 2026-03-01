@@ -12,8 +12,7 @@ encryption, see [Create an IAM service role for model customization](custom-mode
 Before adding RFT-specific IAM permissions, you must add the following IAM service roles:
 
 - [Trust relationship](custom-model-job-access-security.md#custom-model-job-service-role-trust-relationship "custom-model-job-access-security.md#custom-model-job-service-role-trust-relationship")
-- [Permissions to access training and validation files and to write output
-  files in S3](custom-model-job-access-security.md#custom-model-job-service-role-s3-permissions "custom-model-job-access-security.md#custom-model-job-service-role-s3-permissions")
+- [Permissions to access training and validation files and to write output files in S3](custom-model-job-access-security.md#custom-model-job-service-role-s3-permissions "custom-model-job-access-security.md#custom-model-job-service-role-s3-permissions")
 
 ## RFT-specific IAM permissions
 

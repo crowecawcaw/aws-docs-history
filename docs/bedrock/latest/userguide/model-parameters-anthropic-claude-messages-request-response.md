@@ -1,6 +1,4 @@
-# Request and
-
-Response
+# Request and Response
 
 The request body is passed in the `body` field of a request to [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or
 [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md").
@@ -459,9 +457,7 @@ Example responses with new stop_reason values:
     model generated one of the stop sequences that you specified
     in the `stop_sequences` input field.
 
-## Effort parameter
-
-(beta)
+## Effort parameter (beta)
 
 The `effort` parameter is an alternative to thinking token budgets for Claude Opus 4.5. This parameter tells Claude how liberally it should spend tokens to produce the best result, adjusting token usage across thinking, tool calls, and user communication. It can be used with or without extended thinking mode.
 

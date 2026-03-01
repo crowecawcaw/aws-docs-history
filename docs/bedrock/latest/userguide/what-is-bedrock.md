@@ -4,6 +4,8 @@ Amazon Bedrock is a fully managed service that provides secure, enterprise-grade
 
 ## Quickstart
 
+Read the [Quickstart](getting-started.md "getting-started.md") to write your first API call using Amazon Bedrock in under five minutes.
+
 Responses API
 
 ```
@@ -68,9 +70,7 @@ response = client.converse(
 print(response)
 ```
 
-Read the [Quickstart](getting-started.md "getting-started.md") to write your first API call using Amazon Bedrock in under five minutes.
-
-## Models supported
+## Supported models
 
 Bedrock supports [100+ foundation models](models.md "models.md") from industry-leading providers, including Amazon, Anthropic, DeepSeek, Moonshot AI, MiniMax, and OpenAI.
 
@@ -80,11 +80,9 @@ Bedrock supports [100+ foundation models](models.md "models.md") from industry-l
 
 ## What's new?
 
+- **Anthropic's Claude 4.6 now available on Amazon Bedrock**: [Claude Sonnet 4.6](https://aws.amazon.com/about-aws/whats-new/2026/02/claude-sonnet-4.6-available-in-amazon-bedrock/ "https://aws.amazon.com/about-aws/whats-new/2026/02/claude-sonnet-4.6-available-in-amazon-bedrock/") and [Claude Opus 4.6](https://aws.amazon.com/about-aws/whats-new/2026/2/claude-opus-4.6-available-amazon-bedrock/ "https://aws.amazon.com/about-aws/whats-new/2026/2/claude-opus-4.6-available-amazon-bedrock/") are now available on Amazon Bedrock.
 - **[Six new open weight models](https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-adds-support-six-open-weights-models/ "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-adds-support-six-open-weights-models/")**: Amazon Bedrock now supports six new models spanning frontier reasoning and agentic coding: DeepSeek V3.2, MiniMax M2.1, GLM 4.7, GLM 4.7 Flash, Kimi K2.5, and Qwen3 Coder Next.
-- **Claude 4.6 [now available](https://aws.amazon.com/about-aws/whats-new/2026/2/claude-opus-4.6-available-amazon-bedrock/ "https://aws.amazon.com/about-aws/whats-new/2026/2/claude-opus-4.6-available-amazon-bedrock/")**: According to Anthropic, Opus 4.6 is their most intelligent model and the world's best model for coding, enterprise agents, and professional work. Read more here.
-- **Server-side tools**: Amazon Bedrock [now supports](https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-bedrock-server-side-custom-tools-responses-api/ "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-bedrock-server-side-custom-tools-responses-api/") server-side tools in the Responses API using OpenAI API-compatible service endpoints.
-- **1-hour prompt caching duration**: Amazon Bedrock [now supports](https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-bedrock-one-hour-duration-prompt-caching/ "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-bedrock-one-hour-duration-prompt-caching/") a 1-hour time-to-live (TTL) option for prompt caching for select Anthropic Claude models.
-- **NVIDIA Nemotron 3 Nano [now available](https://aws.amazon.com/about-aws/whats-new/2025/12/nvidia-nemotron-3-nano-amazon-bedrock/ "https://aws.amazon.com/about-aws/whats-new/2025/12/nvidia-nemotron-3-nano-amazon-bedrock/")**: NVIDIA Nemotron 3 Nano 30B A3B delivers high reasoning performance, native tool calling support, and extended context processing with 256k token context window.
+- **Server-side tools**: Amazon Bedrock [now supports](https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-bedrock-server-side-custom-tools-responses-api/ "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-bedrock-server-side-custom-tools-responses-api/") server-side tools in the Responses API using OpenAI API-compatible service endpoints. You can also use your AgentCore Gateway tools to integrate with Amazon Bedrock models, enabling server-side tool execution without client-side orchestration.
 
 ## Start Building
 

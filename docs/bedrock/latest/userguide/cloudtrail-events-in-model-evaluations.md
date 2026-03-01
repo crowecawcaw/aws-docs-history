@@ -1,6 +1,4 @@
-# CloudTrail management events in model
-
-evaluation jobs
+# CloudTrail management events in model evaluation jobs
 
 [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about the resource operations performed
 on or in a resource (for example, reading or writing to an Amazon S3 object). These are also

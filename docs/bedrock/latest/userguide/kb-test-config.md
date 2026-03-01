@@ -1,6 +1,4 @@
-# Configure and customize queries and response
-
-generation
+# Configure and customize queries and response generation
 
 You can configure and customize retrieval and response generation, further improving the
 relevancy of responses. For example, you can apply filters to document metadata

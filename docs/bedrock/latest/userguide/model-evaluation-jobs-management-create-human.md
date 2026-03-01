@@ -1,6 +1,4 @@
-# Create a human-based model evaluation
-
-job
+# Create a human-based model evaluation job
 
 The following examples show how to create a model evaluation job that uses human workers.
 

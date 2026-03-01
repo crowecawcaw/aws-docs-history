@@ -5,9 +5,11 @@ publicly available model, such as a HuggingFace model, you don't need a subscrip
 Models can be publicly available or proprietary. When you subscribe to a model, you
 review and accept the prices and EULAs of the model provider.
 
-###### To subscribe to a
+###### Note
 
-model
+Subscription is not required before first invocation due to auto-enablement, Amazon Bedrock automatically initiates the subscription process in the background. API calls may succeed temporarily while the subscription is being finalized. However, if subscription fails, subsequent requests will fail, see [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
+
+###### To subscribe to a model
 
 1. Sign in to the AWS Management Console using an IAM role with Amazon Bedrock permissions.
 2. In the search bar, specify "Amazon Bedrock" and choose the **Amazon Bedrock**

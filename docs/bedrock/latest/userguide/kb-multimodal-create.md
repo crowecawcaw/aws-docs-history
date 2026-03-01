@@ -1,6 +1,4 @@
-# Create a knowledge base for multimodal
-
-content
+# Create a knowledge base for multimodal content
 
 You can create multimodal knowledge bases using either the console or API. Choose your
 approach based on your multimodal processing needs.
@@ -114,8 +112,7 @@ When using Nova Multimodal Embeddings, Amazon Bedrock stores transient
 data in your multimodal storage destination and attempts to
 delete it after processing is completed. We recommend applying a
 lifecycle policy on the transient data path to ensure proper
-cleanup. For detailed instructions, see [Managing transient data with Amazon S3
-lifecycle policies](kb-multimodal-troubleshooting.md#kb-multimodal-lifecycle-policy "kb-multimodal-troubleshooting.md#kb-multimodal-lifecycle-policy"). 11. In the **Vector database** section, choose your
+cleanup. For detailed instructions, see [Managing transient data with Amazon S3 lifecycle policies](kb-multimodal-troubleshooting.md#kb-multimodal-lifecycle-policy "kb-multimodal-troubleshooting.md#kb-multimodal-lifecycle-policy"). 11. In the **Vector database** section, choose your
 vector store method and configure the appropriate dimensions based
 on your selected embedding model. 12. Choose **Next** and review the details of your
 knowledge base configuration, then choose **Create knowledge

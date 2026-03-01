@@ -1,6 +1,4 @@
-# Create an Amazon Bedrock knowledge base
-
-with Amazon Neptune Analytics graphs
+# Create an Amazon Bedrock knowledge base with Amazon Neptune Analytics graphs
 
 GraphRAG is fully integrated into Amazon Bedrock Knowledge Bases and uses Amazon Neptune Analytics for graph and
 vector storage. You can get started using GraphRAG in your knowledge bases with the
@@ -74,8 +72,7 @@ methods:
     * Alternatively, if you have already created your Neptune Analytics graph and vector index, you can use
      the **Choose a vector store you have created** option. Choose **Amazon Neptune Analytics (GraphRAG)**
      as your vector store, and identify the graph ARN, vector field names, and metadata field names in the vector
-     index. For more information, see [Prerequisites for using a vector store you created for a
-     knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
+     index. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
 
 10. Choose **Next** and review the details of your knowledge base. You can edit any
     section before going ahead and creating your knowledge base.

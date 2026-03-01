@@ -1,6 +1,4 @@
-# Set up your query engine and permissions
-
-for creating a knowledge base with structured data store
+# Set up your query engine and permissions for creating a knowledge base with structured data store
 
 This topic describes the permissions that you need when connecting your knowledge base to
 a structured data store. If you plan to connect an Amazon Bedrock knowledge base to a structured data
@@ -44,9 +42,7 @@ engine:
 3. (Optional) For more information about Amazon Redshift Serverless workgroups, see [Workgroups
    and namespaces](../../../redshift/latest/mgmt/serverless-workgroup-namespace.md "../../../redshift/latest/mgmt/serverless-workgroup-namespace.md") in the Amazon Redshift Management Guide.
 
-## Configure Amazon Redshift query engine
-
-permissions
+## Configure Amazon Redshift query engine permissions
 
 Depending on the Amazon Redshift query engine that you choose, you can configure certain
 permissions. The permissions that you configure depend on the authentication method. The
@@ -265,9 +261,7 @@ To allow your service role to authenticate to your Amazon Redshift provisioned q
 }
 ```
 
-## Allow knowledge base
-
-service role to access your data store
+## Allow knowledge base service role to access your data store
 
 Make sure your data is stored in one of the following [supported structured data
 stores](knowledge-base-structured-create.md "knowledge-base-structured-create.md"):

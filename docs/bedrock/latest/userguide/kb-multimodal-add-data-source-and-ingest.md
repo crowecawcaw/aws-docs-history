@@ -1,6 +1,4 @@
-# Adding data sources and
-
-starting ingestion
+# Adding data sources and starting ingestion
 
 After creating your knowledge base, add data sources containing your multimodal
 content and start ingestion jobs to process and index the content.
@@ -160,9 +158,7 @@ Replace the placeholders with:
 
 2. Monitor the ingestion job status using [`GetIngestionJob`](../APIReference/API_agent_GetIngestionJob.md "../APIReference/API_agent_GetIngestionJob.md").
 
-## Resyncing after data source
-
-deletion
+## Resyncing after data source deletion
 
 If you delete a data source and want to remove its content from the knowledge
 base, you must explicitly resync the knowledge base:

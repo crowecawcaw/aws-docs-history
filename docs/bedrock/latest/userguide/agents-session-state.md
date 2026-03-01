@@ -63,7 +63,7 @@ Amazon Bedrock Agents allows you to define the following types of contextual att
 - **conversationHistory** – For multi-agent collaboration, accepts additional context for processing run time
   requests if `conversationalHistorySharing` is enabled for a collaborator agent. By default, this field is automatically constructed by
   supervisor agent when invoking the collaborator agent. You can optionally use this field to provide additional context. For more information, see
-  [Use multi-agent collaboration with Amazon Bedrock Agents](agents-multi-agent-collaboration.md "agents-multi-agent-collaboration.md") .
+  [Use multi-agent collaboration with Amazon Bedrock Agents](agents-multi-agent-collaboration.md "agents-multi-agent-collaboration.md").
 - **promptSessionAttributes** – Attributes that persist over a single [turn](advanced-prompts.md#advanced-prompts-terminology "advanced-prompts.md#advanced-prompts-terminology") (one [InvokeAgent](../APIReference/API_agent-runtime_InvokeAgent.md "../APIReference/API_agent-runtime_InvokeAgent.md") call). You can use the $prompt\_session\_attributes$ [placeholder](prompt-placeholders.md "prompt-placeholders.md") when you edit the orchestration base prompt template. This placeholder will be populated at runtime with the attributes that you specify in the `promptSessionAttributes` field.
 
 You can define the session state attributes at two different steps:
@@ -161,8 +161,7 @@ The results that are provided can be used as context for further orchestration, 
 
 ## Knowledge base retrieval configurations
 
-To modify the retrieval configuration of knowledge bases that are attached to your agent, include the `knowledgeBaseConfigurations` field with a list of configurations for each knowledge base whose configurations you want to specify. Specify the `knowledgeBaseId`. In the `vectorSearchConfiguration` field, you can specify the following query configurations (for more information about these configurations, see [Configure and customize queries and response
-generation](kb-test-config.md "kb-test-config.md")):
+To modify the retrieval configuration of knowledge bases that are attached to your agent, include the `knowledgeBaseConfigurations` field with a list of configurations for each knowledge base whose configurations you want to specify. Specify the `knowledgeBaseId`. In the `vectorSearchConfiguration` field, you can specify the following query configurations (for more information about these configurations, see [Configure and customize queries and response generation](kb-test-config.md "kb-test-config.md")):
 
 - **Search type** – Whether the knowledge base searches only vector embeddings (`SEMANTIC`) or both vector embeddings and raw text (`HYBRID`). Use the `overrideSearchType` field.
 - **Maximum number of retrieved results** – The maximum number of results from query retrieval to use in the response.

@@ -10,8 +10,7 @@ the information about standard output.
   output, which consists of commonly required information that's based on the data type. Examples
   include audio transcriptions, scene summaries for video, and document summaries. These outputs
   can be tuned to your use case using projects to modify them. For more information, see
-  [Standard output in Bedrock Data
-  Automation](bda-standard-output.md "bda-standard-output.md").
+  [Standard output in Bedrock Data Automation](bda-standard-output.md "bda-standard-output.md").
 - Custom output – For documents, audio,and images only. Choose custom output to define exactly what
   information you want to extract using a blueprint. A blueprint consists of a list of expected
   fields that you want retrieved from a file. Each field represents a piece of

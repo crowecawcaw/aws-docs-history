@@ -43,8 +43,7 @@ You can also use SageMaker AI models or [custom models](custom-models.md "custom
 
 ###### Note
 
-If you use an SageMaker AI or custom model, you must specify the orchestration and generation prompts (for more information, see **Knowledge base prompt templates** in [Configure and customize queries and response
-generation](kb-test-config.md "kb-test-config.md")). Your prompts must include information variables to access the user's input and context.
+If you use an SageMaker AI or custom model, you must specify the orchestration and generation prompts (for more information, see **Knowledge base prompt templates** in [Configure and customize queries and response generation](kb-test-config.md "kb-test-config.md")). Your prompts must include information variables to access the user's input and context.
 
 Region and model support differ for some features in Amazon Bedrock Knowledge Bases. Select a topic to view support for a feature:
 

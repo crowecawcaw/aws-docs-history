@@ -29,8 +29,7 @@ Before you begin ingestion, check that your data source fulfills the following c
       	- [Create another vector index](knowledge-base-setup.md "knowledge-base-setup.md") in the vector store and select `faiss` as the **Engine**. Then [create a new knowledge base](knowledge-base-create.md "knowledge-base-create.md") and specify the new vector index.
       + If the vector index for your knowledge base is in an Amazon Aurora database cluster, we recommend that you use the custom metadata field to store all your metadata in a single column
        and create an index on this column. If you do not provide the custom metadata field, you must check that the table for your index contains a column for each metadata property in your
-       metadata files before starting ingestion. For more information, see [Prerequisites for using a vector store you created for a
-       knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
+       metadata files before starting ingestion. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
 
   Each time you add, modify, or remove files from your data source, you must sync the data source so that it is re-indexed to the knowledge base. Syncing is incremental, so Amazon Bedrock only processes added, modified, or deleted documents since the last sync.
 

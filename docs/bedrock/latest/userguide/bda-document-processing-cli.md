@@ -1,8 +1,6 @@
 # Processing through CLI
 
-## Process your first document through CLI
-
-**Input files into an S3 bucket**
+###### Input files into an S3 bucket
 
 Before processing documents with BDA, you must first upload your documents to an S3 bucket:
 
@@ -18,7 +16,8 @@ Example:
 aws s3 cp /local/path/document.pdf s3://my-bda-bucket/input/document.pdf
 ```
 
-## Basic processing command structure
+Async
+**Basic processing command structure**
 
 Use the `invoke-data-automation-async` command to process files:
 
@@ -37,7 +36,7 @@ aws bedrock-data-automation-runtime invoke-data-automation-async \
         --data-automation-profile-arn "Amazon Resource Name (ARN)"
 ```
 
-## Advanced processing command structure
+**Advanced processing command structure**
 
 **Video processing with time segments**
 
@@ -140,7 +139,7 @@ aws bedrock-data-automation-runtime invoke-data-automation-async \
         --data-automation-profile-arn "Amazon Resource Name (ARN)"
 ```
 
-## Checking processing status
+**Checking processing status**
 
 Use the `get-data-automation-status` command to check the status of your processing job:
 
@@ -160,7 +159,7 @@ The response will include the current status:
         }
 ```
 
-## Retrieve processing results
+**Retrieve processing results**
 
 **Locating output files in S3**
 
@@ -193,7 +192,7 @@ Standard output typically includes:
 - `metadata`: Processing information including timestamps and model details
 - `boundingBoxes`: Location information for detected elements (if enabled)
 
-## Error handling and troubleshooting
+**Error handling and troubleshooting**
 
 Common error scenarios and solutions:
 
@@ -202,7 +201,7 @@ Common error scenarios and solutions:
 - **Project not found**: Verify your project ARN is correct and the project exists
 - **Unsupported file format**: Check that your file format is supported by BDA
 
-## Adding tags to processing jobs
+**Adding tags to processing jobs**
 
 You can add tags to help organize and track your processing jobs:
 
@@ -229,4 +228,83 @@ aws bedrock-data-automation-runtime invoke-data-automation-async \
             }
         ]' \
         --data-automation-profile-arn "Amazon Resource Name (ARN)"
+```
+
+Sync
+**Basic processing command structure**
+
+Use the `invoke-data-automation` command to process files:
+
+```
+
+        aws bedrock-data-automation-runtime invoke-data-automation \
+        --input-configuration '{
+            "s3Uri": "s3://amzn-s3-demo-bucket/sample-images/sample-image.jpg"
+        }' \
+        --data-automation-configuration '{
+            "dataAutomationProjectArn": "Amazon Resource Name (ARN)",
+            "stage": "LIVE"
+        }' \
+        --data-automation-profile-arn "Amazon Resource Name (ARN)"
+        --region "aws-region"
+
+```
+
+**Advanced processing command structure**
+
+Output to S3 bucket
+
+```
+
+        aws bedrock-data-automation-runtime invoke-data-automation \
+        --input-configuration '{
+            "s3Uri": "s3://amzn-s3-demo-bucket/sample-images/sample-image.jpg"
+        }' \
+        --output-configuration '{"s3Uri": "s3://amzn-s3-demo-bucket/output/" }' \
+        --data-automation-configuration '{
+            "dataAutomationProjectArn": "Amazon Resource Name (ARN)",
+            "stage": "LIVE"
+        }' \
+        --data-automation-profile-arn "Amazon Resource Name (ARN)"
+        --region "aws-region"   //document only
+
+```
+
+Use byte input
+
+```
+
+        aws bedrock-data-automation-runtime invoke-data-automation \
+        --input-configuration '{
+            "bytes": #blob input
+        }' \
+        --output-configuration '{"s3Uri": "s3://amzn-s3-demo-bucket/output/" }' \
+        --data-automation-configuration '{
+            "dataAutomationProjectArn": "Amazon Resource Name (ARN)",
+            "stage": "LIVE"
+        }' \
+        --data-automation-profile-arn "Amazon Resource Name (ARN)"
+        --region "aws-region"
+
+```
+
+###### Note
+
+**Bytes**
+
+A blob of base64-encoded document bytes. The maximum size of a document that's provided in a blob of bytes is 50 MB.
+Type should be Base64-encoded binary data object.
+
+**Use custom blueprints (only for image)**
+
+```
+
+        aws bedrock-data-automation-runtime invoke-data-automation \
+        --input-configuration '{
+            "s3Uri": "s3://amzn-s3-demo-bucket/sample-images/sample-image.jpg"
+        }' \
+        --blueprints '[{"blueprintArn": "Amazon Resource Name (ARN)", "version": "1", "stage": "LIVE" } ]' \
+        --data-automation-profile-arn "Amazon Resource Name (ARN)"
+        --region "aws-region"
+
 ```

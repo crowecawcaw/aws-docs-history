@@ -86,8 +86,11 @@ Source Document ──► Extracted Policy ──► Testing ──► Deploymen
 
 1. **Create a policy.** Upload a source document that
    contains the rules you want to enforce. Automated Reasoning extracts formal logic rules
-   and a schema of variables from your document. Review the extracted policy to ensure it
-   captures your rules correctly. For more information, see [Create your Automated Reasoning policy](create-automated-reasoning-policy.md "create-automated-reasoning-policy.md").
+   and a schema of variables from your document. A fidelity report is automatically generated
+   that measures how accurately the extracted policy represents your source documents, with
+   coverage and accuracy scores and detailed grounding that links each rule and variable back
+   to the specific statements in your source content. Review the extracted policy and fidelity
+   report to ensure the policy captures your rules correctly. For more information, see [Create your Automated Reasoning policy](create-automated-reasoning-policy.md "create-automated-reasoning-policy.md").
 2. **Test and refine.** Tests helps ensure that your policy
    can accurately validate generated content even while you make changes to the policy itself.
    Create tests that mimic the questions your users will ask and the responses your LLM might
@@ -167,9 +170,7 @@ VALID, INVALID, TRANSLATION_AMBIGUOUS). To optimize costs:
 - Monitor usage patterns and adjust policies to reduce unnecessary validation
   requests.
 
-## Cross-region inference for
-
-policy operations
+## Cross-region inference for policy operations
 
 Automated Reasoning utilizes cross-region inference to optimize the performance and
 availability of policy creation and testing operations. Specific API operations automatically

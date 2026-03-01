@@ -38,14 +38,12 @@ Speech-to-speech models such as Amazon Nova Sonic are only available in chat mod
     **Playgrounds**, choose **Chat/text** or
     **Image**.
 4.  If you're in the **Chat/text** playground, select a **Mode**.
-5.  Choose **Select model** and select a provider, model, and throughput to use. For more information about increasing throughput, see [Increase throughput with cross-Region
-    inference](cross-region-inference.md "cross-region-inference.md") and [Increase model invocation capacity with Provisioned Throughput in Amazon Bedrock](prov-throughput.md "prov-throughput.md").
+5.  Choose **Select model** and select a provider, model, and throughput to use. For more information about increasing throughput, see [Increase throughput with cross-Region inference](cross-region-inference.md "cross-region-inference.md") and [Increase model invocation capacity with Provisioned Throughput in Amazon Bedrock](prov-throughput.md "prov-throughput.md").
 6.  Submit the following information to generate a response:
     - Prompt – One or more sentences of text that set up a scenario, question, or
       task for a model. For information about creating prompts, see [Prompt engineering concepts](prompt-engineering-guidelines.md "prompt-engineering-guidelines.md").
 
-    If you're using the chat mode of the chat/text playground, some models (refer to [Supported models and
-    model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md")) allow you to include a file in the following ways:
+    If you're using the chat mode of the chat/text playground, some models (refer to [Supported models and model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md")) allow you to include a file in the following ways:
 
         + Select the attachment icon and choose a file to upload.
         + Select the attachment icon and choose an Amazon S3 object to upload.
@@ -67,8 +65,7 @@ Speech-to-speech models such as Amazon Nova Sonic are only available in chat mod
     Content restrictions vary by underlying API operation and model. For more information, see [API restrictions](inference-api-restrictions.md "inference-api-restrictions.md").
     - Configurations – Settings that you adjust to modify the model response. Configurations include the following:
       - Inference parameters – Values that affect or limit how the model generates the response. For more information, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md"). To see inference parameters for specific models, refer to [Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md").
-      - System prompts – Prompts that provide instructions or context to the model about the task that it should perform or the persona that it should adopt. These are only available in the chat mode of the chat/text playground. For more information and a list of models that support system prompts, see [Carry out a conversation with the
-        Converse API operations](conversation-inference.md "conversation-inference.md").
+      - System prompts – Prompts that provide instructions or context to the model about the task that it should perform or the persona that it should adopt. These are only available in the chat mode of the chat/text playground. For more information and a list of models that support system prompts, see [Carry out a conversation with the Converse API operations](conversation-inference.md "conversation-inference.md").
       - Guardrails – Filters out harmful or unwanted content in prompts and model responses. For more information, see [Detect and filter harmful content by using Amazon Bedrock Guardrails](guardrails.md "guardrails.md").
 
 7.  (Optional) If a model supports streaming, the default behavior in the chat/text playground is to stream the responses. You can turn off streaming by choosing the options icon (

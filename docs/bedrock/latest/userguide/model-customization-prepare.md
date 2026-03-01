@@ -6,8 +6,7 @@ must at minimum prepare a training dataset. The files you create must conform to
 customization method and model that you choose. The records in it must conform to size requirements depending
 your model.
 
-For information about model requirments, see [Model requirements for training and validation
-datasets](#model-training-validation-requirements "#model-training-validation-requirements"). To see the
+For information about model requirments, see [Model requirements for training and validation datasets](#model-training-validation-requirements "#model-training-validation-requirements"). To see the
 default quotas that apply for training and validation datasets used for customizing different models, see the
 **Sum of training and validation records** quotas in [Amazon Bedrock endpoints and quotas](../../../general/latest/gr/bedrock.md "../../../general/latest/gr/bedrock.md") in the AWS General Reference.
 
@@ -37,8 +36,7 @@ question answering:
 - Meta Llama 3.1 8B Instruct
 - Meta Llama 3.1 70B Instruct
   The following conversational models are designed for single-turn and multi-turn interactions. If a model uses the Converse API, your fine-tuning dataset must follow the Converse API message format and include system,
-  user, and assistant messages. For examples, see [Prepare data for fine-tuning text-to-text models](#preparing-text-data "#preparing-text-data"). For more information about Converse API operations, see [Carry out a conversation with the
-  Converse API operations](conversation-inference.md "conversation-inference.md").
+  user, and assistant messages. For examples, see [Prepare data for fine-tuning text-to-text models](#preparing-text-data "#preparing-text-data"). For more information about Converse API operations, see [Carry out a conversation with the Converse API operations](conversation-inference.md "conversation-inference.md").
 
 - Anthropic Claude 3 Haiku
 - Meta Llama 3.2 1B Instruct (Converse API format)
@@ -59,8 +57,7 @@ inputs. For information about preparing data for fine-tuning Text-Image-to-Text 
   **Image-to-Embeddings**
 
 The following models support fine-tuning for tasks like classification and retrieval. These models
-generate numerical representations (embeddings) from image inputs. For information about preparing data for fine-tuning Image-to-Embeddings models, see [Prepare data for fine-tuning image generation and embedding
-models](#preparing-image-generation-data "#preparing-image-generation-data").
+generate numerical representations (embeddings) from image inputs. For information about preparing data for fine-tuning Image-to-Embeddings models, see [Prepare data for fine-tuning image generation and embedding models](#preparing-image-generation-data "#preparing-image-generation-data").
 
 - Amazon Titan Multimodal Embeddings G1
 - Amazon Titan Image Generator G1 V1
@@ -187,10 +184,8 @@ To use the Converse API, you call the `Converse` or `ConverseStream` operations
 to send messages to a model. To call `Converse`, you require permission for the
 `bedrock:InvokeModel` operation. To call `ConverseStream`, you require
 permission for the `bedrock:InvokeModelWithResponseStream` operation. For more information,
-see [Using the Converse
-API](conversation-inference-call.md "conversation-inference-call.md").
-For more information about Converse API operations, see [Carry out a conversation with the
-Converse API operations](conversation-inference.md "conversation-inference.md")
+see [Using the Converse API](conversation-inference-call.md "conversation-inference-call.md").
+For more information about Converse API operations, see [Carry out a conversation with the Converse API operations](conversation-inference.md "conversation-inference.md")
 
 Example format
 

@@ -1,13 +1,10 @@
-# Required Cross Origin Resource Sharing
-
-(CORS) permissions on S3 buckets
+# Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets
 
 ###### Cross Origin Resource Sharing (CORS) permission requirements
 
 All console-based model evaluation jobs require Cross Origin Resource Sharing (CORS)
 permissions to be enabled on any Amazon S3 buckets specified in the model evaluation job. To
-learn more, see Required Cross Origin Resource Sharing
-(CORS) permissions on S3 buckets
+learn more, see Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets
 
 When you create a model evaluation job that uses the Amazon Bedrock console, you must specify a CORS
 configuration on the S3 bucket.

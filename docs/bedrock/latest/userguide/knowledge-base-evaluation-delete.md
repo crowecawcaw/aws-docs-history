@@ -1,6 +1,4 @@
-# Delete a RAG evaluation job in
-
-Amazon Bedrock
+# Delete a RAG evaluation job in Amazon Bedrock
 
 You can delete a RAG evaluation job that you no longer want to use.
 

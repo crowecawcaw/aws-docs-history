@@ -1,14 +1,10 @@
-# AWS Key Management Service support in model evaluation
-
-jobs
+# AWS Key Management Service support in model evaluation jobs
 
 Amazon Bedrock uses the following IAM and AWS KMS permissions to use your AWS KMS key to decrypt
 your files and access them. It saves those files to an internal Amazon S3 location managed by
 Amazon Bedrock and uses the following permissions to encrypt them.
 
-## IAM policy
-
-requirements
+## IAM policy requirements
 
 The IAM policy associated with the IAM role that you're using to make requests
 to Amazon Bedrock must have the following elements. To learn more about managing your AWS KMS

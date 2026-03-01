@@ -209,7 +209,7 @@ The following list describes the fields of the [InvocationInput](../APIReference
 - `agentCollaborationInvocationInput` – Contains the invocation input to the collaborator agents.
   Appears if the `type` is
   `AGENT_COLLABORATOR` and if routing is enabled for the supervisor agent. For more information, see
-  [Use multi-agent collaboration with Amazon Bedrock Agents](agents-multi-agent-collaboration.md "agents-multi-agent-collaboration.md") .
+  [Use multi-agent collaboration with Amazon Bedrock Agents](agents-multi-agent-collaboration.md "agents-multi-agent-collaboration.md").
   - The `agentCollaborationInvocationInput` structure is as follows:
 
   ```
@@ -375,7 +375,7 @@ The following list describes the fields of the [Observation](../APIReference/API
   Contains the response from the collaborator agent or the
   final response. Appears if the `type` is
   `AGENT_COLLABORATOR` and if routing is enabled for the supervisor agent. For more
-  information, see [Use multi-agent collaboration with Amazon Bedrock Agents](agents-multi-agent-collaboration.md "agents-multi-agent-collaboration.md") .
+  information, see [Use multi-agent collaboration with Amazon Bedrock Agents](agents-multi-agent-collaboration.md "agents-multi-agent-collaboration.md").
   Each response contains the following fields:
   - `agentCollaboratorName` – The name of the collaborator agent sending the response.
   - `agentCollaboratorAliasArn` – The alias Arn of the collaborator agent sending the response.

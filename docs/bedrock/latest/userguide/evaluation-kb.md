@@ -1,6 +1,4 @@
-# Evaluate the performance of RAG sources using
-
-Amazon Bedrock evaluations
+# Evaluate the performance of RAG sources using Amazon Bedrock evaluations
 
 You can use computed metrics to evaluate how effectively a Retrieval Augmented Generation (RAG) system retrieves relevant
 information from your data sources, and how effective the generated responses are in
@@ -64,6 +62,5 @@ You can use the following model types in Amazon Bedrock as the response generato
 - Amazon Bedrock Marketplace models – [Amazon Bedrock Marketplace](amazon-bedrock-marketplace.md "amazon-bedrock-marketplace.md")
 - Customized foundation models – [Customize your model to improve its performance for your use case](custom-models.md "custom-models.md")
 - Imported foundation models – [Use Custom model import to import a customized open-source model into Amazon Bedrock](model-customization-import-model.md "model-customization-import-model.md")
-- Prompt routers – [Understanding intelligent prompt routing in
-  Amazon Bedrock](prompt-routing.md "prompt-routing.md")
+- Prompt routers – [Understanding intelligent prompt routing in Amazon Bedrock](prompt-routing.md "prompt-routing.md")
 - Models for which you have purchased Provisioned Throughput – [Increase model invocation capacity with Provisioned Throughput in Amazon Bedrock](prov-throughput.md "prov-throughput.md")

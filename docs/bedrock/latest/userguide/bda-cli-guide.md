@@ -144,9 +144,9 @@ Use the `list-blueprints` command to view all of your Blueprints:
 aws bedrock-data-automation list-blueprints
 ```
 
-## Process Documents
+## Process Documents Asynchronously
 
-Once you have a project set up, you can process documents using the `invoke-data-automation-async` command:
+Before processing documents with BDA, you must first upload your documents to an S3 bucket.Once you have a project set up, you can process documents using the `invoke-data-automation-async` command:
 
 ```
 aws bedrock-data-automation-runtime invoke-data-automation-async \
@@ -214,7 +214,23 @@ aws s3 cp s3://my-bda-documents/output/efgh5678/ ~/Downloads/bda-results/ --recu
 
 The output includes structured data based on your project configuration and any Blueprints you've applied.
 
-## Process images synchronously
+## Process Documents Synchronously
+
+Before processing documents with BDA, you must first upload your documents to an S3 bucket. Sync API srupports both input via S3 bucket or image bytes (i.e. processing documents without S3). The command returns structured data based on your project configuration and any Blueprints you've applied:
+
+```
+aws bedrock-data-automation-runtime invoke-data-automation \
+    --input-configuration '{
+        "s3Uri": "s3://my-bda-documents/invoices/invoice-123.pdf"
+    }' \
+    --data-automation-configuration '{
+        "dataAutomationProjectArn": "Amazon Resource Name (ARN)",
+        "stage": "LIVE"
+    }' \
+    --data-automation-profile-arn "Amazon Resource Name (ARN)"
+```
+
+## Process Images Synchronously
 
 The command returns structured data based on your project configuration and any Blueprints you've applied:
 

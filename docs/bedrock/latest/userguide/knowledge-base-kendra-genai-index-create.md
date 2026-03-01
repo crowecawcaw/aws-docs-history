@@ -1,6 +1,4 @@
-# Create an Amazon Bedrock knowledge base
-
-with an Amazon Kendra GenAI index
+# Create an Amazon Bedrock knowledge base with an Amazon Kendra GenAI index
 
 For more information about using an Amazon Kendra GenAI index, see [Amazon Kendra GenAI index](../../../kendra/latest/dg/hiw-index-types.md#kendra-gen-ai-index "../../../kendra/latest/dg/hiw-index-types.md#kendra-gen-ai-index") in the _Amazon Kendra Developer
 Guide_.

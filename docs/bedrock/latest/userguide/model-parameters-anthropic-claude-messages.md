@@ -1,6 +1,4 @@
-# Anthropic Claude
-
-Messages API
+# Anthropic Claude Messages API
 
 This section provides inference parameters and code examples for using the Anthropic
 Claude Messages API.
@@ -12,14 +10,11 @@ Claude Messages API.
 - [Extended thinking](claude-messages-extended-thinking.md "claude-messages-extended-thinking.md")
 - [Adaptive thinking](claude-messages-adaptive-thinking.md "claude-messages-adaptive-thinking.md")
 - [Thinking encryption](claude-messages-thinking-encryption.md "claude-messages-thinking-encryption.md")
-- [Differences in thinking
-  across model versions](claude-messages-thinking-differences.md "claude-messages-thinking-differences.md")
+- [Differences in thinking across model versions](claude-messages-thinking-differences.md "claude-messages-thinking-differences.md")
 - [Compaction](claude-messages-compaction.md "claude-messages-compaction.md")
 - [Get validated JSON results from models](claude-messages-structured-outputs.md "claude-messages-structured-outputs.md")
-- [Request and
-  Response](model-parameters-anthropic-claude-messages-request-response.md "model-parameters-anthropic-claude-messages-request-response.md")
-- [Code
-  examples](api-inference-examples-claude-messages-code-examples.md "api-inference-examples-claude-messages-code-examples.md")
+- [Request and Response](model-parameters-anthropic-claude-messages-request-response.md "model-parameters-anthropic-claude-messages-request-response.md")
+- [Code examples](api-inference-examples-claude-messages-code-examples.md "api-inference-examples-claude-messages-code-examples.md")
 - [Supported models](claude-messages-supported-models.md "claude-messages-supported-models.md")
 
 ## Anthropic Claude Messages API overview
@@ -34,8 +29,7 @@ model (assistant).
   inference operations ([InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")). However, we recommend that you use the
   Converse API to implement messages in your application. The
   Converse API provides a unified set of parameters that work
-  across all models that support messages. For more information, see [Carry out a conversation with the
-  Converse API operations](conversation-inference.md "conversation-inference.md").
+  across all models that support messages. For more information, see [Carry out a conversation with the Converse API operations](conversation-inference.md "conversation-inference.md").
 - Restrictions apply to the following operations: `InvokeModel`, `InvokeModelWithResponseStream`, `Converse`, and `ConverseStream`. See [API restrictions](inference-api-restrictions.md "inference-api-restrictions.md") for details.
 
 Anthropic trains Claude models to operate on alternating user and assistant
@@ -106,9 +100,7 @@ period of your AWS SDK client to at least 60 minutes. For example, in the AWS
 Python botocore SDK, change the value of the `read_timeout` field in
 [botocore.config](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/config.html# "https://botocore.amazonaws.com/v1/documentation/api/latest/reference/config.html#") to at least 3600.
 
-### System
-
-prompts
+### System prompts
 
 You can also include a system prompt in the request. A system prompt lets you
 provide context and instructions to Anthropic Claude, such as specifying a
@@ -129,8 +121,7 @@ in the Anthropic documentation.
 A multimodal prompt combines multiple modalities (images and text) in a single
 prompt. You specify the modalities in the `content` input field. The
 following example shows how you could ask Anthropic Claude to describe the
-content of a supplied image. For example code, see [Multimodal
-code examples](api-inference-examples-claude-messages-code-examples.md#api-inference-examples-claude-multimodal-code-example "api-inference-examples-claude-messages-code-examples.md#api-inference-examples-claude-multimodal-code-example").
+content of a supplied image. For example code, see [Multimodal code examples](api-inference-examples-claude-messages-code-examples.md#api-inference-examples-claude-multimodal-code-example "api-inference-examples-claude-messages-code-examples.md#api-inference-examples-claude-multimodal-code-example").
 
 ```
 {

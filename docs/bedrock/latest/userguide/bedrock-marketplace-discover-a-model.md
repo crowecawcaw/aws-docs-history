@@ -5,9 +5,7 @@ model catalog.
 
 Use the following procedure to discover an Amazon Bedrock Marketplace model.
 
-###### To discover an Amazon Bedrock Marketplace
-
-model
+###### To discover an Amazon Bedrock Marketplace model
 
 1. Sign in to the AWS Management Console using an IAM role with Amazon Bedrock permissions.
 2. In the search bar, specify "Amazon Bedrock" and choose the **Amazon Bedrock**

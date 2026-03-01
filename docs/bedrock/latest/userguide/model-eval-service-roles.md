@@ -22,9 +22,7 @@ service role that must be specified in the Amazon Bedrock console.
   encrypted your prompt dataset bucket or the Amazon S3 bucket where you want
   the results saved.
 
-###### Summary of IAM policy requirements for the Amazon SageMaker AI service
-
-role
+###### Summary of IAM policy requirements for the Amazon SageMaker AI service role
 
 - You must attach a trust policy which defines SageMaker AI as the service
   principal.

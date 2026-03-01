@@ -12,8 +12,7 @@ In addition to having access to at least one evaluator model, to create an evalu
 To learn more about the necessary actions and trust policy requirements, see [Required service role permissions for creating a model evaluation job that uses a judge model](judge-service-roles.md "judge-service-roles.md").
 
 When you create the job, you specify a prompt dataset in an Amazon S3 bucket, and an output bucket to store your results in. To ensure your S3 buckets have the
-necessary CORS permissions, see [Required Cross Origin Resource Sharing
-(CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md")
+necessary CORS permissions, see [Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md")
 
 To create a job in the console, the console needs permission to perform a certain set of actions and have access to the needed resources. The following policy defines
 a minimum set of IAM permissions required to create a job in the console. In the policy, we recommend using the IAM JSON policy element

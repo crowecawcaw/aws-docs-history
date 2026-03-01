@@ -17,9 +17,7 @@ translate natural language into formal logic; then, mathematical techniques veri
 logic against your policy rules. Each testing approach targets a different step in this
 pipeline.
 
-### Generated scenarios (test rule
-
-correctness)
+### Generated scenarios (test rule correctness)
 
 Generated scenarios test the _semantics encoded in your policy rules
 directly_. They remove the uncertainty of natural language translation from
@@ -76,9 +74,7 @@ policy states "Employees need 1 year of service for parental leave," create test
 for responses that correctly state this rule _and_ tests for
 responses that incorrectly state a different requirement.
 
-### Recommended testing
-
-workflow
+### Recommended testing workflow
 
 1. **Generate and review scenarios.** Start here to
    validate that your rules are correct. Fix any rule issues before proceeding.
@@ -91,9 +87,7 @@ workflow
    issue is in the rules (fix the policy) or in the translation (improve variable
    descriptions). For more information, see [Troubleshoot and refine your Automated Reasoning policy](address-failed-automated-reasoning-tests.md "address-failed-automated-reasoning-tests.md").
 
-## Generate test scenarios
-
-automatically in the console
+## Generate test scenarios automatically in the console
 
 1. Go to the Automated Reasoning policy that you want to test (for example,
    **MyHrPolicy**).
@@ -125,9 +119,7 @@ workflow to apply the changes to your policy based on your feedback. 6. On the *
 changes to your policy's rules, variables, and variable types. Then select
 **Accept changes**.
 
-## Generate test scenarios
-
-automatically using the API
+## Generate test scenarios automatically using the API
 
 Use the `GetAutomatedReasoningPolicyNextScenario` API to fetch generated
 test scenarios based on your policy's rules.
@@ -155,9 +147,7 @@ policy rules. Review the scenario and use the
 `CreateAutomatedReasoningPolicyTestCase` API to save it as a test, or use
 the annotation APIs to provide feedback if the scenario reveals a rule issue.
 
-## Create a QnA test
-
-manually in the console
+## Create a QnA test manually in the console
 
 1. Go to the Automated Reasoning policy that you want to test (for example,
    **MyHrPolicy**).
@@ -233,9 +223,7 @@ Example response:
 
 ## Run tests
 
-### Run tests in the
-
-console
+### Run tests in the console
 
 1. Go to the Automated Reasoning policy that you want to validate (for example,
    **MyHrPolicy**).
@@ -313,9 +301,7 @@ Each test result includes:
   Each finding contains the translated premises and claims, a confidence score,
   variable assignments, and the policy rules that support the conclusion.
 
-### Practical interpretation of
-
-results
+### Practical interpretation of results
 
 The following table summarizes what each validation result means in practice and
 what action to take when you see it in a test. For the full reference including finding

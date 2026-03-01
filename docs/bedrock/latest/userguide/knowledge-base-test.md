@@ -18,6 +18,5 @@ Select a topic to learn more about it.
 - [Generate a query for structured data](knowledge-base-generate-query.md "knowledge-base-generate-query.md")
 - [Query a knowledge base connected to an Amazon Kendra GenAI index](kb-test-kendra.md "kb-test-kendra.md")
 - [Query a knowledge base connected to an Amazon Neptune Analytics graph](kb-test-neptune.md "kb-test-neptune.md")
-- [Configure and customize queries and response
-  generation](kb-test-config.md "kb-test-config.md")
+- [Configure and customize queries and response generation](kb-test-config.md "kb-test-config.md")
 - [Configure response generation for reasoning models with Knowledge Bases](kb-test-configure-reasoning.md "kb-test-configure-reasoning.md")

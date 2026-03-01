@@ -4,7 +4,7 @@ Amazon Bedrock provides additional capabilities to enhance your generative AI ap
 
 | Capability                                                                                                                   | Description                                                                                           |
 | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| [Transform unstructured data into meaningful insights<br>using Amazon Bedrock Data Automation](bda.md "bda.md")              | Transform unstructured data from images, audio, video, and documents into meaningful insights         |
+| [Transform unstructured data into meaningful insights using Amazon Bedrock Data Automation](bda.md "bda.md")                 | Transform unstructured data from images, audio, video, and documents into meaningful insights         |
 | [Retrieve data and generate AI responses with Amazon Bedrock Knowledge Bases](knowledge-base.md "knowledge-base.md")         | Retrieve data and generate AI responses using Retrieval Augmented Generation (RAG) with your own data |
 | [Evaluate the performance of Amazon Bedrock resources](evaluation.md "evaluation.md")                                        | Evaluate the performance and effectiveness of models and knowledge bases                              |
 | [Construct and store reusable prompts with Prompt management in Amazon Bedrock](prompt-management.md "prompt-management.md") | Construct and store reusable prompts in a library for different workflows                             |

@@ -1,6 +1,4 @@
-# Bring your own
-
-endpoint
+# Bring your own endpoint
 
 You can register an endpoint hosting an Amazon Bedrock
 AWS

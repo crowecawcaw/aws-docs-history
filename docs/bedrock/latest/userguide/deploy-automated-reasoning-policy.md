@@ -62,9 +62,7 @@ Example response:
 }
 ```
 
-## Add your Automated Reasoning policy to your
-
-guardrail
+## Add your Automated Reasoning policy to your guardrail
 
 Once you have a saved version of your Automated Reasoning policy, add it to a
 guardrail. The guardrail is the runtime component that your application calls to validate
@@ -298,14 +296,11 @@ ARN for your Region. Replace the Region prefix (`us`) with the
 appropriate prefix for your deployment Region (for example, `eu` for EU
 Regions). If you omit this property, the guardrail creation fails.
 
-### Example: Deploy with a customer managed KMS
-
-key
+### Example: Deploy with a customer managed KMS key
 
 To encrypt your policy with a customer managed KMS key, add the
 `KmsKeyId` property. You must also configure the key policy to allow Amazon
-Bedrock to use the key. For the required key policy permissions, see [KMS permissions for Automated
-Reasoning policies](create-automated-reasoning-policy.md#automated-reasoning-policy-kms-permissions "create-automated-reasoning-policy.md#automated-reasoning-policy-kms-permissions").
+Bedrock to use the key. For the required key policy permissions, see [KMS permissions for Automated Reasoning policies](create-automated-reasoning-policy.md#automated-reasoning-policy-kms-permissions "create-automated-reasoning-policy.md#automated-reasoning-policy-kms-permissions").
 
 ```
   AutomatedReasoningPolicy:

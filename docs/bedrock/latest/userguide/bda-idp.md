@@ -23,9 +23,7 @@ There are two methods for creating Blueprints in BDA:
 - Using the Blueprint Prompt
 - Manual blueprint creation
 
-####
-
-Using the Blueprint Prompt
+#### Using the Blueprint Prompt
 
 The Blueprint Prompt provides a guided, natural language-based interface for creating Blueprints.
 To create a blueprint using the Prompt:
@@ -62,9 +60,7 @@ Here we can look at the information we'll expect to process from the conversatio
 begin processing an audio file immediately. If you want to edit your blueprint, you'll need to create a duplicate as opposed to
 editing directly. You can also adjust your prompt for other outcomes.
 
-####
-
-Creating blueprints manually
+#### Creating blueprints manually
 
 For more advanced users or those requiring fine-grained control, you can create Blueprints manually:
 

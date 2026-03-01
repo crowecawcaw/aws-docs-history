@@ -2,8 +2,7 @@
 
 You can enable cross-Region inference with Amazon Bedrock Guardrails, which automatically routes inference
 requests during guardrail policy evaluation to the optimal AWS Region within your geography.
-(For more information on how this works, see [Increase throughput with cross-Region
-inference](cross-region-inference.md "cross-region-inference.md").) Distributing inference requests across
+(For more information on how this works, see [Increase throughput with cross-Region inference](cross-region-inference.md "cross-region-inference.md").) Distributing inference requests across
 AWS Regions maximizes available compute resources and model availability, helping maintain
 guardrail performance and reliability when demand increases. There's no additional cost for
 using cross-Region inferencing.
@@ -24,5 +23,4 @@ or [modifying](guardrails-edit.md "guardrails-edit.md") a guardrail one of the f
 - Sending a [CreateGuardrail](../APIReference/API_CreateGuardrail.md "../APIReference/API_CreateGuardrail.md") or [UpdateGuardrail](../APIReference/API_UpdateGuardrail.md "../APIReference/API_UpdateGuardrail.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp").
 
 You need specific permissions to use cross-Region guardrail inference. For more
-information, see [Permissions for using cross-Region
-inference with Amazon Bedrock Guardrails](guardrail-profiles-permissions.md "guardrail-profiles-permissions.md").
+information, see [Permissions for using cross-Region inference with Amazon Bedrock Guardrails](guardrail-profiles-permissions.md "guardrail-profiles-permissions.md").

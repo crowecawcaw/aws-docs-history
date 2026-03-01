@@ -1,6 +1,4 @@
-# Model customization access and
-
-security
+# Model customization access and security
 
 This page provides comprehensive security and permissions information for all Amazon Bedrock model customization types including fine-tuning, reinforcement fine-tuning, distillation,
 and model operations. Before you begin customizing a model, make sure that you understand what kind of access Amazon Bedrock needs and consider some options for securing your customization
@@ -74,9 +72,7 @@ JSON
 
 ```
 
-### Permissions to access training and validation files and to write output
-
-files in S3
+### Permissions to access training and validation files and to write output files in S3
 
 Attach the following policy to allow the role to access your training and
 validation data and the bucket to which to write your output data. Replace the

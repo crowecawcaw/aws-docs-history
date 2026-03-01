@@ -4,8 +4,7 @@ After creating a customized model through fine-tuning, reinforcement fine-tuning
 
 **Security and monitoring**
 
-- [Model customization access and
-  security](custom-model-job-access-security.md "custom-model-job-access-security.md") - Configure IAM roles, permissions, and encryption for model customization jobs.
+- [Model customization access and security](custom-model-job-access-security.md "custom-model-job-access-security.md") - Configure IAM roles, permissions, and encryption for model customization jobs.
 - [Monitor your model customization job](model-customization-monitor.md "model-customization-monitor.md") - Track the progress and status of your model customization jobs.
 - [Analyze the results of a model customization job](model-customization-analyze.md "model-customization-analyze.md") - Review metrics and results after a customization job completes.
 - [Stop a model customization job](model-customization-stop.md "model-customization-stop.md") - Stop a running model customization job if needed.

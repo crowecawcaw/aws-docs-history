@@ -1,6 +1,4 @@
-# Basic examples for
-
-Amazon Bedrock Agents using AWS SDKs
+# Basic examples for Amazon Bedrock Agents using AWS SDKs
 
 The following code examples show how to use the basics of Amazon Bedrock Agents with AWS
 SDKs.

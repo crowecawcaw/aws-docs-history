@@ -8,9 +8,7 @@ For a list of models which are supported by `Converse` operation, see [Model com
 see [Automate tasks in your application using AI agents](agents.md "agents.md"). For information about knowledge
 bases, see [Retrieve data and generate AI responses with Amazon Bedrock Knowledge Bases](knowledge-base.md "knowledge-base.md").
 
-###### To use a
-
-model
+###### To use a model
 
 1. Sign in to the AWS Management Console using an IAM role with Amazon Bedrock permissions.
 2. In the search bar, specify "Amazon Bedrock" and choose **Amazon Bedrock** from

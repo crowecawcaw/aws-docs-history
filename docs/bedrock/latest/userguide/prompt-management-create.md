@@ -29,8 +29,7 @@ Setting a base inference parameter as an additional field doesn't override the v
 you set in the console.
 
 If the model that you choose for the prompt supports the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API (for more
-information, see [Carry out a conversation with the
-Converse API operations](conversation-inference.md "conversation-inference.md")), you can include the following when
+information, see [Carry out a conversation with the Converse API operations](conversation-inference.md "conversation-inference.md")), you can include the following when
 constructing the prompt:
 
 - A system prompt to provide instructions or context to the model.

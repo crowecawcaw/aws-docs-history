@@ -1,18 +1,14 @@
-# Submit a model distillation job in
-
-Amazon Bedrock
+# Submit a model distillation job in Amazon Bedrock
 
 You can perform model distillation through the Amazon Bedrock console or by sending a [CreateModelCustomizationJob](../APIReference/API_CreateModelCustomizationJob.md "../APIReference/API_CreateModelCustomizationJob.md")
 request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp").
 
 ## Prerequisites
 
-- Create an IAM service role with the required permissions. For comprehensive security and permissions information, see [Model customization access and
-  security](custom-model-job-access-security.md "custom-model-job-access-security.md").
+- Create an IAM service role with the required permissions. For comprehensive security and permissions information, see [Model customization access and security](custom-model-job-access-security.md "custom-model-job-access-security.md").
 - (Optional) Encrypt input and output data, your customization job, or inference requests made to custom models. For more information, see [Encryption of custom models](encryption-custom-job.md "encryption-custom-job.md").
 - (Optional) Create a Virtual Private Cloud (VPC) to protect your customization job. For
-  more information, see [(Optional) Protect your model customization jobs
-  using a VPC](custom-model-job-access-security.md#vpc-model-customization "custom-model-job-access-security.md#vpc-model-customization").
+  more information, see [(Optional) Protect your model customization jobs using a VPC](custom-model-job-access-security.md#vpc-model-customization "custom-model-job-access-security.md#vpc-model-customization").
 
 For more information on setting up on demand inference, see [Set up inference for a custom model](model-customization-use.md "model-customization-use.md").
 
@@ -89,8 +85,7 @@ For more information,
 see [Analyze the results of a model customization job](model-customization-analyze.md "model-customization-analyze.md"). 9. For **VPC settings**, choose a VPC configuration for accessing the S3
 bucket with your training data.
 
-For more information, see [(Optional) Protect your model customization jobs
-using a VPC](custom-model-job-access-security.md#vpc-model-customization "custom-model-job-access-security.md#vpc-model-customization"). 10. For **Service access**, specify the IAM
+For more information, see [(Optional) Protect your model customization jobs using a VPC](custom-model-job-access-security.md#vpc-model-customization "custom-model-job-access-security.md#vpc-model-customization"). 10. For **Service access**, specify the IAM
 role for accessing the S3 bucket with your training data.
 Unless you use a Cross Region inference profile or VPC configurations,
 you can create the role in the Amazon Bedrock console with the correct permissions automatically configured. Or you can use an existing service role.

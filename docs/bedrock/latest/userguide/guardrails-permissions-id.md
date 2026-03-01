@@ -1,6 +1,4 @@
-# Enforce the use of specific guardrails in
-
-model inference requests
+# Enforce the use of specific guardrails in model inference requests
 
 You can enforce the use of a specific guardrail for model inference by including the
 `bedrock:GuardrailIdentifier` condition key in your IAM policy. This

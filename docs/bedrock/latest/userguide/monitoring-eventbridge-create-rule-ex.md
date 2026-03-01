@@ -1,6 +1,4 @@
-# [Example] Create a rule to handle Amazon Bedrock state change
-
-events
+# [Example] Create a rule to handle Amazon Bedrock state change events
 
 The example in this topic demonstrates how to set up notification of Amazon Bedrock state change events by guiding you through configuring an Amazon Simple Notification Service topic, subscribing to the topic, and creating a rule in Amazon EventBridge to notify you of an Amazon Bedrock state change through the topic. Carry out the following procedure:
 

@@ -120,15 +120,9 @@ automatically.
 
 ###### Topics
 
-- [Choosing your multimodal processing
-  approach](kb-multimodal-choose-approach.md "kb-multimodal-choose-approach.md")
-- [Prerequisites for multimodal knowledge
-  bases](kb-multimodal-prerequisites.md "kb-multimodal-prerequisites.md")
-- [Create a knowledge base for multimodal
-  content](kb-multimodal-create.md "kb-multimodal-create.md")
-- [Adding data sources and
-  starting ingestion](kb-multimodal-add-data-source-and-ingest.md "kb-multimodal-add-data-source-and-ingest.md")
-- [Testing and querying multimodal knowledge
-  bases](kb-multimodal-test-and-query.md "kb-multimodal-test-and-query.md")
-- [Troubleshooting multimodal knowledge
-  bases](kb-multimodal-troubleshooting.md "kb-multimodal-troubleshooting.md")
+- [Choosing your multimodal processing approach](kb-multimodal-choose-approach.md "kb-multimodal-choose-approach.md")
+- [Prerequisites for multimodal knowledge bases](kb-multimodal-prerequisites.md "kb-multimodal-prerequisites.md")
+- [Create a knowledge base for multimodal content](kb-multimodal-create.md "kb-multimodal-create.md")
+- [Adding data sources and starting ingestion](kb-multimodal-add-data-source-and-ingest.md "kb-multimodal-add-data-source-and-ingest.md")
+- [Testing and querying multimodal knowledge bases](kb-multimodal-test-and-query.md "kb-multimodal-test-and-query.md")
+- [Troubleshooting multimodal knowledge bases](kb-multimodal-troubleshooting.md "kb-multimodal-troubleshooting.md")

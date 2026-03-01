@@ -6,8 +6,7 @@ wrong variables or values) or in the rules (the policy logic doesn't match your 
 page provides a systematic approach to diagnosing and fixing both types of issues.
 
 Before you start troubleshooting, make sure you understand the two-step validation process
-(translate, then validate) described in [Translation: from natural language to formal
-logic](automated-reasoning-checks-concepts.md#ar-concept-translation "automated-reasoning-checks-concepts.md#ar-concept-translation"). This distinction is the key to efficient
+(translate, then validate) described in [Translation: from natural language to formal logic](automated-reasoning-checks-concepts.md#ar-concept-translation "automated-reasoning-checks-concepts.md#ar-concept-translation"). This distinction is the key to efficient
 debugging.
 
 ###### Note
@@ -150,9 +149,7 @@ Rule issues occur when the translation is correct but the policy logic doesn't m
 your domain. You've confirmed that the right variables are assigned with the right values,
 but the validation result is still wrong.
 
-### Getting VALID when you expected
-
-INVALID
+### Getting VALID when you expected INVALID
 
 The policy doesn't have a rule that prohibits the claim. The response contradicts
 your domain knowledge, but the policy allows it.
@@ -176,9 +173,7 @@ is valid. Check whether these rules are correct or whether a rule is missing.
   variable to capture a relevant concept. Add the variable, write a clear
   description, and create rules that reference it.
 
-### Getting INVALID when you expected
-
-VALID
+### Getting INVALID when you expected VALID
 
 The policy has a rule that incorrectly prohibits the claim.
 
@@ -196,9 +191,7 @@ claim. Check whether these rules are correct.
   checks misinterpreted your source document. Edit the rule to match the intended
   logic, or delete it and add a correct rule manually.
 
-### Getting SATISFIABLE when you expected
-
-VALID
+### Getting SATISFIABLE when you expected VALID
 
 The response is correct under some conditions but not all. The policy has additional
 rules that the response doesn't address.
@@ -224,9 +217,7 @@ An `IMPOSSIBLE` result means Automated Reasoning checks can't evaluate the
 claims because the premises are contradictory or the policy itself contains conflicting
 rules. There are two distinct causes.
 
-### Contradictions in the
-
-input
+### Contradictions in the input
 
 The test input contains statements that contradict each other. For example, "I'm a
 full-time employee and also part-time" sets `isFullTime = true` and

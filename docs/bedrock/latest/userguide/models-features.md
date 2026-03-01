@@ -11,8 +11,7 @@ The following features support all models in Amazon Bedrock
 - Application inference profiles
   Model support for the following features is dependent on other features:
 
-- Prompt management supports all models that support the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API. To see model support for `Converse`, refer [Supported models and
-  model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md").
+- Prompt management supports all models that support the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API. To see model support for `Converse`, refer [Supported models and model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md").
 - Model support for Amazon Bedrock Flows depends on model support for node types that you add to your flow.
 
 ## Single-Region foundation model support by feature

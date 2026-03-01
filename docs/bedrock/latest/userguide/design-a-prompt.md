@@ -17,21 +17,15 @@ The following content provides guidance on how to create successful prompts.
 
 ###### Topics
 
-- [Provide simple, clear, and complete
-  instructions](#prompt-instructions "#prompt-instructions")
-- [Place the question or instruction at the end of
-  the prompt for best results](#prompt-placement "#prompt-placement")
+- [Provide simple, clear, and complete instructions](#prompt-instructions "#prompt-instructions")
+- [Place the question or instruction at the end of the prompt for best results](#prompt-placement "#prompt-placement")
 - [Use separator characters for API calls](#prompt-separators "#prompt-separators")
 - [Use output indicators](#prompt-output-indicators "#prompt-output-indicators")
-- [Best practices for good
-  generalization](#prompt-generalization "#prompt-generalization")
-- [Optimize prompts for text models
-  on Amazon Bedrock—when the basics aren't good enough](#optimize-prompts-for-text-models "#optimize-prompts-for-text-models")
+- [Best practices for good generalization](#prompt-generalization "#prompt-generalization")
+- [Optimize prompts for text models on Amazon Bedrock—when the basics aren't good enough](#optimize-prompts-for-text-models "#optimize-prompts-for-text-models")
 - [Control the model response with inference parameters](#use-inference-parameters "#use-inference-parameters")
 
-## Provide simple, clear, and complete
-
-instructions
+## Provide simple, clear, and complete instructions
 
 LLMs on Amazon Bedrock work best with simple and straightforward instructions. By clearly
 describing the expectation of the task and by reducing ambiguity wherever possible,
@@ -51,9 +45,7 @@ the text as opposed to the good example.
 (Source of prompt: [Wikipedia on color blindness](https://en.wikipedia.org/wiki/Color_blindness "https://en.wikipedia.org/wiki/Color_blindness"), model used: by Titan Text G1 -
 Express)
 
-## Place the question or instruction at the end of
-
-the prompt for best results
+## Place the question or instruction at the end of the prompt for best results
 
 Including the task description, instruction or question at the end aids the model
 determining which information it has to find. In the case of classification, the
@@ -188,9 +180,7 @@ column.
 (Source of prompt: [Wikipedia on the
 National Football League](https://en.wikipedia.org/wiki/National_Football_League "https://en.wikipedia.org/wiki/National_Football_League"), model used: AI21 Labs Jurassic-2 Ultra v1)
 
-## Best practices for good
-
-generalization
+## Best practices for good generalization
 
 Keep a small “hold-out” test set of prompts to see if your prompt modifications
 generalize. With this method, first collect a sample dataset. Then you can split the
@@ -200,9 +190,7 @@ modifications and observe model response changes and find the prompt that works
 best. Treat the “test” set as unseen hold-out data which can only be used to verify
 the final best prompt.
 
-## Optimize prompts for text models
-
-on Amazon Bedrock—when the basics aren't good enough
+## Optimize prompts for text models on Amazon Bedrock—when the basics aren't good enough
 
 **Complex tasks: build toward the answer step
 by

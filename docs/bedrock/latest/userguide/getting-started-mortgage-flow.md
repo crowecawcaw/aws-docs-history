@@ -101,8 +101,7 @@ Next, use the template you've saved to provision a CloudFormation stack.
 
    ###### Note
 
-   The `Q01pS3BucketName` value should match the name of the S3 bucket to which you uploaded the resources for this template. The remaining arguments are related to the configurations of the knowledge base--if you modify any of them, make sure that the configurations are compatible with each other. For more information, see [Prerequisites for using a vector store you created for a
-   knowledge base](knowledge-base-setup.md "knowledge-base-setup.md"). 3. Choose **Next**.
+   The `Q01pS3BucketName` value should match the name of the S3 bucket to which you uploaded the resources for this template. The remaining arguments are related to the configurations of the knowledge base--if you modify any of them, make sure that the configurations are compatible with each other. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md"). 3. Choose **Next**.
 
 5. Configure the stack options:
    1. Under **Stack failure options**, choose **Delete all newly created resources**.

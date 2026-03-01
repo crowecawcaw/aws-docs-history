@@ -5,8 +5,7 @@ You can create a RAG evaluation job using the AWS Management Console, AWS CLI, o
 This type of job requires access to an evaluator model.
 For a list of supported evaluator models, see [Supported models](evaluation-kb.md#evaluation-kb-supported "evaluation-kb.md#evaluation-kb-supported").
 
-To create a job using the following instructions, you need a prompt dataset. If you haven't already created one, see [Create a prompt dataset for a RAG
-evaluation in Amazon Bedrock](knowledge-base-evaluation-prompt.md "knowledge-base-evaluation-prompt.md").
+To create a job using the following instructions, you need a prompt dataset. If you haven't already created one, see [Create a prompt dataset for a RAG evaluation in Amazon Bedrock](knowledge-base-evaluation-prompt.md "knowledge-base-evaluation-prompt.md").
 
 Console
 
@@ -37,8 +36,7 @@ Console
 9. Define your input and output locations for your dataset and results by doing the following:
    1. In the **Datasets** pane under **Choose a prompt dataset**, enter the Amazon S3 URI for your prompt dataset,
       or choose **Browse S3** and select your file. To see a definition of the required prompt dataset format for a retrieve-only
-      evaluation job, see [Create a prompt dataset
-      for retrieve-only RAG evaluation jobs](knowledge-base-evaluation-prompt-retrieve.md "knowledge-base-evaluation-prompt-retrieve.md").
+      evaluation job, see [Create a prompt dataset for retrieve-only RAG evaluation jobs](knowledge-base-evaluation-prompt-retrieve.md "knowledge-base-evaluation-prompt-retrieve.md").
    2. Under **Evaluation results**, enter an Amazon S3 location for Amazon Bedrock to save your results, or choose **Browse S3** to
       select a location.
 

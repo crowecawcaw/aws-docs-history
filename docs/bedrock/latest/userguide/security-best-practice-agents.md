@@ -16,5 +16,4 @@ and impact that could result from errors or malicious attacks. For more informat
 
 When creating, updating, and deleting agents resources (for example, when using [CreateAgent](../APIReference/API_agent_CreateAgent.md "../APIReference/API_agent_CreateAgent.md") )
 do not include personally-identifiable information (PII) in any fields that do not support using customer managed key such as action group names and knowledgebase names.
-For the list of fields that support using customer managed key, see [Encryption of agent resources with customer managed keys
-(CMK)](cmk-agent-resources.md "cmk-agent-resources.md")
+For the list of fields that support using customer managed key, see [Encryption of agent resources with customer managed keys (CMK)](cmk-agent-resources.md "cmk-agent-resources.md")

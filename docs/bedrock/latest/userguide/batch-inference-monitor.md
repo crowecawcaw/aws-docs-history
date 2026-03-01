@@ -21,6 +21,8 @@ To get information about a batch inference job, send a [GetModelInvocationJob](.
 
 To list information about multiple batch inference jobs, send [ListModelInvocationJobs](../APIReference/API_ListModelInvocationJobs.md "../APIReference/API_ListModelInvocationJobs.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp"). You can specify the following optional parameters:
 
+The response for both operations includes a `modelInvocationType` field that indicates whether the job uses the `InvokeModel` or `Converse` API format.
+
 | Field      | Short description                                                                                                                                                                                                         |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | maxResults | The maximum number of results to return in a<br>response.                                                                                                                                                                 |

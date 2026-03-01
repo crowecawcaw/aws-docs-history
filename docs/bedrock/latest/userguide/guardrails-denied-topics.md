@@ -1,6 +1,4 @@
-# Block denied topics to help remove harmful
-
-content
+# Block denied topics to help remove harmful content
 
 You can specify a set of denied topics in a guardrail that are undesirable in the
 context of your generative AI application. For example, a bank might want its AI
@@ -36,9 +34,7 @@ The following is an example topic definition that you can provide:
 bonds?`
   - `Should I invest in gold?`
 
-## Best practices for
-
-creating denied topics
+## Best practices for creating denied topics
 
 - Define the topic in a crisp and precise manner. A clear and unambiguous
   topic definition can improve the accuracy of the topic's detection. For
@@ -61,13 +57,9 @@ not containing medical information` are negative definitions
 Y`. The topic definitions represent a theme or a subject and
   guardrails evaluates an input contextually. Topic filtering should not be
   used to capture individual words or entity types. For more information, see
-  [Remove PII from conversations by using
-  sensitive information filters](guardrails-sensitive-filters.md "guardrails-sensitive-filters.md"), or [Remove a specific list of words and phrases
-  from conversations with word filters](guardrails-word-filters.md "guardrails-word-filters.md") for these use cases.
+  [Remove PII from conversations by using sensitive information filters](guardrails-sensitive-filters.md "guardrails-sensitive-filters.md"), or [Remove a specific list of words and phrases from conversations with word filters](guardrails-word-filters.md "guardrails-word-filters.md") for these use cases.
 
-## Add denied topics to your
-
-guardrail
+## Add denied topics to your guardrail
 
 You can add up to 30 denied topics to your guardrail by using the AWS Management Console or
 Amazon Bedrock API.
@@ -121,21 +113,18 @@ Console
       topic.
    2. For **Definition**, define the topic.
       For guidelines on how to define a denied topic, see
-      [Block denied topics to help remove harmful
-      content](guardrails-denied-topics.md "guardrails-denied-topics.md").
+      [Block denied topics to help remove harmful content](guardrails-denied-topics.md "guardrails-denied-topics.md").
    3. (Optional) For **Input**, specify
       whether guardrail evaluation is enabled for model
       prompts. If enabled, choose which action you want your
       guardrail. **Block** is enabled by
-      default. For more information, see [Options for handling
-      harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md").
+      default. For more information, see [Options for handling harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md").
    4. (Optional) For **Output**, specify
       whether guardrail evaluation is enabled for model
       responses. If enabled, choose which action you want your
       guardrail to take on responses.
       **Block** is enabled by default.
-      For more information, see [Options for handling
-      harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md").
+      For more information, see [Options for handling harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md").
    5. (Optional) Expand **Add sample
       phrases** and enter a phrase that's
       representative of prompts or responses related to this
@@ -216,8 +205,7 @@ Content-type: application/json
     `BLOCK` to block content and replace with
     blocked messaging, or `NONE` to take no
     action but return detection information. For more
-    information, see [Options for handling
-    harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md").
+    information, see [Options for handling harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md").
   - Set `inputEnabled` and
     `outputEnabled` to control whether
     guardrail evaluation is enabled for model prompts and

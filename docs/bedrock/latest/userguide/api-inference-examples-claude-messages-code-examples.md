@@ -1,19 +1,13 @@
-# Code
-
-examples
+# Code examples
 
 The following code examples show how to use the messages API.
 
 ###### Topics
 
-- [Messages code
-  example](#api-inference-examples-claude-messages-code-example "#api-inference-examples-claude-messages-code-example")
-- [Multimodal
-  code examples](#api-inference-examples-claude-multimodal-code-example "#api-inference-examples-claude-multimodal-code-example")
+- [Messages code example](#api-inference-examples-claude-messages-code-example "#api-inference-examples-claude-messages-code-example")
+- [Multimodal code examples](#api-inference-examples-claude-multimodal-code-example "#api-inference-examples-claude-multimodal-code-example")
 
-## Messages code
-
-example
+## Messages code example
 
 This example shows how to send a single turn user message and a user turn with a
 prefilled assistant message to an Anthropic Claude 3 Sonnet model.
@@ -93,9 +87,7 @@ if __name__ == "__main__":
 
 ```
 
-## Multimodal
-
-code examples
+## Multimodal code examples
 
 The following examples show how to pass an image and prompt text in a multimodal
 message to an Anthropic Claude 3 Sonnet model.

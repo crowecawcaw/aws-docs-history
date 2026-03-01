@@ -30,9 +30,7 @@ literals.
 Provides established guardrails functionality supporting English, French, and Spanish
 languages.
 
-## Key differences between safeguard
-
-tiers
+## Key differences between safeguard tiers
 
 Understanding the differences between safeguard tiers helps you choose the right option for
 your application:

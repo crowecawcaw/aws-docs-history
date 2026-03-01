@@ -33,8 +33,7 @@ job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md ".
 - [AWS managed policy: AmazonBedrockMantleFullAccess](#security-iam-awsmanpol-AmazonBedrockMantleFullAccess "#security-iam-awsmanpol-AmazonBedrockMantleFullAccess")
 - [AWS managed policy: AmazonBedrockMantleReadOnly](#security-iam-awsmanpol-AmazonBedrockMantleReadOnly "#security-iam-awsmanpol-AmazonBedrockMantleReadOnly")
 - [AWS managed policy: AmazonBedrockMantleInferenceAccess](#security-iam-awsmanpol-AmazonBedrockMantleInferenceAccess "#security-iam-awsmanpol-AmazonBedrockMantleInferenceAccess")
-- [Amazon Bedrock updates to AWS managed
-  policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [Amazon Bedrock updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
 ## AWS managed policy: AmazonBedrockFullAccess
 
@@ -376,9 +375,7 @@ This policy includes the following permissions:
 
 - `bedrock-mantle` (Amazon Bedrock Mantle) – Allows principals to get and list Amazon Bedrock Mantle project resources, create inference requests, and call with bearer token for authentication.
 
-## Amazon Bedrock updates to AWS managed
-
-policies
+## Amazon Bedrock updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Bedrock since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

@@ -11,8 +11,7 @@ Security in Amazon Bedrock encompasses multiple layers of protection for your da
 - [Incident response in Amazon Bedrock](security-incident-response.md "security-incident-response.md")
 - [Resilience in Amazon Bedrock](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon Bedrock](infrastructure-security.md "infrastructure-security.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Configuration and vulnerability analysis in Amazon Bedrock](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
 - [Amazon Bedrock abuse detection](abuse-detection.md "abuse-detection.md")
 - [Prompt injection security](prompt-injection.md "prompt-injection.md")

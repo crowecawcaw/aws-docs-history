@@ -1,15 +1,11 @@
-# Prerequisites for your Amazon Bedrock knowledge base
-
-data
+# Prerequisites for your Amazon Bedrock knowledge base data
 
 A data source contains files or content with information that can be retrieved when
 your knowledge base is queried. You must store your documents or content in at least one
 of the [supported data
 sources](data-source-connectors.md "data-source-connectors.md").
 
-## Supported document formats and
-
-limits for knowledge base data
+## Supported document formats and limits for knowledge base data
 
 When you connect to a [supported data
 source](data-source-connectors.md "data-source-connectors.md"), the content is ingested into your knowledge base.

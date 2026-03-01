@@ -1,11 +1,8 @@
-# Use product ID condition keys to control
-
-access
+# Use product ID condition keys to control access
 
 The `aws-marketplace:ProductId` condition key can be used to control the
 ability to subscribe to Amazon Bedrock serverless models that have a product ID in AWS Marketplace. To learn
-how to use the product ID condition key, see the examples in [Grant IAM permissions to request access to
-Amazon Bedrock foundation models with a product ID](model-access.md#model-access-permissions "model-access.md#model-access-permissions").
+how to use the product ID condition key, see the examples in [Grant IAM permissions to request access to Amazon Bedrock foundation models with a product ID](model-access.md#model-access-permissions "model-access.md#model-access-permissions").
 
 ###### Note
 
@@ -17,8 +14,7 @@ Models from the following providers aren't sold through AWS Marketplace and don'
 - Meta
 - Qwen
 - OpenAI
-  You can, however, prevent the usage of these models by denying Amazon Bedrock actions and specifying these model IDs in the `Resource` field. For an example, see [Prevent an identity from using a model
-  after access has already been granted](model-access.md#model-access-prevent-usage "model-access.md#model-access-prevent-usage").
+  You can, however, prevent the usage of these models by denying Amazon Bedrock actions and specifying these model IDs in the `Resource` field. For an example, see [Prevent an identity from using a model after access has already been granted](model-access.md#model-access-prevent-usage "model-access.md#model-access-prevent-usage").
 
 The following table lists product IDs for Amazon Bedrock serverless foundation models that have
 a product ID:
@@ -67,5 +63,4 @@ a product ID:
 You can use the following template to attach an IAM policy that controls model
 access permissions to a role:
 
-For more examples of how to manage model access with IAM policies, see [Identity-based policy
-examples for Amazon Bedrock](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+For more examples of how to manage model access with IAM policies, see [Identity-based policy examples for Amazon Bedrock](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").

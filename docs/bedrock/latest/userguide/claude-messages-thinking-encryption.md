@@ -14,9 +14,7 @@ turns, or let the API strip them for you if you pass them back.
 
 If sending back thinking blocks, we recommend passing everything back as you received it for consistency and to avoid potential issues.
 
-## Thinking
-
-redaction in Claude 3.7 Sonnet
+## Thinking redaction in Claude 3.7 Sonnet
 
 ###### Note
 
@@ -83,8 +81,7 @@ When passing `thinking` and `redacted_thinking` blocks back to the API in a
 multi-turn conversation, you must include the complete unmodified block back to
 the API for the last assistant turn. This is critical for maintaining the
 model’s reasoning flow. We suggest always passing back all thinking blocks to
-the API. For more details, see the [Extended thinking with
-tool use](claude-messages-extended-thinking.md#claude-messages-extended-thinking-tool-use-thinking-blocks "claude-messages-extended-thinking.md#claude-messages-extended-thinking-tool-use-thinking-blocks").
+the API. For more details, see the [Extended thinking with tool use](claude-messages-extended-thinking.md#claude-messages-extended-thinking-tool-use-thinking-blocks "claude-messages-extended-thinking.md#claude-messages-extended-thinking-tool-use-thinking-blocks").
 
 The following example uses the **InvokeModelWithResponseStream** API to demonstrate the request and response structure when using thinking tokens with redactions.
 

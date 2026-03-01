@@ -1,6 +1,4 @@
-# Create a prompt dataset
-
-for retrieve-only RAG evaluation jobs
+# Create a prompt dataset for retrieve-only RAG evaluation jobs
 
 A retrieve-only evaluation jobs require a prompt dataset using
 JSON lines format. You can have up to 1000 prompts in your dataset.

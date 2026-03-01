@@ -13,5 +13,4 @@ The required IAM actions and resource depend on the type of model evaluation job
 - [Service role requirements for automatic model evaluation jobs](automatic-service-roles.md "automatic-service-roles.md")
 - [Service role requirements for human-based model evaluation jobs](model-eval-service-roles.md "model-eval-service-roles.md")
 - [Required service role permissions for creating a model evaluation job that uses a judge model](judge-service-roles.md "judge-service-roles.md")
-- [Service role requirements for knowledge base
-  evaluation jobs](rag-eval-service-roles.md "rag-eval-service-roles.md")
+- [Service role requirements for knowledge base evaluation jobs](rag-eval-service-roles.md "rag-eval-service-roles.md")

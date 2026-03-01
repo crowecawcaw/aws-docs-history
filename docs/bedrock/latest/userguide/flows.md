@@ -55,11 +55,9 @@ The general steps for creating, testing, and deploying a flow are as follows:
 - [Modify a flow in Amazon Bedrock](flows-modify.md "flows-modify.md")
 - [Include guardrails in your flow in Amazon Bedrock](flows-guardrails.md "flows-guardrails.md")
 - [Test a flow in Amazon Bedrock](flows-test.md "flows-test.md")
-- [Run Amazon Bedrock flows asynchronously with flow
-  executions](flows-create-async.md "flows-create-async.md")
+- [Run Amazon Bedrock flows asynchronously with flow executions](flows-create-async.md "flows-create-async.md")
 - [Deploy a flow to your application using versions and aliases](flows-deploy.md "flows-deploy.md")
-- [Invoke an AWS Lambda function from an Amazon Bedrock
-  flow in a different AWS account](flow-cross-account-lambda.md "flow-cross-account-lambda.md")
+- [Invoke an AWS Lambda function from an Amazon Bedrock flow in a different AWS account](flow-cross-account-lambda.md "flow-cross-account-lambda.md")
 - [Converse with an Amazon Bedrock flow](flows-multi-turn-invocation.md "flows-multi-turn-invocation.md")
 - [Run Amazon Bedrock Flows code samples](flows-code-ex.md "flows-code-ex.md")
 - [Delete a flow in Amazon Bedrock](flows-delete.md "flows-delete.md")

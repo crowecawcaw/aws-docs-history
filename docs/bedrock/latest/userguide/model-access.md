@@ -23,8 +23,7 @@ interruptions, verify all prerequisites before invoking models in production.
 
 1. **AWS Marketplace permissions**: Your IAM role must
    have `aws-marketplace:Subscribe`, `aws-marketplace:Unsubscribe`,
-   and `aws-marketplace:ViewSubscriptions` permissions. See [Grant IAM permissions to request access to
-   Amazon Bedrock foundation models with a product ID](#model-access-permissions "#model-access-permissions") for details.
+   and `aws-marketplace:ViewSubscriptions` permissions. See [Grant IAM permissions to request access to Amazon Bedrock foundation models with a product ID](#model-access-permissions "#model-access-permissions") for details.
 2. **Anthropic models**: For Anthropic models, you must
    complete the First Time Use (FTU) form before invoking the model.
 3. **Valid payment method**: Your AWS account must have
@@ -58,17 +57,13 @@ should:
 
 ###### Topics
 
-- [Grant IAM permissions to request access to
-  Amazon Bedrock foundation models with a product ID](#model-access-permissions "#model-access-permissions")
-- [Use product ID condition keys to control
-  access](model-access-product-ids.md "model-access-product-ids.md")
+- [Grant IAM permissions to request access to Amazon Bedrock foundation models with a product ID](#model-access-permissions "#model-access-permissions")
+- [Use product ID condition keys to control access](model-access-product-ids.md "model-access-product-ids.md")
 - [Manage model access using SDK and CLI](#model-access-modify "#model-access-modify")
 - [Access Amazon Bedrock foundation models in AWS GovCloud (US)](#model-access-govcloud "#model-access-govcloud")
 - [Manage model subscriptions with License Manager](managed-entitlements.md "managed-entitlements.md")
 
-## Grant IAM permissions to request access to
-
-Amazon Bedrock foundation models with a product ID
+## Grant IAM permissions to request access to Amazon Bedrock foundation models with a product ID
 
 You can manage model access permissions by creating custom IAM policies. To modify
 access to Amazon Bedrock foundation models, you first need to attach an identity-based IAM
@@ -124,21 +119,16 @@ Models from the following providers aren't sold through AWS Marketplace and don'
 - Meta
 - Qwen
 - OpenAI
-  You can, however, prevent the usage of these models by denying Amazon Bedrock actions and specifying these model IDs in the `Resource` field. For an example, see [Prevent an identity from using a model
-  after access has already been granted](#model-access-prevent-usage "#model-access-prevent-usage").
+  You can, however, prevent the usage of these models by denying Amazon Bedrock actions and specifying these model IDs in the `Resource` field. For an example, see [Prevent an identity from using a model after access has already been granted](#model-access-prevent-usage "#model-access-prevent-usage").
 
 Select a section to see IAM policy examples for a specific use case:
 
 ###### Topics
 
-- [Prevent an identity from
-  requesting access to a model with a product ID](#model-access-prevent-subscription "#model-access-prevent-subscription")
-- [Prevent an identity from using a model
-  after access has already been granted](#model-access-prevent-usage "#model-access-prevent-usage")
+- [Prevent an identity from requesting access to a model with a product ID](#model-access-prevent-subscription "#model-access-prevent-subscription")
+- [Prevent an identity from using a model after access has already been granted](#model-access-prevent-usage "#model-access-prevent-usage")
 
-### Prevent an identity from
-
-requesting access to a model with a product ID
+### Prevent an identity from requesting access to a model with a product ID
 
 To prevent an IAM entity from requesting access to a specific model that has a
 product ID, attach an IAM policy to the user that denies the
@@ -175,17 +165,20 @@ JSON
 
 ###### Note
 
+Denying `aws-marketplace:Subscribe` alone will **not** block the first model invocation, because Amazon Bedrock **auto-initiates** the subscription in the background.
+
+To **block model access from the start**, apply **Deny policies on `bedrock:InvokeModel`** at the **Organization (SCP) or Account (IAM) level**.
+
+###### Note
+
 With this policy, the IAM entity will have access to any newly added models
 by default.
 
 If the identity has already subscribed to the model in at least one Region,
 this policy doesn't prevent access in other Regions. Instead, you can prevent
-its usage by seeing the example in [Prevent an identity from using a model
-after access has already been granted](#model-access-prevent-usage "#model-access-prevent-usage").
+its usage by seeing the example in [Prevent an identity from using a model after access has already been granted](#model-access-prevent-usage "#model-access-prevent-usage").
 
-### Prevent an identity from using a model
-
-after access has already been granted
+### Prevent an identity from using a model after access has already been granted
 
 If an IAM identity has already been granted access to a model, you can prevent
 usage of the model by denying all Amazon Bedrock actions and scoping the `Resource`

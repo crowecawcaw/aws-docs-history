@@ -10,7 +10,7 @@ You must add your batch inference data to an S3 location that you'll choose or s
 
 ```
 
-Each line contains a JSON object with a `recordId` field and a `modelInput` field containing the request body for an input you want to submit. The format of the `modelInput` JSON object must match the `body` field for the model that you use in the `InvokeModel` request. For more information, see [Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md").
+Each line contains a JSON object with a `recordId` field and a `modelInput` field. The format of the `modelInput` JSON object depends on the model invocation type that you choose when you [create the batch inference job](batch-inference-create.md "batch-inference-create.md"). If you use the `InvokeModel` type (default), the format must match the `body` field for the model that you use in the `InvokeModel` request (see [Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md")). If you use the `Converse` type, the format must match the request body of the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API.
 
 ###### Note
 
@@ -109,5 +109,32 @@ The following resources provide more information about submitting video inputs f
 
 - To learn how to proactively validate of Amazon S3 URIs in an input request, see the [Amazon S3 URL Parsing blog](https://aws.amazon.com/blogs/devops/s3-uri-parsing-is-now-available-in-aws-sdk-for-java-2-x/ "https://aws.amazon.com/blogs/devops/s3-uri-parsing-is-now-available-in-aws-sdk-for-java-2-x/").
 - For more information on how to set up invocation records for video understanding with Nova, refer to [Amazon Nova vision prompting guidelines](../../../nova/latest/userguide/prompting-vision-prompting.md "../../../nova/latest/userguide/prompting-vision-prompting.md").
+
+## Example Converse input
+
+If you set the model invocation type to `Converse` when creating the batch inference job, the `modelInput` field must use the Converse API request format. The following example shows a JSONL record for a Converse batch inference job:
+
+```
+{
+    "recordId": "CALL0000001",
+    "modelInput": {
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "text": "Summarize the following call transcript: ..."
+                    }
+                ]
+            }
+        ],
+        "inferenceConfig": {
+            "maxTokens": 1024
+        }
+    }
+}
+```
+
+For the full list of fields supported in the Converse request body, see [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") in the API reference.
 
 The following topic describes how to set up S3 access and batch inference permissions for an identity to be able to carry out batch inference.

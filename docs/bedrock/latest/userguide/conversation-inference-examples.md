@@ -1,6 +1,4 @@
-# Converse API
-
-examples
+# Converse API examples
 
 The following examples show you how to use the `Converse` and
 `ConverseStream` operations.

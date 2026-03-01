@@ -12,8 +12,7 @@ services.
 ###### Topics
 
 - [Delete the agent](#agent-tutorial-step6-console-agent "#agent-tutorial-step6-console-agent")
-- [Delete the Lambda
-  function](#agent-tutorial-step6-console-lambda "#agent-tutorial-step6-console-lambda")
+- [Delete the Lambda function](#agent-tutorial-step6-console-lambda "#agent-tutorial-step6-console-lambda")
 - [Delete the IAM roles](#agent-tutorial-step6-console-iam "#agent-tutorial-step6-console-iam")
 
 ## Delete the agent
@@ -25,9 +24,7 @@ services.
 3. Choose **Delete**.
 4. Confirm the deletion.
 
-## Delete the Lambda
-
-function
+## Delete the Lambda function
 
 ###### Delete the Lambda function
 

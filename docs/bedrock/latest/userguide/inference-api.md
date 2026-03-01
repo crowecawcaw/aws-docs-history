@@ -31,6 +31,5 @@ For model inference, you need to determine the following parameters:
 
 - [Submit a single prompt with InvokeModel](inference-invoke.md "inference-invoke.md")
 - [Invoke a model with the OpenAI Chat Completions API](inference-chat-completions.md "inference-chat-completions.md")
-- [Carry out a conversation with the
-  Converse API operations](conversation-inference.md "conversation-inference.md")
+- [Carry out a conversation with the Converse API operations](conversation-inference.md "conversation-inference.md")
 - [API restrictions](inference-api-restrictions.md "inference-api-restrictions.md")

@@ -1,6 +1,4 @@
-# Using the Converse
-
-API
+# Using the Converse API
 
 To use the Converse API, you call the `Converse` or
 `ConverseStream` operations to send messages to a model. To call
@@ -91,8 +89,7 @@ or the model.
 
 The `content` field maps to an array of [ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md") objects.
 Within each [ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md"), you can specify one of the following fields (to
-see what models support what blocks, see [Supported models and
-model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md")):
+see what models support what blocks, see [Supported models and model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md")):
 
 text
 The `text` field maps to a string specifying the
@@ -556,8 +553,7 @@ You can apply a guardrail that you created with [Amazon Bedrock Guardrails](guar
 specific message in the conversation, include the message in a [GuardrailConverseContentBlock](../APIReference/API_runtime_GuardrailConverseContentBlock.md "../APIReference/API_runtime_GuardrailConverseContentBlock.md").
 If you don't include any `GuardrailConverseContentBlock`s in the
 request body, the guardrail is applied to all the messages in the
-`messages` field. For an example, see [Include a guardrail with the
-Converse API](guardrails-use-converse-api.md "guardrails-use-converse-api.md") .
+`messages` field. For an example, see [Include a guardrail with the Converse API](guardrails-use-converse-api.md "guardrails-use-converse-api.md").
 
 This field lets you define a tool for the model to use to help it generate
 a response. For more information, see [Use a tool to complete an Amazon Bedrock model response](tool-use.md "tool-use.md").
@@ -600,13 +596,10 @@ operation you call, `Converse` or `ConverseStream`.
 
 ###### Topics
 
-- [Converse
-  response](#conversation-inference-call-response-converse "#conversation-inference-call-response-converse")
+- [Converse response](#conversation-inference-call-response-converse "#conversation-inference-call-response-converse")
 - [ConverseStream response](#conversation-inference-call-response-converse-stream "#conversation-inference-call-response-converse-stream")
 
-### Converse
-
-response
+### Converse response
 
 In the response from `Converse`, the `output` field
 ([ConverseOutput](../APIReference/API_runtime_ConverseOutput.md "../APIReference/API_runtime_ConverseOutput.md")) contains the message ([Message](../APIReference/API_runtime_Message.md "../APIReference/API_runtime_Message.md")) that the model

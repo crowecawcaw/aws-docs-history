@@ -1,6 +1,4 @@
-# Prerequisites for creating an Amazon Bedrock knowledge
-
-base with a unstructured data source
+# Prerequisites for creating an Amazon Bedrock knowledge basewith a unstructured data source
 
 Amazon Bedrock knowledge bases require data and models to retrieve and generate responses, a vector
 store to store the vector representation of the data, and AWS Identity and Access Management permissions to access
@@ -28,7 +26,5 @@ steps at [Access Amazon Bedrock foundation models](model-access.md "model-access
 
 ###### Topics
 
-- [Prerequisites for your Amazon Bedrock knowledge base
-  data](knowledge-base-ds.md "knowledge-base-ds.md")
-- [Prerequisites for using a vector store you created for a
-  knowledge base](knowledge-base-setup.md "knowledge-base-setup.md")
+- [Prerequisites for your Amazon Bedrock knowledge base data](knowledge-base-ds.md "knowledge-base-ds.md")
+- [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md")

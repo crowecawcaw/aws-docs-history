@@ -6,8 +6,7 @@ You can further protect your data by configuring your VPC so that your data isn'
 
 The following lists some features of Amazon Bedrock in which you can use VPC to protect your data:
 
-- Model customization – [(Optional) Protect your model customization jobs
-  using a VPC](custom-model-job-access-security.md#vpc-model-customization "custom-model-job-access-security.md#vpc-model-customization")
+- Model customization – [(Optional) Protect your model customization jobs using a VPC](custom-model-job-access-security.md#vpc-model-customization "custom-model-job-access-security.md#vpc-model-customization")
 - Batch inference – [Protect batch inference jobs using a VPC](batch-vpc.md "batch-vpc.md")
 - Amazon Bedrock Knowledge Bases – [Access Amazon OpenSearch Serverless using an interface endpoint (AWS PrivateLink)](../../../opensearch-service/latest/developerguide/serverless-vpc.md "../../../opensearch-service/latest/developerguide/serverless-vpc.md")
 

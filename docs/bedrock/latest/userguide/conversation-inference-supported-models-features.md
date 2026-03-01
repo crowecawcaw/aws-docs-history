@@ -1,6 +1,4 @@
-# Supported models and
-
-model features
+# Supported models and model features
 
 The Converse API supports the following Amazon Bedrock models and model
 features. The Converse API doesn't support any embedding or image

@@ -1,6 +1,4 @@
-# Required steps prior to creating your
-
-first automatic model evaluation job
+# Required steps prior to creating your first automatic model evaluation job
 
 Automatic model evaluation jobs require access to the following service level resources.
 Use the linked topics to learn more about getting setting up.
@@ -9,8 +7,7 @@ Use the linked topics to learn more about getting setting up.
 
 All console-based model evaluation jobs require Cross Origin Resource Sharing (CORS)
 permissions to be enabled on any Amazon S3 buckets specified in the model evaluation job. To
-learn more, see [Required Cross Origin Resource Sharing
-(CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md")
+learn more, see [Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md")
 
 ###### Required service level resources to start an automatic model evaluation job
 
@@ -18,8 +15,7 @@ learn more, see [Required Cross Origin Resource Sharing
    foundation model. To learn more, see [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
 2. To create an automatic model evaluation job you need access to the [https://console.aws.amazon.com/bedrock/](https://console.aws.amazon.com/bedrock/ "https://console.aws.amazon.com/bedrock/"),
    AWS Command Line Interface, or a supported AWS SDK. To learn more about the required IAM actions
-   and resources, see [Required console permissions to create an automatic
-   model evaluation job](#base-for-automatic "#base-for-automatic").
+   and resources, see [Required console permissions to create an automatic model evaluation job](#base-for-automatic "#base-for-automatic").
 3. When the model evaluation job starts, a service role is used to perform actions on
    your behalf. To learn more about required IAM actions and the trust policy
    requirements, see [Service role requirements for automatic model evaluation jobs](automatic-service-roles.md "automatic-service-roles.md").
@@ -27,15 +23,12 @@ learn more, see [Required Cross Origin Resource Sharing
    in the same AWS Region in an automatic model evaluation job.
 5. Cross Origin Resource Sharing (CORS) – Automatic model evaluations jobs
    that are created using the Amazon Bedrock console require that you specify a CORS
-   configuration on the S3 bucket. To learn more, see [Required Cross Origin Resource Sharing
-   (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md").
+   configuration on the S3 bucket. To learn more, see [Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md").
 6. An IAM service role – To run an automatic model evaluation job you must
    create a service role. The service role allows Amazon Bedrock to perform actions on your
    behalf in your AWS account. To learn more, see [Service role requirements for automatic model evaluation jobs](automatic-service-roles.md "automatic-service-roles.md").
 
-## Required console permissions to create an automatic
-
-model evaluation job
+## Required console permissions to create an automatic model evaluation job
 
 The following policy contains the minimum set of IAM actions and resources in Amazon Bedrock
 and Amazon S3 that are required to create an _automatic_ model evaluation

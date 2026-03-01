@@ -45,8 +45,7 @@ Your agent can use the following Anthropic-defined tools:
 - [Guardrail considerations](#agent-computer-use-guardrails "#agent-computer-use-guardrails")
 - [Workflow](#agent-computer-use-workflow "#agent-computer-use-workflow")
 - [Specify the computer use tools for the agent in an action group](agent-computer-use-create-action-group.md "agent-computer-use-create-action-group.md")
-- [Handle computer use tool requests from agents in
-  conversations](agent-computer-use-handle-tools.md "agent-computer-use-handle-tools.md")
+- [Handle computer use tool requests from agents in conversations](agent-computer-use-handle-tools.md "agent-computer-use-handle-tools.md")
 
 ## Guardrail considerations
 

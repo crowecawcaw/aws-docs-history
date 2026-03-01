@@ -12,9 +12,7 @@ interfaces that serve as the entry point for traffic destined for Amazon Bedrock
 
 For more information, see [Access AWS services through AWS PrivateLink](../../../vpc/latest/privatelink/privatelink-access-aws-services.md "../../../vpc/latest/privatelink/privatelink-access-aws-services.md") in the _AWS PrivateLink Guide_.
 
-## Considerations for Amazon Bedrock VPC
-
-endpoints
+## Considerations for Amazon Bedrock VPC endpoints
 
 Before you set up an interface endpoint for Amazon Bedrock, review [Considerations](../../../vpc/latest/privatelink/create-interface-endpoint.md#considerations-interface-endpoints "../../../vpc/latest/privatelink/create-interface-endpoint.md#considerations-interface-endpoints") in the _AWS PrivateLink Guide_.
 

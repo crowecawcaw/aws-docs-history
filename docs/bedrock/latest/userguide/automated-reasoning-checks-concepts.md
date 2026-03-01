@@ -44,14 +44,52 @@ Key characteristics of policies:
 
 For step-by-step instructions on creating a policy, see [Create your Automated Reasoning policy](create-automated-reasoning-policy.md "create-automated-reasoning-policy.md").
 
+## Fidelity report
+
+A _fidelity report_ measures how accurately an extracted policy
+represents the source documents it was generated from. The report is automatically generated
+when you create a policy from a source document, and provides two key scores along with
+detailed grounding information that links every rule and variable back to specific statements
+in your source content.
+
+The fidelity report is designed to help non-technical subject matter experts explore and
+validate a policy without needing to understand formal logic. In the console, the
+**Source Document** tab displays the fidelity report as a table of numbered
+atomic statements extracted from your document, showing which rules and variables each
+statement grounds. You can filter by specific rules or variables and search for content
+within the statements.
+
+The fidelity report includes two scores, each ranging from 0.0 to 1.0:
+
+- **Coverage score** — Indicates how well the policy
+  covers the statements in the source documents. A higher score means more of the source
+  content is represented in the policy.
+- **Accuracy score** — Indicates how faithfully the
+  policy rules represent the source material. A higher score means the extracted rules
+  more closely match the intent of the original document.
+
+Beyond the aggregate scores, the fidelity report provides detailed grounding for each
+rule and variable in the policy:
+
+- **Rule reports** — For each rule, the report identifies
+  the specific statements from the source documents that support it (grounding statements),
+  explains how those statements justify the rule (grounding justifications), and provides
+  an individual accuracy score with a justification.
+- **Variable reports** — For each variable, the report
+  identifies the source statements that support the variable definition, explains the
+  justification, and provides an individual accuracy score.
+- **Document sources** — The source documents are broken
+  down into atomic statements — individual, indivisible facts extracted from the text.
+  The document content is annotated with line numbers so you can trace each rule and
+  variable back to the exact location in the original document.
+
 ## Rules
 
 Rules are the core of an Automated Reasoning policy. Each rule is a formal logic
 expression that captures a relationship between variables. Rules are expressed using a subset of
 [SMT-LIB](https://smtlib.cs.uiowa.edu/ "https://smtlib.cs.uiowa.edu/") syntax, a standard format for
 formal logic that Automated Reasoning checks use for mathematical verification.
-See [KMS permissions for Automated
-Reasoning policies](create-automated-reasoning-policy.md#automated-reasoning-policy-kms-permissions "create-automated-reasoning-policy.md#automated-reasoning-policy-kms-permissions")
+See [KMS permissions for Automated Reasoning policies](create-automated-reasoning-policy.md#automated-reasoning-policy-kms-permissions "create-automated-reasoning-policy.md#automated-reasoning-policy-kms-permissions")
 
 Most rules should follow an _if-then_ (implicative) format. This means
 rules should have a condition (the "if" part) and a conclusion (the "then" part),
@@ -114,9 +152,7 @@ Automated Reasoning checks support the following variable types:
 | `real`             | Decimal number               | `interestRate` — Annual interest rate as a decimal (0.05 means 5%) |
 | Custom type (enum) | One value from a defined set | `leaveType` — One of: PARENTAL, MEDICAL, BEREAVEMENT, PERSONAL     |
 
-### The critical role of variable
-
-descriptions
+### The critical role of variable descriptions
 
 Variable descriptions are the single most important factor in translation accuracy.
 When Automated Reasoning checks translate natural language into formal logic, it uses variable
@@ -176,9 +212,7 @@ If it's possible for a variable not to have any value from the enum, include an
 `OTHER` or `NONE` value. This prevents translation issues when
 the input doesn't match any of the defined values.
 
-## Translation: from natural language to formal
-
-logic
+## Translation: from natural language to formal logic
 
 Translation is the process by which Automated Reasoning checks convert natural language (user
 questions and LLM responses) into formal logic expressions that can be mathematically

@@ -1,6 +1,4 @@
-# Create a prompt
-
-dataset for a model evaluation job that uses a model as judge
+# Create a prompt dataset for a model evaluation job that uses a model as judge
 
 To create a model evaluation job that uses a model as judge you must specify a prompt
 dataset. This prompt dataset uses the same format as automatic model evaluation jobs and is used during inference with the models you select to evaluate.
@@ -15,8 +13,7 @@ Custom prompt datasets must be stored in Amazon S3, and use the JSON line format
 up to 1000 prompts in your dataset per evaluation job.
 
 For jobs created using the console you must update the Cross Origin Resource Sharing (CORS)
-configuration on the S3 bucket. To learn more about the required CORS permissions, see [Required Cross Origin Resource Sharing
-(CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md").
+configuration on the S3 bucket. To learn more about the required CORS permissions, see [Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md").
 
 ## Prepare a dataset for an evaluation job where Amazon Bedrock invokes models for you
 

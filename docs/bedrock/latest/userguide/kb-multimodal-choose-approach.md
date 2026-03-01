@@ -1,6 +1,4 @@
-# Choosing your multimodal processing
-
-approach
+# Choosing your multimodal processing approach
 
 Amazon Bedrock Knowledge Bases offers two approaches for processing multimodal content: Nova Multimodal
 Embeddings for visual similarity searches, and Bedrock Data Automation (BDA) for
@@ -13,19 +11,13 @@ query patterns.
 
 ###### Topics
 
-- [Multimodal processing
-  approach](#kb-multimodal-processing-approach "#kb-multimodal-processing-approach")
+- [Multimodal processing approach](#kb-multimodal-processing-approach "#kb-multimodal-processing-approach")
 - [Regional availability](#kb-multimodal-processing-regions "#kb-multimodal-processing-regions")
-- [Selection criteria by content
-  type](#kb-multimodal-selection-guidance "#kb-multimodal-selection-guidance")
-- [Supported file types and data
-  sources](#kb-multimodal-supported-files "#kb-multimodal-supported-files")
-- [Capabilities and
-  limitations](#kb-multimodal-approach-details "#kb-multimodal-approach-details")
+- [Selection criteria by content type](#kb-multimodal-selection-guidance "#kb-multimodal-selection-guidance")
+- [Supported file types and data sources](#kb-multimodal-supported-files "#kb-multimodal-supported-files")
+- [Capabilities and limitations](#kb-multimodal-approach-details "#kb-multimodal-approach-details")
 
-## Multimodal processing
-
-approach
+## Multimodal processing approach
 
 The following table shows a comparison between Nova Multimodal Embeddings and BDA
 for processing multimodal content.
@@ -44,9 +36,7 @@ for processing multimodal content.
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
 | US East (N. Virginia) only | • US West (Oregon)<br>• US East (N. Virginia)<br>• Europe (Frankfurt)<br>• Europe (London)<br>• Europe (Ireland)<br>• Asia Pacific (Mumbai)<br>• Asia Pacific (Sydney)<br>• AWS GovCloud (US-West) |
 
-## Selection criteria by content
-
-type
+## Selection criteria by content type
 
 Use this decision matrix to choose the appropriate processing approach based on
 your content and use case requirements:
@@ -66,9 +56,7 @@ depending on your use case.
 | Customer support recordings                         | Not recommended<br>• Speech content cannot be processed<br>effectively         | Recommended<br>• Creates complete searchable conversation<br>transcripts     |
 | Technical diagrams and charts                       | Recommended<br>• Excellent for visual similarity and pattern<br>matching       | Limited<br>• Extracts text labels but misses visual<br>relationships         |
 
-## Supported file types and data
-
-sources
+## Supported file types and data sources
 
 The supported file types depend on your chosen processing approach:
 
@@ -95,9 +83,7 @@ data sources (Confluence, SharePoint, Salesforce, Web Crawler) do not process
 multimodal files during ingestion. These files are skipped and will not be
 available for multimodal queries.
 
-## Capabilities and
-
-limitations
+## Capabilities and limitations
 
 **Nova Multimodal Embeddings**
 

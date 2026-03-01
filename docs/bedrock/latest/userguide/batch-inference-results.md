@@ -2,7 +2,7 @@
 
 After a batch inference job is `Completed`, you can extract the results of the batch inference job from the files in the Amazon S3 bucket that you specified during creation of the job. To learn how to download an S3 object, see [Downloading objects](../../../AmazonS3/latest/userguide/download-objects.md "../../../AmazonS3/latest/userguide/download-objects.md"). The S3 bucket contains the following files:
 
-1. Amazon Bedrock generates an output JSONL file for each input JSONL file. The output files contain outputs from the model for each input in the following format. An `error` object replaces the `modelOutput` field in any line where there was an error in inference. The format of the `modelOutput` JSON object matches the `body` field for the model that you use in the `InvokeModel` response. For more information, see [Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md").
+1. Amazon Bedrock generates an output JSONL file for each input JSONL file. The output files contain outputs from the model for each input in the following format. An `error` object replaces the `modelOutput` field in any line where there was an error in inference. The format of the `modelOutput` JSON object depends on the model invocation type. For `InvokeModel` jobs, the format matches the `body` field in the `InvokeModel` response (see [Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md")). For `Converse` jobs, the format matches the response body of the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API.
 
 ```
 { "recordId" : "`string`", "modelInput": `{JSON body}`, "modelOutput": `{JSON body}` }

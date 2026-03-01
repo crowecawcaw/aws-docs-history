@@ -1,6 +1,4 @@
-# Testing and querying multimodal knowledge
-
-bases
+# Testing and querying multimodal knowledge bases
 
 After ingesting your multimodal content, you can test and query your knowledge base
 using the console or API. The available query types depend on your chosen processing
@@ -93,9 +91,7 @@ media types.
 Only supported with Nova Multimodal Embeddings. Upload images to find
 visually similar content in your knowledge base.
 
-## Understanding response
-
-metadata
+## Understanding response metadata
 
 Multimodal query responses include additional metadata for multimedia
 content:

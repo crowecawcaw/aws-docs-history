@@ -656,9 +656,7 @@ object:
 }
 ```
 
-#### Considerations when using
-
-inline code nodes
+#### Considerations when using inline code nodes
 
 When using inline code nodes in your flow, consider the following:
 

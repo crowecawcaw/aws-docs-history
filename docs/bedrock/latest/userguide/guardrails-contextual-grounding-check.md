@@ -1,6 +1,4 @@
-# Use contextual grounding check
-
-to filter hallucinations in responses
+# Use contextual grounding check to filter hallucinations in responses
 
 Amazon Bedrock Guardrails supports contextual grounding checks to detect and filter hallucinations in model
 responses when a reference source and a user query is provided. The supported use cases
@@ -139,18 +137,12 @@ Source:
 
 ###### Topics
 
-- [Add contextual grounding
-  checks with the console](#guardrails-contextual-grounding-console "#guardrails-contextual-grounding-console")
-- [Calling contextual
-  grounding check with Invoke APIs](#guardrails-contextual-grounding-invoke-api "#guardrails-contextual-grounding-invoke-api")
-- [Calling contextual
-  grounding check with Converse APIs](#guardrails-contextual-grounding-converse-api "#guardrails-contextual-grounding-converse-api")
-- [Calling
-  contextual grounding check with ApplyGuardrail API](#guardrails-contextual-grounding-applyguardrail-api "#guardrails-contextual-grounding-applyguardrail-api")
+- [Add contextual grounding checks with the console](#guardrails-contextual-grounding-console "#guardrails-contextual-grounding-console")
+- [Calling contextual grounding check with Invoke APIs](#guardrails-contextual-grounding-invoke-api "#guardrails-contextual-grounding-invoke-api")
+- [Calling contextual grounding check with Converse APIs](#guardrails-contextual-grounding-converse-api "#guardrails-contextual-grounding-converse-api")
+- [Calling contextual grounding check with ApplyGuardrail API](#guardrails-contextual-grounding-applyguardrail-api "#guardrails-contextual-grounding-applyguardrail-api")
 
-## Add contextual grounding
-
-checks with the console
+## Add contextual grounding checks with the console
 
 1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
    [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
@@ -206,9 +198,7 @@ will be filtered.
      **Next** or **Skip to review and
      create**.
 
-## Calling contextual
-
-grounding check with Invoke APIs
+## Calling contextual grounding check with Invoke APIs
 
 To mark the grounding source and query within the input, we provide 2 tags that
 work the same way as input tags. These tags are
@@ -241,9 +231,7 @@ are used, then the contextual grounding check policy will investigate just the
 grounding source, query, and response, while the remaining policies will investigate
 the content within the guardContent tags.
 
-## Calling contextual
-
-grounding check with Converse APIs
+## Calling contextual grounding check with Converse APIs
 
 To mark the grounding source and query for Converse APIs, use the
 qualifiers field in each guard content block. For example:
@@ -288,9 +276,7 @@ guard_content qualifier, then the contextual grounding checks policy will
 investigate just the grounding source, query, and response, while the remaining
 policies will investigate the content marked with the guardContent tags.
 
-## Calling
-
-contextual grounding check with ApplyGuardrail API
+## Calling contextual grounding check with ApplyGuardrail API
 
 Using contextual grounding check with `ApplyGuardrail` is similar to
 using it with the Converse APIs. To mark the grounding source and

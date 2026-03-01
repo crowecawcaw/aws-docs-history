@@ -16,5 +16,4 @@ Amazon EventBridge is an AWS service that monitors events from other AWS service
 ###### Topics
 
 - [How EventBridge for Amazon Bedrock works](monitoring-eventbridge-how-it-works.md "monitoring-eventbridge-how-it-works.md")
-- [[Example] Create a rule to handle Amazon Bedrock state change
-  events](monitoring-eventbridge-create-rule-ex.md "monitoring-eventbridge-create-rule-ex.md")
+- [[Example] Create a rule to handle Amazon Bedrock state change events](monitoring-eventbridge-create-rule-ex.md "monitoring-eventbridge-create-rule-ex.md")

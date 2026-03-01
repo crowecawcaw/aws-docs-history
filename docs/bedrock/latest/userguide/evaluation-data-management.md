@@ -1,6 +1,4 @@
-# Data management and encryption in Amazon Bedrock
-
-evaluation job
+# Data management and encryption in Amazon Bedrock evaluation job
 
 During the model evaluation job, Amazon Bedrock makes a temporary copy of your data and stores it in an AWS-owned Amazon S3 bucket.
 Amazon Bedrock deletes this data after the job finishes. Amazon Bedrock encrypts this data using a AWS KMS key. You can choose to specify
@@ -15,9 +13,6 @@ service role's policy. You must also add the required AWS KMS key policy element
 
 ###### Topics
 
-- [Required Key policy elements to
-  encrypt your model evaluation job using AWS KMS](model-evaluation-security-kms.md "model-evaluation-security-kms.md")
-- [AWS Key Management Service support in model evaluation
-  jobs](model-evaluation-security-data.md "model-evaluation-security-data.md")
-- [Data encryption for knowledge base
-  evaluation jobs](rag-evaluation-security-data.md "rag-evaluation-security-data.md")
+- [Required Key policy elements to encrypt your model evaluation job using AWS KMS](model-evaluation-security-kms.md "model-evaluation-security-kms.md")
+- [AWS Key Management Service support in model evaluation jobs](model-evaluation-security-data.md "model-evaluation-security-data.md")
+- [Data encryption for knowledge base evaluation jobs](rag-evaluation-security-data.md "rag-evaluation-security-data.md")

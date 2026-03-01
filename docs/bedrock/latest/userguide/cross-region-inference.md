@@ -1,6 +1,4 @@
-# Increase throughput with cross-Region
-
-inference
+# Increase throughput with cross-Region inference
 
 With cross-Region inference, you can choose either a cross-Region inference profile tied
 to a specific geography (such as US or EU), or you can choose a global inference profile.
@@ -23,17 +21,12 @@ cross-Region inference, refer to [Supported Regions and models for inference pro
 
 ###### Topics
 
-- [Choosing between Geographic and
-  Global cross-Region inference](#cross-region-inference-comparison "#cross-region-inference-comparison")
-- [General
-  considerations](#cross-region-inference-general-considerations "#cross-region-inference-general-considerations")
-- [Geographic cross-Region
-  inference](geographic-cross-region-inference.md "geographic-cross-region-inference.md")
+- [Choosing between Geographic and Global cross-Region inference](#cross-region-inference-comparison "#cross-region-inference-comparison")
+- [General considerations](#cross-region-inference-general-considerations "#cross-region-inference-general-considerations")
+- [Geographic cross-Region inference](geographic-cross-region-inference.md "geographic-cross-region-inference.md")
 - [Global cross-Region inference](global-cross-region-inference.md "global-cross-region-inference.md")
 
-## Choosing between Geographic and
-
-Global cross-Region inference
+## Choosing between Geographic and Global cross-Region inference
 
 Amazon Bedrock provides two types of cross-Region inference profiles, each designed for
 different use cases and compliance requirements:
@@ -51,9 +44,7 @@ need to ensure data processing remains within specific geographic boundaries. Ch
 Global cross-Region inference when you want maximum throughput and cost savings without
 geographic restrictions.
 
-## General
-
-considerations
+## General considerations
 
 Note the following information about cross-Region inference:
 

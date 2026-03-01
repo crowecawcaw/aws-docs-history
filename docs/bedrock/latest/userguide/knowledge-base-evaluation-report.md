@@ -1,6 +1,4 @@
-# Review RAG evaluation job
-
-reports and metrics
+# Review RAG evaluation job reports and metrics
 
 The results of a Retrieval Augmented Generation (RAG) evaluation job are presented in a report, and include key
 metrics or data that can help you assess the performance or effectiveness of a knowledge
@@ -16,5 +14,4 @@ metrics.
 
 ###### Topics
 
-- [Review metrics for RAG
-  evaluations that use LLMs (console)](knowledge-base-eval-llm-results.md "knowledge-base-eval-llm-results.md")
+- [Review metrics for RAG evaluations that use LLMs (console)](knowledge-base-eval-llm-results.md "knowledge-base-eval-llm-results.md")

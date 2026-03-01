@@ -1,6 +1,4 @@
-# Supported Regions and models for model
-
-evaluation
+# Supported Regions and models for model evaluation
 
 The following table shows the models that support model evaluation:
 

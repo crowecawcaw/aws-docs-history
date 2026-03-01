@@ -35,9 +35,7 @@ JSON
 
 ```
 
-## Permissions for invoking guardrails
-
-to filter content
+## Permissions for invoking guardrails to filter content
 
 Append the following statement to the `Statement` field in the policy
 for the role to allow for model inference and to invoke guardrails.

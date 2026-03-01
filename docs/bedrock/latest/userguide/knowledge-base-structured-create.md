@@ -53,8 +53,7 @@ To connect to a structured data store using the AWS Management Console, do the f
 4. Set up the following details for the knowledge base:
    1. (Optional) Change the default name and provide a description for your knowledge base.
    2. Select the query engine to use for retrieving data from your data store.
-   3. Choose an IAM service role with the proper permissions to create and manage this knowledge base. You can let Amazon Bedrock create the service role or choose a custom role that you have created. For more information about creating a custom role, see [Set up your query engine and permissions
-      for creating a knowledge base with structured data store](knowledge-base-prereq-structured.md "knowledge-base-prereq-structured.md").
+   3. Choose an IAM service role with the proper permissions to create and manage this knowledge base. You can let Amazon Bedrock create the service role or choose a custom role that you have created. For more information about creating a custom role, see [Set up your query engine and permissions for creating a knowledge base with structured data store](knowledge-base-prereq-structured.md "knowledge-base-prereq-structured.md").
    4. (Optional) Add tags to associate with your knowledge base. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").
    5. Choose **Next**.
 

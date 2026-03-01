@@ -35,8 +35,7 @@ Console
 
 ) to open up
 **Configurations**. For information about
-configurations, see [Configure and customize queries and response
-generation](kb-test-config.md "kb-test-config.md"). 6. Enter a query in the text box in the chat window and select
+configurations, see [Configure and customize queries and response generation](kb-test-config.md "kb-test-config.md"). 6. Enter a query in the text box in the chat window and select
 **Run** to return responses from the knowledge
 base. 7. The source chunks are returned directly in order of relevance.
 Images extracted from your data source can also be returned as a
@@ -61,8 +60,7 @@ source chunk. 8. To see details about the returned chunks, select **Show source 
     	 ![Icon of a square with an arrow pointing outward from its top-right corner.](images/icons/external.png)
 
     	 ) to navigate to the S3 object containing the file.
-    	+ The metadata associated with the source chunk, if you used Amazon S3 to store your data. The attribute/field keys and values are defined in the `.metadata.json` file that's associated with the source document. For more information, see the **Metadata and filtering** section in [Configure and customize queries and response
-    	 generation](kb-test-config.md "kb-test-config.md").
+    	+ The metadata associated with the source chunk, if you used Amazon S3 to store your data. The attribute/field keys and values are defined in the `.metadata.json` file that's associated with the source document. For more information, see the **Metadata and filtering** section in [Configure and customize queries and response generation](kb-test-config.md "kb-test-config.md").
 
 ###### Chat options
 
@@ -111,8 +109,7 @@ information, see [VectorSearchRerankingConfiguration](../APIReference/API_agent-
 
 ###### Note
 
-If you the `numberOfRerankedResults` value that you specify is greater than the `numberOfResults` value in the [KnowledgeBaseVectorSearchConfiguration](../APIReference/API_agent-runtime_KnowledgeBaseVectorSearchConfiguration.md "../APIReference/API_agent-runtime_KnowledgeBaseVectorSearchConfiguration.md"), the maximum number of results that will be returned is the value for `numberOfResults`. An exception is if you use query decomposition (for more information, see the **Query modifications** section in [Configure and customize queries and response
-generation](kb-test-config.md "kb-test-config.md"). If you use query decomposition, the `numberOfRerankedResults` can be up to five times the `numberOfResults`.
+If you the `numberOfRerankedResults` value that you specify is greater than the `numberOfResults` value in the [KnowledgeBaseVectorSearchConfiguration](../APIReference/API_agent-runtime_KnowledgeBaseVectorSearchConfiguration.md "../APIReference/API_agent-runtime_KnowledgeBaseVectorSearchConfiguration.md"), the maximum number of results that will be returned is the value for `numberOfResults`. An exception is if you use query decomposition (for more information, see the **Query modifications** section in [Configure and customize queries and response generation](kb-test-config.md "kb-test-config.md"). If you use query decomposition, the `numberOfRerankedResults` can be up to five times the `numberOfResults`.
 
 The response returns the source chunks from the data source as an array of
 [KnowledgeBaseRetrievalResult](../APIReference/API_agent-runtime_KnowledgeBaseRetrievalResult.md "../APIReference/API_agent-runtime_KnowledgeBaseRetrievalResult.md") objects in the `retrievalResults` field. Each
@@ -255,10 +252,7 @@ navigation.
 
 If you receive an error that the prompt exceeds the character limit while generating responses, you can shorten the prompt in the following ways:
 
-- Reduce the maximum number of retrieved results (this shortens what is filled in for the $search\_results$ placeholder in the [Knowledge base prompt templates:
-  orchestration & generation](kb-test-config.md#kb-test-config-prompt-template "kb-test-config.md#kb-test-config-prompt-template")).
-- Recreate the data source with a chunking strategy that uses smaller chunks (this shortens what is filled in for the $search\_results$ placeholder in the [Knowledge base prompt templates:
-  orchestration & generation](kb-test-config.md#kb-test-config-prompt-template "kb-test-config.md#kb-test-config-prompt-template")).
+- Reduce the maximum number of retrieved results (this shortens what is filled in for the $search\_results$ placeholder in the [Knowledge base prompt templates: orchestration & generation](kb-test-config.md#kb-test-config-prompt-template "kb-test-config.md#kb-test-config-prompt-template")).
+- Recreate the data source with a chunking strategy that uses smaller chunks (this shortens what is filled in for the $search\_results$ placeholder in the [Knowledge base prompt templates: orchestration & generation](kb-test-config.md#kb-test-config-prompt-template "kb-test-config.md#kb-test-config-prompt-template")).
 - Shorten the prompt template.
-- Shorten the user query (this shortens what is filled in for the $query$ placeholder in the [Knowledge base prompt templates:
-  orchestration & generation](kb-test-config.md#kb-test-config-prompt-template "kb-test-config.md#kb-test-config-prompt-template")).
+- Shorten the user query (this shortens what is filled in for the $query$ placeholder in the [Knowledge base prompt templates: orchestration & generation](kb-test-config.md#kb-test-config-prompt-template "kb-test-config.md#kb-test-config-prompt-template")).

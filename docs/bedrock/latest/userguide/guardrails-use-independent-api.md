@@ -24,18 +24,12 @@ Features of the `ApplyGuardrail` API include:
 
 ###### Topics
 
-- [Call ApplyGuardrail in your
-  application flow](#guardrails-use-independent-api-call "#guardrails-use-independent-api-call")
-- [Specify the guardrail to
-  use with ApplyGuardrail](#guardrails-use-indepedent-api-call-configure "#guardrails-use-indepedent-api-call-configure")
-- [Example use cases of
-  ApplyGuardrail](#guardrails-use-independent-api-call-message "#guardrails-use-independent-api-call-message")
-- [Return full output in
-  ApplyGuardrail response](#guardrails-use-return-full-assessment "#guardrails-use-return-full-assessment")
+- [Call ApplyGuardrail in your application flow](#guardrails-use-independent-api-call "#guardrails-use-independent-api-call")
+- [Specify the guardrail to use with ApplyGuardrail](#guardrails-use-indepedent-api-call-configure "#guardrails-use-indepedent-api-call-configure")
+- [Example use cases of ApplyGuardrail](#guardrails-use-independent-api-call-message "#guardrails-use-independent-api-call-message")
+- [Return full output in ApplyGuardrail response](#guardrails-use-return-full-assessment "#guardrails-use-return-full-assessment")
 
-## Call ApplyGuardrail in your
-
-application flow
+## Call ApplyGuardrail in your application flow
 
 The request allows customer to pass all their content that should be guarded using
 their defined Guardrails. The source field should be set to `INPUT` when the
@@ -43,9 +37,7 @@ content to evaluated is from a user (typically the input prompt to the LLM). The
 should be set to `OUTPUT` when the model output guardrails should be enforced
 (typically the LLM response).
 
-## Specify the guardrail to
-
-use with ApplyGuardrail
+## Specify the guardrail to use with ApplyGuardrail
 
 When using `ApplyGuardrail`, you specify the
 `guardrailIdentifier` and
@@ -165,9 +157,7 @@ ApplyGuardrail API response
 }
 ```
 
-## Example use cases of
-
-ApplyGuardrail
+## Example use cases of ApplyGuardrail
 
 The outputs of the `ApplyGuardrail` request depends on the action guardrail took on the passed content.
 
@@ -328,9 +318,7 @@ aws bedrock-runtime apply-guardrail \
 }
 ```
 
-## Return full output in
-
-ApplyGuardrail response
+## Return full output in ApplyGuardrail response
 
 Content is considered detected if it breaches your guardrail configurations. For
 example, contextual grounding is considered detected if the grounding or relevance score

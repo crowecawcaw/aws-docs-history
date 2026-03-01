@@ -29,9 +29,7 @@ criteria, or rules that depend on external context not present in the document.
 | "Full-time employees with at least 12 months of continuous service are<br>eligible for parental leave." | "Eligible employees may apply for parental leave subject to manager<br>approval." |
 | "Refund requests must be submitted within 30 days of purchase. Items must<br>be in original packaging." | "Refunds are handled on a case-by-case basis."                                    |
 
-### Size limits and splitting large
-
-documents
+### Size limits and splitting large documents
 
 Source documents are limited to 5 MB in size and 50,000 characters. Images and tables
 in documents also count toward the character limit.
@@ -92,9 +90,7 @@ Focus on the eligibility criteria for each leave type. Capture variables that
 help determine whether an employee is eligible for a specific type of leave.
 ```
 
-## Create a policy in the
-
-console
+## Create a policy in the console
 
 1. In the left navigation, choose **Automated Reasoning**, and then
    choose **Create policy**.
@@ -128,17 +124,13 @@ your desired variables and types but no rules. Then use [Iterative policy buildi
 import your source document. Automated Reasoning will use your predefined schema as a
 starting point and add rules that reference your variables.
 
-## Create a policy using the
-
-API
+## Create a policy using the API
 
 An Automated Reasoning policy is a resource in your AWS account identified by an Amazon
 Resource Name (ARN). Creating a policy through the API is a two-step process: first create
 the policy resource, then start a build workflow to extract rules from your document.
 
-### Step 1: Create the policy
-
-resource
+### Step 1: Create the policy resource
 
 Use the `CreateAutomatedReasoningPolicy` API to create the policy
 resource.
@@ -193,9 +185,7 @@ Example response:
 }
 ```
 
-### Step 2: Start a build
-
-workflow to extract rules
+### Step 2: Start a build workflow to extract rules
 
 Use the `StartAutomatedReasoningPolicyBuildWorkflow` API with the policy
 ARN from step 1 to extract rules and variables from your source document.
@@ -269,7 +259,9 @@ failed tests later.
 In the console, open your policy and go to the **Definitions** page.
 Via the API, use `GetAutomatedReasoningPolicyBuildWorkflowResultAssets` with
 `--asset-type POLICY_DEFINITION` to retrieve the extracted definition, and
-`--asset-type QUALITY_REPORT` to retrieve the quality report.
+`--asset-type QUALITY_REPORT` to retrieve the quality report. You can see a
+full list of the assets produced during the workflow, such as the fidelity report, using
+the `--asset-type ASSET_MANIFEST` parameter.
 
 Check for the following issues:
 
@@ -307,6 +299,75 @@ The quality report also identifies disjoint rule sets — groups of rules that d
 share any variables. Disjoint rule sets aren't necessarily a problem (your policy may
 cover independent topics), but they can indicate that variables are missing connections
 between related rules.
+
+## Review the fidelity report
+
+When you create a policy from a source document, a fidelity report is automatically
+generated alongside the extracted policy. The fidelity report measures how accurately the
+policy represents your source content and provides detailed grounding that links each rule
+and variable back to specific statements in the document. For more information about
+fidelity report concepts, see [Fidelity report](automated-reasoning-checks-concepts.md#ar-concept-fidelity-report "automated-reasoning-checks-concepts.md#ar-concept-fidelity-report").
+
+### Review the fidelity report in the console
+
+In the console, open your policy and choose the **Source Document**
+tab (next to **Definitions**). The **Source Content**
+view displays each atomic statement extracted from your document as a numbered row in a
+table. Each row shows:
+
+- The statement number and extracted text.
+- The source **Document** the statement came from.
+- The number of **Rules** grounded by that statement.
+- The number of **Variables** grounded by that statement.
+
+Use the **Rules** and **Variables** dropdown
+filters at the top of the table to focus on statements that ground a specific rule or
+variable. Use the search bar to find specific content within the extracted
+statements.
+
+If you edit the policy after the initial extraction — for example, by modifying rules
+or adding variables — choose the **Regenerate** button to update the
+fidelity report so it reflects your current policy definition.
+
+### Review the fidelity report using the API
+
+Use `GetAutomatedReasoningPolicyBuildWorkflowResultAssets` with
+`--asset-type FIDELITY_REPORT` to retrieve the fidelity report. To
+regenerate the report after making policy changes, use
+`StartAutomatedReasoningPolicyBuildWorkflow` with the build workflow type
+`GENERATE_FIDELITY_REPORT` and provide the source documents in the
+`generateFidelityReportContent` field. The workflow re-analyzes the
+documents against the current policy definition and produces a new fidelity report.
+You can also retrieve the original source documents from a previous build workflow
+using `--asset-type SOURCE_DOCUMENT` with the `--asset-id`
+parameter (obtain the asset ID from the asset manifest).
+
+### What to look for
+
+When reviewing the fidelity report from the APIs, pay attention to:
+
+- **Low coverage score.** A low coverage score
+  indicates that significant portions of your source document were not captured in the
+  policy. Look for statements with 0 rules and 0 variables in the source content view
+  to identify which parts of the document were missed, and consider using iterative
+  policy building to add the missing content. See [Iterative policy building](#iterative-policy-building "#iterative-policy-building").
+- **Low accuracy score on individual rules.** Each
+  rule has its own accuracy score and justification. Rules with low accuracy scores
+  may not faithfully represent the source material. Use the
+  **Rules** filter to isolate the grounding statements for a
+  specific rule and compare them against the rule's formal logic to identify
+  misinterpretations.
+- **Ungrounded rules or variables.** Rules or
+  variables that lack grounding statements may have been inferred rather than directly
+  extracted from the document. Verify that these are correct or remove them if they
+  don't reflect your intent.
+
+###### Tip
+
+The fidelity report is especially useful for collaboration with domain experts who
+authored the source document. Share the **Source Document** view with
+them so they can verify that the policy correctly captures their intent without needing
+to read the formal logic rules directly.
 
 ## Iterative policy building
 
@@ -367,9 +428,7 @@ to be `IN_PROGRESS` at any time. If you need to start a new build and
 already have 2 workflows, delete an old one first using
 `DeleteAutomatedReasoningPolicyBuildWorkflow`.
 
-## KMS permissions for Automated
-
-Reasoning policies
+## KMS permissions for Automated Reasoning policies
 
 If you specify a customer managed KMS key to encrypt your Automated Reasoning policy,
 you must configure permissions that allow Amazon Bedrock to use the key on your
@@ -437,9 +496,7 @@ key with Automated Reasoning policies:
 }
 ```
 
-### Encryption
-
-context
+### Encryption context
 
 Amazon Bedrock uses encryption context to provide additional security for your
 Automated Reasoning policies. The encryption context is a set of key-value pairs used

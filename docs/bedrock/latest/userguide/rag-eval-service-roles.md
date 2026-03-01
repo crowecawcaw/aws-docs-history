@@ -1,6 +1,4 @@
-# Service role requirements for knowledge base
-
-evaluation jobs
+# Service role requirements for knowledge base evaluation jobs
 
 To create a knowledge base evaluation job, you must specify a service role. The policy
 that you attach to the role grants Amazon Bedrock access to resources in your account, and it

@@ -1,6 +1,4 @@
-# Data encryption for knowledge base
-
-evaluation jobs
+# Data encryption for knowledge base evaluation jobs
 
 During a knowledge base evaluation job, Amazon Bedrock makes a temporary copy of your data. Amazon Bedrock
 deletes the data after the job finishes. To encrypt the data, Amazon Bedrock uses a KMS key. It

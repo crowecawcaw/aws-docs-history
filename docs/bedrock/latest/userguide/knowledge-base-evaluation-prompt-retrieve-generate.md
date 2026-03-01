@@ -1,6 +1,4 @@
-# Creating a prompt
-
-dataset for retrieve-and-generate RAG evaluation jobs
+# Creating a prompt dataset for retrieve-and-generate RAG evaluation jobs
 
 A retrieve-and-generate evaluation jobs require a prompt dataset
 using JSON lines format. You can have up to 1000 prompts in your dataset

@@ -168,9 +168,7 @@ the greatest threat to global health in the 21st century.*
 
 (Model used: AI21 Labs Jurassic-2 Ultra v1)
 
-### Few-shot prompting vs.
-
-zero-shot prompting
+### Few-shot prompting vs. zero-shot prompting
 
 It is sometimes useful to provide a few examples to help LLMs better
 calibrate
@@ -301,9 +299,7 @@ The double curly braces `{{ and }}` mark the places to put in
 data-specific information in the template, and should not be included in the
 prompt text.
 
-### Maintain recall over
-
-Amazon Bedrock inference requests
+### Maintain recall over Amazon Bedrock inference requests
 
 If you access Amazon Bedrock models by using API calls, be aware that models don't recall
 prior prompts and previous requests, unless the previous interaction is included

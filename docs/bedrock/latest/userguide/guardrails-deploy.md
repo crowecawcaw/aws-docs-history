@@ -22,6 +22,5 @@ apply to a guardrail apply to all of its versions.
 ###### Topics
 
 - [Create a version of a guardrail](guardrails-versions-create.md "guardrails-versions-create.md")
-- [View information about guardrail
-  versions](guardrails-versions-view.md "guardrails-versions-view.md")
+- [View information about guardrail versions](guardrails-versions-view.md "guardrails-versions-view.md")
 - [Delete a version of a guardrail](guardrails-versions-delete.md "guardrails-versions-delete.md")

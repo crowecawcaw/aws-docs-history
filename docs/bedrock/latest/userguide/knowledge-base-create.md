@@ -62,12 +62,10 @@ Expand the section that corresponds to your use case:
 
             ###### Note
 
-            When using Amazon S3 Vectors with Amazon Bedrock Knowledge Bases, you can attach up to 1 KB of custom metadata (including both filterable and non-filterable metadata) and 35 metadata keys per vector. For detailed information about metadata limitations, see [Metadata support](knowledge-base-setup.md#metadata-support "knowledge-base-setup.md#metadata-support") in [Prerequisites for using a vector store you created for a
-             knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
+            When using Amazon S3 Vectors with Amazon Bedrock Knowledge Bases, you can attach up to 1 KB of custom metadata (including both filterable and non-filterable metadata) and 35 metadata keys per vector. For detailed information about metadata limitations, see [Metadata support](knowledge-base-setup.md#metadata-support "knowledge-base-setup.md#metadata-support") in [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
 
         - **Choose a vector store you have created** – Select a supported vector store and identify the vector field names and metadata
-          field names in the vector index. For more information, see [Prerequisites for using a vector store you created for a
-          knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
+          field names in the vector index. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
 
         ###### Note
 

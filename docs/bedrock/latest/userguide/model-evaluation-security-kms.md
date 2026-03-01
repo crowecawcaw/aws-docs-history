@@ -1,6 +1,4 @@
-# Required Key policy elements to
-
-encrypt your model evaluation job using AWS KMS
+# Required Key policy elements to encrypt your model evaluation job using AWS KMS
 
 Every AWS KMS key must have exactly one key policy. The statements in the key policy
 determine who has permission to use the AWS KMS key and how they can use it. You can also

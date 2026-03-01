@@ -1,6 +1,4 @@
-# Starting an automatic model
-
-evaluation job in Amazon Bedrock
+# Starting an automatic model evaluation job in Amazon Bedrock
 
 You can create an automatic model evaluation job using the AWS Management Console, AWS CLI, or a
 supported AWS SDK. In an automatic model evaluation job, the model you select performs
@@ -23,13 +21,11 @@ Amazon Bedrock console
 Use the following procedure to create a model evaluation job using the Amazon Bedrock
 console. To successfully complete this procedure make sure that your IAM user,
 group, or role has the sufficient permissions to access the console. To learn
-more, see [Required console permissions to create an automatic
-model evaluation job](model-evaluation-type-automatic.md#base-for-automatic "model-evaluation-type-automatic.md#base-for-automatic").
+more, see [Required console permissions to create an automatic model evaluation job](model-evaluation-type-automatic.md#base-for-automatic "model-evaluation-type-automatic.md#base-for-automatic").
 
 Also, any custom prompt datasets that you want to specify in the model
 evaluation job must have the required CORS permissions added to the Amazon S3 bucket.
-To learn more about adding the required CORS permissions see, [Required Cross Origin Resource Sharing
-(CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md").
+To learn more about adding the required CORS permissions see, [Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md").
 
 ###### To create a automatic model evaluation job
 

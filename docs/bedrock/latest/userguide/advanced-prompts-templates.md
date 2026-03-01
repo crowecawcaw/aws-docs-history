@@ -14,8 +14,7 @@ Describes how the agent should evaluate and use the prompt that it receives at t
   Claude 3 Opus, the knowledge base response generation prompt template
   must be raw text, but the pre-processing, orchestration, and
   post-processing prompt templates must match the JSON format outlined in
-  the [Anthropic Claude
-  Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md"). For an
+  the [Anthropic Claude Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md"). For an
   example, see the following prompt templates:
 
 ```

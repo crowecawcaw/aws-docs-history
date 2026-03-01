@@ -1,6 +1,4 @@
-# Differences in thinking
-
-across model versions
+# Differences in thinking across model versions
 
 The Messages API handles thinking differently across Claude 3.7 Sonnet and Claude
 4 models, primarily in redaction and summarization behavior. The following table

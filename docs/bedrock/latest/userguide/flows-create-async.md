@@ -1,6 +1,4 @@
-# Run Amazon Bedrock flows asynchronously with flow
-
-executions
+# Run Amazon Bedrock flows asynchronously with flow executions
 
 With flow executions, you can run Amazon Bedrock flows asynchronously. This lets your flows run
 for longer durations and also yield control so that your application can perform other
@@ -15,9 +13,7 @@ five minutes, and your entire flow can run for up to 24 hours.
 
 Flow executions is in preview release for Amazon Bedrock and is subject to change.
 
-## Required permissions for running flow
-
-executions
+## Required permissions for running flow executions
 
 - Make sure that your Amazon Bedrock Flows service role has all necessary permissions. For
   more information, see [Create a service role for Amazon Bedrock Flows in Amazon Bedrock](flows-permissions.md "flows-permissions.md").

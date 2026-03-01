@@ -21,30 +21,21 @@ The supported models are as follows:
 ###### Note
 
 API behavior differs between Claude 3.7 and Claude 4 models. For more
-information, see [Differences in thinking
-across model versions](claude-messages-thinking-differences.md "claude-messages-thinking-differences.md").
+information, see [Differences in thinking across model versions](claude-messages-thinking-differences.md "claude-messages-thinking-differences.md").
 
 ###### Topics
 
-- [Best practices and
-  considerations for extended thinking](#claude-messages-extended-thinking-bps "#claude-messages-extended-thinking-bps")
-- [How extended thinking
-  works](#claude-messages-how-extended-thinking-works "#claude-messages-how-extended-thinking-works")
-- [How to use extended
-  thinking](#claude-messages-use-extended-thinking "#claude-messages-use-extended-thinking")
-- [Extended thinking with
-  tool use](#claude-messages-extended-thinking-tool-use "#claude-messages-extended-thinking-tool-use")
+- [Best practices and considerations for extended thinking](#claude-messages-extended-thinking-bps "#claude-messages-extended-thinking-bps")
+- [How extended thinking works](#claude-messages-how-extended-thinking-works "#claude-messages-how-extended-thinking-works")
+- [How to use extended thinking](#claude-messages-use-extended-thinking "#claude-messages-use-extended-thinking")
+- [Extended thinking with tool use](#claude-messages-extended-thinking-tool-use "#claude-messages-extended-thinking-tool-use")
 - [Thinking block clearing (beta)](#claude-messages-thinking-block-clearing "#claude-messages-thinking-block-clearing")
-- [Extended thinking
-  with prompt caching](#claude-messages-extended-thinking-prompt-caching "#claude-messages-extended-thinking-prompt-caching")
+- [Extended thinking with prompt caching](#claude-messages-extended-thinking-prompt-caching "#claude-messages-extended-thinking-prompt-caching")
 - [Understanding thinking block caching behavior](#claude-messages-extended-thinking-caching-behavior "#claude-messages-extended-thinking-caching-behavior")
-- [Max tokens and
-  context window size with extended thinking](#claude-messages-extended-thinking-max-tokens "#claude-messages-extended-thinking-max-tokens")
+- [Max tokens and context window size with extended thinking](#claude-messages-extended-thinking-max-tokens "#claude-messages-extended-thinking-max-tokens")
 - [Extended thinking token cost considerations](#claude-messages-extended-thinking-cost "#claude-messages-extended-thinking-cost")
 
-## Best practices and
-
-considerations for extended thinking
+## Best practices and considerations for extended thinking
 
 Usage guidelines
 
@@ -101,14 +92,11 @@ Working with thinking budgets
   Requests pushing the model to think above 32K tokens causes long running
   requests that might result in system timeouts and open connection limits.
   Please note that `max_tokens` limits vary among Claude
-  models. For more information, see [Max tokens and
-  context window size with extended thinking](#claude-messages-extended-thinking-max-tokens "#claude-messages-extended-thinking-max-tokens").
+  models. For more information, see [Max tokens and context window size with extended thinking](#claude-messages-extended-thinking-max-tokens "#claude-messages-extended-thinking-max-tokens").
 - **Token usage tracking**: Monitor thinking
   token usage to optimize costs and performance.
 
-## How extended thinking
-
-works
+## How extended thinking works
 
 When extended thinking is turned on, Claude creates `thinking` content blocks
 where it outputs its internal reasoning. Claude incorporates insights from this
@@ -134,12 +122,9 @@ Here’s an example of the default response format:
 ```
 
 For more information about the response format of extended thinking, see
-Anthropic’s Messages API [Request and
-Response](model-parameters-anthropic-claude-messages-request-response.md "model-parameters-anthropic-claude-messages-request-response.md").
+Anthropic’s Messages API [Request and Response](model-parameters-anthropic-claude-messages-request-response.md "model-parameters-anthropic-claude-messages-request-response.md").
 
-## How to use extended
-
-thinking
+## How to use extended thinking
 
 To turn on extended thinking, add a `thinking` object, with the
 `thinking` parameter set to enabled and the
@@ -251,9 +236,7 @@ delivery. This is expected behavior, especially for thinking content. The
 streaming system needs to process content in batches for optimal performance,
 which can result in this delivery pattern.
 
-## Extended thinking with
-
-tool use
+## Extended thinking with tool use
 
 Extended thinking can be used alongside [Tool use](model-parameters-anthropic-claude-messages-tool-use.md "model-parameters-anthropic-claude-messages-tool-use.md") allowing Claude to reason
 through tool selection and results processing. When using extended thinking with
@@ -406,9 +389,7 @@ The API response will now only include text
 }
 ```
 
-### Preserve thinking
-
-blocks
+### Preserve thinking blocks
 
 During tool use, you must pass thinking blocks back to the API, and you must
 include the complete unmodified block back to the API. This is critical for
@@ -611,9 +592,7 @@ Response
     }
 ```
 
-## Extended thinking
-
-with prompt caching
+## Extended thinking with prompt caching
 
 [Prompt caching](prompt-caching.md "prompt-caching.md") with thinking has several important considerations:
 
@@ -701,9 +680,7 @@ User: [Text response, cache=True]
 
 This behavior is consistent whether using regular thinking or interleaved thinking.
 
-## Max tokens and
-
-context window size with extended thinking
+## Max tokens and context window size with extended thinking
 
 In older Claude models (prior to Claude 3.7 Sonnet), if the sum of prompt tokens
 and max_tokens exceeded the model’s context window, the system would automatically
@@ -714,9 +691,7 @@ thinking is enabled) is enforced as a strict limit. The system now returns a
 validation error if prompt tokens + max_tokens exceeds the context window
 size.
 
-### The
-
-context window with extended thinking
+### The context window with extended thinking
 
 When calculating context window usage with thinking enabled, there are some
 considerations to be aware of:
@@ -730,17 +705,13 @@ The eﬀective context window is calculated as: context window = (current input
 tokens - previous thinking tokens) + (thinking tokens + encrypted thinking
 tokens + text output tokens).
 
-### Managing
-
-tokens with extended thinking and tool use
+### Managing tokens with extended thinking and tool use
 
 When using extended thinking with tool use, thinking blocks must be explicitly preserved and returned with the tool results. The effective context window calculation for extended thinking with tool use becomes the following:
 
 `context window = (current input tokens + previous thinking tokens + tool use tokens) + (thinking tokens + encrypted thinking tokens + text output tokens)`
 
-### Managing
-
-tokens with extended thinking
+### Managing tokens with extended thinking
 
 Given the context window and `max_tokens` behavior with extended
 thinking Claude 3.7 and 4 models, you might need to perform one of the

@@ -30,20 +30,18 @@ and word providing each word as a separate response. The available granularity l
 
 ## Output Settings
 
-Output settings determine the way your downloaded results will be structured. This setting is exclusive
-to the console. The options for output settings are:
+Output settings determine the way your downloaded results will be structured. This setting is exclusive to the console. The options for output settings are:
 
-- JSON – The default output structure for document analysis. Provides a JSON
-  output file with the information from your configuration settings.
-- JSON+files – Using this setting generates both a JSON output and files
-  that correspond with different outputs. For example, this setting gives you a
-  text file for the overall text extraction, a markdown file for the text with
-  structural markdown, and CSV files for each table that's found in the
-  text. Figures located inside a document will be saved as well as figure crops and
-  rectified images. Also, if you are processing a DOCX file and have this option selected
-  the converted PDF of your DOCX file will be in the output folder. These outputs
-  are located in `standard_output/`logical_doc_id`/assets/`
-  in your output folder.
+- JSON – The default output structure for document analysis. Provides a JSON output file with the information from your configuration settings.
+  - Async [InvokeDataAutomationAsync](../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md "../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md") API: JSON output for Async API is S3 only.
+  - Sync [InvokeDataAutomation](../APIReference/API_data-automation-runtime_InvokeDataAutomation.md "../APIReference/API_data-automation-runtime_InvokeDataAutomation.md") API: JSON output can be set to S3 or inline by leveraging `outputconfiguration`. If S3 is selected, then output JSON goes to S3 only (not inline). If S3 not provided, Sync API output supports JSON inline only.
+
+- JSON+files – Only available for Async [InvokeDataAutomationAsync](../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md "../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md") API. Using this setting generates both a JSON output and files that correspond with different outputs. For example, this setting gives you a text file for the overall text extraction, a markdown file for the text with structural markdown, and CSV files for each table that's found in the text. Figures located inside a document will be saved as well as figure crops and rectified images. Also, if you are processing a DOCX file and have this option selected the converted PDF of your DOCX file will be in the output folder. These outputs are located in `standard_output/`logical_doc_id`/assets/` in your output folder.
+
+###### Note
+
+- The sync API does not output any additional files beyond the JSON. The output JSON contains only the text format that was selected as part of the Standard Output Text format. Sync API will not output Figure crops or rectified images.
+- DocX not supported by Sync API.
 
 ## Text Format
 
@@ -72,10 +70,9 @@ When you select Generative Fields, you are generated a summary of the document, 
 version. Then, if you select elements as a response granularity, you generate a descriptive caption of
 each figure detected in the document. Figures include things like charts, graphs, and images.
 
-## Bedrock Data Automation document response
-
+Async
 This section focuses on the different response objects you receive from running
-the API operation InvokeDataAutomation on a document file. Below we'll break down each
+the API operation InvokeDataAutomationAsync on a document file. Below we'll break down each
 section of the response object and then see a full, populated response for an
 example document. The first section we'll receive is `metadata`.
 
@@ -118,12 +115,12 @@ formatting styles. Finally statistics contains information on the actual content
 the document, such as how many semantic elements there are, how many figures, words,
 lines, etc.
 
-This is the information for a table entity. In addition to location information,
-the different formats of the text, tables, and reading order, they specifically
-return csv information and cropped images of the table in S3 buckets. The CSV
-information shows the different headers, footers, and titles. The images will be
-routed to the s3 bucket of the prefix set in the InvokeDataAutomationAsync
-request
+This is the information for a table entity. For InvokeDataAutomationAsync (async) request,
+in addition to location information, the different formats of the text, tables, and reading order,
+they specifically return csv information and cropped images of the table in S3 buckets. The CSV
+information shows the different headers, footers, and titles. The images will be routed to the s3
+bucket of the prefix set in the InvokeDataAutomationAsync request. For InvokeDataAutomation (sync)
+request, csv and cropped image of the table in S3 buckets are not supported.
 
 When you process a PDF, the statistics section of the response will also contain
 `hyperlinks_count` which tells you how many hyperlinks exist in your document.
@@ -169,7 +166,6 @@ information on what kind of text is being detected. For a complete list of subty
 see the API Reference.
 
 ```
-
 {
    "id":"entity_id",
    "type":"TABLE",
@@ -218,16 +214,12 @@ see the API Reference.
             "height":1
          }
       }
-   ]
+   ],
+   "sub_type":"TITLE/SECTION_TITLE/HEADER/FOOTER/PARAGRAPH/LIST/PAGE_NUMBER"
 },
-
 ```
 
-This is the information for a table entity. In addition to location information,
-the different formats of the text, tables, and reading order, they specifically
-return csv information and cropped images of the table in S3 buckets. The CSV
-information shows the different headers, footers, and titles. The images will be
-routed to the s3 bucket of the prefix set in the InvokeDataAutomation request.
+This is the information for a table entity. In addition to location information, the different formats of the text, tables, and reading order, they specifically return csv information and cropped images of the table in S3 buckets. The CSV information shows the different headers, footers, and titles. The images will be routed to the s3 bucket of the prefix set in the InvokeDataAutomation request.
 
 ```
 {
@@ -295,7 +287,7 @@ routed to the s3 bucket of the prefix set in the InvokeDataAutomation request.
 }
 ,
 
-​
+
 ```
 
 This is the entity used for figures such as in document graphs and charts. Similar
@@ -379,6 +371,233 @@ page number is on the page.
 These final two elements are for individual text portions. Word level granularity
 returns a response for each word, while default output reports only lines of
 text.
+
+Sync
+This section focuses on the different response objects you receive from running
+the API operation InvokeDataAutomation on a document file. Below we'll break down each
+section of the response object and then see a full, populated response for an
+example document. The first section we'll receive is `metadata`.
+
+```
+
+            "metadata": {
+                "logical_subdocument_id": "1",
+                "semantic_modality": "DOCUMENT",
+                "number_of_pages": X,
+                "start_page_index": "1",
+                "end_page_index": X,
+                "file_type": "PDF"
+            },
+
+```
+
+The first section above provides an overview of the metadata associated with the document. Since the Synchronous InvokeDataAutomation API does not currently support document splitting, logical_subdocument_id is always equal to 1.
+
+```
+"document":{
+   "representation":{
+      "text":"document text",
+      "html":"document title document content",
+      "markdown":"# text"
+   },
+   "description":"document text",
+   "summary":"summary text",
+   "statistics":{
+      "element_count":5,
+      "table_count":1,
+      "figure_count":1,
+      "word_count":1000,
+      "line_count":32
+   }
+},
+```
+
+The above section provides document level granularity information. The description and summary sections are the generated fields based on the document The representation section provides the actual content of the document with various formatting styles. Finally statistics contains information on the actual content of the document, such as how many semantic elements there are, how many figures, words, lines, etc.
+
+Note: Unlike the asynchronous InvokeDataAutomationAsync request, the synchronous InvokeDataAutomation request does not support returning csv information and cropped image of the table in S3 buckets.
+
+```
+
+{
+"id":"entity_id",
+   "type":"TEXT",
+   "representation":{
+"text":"document text",
+      "html":"document title document content",
+      "markdown":"# text"
+   },
+   "reading_order":2,
+   "page_indices":[
+      0
+   ],
+   "locations":[
+      {
+"page_index":0,
+         "bounding_box":{
+"left":0.0,
+            "top":0.0,
+            "width":0.05,
+            "height":0.5
+         }
+      }
+   ],
+   "sub_type":"TITLE/SECTION_TITLE/HEADER/FOOTER/PARAGRAPH/LIST/PAGE_NUMBER"
+},
+
+```
+
+This is the entity used for text within a document, indicated by the TYPE line in the response. Again representation shows the text in different formats. reading_order shows when a reader would logically see the text. This is a semantic ordering based on associated keys and values. For example, it associates titles of paragraphs with their respective paragraph in reading order. page_indices tells you which pages the text is on. Next is location information, with a provided text bounding box if it was enabled in response. Finally, we have the entity subtype. This subtype provides more detailed information on what kind of text is being detected. For a complete list of subtypes see the API Reference.
+
+```
+
+{
+    "id": "entity_id",
+    "type": "TABLE",
+    "representation": {
+        "html": "table.../table",
+        "markdown": "| header | ...",
+        "text": "header \t header",
+        "csv": "header, header, header\n..."
+    },
+    "headers": ["date", "amount", "description", "total"],
+    "reading_order": 3,
+    "title": "Title of the table",
+    "footers": ["the footers of the table"],
+    "page_indices": [0, 1],
+    "locations": [{
+        "page_index": 0,
+        "bounding_box": {
+            "left": 0,
+            "top": 0,
+            "width": 1,
+            "height": 1
+        }
+    }, {
+        "page_index": 1,
+        "bounding_box": {
+            "left": 0,
+            "top": 0,
+            "width": 1,
+            "height": 1
+        }
+    }]
+},
+
+```
+
+This is the information for a table entity. The CSV information shows the different headers, footers, and titles.
+
+```
+{
+
+    "id": "entity_id",
+    "type": "FIGURE",
+    "summary": "",
+    "representation": {
+        "text": "document text",
+        "html": "document title document content",
+        "markdown": "# text"
+    },
+
+    "locations": [
+
+        {
+            "page_index": 0,
+            "bounding_box": {
+                "left": 0,
+                "top": 0,
+                "width": 1,
+                "height": 1
+            }
+        }
+    ],
+
+    "sub_type": "CHART",
+    "title": "figure title",
+    "reading_order": 1,
+    "page_indices": [
+        0
+    ]
+},
+​
+```
+
+This is the entity used for figures such as in document graphs and charts. You'll receive a `sub_type` and a figure title response for the title text and an indication on what kind of figure it is.
+
+```
+"pages":[
+   "pages":[
+   {
+"id":"page_id",
+      "page_index":0,
+      "detected_page_number":1,
+      "representation":{
+"text":"document text",
+         "html":"document title document content",
+         "markdown":"# text"
+      },
+      "statistics":{
+"element_count":5,
+         "table_count":1,
+         "figure_count":1,
+         "word_count":1000,
+         "line_count":32
+      },
+      "asset_metadata":{
+"rectified_image":"s3://bucket/prefix.png",
+         "rectified_image_width_pixels":1700,
+         "rectified_image_height_pixels":2200
+      }
+   }
+],
+
+```
+
+The last of the entities we extract through standard output is Pages. Pages are the same as Text entities, but additionally contain page numbers, for which detected page number is on the page.
+
+```
+"text_lines":[
+   {
+      "id":"line_id",
+      "text":"line text",
+      "reading_order":1,
+      "page_index":0,
+      "locations":{
+         "page_index":0,
+         "bounding_box":{
+            "left":0,
+            "top":0,
+            "width":1,
+            "height":1
+         }
+      }
+   }
+],
+
+```
+
+```
+"text_words":[
+   {
+      "id":"word_id",
+      "text":"word text",
+      "line_id":"line_id",
+      "reading_order":1,
+      "page_index":0,
+      "locations":{
+         "page_index":0,
+         "bounding_box":{
+            "left":0,
+            "top":0,
+            "width":1,
+            "height":1
+         }
+      }
+   }
+]
+```
+
+These final two elements are for individual text portions. Word level granularity returns a response for each word, while default output reports only lines of text.
 
 ## Additional file format metadata JSON
 

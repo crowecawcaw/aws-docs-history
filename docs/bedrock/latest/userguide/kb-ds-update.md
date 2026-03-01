@@ -33,8 +33,7 @@ You can update a data source in the following ways:
       	- [Create another vector index](knowledge-base-setup.md "knowledge-base-setup.md") in the vector store and select `faiss` as the **Engine**. Then [create a new knowledge base](knowledge-base-create.md "knowledge-base-create.md") and specify the new vector index.
       + If the vector index for your knowledge base is in an Amazon Aurora database cluster, we recommend that you use the custom metadata field to store all your metadata in a single column
        and create an index on this column. If you do not provide the custom metadata field, you must check that the table for your index contains a column for each metadata property in your
-       metadata files before starting ingestion. For more information, see [Prerequisites for using a vector store you created for a
-       knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
+       metadata files before starting ingestion. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
 
   To learn how to update a data source, choose the tab for your preferred method, and then follow the steps:
 

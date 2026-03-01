@@ -1,6 +1,4 @@
-# Transform unstructured data into meaningful insights
-
-using Amazon Bedrock Data Automation
+# Transform unstructured data into meaningful insights using Amazon Bedrock Data Automation
 
 ## What is Bedrock Data Automation?
 

@@ -1,6 +1,4 @@
-# Prerequisites and permissions required for using
-
-OpenSearch Managed Clusters with Amazon Bedrock Knowledge Bases
+# Prerequisites and permissions required for using OpenSearch Managed Clusters with Amazon Bedrock Knowledge Bases
 
 This section shows you how to configure permissions if you're creating your own vector
 database with Amazon OpenSearch Service Managed Clusters. This configuration must be performed before you
@@ -32,9 +30,7 @@ Clusters.
   efficiency. For more information, see [Operational best
   practices for Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/bp.md "../../../opensearch-service/latest/developerguide/bp.md").
 
-## Overview of permissions
-
-configuration
+## Overview of permissions configuration
 
 For Knowledge Bases integration with managed clusters, you need to configure the
 following IAM access permissions and resource-based policies. We recommend that you
@@ -52,8 +48,7 @@ create the Knowledge base service role for you. 2. ###### Configure the resource
 
 The OpenSearch domain supports resource-based policies, that determine which
 principals can access and act on the domain. To use with Knowledge Bases, ensure
-proper configuration of the resource-based policy for your domain. 3. ###### _(Strongly Recommended)_ Provide role mapping for
-fine-grained access control
+proper configuration of the resource-based policy for your domain. 3. ###### _(Strongly Recommended)_ Provide role mapping for fine-grained access control
 
 While fine-grained access control is optional, we recommend that you have it
 enabled for controlling the granularity at which the permissions must be scoped
@@ -101,7 +96,5 @@ To configure fine-grained access control and provide the role mapping:
 
 ###### The following topics show how to configure the necessary permissions.
 
-- [Configuring resource-based policies for
-  OpenSearch Managed clusters](kb-osm-permissions-slr-rbp.md "kb-osm-permissions-slr-rbp.md")
-- [Configuring OpenSearch permissions
-  with fine-grained access control](kb-osm-permissions-console-fgap.md "kb-osm-permissions-console-fgap.md")
+- [Configuring resource-based policies for OpenSearch Managed clusters](kb-osm-permissions-slr-rbp.md "kb-osm-permissions-slr-rbp.md")
+- [Configuring OpenSearch permissions with fine-grained access control](kb-osm-permissions-console-fgap.md "kb-osm-permissions-console-fgap.md")

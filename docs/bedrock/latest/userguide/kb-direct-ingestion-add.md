@@ -46,8 +46,7 @@ If you specify a document identifier or S3 location that already exists in the k
 The request body contains one field, `documents`, that maps to an array of [KnowledgeBaseDocument](../APIReference/API_agent_KnowledgeBaseDocument.md "../APIReference/API_agent_KnowledgeBaseDocument.md") objects, each of which represents the content and optional metadata of a document to add to the data source and to ingest into the knowledge base. A [KnowledgeBaseDocument](../APIReference/API_agent_KnowledgeBaseDocument.md "../APIReference/API_agent_KnowledgeBaseDocument.md") object contains the following fields:
 
 - content – Maps to a [DocumentContent](../APIReference/API_agent_DocumentContent.md "../APIReference/API_agent_DocumentContent.md") object containing information about the content of the document to add.
-- metadata – (Optional) Maps to a [DocumentMetadata](../APIReference/API_agent_DocumentMetadata.md "../APIReference/API_agent_DocumentMetadata.md") object containing information about the metadata of the document to add. For more information about how to use metadata during retrieval, see the **Metadata and filtering** section in [Configure and customize queries and response
-  generation](kb-test-config.md "kb-test-config.md").
+- metadata – (Optional) Maps to a [DocumentMetadata](../APIReference/API_agent_DocumentMetadata.md "../APIReference/API_agent_DocumentMetadata.md") object containing information about the metadata of the document to add. For more information about how to use metadata during retrieval, see the **Metadata and filtering** section in [Configure and customize queries and response generation](kb-test-config.md "kb-test-config.md").
   Select a topic to learn how to ingest documents for different data source types or to see examples:
 
 ###### Topics

@@ -16,8 +16,7 @@ For example, you can use the Text Completion API to generate text for a blog pos
 
 For information about creating prompts for Anthropic Claude models, see [Introduction to prompt design](https://docs.anthropic.com/claude/docs/introduction-to-prompt-design "https://docs.anthropic.com/claude/docs/introduction-to-prompt-design"). If you want to use your existing Text
 Completions prompts with the
-[Anthropic Claude
-Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md"), see [Migrating from Text Completions](https://docs.anthropic.com/claude/reference/migrating-from-text-completions-to-messages "https://docs.anthropic.com/claude/reference/migrating-from-text-completions-to-messages").
+[Anthropic Claude Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md"), see [Migrating from Text Completions](https://docs.anthropic.com/claude/reference/migrating-from-text-completions-to-messages "https://docs.anthropic.com/claude/reference/migrating-from-text-completions-to-messages").
 
 ## Supported models
 

@@ -17,8 +17,7 @@ Refer to the following pages for more information about different models in Amaz
 - For a table of the Amazon Bedrock Regions that each model is supported in, see [Model support by AWS Region in Amazon Bedrock](models-regions.md "models-regions.md").
 - For a table of the Amazon Bedrock features that each model supports, see [Model support by feature in Amazon Bedrock](models-features.md "models-features.md").
 - To check if the Converse API (`Converse` and `ConverseStream`) supports a specific model, see
-  [Supported models and
-  model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md").
+  [Supported models and model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md").
 - When you make inference calls to a model, you include a prompt for the model. For general information
   about creating prompts for the models that Amazon Bedrock supports, see [Prompt engineering concepts](prompt-engineering-guidelines.md "prompt-engineering-guidelines.md").
 - For code examples,

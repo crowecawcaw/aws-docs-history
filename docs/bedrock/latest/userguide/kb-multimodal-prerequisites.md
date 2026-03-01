@@ -1,6 +1,4 @@
-# Prerequisites for multimodal knowledge
-
-bases
+# Prerequisites for multimodal knowledge bases
 
 Amazon Bedrock multimodal knowledge bases require additional setup beyond standard knowledge
 bases to process images, audio, and video content. The specific prerequisites depend on
@@ -12,8 +10,7 @@ prerequisites:
 ###### Topics
 
 - [Prerequisites](#kb-multimodal-prerequisites "#kb-multimodal-prerequisites")
-- [Permissions for multimodal
-  content](#kb-multimodal-prerequisites-permissions "#kb-multimodal-prerequisites-permissions")
+- [Permissions for multimodal content](#kb-multimodal-prerequisites-permissions "#kb-multimodal-prerequisites-permissions")
 
 ## Prerequisites
 
@@ -23,8 +20,7 @@ prerequisites:
    vector store](knowledge-base-setup.md "knowledge-base-setup.md"). You can skip this step if you plan to use the
    AWS Management Console to automatically create a vector store for you.
 3. Create a custom AWS Identity and Access Management (IAM) [service role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role") with the proper permissions for multimodal
-   processing. See [Permissions for multimodal
-   content](#kb-multimodal-prerequisites-permissions "#kb-multimodal-prerequisites-permissions") for
+   processing. See [Permissions for multimodal content](#kb-multimodal-prerequisites-permissions "#kb-multimodal-prerequisites-permissions") for
    details.
 
 ###### Note
@@ -35,9 +31,7 @@ permissions for you. 4. (Optional) Set up extra security configurations by follo
 BDA-processed content, request access to the models that you'll use in the
 Regions that you'll use them in by following the steps at [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
 
-## Permissions for multimodal
-
-content
+## Permissions for multimodal content
 
 Multimodal knowledge bases require additional permissions beyond standard
 knowledge base permissions. The specific permissions depend on your chosen
@@ -63,9 +57,7 @@ approach:
 
 For detailed IAM policies and step-by-step permission configuration, see [Permissions for multimodal content](kb-permissions.md#kb-permissions-multimodal "kb-permissions.md#kb-permissions-multimodal").
 
-### Storage
-
-requirements
+### Storage requirements
 
 **Nova Multimodal Embeddings**
 

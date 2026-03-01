@@ -18,5 +18,5 @@ Double curly braces `{{}}` are used to indicate where data from your prompt data
 - [Anthropic Claude 3.7 Sonnet](model-evaluation-type-kb-prompt-kb-sonnet-37.md "model-evaluation-type-kb-prompt-kb-sonnet-37.md")
 - [Anthropic Claude 3 Haiku](model-evaluation-type-kb-haiku.md "model-evaluation-type-kb-haiku.md")
 - [Anthropic Claude 3.5 Haiku](model-evaluation-type-kb-haiku35.md "model-evaluation-type-kb-haiku35.md")
-- [MetaLlama 3.1 70B Instruct](model-evaluation-type-kb-llama.md "model-evaluation-type-kb-llama.md")
+- [Meta Llama 3.1 70B Instruct](model-evaluation-type-kb-llama.md "model-evaluation-type-kb-llama.md")
 - [Mistral Large 1 (24.02)](model-evaluation-type-kb-prompt-kb-mistral.md "model-evaluation-type-kb-prompt-kb-mistral.md")

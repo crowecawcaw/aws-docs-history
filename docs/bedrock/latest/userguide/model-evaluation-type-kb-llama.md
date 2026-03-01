@@ -1,4 +1,4 @@
-# MetaLlama 3.1 70B Instruct
+# Meta Llama 3.1 70B Instruct
 
 Prompts used with Meta Llama 3.1 70B Instruct
 

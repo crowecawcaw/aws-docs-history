@@ -9,8 +9,7 @@ Carry out the following steps to configure and use a VPC for importing your cust
 
 - [Set up a VPC](#create-vpc-cmi "#create-vpc-cmi")
 - [Create an Amazon S3 VPC Endpoint](#train-vpc-s3-cmi "#train-vpc-s3-cmi")
-- [(Optional) Use IAM policies to restrict access
-  to your S3 files](#train-vpc-policy-cmi "#train-vpc-policy-cmi")
+- [(Optional) Use IAM policies to restrict access to your S3 files](#train-vpc-policy-cmi "#train-vpc-policy-cmi")
 - [Attach VPC permissions to a custom model import role.](#vpc-data-access-role-cmi "#vpc-data-access-role-cmi")
 - [Add the VPC configuration when submitting a model import job](#vpc-config-cmi "#vpc-config-cmi")
 
@@ -33,9 +32,7 @@ Create the S3 VPC endpoint by following the steps at [Create a gateway endpoint 
 
 If you don't use the default DNS settings for your VPC, you need to ensure that the URLs for the locations of the data in your training jobs resolve by configuring the endpoint route tables. For information about VPC endpoint route tables, see [Routing for Gateway endpoints](../../../AmazonVPC/latest/UserGuide/vpce-gateway.md#vpc-endpoints-routing "../../../AmazonVPC/latest/UserGuide/vpce-gateway.md#vpc-endpoints-routing").
 
-## (Optional) Use IAM policies to restrict access
-
-to your S3 files
+## (Optional) Use IAM policies to restrict access to your S3 files
 
 You can use [resource-based policies](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md")
 to more tightly control access to your S3 files. You can the following type of resource-based policy.

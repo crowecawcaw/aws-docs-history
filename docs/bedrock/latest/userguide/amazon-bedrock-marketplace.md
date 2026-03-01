@@ -27,22 +27,18 @@ You can access the Amazon Bedrock Marketplace models from the:
 After you set up Amazon Bedrock Marketplace, you can either use the code we provide for your
 entire workflow or get started using the AWS Management Console.
 
-For code that runs an end-to-end workflow, see [End-to-end
-workflow](bedrock-marketplace-end-to-end-workflow.md "bedrock-marketplace-end-to-end-workflow.md"). To get started using the
+For code that runs an end-to-end workflow, see [End-to-end workflow](bedrock-marketplace-end-to-end-workflow.md "bedrock-marketplace-end-to-end-workflow.md"). To get started using the
 AWS Management Console, see [Discover a model](bedrock-marketplace-discover-a-model.md "bedrock-marketplace-discover-a-model.md").
 
 ###### Topics
 
 - [Set up Amazon Bedrock Marketplace](setup-amazon-bedrock-marketplace.md "setup-amazon-bedrock-marketplace.md")
 - [Controlling Access to Amazon Bedrock Marketplace Models](control-amazon-bedrock-marketplace.md "control-amazon-bedrock-marketplace.md")
-- [End-to-end
-  workflow](bedrock-marketplace-end-to-end-workflow.md "bedrock-marketplace-end-to-end-workflow.md")
+- [End-to-end workflow](bedrock-marketplace-end-to-end-workflow.md "bedrock-marketplace-end-to-end-workflow.md")
 - [Discover a model](bedrock-marketplace-discover-a-model.md "bedrock-marketplace-discover-a-model.md")
 - [Subscribe to a model](bedrock-marketplace-subscribe-to-a-model.md "bedrock-marketplace-subscribe-to-a-model.md")
 - [Deploy a model](bedrock-marketplace-deploy-a-model.md "bedrock-marketplace-deploy-a-model.md")
-- [Bring your own
-  endpoint](bedrock-marketplace-bring-your-own-endpoint.md "bedrock-marketplace-bring-your-own-endpoint.md")
+- [Bring your own endpoint](bedrock-marketplace-bring-your-own-endpoint.md "bedrock-marketplace-bring-your-own-endpoint.md")
 - [Call the endpoint](bedrock-marketplace-call-the-endpoint.md "bedrock-marketplace-call-the-endpoint.md")
-- [Manage your
-  endpoints](bedrock-marketplace-manage-your-endpoints.md "bedrock-marketplace-manage-your-endpoints.md")
+- [Manage your endpoints](bedrock-marketplace-manage-your-endpoints.md "bedrock-marketplace-manage-your-endpoints.md")
 - [Model compatibility](bedrock-marketplace-model-reference.md "bedrock-marketplace-model-reference.md")

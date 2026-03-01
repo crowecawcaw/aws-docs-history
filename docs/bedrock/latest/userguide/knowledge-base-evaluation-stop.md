@@ -1,6 +1,4 @@
-# Stop a RAG evaluation job in
-
-Amazon Bedrock
+# Stop a RAG evaluation job in Amazon Bedrock
 
 You can stop a Retrieval Augmented Generation (RAG) evaluation job that is currently processing so that you can
 easily reconfigure your evaluation and chosen metrics, for example.

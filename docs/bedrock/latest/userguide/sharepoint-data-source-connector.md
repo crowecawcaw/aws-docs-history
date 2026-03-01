@@ -1,6 +1,4 @@
-# Connect to Microsoft SharePoint for your
-
-knowledge base
+# Connect to Microsoft SharePoint for your knowledge base
 
 Microsoft SharePoint is a collaborative web-based service for working on documents, web pages,
 web sites, lists, and more. You can connect to your SharePoint instance for your Amazon Bedrock
@@ -37,9 +35,7 @@ bases](quotas.md "quotas.md").
 
 ## Prerequisites
 
-### SharePoint
-
-(Online)
+### SharePoint (Online)
 
 **In your SharePoint (Online), complete the following steps
 for using SharePoint App-Only authentication:**
@@ -335,9 +331,7 @@ website.
 To complete the pre-requisites, make sure that you've completed the steps in
 [AWS account](#prerequisites-sharepoint-connector-account "#prerequisites-sharepoint-connector-account").
 
-### Secret authentication
-
-credentials
+### Secret authentication credentials
 
 For connection configuration for OAuth2.0, you can perform the same steps for
 the auto detection of the main document fields, inclusion/exclusion filters, and
@@ -356,9 +350,7 @@ ID`
 - `clientSecret`: `OAuth app client
 secret`
 
-### Connect a SharePoint
-
-instance to your knowledge base
+### Connect a SharePoint instance to your knowledge base
 
 To connect a SharePoint instance to your knowledge base when using
 OAuth2.0:

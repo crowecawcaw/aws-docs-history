@@ -9,8 +9,7 @@ inference operations ([InvokeModel](../APIReference/API_runtime_InvokeModel.md "
 or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")). However, we recommend that you use the
 Converse API to implement messages in your application. The Converse API
 provides a unified set of parameters that work across all models that support messages.
-For more information, see [Carry out a conversation with the
-Converse API operations](conversation-inference.md "conversation-inference.md").
+For more information, see [Carry out a conversation with the Converse API operations](conversation-inference.md "conversation-inference.md").
 
 Mistral AI models are available under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0.txt "https://www.apache.org/licenses/LICENSE-2.0.txt"). For
 more information about using Mistral AI models, see the [Mistral AI documentation](https://docs.mistral.ai/ "https://docs.mistral.ai/").

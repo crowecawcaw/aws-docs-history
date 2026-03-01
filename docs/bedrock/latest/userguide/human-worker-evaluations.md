@@ -1,6 +1,4 @@
-# Manage a work team for human evaluations of
-
-models in Amazon Bedrock
+# Manage a work team for human evaluations of models in Amazon Bedrock
 
 For evaluation jobs that use human workers you need to have a work team. A work team is a
 group of workers that _you_ choose. These can be employees of your
@@ -40,9 +38,7 @@ workers to your evaluation job use the Amazon Cognito console or the Ground Trut
 must be separated by a comma. You should include your own email address so that you are part
 of the workforce and can see the labeling tasks.
 
-## Create instructions for human
-
-workers
+## Create instructions for human workers
 
 Creating good instructions for your model evaluation jobs improves your worker's
 accuracy in completing their task. You can modify the default instructions that are

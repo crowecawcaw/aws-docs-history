@@ -34,8 +34,7 @@ Console
 
 ![Three horizontal sliders with adjustable circular controls for settings or parameters.](images/icons/configurations.png)
 
-) to open up **Configurations**. For information about configurations, see [Configure and customize queries and response
-generation](kb-test-config.md "kb-test-config.md"). 7. Enter a query in the text box in the chat window and select **Run** to return responses from the knowledge base. 8. Select a footnote to see an excerpt from the cited source for that part of the response. Choose the link to navigate to the S3 object containing the file. 9. To see details about the returned chunks, select **Show source details**.
+) to open up **Configurations**. For information about configurations, see [Configure and customize queries and response generation](kb-test-config.md "kb-test-config.md"). 7. Enter a query in the text box in the chat window and select **Run** to return responses from the knowledge base. 8. Select a footnote to see an excerpt from the cited source for that part of the response. Choose the link to navigate to the S3 object containing the file. 9. To see details about the returned chunks, select **Show source details**.
 
     * To see the configurations that you set for query, expand **Query configurations**.
     * To view details about a source chunk, expand it by choosing the right arrow (
@@ -56,8 +55,7 @@ generation](kb-test-config.md "kb-test-config.md"). 7. Enter a query in the text
     	 ![Icon of a square with an arrow pointing outward from its top-right corner.](images/icons/external.png)
 
     	 ) to navigate to the S3 object containing the file.
-    	+ The metadata associated with the source chunk, if you used Amazon S3 to store your data. The attribute/field keys and values are defined in the `.metadata.json` file that's associated with the source document. For more information, see the **Metadata and filtering** section in [Configure and customize queries and response
-    	 generation](kb-test-config.md "kb-test-config.md").
+    	+ The metadata associated with the source chunk, if you used Amazon S3 to store your data. The attribute/field keys and values are defined in the `.metadata.json` file that's associated with the source document. For more information, see the **Metadata and filtering** section in [Configure and customize queries and response generation](kb-test-config.md "kb-test-config.md").
 
 ###### Chat options
 
@@ -121,8 +119,7 @@ You can use a reranking model over the default Amazon Bedrock Knowledge Bases ra
 
 ###### Note
 
-If you the `numberOfRerankedResults` value that you specify is greater than the `numberOfResults` value in the [KnowledgeBaseVectorSearchConfiguration](../APIReference/API_agent-runtime_KnowledgeBaseVectorSearchConfiguration.md "../APIReference/API_agent-runtime_KnowledgeBaseVectorSearchConfiguration.md"), the maximum number of results that will be returned is the value for `numberOfResults`. An exception is if you use query decomposition (for more information, see the **Query modifications** section in [Configure and customize queries and response
-generation](kb-test-config.md "kb-test-config.md"). If you use query decomposition, the `numberOfRerankedResults` can be up to five times the `numberOfResults`.
+If you the `numberOfRerankedResults` value that you specify is greater than the `numberOfResults` value in the [KnowledgeBaseVectorSearchConfiguration](../APIReference/API_agent-runtime_KnowledgeBaseVectorSearchConfiguration.md "../APIReference/API_agent-runtime_KnowledgeBaseVectorSearchConfiguration.md"), the maximum number of results that will be returned is the value for `numberOfResults`. An exception is if you use query decomposition (for more information, see the **Query modifications** section in [Configure and customize queries and response generation](kb-test-config.md "kb-test-config.md"). If you use query decomposition, the `numberOfRerankedResults` can be up to five times the `numberOfResults`.
 
 The response returns the generated response in the `output` field and the cited source chunks as an array in the `citations` field. Each [Citation](../APIReference/API_agent-runtime_Citation.md "../APIReference/API_agent-runtime_Citation.md") object contains the following fields.
 
@@ -148,10 +145,7 @@ You can't filter on these metadata response headers when [configuring metadata f
 
 If you receive an error that the prompt exceeds the character limit while generating responses, you can shorten the prompt in the following ways:
 
-- Reduce the maximum number of retrieved results (this shortens what is filled in for the $search\_results$ placeholder in the [Knowledge base prompt templates:
-  orchestration & generation](kb-test-config.md#kb-test-config-prompt-template "kb-test-config.md#kb-test-config-prompt-template")).
-- Recreate the data source with a chunking strategy that uses smaller chunks (this shortens what is filled in for the $search\_results$ placeholder in the [Knowledge base prompt templates:
-  orchestration & generation](kb-test-config.md#kb-test-config-prompt-template "kb-test-config.md#kb-test-config-prompt-template")).
+- Reduce the maximum number of retrieved results (this shortens what is filled in for the $search\_results$ placeholder in the [Knowledge base prompt templates: orchestration & generation](kb-test-config.md#kb-test-config-prompt-template "kb-test-config.md#kb-test-config-prompt-template")).
+- Recreate the data source with a chunking strategy that uses smaller chunks (this shortens what is filled in for the $search\_results$ placeholder in the [Knowledge base prompt templates: orchestration & generation](kb-test-config.md#kb-test-config-prompt-template "kb-test-config.md#kb-test-config-prompt-template")).
 - Shorten the prompt template.
-- Shorten the user query (this shortens what is filled in for the $query$ placeholder in the [Knowledge base prompt templates:
-  orchestration & generation](kb-test-config.md#kb-test-config-prompt-template "kb-test-config.md#kb-test-config-prompt-template")).
+- Shorten the user query (this shortens what is filled in for the $query$ placeholder in the [Knowledge base prompt templates: orchestration & generation](kb-test-config.md#kb-test-config-prompt-template "kb-test-config.md#kb-test-config-prompt-template")).

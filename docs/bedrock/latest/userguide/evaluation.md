@@ -55,17 +55,12 @@ evaluation jobs support using the following types of Amazon Bedrock models:
 
 ###### Topics
 
-- [Supported Regions and models for model
-  evaluation](evaluation-support.md "evaluation-support.md")
+- [Supported Regions and models for model evaluation](evaluation-support.md "evaluation-support.md")
 - [Creating an automatic model evaluation job in Amazon Bedrock](evaluation-automatic.md "evaluation-automatic.md")
 - [Creating a model evaluation job that use human workers in Amazon Bedrock](evaluation-human.md "evaluation-human.md")
 - [Evaluate model performance using another LLM as a judge](evaluation-judge.md "evaluation-judge.md")
-- [Evaluate the performance of RAG sources using
-  Amazon Bedrock evaluations](evaluation-kb.md "evaluation-kb.md")
-- [Required Cross Origin Resource Sharing
-  (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md")
+- [Evaluate the performance of RAG sources using Amazon Bedrock evaluations](evaluation-kb.md "evaluation-kb.md")
+- [Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md")
 - [Review model evaluation job reports and metrics in Amazon Bedrock](model-evaluation-report.md "model-evaluation-report.md")
-- [Data management and encryption in Amazon Bedrock
-  evaluation job](evaluation-data-management.md "evaluation-data-management.md")
-- [CloudTrail management events in model
-  evaluation jobs](cloudtrail-events-in-model-evaluations.md "cloudtrail-events-in-model-evaluations.md")
+- [Data management and encryption in Amazon Bedrock evaluation job](evaluation-data-management.md "evaluation-data-management.md")
+- [CloudTrail management events in model evaluation jobs](cloudtrail-events-in-model-evaluations.md "cloudtrail-events-in-model-evaluations.md")

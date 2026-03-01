@@ -17,9 +17,7 @@ case. Guardrails are ineffective with languages that aren't supported.
   supporting the particular policy are tested but not tuned for the specific
   language.
 
-## Content filters and
-
-prompt attacks language support
+## Content filters and prompt attacks language support
 
 Language support for [text-based content
 filters](guardrails-content-filters.md "guardrails-content-filters.md") and prompt attacks varies depending on the [safeguard tier](guardrails-tiers.md "guardrails-tiers.md") you use.
@@ -243,9 +241,7 @@ Classic tier supports the following languages for denied topics:
 | French   | Optimized and supported |
 | Spanish  | Optimized and supported |
 
-## Word filters language
-
-support
+## Word filters language support
 
 [Word filters](guardrails-word-filters.md "guardrails-word-filters.md") support the following
 languages.
@@ -256,9 +252,7 @@ languages.
 | French   | Supported     |
 | Spanish  | Supported     |
 
-## Sensitive information
-
-filters language support
+## Sensitive information filters language support
 
 [Sensitive information filters](guardrails-sensitive-filters.md "guardrails-sensitive-filters.md")
 support the following languages.

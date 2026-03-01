@@ -16,8 +16,7 @@ To use Amazon Bedrock Model Distillation, you do the following:
    stored in `.jsonl` files. Amazon Bedrock uses the input data to generate responses from the teacher
    model and uses the responses to fine-tune the student model.
    - **Optimize prompts** – Format your input prompts for
-     the use case that you want. For more information, see [Optimize your input prompts for
-     synthetic data generation](distillation-prepare-datasets.md#distillation-data-prep-prompt-optimization "distillation-prepare-datasets.md#distillation-data-prep-prompt-optimization").
+     the use case that you want. For more information, see [Optimize your input prompts for synthetic data generation](distillation-prepare-datasets.md#distillation-data-prep-prompt-optimization "distillation-prepare-datasets.md#distillation-data-prep-prompt-optimization").
    - **Use labeled examples** – Prepare labeled input data as prompt-response pairs. Amazon Bedrock can use these pairs as
      golden examples while generating responses from the teacher model. For more information, see
      [Option 1: Provide your own prompts for data preparation](distillation-data-prep-option-1.md "distillation-data-prep-option-1.md").
@@ -26,8 +25,7 @@ To use Amazon Bedrock Model Distillation, you do the following:
 
 3. **Create a distillation job** – This job creates a smaller, faster, and more cost-effective model for your
    use case. Only you can access the final distilled model. Amazon Bedrock doesn't use your data to train any other
-   teacher or student model for public use. For more information, see [Submit a model distillation job in
-   Amazon Bedrock](submit-model-distillation-job.md "submit-model-distillation-job.md"). For more information on setting up on demand inference, see [Set up inference for a custom model](model-customization-use.md "model-customization-use.md").
+   teacher or student model for public use. For more information, see [Submit a model distillation job in Amazon Bedrock](submit-model-distillation-job.md "submit-model-distillation-job.md"). For more information on setting up on demand inference, see [Set up inference for a custom model](model-customization-use.md "model-customization-use.md").
 
 ## How Amazon Bedrock Model Distillation works
 

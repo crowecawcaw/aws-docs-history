@@ -15,10 +15,8 @@ Multimodal data is only supported with Amazon S3 and custom data sources. For co
 
 ###### Topics
 
-- [Prerequisites for creating an Amazon Bedrock knowledge
-  base with a unstructured data source](knowledge-base-prereq.md "knowledge-base-prereq.md")
-- [Prerequisites and permissions required for using
-  OpenSearch Managed Clusters with Amazon Bedrock Knowledge Bases](kb-osm-permissions-prereq.md "kb-osm-permissions-prereq.md")
+- [Prerequisites for creating an Amazon Bedrock knowledge basewith a unstructured data source](knowledge-base-prereq.md "knowledge-base-prereq.md")
+- [Prerequisites and permissions required for using OpenSearch Managed Clusters with Amazon Bedrock Knowledge Bases](kb-osm-permissions-prereq.md "kb-osm-permissions-prereq.md")
 - [Create a knowledge base by connecting to a data source in Amazon Bedrock Knowledge Bases](knowledge-base-create.md "knowledge-base-create.md")
 - [Sync your data with your Amazon Bedrock knowledge base](kb-data-source-sync-ingest.md "kb-data-source-sync-ingest.md")
 - [Ingest changes directly into a knowledge base](kb-direct-ingestion.md "kb-direct-ingestion.md")

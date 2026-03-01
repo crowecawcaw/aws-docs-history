@@ -13,8 +13,7 @@ When you create an evaluation job with one or more custom metrics, Amazon Bedroc
 `s3://`S3-output-bucket-name`/`job-name`/`job-uuid`/custom_metrics`. To see the format for
 JSON definitions of custom metrics, see [Creating a JSON file to create a custom metric](model-evaluation-custom-metrics-prompt-formats.md#model-evaluation-custom-metrics-prompt-formats-json "model-evaluation-custom-metrics-prompt-formats.md#model-evaluation-custom-metrics-prompt-formats-json").
 
-To create a job using the following instructions, you also need a prompt dataset. If you haven't already created one, see [Create a prompt dataset for a RAG
-evaluation in Amazon Bedrock](knowledge-base-evaluation-prompt.md "knowledge-base-evaluation-prompt.md").
+To create a job using the following instructions, you also need a prompt dataset. If you haven't already created one, see [Create a prompt dataset for a RAG evaluation in Amazon Bedrock](knowledge-base-evaluation-prompt.md "knowledge-base-evaluation-prompt.md").
 
 For a list of supported evaluator models, see [Supported models](evaluation-kb.md#evaluation-kb-supported "evaluation-kb.md#evaluation-kb-supported").
 To learn more about accessing models, see [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
@@ -100,8 +99,7 @@ To create a metric from a JSON file, do the following:
 14. Define your input and output locations for your dataset and results by doing the following:
     1.  In the **Datasets** pane under **Choose a prompt dataset**, enter the Amazon S3 URI for your prompt dataset,
         or choose **Browse S3** and select your file. To see a definition of the required prompt dataset format for a retrieve-only
-        evaluation job, see [Create a prompt dataset
-        for retrieve-only RAG evaluation jobs](knowledge-base-evaluation-prompt-retrieve.md "knowledge-base-evaluation-prompt-retrieve.md").
+        evaluation job, see [Create a prompt dataset for retrieve-only RAG evaluation jobs](knowledge-base-evaluation-prompt-retrieve.md "knowledge-base-evaluation-prompt-retrieve.md").
     2.  Under **Evaluation results**, enter an Amazon S3 location for Amazon Bedrock to save your results, or choose **Browse S3** to
         select a location.
 

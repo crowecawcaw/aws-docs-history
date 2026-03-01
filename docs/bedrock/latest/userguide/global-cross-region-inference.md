@@ -5,9 +5,7 @@ boundaries, enabling the routing of inference requests to supported commercial
 AWS Regions worldwide, optimizing available resources and enabling higher model
 throughput.
 
-## Benefits of global cross-Region
-
-inference
+## Benefits of global cross-Region inference
 
 Global cross-Region inference for Anthropic's Claude Sonnet 4.5 delivers multiple
 advantages over traditional geographic cross-Region inference profiles:
@@ -46,9 +44,7 @@ advantages over traditional geographic cross-Region inference profiles:
   resources, making it less complicated to handle high-volume workloads and
   sudden traffic spikes.
 
-## Global cross-Region inference
-
-considerations
+## Global cross-Region inference considerations
 
 Note the following information about Global cross-Region inference:
 
@@ -68,9 +64,7 @@ You can request, view, and manage quotas for the Global Cross-Region
 Inference Profile from the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/bedrock/quotas "https://console.aws.amazon.com/servicequotas/home/services/bedrock/quotas") or by using AWS CLI commands in your
 **source region**.
 
-## IAM policy requirements for global
-
-cross-Region inference
+## IAM policy requirements for global cross-Region inference
 
 To enable global cross-Region inference for your users, you must apply a
 three-part IAM policy to the role. The following is an example IAM policy to
@@ -148,9 +142,7 @@ Names (ARNs) are included in your IAM statements:
 The global FM ARN has no AWS Region or account specified, which is intentional
 and required for the cross-Region functionality.
 
-### Disable global cross-Region
-
-inference
+### Disable global cross-Region inference
 
 You can choose from two primary approaches to implement deny policies to
 global CRIS for specific IAM roles, each with different use cases and
@@ -182,9 +174,7 @@ destination AWS Region. However, as mentioned earlier,
 `"aws:RequestedRegion": "unspecified"` will result in the deny
 effect.
 
-## Service Control Policy requirements for
-
-Global cross-Region inference
+## Service Control Policy requirements for Global cross-Region inference
 
 For Global cross-Region inference, if your organization's security policy uses
 SCPs to block unused Regions, you must update your region-specific SCP conditions to
@@ -220,9 +210,7 @@ while allowing Amazon Bedrock Global cross-Region inference calls that use
 }
 ```
 
-### Disable global cross-Region
-
-inference
+### Disable global cross-Region inference
 
 Organizations with data residency or compliance requirements should assess
 whether Global cross-Region inference fits their compliance framework, since
@@ -265,9 +253,7 @@ environments](https://aws.amazon.com/blogs/machine-learning/enable-amazon-bedroc
 enabling denied regions with custom SCPs, and using Customizations for AWS
 Control Tower (CfCT) to deploy custom SCPs as infrastructure as code.
 
-## Request limit increases for global cross-Region
-
-inference
+## Request limit increases for global cross-Region inference
 
 When using global CRIS inference profiles, you can use global CRIS from over 20
 supported source AWS Regions. Because this will be a global limit, requests to
@@ -340,9 +326,7 @@ Global cross-Region inference is supported for:
 Global inference profile is supported for On-demand model inference, Batch
 inference, Agents, Model evaluation, Prompt management, and Prompt flows.
 
-## Implement global cross-Region
-
-inference
+## Implement global cross-Region inference
 
 Implementing global cross-Region inference with Anthropic's Claude Sonnet 4.5 is
 straightforward, requiring only a few changes to your existing application code. The

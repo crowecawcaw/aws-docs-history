@@ -1,6 +1,4 @@
-# Manage your
-
-endpoints
+# Manage your endpoints
 
 You view and manage your Amazon Bedrock Marketplace model endpoints in the following
 ways:
@@ -11,9 +9,7 @@ ways:
   You can also register and de-register endpoints of Amazon Bedrock Marketplace models that you
   created from SageMaker AI.
 
-###### To manage your
-
-endpoints
+###### To manage your endpoints
 
 1. Sign in to the AWS Management Console using an IAM role with Amazon Bedrock permissions.
 2. In the search bar, specify "Amazon Bedrock" and choose **Amazon Bedrock** from

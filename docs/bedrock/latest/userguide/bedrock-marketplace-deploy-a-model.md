@@ -17,9 +17,7 @@ Alternatively, you can choose an existing role or create a new one. To learn how
 deploy an Amazon Bedrock Marketplace model, select the tab corresponding to your method of choice
 and follow the steps.
 
-###### To deploy a
-
-model
+###### To deploy a model
 
 1. Sign in to the AWS Management Console using an IAM role with Amazon Bedrock permissions.
 2. In the search bar, specify "Amazon Bedrock" and choose the **Amazon Bedrock**

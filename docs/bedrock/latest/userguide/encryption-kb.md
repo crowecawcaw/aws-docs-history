@@ -27,8 +27,7 @@ and vector stores where the provider permits and supports TLS encryption in tran
 - [Encryption of information passed to Amazon OpenSearch Service](#encryption-kb-oss "#encryption-kb-oss")
 - [Encryption of information passed to Amazon S3 Vectors](#encryption-kb-s3-vector "#encryption-kb-s3-vector")
 - [Encryption of knowledge base retrieval](#encryption-kb-runtime "#encryption-kb-runtime")
-- [Permissions to decrypt your AWS KMS key for your data sources in
-  Amazon S3](#encryption-kb-ds "#encryption-kb-ds")
+- [Permissions to decrypt your AWS KMS key for your data sources in Amazon S3](#encryption-kb-ds "#encryption-kb-ds")
 - [Permissions to decrypt an AWS Secrets Manager secret for the vector store containing your knowledge base](#encryption-kb-3p "#encryption-kb-3p")
 - [Permissions for Bedrock Data Automation (BDA) with AWS KMS encryption](#encryption-kb-bda "#encryption-kb-bda")
 
@@ -97,9 +96,7 @@ JSON
 
 ```
 
-## Permissions to decrypt your AWS KMS key for your data sources in
-
-Amazon S3
+## Permissions to decrypt your AWS KMS key for your data sources in Amazon S3
 
 You store the data sources for your knowledge base in your Amazon S3 bucket. To encrypt these documents at rest, you
 can use the Amazon S3 SSE-S3 server-side encryption option. With this option, objects are

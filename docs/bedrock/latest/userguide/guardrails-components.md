@@ -58,17 +58,11 @@ iterate on your guardrail later by following the steps at [Modify your guardrail
 
 ###### Topics
 
-- [Configure content filters for
-  Amazon Bedrock Guardrails](guardrails-content-filters-overview.md "guardrails-content-filters-overview.md")
-- [Block denied topics to help remove harmful
-  content](guardrails-denied-topics.md "guardrails-denied-topics.md")
-- [Remove a specific list of words and phrases
-  from conversations with word filters](guardrails-word-filters.md "guardrails-word-filters.md")
-- [Remove PII from conversations by using
-  sensitive information filters](guardrails-sensitive-filters.md "guardrails-sensitive-filters.md")
-- [Use contextual grounding check
-  to filter hallucinations in responses](guardrails-contextual-grounding-check.md "guardrails-contextual-grounding-check.md")
-- [Options for handling
-  harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md")
+- [Configure content filters for Amazon Bedrock Guardrails](guardrails-content-filters-overview.md "guardrails-content-filters-overview.md")
+- [Block denied topics to help remove harmful content](guardrails-denied-topics.md "guardrails-denied-topics.md")
+- [Remove a specific list of words and phrases from conversations with word filters](guardrails-word-filters.md "guardrails-word-filters.md")
+- [Remove PII from conversations by using sensitive information filters](guardrails-sensitive-filters.md "guardrails-sensitive-filters.md")
+- [Use contextual grounding check to filter hallucinations in responses](guardrails-contextual-grounding-check.md "guardrails-contextual-grounding-check.md")
+- [Options for handling harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md")
 - [What are Automated Reasoning checks in Amazon Bedrock Guardrails?](guardrails-automated-reasoning-checks.md "guardrails-automated-reasoning-checks.md")
 - [Code domain support](guardrails-code-domain.md "guardrails-code-domain.md")

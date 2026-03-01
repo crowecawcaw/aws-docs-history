@@ -1,14 +1,10 @@
-# Invoke an AWS Lambda function from an Amazon Bedrock
-
-flow in a different AWS account
+# Invoke an AWS Lambda function from an Amazon Bedrock flow in a different AWS account
 
 An Amazon Bedrock flow can invoke a AWS Lambda function that is in a different AWS account from
 the flow. Use the following procedure to configure the Lambda function (_Account
 A_) and the flow (_Account B_).
 
-###### To configure a flow flow to call a Lambda
-
-function in a different AWS account
+###### To configure a flow flow to call a Lambda function in a different AWS account
 
 1. In Account A (Lambda function), add a resource-based policy to the Lambda
    function, using the Flow Execution Role from Account B as the principal. For more

@@ -6,8 +6,7 @@ This section also includes Python code examples that shows how to call Anthropic
 To get the model ID, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md"). Some
 models also work with the [Converse API](conversation-inference.md "conversation-inference.md").
 To check if the Converse API supports a specific Anthropic Claude model, see
-[Supported models and
-model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md"). For more code examples,
+[Supported models and model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md"). For more code examples,
 see [Code examples for Amazon Bedrock using AWS SDKs](service_code_examples.md "service_code_examples.md").
 
 Foundation models in Amazon Bedrock support input and output modalities, which vary from model to
@@ -19,8 +18,7 @@ When you make inference calls with Anthropic Claude models, you include a promp
 about creating prompts for the models that Amazon Bedrock supports, see [Prompt engineering concepts](prompt-engineering-guidelines.md "prompt-engineering-guidelines.md").
 For Anthropic Claude specific prompt information, see the [Anthropic Claude prompt engineering guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview").
 
-You can use Amazon Bedrock to send [Anthropic Claude Text Completions API](model-parameters-anthropic-claude-text-completion.md "model-parameters-anthropic-claude-text-completion.md") or [Anthropic Claude
-Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md") inference requests.
+You can use Amazon Bedrock to send [Anthropic Claude Text Completions API](model-parameters-anthropic-claude-text-completion.md "model-parameters-anthropic-claude-text-completion.md") or [Anthropic Claude Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md") inference requests.
 
 You use the messages API to create conversational applications, such as a virtual
 assistant or a coaching application. Use the text completion API for single-turn text
@@ -45,11 +43,9 @@ To avoid timeouts with Anthropic Claude version 2.1, we recommend limiting the i
 In the inference call, fill the
 `body` field with a JSON object that conforms
 the type call you want to make, [Anthropic Claude Text Completions API](model-parameters-anthropic-claude-text-completion.md "model-parameters-anthropic-claude-text-completion.md") or
-[Anthropic Claude
-Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md").
+[Anthropic Claude Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md").
 
 ###### Topics
 
 - [Anthropic Claude Text Completions API](model-parameters-anthropic-claude-text-completion.md "model-parameters-anthropic-claude-text-completion.md")
-- [Anthropic Claude
-  Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md")
+- [Anthropic Claude Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md")

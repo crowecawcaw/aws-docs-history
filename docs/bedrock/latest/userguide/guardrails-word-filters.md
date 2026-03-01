@@ -1,6 +1,4 @@
-# Remove a specific list of words and phrases
-
-from conversations with word filters
+# Remove a specific list of words and phrases from conversations with word filters
 
 Amazon Bedrock Guardrails has word filters that you can use to block words and phrases (exact match) in
 input prompts and model responses. You can use following word filters to block
@@ -27,9 +25,7 @@ You can only upload documents and objects using the AWS Management Console. API 
 operations only support text, and do not include the upload of documents and
 objects.
 
-## Configure word policy for your
-
-guardrail
+## Configure word policy for your guardrail
 
 You can configure word policies for your guardrail by using the AWS Management Console or Amazon Bedrock
 API.

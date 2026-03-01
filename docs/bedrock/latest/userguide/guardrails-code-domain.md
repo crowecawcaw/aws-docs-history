@@ -107,9 +107,7 @@ export class MockConfigPanel {
 
 ```
 
-### Sensitive Information Policy
-
-(PII)
+### Sensitive Information Policy (PII)
 
 **Text with coding intent:**
 

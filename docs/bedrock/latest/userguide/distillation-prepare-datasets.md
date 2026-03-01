@@ -1,6 +1,4 @@
-# Prepare your training datasets for
-
-distillation
+# Prepare your training datasets for distillation
 
 Before you can begin a model customization job, you need to minimally prepare a training
 dataset. To prepare input datasets for your custom model, you create `.jsonl`
@@ -194,9 +192,7 @@ To filter the logs using multiple request metadata, use a single operation
 Boolean operator AND, OR, or NOT. You cannot combine operations. For single
 request metadata filtering, use the Boolean operator NOT.
 
-## Add request metadata to prompts and responses in your
-
-invocation logs for model distillation
+## Add request metadata to prompts and responses in your invocation logs for model distillation
 
 The model invocation logging collects invocation logs, model input data (prompts), and model
 output data(responses) for all invocations used in Amazon Bedrock. If you've enabled logging, you
@@ -288,8 +284,7 @@ filtering, use the Boolean operator NOT.
 You can specify the invocation log as your input data source and what filters to use
 to select the prompt-response pairs when you start a model distillation job. You can
 start model distillation job in the Amazon Bedrock console, using the API, AWS CLI, or AWS SDK.
-For more information, see [Submit a model distillation job in
-Amazon Bedrock](submit-model-distillation-job.md "submit-model-distillation-job.md").
+For more information, see [Submit a model distillation job in Amazon Bedrock](submit-model-distillation-job.md "submit-model-distillation-job.md").
 
 ## Validate your dataset
 

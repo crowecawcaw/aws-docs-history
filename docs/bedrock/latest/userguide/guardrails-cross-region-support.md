@@ -1,6 +1,4 @@
-# Supported Regions for cross-Region
-
-guardrail inference
+# Supported Regions for cross-Region guardrail inference
 
 Cross-Region inference with Amazon Bedrock Guardrails lets you seamlessly manage unplanned traffic bursts by
 utilizing compute across different AWS Regions for your guardrail policy evaluations.

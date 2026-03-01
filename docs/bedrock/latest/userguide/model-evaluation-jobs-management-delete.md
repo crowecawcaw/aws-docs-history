@@ -26,8 +26,7 @@ Amazon Bedrock console
 Use the following procedure to delete model evaluation job using the Amazon Bedrock
 console. To successfully complete this procedure make sure that your IAM user,
 group, or role has the sufficient permissions to access the console. To learn
-more, see [Required console permissions to create an automatic
-model evaluation job](model-evaluation-type-automatic.md#base-for-automatic "model-evaluation-type-automatic.md#base-for-automatic").
+more, see [Required console permissions to create an automatic model evaluation job](model-evaluation-type-automatic.md#base-for-automatic "model-evaluation-type-automatic.md#base-for-automatic").
 
 ###### To delete multiple model evaluation jobs.
 

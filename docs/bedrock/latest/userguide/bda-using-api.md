@@ -48,7 +48,8 @@ The API validates the input configuration. It creates a new project with a uniqu
 There's a limit to the number of projects that can be created per AWS account. Certain
 combinations of settings may not be allowed or may require additional permissions.
 
-## Invoke Data Automation Async
+Async
+**Invoke Data Automation Async**
 
 You have a project set up, you can start processing images using the [InvokeDataAutomationAsync](../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md "../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md") operation. If using custom output, you can only submit a single blueprint ARN per request.
 
@@ -108,54 +109,38 @@ that will be treated as a full video for the data extraction. This time is set w
 starting millisecond and ending millisecond. This information is added in the `assetProcessingConfiguration`
 element.
 
-## Invoke Data Automation (Sync)
+Sync
+**Invoke Data Automation**
 
 Alternatively, you can use the [InvokeDataAutomation](../APIReference/API_data-automation-runtime_InvokeDataAutomation.md "../APIReference/API_data-automation-runtime_InvokeDataAutomation.md") operation. The `InvokeDataAutomation` operation only supports processing images.
 
 This API call initiates the synchronous processing of the provided via an S3 reference, or in the payload. The API accepts the project ARN and the file to be processed, and returns the structured insights in the response. Errors will be raised if the project doesn't exist, or if the caller doesn't have the necessary permissions, or if the input files aren't in a supported format. If the analyzed image is semantically classified as a document, this will also be raised as an error, because the InvokeDataAutomation only supports Images. To prevent this error, you may use Modality Routing on your project to force routing of all image file types as Images (see [Disabling modalities and routing file types](bda-routing-enablement.md "bda-routing-enablement.md")).
 
-Here is the structure of the JSON request:
+Here is the structure of the JSON request for both image and document. Sync API request supports
+both image bytes and S3 bucket. To use image bytes, simply replace `“s3Uri”: “string”` in “inputConfiguration” section with `“bytes“: “base64-encoded string“`
+`outputConfiguration` is optional with default is inline output. If S3 uri is provided as outputConfiguration, encrypted output will be put into the specified S3 bucket.
 
 ```
 {
    {
     "blueprints": [
        {
-          "blueprintArn": "string",
+          "blueprintArn": "string",  //use for image
           "stage": "string",
           "version": "string"
        }
     ],
-    "clientToken": "string",
     "dataAutomationConfiguration": {
        "dataAutomationProjectArn": "string",
        "stage": "string"
     },
     "dataAutomationProfileArn": "string",
-    "encryptionConfiguration": {
-       "kmsEncryptionContext": {
-          "string" : "string"
-       },
-       "kmsKeyId": "string"
-    },
     "inputConfiguration": {
-       "assetProcessingConfiguration": {
-          "video": {
-             "segmentConfiguration": { ... }
-          }
+          "s3Uri": "string"
+    },
+    "outputConfiguration": {
        "s3Uri": "string"
-    },
-    "notificationConfiguration": {
-       "eventBridgeConfiguration": {
-          "eventBridgeEnabled": boolean
-       }
-    },
-    "tags": [
-       {
-          "key": "string",
-          "value": "string"
-       }
-    ]
+    }
  }
 }
 ```
@@ -364,8 +349,7 @@ The results of the file processing are stored in the S3 bucket configured for th
 images. The output includes unique structures depending on both the file modality and the
 operation types specified in the call to InvokeDataAutomationAsync.
 
-For information on the standard outputs for a given modality, see [Standard output in Bedrock Data
-Automation](bda-standard-output.md "bda-standard-output.md").
+For information on the standard outputs for a given modality, see [Standard output in Bedrock Data Automation](bda-standard-output.md "bda-standard-output.md").
 
 As an example, for images it can include information on the following:
 

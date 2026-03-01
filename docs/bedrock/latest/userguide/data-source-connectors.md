@@ -36,8 +36,7 @@ Select a topic to learn more about a service and configuring it.
 
 - [Connect to Amazon S3 for your knowledge base](s3-data-source-connector.md "s3-data-source-connector.md")
 - [Connect to Confluence for your knowledge base](confluence-data-source-connector.md "confluence-data-source-connector.md")
-- [Connect to Microsoft SharePoint for your
-  knowledge base](sharepoint-data-source-connector.md "sharepoint-data-source-connector.md")
+- [Connect to Microsoft SharePoint for your knowledge base](sharepoint-data-source-connector.md "sharepoint-data-source-connector.md")
 - [Connect to Salesforce for your knowledge base](salesforce-data-source-connector.md "salesforce-data-source-connector.md")
 - [Crawl web pages for your knowledge base](webcrawl-data-source-connector.md "webcrawl-data-source-connector.md")
 - [Connect your knowledge base to a custom data source](custom-data-source-connector.md "custom-data-source-connector.md")

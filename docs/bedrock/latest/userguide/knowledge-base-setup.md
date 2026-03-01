@@ -1,6 +1,4 @@
-# Prerequisites for using a vector store you created for a
-
-knowledge base
+# Prerequisites for using a vector store you created for a knowledge base
 
 To store the vector embeddings that your documents are converted to, you use a vector
 store. Amazon Bedrock Knowledge Bases supports a quick-create flow for some of the vector stores, so if you prefer
@@ -130,8 +128,7 @@ Amazon OpenSearch Service Managed Clusters
 
 - Before using any domain resources in OpenSearch Managed clusters, you need
   to configure certain IAM access permissions and policies. For more information,
-  see [Prerequisites and permissions required for using
-  OpenSearch Managed Clusters with Amazon Bedrock Knowledge Bases](kb-osm-permissions-prereq.md "kb-osm-permissions-prereq.md").
+  see [Prerequisites and permissions required for using OpenSearch Managed Clusters with Amazon Bedrock Knowledge Bases](kb-osm-permissions-prereq.md "kb-osm-permissions-prereq.md").
 - If you encounter data ingestion failures, it might
   indicate insufficient OpenSearch domain capacity. To resolve this issue, increase your
   domain's capacity by provisioning higher IOPS and by increasing the throughput settings.

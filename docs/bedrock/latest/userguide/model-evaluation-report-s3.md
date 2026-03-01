@@ -1,6 +1,4 @@
-# Understand how the results of your
-
-model evaluation job are saved in Amazon S3
+# Understand how the results of your model evaluation job are saved in Amazon S3
 
 The output from a model evaluation job is saved in the Amazon S3 bucket you specified
 when you created the model evaluation job. Results of model evaluation jobs are
@@ -23,9 +21,7 @@ JSON definitions of custom metrics, see [Creating a JSON file to create a custom
 The following topics describe how the results from automated and human worker
 based model evaluation job are saved in Amazon S3.
 
-## Output data from
-
-automated model evaluation jobs
+## Output data from automated model evaluation jobs
 
 The results of the automated evaluation job are stored in the
 `datasets` directory when job status changes to
@@ -42,8 +38,7 @@ Each result from the model evaluation job starts with the
 `scores` contains the metrics you selected in the Amazon Bedrock console.
 In this example, only a single metric `Accuracy` was selected. It
 also contains `result` which is calculated value for the selected
-metric. To learn more about what specific value is calculated, see [Review metrics for an automated model evaluation
-job in Amazon Bedrock (console)](model-evaluation-report-programmatic.md "model-evaluation-report-programmatic.md").
+metric. To learn more about what specific value is calculated, see [Review metrics for an automated model evaluation job in Amazon Bedrock (console)](model-evaluation-report-programmatic.md "model-evaluation-report-programmatic.md").
 
 The second key, `inputRecord` is a copy of what you provided in
 your input prompt dataset.
@@ -75,9 +70,7 @@ only one metric, accuracy, selected.
 }
 ```
 
-## Output data from model
-
-evaluation jobs that use human workers.
+## Output data from model evaluation jobs that use human workers.
 
 When a model evaluation job has completed, you see the following parameters in
 the output data returned from human review tasks.

@@ -159,8 +159,7 @@ Claude 3.5 Sonnet v2 model, you could place two cache checkpoints in
 `messages`, one cache checkpoint in `system`,
 and one in `tools`. For more detailed information and examples of
 structuring and sending Converse API requests, see
-[Carry out a conversation with the
-Converse API operations](conversation-inference.md "conversation-inference.md").
+[Carry out a conversation with the Converse API operations](conversation-inference.md "conversation-inference.md").
 
 Specify the desired ttl value as below, when ttl value not specified the default behavior of
 5 minutes caching applies.

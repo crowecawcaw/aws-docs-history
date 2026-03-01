@@ -1,6 +1,4 @@
-# Configuring resource-based policies for
-
-OpenSearch Managed clusters
+# Configuring resource-based policies for OpenSearch Managed clusters
 
 When creating your knowledge base, you can either create your own custom role or
 let Amazon Bedrock create one for you. How you configure the permissions depend on whether
@@ -29,15 +27,11 @@ In this case, you can either:
 
 ###### Topics
 
-- [Sample IAM identity-based and resource-based
-  policies](#kb-osm-permissions-iam "#kb-osm-permissions-iam")
+- [Sample IAM identity-based and resource-based policies](#kb-osm-permissions-iam "#kb-osm-permissions-iam")
 - [Creating the Amazon Bedrock Knowledge Bases service role](#kb-osm-permissions-slr "#kb-osm-permissions-slr")
-- [Updating the resource-based
-  policies](#kb-osm-permissions-console-rbp "#kb-osm-permissions-console-rbp")
+- [Updating the resource-based policies](#kb-osm-permissions-console-rbp "#kb-osm-permissions-console-rbp")
 
-## Sample IAM identity-based and resource-based
-
-policies
+## Sample IAM identity-based and resource-based policies
 
 This section provides a sample identity policy and a resource-based policy
 that you can configure for your OpenSearch domain when integrating with Amazon Bedrock Knowledge Bases.
@@ -130,9 +124,7 @@ Before you proceed to create the knowledge base, complete the following
 steps to configure the resource-based policies and fine-grained access
 policies. For detailed steps on creating the knowledge base, see [Create a knowledge base by connecting to a data source in Amazon Bedrock Knowledge Bases](knowledge-base-create.md "knowledge-base-create.md").
 
-## Updating the resource-based
-
-policies
+## Updating the resource-based policies
 
 If your OpenSearch domain has a restrictive access policy, you can follow the
 instructions on this page to update the resource-based policy. These permissions
@@ -148,8 +140,7 @@ domain.
    **Security Configurations** where the
    resource-based policy is configured.
 3. Edit the policy in the **JSON** tab and then update
-   the policy similar to the [Sample resource-based
-   policy](#kb-osm-permissions-rbp "#kb-osm-permissions-rbp").
+   the policy similar to the [Sample resource-based policy](#kb-osm-permissions-rbp "#kb-osm-permissions-rbp").
 4. You can now go back to the Amazon Bedrock console and provide the details for
    your OpenSearch domain and index as described in [Knowledge base setup for Managed
    Clusters](knowledge-base-setup.md#knowledge-base-setup-osm "knowledge-base-setup.md#knowledge-base-setup-osm").

@@ -44,7 +44,7 @@ Documents are split by the semantic boundaries in the document.
 
 Document splitting happens independently of applying blueprints, and documents that are split
 will be matched to the closest blueprint. For more information on how BDA matches blueprints see
-[Understanding blueprint matching](#bda-blueprint-matching "#bda-blueprint-matching") .
+[Understanding blueprint matching](#bda-blueprint-matching "#bda-blueprint-matching").
 
 ## Understanding blueprint matching
 

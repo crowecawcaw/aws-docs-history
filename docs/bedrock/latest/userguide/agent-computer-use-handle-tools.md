@@ -1,6 +1,4 @@
-# Handle computer use tool requests from agents in
-
-conversations
+# Handle computer use tool requests from agents in conversations
 
 When your agent requests a tool, the response to your InvokeAgent API operation includes a `returnControl` payload that
 includes the tool to use and the tool action in the invocationInputs. For more information about

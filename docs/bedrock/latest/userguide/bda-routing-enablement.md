@@ -116,9 +116,12 @@ or not a submitted file is an image or a document using internal models and perf
 
 ## Standard routing for the InvokeDataAutomation API
 
-The [InvokeDataAutomation](../APIReference/API_data-automation-runtime_InvokeDataAutomation.md "../APIReference/API_data-automation-runtime_InvokeDataAutomation.md") API will also look at indicators of whether or not a submitted PNG or JPEG file is an image or a document using internal models and perform routing automatically. Files classified as documents will be rejected.
+The [InvokeDataAutomation](../APIReference/API_data-automation-runtime_InvokeDataAutomation.md "../APIReference/API_data-automation-runtime_InvokeDataAutomation.md") API will also look at indicators of whether or not a submitted PNG or JPEG file is an image or a document using internal models and perform routing automatically. The default procedures are listed in the table below.
 
-| File Types | Default Routing Behavior                                                                                                                                                                                                                 |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PNG        | Semantic Classifer; Only Images Supported. PNG files classified as Documents will be rejected. Please see [Routing files to certain processing types](#bda-modality-routing "#bda-modality-routing") to route all PNG files as Images.   |
-| JPEG       | Semantic Classifer; Only Images Supported. JPEG files classified as Documents will be rejected. Please see [Routing files to certain processing types](#bda-modality-routing "#bda-modality-routing") to route all JPEG files as Images. |
+PNGs and JPEGs list Semantic Classifier as a default behavior. This means that BDA will look at indicators of whether or not a submitted file is an image or a document using internal models and perform routing automatically. PDF and TIFF files will be routed to Documents modality for processing. InvokeDataAutomation API does not currently support Audio and Video files.
+
+| File Types | Default Routing Behavior                     |
+| ---------- | -------------------------------------------- |
+| PNG        | Semantic Classifer; Either Image or Document |
+| JPEG       | Semantic Classifer; Either Image or Document |
+| PDF, TIFF  | Document                                     |

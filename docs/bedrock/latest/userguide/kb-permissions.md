@@ -31,8 +31,7 @@ A policy cannot be shared between multiple roles when the service role is used.
 - [Permissions to decrypt your AWS KMS key for encrypted data sources in Amazon S3](#kb-permissions-kms-datasource "#kb-permissions-kms-datasource")
 - [Permissions to chat with your document](#kb-permissions-chatdoc "#kb-permissions-chatdoc")
 - [Permissions for multimodal content](#kb-permissions-multimodal "#kb-permissions-multimodal")
-- [Permissions to access your Amazon Kendra
-  GenAI index](#kb-permissions-kendra "#kb-permissions-kendra")
+- [Permissions to access your Amazon Kendra GenAI index](#kb-permissions-kendra "#kb-permissions-kendra")
 - [Permissions to access your vector database in Amazon OpenSearch Serverless](#kb-permissions-oss "#kb-permissions-oss")
 - [Permissions to access your vector database in OpenSearch Managed Clusters](#kb-permissions-osm "#kb-permissions-osm")
 - [Permissions to access your Amazon Aurora database cluster](#kb-permissions-rds "#kb-permissions-rds")
@@ -125,8 +124,7 @@ Select from the following data sources to attach the necessary permissions for t
 
 If your data source is Amazon S3, attach the following policy to provide permissions for the role to access the S3 bucket that you will connect to as your data source.
 
-If you encrypted the data source with a AWS KMS key, attach permissions to decrypt the key to the role by following the steps at [Permissions to decrypt your AWS KMS key for your data sources in
-Amazon S3](encryption-kb.md#encryption-kb-ds "encryption-kb.md#encryption-kb-ds").
+If you encrypted the data source with a AWS KMS key, attach permissions to decrypt the key to the role by following the steps at [Permissions to decrypt your AWS KMS key for your data sources in Amazon S3](encryption-kb.md#encryption-kb-ds "encryption-kb.md#encryption-kb-ds").
 
 JSON
 
@@ -496,9 +494,7 @@ If you use customer-managed AWS KMS keys with BDA, also attach the following pol
 }
 ```
 
-## Permissions to access your Amazon Kendra
-
-GenAI index
+## Permissions to access your Amazon Kendra GenAI index
 
 If you created an Amazon Kendra GenAI index for your knowledge base, then attach the
 following policy to your Amazon Bedrock Knowledge Bases service role to allow access to the index. In the policy,
@@ -559,8 +555,7 @@ JSON
 If you created a vector database in OpenSearch Managed Cluster for your knowledge base, attach the following policy to your Amazon Bedrock Knowledge Bases
 service role to allow access to the domain. Replace `<region>` and `<accountId>`
 with the Region and account ID to which the database belongs. You can allow access to multiple domains by adding them to the
-`Resource` list. For more information about configuring permissions, see [Prerequisites and permissions required for using
-OpenSearch Managed Clusters with Amazon Bedrock Knowledge Bases](kb-osm-permissions-prereq.md "kb-osm-permissions-prereq.md").
+`Resource` list. For more information about configuring permissions, see [Prerequisites and permissions required for using OpenSearch Managed Clusters with Amazon Bedrock Knowledge Bases](kb-osm-permissions-prereq.md "kb-osm-permissions-prereq.md").
 
 JSON
 

@@ -1,6 +1,4 @@
-# Pixtral Large (25.02)
-
-parameters and inference
+# Pixtral Large (25.02) parameters and inference
 
 Pixtral Large 25.02 is a 124B parameter multimodal model that combines state-of-the-art image understanding with
 powerful text processing capabilities. AWS is the first cloud provider to deliver Pixtral Large (25.02) as a fully-managed,
@@ -21,8 +19,7 @@ inference operations ([InvokeModel](../APIReference/API_runtime_InvokeModel.md "
 or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")). However, we recommend that you use the
 Converse API to implement messages in your application. The Converse API
 provides a unified set of parameters that work across all models that support messages.
-For more information, see [Carry out a conversation with the
-Converse API operations](conversation-inference.md "conversation-inference.md").
+For more information, see [Carry out a conversation with the Converse API operations](conversation-inference.md "conversation-inference.md").
 
 The Mistral AI Pixtral Large model is available under the [Mistral Research License](https://mistral.ai/licenses/MRL-0.1.md "https://mistral.ai/licenses/MRL-0.1.md"). For
 more information about using Mistral AI models, see the [Mistral AI documentation](https://docs.mistral.ai/ "https://docs.mistral.ai/").

@@ -6,8 +6,7 @@ This section also includes Python code examples that shows how to call Mistral A
 To get the model ID, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md"). Some
 models also work with the [Converse API](conversation-inference.md "conversation-inference.md").
 To check if the Converse API supports a specific Mistral AI model, see
-[Supported models and
-model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md"). For more code examples,
+[Supported models and model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md"). For more code examples,
 see [Code examples for Amazon Bedrock using AWS SDKs](service_code_examples.md "service_code_examples.md").
 
 Foundation models in Amazon Bedrock support input and output modalities, which vary from model to
@@ -24,5 +23,4 @@ For Mistral AI specific prompt information, see the [Mistral AI prompt engineeri
 - [Mistral AI text completion](model-parameters-mistral-text-completion.md "model-parameters-mistral-text-completion.md")
 - [Mistral AI chat completion](model-parameters-mistral-chat-completion.md "model-parameters-mistral-chat-completion.md")
 - [Mistral AI Large (24.07) parameters and inference](model-parameters-mistral-large-2407.md "model-parameters-mistral-large-2407.md")
-- [Pixtral Large (25.02)
-  parameters and inference](model-parameters-mistral-pixtral-large.md "model-parameters-mistral-pixtral-large.md")
+- [Pixtral Large (25.02) parameters and inference](model-parameters-mistral-pixtral-large.md "model-parameters-mistral-pixtral-large.md")

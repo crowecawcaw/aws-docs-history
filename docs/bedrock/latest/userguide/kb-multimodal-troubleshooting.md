@@ -1,6 +1,4 @@
-# Troubleshooting multimodal knowledge
-
-bases
+# Troubleshooting multimodal knowledge bases
 
 This section provides guidance for resolving common issues encountered when working
 with multimodal knowledge bases. The troubleshooting information is organized by general
@@ -124,9 +122,7 @@ capabilities.
 with Nova Multimodal Embeddings to enable native multimodal processing
 and image-based queries.
 
-## Managing transient data with Amazon S3
-
-lifecycle policies
+## Managing transient data with Amazon S3 lifecycle policies
 
 When using Nova Multimodal Embeddings, Amazon Bedrock stores transient data in your
 multimodal storage destination and attempts to delete it after processing is
@@ -221,9 +217,7 @@ aws s3api get-bucket-lifecycle-configuration \
 For more information about Amazon S3 lifecycle policies, see [Managing the lifecycle of objects](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md") in the _Amazon S3 User
 Guide_.
 
-## Performance
-
-considerations
+## Performance considerations
 
 For optimal performance with your multimodal knowledge base, consider these
 factors:

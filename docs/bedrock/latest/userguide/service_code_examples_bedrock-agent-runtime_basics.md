@@ -1,6 +1,4 @@
-# Basic examples for
-
-Amazon Bedrock Agents Runtime using AWS SDKs
+# Basic examples for Amazon Bedrock Agents Runtime using AWS SDKs
 
 The following code examples show how to use the basics of Amazon Bedrock Agents Runtime with AWS
 SDKs.

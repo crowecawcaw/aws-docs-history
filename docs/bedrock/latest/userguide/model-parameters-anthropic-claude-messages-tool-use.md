@@ -221,9 +221,7 @@ the stream may end midway through a parameter and may be incomplete. You will
 generally have to write specific support to handle when `max_tokens` is
 reached.
 
-## Computer use
-
-(Beta)
+## Computer use (Beta)
 
 Computer use is an Anthropic Claude model capability (in beta) available with
 Claude 3.5 Sonnet v2, Claude Sonnet 4.5, Claude Haiku 4.5, Claude 3.7 Sonnet,
@@ -330,9 +328,7 @@ of your desktop with a Firefox icon.
 }
 ```
 
-## Anthropic defined
-
-tools
+## Anthropic defined tools
 
 Anthropic provides a set of tools to enable certain Claude models to effectively
 use computers. When specifying an Anthropic defined tool, the `description`
@@ -522,9 +518,7 @@ data: {"type": "message_stop"}
 Bedrock does not currently support `clear_tool_uses_20250919` context
 management on the CountTokens API.
 
-## Memory Tool
-
-(Beta)
+## Memory Tool (Beta)
 
 ###### Warning
 
@@ -603,9 +597,7 @@ Example Response:
 }
 ```
 
-## Cost considerations
-
-for tool use
+## Cost considerations for tool use
 
 Tool use requests are priced based on the following factors:
 
@@ -641,9 +633,7 @@ provided, then a tool choice of none uses 0 additional system prompt tokens.
 | Claude 3 Haiku                                                                                                                                               | `auto` or `none` | 264                                |
 | Claude 3 Haiku                                                                                                                                               | `any` or `tool`  | 340                                |
 
-## Tool search tool
-
-(beta)
+## Tool search tool (beta)
 
 Tool Search Tool allows Claude to work with hundreds or even thousands of tools
 without loading all their definitions into the context window upfront. Instead of

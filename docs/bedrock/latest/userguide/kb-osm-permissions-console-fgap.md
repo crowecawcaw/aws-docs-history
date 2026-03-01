@@ -1,6 +1,4 @@
-# Configuring OpenSearch permissions
-
-with fine-grained access control
+# Configuring OpenSearch permissions with fine-grained access control
 
 While optional, we strongly recommend that you enable fine-grained access control
 for your OpenSearch domain. Using fine-grained access control, you can use

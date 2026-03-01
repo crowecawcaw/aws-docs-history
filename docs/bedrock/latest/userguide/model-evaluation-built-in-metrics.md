@@ -1,7 +1,6 @@
 # Create a model evaluation job using built-in metrics
 
-To create a job using the following instructions, you need a prompt dataset. If you haven't already created one, see [Create a prompt
-dataset for a model evaluation job that uses a model as judge](model-evaluation-prompt-datasets-judge.md "model-evaluation-prompt-datasets-judge.md").
+To create a job using the following instructions, you need a prompt dataset. If you haven't already created one, see [Create a prompt dataset for a model evaluation job that uses a model as judge](model-evaluation-prompt-datasets-judge.md "model-evaluation-prompt-datasets-judge.md").
 
 Console
 
@@ -33,8 +32,7 @@ Console
 8. Define your input and output locations for your dataset and results by doing the following:
    1. In the **Datasets** pane under **Choose a prompt dataset**, enter the Amazon S3 URI for your prompt dataset,
       or choose **Browse S3** and select your file. To see a definition of the required prompt dataset format for a model-as-a-judge
-      evaluation job, see [Create a prompt
-      dataset for a model evaluation job that uses a model as judge](model-evaluation-prompt-datasets-judge.md "model-evaluation-prompt-datasets-judge.md").
+      evaluation job, see [Create a prompt dataset for a model evaluation job that uses a model as judge](model-evaluation-prompt-datasets-judge.md "model-evaluation-prompt-datasets-judge.md").
    2. Under **Evaluation results**, enter an Amazon S3 location for Amazon Bedrock to save your results, or choose **Browse S3** to
       select a location.
 

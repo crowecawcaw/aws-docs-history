@@ -155,9 +155,7 @@ If you include specific instructions in the optimized prompt, then you need to p
 
 The prompting changes in the example code caused the model to spit out a trace that specifically mentioned tool_use as a stop reason. Since this is the standard for the default parser, no further changes are needed, but if you were to add new specific instructions, then a parser would need to be written to handle the changes.
 
-### Using tools with models that
-
-do not support native tool use
+### Using tools with models that do not support native tool use
 
 Typically for agentic models, some model providers enable tool use support. If tool use is not supported for the model you've chosen, we recommend that you reevaluate if this model is the right model for your agentic usecase. If you want to go ahead with the model you've chosen, you can add tools to the model by defining the tools in the prompt and then writing a custom parser to parse out the model response for a tool invocation.
 

@@ -15,8 +15,6 @@ results of a model evaluation job are saved in Amazon S3.
 
 ###### Topics
 
-- [Review metrics for an automated model evaluation
-  job in Amazon Bedrock (console)](model-evaluation-report-programmatic.md "model-evaluation-report-programmatic.md")
+- [Review metrics for an automated model evaluation job in Amazon Bedrock (console)](model-evaluation-report-programmatic.md "model-evaluation-report-programmatic.md")
 - [Review a human-based model evaluation job in Amazon Bedrock (console)](model-evaluation-report-human-customer.md "model-evaluation-report-human-customer.md")
-- [Understand how the results of your
-  model evaluation job are saved in Amazon S3](model-evaluation-report-s3.md "model-evaluation-report-s3.md")
+- [Understand how the results of your model evaluation job are saved in Amazon S3](model-evaluation-report-s3.md "model-evaluation-report-s3.md")

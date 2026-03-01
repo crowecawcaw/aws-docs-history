@@ -24,7 +24,6 @@ base to a structured data store.
 
 ###### Topics
 
-- [Set up your query engine and permissions
-  for creating a knowledge base with structured data store](knowledge-base-prereq-structured.md "knowledge-base-prereq-structured.md")
+- [Set up your query engine and permissions for creating a knowledge base with structured data store](knowledge-base-prereq-structured.md "knowledge-base-prereq-structured.md")
 - [Create a knowledge base by connecting to a structured data store](knowledge-base-structured-create.md "knowledge-base-structured-create.md")
 - [Sync your structured data store with your Amazon Bedrock knowledge base](kb-data-source-structured-sync-ingest.md "kb-data-source-structured-sync-ingest.md")

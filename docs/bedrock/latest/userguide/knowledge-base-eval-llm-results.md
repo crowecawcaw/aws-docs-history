@@ -1,6 +1,4 @@
-# Review metrics for RAG
-
-evaluations that use LLMs (console)
+# Review metrics for RAG evaluations that use LLMs (console)
 
 You can review the metrics presented in a report for a RAG evaluation job
 using the Amazon Bedrock console.
@@ -32,9 +30,7 @@ scored high for Stereotyping, where generalized statements are made in the respo
 time, but those responses include a high amount of generalized statements about
 individuals or groups of people.
 
-## Report card for RAG evaluations that
-
-use LLMs
+## Report card for RAG evaluations that use LLMs
 
 Follow the steps to open the report card in the Amazon Bedrock console for RAG
 evaluation jobs that use LLMs. Refer to the information below for each metric that
@@ -53,9 +49,7 @@ generation.
 To open the report card, the status of your RAG evaluation
 must be either ready or available.
 
-## Metrics relevant to retrieval only type
-
-evaluations
+## Metrics relevant to retrieval only type evaluations
 
 There are certain metrics relevant to evaluating your knowledge base’s ability to
 retrieve highly relevant information.
@@ -63,8 +57,7 @@ retrieve highly relevant information.
 ###### Contents
 
 - [Context relevance](knowledge-base-eval-llm-results.md#kb-eval-metric-context-relevance "knowledge-base-eval-llm-results.md#kb-eval-metric-context-relevance")
-- [Context coverage (requires
-  ground truth)](knowledge-base-eval-llm-results.md#kb-eval-metric-context-coverage "knowledge-base-eval-llm-results.md#kb-eval-metric-context-coverage")
+- [Context coverage (requires ground truth)](knowledge-base-eval-llm-results.md#kb-eval-metric-context-coverage "knowledge-base-eval-llm-results.md#kb-eval-metric-context-coverage")
 
 ### Context relevance
 
@@ -75,9 +68,7 @@ relevant to the questions. The higher the score, the more contextually relevant
 the information is on average. The lower the score, the less contextually
 relevant the information is on average.
 
-### Context coverage (requires
-
-ground truth)
+### Context coverage (requires ground truth)
 
 This metric is relevant to the quality of the retrieved information. The score
 is an average score for retrieved text chunks across all prompts in your
@@ -86,9 +77,7 @@ information provided in the ground truth texts. The higher the score, the more
 context coverage on average. The lower the score, the less context coverage on
 average.
 
-## Metrics relevant to retrieval
-
-with response generation type evaluations
+## Metrics relevant to retrieval with response generation type evaluations
 
 There are certain metrics relevant to evaluating your knowledge base’s ability to
 generate useful, appropriate responses based on retrieved information.

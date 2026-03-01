@@ -1,6 +1,4 @@
-# Prompt templates and examples for
-
-Amazon Bedrock text models
+# Prompt templates and examples for Amazon Bedrock text models
 
 Common tasks supported by LLMs on Amazon Bedrock include text classification,
 summarization, and questions and answers (with and without context). For these tasks,

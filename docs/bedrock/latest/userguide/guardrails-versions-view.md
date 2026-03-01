@@ -1,6 +1,4 @@
-# View information about guardrail
-
-versions
+# View information about guardrail versions
 
 To view information about a version or versions of a guardrail, select one of the tabs below and follow the steps indicated:
 

@@ -1,6 +1,4 @@
-# Standard output in Bedrock Data
-
-Automation
+# Standard output in Bedrock Data Automation
 
 Standard output is the default way of interacting with Amazon Bedrock Data
 Automation (BDA). If you pass a document to the BDA API with no established blueprint or

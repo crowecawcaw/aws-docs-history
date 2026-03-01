@@ -27,9 +27,7 @@ The following types of prompt attack are supported:
   goal hijacking, many-shot-jailbreaks, and instructions to disregard previous
   statements.
 
-## Filtering
-
-prompt attacks
+## Filtering prompt attacks
 
 Prompt attacks can often resemble a system instruction. For example, a banking
 assistant may have a developer provided system instruction such as:
@@ -86,9 +84,7 @@ inputs in the input prompt while using `InvokeModel` and
 inference. If there are no tags, prompt attacks for those use cases will not
 be filtered.
 
-## Configure prompt attack
-
-filters for your guardrail
+## Configure prompt attack filters for your guardrail
 
 You can configure prompt attack filters for your guardrail by using the
 AWS Management Console or Amazon Bedrock API.
@@ -148,8 +144,7 @@ Console
       detects harmful content in prompts and
       responses.
 
-   For more information, see [Options for handling
-   harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md"). 3. For **Set threshold**, select
+   For more information, see [Options for handling harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md"). 3. For **Set threshold**, select
    **None, Low, Medium, or High**
    for the level of filtration you want to apply to
    prompt attacks.
@@ -227,8 +222,7 @@ Content - type: application/json
     `BLOCK` to block content and replace
     with blocked messaging, or `NONE` to take
     no action but return detection information. For more
-    information, see [Options for handling
-    harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md").
+    information, see [Options for handling harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md").
   - (Optional) Specify the input modalities using
     `inputModalities`. Valid values are
     `TEXT` and `IMAGE`.

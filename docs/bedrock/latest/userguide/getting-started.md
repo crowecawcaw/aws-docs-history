@@ -25,7 +25,8 @@ pip install boto3
 Responses/Chat Completions API
 
 ```
-OPENAI_API_KEY="<provide your long term key>" OPENAI_BASE_URL="https://bedrock-mantle.<your-region>.api.aws/v1"
+OPENAI_API_KEY="<provide your long term key>"
+OPENAI_BASE_URL="https://bedrock-mantle.<your-region>.api.aws/v1"
 ```
 
 Invoke/Converse API
