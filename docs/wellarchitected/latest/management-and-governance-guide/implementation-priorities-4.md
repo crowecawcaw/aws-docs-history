@@ -29,9 +29,7 @@ management system. Sensitive data should not be used for tag keys
 or values. Ensure that template access is enforced across both
 distribution and ITSM tooling permissions.
 
-## Enable event, incident, and problem management across your
-
-environment
+## Enable event, incident, and problem management across your environment
 
 Enable an issue management mechanism such as ticketing across your
 AWS accounts. Integrate event management with other ITSM
@@ -48,9 +46,7 @@ validate support procedures. Analyze service trends to help
 provide recommendations and improve designs of your applications,
 resources, and environments on AWS.
 
-## Identify accounts, environments, and resources that require asset
-
-tracking
+## Identify accounts, environments, and resources that require asset tracking
 
 Identify the accounts, environments, and resources that require
 asset tracking for compliance. Update registration in the CMDB as
@@ -60,9 +56,7 @@ financial, etc.) and compliance of required resources within AWS
 by creating integrations to your ITSM tooling that will enable a
 federated view of your AWS services and resources.
 
-## Align change request procedures and policies for rapid cloud
-
-deployment
+## Align change request procedures and policies for rapid cloud deployment
 
 Align or create change request types in your policies and
 procedures that allow rapid deployment of resources. Determine

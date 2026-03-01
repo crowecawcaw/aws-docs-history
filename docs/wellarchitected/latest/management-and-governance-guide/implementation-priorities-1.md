@@ -128,9 +128,7 @@ includes establishing peering connections between transit gateways
 to extend connectivity and build global networks spanning multiple
 AWS Regions.
 
-## Define your VPC endpoint and DNS
-
-strategy
+## Define your VPC endpoint and DNS strategy
 
 To establish private connectivity from your VPC to supported AWS
 services, use

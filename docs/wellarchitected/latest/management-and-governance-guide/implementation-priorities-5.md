@@ -57,9 +57,7 @@ patterns identified in your logs. Develop a nearly continuous
 monitoring strategy to scale your observability capabilities as
 you migrate and grow solutions on AWS.
 
-## Add detection and alerts for anomalous patterns across
-
-environments
+## Add detection and alerts for anomalous patterns across environments
 
 Proactively assess environments for known vulnerabilities and add
 detection for anomalous patterns of events and activities. Monitor
