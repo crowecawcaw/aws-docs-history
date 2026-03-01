@@ -14,7 +14,6 @@ The following procedure details how to update Amazon One device configurations.
 ###### Note
 
 To change the Amazon One device mode, you must first deactivate the device
-instance, and then configure it with the desired device mode (see [Configure a device instance for
-activation](configure-instance.md "configure-instance.md")).
+instance, and then configure it with the desired device mode (see [Configure a device instance for activation](configure-instance.md "configure-instance.md")).
 Then, you can go through the device activation process (see [Activating Amazon One device](device-activation-01.md "device-activation-01.md")). 5. After you have made the desired changes, choose **Update device
 configurations** to confirm the update.

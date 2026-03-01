@@ -109,9 +109,7 @@ JSON
 
 ```
 
-## Amazon One Enterprise updates to AWS managed
-
-policies
+## Amazon One Enterprise updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon One Enterprise that have been made
 since this service began tracking these changes. For automatic alerts about changes to this

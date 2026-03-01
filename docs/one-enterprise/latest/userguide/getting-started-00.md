@@ -13,5 +13,4 @@ You'll use this process only occasionally, or even just once, depending on the n
 - [Create a site](create-sites.md "create-sites.md")
 - [Create device instances](create-device-instance.md "create-device-instance.md")
 - [Create a configuration template](create-config-template.md "create-config-template.md")
-- [Configure a device instance for
-  activation](configure-instance.md "configure-instance.md")
+- [Configure a device instance for activation](configure-instance.md "configure-instance.md")

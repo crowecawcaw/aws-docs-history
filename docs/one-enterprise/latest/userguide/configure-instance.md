@@ -1,6 +1,4 @@
-# Configure a device instance for
-
-activation
+# Configure a device instance for activation
 
 After a device instance is created, you configure the device instance with a
 previously created configuration template (see [Create a configuration template](create-config-template.md "create-config-template.md")), or you can add configurations manually.
