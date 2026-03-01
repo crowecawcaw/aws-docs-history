@@ -1,6 +1,4 @@
-# AWS Regions and streaming locations supported by
-
-Amazon GameLift Streams
+# AWS Regions and streaming locations supported by Amazon GameLift Streams
 
 An AWS Region is a collection of AWS resources in a geographic area. Each
 AWS Region is isolated and independent of the other Regions. For general information

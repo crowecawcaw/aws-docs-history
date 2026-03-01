@@ -9,8 +9,7 @@ Amazon GameLift Streams allocates compute resources in the AWS Region where you 
 You can also add remote locations to a stream group and manage capacity per location. It's a
 best practice to host stream sessions in locations that are geographically near your end
 users. This helps minimize latency and improve stream quality. For more information, refer
-to [AWS Regions and streaming locations supported by
-Amazon GameLift Streams](regions-quotas-rande.md "regions-quotas-rande.md").
+to [AWS Regions and streaming locations supported by Amazon GameLift Streams](regions-quotas-rande.md "regions-quotas-rande.md").
 
 In a stream group, you can specify one or more Amazon GameLift Streams applications that the stream group
 can stream. A single application can be in multiple stream groups, so you can set up
@@ -340,8 +339,7 @@ A set of locations to add to this stream group, and their
 capacities. By default, if no capacities are specified, Amazon GameLift Streams
 will only allocate enough always-on stream capacity to start one
 stream in the location where the stream group is created. For a
-complete list of locations that Amazon GameLift Streams supports, refer to [AWS Regions and streaming locations supported by
-Amazon GameLift Streams](regions-quotas-rande.md "regions-quotas-rande.md").
+complete list of locations that Amazon GameLift Streams supports, refer to [AWS Regions and streaming locations supported by Amazon GameLift Streams](regions-quotas-rande.md "regions-quotas-rande.md").
 
 Values for capacity must be whole number multiples of the
 tenancy value of the stream group's stream class.
@@ -553,8 +551,7 @@ ID example: `sg-1AB2C3De4`
 
 A set of locations to add to this stream group, and their
 capacities. For a complete list of locations that Amazon GameLift Streams
-supports, refer to [AWS Regions and streaming locations supported by
-Amazon GameLift Streams](regions-quotas-rande.md "regions-quotas-rande.md").
+supports, refer to [AWS Regions and streaming locations supported by Amazon GameLift Streams](regions-quotas-rande.md "regions-quotas-rande.md").
 
 Values for capacity must be whole number multiples of the
 tenancy value of the stream group's stream class.
@@ -568,9 +565,7 @@ resources in the new locations. You can view the status of the replication from 
 **Stream group details** page by clicking on the status in the
 **Replication status** column.
 
-## Remove locations in a stream
-
-group
+## Remove locations in a stream group
 
 To stop using compute resources from specific locations, you can remove the locations
 from your stream group. You cannot remove the primary location of a stream group.
@@ -584,9 +579,7 @@ in that location, which stops the stream of any connected end users.
 
 Console
 
-###### To remove locations from a stream group using the
-
-Amazon GameLift Streams console
+###### To remove locations from a stream group using the Amazon GameLift Streams console
 
 1. In the navigation pane, choose **Stream groups**
    to view a list of your existing stream groups.
@@ -629,8 +622,7 @@ ID example: `sg-1AB2C3De4`
 `locations`
 
 A set of locations to remove from this stream group. For a
-complete list of locations that Amazon GameLift Streams supports, refer to [AWS Regions and streaming locations supported by
-Amazon GameLift Streams](regions-quotas-rande.md "regions-quotas-rande.md").
+complete list of locations that Amazon GameLift Streams supports, refer to [AWS Regions and streaming locations supported by Amazon GameLift Streams](regions-quotas-rande.md "regions-quotas-rande.md").
 
 ## Delete a stream group
 

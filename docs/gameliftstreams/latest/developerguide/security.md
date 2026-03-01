@@ -27,6 +27,5 @@ _of_ the cloud and security _in_ the cloud:
 - [Compliance validation for Amazon GameLift Streams](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon GameLift Streams](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in Amazon GameLift Streams](infrastructure-security.md "infrastructure-security.md")
-- [Configuration and vulnerability analysis
-  in Amazon GameLift Streams](vulnerability-analysis-management.md "vulnerability-analysis-management.md")
+- [Configuration and vulnerability analysis in Amazon GameLift Streams](vulnerability-analysis-management.md "vulnerability-analysis-management.md")
 - [Security best practices for Amazon GameLift Streams](security-best-practices.md "security-best-practices.md")

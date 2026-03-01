@@ -21,9 +21,7 @@ To get a high-level view of how Amazon GameLift Streams and other AWS services w
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Amazon GameLift Streams
+## Identity-based policies for Amazon GameLift Streams
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Amazon GameLift Streams
 
-Identity-based policy examples for Amazon GameLift Streams
+To view examples of Amazon GameLift Streams identity-based policies, see [Identity-based policy examples for Amazon GameLift Streams](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Amazon GameLift Streams identity-based policies, see [Identity-based policy
-examples for Amazon GameLift Streams](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Amazon GameLift Streams
+## Resource-based policies within Amazon GameLift Streams
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Amazon GameLift Streams
+## Policy actions for Amazon GameLift Streams
 
 **Supports policy actions:**
 
@@ -96,12 +87,9 @@ To specify multiple actions in a single statement, separate them with commas.
                ]
 ```
 
-To view examples of Amazon GameLift Streams identity-based policies, see [Identity-based policy
-examples for Amazon GameLift Streams](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon GameLift Streams identity-based policies, see [Identity-based policy examples for Amazon GameLift Streams](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Amazon GameLift Streams
+## Policy resources for Amazon GameLift Streams
 
 **Supports policy resources:**
 
@@ -116,12 +104,9 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-To view examples of Amazon GameLift Streams identity-based policies, see [Identity-based policy
-examples for Amazon GameLift Streams](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon GameLift Streams identity-based policies, see [Identity-based policy examples for Amazon GameLift Streams](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Amazon GameLift Streams
+## Policy condition keys for Amazon GameLift Streams
 
 **Supports service-specific policy condition keys:**
 
@@ -136,8 +121,7 @@ policy with values in the request. To see all AWS global
 condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
 _IAM User Guide_.
 
-To view examples of Amazon GameLift Streams identity-based policies, see [Identity-based policy
-examples for Amazon GameLift Streams](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon GameLift Streams identity-based policies, see [Identity-based policy examples for Amazon GameLift Streams](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Amazon GameLift Streams
 
@@ -165,9 +149,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Amazon GameLift Streams
+## Using temporary credentials with Amazon GameLift Streams
 
 **Supports temporary credentials:**
 
@@ -179,9 +161,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Amazon GameLift Streams
+## Cross-service principal permissions for Amazon GameLift Streams
 
 **Supports forward access sessions (FAS):**
 
@@ -194,9 +174,7 @@ When creating new application resources, Amazon GameLift Streams uses the permis
 that contains the customer's application files. Amazon GameLift Streams also examines the calling principal to verify opt-in eligibility for certain
 cross-region functionality, such as multi-location stream groups.
 
-## Service roles for
-
-Amazon GameLift Streams
+## Service roles for Amazon GameLift Streams
 
 **Supports service roles:**
 
@@ -211,9 +189,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Amazon GameLift Streams functionality.
 Edit service roles only when Amazon GameLift Streams provides guidance to do so.
 
-## Service-linked
-
-roles for Amazon GameLift Streams
+## Service-linked roles for Amazon GameLift Streams
 
 **Supports service-linked roles:**
 
