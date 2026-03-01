@@ -1,6 +1,4 @@
-# Prerequisites for joining an SVM to a
-
-self-managed Microsoft AD
+# Prerequisites for joining an SVM to a self-managed Microsoft AD
 
 Before you join an FSx for ONTAP SVM to a self-managed Microsoft AD domain, make sure that your
 Active Directory and network meet the requirements described in the following sections.
@@ -91,8 +89,7 @@ to join computers to a domain controller](https://support.microsoft.com/en-us/he
 You can store your Active Directory service account credentials in AWS Secrets Manager (recommended) and provide Amazon FSx with a secret ARN to join your Active Directory, or you can provide plaintext credentials.
 
 To learn more about creating a service account with the correct permissions, see
-[Delegating permissions to your Amazon FSx service
-account](self-managed-AD-best-practices.md#connect_delegate_privileges "self-managed-AD-best-practices.md#connect_delegate_privileges").
+[Delegating permissions to your Amazon FSx service account](self-managed-AD-best-practices.md#connect_delegate_privileges "self-managed-AD-best-practices.md#connect_delegate_privileges").
 
 ###### Important
 
@@ -100,8 +97,7 @@ Amazon FSx requires a valid service account throughout the lifetime of your Amaz
 Amazon FSx must be able to fully manage the file system and perform tasks that require it to
 unjoin and rejoin resources to your Active Directory domain. These tasks include replacing a failed file
 system or SVM, or patching NetApp ONTAP software. Keep your Active Directory configuration information up
-to date with Amazon FSx, including the service account credentials. To learn more, see [Keeping your Active Directory configuration updated with
-Amazon FSx](self-managed-AD-best-practices.md#keep-ad-config-updated "self-managed-AD-best-practices.md#keep-ad-config-updated").
+to date with Amazon FSx, including the service account credentials. To learn more, see [Keeping your Active Directory configuration updated with Amazon FSx](self-managed-AD-best-practices.md#keep-ad-config-updated "self-managed-AD-best-practices.md#keep-ad-config-updated").
 
 If this is your first time using AWS and FSx for ONTAP, make sure that you complete the
 initial setup steps before starting your Active Directory integration. For more information, see [Setting up FSx for ONTAP](getting-started.md#setting-up "getting-started.md#setting-up").

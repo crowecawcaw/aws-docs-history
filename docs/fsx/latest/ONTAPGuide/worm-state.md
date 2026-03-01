@@ -127,9 +127,7 @@ The following procedures explain how to start and end a Legal Hold. You must be 
 SnapLock administrator (have the `vsadmin-snaplock` role) to complete
 these tasks in the ONTAP CLI. For more information, see [SnapLock administrator](how-snaplock-works.md#snaplock-admin "how-snaplock-works.md#snaplock-admin").
 
-###### To start a Legal Hold on a file in a SnapLock Compliance volume with the
-
-ONTAP CLI
+###### To start a Legal Hold on a file in a SnapLock Compliance volume with the ONTAP CLI
 
 - Run the following command. Replace `litigation1`, `slc_vol1`,
   and `file1` with your own information.
@@ -138,9 +136,7 @@ ONTAP CLI
 `vs1::>` `snaplock legal-hold begin -litigation-name `litigation1` -volume `slc_vol1` -path /`file1``
 ```
 
-###### To start a Legal Hold on all files in a SnapLock Compliance volume with the
-
-ONTAP CLI
+###### To start a Legal Hold on all files in a SnapLock Compliance volume with the ONTAP CLI
 
 - Run the following command. Replace `litigation1` and
   `slc_vol1` with your own information.
@@ -149,9 +145,7 @@ ONTAP CLI
 `vs1::>` `snaplock legal-hold begin -litigation-name `litigation1` -volume `slc_vol1` -path /`
 ```
 
-###### To end a Legal Hold on a file in a SnapLock Compliance volume with the ONTAP
-
-CLI
+###### To end a Legal Hold on a file in a SnapLock Compliance volume with the ONTAP CLI
 
 - Run the following command. Replace `litigation1`, `slc_vol1`,
   and `file1` with your own information.
@@ -166,9 +160,7 @@ We recommend that you monitor the `-operation-status` with the
 `snaplock legal-hold show` command when issuing a Legal Hold to
 make sure that it doesn't fail.
 
-###### To end a Legal Hold on all files in a SnapLock Compliance volume with the
-
-ONTAP CLI
+###### To end a Legal Hold on all files in a SnapLock Compliance volume with the ONTAP CLI
 
 - Run the following command. Replace `litigation1` and `slc_vol1`
   with your own information.

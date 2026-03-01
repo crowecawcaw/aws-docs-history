@@ -35,8 +35,7 @@ following items completed.
 Beyond the scope of these procedures, if the host is located in another VPC, you
 can use VPC peering or AWS Transit Gateway to grant other VPCs access to the volume's iSCSI
 endpoints. For more information, see
-[Accessing data from outside the
-deployment VPC](supported-fsx-clients.md#access-from-outside-deployment-vpc "supported-fsx-clients.md#access-from-outside-deployment-vpc").
+[Accessing data from outside the deployment VPC](supported-fsx-clients.md#access-from-outside-deployment-vpc "supported-fsx-clients.md#access-from-outside-deployment-vpc").
 
 - Configure the Linux host's VPC security groups to allow inbound and
   outbound traffic as described in [File System Access Control with Amazon VPC](limit-access-security-groups.md "limit-access-security-groups.md").

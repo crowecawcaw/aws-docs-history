@@ -44,8 +44,7 @@ the deployment type (for example, to move from Single-AZ 1 to Single-AZ 2), you 
 it on a new file system. You can also migrate your data with NetApp SnapMirror, with
 AWS DataSync, or with a third-party data copying tool.
 For more information, see [Migrating to FSx for ONTAP using NetApp SnapMirror](migrating-fsx-ontap-snapmirror.md "migrating-fsx-ontap-snapmirror.md") and
-[Migrating to FSx for ONTAP using
-AWS DataSync](migrate-files-to-fsx-datasync.md "migrate-files-to-fsx-datasync.md").
+[Migrating to FSx for ONTAP using AWS DataSync](migrate-files-to-fsx-datasync.md "migrate-files-to-fsx-datasync.md").
 
 - **Storage capacity** – This is the amount of SSD storage, up to
   192 tebibytes (TiB) for first-generation file systems, 512 TiB for second-generation Multi-AZ file systems,

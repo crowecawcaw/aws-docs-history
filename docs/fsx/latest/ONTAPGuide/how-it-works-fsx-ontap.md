@@ -11,8 +11,7 @@ step-by-step configuration procedures.
 - [Volumes](#volume-resource "#volume-resource")
 - [Storage tiers](#storage-tiers-intro "#storage-tiers-intro")
 - [Storage efficiency](#storage-efficiency-intro "#storage-efficiency-intro")
-- [Accessing data stored on FSx for ONTAP file
-  systems](#access-ontap-file-systems "#access-ontap-file-systems")
+- [Accessing data stored on FSx for ONTAP file systems](#access-ontap-file-systems "#access-ontap-file-systems")
 - [Managing FSx for ONTAP resources](#how-to-work-with-fsxontap "#how-to-work-with-fsxontap")
 
 ## FSx for ONTAP file systems
@@ -35,8 +34,7 @@ interface with an SVM using the SVM's endpoint IP address. For more information,
 [Managing SVMs](managing-svms.md "managing-svms.md").
 
 You can join SVMs to a Microsoft Active Directory for file access authentication and authorization.
-For more information, see [Working with Microsoft Active Directory
-in FSx for ONTAP](ad-integration-ontap.md "ad-integration-ontap.md").
+For more information, see [Working with Microsoft Active Directory in FSx for ONTAP](ad-integration-ontap.md "ad-integration-ontap.md").
 
 ## Volumes
 
@@ -84,9 +82,7 @@ sharing workloads without sacrificing performance is 65% from compression,
 deduplication, and compaction, on both the SSD and capacity pool storage tiers. For more
 information, see [Storage efficiency](managing-storage-capacity.md#storage-efficiency "managing-storage-capacity.md#storage-efficiency").
 
-## Accessing data stored on FSx for ONTAP file
-
-systems
+## Accessing data stored on FSx for ONTAP file systems
 
 You can access your data on FSx for ONTAP volumes from multiple Linux, Windows, or macOS
 clients simultaneously over the NFS (v3, v4, v4.1, v4.2) and SMB protocols. You can also

@@ -1,13 +1,9 @@
-# Monitoring throughput capacity
-
-changes
+# Monitoring throughput capacity changes
 
 You can monitor the progress of a throughput capacity modification using the Amazon FSx
 console, the API, and the AWS CLI.
 
-## Monitoring throughput capacity changes
-
-in the console
+## Monitoring throughput capacity changes in the console
 
 On the **Updates** tab in the **File system details**
 window, you can view the 10 most recent update actions for each update action type.
@@ -42,9 +38,7 @@ values are as follows:
 
 The time when Amazon FSx received the update request.
 
-## Monitoring changes with the AWS CLI and
-
-API
+## Monitoring changes with the AWS CLI and API
 
 You can view and monitor file system throughput capacity modification requests using the
 [describe-file-systems](../../../cli/latest/reference/fsx/describe-file-systems.md "../../../cli/latest/reference/fsx/describe-file-systems.md") CLI command and the [DescribeFileSystems](../APIReference/API_DescribeFileSystems.md "../APIReference/API_DescribeFileSystems.md") API

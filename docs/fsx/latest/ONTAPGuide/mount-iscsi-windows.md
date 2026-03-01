@@ -20,8 +20,7 @@ You may be using a different Microsoft Windows AMI in your set up.
   the same VPC and AWS account. If the client is located in another VPC, you
   can use VPC peering or AWS Transit Gateway to grant other VPCs access to the iSCSI
   endpoints. For more information, see
-  [Accessing data from outside the
-  deployment VPC](supported-fsx-clients.md#access-from-outside-deployment-vpc "supported-fsx-clients.md#access-from-outside-deployment-vpc").
+  [Accessing data from outside the deployment VPC](supported-fsx-clients.md#access-from-outside-deployment-vpc "supported-fsx-clients.md#access-from-outside-deployment-vpc").
 
 We recommend that the EC2 instance be in the same availability zone
 as your file system's preferred subnet, as shown in the following graphic.
@@ -33,8 +32,7 @@ as your file system's preferred subnet, as shown in the following graphic.
 - [Configure iSCSI on the Windows client](#configure-iscsi-win-client "#configure-iscsi-win-client")
 - [Configure iSCSI on the FSx for ONTAP file system](#configure-iscsi-on-ontap-win "#configure-iscsi-on-ontap-win")
 - [Mount an iSCSI LUN on the Windows client](#configure-iscsi-on-fsx "#configure-iscsi-on-fsx")
-- [Validating your iSCSI
-  configuration](#validate-iscsi-windows "#validate-iscsi-windows")
+- [Validating your iSCSI configuration](#validate-iscsi-windows "#validate-iscsi-windows")
 
 ## Configure iSCSI on the Windows client
 
@@ -239,9 +237,7 @@ For more information, see [SAN policies](https://docs.microsoft.com/en-us/window
 initialize the disk. 6. Format the disk as you would normally. After formatting is complete, the
 iSCSI drive appears as a usable drive on the Windows client.
 
-## Validating your iSCSI
-
-configuration
+## Validating your iSCSI configuration
 
 We have provided a script to check that your iSCSI setup is properly
 configured. The script examines parameters such as session count, node distribution,

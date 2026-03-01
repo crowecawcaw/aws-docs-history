@@ -22,13 +22,11 @@ You must wait a minimum of six hours between updating the throughput capacity fo
    detail page, on the **Updates** tab.
 
 You can monitor the progress of the update by using the Amazon FSx console, the AWS CLI,
-and the API. For more information, see [Monitoring throughput capacity
-changes](monitoring-throughput-capacity-changes.md "monitoring-throughput-capacity-changes.md").
+and the API. For more information, see [Monitoring throughput capacity changes](monitoring-throughput-capacity-changes.md "monitoring-throughput-capacity-changes.md").
 To modify a file system's throughput capacity, use the AWS CLI command [update-file-system](../../../cli/latest/reference/fsx/update-file-system.md "../../../cli/latest/reference/fsx/update-file-system.md"). Set the following parameters:
 
 - `--file-system-id` to the ID of the file system that you are
   updating.
 - `ThroughputCapacity` to the desired value to update the file system to.
   You can monitor the progress of the update by using the Amazon FSx console, the AWS CLI, and
-  the API. For more information, see [Monitoring throughput capacity
-  changes](monitoring-throughput-capacity-changes.md "monitoring-throughput-capacity-changes.md").
+  the API. For more information, see [Monitoring throughput capacity changes](monitoring-throughput-capacity-changes.md "monitoring-throughput-capacity-changes.md").

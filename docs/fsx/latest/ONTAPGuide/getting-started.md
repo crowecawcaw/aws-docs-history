@@ -11,10 +11,8 @@ following steps.
 ###### Topics
 
 - [Setting up FSx for ONTAP](#setting-up "#setting-up")
-- [Create an Amazon FSx for NetApp ONTAP file
-  system](#getting-started-step1 "#getting-started-step1")
-- [Mounting your file system from an Amazon EC2 Linux
-  instance](#getting-started-step2 "#getting-started-step2")
+- [Create an Amazon FSx for NetApp ONTAP file system](#getting-started-step1 "#getting-started-step1")
+- [Mounting your file system from an Amazon EC2 Linux instance](#getting-started-step2 "#getting-started-step2")
 - [Cleaning up resources](#getting-started-step3 "#getting-started-step3")
 
 ## Setting up FSx for ONTAP
@@ -92,9 +90,7 @@ For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgro
 
 To get started using FSx for ONTAP see [Getting started with Amazon FSx for NetApp ONTAP](getting-started.md "getting-started.md") for instructions to create your Amazon FSx resources.
 
-## Create an Amazon FSx for NetApp ONTAP file
-
-system
+## Create an Amazon FSx for NetApp ONTAP file system
 
 The Amazon FSx console has two options for creating a file system – a **Quick
 create** option and a **Standard create** option. To rapidly and
@@ -148,8 +144,7 @@ The latest generation FSx for ONTAP file system that is available for your AWS R
 by default. You can specify the generation of your file system (in available AWS Regions) with the **Standard create** option.
 For more information, see [Creating file systems](creating-file-systems.md "creating-file-systems.md"). 7. For **SSD storage capacity**, specify the storage capacity of your
 file system, in gibibytes (GiB). Enter any whole number in the range of
-1,024–1,048,576. For more information, see [To create a file system
-(console)](creating-file-systems.md#create-MAZ-file-system-console "creating-file-systems.md#create-MAZ-file-system-console").
+1,024–1,048,576. For more information, see [To create a file system (console)](creating-file-systems.md#create-MAZ-file-system-console "creating-file-systems.md#create-MAZ-file-system-console").
 
 You can increase the amount of storage capacity as needed at any time after you create
 the file system. For more information, see [Managing storage capacity](managing-storage-capacity.md "managing-storage-capacity.md"). 8. For **Throughput capacity**, Amazon FSx automatically provides a recommended
@@ -234,9 +229,7 @@ to create one. 8. Complete the remaining Microsoft Active Directory configuratio
 Your SVM will be created and joined to Microsoft Active Directory using the credentials stored in Secrets Manager.
 You can now create SMB shares and volumes on this SVM for Windows and macOS client access.
 
-## Mounting your file system from an Amazon EC2 Linux
-
-instance
+## Mounting your file system from an Amazon EC2 Linux instance
 
 You can mount your file system from an Amazon Elastic Compute Cloud (Amazon EC2) instance. This procedure uses an
 instance running Amazon Linux 2.

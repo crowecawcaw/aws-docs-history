@@ -7,14 +7,10 @@ available performance and throughput options and useful performance tips.
 
 - [How performance is measured for FSx for ONTAP file systems](#perf-overview "#perf-overview")
 - [Performance details](#performance-details-fsxw "#performance-details-fsxw")
-- [Impact of deployment type on
-  performance](#deployment-type-performance "#deployment-type-performance")
-- [Impact of storage capacity on
-  performance](#storage-capacity-and-performance "#storage-capacity-and-performance")
-- [Impact of throughput capacity on
-  performance](#impact-throughput-cap-performance "#impact-throughput-cap-performance")
-- [Example: storage capacity and throughput
-  capacity](#throughput-example-ontap "#throughput-example-ontap")
+- [Impact of deployment type on performance](#deployment-type-performance "#deployment-type-performance")
+- [Impact of storage capacity on performance](#storage-capacity-and-performance "#storage-capacity-and-performance")
+- [Impact of throughput capacity on performance](#impact-throughput-cap-performance "#impact-throughput-cap-performance")
+- [Example: storage capacity and throughput capacity](#throughput-example-ontap "#throughput-example-ontap")
 
 ## How performance is measured for FSx for ONTAP file systems
 
@@ -37,9 +33,7 @@ system depends on the total throughput capacity and storage capacity configurati
 file system, along with the nature of your workload, including the size of the active
 working set.
 
-### SMB Multichannel and NFS nconnect
-
-support
+### SMB Multichannel and NFS nconnect support
 
 With Amazon FSx, you can configure SMB Multichannel to provide multiple connections
 between ONTAP and clients in a single SMB session. SMB Multichannel uses multiple network
@@ -114,9 +108,7 @@ Write operations use twice as much network bandwidth as read operations. A write
 has to be replicated on the secondary file server, so a single write operation results in
 twice the amount of network throughput.
 
-## Impact of deployment type on
-
-performance
+## Impact of deployment type on performance
 
 You can create Single-AZ and Multi-AZ file systems with FSx for ONTAP. First-generation file systems (both Single-AZ and Multi-AZ) and second-generation Multi-AZ file systems
 are powered by one high-availability (HA) pair. Second-generation Single-AZ file systems are powered by up to 12 HA pairs. For more information, see
@@ -171,9 +163,7 @@ this table.
 
 1 Per HA pair (up to 12). For more information, see [Managing high-availability (HA) pairs](HA-pairs.md "HA-pairs.md").
 
-## Impact of storage capacity on
-
-performance
+## Impact of storage capacity on performance
 
 The maximum disk throughput and IOPS levels your file system can achieve is the lower
 of:
@@ -199,11 +189,9 @@ temporary performance degradation. You might also experience brief I/O pauses
 To minimize performance impact, ensure that ongoing workloads don't consistently
 consume more than 50% CPU, 50% disk throughput, or 50% SSD IOPS before initiating an
 SSD decrease operation. For more information about decreasing SSD storage capacity, see
-[When to decrease SSD storage capacity](storage-capacity-and-IOPS.md#when-to-decrease-ssd-storage-capacity "storage-capacity-and-IOPS.md#when-to-decrease-ssd-storage-capacity") .
+[When to decrease SSD storage capacity](storage-capacity-and-IOPS.md#when-to-decrease-ssd-storage-capacity "storage-capacity-and-IOPS.md#when-to-decrease-ssd-storage-capacity").
 
-## Impact of throughput capacity on
-
-performance
+## Impact of throughput capacity on performance
 
 Every Amazon FSx file system has a throughput capacity that you configure when the
 file system is created. Your file system's throughput capacity determines the level of network
@@ -334,9 +322,7 @@ These performance specifications apply to second-generation Multi-AZ file system
 \* Your SSD IOPS are only used when you access data that is not cached in your file
 server's in-memory cache or NVMe cache.
 
-## Example: storage capacity and throughput
-
-capacity
+## Example: storage capacity and throughput capacity
 
 The following example illustrates how storage capacity and throughput capacity impact
 file system performance.

@@ -52,9 +52,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _AWS CloudTrail User Guide._
 
-## Understanding Amazon FSx Log File
-
-Entries
+## Understanding Amazon FSx Log File Entries
 
 A _trail_ is a configuration that enables delivery of
 events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log

@@ -1,6 +1,4 @@
-# Accessing data from other AWS
-
-services
+# Accessing data from other AWS services
 
 In addition to Amazon EC2, you can use other AWS services with your volumes to
 access your data.

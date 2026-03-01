@@ -1,6 +1,4 @@
-# Mounting volumes on Microsoft Windows
-
-clients
+# Mounting volumes on Microsoft Windows clients
 
 This section describes how to access data in your FSx for ONTAP file system with
 clients running the Microsoft Windows operating system. Review the following
@@ -10,8 +8,7 @@ This procedure assumes that the client and the file system are located in the sa
 VPC and AWS account. If the client is located on-premise or in a different VPC,
 AWS account, or AWS Region, this procedure also assumes that you've set up
 AWS Transit Gateway or a dedicated network connection using AWS Direct Connect or a private,
-secure tunnel using AWS Virtual Private Network. For more information, see [Accessing data from outside the
-deployment VPC](supported-fsx-clients.md#access-from-outside-deployment-vpc "supported-fsx-clients.md#access-from-outside-deployment-vpc").
+secure tunnel using AWS Virtual Private Network. For more information, see [Accessing data from outside the deployment VPC](supported-fsx-clients.md#access-from-outside-deployment-vpc "supported-fsx-clients.md#access-from-outside-deployment-vpc").
 
 We recommend that you attach volumes to your Windows clients using the SMB
 protocol.

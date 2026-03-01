@@ -6,19 +6,13 @@ practices, but not required.
 
 ###### Topics
 
-- [Delegating permissions to your Amazon FSx service
-  account](#connect_delegate_privileges "#connect_delegate_privileges")
-- [Keeping your Active Directory configuration updated with
-  Amazon FSx](#keep-ad-config-updated "#keep-ad-config-updated")
-- [Using security groups to limit traffic within your
-  VPC](#least-privilege-sg-rules "#least-privilege-sg-rules")
-- [Creating outbound security group rules for your file system's
-  network interface](#sg-rules-fsx-eni "#sg-rules-fsx-eni")
+- [Delegating permissions to your Amazon FSx service account](#connect_delegate_privileges "#connect_delegate_privileges")
+- [Keeping your Active Directory configuration updated with Amazon FSx](#keep-ad-config-updated "#keep-ad-config-updated")
+- [Using security groups to limit traffic within your VPC](#least-privilege-sg-rules "#least-privilege-sg-rules")
+- [Creating outbound security group rules for your file system's network interface](#sg-rules-fsx-eni "#sg-rules-fsx-eni")
 - [Storing Active Directory credentials using AWS Secrets Manager](#bp-store-ad-creds-using-secret-manager "#bp-store-ad-creds-using-secret-manager")
 
-## Delegating permissions to your Amazon FSx service
-
-account
+## Delegating permissions to your Amazon FSx service account
 
 Make sure to configure the service account that you provide to Amazon FSx with the minimum
 permissions required. In addition, separate the Organizational Unit (OU) from other domain
@@ -68,9 +62,7 @@ Directory User and Computers MMC snap-in installed.
 Don't move computer objects that Amazon FSx creates in the OU after your SVMs are created. Doing
 so will cause your SVMs to become misconfigured.
 
-## Keeping your Active Directory configuration updated with
-
-Amazon FSx
+## Keeping your Active Directory configuration updated with Amazon FSx
 
 For uninterrupted availability of your Amazon FSx SVMs, update an SVM's self-managed Active
 Directory (AD) configuration when you change your self-managed AD setup.
@@ -91,17 +83,13 @@ properties. If the issue is resolved, verify that your SVM's state changes to
 For more information, see [Updating existing SVM Active Directory configurations using the AWS Management Console, AWS CLI, and API](update-svm-ad-config.md "update-svm-ad-config.md") and
 [Modify an Active Directory configuration using the ONTAP CLI](manage-svm-ad-config-ontap-cli.md#using-ontap-cli-to-modify-ad "manage-svm-ad-config-ontap-cli.md#using-ontap-cli-to-modify-ad").
 
-## Using security groups to limit traffic within your
-
-VPC
+## Using security groups to limit traffic within your VPC
 
 To limit network traffic in your virtual private cloud (VPC), you can implement the
 principle of least privilege in your VPC. In other words, you can limit permissions to the
 minimum ones necessary. To do this, use security group rules. To learn more, see [Amazon VPC security groups](limit-access-security-groups.md#fsx-vpc-security-groups "limit-access-security-groups.md#fsx-vpc-security-groups").
 
-## Creating outbound security group rules for your file system's
-
-network interface
+## Creating outbound security group rules for your file system's network interface
 
 For greater security, consider configuring a security group with outbound traffic rules.
 These rules should allow outbound traffic only to your self-managed AD domains

@@ -1,6 +1,4 @@
-# Monitoring storage virtual machine (SVM) configuration
-
-details
+# Monitoring storage virtual machine (SVM) configuration details
 
 You can see the FSx for ONTAP storage virtual machines that are currently on your
 file system using the Amazon FSx console, the AWS CLI, and the Amazon FSx API.

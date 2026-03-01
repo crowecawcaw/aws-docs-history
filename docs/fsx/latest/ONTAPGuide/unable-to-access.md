@@ -7,19 +7,15 @@ This section describes issues and resolutions related to being unable to access 
 - [Your Multi-AZ file system has missing route table tags](#no-route-table-tags "#no-route-table-tags")
 - [Your file system has more than 50 routes](#more-than-50-routes "#more-than-50-routes")
 - [Your file system is missing routes to one or more file servers](#missing-routes-to-servers "#missing-routes-to-servers")
-- [The file system's elastic network interface was modified or
-  deleted](#eni-deleted "#eni-deleted")
+- [The file system's elastic network interface was modified or deleted](#eni-deleted "#eni-deleted")
 - [The Elastic IP address attached to the file system's elastic network interface was deleted](#eni-epi-removed "#eni-epi-removed")
-- [The file system's VPC security group lacks the required inbound
-  rules](#sg-lacks-inbound-rules "#sg-lacks-inbound-rules")
-- [The compute instance's VPC security group lacks the
-  required outbound rules](#compute-instance-lacks-inbound-rules "#compute-instance-lacks-inbound-rules")
+- [The file system's VPC security group lacks the required inbound rules](#sg-lacks-inbound-rules "#sg-lacks-inbound-rules")
+- [The compute instance's VPC security group lacks the required outbound rules](#compute-instance-lacks-inbound-rules "#compute-instance-lacks-inbound-rules")
 - [The compute instance's subnet doesn't use any of the route tables associated with your file system](#subnet-route-tables "#subnet-route-tables")
 - [Amazon FSx can't update route table for Multi-AZ file systems created using CloudFormation](#vpc-route-tables-not-tagged "#vpc-route-tables-not-tagged")
 - [Can't access a file system over iSCSI from a client in another VPC](#file-system-iscsi "#file-system-iscsi")
 - [The owning account has stopped sharing the VPC subnet](#unshared-vpc-subnet "#unshared-vpc-subnet")
-- [Can't access a file system over NFS, SMB, the ONTAP CLI,
-  or the ONTAP REST API from a client in another VPC or on-premises](#unable-to-access-over-network "#unable-to-access-over-network")
+- [Can't access a file system over NFS, SMB, the ONTAP CLI, or the ONTAP REST API from a client in another VPC or on-premises](#unable-to-access-over-network "#unable-to-access-over-network")
 
 ## Your Multi-AZ file system has missing route table tags
 
@@ -55,9 +51,7 @@ any connected clients will be disconnected for the duration of the patching oper
 For more information, see [Updating file systems](updating-file-system.md "updating-file-system.md") and
 [Quotas](limits.md "limits.md").
 
-## The file system's elastic network interface was modified or
-
-deleted
+## The file system's elastic network interface was modified or deleted
 
 You must not modify or delete any of the file system's elastic network interfaces.
 Modifying or deleting a network interface can cause a permanent loss of connection between your
@@ -71,16 +65,12 @@ automatically detaches any Elastic IP address which is a public IP address
 reachable from the Internet that gets attached to a file system's elastic
 network interface. For more information, see [Supported clients](supported-fsx-clients.md#supported-clients-fsx "supported-fsx-clients.md#supported-clients-fsx").
 
-## The file system's VPC security group lacks the required inbound
-
-rules
+## The file system's VPC security group lacks the required inbound rules
 
 Review the inbound rules specified in [Amazon VPC security groups](limit-access-security-groups.md#fsx-vpc-security-groups "limit-access-security-groups.md#fsx-vpc-security-groups"), and make sure that the security group
 associated with your file system has the corresponding inbound rules.
 
-## The compute instance's VPC security group lacks the
-
-required outbound rules
+## The compute instance's VPC security group lacks the required outbound rules
 
 Review the outbound rules specified in [Amazon VPC security groups](limit-access-security-groups.md#fsx-vpc-security-groups "limit-access-security-groups.md#fsx-vpc-security-groups"), and make sure that the security group
 associated with your compute instance has the corresponding outbound rules.
@@ -135,9 +125,7 @@ The vpc ID `vpc-012345abcde` does not exist
 
 You will need to contact the owning account so that they can re-share the subnet with you.
 
-## Can't access a file system over NFS, SMB, the ONTAP CLI,
-
-or the ONTAP REST API from a client in another VPC or on-premises
+## Can't access a file system over NFS, SMB, the ONTAP CLI, or the ONTAP REST API from a client in another VPC or on-premises
 
 To access a file system over Network File System (NFS), Server Message Block (SMB), or the
 NetApp ONTAP CLI and REST API from a client in another VPC or on premises, you must configure

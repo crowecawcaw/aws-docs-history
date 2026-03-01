@@ -17,8 +17,7 @@ This procedure uses the **Standard create** creation
 option to create an FSx for ONTAP file system with a configuration that you
 customize for your needs. For information about using the **Quick
 create** creation option to rapidly create a file system with a
-default set of configuration parameters, see [Create an Amazon FSx for NetApp ONTAP file
-system](getting-started.md#getting-started-step1 "getting-started.md#getting-started-step1").
+default set of configuration parameters, see [Create an Amazon FSx for NetApp ONTAP file system](getting-started.md#getting-started-step1 "getting-started.md#getting-started-step1").
 
 1.  Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
 2.  On the dashboard, choose **Create file system**.
@@ -58,8 +57,7 @@ system](getting-started.md#getting-started-step1 "getting-started.md#getting-sta
       it on a new file system. You can also migrate your data with NetApp SnapMirror, with
       AWS DataSync, or with a third-party data copying tool.
       For more information, see [Migrating to FSx for ONTAP using NetApp SnapMirror](migrating-fsx-ontap-snapmirror.md "migrating-fsx-ontap-snapmirror.md") and
-      [Migrating to FSx for ONTAP using
-      AWS DataSync](migrate-files-to-fsx-datasync.md "migrate-files-to-fsx-datasync.md").
+      [Migrating to FSx for ONTAP using AWS DataSync](migrate-files-to-fsx-datasync.md "migrate-files-to-fsx-datasync.md").
 
     - For **SSD storage capacity**, enter the storage
       capacity of your file system, in gibibytes (GiB). Enter any whole
@@ -82,8 +80,7 @@ system](getting-started.md#getting-started-step1 "getting-started.md#getting-sta
     You can increase your provisioned SSD IOPS after you create the file system.
     Keep in mind that the maximum level of SSD IOPS your file system can achieve is also
     dictated by your file system's throughput capacity even when provisioning additional
-    SSD IOPS. For more information, see [Impact of throughput capacity on
-    performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance") and [Managing storage capacity](managing-storage-capacity.md "managing-storage-capacity.md").
+    SSD IOPS. For more information, see [Impact of throughput capacity on performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance") and [Managing storage capacity](managing-storage-capacity.md "managing-storage-capacity.md").
     - For **Throughput capacity**, you have two
       options for determining your throughput capacity in
       megabytes per second (MBps):
@@ -115,8 +112,7 @@ system](getting-started.md#getting-started-step1 "getting-started.md#getting-sta
       endpoints. Select all VPC route tables associated with the subnets
       in which your clients are located. By default, Amazon FSx selects your
       VPC's default route table. For more information, see
-      [Accessing data from outside the
-      deployment VPC](supported-fsx-clients.md#access-from-outside-deployment-vpc "supported-fsx-clients.md#access-from-outside-deployment-vpc").
+      [Accessing data from outside the deployment VPC](supported-fsx-clients.md#access-from-outside-deployment-vpc "supported-fsx-clients.md#access-from-outside-deployment-vpc").
 
     ###### Note
 
@@ -231,8 +227,7 @@ information:
      the volume. For more information, see [Volume security style](managing-volumes.md#volume-security-style "managing-volumes.md#volume-security-style").
     * In the **Active Directory** section, you
      can join an Active Directory to the SVM. For more information,
-     see [Working with Microsoft Active Directory
-     in FSx for ONTAP](ad-integration-ontap.md "ad-integration-ontap.md").
+     see [Working with Microsoft Active Directory in FSx for ONTAP](ad-integration-ontap.md "ad-integration-ontap.md").
 
 
     If you don't want to join your SVM to an Active
@@ -383,8 +378,7 @@ the deployment type (for example, to move from Single-AZ 1 to Single-AZ 2), you 
 it on a new file system. You can also migrate your data with NetApp SnapMirror, with
 AWS DataSync, or with a third-party data copying tool.
 For more information, see [Migrating to FSx for ONTAP using NetApp SnapMirror](migrating-fsx-ontap-snapmirror.md "migrating-fsx-ontap-snapmirror.md") and
-[Migrating to FSx for ONTAP using
-AWS DataSync](migrate-files-to-fsx-datasync.md "migrate-files-to-fsx-datasync.md").
+[Migrating to FSx for ONTAP using AWS DataSync](migrate-files-to-fsx-datasync.md "migrate-files-to-fsx-datasync.md").
 
 ```
 `aws fsx create-file-system \

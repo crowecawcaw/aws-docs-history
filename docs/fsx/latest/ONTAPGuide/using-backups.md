@@ -59,8 +59,7 @@ new volume from the backup, effectively restoring a point-in-time snapshot of th
 
 There are limits to the number of backups that you can store per AWS account and per volume.
 For more information, see [Quotas that you can increase](limits.md#soft-limits "limits.md#soft-limits") and
-[Resource quotas for each file
-system](limits.md#limits-ontap-resources-file-system "limits.md#limits-ontap-resources-file-system").
+[Resource quotas for each file system](limits.md#limits-ontap-resources-file-system "limits.md#limits-ontap-resources-file-system").
 
 ## Storage requirements
 

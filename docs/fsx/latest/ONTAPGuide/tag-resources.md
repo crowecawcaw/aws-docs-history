@@ -93,8 +93,7 @@ For more information about the permissions required to tag Amazon FSx resources 
 [Grant permission to tag resources during creation](using-tags-fsx.md#supported-iam-actions-tagging "using-tags-fsx.md#supported-iam-actions-tagging").
 
 For more information about using tags to restrict access to Amazon FSx resources in IAM
-policies, see [Using tags to control access to your Amazon FSx
-resources](using-tags-fsx.md#restrict-fsx-access-tags "using-tags-fsx.md#restrict-fsx-access-tags").
+policies, see [Using tags to control access to your Amazon FSx resources](using-tags-fsx.md#restrict-fsx-access-tags "using-tags-fsx.md#restrict-fsx-access-tags").
 
 For information about tagging your resources for billing, see [Using cost allocation tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md")
 in the _AWS Billing User Guide_.
@@ -151,5 +150,4 @@ For more information about the permissions required to tag Amazon FSx resources 
 see [Grant permission to tag resources during creation](using-tags-fsx.md#supported-iam-actions-tagging "using-tags-fsx.md#supported-iam-actions-tagging").
 
 For more information about using tags to restrict access to Amazon FSx resources in IAM policies, see
-[Using tags to control access to your Amazon FSx
-resources](using-tags-fsx.md#restrict-fsx-access-tags "using-tags-fsx.md#restrict-fsx-access-tags").
+[Using tags to control access to your Amazon FSx resources](using-tags-fsx.md#restrict-fsx-access-tags "using-tags-fsx.md#restrict-fsx-access-tags").

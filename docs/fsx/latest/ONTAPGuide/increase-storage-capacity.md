@@ -38,8 +38,7 @@ and the API.
 ###### Note
 
 For more information about the maximum number of SSD IOPS that you can provision for your
-FSx for ONTAP file system, see [Impact of throughput capacity on
-performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance"). 8. Choose **Update**.
+FSx for ONTAP file system, see [Impact of throughput capacity on performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance"). 8. Choose **Update**.
 
 ###### Note
 
@@ -70,8 +69,7 @@ DiskIopsConfiguration` property. This property has two
 ###### Note
 
 For more information about the maximum number of SSD IOPS that you can provision for your
-FSx for ONTAP file system, see [Impact of throughput capacity on
-performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance").
+FSx for ONTAP file system, see [Impact of throughput capacity on performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance").
 The following example increases the file system’s SSD storage to 2000 GiB and sets amount of user provisioned SSD IOPS to 7000.
 
 ```

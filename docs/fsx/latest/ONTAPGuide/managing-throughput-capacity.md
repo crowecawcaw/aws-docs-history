@@ -5,8 +5,7 @@ your file system's throughput capacity at any time. Keep in mind that your file 
 requires a specific configuration to achieve the maximum amount of throughput capacity. For example, to provision 4 GBps
 of throughput capacity for a first-generation file system, your file system requires a configuration with a minimum
 of 5,120 GiB of SSD storage capacity and 160,000
-SSD IOPS. For more information, see [Impact of throughput capacity on
-performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance").
+SSD IOPS. For more information, see [Impact of throughput capacity on performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance").
 
 Throughput capacity is one factor that
 determines the speed at which the file server that's hosting the file system can serve the file
@@ -33,16 +32,12 @@ more information, see [Optimizing performance with Amazon FSx maintenance window
 
 ###### Topics
 
-- [When to modify throughput
-  capacity](#when-to-modify-throughput-capacity "#when-to-modify-throughput-capacity")
+- [When to modify throughput capacity](#when-to-modify-throughput-capacity "#when-to-modify-throughput-capacity")
 - [How concurrent requests are handled](#concurrent-throughput-and-storage-requests "#concurrent-throughput-and-storage-requests")
 - [Updating throughput capacity](increase-throughput-capacity.md "increase-throughput-capacity.md")
-- [Monitoring throughput capacity
-  changes](monitoring-throughput-capacity-changes.md "monitoring-throughput-capacity-changes.md")
+- [Monitoring throughput capacity changes](monitoring-throughput-capacity-changes.md "monitoring-throughput-capacity-changes.md")
 
-## When to modify throughput
-
-capacity
+## When to modify throughput capacity
 
 Amazon FSx integrates with Amazon CloudWatch, which helps you to monitor your file system's ongoing
 throughput usage levels. The throughput and IOPS performance that you can drive through your

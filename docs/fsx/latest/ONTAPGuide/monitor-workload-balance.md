@@ -12,8 +12,7 @@ _aggregates_—the storage pools which make up your primary storage tier).
 
 - [Primary storage utilization balance](#primary-storage-balance "#primary-storage-balance")
 - [File server and disk performance utilization imbalance](#server-disk-imbalance "#server-disk-imbalance")
-- [Mapping CloudWatch dimensions to
-  ONTAP CLI and REST API resources](#map-dimensions-to-resources "#map-dimensions-to-resources")
+- [Mapping CloudWatch dimensions to ONTAP CLI and REST API resources](#map-dimensions-to-resources "#map-dimensions-to-resources")
 - [Rebalancing clients](#rebalancing-clients "#rebalancing-clients")
 - [Rebalancing volumes](#rebalancing-volumes "#rebalancing-volumes")
 
@@ -52,9 +51,7 @@ possible imbalance indicators and next steps for further diagnosis.
 | File server disk throughput or file server disk IOPS are imbalanced                                                               | You may be experiencing I/O hotspotting on a subset of HA pairs (a subset<br>of your volumes containing an outsized amount of data being accessed) which can limit<br>your workload's overall performance because it's bottlenecked against a subset of HA<br>pairs. For each highly-utilized file server, check the most-utilized volumes to see<br>which volumes have the most activity within an aggregate. For more information on this<br>procedure, see<br>[Rebalancing volumes](#rebalancing-volumes "#rebalancing-volumes"). |
 | Network throughput is imbalanced, but your file server disk throughput,<br>file server disk IOPS, or disk IOPS are not imbalanced | Your data is evenly-distributed across HA pairs, but your clients are not.<br>For the file servers which have more network throughput utilization than others,<br>check the top clients for each file server, then rebalance those clients by unmounting<br>any volumes from those clients and remounting them using a different endpoint on a<br>different HA pair. For more information on this procedure, see<br>[Rebalancing clients](#rebalancing-clients "#rebalancing-clients").                                              |
 
-## Mapping CloudWatch dimensions to
-
-ONTAP CLI and REST API resources
+## Mapping CloudWatch dimensions to ONTAP CLI and REST API resources
 
 Your second-generation file system has Amazon CloudWatch metrics with the `FileServer` or
 `Aggregate` dimension. In order to further diagnose cases of imbalance, you

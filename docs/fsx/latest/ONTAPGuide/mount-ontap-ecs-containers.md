@@ -71,9 +71,7 @@ sudo mount -t nfs -o nfsvers=4.1 198.51.100.1:/vol1 /fsxontap
 }
 ```
 
-## Mounting on an Amazon ECS Windows
-
-container
+## Mounting on an Amazon ECS Windows container
 
 1. Create an ECS cluster using the EC2 Windows + Networking cluster
    template for your Windows containers. For more information, see [Creating a

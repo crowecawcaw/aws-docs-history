@@ -39,9 +39,7 @@ attached to the SVM.
 5.  In the delete confirmation dialog box, choose **Delete
     storage virtual machine**.
 
-###### To delete a storage virtual machine
-
-(CLI)
+###### To delete a storage virtual machine (CLI)
 
 - To delete an FSx for ONTAP storage virtual machine, use the [delete-storage-virtual-machine](../../../cli/latest/reference/fsx/delete-storage-virtual-machine.md "../../../cli/latest/reference/fsx/delete-storage-virtual-machine.md") CLI command (or the
   equivalent [DeleteStorageVirtualMachine](../APIReference/API_DeleteStorageVirtualMachine.md "../APIReference/API_DeleteStorageVirtualMachine.md") API operation), as shown in

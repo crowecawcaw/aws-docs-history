@@ -1,6 +1,4 @@
-# Working with Microsoft Active Directory
-
-in FSx for ONTAP
+# Working with Microsoft Active Directory in FSx for ONTAP
 
 Amazon FSx works with Microsoft Active Directory to integrate with your existing environments. Active
 Directory is the Microsoft directory service that's used to store information about objects on
@@ -30,8 +28,7 @@ After an SVM is joined to an Active Directory, you can update the following Acti
 
 ###### Topics
 
-- [Prerequisites for joining an SVM to a
-  self-managed Microsoft AD](self-manage-prereqs.md "self-manage-prereqs.md")
+- [Prerequisites for joining an SVM to a self-managed Microsoft AD](self-manage-prereqs.md "self-manage-prereqs.md")
 - [Best practices for working with Active Directory](self-managed-AD-best-practices.md "self-managed-AD-best-practices.md")
 - [How joining SVMs to Microsoft Active Directory works](self-managed-AD-join.md "self-managed-AD-join.md")
 - [Managing SVM Active Directory configurations](manage-svm-ad-config.md "manage-svm-ad-config.md")

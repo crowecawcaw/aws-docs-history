@@ -1,6 +1,4 @@
-# You can't delete a storage virtual machine or
-
-volume
+# You can't delete a storage virtual machine or volume
 
 Each FSx for ONTAP file system can contain one or more storage virtual machines (SVMs), and
 each SVM can contain one or more volumes. When you delete a resource, you must first ensure that

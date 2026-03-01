@@ -11,8 +11,7 @@ You can create additional SVMs on your file system at any time using the console
 You cannot create SVMs using the ONTAP CLI or REST API.
 
 You can join your SVMs to a Microsoft Active Directory for file access authentication and authorization.
-For more information, see [Working with Microsoft Active Directory
-in FSx for ONTAP](ad-integration-ontap.md "ad-integration-ontap.md").
+For more information, see [Working with Microsoft Active Directory in FSx for ONTAP](ad-integration-ontap.md "ad-integration-ontap.md").
 
 ## Maximum number of SVMs per file system
 
@@ -42,6 +41,5 @@ second (MBps), and also on the file system's [network type](manage-network-type.
 - [Managing SVM Microsoft Active Directory configurations](manage-svm-ad-config-secrets-manager.md "manage-svm-ad-config-secrets-manager.md")
 - [Auditing file access](file-access-auditing.md "file-access-auditing.md")
 - [Setting up an SMB server in a workgroup](smb-server-workgroup-setup.md "smb-server-workgroup-setup.md")
-- [Monitoring storage virtual machine (SVM) configuration
-  details](viewing-svms.md "viewing-svms.md")
+- [Monitoring storage virtual machine (SVM) configuration details](viewing-svms.md "viewing-svms.md")
 - [Deleting storage virtual machines (SVM)](deleting-svms.md "deleting-svms.md")

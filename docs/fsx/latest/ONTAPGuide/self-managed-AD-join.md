@@ -7,8 +7,7 @@ domain in the following ways:
 - Joining new SVMs to an Active Directory at creation:
   - Using the **Standard create** option in Amazon FSx console to create a new
     FSx for ONTAP file system, you can join the default SVM to a self-managed Active Directory. For more information,
-    see [To create a file system
-    (console)](creating-file-systems.md#create-MAZ-file-system-console "creating-file-systems.md#create-MAZ-file-system-console").
+    see [To create a file system (console)](creating-file-systems.md#create-MAZ-file-system-console "creating-file-systems.md#create-MAZ-file-system-console").
   - Using the Amazon FSx console, AWS CLI, or Amazon FSx API to create a new SVM on an existing FSx for ONTAP file system.
     For more information, see [Creating storage virtual machines (SVM)](creating-svms.md "creating-svms.md").
 

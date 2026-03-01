@@ -7,31 +7,20 @@ messages generated for each circumstance.
 
 ###### Topics
 
-- [The SVM NetBIOS name is the same as the
-  NetBIOS name for the home domain.](#join-svm-ad-fails-netbios-name-home-domain "#join-svm-ad-fails-netbios-name-home-domain")
+- [The SVM NetBIOS name is the same as the NetBIOS name for the home domain.](#join-svm-ad-fails-netbios-name-home-domain "#join-svm-ad-fails-netbios-name-home-domain")
 - [The SVM is already joined to another Active Directory](#join-svm-ad-fails-already-joined "#join-svm-ad-fails-already-joined")
-- [Amazon FSx can't connect to your Active Directory domain controllers
-  because the SVM's NetBIOS name is already in use](#join-svm-ad-fails-netbios-name-in-use "#join-svm-ad-fails-netbios-name-in-use")
+- [Amazon FSx can't connect to your Active Directory domain controllers because the SVM's NetBIOS name is already in use](#join-svm-ad-fails-netbios-name-in-use "#join-svm-ad-fails-netbios-name-in-use")
 - [Amazon FSx can't access your Active Directory service account credentials in AWS Secrets Manager](#join-svm-ad-service-account-creds-inaccessible "#join-svm-ad-service-account-creds-inaccessible")
 - [Amazon FSx can't communicate with your Active Directory domain controllers](#join-svm-ad-fails-no-port-traffic "#join-svm-ad-fails-no-port-traffic")
-- [Amazon FSx can't connect to your
-  Active Directory due to unmet port requirements or service account permissions](#join-svm-ad-fails-ports-or-permissions "#join-svm-ad-fails-ports-or-permissions")
-- [Amazon FSx can't connect to your Active Directory
-  domain controllers because the service account credentials are not valid](#join-svm-ad-fails-invalid-service-credentials "#join-svm-ad-fails-invalid-service-credentials")
-- [Amazon FSx can't connect to your Active
-  Directory domain controllers because of insufficient service account credentials](#join-svm-ad-fails-insufficient-service-credentials "#join-svm-ad-fails-insufficient-service-credentials")
-- [Amazon FSx can't communicate with your Active
-  Directory DNS servers or domain controllers](#join-svm-ad-fails-dns-servers "#join-svm-ad-fails-dns-servers")
-- [Amazon FSx can't communicate with your Active
-  Directory because of a invalid Active Directory domain name.](#join-svm-ad-fails-fqdn "#join-svm-ad-fails-fqdn")
+- [Amazon FSx can't connect to your Active Directory due to unmet port requirements or service account permissions](#join-svm-ad-fails-ports-or-permissions "#join-svm-ad-fails-ports-or-permissions")
+- [Amazon FSx can't connect to your Active Directory domain controllers because the service account credentials are not valid](#join-svm-ad-fails-invalid-service-credentials "#join-svm-ad-fails-invalid-service-credentials")
+- [Amazon FSx can't connect to your Active Directory domain controllers because of insufficient service account credentials](#join-svm-ad-fails-insufficient-service-credentials "#join-svm-ad-fails-insufficient-service-credentials")
+- [Amazon FSx can't communicate with your Active Directory DNS servers or domain controllers](#join-svm-ad-fails-dns-servers "#join-svm-ad-fails-dns-servers")
+- [Amazon FSx can't communicate with your Active Directory because of a invalid Active Directory domain name.](#join-svm-ad-fails-fqdn "#join-svm-ad-fails-fqdn")
 - [The service account can't access the administrators group specified in the SVM Active Directory configuration](#join-svm-ad-fails-no-admin-group "#join-svm-ad-fails-no-admin-group")
-- [Amazon FSx can't connect to the Active
-  Directory domain controllers because the organizational unit specified doesn't exist or
-  isn't accessible](#bad-org-unit-service-credentials "#bad-org-unit-service-credentials")
+- [Amazon FSx can't connect to the Active Directory domain controllers because the organizational unit specified doesn't exist or isn't accessible](#bad-org-unit-service-credentials "#bad-org-unit-service-credentials")
 
-## The SVM NetBIOS name is the same as the
-
-NetBIOS name for the home domain.
+## The SVM NetBIOS name is the same as the NetBIOS name for the home domain.
 
 Joining an SVM to your self-managed Active Directory fails with the following error message:
 
@@ -59,9 +48,7 @@ To resolve the issue, do the following:
 2. Follow the procedure described in
    [Joining SVMs to Active Directory using the AWS Management Console, AWS CLI and API](join-svm-to-ad.md "join-svm-to-ad.md") to reattempt joining your SVM to the new Active Directory.
 
-## Amazon FSx can't connect to your Active Directory domain controllers
-
-because the SVM's NetBIOS name is already in use
+## Amazon FSx can't connect to your Active Directory domain controllers because the SVM's NetBIOS name is already in use
 
 Creating an SVM joined to your self-managed Active Directory fails with the following error message:
 
@@ -137,9 +124,7 @@ To resolve this issue, do the following:
 2. Once Amazon FSx is able to communicate with your AD, follow the procedure described in
    [Joining SVMs to Active Directory using the AWS Management Console, AWS CLI and API](join-svm-to-ad.md "join-svm-to-ad.md") and reattempt joining your SVM to your AD.
 
-## Amazon FSx can't connect to your
-
-Active Directory due to unmet port requirements or service account permissions
+## Amazon FSx can't connect to your Active Directory due to unmet port requirements or service account permissions
 
 Joining an SVM to your self-managed Active Directory fails with the following error message:
 
@@ -161,9 +146,7 @@ To resolve this issue, do the following:
 3. Once you have made changes to the port permissions or the service account, follow the procedure described in
    [Joining SVMs to Active Directory using the AWS Management Console, AWS CLI and API](join-svm-to-ad.md "join-svm-to-ad.md") and reattempt joining your SVM to your AD.
 
-## Amazon FSx can't connect to your Active Directory
-
-domain controllers because the service account credentials are not valid
+## Amazon FSx can't connect to your Active Directory domain controllers because the service account credentials are not valid
 
 Joining an SVM to your self-managed Active Directory fails with the following error message:
 
@@ -179,9 +162,7 @@ entering the service account user name, be sure to include only the user name (f
 service account user name (for example,
 `CN=ServiceAcct,OU=example,DC=corp,DC=com`).
 
-## Amazon FSx can't connect to your Active
-
-Directory domain controllers because of insufficient service account credentials
+## Amazon FSx can't connect to your Active Directory domain controllers because of insufficient service account credentials
 
 Joining an SVM to your self-managed Active Directory fails with the following error message:
 
@@ -202,12 +183,9 @@ The service account also needs, at a minimum, to have permissions to do the foll
 
 For more information about creating a service account with correct permissions, see
 [Active Directory service account requirements](self-manage-prereqs.md#ontap-ad-service-account-prereqs "self-manage-prereqs.md#ontap-ad-service-account-prereqs") and
-[Delegating permissions to your Amazon FSx service
-account](self-managed-AD-best-practices.md#connect_delegate_privileges "self-managed-AD-best-practices.md#connect_delegate_privileges").
+[Delegating permissions to your Amazon FSx service account](self-managed-AD-best-practices.md#connect_delegate_privileges "self-managed-AD-best-practices.md#connect_delegate_privileges").
 
-## Amazon FSx can't communicate with your Active
-
-Directory DNS servers or domain controllers
+## Amazon FSx can't communicate with your Active Directory DNS servers or domain controllers
 
 Joining an SVM to your self-managed Active Directory fails with the following error message:
 
@@ -287,9 +265,7 @@ To resolve this issue, use the following procedure:
 5.  Use the procedure described in [Network configuration requirements](self-manage-prereqs.md#ontap-ad-network-configs "self-manage-prereqs.md#ontap-ad-network-configs")
     to update your SVM's Active Directory configuration using the correct IP addresses for your Active Directory DNS servers.
 
-## Amazon FSx can't communicate with your Active
-
-Directory because of a invalid Active Directory domain name.
+## Amazon FSx can't communicate with your Active Directory because of a invalid Active Directory domain name.
 
 Joining an SVM to your self-managed Active Directory fails with the following error message:
 
@@ -319,10 +295,7 @@ To resolve this issue, do the following:
    that you are using the correct name of the Active Directory domain administrators group.
 2. Use the procedure described in [Joining SVMs to Active Directory using the AWS Management Console, AWS CLI and API](join-svm-to-ad.md "join-svm-to-ad.md") and reattempt joining your SVM to an AD.
 
-## Amazon FSx can't connect to the Active
-
-Directory domain controllers because the organizational unit specified doesn't exist or
-isn't accessible
+## Amazon FSx can't connect to the Active Directory domain controllers because the organizational unit specified doesn't exist or isn't accessible
 
 Joining an SVM to your self-managed Active Directory fails with the following error message:
 

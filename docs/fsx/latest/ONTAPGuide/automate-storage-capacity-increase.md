@@ -143,9 +143,7 @@ You can view the status of the stack in the CloudFormation console in the
 **Status** column. You should see a status of
 **CREATE_COMPLETE** in a few minutes.
 
-### Updating the
-
-stack
+### Updating the stack
 
 After the stack is created, you can update it by using the same template and
 providing new values for the parameters. For more information, see [Updating stacks directly](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-direct.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-direct.md") in the

@@ -30,15 +30,13 @@ available on second-generation file systems that have 6 or fewer HA pairs.
 - [Configure routing to access Multi-AZ file systems from outside your VPC](configuring-routing-using-AWSTG.md "configuring-routing-using-AWSTG.md")
 - [Configure routing to access Multi-AZ file systems from on-premises](configure-routing-maz-on-prem.md "configure-routing-maz-on-prem.md")
 - [Mounting volumes on Linux clients](attach-linux-client.md "attach-linux-client.md")
-- [Mounting volumes on Microsoft Windows
-  clients](attach-windows-client.md "attach-windows-client.md")
+- [Mounting volumes on Microsoft Windows clients](attach-windows-client.md "attach-windows-client.md")
 - [Mounting volumes on macOS clients](attach-mac-client.md "attach-mac-client.md")
 - [Provisioning iSCSI for Linux](mount-iscsi-luns-linux.md "mount-iscsi-luns-linux.md")
 - [Provisioning iSCSI for Windows](mount-iscsi-windows.md "mount-iscsi-windows.md")
 - [Provisioning NVMe/TCP for Linux](provision-nvme-linux.md "provision-nvme-linux.md")
 - [Accessing your data via Amazon S3 access points](accessing-data-via-s3-access-points.md "accessing-data-via-s3-access-points.md")
-- [Accessing data from other AWS
-  services](using-fsx-with-other-AWS-services.md "using-fsx-with-other-AWS-services.md")
+- [Accessing data from other AWS services](using-fsx-with-other-AWS-services.md "using-fsx-with-other-AWS-services.md")
 
 ## Supported clients
 
@@ -58,8 +56,7 @@ The following AWS compute instances are supported for use with FSx for ONTAP:
 
 - Amazon Elastic Compute Cloud (Amazon EC2) instances running Linux with NFS or SMB support, Microsoft
   Windows, and MacOS. For more information see [Mounting volumes on Linux clients](attach-linux-client.md "attach-linux-client.md")
-  [Mounting volumes on Microsoft Windows
-  clients](attach-windows-client.md "attach-windows-client.md"), and
+  [Mounting volumes on Microsoft Windows clients](attach-windows-client.md "attach-windows-client.md"), and
   [Mounting volumes on macOS clients](attach-mac-client.md "attach-mac-client.md").
 - Amazon Elastic Container Service (Amazon ECS) Docker containers on Amazon EC2 Windows and Linux instances. For
   more information, see [Using Amazon Elastic Container Service with FSx for ONTAP](mount-ontap-ecs-containers.md "mount-ontap-ecs-containers.md").
@@ -126,16 +123,12 @@ identify a file system's subnet or preferred subnet, in the Amazon FSx console, 
 volume you are mounting, and the subnet or preferred subnet (Multi-AZ) is displayed in the
 **Subnet** or **Preferred subnet** panel.
 
-### Accessing data from outside the
-
-deployment VPC
+### Accessing data from outside the deployment VPC
 
 This section describes how to access an FSx for ONTAP file system's endpoints from AWS locations
 outside of the file system's deployment VPC.
 
-#### Accessing NFS, SMB, and
-
-ONTAP management endpoints on Multi-AZ file systems
+#### Accessing NFS, SMB, and ONTAP management endpoints on Multi-AZ file systems
 
 The NFS, SMB, and ONTAP management endpoints on Amazon FSx for NetApp ONTAP Multi-AZ file systems use
 floating internet protocol (IP) addresses so that connected clients seamlessly
@@ -185,17 +178,14 @@ For information about associating your Amazon VPC route tables with your file sy
 [Updating file systems](updating-file-system.md "updating-file-system.md").
 
 For information about when you need to use Transit Gateway to access your FSx for ONTAP file system, see
-[When is Transit Gateway
-required?](#when-is-transit-gateway-required "#when-is-transit-gateway-required").
+[When is Transit Gateway required?](#when-is-transit-gateway-required "#when-is-transit-gateway-required").
 
 Amazon FSx manages VPC route tables for Multi-AZ file systems using tag-based authentication.
 These route tables are tagged with `Key: AmazonFSx; Value: ManagedByAmazonFSx`.
 When creating or updating FSx for ONTAP Multi-AZ file systems using CloudFormation we recommend that you add the
 `Key: AmazonFSx; Value: ManagedByAmazonFSx` tag manually.
 
-#### Accessing NFS, SMB, or
-
-the ONTAP CLI and API for Single-AZ file systems
+#### Accessing NFS, SMB, or the ONTAP CLI and API for Single-AZ file systems
 
 The endpoints used to access FSx for ONTAP Single-AZ file systems over NFS or
 SMB, and for administering file systems using the ONTAP CLI or REST API, are
@@ -208,9 +198,7 @@ to a Single-AZ file system that is in a different VPC than the clients accessing
 
 ![Using Site-to-Site VPN or Direct Connect to access NFS, SMB, and ONTAP management endpoints on a Single-AZ file system that is in a different VPC than the clients accessing it.](images/fsx-ontap-single-az-access-vpc-peering.png)
 
-#### When is Transit Gateway
-
-required?
+#### When is Transit Gateway required?
 
 Whether or not Transit Gateway is required for your Multi-AZ file systems depends on
 the method you use to access your file system data. Single-AZ file systems do
@@ -227,9 +215,7 @@ to access Multi-AZ file systems.
 | FlexCache Caching                                                                    | No                                                                                                                                                                          |
 | Global File Cache                                                                    | No                                                                                                                                                                          |
 
-#### Accessing NVMe, iSCSI and inter-cluster endpoints outside of the deployment
-
-VPC
+#### Accessing NVMe, iSCSI and inter-cluster endpoints outside of the deployment VPC
 
 You can use either VPC Peering or AWS Transit Gateway to access your file system's NVMe, iSCSI, and inter-cluster endpoints
 from outside of the file system's deployment VPC. You can use VPC Peering to route NVMe, iSCSI,
@@ -249,9 +235,7 @@ FSx for ONTAP resources from on-premises, you also need to ensure that your file
 VPC security group allows data to flow between your file system and clients; for a list
 of required ports, see [Amazon VPC security groups](limit-access-security-groups.md#fsx-vpc-security-groups "limit-access-security-groups.md#fsx-vpc-security-groups").
 
-### Accessing
-
-NFS, SMB, and ONTAP CLI and REST API endpoints from on-premises
+### Accessing NFS, SMB, and ONTAP CLI and REST API endpoints from on-premises
 
 This section describes how to access the NFS, SMB, and ONTAP management ports on FSx for ONTAP file systems
 from on-premises networks.
@@ -310,9 +294,7 @@ implemented as secondary IP addresses within the file system’s VPC CIDR range,
 enabling you to access your data from another network without requiring
 AWS Transit Gateway.
 
-### Accessing
-
-inter-cluster endpoints from on-premises
+### Accessing inter-cluster endpoints from on-premises
 
 FSx for ONTAP’s inter-cluster endpoints are dedicated to replication traffic between
 NetApp ONTAP file systems, including between on-premises NetApp deployments and

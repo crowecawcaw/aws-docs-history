@@ -28,8 +28,7 @@ and automatically backed up using Amazon FSx daily automatic backups.
 ###### Step 1: Create a profile folder location for domain users using Amazon FSx
 
 1. Create an FSx for ONTAP file system using the Amazon FSx console. For more information,
-   see [To create a file system
-   (console)](creating-file-systems.md#create-MAZ-file-system-console "creating-file-systems.md#create-MAZ-file-system-console").
+   see [To create a file system (console)](creating-file-systems.md#create-MAZ-file-system-console "creating-file-systems.md#create-MAZ-file-system-console").
 
 ###### Important
 
@@ -43,8 +42,7 @@ the _Amazon WorkSpaces Administration Guide_. As a result, to access
 your _multi-AZ_ FSx for ONTAP file system from WorkSpaces, you
 must select an endpoint IP address range that does not overlap with 198.19.0.0/16. 2. If you don't have a storage virtual machine (SVM) joined to an Active Directory,
 create one now. For example, you can provision an SVM named `fsx` and set the
-security style to `NTFS`. For more information, see [To create a storage virtual machine
-(console)](creating-svms.md#create-svm-console "creating-svms.md#create-svm-console"). 3. Create a volume for your SVM. For example, you can create a volume named
+security style to `NTFS`. For more information, see [To create a storage virtual machine (console)](creating-svms.md#create-svm-console "creating-svms.md#create-svm-console"). 3. Create a volume for your SVM. For example, you can create a volume named
 `fsx-vol` which inherits the security style of your SVM's
 root volume. For more information, see [To create a FlexVol volume (console)](creating-volumes.md#create-volume-console "creating-volumes.md#create-volume-console"). 4. Create an SMB share on your volume. For example, you can create a share called
 `workspace` on your volume named `fsx-vol`, in which you

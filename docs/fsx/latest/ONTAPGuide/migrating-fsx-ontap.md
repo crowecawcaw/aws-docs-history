@@ -17,5 +17,4 @@ to ensure that it is not filling faster than the tiering process can move data t
 ###### Topics
 
 - [Migrating to FSx for ONTAP using NetApp SnapMirror](migrating-fsx-ontap-snapmirror.md "migrating-fsx-ontap-snapmirror.md")
-- [Migrating to FSx for ONTAP using
-  AWS DataSync](migrate-files-to-fsx-datasync.md "migrate-files-to-fsx-datasync.md")
+- [Migrating to FSx for ONTAP using AWS DataSync](migrate-files-to-fsx-datasync.md "migrate-files-to-fsx-datasync.md")

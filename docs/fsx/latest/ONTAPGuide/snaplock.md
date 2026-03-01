@@ -17,6 +17,5 @@ Existing file systems will get SnapLock support during an upcoming weekly mainte
 - [How SnapLock works](how-snaplock-works.md "how-snaplock-works.md")
 - [Understanding SnapLock Compliance](snaplock-compliance.md "snaplock-compliance.md")
 - [Understanding SnapLock Enterprise](snaplock-enterprise.md "snaplock-enterprise.md")
-- [Understanding the
-  SnapLock retention period](snaplock-retention.md "snaplock-retention.md")
+- [Understanding the SnapLock retention period](snaplock-retention.md "snaplock-retention.md")
 - [Committing files to WORM state](worm-state.md "worm-state.md")

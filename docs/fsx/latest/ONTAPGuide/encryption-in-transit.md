@@ -119,8 +119,7 @@ The following table details the AWS Regions that Nitro-based encryption is avail
 
 For more information about the AWS Regions where FSx for ONTAP is available, see [Amazon FSx for NetApp ONTAP Pricing](https://aws.amazon.com/fsx/netapp-ontap/pricing/ "https://aws.amazon.com/fsx/netapp-ontap/pricing/").
 
-For more information about the performance specifications for FSx for ONTAP file systems, see [Impact of throughput capacity on
-performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance").
+For more information about the performance specifications for FSx for ONTAP file systems, see [Impact of throughput capacity on performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance").
 
 ## Encrypting data in-transit with Kerberos-based encryption
 

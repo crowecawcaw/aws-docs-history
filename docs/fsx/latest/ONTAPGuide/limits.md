@@ -5,8 +5,7 @@ Following, you can find out about quotas when working with Amazon FSx for NetApp
 ###### Topics
 
 - [Quotas that you can increase](#soft-limits "#soft-limits")
-- [Resource quotas for each file
-  system](#limits-ontap-resources-file-system "#limits-ontap-resources-file-system")
+- [Resource quotas for each file system](#limits-ontap-resources-file-system "#limits-ontap-resources-file-system")
 
 ## Quotas that you can increase
 
@@ -45,9 +44,7 @@ increase request`.
 4. Provide your preferred **Contact options** and choose
    **Submit**.
 
-## Resource quotas for each file
-
-system
+## Resource quotas for each file system
 
 The following table lists the quotas on Amazon FSx for NetApp ONTAP resources for each file system in an
 AWS Region.
@@ -80,8 +77,7 @@ For more information, see [Managing high-availability (HA) pairs](HA-pairs.md "H
 
 2 To provision 4 GBps of throughput capacity, your FSx for ONTAP first-generation file system requires a configuration of the maximum SSD IOPS
 (160,000) and a minimum of 5,120 GiB of SSD storage capacity in a supported AWS Region. For more information about which AWS Regions support
-4,096 MBps of throughput capacity, see [Impact of throughput capacity on
-performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance").
+4,096 MBps of throughput capacity, see [Impact of throughput capacity on performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance").
 
 3 You can store up to 1,023 snapshots
 per volume at any point in time. Once you reach this limit, you must delete an existing snapshot

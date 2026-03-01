@@ -11,8 +11,7 @@ For each GiB of SSD storage that you provision, Amazon FSx automatically provisi
 evenly across each of your file system's aggregates. You have the option to specify a level
 of provisioned SSD IOPS above the automatic 3 SSD IOPS per GiB. For more information about
 the maximum number of SSD IOPS that you can provision for your FSx for ONTAP file system, see
-[Impact of throughput capacity on
-performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance").
+[Impact of throughput capacity on performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance").
 
 ###### Topics
 
@@ -104,8 +103,7 @@ and IOPS:
   ###### Note
 
   For more information about the maximum number of SSD IOPS that you can provision for your FSx for ONTAP file system,
-  see [Impact of throughput capacity on
-  performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance").
+  see [Impact of throughput capacity on performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance").
   - **User-provisioned** mode – You specify the number of SSD IOPS,
     which must be greater than or equal to 3 IOPS per GiB of SSD storage capacity.
     If you choose to provision a higher level of IOPS, you pay for the average IOPS provisioned above your included rate for the month,
@@ -113,9 +111,7 @@ and IOPS:
 
 For more information about pricing, see [Amazon FSx for NetApp ONTAP Pricing](https://aws.amazon.com/fsx/netapp-ontap/pricing/ "https://aws.amazon.com/fsx/netapp-ontap/pricing/").
 
-##
-
-When to decrease SSD storage capacity
+## When to decrease SSD storage capacity
 
 You might want to decrease your FSx for ONTAP second-generation file system's SSD storage
 capacity in scenarios such as the following:
@@ -191,8 +187,7 @@ Here are a few important items to consider when decreasing a file system's SSD s
   ###### Note
 
   For more information about the maximum number of SSD IOPS that you can provision for your
-  FSx for ONTAP file system, see [Impact of throughput capacity on
-  performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance").
+  FSx for ONTAP file system, see [Impact of throughput capacity on performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance").
   - **User-provisioned** mode – You must provide an IOPS value
     that is equal to or higher than your currently provisioned IOPS. When decreasing SSD
     capacity, you can retain additional user-provisioned SSD IOPS as long as they don't

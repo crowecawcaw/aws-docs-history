@@ -44,5 +44,4 @@ maintenance window for your file systems.
 7. Choose **Save** to save your changes. The new maintenance start time is displayed
    in the file system administration **Settings** panel.
    To change the weekly maintenance window using the [update-file-system](../../../cli/latest/reference/fsx/update-file-system.md "../../../cli/latest/reference/fsx/update-file-system.md") CLI command,
-   see [To update a file system
-   (CLI)](updating-file-system.md#update-file-system-cli "updating-file-system.md#update-file-system-cli").
+   see [To update a file system (CLI)](updating-file-system.md#update-file-system-cli "updating-file-system.md#update-file-system-cli").

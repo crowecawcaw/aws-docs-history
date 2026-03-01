@@ -53,9 +53,7 @@ sudo mount -t nfs 198.51.100.1:/vol1 /fsx
 For second-generation file systems, the parallel NFS (pNFS) protocol is enabled by default and is used by default for any clients mounting
 volumes with NFS v4.1 or greater.
 
-## Using /etc/fstab to mount
-
-automatically on instance reboot
+## Using /etc/fstab to mount automatically on instance reboot
 
 To automatically remount your FSx for ONTAP volume when an Amazon EC2 Linux instance
 reboots, use the `/etc/fstab` file. The

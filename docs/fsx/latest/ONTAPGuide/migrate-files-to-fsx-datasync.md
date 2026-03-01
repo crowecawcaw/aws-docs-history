@@ -1,6 +1,4 @@
-# Migrating to FSx for ONTAP using
-
-AWS DataSync
+# Migrating to FSx for ONTAP using AWS DataSync
 
 We recommend using AWS DataSync to transfer data between FSx for ONTAP file systems and non-ONTAP file
 systems, including FSx for Lustre, FSx for OpenZFS, FSx for Windows File Server, Amazon EFS, Amazon S3, and on-premises filers.
@@ -42,9 +40,7 @@ To migrate data into your FSx for ONTAP setup, you need a server and network tha
 the DataSync requirements. To learn more, see [Requirements for DataSync](../../../datasync/latest/userguide/requirements.md "../../../datasync/latest/userguide/requirements.md")
 in the _AWS DataSync User Guide_.
 
-## Basic steps for migrating files using
-
-DataSync
+## Basic steps for migrating files using DataSync
 
 Transferring files from a source to a destination using DataSync involves the
 following basic steps:

@@ -1,6 +1,4 @@
-# Understanding the
-
-SnapLock retention period
+# Understanding the SnapLock retention period
 
 When you create a SnapLock volume, you can set a default retention period for the
 volume, or you can set the retention period for write once, read many (WORM) files
@@ -58,9 +56,7 @@ retention period to turn WORM protection back on. WORM files aren't automaticall
 deleted after their retention period expires.
 You still can't modify the content of a WORM file, even after its retention period has expired.
 
-## Setting the retention period of a SnapLock
-
-volume
+## Setting the retention period of a SnapLock volume
 
 You can set the retention period of a SnapLock volume with the Amazon FSx console, the
 AWS CLI, the Amazon FSx API, and the ONTAP CLI and REST API.

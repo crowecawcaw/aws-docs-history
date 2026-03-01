@@ -8,8 +8,7 @@ This procedure assumes that the client and the file system are located in the sa
 VPC and AWS account. If the client is located on-premise, or in a different VPC,
 AWS account or AWS Region, you've set up AWS Transit Gateway or a dedicated network
 connection using AWS Direct Connect or a private, secure tunnel using AWS Virtual Private Network. For more
-information, see [Accessing data from outside the
-deployment VPC](supported-fsx-clients.md#access-from-outside-deployment-vpc "supported-fsx-clients.md#access-from-outside-deployment-vpc").
+information, see [Accessing data from outside the deployment VPC](supported-fsx-clients.md#access-from-outside-deployment-vpc "supported-fsx-clients.md#access-from-outside-deployment-vpc").
 
 We recommend that you attach volumes to your Mac clients using the SMB
 protocol.

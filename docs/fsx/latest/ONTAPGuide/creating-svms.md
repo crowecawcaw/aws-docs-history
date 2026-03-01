@@ -13,17 +13,14 @@ When creating an SVM, you define the following properties:
 - The FSx for ONTAP file system to which it belongs.
 - The Microsoft Active Directory (AD) configuration – You can optionally join your SVM to
   a self-managed AD for authentication and access control of Windows and macOS
-  clients. For more information, see [Working with Microsoft Active Directory
-  in FSx for ONTAP](ad-integration-ontap.md "ad-integration-ontap.md").
+  clients. For more information, see [Working with Microsoft Active Directory in FSx for ONTAP](ad-integration-ontap.md "ad-integration-ontap.md").
 - The root volume security style – Set the root volume security style (Unix or NTFS)
   to align with the type of clients that you're using to access your data within
   the SVM. For more information, see [Volume security style](managing-volumes.md#volume-security-style "managing-volumes.md#volume-security-style").
 - The SVM administrative password – you can optionally set the password for the SVM's `vsadmin` user.
   For more information, see [Managing SVMs with the ONTAP CLI](managing-resources-ontap-apps.md#vsadmin-ontap-cli "managing-resources-ontap-apps.md#vsadmin-ontap-cli").
 
-###### To create a storage virtual machine
-
-(console)
+###### To create a storage virtual machine (console)
 
 1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
 2. In the left navigation pane, choose **Storage virtual
@@ -57,8 +54,7 @@ options:
      AD domain, choose **Join an Active
      Directory**, and provide the following details
      for your AD. For more information, see
-     [Prerequisites for joining an SVM to a
-     self-managed Microsoft AD](self-manage-prereqs.md "self-manage-prereqs.md").
+     [Prerequisites for joining an SVM to a self-managed Microsoft AD](self-manage-prereqs.md "self-manage-prereqs.md").
 
 
 
@@ -117,9 +113,7 @@ options:
    storage virtual machine is ready for use when its status is
    **Created**.
 
-## To create a storage virtual machine
-
-(CLI)
+## To create a storage virtual machine (CLI)
 
 - To create an FSx for ONTAP storage virtual machine (SVM), use the
   [create-storage-virtual-machine](../../../cli/latest/reference/fsx/create-storage-virtual-machine.md "../../../cli/latest/reference/fsx/create-storage-virtual-machine.md") CLI command (or the
