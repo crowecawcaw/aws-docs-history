@@ -11,8 +11,7 @@ application.
 - [Client application updates](#windows_update_client "#windows_update_client")
 - [IPv6 network settings](#ipv6-network-settings "#ipv6-network-settings")
 - [Connect to your WorkSpace](#windows_connecting "#windows_connecting")
-- [Manage your login information (3.0+ clients
-  only)](#manage-login-info-windows "#manage-login-info-windows")
+- [Manage your login information (3.0+ clients only)](#manage-login-info-windows "#manage-login-info-windows")
 - [Client views](#windows_views "#windows_views")
 - [Client language](#windows_client_lang "#windows_client_lang")
 - [Display support](#windows-display-support "#windows-display-support")
@@ -205,9 +204,7 @@ reconnect the session automatically if network connectivity is regained within a
 amount of time. The default session resume timeout is 20 minutes, but this timeout can
 be modified by your network administrator.
 
-## Manage your login information (3.0+ clients
-
-only)
+## Manage your login information (3.0+ clients only)
 
 You can view your registration code and what Region your WorkSpace is in. You can
 specify whether you want the WorkSpaces client application to save your current
@@ -635,9 +632,7 @@ other Windows applications, set the
 
 ## Diagnostic log upload
 
-### Enabling diagnostic log
-
-uploads
+### Enabling diagnostic log uploads
 
 To troubleshoot issues with the WorkSpaces client, you can enable diagnostic logging.
 The log files that are sent to WorkSpaces include detailed information about your device

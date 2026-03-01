@@ -54,9 +54,7 @@ or whether it requires the Amazon WorkSpaces Chromebook client application, see 
 
 To download and install the client application, complete the following procedure.
 
-###### (For devices
-
-other than Chromebooks launched before 2019) To download and install the client application
+###### (For devices other than Chromebooks launched before 2019)To download and install the client application
 
 1. On your device, open [https://clients.amazonworkspaces.com/](https://clients.amazonworkspaces.com/ "https://clients.amazonworkspaces.com/") and choose the
    link for your device (either **Android/Chromebook** or **Fire Tablet**).
@@ -64,9 +62,7 @@ other than Chromebooks launched before 2019) To download and install the client 
 3. Verify that the Amazon WorkSpaces client application icon appears on one of the
    device desktops.
 
-###### (For
-
-Chromebooks launched before 2019) To download and install the client application
+###### (For Chromebooks launched before 2019) To download and install the client application
 
 1. Determine whether your Chromebook supports Android applications by checking its status on the list
    of [Chrome OS Systems Supporting Android Apps](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps "https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps").

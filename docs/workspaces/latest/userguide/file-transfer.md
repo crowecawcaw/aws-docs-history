@@ -1,6 +1,4 @@
-# File transfer support in the WorkSpaces client
-
-applications
+# File transfer support in the WorkSpaces client applications
 
 You can upload and download files on local computer and your **My
 Storage** folder if your WorkSpaces administrator has enabled file transfer.
@@ -25,9 +23,7 @@ File transfer is currently supported on personal Windows WorkSpaces when using t
 client application, or web access. Contact your administrator if you have
 questions.
 
-###### To upload and download files between your local computer and your \*\*My
-
-Storage\*\* folder
+###### To upload and download files between your local computer and your **My Storage** folder
 
 1. In the Amazon WorkSpaces client application, in the menu bar, choose **File
    Transfer**. A **My Storage** window will

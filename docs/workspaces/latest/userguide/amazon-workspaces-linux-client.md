@@ -289,9 +289,7 @@ To disconnect the Linux client application, you have several options.
   **End Session** , this disconnects you from the Amazon WorkSpaces
   and closes the client application.
 
-### Diagnostic log
-
-upload
+### Diagnostic log upload
 
 To troubleshoot issues with the WorkSpaces client, ensure that diagnostic logging is
 enabled for your client. The log files that are sent to WorkSpaces include detailed

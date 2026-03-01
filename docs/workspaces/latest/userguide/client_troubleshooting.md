@@ -5,58 +5,38 @@ The following are common issues that you might have with your WorkSpaces client.
 ###### Issues
 
 - [I didn't receive an email with my Amazon WorkSpaces registration code](#no-welcome-email "#no-welcome-email")
-- [After logging in, the Windows client application displays only a white page and I cannot
-  connect to my WorkSpace](#windows_white-page "#windows_white-page")
-- [My WorkSpaces client gives me a network error, but I am able
-  to use other network-enabled apps on my device](#net_error "#net_error")
+- [After logging in, the Windows client application displays only a white page and I cannot connect to my WorkSpace](#windows_white-page "#windows_white-page")
+- [My WorkSpaces client gives me a network error, but I am able to use other network-enabled apps on my device](#net_error "#net_error")
 - [It sometimes takes several minutes to log in to my Windows WorkSpace](#login_delay "#login_delay")
-- [When I try to log in, the Amazon WorkSpaces Windows client gets
-  stuck on the "Preparing your login page" screen](#login_stuck_preparing_page "#login_stuck_preparing_page")
-- [When I try to log in, I get the error message: "No network.
-  Network connection lost. Check your network connection or contact your administrator for help."](#login_proxy_server "#login_proxy_server")
+- [When I try to log in, the Amazon WorkSpaces Windows client gets stuck on the "Preparing your login page" screen](#login_stuck_preparing_page "#login_stuck_preparing_page")
+- [When I try to log in, I get the error message: "No network. Network connection lost. Check your network connection or contact your administrator for help."](#login_proxy_server "#login_proxy_server")
 - [The Amazon WorkSpaces Windows client application login page is very tiny](#login_tiny_page "#login_tiny_page")
-- [I see the following error message: "WorkSpace Status: Unhealthy.
-  We were unable to connect you to your WorkSpace. Please try again in a few minutes."](#workspace_unhealthy "#workspace_unhealthy")
-- [Sometimes I am logged off of my Windows WorkSpace, even though I closed the session, but did
-  not log off](#logged_out "#logged_out")
-- [I forgot my password and tried to reset it, but I didn’t
-  receive an email with a reset link](#reset_password "#reset_password")
-- [I can't connect to the internet from my
-  WorkSpace](#internet_access "#internet_access")
-- [I installed a third-party security software package and
-  now I can't connect to my WorkSpace](#security_software "#security_software")
-- [I am getting a "network connection is slow" warning when
-  connected to my WorkSpace](#latency_warning "#latency_warning")
-- [I got an "invalid certificate" error on the client
-  application. What does that mean?](#client_cert_error "#client_cert_error")
-- [I'm having trouble when I try to connect to my
-  Windows WorkSpace using Web Access](#webaccess_connection_issues "#webaccess_connection_issues")
-- [I see the following error message: "Device can't connect to the
-  registration service. Check your network settings."](#registration_failure "#registration_failure")
-- [I skipped an update to my client application and am having
-  trouble updating my client to the latest version](#client_update_skipped "#client_update_skipped")
+- [I see the following error message: "WorkSpace Status: Unhealthy. We were unable to connect you to your WorkSpace. Please try again in a few minutes."](#workspace_unhealthy "#workspace_unhealthy")
+- [Sometimes I am logged off of my Windows WorkSpace, even though I closed the session, but did not log off](#logged_out "#logged_out")
+- [I forgot my password and tried to reset it, but I didn’t receive an email with a reset link](#reset_password "#reset_password")
+- [I can't connect to the internet from my WorkSpace](#internet_access "#internet_access")
+- [I installed a third-party security software package and now I can't connect to my WorkSpace](#security_software "#security_software")
+- [I am getting a "network connection is slow" warning when connected to my WorkSpace](#latency_warning "#latency_warning")
+- [I got an "invalid certificate" error on the client application. What does that mean?](#client_cert_error "#client_cert_error")
+- [I'm having trouble when I try to connect to my Windows WorkSpace using Web Access](#webaccess_connection_issues "#webaccess_connection_issues")
+- [I see the following error message: "Device can't connect to the registration service. Check your network settings."](#registration_failure "#registration_failure")
+- [I skipped an update to my client application and am having trouble updating my client to the latest version](#client_update_skipped "#client_update_skipped")
 - [My headset doesn't work in my WorkSpace](#headset_problems "#headset_problems")
 - [I am unable to install the Android client application on my Chromebook](#chromebook_android_app "#chromebook_android_app")
-- [I'm getting the wrong characters when I type; for example, I get
-  \ and | when I try to type quotation marks (' and ")](#lang_keyboard_mismatch "#lang_keyboard_mismatch")
+- [I'm getting the wrong characters when I type; for example, I get \ and | when I try to type quotation marks (' and ")](#lang_keyboard_mismatch "#lang_keyboard_mismatch")
 - [The WorkSpaces client application won't run on my Mac](#older_client_osx "#older_client_osx")
 - [I'm having trouble using the Windows logo key in Windows WorkSpaces when working on a Mac](#windows_key_osx "#windows_key_osx")
 - [My WorkSpace looks blurry on my Mac](#screen_blurry_osx "#screen_blurry_osx")
 - [I'm having trouble copying and pasting](#copy_paste "#copy_paste")
-- [My screen is flickering or not updating properly, or
-  my mouse isn't clicking in the right place](#screen_artifacts "#screen_artifacts")
-- [The WorkSpaces client for Windows prompts to
-  update to a version that is already installed](#all_users_update_install "#all_users_update_install")
-- [I don't see video-in devices listed under Devices
-  on my WorkSpaces Windows client](#media-feature-pack "#media-feature-pack")
+- [My screen is flickering or not updating properly, or my mouse isn't clicking in the right place](#screen_artifacts "#screen_artifacts")
+- [The WorkSpaces client for Windows prompts to update to a version that is already installed](#all_users_update_install "#all_users_update_install")
+- [I don't see video-in devices listed under Devices on my WorkSpaces Windows client](#media-feature-pack "#media-feature-pack")
 
 ## I didn't receive an email with my Amazon WorkSpaces registration code
 
 Contact your WorkSpaces administrator for assistance.
 
-## After logging in, the Windows client application displays only a white page and I cannot
-
-connect to my WorkSpace
+## After logging in, the Windows client application displays only a white page and I cannot connect to my WorkSpace
 
 This problem can be caused by expired Verisign/Symantec certificates on your client computer
 (not your WorkSpace). Remove the expired certificate and launch the client application
@@ -81,9 +61,7 @@ again.
 6. Close the **Certificates** dialog box and the
    **Internet Properties** dialog box.
 
-## My WorkSpaces client gives me a network error, but I am able
-
-to use other network-enabled apps on my device
+## My WorkSpaces client gives me a network error, but I am able to use other network-enabled apps on my device
 
 The WorkSpaces client applications rely on access to resources in the AWS Cloud, and
 require a connection that provides at least 1 Mbps download bandwidth. If your device
@@ -127,18 +105,14 @@ login after your Windows WorkSpace has been launched or rebooted. This delay occ
 while the Group Policy settings are being applied to the WorkSpace, and is
 normal.
 
-## When I try to log in, the Amazon WorkSpaces Windows client gets
-
-stuck on the "Preparing your login page" screen
+## When I try to log in, the Amazon WorkSpaces Windows client gets stuck on the "Preparing your login page" screen
 
 When starting versions 3.0.4 and 3.0.5 of the WorkSpaces Windows client application on a Windows 10
 machine, the client might get stuck on the "Preparing your login page" screen. To avoid this issue,
 either upgrade to version 3.0.6 of the Windows client application or do not run the Windows client
 application with administrator (elevated) privileges.
 
-## When I try to log in, I get the error message: "No network.
-
-Network connection lost. Check your network connection or contact your administrator for help."
+## When I try to log in, I get the error message: "No network. Network connection lost. Check your network connection or contact your administrator for help."
 
 When you try to log in to your WorkSpace using some 3.0+ versions of the Windows, macOS, and Linux
 WorkSpaces client applications, you might receive a "No network" error on the login page if you have
@@ -166,9 +140,7 @@ specified a custom proxy server.
 Running the WorkSpaces Windows client with administrator (elevated) privileges might result in viewing
 issues in high DPI environments. To avoid these issues, run the client in user mode instead.
 
-## I see the following error message: "WorkSpace Status: Unhealthy.
-
-We were unable to connect you to your WorkSpace. Please try again in a few minutes."
+## I see the following error message: "WorkSpace Status: Unhealthy. We were unable to connect you to your WorkSpace. Please try again in a few minutes."
 
 If you just started or restarted your WorkSpace, wait a few minutes, and then try to log in again.
 
@@ -181,29 +153,21 @@ administrator has enabled you to do them):
 If you are unable to restart or rebuild the WorkSpace yourself, or if you continue to see the error message
 after doing so, contact your WorkSpaces administrator for assistance.
 
-## Sometimes I am logged off of my Windows WorkSpace, even though I closed the session, but did
-
-not log off
+## Sometimes I am logged off of my Windows WorkSpace, even though I closed the session, but did not log off
 
 Your system administrator applied a new or updated Group Policy setting to your
 Windows WorkSpace that requires a logoff of a disconnected session.
 
-## I forgot my password and tried to reset it, but I didn’t
-
-receive an email with a reset link
+## I forgot my password and tried to reset it, but I didn’t receive an email with a reset link
 
 Contact your WorkSpaces administrator for assistance. Contact your company's IT department if you don't know who your WorkSpaces administrator is.
 
-## I can't connect to the internet from my
-
-WorkSpace
+## I can't connect to the internet from my WorkSpace
 
 WorkSpaces cannot communicate with the internet by default. Your Amazon WorkSpaces administrator must
 explicitly provide internet access.
 
-## I installed a third-party security software package and
-
-now I can't connect to my WorkSpace
+## I installed a third-party security software package and now I can't connect to my WorkSpace
 
 You can install any type of security or firewall software on your WorkSpace, but WorkSpaces
 requires that certain inbound and outbound ports are open on the WorkSpace. If the
@@ -216,9 +180,7 @@ To restore your WorkSpace, [rebuild your WorkSpace](client-rebuild-workspace.md 
 you still have access to it, or ask your Amazon WorkSpaces administrator to rebuild your WorkSpace. You then
 have to reinstall the software and properly configure port access for your WorkSpace.
 
-## I am getting a "network connection is slow" warning when
-
-connected to my WorkSpace
+## I am getting a "network connection is slow" warning when connected to my WorkSpace
 
 If the round-trip time from your client to your WorkSpace is longer than
 100ms, you can still use your WorkSpace, but this might result in a poor
@@ -233,9 +195,7 @@ the most common causes:
   over 1 Mbps when viewing video or using graphics-intensive applications on your
   WorkSpace.
 
-## I got an "invalid certificate" error on the client
-
-application. What does that mean?
+## I got an "invalid certificate" error on the client application. What does that mean?
 
 The WorkSpaces client application validates the identity of the WorkSpaces service
 through an SSL/TLS certificate. If the root certificate authority of the Amazon WorkSpaces
@@ -244,9 +204,7 @@ connection to the service. The most common cause is a proxy server that is remov
 root certificate authority and returning an incomplete certificate to the client
 application. Contact your network administrator for assistance.
 
-## I'm having trouble when I try to connect to my
-
-Windows WorkSpace using Web Access
+## I'm having trouble when I try to connect to my Windows WorkSpace using Web Access
 
 Windows WorkSpaces rely on a specific login screen configuration to enable you to log in from
 your Web Access client. Your Amazon WorkSpaces administrator might need to configure Group Policy and
@@ -260,9 +218,7 @@ assistance.
 Beginning October 1, 2020, customers will no longer be able to use the Amazon WorkSpaces Web Access client
 to connect to Windows 7 custom WorkSpaces or to Windows 7 Bring Your Own License (BYOL) WorkSpaces.
 
-## I see the following error message: "Device can't connect to the
-
-registration service. Check your network settings."
+## I see the following error message: "Device can't connect to the registration service. Check your network settings."
 
 When a registration service failure occurs, you might see the following error message on
 the **Connection Health Check** page: "Your device is not able to
@@ -272,9 +228,7 @@ device with WorkSpaces. Please check your network settings."
 This error occurs when the WorkSpaces client application can't reach the registration
 service. Contact your Amazon WorkSpaces administrator for assistance.
 
-## I skipped an update to my client application and am having
-
-trouble updating my client to the latest version
+## I skipped an update to my client application and am having trouble updating my client to the latest version
 
 If you've skipped an update to your Amazon WorkSpaces Windows client application and now want to
 update to the latest version of the client, see [Update the WorkSpaces Windows client application to a newer version](amazon-workspaces-windows-client.md#windows_update_client "amazon-workspaces-windows-client.md#windows_update_client").
@@ -333,9 +287,7 @@ In some cases, your WorkSpaces administrator might need to enable your Chromeboo
 applications. If you are unable to install the Android client application on your Chromebook, contact
 your WorkSpaces administrator for assistance.
 
-## I'm getting the wrong characters when I type; for example, I get
-
-\ and | when I try to type quotation marks (' and ")
+## I'm getting the wrong characters when I type; for example, I get \ and | when I try to type quotation marks (' and ")
 
 This behavior might occur if your device is not set to the same language as your WorkSpace, or if you're
 using a language-specific keyboard, such as a French keyboard.
@@ -377,8 +329,7 @@ For more information about installing or updating the macOS client, see
 
 By default, the Windows logo key on a Windows keyboard and the Command key on an Apple keyboard are both mapped to the Ctrl key
 when you're using the Amazon WorkSpaces macOS client application. If you want to change this behavior so that these two keys are mapped to
-the Windows logo key, see [Remap the Windows logo key or the Command
-key](amazon-workspaces-osx-client.md#osx_remap_command_key "amazon-workspaces-osx-client.md#osx_remap_command_key")
+the Windows logo key, see [Remap the Windows logo key or the Command key](amazon-workspaces-osx-client.md#osx_remap_command_key "amazon-workspaces-osx-client.md#osx_remap_command_key")
 for instructions on how to remap these keys.
 
 ## My WorkSpace looks blurry on my Mac
@@ -398,9 +349,7 @@ your issue:
 - The data type that you copied is supported for clipboard redirection. For a
   list of supported data types, see [Understanding HP Anyware Copy/Paste Feature](https://docs.teradici.com/knowledge/understanding-cloud-access-software-copy/paste-feature "https://docs.teradici.com/knowledge/understanding-cloud-access-software-copy/paste-feature") in the Teradici documentation.
 
-## My screen is flickering or not updating properly, or
-
-my mouse isn't clicking in the right place
+## My screen is flickering or not updating properly, or my mouse isn't clicking in the right place
 
 If you're using a version of the Amazon WorkSpaces Windows client application prior to version
 3.1.4, you might experience the following screen update issues, caused by hardware
@@ -426,9 +375,7 @@ disable hardware acceleration in Windows. To disable hardware acceleration for v
 Acceleration](amazon-workspaces-windows-client.md#hardware_acceleration_313 "amazon-workspaces-windows-client.md#hardware_acceleration_313"). Disabling hardware acceleration in Windows might affect the
 performance of other Windows applications.
 
-## The WorkSpaces client for Windows prompts to
-
-update to a version that is already installed
+## The WorkSpaces client for Windows prompts to update to a version that is already installed
 
 The WorkSpaces client installer for Windows allows users to install the client just for
 themselves or for all users of the machine. If it's installed for a single user, other
@@ -454,9 +401,7 @@ Users should complete one of the following procedures to uninstall the old versi
 the WorkSpaces client from their computers. This ensures that only the new version of the
 client is opened next time it's launched.
 
-###### Uninstall an old version of the WorkSpaces client for Windows using the Control
-
-Panel
+###### Uninstall an old version of the WorkSpaces client for Windows using the Control Panel
 
 1. Open the Windows start menu.
 2. Search for the **Control Panel** and open it.
@@ -490,9 +435,7 @@ machine. You choice here should be the same choice you made when you originally
 installed the WorkSpaces client for Windows. This will ensure that you don't see the
 repeated update prompts next time you launch the client.
 
-## I don't see video-in devices listed under Devices
-
-on my WorkSpaces Windows client
+## I don't see video-in devices listed under Devices on my WorkSpaces Windows client
 
 You might not have the Media Feature Pack installed on Windows, if you're using certain versions of Windows Operating System,
 such as Windows N. By default, the Media Feature Pack isn't installed on Windows N. To install it, see

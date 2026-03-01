@@ -9,16 +9,14 @@ application.
 - [Setup and installation](#osx_setup "#osx_setup")
 - [Determine your client version](#determine-version-osx "#determine-version-osx")
 - [Connect to your WorkSpace](#osx_connecting "#osx_connecting")
-- [Manage your login information (3.0+ clients
-  only)](#manage-login-info-osx "#manage-login-info-osx")
+- [Manage your login information (3.0+ clients only)](#manage-login-info-osx "#manage-login-info-osx")
 - [Client views](#osx_views "#osx_views")
 - [Client language](#osx_client_lang "#osx_client_lang")
 - [Display support](#osx-display-support "#osx-display-support")
 - [Proxy servers](#osx_proxy_server "#osx_proxy_server")
 - [IPv6 network settings](#osx_ipv6_settings "#osx_ipv6_settings")
 - [Command shortcuts](#osx_shortcuts "#osx_shortcuts")
-- [Remap the Windows logo key or the Command
-  key](#osx_remap_command_key "#osx_remap_command_key")
+- [Remap the Windows logo key or the Command key](#osx_remap_command_key "#osx_remap_command_key")
 - [Disconnect](#osx_disconnect "#osx_disconnect")
 - [Clipboard support](#osx_clipboard_support "#osx_clipboard_support")
 - [Diagnostic log upload](#diagnostic-log-uploads-osx "#diagnostic-log-uploads-osx")
@@ -120,9 +118,7 @@ reconnect the session automatically if network connectivity is regained within a
 amount of time. The default session resume timeout is 20 minutes, but this timeout can
 be modified by your network administrator.
 
-## Manage your login information (3.0+ clients
-
-only)
+## Manage your login information (3.0+ clients only)
 
 You can view your registration code and what Region your WorkSpace is in. You can
 specify whether you want the WorkSpaces client application to save your current
@@ -313,9 +309,7 @@ The WorkSpaces macOS client supports the following command shortcuts:
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
 | 3.0+ client        | Command+Q—Quit Amazon WorkSpaces<br>Command+Option+Return—Toggle full screen display<br>Command+Option+F12—Disconnect session |
 
-## Remap the Windows logo key or the Command
-
-key
+## Remap the Windows logo key or the Command key
 
 By default, the Windows logo key on a Windows keyboard and the Command key on an Apple
 keyboard are both mapped to the Ctrl key when you're using the Amazon WorkSpaces macOS client
@@ -393,9 +387,7 @@ unresponsive for up to 5 seconds.
 
 ## Diagnostic log upload
 
-### Enabling diagnostic log
-
-uploads
+### Enabling diagnostic log uploads
 
 To troubleshoot issues with the WorkSpaces client, you can enable diagnostic logging.
 The log files that are sent to WorkSpaces include detailed information about your device
