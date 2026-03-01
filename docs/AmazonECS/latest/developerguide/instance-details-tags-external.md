@@ -1,6 +1,4 @@
-# Adding tags to External container
-
-instances for Amazon ECS
+# Adding tags to External container instances for Amazon ECS
 
 You can associate tags with your external container instances for Amazon ECS by using one of the
 following methods.
@@ -20,5 +18,4 @@ ECS_CONTAINER_INSTANCE_TAGS={"`tag_key`": "`tag_value`"}
 
 - Method 2 – After your external instance is registered to your
   cluster, you can use the AWS Management Console to add tags. For more information, see
-  [Adding tags to existing resources
-  (Amazon ECS console)](tag-resources-console.md#adding-or-deleting-tags "tag-resources-console.md#adding-or-deleting-tags").
+  [Adding tags to existing resources (Amazon ECS console)](tag-resources-console.md#adding-or-deleting-tags "tag-resources-console.md#adding-or-deleting-tags").

@@ -1,6 +1,4 @@
-# AWS Fargate Federal Information Processing Standard
-
-(FIPS-140)
+# AWS Fargate Federal Information Processing Standard (FIPS-140)
 
 Federal Information Processing Standard (FIPS-140) is a U.S. and Canadian government
 standard that specifies the security requirements for cryptographic modules that protect
@@ -32,8 +30,7 @@ Consider the following when using FIPS-140 compliance on Fargate:
 
 Use the following procedure to use FIPS-140 compliance on Fargate.
 
-1. Turn on FIPS-140 compliance. For more information, see [AWS Fargate Federal Information Processing Standard
-   (FIPS-140) compliance](ecs-account-settings.md#fips-setting "ecs-account-settings.md#fips-setting").
+1. Turn on FIPS-140 compliance. For more information, see [AWS Fargate Federal Information Processing Standard (FIPS-140) compliance](ecs-account-settings.md#fips-setting "ecs-account-settings.md#fips-setting").
 2. You can optionally use ECS Exec to run the following command to verify the
    FIPS-140 compliance status for a cluster.
 
@@ -67,8 +64,7 @@ you create a trail in the console, the trail applies to all regions. The trail l
 events from all Regions in the AWS partition and delivers the log files to the Amazon S3
 bucket that you specify. Additionally, you can configure other AWS services to further
 analyze and act upon the event data collected in CloudTrail logs. For more information, see
-[Log Amazon ECS API calls using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+[Log Amazon ECS API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 The following example shows a CloudTrail log entry that demonstrates the
 `PutAccountSettingDefault` API action:

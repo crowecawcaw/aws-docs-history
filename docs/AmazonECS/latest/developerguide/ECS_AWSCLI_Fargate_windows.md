@@ -1,6 +1,4 @@
-# Creating an Amazon ECS Windows
-
-task for the Fargate with the AWS CLI
+# Creating an Amazon ECS Windows task for the Fargate with the AWS CLI
 
 The following steps help you set up a cluster, register a task definition, run a Windows
 task, and perform other common scenarios in Amazon ECS with the AWS CLI. Ensure that you are using
@@ -15,17 +13,12 @@ You can use dual-stack service endpoints to interact with Amazon ECS from the AW
 ###### Topics
 
 - [Prerequisites](#ECS_AWSCLI_Fargate_windows_prereq "#ECS_AWSCLI_Fargate_windows_prereq")
-- [Step 1: Create a
-  Cluster](#ECS_AWSCLI_Fargate_windows_create_cluster "#ECS_AWSCLI_Fargate_windows_create_cluster")
-- [Step 2: Register a
-  Windows Task Definition](#ECS_AWSCLI_Fargate_windows_register_task_definition "#ECS_AWSCLI_Fargate_windows_register_task_definition")
-- [Step 3: List task
-  definitions](#ECS_AWSCLI_Fargate_windows__list_task_definitions "#ECS_AWSCLI_Fargate_windows__list_task_definitions")
-- [Step 4: Create a
-  service](#ECS_AWSCLI_Fargate_windows_create_service "#ECS_AWSCLI_Fargate_windows_create_service")
+- [Step 1: Create a Cluster](#ECS_AWSCLI_Fargate_windows_create_cluster "#ECS_AWSCLI_Fargate_windows_create_cluster")
+- [Step 2: Register a Windows Task Definition](#ECS_AWSCLI_Fargate_windows_register_task_definition "#ECS_AWSCLI_Fargate_windows_register_task_definition")
+- [Step 3: List task definitions](#ECS_AWSCLI_Fargate_windows__list_task_definitions "#ECS_AWSCLI_Fargate_windows__list_task_definitions")
+- [Step 4: Create a service](#ECS_AWSCLI_Fargate_windows_create_service "#ECS_AWSCLI_Fargate_windows_create_service")
 - [Step 5: List services](#ECS_AWSCLI_Fargate_windows_list_services "#ECS_AWSCLI_Fargate_windows_list_services")
-- [Step 6: Describe the
-  Running Service](#ECS_AWSCLI_Fargate_windows_describe_service "#ECS_AWSCLI_Fargate_windows_describe_service")
+- [Step 6: Describe the Running Service](#ECS_AWSCLI_Fargate_windows_describe_service "#ECS_AWSCLI_Fargate_windows_describe_service")
 - [Step 7: Clean Up](#ECS_AWSCLI_Fargate_windows_clean_up "#ECS_AWSCLI_Fargate_windows_clean_up")
 
 ## Prerequisites
@@ -55,9 +48,7 @@ Guide_.
   needing to create their own EC2 instance. For more information, see [What is AWS CloudShell?](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md") in
   the _AWS CloudShell User Guide_.
 
-## Step 1: Create a
-
-Cluster
+## Step 1: Create a Cluster
 
 By default, your account receives a `default` cluster.
 
@@ -93,9 +84,7 @@ Output:
 }
 ```
 
-## Step 2: Register a
-
-Windows Task Definition
+## Step 2: Register a Windows Task Definition
 
 Before you can run a Windows task on your Amazon ECS cluster, you must register a task
 definition. Task definitions are lists of containers grouped together. The following
@@ -148,9 +137,7 @@ To use a JSON file for container definitions:
 The **register-task-definition** command returns a description of the
 task definition after it completes its registration.
 
-## Step 3: List task
-
-definitions
+## Step 3: List task definitions
 
 You can list the task definitions for your account at any time with the
 **list-task-definitions** command. The output of this command shows
@@ -171,9 +158,7 @@ Output:
 }
 ```
 
-## Step 4: Create a
-
-service
+## Step 4: Create a service
 
 After you have registered a task for your account, you can create a service for the
 registered task in your cluster. For this example, you create a service with one
@@ -218,9 +203,7 @@ Output:
 }
 ```
 
-## Step 6: Describe the
-
-Running Service
+## Step 6: Describe the Running Service
 
 Describe the service using the service name retrieved earlier to get more information
 about the task.

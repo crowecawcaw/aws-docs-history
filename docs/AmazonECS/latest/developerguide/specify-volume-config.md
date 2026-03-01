@@ -1,6 +1,4 @@
-# Specify a Docker volume in an Amazon ECS task
-
-definition
+# Specify a Docker volume in an Amazon ECS task definition
 
 Before your containers can use data volumes, you must specify the volume and mount
 point configurations in your task definition. This section describes the volume

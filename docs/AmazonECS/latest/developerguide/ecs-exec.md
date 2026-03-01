@@ -88,8 +88,7 @@ Consider the following when using ECS Exec:
     sessions not being logged and being counted against the session limit.
     We recommend limiting this access by denying the
     `ssm:start-session` action using an IAM policy. For
-    more information, see [Limiting access to the Start
-    Session action](#ecs-exec-limit-access-start-session "#ecs-exec-limit-access-start-session").
+    more information, see [Limiting access to the Start Session action](#ecs-exec-limit-access-start-session "#ecs-exec-limit-access-start-session").
 
 - The following features run as a sidecar container. Therefore, you must specify
   the container name to run the command on.
@@ -172,9 +171,7 @@ example.
 }`
 ```
 
-### Turning on ECS Exec for your tasks and
-
-services
+### Turning on ECS Exec for your tasks and services
 
 You can turn on the ECS Exec feature for your services and standalone tasks by
 specifying the `--enable-execute-command` flag when using one of the
@@ -241,9 +238,7 @@ The following output snippet is an example of what you might see.
 
 You can configure logging for ECS Exec sessions to capture commands and their output for auditing and troubleshooting purposes.
 
-### Turning on logging in your tasks and
-
-services
+### Turning on logging in your tasks and services
 
 ###### Important
 
@@ -301,9 +296,7 @@ capability of ECS Exec:
 - `OVERRIDE`: logs are sent to the provided Amazon CloudWatch Logs LogGroup,
   Amazon S3 bucket, or both.
 
-### IAM permissions required for
-
-Amazon CloudWatch Logs or Amazon S3 Logging
+### IAM permissions required for Amazon CloudWatch Logs or Amazon S3 Logging
 
 To enable logging, the Amazon ECS task role that's referenced in your task definition
 needs to have additional permissions. These additional permissions can be added as a
@@ -373,9 +366,7 @@ permissions.
 
 ```
 
-### IAM permissions required for
-
-encryption using your own AWS KMS key (KMS key)
+### IAM permissions required for encryption using your own AWS KMS key (KMS key)
 
 By default, the data transferred between your local client and the container uses
 TLS 1.2 encryption that AWS provides. To further encrypt data using your own
@@ -431,9 +422,7 @@ JSON
 
 ```
 
-## Using IAM
-
-policies to limit access to ECS Exec
+## Using IAM policies to limit access to ECS Exec
 
 You limit user access to the execute-command API action by using one or more of the
 following IAM policy condition keys:
@@ -543,9 +532,7 @@ resources in a request, only cluster and task tags are evaluated.
 For more information about IAM policy condition keys, see [Actions, resources, and condition keys for Amazon Elastic Container Service](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md")
 in the _Service Authorization Reference_.
 
-### Limiting access to the Start
-
-Session action
+### Limiting access to the Start Session action
 
 While starting SSM sessions on your container outside of ECS Exec is possible,
 this could potentially result in the sessions not being logged. Sessions started

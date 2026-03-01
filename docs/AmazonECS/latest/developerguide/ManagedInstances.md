@@ -31,10 +31,8 @@ launch tasks or services using the Amazon ECS Managed Instances capacity provide
 
 For detailed instructions on getting started, see:
 
-- [Learn how to create a task for
-  Amazon ECS Managed Instances](getting-started-managed-instances.md "getting-started-managed-instances.md")
-- [Learn how to create a task for
-  Amazon ECS Managed Instances with the AWS CLI](getting-started-managed-instances-cli.md "getting-started-managed-instances-cli.md")
+- [Learn how to create a task for Amazon ECS Managed Instances](getting-started-managed-instances.md "getting-started-managed-instances.md")
+- [Learn how to create a task for Amazon ECS Managed Instances with the AWS CLI](getting-started-managed-instances-cli.md "getting-started-managed-instances-cli.md")
 
 ## Capacity providers
 
@@ -59,9 +57,7 @@ following list:
 - Auto Scaling group
 - Fargate/Fargate_SPOT
 
-## Instance selection and
-
-optimization
+## Instance selection and optimization
 
 Amazon ECS chooses instance types for your Amazon ECS Managed Instances workloads using one of the
 following methods:
@@ -181,8 +177,7 @@ modes. The `awsvpc` network mode provides each task with its own elastic
 network interface and private IP address within your VPC. This enables fine-grained
 security group and network ACL controls at the task level. In the `host`
 network mode, tasks share the host Amazon ECS Managed Instance's network namespace. For more
-information about task networking on Amazon ECS Managed Instances, see [Amazon ECS task networking for
-Amazon ECS Managed Instances](managed-instance-networking.md "managed-instance-networking.md").
+information about task networking on Amazon ECS Managed Instances, see [Amazon ECS task networking for Amazon ECS Managed Instances](managed-instance-networking.md "managed-instance-networking.md").
 
 ## Instance storage
 

@@ -1,6 +1,4 @@
-# Configuring Amazon ECS Linux
-
-container instances to receive Spot Instance notices
+# Configuring Amazon ECS Linux container instances to receive Spot Instance notices
 
 Amazon EC2 terminates, stops, or hibernates your Spot Instance when the Spot price exceeds the
 maximum price for your request or capacity is no longer available. Amazon EC2 provides a Spot Instance
@@ -35,8 +33,7 @@ ECS_ENABLE_SPOT_INSTANCE_DRAINING=true
 EOF
 ```
 
-For more information, see [Launching an Amazon ECS Linux container
-instance](launch_container_instance.md "launch_container_instance.md").
+For more information, see [Launching an Amazon ECS Linux container instance](launch_container_instance.md "launch_container_instance.md").
 
 ###### To turn on Spot Instance draining for an existing container instance
 

@@ -63,9 +63,7 @@ Using Powershell, run the following command:
  Invoke-WebRequest -OutFile 'C:\copilot\copilot.exe' https://github.com/aws/copilot-cli/releases/latest/download/copilot-windows.exe`
 ```
 
-### (Optional) Verify the manually installed
-
-AWS Copilot CLI using PGP signatures
+### (Optional) Verify the manually installed AWS Copilot CLI using PGP signatures
 
 The AWS Copilot CLI executables are cryptographically signed using PGP signatures.
 The PGP signatures can be used to verify the validity of the AWS Copilot CLI

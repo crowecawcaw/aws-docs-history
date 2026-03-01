@@ -1,6 +1,4 @@
-# Identity-based policy examples for
-
-Amazon Elastic Container Service
+# Identity-based policy examples for Amazon Elastic Container Service
 
 By default, users and roles don't have permission to create or modify Amazon ECS
 resources. To grant users permission to perform actions on the
@@ -14,10 +12,8 @@ For details about actions and resource types defined by Amazon ECS, including th
 
 ###### Topics
 
-- [Amazon ECS policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Allow Amazon ECS users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Amazon ECS policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Allow Amazon ECS users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Amazon ECS cluster examples](#IAM_cluster_policies "#IAM_cluster_policies")
 - [Amazon ECS container instance examples](#IAM_container_instance_policies "#IAM_container_instance_policies")
 - [Amazon ECS task definition examples](#IAM_task_definition_policies "#IAM_task_definition_policies")
@@ -25,14 +21,10 @@ For details about actions and resource types defined by Amazon ECS, including th
 - [Start Amazon ECS task example](#IAM_start_policies "#IAM_start_policies")
 - [List and describe Amazon ECS task examples](#IAM_task_policies "#IAM_task_policies")
 - [Create Amazon ECS service example](#IAM_create_service_policies "#IAM_create_service_policies")
-- [Describing
-  Amazon ECS services based on tags](#security_iam_id-based-policy-examples-view-cluster-tags "#security_iam_id-based-policy-examples-view-cluster-tags")
-- [Deny Amazon ECS Service Connect
-  Namespace Override Example](#IAM_disable_namespace_override_policies "#IAM_disable_namespace_override_policies")
+- [Describing Amazon ECS services based on tags](#security_iam_id-based-policy-examples-view-cluster-tags "#security_iam_id-based-policy-examples-view-cluster-tags")
+- [Deny Amazon ECS Service Connect Namespace Override Example](#IAM_disable_namespace_override_policies "#IAM_disable_namespace_override_policies")
 
-## Amazon ECS policy best
-
-practices
+## Amazon ECS policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon ECS resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -65,9 +57,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Allow Amazon ECS users
-
-to view their own permissions
+## Allow Amazon ECS users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -418,9 +408,7 @@ JSON
 
 ```
 
-## Describing
-
-Amazon ECS services based on tags
+## Describing Amazon ECS services based on tags
 
 You can use conditions in your identity-based policy to control access to Amazon ECS resources based on tags. This example shows how you might create a policy that allows describing your services. However, permission is granted only if the service tag `Owner` has the value of that user's user name. This policy also grants the permissions necessary to complete this action on the console.
 
@@ -453,9 +441,7 @@ JSON
 You can attach this policy to the IAM users in your account. If a user named `richard-roe` attempts to describe an Amazon ECS service, the service must be tagged `Owner=richard-roe` or `owner=richard-roe`. Otherwise he is denied access. The condition tag key `Owner` matches both `Owner` and `owner` because condition key names are not case-sensitive. For more information, see [IAM JSON Policy
 Elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
 
-## Deny Amazon ECS Service Connect
-
-Namespace Override Example
+## Deny Amazon ECS Service Connect Namespace Override Example
 
 The following IAM policy denies a user from overriding the default Service Connect namespace in a service configuration. The default namespace is set in the cluster. However, you can override it in a service configuration. For consistency, consider setting all your new services to use the same namespace. Use the following context keys to require services to use a specific namespace. Replace the `<region>`, `<aws_account_id>`, `<cluster_name>` and `<namespace_id>` with your own in the following example.
 

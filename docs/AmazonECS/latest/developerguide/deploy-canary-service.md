@@ -10,8 +10,7 @@ functionality with minimal risk before full deployment.
 Perform the following operations before you start a canary deployment.
 
 1. Configure the appropriate permissions.
-   - For information about Elastic Load Balancing permissions, see [Amazon ECS infrastructure
-     IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
+   - For information about Elastic Load Balancing permissions, see [Amazon ECS infrastructure IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
    - For information about Lambda permissions, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](blue-green-permissions.md "blue-green-permissions.md").
 
 2. Amazon ECS canary deployments require that your service to use one of the

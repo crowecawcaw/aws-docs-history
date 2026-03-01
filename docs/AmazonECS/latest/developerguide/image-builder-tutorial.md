@@ -85,9 +85,7 @@ For more information about creating custom Amazon ECS-optimized AMIs, see [How d
 a custom AMI from an Amazon ECS-optimized AMI?](https://forums.aws.amazon.com/knowledge-center/ecs-create-custom-amis/ "https://forums.aws.amazon.com/knowledge-center/ecs-create-custom-amis/") in the AWS Knowledge
 Center.
 
-## Using the image ARN with infrastructure as code
-
-(IaC)
+## Using the image ARN with infrastructure as code (IaC)
 
 You can configure the recipe using the EC2 Image Builder console, or infrastructure as code (for
 example, CloudFormation), or the AWS SDK. When you specify a parent image in your recipe, you

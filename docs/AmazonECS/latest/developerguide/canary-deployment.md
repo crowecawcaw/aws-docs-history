@@ -7,9 +7,7 @@ traffic while minimizing risk exposure. This approach provides a controlled way 
 changes with the ability to monitor performance and roll back quickly if issues are
 detected.
 
-## Resources involved in a canary
-
-deployment
+## Resources involved in a canary deployment
 
 The following are resources involved in Amazon ECS canary deployments:
 

@@ -1,10 +1,7 @@
-# Tutorial: Creating a Service Using a Blue/Green
-
-Deployment
+# Tutorial: Creating a Service Using a Blue/Green Deployment
 
 Amazon ECS has integrated blue/green deployments into the Create Service wizard on the Amazon ECS
-console. For more information, see [Creating an Amazon ECS rolling update
-deployment](create-service-console-v2.md "create-service-console-v2.md").
+console. For more information, see [Creating an Amazon ECS rolling update deployment](create-service-console-v2.md "create-service-console-v2.md").
 
 The following tutorial shows how to create an Amazon ECS service containing a
 Fargate task that uses the blue/green deployment type with the AWS CLI.
@@ -215,9 +212,7 @@ The output includes the ARN of the service, with the following format:
 arn:aws:ecs:region:aws_account_id:service/service-bluegreen
 ```
 
-## Step 5: Create the AWS CodeDeploy
-
-Resources
+## Step 5: Create the AWS CodeDeploy Resources
 
 Use the following steps to create your CodeDeploy application, the Application Load Balancer target group for
 the CodeDeploy deployment group, and the CodeDeploy deployment group.
@@ -337,9 +332,7 @@ The output includes the deployment group ID, with the following format:
 }
 ```
 
-## Step 6: Create and Monitor an CodeDeploy
-
-Deployment
+## Step 6: Create and Monitor an CodeDeploy Deployment
 
 Use the following steps to create and upload an application specification file
 (AppSpec file) and an CodeDeploy deployment.

@@ -7,9 +7,7 @@ To turn off cluster auto scaling for a cluster, you can either disassociate the 
 with managed scaling turned on from the cluster or update the capacity provider to turn
 off managed scaling.
 
-## Disassociate the capacity
-
-provider
+## Disassociate the capacity provider
 
 Use the following steps to disassociate a capacity provider with a cluster.
 
@@ -45,9 +43,7 @@ information, see `put-cluster-capacity-providers` in the _AWS CLI Command Refere
  --include ATTACHMENTS`
 ```
 
-## Turn off managed scaling for the capacity
-
-provider
+## Turn off managed scaling for the capacity provider
 
 Use the following steps to turn off managed scaling for the capacity
 provider.

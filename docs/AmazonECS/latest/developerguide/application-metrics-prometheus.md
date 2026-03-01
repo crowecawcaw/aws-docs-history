@@ -1,13 +1,10 @@
-# Exporting application metrics to
-
-Amazon Managed Service for Prometheus
+# Exporting application metrics to Amazon Managed Service for Prometheus
 
 Amazon ECS supports exporting your task-level CPU, memory, network, and storage metrics and
 your custom application metrics to Amazon Managed Service for Prometheus. This is done by adding the AWS Distro
 for OpenTelemetry sidecar container to your task definition. The Amazon ECS console
 simplifies this process by adding the **Use metric collection** option
-when creating a new task definition. For more information, see [Creating an Amazon ECS task definition using the
-console](create-task-definition.md "create-task-definition.md").
+when creating a new task definition. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").
 
 The metrics are exported to Amazon Managed Service for Prometheus and can be viewed using the Amazon Managed Grafana dashboard.
 Your application must be instrumented with either Prometheus libraries or with the
@@ -34,9 +31,7 @@ with AWS Distro for OpenTelemetry to send application metrics to Amazon Managed 
   dimensions. For more information, see [Getting Started with Prometheus Remote Write Exporter for Amazon Managed Service for Prometheus](https://aws-otel.github.io/docs/getting-started/prometheus-remote-write-exporter "https://aws-otel.github.io/docs/getting-started/prometheus-remote-write-exporter")
   in the AWS Distro for OpenTelemetry documentation.
 
-## Required IAM permissions for
-
-AWS Distro for OpenTelemetry integration with Amazon Managed Service for Prometheus
+## Required IAM permissions for AWS Distro for OpenTelemetry integration with Amazon Managed Service for Prometheus
 
 The Amazon ECS integration with Amazon Managed Service for Prometheus using the AWS Distro for OpenTelemetry
 sidecar requires that you create a task IAM role and specify the role in your task
@@ -64,14 +59,11 @@ The following permissions are required for AWS Distro for OpenTelemetry integrat
 - logs:DescribeLogGroups
 - cloudwatch:PutMetricData
 
-## Specifying the
-
-AWS Distro for OpenTelemetry sidecar in your task definition
+## Specifying the AWS Distro for OpenTelemetry sidecar in your task definition
 
 The Amazon ECS console simplifies the experience of creating the AWS Distro for
 OpenTelemetry sidecar container by using the **Use metric
-collection** option. For more information, see [Creating an Amazon ECS task definition using the
-console](create-task-definition.md "create-task-definition.md").
+collection** option. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").
 
 If you're not using the Amazon ECS console, you can add the AWS Distro for
 OpenTelemetry sidecar container to your task definition manually. The following task

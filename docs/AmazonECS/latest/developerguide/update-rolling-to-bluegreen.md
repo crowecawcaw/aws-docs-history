@@ -1,6 +1,4 @@
-# Updating the deployment strategy from rolling
-
-update to Amazon ECS blue/green
+# Updating the deployment strategy from rolling update to Amazon ECS blue/green
 
 You can migrate from a rolling update deployment to an Amazon ECS blue/green deployment when you want to make and test service changes before
 implementing them in a production environment.
@@ -16,8 +14,7 @@ Before migrating your service from rolling to blue/green deployments, ensure you
   might need to manually update your service to use a single revision before
   migrating.
 - Configure the appropriate permissions.
-  - For information about Elastic Load Balancing permissions, see [Amazon ECS infrastructure
-    IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
+  - For information about Elastic Load Balancing permissions, see [Amazon ECS infrastructure IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
   - For information about Lambda permissions, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](blue-green-permissions.md "blue-green-permissions.md").
 
 - Depending on configuration, you need to perform one of the following:

@@ -1,6 +1,4 @@
-# Viewing the details of an
-
-Amazon ECS Express Mode service
+# Viewing the details of an Amazon ECS Express Mode service
 
 You can view details about your Express Mode service to monitor its status, configuration, and
 performance metrics. The service details page provides comprehensive information about your

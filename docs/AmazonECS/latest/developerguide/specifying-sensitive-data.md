@@ -1,6 +1,4 @@
-# Pass sensitive data to an Amazon ECS
-
-container
+# Pass sensitive data to an Amazon ECS container
 
 You can safely pass sensitive data, such as credentials to a database, into your container.
 

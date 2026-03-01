@@ -1,6 +1,4 @@
-# Migrating from a CodeDeploy blue/green to an
-
-Amazon ECS rolling update service deployment
+# Migrating from a CodeDeploy blue/green to an Amazon ECS rolling update service deployment
 
 You can migrate your service deployments from an CodeDeploy blue/green deployment to an Amazon ECS rolling update deployment. This moves you away from CodeDeploy dependency to using an integrated deployment.
 
@@ -16,8 +14,7 @@ Perform the following operations before you start a blue/green deployment.
 2. Turn off CodeDeploy automation. For more information, see [Working with
    deployment groups in CodeDeploy](../../../codedeploy/latest/userguide/deployment-groups.md "../../../codedeploy/latest/userguide/deployment-groups.md") in the _CodeDeploy User
    Guide_.
-3. Verify that there are no ongoing service deployments for the service. For more information, see [View service history using Amazon ECS service
-   deployments](service-deployment.md "service-deployment.md").
+3. Verify that there are no ongoing service deployments for the service. For more information, see [View service history using Amazon ECS service deployments](service-deployment.md "service-deployment.md").
 
 For more information about updating a service's deployment controller, see [Update Amazon ECS service parameters](update-service-parameters.md "update-service-parameters.md").
 

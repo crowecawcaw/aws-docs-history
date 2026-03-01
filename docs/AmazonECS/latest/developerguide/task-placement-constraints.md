@@ -1,6 +1,4 @@
-# Define which container
-
-instances Amazon ECS uses for tasks
+# Define which container instances Amazon ECS uses for tasks
 
 A task placement constraint is a rule about a container instance that Amazon ECS uses to
 determine if the task is allowed to run on the instance. At least one container instance
@@ -93,8 +91,7 @@ If your cluster runs multiple Windows versions, you can ensure that a
 task is placed on an EC2 instance running on the same version by using
 the placement constraint: `memberOf(attribute:ecs.os-family ==
  WINDOWS_SERVER_<OS_Release>_<FULL or CORE>)`. For more
-information, see [Retrieving Amazon ECS-optimized Windows
-AMI metadata](retrieve-ecs-optimized_windows_AMI.md "retrieve-ecs-optimized_windows_AMI.md").
+information, see [Retrieving Amazon ECS-optimized Windows AMI metadata](retrieve-ecs-optimized_windows_AMI.md "retrieve-ecs-optimized_windows_AMI.md").
 
 `ecs.cpu-architecture`
 
@@ -127,8 +124,7 @@ Amazon ECS may add the following attributes to your container instances.
 `ecs.awsvpc-trunk-id`
 
 If this attribute exists, the instance has a trunk network interface.
-For more information, see [Increasing Amazon ECS Linux container instance network
-interfaces](container-instance-eni.md "container-instance-eni.md").
+For more information, see [Increasing Amazon ECS Linux container instance network interfaces](container-instance-eni.md "container-instance-eni.md").
 
 `ecs.outpost-arn`
 

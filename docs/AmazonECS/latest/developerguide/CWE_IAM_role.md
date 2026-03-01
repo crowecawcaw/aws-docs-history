@@ -68,7 +68,7 @@ JSON
 ```
 
 You can choose to let the AWS Management Console create the EventBridge role for you when you configure a
-scheduled task. For more information, see [Using Amazon EventBridge Scheduler to schedule Amazon ECS tasks](tasks-scheduled-eventbridge-scheduler.md "tasks-scheduled-eventbridge-scheduler.md") .
+scheduled task. For more information, see [Using Amazon EventBridge Scheduler to schedule Amazon ECS tasks](tasks-scheduled-eventbridge-scheduler.md "tasks-scheduled-eventbridge-scheduler.md").
 
 ## Creating the EventBridge role
 

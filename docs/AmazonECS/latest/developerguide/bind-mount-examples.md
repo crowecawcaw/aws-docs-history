@@ -3,9 +3,7 @@
 The following examples cover the common use cases for using a bind mount for
 your containers.
 
-###### To allocate an increased amount of ephemeral storage space for a Fargate
-
-task
+###### To allocate an increased amount of ephemeral storage space for a Fargate task
 
 For Amazon ECS tasks that are hosted on Fargate using platform version
 `1.4.0` or later (Linux) or `1.0.0` (Windows), you can
@@ -157,9 +155,7 @@ VOLUME ["/var/log/exported"]
   ]
 ```
 
-###### To provide an empty data volume for a container that's tied to the lifecycle
-
-of the host Amazon EC2 instance
+###### To provide an empty data volume for a container that's tied to the lifecycle of the host Amazon EC2 instance
 
 For tasks that are hosted on Amazon EC2 instances, you can use bind mounts and have
 the data tied to the lifecycle of the host Amazon EC2 instance. You can do this by
@@ -223,9 +219,7 @@ persistent storage. For more information, see [Use Amazon EFS volumes with Amazo
   ]
 ```
 
-###### To mount a defined volume on multiple containers at different
-
-locations
+###### To mount a defined volume on multiple containers at different locations
 
 You can define a data volume in a task definition and mount that volume at
 different locations on different containers. For example, your host container
@@ -298,9 +292,7 @@ different document roots.
   ]
 ```
 
-###### To mount volumes from another container using
-
-`volumesFrom`
+###### To mount volumes from another container using `volumesFrom`
 
 For tasks hosted on Amazon EC2 instances, you can define one or more volumes on a
 container, and then use the `volumesFrom` parameter in a different

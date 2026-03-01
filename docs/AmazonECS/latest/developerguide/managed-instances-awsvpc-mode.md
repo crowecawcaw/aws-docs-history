@@ -1,6 +1,4 @@
-# Allocate a network interface for tasks
-
-on Amazon ECS Managed Instances
+# Allocate a network interface for tasks on Amazon ECS Managed Instances
 
 Using the `awsvpc` network mode in Amazon ECS Managed Instances simplifies container
 networking because you have more control over how your applications communicate with
@@ -61,9 +59,7 @@ Mirroring for security and monitoring of network traffic when using instance typ
 [What is Traffic
 Mirroring?](../../../vpc/latest/mirroring/what-is-traffic-mirroring.md "../../../vpc/latest/mirroring/what-is-traffic-mirroring.md") in the _Amazon VPC Traffic Mirroring Guide_.
 
-## Considerations for
-
-`awsvpc` mode
+## Considerations for `awsvpc` mode
 
 - Tasks require the Amazon ECS service-linked role for ENI management. This role
   is created automatically when you create a cluster or service.
@@ -79,9 +75,7 @@ Mirroring?](../../../vpc/latest/mirroring/what-is-traffic-mirroring.md "../../..
   type when configuring load balancer target groups. Amazon ECS automatically
   manages target group registration for supported networking modes.
 
-## Using a VPC in
-
-dual-stack mode
+## Using a VPC in dual-stack mode
 
 When using a VPC in dual-stack mode, your tasks can communicate over IPv4, or
 IPv6, or both. IPv4 and IPv6 addresses are independent of each other. Therefore you

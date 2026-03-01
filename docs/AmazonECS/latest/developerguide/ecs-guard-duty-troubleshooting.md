@@ -5,26 +5,16 @@ tasks and containers.
 
 ###### Topics
 
-- [How can I tell if Runtime Monitoring is active on
-  my account?](#verify-ecs-runtime-enabled "#verify-ecs-runtime-enabled")
-- [How can I tell if Runtime Monitoring is active on
-  a cluster?](#verify-ecs-runtime-enabled "#verify-ecs-runtime-enabled")
-- [How can I tell if the GuardDuty security
-  agent is running on a Fargate task?](#verify-ecs-runtime-fargate-run "#verify-ecs-runtime-fargate-run")
-- [How can I tell if the GuardDuty security agent
-  is running on an EC2 container instance?](#verify-ecs-runtime-ec2-run "#verify-ecs-runtime-ec2-run")
-- [What happens when there is no task execution
-  role for a task running on the cluster?](#no-task-execution-role "#no-task-execution-role")
-- [How can I tell if I have the correct permissions to
-  tag clusters for Runtime Monitoring?](#tag-permissions "#tag-permissions")
-- [What happens when there is no connection
-  Amazon ECR?](#no-ecr-connection "#no-ecr-connection")
-- [How do I address out of memory errors on my Fargate
-  tasks after enabling Runtime Monitoring?](#memory-error "#memory-error")
+- [How can I tell if Runtime Monitoring is active on my account?](#verify-ecs-runtime-enabled "#verify-ecs-runtime-enabled")
+- [How can I tell if Runtime Monitoring is active on a cluster?](#verify-ecs-runtime-enabled "#verify-ecs-runtime-enabled")
+- [How can I tell if the GuardDuty security agent is running on a Fargate task?](#verify-ecs-runtime-fargate-run "#verify-ecs-runtime-fargate-run")
+- [How can I tell if the GuardDuty security agent is running on an EC2 container instance?](#verify-ecs-runtime-ec2-run "#verify-ecs-runtime-ec2-run")
+- [What happens when there is no task execution role for a task running on the cluster?](#no-task-execution-role "#no-task-execution-role")
+- [How can I tell if I have the correct permissions to tag clusters for Runtime Monitoring?](#tag-permissions "#tag-permissions")
+- [What happens when there is no connection Amazon ECR?](#no-ecr-connection "#no-ecr-connection")
+- [How do I address out of memory errors on my Fargate tasks after enabling Runtime Monitoring?](#memory-error "#memory-error")
 
-## How can I tell if Runtime Monitoring is active on
-
-my account?
+## How can I tell if Runtime Monitoring is active on my account?
 
 In the Amazon ECS console, the information is in on the **Account
 Settings** page.
@@ -54,9 +44,7 @@ automatic or manual.
 }
 ```
 
-## How can I tell if Runtime Monitoring is active on
-
-a cluster?
+## How can I tell if Runtime Monitoring is active on a cluster?
 
 You can review the coverage statistics in the GuardDuty console. This includes information
 for the Amazon ECS resources associated with your own account or your member accounts is the
@@ -65,9 +53,7 @@ This includes the coverage for clusters that use the Fargate and EC2s. For
 more information, see [Reviewing coverage statistics](../../../guardduty/latest/ug/gdu-assess-coverage-ecs.md#ecs-review-coverage-statistics-ecs-runtime-monitoring "../../../guardduty/latest/ug/gdu-assess-coverage-ecs.md#ecs-review-coverage-statistics-ecs-runtime-monitoring") in the _Amazon GuardDuty User
 Guide_.
 
-## How can I tell if the GuardDuty security
-
-agent is running on a Fargate task?
+## How can I tell if the GuardDuty security agent is running on a Fargate task?
 
 The GuardDuty security agent runs as a sidecar container for Fargate tasks.
 
@@ -102,9 +88,7 @@ The container named `gd-agent` is in the `RUNNING` state.
     ]
 ```
 
-## How can I tell if the GuardDuty security agent
-
-is running on an EC2 container instance?
+## How can I tell if the GuardDuty security agent is running on an EC2 container instance?
 
 Run the following command to view the status:
 
@@ -118,17 +102,13 @@ The log file is in the following location:
 /var/log/amzn-guardduty-agent
 ```
 
-## What happens when there is no task execution
-
-role for a task running on the cluster?
+## What happens when there is no task execution role for a task running on the cluster?
 
 For Fargate tasks, the task starts without the GuardDuty security agent sidecar
 container. The GuardDuty dashboard will show that the task is missing protection in the
 coverage statistics dashboard.
 
-## How can I tell if I have the correct permissions to
-
-tag clusters for Runtime Monitoring?
+## How can I tell if I have the correct permissions to tag clusters for Runtime Monitoring?
 
 In order to tag a cluster, you must have the `ecs:TagResource` action for
 both `CreateCluster` and `UpdateCluster`.
@@ -155,17 +135,13 @@ The following is a snippet of an example policy.
 }
 ```
 
-## What happens when there is no connection
-
-Amazon ECR?
+## What happens when there is no connection Amazon ECR?
 
 For Fargate tasks, the task starts without the GuardDuty security agent sidecar
 container. The GuardDuty dashboard will show that the task is missing protection in the
 coverage statistics dashboard.
 
-## How do I address out of memory errors on my Fargate
-
-tasks after enabling Runtime Monitoring?
+## How do I address out of memory errors on my Fargate tasks after enabling Runtime Monitoring?
 
 The GuardDuty security agent is a lightweight process. However, the process still
 consumes resources according to the size of the workload. We recommend using container

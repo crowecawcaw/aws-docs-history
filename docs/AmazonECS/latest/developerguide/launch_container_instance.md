@@ -1,6 +1,4 @@
-# Launching an Amazon ECS Linux container
-
-instance
+# Launching an Amazon ECS Linux container instance
 
 You can create Amazon ECS container instances using the Amazon EC2 console.
 
@@ -154,8 +152,7 @@ If you do not have an interface VPC endpoint configured and your container
 instances do not have public IP addresses, then they must use network
 address translation (NAT) to provide this access. For more information, see
 [NAT gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") in
-the _Amazon VPC User Guide_ and [Using an HTTP proxy for Amazon ECS Linux container
-instances](http_proxy_config.md "http_proxy_config.md") in this
+the _Amazon VPC User Guide_ and [Using an HTTP proxy for Amazon ECS Linux container instances](http_proxy_config.md "http_proxy_config.md") in this
 guide.
 
 - If you choose a dual stack VPC and an IPv6-only subnet, for

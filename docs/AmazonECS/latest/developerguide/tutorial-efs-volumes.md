@@ -1,6 +1,4 @@
-# Configuring Amazon EFS file systems for Amazon ECS using the
-
-console
+# Configuring Amazon EFS file systems for Amazon ECS using the console
 
 Learn how to use Amazon Elastic File System (Amazon EFS) file systems with Amazon ECS.
 
@@ -52,9 +50,7 @@ Before you begin, assign the appropriate IAM permission. For more information, s
 
 8. Choose **Create**.
 
-## Step 2: Create a security group for Amazon EC2 instances
-
-and the Amazon EFS file system
+## Step 2: Create a security group for Amazon EC2 instances and the Amazon EFS file system
 
 In this step, you create a security group for your Amazon EC2 instances that allows inbound
 network traffic on port 80 and your Amazon EFS file system that allows inbound access from
@@ -124,8 +120,7 @@ you have configured settings, select **Next**.
 5. On the **Network access** page, under **Mount
    targets**, replace the existing security group configuration for
    every availability zone with the security group you created for the file system
-   in [Step 2: Create a security group for Amazon EC2 instances
-   and the Amazon EFS file system](#efs-security-group "#efs-security-group") and
+   in [Step 2: Create a security group for Amazon EC2 instances and the Amazon EFS file system](#efs-security-group "#efs-security-group") and
    then choose **Next**.
 6. You do not need to configure **File system policy** for this
    tutorial, so you can skip the section by choosing
@@ -157,8 +152,7 @@ method of writing data to your Amazon EFS file system.
    to the instance.
 6. Under **Network settings**, select the VPC that you specified
    for your Amazon EFS file system and Amazon ECS cluster. Select a subnet and the instance
-   security group created in [Step 2: Create a security group for Amazon EC2 instances
-   and the Amazon EFS file system](#efs-security-group "#efs-security-group"). Configure the instance's security
+   security group created in [Step 2: Create a security group for Amazon EC2 instances and the Amazon EFS file system](#efs-security-group "#efs-security-group"). Configure the instance's security
    group. Ensure that **Auto-assign public IP** is enabled.
 7. Under **Configure storage**, choose the
    **Edit** button for file systems and then choose

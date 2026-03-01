@@ -1,6 +1,4 @@
-# Best practices for connecting Amazon ECS to AWS services from inside
-
-your VPC
+# Best practices for connecting Amazon ECS to AWS services from inside your VPC
 
 For Amazon ECS to function properly, the Amazon ECS container agent that runs on each host must
 communicate with the Amazon ECS control plane. If you're storing your container images in

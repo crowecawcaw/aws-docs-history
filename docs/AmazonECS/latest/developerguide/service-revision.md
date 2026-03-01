@@ -5,8 +5,7 @@ deploy. Whenever you create or deploy a service, Amazon ECS automatically create
 the configuration that you're trying to deploy in the service revision.
 
 Service revisions are read-only and have unique identifiers. For information about the
-included properties, see [Properties included in an Amazon ECS service
-revision](service-revision-property.md "service-revision-property.md").
+included properties, see [Properties included in an Amazon ECS service revision](service-revision-property.md "service-revision-property.md").
 
 Service revisions provide the following benefits:
 

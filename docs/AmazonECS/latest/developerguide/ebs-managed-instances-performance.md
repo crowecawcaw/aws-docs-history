@@ -1,6 +1,4 @@
-# Performance of Amazon EBS volumes for
-
-Amazon ECS Managed Instances tasks
+# Performance of Amazon EBS volumes for Amazon ECS Managed Instances tasks
 
 Amazon EBS provides volume types, which differ in performance characteristics and price, so
 that you can tailor your storage performance and cost to the needs of your applications.

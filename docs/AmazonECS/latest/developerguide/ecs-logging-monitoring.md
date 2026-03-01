@@ -43,8 +43,7 @@ and [EventBridge is the evolution of Amazon CloudWatch Events](../../../eventbri
 CloudTrail provides a record of actions taken by a user, role, or an AWS service in Amazon ECS. Using
 the information collected by CloudTrail, you can determine the request that was made to Amazon ECS, the IP
 address from which the request was made, who made the request, when it was made, and additional
-details. For more information, see [Log Amazon ECS API calls using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+details. For more information, see [Log Amazon ECS API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 **AWS Trusted Advisor**
 

@@ -19,16 +19,11 @@ AWS SDKs, and the REST API.
 
 ###### Topics
 
-- [Using dual-stack endpoints from the
-  AWS CLI](#dual-stack-endpoints-cli "#dual-stack-endpoints-cli")
-- [Using dual-stack endpoints from the AWS
-  SDKs](#dual-stack-endpoints-sdks "#dual-stack-endpoints-sdks")
-- [Using dual-stack endpoints from the
-  REST API](#dual-stack-endpoints-examples-rest-api "#dual-stack-endpoints-examples-rest-api")
+- [Using dual-stack endpoints from the AWS CLI](#dual-stack-endpoints-cli "#dual-stack-endpoints-cli")
+- [Using dual-stack endpoints from the AWS SDKs](#dual-stack-endpoints-sdks "#dual-stack-endpoints-sdks")
+- [Using dual-stack endpoints from the REST API](#dual-stack-endpoints-examples-rest-api "#dual-stack-endpoints-examples-rest-api")
 
-## Using dual-stack endpoints from the
-
-AWS CLI
+## Using dual-stack endpoints from the AWS CLI
 
 This section provides examples of AWS CLI commands used to make requests to a dual-stack
 endpoint. For more information about installing the AWS CLI or updating to the latest
@@ -63,9 +58,7 @@ The following example command lists all available clusters and uses the dual-sta
   create one profile that sets `use_dualstack_endpoint` to `true` and a profile that does not set `use_dualstack_endpoint`.
   When you run a command, specify which profile you want to use, depending upon whether or not you want to use the dual-stack endpoint.
 
-## Using dual-stack endpoints from the AWS
-
-SDKs
+## Using dual-stack endpoints from the AWS SDKs
 
 This section provides examples of how to access a dual-stack endpoint by using the AWS SDKs.
 
@@ -89,9 +82,7 @@ svc := ecs.New(sess, &aws.Config{
 
 For more information, see [Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md") in the _AWS SDKs and Tools Reference Guide_.
 
-## Using dual-stack endpoints from the
-
-REST API
+## Using dual-stack endpoints from the REST API
 
 When using the REST API, you can directly access a dual-stack endpoint by specifying it in your request. The following example uses the dual-stack endpoint to list all Amazon ECS clusters in the `us-east-1` Region.
 

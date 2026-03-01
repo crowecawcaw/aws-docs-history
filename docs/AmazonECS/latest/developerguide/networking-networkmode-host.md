@@ -1,6 +1,4 @@
-# Map Amazon ECS container ports to the EC2
-
-instance network interface
+# Map Amazon ECS container ports to the EC2 instance network interface
 
 The `host` network mode is only supported for Amazon ECS tasks hosted on Amazon EC2
 instances. It's not supported when using Amazon ECS on Fargate.

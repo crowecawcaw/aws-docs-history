@@ -34,11 +34,9 @@ security group to allow or deny traffic. This means you have greater flexibility
 to control communications between tasks and services at a more granular level.
 If the deployment speed is your priority, you can consider using
 `bridge` mode to speed up task launches. For more information,
-see [Allocate a network interface for an Amazon ECS
-task](task-networking-awsvpc.md "task-networking-awsvpc.md").
+see [Allocate a network interface for an Amazon ECS task](task-networking-awsvpc.md "task-networking-awsvpc.md").
 
-- ###### Track your task launch lifecycle to find optimization
-  opportunities
+- ###### Track your task launch lifecycle to find optimization opportunities
 
 It is often difficult to know the amount of
 time it takes for your application to start-up. Launching your container image,

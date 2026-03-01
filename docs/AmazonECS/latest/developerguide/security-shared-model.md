@@ -21,15 +21,14 @@ running on Fargate do not share an operating system, Linux kernel, network inter
 ephemeral storage, CPU, or memory with other tasks. When using Fargate, customers are
 not responsible for securing the compute infrastructure that runs their containers.
 Fargate will provision and patch the infrastructure upon which customer workloads run.
-For more information, see [Task retirement and maintenance for AWS Fargate on Amazon ECS](task-maintenance.md "task-maintenance.md") .
+For more information, see [Task retirement and maintenance for AWS Fargate on Amazon ECS](task-maintenance.md "task-maintenance.md").
 
 You are responsible for managing the following resources:
 
 - Network configuration including VPC, NACLs, security groups, and route
   tables
 - Client and service storage encryption. For more information, see [Storage options for Amazon ECS tasks](using_data_volumes.md "using_data_volumes.md").
-- Container images. For more information, see [Amazon ECS task and container security best
-  practices](security-tasks-containers.md "security-tasks-containers.md").
+- Container images. For more information, see [Amazon ECS task and container security best practices](security-tasks-containers.md "security-tasks-containers.md").
 - IAM permissions for the applications by using the task role. For more information, see [Amazon ECS task IAM role](task-iam-roles.md "task-iam-roles.md").
 
 ![Diagram showing the shared responsibility model for Fargate on Amazon ECS.](images/fargate-shared-responsibility.png)
@@ -45,8 +44,7 @@ addition to the following resources:
 - Network configuration including VPC, NACLs, security groups, and route
   tables.
 - Client and service storage encryption. For more information, see [Storage options for Amazon ECS tasks](using_data_volumes.md "using_data_volumes.md").
-- Container images. For more information, see [Amazon ECS task and container security best
-  practices](security-tasks-containers.md "security-tasks-containers.md").
+- Container images. For more information, see [Amazon ECS task and container security best practices](security-tasks-containers.md "security-tasks-containers.md").
 - IAM permissions for the applications by using the task role. For more information, see [Amazon ECS task IAM role](task-iam-roles.md "task-iam-roles.md").
 
 ![Diagram showing the shared responsibility model for EC2 on Amazon ECS.](images/ec2-shared-responsibility.png)

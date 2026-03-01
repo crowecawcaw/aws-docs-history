@@ -30,11 +30,9 @@ _in_ the cloud:
 - [Identity and Access Management for Amazon Elastic Container Service](security-iam.md "security-iam.md")
 - [Logging and Monitoring in Amazon Elastic Container Service](ecs-logging-monitoring.md "ecs-logging-monitoring.md")
 - [Compliance validation for Amazon Elastic Container Service](ecs-compliance.md "ecs-compliance.md")
-- [AWS Fargate Federal Information Processing Standard
-  (FIPS-140)](ecs-fips-compliance.md "ecs-fips-compliance.md")
+- [AWS Fargate Federal Information Processing Standard (FIPS-140)](ecs-fips-compliance.md "ecs-fips-compliance.md")
 - [Infrastructure Security in Amazon Elastic Container Service](infrastructure-security.md "infrastructure-security.md")
 - [AWS shared responsibility model for Amazon ECS](security-shared-model.md "security-shared-model.md")
 - [Shared responsibility model for Amazon ECS Managed Instances](security-shared-model-managed-instances.md "security-shared-model-managed-instances.md")
 - [Network security best practices for Amazon ECS](security-network.md "security-network.md")
-- [Amazon ECS task and container security best
-  practices](security-tasks-containers.md "security-tasks-containers.md")
+- [Amazon ECS task and container security best practices](security-tasks-containers.md "security-tasks-containers.md")

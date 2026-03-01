@@ -1,6 +1,4 @@
-# Amazon ECS Service Connect access
-
-logs
+# Amazon ECS Service Connect access logs
 
 Amazon ECS Service Connect supports access logs to provide detailed telemetry about
 individual requests processed by the Service Connect proxy. Access logs complement existing

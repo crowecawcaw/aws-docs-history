@@ -22,9 +22,7 @@ Amazon ECS sends events with `INFO`, `WARN`, and
 `ERROR` event types. The following are the service action
 events.
 
-## Service action events with
-
-`INFO` event type
+## Service action events with `INFO` event type
 
 `SERVICE_STEADY_STATE`
 
@@ -63,9 +61,7 @@ A service deployment is in the steady state and is complete. The
 service deployment can be either a rollback, or to deploy an updated
 service revision.
 
-## Service action events with
-
-`WARN` event type
+## Service action events with `WARN` event type
 
 `SERVICE_TASK_START_IMPAIRED`
 
@@ -83,9 +79,7 @@ unhealthy.
 The service using VPC Lattice has detected one of the targets for the
 VPC Lattice is unhealthy.
 
-## Service action events with
-
-`ERROR` event type
+## Service action events with `ERROR` event type
 
 `SERVICE_DAEMON_PLACEMENT_CONSTRAINT_VIOLATED`
 

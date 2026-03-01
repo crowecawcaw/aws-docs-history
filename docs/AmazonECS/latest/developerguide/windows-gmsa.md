@@ -22,8 +22,7 @@ This feature is not supported on Windows containers on Fargate.
 
 - [Considerations](#windows-gmsa-considerations "#windows-gmsa-considerations")
 - [Prerequisites](#windows-gmsa-prerequisites "#windows-gmsa-prerequisites")
-- [Setting up gMSA for Windows Containers on
-  Amazon ECS](#windows-gmsa-setup "#windows-gmsa-setup")
+- [Setting up gMSA for Windows Containers on Amazon ECS](#windows-gmsa-setup "#windows-gmsa-setup")
 
 ## Considerations
 
@@ -95,13 +94,10 @@ instance.
   - If you store the credential specification in Amazon S3, IAM permissions
     for Amazon Simple Storage Service are required on the task execution role.
 
-## Setting up gMSA for Windows Containers on
-
-Amazon ECS
+## Setting up gMSA for Windows Containers on Amazon ECS
 
 To set up gMSA for Windows Containers on Amazon ECS, you can follow
-the complete tutorial that includes configuring the prerequisites [Using Amazon ECS Windows containers with domainless
-gMSA using the AWS CLI](tutorial-gmsa-windows.md "tutorial-gmsa-windows.md").
+the complete tutorial that includes configuring the prerequisites [Using Amazon ECS Windows containers with domainless gMSA using the AWS CLI](tutorial-gmsa-windows.md "tutorial-gmsa-windows.md").
 
 The following sections cover the CredSpec configuration in detail.
 
@@ -109,8 +105,7 @@ The following sections cover the CredSpec configuration in detail.
 
 - [Example CredSpec](#windows-gmsa-example "#windows-gmsa-example")
 - [Domainless gMSA setup](#windows-gmsa-domainless "#windows-gmsa-domainless")
-- [Referencing a Credential Spec File in
-  a Task Definition](#windows-gmsa-credentialspec "#windows-gmsa-credentialspec")
+- [Referencing a Credential Spec File in a Task Definition](#windows-gmsa-credentialspec "#windows-gmsa-credentialspec")
 
 ### Example CredSpec
 
@@ -226,9 +221,7 @@ example:
 }
 ```
 
-### Referencing a Credential Spec File in
-
-a Task Definition
+### Referencing a Credential Spec File in a Task Definition
 
 Amazon ECS supports the following ways to reference the file path in the
 `credentialSpecs` field of the task definition. For each of these

@@ -19,10 +19,8 @@ When you use snapshots to configure volumes, you can specify a
 snapshot to create volumes that are fully initialized in a predictable amount of time.
 For more information about volume initialization, see [Initialize Amazon EBS volumes](../../../ebs/latest/userguide/initalize-volume.md "../../../ebs/latest/userguide/initalize-volume.md") in
 the _Amazon EBS User Guide_. For more information about configuring Amazon EBS
-volumes, see [Defer volume configuration to launch time in an
-Amazon ECS task definition](specify-ebs-config.md "specify-ebs-config.md") and
-[Specify Amazon EBS volume configuration at Amazon ECS
-deployment](configure-ebs-volume.md "configure-ebs-volume.md").
+volumes, see [Defer volume configuration to launch time in an Amazon ECS task definition](specify-ebs-config.md "specify-ebs-config.md") and
+[Specify Amazon EBS volume configuration at Amazon ECS deployment](configure-ebs-volume.md "configure-ebs-volume.md").
 
 Volume configuration is deferred to launch time using the `configuredAtLaunch`
 parameter in the task definition. By providing volume configuration at launch time rather
@@ -33,8 +31,7 @@ throughput during deployment for your production workloads than your pre-prod
 environments.
 
 Amazon EBS volumes attached to tasks can be encrypted with AWS Key Management Service (AWS KMS) keys to protect
-your data. For more information see, [Encrypt data stored in Amazon EBS volumes attached to
-Amazon ECS tasks](ebs-kms-encryption.md "ebs-kms-encryption.md").
+your data. For more information see, [Encrypt data stored in Amazon EBS volumes attached to Amazon ECS tasks](ebs-kms-encryption.md "ebs-kms-encryption.md").
 
 To monitor your volume's performance, you can also use Amazon CloudWatch metrics. For more
 information about Amazon ECS metrics for Amazon EBS volumes, see [Amazon ECS CloudWatch metrics](available-metrics.md "available-metrics.md") and [Amazon ECS

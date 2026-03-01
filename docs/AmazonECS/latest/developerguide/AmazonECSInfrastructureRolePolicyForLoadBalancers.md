@@ -1,6 +1,4 @@
-# Amazon ECS infrastructure
-
-IAM role for load balancers
+# Amazon ECS infrastructure IAM role for load balancers
 
 An Amazon ECS infrastructure IAM role for load balancers allows Amazon ECS to manage load balancer
 resources in your clusters on your behalf, and is used when:
@@ -19,9 +17,7 @@ resources in your clusters on your behalf, and is used when:
 Amazon ECS provides a managed policy which contains the permissions required for load balancer
 management. For more information see, [AmazonECSInfrastructureRolePolicyForLoadBalancers](../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForLoadBalancers.md "../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForLoadBalancers.md") in the _AWS Managed Policy Reference Guide_.
 
-## Creating the Amazon ECS
-
-infrastructure role for load balancers
+## Creating the Amazon ECS infrastructure role for load balancers
 
 Replace all `user input` with your own
 information.
@@ -92,9 +88,7 @@ modify the role:
 After you create the file, you must grant your user permission to pass the role to
 Amazon ECS.
 
-## Permission to pass
-
-the infrastructure role to Amazon ECS
+## Permission to pass the infrastructure role to Amazon ECS
 
 To use an ECS infrastructure IAM role for load balancers, you must grant your user
 permission to pass the role to Amazon ECS. Attach the following `iam:PassRole`

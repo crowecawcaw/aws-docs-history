@@ -239,8 +239,7 @@ other containers that don't set container limits. For more information, see
 
 - You can configure Service Connect to use any AWS Cloud Map namespace in the same
   Region that are either in the same AWS account or are shared
-  with your AWS account using AWS Resource Access Manager. For more information about using shared namespaces, see [Amazon ECS Service Connect with shared
-  AWS Cloud Map namespaces](service-connect-shared-namespaces.md "service-connect-shared-namespaces.md").
+  with your AWS account using AWS Resource Access Manager. For more information about using shared namespaces, see [Amazon ECS Service Connect with shared AWS Cloud Map namespaces](service-connect-shared-namespaces.md "service-connect-shared-namespaces.md").
 - Each service can belong to only one namespace.
 - Only the tasks that services create are supported.
 - All endpoints must be unique within a namespace.

@@ -1,6 +1,4 @@
-# How CloudWatch alarms detect Amazon ECS deployment
-
-failures
+# How CloudWatch alarms detect Amazon ECS deployment failures
 
 You can configure Amazon ECS to set the deployment to failed when it detects that a
 specified CloudWatch alarm has gone into the `ALARM` state.
@@ -46,8 +44,7 @@ Consider the following when you use the Amazon CloudWatch alarms method on a ser
   deployments that have started and have completed, Amazon ECS also sends an event when
   a deployment that uses alarms fails. These events provide details about why a
   deployment failed or if a deployment was started because of a rollback. For more
-  information, see [Amazon ECS service deployment state change
-  events](ecs_service_deployment_events.md "ecs_service_deployment_events.md").
+  information, see [Amazon ECS service deployment state change events](ecs_service_deployment_events.md "ecs_service_deployment_events.md").
 - If a new deployment is started because a previous deployment failed and
   rollback was turned on, the `reason` field of the service deployment
   state change event will indicate the deployment was started because of a
@@ -59,8 +56,7 @@ Consider the following when you use the Amazon CloudWatch alarms method on a ser
 - The Amazon CloudWatch alarms is only supported for Amazon ECS services that use the rolling
   update (`ECS`) deployment controller.
 - You can configure this option by using the Amazon ECS console, or the AWS CLI. For
-  more information, see [Create a service using defined
-  parameters](create-service-console-v2.md#create-custom-service "create-service-console-v2.md#create-custom-service") and [create-service](../../../cli/latest/reference/ecs/create-service.md "../../../cli/latest/reference/ecs/create-service.md") in the _AWS Command Line Interface
+  more information, see [Create a service using defined parameters](create-service-console-v2.md#create-custom-service "create-service-console-v2.md#create-custom-service") and [create-service](../../../cli/latest/reference/ecs/create-service.md "../../../cli/latest/reference/ecs/create-service.md") in the _AWS Command Line Interface
   Reference_.
 - You might notice that the deployment status remains `IN_PROGRESS`
   for a prolonged amount of time. The reason for this is that Amazon ECS does not

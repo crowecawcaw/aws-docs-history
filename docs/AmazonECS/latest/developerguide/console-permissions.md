@@ -17,9 +17,7 @@ operation:
 You can add these permissions by creating a role in IAM before you use them in the Amazon ECS
 console. If you do not create the roles, the Amazon ECS console creates then on your behalf.
 
-## Permissions required for registering an
-
-external instance to a cluster
+## Permissions required for registering an external instance to a cluster
 
 You need additional permissions when you register an external instance to a cluster
 and you want to create a new external instance
@@ -74,9 +72,7 @@ JSON
 
 ```
 
-## Permissions required for registering a task
-
-definition
+## Permissions required for registering a task definition
 
 You need additional permissions when you register a task definition and you want to
 create a new task execution (`ecsTaskExecutionRole`) role.
@@ -116,9 +112,7 @@ JSON
 
 ```
 
-## Permissions required for using Amazon Q Developer to provide
-
-recommendations in the console
+## Permissions required for using Amazon Q Developer to provide recommendations in the console
 
 For Amazon Q Developer to provide recommendations in the Amazon ECS; console, you must enable the
 correct IAM permissions for either your IAM user or role. You must add the
@@ -159,9 +153,7 @@ JSON
 
 ```
 
-## Permissions required for creating an EventBridge rule for
-
-scheduled tasks
+## Permissions required for creating an EventBridge rule for scheduled tasks
 
 You need additional permissions when you schedule a task and you want to create a new
 CloudWatch Events role (`ecsEventsRole`) role.
@@ -246,9 +238,7 @@ JSON
 
 ```
 
-## Permissions required to view Amazon ECS
-
-lifecycle events in Container Insights
+## Permissions required to view Amazon ECS lifecycle events in Container Insights
 
 The following permissions are required to view the lifecycle events. Add the following
 permissions as an inline policy to the role. For more information, see [Adding and Removing

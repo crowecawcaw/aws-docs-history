@@ -1,13 +1,10 @@
-# Amazon ECS task metadata endpoint version 3 for
-
-tasks on Fargate
+# Amazon ECS task metadata endpoint version 3 for tasks on Fargate
 
 ###### Important
 
 The task metadata version 3 endpoint is no longer being actively maintained. We
 recommend that you update the task metadata version 4 endpoint to get the latest
-metadata endpoint information. For more information, see [Amazon ECS task metadata endpoint version 4 for
-tasks on Fargate](task-metadata-endpoint-v4-fargate.md "task-metadata-endpoint-v4-fargate.md").
+metadata endpoint information. For more information, see [Amazon ECS task metadata endpoint version 4 for tasks on Fargate](task-metadata-endpoint-v4-fargate.md "task-metadata-endpoint-v4-fargate.md").
 
 Beginning with Fargate platform version `1.1.0`, an environment variable
 named `ECS_CONTAINER_METADATA_URI` is injected into each container in a task.
@@ -18,9 +15,7 @@ The task metadata endpoint feature is enabled by default for Amazon ECS tasks ho
 Fargate that use platform version `1.1.0` or later. For more
 information, see [Fargate platform versions for Amazon ECS](platform-fargate.md "platform-fargate.md").
 
-## Task metadata endpoint paths for
-
-tasks on Fargate
+## Task metadata endpoint paths for tasks on Fargate
 
 The following API endpoints are available to containers:
 

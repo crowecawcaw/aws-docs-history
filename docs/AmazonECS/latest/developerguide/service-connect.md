@@ -1,6 +1,4 @@
-# Use Service Connect to connect Amazon ECS services with short
-
-names
+# Use Service Connect to connect Amazon ECS services with short names
 
 Amazon ECS Service Connect provides management of service-to-service communication as Amazon ECS
 configuration. It builds both service discovery and a service mesh in Amazon ECS. This provides
@@ -153,15 +151,11 @@ interconnection method.
 
 - [Pricing](#service-connect-pricing "#service-connect-pricing")
 - [Amazon ECS Service Connect components](service-connect-concepts-deploy.md "service-connect-concepts-deploy.md")
-- [Amazon ECS Service Connect configuration
-  overview](service-connect-concepts.md "service-connect-concepts.md")
-- [Amazon ECS Service Connect with shared
-  AWS Cloud Map namespaces](service-connect-shared-namespaces.md "service-connect-shared-namespaces.md")
-- [Amazon ECS Service Connect access
-  logs](service-connect-envoy-access-logs.md "service-connect-envoy-access-logs.md")
+- [Amazon ECS Service Connect configuration overview](service-connect-concepts.md "service-connect-concepts.md")
+- [Amazon ECS Service Connect with shared AWS Cloud Map namespaces](service-connect-shared-namespaces.md "service-connect-shared-namespaces.md")
+- [Amazon ECS Service Connect access logs](service-connect-envoy-access-logs.md "service-connect-envoy-access-logs.md")
 - [Encrypt Amazon ECS Service Connect traffic](service-connect-tls.md "service-connect-tls.md")
-- [Configuring Amazon ECS Service Connect with the
-  AWS CLI](create-service-connect.md "create-service-connect.md")
+- [Configuring Amazon ECS Service Connect with the AWS CLI](create-service-connect.md "create-service-connect.md")
 
 ## Pricing
 

@@ -83,8 +83,7 @@ successfully.
 
 When you update a service that uses Amazon ECS circuit breaker, Amazon ECS creates a
 service deployment and a service revision. These resources allow you to view
-detailed information about the service history. For more information, see [View service history using Amazon ECS service
-deployments](service-deployment.md "service-deployment.md").
+detailed information about the service history. For more information, see [View service history using Amazon ECS service deployments](service-deployment.md "service-deployment.md").
 
 The service scheduler uses the minimum healthy percent and maximum percent
 parameters (in the deployment configuration for the service) to determine the

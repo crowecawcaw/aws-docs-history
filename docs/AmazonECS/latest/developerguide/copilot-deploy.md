@@ -1,6 +1,4 @@
-# Deploying a sample Amazon ECS application using the AWS Copilot
-
-CLI
+# Deploying a sample Amazon ECS application using the AWS Copilot CLI
 
 After installing the AWS Copilot CLI, you can follow these steps to deploy a sample app,
 verify the deployment, and clean up resources.
@@ -16,9 +14,7 @@ Before you begin, make sure that you meet the following prerequisites:
 - Install and run Docker. For more information, see [Get started with
   Docker](https://www.docker.com/get-started "https://www.docker.com/get-started").
 
-## Deploy a sample Amazon ECS application using a
-
-single command
+## Deploy a sample Amazon ECS application using a single command
 
 1. Deploy a sample web application that is cloned from a GitHub repository
    using the following command. For more information about AWS Copilot

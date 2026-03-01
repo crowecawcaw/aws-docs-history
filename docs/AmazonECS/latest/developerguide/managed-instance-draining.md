@@ -101,9 +101,7 @@ of Spot Instance being replaced. When you use managed instance draining, you don
 draining separately, so `ECS_ENABLE_SPOT_INSTANCE_DRAINING` in Auto Scaling group user data is redundant.
 For more information about Spot Instance draining, see [Spot Instances](create-capacity.md#container-instance-spot "create-capacity.md#container-instance-spot").
 
-## How managed instance draining works with
-
-EventBridge
+## How managed instance draining works with EventBridge
 
 Amazon ECS managed instance draining events are published to Amazon EventBridge, and Amazon ECS creates an EventBridge managed
 rule in your account’s default bus to support managed instance draining. You can filter these events to
@@ -115,16 +113,12 @@ other AWS services like Lambda, Amazon SNS, and Amazon SQS to monitor and troubl
   APIs.
 - EventBridge has retry mechanisms built in as mitigations for temporary failures.
 
-## Amazon ECS Managed instance draining
-
-troubleshooting
+## Amazon ECS Managed instance draining troubleshooting
 
 You might need to troubleshoot issues with managed instance draining. The following is an example of
 an issue and resolution you may come across while using it.
 
-###### Instances don't terminate after exceeding maximum instance lifetime when using auto
-
-scaling.
+###### Instances don't terminate after exceeding maximum instance lifetime when using auto scaling.
 
 If your instances aren't terminating even after reaching and exceeding the maximum instance
 lifetime while using an auto scaling group, it may be because they're protected from scale-in. You

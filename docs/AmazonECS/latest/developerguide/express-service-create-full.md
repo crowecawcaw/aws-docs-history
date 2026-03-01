@@ -23,8 +23,7 @@ for role creation.
 
 ## Walkthroughs
 
-- For a simplified first-run experience using the console, see [Create your first Amazon ECS Express Mode service in the
-  console](express-service-first-run.md "express-service-first-run.md").
+- For a simplified first-run experience using the console, see [Create your first Amazon ECS Express Mode service in the console](express-service-first-run.md "express-service-first-run.md").
 - To create an Express Mode service using the AWS CLI, see [Create your first Express Mode service using the AWS CLI](express-service-getting-started.md "express-service-getting-started.md").
 - To learn more about what Express Mode creates and how it works, see [Resources created by Amazon ECS Express Mode services](express-service-work.md "express-service-work.md").
 

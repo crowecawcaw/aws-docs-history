@@ -37,20 +37,14 @@ service.
 
 - [Amazon ECS task definition states](task-definition-state.md "task-definition-state.md")
 - [Architect your application for Amazon ECS](application_architecture.md "application_architecture.md")
-- [Creating an Amazon ECS task definition using the
-  console](create-task-definition.md "create-task-definition.md")
+- [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md")
 - [Using Amazon Q Developer to provide task definition recommendations in the Amazon ECS console](using-amazon-q.md "using-amazon-q.md")
-- [Updating an Amazon ECS task definition using
-  the console](update-task-definition-console-v2.md "update-task-definition-console-v2.md")
-- [Deregistering an Amazon ECS task definition revision
-  using the console](deregister-task-definition-v2.md "deregister-task-definition-v2.md")
-- [Deleting an Amazon ECS task definition revision using the
-  console](delete-task-definition-v2.md "delete-task-definition-v2.md")
+- [Updating an Amazon ECS task definition using the console](update-task-definition-console-v2.md "update-task-definition-console-v2.md")
+- [Deregistering an Amazon ECS task definition revision using the console](deregister-task-definition-v2.md "deregister-task-definition-v2.md")
+- [Deleting an Amazon ECS task definition revision using the console](delete-task-definition-v2.md "delete-task-definition-v2.md")
 - [Amazon ECS task definition use cases](use-cases.md "use-cases.md")
-- [Amazon ECS task definition
-  parameters for Amazon ECS Managed Instances](task_definition_parameters-managed-instances.md "task_definition_parameters-managed-instances.md")
+- [Amazon ECS task definition parameters for Amazon ECS Managed Instances](task_definition_parameters-managed-instances.md "task_definition_parameters-managed-instances.md")
 - [Amazon ECS task definition parameters for Fargate](task_definition_parameters.md "task_definition_parameters.md")
-- [Amazon ECS task definition parameters for
-  Amazon EC2](task_definition_parameters_ec2.md "task_definition_parameters_ec2.md")
+- [Amazon ECS task definition parameters for Amazon EC2](task_definition_parameters_ec2.md "task_definition_parameters_ec2.md")
 - [Amazon ECS task definition template](task-definition-template.md "task-definition-template.md")
 - [Example Amazon ECS task definitions](example_task_definitions.md "example_task_definitions.md")

@@ -1,6 +1,4 @@
-# Troubleshooting service auto
-
-scaling in Amazon ECS
+# Troubleshooting service auto scaling in Amazon ECS
 
 Application Auto Scaling turns off scale-in processes while Amazon ECS deployments are in progress, and they
 resume once the deployment has completed. However, scale-out processes continue to

@@ -24,8 +24,7 @@ Amazon ECS Service Auto Scaling supports the following types of automatic scalin
   breach.
 - [Use scheduled actions to scale Amazon ECS services](service-autoscaling-schedulescaling.md "service-autoscaling-schedulescaling.md")—Increase or decrease
   the number of tasks that your service runs based on the date and time.
-- [Use historical patterns to scale Amazon ECS services with predictive
-  scaling](predictive-auto-scaling.md "predictive-auto-scaling.md")—Increase or decrease
+- [Use historical patterns to scale Amazon ECS services with predictive scaling](predictive-auto-scaling.md "predictive-auto-scaling.md")—Increase or decrease
   the number of tasks that your service runs based on historical load data analytics to detect daily or
   weekly patterns in traffic flows.
 
@@ -86,8 +85,7 @@ When using scaling policies, consider the following:
 - Application Auto Scaling turns off scale-in processes while Amazon ECS deployments are in
   progress. However, scale-out processes continue to occur, unless suspended,
   during a deployment. This behavior does not apply to Amazon ECS services using
-  the external deployment controller. For more information, see [Service auto scaling and
-  deployments](#service-auto-scaling-deployments "#service-auto-scaling-deployments").
+  the external deployment controller. For more information, see [Service auto scaling and deployments](#service-auto-scaling-deployments "#service-auto-scaling-deployments").
 - You have several Application Auto Scaling options for Amazon ECS tasks. Target tracking is the
   easiest mode to use. With it, all you need to do is set a target value for a
   metric, such as CPU average utilization. Then, the auto scaler automatically
@@ -100,9 +98,7 @@ When using scaling policies, consider the following:
 
 For more information about best practices for service auto scaling, see [Optimizing Amazon ECS service auto scaling](capacity-autoscaling-best-practice.md "capacity-autoscaling-best-practice.md").
 
-## Service auto scaling and
-
-deployments
+## Service auto scaling and deployments
 
 Application Auto Scaling turns off scale-in processes while Amazon ECS deployments are in progress.
 However, scale-out processes continue to occur, unless suspended, during a

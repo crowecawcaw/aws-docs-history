@@ -1,6 +1,4 @@
-# Amazon ECS task metadata endpoint version 4 for
-
-tasks on Amazon ECS Managed Instances
+# Amazon ECS task metadata endpoint version 4 for tasks on Amazon ECS Managed Instances
 
 ###### Important
 
@@ -20,9 +18,7 @@ To avoid the need to create new task metadata endpoint versions in the future,
 additional metadata may be added to the version 4 output. We will not remove any
 existing metadata or change the metadata field names.
 
-## Amazon ECS Managed Instances task metadata
-
-endpoint version 4 paths
+## Amazon ECS Managed Instances task metadata endpoint version 4 paths
 
 The following task metadata endpoints are available to containers:
 

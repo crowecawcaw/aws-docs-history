@@ -1,16 +1,11 @@
-# Troubleshooting Amazon ECS TaskFailedToStart
-
-errors
+# Troubleshooting Amazon ECS TaskFailedToStart errors
 
 The following are some `TaskFailedToStart` error messages and actions that you
 can take to fix the errors.
 
 To check your stopped tasks for an error message using the AWS Management Console, see [Viewing Amazon ECS stopped task errors](stopped-task-errors.md "stopped-task-errors.md").
 
-## Unexpected EC2 error while attempting to Create Network Interface with
-
-public IP assignment enabled in subnet
-'`subnet-id`
+## Unexpected EC2 error while attempting to Create Network Interface with public IP assignment enabled in subnet '`subnet-id`
 
 This happens when a Fargate task that uses the `awsvpc`
 network mode and runs in a subnet with a public IP address, and the subnet
@@ -31,9 +26,7 @@ unreported failures. There are times when the ENI is provisioned, but the
 report comes to Amazon ECS after the failure timeout. In this case, Amazon ECS sees
 the reported task failure with an in-use ENI.
 
-## The selected task definition is not compatible with the selected compute
-
-strategy
+## The selected task definition is not compatible with the selected compute strategy
 
 This error occurs when you chose a task definition with a launch type that does not
 match the cluster capacity type. You need to select a task definition that matches

@@ -1,6 +1,4 @@
-# Specify a bind mount in an Amazon ECS task
-
-definition
+# Specify a bind mount in an Amazon ECS task definition
 
 For Amazon ECS tasks that are hosted on either
 Fargate or Amazon EC2 instances, the following task

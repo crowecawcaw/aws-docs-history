@@ -1,6 +1,4 @@
-# Creating a capacity provider
-
-for Amazon ECS Managed Instances
+# Creating a capacity provider for Amazon ECS Managed Instances
 
 Amazon ECS Managed Instances uses capacity providers to manage compute capacity for your workloads.
 By default, Amazon ECS provides a default capacity provider that automatically selects the most
@@ -21,8 +19,7 @@ Before you begin, ensure that you have completed the following:
 
 - Determine what type of monitoring to use. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](monitoring-managed-instances.md#detailed-monitoring-managed-instances "monitoring-managed-instances.md#detailed-monitoring-managed-instances").
 - Have an existing cluster or plan to create one. For more information, see
-  [Creating a cluster for
-  Amazon ECS Managed Instances](create-cluster-managed-instances.md "create-cluster-managed-instances.md").
+  [Creating a cluster for Amazon ECS Managed Instances](create-cluster-managed-instances.md "create-cluster-managed-instances.md").
 - You have the required IAM roles for Amazon ECS Managed Instances. This
   includes:
   - **Infrastructure role** - Allows Amazon ECS to
@@ -38,9 +35,7 @@ Before you begin, ensure that you have completed the following:
 
 Understand how to choose your instances. For more information, see [Instance selection best practices for Amazon ECS Managed Instances](managed-instances-instance-selection-best-practices.md "managed-instances-instance-selection-best-practices.md").
 
-## Console
-
-procedure
+## Console procedure
 
 ###### To create a capacity provider for Amazon ECS Managed Instances (Amazon ECS console)
 
@@ -179,6 +174,5 @@ aws ecs describe-capacity-providers \
 After creating your capacity provider, you can use it when creating services or
 running tasks:
 
-- To use the capacity provider with a service, see [Creating an Amazon ECS rolling update
-  deployment](create-service-console-v2.md "create-service-console-v2.md").
+- To use the capacity provider with a service, see [Creating an Amazon ECS rolling update deployment](create-service-console-v2.md "create-service-console-v2.md").
 - To use the capacity provider with standalone tasks, see [Running an application as an Amazon ECS task](standalone-task-create.md "standalone-task-create.md").

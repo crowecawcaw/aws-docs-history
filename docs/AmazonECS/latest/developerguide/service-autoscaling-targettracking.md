@@ -34,8 +34,7 @@ Consider the following when using target tracking policies:
 - Application Auto Scaling turns off scale-in processes while Amazon ECS deployments are in
   progress. However, scale-out processes continue to occur, unless
   suspended, during a deployment. This behavior does not apply to Amazon ECS
-  services using the external deployment controller. For more information, see [Service auto scaling and
-  deployments](service-auto-scaling.md#service-auto-scaling-deployments "service-auto-scaling.md#service-auto-scaling-deployments").
+  services using the external deployment controller. For more information, see [Service auto scaling and deployments](service-auto-scaling.md#service-auto-scaling-deployments "service-auto-scaling.md#service-auto-scaling-deployments").
 - You can have multiple target tracking scaling policies for an Amazon ECS
   service, provided that each of them uses a different metric. The
   intention of Service Auto Scaling is to always prioritize availability, so its

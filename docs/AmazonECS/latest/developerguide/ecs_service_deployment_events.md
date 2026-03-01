@@ -1,6 +1,4 @@
-# Amazon ECS service deployment state change
-
-events
+# Amazon ECS service deployment state change events
 
 Amazon ECS sends service deployment change state events with the detail type
 **ECS Deployment State Change**. The following is an event

@@ -1,6 +1,4 @@
-# Amazon ECS task and container security best
-
-practices
+# Amazon ECS task and container security best practices
 
 You should consider the container image as your first line of defense against an
 attack. An insecure, poorly constructed image can allow an attacker to escape the bounds
@@ -10,9 +8,7 @@ the risk of this happening.
 We recommend that you do the following when setting up your tasks and
 containers.
 
-## Create
-
-minimal or use distroless images
+## Create minimal or use distroless images
 
 Start by removing all extraneous binaries from the container image. If you’re
 using an unfamiliar image from Amazon ECR Public Gallery, inspect the image to refer
@@ -66,9 +62,7 @@ Container images devoid of build tools and other extraneous binaries improves
 your security posture by reducing the attack surface of the image. For more
 information about multi-stage builds, see [Multi-stage builds](https://docs.docker.com/build/building/multi-stage/ "https://docs.docker.com/build/building/multi-stage/") in the Docker documentation.
 
-## Scan
-
-your images for vulnerabilities
+## Scan your images for vulnerabilities
 
 Similar to their virtual machine counterparts, container images can contain
 binaries and application libraries with vulnerabilities or develop
@@ -112,9 +106,7 @@ their images to the registry.
   AWS Security Hub CSPM and automate remediation by blocking access to vulnerable
   images.
 
-## Remove
-
-special permissions from your images
+## Remove special permissions from your images
 
 The access rights flags `setuid` and `setgid` allow
 running an executable with the permissions of the owner or group of the
@@ -278,9 +270,7 @@ by doing the following:
   each process is using.
 - You can also use [capsh](https://www.man7.org/linux/man-pages/man1/capsh.1.html "https://www.man7.org/linux/man-pages/man1/capsh.1.html") to decipher which capabilities a process is using.
 
-## Use a
-
-customer managed key (CMK) to encrypt images pushed to Amazon ECR
+## Use a customer managed key (CMK) to encrypt images pushed to Amazon ECR
 
 You should use a customer managed key (CMK) to encrypt images that are pushed
 to Amazon ECR. Images that are pushed to Amazon ECR are automatically encrypted at rest

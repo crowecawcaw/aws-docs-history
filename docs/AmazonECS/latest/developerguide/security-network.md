@@ -68,9 +68,7 @@ configured with `host` networking use the host's network interface.
 mode that you can use to assign security groups to tasks. It's also the only mode
 that's available for AWS Fargate tasks on Amazon ECS.
 
-### Security
-
-groups for tasks
+### Security groups for tasks
 
 We recommend that you configure your tasks to use the `awsvpc`
 network mode. After you configure your task to use this mode, the Amazon ECS agent
@@ -138,9 +136,7 @@ We recommended applying the same policy to both the
 `com.amazonaws.`region`.ecr.api`
 endpoints.
 
-## Container agent
-
-settings
+## Container agent settings
 
 The Amazon ECS container agent configuration file includes several environment
 variables that relate to network security. `ECS_AWSVPC_BLOCK_IMDS` and
@@ -159,9 +155,7 @@ These settings aren't available when you use AWS Fargate.
 We recommend that you do the following when setting up your Amazon VPC, load balancers,
 and network.
 
-### Use
-
-network encryption where applicable with Amazon ECS
+### Use network encryption where applicable with Amazon ECS
 
 You should use network encryption where applicable. Certain compliance
 programs, such as PCI DSS, require that you encrypt data in transit if the
@@ -173,10 +167,7 @@ is fronted by a public facing load balancer, use TLS/SSL to encrypt the traffic
 from the client's browser to the load balancer and re-encrypt to the backend if
 warranted.
 
-### Use
-
-`awsvpc` network mode and security groups to
-control traffic between tasks and other resources in Amazon ECS
+### Use `awsvpc` network mode and security groups to control traffic between tasks and other resources in Amazon ECS
 
 You should use `awsvpc` network mode and security groups when you
 need to control traffic between tasks and between tasks and other network
@@ -189,9 +180,7 @@ and the static IP addresses assigned to the NLB.
 Security groups should also be used to control traffic between tasks and other
 resources within the Amazon VPC such as Amazon RDS databases.
 
-### Create Amazon ECS clusters in separate Amazon VPCs when network traffic needs to be
-
-strictly isolated
+### Create Amazon ECS clusters in separate Amazon VPCs when network traffic needs to be strictly isolated
 
 You should create clusters in separate Amazon VPCs when network traffic needs
 to be strictly isolated. Avoid running workloads that have strict security
@@ -200,18 +189,14 @@ requirements. When strict network isolation is mandatory, create clusters in
 separate Amazon VPCs and selectively expose services to other Amazon VPCs using Amazon VPC
 endpoints. For more information, see [VPC endpoints](../../../vpc/latest/privatelink/concepts.md#concepts-vpc-endpoints "../../../vpc/latest/privatelink/concepts.md#concepts-vpc-endpoints").
 
-### Configure AWS PrivateLink
-
-endpoints when warranted for Amazon ECS
+### Configure AWS PrivateLink endpoints when warranted for Amazon ECS
 
 You should configure AWS PrivateLink endpoints when warranted. If your
 security policy prevents you from attaching an Internet Gateway (IGW) to your Amazon VPCs,
 configure AWS PrivateLink endpoints for Amazon ECS and other services such as Amazon ECR,
 AWS Secrets Manager, and Amazon CloudWatch.
 
-### Use Amazon VPC Flow Logs to analyze
-
-the traffic to and from long-running tasks in Amazon ECS
+### Use Amazon VPC Flow Logs to analyze the traffic to and from long-running tasks in Amazon ECS
 
 You should use Amazon VPC Flow Logs to analyze the traffic to and from long-running
 tasks. Tasks that use `awsvpc` network mode get their own ENI.

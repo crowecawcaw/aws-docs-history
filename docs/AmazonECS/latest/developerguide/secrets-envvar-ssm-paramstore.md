@@ -1,6 +1,4 @@
-# Pass Systems Manager parameters through Amazon ECS environment
-
-variables
+# Pass Systems Manager parameters through Amazon ECS environment variables
 
 Amazon ECS allows you to inject sensitive data into your containers by storing
 your sensitive data in AWS Systems Manager Parameter Store parameters and then
@@ -62,9 +60,7 @@ Initialize-ECSAgent -Cluster <cluster name> -EnableTaskIAMRole -LoggingDrivers '
 </powershell>
 ```
 
-## Create the Systems Manager
-
-parameter
+## Create the Systems Manager parameter
 
 You can use the Systems Manager console to create a Systems Manager Parameter Store parameter for
 your sensitive data. For more information, see [Create
@@ -72,9 +68,7 @@ a Systems Manager parameter (console)](../../../systems-manager/latest/userguide
 parameter (AWS CLI)](../../../systems-manager/latest/userguide/param-create-cli.md "../../../systems-manager/latest/userguide/param-create-cli.md") in the
 _AWS Systems Manager User Guide_.
 
-## Add the
-
-environment variable to the container definition
+## Add the environment variable to the container definition
 
 Within your container definition in the task definition, specify `secrets`
 with the name of the environment variable to set in the container and the full ARN of
@@ -99,12 +93,9 @@ different Region, then specify the full ARN.
 ```
 
 For information about how to create a task definition with the secret specified in an
-environment variable, see [Creating an Amazon ECS task definition using the
-console](create-task-definition.md "create-task-definition.md").
+environment variable, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").
 
-## Update your application to
-
-programmatically retrieve Systems Manager Parameter Store secrets
+## Update your application to programmatically retrieve Systems Manager Parameter Store secrets
 
 To retrieve the sensitive data stored in the Systems Manager Parameter Store parameter, see [Code examples for Systems Manager
 using AWS SDKs](../../../code-library/latest/ug/ssm_code_examples.md "../../../code-library/latest/ug/ssm_code_examples.md") in the _AWS SDK Code

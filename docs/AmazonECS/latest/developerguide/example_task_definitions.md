@@ -6,8 +6,7 @@ start creating your own task definitions.
 You can copy the examples, and then paste them when you use the **Configure via
 JSON** option in the console. Make sure to customize the examples, such as
 using your account ID. You can include the snippets in your task definition JSON. For more
-information, see [Creating an Amazon ECS task definition using the
-console](create-task-definition.md "create-task-definition.md") and [Amazon ECS task definition parameters for Fargate](task_definition_parameters.md "task_definition_parameters.md").
+information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md") and [Amazon ECS task definition parameters for Fargate](task_definition_parameters.md "task_definition_parameters.md").
 
 For more task definition examples, see [AWS Sample Task
 Definitions](https://github.com/aws-samples/aws-containers-task-definitions "https://github.com/aws-samples/aws-containers-task-definitions") on GitHub.
@@ -16,15 +15,12 @@ Definitions](https://github.com/aws-samples/aws-containers-task-definitions "htt
 
 - [Webserver](#example_task_definition-webserver "#example_task_definition-webserver")
 - [splunk log driver](#example_task_definition-splunk "#example_task_definition-splunk")
-- [fluentd log
-  driver](#example_task_definition-fluentd "#example_task_definition-fluentd")
+- [fluentd log driver](#example_task_definition-fluentd "#example_task_definition-fluentd")
 - [gelf log driver](#example_task_definition-gelf "#example_task_definition-gelf")
 - [Workloads on external instances](#ecs-anywhere-runtask "#ecs-anywhere-runtask")
-- [Amazon ECR image and task definition IAM
-  role](#example_task_definition-iam "#example_task_definition-iam")
+- [Amazon ECR image and task definition IAM role](#example_task_definition-iam "#example_task_definition-iam")
 - [Entrypoint with command](#example_task_definition-ping "#example_task_definition-ping")
-- [Container
-  dependency](#example_task_definition-containerdependency "#example_task_definition-containerdependency")
+- [Container dependency](#example_task_definition-containerdependency "#example_task_definition-containerdependency")
 - [Volumes in task definitions](#volume_sample_task_defs "#volume_sample_task_defs")
 - [Windows sample task definitions](#windows_sample_task_defs "#windows_sample_task_defs")
 
@@ -119,8 +115,7 @@ Fargate that sets up a web server:
 The following snippet demonstrates how to use the `splunk` log driver in a
 task definition that sends the logs to a remote service. The Splunk token parameter is
 specified as a secret option because it can be treated as sensitive data. For more
-information, see [Pass sensitive data to an Amazon ECS
-container](specifying-sensitive-data.md "specifying-sensitive-data.md").
+information, see [Pass sensitive data to an Amazon ECS container](specifying-sensitive-data.md "specifying-sensitive-data.md").
 
 ```
 "containerDefinitions": [{
@@ -136,15 +131,12 @@ container](specifying-sensitive-data.md "specifying-sensitive-data.md").
 }],
 ```
 
-## `fluentd` log
-
-driver
+## `fluentd` log driver
 
 The following snippet demonstrates how to use the `fluentd` log driver in a
 task definition that sends the logs to a remote service. The
 `fluentd-address` value is specified as a secret option as it may be
-treated as sensitive data. For more information, see [Pass sensitive data to an Amazon ECS
-container](specifying-sensitive-data.md "specifying-sensitive-data.md").
+treated as sensitive data. For more information, see [Pass sensitive data to an Amazon ECS container](specifying-sensitive-data.md "specifying-sensitive-data.md").
 
 ```
 "containerDefinitions": [{
@@ -208,8 +200,7 @@ When registering an Amazon ECS task definition, use the
 `requiresCompatibilities` parameter and specify `EXTERNAL`
 which validates that the task definition is compatible to use when running Amazon ECS
 workloads on your external instances. If you use the console for registering a task
-definition, you must use the JSON editor. For more information, see [Creating an Amazon ECS task definition using the
-console](create-task-definition.md "create-task-definition.md").
+definition, you must use the JSON editor. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").
 
 ###### Important
 
@@ -269,9 +260,7 @@ Windows
 }
 ```
 
-## Amazon ECR image and task definition IAM
-
-role
+## Amazon ECR image and task definition IAM role
 
 The following snippet uses an Amazon ECR image called `aws-nodejs-sample` with
 the `v1` tag from the
@@ -324,9 +313,7 @@ times and then exits.
 }
 ```
 
-## Container
-
-dependency
+## Container dependency
 
 This snippet demonstrates the syntax for a task definition with multiple containers
 where container dependency is specified. In the following task definition, the
@@ -419,12 +406,9 @@ more information, see [Container dependency](task_definition_parameters.md#conta
 
 Use the following to understand how to specify volumes in tasks.
 
-- For information about how to configure an Amazon EBS volume, see [Specify Amazon EBS volume configuration at Amazon ECS
-  deployment](configure-ebs-volume.md "configure-ebs-volume.md").
-- For information about how to configure an Amazon EFS volume, see [Configuring Amazon EFS file systems for Amazon ECS using the
-  console](tutorial-efs-volumes.md "tutorial-efs-volumes.md").
-- For information about how to configure a FSx for Windows File Server volume, see [Learn how to configure FSx for Windows File Server file systems for
-  Amazon ECS](tutorial-wfsx-volumes.md "tutorial-wfsx-volumes.md").
+- For information about how to configure an Amazon EBS volume, see [Specify Amazon EBS volume configuration at Amazon ECS deployment](configure-ebs-volume.md "configure-ebs-volume.md").
+- For information about how to configure an Amazon EFS volume, see [Configuring Amazon EFS file systems for Amazon ECS using the console](tutorial-efs-volumes.md "tutorial-efs-volumes.md").
+- For information about how to configure a FSx for Windows File Server volume, see [Learn how to configure FSx for Windows File Server file systems for Amazon ECS](tutorial-wfsx-volumes.md "tutorial-wfsx-volumes.md").
 - For information about how to configure a Docker volume, see [Docker volume examples for Amazon ECS](docker-volume-examples.md "docker-volume-examples.md").
 - For information about how to configure a bind mount, see [Bind mount examples for Amazon ECS](bind-mount-examples.md "bind-mount-examples.md").
 

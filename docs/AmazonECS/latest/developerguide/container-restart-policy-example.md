@@ -1,6 +1,4 @@
-# Specifying a container
-
-restart policy in an Amazon ECS task definition
+# Specifying a container restart policy in an Amazon ECS task definition
 
 To specify a restart policy for a container in a task definition, within the container
 definition, specify the `restartPolicy` object. For more information about
@@ -60,5 +58,4 @@ which indicates success.
 
 After you have registered a task definition with the `restartPolicy` object
 in a container definition, you can run a task or create a service with that task
-definition. For more information, see [Running an application as an Amazon ECS task](standalone-task-create.md "standalone-task-create.md") and [Creating an Amazon ECS rolling update
-deployment](create-service-console-v2.md "create-service-console-v2.md").
+definition. For more information, see [Running an application as an Amazon ECS task](standalone-task-create.md "standalone-task-create.md") and [Creating an Amazon ECS rolling update deployment](create-service-console-v2.md "create-service-console-v2.md").

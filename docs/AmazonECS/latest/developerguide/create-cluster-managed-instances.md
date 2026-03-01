@@ -1,6 +1,4 @@
-# Creating a cluster for
-
-Amazon ECS Managed Instances
+# Creating a cluster for Amazon ECS Managed Instances
 
 You create a cluster to define the infrastructure your tasks and services run on.
 
@@ -163,12 +161,10 @@ aws ecs tag-resource --resource-arn arn:aws:ecs:`region`:`aws_account_id`:cluste
 
 ## Next steps
 
-Create a task definition for Amazon ECS Managed Instances. For more information, see [Creating an Amazon ECS task definition using the
-console](create-task-definition.md "create-task-definition.md").
+Create a task definition for Amazon ECS Managed Instances. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").
 
 Run your applications as standalone tasks, or as part of a service. For more
 information, see the following:
 
 - [Running an application as an Amazon ECS task](standalone-task-create.md "standalone-task-create.md")
-- [Creating an Amazon ECS rolling update
-  deployment](create-service-console-v2.md "create-service-console-v2.md")
+- [Creating an Amazon ECS rolling update deployment](create-service-console-v2.md "create-service-console-v2.md")

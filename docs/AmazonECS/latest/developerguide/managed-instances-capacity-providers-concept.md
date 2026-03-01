@@ -4,9 +4,7 @@ Amazon ECS Managed Instances capacity providers provide a container compute mode
 
 Amazon ECS creates launch templates for your Amazon ECS Managed Instances. This defines how Amazon ECS launches Amazon ECS Managed Instances, including the instance profile for your tasks, network and storage configuration, capacity options, and instance requirements for flexible instance type selection.
 
-## When to use custom capacity
-
-providers
+## When to use custom capacity providers
 
 Consider custom capacity providers when your workloads require:
 
@@ -37,5 +35,4 @@ Capacity providers for Amazon ECS Managed Instances support tag propagation. Wit
 instance, launch template, volumes, Elastic Network Interfaces — are tagged with
 the same tags specified at the capacity provider level. You can specify tags during capacity provider creation and enable tag propagation by specifying the `propagateTags` parameter as `CAPACITY_PROVIDER`.
 
-For more information about tagging Amazon ECS Managed Instances, see [Tags for
-Amazon ECS Managed Instances](instance-details-tags-managed-instances.md "instance-details-tags-managed-instances.md").
+For more information about tagging Amazon ECS Managed Instances, see [Tags for Amazon ECS Managed Instances](instance-details-tags-managed-instances.md "instance-details-tags-managed-instances.md").

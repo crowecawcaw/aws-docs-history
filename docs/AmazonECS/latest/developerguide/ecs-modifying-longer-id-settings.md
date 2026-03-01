@@ -1,6 +1,4 @@
-# Modifying Amazon ECS account
-
-settings
+# Modifying Amazon ECS account settings
 
 Modify your account settings to access Amazon ECS features.
 
@@ -53,5 +51,4 @@ or changed using the AWS CLI.
 
 If you turned on Container Insights with enhanced observability or Container
 Insights, you can optionally update your existing clusters to use the feature. For
-more information, see [Updating an Amazon ECS
-cluster](update-cluster-v2.md "update-cluster-v2.md").
+more information, see [Updating an Amazon ECS cluster](update-cluster-v2.md "update-cluster-v2.md").

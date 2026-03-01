@@ -15,16 +15,13 @@ information, see the [User Guide for Application Load Balancers](../../../elasti
 For information about the best practices for setting parameters to speed up you
 deployments see:
 
-- [Optimize load balancer health
-  check parameters for Amazon ECS](load-balancer-healthcheck.md "load-balancer-healthcheck.md")
-- [Optimize load balancer
-  connection draining parameters for Amazon ECS](load-balancer-connection-draining.md "load-balancer-connection-draining.md")
+- [Optimize load balancer health check parameters for Amazon ECS](load-balancer-healthcheck.md "load-balancer-healthcheck.md")
+- [Optimize load balancer connection draining parameters for Amazon ECS](load-balancer-connection-draining.md "load-balancer-connection-draining.md")
   Consider the following when using Application Load Balancers with Amazon ECS:
 
 - Amazon ECS requires the service-linked IAM role which provides the permissions
   needed to register and deregister targets with your load balancer when tasks are
-  created and stopped. For more information, see [Using service-linked roles for
-  Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
+  created and stopped. For more information, see [Using service-linked roles for Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
 - For services in an IPv6-only configuration, you must set the target group IP
   address type of the Application Load Balancer to `dualstack` or
   `dualstack-without-public-ipv4`.
@@ -46,8 +43,7 @@ deployments see:
   stopped and restarted. This process continues until your service reaches the
   number of desired running tasks.
 - If you are experiencing problems with your load balancer-enabled services, see
-  [Troubleshooting service load
-  balancers in Amazon ECS](troubleshoot-service-load-balancers.md "troubleshoot-service-load-balancers.md").
+  [Troubleshooting service load balancers in Amazon ECS](troubleshoot-service-load-balancers.md "troubleshoot-service-load-balancers.md").
 - When using `instance` target type, your tasks and load balancer
   must be in the same VPC. When using `ip` target type, cross-VPC
   connectivity is supported.

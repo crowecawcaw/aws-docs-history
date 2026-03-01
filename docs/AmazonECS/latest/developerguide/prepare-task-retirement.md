@@ -138,9 +138,7 @@ With this configuration, the payment service uses its specific weekend-only wind
 
 For more information, see, [put-account-setting-default](../../../cli/latest/reference/ecs/put-account-setting-default.md "../../../cli/latest/reference/ecs/put-account-setting-default.md") and [put-account-setting](../../../cli/latest/reference/ecs/put-account-setting.md "../../../cli/latest/reference/ecs/put-account-setting.md") in the _Amazon Elastic Container Service API Reference_.
 
-## Step 2: Capture task retirement notifications to
-
-alert teams and take actions
+## Step 2: Capture task retirement notifications to alert teams and take actions
 
 When there is an upcoming task retirement, AWS sends a task retirement notification
 to the AWS Health Dashboard, and to the primary email contact on the AWS account. The
@@ -174,9 +172,7 @@ The rule looking for events with the Event Detail Type: `"AWS Health
 
 For a code example, see [Capturing AWS Fargate Task Retirement Notifications](https://github.com/aws-samples/capturing-aws-fargate-task-retirement-notifications/tree/main "https://github.com/aws-samples/capturing-aws-fargate-task-retirement-notifications/tree/main") on Github.
 
-## Step 3: Control the replacement of
-
-tasks
+## Step 3: Control the replacement of tasks
 
 You can't control the exact timing of a task retirement, however, you can define a
 wait time. If you want control over replacing tasks at your own schedule, you can

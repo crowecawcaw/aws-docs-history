@@ -16,7 +16,5 @@ instances that are engineered for the workload.
 - [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md")
 - [Send Amazon ECS logs to an AWS service or AWS Partner](using_firelens.md "using_firelens.md")
 - [Using non-AWS container images in Amazon ECS](private-auth.md "private-auth.md")
-- [Restart individual containers in Amazon ECS tasks with
-  container restart policies](container-restart-policy.md "container-restart-policy.md")
-- [Pass sensitive data to an Amazon ECS
-  container](specifying-sensitive-data.md "specifying-sensitive-data.md")
+- [Restart individual containers in Amazon ECS tasks with container restart policies](container-restart-policy.md "container-restart-policy.md")
+- [Pass sensitive data to an Amazon ECS container](specifying-sensitive-data.md "specifying-sensitive-data.md")

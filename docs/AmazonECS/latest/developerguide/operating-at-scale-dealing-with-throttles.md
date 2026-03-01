@@ -1,6 +1,4 @@
-# Handle Amazon ECS throttling
-
-issues
+# Handle Amazon ECS throttling issues
 
 Throttling errors fall into two major categories: synchronous
 throttling and asynchronous throttling.

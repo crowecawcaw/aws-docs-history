@@ -23,8 +23,7 @@ You are responsible for managing the following resources:
 
 - Network configuration including VPC, NACLs, security groups, and route tables
 - Client and service storage encryption. For more information, see [Storage options for Amazon ECS tasks](using_data_volumes.md "using_data_volumes.md").
-- Container images. For more information, see [Amazon ECS task and container security best
-  practices](security-tasks-containers.md "security-tasks-containers.md").
+- Container images. For more information, see [Amazon ECS task and container security best practices](security-tasks-containers.md "security-tasks-containers.md").
 - IAM permissions for the applications by using the task role. For more information, see [Amazon ECS task IAM role](task-iam-roles.md "task-iam-roles.md").
 - Application-level configuration and monitoring
 - Task and service definitions

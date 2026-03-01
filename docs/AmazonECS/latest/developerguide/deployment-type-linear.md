@@ -6,9 +6,7 @@ With Amazon ECS linear deployments, control the pace of traffic shifting and val
 revisions with increasing amounts of production traffic. This approach provides a controlled
 way to deploy changes with the ability to monitor performance at each increment.
 
-## Resources involved in a linear
-
-deployment
+## Resources involved in a linear deployment
 
 The following are resources involved in Amazon ECS linear deployments:
 

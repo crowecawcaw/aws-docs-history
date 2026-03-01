@@ -1,6 +1,4 @@
-# Use historical patterns to scale Amazon ECS services with predictive
-
-scaling
+# Use historical patterns to scale Amazon ECS services with predictive scaling
 
 Predictive scaling looks at past load data from traffic flows to analyze daily or weekly patterns. It
 then uses this analysis to anticipate future needs and proactively increase tasks in your service as
@@ -48,9 +46,7 @@ tasks.
 Here you can learn about considerations for using predictive scaling, how it works, and what the limits
 are.
 
-### Considerations for using predictive
-
-scaling
+### Considerations for using predictive scaling
 
 - You want to make sure predictive scaling is suitable for your workload. You can check this by
   configuring scaling policies in **forecast only** mode and see

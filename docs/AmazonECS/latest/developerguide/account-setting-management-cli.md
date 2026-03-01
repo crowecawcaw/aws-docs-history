@@ -1,6 +1,4 @@
-# Managing Amazon ECS account settings using
-
-the AWS CLI
+# Managing Amazon ECS account settings using the AWS CLI
 
 You can manage your account settings using the Amazon ECS API, AWS CLI or SDKs. The
 `dualStackIPv6`, `fargateFIPSMode`, `fargateTaskRetirementWaitPeriod`

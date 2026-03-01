@@ -45,8 +45,7 @@ other services in the namespace without additional configuration. For more infor
    and hyphens.
    - (Optional) To have the namespace used for Service Connect be different
      from the cluster name, under **Service Connect defaults**, for **Default namespace**, choose or enter a namespace
-     name. To use a shared namespace, choose or enter a namespace ARN. For more information about using shared namespaces, see [Amazon ECS Service Connect with shared
-     AWS Cloud Map namespaces](service-connect-shared-namespaces.md "service-connect-shared-namespaces.md").
+     name. To use a shared namespace, choose or enter a namespace ARN. For more information about using shared namespaces, see [Amazon ECS Service Connect with shared AWS Cloud Map namespaces](service-connect-shared-namespaces.md "service-connect-shared-namespaces.md").
 
 6. (Optional) Use Container Insights, expand **Monitoring**, and then choose
    one of the following options:
@@ -95,5 +94,4 @@ following:
 
 - [Amazon ECS task definitions](task_definitions.md "task_definitions.md")
 - [Running an application as an Amazon ECS task](standalone-task-create.md "standalone-task-create.md")
-- [Creating an Amazon ECS rolling update
-  deployment](create-service-console-v2.md "create-service-console-v2.md")
+- [Creating an Amazon ECS rolling update deployment](create-service-console-v2.md "create-service-console-v2.md")

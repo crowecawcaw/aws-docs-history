@@ -1,6 +1,4 @@
-# Adding tags to an Amazon EC2 container instance for
-
-Amazon ECS
+# Adding tags to an Amazon EC2 container instance for Amazon ECS
 
 You can associate tags with your Amazon EC2 container instances for Amazon ECS using one of the following
 methods:

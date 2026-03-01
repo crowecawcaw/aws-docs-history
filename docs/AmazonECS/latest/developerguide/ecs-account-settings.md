@@ -24,18 +24,18 @@ account settings set for them separately.
 The following account settings are available. You must separately opt-in and opt-out to
 each account setting.
 
-| Resource name                                                                 | Learn more                                                                                                    |
-| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `containerInsights`                                                           | [Container Insights](#container-insights-setting "#container-insights-setting")                               |
-| `serviceLongArnFormat``taskLongArnFormat`<br>`containerInstanceLongArnFormat` | [Amazon Resource Names (ARNs) and IDs](#ecs-resource-ids "#ecs-resource-ids")                                 |
-| `tagResourceAuthorization`                                                    | [Tagging authorization](#tag-resources-setting "#tag-resources-setting")                                      |
-| `fargateFIPSMode`                                                             | [AWS Fargate Federal Information Processing Standard<br>(FIPS-140) compliance](#fips-setting "#fips-setting") |
-| `fargateTaskRetirementWaitPeriod`                                             | [AWS Fargate task retirement wait<br>time](#fargate-retirement-wait-time "#fargate-retirement-wait-time")     |
-| `fargateEventWindows`                                                         | [AWS Fargate task retirements using EC2 event windows](#fargate-event-windows "#fargate-event-windows")       |
-| `guardDutyActivate`                                                           | [Runtime Monitoring (Amazon GuardDuty integration)](#guard-duty-integration "#guard-duty-integration")        |
-| `dualStackIPv6`                                                               | [Dual stack IPv6 VPC](#dual-stack-setting "#dual-stack-setting")                                              |
-| `awsvpcTrunking`                                                              | [Increase Linux container instance network<br>interfaces](#vpc-trunking-setting "#vpc-trunking-setting")      |
-| `defaultLogDriverMode`                                                        | [Default log driver mode](#default-log-driver-mode "#default-log-driver-mode")                                |
+| Resource name                                                                 | Learn more                                                                                                 |
+| ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `containerInsights`                                                           | [Container Insights](#container-insights-setting "#container-insights-setting")                            |
+| `serviceLongArnFormat``taskLongArnFormat`<br>`containerInstanceLongArnFormat` | [Amazon Resource Names (ARNs) and IDs](#ecs-resource-ids "#ecs-resource-ids")                              |
+| `tagResourceAuthorization`                                                    | [Tagging authorization](#tag-resources-setting "#tag-resources-setting")                                   |
+| `fargateFIPSMode`                                                             | [AWS Fargate Federal Information Processing Standard (FIPS-140) compliance](#fips-setting "#fips-setting") |
+| `fargateTaskRetirementWaitPeriod`                                             | [AWS Fargate task retirement wait time](#fargate-retirement-wait-time "#fargate-retirement-wait-time")     |
+| `fargateEventWindows`                                                         | [AWS Fargate task retirements using EC2 event windows](#fargate-event-windows "#fargate-event-windows")    |
+| `guardDutyActivate`                                                           | [Runtime Monitoring (Amazon GuardDuty integration)](#guard-duty-integration "#guard-duty-integration")     |
+| `dualStackIPv6`                                                               | [Dual stack IPv6 VPC](#dual-stack-setting "#dual-stack-setting")                                           |
+| `awsvpcTrunking`                                                              | [Increase Linux container instance network interfaces](#vpc-trunking-setting "#vpc-trunking-setting")      |
+| `defaultLogDriverMode`                                                        | [Default log driver mode](#default-log-driver-mode "#default-log-driver-mode")                             |
 
 ## Amazon Resource Names (ARNs) and IDs
 
@@ -72,8 +72,7 @@ Some resources have a user-friendly name, such as a service named
 `production`. In other cases, you must specify a resource using the
 Amazon Resource Name (ARN) format. The new ARN format for Amazon ECS tasks, services, and
 container instances includes the cluster name. For information about opting in to
-the new ARN format, see [Modifying Amazon ECS account
-settings](ecs-modifying-longer-id-settings.md "ecs-modifying-longer-id-settings.md").
+the new ARN format, see [Modifying Amazon ECS account settings](ecs-modifying-longer-id-settings.md "ecs-modifying-longer-id-settings.md").
 
 The following table shows both the current format and the new format for each resource
 type.
@@ -90,8 +89,7 @@ A resource ID takes the form of a unique combination of letters and numbers. New
 resource ID formats include shorter IDs for Amazon ECS tasks and container instances. The
 current resource ID format is 36 characters long. The new IDs are in a 32-character
 format that doesn't include any hyphens. For information about opting in to the new
-resource ID format, see [Modifying Amazon ECS account
-settings](ecs-modifying-longer-id-settings.md "ecs-modifying-longer-id-settings.md").
+resource ID format, see [Modifying Amazon ECS account settings](ecs-modifying-longer-id-settings.md "ecs-modifying-longer-id-settings.md").
 
 The default is `enabled`.
 
@@ -134,9 +132,7 @@ _Amazon CloudWatch User Guide_.
 The default for the `containerInsights` account setting is
 `disabled`.
 
-### Container Insights with
-
-enhanced observability
+### Container Insights with enhanced observability
 
 Use the following command to turn on Container Insights with enhanced
 observability.
@@ -172,8 +168,7 @@ aws ecs update-cluster-settings --cluster `cluster-name` --settings name=contain
 ```
 
 You can also use the console to configure Container Insights with enhanced
-observability. For more information, see [Modifying Amazon ECS account
-settings](ecs-modifying-longer-id-settings.md "ecs-modifying-longer-id-settings.md").
+observability. For more information, see [Modifying Amazon ECS account settings](ecs-modifying-longer-id-settings.md "ecs-modifying-longer-id-settings.md").
 
 ### Container Insights
 
@@ -213,12 +208,9 @@ aws ecs update-cluster-settings --cluster `cluster-name` --settings name=contain
 ```
 
 You can also use the console to configure Container Insights. For more information,
-see [Modifying Amazon ECS account
-settings](ecs-modifying-longer-id-settings.md "ecs-modifying-longer-id-settings.md").
+see [Modifying Amazon ECS account settings](ecs-modifying-longer-id-settings.md "ecs-modifying-longer-id-settings.md").
 
-## AWS Fargate Federal Information Processing Standard
-
-(FIPS-140) compliance
+## AWS Fargate Federal Information Processing Standard (FIPS-140) compliance
 
 Fargate supports the Federal Information Processing Standard (FIPS-140) which
 specifies the security requirements for cryptographic modules that protect sensitive
@@ -232,14 +224,12 @@ The resource name is `fargateFIPSMode`.
 The default is `disabled`.
 
 You must turn on Federal Information Processing Standard (FIPS-140) compliance on
-Fargate. For more information, see [AWS Fargate Federal Information Processing Standard
-(FIPS-140)](ecs-fips-compliance.md "ecs-fips-compliance.md").
+Fargate. For more information, see [AWS Fargate Federal Information Processing Standard (FIPS-140)](ecs-fips-compliance.md "ecs-fips-compliance.md").
 
 ###### Important
 
 The `fargateFIPSMode` account setting can only be changed using either
-the Amazon ECS API or the AWS CLI. For more information, see [Modifying Amazon ECS account
-settings](ecs-modifying-longer-id-settings.md "ecs-modifying-longer-id-settings.md").
+the Amazon ECS API or the AWS CLI. For more information, see [Modifying Amazon ECS account settings](ecs-modifying-longer-id-settings.md "ecs-modifying-longer-id-settings.md").
 
 Run `put-account-setting-default` with the `fargateFIPSMode`
 option set to `enabled`. For more information, see, [put-account-setting-default](../../../cli/latest/reference/ecs/put-account-setting-default.md "../../../cli/latest/reference/ecs/put-account-setting-default.md") in the _Amazon Elastic Container Service API Reference_.
@@ -278,8 +268,7 @@ tagging permissions for actions that create the resource, such as
 `ecsCreateCluster`. When you create a resource and specify tags for that
 resource, AWS performs additional authorization to verify that there are permissions
 to create tags. Therefore, you must grant explicit permissions to use the
-`ecs:TagResource` action. For more information, see [Grant permission to tag resources on
-creation](supported-iam-actions-tagging.md "supported-iam-actions-tagging.md").
+`ecs:TagResource` action. For more information, see [Grant permission to tag resources on creation](supported-iam-actions-tagging.md "supported-iam-actions-tagging.md").
 
 In order to opt in to tagging authorization, run
 `put-account-setting-default` with the
@@ -307,8 +296,7 @@ Example output
 ```
 
 After you enable tagging authorization, you must configure the appropriate permissions
-to allow users to tag resources on creation. For more information, see [Grant permission to tag resources on
-creation](supported-iam-actions-tagging.md "supported-iam-actions-tagging.md").
+to allow users to tag resources on creation. For more information, see [Grant permission to tag resources on creation](supported-iam-actions-tagging.md "supported-iam-actions-tagging.md").
 
 You can run `list-account-settings` to view the current tagging
 authorization status. Use the `effective-settings` option to view the account
@@ -350,12 +338,10 @@ date.
 - March 29, 2024 – All accounts use tagging authorization. The account-level
   setting will no longer be available in the Amazon ECS console or AWS CLI.
 
-## AWS Fargate task retirement wait
-
-time
+## AWS Fargate task retirement wait time
 
 AWS sends out notifications when you have Fargate tasks running on a platform
-version revision marked for retirement. For more information, see [Task retirement and maintenance for AWS Fargate on Amazon ECS](task-maintenance.md "task-maintenance.md") .
+version revision marked for retirement. For more information, see [Task retirement and maintenance for AWS Fargate on Amazon ECS](task-maintenance.md "task-maintenance.md").
 
 AWS is responsible for patching and maintaining the underlying infrastructure for
 AWS Fargate. When AWS determines that a security or infrastructure update is needed for
@@ -432,9 +418,7 @@ cluster and service levels using the following instance tags:
 To learn more about how [Amazon EC2 event windows](../../../AWSEC2/latest/UserGuide/event-windows.md "../../../AWSEC2/latest/UserGuide/event-windows.md") work for your Amazon ECS tasks running on Fargate, see
 [Step 1: Set the task wait time or use Amazon EC2 event windows](prepare-task-retirement.md#prepare-task-retirement-set-time "prepare-task-retirement.md#prepare-task-retirement-set-time")
 
-## Increase Linux container instance network
-
-interfaces
+## Increase Linux container instance network interfaces
 
 Each Amazon ECS task that uses the `awsvpc` network mode receives its own
 elastic network interface (ENI), which is attached to the container
@@ -496,16 +480,12 @@ IPv4 address.
 For tasks to receive an IPv6 address, the task must use the `awsvpc`
 network mode, must be launched in a VPC configured for dual-stack mode, and the
 `dualStackIPv6` account setting must be enabled. For more information
-about other requirements, see [Using a VPC in dual-stack
-mode](task-networking-awsvpc.md#task-networking-vpc-dual-stack "task-networking-awsvpc.md#task-networking-vpc-dual-stack") for EC2 capacity, [Using a VPC in
-dual-stack mode](managed-instances-awsvpc-mode.md#managed-instance-networking-vpc-dual-stack "managed-instances-awsvpc-mode.md#managed-instance-networking-vpc-dual-stack") for Amazon ECS Managed Instances capacity, and [Using a VPC in dual-stack
-mode](fargate-task-networking.md#fargate-task-networking-vpc-dual-stack "fargate-task-networking.md#fargate-task-networking-vpc-dual-stack") for Fargate capacity.
+about other requirements, see [Using a VPC in dual-stack mode](task-networking-awsvpc.md#task-networking-vpc-dual-stack "task-networking-awsvpc.md#task-networking-vpc-dual-stack") for EC2 capacity, [Using a VPC in dual-stack mode](managed-instances-awsvpc-mode.md#managed-instance-networking-vpc-dual-stack "managed-instances-awsvpc-mode.md#managed-instance-networking-vpc-dual-stack") for Amazon ECS Managed Instances capacity, and [Using a VPC in dual-stack mode](fargate-task-networking.md#fargate-task-networking-vpc-dual-stack "fargate-task-networking.md#fargate-task-networking-vpc-dual-stack") for Fargate capacity.
 
 ###### Important
 
 The `dualStackIPv6` account setting can only be changed using either
-the Amazon ECS API or the AWS CLI. For more information, see [Modifying Amazon ECS account
-settings](ecs-modifying-longer-id-settings.md "ecs-modifying-longer-id-settings.md").
+the Amazon ECS API or the AWS CLI. For more information, see [Modifying Amazon ECS account settings](ecs-modifying-longer-id-settings.md "ecs-modifying-longer-id-settings.md").
 
 If you had a running task using the `awsvpc` network mode in an IPv6
 enabled subnet between the dates of October 1, 2020 and November 2, 2020, the default

@@ -1,6 +1,4 @@
-# Amazon ECS task metadata endpoint version 4 for
-
-tasks on Fargate
+# Amazon ECS task metadata endpoint version 4 for tasks on Fargate
 
 ###### Important
 
@@ -25,9 +23,7 @@ To avoid the need to create new task metadata endpoint versions in the future,
 additional metadata may be added to the version 4 output. We will not remove any
 existing metadata or change the metadata field names.
 
-## Fargate task metadata
-
-endpoint version 4 paths
+## Fargate task metadata endpoint version 4 paths
 
 The following task metadata endpoints are available to containers:
 

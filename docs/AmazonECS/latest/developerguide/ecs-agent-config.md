@@ -31,9 +31,7 @@ sudo vi /etc/ecs/ecs.config
 sudo systemctl start ecs
 ```
 
-## Run the Amazon ECS agent with the host PID
-
-namespace
+## Run the Amazon ECS agent with the host PID namespace
 
 By default, the Amazon ECS agent runs with its own PID namespace. In the following
 configurations, you can configure the Amazon ECS agent to run with the host PID

@@ -36,7 +36,7 @@ role. For more information, see [Monitoring container instances permissions](ins
 
 - Amazon CloudWatch Logs – Monitor, store, and access the log files from the containers in your
   Amazon ECS tasks by specifying the `awslogs` log driver in your task definitions. For
-  more information, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md") .
+  more information, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md").
 
 You can also monitor, store, and access the operating system
 and Amazon ECS container agent log files from your Amazon ECS container instances. This
@@ -58,8 +58,7 @@ method for accessing logs can be used for containers using EC2.
 - AWS CloudTrail log monitoring – Share log files between accounts, monitor
   CloudTrail log files in real time by sending them to CloudWatch Logs, write log processing
   applications in Java, and validate that your log files have not changed after
-  delivery by CloudTrail. For more information, see [Log Amazon ECS API calls using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md") in this guide, and [Working with CloudTrail
+  delivery by CloudTrail. For more information, see [Log Amazon ECS API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md") in this guide, and [Working with CloudTrail
   Log Files](../../../awscloudtrail/latest/userguide/cloudtrail-working-with-log-files.md "../../../awscloudtrail/latest/userguide/cloudtrail-working-with-log-files.md") in the _AWS CloudTrail User Guide_.
 - Runtime Monitoring – Detect threats for clusters and containers within your AWS
   environment. Runtime Monitoring uses a GuardDuty security agent that adds runtime

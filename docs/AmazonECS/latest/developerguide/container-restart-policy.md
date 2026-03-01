@@ -1,6 +1,4 @@
-# Restart individual containers in Amazon ECS tasks with
-
-container restart policies
+# Restart individual containers in Amazon ECS tasks with container restart policies
 
 You can enable a restart policy for each essential and non-essential container defined in
 your task definition, to overcome transient failures faster and maintain task availability.
@@ -12,13 +10,11 @@ policy for a container, you can specify exit codes that the container will not b
 on. These can be exit codes that indicate success, like exit code `0`, that don't
 require a restart. You can also specify how long a container must run succesfully before a
 restart can be attempted. For more information about these parameters, see [Restart policy](task_definition_parameters.md#container_definition_restart_policy "task_definition_parameters.md#container_definition_restart_policy"). For an example task definition
-that specifies these values, see [Specifying a container
-restart policy in an Amazon ECS task definition](container-restart-policy-example.md "container-restart-policy-example.md").
+that specifies these values, see [Specifying a container restart policy in an Amazon ECS task definition](container-restart-policy-example.md "container-restart-policy-example.md").
 
 You can use the Amazon ECS task metadata endpoint or CloudWatch Container Insights to monitor the number of times
 a container has restarted. For more information about the task metadata endpoint, see [Amazon ECS task metadata endpoint version 4](task-metadata-endpoint-v4.md "task-metadata-endpoint-v4.md") and
-[Amazon ECS task metadata endpoint version 4 for
-tasks on Fargate](task-metadata-endpoint-v4-fargate.md "task-metadata-endpoint-v4-fargate.md"). For more information about Container Insights
+[Amazon ECS task metadata endpoint version 4 for tasks on Fargate](task-metadata-endpoint-v4-fargate.md "task-metadata-endpoint-v4-fargate.md"). For more information about Container Insights
 metrics for Amazon ECS, see [Amazon ECS
 Container Insights metrics](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.md") in the _Amazon CloudWatch User
 Guide_.
@@ -42,8 +38,7 @@ Consider the following before enabling a restart policy for your container:
   container definition). This is because `FLUENT_HOST` is a dynamic IP
   address and can change after a restart. Logging directly from the application container to the
   `FLUENT_HOST` IP address can start failing after the address changes. For
-  more information about `FLUENT_HOST`, see [Configuring Amazon ECS logs for high
-  throughput](firelens-docker-buffer-limit.md "firelens-docker-buffer-limit.md").
+  more information about `FLUENT_HOST`, see [Configuring Amazon ECS logs for high throughput](firelens-docker-buffer-limit.md "firelens-docker-buffer-limit.md").
 - The Amazon ECS agent handles the container restart policies. If for some unexpected
   reason the Amazon ECS agent fails or is no longer running, the container won't be
   restarted.

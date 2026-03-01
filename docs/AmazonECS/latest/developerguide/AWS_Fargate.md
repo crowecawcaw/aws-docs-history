@@ -30,14 +30,12 @@ Fargate, see [Windows containers on AWS Fargate](AWS_Fargate-Regions.md#windows-
 For information about how to get started using the console, see:
 
 - [Learn how to create an Amazon ECS Linux task for Fargate](getting-started-fargate.md "getting-started-fargate.md")
-- [Learn how to create an Amazon ECS
-  Windows task for Fargate](Windows_fargate-getting_started.md "Windows_fargate-getting_started.md")
+- [Learn how to create an Amazon ECS Windows task for Fargate](Windows_fargate-getting_started.md "Windows_fargate-getting_started.md")
 
 For information about how to get started using the AWS CLI, see:
 
 - [Creating an Amazon ECS Linux task for the Fargate with the AWS CLI](ECS_AWSCLI_Fargate.md "ECS_AWSCLI_Fargate.md")
-- [Creating an Amazon ECS Windows
-  task for the Fargate with the AWS CLI](ECS_AWSCLI_Fargate_windows.md "ECS_AWSCLI_Fargate_windows.md")
+- [Creating an Amazon ECS Windows task for the Fargate with the AWS CLI](ECS_AWSCLI_Fargate_windows.md "ECS_AWSCLI_Fargate_windows.md")
 
 ## Capacity providers
 
@@ -74,7 +72,7 @@ of a platform version, ensuring that tasks are always started on secure and patc
 If a security issue is found that affects an existing platform version, AWS creates a
 new patched revision of the platform version and retires tasks running on the
 vulnerable revision. In some cases, you may be notified that your tasks on Fargate
-have been scheduled for retirement. For more information, see [Task retirement and maintenance for AWS Fargate on Amazon ECS](task-maintenance.md "task-maintenance.md") .
+have been scheduled for retirement. For more information, see [Task retirement and maintenance for AWS Fargate on Amazon ECS](task-maintenance.md "task-maintenance.md").
 
 For more information see [Fargate platform versions for Amazon ECS](platform-fargate.md "platform-fargate.md").
 
@@ -85,14 +83,12 @@ Elastic Load Balancing to distribute traffic evenly across the tasks in your ser
 
 Amazon ECS services on AWS Fargate support the Application Load Balancer, Network Load Balancer, and Gateway Load Balancer load balancer
 types. Application Load Balancers are used to route HTTP/HTTPS (or layer 7) traffic. Network Load Balancers are used to
-route TCP or UDP (or layer 4) traffic. For more information, see [Use load balancing to distribute Amazon ECS service
-traffic](service-load-balancing.md "service-load-balancing.md").
+route TCP or UDP (or layer 4) traffic. For more information, see [Use load balancing to distribute Amazon ECS service traffic](service-load-balancing.md "service-load-balancing.md").
 
 When you create a target group for these services, you must choose `ip` as
 the target type, not `instance`. This is because tasks that use the
 `awsvpc` network mode are associated with an elastic network interface,
-not an Amazon EC2 instance. For more information, see [Use load balancing to distribute Amazon ECS service
-traffic](service-load-balancing.md "service-load-balancing.md").
+not an Amazon EC2 instance. For more information, see [Use load balancing to distribute Amazon ECS service traffic](service-load-balancing.md "service-load-balancing.md").
 
 Using a Network Load Balancer to route UDP traffic to your Amazon ECS on AWS Fargate tasks is
 only supported when using platform version 1.4 or later.

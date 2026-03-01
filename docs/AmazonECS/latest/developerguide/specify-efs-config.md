@@ -1,6 +1,4 @@
-# Specify an Amazon EFS file system in an Amazon ECS task
-
-definition
+# Specify an Amazon EFS file system in an Amazon ECS task definition
 
 To use Amazon EFS file system volumes for your containers, you must specify the volume
 and mount point configurations in your task definition. The following task

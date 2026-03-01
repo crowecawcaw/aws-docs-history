@@ -6,8 +6,7 @@ task placement strategy. For example, suppose that you're running different appl
 in one cluster, such as databases and web servers. To ensure that your databases are
 balanced across Availability Zones, add them to a task group named
 `databases` and then use the `spread` task placement strategy.
-For more information, see [Use strategies to define Amazon ECS task
-placement](task-placement-strategies.md "task-placement-strategies.md").
+For more information, see [Use strategies to define Amazon ECS task placement](task-placement-strategies.md "task-placement-strategies.md").
 
 Task groups can also be used as a task placement constraint. When you specify a
 task group in the `memberOf` constraint, tasks are only sent to container

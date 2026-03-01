@@ -1,6 +1,4 @@
-# Amazon ECS Service Connect with shared
-
-AWS Cloud Map namespaces
+# Amazon ECS Service Connect with shared AWS Cloud Map namespaces
 
 Amazon ECS Service Connect supports using shared AWS Cloud Map namespaces across multiple
 AWS accounts within the same AWS Region. This capability enables you to create
@@ -46,8 +44,7 @@ Service Connect:
   interaction with the namespace (such as `CreateService`,
   `UpdateService`, and `ListServicesByNamespace`) will
   fail. For more information about troubleshooting permissions issues with shared
-  namespaces, see [Troubleshooting
-  Amazon ECS Service Connect with shared AWS Cloud Map namespaces](service-connect-shared-namespaces-troubleshooting.md "service-connect-shared-namespaces-troubleshooting.md").
+  namespaces, see [Troubleshooting Amazon ECS Service Connect with shared AWS Cloud Map namespaces](service-connect-shared-namespaces-troubleshooting.md "service-connect-shared-namespaces-troubleshooting.md").
 - For service discovery using DNS queries in a shared private DNS
   namespace:
   - The namespace owner will need to call
@@ -86,4 +83,4 @@ Service Connect:
   CloudWatch cross-account observability. For more information about configuring
   cross-account observability, see [CloudWatch cross-account observabilty](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.md") in the
   _Amazon CloudWatch User Guide_. For more information about the CloudWatch
-  metrics for Service Connect, see [Amazon ECS CloudWatch metrics](available-metrics.md "available-metrics.md") .
+  metrics for Service Connect, see [Amazon ECS CloudWatch metrics](available-metrics.md "available-metrics.md").

@@ -29,9 +29,7 @@ parameters and one or more containers that form your application. The following 
 example CloudFormation templates for Amazon ECS task definitions. For more information about Amazon ECS
 task definitions, see [Amazon ECS task definitions](task_definitions.md "task_definitions.md").
 
-### Fargate Linux task
-
-definition
+### Fargate Linux task definition
 
 You can use the following template to create a sample Fargate Linux
 task.
@@ -552,9 +550,7 @@ Outputs:
 Capacity providers are associated with an Amazon ECS cluster and are used to manage
 compute capacity for your workloads.
 
-### Create a capacity
-
-provider for Amazon ECS Managed Instances
+### Create a capacity provider for Amazon ECS Managed Instances
 
 By default, Amazon ECS provides a capacity provider that
 automatically selects the most cost-optimized general-purpose instace types.
@@ -638,9 +634,7 @@ An Amazon ECS cluster is a logical grouping of tasks or services. You can use th
 following templates to create clusters with different configurations. For more
 information about Amazon ECS clusters, see [Amazon ECS clusters](clusters.md "clusters.md").
 
-### Create an empty cluster with default
-
-settings
+### Create an empty cluster with default settings
 
 You can use the following template to create an empty cluster with default
 settings.
@@ -672,17 +666,13 @@ Resources:
       ClusterName: MyEmptyCluster
 ```
 
-### Create an empty cluster with
-
-managed storage encryption and enhanced Container Insights
+### Create an empty cluster with managed storage encryption and enhanced Container Insights
 
 You can use the following template to create a cluster with cluster-level
 managed storage and enhanced Container Insights enabled. Cluster-level encryption applies to
 Amazon ECS managed data volumes such as Amazon EBS volumes. For more information about
-Amazon EBS encryption, see [Encrypt data stored in Amazon EBS volumes attached to
-Amazon ECS tasks](ebs-kms-encryption.md "ebs-kms-encryption.md"). For more information about using
-Container Insights with enchanced observability, see [Monitor Amazon ECS containers using Container Insights with
-enhanced observability](cloudwatch-container-insights.md "cloudwatch-container-insights.md").
+Amazon EBS encryption, see [Encrypt data stored in Amazon EBS volumes attached to Amazon ECS tasks](ebs-kms-encryption.md "ebs-kms-encryption.md"). For more information about using
+Container Insights with enchanced observability, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](cloudwatch-container-insights.md "cloudwatch-container-insights.md").
 
 JSON
 
@@ -728,9 +718,7 @@ Resources:
           KmsKeyId: a1b2c3d4-5678-90ab-cdef-EXAMPLE11111
 ```
 
-### Create a cluster with the AL2023
-
-Amazon ECS-Optimized-AMI
+### Create a cluster with the AL2023 Amazon ECS-Optimized-AMI
 
 You can use the following template to create a cluster that uses a capacity
 provider that launches AL2023 instances on Amazon EC2.
@@ -2659,9 +2647,7 @@ Outputs:
       Name: !Sub '${AWS::StackName}-Private-Subnet-2'
 ```
 
-### Deploy a service with ECS Exec
-
-enabled
+### Deploy a service with ECS Exec enabled
 
 You can use the following template to deploy a service with ECS Exec enabled.
 The service runs in a cluster with a KMS key for encrypting ECS Exec sessions
@@ -3041,9 +3027,7 @@ Outputs:
     Value: !Ref AWS::AccountId
 ```
 
-### Deploy service that uses
-
-Amazon VPC Lattice
+### Deploy service that uses Amazon VPC Lattice
 
 You can use the following template to get started with creating an Amazon ECS
 service with VPC Lattice. You may need to complete the following additional steps
@@ -3057,8 +3041,7 @@ to set up VPC Lattice:
 - Configure listeners and listener rules in a VPC Lattice service.
 - Verify health check configurations of the target group.
 
-For more information about using VPC Lattice with Amazon ECS, see [Use Amazon VPC Lattice to connect, observe, and secure your Amazon ECS
-services](ecs-vpc-lattice.md "ecs-vpc-lattice.md").
+For more information about using VPC Lattice with Amazon ECS, see [Use Amazon VPC Lattice to connect, observe, and secure your Amazon ECS services](ecs-vpc-lattice.md "ecs-vpc-lattice.md").
 
 JSON
 
@@ -3522,9 +3505,7 @@ Outputs:
     Value: !Ref VpcLatticeTaskDefinition
 ```
 
-### Deploy service with a
-
-volume configuration
+### Deploy service with a volume configuration
 
 The following template includes a volume configuration in the service
 definition. Amazon ECS supports configuring the following data volumes by using a
@@ -4431,9 +4412,7 @@ Resources:
 You can use CloudFormation templates to create IAM roles for use with Amazon ECS. For more
 information about IAM roles for Amazon ECS, see [IAM roles for Amazon ECS](security-ecs-iam-role-overview.md "security-ecs-iam-role-overview.md").
 
-### Amazon ECS task execution
-
-role
+### Amazon ECS task execution role
 
 The task execution role grants the Amazon ECS container and Fargate agents
 permission to make AWS API calls on your behalf. The role is required

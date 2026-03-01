@@ -6,8 +6,7 @@ You can see the most recent 90-day history for deployments created on or after O
 - Pending
 - Completed
   You can use this information to determine if you need to update how the service is being
-  deployed, or the service revision. For information about the included properties, see [Properties included in an Amazon ECS service
-  deployment](service-deployment-property.md "service-deployment-property.md").
+  deployed, or the service revision. For information about the included properties, see [Properties included in an Amazon ECS service deployment](service-deployment-property.md "service-deployment-property.md").
 
 Before you begin, configure the required permissions for viewing service deployments. For
 more information, see [Permissions required for viewing Amazon ECS service deployments](service-deployment-permissions.md "service-deployment-permissions.md").

@@ -1,6 +1,4 @@
-# Customer managed keys for AWS Fargate
-
-ephemeral storage for Amazon ECS
+# Customer managed keys for AWS Fargate ephemeral storage for Amazon ECS
 
 AWS Fargate supports customer managed keys to encrypt data for Amazon ECS tasks stored in ephemeral storage
 to help regulation-sensitive customers meet their internal security policies. Customers still get the
@@ -22,6 +20,5 @@ price for using AWS KMS keys for storage and API requests.
 
 ###### Topics
 
-- [Create an encryption key for Fargate
-  ephemeral storage for Amazon ECS](fargate-create-storage-key.md "fargate-create-storage-key.md")
+- [Create an encryption key for Fargate ephemeral storage for Amazon ECS](fargate-create-storage-key.md "fargate-create-storage-key.md")
 - [Managing AWS KMS keys for Fargate ephemeral storage for Amazon ECS](fargate-managing-kms-key.md "fargate-managing-kms-key.md")

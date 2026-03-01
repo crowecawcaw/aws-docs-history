@@ -1,6 +1,4 @@
-# Registering an external instance to an Amazon ECS
-
-cluster
+# Registering an external instance to an Amazon ECS cluster
 
 For each external instance you register with an Amazon ECS cluster, it must have the SSM Agent,
 the Amazon ECS container agent, and Docker installed. To register the external instance to an
@@ -141,9 +139,7 @@ specifying GPU requirements in a task definition, see [Specifying GPUs in an Ama
 Use the following steps to register an existing external instance with a
 different cluster.
 
-###### To register an existing external instance with a different
-
-cluster
+###### To register an existing external instance with a different cluster
 
 1. Stop the Amazon ECS container agent.
 
@@ -236,9 +232,7 @@ Running  AmazonECS          Amazon ECS
 Use the following steps to register an existing external instance with a
 different cluster.
 
-###### To register an existing external instance with a different
-
-cluster
+###### To register an existing external instance with a different cluster
 
 1. Stop the Amazon ECS container agent.
 

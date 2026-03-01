@@ -1,6 +1,4 @@
-# Automatically manage Amazon ECS capacity with
-
-cluster auto scaling
+# Automatically manage Amazon ECS capacity with cluster auto scaling
 
 Amazon ECS can manage the scaling of Amazon EC2 instances that are registered to your cluster. This
 is referred to as Amazon ECS _cluster auto scaling_. You turn on
@@ -107,8 +105,7 @@ Consider the following when using cluster auto scaling:
   instances.
 - Amazon ECS uses the `AWSServiceRoleForECS` service-linked IAM role for
   the permissions that it requires to call AWS Auto Scaling on your behalf. For more
-  information, see [Using service-linked roles for
-  Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
+  information, see [Using service-linked roles for Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
 - When using capacity providers with Auto Scaling groups, the user, group, or role that
   creates the capacity providers requires the
   `autoscaling:CreateOrUpdateTags` permission. This is because
@@ -145,8 +142,7 @@ You can turn on cluster auto scaling by using the Console or the AWS CLI.
 
 When you create a cluster that uses EC2 capacity providers using the console, Amazon ECS creates an Auto Scaling group on your behalf and sets the target capacity. For more information, see [Creating an Amazon ECS cluster for Amazon EC2 workloads](create-ec2-cluster-console-v2.md "create-ec2-cluster-console-v2.md").
 
-You can also create an Auto Scaling group, and then assign it to a cluster. For more information, see [Updating an Amazon ECS capacity
-provider](update-capacity-provider-console-v2.md "update-capacity-provider-console-v2.md").
+You can also create an Auto Scaling group, and then assign it to a cluster. For more information, see [Updating an Amazon ECS capacity provider](update-capacity-provider-console-v2.md "update-capacity-provider-console-v2.md").
 
 When you use the AWS CLI, after you create the cluster
 

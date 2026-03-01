@@ -1,6 +1,4 @@
-# Optimize load balancer health
-
-check parameters for Amazon ECS
+# Optimize load balancer health check parameters for Amazon ECS
 
 Load balancers route requests only to the healthy targets in the Availability Zones
 for the load balancer. Each target is registered to a target group. The load balancer

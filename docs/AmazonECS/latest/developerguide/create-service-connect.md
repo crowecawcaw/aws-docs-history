@@ -1,6 +1,4 @@
-# Configuring Amazon ECS Service Connect with the
-
-AWS CLI
+# Configuring Amazon ECS Service Connect with the AWS CLI
 
 You can create an Amazon ECS service for a Fargate task that uses
 Service Connect with the AWS CLI.
@@ -147,9 +145,7 @@ Output:
 
 ```
 
-## Step 2: Create the service for the
-
-server
+## Step 2: Create the service for the server
 
 The Service Connect feature is intended for interconnecting multiple applications on Amazon ECS. At least
 one of those applications needs to provide a web service to connect to. In this step, you

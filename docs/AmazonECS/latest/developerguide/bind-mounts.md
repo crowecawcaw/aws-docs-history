@@ -19,9 +19,7 @@ The following are common use cases for bind mounts.
 - To expose a path and its contents from a Dockerfile to one or more
   containers.
 
-## Considerations when using bind
-
-mounts
+## Considerations when using bind mounts
 
 When using bind mounts, consider the following.
 

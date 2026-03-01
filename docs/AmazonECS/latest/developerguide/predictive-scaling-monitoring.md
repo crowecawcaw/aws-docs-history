@@ -1,6 +1,4 @@
-# Monitor predictive scaling metrics for Amazon ECS with
-
-CloudWatch
+# Monitor predictive scaling metrics for Amazon ECS with CloudWatch
 
 You can use Amazon CloudWatch to monitor your data for predictive scaling. A predictive scaling policy collects
 data that is used to forecast your future load. The data collected is automatically stored in CloudWatch at
@@ -77,9 +75,7 @@ forecasted load values. The math syntax for the MAPE metric is as follows:
 
 _Average of (abs ((Actual - Forecast)/(Actual)))_
 
-### Visualize your accuracy metrics and set
-
-alarms
+### Visualize your accuracy metrics and set alarms
 
 To visualize the accuracy metric data, select the **Metrics** tab in the CloudWatch
 console. You can graph the data from there. For more information, see [Adding a math expression to a CloudWatch graph](../../../AmazonCloudWatch/latest/monitoring/using-metric-math.md#adding-metrics-expression-console "../../../AmazonCloudWatch/latest/monitoring/using-metric-math.md#adding-metrics-expression-console") in the

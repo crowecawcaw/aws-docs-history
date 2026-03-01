@@ -13,5 +13,4 @@ The following recommendations show you how to run your Amazon ECS workloads to m
 - [Amazon ECS capacity and availability](capacity-availability-best-practice.md "capacity-availability-best-practice.md")
 - [Amazon ECS cluster capacity](capacity-cluster-best-practice.md "capacity-cluster-best-practice.md")
 - [Choosing Fargate task sizes for Amazon ECS](fargate-task-size-best-practice.md "fargate-task-size-best-practice.md")
-- [Speeding up Amazon ECS cluster capacity provisioning
-  with capacity providers on Amazon EC2](capacity-cluster-speed-up-ec2-best-practice.md "capacity-cluster-speed-up-ec2-best-practice.md")
+- [Speeding up Amazon ECS cluster capacity provisioning with capacity providers on Amazon EC2](capacity-cluster-speed-up-ec2-best-practice.md "capacity-cluster-speed-up-ec2-best-practice.md")

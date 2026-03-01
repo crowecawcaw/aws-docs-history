@@ -45,9 +45,7 @@ definition registrations. You are only charged for deregistering the latest
 `ACTIVE` task definition. There is no charge for deleting a task definition.
 For more information about pricing, see [AWS Config Pricing](https://aws.amazon.com/config/pricing/ "https://aws.amazon.com/config/pricing/").
 
-## Amazon ECS resources that can block a
-
-deletion
+## Amazon ECS resources that can block a deletion
 
 A task definition deletion request will not complete when there are any Amazon ECS resources that depend on the task definition revision. The following resources might prevent a task definition from being deleted:
 

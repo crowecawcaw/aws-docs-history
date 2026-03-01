@@ -1,6 +1,4 @@
-# Deleting an Amazon ECS task definition revision using the
-
-console
+# Deleting an Amazon ECS task definition revision using the console
 
 When no longer need a specific task definition revision in Amazon ECS, you
 can delete the task definition revision.
@@ -16,9 +14,7 @@ or create new services. You also can't update an existing service to reference a
 
 When you delete all `INACTIVE` task definition revisions, the task definition name is not displayed in the console and not returned in the API. If a task definition revision is in the `DELETE_IN_PROGRESS` state, the task definition name is displayed in the console and returned in the API. The task definition name is retained by Amazon ECS and the revision is incremented the next time you create a task definition with that name.
 
-## Amazon ECS resources that can block a
-
-deletion
+## Amazon ECS resources that can block a deletion
 
 A task definition deletion request will not complete when there are any Amazon ECS resources that depend on the task definition revision. The following resources might prevent a task definition from being deleted:
 
@@ -48,8 +44,7 @@ definition deletion:
 ###### To delete task definitions (Amazon ECS console)
 
 You must deregister a task definition revision before you delete it. For more
-information, see [Deregistering an Amazon ECS task definition revision
-using the console](deregister-task-definition-v2.md "deregister-task-definition-v2.md").
+information, see [Deregistering an Amazon ECS task definition revision using the console](deregister-task-definition-v2.md "deregister-task-definition-v2.md").
 
 1. Open the console at
    [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2").

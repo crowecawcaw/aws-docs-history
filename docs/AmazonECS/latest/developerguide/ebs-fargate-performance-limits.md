@@ -1,6 +1,4 @@
-# Performance of Amazon EBS volumes for
-
-Fargate on-demand tasks
+# Performance of Amazon EBS volumes for Fargate on-demand tasks
 
 The baseline Amazon EBS volume IOPS and throughput available for a Fargate on-demand task
 depends on the total CPU units you request for the task. If you request 0.25, 0.5, or 1

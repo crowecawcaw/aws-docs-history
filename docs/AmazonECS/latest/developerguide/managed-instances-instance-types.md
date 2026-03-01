@@ -78,11 +78,11 @@ The following attributes are supported for attribute-based instance type selecti
 - _localStorage_: Whether local storage is required (included, excluded, or required).
 - _localStorageType_: The type of local storage (hdd or ssd).
 
-## Cost optimization
+## Billing and purchase options
 
 Amazon ECS Managed Instances supports several features to help optimize the cost of your containerized workloads:
 
-- _Savings Plans (SPs)_: Amazon ECS Managed Instances benefit from Savings Plans that you've purchased for the instance types used by your tasks.
-- _Reserved Instances (RIs)_: Amazon ECS Managed Instances tasks can benefit from RIs that you've purchased for the instance types used by your tasks.
-- _Spot Instances_: You can configure Amazon ECS Managed Instances capacity provider to use EC2 Spot instances.
-- _Multi-task placement_: Amazon ECS Managed Instances places multiple tasks on a single general-purpose instance by default, optimizing resource utilization and cost.
+- _Savings Plans (SPs)_: Amazon ECS Managed Instances benefit from Savings Plans that you've purchased for the instance types used by your tasks. No additional configuration is required.
+- _Reserved Instances (RIs)_: Amazon ECS Managed Instances tasks can benefit from RIs that you've purchased for the instance types used by your tasks. No additional configuration is required.
+- _Spot Instances_: You can configure Amazon ECS Managed Instances capacity provider to use EC2 Spot instances by setting `capacityOptionType=Spot`
+- _Capacity Reservations_: You can configure Amazon ECS Managed Instances capacity provider to use your EC2 Capacity Reservations by setting `capacityOptionType=Reserved` and providing a [capacity reservation group](../../../AWSEC2/latest/UserGuide/create-cr-group.md "../../../AWSEC2/latest/UserGuide/create-cr-group.md"). You can also specify following reservation preferences: use `reservations-only` to ensure instances launch exclusively in reserved capacity for maximum predictability, `reservations-first` to prefer reservations while maintaining flexibility to fall back to on-demand capacity when needed, or `reservations-excluded` to prevent your capacity provider from using reservations altogether.

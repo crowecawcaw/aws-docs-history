@@ -20,11 +20,10 @@ The following are common use cases for a task execution IAM role:
   - pulls a container image from an Amazon ECR private repository in a different
     account from the account that runs the task.
   - sends container logs to CloudWatch Logs using the `awslogs` log driver.
-    For more information, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md") .
+    For more information, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md").
 
 - Your tasks are hosted on either AWS Fargate or Amazon EC2 instances and:
-  - uses private registry authentication. For more information, see [Private registry authentication
-    permissions](#task-execution-private-auth "#task-execution-private-auth").
+  - uses private registry authentication. For more information, see [Private registry authentication permissions](#task-execution-private-auth "#task-execution-private-auth").
   - uses Runtime Monitoring.
   - the task definition references sensitive data using Secrets Manager secrets or AWS
     Systems Manager Parameter Store parameters. For more information, see [Secrets Manager or Systems Manager permissions](#task-execution-secrets "#task-execution-secrets").
@@ -130,16 +129,14 @@ features.
 
 | Feature                                                                                                                                                    | Additional permissions                                                                                                                                                                               |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pull container images from private registries outside of AWS (such as Docker Hub, Quay.io, or your own private registry) using Secrets Manager credentials | [Private registry authentication<br>permissions](#task-execution-private-auth "#task-execution-private-auth")                                                                                        |
+| Pull container images from private registries outside of AWS (such as Docker Hub, Quay.io, or your own private registry) using Secrets Manager credentials | [Private registry authentication permissions](#task-execution-private-auth "#task-execution-private-auth")                                                                                           |
 | Pass sensitive data with Systems Manager or Secrets Manager                                                                                                | [Secrets Manager or Systems Manager permissions](#task-execution-secrets "#task-execution-secrets")                                                                                                  |
-| Have Fargate tasks pull Amazon ECR images over interface<br>endpoints                                                                                      | [Fargate tasks pulling<br>Amazon ECR images over interface endpoints permissions](#task-execution-ecr-conditionkeys "#task-execution-ecr-conditionkeys")                                             |
+| Have Fargate tasks pull Amazon ECR images over interface<br>endpoints                                                                                      | [Fargate tasks pulling Amazon ECR images over interface endpoints permissions](#task-execution-ecr-conditionkeys "#task-execution-ecr-conditionkeys")                                                |
 | Host configuration files in an Amazon S3 bucket                                                                                                            | [Amazon S3 file storage permissions](#s3-required "#s3-required")                                                                                                                                    |
 | Configure<br>Container Insights to view Amazon ECS lifecycle events                                                                                        | [Permissions required for enabling Amazon ECS lifecycle events in Container Insights](console-permissions.md#required-permissions-configure "console-permissions.md#required-permissions-configure") |
-| View Amazon ECS<br>lifecycle events in Container Insights                                                                                                  | [Permissions required to view Amazon ECS<br>lifecycle events in Container Insights](console-permissions.md#required-permissions-view "console-permissions.md#required-permissions-view")             |
+| View Amazon ECS<br>lifecycle events in Container Insights                                                                                                  | [Permissions required to view Amazon ECS lifecycle events in Container Insights](console-permissions.md#required-permissions-view "console-permissions.md#required-permissions-view")                |
 
-## Private registry authentication
-
-permissions
+## Private registry authentication permissions
 
 Private registry authentication allows your Amazon ECS tasks to pull container images from private registries outside of AWS (such as Docker Hub, Quay.io, or your own private registry) that require authentication credentials. This feature uses Secrets Manager to securely store your registry credentials, which are then referenced in your task definition using the `repositoryCredentials` parameter.
 
@@ -180,8 +177,7 @@ JSON
 ## Secrets Manager or Systems Manager permissions
 
 The permission to allow the container agent to pull the necessary AWS Systems Manager or Secrets Manager
-resources. For more information, see [Pass sensitive data to an Amazon ECS
-container](specifying-sensitive-data.md "specifying-sensitive-data.md").
+resources. For more information, see [Pass sensitive data to an Amazon ECS container](specifying-sensitive-data.md "specifying-sensitive-data.md").
 
 **Using Secrets Manager**
 
@@ -271,9 +267,7 @@ JSON
 
 ```
 
-## Fargate tasks pulling
-
-Amazon ECR images over interface endpoints permissions
+## Fargate tasks pulling Amazon ECR images over interface endpoints permissions
 
 When launching tasks that use Fargate that pull images
 from Amazon ECR when Amazon ECR is configured to use an interface VPC endpoint, you can restrict

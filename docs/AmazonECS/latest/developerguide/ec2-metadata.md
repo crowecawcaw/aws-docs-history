@@ -15,14 +15,12 @@ following versions are available:
   instances running at least version `1.21.0` of the Amazon ECS container
   agent. For Amazon EC2 Windows instances that use `awsvpc` network mode,
   the Amazon ECS container agent must be at least version `1.54.0`. For more
-  information, see [Amazon ECS task metadata endpoint version
-  3](task-metadata-endpoint-v3.md "task-metadata-endpoint-v3.md").
+  information, see [Amazon ECS task metadata endpoint version 3](task-metadata-endpoint-v3.md "task-metadata-endpoint-v3.md").
 - Task metadata endpoint version 2 – Available for Amazon ECS tasks launched on
   Amazon EC2 Linux instances running at least version `1.17.0` of the Amazon ECS
   container agent. For Amazon EC2 Windows instances that use `awsvpc`
   network mode, the Amazon ECS container agent must be at least version
-  `1.54.0`. For more information, see [Amazon ECS task metadata endpoint version
-  2](task-metadata-endpoint-v2.md "task-metadata-endpoint-v2.md").
+  `1.54.0`. For more information, see [Amazon ECS task metadata endpoint version 2](task-metadata-endpoint-v2.md "task-metadata-endpoint-v2.md").
   If your Amazon ECS task is hosted on Amazon EC2, or if your task uses the `host` network mode and is hosted on Amazon ECS Managed Instances, you can also access task host metadata using
   the [Instance Metadata Service (IMDS) endpoint](../../../AWSEC2/latest/UserGuide/ec2-instance-metadata.md "../../../AWSEC2/latest/UserGuide/ec2-instance-metadata.md"). The following command, when run
   from within the instance hosting the task, lists the ID of the host instance.

@@ -1,6 +1,6 @@
 # CodeDeploy blue/green deployments for Amazon ECS
 
-We recommend that you use the Amazon ECS blue/green deployment. For more information, see [Creating an Amazon ECS blue/green deployment](deploy-blue-green-service.md "deploy-blue-green-service.md") .
+We recommend that you use the Amazon ECS blue/green deployment. For more information, see [Creating an Amazon ECS blue/green deployment](deploy-blue-green-service.md "deploy-blue-green-service.md").
 
 The _blue/green_ deployment type uses the blue/green deployment
 model controlled by CodeDeploy. Use this deployment type to verify a new deployment of a
@@ -145,9 +145,7 @@ Consider the following when using the blue/green deployment type:
   replacement task set according to the traffic rerouting settings for the
   deployment group.
 
-## Required IAM
-
-permissions
+## Required IAM permissions
 
 Blue/green deployments are made possible by a combination of the Amazon ECS and
 CodeDeploy APIs. Users must have the appropriate permissions for these services before

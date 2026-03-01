@@ -9,8 +9,7 @@ deployment process.
 Perform the following operations before you start a linear deployment.
 
 1. Configure the appropriate permissions.
-   - For information about Elastic Load Balancing permissions, see [Amazon ECS infrastructure
-     IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
+   - For information about Elastic Load Balancing permissions, see [Amazon ECS infrastructure IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
    - For information about Lambda permissions, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](blue-green-permissions.md "blue-green-permissions.md").
 
 2. Amazon ECS linear deployments require that your service to use one of the

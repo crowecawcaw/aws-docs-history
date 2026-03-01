@@ -8,8 +8,7 @@ CloudWatch in 1-minute periods. For more information about CloudWatch, see the [
 
 Amazon ECS provides free metrics for clusters and services. For an additional cost, you can
 turn on Amazon ECS CloudWatch Container Insights for your cluster for per-task metrics, including CPU, memory, and
-EBS filesystem utilization. For more information about Container Insights, see [Monitor Amazon ECS containers using Container Insights with
-enhanced observability](cloudwatch-container-insights.md "cloudwatch-container-insights.md").
+EBS filesystem utilization. For more information about Container Insights, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](cloudwatch-container-insights.md "cloudwatch-container-insights.md").
 
 ## Considerations
 

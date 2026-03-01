@@ -1,6 +1,4 @@
-# Migrating to
-
-the `AmazonECS_FullAccess` managed policy
+# Migrating to the `AmazonECS_FullAccess` managed policy
 
 The `AmazonEC2ContainerServiceFullAccess` managed IAM policy was phased
 out on January 29, 2021, in response to a security finding with the
@@ -23,9 +21,7 @@ currently using the `AmazonEC2ContainerServiceFullAccess` managed IAM
 policy. Then, update them to detach the earlier policy and attach the
 `AmazonECS_FullAccess` policy.
 
-###### To update a group, user, or role to use the AmazonECS_FullAccess policy
-
-(AWS Management Console)
+###### To update a group, user, or role to use the AmazonECS_FullAccess policy (AWS Management Console)
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -50,9 +46,7 @@ policy. Then, update them to detach the earlier policy and attach the
    5. Repeat these steps for each group, user, or role that's using the
       `AmazonEC2ContainerServiceFullAccess` policy.
 
-###### To update a group, user, or role to use the `AmazonECS_FullAccess`
-
-policy (AWS CLI)
+###### To update a group, user, or role to use the `AmazonECS_FullAccess` policy (AWS CLI)
 
 1. Use the [generate-service-last-accessed-details](../../../cli/latest/reference/iam/generate-service-last-accessed-details.md "../../../cli/latest/reference/iam/generate-service-last-accessed-details.md") command
    to generate a report that includes details about when the phased out policy was

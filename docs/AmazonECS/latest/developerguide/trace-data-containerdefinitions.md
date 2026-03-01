@@ -1,11 +1,8 @@
-# Specifying the AWS Distro for
-
-OpenTelemetry sidecar for AWS X-Ray integration in your task definition
+# Specifying the AWS Distro for OpenTelemetry sidecar for AWS X-Ray integration in your task definition
 
 The Amazon ECS console simplifies creating the AWS Distro for OpenTelemetry sidecar
 container by using the **Use trace collection** option. For more
-information, see [Creating an Amazon ECS task definition using the
-console](create-task-definition.md "create-task-definition.md").
+information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").
 
 If you're not using the Amazon ECS console, you can add the AWS Distro for OpenTelemetry
 sidecar container to your task definition. The following task definition snippet shows

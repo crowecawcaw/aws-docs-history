@@ -62,8 +62,7 @@ Consider the following when using task networking.
 - The Amazon ECS service-linked role is required to provide Amazon ECS with the
   permissions to make calls to other AWS services on your behalf. This role is
   created for you when you create a cluster or if you create or update a service
-  in the AWS Management Console. For more information, see [Using service-linked roles for
-  Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md"). You can also create the
+  in the AWS Management Console. For more information, see [Using service-linked roles for Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md"). You can also create the
   service-linked role using the following AWS CLI command.
 
 ```
@@ -103,12 +102,9 @@ Consider the following when using task networking.
 - Services with tasks that use Fargate only
   support Application Load Balancer and Network Load Balancer. Classic Load Balancer isn't supported. When you create any target
   groups, you must choose `ip` as the target type, not
-  `instance`. For more information, see [Use load balancing to distribute Amazon ECS service
-  traffic](service-load-balancing.md "service-load-balancing.md").
+  `instance`. For more information, see [Use load balancing to distribute Amazon ECS service traffic](service-load-balancing.md "service-load-balancing.md").
 
-## Using a VPC in dual-stack
-
-mode
+## Using a VPC in dual-stack mode
 
 When using a VPC in dual-stack mode, your tasks can communicate over IPv4 or IPv6, or
 both. IPv4 and IPv6 addresses are independent of each other and you must configure
@@ -143,9 +139,7 @@ For more information, see [Internet gateways](../../../vpc/latest/userguide/VPC_
 
 For examples of how to configure a dual-stack VPC, see [Example dual-stack VPC configuration](../../../vpc/latest/userguide/vpc-migrate-ipv6-example.md "../../../vpc/latest/userguide/vpc-migrate-ipv6-example.md").
 
-## Using a VPC in IPv6-only
-
-mode
+## Using a VPC in IPv6-only mode
 
 In an IPv6-only configuration, your Amazon ECS tasks communicate exclusively over IPv6. To
 set up VPCs and subnets for an IPv6-only configuration, you must add an IPv6 CIDR block
@@ -193,8 +187,7 @@ _Amazon Elastic Container Registry User Guide_.
 - Amazon ECS Exec isn't supported in an IPv6-only configuration.
 - Amazon CloudWatch doesn't support a dualstack FIPS endpoint that can be used to monitor
   Amazon ECS tasks in IPv6-only configuration that use FIPS-140 compliance. For more
-  information about FIPS-140, see [AWS Fargate Federal Information Processing Standard
-  (FIPS-140)](ecs-fips-compliance.md "ecs-fips-compliance.md").
+  information about FIPS-140, see [AWS Fargate Federal Information Processing Standard (FIPS-140)](ecs-fips-compliance.md "ecs-fips-compliance.md").
 
 ### AWS Regions that support IPv6-only mode for Amazon ECS
 

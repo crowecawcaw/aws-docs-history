@@ -1,6 +1,4 @@
-# IAM permissions required for Amazon ECS service auto
-
-scaling
+# IAM permissions required for Amazon ECS service auto scaling
 
 Service Auto Scaling is made possible by a combination of the Amazon ECS, CloudWatch, and Application Auto Scaling
 APIs. Services are created and updated with Amazon ECS, alarms are created with CloudWatch, and

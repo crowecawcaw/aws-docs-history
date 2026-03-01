@@ -1,6 +1,4 @@
-# Use service discovery to connect Amazon ECS services with
-
-DNS names
+# Use service discovery to connect Amazon ECS services with DNS names
 
 Your Amazon ECS service can optionally be configured to use Amazon ECS service discovery.
 Service discovery uses AWS Cloud Map API actions to manage HTTP and DNS namespaces for
@@ -122,9 +120,7 @@ create-private-dns-namespace` command or in the Amazon ECS console. You can
   container-level health checks. If an endpoint does not pass the health check, it
   is removed from DNS routing and marked as unhealthy.
 
-## Service discovery
-
-considerations
+## Service discovery considerations
 
 The following should be considered when using service discovery:
 

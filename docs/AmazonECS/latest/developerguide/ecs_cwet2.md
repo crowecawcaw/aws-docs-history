@@ -1,6 +1,4 @@
-# Sending Amazon Simple Notification Service alerts for Amazon ECS task stopped
-
-events
+# Sending Amazon Simple Notification Service alerts for Amazon ECS task stopped events
 
 Configure an Amazon EventBridge event rule that only captures task events where the task has stopped
 running because one of its essential containers has terminated. The event sends only task

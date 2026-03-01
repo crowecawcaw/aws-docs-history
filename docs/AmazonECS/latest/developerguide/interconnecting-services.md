@@ -3,8 +3,7 @@
 Applications that run in Amazon ECS tasks often need to receive connections from the
 internet or to connect to other applications that run in Amazon ECS services. If you need
 external connections from the internet, we recommend using Elastic Load Balancing. For more
-information about integrated load balancing, see [Use load balancing to distribute Amazon ECS service
-traffic](service-load-balancing.md "service-load-balancing.md").
+information about integrated load balancing, see [Use load balancing to distribute Amazon ECS service traffic](service-load-balancing.md "service-load-balancing.md").
 
 If you need an application to connect to other applications that run in Amazon ECS
 services, Amazon ECS provides the following ways to do this without a load
@@ -37,8 +36,7 @@ the configuration by replacing the client tasks. You can configure the
 deployment circuit breaker and other deployment configuration to affect
 Service Connect changes in the same way as any other deployment.
 
-For more information, see [Use Service Connect to connect Amazon ECS services with short
-names](service-connect.md "service-connect.md").
+For more information, see [Use Service Connect to connect Amazon ECS services with short names](service-connect.md "service-connect.md").
 
 - _Amazon ECS service discovery_
 
@@ -84,8 +82,7 @@ end up resolving the DNS record to point at another container that's no
 longer there. Your application needs to handle retries and have logic to
 ignore bad backends.
 
-For more information, see [Use service discovery to connect Amazon ECS services with
-DNS names](service-discovery.md "service-discovery.md")
+For more information, see [Use service discovery to connect Amazon ECS services with DNS names](service-discovery.md "service-discovery.md")
 
 - _Amazon VPC Lattice_
 
@@ -99,12 +96,9 @@ associating their Amazon ECS services with a VPC Lattice target group, customers
 targets in VPC Lattice. Amazon ECS automatically registers tasks to the VPC Lattice target group when tasks for the
 registered service are launched.
 
-For more information, see [Use Amazon VPC Lattice to connect, observe, and secure your Amazon ECS
-services](ecs-vpc-lattice.md "ecs-vpc-lattice.md").
+For more information, see [Use Amazon VPC Lattice to connect, observe, and secure your Amazon ECS services](ecs-vpc-lattice.md "ecs-vpc-lattice.md").
 
-## Network mode
-
-compatibility table
+## Network mode compatibility table
 
 The following table covers the compatibility between these options and the task
 network modes. In the table, "client" refers to the application that's making the

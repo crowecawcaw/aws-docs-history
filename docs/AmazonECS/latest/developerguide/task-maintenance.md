@@ -20,8 +20,7 @@ or AWS Step Functions. You do not need to take any actions in response to task r
 your service tasks because the Amazon ECS scheduler automatically replaces the tasks.
 
 For standalone tasks, you may need to perform additional handling in response to task
-retirement. For more information, see [Can Amazon ECS automatically handle
-standalone tasks?](#task-retirement-standalone-tasks "#task-retirement-standalone-tasks").
+retirement. For more information, see [Can Amazon ECS automatically handle standalone tasks?](#task-retirement-standalone-tasks "#task-retirement-standalone-tasks").
 
 For service tasks, you do not need to take any action to task retirement unless you
 want to replace these tasks before AWS does. When the Amazon ECS scheduler stops the tasks, it
@@ -145,7 +144,7 @@ The following is a sample EventBridge event.
 
 An email is sent to the registered email for the AWS account ID.
 
-For information about how to prepare for task retirement, see [Prepare for AWS Fargate task retirement on Amazon ECS](prepare-task-retirement.md "prepare-task-retirement.md") .
+For information about how to prepare for task retirement, see [Prepare for AWS Fargate task retirement on Amazon ECS](prepare-task-retirement.md "prepare-task-retirement.md").
 
 ## Can I opt-out of task retirement?
 
@@ -161,9 +160,7 @@ Fargate environment up-to-date and secure, without any action required from you 
 customer. This helps provide a reliable and secure containerized environment for running
 your workloads on Fargate.
 
-## Can I get task retirement notifications through
-
-other AWS services?
+## Can I get task retirement notifications through other AWS services?
 
 AWS sends a task retirement notification to the Health Dashboard and to the primary email
 contact on the AWS account. The Health Dashboard provides a number of integrations into other
@@ -171,14 +168,11 @@ AWS services, including EventBridge. You can use EventBridge to automate the vis
 notices (For example. forwarding the message to a ChatOps tool). For more information,
 see [Solution overview: Capturing task retirement notifications](https://aws.amazon.com/blogs/containers/improving-operational-visibility-with-aws-fargate-task-retirement-notifications/ "https://aws.amazon.com/blogs/containers/improving-operational-visibility-with-aws-fargate-task-retirement-notifications/").
 
-## Can I change a task retirement after it is
-
-scheduled?
+## Can I change a task retirement after it is scheduled?
 
 No. The schedule is based on the task retirement wait time which has a default of 7
 days. If you need more time, you can choose to configure the wait period to 14 days. For
-more information, see [Step 2: Capture task retirement notifications to
-alert teams and take actions](prepare-task-retirement.md#prepare-task-retirement-capture-task-events "prepare-task-retirement.md#prepare-task-retirement-capture-task-events").
+more information, see [Step 2: Capture task retirement notifications to alert teams and take actions](prepare-task-retirement.md#prepare-task-retirement-capture-task-events "prepare-task-retirement.md#prepare-task-retirement-capture-task-events").
 
 As of 12/18/2025, Amazon ECS enables you to configure [Amazon EC2 event windows](../../../AWSEC2/latest/UserGuide/event-windows.md "../../../AWSEC2/latest/UserGuide/event-windows.md") for your Fargate tasks. If
 you need precise control over the exact timing of task retirements, for example, scheduling them over
@@ -188,9 +182,7 @@ retirements that will be scheduled in the future. Currently scheduled retirement
 when you configure an Amazon EC2 event window for your Fargate tasks, it takes precedence over your task retirement
 wait time configuration. If you have any further concerns, contact Support.
 
-## How does Amazon ECS handle tasks that are
-
-part of a service?
+## How does Amazon ECS handle tasks that are part of a service?
 
 For service tasks, you do not need to take any action in response to task retirement
 unless you want to replace these tasks before AWS does. When the Amazon ECS scheduler stops
@@ -204,11 +196,9 @@ when Fargate starts retiring tasks, Amazon ECS first schedules a new task and wa
 to be running, before retiring an old task. Service tasks are routinely replaced as part
 of task retirement in the same way when you scale the service, deploy configuration
 changes, or deploy task definition revisions. To prepare for the task retirement
-process, see [Prepare for AWS Fargate task retirement on Amazon ECS](prepare-task-retirement.md "prepare-task-retirement.md") .
+process, see [Prepare for AWS Fargate task retirement on Amazon ECS](prepare-task-retirement.md "prepare-task-retirement.md").
 
-## Can Amazon ECS automatically handle
-
-standalone tasks?
+## Can Amazon ECS automatically handle standalone tasks?
 
 No. AWS can't create a replacement task for standalone tasks which are started by
 `RunTask`, scheduled tasks (for example through EventBridge Scheduler), AWS Batch, or

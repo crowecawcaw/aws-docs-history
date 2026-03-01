@@ -1,6 +1,4 @@
-# Amazon ECS task definition differences for
-
-Amazon ECS Managed Instances
+# Amazon ECS task definition differences for Amazon ECS Managed Instances
 
 In order to use Amazon ECS Managed Instances, you must configure your task definition to use the
 Amazon ECS Managed Instances launch type. There are additional considerations when using

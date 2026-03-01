@@ -1,6 +1,4 @@
-# Create an encryption key for Fargate
-
-ephemeral storage for Amazon ECS
+# Create an encryption key for Fargate ephemeral storage for Amazon ECS
 
 Create a customer managed key to encrypt data stored on Fargate ephemeral storage.
 

@@ -1,6 +1,4 @@
-# Allocate a network interface for an Amazon ECS
-
-task
+# Allocate a network interface for an Amazon ECS task
 
 The task networking features that are provided by the `awsvpc` network mode
 give Amazon ECS tasks the same networking properties as Amazon EC2 instances. Using the
@@ -53,8 +51,7 @@ Consider the following when using the Linux operating system.
   the Amazon ECS service-linked role to provide Amazon ECS with the permissions to make
   calls to other AWS services on your behalf. This role is created for you
   automatically when you create a cluster or if you create or update a
-  service, in the AWS Management Console. For more information, see [Using service-linked roles for
-  Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md"). You can also create the
+  service, in the AWS Management Console. For more information, see [Using service-linked roles for Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md"). You can also create the
   service-linked role with the following AWS CLI command:
 
 ```
@@ -98,8 +95,7 @@ Consider the following when using the Linux operating system.
   `1.28.1-2` of the `ecs-init` package. For more
   information about opting in to the `awsvpcTrunking` account
   setting, see [Access Amazon ECS features with account settings](ecs-account-settings.md "ecs-account-settings.md"). For more information about ENI
-  trunking, see [Increasing Amazon ECS Linux container instance network
-  interfaces](container-instance-eni.md "container-instance-eni.md").
+  trunking, see [Increasing Amazon ECS Linux container instance network interfaces](container-instance-eni.md "container-instance-eni.md").
 - When hosting tasks that use the `awsvpc` network mode on Amazon EC2
   Linux instances, your task ENIs aren't given public IP addresses. To access
   the internet, tasks must be launched in a private subnet that's configured
@@ -142,8 +138,7 @@ Consider the following when using the Linux operating system.
   services, you must choose `ip` as the target type. Do not use
   `instance`. This is because tasks that use the
   `awsvpc` network mode are associated with an ENI, not with an
-  Amazon EC2 Linux instance. For more information, see [Use load balancing to distribute Amazon ECS service
-  traffic](service-load-balancing.md "service-load-balancing.md").
+  Amazon EC2 Linux instance. For more information, see [Use load balancing to distribute Amazon ECS service traffic](service-load-balancing.md "service-load-balancing.md").
 - If your VPC is updated to change the DHCP options set it uses, you can't
   apply these changes to existing tasks. Start new tasks with these changes
   applied to them, verify that they are working correctly, and then stop the
@@ -169,8 +164,7 @@ system:
   the Amazon ECS service-linked role to provide Amazon ECS with the permissions to make
   calls to other AWS services on your behalf. This role is created for you
   automatically when you create a cluster, or if you create or update a
-  service, in the AWS Management Console. For more information, see [Using service-linked roles for
-  Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md"). You can also create the
+  service, in the AWS Management Console. For more information, see [Using service-linked roles for Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md"). You can also create the
   service-linked role with the following AWS CLI command.
 
 ```
@@ -242,8 +236,7 @@ system:
   services, you must choose `ip` as the target type, not
   `instance`. This is because tasks that use the
   `awsvpc` network mode are associated with an ENI, not with an
-  Amazon EC2 Windows instance. For more information, see [Use load balancing to distribute Amazon ECS service
-  traffic](service-load-balancing.md "service-load-balancing.md").
+  Amazon EC2 Windows instance. For more information, see [Use load balancing to distribute Amazon ECS service traffic](service-load-balancing.md "service-load-balancing.md").
 - If your VPC is updated to change the DHCP options set it uses, you can't
   apply these changes to existing tasks. Start new tasks with these changes
   applied to them, verify that they are working correctly, and then stop the
@@ -255,9 +248,7 @@ system:
   - IPv6
   - ENI trunking
 
-## Using a VPC in dual-stack
-
-mode
+## Using a VPC in dual-stack mode
 
 When using a VPC in dual-stack mode, your tasks can communicate over IPv4, or
 IPv6, or both. IPv4 and IPv6 addresses are independent of each other. Therefore you

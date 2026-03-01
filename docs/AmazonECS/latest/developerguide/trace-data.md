@@ -10,9 +10,7 @@ For the AWS Distro for OpenTelemetry Collector to send trace data to AWS X-Ray, 
 application must be configured to create the trace data. For more information, see [Instrumenting your application for AWS X-Ray](../../../xray/latest/devguide/xray-instrumenting-your-app.md "../../../xray/latest/devguide/xray-instrumenting-your-app.md") in the _AWS X-Ray
 Developer Guide_.
 
-## Required IAM permissions for AWS Distro for
-
-OpenTelemetry integration with AWS X-Ray
+## Required IAM permissions for AWS Distro for OpenTelemetry integration with AWS X-Ray
 
 The Amazon ECS integration with AWS Distro for OpenTelemetry requires that you create a
 task role and specify the role in your task definition. We recommend that you configure
@@ -22,8 +20,7 @@ the AWS Distro for OpenTelemetry sidecar to route container logs to CloudWatch L
 
 If you also collect application metrics using the AWS Distro for OpenTelemetry
 integration, ensure your task IAM role also contains the permissions necessary for
-that integration. For more information, see [Correlate Amazon ECS application performance using application
-metrics](metrics-data.md "metrics-data.md").
+that integration. For more information, see [Correlate Amazon ECS application performance using application metrics](metrics-data.md "metrics-data.md").
 
 After you create the role, create a policy with the following permissions, and then attach it to the role.
 

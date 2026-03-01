@@ -1,6 +1,4 @@
-# Learn how to create an Amazon ECS
-
-Windows task for Fargate
+# Learn how to create an Amazon ECS Windows task for Fargate
 
 Get started with Amazon ECS on AWS Fargate by using Fargate for
 your tasks in the Regions where Amazon ECS supports AWS Fargate.
@@ -63,9 +61,7 @@ VPC.
 [Remove a tag] Choose **Remove** to the right of the tag’s
 Key and Value. 8. Choose **Create**.
 
-## Step 2: Register a Windows
-
-task definition
+## Step 2: Register a Windows task definition
 
 Before you can run Windows containers in your Amazon ECS cluster, you must register a task
 definition. The following task definition example displays a simple webpage on port 8080
@@ -115,9 +111,7 @@ container image.
 
 4. Verify your information and choose **Create**.
 
-## Step 3: Create a service with
-
-your task definition
+## Step 3: Create a service with your task definition
 
 After you have registered your task definition, you can place tasks in your cluster
 with it. The following procedure creates a service with your task definition and places
@@ -132,8 +126,7 @@ one task in your cluster.
 3. Under **Deployment configuration**, specify how your
    application is deployed.
    1. For **Task definition**, choose the task definition
-      you created in [Step 2: Register a Windows
-      task definition](#register_fargate_windows_task_def_console "#register_fargate_windows_task_def_console").
+      you created in [Step 2: Register a Windows task definition](#register_fargate_windows_task_def_console "#register_fargate_windows_task_def_console").
    2. For **Service name**, enter a name for your
       service.
    3. For **Desired tasks**, enter
@@ -161,8 +154,7 @@ the Windows container base layers.
 2. In the navigation pane, choose **Clusters**.
 3. Choose the cluster where you ran the service.
 4. In the **Services** tab, under **Service
-   name**, choose the service you created in [Step 3: Create a service with
-   your task definition](#create_fargate_windows_service_console "#create_fargate_windows_service_console").
+   name**, choose the service you created in [Step 3: Create a service with your task definition](#create_fargate_windows_service_console "#create_fargate_windows_service_console").
 5. Choose the **Tasks** tab, and then choose the task in your
    service.
 6. On the task page, in the

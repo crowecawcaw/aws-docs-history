@@ -1,13 +1,10 @@
-# Specify Amazon EBS volume configuration at Amazon ECS
-
-deployment
+# Specify Amazon EBS volume configuration at Amazon ECS deployment
 
 After you register a task definition with the `configuredAtLaunch`
 parameter set to `true`, you can configure an Amazon EBS volume at deployment when
 you run a standalone task, or when you create or update a service. For more information
 about deferring volume configuration to launch time using the
-`configuredAtLaunch` parameter, see [Defer volume configuration to launch time in an
-Amazon ECS task definition](specify-ebs-config.md "specify-ebs-config.md").
+`configuredAtLaunch` parameter, see [Defer volume configuration to launch time in an Amazon ECS task definition](specify-ebs-config.md "specify-ebs-config.md").
 
 To configure a volume, you can use the Amazon ECS APIs, or you can pass a JSON file as
 input for the following AWS CLI commands:
@@ -25,8 +22,7 @@ For a container in your task to write to the mounted Amazon EBS volume, the cont
 
 You can also configure an Amazon EBS volume by using the AWS Management Console. For more information,
 see [Running an application as an Amazon ECS task](standalone-task-create.md "standalone-task-create.md"),
-[Creating an Amazon ECS rolling update
-deployment](create-service-console-v2.md "create-service-console-v2.md"), and [Updating an Amazon ECS service](update-service-console-v2.md "update-service-console-v2.md").
+[Creating an Amazon ECS rolling update deployment](create-service-console-v2.md "create-service-console-v2.md"), and [Updating an Amazon ECS service](update-service-console-v2.md "update-service-console-v2.md").
 
 The following JSON snippet shows all the parameters of an Amazon EBS volume that can be
 configured at deployment. To use these parameters for volume configuration, replace the
@@ -73,8 +69,7 @@ information. For more information about these parameters, see [Volume configurat
 Ensure that the `volumeName` you specify in the configuration is the
 same as the `volumeName` you specify in your task definition.
 
-For information about checking the status of volume attachment, see [Troubleshooting Amazon EBS volume attachments to Amazon ECS
-tasks](troubleshoot-ebs-volumes.md "troubleshoot-ebs-volumes.md") . For
+For information about checking the status of volume attachment, see [Troubleshooting Amazon EBS volume attachments to Amazon ECS tasks](troubleshoot-ebs-volumes.md "troubleshoot-ebs-volumes.md"). For
 information about the Amazon ECS infrastructure AWS Identity and Access Management (IAM) role necessary for EBS
 volume attachment, see [Amazon ECS infrastructure IAM role](infrastructure_IAM_role.md "infrastructure_IAM_role.md").
 
@@ -173,9 +168,7 @@ service.
 }
 ```
 
-### Configure a service to no longer
-
-utilize Amazon EBS volumes
+### Configure a service to no longer utilize Amazon EBS volumes
 
 The following JSON snippet shows the syntax for updating a service to no
 longer utilize Amazon EBS volumes. You must provide the ARN of a task definition
@@ -193,9 +186,7 @@ provide an empty `volumeConfigurations` object.
 }
 ```
 
-## Termination policy for Amazon EBS
-
-volumes
+## Termination policy for Amazon EBS volumes
 
 When an Amazon ECS task terminates, Amazon ECS uses the `deleteOnTermination`
 value to determine whether the Amazon EBS volume that's associated with the terminated

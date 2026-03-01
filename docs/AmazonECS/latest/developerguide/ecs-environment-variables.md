@@ -12,13 +12,11 @@ Amazon ECS sets the following environment variables for your tasks:
   version 4. For more information, see [Amazon ECS task metadata endpoint version 4](task-metadata-endpoint-v4.md "task-metadata-endpoint-v4.md").
 - `ECS_CONTAINER_METADATA_URI` - The address of the task metadata version
 
-3.  For more information, see [Amazon ECS task metadata endpoint version
-    3](task-metadata-endpoint-v3.md "task-metadata-endpoint-v3.md").
+3.  For more information, see [Amazon ECS task metadata endpoint version 3](task-metadata-endpoint-v3.md "task-metadata-endpoint-v3.md").
 
 - `ECS_AGENT_URI` - The base address for different endpoints supported by
   Fargate. For more information, see:
-  - [Amazon ECS task scale-in protection
-    endpoint](task-scale-in-protection-endpoint.md "task-scale-in-protection-endpoint.md")
+  - [Amazon ECS task scale-in protection endpoint](task-scale-in-protection-endpoint.md "task-scale-in-protection-endpoint.md")
   - [Amazon ECS fault injection endpoints](fault-injection-endpoints.md "fault-injection-endpoints.md")
 
 - `AWS_EXECUTION_ENV` - The information about the compute option the task
@@ -34,6 +32,5 @@ Amazon ECS sets the following environment variables for your tasks:
   You can view the environment variables in the task metadata. For more information, see
   one of the following topics:
 
-- Fargate - [Amazon ECS task metadata available for tasks on
-  Fargate](fargate-metadata.md "fargate-metadata.md")
+- Fargate - [Amazon ECS task metadata available for tasks on Fargate](fargate-metadata.md "fargate-metadata.md")
 - EC2 - [Task metadata available for Amazon ECS tasks on EC2](ec2-metadata.md "ec2-metadata.md")

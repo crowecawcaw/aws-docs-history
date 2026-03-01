@@ -1,6 +1,4 @@
-# Updating an Amazon ECS
-
-cluster
+# Updating an Amazon ECS cluster
 
 You can modify the following cluster properties:
 
@@ -17,8 +15,7 @@ a capacity provider strategy that overrides the default one.
 CloudWatch Container Insights collects, aggregates, and summarizes metrics and logs from your
 containerized applications and microservices. Container Insights also provides diagnostic
 information, such as container restart failures, that you use to isolate issues and
-resolve them quickly. For more information, see [Monitor Amazon ECS containers using Container Insights with
-enhanced observability](cloudwatch-container-insights.md "cloudwatch-container-insights.md").
+resolve them quickly. For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](cloudwatch-container-insights.md "cloudwatch-container-insights.md").
 
 - Add tags to help you identify your clusters.
 

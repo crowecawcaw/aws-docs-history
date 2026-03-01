@@ -14,9 +14,7 @@ you can compare the version of a resource reported by the Amazon ECS APIs with t
 your event stream is current. Events with a higher version property number should be
 treated as occurring later than events with lower version numbers.
 
-## Example: Handling events in an AWS Lambda
-
-function
+## Example: Handling events in an AWS Lambda function
 
 The following example shows a Lambda function written in Python 3.9
 that captures both task and container instance state change events and saves them to

@@ -1,6 +1,4 @@
-# Use load balancing to distribute Amazon ECS service
-
-traffic
+# Use load balancing to distribute Amazon ECS service traffic
 
 Your service can optionally be configured to use Elastic Load Balancing to distribute traffic evenly across
 the tasks in your service.

@@ -1,6 +1,4 @@
-# Amazon EC2 container instance security
-
-considerations for Amazon ECS
+# Amazon EC2 container instance security considerations for Amazon ECS
 
 You should consider a single container instance and its access within your threat
 model. For example, a single affected task might be able to leverage the IAM

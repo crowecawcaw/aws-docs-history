@@ -8,9 +8,7 @@ accounts that can have access to your resources. And, an IAM role is a set of
 permissions that can be assumed by an authenticated identity, which isn't associated
 with a particular identity outside of IAM. For more information, see [Amazon ECS overview of access management: Permissions and policies](../../../IAM/latest/UserGuide/introduction_access-management.md "../../../IAM/latest/UserGuide/introduction_access-management.md").
 
-## Follow the policy of least
-
-privileged access
+## Follow the policy of least privileged access
 
 Create policies that are scoped to allow users to perform their prescribed jobs.
 For example, if a developer needs to periodically stop a task, create a policy that only
@@ -20,18 +18,14 @@ Amazon Resource Name (ARN). Referring to an ARN in a condition is also an exampl
 resource-level permissions. You can use resource-level permissions to specify the
 resource that you want an action to apply to. For more information, see [Policy resources for Amazon ECS](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-resources "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-resources").
 
-## Have cluster
-
-resources serve as the administrative boundary
+## Have cluster resources serve as the administrative boundary
 
 Policies that are too narrowly scoped can cause a proliferation of roles and
 increase administrative overhead. Rather than creating roles that are scoped to
 particular tasks or services only, create roles that are scoped to clusters and use
 the cluster as your primary administrative boundary.
 
-## Create automated
-
-pipelines to isolate end-users from the API
+## Create automated pipelines to isolate end-users from the API
 
 You can limit the actions that users can use by creating pipelines that
 automatically package and deploy applications onto Amazon ECS clusters. This effectively
@@ -40,9 +34,7 @@ more information, see [Tutorial: Amazon ECS
 standard deployment with CodePipeline](../../../codepipeline/latest/userguide/ecs-cd-pipeline.md "../../../codepipeline/latest/userguide/ecs-cd-pipeline.md") in the
 _AWS CodePipeline User Guide_.
 
-## Use policy
-
-conditions for an added layer of security
+## Use policy conditions for an added layer of security
 
 When you need an added layer of security, add a condition to your policy. This can
 be useful if you're performing a privileged operation or when you need to restrict
@@ -101,9 +93,7 @@ JSON
 
 ```
 
-## Periodically audit access to
-
-the APIs
+## Periodically audit access to the APIs
 
 A user might change roles. After they change roles, the permissions that were
 previously granted to them might no longer apply. Make sure that you audit who has

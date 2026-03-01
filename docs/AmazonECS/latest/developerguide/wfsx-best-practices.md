@@ -1,13 +1,9 @@
-# Best practices for using FSx for Windows File Server with
-
-Amazon ECS
+# Best practices for using FSx for Windows File Server with Amazon ECS
 
 Make note of the following best practice recommendations when you use FSx for Windows File Server
 with Amazon ECS.
 
-## Security and access controls for
-
-FSx for Windows File Server
+## Security and access controls for FSx for Windows File Server
 
 FSx for Windows File Server offers the following access control features that you can use to
 ensure that the data stored in an FSx for Windows File Server file system is secure and accessible
@@ -25,9 +21,7 @@ need for you to modify your applications. For more information, see [Data
 encryption in Amazon FSx](../../../fsx/latest/WindowsGuide/encryption.md "../../../fsx/latest/WindowsGuide/encryption.md") in the
 _Amazon FSx for Windows File Server User Guide_.
 
-### Use
-
-Windows ACLs for folder level access control
+### Use Windows ACLs for folder level access control
 
 The Windows Amazon EC2 instance access Amazon FSx file shares using Active Directory
 credentials. It uses standard Windows access control lists (ACLs) for

@@ -1,6 +1,4 @@
-#
-
-Migrate from Amazon EC2 to Amazon ECS Managed Instances
+# Migrate from Amazon EC2 to Amazon ECS Managed Instances
 
 Migrate existing workloads from Amazon EC2 to Amazon ECS Managed Instances. This migration
 allows you to access the full range of Amazon EC2 instance types, capacity reservations, and
@@ -12,8 +10,7 @@ Keep the following considerations in mind when migrating from Amazon EC2 to Amaz
 
 Task compatibility
 
-Existing task definitions configured for Amazon EC2 are mostly compatible with Amazon ECS Managed Instances. For a list of task definition differences, see [Amazon ECS task definition differences for
-Amazon ECS Managed Instances](managed-instances-tasks-services.md "managed-instances-tasks-services.md").
+Existing task definitions configured for Amazon EC2 are mostly compatible with Amazon ECS Managed Instances. For a list of task definition differences, see [Amazon ECS task definition differences for Amazon ECS Managed Instances](managed-instances-tasks-services.md "managed-instances-tasks-services.md").
 
 Security model changes
 
@@ -52,19 +49,15 @@ Before migrating to Amazon ECS Managed Instances, ensure you have:
 
 Create a capacity provider. When you create a capacity provider with Amazon ECS Managed Instances, it becomes available only within the specified cluster.
 
-For more information, see [Creating a capacity provider
-for Amazon ECS Managed Instances](create-capacity-provider-managed-instances.md "create-capacity-provider-managed-instances.md").
+For more information, see [Creating a capacity provider for Amazon ECS Managed Instances](create-capacity-provider-managed-instances.md "create-capacity-provider-managed-instances.md").
 
 ## Step 2: Update the task definition to have the Amazon ECS Managed Instances capability
 
 Update the task definition so that it has the requiresCapabilities for Amazon ECS Managed Instances.
 
-For more information, see [Updating an Amazon ECS task definition using
-the console](update-task-definition-console-v2.md "update-task-definition-console-v2.md").
+For more information, see [Updating an Amazon ECS task definition using the console](update-task-definition-console-v2.md "update-task-definition-console-v2.md").
 
-## Step 3: Update the service to use the
-
-Amazon ECS Managed Instances capacity provider
+## Step 3: Update the service to use the Amazon ECS Managed Instances capacity provider
 
 Update your existing Amazon ECS service to use the Amazon ECS Managed Instances capacity provider.
 

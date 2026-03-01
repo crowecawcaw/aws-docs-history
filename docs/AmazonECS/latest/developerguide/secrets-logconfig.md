@@ -32,9 +32,7 @@ referencing an Secrets Manager secret.
 }
 ```
 
-## Add the
-
-environment variable to the container definition
+## Add the environment variable to the container definition
 
 Within your container definition, specify `secrets` with the name of the
 environment variable to set in the container and the full ARN of the Systems Manager
@@ -59,8 +57,7 @@ different Region, then specify the full ARN.
 ```
 
 For information about how to create a task definition with the secret specified in an
-environment variable, see [Creating an Amazon ECS task definition using the
-console](create-task-definition.md "create-task-definition.md").
+environment variable, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").
 
 ## Use Systems Manager
 

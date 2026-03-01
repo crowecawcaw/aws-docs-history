@@ -86,9 +86,7 @@ container agent environment variables `ECS_ENGINE_AUTH_TYPE` or
 `ECS_ENGINE_AUTH_DATA` or modify the `ecs.config` file
 for tasks hosted on Fargate. For more information, see [Private registry authentication for tasks](private-auth.md "private-auth.md").
 
-## Container instance
-
-role
+## Container instance role
 
 The `AmazonEC2ContainerServiceforEC2Role` managed IAM policy includes the
 following permissions. Following the standard security advice of granting least
@@ -177,9 +175,7 @@ instructions, see [Create the service-linked role](using-service-linked-roles.md
 We recommend that you do the following when setting up your task IAM roles and
 policies.
 
-### Block access
-
-to Amazon EC2 metadata
+### Block access to Amazon EC2 metadata
 
 When you run your tasks on Amazon EC2 instances, we strongly recommend that you
 block access to Amazon EC2 metadata to prevent your containers from inheriting the
@@ -220,9 +216,7 @@ to `false` in the `ecs-agent config` file to prevent the containers
 that are running within the `host` network from accessing the Amazon EC2
 metadata.
 
-### Use the
-
-`awsvpc` network mode
+### Use the `awsvpc` network mode
 
 Use the network `awsvpc` network mode to restrict the flow of
 traffic between different tasks or between your tasks and other services that

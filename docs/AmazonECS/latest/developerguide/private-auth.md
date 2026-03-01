@@ -56,7 +56,7 @@ Substitute the following parameters:
 
 Another method of enabling private registry authentication uses Amazon ECS container agent
 environment variables to authenticate to private registries. This method is only
-supported for tasks hosted on Amazon EC2 instances. For more information, see [Configuring Amazon ECS container instances for private Docker images](private-auth-container-instances.md "private-auth-container-instances.md") .
+supported for tasks hosted on Amazon EC2 instances. For more information, see [Configuring Amazon ECS container instances for private Docker images](private-auth-container-instances.md "private-auth-container-instances.md").
 
 ###### To use private registry
 
@@ -113,5 +113,4 @@ Enter your private registry credentials using the following format:
 }
 ```
 
-3. Register a task definition. For more information, see [Creating an Amazon ECS task definition using the
-   console](create-task-definition.md "create-task-definition.md").
+3. Register a task definition. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").

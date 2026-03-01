@@ -1,6 +1,4 @@
-# Retrieving Amazon ECS-optimized
-
-Bottlerocket AMI metadata
+# Retrieving Amazon ECS-optimized Bottlerocket AMI metadata
 
 You can retrieve the Amazon Machine Image (AMI) ID for Amazon ECS-optimized AMIs by
 querying the AWS Systems Manager Parameter Store API. Using this parameter, you don't need to
@@ -9,9 +7,7 @@ Store API, see [GetParameter](../../../systems-manager/latest/APIReference/API_G
 user that you use must have the `ssm:GetParameter` IAM permission to
 retrieve the Amazon ECS-optimized AMI metadata.
 
-## `aws-ecs-2`
-
-Bottlerocket AMI variant
+## `aws-ecs-2` Bottlerocket AMI variant
 
 You can retrieve the latest stable `aws-ecs-2` Bottlerocket AMI
 variant by AWS Region and architecture with the AWS CLI or the AWS Management Console.
@@ -122,9 +118,7 @@ information about the supported AWS Regions, see [Finding an AMI](https://github
     https://`region`console.aws.amazon.com/systems-manager/parameters/aws/service/bottlerocket/aws-ecs-2-nvidia/arm64/latest/image_id/description?region=`region`#
     ```
 
-## `aws-ecs-1`
-
-Bottlerocket AMI variant
+## `aws-ecs-1` Bottlerocket AMI variant
 
 You can retrieve the latest stable `aws-ecs-1` Bottlerocket AMI
 variant by AWS Region and architecture with the AWS CLI or the AWS Management Console.
@@ -239,5 +233,4 @@ For a detailed tutorial on how to get started with the Bottlerocket
 operating system on Amazon ECS, see [Using a Bottlerocket AMI with Amazon ECS](https://github.com/bottlerocket-os/bottlerocket/blob/develop/QUICKSTART-ECS.md "https://github.com/bottlerocket-os/bottlerocket/blob/develop/QUICKSTART-ECS.md") on GitHub and [Getting started withBottlerocket and Amazon ECS](https://aws.amazon.com/blogs/containers/getting-started-with-bottlerocket-and-amazon-ecs/ "https://aws.amazon.com/blogs/containers/getting-started-with-bottlerocket-and-amazon-ecs/") on the AWS
 blog site.
 
-For information about how to launch a Bottlerocket instance, see [Launching a Bottlerocket
-instance for Amazon ECS](bottlerocket-launch.md "bottlerocket-launch.md")
+For information about how to launch a Bottlerocket instance, see [Launching a Bottlerocket instance for Amazon ECS](bottlerocket-launch.md "bottlerocket-launch.md")

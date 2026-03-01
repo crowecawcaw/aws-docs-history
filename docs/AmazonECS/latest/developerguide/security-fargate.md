@@ -3,9 +3,7 @@
 We recommend that you take into account the following best practices when you use
 AWS Fargate. For additional guidance, see [Security overview of AWS Fargate](https://d1.awsstatic.com/whitepapers/AWS_Fargate_Security_Overview_Whitepaper.pdf "https://d1.awsstatic.com/whitepapers/AWS_Fargate_Security_Overview_Whitepaper.pdf").
 
-## Use AWS KMS to encrypt
-
-ephemeral storage for Fargate
+## Use AWS KMS to encrypt ephemeral storage for Fargate
 
 You should have your ephemeral storage encrypted by either AWS KMS or your own
 customer managed keys. For tasks that are hosted on Fargate using platform version
@@ -37,9 +35,7 @@ aws ecs run-task --cluster clustername \
 
 ```
 
-## SYS_PTRACE capability for kernel
-
-syscall tracing with Fargate
+## SYS_PTRACE capability for kernel syscall tracing with Fargate
 
 The default configuration of Linux capabilities that are added or removed from
 your container are provided by Docker.

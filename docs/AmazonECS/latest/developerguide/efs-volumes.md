@@ -10,8 +10,7 @@ of container instances. That way, your tasks have access to the same persistent 
 no matter the instance on which they land. Your task definitions must reference volume
 mounts on the container instance to use the file system.
 
-For a tutorial, see [Configuring Amazon EFS file systems for Amazon ECS using the
-console](tutorial-efs-volumes.md "tutorial-efs-volumes.md").
+For a tutorial, see [Configuring Amazon EFS file systems for Amazon ECS using the console](tutorial-efs-volumes.md "tutorial-efs-volumes.md").
 
 ## Considerations
 
@@ -58,8 +57,7 @@ sudo shutdown -r now`
   endpoint. Additionally, it is visible in CloudWatch Container Insights as the container name
   `aws-fargate-supervisor`. For more information when using the
   EC2, see [Amazon ECS task metadata endpoint version 4](task-metadata-endpoint-v4.md "task-metadata-endpoint-v4.md"). For more information when using
-  the Fargate, see [Amazon ECS task metadata endpoint version 4 for
-  tasks on Fargate](task-metadata-endpoint-v4-fargate.md "task-metadata-endpoint-v4-fargate.md").
+  the Fargate, see [Amazon ECS task metadata endpoint version 4 for tasks on Fargate](task-metadata-endpoint-v4-fargate.md "task-metadata-endpoint-v4-fargate.md").
 - Using Amazon EFS volumes or specifying an `EFSVolumeConfiguration`
   isn't supported on external instances.
 - Using Amazon EFS volumes is supported for tasks that run on Amazon ECS Managed Instances.

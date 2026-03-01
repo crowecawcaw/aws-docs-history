@@ -1,6 +1,4 @@
-# Migrating from an Amazon Linux 2 to an Amazon Linux 2023
-
-Amazon ECS-optimized AMI
+# Migrating from an Amazon Linux 2 to an Amazon Linux 2023 Amazon ECS-optimized AMI
 
 Following [Amazon Linux](https://aws.amazon.com/amazon-linux-2/faqs "https://aws.amazon.com/amazon-linux-2/faqs"),
 Amazon ECS ends standard support for Amazon Linux 2 Amazon ECS-optimized AMIs effective June 30, 2026.
@@ -20,9 +18,7 @@ the two operating systems.
 For more information, see [Comparing Amazon Linux 2 and _Amazon Linux 2023_](../../../linux/al2023/ug/compare-with-al2.md "../../../linux/al2023/ug/compare-with-al2.md") in the _Amazon Linux 2023 User
 Guide_ and the [AL2023 FAQs](https://aws.amazon.com/linux/amazon-linux-2023/faqs "https://aws.amazon.com/linux/amazon-linux-2023/faqs").
 
-## Compatibility
-
-considerations
+## Compatibility considerations
 
 ### Package management and OS updates
 
@@ -33,18 +29,14 @@ information, see [Managing repositories and
 OS updates in Amazon Linux 2023](../../../linux/al2023/ug/managing-repos-os-updates.md "../../../linux/al2023/ug/managing-repos-os-updates.md") in the _Amazon Linux 2023
 User Guide_.
 
-### Linux kernel
-
-versions
+### Linux kernel versions
 
 Amazon Linux 2 AMIs are based on Linux kernels 4.14 and 5.10, while Amazon Linux 2023 uses Linux
 kernel 6.1 and 6.12. For more information, see [Comparing Amazon Linux 2 and
 Amazon Linux 2023 kernels](../../../linux/al2023/ug/compare-with-al2-kernel.md "../../../linux/al2023/ug/compare-with-al2-kernel.md") in the _Amazon Linux 2023 User
 Guide_.
 
-### Package
-
-availability changes
+### Package availability changes
 
 The following are notable package changes in Amazon Linux 2023:
 
@@ -62,9 +54,7 @@ The following are notable package changes in Amazon Linux 2023:
 - 32-bit applications are not supported in Amazon Linux 2023. For more information,
   see [Deprecated features from Amazon Linux 2](../../../linux/al2023/ug/deprecated-al2.md#deprecated-32bit-rpms "../../../linux/al2023/ug/deprecated-al2.md#deprecated-32bit-rpms") in the _Amazon Linux 2023 User Guide_.
 
-### Control Groups
-
-(cgroups) changes
+### Control Groups (cgroups) changes
 
 A Control Group (cgroup) is a Linux kernel feature to hierarchically organize
 processes and distribute system resources between them. Control Groups are used
@@ -77,9 +67,7 @@ not need to make any changes for this underlying cgroup upgrade.
 For further details on cgroupv2, see [Control groups v2 in Amazon Linux 2023](../../../linux/al2023/ug/cgroupv2.md "../../../linux/al2023/ug/cgroupv2.md") in
 the _Amazon Linux 2023 User Guide_.
 
-### Instance Metadata
-
-Service (IMDS) changes
+### Instance Metadata Service (IMDS) changes
 
 Amazon Linux 2023 requires Instance Metadata Service version 2 (IMDSv2) by default. IMDSv2 has several benefits that help improve
 security posture. It uses a session-oriented authentication method that requires the
@@ -97,9 +85,7 @@ settings using instance metadata option launch properties.
 Per-container memory swappiness is not supported on Amazon Linux 2023 and cgroups v2. For
 more information, see [Managing container swap memory space on Amazon ECS](container-swap.md "container-swap.md").
 
-### FIPS validation
-
-changes
+### FIPS validation changes
 
 Amazon Linux 2 is certified under FIPS 140-2 and Amazon Linux 2023 is certified under FIPS
 140-3.
@@ -109,9 +95,7 @@ instance and follow the configuration steps using the instructions in [Enable FI
 Amazon Linux 2023](../../../linux/al2023/ug/fips-mode.md "../../../linux/al2023/ug/fips-mode.md") in the _Amazon Linux 2023 User
 Guide_.
 
-### Accelerated
-
-instance support
+### Accelerated instance support
 
 The Amazon ECS-optimized Amazon Linux 2023 AMIs support both Neuron and GPU accelerated instance types. For more
 information, see [Amazon ECS-optimized Linux AMIs](ecs-optimized_AMI.md "ecs-optimized_AMI.md").
@@ -156,9 +140,7 @@ on how you manage your Amazon ECS infrastructure.
    is complete, remove the Amazon Linux 2 capacity provider from your cluster and delete
    the associated Auto Scaling group.
 
-### Migrating with an Amazon EC2
-
-Auto Scaling group
+### Migrating with an Amazon EC2 Auto Scaling group
 
 1. Create a new Amazon EC2 Auto Scaling group with a new launch template. This
    should be similar to your existing launch template, but instead of the Amazon Linux 2
@@ -175,9 +157,7 @@ Auto Scaling group
    explicitly drain the container instances to speed up the transition
    of your tasks from Amazon Linux 2 to Amazon Linux 2023. For more information, see [Draining Amazon ECS container instances](container-instance-draining.md "container-instance-draining.md").
 
-### Migrating with
-
-manually managed instances
+### Migrating with manually managed instances
 
 1. Manually launch (or adjust scripts that launch) new Amazon EC2 instances using
    the Amazon ECS-optimized Amazon Linux 2023 AMI instead of Amazon Linux 2. Ensure these instances use the same

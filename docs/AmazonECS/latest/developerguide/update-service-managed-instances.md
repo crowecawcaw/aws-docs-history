@@ -4,8 +4,7 @@ If you have an existing service that uses the Amazon EC2 or Fargate launchtype a
 
 ## Prerequisites
 
-Create a capacity provider for your Amazon ECS Managed Instances. For more information, see [Creating a capacity provider
-for Amazon ECS Managed Instances](create-capacity-provider-managed-instances.md "create-capacity-provider-managed-instances.md").
+Create a capacity provider for your Amazon ECS Managed Instances. For more information, see [Creating a capacity provider for Amazon ECS Managed Instances](create-capacity-provider-managed-instances.md "create-capacity-provider-managed-instances.md").
 
 ## Procedure
 

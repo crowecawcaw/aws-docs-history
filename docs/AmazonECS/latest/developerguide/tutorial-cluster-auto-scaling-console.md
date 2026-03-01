@@ -1,6 +1,4 @@
-# Creating resources for Amazon ECS cluster auto scaling using the
-
-AWS Management Console
+# Creating resources for Amazon ECS cluster auto scaling using the AWS Management Console
 
 Learn how to create the resources for cluster auto scaling using the
 AWS Management Console. Where resources require a name, we use the prefix
@@ -11,8 +9,7 @@ to locate.
 
 - [Prerequisites](#console-tutorial-prereqs "#console-tutorial-prereqs")
 - [Step 1: Create an Amazon ECS cluster](#console-tutorial-cluster "#console-tutorial-cluster")
-- [Step 2: Register a task
-  definition](#console-tutorial-register-task-definition "#console-tutorial-register-task-definition")
+- [Step 2: Register a task definition](#console-tutorial-register-task-definition "#console-tutorial-register-task-definition")
 - [Step 3: Run a task](#console-tutorial-run-task "#console-tutorial-run-task")
 - [Step 4: Verify](#console-tutorial-verify "#console-tutorial-verify")
 - [Step 5: Clean up](#console-tutorial-cleanup "#console-tutorial-cleanup")
@@ -27,8 +24,7 @@ This tutorial assumes that the following prerequisites have been completed:
 - The Amazon ECS container instance IAM role is created. For more information, see
   [Amazon ECS container instance IAM role](instance_IAM_role.md "instance_IAM_role.md").
 - The Amazon ECS service-linked IAM role is created. For more information, see
-  [Using service-linked roles for
-  Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
+  [Using service-linked roles for Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
 - The Auto Scaling service-linked IAM role is created. For more information, see
   [Service-Linked Roles for Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/autoscaling-service-linked-role.md "../../../autoscaling/ec2/userguide/autoscaling-service-linked-role.md") in the
   _Amazon EC2 Auto Scaling User Guide_.
@@ -72,9 +68,7 @@ part of the CloudFormation stack.
 [Remove a tag] Choose **Remove** to the right of the tag’s
 Key and Value. 6. Choose **Create**.
 
-## Step 2: Register a task
-
-definition
+## Step 2: Register a task definition
 
 Before you can run a task on your cluster, you must register a task definition. Task
 definitions are lists of containers grouped together. The following example is a simple

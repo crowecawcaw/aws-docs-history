@@ -5,9 +5,7 @@ EBS volume attached to your tasks, EBS filesystem utilization. These metrics are
 available for clusters with tasks or services hosted on Amazon EC2 instances. They're not
 supported on clusters with tasks hosted on AWS Fargate.
 
-## Amazon ECS cluster level CPU and memory
-
-utilization metrics
+## Amazon ECS cluster level CPU and memory utilization metrics
 
 The CPU and memory utilization is measured as the percentage of CPU and memory
 that is used by all tasks on a cluster when compared to the aggregate CPU and memory
@@ -48,9 +46,7 @@ units and `20,480` MiB of memory are used on the cluster. This is
 reported to CloudWatch as 55% CPU utilization and 60% memory utilization for the
 cluster.
 
-## Amazon ECS cluster-level Amazon EBS filesystem
-
-utilization
+## Amazon ECS cluster-level Amazon EBS filesystem utilization
 
 The cluster level EBS filesystem utilization metric is measured as the total
 amount of the EBS filesystem in use by the tasks running on the cluster, divided by

@@ -25,8 +25,7 @@ Before you begin, ensure the following prerequisites are met.
   service. For more information, see [Amazon ECR managed
   policies](../../../AmazonECR/latest/userguide/security-iam-awsmanpol.md "../../../AmazonECR/latest/userguide/security-iam-awsmanpol.md").
 - You have Docker installed. For Docker installation steps for Amazon Linux 2023, see
-  [Installing Docker on
-  AL2023](#create-container-image-install-docker "#create-container-image-install-docker"). For all other
+  [Installing Docker on AL2023](#create-container-image-install-docker "#create-container-image-install-docker"). For all other
   operating systems, see the Docker documentation at [Docker Desktop
   overview](https://docs.docker.com/desktop/ "https://docs.docker.com/desktop/").
 - You have the AWS CLI installed and configured. For more information, see [Installing or updating to the
@@ -282,6 +281,5 @@ After you have created and pushed your container image to Amazon ECR, you can us
 image in a task definition. For more information, see one of the following:
 
 - [Learn how to create an Amazon ECS Linux task for Fargate](getting-started-fargate.md "getting-started-fargate.md")
-- [Learn how to create an Amazon ECS
-  Windows task for Fargate](Windows_fargate-getting_started.md "Windows_fargate-getting_started.md")
+- [Learn how to create an Amazon ECS Windows task for Fargate](Windows_fargate-getting_started.md "Windows_fargate-getting_started.md")
 - [Creating an Amazon ECS Linux task for the Fargate with the AWS CLI](ECS_AWSCLI_Fargate.md "ECS_AWSCLI_Fargate.md")

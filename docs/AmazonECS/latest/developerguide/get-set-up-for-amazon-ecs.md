@@ -222,12 +222,10 @@ use them with Amazon ECS.
   first container image](create-container-image.md "create-container-image.md") with Docker and push it to Amazon ECR for use in your Amazon ECS
   task definitions.
 - [Learn how to create an Amazon ECS Linux task for Fargate](getting-started-fargate.md "getting-started-fargate.md").
-- [Learn how to create an Amazon ECS
-  Windows task for Fargate](Windows_fargate-getting_started.md "Windows_fargate-getting_started.md").
+- [Learn how to create an Amazon ECS Windows task for Fargate](Windows_fargate-getting_started.md "Windows_fargate-getting_started.md").
 - [Learn how to create an Amazon ECS Windows task for EC2](getting-started-ecs-ec2-v2.md "getting-started-ecs-ec2-v2.md").
 - Using your preferred programming language, define infrastructure or architecture
-  as code with the [Creating Amazon ECS resources using the
-  AWS CDK](tutorial-ecs-web-server-cdk.md "tutorial-ecs-web-server-cdk.md").
+  as code with the [Creating Amazon ECS resources using the AWS CDK](tutorial-ecs-web-server-cdk.md "tutorial-ecs-web-server-cdk.md").
 - Define and manage all AWS resources in your environment with automated
   deployment using [Using Amazon ECS with AWS CloudFormation](ecs-with-cloudformation.md "ecs-with-cloudformation.md").
 - Use the complete [Creating Amazon ECS resources using the AWS Copilot command line interface](AWS_Copilot.md "AWS_Copilot.md") end-to-end developer workflow to

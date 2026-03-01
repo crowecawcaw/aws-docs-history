@@ -4,9 +4,7 @@ The following are some CannotStartContainerError error messages and actions that
 
 To check your stopped tasks for an error message using the AWS Management Console, see [Viewing Amazon ECS stopped task errors](stopped-task-errors.md "stopped-task-errors.md").
 
-## failed to get container status:
-
-`<reason>`
+## failed to get container status: `<reason>`
 
 This error occurs when a container can't be started.
 

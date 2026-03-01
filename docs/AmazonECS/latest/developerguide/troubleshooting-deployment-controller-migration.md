@@ -1,13 +1,9 @@
-# Troubleshooting Amazon ECS
-
-deployment strategy updates
+# Troubleshooting Amazon ECS deployment strategy updates
 
 This section provides solutions for common issues you might encounter when migrating
 deployment strategies.
 
-## Multiple service revisions or tasks
-
-sets
+## Multiple service revisions or tasks sets
 
 The following issues relate to having multiple service revisions for a deployment.
 
@@ -83,9 +79,7 @@ aws ecs describe-services --cluster `your-cluster-name` --services `your-service
 
 For more information, see [Amazon ECS service deployment controllers and strategies](ecs_service-options.md "ecs_service-options.md").
 
-## Mismatch between the deployment failure
-
-detection type and deployment controller
+## Mismatch between the deployment failure detection type and deployment controller
 
 The following issues relate to a mismatch between the deployment failure detection type
 and deployment controller.
@@ -120,8 +114,7 @@ aws ecs update-service --cluster `your-cluster-name` --service `your-service-nam
 aws ecs update-service --cluster `your-cluster-name` --service `your-service-name` --deployment-configuration "deploymentCircuitBreaker={enable=true,rollback=true}"
 ```
 
-For more information, see [How the Amazon ECS deployment circuit breaker
-detects failures](deployment-circuit-breaker.md "deployment-circuit-breaker.md").
+For more information, see [How the Amazon ECS deployment circuit breaker detects failures](deployment-circuit-breaker.md "deployment-circuit-breaker.md").
 
 Alarm-based rollback with non-ECS controller
 
@@ -153,12 +146,9 @@ aws ecs update-service --cluster `your-cluster-name` --service `your-service-nam
 aws ecs update-service --cluster `your-cluster-name` --services `your-service-name` --deployment-configuration "alarms={alarmNames=[your-alarm-name],enable=true,rollback=true}"
 ```
 
-For more information, see [How CloudWatch alarms detect Amazon ECS deployment
-failures](deployment-alarm-failure.md "deployment-alarm-failure.md").
+For more information, see [How CloudWatch alarms detect Amazon ECS deployment failures](deployment-alarm-failure.md "deployment-alarm-failure.md").
 
-## Mismatch between Service Connect
-
-and the deployment controller
+## Mismatch between Service Connect and the deployment controller
 
 The following issues relate to a mismatch between Service Connect and the deployment
 controller.
@@ -227,9 +217,7 @@ aws ecs update-service --cluster `your-cluster-name` --service `your-service-nam
 
 For more information, see [Amazon ECS service deployment controllers and strategies](ecs_service-options.md "ecs_service-options.md").
 
-## Mismatch between controller type
-
-and scheduling strategy
+## Mismatch between controller type and scheduling strategy
 
 The following issues relate to a mismatch between controller type and scheduling
 strategy.

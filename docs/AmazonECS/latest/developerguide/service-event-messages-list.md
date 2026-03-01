@@ -2,9 +2,7 @@
 
 The following are examples of service event messages you may see in the Amazon ECS console.
 
-## service
-
-(`service-name`) has reached a steady state.
+## service (`service-name`) has reached a steady state.
 
 The service scheduler sends a `service (`service-name`) has
  reached a steady state.` service event when the service is healthy and at the desired
@@ -13,10 +11,7 @@ number of tasks, thus reaching a steady state.
 The service scheduler reports the status periodically, so you might receive this message
 multiple times.
 
-## service (`service-name`)
-
-was unable to place a task because no container instance met all of its
-requirements.
+## service (`service-name`) was unable to place a task because no container instance met all of its requirements.
 
 The service scheduler sends this event message when it couldn't find the available resources
 to add another task. The possible causes for this are:
@@ -32,8 +27,7 @@ No container instances were found in your cluster
 
 If no container instances are registered in the cluster you attempt to run a task
 in, you receive this error. You should add container instances to your cluster. For
-more information, see [Launching an Amazon ECS Linux container
-instance](launch_container_instance.md "launch_container_instance.md").
+more information, see [Launching an Amazon ECS Linux container instance](launch_container_instance.md "launch_container_instance.md").
 
 Not enough ports
 
@@ -107,12 +101,10 @@ conditions:
 - If you **have** opted in to the
   `awsvpcTrunking` account setting and you **have** launched new container instances using a
   supported instance type after opting in, additional ENIs are available. For
-  more information, see [Supported instances for
-  increased Amazon ECS container network interfaces](eni-trunking-supported-instance-types.md "eni-trunking-supported-instance-types.md").
+  more information, see [Supported instances for increased Amazon ECS container network interfaces](eni-trunking-supported-instance-types.md "eni-trunking-supported-instance-types.md").
 
 For more information about opting in to the `awsvpcTrunking` account
-setting, see [Increasing Amazon ECS Linux container instance network
-interfaces](container-instance-eni.md "container-instance-eni.md").
+setting, see [Increasing Amazon ECS Linux container instance network interfaces](container-instance-eni.md "container-instance-eni.md").
 
 You can add container instances to your cluster to provide more available network
 adapters.
@@ -144,21 +136,13 @@ Guide_.
 For more information on which attributes are required for specific task
 definition parameters and agent configuration variables, see [Amazon ECS task definition parameters for Fargate](task_definition_parameters.md "task_definition_parameters.md") and [Amazon ECS container agent configuration](ecs-agent-config.md "ecs-agent-config.md").
 
-## service (`service-name`)
-
-was unable to place a task because no container instance met all of its requirements. The
-closest matching container-instance `container-instance-id` has
-insufficient CPU units available.
+## service (`service-name`) was unable to place a task because no container instance met all of its requirements. The closest matching container-instance `container-instance-id` has insufficient CPU units available.
 
 The closest matching container instance for task placement doesn't contain enough CPU units
 to meet the requirements in the task definition. Review the CPU requirements in both the task
 size and container definition parameters of the task definition.
 
-## service (`service-name`)
-
-was unable to place a task because no container instance met all of its requirements. The
-closest matching container-instance `container-instance-id`
-encountered error "AGENT".
+## service (`service-name`) was unable to place a task because no container instance met all of its requirements. The closest matching container-instance `container-instance-id` encountered error "AGENT".
 
 The Amazon ECS container agent on the closest matching container instance for task placement is
 disconnected. If you can connect to the container instance with SSH, you can examine the agent
@@ -179,20 +163,13 @@ command.
 `sudo stop ecs && sudo start ecs`
 ```
 
-## service (`service-name`)
-
-(task `task-id`) (instance `instance-id`) is unhealthy in (elb
-`elb-name`) due to (reason Instance has failed at least the
-UnhealthyThreshold number of health checks consecutively.)
+## service (`service-name`) (task `task-id`) (instance `instance-id`) is unhealthy in (elb `elb-name`) due to (reason Instance has failed at least the UnhealthyThreshold number of health checks consecutively.)
 
 This service is registered with a load balancer and the load balancer health checks are
 failing. The message includes the task ID to help identify which specific task is failing health checks.
-For more information, see [Troubleshooting service load
-balancers in Amazon ECS](troubleshoot-service-load-balancers.md "troubleshoot-service-load-balancers.md").
+For more information, see [Troubleshooting service load balancers in Amazon ECS](troubleshoot-service-load-balancers.md "troubleshoot-service-load-balancers.md").
 
-## service (`service-name`) is
-
-unable to consistently start tasks successfully.
+## service (`service-name`) is unable to consistently start tasks successfully.
 
 This service contains tasks that have failed to start after consecutive attempts. At this
 point, the service scheduler begins to incrementally increase the time between retries. You
@@ -201,9 +178,7 @@ should troubleshoot why your tasks are failing to launch. For more information, 
 After the service is updated, for example with an updated task definition, the service
 scheduler resumes normal behavior.
 
-## service (`service-name`)
-
-operations are being throttled. Will try again later.
+## service (`service-name`) operations are being throttled. Will try again later.
 
 This service is unable to launch more tasks due to API throttling limits. Once the service
 scheduler is able to launch more tasks, it will resume.
@@ -212,11 +187,7 @@ To request an API rate limit quota increase, open the [AWS Support Center](https
 **Create case**. Choose **Service limit increase**.
 Complete and submit the form.
 
-## service (`service-name`)
-
-was unable to stop or start tasks during a deployment because of the service deployment
-configuration. Update the minimumHealthyPercent or maximumPercent value and try
-again.
+## service (`service-name`) was unable to stop or start tasks during a deployment because of the service deployment configuration. Update the minimumHealthyPercent or maximumPercent value and try again.
 
 This service is unable to stop or start tasks during a service deployment due to the
 deployment configuration. The deployment configuration consists of the
@@ -243,17 +214,12 @@ start any tasks due to the resulting value also being three.
 When setting a minimum healthy percent or a maximum percent, you should ensure that the
 scheduler can stop or start at least one task when a deployment is triggered.
 
-## service (`service-name`)
-
-was unable to place a task. Reason: You've reached the limit on the number of tasks you can
-run concurrently
+## service (`service-name`) was unable to place a task. Reason: You've reached the limit on the number of tasks you can run concurrently
 
 You can request a quota increase for the resource that caused the error. For more
 information, see [Amazon ECS service quotas](service-quotas.md "service-quotas.md"). To request a quota increase, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
 
-## service (`service-name`)
-
-was unable to place a task. Reason: Internal error.
+## service (`service-name`) was unable to place a task. Reason: Internal error.
 
 The following is the possible reason for this error:
 
@@ -261,44 +227,29 @@ The service is unable to start a task due to a subnet being in an unsupported Av
 Zone.
 
 For information about the supported Fargate Regions and Availability Zones,
-see [Supported Regions for Amazon ECS on
-AWS Fargate](AWS_Fargate-Regions.md "AWS_Fargate-Regions.md").
+see [Supported Regions for Amazon ECS on AWS Fargate](AWS_Fargate-Regions.md "AWS_Fargate-Regions.md").
 
 For information about how to view the subnet Availability Zone, see [View your subnet](../../../vpc/latest/userguide/working-with-vpcs.md#view-subnet "../../../vpc/latest/userguide/working-with-vpcs.md#view-subnet") in the
 _Amazon VPC User Guide_.
 
-## service (`service-name`)
-
-was unable to place a task. Reason: The requested CPU configuration is above your
-limit.
+## service (`service-name`) was unable to place a task. Reason: The requested CPU configuration is above your limit.
 
 You can request a quota increase for the resource that caused the error. For more
 information, see [Amazon ECS service quotas](service-quotas.md "service-quotas.md"). To request a quota increase, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
 
-## service (`service-name`)
-
-was unable to place a task. Reason: The requested MEMORY configuration is above your
-limit.
+## service (`service-name`) was unable to place a task. Reason: The requested MEMORY configuration is above your limit.
 
 You can request a quota increase for the resource that caused the error. For more
 information, see [Amazon ECS service quotas](service-quotas.md "service-quotas.md"). To request a quota increase, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
 
-## service (`service-name`)
-
-was unable to place a task. Reason: You’ve reached the limit on the number of vCPUs you can
-run concurrently
+## service (`service-name`) was unable to place a task. Reason: You’ve reached the limit on the number of vCPUs you can run concurrently
 
 AWS Fargate is transitioning from task count-based quotas to vCPU-based quotas.
 
 You can request a quota increase for Fargate vCPU-based quota. For more information,
 see [Amazon ECS service quotas](service-quotas.md "service-quotas.md"). To request a Fargate quota increase, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
 
-## service
-
-(`service-name`) was unable to reach steady state
-because task set (`taskSet-ID`) was unable to scale in.
-Reason: The number of protected tasks are more than the desired count of
-tasks
+## service (`service-name`) was unable to reach steady state because task set (`taskSet-ID`) was unable to scale in. Reason: The number of protected tasks are more than the desired count of tasks
 
 The service has more protected tasks than the desirednumber of tasks. You can do one the
 following:
@@ -311,10 +262,7 @@ following:
 - Increase the desired task count of the service to more than the number of protected
   tasks.
 
-## service (`service-name`)
-
-was unable to reach steady state. Reason: No Container Instances were found in your
-capacity provider.
+## service (`service-name`) was unable to reach steady state. Reason: No Container Instances were found in your capacity provider.
 
 The service scheduler sends this event message when it couldn't find the available resources
 to add another task. The possible causes for this are:
@@ -333,8 +281,7 @@ No container instances were found in your cluster
 
 If no container instances are registered in the cluster you attempt to run a task
 in, you receive this error. You should add container instances to your cluster. For
-more information, see [Launching an Amazon ECS Linux container
-instance](launch_container_instance.md "launch_container_instance.md").
+more information, see [Launching an Amazon ECS Linux container instance](launch_container_instance.md "launch_container_instance.md").
 
 Not enough ports
 
@@ -399,12 +346,10 @@ conditions:
 - If you **have** opted in to the
   `awsvpcTrunking` account setting and you **have** launched new container instances using a
   supported instance type after opting in, additional ENIs are available. For
-  more information, see [Supported instances for
-  increased Amazon ECS container network interfaces](eni-trunking-supported-instance-types.md "eni-trunking-supported-instance-types.md").
+  more information, see [Supported instances for increased Amazon ECS container network interfaces](eni-trunking-supported-instance-types.md "eni-trunking-supported-instance-types.md").
 
 For more information about opting in to the `awsvpcTrunking` account
-setting, see [Increasing Amazon ECS Linux container instance network
-interfaces](container-instance-eni.md "container-instance-eni.md").
+setting, see [Increasing Amazon ECS Linux container instance network interfaces](container-instance-eni.md "container-instance-eni.md").
 
 You can add container instances to your cluster to provide more available network
 adapters.
@@ -436,10 +381,7 @@ Guide_.
 For more information on which attributes are required for specific task
 definition parameters and agent configuration variables, see [Amazon ECS task definition parameters for Fargate](task_definition_parameters.md "task_definition_parameters.md") and [Amazon ECS container agent configuration](ecs-agent-config.md "ecs-agent-config.md").
 
-## service (`service-name`)
-
-was unable to place a task. Reason: Capacity is unavailable at this time. Please try again
-later or in a different availability zone.
+## service (`service-name`) was unable to place a task. Reason: Capacity is unavailable at this time. Please try again later or in a different availability zone.
 
 There is currently no available capacity to run your service on.
 
@@ -448,18 +390,13 @@ You can do one the following:
 - Wait until the Fargate capacity or EC2 container instances become available.
 - Relaunch the service and specify additional subnets.
 
-## service (`service-name`)
-
-deployment failed: tasks failed to start.
+## service (`service-name`) deployment failed: tasks failed to start.
 
 The tasks in your service failed to start.
 
 For information about how to debug stopped tasks. see [Amazon ECS stopped tasks error messages](stopped-task-error-codes.md "stopped-task-error-codes.md").
 
-## service (`service-name`)
-
-Timed out waiting for Amazon ECS Agent to start. Please check logs at
-/var/log/ecs/ecs-agent.log".
+## service (`service-name`) Timed out waiting for Amazon ECS Agent to start. Please check logs at /var/log/ecs/ecs-agent.log".
 
 The Amazon ECS container agent on the closest matching container instance for task placement is
 disconnected. If you can connect to the container instance with SSH, you can examine the agent
@@ -480,19 +417,13 @@ command.
 `sudo stop ecs && sudo start ecs`
 ```
 
-## service (`service-name`) task set
-
-(`taskSet-ID`) (task `task-id`) is not healthy in target-group
-(`targetGroup-ARN)`) due to `TARGET GROUP IS NOT FOUND`.
+## service (`service-name`) task set (`taskSet-ID`) (task `task-id`) is not healthy in target-group (`targetGroup-ARN)`) due to `TARGET GROUP IS NOT FOUND`.
 
 The task set for the service is failing health checks because the target group isn't found. The message includes the task ID to help identify which specific task is failing health checks. You should
 delete and recreate the service. Don't delete any Elastic Load Balancing target group unless the corresponding Amazon ECS service
 is already deleted.
 
-## service (`service-name`) task set
-
-(`taskSet-ID`) (task `task-id`) is not healthy in target-group
-(`targetGroup-ARN)`) due to `TARGET IS NOT FOUND`.
+## service (`service-name`) task set (`taskSet-ID`) (task `task-id`) is not healthy in target-group (`targetGroup-ARN)`) due to `TARGET IS NOT FOUND`.
 
 The task set for the service is failing health checks because the target isn't found. The message includes the task ID to help identify which specific task is failing health checks.
 
@@ -514,9 +445,7 @@ The service scheduler sends this event message when a deployment workflow succes
 
 The message includes the specific failure reason, such as insufficient CPU, memory, or other resource constraints. This helps you understand what resources need to be addressed to resolve the deployment issue.
 
-For more information, see [service (service-name)
-was unable to place a task because no container instance met all of its
-requirements.](#service-event-messages-1 "#service-event-messages-1").
+For more information, see [service (service-name) was unable to place a task because no container instance met all of its requirements.](#service-event-messages-1 "#service-event-messages-1").
 
 ## service (`service-name`) was unable to place tasks in your cluster because the tasks provisioning capacity limit was exceeded.
 

@@ -22,12 +22,9 @@ parameter ensures that each time you deploy the stack it will check to see if th
 is available update that needs to be applied to the EC2 instances. For an example of
 how to use the Systems Manager parameter, see [Create an Amazon ECS cluster with the Amazon ECS-optimized Amazon Linux 2023 AMI](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.md#aws-resource-ecs-cluster--examples--Create_an_cluster_with_the_Amazon_Linux_2023_ECS-Optimized-AMI "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.md#aws-resource-ecs-cluster--examples--Create_an_cluster_with_the_Amazon_Linux_2023_ECS-Optimized-AMI") in the _AWS CloudFormation User Guide_.
 
-- [Retrieving Amazon ECS-optimized Linux AMI
-  metadata](retrieve-ecs-optimized_AMI.md "retrieve-ecs-optimized_AMI.md")
-- [Retrieving Amazon ECS-optimized
-  Bottlerocket AMI metadata](ecs-bottlerocket-retrieve-ami.md "ecs-bottlerocket-retrieve-ami.md")
-- [Retrieving Amazon ECS-optimized Windows
-  AMI metadata](retrieve-ecs-optimized_windows_AMI.md "retrieve-ecs-optimized_windows_AMI.md")
+- [Retrieving Amazon ECS-optimized Linux AMI metadata](retrieve-ecs-optimized_AMI.md "retrieve-ecs-optimized_AMI.md")
+- [Retrieving Amazon ECS-optimized Bottlerocket AMI metadata](ecs-bottlerocket-retrieve-ami.md "ecs-bottlerocket-retrieve-ami.md")
+- [Retrieving Amazon ECS-optimized Windows AMI metadata](retrieve-ecs-optimized_windows_AMI.md "retrieve-ecs-optimized_windows_AMI.md")
   You can choose from the instance types that are compatible with your application.
   With larger instances, you can launch more tasks at the same time. With smaller
   instances, you can scale out in a more fine-grained way to save costs. You don't
@@ -97,7 +94,5 @@ To help minimize Spot capacity shortages, consider the following recommendations
 
 For information about how to configure spot termination notices on your container instances, see:
 
-- [Configuring Amazon ECS Linux
-  container instances to receive Spot Instance notices](spot-instance-draining-linux-container.md "spot-instance-draining-linux-container.md")
-- [Configuring Amazon ECS Windows
-  container instances to receive Spot Instance notices](windows-spot-instance-draining-container.md "windows-spot-instance-draining-container.md")
+- [Configuring Amazon ECS Linux container instances to receive Spot Instance notices](spot-instance-draining-linux-container.md "spot-instance-draining-linux-container.md")
+- [Configuring Amazon ECS Windows container instances to receive Spot Instance notices](windows-spot-instance-draining-container.md "windows-spot-instance-draining-container.md")

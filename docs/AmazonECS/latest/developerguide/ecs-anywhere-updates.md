@@ -1,24 +1,18 @@
-# Updating the AWS Systems Manager agent and Amazon ECS container
-
-agent on an external instance
+# Updating the AWS Systems Manager agent and Amazon ECS container agent on an external instance
 
 Your on-premises server or VM must run both the AWS Systems Manager Agent (SSM Agent) and the Amazon ECS
 container agent when running Amazon ECS workloads. AWS releases new versions of these agents
 when any capabilities are added or updated. If your external instances are using an earlier
 version of either agent, you can update them using the following procedures.
 
-## Updating the SSM Agent on an external
-
-instance
+## Updating the SSM Agent on an external instance
 
 AWS Systems Manager recommends that you automate the process of updating the SSM Agent on your
 instances. They provide several methods to automate updates. For more information, see
 [Automating
 updates to SSM Agent](../../../systems-manager/latest/userguide/ssm-agent-automatic-updates.md "../../../systems-manager/latest/userguide/ssm-agent-automatic-updates.md") in the _AWS Systems Manager User Guide_.
 
-## Updating the Amazon ECS agent on an external
-
-instance
+## Updating the Amazon ECS agent on an external instance
 
 On your external instances, the Amazon ECS container agent is updated by upgrading the
 `ecs-init` package. Updating the Amazon ECS agent doesn't interrupt the

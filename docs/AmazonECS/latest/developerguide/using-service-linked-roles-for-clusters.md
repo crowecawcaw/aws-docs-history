@@ -20,9 +20,7 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 a **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role
-
-permissions for Amazon ECS
+## Service-linked role permissions for Amazon ECS
 
 Amazon ECS uses the service-linked role named **AWSServiceRoleForECS**
 – Role to allow Amazon ECS to manage your cluster.
@@ -62,9 +60,7 @@ You must configure permissions to allow your users, groups, or roles to create, 
 delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-Amazon ECS
+## Creating a service-linked role for Amazon ECS
 
 You don't need to manually create a service-linked role. When you
 create a cluster, or create or update a service in the AWS Management Console, the AWS CLI, or the AWS API, Amazon ECS
@@ -95,9 +91,7 @@ create a cluster, or create or update a service, Amazon ECS creates the service-
 If you delete this service-linked role, you can use the same IAM process to create the
 role again.
 
-## Editing a service-linked role for
-
-Amazon ECS
+## Editing a service-linked role for Amazon ECS
 
 Amazon ECS does not allow you to edit the AWSServiceRoleForECS service-linked role. After
 you create a service-linked role, you cannot change the name of the role because various
@@ -105,9 +99,7 @@ entities might reference the role. However, you can edit the description of the 
 IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-Amazon ECS
+## Deleting a service-linked role for Amazon ECS
 
 You don't need to manually delete the AWSServiceRoleForECS role. When you
 delete clusters in all Regions in the AWS Management Console, the AWS CLI, or the AWS API, Amazon ECS
@@ -118,9 +110,7 @@ we recommend that you delete that role. That way you don’t have an unused enti
 actively monitored or maintained. However, you must clean up your service-linked role before
 you can manually delete it.
 
-### Cleaning up a
-
-service-linked role
+### Cleaning up a service-linked role
 
 Before you can use IAM to delete a service-linked role, you must first delete any
 resources used by the role.
@@ -137,8 +127,7 @@ operation again.
    delete the services. For more information, see [Updating an Amazon ECS service](update-service-console-v2.md "update-service-console-v2.md") and
    [Deleting an Amazon ECS service using the console](delete-service-v2.md "delete-service-v2.md").
 2. Force deregister all container instances from all clusters in all
-   Regions. For more information, see [Deregistering an Amazon ECS container
-   instance](deregister_container_instance.md "deregister_container_instance.md").
+   Regions. For more information, see [Deregistering an Amazon ECS container instance](deregister_container_instance.md "deregister_container_instance.md").
 3. Delete all Amazon ECS clusters in all regions. For more information, see [Deleting an Amazon ECS cluster](delete_cluster-new-console.md "delete_cluster-new-console.md").
 
 ###### To delete Amazon ECS resources used by the AWSServiceRoleForECS (AWS CLI)
@@ -161,17 +150,13 @@ operation again.
 3. Delete all Amazon ECS clusters in all Regions. For more information,
    see [DeleteCluster](../APIReference/API_DeleteCluster.md "../APIReference/API_DeleteCluster.md").
 
-### Manually delete the service-linked
-
-role
+### Manually delete the service-linked role
 
 Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForECS
 service-linked role. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for Amazon ECS
-
-service-linked roles
+## Supported Regions for Amazon ECS service-linked roles
 
 Amazon ECS supports using service-linked roles in all of the Regions where the
 service is available. For more information, see [AWS Regions and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").

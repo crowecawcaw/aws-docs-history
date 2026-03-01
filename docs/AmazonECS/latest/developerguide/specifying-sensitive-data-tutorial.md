@@ -1,11 +1,8 @@
-# Specifying sensitive data
-
-using Secrets Manager secrets in Amazon ECS
+# Specifying sensitive data using Secrets Manager secrets in Amazon ECS
 
 Amazon ECS allows you to inject sensitive data into your containers by storing your sensitive
 data in AWS Secrets Manager secrets and then referencing them in your container definition. For more
-information, see [Pass sensitive data to an Amazon ECS
-container](specifying-sensitive-data.md "specifying-sensitive-data.md").
+information, see [Pass sensitive data to an Amazon ECS container](specifying-sensitive-data.md "specifying-sensitive-data.md").
 
 Learn how to create an Secrets Manager secret, reference the secret in an
 Amazon ECS task definition, and then verify it worked by querying the environment variable inside
@@ -19,9 +16,7 @@ This tutorial assumes that the following prerequisites have been completed:
 - Your user has the required IAM permissions to create the Secrets Manager and Amazon ECS
   resources.
 
-## Step 1: Create an
-
-Secrets Manager secret
+## Step 1: Create an Secrets Manager secret
 
 You can use the Secrets Manager console to create a secret for your sensitive data. In this
 tutorial we will be creating a basic secret for storing a username and password to
@@ -39,9 +34,7 @@ policy and task definition in later steps.
 In order for Amazon ECS to retrieve the sensitive data from your Secrets Manager secret, you must
 have the secrets permissions for the task execution role. For more information, see [Secrets Manager or Systems Manager permissions](task_execution_IAM_role.md#task-execution-secrets "task_execution_IAM_role.md#task-execution-secrets").
 
-## Step 3: Create a
-
-task definition
+## Step 3: Create a task definition
 
 You can use the Amazon ECS console to create a task definition that references a Secrets Manager
 secret.
@@ -99,8 +92,7 @@ permissions.
 ```
 6. Choose **Create**.
 
-## Step 4: Create a
- cluster
+## Step 4: Create a cluster
 
 
 You can use the Amazon ECS console to create a cluster containing a container instance to

@@ -1,6 +1,4 @@
-# Phased out AWS managed
-
-IAM policies for Amazon Elastic Container Service
+# Phased out AWS managed IAM policies for Amazon Elastic Container Service
 
 The following AWS managed IAM policies are phased out. These policies are now
 replaced by the updated policies. We recommend that you update your users or roles to
@@ -18,8 +16,7 @@ phased out, you can't attach the policy to any new users or roles. Any users or
 roles that already have the policy attached can continue using it. However, we
 recommend that you update your users or roles to use the
 `AmazonECS_FullAccess` managed policy instead. For more
-information, see [Migrating to
-the AmazonECS_FullAccess managed policy](security-iam-awsmanpol-amazonecs-full-access-migration.md "security-iam-awsmanpol-amazonecs-full-access-migration.md").
+information, see [Migrating to the AmazonECS_FullAccess managed policy](security-iam-awsmanpol-amazonecs-full-access-migration.md "security-iam-awsmanpol-amazonecs-full-access-migration.md").
 
 ## AmazonEC2ContainerServiceRole
 
@@ -27,8 +24,7 @@ the AmazonECS_FullAccess managed policy](security-iam-awsmanpol-amazonecs-full-a
 
 The `AmazonEC2ContainerServiceRole` managed IAM policy is phased
 out. It's now replaced by the Amazon ECS service-linked role. For more information,
-see [Using service-linked roles for
-Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
+see [Using service-linked roles for Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ## AmazonEC2ContainerServiceAutoscaleRole
 

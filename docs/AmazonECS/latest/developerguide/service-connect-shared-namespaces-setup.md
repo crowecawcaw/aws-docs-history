@@ -1,15 +1,11 @@
-# Using shared AWS Cloud Map namespaces
-
-with Amazon ECS Service Connect
+# Using shared AWS Cloud Map namespaces with Amazon ECS Service Connect
 
 Setting up shared AWS Cloud Map namespaces for Service Connect involves the following steps:
 Namespace owner creating the namespace, owner sharing it through AWS Resource Access Manager (AWS RAM),
 consumer accepting the resource share, and consumer configuring Service Connect to use
 the shared namespace.
 
-## Step 1: Create the AWS Cloud Map
-
-namespace
+## Step 1: Create the AWS Cloud Map namespace
 
 The namespace owner creates a AWS Cloud Map namespace that will be shared with other
 accounts.
@@ -33,9 +29,7 @@ accounts.
 
 5. Choose **Create namespace**.
 
-## Step 2: Share the
-
-namespace using AWS RAM
+## Step 2: Share the namespace using AWS RAM
 
 The namespace owner uses AWS RAM to share the namespace with other
 AWS accounts.
@@ -63,9 +57,7 @@ with the namespace. 6. In the **Principals** section, specify the AWS accounts
 you want to share the namespace with. You can enter account IDs or
 organizational unit IDs. 7. Choose **Create resource share**.
 
-## Step 3: Accept the
-
-resource share
+## Step 3: Accept the resource share
 
 Namespace consumer accounts must accept the resource share invitation to use the
 shared namespace.
@@ -81,15 +73,12 @@ shared namespace.
    details. You'll use this ARN when configuring Service Connect
    services.
 
-## Step 4: Configure an
-
-Amazon ECS service with the shared namespace
+## Step 4: Configure an Amazon ECS service with the shared namespace
 
 After accepting the shared namespace, the namespace consumer can configure Amazon ECS
 services to use the shared namespace. The configuration is similar to using a
 regular namespace, but you must specify the namespace ARN instead of the name. For
-a detailed service creation procedure, see [Creating an Amazon ECS rolling update
-deployment](create-service-console-v2.md "create-service-console-v2.md").
+a detailed service creation procedure, see [Creating an Amazon ECS rolling update deployment](create-service-console-v2.md "create-service-console-v2.md").
 
 ###### To create a service with a shared namespace using the AWS Management Console
 

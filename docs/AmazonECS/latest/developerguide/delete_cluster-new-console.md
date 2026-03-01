@@ -11,8 +11,7 @@ Before you delete a cluster, you must perform the following operations:
 - Delete all services in the cluster. For more information, see [Deleting an Amazon ECS service using the console](delete-service-v2.md "delete-service-v2.md").
 - Stop all currently running tasks. For more information, see [Stopping an Amazon ECS task](standalone-task-stop.md "standalone-task-stop.md").
 - Deregister all registered container instances in the cluster. For more
-  information, see [Deregistering an Amazon ECS container
-  instance](deregister_container_instance.md "deregister_container_instance.md").
+  information, see [Deregistering an Amazon ECS container instance](deregister_container_instance.md "deregister_container_instance.md").
 - Delete the namespace. For more information, see [Deleting namespaces](../../../cloud-map/latest/dg/deleting-namespaces.md "../../../cloud-map/latest/dg/deleting-namespaces.md")
   in the _AWS Cloud Map Developer Guide_.
 

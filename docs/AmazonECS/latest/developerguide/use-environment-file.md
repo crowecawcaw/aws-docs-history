@@ -1,12 +1,9 @@
-# Pass environment variables to an Amazon ECS
-
-container
+# Pass environment variables to an Amazon ECS container
 
 ###### Important
 
 We recommend storing your sensitive data in either AWS Secrets Manager secrets or AWS Systems Manager
-Parameter Store parameters. For more information, see [Pass sensitive data to an Amazon ECS
-container](specifying-sensitive-data.md "specifying-sensitive-data.md").
+Parameter Store parameters. For more information, see [Pass sensitive data to an Amazon ECS container](specifying-sensitive-data.md "specifying-sensitive-data.md").
 
 Environment variable files are objects in Amazon S3 and all Amazon S3 security
 considerations apply.

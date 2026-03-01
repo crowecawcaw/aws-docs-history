@@ -1,6 +1,4 @@
-# Determine Amazon ECS task health using container health
-
-checks
+# Determine Amazon ECS task health using container health checks
 
 When you create a task definition, you can configure a health check for your containers.
 Health checks are commands that run locally on a container and validate application health
@@ -96,9 +94,7 @@ Consider the following task health example with 3 containers.
 | `HEALTHY`          | `UNKNOWN`          | `UNKNOWN`          | `UNKNOWN`   |
 | `HEALTHY`          | `HEALTHY`          | `HEALTHY`          | `HEALTHY`   |
 
-## How health checks are affected by agent
-
-disconnects
+## How health checks are affected by agent disconnects
 
 If the Amazon ECS container agent becomes disconnected from the Amazon ECS service, this won't
 cause a container to transition to an `UNHEALTHY` status. This is by design,

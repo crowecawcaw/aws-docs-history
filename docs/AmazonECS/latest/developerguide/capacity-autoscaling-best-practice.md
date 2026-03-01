@@ -18,9 +18,7 @@ should scale your application in and when you should scale it out.
 
 In essence, you should scale out your application if demand is forecasted to outstrip capacity. Conversely, you can scale in your application to conserve costs when resources exceed demand.
 
-### Identifying a
-
-utilization metric
+### Identifying a utilization metric
 
 To scale effectively, you must identify a metric that indicates
 utilization or saturation. This metric must exhibit the following properties to
@@ -89,18 +87,14 @@ metric. On the other hand, if CPU utilization remains at 80% after increasing
 the number of tasks, then average CPU utilization isn't a good scaling metric.
 In that case, you need more research to find a suitable metric.
 
-### Common application models and
-
-scaling properties
+### Common application models and scaling properties
 
 You can run software of all kinds on AWS. Many workloads are homegrown, whereas
 others are based on popular open-source software. Regardless of where they
 originate, we have observed some common design patterns for services. How you
 scale effectively depends in large part on the pattern.
 
-#### The efficient
-
-CPU-bound server
+#### The efficient CPU-bound server
 
 The efficient CPU-bound server utilizes almost no resources other than CPU
 and network throughput. Each request can be handled by the application
@@ -125,9 +119,7 @@ If you're using Amazon EC2 capacity for this application, consider placing it
 on compute-optimized instances such as the `c5` or
 `c6g` family.
 
-#### The efficient
-
-memory-bound server
+#### The efficient memory-bound server
 
 The efficient memory-bound server allocates a significant amount of memory
 per request. At maximum concurrency, but not necessarily throughput, memory
@@ -151,9 +143,7 @@ with a request when it ends, so that a reduction in concurrency doesn't
 result in a reduction in the memory used. For this, we don't recommend that
 you use memory-based scaling.
 
-#### The worker-based
-
-server
+#### The worker-based server
 
 The worker-based server processes one request for each individual worker
 thread one after another. The worker threads can be lightweight threads,
@@ -195,9 +185,7 @@ response time. Otherwise, queue overflows might occur as result. This leads
 to errors. We recommend that you provide additional replicas where necessary
 to mitigate the risk of overflow.
 
-#### The waiting
-
-server
+#### The waiting server
 
 The waiting server does some processing for each request, but it is highly
 dependent on one or more downstream services to function. Container
@@ -214,9 +202,7 @@ average memory utilization should be used as a scaling metric. If the
 application’s concurrency is based on a worker limit, then average
 concurrency should be used as a scaling metric.
 
-#### The Java-based
-
-server
+#### The Java-based server
 
 If your Java-based server is CPU-bound and scales proportionally to CPU
 resources, then it might be suitable for the efficient CPU-bound server
@@ -240,9 +226,7 @@ concurrency, then average connections are the best scaling metric. If your
 application is prone to heap exhaustion at high throughput, then average
 request rate is the best scaling metric.
 
-#### Servers that use
-
-other garbage-collected runtimes
+#### Servers that use other garbage-collected runtimes
 
 Many server applications are based on runtimes that perform garbage
 collection such as .NET and Ruby. These server applications might fit into

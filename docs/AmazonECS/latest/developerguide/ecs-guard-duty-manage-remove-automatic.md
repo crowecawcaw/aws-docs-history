@@ -1,6 +1,4 @@
-# Removing Runtime Monitoring for Amazon ECS from an
-
-account
+# Removing Runtime Monitoring for Amazon ECS from an account
 
 When you no longer want to use Runtime Monitoring, disable the feature in GuardDuty. For
 information about how to disable the feature, see [Enabling

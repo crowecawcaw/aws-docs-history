@@ -116,5 +116,4 @@ ownership of the socket directory to the FireLens container.
 
 For information about example configurations, see [Example Amazon ECS task definition: Route logs to FireLens](firelens-taskdef.md "firelens-taskdef.md").
 
-For more information about configuring logs for high throughput, see [Configuring Amazon ECS logs for high
-throughput](firelens-docker-buffer-limit.md "firelens-docker-buffer-limit.md").
+For more information about configuring logs for high throughput, see [Configuring Amazon ECS logs for high throughput](firelens-docker-buffer-limit.md "firelens-docker-buffer-limit.md").

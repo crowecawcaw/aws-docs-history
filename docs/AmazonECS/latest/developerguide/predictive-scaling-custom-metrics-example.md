@@ -1,6 +1,4 @@
-# Constructing the JSON for predictive
-
-scaling custom metrics with Amazon ECS
+# Constructing the JSON for predictive scaling custom metrics with Amazon ECS
 
 The following section contains examples for how to configure predictive scaling to query data from
 CloudWatch. There are two different methods to configure this option, and the method that you choose affects
@@ -8,12 +6,9 @@ which format you use to construct the JSON for your predictive scaling policy. W
 math, the format of the JSON varies further based on the metric math being performed.
 
 1. To create a policy that gets data directly from other CloudWatch metrics provided by AWS or
-   metrics that you publish to CloudWatch, see [Example predictive scaling policy with
-   custom load and scaling metrics using the AWS CLI](#predictive-scaling-custom-metrics-example1 "#predictive-scaling-custom-metrics-example1").
+   metrics that you publish to CloudWatch, see [Example predictive scaling policy with custom load and scaling metrics using the AWS CLI](#predictive-scaling-custom-metrics-example1 "#predictive-scaling-custom-metrics-example1").
 
-## Example predictive scaling policy with
-
-custom load and scaling metrics using the AWS CLI
+## Example predictive scaling policy with custom load and scaling metrics using the AWS CLI
 
 To create a predictive scaling policy with custom load and scaling metrics with the AWS CLI, store
 the arguments for `--predictive-scaling-configuration` in a JSON file named

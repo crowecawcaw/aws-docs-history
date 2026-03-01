@@ -10,10 +10,7 @@ For more information about AWS PrivateLink and VPC endpoints, see [VPC endpoints
 
 ## Considerations
 
-### Considerations for
-
-endpoints in Regions introduced starting on December 23,
-2023
+### Considerations for endpoints in Regions introduced starting on December 23, 2023
 
 Before you set up interface VPC endpoints for Amazon ECS, be aware of the following
 considerations:
@@ -52,9 +49,7 @@ Canada West (Calgary) (ca-west-1).
 | The copied-from Region does not have<br>any VPC endpoints.        | Create all three VPC endpoints for the new<br>Region (for example,<br>`com.amazonaws.ca-west-1.ecs-agent`).                                                                                                                            |
 | The copied-from Region contains<br>Region-specific VPC endpoints. | 1. Create all three VPC endpoints for the new<br>Region (for example,<br>`com.amazonaws.ca-west-1.ecs-agent`).<br>2. Delete all three VPC endpoints for the<br>copy-from Region (for example,<br>`com.amazonaws.us-east-1.ecs-agent`). |
 
-### Considerations for Amazon ECS
-
-VPC endpoints for Fargate
+### Considerations for Amazon ECS VPC endpoints for Fargate
 
 When there is an VPC endpoint for `ecr.dkr` and `ecr.api` in
 the same VPC where a Fargate task is deployed into, it will use the VPC endpoint.
@@ -78,8 +73,7 @@ considerations:
       - If you configure Amazon ECR to use an interface VPC
        endpoint, you can create a task execution role that
        includes condition keys to restrict access to a specific
-       VPC or VPC endpoint. For more information, see [Fargate tasks pulling
-       Amazon ECR images over interface endpoints permissions](task_execution_IAM_role.md#task-execution-ecr-conditionkeys "task_execution_IAM_role.md#task-execution-ecr-conditionkeys").
+       VPC or VPC endpoint. For more information, see [Fargate tasks pulling Amazon ECR images over interface endpoints permissions](task_execution_IAM_role.md#task-execution-ecr-conditionkeys "task_execution_IAM_role.md#task-execution-ecr-conditionkeys").
       - If your tasks are in an IPv6-only configuration and
        use an Amazon ECR dualstack image URI, note that Amazon ECR
        doesn't support dualstack interface VPC endpoints. For
@@ -118,9 +112,7 @@ considerations:
 
 [Amazon ECS endpoints and quotas](../../../general/latest/gr/ecs-service.md "../../../general/latest/gr/ecs-service.md").
 
-### Considerations for Amazon ECS VPC
-
-endpoints for EC2
+### Considerations for Amazon ECS VPC endpoints for EC2
 
 Before you set up interface VPC endpoints for Amazon ECS, be aware of the following
 considerations:
@@ -151,9 +143,7 @@ considerations:
 - The security group attached to the VPC endpoint must allow incoming
   connections on TCP port 443 from the private subnet of the VPC.
 
-## Understanding Amazon ECS endpoint naming
-
-patterns
+## Understanding Amazon ECS endpoint naming patterns
 
 It's important to understand that the Amazon ECS agent may make requests to endpoints with
 numbered suffixes, such as:
@@ -169,9 +159,7 @@ dynamically determine which specific endpoint to connect to. If your VPC endpoin
 properly handle these numbered endpoint variations, the agent will fall back to using
 public endpoints, even if you've configured VPC endpoints for the base names.
 
-### The role of DiscoverPollEndpoint
-
-API
+### The role of DiscoverPollEndpoint API
 
 The [DiscoverPollEndpoint](../APIReference/API_DiscoverPollEndpoint.md "../APIReference/API_DiscoverPollEndpoint.md") API is used by the Amazon ECS agent to discover the
 appropriate endpoint to poll for tasks. When the agent calls this API, it receives a
@@ -223,9 +211,7 @@ configuration. For this to happen, you must either reboot each container instanc
 restart the Amazon ECS container agent on each container instance. To restart the container
 agent, do the following.
 
-###### To restart the Amazon ECS container
-
-agent
+###### To restart the Amazon ECS container agent
 
 1. Log in to your container instance via SSH.
 2. Stop the container agent.

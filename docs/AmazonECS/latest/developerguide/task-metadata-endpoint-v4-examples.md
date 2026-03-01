@@ -1,6 +1,4 @@
-# Amazon ECS task metadata v4
-
-examples
+# Amazon ECS task metadata v4 examples
 
 The following examples show example outputs from each of the task metadata
 endpoints.
@@ -58,9 +56,7 @@ output from a task that runs as part of a service (MyService).
 }
 ```
 
-## Example
-
-task metadata response
+## Example task metadata response
 
 When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task` endpoint you
 are returned metadata about the task the container is part of in addition to the
@@ -403,9 +399,7 @@ associated with the container instance doesn't have the
 }
 ```
 
-## Example container
-
-stats response
+## Example container stats response
 
 When querying the `${ECS_CONTAINER_METADATA_URI_V4}/stats` endpoint you
 are returned network metrics for the container. For Amazon ECS tasks that use the
@@ -550,9 +544,7 @@ The following is an example output from an Amazon ECS task on Amazon EC2 that us
 }
 ```
 
-## Example task
-
-stats response
+## Example task stats response
 
 When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task/stats`
 endpoint you are returned network metrics about the task the container is part of.

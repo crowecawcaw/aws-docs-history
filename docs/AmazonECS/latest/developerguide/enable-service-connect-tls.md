@@ -1,13 +1,9 @@
-# Enabling TLS for Amazon ECS
-
-Service Connect
+# Enabling TLS for Amazon ECS Service Connect
 
 You enable traffic encryption when you create or update a Service Connect
 service.
 
-###### To enable traffic encryption for a service in an existing namespace using the
-
-AWS Management Console
+###### To enable traffic encryption for a service in an existing namespace using the AWS Management Console
 
 1. You need to have the infrastructure IAM role. For more information about
    this role, see [Amazon ECS infrastructure IAM role](infrastructure_IAM_role.md "infrastructure_IAM_role.md").
@@ -28,9 +24,7 @@ AWS Management Console
 9. For **Signer certificate authority**, choose an existing
    certificate authority or create a new one.
 
-For more information, see see [AWS Private Certificate Authority certificates and
-Service Connect](service-connect-tls.md#service-connect-tls-certificates "service-connect-tls.md#service-connect-tls-certificates"). 10. For **Choose an AWS KMS key**, choose an AWS owned
+For more information, see see [AWS Private Certificate Authority certificates and Service Connect](service-connect-tls.md#service-connect-tls-certificates "service-connect-tls.md#service-connect-tls-certificates"). 10. For **Choose an AWS KMS key**, choose an AWS owned
 and managed key or you can choose a different key. You can also choose to
 create a new one.
-For an example of using the AWS CLI to configure TLS for your service, [Configuring Amazon ECS Service Connect with the
-AWS CLI](create-service-connect.md "create-service-connect.md").
+For an example of using the AWS CLI to configure TLS for your service, [Configuring Amazon ECS Service Connect with the AWS CLI](create-service-connect.md "create-service-connect.md").

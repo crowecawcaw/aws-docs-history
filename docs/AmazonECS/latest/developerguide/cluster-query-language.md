@@ -5,8 +5,7 @@ group container instances by attributes such as Availability Zone, instance type
 metadata. For more information, see [Amazon ECS container instance attributes](task-placement-constraints.md#attributes "task-placement-constraints.md#attributes").
 
 After you have defined a group of container instances, you can customize Amazon ECS to place
-tasks on container instances based on group. For more information, see [Running an application as an Amazon ECS task](standalone-task-create.md "standalone-task-create.md"), and [Creating an Amazon ECS rolling update
-deployment](create-service-console-v2.md "create-service-console-v2.md"). You can
+tasks on container instances based on group. For more information, see [Running an application as an Amazon ECS task](standalone-task-create.md "standalone-task-create.md"), and [Creating an Amazon ECS rolling update deployment](create-service-console-v2.md "create-service-console-v2.md"). You can
 also apply a group filter when listing container instances.
 
 ## Expression syntax
@@ -73,7 +72,7 @@ greater_than_equal (>=), less_than (<), less_than_equal (<=)
 
 `task:group`
 
-Select container instances by task group. For more information, see [Group related Amazon ECS tasks](task-groups.md "task-groups.md") .
+Select container instances by task group. For more information, see [Group related Amazon ECS tasks](task-groups.md "task-groups.md").
 
 ###### Operator
 

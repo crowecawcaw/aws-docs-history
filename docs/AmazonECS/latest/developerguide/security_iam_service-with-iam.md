@@ -19,9 +19,7 @@ available to use with Amazon ECS.
 
 To get a high-level view of how Amazon ECS and other AWS services work with most IAM features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based
-
-policies for Amazon ECS
+## Identity-based policies for Amazon ECS
 
 **Supports identity-based policies:**
 
@@ -38,16 +36,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Amazon ECS
 
-Identity-based policy examples for Amazon ECS
+To view examples of Amazon ECS identity-based policies, see [Identity-based policy examples for Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Amazon ECS identity-based policies, see [Identity-based policy examples for
-Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Amazon ECS
+## Resource-based policies within Amazon ECS
 
 **Supports resource-based policies:**
 
@@ -63,9 +56,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Amazon ECS
+## Policy actions for Amazon ECS
 
 **Supports policy actions:**
 
@@ -100,12 +91,9 @@ You can specify multiple actions using wildcards (\*). For example, to specify a
 "Action": "ecs:Describe*"
 ```
 
-To view examples of Amazon ECS identity-based policies, see [Identity-based policy examples for
-Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon ECS identity-based policies, see [Identity-based policy examples for Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Amazon ECS
+## Policy resources for Amazon ECS
 
 **Supports policy resources:**
 
@@ -167,12 +155,9 @@ ${TaskDefinitionRevisionNumber}:
 "Resource:arn:${Partition}:ecs:${Region}:${Account}:task-definition/${TaskDefinitionFamilyName}:${TaskDefinitionRevisionNumber}"
 ```
 
-To view examples of Amazon ECS identity-based policies, see [Identity-based policy examples for
-Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon ECS identity-based policies, see [Identity-based policy examples for Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Amazon ECS
+## Policy condition keys for Amazon ECS
 
 **Supports service-specific policy condition keys:**
 
@@ -220,12 +205,9 @@ provide fine-grained filtering for your IAM policies:
 
 To see a list of Amazon ECS condition keys, see [Condition keys for Amazon Elastic Container Service](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-policy-keys "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-policy-keys") in the _Service Authorization Reference_. To learn with which actions and resources you can use a condition key, see [Actions defined by Amazon Elastic Container Service](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions").
 
-To view examples of Amazon ECS identity-based policies, see [Identity-based policy examples for
-Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon ECS identity-based policies, see [Identity-based policy examples for Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control lists (ACLs) in
-
-Amazon ECS
+## Access control lists (ACLs) in Amazon ECS
 
 **Supports ACLs:**
 
@@ -234,9 +216,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with Amazon ECS
+## Attribute-based access control (ABAC) with Amazon ECS
 
 ###### Important
 
@@ -259,12 +239,9 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 
 For more information about tagging Amazon ECS resources, see [Tagging Amazon ECS resources](ecs-using-tags.md "ecs-using-tags.md").
 
-To view an example identity-based policy for limiting access to a resource based on the tags on that resource, see [Describing
-Amazon ECS services based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-cluster-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-cluster-tags").
+To view an example identity-based policy for limiting access to a resource based on the tags on that resource, see [Describing Amazon ECS services based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-cluster-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-cluster-tags").
 
-## Using Temporary
-
-credentials with Amazon ECS
+## Using Temporary credentials with Amazon ECS
 
 **Supports temporary credentials:**
 
@@ -276,9 +253,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access
-
-sessions for Amazon ECS
+## Forward access sessions for Amazon ECS
 
 **Supports forward access sessions (FAS):**
 
@@ -287,9 +262,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon ECS
+## Service roles for Amazon ECS
 
 **Supports service roles:**
 
@@ -304,9 +277,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Amazon ECS functionality.
 Edit service roles only when Amazon ECS provides guidance to do so.
 
-## Service-linked
-
-roles for Amazon ECS
+## Service-linked roles for Amazon ECS
 
 **Supports service-linked roles:**
 
@@ -316,5 +287,4 @@ A service-linked role is a type of service role that is linked to an AWS service
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
 but not edit the permissions for service-linked roles.
 
-For details about creating or managing Amazon ECS service-linked roles, see [Using service-linked roles for
-Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
+For details about creating or managing Amazon ECS service-linked roles, see [Using service-linked roles for Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").

@@ -1,6 +1,4 @@
-# Using gMSA for EC2 Linux containers
-
-on Amazon ECS
+# Using gMSA for EC2 Linux containers on Amazon ECS
 
 Amazon ECS supports Active Directory authentication for Linux containers on EC2 through a special kind
 of service account called a _group Managed Service Account_
@@ -26,8 +24,7 @@ containers:
 
 - If your containers run on EC2, you can use gMSA for
   Windows containers and Linux containers. For
-  information about how to use gMSA for Linux container on Fargate, see [Using gMSA for Linux
-  containers on Fargate](fargate-linux-gmsa.md "fargate-linux-gmsa.md").
+  information about how to use gMSA for Linux container on Fargate, see [Using gMSA for Linux containers on Fargate](fargate-linux-gmsa.md "fargate-linux-gmsa.md").
 - You might need a Windows computer that's joined to the domain
   to complete the prerequisites. For example, you might need a
   Windows computer that's joined to the domain to create the
@@ -71,8 +68,7 @@ complete the following:
     container instance can join the domain. For more information, see [AWS Direct Connect](../../../whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect.md "../../../whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect.md").
 
 - You have an existing gMSA account in the Active Directory. For more
-  information, see [Using gMSA for EC2 Linux containers
-  on Amazon ECS](linux-gmsa.md "linux-gmsa.md").
+  information, see [Using gMSA for EC2 Linux containers on Amazon ECS](linux-gmsa.md "linux-gmsa.md").
 - You installed and are running the `credentials-fetcher` daemon on an Amazon ECS Linux container
   instance. You also added an initial set of credentials to the `credentials-fetcher` daemon to
   authenticate with the Active Directory.
@@ -84,8 +80,7 @@ The daemon isn't available for Amazon Linux 2. For more information, see [aws/cr
 
 - You set up the credentials for the `credentials-fetcher` daemon to authenticate with the Active
   Directory. The credentials must be a member of the Active Directory security
-  group that has access to the gMSA account. There are multiple options in [Decide if you want to join the instances
-  to the domain, or use domainless gMSA.](#linux-gmsa-initial-creds "#linux-gmsa-initial-creds").
+  group that has access to the gMSA account. There are multiple options in [Decide if you want to join the instances to the domain, or use domainless gMSA.](#linux-gmsa-initial-creds "#linux-gmsa-initial-creds").
 - You added the required IAM permissions. The permissions that are required
   depend on the methods that you choose for the initial credentials and for
   storing the credential specification:
@@ -98,9 +93,7 @@ The daemon isn't available for Amazon Linux 2. For more information, see [aws/cr
   - If you store the credential specification in Amazon S3, IAM permissions
     for Amazon Simple Storage Service are required on the task execution role.
 
-## Setting up gMSA-capable Linux
-
-Containers on Amazon ECS
+## Setting up gMSA-capable Linux Containers on Amazon ECS
 
 ###### Prepare the infrastructure
 
@@ -111,14 +104,9 @@ this configuration.
 Decide how the initial credentials are provided and configure the EC2 user data in a
 reusable EC2 launch template to install the `credentials-fetcher` daemon.
 
-1.  ###### Decide if you want to join the instances
-
-    to the domain, or use domainless gMSA.
-    - ###### Join EC2 instances to the Active
-
-      Directory domain
-      - ###### Join the
-        instances by user data
+1.  ###### Decide if you want to join the instances to the domain, or use domainless gMSA.
+    - ###### Join EC2 instances to the Active Directory domain
+      - ###### Join the instances by user data
 
       Add the steps to join the Active Directory domain to your EC2
       user data in an EC2 launch template. Multiple Amazon EC2 Auto Scaling groups
@@ -127,8 +115,7 @@ reusable EC2 launch template to install the `credentials-fetcher` daemon.
       You can use these steps [Joining an Active Directory or FreeIPA
       domain](https://docs.fedoraproject.org/en-US/quick-docs/join-active-directory-freeipa/ "https://docs.fedoraproject.org/en-US/quick-docs/join-active-directory-freeipa/") in the Fedora Docs.
 
-    - ###### Make an Active Directory
-      user for domainless gMSA
+    - ###### Make an Active Directory user for domainless gMSA
 
     The `credentials-fetcher` daemon has a feature that's called _domainless
     gMSA_. This feature requires a domain, but the EC2
@@ -188,8 +175,7 @@ reusable EC2 launch template to install the `credentials-fetcher` daemon.
         ```
         5. The *domainless gMSA* feature needs
          additional permissions in the task execution role. Follow the
-         step [(Optional) domainless gMSA
-         secret](#linux-gmsa-domainless-secret "#linux-gmsa-domainless-secret").
+         step [(Optional) domainless gMSA secret](#linux-gmsa-domainless-secret "#linux-gmsa-domainless-secret").
 
 2.  ###### Configure instances and install `credentials-fetcher` daemon
 
@@ -233,8 +219,7 @@ Amazon ECS cluster that you want these instances to join.
     - "systemctl start credentials-fetcher"
     - "systemctl is-active credentials-fetcher && systemctl enable credentials-fetcher"
     ```
-    * ###### bash
-     script
+    * ###### bash script
 
 
     If you're more comfortable with bash scripts and have
@@ -282,8 +267,7 @@ recommend that you use the best practice of granting the least privilege and nar
 the permissions used in the policy. This way, each task can only read the secrets
 that it needs.
 
-1. ###### (Optional) domainless gMSA
-   secret
+1. ###### (Optional) domainless gMSA secret
 
 If you use the domainless method where the instance isn't joined to the
 domain, follow this step.
@@ -315,8 +299,7 @@ JSON
 
 If you use your own KMS key to encrypt your secret, you must add the
 necessary permissions to this role and add this role to the AWS KMS key
-policy. 2. ###### Decide if you're using SSM Parameter Store or S3 to store the
-CredSpec
+policy. 2. ###### Decide if you're using SSM Parameter Store or S3 to store the CredSpec
 
 Amazon ECS supports the following ways to reference the file path in the
 `credentialSpecs` field of the task definition.
@@ -386,8 +369,7 @@ For more information about the CredSpec, see [Credential specification file](#li
     }`
 
     ```
-    * ###### SSM Parameter Store
-     parameter
+    * ###### SSM Parameter Store parameter
 
 
     Add the credential spec to an SSM Parameter Store parameter. Then,

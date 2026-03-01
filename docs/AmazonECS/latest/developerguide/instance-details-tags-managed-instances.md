@@ -1,6 +1,4 @@
-# Tags for
-
-Amazon ECS Managed Instances
+# Tags for Amazon ECS Managed Instances
 
 Amazon ECS Managed Instances support a combination of custom tags and tags added by AWS that can be used for cost optimization. For more information about using tags for billing, see [Use tags for billing](ecs-using-tags.md#tag-resources-for-billing "ecs-using-tags.md#tag-resources-for-billing").
 
@@ -32,7 +30,7 @@ provider:
 
 You can add additional custom tags to Amazon ECS Managed Instances by adding tags to the capacity
 provider and enabling tag propagation using the `propagateTags`
-property.
+property. Tags on the capacity provider propagate to the managed instances that the capacity provider launches
 
 The following example capacity provider definition shows how tags can be specified and
 propagated from the capacity provider when creating the capacity provider using the
@@ -69,8 +67,10 @@ propagated from the capacity provider when creating the capacity provider using 
 
 ###### Note
 
-When you add new tags to a capacity provider, the newly added tags will not be
-propagated to existing instances but will be propagated to any newly created
-instances.
+- When you add new tags to a capacity provider, the newly added tags will not be
+  propagated to existing instances but will be propagated to any newly created
+  instances.
+- Customers are allowed to add tags directly to the EC2 instances, but those tags don't propagate back to the capacity provider
+- You can also tag or untag the capacity provider using [Adding tags to existing resources (AWS CLI)](tag-resources-console.md#tag-resources-api-sdk "tag-resources-console.md#tag-resources-api-sdk") or [Adding tags to existing resources (Amazon ECS console)](tag-resources-console.md#adding-or-deleting-tags "tag-resources-console.md#adding-or-deleting-tags")
 
 For more information about Amazon ECS Managed Instances capacity providers, see [Amazon ECS Managed Instances capacity providers](managed-instances-capacity-providers-concept.md "managed-instances-capacity-providers-concept.md").

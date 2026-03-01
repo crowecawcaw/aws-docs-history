@@ -1,6 +1,4 @@
-# Migrating to Linux platform version 1.4.0
-
-on Amazon ECS
+# Migrating to Linux platform version 1.4.0 on Amazon ECS
 
 Consider the following when migrating your Amazon ECS on Fargate tasks from platform
 version `1.0.0`, `1.1.0`, `1.2.0`, or

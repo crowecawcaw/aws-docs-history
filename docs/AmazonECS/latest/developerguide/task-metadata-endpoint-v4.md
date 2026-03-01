@@ -6,8 +6,7 @@ as the _task metadata endpoint_ which provides various task metadata and
 stats](https://docs.docker.com/engine/api/v1.30/#operation/ContainerStats "https://docs.docker.com/engine/api/v1.30/#operation/ContainerStats") to the container.
 
 The task metadata and network rate stats are sent to CloudWatch Container Insights and can be viewed in the
-AWS Management Console. For more information, see [Monitor Amazon ECS containers using Container Insights with
-enhanced observability](cloudwatch-container-insights.md "cloudwatch-container-insights.md").
+AWS Management Console. For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](cloudwatch-container-insights.md "cloudwatch-container-insights.md").
 
 ###### Note
 
@@ -30,9 +29,7 @@ see [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-upd
 
 For task metadata example output, see [Amazon ECS task metadata v4 examples](task-metadata-endpoint-v4-examples.md "task-metadata-endpoint-v4-examples.md").
 
-## Task metadata endpoint version 4
-
-paths
+## Task metadata endpoint version 4 paths
 
 The following task metadata endpoint paths are available to containers.
 
@@ -44,8 +41,7 @@ This path returns metadata for the container.
 
 This path returns metadata for the task, including a list of the container
 IDs and names for all of the containers associated with the task. For more
-information about the response for this endpoint, see [Amazon ECS task metadata V4 JSON
-response](task-metadata-endpoint-v4-response.md "task-metadata-endpoint-v4-response.md").
+information about the response for this endpoint, see [Amazon ECS task metadata V4 JSON response](task-metadata-endpoint-v4-response.md "task-metadata-endpoint-v4-response.md").
 
 `${ECS_CONTAINER_METADATA_URI_V4}/taskWithTags`
 
@@ -84,8 +80,7 @@ throttling limits for the `ListTagsForResource` API, see
 [Request
 throttling for the Amazon ECS API](../APIReference/request-throttling.md "../APIReference/request-throttling.md") in the
 _Amazon Elastic Container Service API Reference_. For more information about
-debugging Amazon ECS API calls using AWS CloudTrail, see [Log Amazon ECS API calls using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+debugging Amazon ECS API calls using AWS CloudTrail, see [Log Amazon ECS API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 `${ECS_CONTAINER_METADATA_URI_V4}/stats`
 

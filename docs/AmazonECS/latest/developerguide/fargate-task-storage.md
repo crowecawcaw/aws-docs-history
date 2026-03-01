@@ -6,9 +6,7 @@ containers that use the `volumes`, `mountPoints`, and
 `volumesFrom` parameters in the task definition. This isn't supported for
 Windows containers on AWS Fargate.
 
-## Fargate Linux container platform
-
-versions
+## Fargate Linux container platform versions
 
 ### Version 1.4.0 or later
 
@@ -59,9 +57,7 @@ artifacts.
   containers that use the `volumes`, `mountPoints`, and
   `volumesFrom` parameters in the task definition.
 
-## Fargate Windows container platform
-
-versions
+## Fargate Windows container platform versions
 
 ### Version 1.0.0 or later
 

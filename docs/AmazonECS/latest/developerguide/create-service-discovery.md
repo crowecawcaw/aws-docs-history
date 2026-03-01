@@ -1,16 +1,12 @@
-# Creating an Amazon ECS service that uses
-
-Service Discovery
+# Creating an Amazon ECS service that uses Service Discovery
 
 Learn how to create a service containing a
 Fargate task that uses service discovery with the AWS CLI.
 
-For a list of AWS Regions that support service discovery, see [Use service discovery to connect Amazon ECS services with
-DNS names](service-discovery.md "service-discovery.md").
+For a list of AWS Regions that support service discovery, see [Use service discovery to connect Amazon ECS services with DNS names](service-discovery.md "service-discovery.md").
 
 For information about the Regions that support Fargate, see
-[Supported Regions for Amazon ECS on
-AWS Fargate](AWS_Fargate-Regions.md "AWS_Fargate-Regions.md").
+[Supported Regions for Amazon ECS on AWS Fargate](AWS_Fargate-Regions.md "AWS_Fargate-Regions.md").
 
 ###### Note
 
@@ -30,9 +26,7 @@ met:
 - You have created at least one VPC and one security group. For more
   information, see [Create a virtual private cloud](get-set-up-for-amazon-ecs.md#create-a-vpc "get-set-up-for-amazon-ecs.md#create-a-vpc").
 
-## Step 1: Create the
-
-Service Discovery resources in AWS Cloud Map
+## Step 1: Create the Service Discovery resources in AWS Cloud Map
 
 Follow these steps to create your service discovery namespace and
 service discovery service:
@@ -119,9 +113,7 @@ The output is as follows.
 }
 ```
 
-## Step 2: Create the Amazon ECS
-
-resources
+## Step 2: Create the Amazon ECS resources
 
 Follow these steps to create your Amazon ECS cluster, task definition, and service:
 
@@ -225,9 +217,7 @@ Follow these steps to create your Amazon ECS cluster, task definition, and servi
     --cli-input-json file://ecs-service-discovery.json`
    ```
 
-## Step 3: Verify
-
-Service Discovery in AWS Cloud Map
+## Step 3: Verify Service Discovery in AWS Cloud Map
 
 You can verify that everything is created properly by querying your
 service discovery information. After service discovery is configured, you can either

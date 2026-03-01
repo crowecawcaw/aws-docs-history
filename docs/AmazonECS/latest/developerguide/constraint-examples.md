@@ -34,7 +34,7 @@ Replace `daemon-service` with the name of the daemon service.
 
 The example uses the `memberOf` constraint to place tasks on instances with
 other tasks in the `databases` task group, respecting any task placement
-strategies that are also specified. For more information about task groups, see [Group related Amazon ECS tasks](task-groups.md "task-groups.md") . It can be specified with the
+strategies that are also specified. For more information about task groups, see [Group related Amazon ECS tasks](task-groups.md "task-groups.md"). It can be specified with the
 following actions: [CreateService](../APIReference/API_CreateService.md "../APIReference/API_CreateService.md"), [UpdateService](../APIReference/API_UpdateService.md "../APIReference/API_UpdateService.md"), [RegisterTaskDefinition](../APIReference/API_RegisterTaskDefinition.md "../APIReference/API_RegisterTaskDefinition.md"), and [RunTask](../APIReference/API_RunTask.md "../APIReference/API_RunTask.md").
 
 ```

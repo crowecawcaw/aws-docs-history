@@ -1,6 +1,4 @@
-# Troubleshoot the Docker `API error (500):
-
-devmapper` in Amazon ECS
+# Troubleshoot the Docker `API error (500): devmapper` in Amazon ECS
 
 The following Docker error indicates that the thin pool storage on your container
 instance is full, and that the Docker daemon cannot create new containers:

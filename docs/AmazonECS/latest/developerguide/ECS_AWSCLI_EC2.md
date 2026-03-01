@@ -1,6 +1,4 @@
-# Creating an Amazon ECS task for EC2 with the
-
-AWS CLI
+# Creating an Amazon ECS task for EC2 with the AWS CLI
 
 The following steps help you set up a cluster, register a task definition, run a task, and
 perform other common scenarios in Amazon ECS with the AWS CLI. Use the latest version of the AWS CLI.
@@ -15,14 +13,10 @@ You can use dual-stack service endpoints to interact with Amazon ECS from the AW
 
 - [Prerequisites](#AWSCLI_EC2_prereq "#AWSCLI_EC2_prereq")
 - [Create a cluster](#AWSCLI_EC2_create_cluster "#AWSCLI_EC2_create_cluster")
-- [Launch a container instance with
-  the Amazon ECS AMI](#AWSCLI_EC2_launch_container_instance "#AWSCLI_EC2_launch_container_instance")
-- [List container
-  instances](#AWSCLI_EC2_list_container_instances "#AWSCLI_EC2_list_container_instances")
-- [Describe your container
-  instance](#AWSCLI_EC2_describe_container_instance "#AWSCLI_EC2_describe_container_instance")
-- [Register a task
-  definition](#AWSCLI_EC2_register_task_definition "#AWSCLI_EC2_register_task_definition")
+- [Launch a container instance with the Amazon ECS AMI](#AWSCLI_EC2_launch_container_instance "#AWSCLI_EC2_launch_container_instance")
+- [List container instances](#AWSCLI_EC2_list_container_instances "#AWSCLI_EC2_list_container_instances")
+- [Describe your container instance](#AWSCLI_EC2_describe_container_instance "#AWSCLI_EC2_describe_container_instance")
+- [Register a task definition](#AWSCLI_EC2_register_task_definition "#AWSCLI_EC2_register_task_definition")
 - [List task definitions](#AWSCLI_EC2_list_task_definitions "#AWSCLI_EC2_list_task_definitions")
 - [Create a service](#AWSCLI_EC2_run_task "#AWSCLI_EC2_run_task")
 - [List services](#AWSCLI_EC2_list_tasks "#AWSCLI_EC2_list_tasks")
@@ -79,9 +73,7 @@ Output:
 }
 ```
 
-## Launch a container instance with
-
-the Amazon ECS AMI
+## Launch a container instance with the Amazon ECS AMI
 
 Container instances are EC2 instances that run the Amazon ECS container agent and have
 been registered into a cluster. In this section, you'll launch an EC2 instance using the
@@ -187,9 +179,7 @@ The user data script configures the Amazon ECS agent to register the instance wi
 `MyCluster`. The instance uses the `ecsInstanceRole` IAM role, which provides the necessary
 permissions for the agent.
 
-## List container
-
-instances
+## List container instances
 
 Within a few minutes of launching your container instance, the Amazon ECS agent registers
 the instance with your MyCluster cluster. You can list the container instances in a
@@ -209,9 +199,7 @@ Output:
 }
 ```
 
-## Describe your container
-
-instance
+## Describe your container instance
 
 After you have the ARN or ID of a container instance, you can use the
 **describe-container-instances** command to get valuable information
@@ -342,9 +330,7 @@ You can also find the Amazon EC2 instance ID that you can use to monitor the ins
 the Amazon EC2 console or with the **aws ec2 describe-instances --instance-id
 `instance_id`** command.
 
-## Register a task
-
-definition
+## Register a task definition
 
 Before you can run a task on your Amazon ECS cluster, you must register a task definition.
 Task definitions are lists of containers grouped together. The following example is a

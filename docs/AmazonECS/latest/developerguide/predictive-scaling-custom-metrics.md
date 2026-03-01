@@ -1,6 +1,4 @@
-# Advanced predictive scaling policy using custom
-
-metrics for Amazon ECS
+# Advanced predictive scaling policy using custom metrics for Amazon ECS
 
 You can use predefined or custom metrics in a predictive scaling policy. Custom metrics are useful when
 the predefined metrics, such as CPU, memory, etc) aren't enough to sufficiently describe your
@@ -31,9 +29,7 @@ example, the load metric specification uses hourly metrics to measure the load o
 CloudWatch uses your published metric data to provide a single data value for any one-hour period by
 aggregating all data points with timestamps that fall within each one-hour period.
 
-## Best
-
-practices
+## Best practices
 
 The following best practices can help you use custom metrics more effectively:
 
@@ -55,9 +51,7 @@ The following best practices can help you use custom metrics more effectively:
 - You can query data points of up to 10 metrics in one metric specification.
 - For the purposes of this limit, one expression counts as one metric.
 
-## Troubleshooting a
-
-predictive scaling policy with custom metrics
+## Troubleshooting a predictive scaling policy with custom metrics
 
 If an issue occurs while using custom metrics, we recommend that you do the following:
 
@@ -77,9 +71,7 @@ If an issue occurs while using custom metrics, we recommend that you do the foll
   a metric specification based on an expression can return only one time series.
 - All metrics involved in a search expression should be of the same resolution.
 
-## Example predictive scaling policy that
-
-combines metrics using metric math (AWS CLI)
+## Example predictive scaling policy that combines metrics using metric math (AWS CLI)
 
 Sometimes, instead of specifying the metric directly, you might need to
 first process its data in some way. For example, you might have an

@@ -1,6 +1,4 @@
-# Create your first Amazon ECS Express Mode service in the
-
-console
+# Create your first Amazon ECS Express Mode service in the console
 
 The console experience for Express Mode service provides a streamlined way to deploy your containerized application with minimal configuration required.
 Read more about prerequisites in [Amazon ECS Express Mode](express-service-overview.md "express-service-overview.md").
@@ -43,8 +41,7 @@ After creating your first Express Mode service:
 
 - Access your application using the provided Application URL once the deployment is complete.
 - Monitor deployment progress in the Resources tab of the console. When the deployment is complete, your service is ready to receive traffic. For more
-  information, see [Viewing the details of an
-  Amazon ECS Express Mode service](express-service-view-service.md "express-service-view-service.md").
+  information, see [Viewing the details of an Amazon ECS Express Mode service](express-service-view-service.md "express-service-view-service.md").
 - To navigate back to your service, select from the navigation **Clusters**, then select the `default` Cluster if you did not specify one during the create.
   Amazon ECS Organizes services into logical groupings called clusters. This is an easy way to organize applications in your account.
 - If you encounter any issues during deployment, see [Troubleshooting Amazon ECS Express Mode services](express-service-troubleshooting.md "express-service-troubleshooting.md").

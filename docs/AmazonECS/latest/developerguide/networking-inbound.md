@@ -1,6 +1,4 @@
-# Best practices for receiving inbound connections to
-
-Amazon ECS from the internet
+# Best practices for receiving inbound connections to Amazon ECS from the internet
 
 If you run a public service, you must accept inbound traffic from the internet. For
 example, your public website must accept inbound HTTP requests from browsers. In such

@@ -1,6 +1,4 @@
-# Creating an Amazon ECS rolling update
-
-deployment
+# Creating an Amazon ECS rolling update deployment
 
 Create a service to run and maintain a specified number of instances of a task definition
 simultaneously in a cluster. If one of your tasks fails or stops, the Amazon ECS service
@@ -28,8 +26,7 @@ Decide on the following configuration parameters before you create a service:
   evenly across Availability Zones.
 
 We recommend that you use Availability Zone rebalancing to help ensure high availability
-for your service. For more information, see [Balancing an Amazon ECS service across Availability
-Zones](service-rebalancing.md "service-rebalancing.md").
+for your service. For more information, see [Balancing an Amazon ECS service across Availability Zones](service-rebalancing.md "service-rebalancing.md").
 
 - When you use the **Launch Type** for your service deployment, by
   default the service starts in the subnets in your cluster VPC.
@@ -54,8 +51,7 @@ Zones](service-rebalancing.md "service-rebalancing.md").
   **Amazon ECS deployment circuit breaker** option with the
   **Rollback on failures** option.
 
-For more information, see [How the Amazon ECS deployment circuit breaker
-detects failures](deployment-circuit-breaker.md "deployment-circuit-breaker.md").
+For more information, see [How the Amazon ECS deployment circuit breaker detects failures](deployment-circuit-breaker.md "deployment-circuit-breaker.md").
 
 - Decide if you want Amazon ECS to increase or decrease the desired number of tasks in
   your service automatically. For information see, [Automatically scale your Amazon ECS service](service-auto-scaling.md "service-auto-scaling.md").
@@ -63,16 +59,13 @@ detects failures](deployment-circuit-breaker.md "deployment-circuit-breaker.md")
   determine the option that fits your architecture. For more information, see [Interconnect Amazon ECS services](interconnecting-services.md "interconnecting-services.md").
 - When you create a service that uses Amazon ECS circuit breaker, Amazon ECS creates a service
   deployment and a service revision. These resources allow you to view detailed
-  information about the service history. For more information, see [View service history using Amazon ECS service
-  deployments](service-deployment.md "service-deployment.md").
+  information about the service history. For more information, see [View service history using Amazon ECS service deployments](service-deployment.md "service-deployment.md").
 
 For information about how to create a service using the AWS CLI, see [create-service](../../../cli/latest/reference/ecs/create-service.md "../../../cli/latest/reference/ecs/create-service.md") in the _AWS Command Line Interface Reference_.
 
 For information about how to create a service using AWS CloudFormation, see [AWS::ECS::Service](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.md") in the _AWS CloudFormation User Guide_.
 
-## Create a service with the default
-
-options
+## Create a service with the default options
 
 You can use the console to quickly create and deploy a service. The service has the
 following configuration:
@@ -133,9 +126,7 @@ Add or remove a tag.
     * [Remove a tag] Next to the tag, choose **Remove
      tag**.
 
-## Create a service using defined
-
-parameters
+## Create a service using defined parameters
 
 To create a service by using defined parameters, follow these steps.
 
@@ -371,8 +362,7 @@ Choose the load balancer.
 | Network Load Balancer     | 1. For **Load balancer type**,<br>select **Network Load Balancer**.<br>2. For **Load Balancer**, choose an<br>existing Network Load Balancer.<br>3. For **Choose container to load<br>balance**, choose the container that<br>hosts the service.<br>4. For **Target group name**, enter<br>a name and a protocol for the target group that the<br>Network Load Balancer routes requests to. By default, the target<br>group routes requests to the first container defined<br>in your task definition.<br>5. For **Degregistration delay**,<br>enter the number of seconds for the load balancer to<br>change the target state to `UNUSED`. The<br>default is 300 seconds.<br>6. For **Health check path**, enter<br>an existing path within your container where the<br>Network Load Balancer periodically sends requests to verify the<br>connection health between the Application Load Balancer and the<br>container. The default is the root directory<br>(`/`).                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 13. (Optional) To configure service Auto Scaling, expand **Service auto
-    scaling**, and then specify the following parameters.To use predicte auto scaling, which looks at past load data from traffic flows, configure it after you create the service. For more information, see [Use historical patterns to scale Amazon ECS services with predictive
-    scaling](predictive-auto-scaling.md "predictive-auto-scaling.md").
+    scaling**, and then specify the following parameters.To use predicte auto scaling, which looks at past load data from traffic flows, configure it after you create the service. For more information, see [Use historical patterns to scale Amazon ECS services with predictive scaling](predictive-auto-scaling.md "predictive-auto-scaling.md").
     1.  To use service auto scaling, select **Service auto
         scaling**.
     2.  For **Minimum number of tasks**, enter the lower limit of
@@ -466,8 +456,6 @@ Add or remove a tag.
 The following are additional actions after you create a service.
 
 - Configure predicte auto scaling, which looks at past load data from traffic
-  flows. For more information, see [Use historical patterns to scale Amazon ECS services with predictive
-  scaling](predictive-auto-scaling.md "predictive-auto-scaling.md").
+  flows. For more information, see [Use historical patterns to scale Amazon ECS services with predictive scaling](predictive-auto-scaling.md "predictive-auto-scaling.md").
 - Track your deployment and view your service history for services that Amazon ECS
-  circuit breaker. For more information, see [View service history using Amazon ECS service
-  deployments](service-deployment.md "service-deployment.md").
+  circuit breaker. For more information, see [View service history using Amazon ECS service deployments](service-deployment.md "service-deployment.md").

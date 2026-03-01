@@ -204,7 +204,7 @@ definition where the `awslogs` log driver is configured:
 ```
 
 For more information about using the `awslogs` log driver in a task
-definition to send your container logs to CloudWatch Logs, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md") .
+definition to send your container logs to CloudWatch Logs, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md").
 
 For more information about the `awsfirelens` log driver in a task
 definition, see [Send Amazon ECS logs to an AWS service or AWS Partner](using_firelens.md "using_firelens.md").

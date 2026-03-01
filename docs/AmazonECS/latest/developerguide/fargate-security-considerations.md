@@ -1,6 +1,4 @@
-# Fargate security
-
-considerations for Amazon ECS
+# Fargate security considerations for Amazon ECS
 
 Each task has a dedicated infrastructure capacity because Fargate runs each
 workload on an isolated virtual environment. Workloads that run on Fargate do not

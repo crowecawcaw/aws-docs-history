@@ -1,6 +1,4 @@
-# Performance of Amazon EBS volumes for
-
-EC2 tasks
+# Performance of Amazon EBS volumes for EC2 tasks
 
 Amazon EBS provides volume types, which differ in performance characteristics and price, so
 that you can tailor your storage performance and cost to the needs of your applications.

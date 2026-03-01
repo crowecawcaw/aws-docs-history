@@ -1,6 +1,4 @@
-# Amazon ECS container instance state change
-
-events
+# Amazon ECS container instance state change events
 
 The following scenarios cause container instance state change events:
 

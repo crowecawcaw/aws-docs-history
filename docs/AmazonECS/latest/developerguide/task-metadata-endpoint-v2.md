@@ -1,6 +1,4 @@
-# Amazon ECS task metadata endpoint version
-
-2
+# Amazon ECS task metadata endpoint version 2
 
 ###### Important
 
@@ -19,9 +17,7 @@ range. When a container queries the metadata endpoint, the Amazon ECS container 
 determine which task the container belongs to based on its unique IP address, and
 metadata and stats for that task are returned.
 
-## Enabling task
-
-metadata
+## Enabling task metadata
 
 ###### Important
 
@@ -40,9 +36,7 @@ range. When a container queries the metadata endpoint, the Amazon ECS container 
 determine which task the container belongs to based on its unique IP address, and
 metadata and stats for that task are returned.
 
-### Enabling task
-
-metadata
+### Enabling task metadata
 
 The task metadata version 2 feature is enabled by default for the
 following:
@@ -60,9 +54,7 @@ You can add support for this feature on older container
 instances by updating the agent to the latest version. For more information, see
 [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md").
 
-### Task metadata endpoint
-
-paths
+### Task metadata endpoint paths
 
 The following API endpoints are available to containers:
 
@@ -71,8 +63,7 @@ The following API endpoints are available to containers:
 This endpoint returns metadata JSON for the task, including a list
 of the container IDs and names for all of the containers associated
 with the task. For more information about the response for this
-endpoint, see [Task metadata JSON
-response](#task-metadata-endpoint-v2-response "#task-metadata-endpoint-v2-response").
+endpoint, see [Task metadata JSON response](#task-metadata-endpoint-v2-response "#task-metadata-endpoint-v2-response").
 
 `169.254.170.2/v2/metadata/`<container-id>``
 
@@ -98,9 +89,7 @@ This endpoint returns Docker stats JSON for the specified Docker
 container ID. For more information about each of the returned stats,
 see [ContainerStats](https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats") in the Docker API documentation.
 
-### Task metadata JSON
-
-response
+### Task metadata JSON response
 
 The following information is returned from the task metadata endpoint
 (`169.254.170.2/v2/metadata`) JSON response.

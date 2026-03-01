@@ -47,9 +47,7 @@ Consider the following when using capacity providers:
   capacity provider strategy rather than a launch type. However, you must
   force a new deployment when doing so.
 
-## Fargate Spot
-
-termination notices
+## Fargate Spot termination notices
 
 During periods of extremely high demand, Fargate Spot capacity might
 be unavailable. This can cause Fargate Spot tasks to be delayed. When this

@@ -1,6 +1,4 @@
-# View service history using Amazon ECS service
-
-deployments
+# View service history using Amazon ECS service deployments
 
 Service deployments provide a comprehensive view of your deployments. Service deployments
 provide the following information about the service:
@@ -12,8 +10,7 @@ provide the following information about the service:
 - The CloudWatch alarms that are in alarm
 - When the service deployment started and completed
 - The details of a rollback if one occurred
-  For information about the service deployment properties, see [Properties included in an Amazon ECS service
-  deployment](service-deployment-property.md "service-deployment-property.md").
+  For information about the service deployment properties, see [Properties included in an Amazon ECS service deployment](service-deployment-property.md "service-deployment-property.md").
 
 Service deployments are read-only and each have a unique ID.
 

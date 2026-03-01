@@ -1,6 +1,4 @@
-# Supported instances for
-
-increased Amazon ECS container network interfaces
+# Supported instances for increased Amazon ECS container network interfaces
 
 The following shows the supported Amazon EC2 instance types and how many tasks using the
 `awsvpc` network mode can be launched on each instance type before and
@@ -232,6 +230,8 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | m8gb.16xlarge      | 15                              | 120                          |
 | m8gb.24xlarge      | 23                              | 120                          |
 | m8gb.48xlarge      | 23                              | 120                          |
+| m8gb.metal-24xl    | 23                              | 120                          |
+| m8gb.metal-48xl    | 23                              | 120                          |
 | m8gd.medium        | 1                               | 4                            |
 | m8gd.large         | 2                               | 10                           |
 | m8gd.xlarge        | 3                               | 20                           |
@@ -254,6 +254,8 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | m8gn.16xlarge      | 15                              | 120                          |
 | m8gn.24xlarge      | 23                              | 120                          |
 | m8gn.48xlarge      | 23                              | 120                          |
+| m8gn.metal-24xl    | 23                              | 120                          |
+| m8gn.metal-48xl    | 23                              | 120                          |
 | m8i.large          | 2                               | 10                           |
 | m8i.xlarge         | 3                               | 20                           |
 | m8i.2xlarge        | 3                               | 40                           |
@@ -922,6 +924,7 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | i8g.24xlarge    | 14                              | 120                          |
 | i8g.48xlarge    | 14                              | 120                          |
 | i8g.metal-24xl  | 14                              | 120                          |
+| i8g.metal-48xl  | 14                              | 120                          |
 | i8ge.large      | 2                               | 20                           |
 | i8ge.xlarge     | 3                               | 29                           |
 | i8ge.2xlarge    | 3                               | 29                           |

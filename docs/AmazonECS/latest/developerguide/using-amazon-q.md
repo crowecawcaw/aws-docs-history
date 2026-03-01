@@ -23,8 +23,7 @@ The following are prerequisites:
   definition in the console must have the
   `codewhisperer:GenerateRecommendations` permission for the
   recommendations and `q:SendMessage` to use inline chat. For more
-  information, see [Permissions required for using Amazon Q Developer to provide
-  recommendations in the console](console-permissions.md#amazon-q-permission "console-permissions.md#amazon-q-permission").
+  information, see [Permissions required for using Amazon Q Developer to provide recommendations in the console](console-permissions.md#amazon-q-permission "console-permissions.md#amazon-q-permission").
 
 ## Procedure
 

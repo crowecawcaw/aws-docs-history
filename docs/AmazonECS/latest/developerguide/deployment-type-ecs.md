@@ -38,18 +38,13 @@ Amazon ECS uses the following parameters to determine the number of tasks:
 When setting a minimum healthy percent or a maximum percent, you should ensure that
 the scheduler can stop or start at least one task when a deployment is initiated. If
 your service has a deployment that is stuck due to an invalid deployment configuration,
-a service event message will be sent. For more information, see [service (service-name)
-was unable to stop or start tasks during a deployment because of the service deployment
-configuration. Update the minimumHealthyPercent or maximumPercent value and try
-again.](service-event-messages-list.md#service-event-messages-7 "service-event-messages-list.md#service-event-messages-7").
+a service event message will be sent. For more information, see [service (service-name) was unable to stop or start tasks during a deployment because of the service deployment configuration. Update the minimumHealthyPercent or maximumPercent value and try again.](service-event-messages-list.md#service-event-messages-7 "service-event-messages-list.md#service-event-messages-7").
 
 Rolling deployments have 2 methods which provide a way to quickly identify when a service
 deployment has failed:
 
-- [How the Amazon ECS deployment circuit breaker
-  detects failures](deployment-circuit-breaker.md "deployment-circuit-breaker.md")
-- [How CloudWatch alarms detect Amazon ECS deployment
-  failures](deployment-alarm-failure.md "deployment-alarm-failure.md")
+- [How the Amazon ECS deployment circuit breaker detects failures](deployment-circuit-breaker.md "deployment-circuit-breaker.md")
+- [How CloudWatch alarms detect Amazon ECS deployment failures](deployment-alarm-failure.md "deployment-alarm-failure.md")
   The methods can be used separately or together. When both methods are used, the deployment
   is set to failed as soon as the failure criteria for either failure method is met.
 
@@ -61,9 +56,7 @@ Use the following guidelines to help determine which method to use:
   application metrics.
   Both methods support rolling back to the previous service revision.
 
-## Container image
-
-resolution
+## Container image resolution
 
 By default, Amazon ECS resolves container image tags specified in the task
 definition to container image digests. If you create a service that runs and maintains a

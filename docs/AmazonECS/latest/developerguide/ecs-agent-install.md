@@ -16,9 +16,7 @@ data has finished running. Therefore, starting Amazon ECS or Docker via Amazon E
 cause a deadlock. To start the container agent using Amazon EC2 user data you can use
 `systemctl enable --now --no-block ecs.service`.
 
-## Installing the Amazon ECS container agent
-
-on a non-Amazon Linux EC2 instance
+## Installing the Amazon ECS container agent on a non-Amazon Linux EC2 instance
 
 To install the Amazon ECS container agent on an Amazon EC2 instance, you can download the agent
 from one of the regional Amazon S3 buckets and install it.
@@ -54,9 +52,7 @@ listed below for reference.
 | us-gov-east-1  | AWS GovCloud (US-East)    | [Amazon ECS init amd64](https://s3.us-gov-east-1.amazonaws.com/amazon-ecs-agent-us-gov-east-1/amazon-ecs-init-latest.amd64.deb "https://s3.us-gov-east-1.amazonaws.com/amazon-ecs-agent-us-gov-east-1/amazon-ecs-init-latest.amd64.deb") (amd64)<br>[Amazon ECS init arm64](https://s3.us-gov-east-1.amazonaws.com/amazon-ecs-agent-us-gov-east-1/amazon-ecs-init-latest.arm64.deb "https://s3.us-gov-east-1.amazonaws.com/amazon-ecs-agent-us-gov-east-1/amazon-ecs-init-latest.arm64.deb") (arm64)         | [Amazon ECS init x86_64](https://s3.us-gov-east-1.amazonaws.com/amazon-ecs-agent-us-gov-east-1/amazon-ecs-init-latest.x86_64.rpm "https://s3.us-gov-east-1.amazonaws.com/amazon-ecs-agent-us-gov-east-1/amazon-ecs-init-latest.x86_64.rpm") (x86_64)<br>[Amazon ECS init aarch64](https://s3.us-gov-east-1.amazonaws.com/amazon-ecs-agent-us-gov-east-1/amazon-ecs-init-latest.aarch64.rpm "https://s3.us-gov-east-1.amazonaws.com/amazon-ecs-agent-us-gov-east-1/amazon-ecs-init-latest.aarch64.rpm") (aarch64)         |
 | us-gov-west-1  | AWS GovCloud (US-West)    | [Amazon ECS init amd64](https://s3.us-gov-west-1.amazonaws.com/amazon-ecs-agent-us-gov-west-1/amazon-ecs-init-latest.amd64.deb "https://s3.us-gov-west-1.amazonaws.com/amazon-ecs-agent-us-gov-west-1/amazon-ecs-init-latest.amd64.deb") (amd64)<br>[Amazon ECS init arm64](https://s3.us-gov-west-1.amazonaws.com/amazon-ecs-agent-us-gov-west-1/amazon-ecs-init-latest.arm64.deb "https://s3.us-gov-west-1.amazonaws.com/amazon-ecs-agent-us-gov-west-1/amazon-ecs-init-latest.arm64.deb") (arm64)         | [Amazon ECS init x86_64](https://s3.us-gov-west-1.amazonaws.com/amazon-ecs-agent-us-gov-west-1/amazon-ecs-init-latest.x86_64.rpm "https://s3.us-gov-west-1.amazonaws.com/amazon-ecs-agent-us-gov-west-1/amazon-ecs-init-latest.x86_64.rpm") (x86_64)<br>[Amazon ECS init aarch64](https://s3.us-gov-west-1.amazonaws.com/amazon-ecs-agent-us-gov-west-1/amazon-ecs-init-latest.aarch64.rpm "https://s3.us-gov-west-1.amazonaws.com/amazon-ecs-agent-us-gov-west-1/amazon-ecs-init-latest.aarch64.rpm") (aarch64)         |
 
-###### To install the Amazon ECS container agent on an Amazon EC2 instance using a
-
-non-Amazon Linux AMI
+###### To install the Amazon ECS container agent on an Amazon EC2 instance using a non-Amazon Linux AMI
 
 1. Launch an Amazon EC2 instance with an IAM role that allows access to Amazon ECS. For
    more information, see [Amazon ECS container instance IAM role](instance_IAM_role.md "instance_IAM_role.md").
@@ -117,9 +113,7 @@ see [Storing Amazon ECS container instance configuration in Amazon S3](ecs-confi
 `ubuntu:~$` `sudo systemctl start ecs`
 ```
 
-## Running the Amazon ECS agent with host network
-
-mode
+## Running the Amazon ECS agent with host network mode
 
 When running the Amazon ECS container agent, `ecs-init` will create the
 container agent container with the `host` network mode. This is the only

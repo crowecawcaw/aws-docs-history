@@ -105,9 +105,7 @@ following:
 [Remove a tag] Choose **Remove** to the right of the tag’s Key and
 Value. 10. Choose **Create**.
 
-## Step 2: Register a task
-
-definition
+## Step 2: Register a task definition
 
 ###### To register the sample task definition with the AWS Management Console
 
@@ -173,8 +171,7 @@ service. For more information on services, see [Amazon ECS services](ecs_service
 5. In the **Deployment configuration** section, do the
    following:
    1. For **Family**, choose the task definition you
-      created in [Step 2: Register a task
-      definition](#getting-started-ec2-task-def-v2 "#getting-started-ec2-task-def-v2").
+      created in [Step 2: Register a task definition](#getting-started-ec2-task-def-v2 "#getting-started-ec2-task-def-v2").
    2. For **Service name**, enter a name for your
       service.
    3. For **Desired tasks**, enter

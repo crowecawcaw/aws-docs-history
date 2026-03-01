@@ -1,6 +1,4 @@
-# Amazon ECS task scale-in protection
-
-endpoint
+# Amazon ECS task scale-in protection endpoint
 
 The Amazon ECS container agent automatically injects the `ECS_AGENT_URI`
 environment variable into the containers of Amazon ECS tasks to provide a method to
@@ -18,9 +16,7 @@ Use a PUT request to this URI from within a container to set task scale-in
 protection. A GET request to this URI returns the current protection status of a
 task.
 
-## Task scale-in protection
-
-request parameters
+## Task scale-in protection request parameters
 
 You can set task scale-in protection using the
 `${ECS_AGENT_URI}/task-protection/v1/state` endpoint with the
@@ -97,9 +93,7 @@ The PUT request returns the following response.
 }
 ```
 
-## Task scale-in protection
-
-response parameters
+## Task scale-in protection response parameters
 
 The following information is returned from the task scale-in protection endpoint
 `${ECS_AGENT_URI}/task-protection/v1/state` in the JSON

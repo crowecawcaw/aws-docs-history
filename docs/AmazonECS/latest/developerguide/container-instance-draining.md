@@ -52,9 +52,7 @@ are 100%, then the service can't remove existing tasks, and also cannot
 start replacement tasks. This prevents successful container instance
 draining and prevents making new deployments.
 
-## Draining behavior for standalone
-
-tasks
+## Draining behavior for standalone tasks
 
 Any standalone tasks in the `PENDING` or `RUNNING` state are
 unaffected; you must wait for them to stop on their own or stop them manually. The

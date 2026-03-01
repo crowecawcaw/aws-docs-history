@@ -86,8 +86,7 @@ following table to learn about what type of load balancer to use.
 | Network Load Balancer     | Route TCP or UDP (or layer 4) traffic.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Gateway Load Balancer     | Route TCP or UDP (or layer 4) traffic. Use virtual appliances,<br>such as firewalls, intrusion detection and prevention systems, and<br>deep packet inspection systems.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
-For more information, see [Use load balancing to distribute Amazon ECS service
-traffic](service-load-balancing.md "service-load-balancing.md").
+For more information, see [Use load balancing to distribute Amazon ECS service traffic](service-load-balancing.md "service-load-balancing.md").
 
 ## Interconecting services
 

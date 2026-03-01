@@ -1,14 +1,11 @@
-# Create a step scaling policy
-
-for Amazon ECS service auto scaling
+# Create a step scaling policy for Amazon ECS service auto scaling
 
 Create a step scaling policy to have Amazon ECS increase or decrease the desired
 number of tasks in your service automatically. Step scaling runs based on a set of scaling
 adjustments, known as step adjustments, that vary based on the size of the alarm breach.
 
 1. In addition to the standard IAM permissions for creating and updating
-   services, you need additional permissions. For more information, see [IAM permissions required for Amazon ECS service auto
-   scaling](auto-scaling-IAM.md "auto-scaling-IAM.md").
+   services, you need additional permissions. For more information, see [IAM permissions required for Amazon ECS service auto scaling](auto-scaling-IAM.md "auto-scaling-IAM.md").
 2. Determine the metrics to use for the policy. The following metrics
    are available:
    - **ECSServiceAverageCPUUtilization** – The average CPU

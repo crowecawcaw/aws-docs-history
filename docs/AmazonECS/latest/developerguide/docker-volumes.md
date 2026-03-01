@@ -42,5 +42,4 @@ Consider the following when using Docker volumes:
   `sudo stop ecs && sudo start ecs`
   ```
 
-For information about how to specify a Docker volume in a task definition, see [Specify a Docker volume in an Amazon ECS task
-definition](specify-volume-config.md "specify-volume-config.md").
+For information about how to specify a Docker volume in a task definition, see [Specify a Docker volume in an Amazon ECS task definition](specify-volume-config.md "specify-volume-config.md").

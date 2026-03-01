@@ -14,5 +14,4 @@ Use the following best practices for monitoring Amazon ECS.
 
 - Automate monitoring as much as possible.
 - Check the Amazon ECS log files. For more information, see [Viewing Amazon ECS container agent logs](logs.md "logs.md").
-- Use Runtime Monitoring to help protect your accounts, containers, workloads, and the data within your AWS environment. For more information, see [Identify unauthorized behavior using
-  Runtime Monitoring](ecs-guard-duty-integration.md "ecs-guard-duty-integration.md").
+- Use Runtime Monitoring to help protect your accounts, containers, workloads, and the data within your AWS environment. For more information, see [Identify unauthorized behavior using Runtime Monitoring](ecs-guard-duty-integration.md "ecs-guard-duty-integration.md").

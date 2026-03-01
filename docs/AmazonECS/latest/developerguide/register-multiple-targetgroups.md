@@ -1,6 +1,4 @@
-# Registering multiple target groups with
-
-an Amazon ECS service
+# Registering multiple target groups with an Amazon ECS service
 
 Your Amazon ECS service can serve traffic from multiple load balancers and expose multiple
 load balanced ports when you specify multiple target groups in a service
@@ -49,17 +47,14 @@ service definition.
 - When creating a service that specifies multiple target groups, the Amazon ECS
   service-linked role must be created. The role is created by omitting the
   `role` parameter in API requests, or the `Role`
-  property in CloudFormation. For more information, see [Using service-linked roles for
-  Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
+  property in CloudFormation. For more information, see [Using service-linked roles for Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ## Example service definitions
 
 Following are a few example use cases for specifying multiple target groups in a
 service definition. For the full syntax of a service definition, see [Service definition template](sd-template.md "sd-template.md").
 
-### Having separate load balancers
-
-for internal and external traffic
+### Having separate load balancers for internal and external traffic
 
 In the following use case, a service uses two separate load balancers, one for
 internal traffic and a second for internet-facing traffic, for the same
@@ -82,9 +77,7 @@ container and port.
 ]
 ```
 
-### Exposing multiple ports from
-
-the same container
+### Exposing multiple ports from the same container
 
 In the following use case, a service uses one load balancer but exposes
 multiple ports from the same container. For example, a Jenkins container might
@@ -106,9 +99,7 @@ API.
 ]
 ```
 
-### Exposing ports from multiple
-
-containers
+### Exposing ports from multiple containers
 
 In the following use case, a service uses one load balancer and two target
 groups to expose ports from separate containers.

@@ -223,16 +223,11 @@ parameters are allowed in a container definition.
 
 ###### Topics
 
-- [Standard container definition
-  parameters](#standard_container_definition_params "#standard_container_definition_params")
-- [Advanced container definition
-  parameters](#advanced_container_definition_params "#advanced_container_definition_params")
-- [Other container definition
-  parameters](#other_container_definition_params "#other_container_definition_params")
+- [Standard container definition parameters](#standard_container_definition_params "#standard_container_definition_params")
+- [Advanced container definition parameters](#advanced_container_definition_params "#advanced_container_definition_params")
+- [Other container definition parameters](#other_container_definition_params "#other_container_definition_params")
 
-### Standard container definition
-
-parameters
+### Standard container definition parameters
 
 The following task definition parameters are either required or used in most container
 definitions.
@@ -243,8 +238,7 @@ definitions.
 - [Image](#container_definition_image "#container_definition_image")
 - [Memory](#container_definition_memory "#container_definition_memory")
 - [Port mappings](#container_definition_portmappings "#container_definition_portmappings")
-- [Private Repository
-  Credentials](#container_definition_repositoryCredentials "#container_definition_repositoryCredentials")
+- [Private Repository Credentials](#container_definition_repositoryCredentials "#container_definition_repositoryCredentials")
 
 #### Name
 
@@ -319,8 +313,7 @@ behavior is `enabled`. If you set the value for a container
 as `disabled`, Amazon ECS will not resolve the container image tag
 to a digest and will use the original image URI specified in the
 container definition for deployment. For more information about
-container image resolution, see [Container image
-resolution](deployment-type-ecs.md#deployment-container-image-stability "deployment-type-ecs.md#deployment-container-image-stability").
+container image resolution, see [Container image resolution](deployment-type-ecs.md#deployment-container-image-stability "deployment-type-ecs.md#deployment-container-image-stability").
 
 #### Memory
 
@@ -461,8 +454,7 @@ If you don't set a value for this parameter, then TCP is
 used. However, Amazon ECS doesn't add protocol-specific telemetry
 for TCP.
 
-For more information, see [Use Service Connect to connect Amazon ECS services with short
-names](service-connect.md "service-connect.md").
+For more information, see [Use Service Connect to connect Amazon ECS services with short names](service-connect.md "service-connect.md").
 
 Valid protocol values: `"http" | "http2" | "grpc"`
 
@@ -604,8 +596,7 @@ only applies to Service Connect and VPC Lattice. This
 parameter is the name that you use in the Service Connect
 and VPC Lattice configuration of a service.
 
-For more information, see [Use Service Connect to connect Amazon ECS services with short
-names](service-connect.md "service-connect.md").
+For more information, see [Use Service Connect to connect Amazon ECS services with short names](service-connect.md "service-connect.md").
 
 In the following example, both of the required fields for
 Service Connect and VPC Lattice are used.
@@ -661,9 +652,7 @@ syntax.
 ]
 ```
 
-#### Private Repository
-
-Credentials
+#### Private Repository Credentials
 
 `repositoryCredentials`
 
@@ -711,9 +700,7 @@ the required parameters:
 
 ```
 
-### Advanced container definition
-
-parameters
+### Advanced container definition parameters
 
 The following advanced container definition parameters provide extended capabilities
 to the docker run command that's used to launch containers on your Amazon ECS container
@@ -737,8 +724,7 @@ instances.
 The container restart policy and associated configuration parameters.
 When you set up a restart policy for a container, Amazon ECS can restart the
 container without needing to replace the task. For more information, see
-[Restart individual containers in Amazon ECS tasks with
-container restart policies](container-restart-policy.md "container-restart-policy.md").
+[Restart individual containers in Amazon ECS tasks with container restart policies](container-restart-policy.md "container-restart-policy.md").
 
 `enabled`
 
@@ -781,8 +767,7 @@ seconds before it can be restarted.
 `healthCheck`
 
 The container health check command and the associated configuration
-parameters for the container. For more information, see [Determine Amazon ECS task health using container health
-checks](healthcheck.md "healthcheck.md").
+parameters for the container. For more information, see [Determine Amazon ECS task health using container health checks](healthcheck.md "healthcheck.md").
 
 `command`
 
@@ -927,8 +912,7 @@ Required: No
 For the `InferenceAccelerator` type, the `value`
 matches the `deviceName` for an
 `InferenceAccelerator` specified in a task definition.
-For more information, see [Elastic Inference accelerator
-name (deprecated)](#elastic-Inference-accelerator "#elastic-Inference-accelerator").
+For more information, see [Elastic Inference accelerator name (deprecated)](#elastic-Inference-accelerator "#elastic-Inference-accelerator").
 
 `essential`
 
@@ -1028,8 +1012,7 @@ container definition, they take precedence over the variables contained
 within an environment file. If multiple environment files are specified
 that contain the same variable, they're processed from the top down. We
 recommend that you use unique variable names. For more information, see
-[Pass an individual environment
-variable to an Amazon ECS container](taskdef-envfiles.md "taskdef-envfiles.md").
+[Pass an individual environment variable to an Amazon ECS container](taskdef-envfiles.md "taskdef-envfiles.md").
 
 `value`
 
@@ -1096,8 +1079,7 @@ Type: Object array
 Required: No
 
 An object that represents the secret to expose to your container. For
-more information, see [Pass sensitive data to an Amazon ECS
-container](specifying-sensitive-data.md "specifying-sensitive-data.md").
+more information, see [Pass sensitive data to an Amazon ECS container](specifying-sensitive-data.md "specifying-sensitive-data.md").
 
 `name`
 
@@ -1435,7 +1417,7 @@ The supported log drivers are `awslogs`,
 
 For more information about how to use the
 `awslogs` log driver in task definitions to
-send your container logs to CloudWatch Logs, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md") .
+send your container logs to CloudWatch Logs, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md").
 
 For more information about using the
 `awsfirelens` log driver, see [Custom Log Routing](using_firelens.md "using_firelens.md").
@@ -1684,8 +1666,7 @@ number of log lines that are buffered in memory, before being
 sent to the log router container. It can help to resolve
 potential log loss issue because high throughput might
 result in memory running out for the buffer inside of
-Docker. For more information, see [Configuring Amazon ECS logs for high
-throughput](firelens-docker-buffer-limit.md "firelens-docker-buffer-limit.md").
+Docker. For more information, see [Configuring Amazon ECS logs for high throughput](firelens-docker-buffer-limit.md "firelens-docker-buffer-limit.md").
 
 Other options you can specify when using
 `awsfirelens` to route logs depend on the
@@ -1722,8 +1703,7 @@ Required: No
 An object that represents the secret to pass to the log
 configuration. Secrets that are used in log configuration
 can include an authentication token, certificate, or
-encryption key. For more information, see [Pass sensitive data to an Amazon ECS
-container](specifying-sensitive-data.md "specifying-sensitive-data.md").
+encryption key. For more information, see [Pass sensitive data to an Amazon ECS container](specifying-sensitive-data.md "specifying-sensitive-data.md").
 
 `name`
 
@@ -1982,14 +1962,11 @@ This parameter requires version 1.18 of the Docker Remote API or greater on your
       ...}
 ```
 
-### Other container definition
-
-parameters
+### Other container definition parameters
 
 The following container definition parameters can be used when registering task
 definitions in the Amazon ECS console by using the **Configure via JSON**
-option. For more information, see [Creating an Amazon ECS task definition using the
-console](create-task-definition.md "create-task-definition.md").
+option. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").
 
 ###### Topics
 
@@ -2231,8 +2208,7 @@ Required: No
 The dependencies defined for container startup and shutdown. A
 container can contain multiple dependencies. When a dependency is
 defined for container startup, for container shutdown it is reversed.
-For an example, see [Container
-dependency](example_task_definitions.md#example_task_definition-containerdependency "example_task_definitions.md#example_task_definition-containerdependency").
+For an example, see [Container dependency](example_task_definitions.md#example_task_definition-containerdependency "example_task_definitions.md#example_task_definition-containerdependency").
 
 ###### Note
 
@@ -2462,9 +2438,7 @@ command and the `--tty` option to docker run.
 
 The default is `false`.
 
-## Elastic Inference accelerator
-
-name (deprecated)
+## Elastic Inference accelerator name (deprecated)
 
 The Elastic Inference accelerator resource requirement for your task definition.
 
@@ -2962,8 +2936,7 @@ a descriptor within a tag category (key).
 
 The following task definition parameters can be used when registering task definitions
 in the Amazon ECS console by using the **Configure via JSON** option. For
-more information, see [Creating an Amazon ECS task definition using the
-console](create-task-definition.md "create-task-definition.md").
+more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").
 
 ###### Topics
 

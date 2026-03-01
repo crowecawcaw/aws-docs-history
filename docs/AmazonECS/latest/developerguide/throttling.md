@@ -24,9 +24,7 @@ Amazon EKS pods have a burst rate of 20 with a sustained pod launch rate of 20 p
 per second when using the platform versions called out in the [Amazon EKS
 platform versions](../../../eks/latest/userguide/platform-versions.md "../../../eks/latest/userguide/platform-versions.md").
 
-## Throttling the `RunTask`
-
-API in Fargate
+## Throttling the `RunTask` API in Fargate
 
 In addition, Fargate limits the request rate when launching tasks using the
 Amazon ECS `RunTask` API using a separate quota. Fargate limits Amazon ECS

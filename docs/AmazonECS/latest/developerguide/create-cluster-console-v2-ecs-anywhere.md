@@ -71,15 +71,12 @@ other services in the namespace without additional configuration. For more infor
 ## Next steps
 
 You must register the instances with the cluster. For more information,
-see [Registering an external instance to an Amazon ECS
-cluster](ecs-anywhere-registration.md "ecs-anywhere-registration.md").
+see [Registering an external instance to an Amazon ECS cluster](ecs-anywhere-registration.md "ecs-anywhere-registration.md").
 
-Create a task definition for the external launch type. For more information, see [Creating an Amazon ECS task definition using the
-console](create-task-definition.md "create-task-definition.md")
+Create a task definition for the external launch type. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md")
 
 Run your applications as standalone tasks, or as part of a service. For more
 information, see the following:
 
 - [Running an application as an Amazon ECS task](standalone-task-create.md "standalone-task-create.md")
-- [Creating an Amazon ECS rolling update
-  deployment](create-service-console-v2.md "create-service-console-v2.md")
+- [Creating an Amazon ECS rolling update deployment](create-service-console-v2.md "create-service-console-v2.md")

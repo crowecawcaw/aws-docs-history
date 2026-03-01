@@ -1,6 +1,4 @@
-# Creating Amazon ECS resources using the CloudFormation
-
-console
+# Creating Amazon ECS resources using the CloudFormation console
 
 One way to use Amazon ECS with CloudFormation is through the AWS Management Console. Here you can create your
 CloudFormation stacks for Amazon ECS components like task definitions, clusters, and services and
@@ -15,9 +13,7 @@ This tutorial assumes that the following prerequisites have ben completed.
 - Your IAM user has the required permissions specified in the [AmazonECS_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess") IAM
   policy example.
 
-## Step 1: Create a stack
-
-template
+## Step 1: Create a stack template
 
 Use the following steps to create an CloudFormation stack template for an Amazon ECS service and
 other related resources.
@@ -553,9 +549,7 @@ execution IAM role. For more information about the task execution role,
 see [Amazon ECS task execution IAM role](task_execution_IAM_role.md "task_execution_IAM_role.md"). For more information about
 auto scaling, see [Automatically scale your Amazon ECS service](service-auto-scaling.md "service-auto-scaling.md").
 
-## Step 2: Create a stack for Amazon ECS
-
-resources
+## Step 2: Create a stack for Amazon ECS resources
 
 After creating a file for the template, you can follow these steps to create a
 stack with the template by using the CloudFormation console.
@@ -587,9 +581,7 @@ determine what to verify.
 | Resources           | A list of the created resources with links to service console.<br>Choose links to `ECSCluster`,<br>`ECSService`, `TaskDefinition` to view<br>more details about the created service, cluster, and task<br>definition in the Amazon ECS console. |
 | Outputs             | **LoadBalancerURL**. Paste the URL into a web<br>browser to view a webpage that displays a sample Amazon ECS<br>application.                                                                                                                    |
 
-## Step 4: Clean up
-
-resources
+## Step 4: Clean up resources
 
 To clean up resources and avoid incurring further costs, follow the steps in
 [Delete a stack from the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the

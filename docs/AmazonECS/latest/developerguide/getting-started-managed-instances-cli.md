@@ -1,6 +1,4 @@
-# Learn how to create a task for
-
-Amazon ECS Managed Instances with the AWS CLI
+# Learn how to create a task for Amazon ECS Managed Instances with the AWS CLI
 
 The following steps help you set up a cluster, create a capacity provider, register a
 task definition, run a Linux task, and perform other common scenarios in Amazon ECS with
@@ -18,14 +16,11 @@ AWS CLI, SDKs, and the Amazon ECS API over both IPv4 and IPv6. For more informat
 - [Step 1: Create a cluster](#managed-instances-cli-create-cluster "#managed-instances-cli-create-cluster")
 - [Step 2: Create a Amazon ECS Managed Instances capacity provider](#managed-instances-cli-create-capacity-provider "#managed-instances-cli-create-capacity-provider")
 - [Step 3: Configure the cluster's default capacity provider strategy](#managed-instances-cli-configure-cluster "#managed-instances-cli-configure-cluster")
-- [Step 4: Register a
-  Linux task definition](#managed-instances-cli-register-task-definition "#managed-instances-cli-register-task-definition")
-- [Step 5: List task
-  definitions](#managed-instances-cli-list-task-definitions "#managed-instances-cli-list-task-definitions")
+- [Step 4: Register a Linux task definition](#managed-instances-cli-register-task-definition "#managed-instances-cli-register-task-definition")
+- [Step 5: List task definitions](#managed-instances-cli-list-task-definitions "#managed-instances-cli-list-task-definitions")
 - [Step 6: Create a service](#managed-instances-cli-create-service "#managed-instances-cli-create-service")
 - [Step 7: List services](#managed-instances-cli-list-services "#managed-instances-cli-list-services")
-- [Step 8: Describe the running
-  service](#managed-instances-cli-describe-service "#managed-instances-cli-describe-service")
+- [Step 8: Describe the running service](#managed-instances-cli-describe-service "#managed-instances-cli-describe-service")
 - [Step 9: Test](#managed-instances-cli-test "#managed-instances-cli-test")
 - [Step 10: Clean up](#managed-instances-cli-clean-up "#managed-instances-cli-clean-up")
 
@@ -171,9 +166,7 @@ Save this configuration as `cluster-cp-strategy.json` and update the cluster:
 aws ecs put-cluster-capacity-providers --cli-input-json file://cluster-cp-strategy.json
 ```
 
-## Step 4: Register a
-
-Linux task definition
+## Step 4: Register a Linux task definition
 
 Before you can run a task on your cluster, you must register a task definition. Task
 definitions are lists of containers grouped together. The following example is a simple
@@ -224,9 +217,7 @@ aws ecs register-task-definition --cli-input-json file://$HOME/tasks/managed-ins
 
 The **register-task-definition** command returns a description of the task definition after it completes its registration.
 
-## Step 5: List task
-
-definitions
+## Step 5: List task definitions
 
 You can list the task definitions for your account at any time with the **list-task-definitions** command. The output of this command shows the `family` and `revision` values that you can use together when calling **run-task** or **start-task**.
 
@@ -280,9 +271,7 @@ Output:
 }
 ```
 
-## Step 8: Describe the running
-
-service
+## Step 8: Describe the running service
 
 Describe the service using the service name retrieved earlier to get more information about the task.
 

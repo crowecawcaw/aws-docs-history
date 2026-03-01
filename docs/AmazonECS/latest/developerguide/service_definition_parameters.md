@@ -816,8 +816,7 @@ If your account has already created the Amazon ECS service-linked role, that
 role is used by default for your service unless you specify a role here. The
 service-linked role is required if your task definition uses the awsvpc
 network mode, in which case you should not specify a role here. For more
-information, see [Using service-linked roles for
-Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
+information, see [Using service-linked roles for Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
 
 `serviceConnectConfiguration`
 
@@ -832,8 +831,7 @@ namespace.
 When you update a service, this parameter triggers a new service
 deployment.
 
-For more information, see [Use Service Connect to connect Amazon ECS services with short
-names](service-connect.md "service-connect.md").
+For more information, see [Use Service Connect to connect Amazon ECS services with short names](service-connect.md "service-connect.md").
 
 `enabled`
 
@@ -1041,8 +1039,7 @@ Type: Array of objects
 Required: No
 
 The details of the service discovery configuration for your service. For
-more information, see [Use service discovery to connect Amazon ECS services with
-DNS names](service-discovery.md "service-discovery.md").
+more information, see [Use service discovery to connect Amazon ECS services with DNS names](service-discovery.md "service-discovery.md").
 
 When you update a service, this parameter triggers a new service
 deployment.
@@ -1139,8 +1136,7 @@ Default behavior:
   the value to to the existing value. If no value was previously set,
   Amazon ECS sets the value to `DISABLED`.
 
-For more information about Availability Zone rebalancing, see [Balancing an Amazon ECS service across Availability
-Zones](service-rebalancing.md "service-rebalancing.md").
+For more information about Availability Zone rebalancing, see [Balancing an Amazon ECS service across Availability Zones](service-rebalancing.md "service-rebalancing.md").
 
 ## Volume configurations
 
@@ -1205,8 +1201,7 @@ default, see [Enable Amazon EBS encryption by default](../../../ebs/latest/userg
 _Amazon EBS User
 Guide_. For more information about
 encrypting Amazon EBS volumes attached to Amazon ECS tasks,
-see [Encrypt data stored in Amazon EBS volumes attached to
-Amazon ECS tasks](ebs-kms-encryption.md "ebs-kms-encryption.md").
+see [Encrypt data stored in Amazon EBS volumes attached to Amazon ECS tasks](ebs-kms-encryption.md "ebs-kms-encryption.md").
 
 `kmsKeyId`
 
@@ -1222,8 +1217,7 @@ specified, the encrypted state must be
 The key specified using this parameter overrides
 the Amazon EBS default or any cluster-level KMS key for
 Amazon ECS managed storage encryption that you may have
-specified. For more information, see [Encrypt data stored in Amazon EBS volumes attached to
-Amazon ECS tasks](ebs-kms-encryption.md "ebs-kms-encryption.md").
+specified. For more information, see [Encrypt data stored in Amazon EBS volumes attached to Amazon ECS tasks](ebs-kms-encryption.md "ebs-kms-encryption.md").
 
 You can specify the KMS key by using any of the
 following:

@@ -1,6 +1,4 @@
-# Concatenating multiline or stack-trace
-
-Amazon ECS log messages
+# Concatenating multiline or stack-trace Amazon ECS log messages
 
 Beginning with AWS for Fluent Bit version 2.22.0, a multiline filter is included.
 The multiline filter helps concatenate log messages that originally belong to one
@@ -32,9 +30,7 @@ You need the following permissions:
 - `logs:CreateLogGroup`
 - `logs:PutLogEvents`
 
-## Determine when to use the multiline log
-
-setting
+## Determine when to use the multiline log setting
 
 The following are example log snippets that you see in the CloudWatch Logs console with the
 default log setting. You can look at the line that starts with `log` to
@@ -468,9 +464,7 @@ file://multiline-task-definition.json --region
    choose the available subnets for your task.
 9. Choose **Create**.
 
-###### Verify that multiline log messages in Amazon CloudWatch appear
-
-concatenated
+###### Verify that multiline log messages in Amazon CloudWatch appear concatenated
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -511,9 +505,7 @@ concatenate multiline log messages.
 }
 ```
 
-### Example: Use a Fluent Bit built-in
-
-parser
+### Example: Use a Fluent Bit built-in parser
 
 In this example, you will complete the following steps:
 
@@ -879,9 +871,7 @@ file://multiline-task-definition.json --region us-east-1`
    choose the available subnets for your task.
 9. Choose **Create**.
 
-###### Verify that multiline log messages in Amazon CloudWatch appear
-
-concatenated
+###### Verify that multiline log messages in Amazon CloudWatch appear concatenated
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

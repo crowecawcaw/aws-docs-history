@@ -1,6 +1,4 @@
-# Configuring pre-initialized instances for your Amazon ECS Auto Scaling
-
-group
+# Configuring pre-initialized instances for your Amazon ECS Auto Scaling group
 
 Amazon ECS supports Amazon EC2 Auto Scaling warm pools. A warm pool is a group of pre-initialized Amazon EC2 instances
 ready to be placed into service. Whenever your application needs to scale out, Amazon EC2 Auto Scaling uses

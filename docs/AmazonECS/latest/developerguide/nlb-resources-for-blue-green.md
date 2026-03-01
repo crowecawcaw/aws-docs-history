@@ -121,8 +121,7 @@ aws elbv2 create-listener \
 ## Service configuration
 
 You must have permissions to allow Amazon ECS to manage load balancer resources in your
-clusters on your behalf. For more information, see [Amazon ECS infrastructure
-IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
+clusters on your behalf. For more information, see [Amazon ECS infrastructure IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
 
 When creating or updating an Amazon ECS service for blue/green deployments with a Network Load Balancer, you need to specify the following configuration:
 

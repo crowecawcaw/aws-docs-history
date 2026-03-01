@@ -1,6 +1,4 @@
-# Create a predictive scaling policy for Amazon ECS service
-
-auto scaling
+# Create a predictive scaling policy for Amazon ECS service auto scaling
 
 Create a predictive scaling policy to have Amazon ECS increase or decrease the number of tasks that your service runs based on historical data.
 
@@ -9,8 +7,7 @@ Create a predictive scaling policy to have Amazon ECS increase or decrease the n
 A new service needs to provide at least 24 hours of data before a forecast can be generated.
 
 1.  In addition to the standard IAM permissions for creating and updating services, you
-    need additional permissions. For more information, see [IAM permissions required for Amazon ECS service auto
-    scaling](auto-scaling-IAM.md "auto-scaling-IAM.md").
+    need additional permissions. For more information, see [IAM permissions required for Amazon ECS service auto scaling](auto-scaling-IAM.md "auto-scaling-IAM.md").
 2.  Determine the metrics to use for the policy. The following metrics are available:
 
         * **ECSServiceAverageCPUUtilization** – The average CPU
@@ -73,9 +70,7 @@ each `user input placeholder` with your own information.
 For more information about the CloudWatch metrics you can specify, see [PredictiveScalingMetricSpecification](../../../autoscaling/ec2/APIReference/API_PredictiveScalingMetricSpecification.md "../../../autoscaling/ec2/APIReference/API_PredictiveScalingMetricSpecification.md") in the
 _Amazon EC2 Auto Scaling API Reference_.
 
-### Example 1: A predictive scaling policy
-
-with predefined memory.
+### Example 1: A predictive scaling policy with predefined memory.
 
 The following is an example policy with a predefined memory configuration.
 
@@ -119,9 +114,7 @@ If successful, this command returns the policy's ARN.
 }
 ```
 
-### Example 2: A predictive scaling policy
-
-with predefined CPU.
+### Example 2: A predictive scaling policy with predefined CPU.
 
 The following is an example policy with a predefined CPU configuration.
 

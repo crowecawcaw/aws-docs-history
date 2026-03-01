@@ -111,9 +111,7 @@ JSON
 
 ```
 
-## Permissions required for creating a
-
-service
+## Permissions required for creating a service
 
 When you create a service in the console, you need additional permissions that grant
 you permissions to manage CloudFormation stacks. The following additional permissions are

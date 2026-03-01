@@ -9,8 +9,7 @@ quickly.
 
 The Amazon ECS-optimized AMI metadata, including the AMI name, Amazon ECS container agent
 version, and Amazon ECS runtime version which includes the Docker version, for each variant can
-be retrieved programmatically. For more information, see [Retrieving Amazon ECS-optimized Windows
-AMI metadata](retrieve-ecs-optimized_windows_AMI.md "retrieve-ecs-optimized_windows_AMI.md").
+be retrieved programmatically. For more information, see [Retrieving Amazon ECS-optimized Windows AMI metadata](retrieve-ecs-optimized_windows_AMI.md "retrieve-ecs-optimized_windows_AMI.md").
 
 ###### Important
 
@@ -89,8 +88,7 @@ Amazon ECS.
   container instance, so if you use IAM roles for tasks, port 80 is not
   available for tasks. For web service containers, you can use an Application Load Balancer and
   dynamic port mapping to provide standard HTTP port 80 connections to your
-  containers. For more information, see [Use load balancing to distribute Amazon ECS service
-  traffic](service-load-balancing.md "service-load-balancing.md").
+  containers. For more information, see [Use load balancing to distribute Amazon ECS service traffic](service-load-balancing.md "service-load-balancing.md").
 - The Windows Server Docker images are large (9 GiB). So, your Windows
   container instances require more storage space than Linux container
   instances.
@@ -101,5 +99,4 @@ Amazon ECS.
   version by using the placement constraint:
   `memberOf(attribute:ecs.os-family ==
 WINDOWS_SERVER_<OS_Release>_<FULL or CORE>)`. For more
-  information, see [Retrieving Amazon ECS-optimized Windows
-  AMI metadata](retrieve-ecs-optimized_windows_AMI.md "retrieve-ecs-optimized_windows_AMI.md").
+  information, see [Retrieving Amazon ECS-optimized Windows AMI metadata](retrieve-ecs-optimized_windows_AMI.md "retrieve-ecs-optimized_windows_AMI.md").

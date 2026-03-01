@@ -1,6 +1,4 @@
-# Amazon ECS task metadata available for tasks on
-
-Amazon ECS Managed Instances
+# Amazon ECS task metadata available for tasks on Amazon ECS Managed Instances
 
 Amazon ECS on Amazon ECS Managed Instances provides a method to retrieve various metadata, network metrics,
 and [Docker stats](https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats") about your containers and the tasks they are a part of. This
@@ -15,5 +13,4 @@ that task are returned.
 
 ###### Topics
 
-- [Amazon ECS task metadata endpoint version 4 for
-  tasks on Amazon ECS Managed Instances](task-metadata-endpoint-v4-managed-instances.md "task-metadata-endpoint-v4-managed-instances.md")
+- [Amazon ECS task metadata endpoint version 4 for tasks on Amazon ECS Managed Instances](task-metadata-endpoint-v4-managed-instances.md "task-metadata-endpoint-v4-managed-instances.md")

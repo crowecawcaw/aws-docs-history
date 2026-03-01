@@ -1,6 +1,4 @@
-# Launching an Amazon ECS Windows container
-
-instance
+# Launching an Amazon ECS Windows container instance
 
 Your Amazon ECS container instances are created using the Amazon EC2 console. Before you begin, be
 sure that you've completed the steps in [Set up to use Amazon ECS](get-set-up-for-amazon-ecs.md "get-set-up-for-amazon-ecs.md").
@@ -133,8 +131,7 @@ If you do not have an interface VPC endpoint configured and your
 container instances do not have
 public IP addresses, then they must use network address translation
 (NAT) to provide this access. For more information, see [NAT gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") in the
-_Amazon VPC User Guide_ and [Using an HTTP proxy for Amazon ECS Linux container
-instances](http_proxy_config.md "http_proxy_config.md") in
+_Amazon VPC User Guide_ and [Using an HTTP proxy for Amazon ECS Linux container instances](http_proxy_config.md "http_proxy_config.md") in
 this guide.
 
 - **Firewall (security groups)**: Use a security group to

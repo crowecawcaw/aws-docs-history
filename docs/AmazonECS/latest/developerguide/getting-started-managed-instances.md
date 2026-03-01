@@ -1,6 +1,4 @@
-# Learn how to create a task for
-
-Amazon ECS Managed Instances
+# Learn how to create a task for Amazon ECS Managed Instances
 
 Learn how to use Amazon ECS with Amazon ECS Managed Instances to run a containerized
 application.

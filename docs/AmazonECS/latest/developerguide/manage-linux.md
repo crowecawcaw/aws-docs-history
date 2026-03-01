@@ -8,8 +8,7 @@ When you use EC2 instances for your Amazon ECS workloads, you are responsible fo
 - [Bootstrapping Linux container instances](bootstrap_container_instance.md "bootstrap_container_instance.md")
 - [Configuring container instances to receive Spot Instance notices](spot-instance-draining-linux-container.md "spot-instance-draining-linux-container.md")
 - [Running a script when you launch a container instance](start_task_at_launch.md "start_task_at_launch.md")
-- [Increasing Amazon ECS Linux container instance network
-  interfaces](container-instance-eni.md "container-instance-eni.md")
+- [Increasing Amazon ECS Linux container instance network interfaces](container-instance-eni.md "container-instance-eni.md")
 - [Reserving container instance memory](memory-management.md "memory-management.md")
 - [Manage container instances remotely](ec2-run-command.md "ec2-run-command.md")
 - [Using an HTTP proxy for Linux container instances](http_proxy_config.md "http_proxy_config.md")

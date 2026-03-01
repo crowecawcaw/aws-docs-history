@@ -14,14 +14,11 @@ You can use dual-stack service endpoints to interact with Amazon ECS from the AW
 
 - [Prerequisites](#ECS_AWSCLI_Fargate_prereq "#ECS_AWSCLI_Fargate_prereq")
 - [Step 1: Create a Cluster](#ECS_AWSCLI_Fargate_create_cluster "#ECS_AWSCLI_Fargate_create_cluster")
-- [Step 2: Register a Linux
-  Task Definition](#ECS_AWSCLI_Fargate_register_task_definition "#ECS_AWSCLI_Fargate_register_task_definition")
-- [Step 3: List Task
-  Definitions](#ECS_AWSCLI_Fargate_list_task_definitions "#ECS_AWSCLI_Fargate_list_task_definitions")
+- [Step 2: Register a Linux Task Definition](#ECS_AWSCLI_Fargate_register_task_definition "#ECS_AWSCLI_Fargate_register_task_definition")
+- [Step 3: List Task Definitions](#ECS_AWSCLI_Fargate_list_task_definitions "#ECS_AWSCLI_Fargate_list_task_definitions")
 - [Step 4: Create a Service](#ECS_AWSCLI_Fargate_create_service "#ECS_AWSCLI_Fargate_create_service")
 - [Step 5: List Services](#ECS_AWSCLI_Fargate_list_services "#ECS_AWSCLI_Fargate_list_services")
-- [Step 6: Describe the Running
-  Service](#ECS_AWSCLI_Fargate_describe_service "#ECS_AWSCLI_Fargate_describe_service")
+- [Step 6: Describe the Running Service](#ECS_AWSCLI_Fargate_describe_service "#ECS_AWSCLI_Fargate_describe_service")
 - [Step 7: Test](#ECS_AWSCLI_Fargate_test "#ECS_AWSCLI_Fargate_test")
 - [Step 8: Clean Up](#ECS_AWSCLI_Fargate_clean_up "#ECS_AWSCLI_Fargate_clean_up")
 
@@ -101,9 +98,7 @@ Output:
 }
 ```
 
-## Step 2: Register a Linux
-
-Task Definition
+## Step 2: Register a Linux Task Definition
 
 Before you can run a task on your ECS cluster, you must register a task definition.
 Task definitions are lists of containers grouped together. The following example is a
@@ -161,9 +156,7 @@ To use a JSON file for container definitions:
 The **register-task-definition** command returns a description of the
 task definition after it completes its registration.
 
-## Step 3: List Task
-
-Definitions
+## Step 3: List Task Definitions
 
 You can list the task definitions for your account at any time with the
 **list-task-definitions** command. The output of this command shows
@@ -230,9 +223,7 @@ Output:
 }
 ```
 
-## Step 6: Describe the Running
-
-Service
+## Step 6: Describe the Running Service
 
 Describe the service using the service name retrieved earlier to get more information
 about the task.
@@ -341,9 +332,7 @@ see [Describe Services](../APIReference/API_DescribeServices.md "../APIReference
 
 ## Step 7: Test
 
-### Testing task deployed using public
-
-subnet
+### Testing task deployed using public subnet
 
 Describe the task in the service so that you can get the Elastic Network Interface
 (ENI) for the task.
@@ -422,9 +411,7 @@ The public IP address is in the output.
 Enter the public IP address in your web browser and you should see a webpage that
 displays the **Amazon ECS** sample application.
 
-### Testing task deployed using private
-
-subnet
+### Testing task deployed using private subnet
 
 Describe the task and locate `managedAgents` to verify that the
 `ExecuteCommandAgent` is running. Note the

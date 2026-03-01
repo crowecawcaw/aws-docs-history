@@ -66,9 +66,7 @@ fails. 2. Create a capacity provider – If you use custom Amazon EC2 Auto Scali
 provider. 3. Update the service – Modify the service to use a capacity provider strategy instead of the
 launch type. 4. Validate the deployment – Confirm that tasks deploy successfully. 5. Monitor and optimize – Adjust capacity provider settings as needed.
 
-### Capacity provider to
-
-capacity provider
+### Capacity provider to capacity provider
 
 All capacity provider to capacity provider updates are supported:
 
@@ -81,9 +79,7 @@ All capacity provider to capacity provider updates are supported:
   provider
 - Amazon ECS Managed Instances to Amazon EC2 Auto Scaling group capacity provider
 
-### Launch type to capacity
-
-provider
+### Launch type to capacity provider
 
 All launch type to capacity provider updates are supported:
 

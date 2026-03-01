@@ -1,6 +1,4 @@
-# Amazon ECS Service Connect configuration
-
-overview
+# Amazon ECS Service Connect configuration overview
 
 When you use Service Connect, there are parameters you need to configure in your
 resources.
@@ -53,9 +51,7 @@ no additional configuration to use the proxy. The proxy performs round-robin loa
 balancing, outlier detection, and retries. For more information about the proxy, see
 [Service Connect proxy](service-connect-concepts-deploy.md#service-connect-concepts-proxy "service-connect-concepts-deploy.md#service-connect-concepts-proxy"). 6. Monitor traffic through the Service Connect proxy in Amazon CloudWatch.
 
-## Cluster
-
-configuration
+## Cluster configuration
 
 You can set a default namespace for Service Connect when you create or update the
 cluster. The namespace name that you specify as a default can either be in the same AWS Region and
@@ -69,8 +65,7 @@ namespace. Attachments aren't displayed by default in the AWS CLI, you must add
 
 If you want to use a namespace that is shared with your AWS account using AWS RAM,
 specify the Amazon Resource Name (ARN) of the namespace in the cluster configuration. For more
-information about shared AWS Cloud Map namespaces, see [Amazon ECS Service Connect with shared
-AWS Cloud Map namespaces](service-connect-shared-namespaces.md "service-connect-shared-namespaces.md").
+information about shared AWS Cloud Map namespaces, see [Amazon ECS Service Connect with shared AWS Cloud Map namespaces](service-connect-shared-namespaces.md "service-connect-shared-namespaces.md").
 
 ## Service configuration
 

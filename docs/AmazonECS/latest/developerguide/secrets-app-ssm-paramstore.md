@@ -1,6 +1,4 @@
-# Pass Systems Manager Parameter Store secrets
-
-programmatically in Amazon ECS
+# Pass Systems Manager Parameter Store secrets programmatically in Amazon ECS
 
 Systems Manager Parameter Store provides secure storage and management of secrets. You can
 store data such as passwords, database strings, EC2 instance IDs and
@@ -37,9 +35,7 @@ a Systems Manager parameter (console)](../../../systems-manager/latest/userguide
 parameter (AWS CLI)](../../../systems-manager/latest/userguide/param-create-cli.md "../../../systems-manager/latest/userguide/param-create-cli.md") in the
 _AWS Systems Manager User Guide_.
 
-## Update your application to
-
-programmatically retrieve Systems Manager Parameter Store secrets
+## Update your application to programmatically retrieve Systems Manager Parameter Store secrets
 
 To retrieve the sensitive data stored in the Systems Manager Parameter Store parameter, see [Code examples for Systems Manager
 using AWS SDKs](../../../code-library/latest/ug/ssm_code_examples.md "../../../code-library/latest/ug/ssm_code_examples.md") in the _AWS SDK Code

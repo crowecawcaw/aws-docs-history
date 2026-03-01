@@ -24,12 +24,9 @@ recipe. Your image recipe must meet the following requirements:
 
 To specify a different component version, expand the **Versioning
 options** menu and specify the component version you want to use. For
-more information, see [Listing the
-ecs-optimized-ami-windows component versions](#windows-component-list "#windows-component-list").
+more information, see [Listing the ecs-optimized-ami-windows component versions](#windows-component-list "#windows-component-list").
 
-## Listing the
-
-`ecs-optimized-ami-windows` component versions
+## Listing the `ecs-optimized-ami-windows` component versions
 
 When creating an EC2 Image Builder recipe and specifying the
 `ecs-optimized-ami-windows` component, you can either use the default
@@ -37,9 +34,7 @@ option or you can specify a specific component version. To determine what compon
 versions are available, along with the Amazon ECS container agent and Docker versions
 contained within the component, you can use the AWS Management Console.
 
-###### To list the available `ecs-optimized-ami-windows` component
-
-versions
+###### To list the available `ecs-optimized-ami-windows` component versions
 
 1. Open the EC2 Image Builder console at
    [https://console.aws.amazon.com/imagebuilder/](https://console.aws.amazon.com/imagebuilder/ "https://console.aws.amazon.com/imagebuilder/").

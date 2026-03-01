@@ -1,6 +1,4 @@
-# Best practices for networking Amazon ECS services across
-
-AWS accounts and VPCs
+# Best practices for networking Amazon ECS services across AWS accounts and VPCs
 
 If you're part of an organization with multiple teams and divisions, you probably
 deploy services independently into separate VPCs inside a shared AWS account or into

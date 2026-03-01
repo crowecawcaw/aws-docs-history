@@ -1,6 +1,4 @@
-# Connect Amazon ECS applications to
-
-the internet
+# Connect Amazon ECS applications to the internet
 
 Most containerized applications have a least some components that need outbound access
 to the internet. For example, the backend for a mobile app requires outbound access to

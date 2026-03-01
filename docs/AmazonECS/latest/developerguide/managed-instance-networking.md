@@ -1,6 +1,4 @@
-# Amazon ECS task networking for
-
-Amazon ECS Managed Instances
+# Amazon ECS task networking for Amazon ECS Managed Instances
 
 The networking behavior of Amazon ECS tasks running on Amazon ECS Managed Instances is determined by the
 _network mode_ specified in the task definition. You must specify a

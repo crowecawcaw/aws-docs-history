@@ -15,9 +15,7 @@ This error appears when you try to create a capacity provider with Amazon ECS Ma
 
 To correct this issue, specify valid Amazon ECS Managed Instances provider details and try again.
 
-## Amazon ECS Managed Instances
-
-capacity provider must specify an instance profile
+## Amazon ECS Managed Instances capacity provider must specify an instance profile
 
 You'll see this error when you try to create a capacity provider with Amazon ECS Managed Instances provider but do not provide the Ec2InstanceProfile.
 
@@ -33,8 +31,7 @@ To correct this, specify a valid infrastructure role for your Amazon ECS Managed
 
 You'll encounter this error when you try to create a capacity provider with Amazon ECS Managed Instances provider but do not provide network configuration.
 
-To resolve this, specify a valid network configuration with non-empty subnets for your Amazon ECS Managed Instances capacity provider. For more information, see [Amazon ECS task networking for
-Amazon ECS Managed Instances](managed-instance-networking.md "managed-instance-networking.md").
+To resolve this, specify a valid network configuration with non-empty subnets for your Amazon ECS Managed Instances capacity provider. For more information, see [Amazon ECS task networking for Amazon ECS Managed Instances](managed-instance-networking.md "managed-instance-networking.md").
 
 ## No instance types satisfy the instance requirements specified in the Amazon ECS Managed Instances capacity provider
 
@@ -48,9 +45,7 @@ This error occurs when the InfrastructureRole does not follow the specific ARN f
 
 Expected format: `arn:partition:iam::account-id:role/role-name`. Specify a valid role ARN and try again. For more information, see [Amazon ECS infrastructure IAM role](infrastructure_IAM_role.md "infrastructure_IAM_role.md").
 
-## The specified instance
-
-profile role arn is invalid
+## The specified instance profile role arn is invalid
 
 This error occurs when the instance profile does not follow the specific ARN format.
 

@@ -1,6 +1,4 @@
-# Use Docker's virtual
-
-network for Amazon ECS Linux tasks
+# Use Docker's virtual network for Amazon ECS Linux tasks
 
 The `bridge` network mode is only supported for Amazon ECS tasks hosted on Amazon EC2
 instances.
@@ -49,9 +47,7 @@ hosts. However, it's not easy to create specific rules so that a particular serv
 only communicate to one other specific service. The services have no specific ports to
 use for security group networking rules.
 
-## Configuring bridge
-
-networking mode for IPv6-only workloads
+## Configuring bridge networking mode for IPv6-only workloads
 
 To configure `bridge` mode for communication over IPv6, you must update
 Docker daemon settings. Update

@@ -1,13 +1,9 @@
-# Troubleshooting Amazon EBS volume attachments to Amazon ECS
-
-tasks
+# Troubleshooting Amazon EBS volume attachments to Amazon ECS tasks
 
 You might need to troubleshoot or verify the attachment of Amazon EBS volumes to Amazon ECS
 tasks.
 
-## Check volume attachment
-
-status
+## Check volume attachment status
 
 You can use the AWS Management Console to view the status of an Amazon EBS volume's attachment to an
 Amazon ECS task. If the task starts and the attachment fails, you'll also see a status reason

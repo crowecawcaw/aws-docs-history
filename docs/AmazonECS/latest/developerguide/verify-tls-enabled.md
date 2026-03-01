@@ -1,6 +1,4 @@
-# Verifying TLS is enabled for Amazon ECS
-
-Service Connect
+# Verifying TLS is enabled for Amazon ECS Service Connect
 
 Service Connect initiates TLS at the Service Connect agent and terminates it at
 the destination agent. As a result, the application code never sees TLS

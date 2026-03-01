@@ -1,6 +1,4 @@
-# Removing Runtime Monitoring from an Amazon ECS
-
-cluster
+# Removing Runtime Monitoring from an Amazon ECS cluster
 
 You might want to exclude certain clusters from protection, for example clusters
 that you use for testing. This causes GuardDuty to perform the following operations on

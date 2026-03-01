@@ -9,8 +9,7 @@ circuit breaker or CloudWatch alarms. The following stop types are available:
 You can use this option even if you didn't configure the service deployment for
 the rollback option.
 You can stop a deployment that is in any of the following states. For more information
-about service deployment states, see [View service history using Amazon ECS service
-deployments](service-deployment.md "service-deployment.md").
+about service deployment states, see [View service history using Amazon ECS service deployments](service-deployment.md "service-deployment.md").
 
 - PENDING - The service deployment moves to the ROLLBACK_REQUESTED state, and then
   the rollback operation starts.

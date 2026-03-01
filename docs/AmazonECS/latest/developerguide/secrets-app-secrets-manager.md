@@ -1,6 +1,4 @@
-# Pass Secrets Manager secrets programmatically in
-
-Amazon ECS
+# Pass Secrets Manager secrets programmatically in Amazon ECS
 
 Instead of hardcoding sensitive information in plain text in your application, you
 can use Secrets Manager to store the sensitive data.
@@ -33,9 +31,7 @@ You can use the Secrets Manager console to create a secret for your sensitive da
 about how to create secrets, see [Create an AWS Secrets Manager
 secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in the _AWS Secrets Manager User Guide_.
 
-## Update your application to
-
-programmatically retrieve Secrets Manager secrets
+## Update your application to programmatically retrieve Secrets Manager secrets
 
 You can retrieve secrets with a call to the Secrets Manager APIs directly from your application.
 For information, see [Retrieve secrets

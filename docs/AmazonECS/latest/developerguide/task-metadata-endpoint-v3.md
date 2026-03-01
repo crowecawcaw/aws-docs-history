@@ -1,6 +1,4 @@
-# Amazon ECS task metadata endpoint version
-
-3
+# Amazon ECS task metadata endpoint version 3
 
 ###### Important
 
@@ -34,12 +32,9 @@ the agent to the latest version. For more information, see [Updating the Amazon 
 
 For tasks using Fargate and platform
 versions prior to v1.3.0, the task metadata version 2 endpoint is supported.
-For more information, see [Amazon ECS task metadata endpoint version
-2](task-metadata-endpoint-v2.md "task-metadata-endpoint-v2.md").
+For more information, see [Amazon ECS task metadata endpoint version 2](task-metadata-endpoint-v2.md "task-metadata-endpoint-v2.md").
 
-## Task Metadata endpoint version
-
-3 paths
+## Task Metadata endpoint version 3 paths
 
 The following task metadata endpoints are available to containers:
 
@@ -52,8 +47,7 @@ This path returns metadata JSON for the container.
 This path returns metadata JSON for the task, including a list of
 the container IDs and names for all of the containers associated
 with the task. For more information about the response for this
-endpoint, see [Amazon ECS task metadata v3 JSON
-response](task-metadata-endpoint-v3-response.md "task-metadata-endpoint-v3-response.md").
+endpoint, see [Amazon ECS task metadata v3 JSON response](task-metadata-endpoint-v3-response.md "task-metadata-endpoint-v3-response.md").
 
 `${ECS_CONTAINER_METADATA_URI}/taskWithTags`
 

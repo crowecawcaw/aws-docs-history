@@ -23,7 +23,6 @@ For information about Copilot development, see [What's the future of Copilot?](h
 ###### Topics
 
 - [Installing the AWS Copilot CLI](copilot-install.md "copilot-install.md")
-- [Deploying a sample Amazon ECS application using the AWS Copilot
-  CLI](copilot-deploy.md "copilot-deploy.md")
+- [Deploying a sample Amazon ECS application using the AWS Copilot CLI](copilot-deploy.md "copilot-deploy.md")
   Additional
   documentation for the AWS Copilot CLI is available on the [AWS Copilot website](https://aws.github.io/copilot-cli/docs/overview/ "https://aws.github.io/copilot-cli/docs/overview/")

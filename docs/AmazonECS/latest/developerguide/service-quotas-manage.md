@@ -1,6 +1,4 @@
-# Managing your Amazon ECS and AWS Fargate service
-
-quotas in the AWS Management Console
+# Managing your Amazon ECS and AWS Fargate service quotas in the AWS Management Console
 
 Amazon ECS has integrated with Service Quotas, an AWS service that enables you to view and
 manage your quotas from a central location. For more information, see [What is
@@ -10,9 +8,7 @@ Service Quotas makes it easy to look up the value of your Amazon ECS service quo
 
 AWS Management Console
 
-###### To view Amazon ECS and Fargate service quotas using the
-
-AWS Management Console
+###### To view Amazon ECS and Fargate service quotas using the AWS Management Console
 
 1. Open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
 2. In the navigation pane, choose **AWS
@@ -36,9 +32,7 @@ _Service Quotas User Guide_.
 
 AWS CLI
 
-###### To view Amazon ECS and Fargate service quotas using the
-
-AWS CLI
+###### To view Amazon ECS and Fargate service quotas using the AWS CLI
 
 Run the following command to view the default Amazon ECS quotas.
 

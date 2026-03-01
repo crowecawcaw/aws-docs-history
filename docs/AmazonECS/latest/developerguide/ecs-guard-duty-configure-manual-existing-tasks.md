@@ -1,6 +1,4 @@
-# Adding Runtime Monitoring to
-
-existing Amazon ECS tasks
+# Adding Runtime Monitoring to existing Amazon ECS tasks
 
 When you turn on Runtime Monitoring, all new standalone tasks, and new service deployments
 in the cluster are protected automatically. In order to preserve the immutability

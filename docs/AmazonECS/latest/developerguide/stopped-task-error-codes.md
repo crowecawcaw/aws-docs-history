@@ -16,9 +16,9 @@ following:
 
 | Category                     | Learn more                                                                                                                                |
 | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| TaskFailedToStart            | [Troubleshooting Amazon ECS TaskFailedToStart<br>errors](failed-to-start-error.md "failed-to-start-error.md")                             |
-| ResourceInitializationError  | [Troubleshooting Amazon ECS<br>ResourceInitializationError errors](resource-initialization-error.md "resource-initialization-error.md")   |
-| ResourceNotFoundException    | [Troubleshooting Amazon ECS ResourceNotFoundException<br>errors](resource-not-found-error.md "resource-not-found-error.md")               |
+| TaskFailedToStart            | [Troubleshooting Amazon ECS TaskFailedToStart errors](failed-to-start-error.md "failed-to-start-error.md")                                |
+| ResourceInitializationError  | [Troubleshooting Amazon ECS ResourceInitializationError errors](resource-initialization-error.md "resource-initialization-error.md")      |
+| ResourceNotFoundException    | [Troubleshooting Amazon ECS ResourceNotFoundException errors](resource-not-found-error.md "resource-not-found-error.md")                  |
 | SpotInterruptionError        | [Troubleshooting Amazon ECS SpotInterruption errors](spot-interruption-errors.md "spot-interruption-errors.md")                           |
 | InternalError                | [Troubleshooting Amazon ECS InternalError errors](internal-error.md "internal-error.md")                                                  |
 | OutOfMemoryError             | [Troubleshooting Amazon ECS OutOfMemoryError errors](out-of-memory.md "out-of-memory.md")                                                 |

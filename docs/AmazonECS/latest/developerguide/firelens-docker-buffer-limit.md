@@ -1,6 +1,4 @@
-# Configuring Amazon ECS logs for high
-
-throughput
+# Configuring Amazon ECS logs for high throughput
 
 For high log throughput scenarios, we recommend using the `awsfirelens` log
 driver with FireLens and Fluent Bit. Fluent Bit is a
@@ -197,9 +195,7 @@ all recommended settings for high-throughput scenarios:
     storage.total_limit_size 10G
 ```
 
-## Use multi-destination logging for
-
-reliability
+## Use multi-destination logging for reliability
 
 Sending logs to multiple destinations eliminates single points of failure. For
 example, if CloudWatch Logs experiences an outage, logs still reach Amazon S3.
@@ -251,9 +247,7 @@ both destinations independently. During an outage of one destination, logs conti
 flowing to the other while failed flushes accumulate in the filesystem buffer for
 later retry.
 
-## Use file-based logging with the tail input
-
-plugin
+## Use file-based logging with the tail input plugin
 
 For high-throughput scenarios where log loss is a critical concern, you can use an
 alternative approach: have your application write logs to files on disk, and
@@ -336,8 +330,7 @@ definition). This is because `FLUENT_HOST` is a dynamic
 IP address and can change after a restart. Logging directly from
 the application container to the `FLUENT_HOST` IP
 address can start failing after the address changes. For more
-information about restarting individual containers, see [Restart individual containers in Amazon ECS tasks with
-container restart policies](container-restart-policy.md "container-restart-policy.md").
+information about restarting individual containers, see [Restart individual containers in Amazon ECS tasks with container restart policies](container-restart-policy.md "container-restart-policy.md").
 
 `FLUENT_PORT`
 

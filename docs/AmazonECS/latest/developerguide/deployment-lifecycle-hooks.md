@@ -224,9 +224,7 @@ Lifecycle stages fall into two categories:
    - TEST_TRAFFIC_SHIFT
    - PRODUCTION_TRAFFIC_SHIFT
 
-### Deployment status during lifecycle
-
-hooks
+### Deployment status during lifecycle hooks
 
 While lifecycle hooks are running, the deployment status will be `IN_PROGRESS` for all lifecycle stages.
 

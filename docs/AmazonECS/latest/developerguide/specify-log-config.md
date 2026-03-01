@@ -73,5 +73,4 @@ the `awslogs-example` log stream prefix.
   Reference_.
 - After you have registered a task definition with the `awslogs` log driver
   in a container definition log configuration, you can run a task or create a service with
-  that task definition to start sending logs to CloudWatch Logs. For more information, see [Running an application as an Amazon ECS task](standalone-task-create.md "standalone-task-create.md") and [Creating an Amazon ECS rolling update
-  deployment](create-service-console-v2.md "create-service-console-v2.md").
+  that task definition to start sending logs to CloudWatch Logs. For more information, see [Running an application as an Amazon ECS task](standalone-task-create.md "standalone-task-create.md") and [Creating an Amazon ECS rolling update deployment](create-service-console-v2.md "create-service-console-v2.md").

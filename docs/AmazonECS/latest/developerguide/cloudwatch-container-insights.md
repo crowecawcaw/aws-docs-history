@@ -1,6 +1,4 @@
-# Monitor Amazon ECS containers using Container Insights with
-
-enhanced observability
+# Monitor Amazon ECS containers using Container Insights with enhanced observability
 
 Container Insights collects, aggregates, and summarizes metrics and logs from your containerized
 applications and microservices. Container Insights with enhanced observability provides all the Container Insights metrics, plus additional
@@ -27,8 +25,7 @@ Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry f
 level down to the container level in your environment and displays these critical
 performance data in curated dashboards removing the heavy lifting in observability set-up.
 For information about how to set up Container Insights with enhanced observability, see
-[Container Insights with
-enhanced observability](ecs-account-settings.md#container-insights-setting-enhanced "ecs-account-settings.md#container-insights-setting-enhanced").
+[Container Insights with enhanced observability](ecs-account-settings.md#container-insights-setting-enhanced "ecs-account-settings.md#container-insights-setting-enhanced").
 
 We recommend that you use Container Insights with enhanced observability instead of
 Container Insights because it provides detailed visibility in your container environment,

@@ -10,8 +10,7 @@ scripts, and `cloud-init` directives. For more information about these and other
 format types, see the [Cloud-Init
 documentation](https://cloudinit.readthedocs.io/en/latest/explanation/format.html "https://cloudinit.readthedocs.io/en/latest/explanation/format.html").
 
-To pass the user data when using the Amazon EC2 launch wizard, see [Launching an Amazon ECS Linux container
-instance](launch_container_instance.md "launch_container_instance.md").
+To pass the user data when using the Amazon EC2 launch wizard, see [Launching an Amazon ECS Linux container instance](launch_container_instance.md "launch_container_instance.md").
 
 You can configure the container instance to pass data in the container agent configuration
 or in the Docker daemon configuration.

@@ -1,6 +1,4 @@
-# Using gMSA for Linux
-
-containers on Fargate
+# Using gMSA for Linux containers on Fargate
 
 Amazon ECS supports Active Directory authentication for Linux containers on Fargate through a
 special kind of service account called a _group Managed Service Account_
@@ -49,21 +47,17 @@ complete the following:
 
 - You have an existing gMSA account in the Active Directory and a user that
   has permission to access the gMSA service account. For more information, see
-  [Make an Active
-  Directory user for domainless gMSA](#fargate-linux-gmsa-initial-domainless "#fargate-linux-gmsa-initial-domainless").
+  [Make an Active Directory user for domainless gMSA](#fargate-linux-gmsa-initial-domainless "#fargate-linux-gmsa-initial-domainless").
 - You have an Amazon S3 bucket. For more information, see [Creating a
   bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") in the _Amazon S3 User Guide_.
 
-## Setting up gMSA-capable Linux
-
-Containers on Amazon ECS
+## Setting up gMSA-capable Linux Containers on Amazon ECS
 
 ###### Prepare the infrastructure
 
 The following steps are considerations and setup that are performed once.
 
-- ###### Make an Active
-  Directory user for domainless gMSA
+- ###### Make an Active Directory user for domainless gMSA
 
 When you use domainless gMSA, the container isn't joined to the domain.
 Other applications that run on the container can't use the credentials to access

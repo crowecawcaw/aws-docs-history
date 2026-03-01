@@ -32,8 +32,7 @@ following.
   to join the Active Directory domain and attach the FSx for Windows File Server file system. The
   credential values are the name and password credentials that you entered when
   creating the Active Directory.
-  For a related tutorial, see [Learn how to configure FSx for Windows File Server file systems for
-  Amazon ECS](tutorial-wfsx-volumes.md "tutorial-wfsx-volumes.md").
+  For a related tutorial, see [Learn how to configure FSx for Windows File Server file systems for Amazon ECS](tutorial-wfsx-volumes.md "tutorial-wfsx-volumes.md").
 
 ## Considerations
 

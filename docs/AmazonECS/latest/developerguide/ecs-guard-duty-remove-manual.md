@@ -1,6 +1,4 @@
-# Removing Runtime Monitoring from an Amazon ECS
-
-cluster
+# Removing Runtime Monitoring from an Amazon ECS cluster
 
 You can remove Runtime Monitoring from a cluster. This causes GuardDuty to stop monitoring
 all resources in the cluster.

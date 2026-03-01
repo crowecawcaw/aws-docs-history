@@ -6,8 +6,7 @@ correct number of Amazon EC2 instances available to handle the application load.
 
 You can use the managed scaling feature to have Amazon ECS manage the scale-in and
 scale-out actions of the Auto Scaling group, or you can manage the scaling actions yourself. For
-more information, see [Automatically manage Amazon ECS capacity with
-cluster auto scaling](cluster-auto-scaling.md "cluster-auto-scaling.md").
+more information, see [Automatically manage Amazon ECS capacity with cluster auto scaling](cluster-auto-scaling.md "cluster-auto-scaling.md").
 
 We recommend that you create a new empty Auto Scaling group. If you use an existing Auto Scaling
 group, any Amazon EC2 instances that are associated with the group that were already running
@@ -76,8 +75,7 @@ Consider the following when using Auto Scaling group capacity providers in the c
   to scale out, Amazon EC2 Auto Scaling uses the pre-initialized instances from the warm pool
   rather than launching cold instances. This allows for any final initialization
   process to run before the instance is placed into service. For more information,
-  see [Configuring pre-initialized instances for your Amazon ECS Auto Scaling
-  group](using-warm-pool.md "using-warm-pool.md").
+  see [Configuring pre-initialized instances for your Amazon ECS Auto Scaling group](using-warm-pool.md "using-warm-pool.md").
   For more information about creating an Amazon EC2 Auto Scaling launch template, see [Auto Scaling launch
   templates](../../../autoscaling/ec2/userguide/launch-templates.md "../../../autoscaling/ec2/userguide/launch-templates.md") in the _Amazon EC2 Auto Scaling User Guide_. For more information
   about creating an Amazon EC2 Auto Scaling group, see [Auto Scaling groups](../../../autoscaling/ec2/userguide/auto-scaling-groups.md "../../../autoscaling/ec2/userguide/auto-scaling-groups.md") in the

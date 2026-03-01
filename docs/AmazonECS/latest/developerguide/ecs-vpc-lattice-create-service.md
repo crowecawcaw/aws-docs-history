@@ -19,9 +19,7 @@ You can use dual-stack service endpoints to interact with Amazon ECS from the AW
 - Your IAM user has the required permissions specified in the [AmazonECS_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess") IAM policy
   example.
 
-## Create a service that uses VPC Lattice with
-
-the AWS Management Console
+## Create a service that uses VPC Lattice with the AWS Management Console
 
 Follow these steps to create a service with VPC Lattice using the AWS Management Console.
 
@@ -74,9 +72,7 @@ Lattice service](../../../vpc-lattice/latest/ug/listener-rules.md "../../../vpc-
 You need to allow the inbound rule `vpc-lattice` prefix to your
 security group or tasks and health checks can fail.
 
-## Create a service that uses VPC Lattice with the
-
-AWS CLI
+## Create a service that uses VPC Lattice with the AWS CLI
 
 Use the AWS CLI to create a service with VPC Lattice. Replace each `user input
  placeholder` with your own information.

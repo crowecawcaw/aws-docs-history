@@ -5,8 +5,7 @@ designate the number of GPUs your container requires in the task definition. As
 containers that support GPUs are placed, the Amazon ECS container agent pins the desired
 number of physical GPUs to the appropriate container. The number of GPUs reserved for
 all containers in a task cannot exceed the number of available GPUs on the container
-instance the task is launched on. For more information, see [Creating an Amazon ECS task definition using the
-console](create-task-definition.md "create-task-definition.md").
+instance the task is launched on. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").
 
 ###### Important
 

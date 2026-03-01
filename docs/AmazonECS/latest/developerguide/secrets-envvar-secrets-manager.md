@@ -1,6 +1,4 @@
-# Pass Secrets Manager secrets through Amazon ECS environment
-
-variables
+# Pass Secrets Manager secrets through Amazon ECS environment variables
 
 When you inject a secret as an environment variable, you can specify the full contents of
 a secret, a specific JSON key within a secret. This helps you control the sensitive data
@@ -65,17 +63,13 @@ Initialize-ECSAgent -Cluster <cluster name> -EnableTaskIAMRole -LoggingDrivers '
 - Your task definition must use a task execution role with the additional permissions
   for Secrets Manager. For more information, see [Amazon ECS task execution IAM role](task_execution_IAM_role.md "task_execution_IAM_role.md").
 
-## Create the AWS Secrets Manager
-
-secret
+## Create the AWS Secrets Manager secret
 
 You can use the Secrets Manager console to create a secret for your sensitive data. For more
 information, see [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in the
 _AWS Secrets Manager User Guide_.
 
-## Add the
-
-environment variable to the container definition
+## Add the environment variable to the container definition
 
 Within your container definition, you can specify the
 following:
@@ -135,9 +129,7 @@ version of a secret has an ID. For more information, see
 AWS Secrets Manager](../../../secretsmanager/latest/userguide/terms-concepts.md#term_secret "../../../secretsmanager/latest/userguide/terms-concepts.md#term_secret") in the
 _AWS Secrets Manager User Guide_.
 
-### Example container
-
-definitions
+### Example container definitions
 
 The following examples show ways in which you can reference Secrets Manager
 secrets in your container definitions.
@@ -283,9 +275,7 @@ the ARN.
 }
 ```
 
-###### Example referencing a specific key and version staging label of a
-
-secret
+###### Example referencing a specific key and version staging label of a secret
 
 The following shows how to reference both a specific key
 within a secret and a specific version staging label.
@@ -316,5 +306,4 @@ syntax.
 ```
 
 For information about how to create a task definition with the secret specified in an
-environment variable, see [Creating an Amazon ECS task definition using the
-console](create-task-definition.md "create-task-definition.md").
+environment variable, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").

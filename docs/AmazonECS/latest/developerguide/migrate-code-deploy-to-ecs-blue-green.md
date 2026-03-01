@@ -1,6 +1,4 @@
-# Migrating from a CodeDeploy blue/green to
-
-an Amazon ECS blue/green service deployment
+# Migrating from a CodeDeploy blue/green to an Amazon ECS blue/green service deployment
 
 By using Amazon ECS blue/green deployments, you can make and test service changes before
 implementing them in a production environment.
@@ -12,8 +10,7 @@ You must create new lifecycle hooks for your Amazon ECS blue/green deployment.
 Perform the following operations before you start a blue/green deployment.
 
 1.  Replace the Amazon ECS CodeDeploy IAM role with the following permissions.
-    - For information about Elastic Load Balancing permissions, see [Amazon ECS infrastructure
-      IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
+    - For information about Elastic Load Balancing permissions, see [Amazon ECS infrastructure IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
     - For information about Lambda permissions, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](blue-green-permissions.md "blue-green-permissions.md").
 
 2.  Turn off CodeDeploy automation. For more information, see [Working with
@@ -36,8 +33,7 @@ Perform the following operations before you start a blue/green deployment.
     If this requirement is not met, the service deployment will fail with the following error: `Service deployment rolled back because of invalid networking configuration. Both targetGroup and alternateTargetGroup must be associated with the productionListenerRule or testListenerRule.`
 
 5.  Verify that there are no ongoing service deployments for the service. For more
-    information, see [View service history using Amazon ECS service
-    deployments](service-deployment.md "service-deployment.md").
+    information, see [View service history using Amazon ECS service deployments](service-deployment.md "service-deployment.md").
 6.  Amazon ECS blue/green deployments require your service to use one of the
     following features: Configure the appropriate resources.
     - Application Load Balancer - For more information, see [Application Load Balancer resources for blue/green, linear, and canary deployments](alb-resources-for-blue-green.md "alb-resources-for-blue-green.md").

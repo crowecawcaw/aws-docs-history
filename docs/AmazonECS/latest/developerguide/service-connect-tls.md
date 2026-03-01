@@ -25,9 +25,7 @@ In order to use TLS 1.3, you must enable it on the listener on the target.
 Only inbound and outbound traffic passing though the Amazon ECS agent is
 encrypted.
 
-## Service Connect and Application Load Balancer
-
-health checks
+## Service Connect and Application Load Balancer health checks
 
 You can use Service Connect with Application Load Balancer health checks and TLS 1.3 encryption.
 
@@ -43,9 +41,7 @@ Configure the Application Load Balancer with the following settings:
   - Configure the health check port to match your Service Connect
     service's container port
 
-### Service Connect
-
-configuration
+### Service Connect configuration
 
 Configure a service with the following settings:
 
@@ -73,9 +69,7 @@ Consider the following when using Application Load Balancer, TLS and Service Con
   Service Connect service's container port, not the default HTTPS port
   (443).
 
-## AWS Private Certificate Authority certificates and
-
-Service Connect
+## AWS Private Certificate Authority certificates and Service Connect
 
 You need to have the infrastructure IAM role. For more information about this
 role, see [Amazon ECS infrastructure IAM role](infrastructure_IAM_role.md "infrastructure_IAM_role.md").
@@ -159,9 +153,7 @@ Guide_.
 
 ## Service Connect and Secrets Manager
 
-###### When using Amazon ECS Service Connect with TLS encryption, the service interacts
-
-with Secrets Manager in the following ways:
+###### When using Amazon ECS Service Connect with TLS encryption, the service interacts with Secrets Manager in the following ways:
 
 Service Connect utilizes the infrastructure role provided to create secrets
 within Secrets Manager. These secrets are used to store the associated private keys for

@@ -16,30 +16,22 @@ with AI assistants to investigate image pull errors using natural language.
 
 ###### Errors
 
-- [The task can’t pull the image. Check
-  that the role has the permissions to pull images from the registry.](#pull-request-image-not-found "#pull-request-image-not-found")
-- [The task cannot pull
-  ‘image-name’ from the Amazon ECR repository
-  ‘repository URI’. There is a connection issue between
-  the task and Amazon ECR. Check your task network configuration.](#pull-image-io-timeout "#pull-image-io-timeout")
-- [The task can’t pull the image.
-  Check your network configuration](#pull-request-image-not-found-network "#pull-request-image-not-found-network")
+- [The task can’t pull the image. Check that the role has the permissions to pull images from the registry.](#pull-request-image-not-found "#pull-request-image-not-found")
+- [The task cannot pull ‘image-name’ from the Amazon ECR repository ‘repository URI’. There is a connection issue between the task and Amazon ECR. Check your task network configuration.](#pull-image-io-timeout "#pull-image-io-timeout")
+- [The task can’t pull the image. Check your network configuration](#pull-request-image-not-found-network "#pull-request-image-not-found-network")
 - [CannotPullContainerError: pull image manifest has been retried 5 time(s): failed to resolve ref](#pull-request-image-tag "#pull-request-image-tag")
 - [API error (500): Get https://111122223333.dkr.ecr.us-east-1.amazonaws.com/v2/: net/http: request canceled while waiting for connection](#request-canceled "#request-canceled")
 - [API error](#pull-request-api-error "#pull-request-api-error")
 - [write /var/lib/docker/tmp/GetImageBlob111111111: no space left on device](#pull-request-write-error "#pull-request-write-error")
 - [ERROR: toomanyrequests: Too Many Requests or You have reached your pull rate limit.](#container-pull-too-many-requests "#container-pull-too-many-requests")
-- [Error response from daemon: Get url: net/http:
-  request canceled while waiting for connection](#container-pull-request-canceled-connection "#container-pull-request-canceled-connection")
+- [Error response from daemon: Get url: net/http: request canceled while waiting for connection](#container-pull-request-canceled-connection "#container-pull-request-canceled-connection")
 - [ref pull has been retried 1 time(s): failed to copy: httpReaderSeeker: failed open: unexpected status code](#container-pull-failed-open "#container-pull-failed-open")
 - [pull access denied](#container-pull-access-denied.title "#container-pull-access-denied.title")
 - [pull command failed: panic: runtime error: invalid memory address or nil pointer dereference](#container-pull-runtime-error.title "#container-pull-runtime-error.title")
 - [error pulling image conf/error pulling image configuration](#container-pull-pulling-image.title "#container-pull-pulling-image.title")
 - [Context canceled](#container-pull-context-canceled "#container-pull-context-canceled")
 
-## The task can’t pull the image. Check
-
-that the role has the permissions to pull images from the registry.
+## The task can’t pull the image. Check that the role has the permissions to pull images from the registry.
 
 This error indicates that the task can't pull the image specified in the task
 definition because of permission issues.
@@ -59,24 +51,17 @@ Guide_.
 The task uses one of the following roles:
 
     * For tasks with the Fargate, this is the task execution
-     role. For information about the additional permissions for Amazon ECR, [Fargate tasks pulling
-     Amazon ECR images over interface endpoints permissions](task_execution_IAM_role.md#task-execution-ecr-conditionkeys "task_execution_IAM_role.md#task-execution-ecr-conditionkeys").
+     role. For information about the additional permissions for Amazon ECR, [Fargate tasks pulling Amazon ECR images over interface endpoints permissions](task_execution_IAM_role.md#task-execution-ecr-conditionkeys "task_execution_IAM_role.md#task-execution-ecr-conditionkeys").
     * For tasks with EC2, this is the container instance
      role. For information about the additional permissions for Amazon ECR, [Amazon ECR permissions](instance_IAM_role.md#container-instance-role-ecr "instance_IAM_role.md#container-instance-role-ecr").
 
-## The task cannot pull
-
-‘`image-name`’ from the Amazon ECR repository
-‘`repository URI`’. There is a connection issue between
-the task and Amazon ECR. Check your task network configuration.
+## The task cannot pull ‘`image-name`’ from the Amazon ECR repository ‘`repository URI`’. There is a connection issue between the task and Amazon ECR. Check your task network configuration.
 
 This error indicates that the task can't connect to Amazon ECR. Check the connection to the `repository URI` repository.
 
 For information about how to verify and resolve the issue, see [Verifying Amazon ECS stopped task connectivity](verify-connectivity.md "verify-connectivity.md").
 
-## The task can’t pull the image.
-
-Check your network configuration
+## The task can’t pull the image. Check your network configuration
 
 This error indicates that the task can't connect to Amazon ECR.
 
@@ -93,8 +78,7 @@ To resolve this, you can:
 - Amazon ECS forces image version stability. If the original image is no longer available you get
   this error. The image tag is part of enforcing this behavior. Change the image
   in the task definition from using :latest as the tag to a specifc version. For
-  more information, see [Container image
-  resolution](deployment-type-ecs.md#deployment-container-image-stability "deployment-type-ecs.md#deployment-container-image-stability").
+  more information, see [Container image resolution](deployment-type-ecs.md#deployment-container-image-stability "deployment-type-ecs.md#deployment-container-image-stability").
 
 For information about how to verify and resolve the issue, see [Verifying Amazon ECS stopped task connectivity](verify-connectivity.md "verify-connectivity.md").
 
@@ -180,7 +164,7 @@ An alternative, if your container logs are taking up too much disk space, is
 to use the `awslogs` log driver. The `awslogs` log
 driver sends the logs to CloudWatch, which frees up the disk space that would
 otherwise be used for your container logs on the container instance. For
-more information, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md") .
+more information, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md").
 
 You might need to update the disk size that Docker can access.
 
@@ -199,9 +183,7 @@ Hub rate limiting](https://www.docker.com/increase-rate-limits "https://www.dock
 If you have increased the Docker Hub rate limit and you need to
 authenticate your Docker pulls for your container instances, see [Private registry authentication for container instances](private-auth-container-instances.md "private-auth-container-instances.md").
 
-## Error response from daemon: Get `url`: net/http:
-
-request canceled while waiting for connection
+## Error response from daemon: Get `url`: net/http: request canceled while waiting for connection
 
 This error indicates that a connection timed out, because a route to the
 internet doesn't exist.

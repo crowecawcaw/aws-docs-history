@@ -1,6 +1,4 @@
-# Troubleshooting Amazon ECS
-
-ResourceInitializationError errors
+# Troubleshooting Amazon ECS ResourceInitializationError errors
 
 The following are some `ResourceInitialization` error messages and actions that
 you can take to fix the errors.
@@ -9,51 +7,30 @@ To check your stopped tasks for an error message using the AWS Management Consol
 
 ###### Errors
 
-- [The task cannot pull registry authentication from Amazon ECR. There is a connection issue
-  between the task and Amazon ECR. Check your task network configuration.](#unable-to-pull-secrets-ecr "#unable-to-pull-secrets-ecr")
-- [The task can't download the environment
-  variable files from Amazon S3. There is a connection issue between the task and Amazon S3.
-  Check your task network configuration.](#failed-to-download-env-files "#failed-to-download-env-files")
-- [The task cannot pull secrets from
-  AWS Systems Manager Parameter Store. Check your network connection between the task and
-  AWS Systems Manager.](#unable-to-pull-secrets-sys-manager "#unable-to-pull-secrets-sys-manager")
-- [The task can’t pull secrets from AWS Secrets Manager.
-  There is a connection issue between the task and Secrets Manager. Check your task network
-  configuration.](#unable-to-pull-secrets-asm-no-arn "#unable-to-pull-secrets-asm-no-arn")
-- [The task can’t pull the secret from Secrets Manager.
-  The task can't retrieve the secret with ARN ‘secretARN'
-  from Secrets Manager. Check whether the secret exists in the specified
-  Region.](#unable-to-pull-secrets-asm "#unable-to-pull-secrets-asm")
-- [pull command failed: unable to pull secrets or
-  registry auth Check your task network configuration.](#pull-command-failed "#pull-command-failed")
-- [The task
-  cannot find the Amazon CloudWatch log group defined in the task
-  definition. There is a connection issue between the task and Amazon CloudWatch. Check your network configuration.](#failed-to-initialize-logging-network "#failed-to-initialize-logging-network")
+- [The task cannot pull registry authentication from Amazon ECR. There is a connection issue between the task and Amazon ECR. Check your task network configuration.](#unable-to-pull-secrets-ecr "#unable-to-pull-secrets-ecr")
+- [The task can't download the environment variable files from Amazon S3. There is a connection issue between the task and Amazon S3. Check your task network configuration.](#failed-to-download-env-files "#failed-to-download-env-files")
+- [The task cannot pull secrets from AWS Systems Manager Parameter Store. Check your network connection between the task and AWS Systems Manager.](#unable-to-pull-secrets-sys-manager "#unable-to-pull-secrets-sys-manager")
+- [The task can’t pull secrets from AWS Secrets Manager. There is a connection issue between the task and Secrets Manager. Check your task network configuration.](#unable-to-pull-secrets-asm-no-arn "#unable-to-pull-secrets-asm-no-arn")
+- [The task can’t pull the secret from Secrets Manager. The task can't retrieve the secret with ARN ‘secretARN' from Secrets Manager. Check whether the secret exists in the specified Region.](#unable-to-pull-secrets-asm "#unable-to-pull-secrets-asm")
+- [pull command failed: unable to pull secrets or registry auth Check your task network configuration.](#pull-command-failed "#pull-command-failed")
+- [The task cannot find the Amazon CloudWatch log group defined in the task definition. There is a connection issue between the task and Amazon CloudWatch. Check your network configuration.](#failed-to-initialize-logging-network "#failed-to-initialize-logging-network")
 - [failed to initialize logging driver](#failed-to-initialize-logging "#failed-to-initialize-logging")
 - [failed to invoke EFS utils commands to set up EFS volumes](#efs-utils-failed "#efs-utils-failed")
 
-## The task cannot pull registry authentication from Amazon ECR. There is a connection issue
-
-between the task and Amazon ECR. Check your task network configuration.
+## The task cannot pull registry authentication from Amazon ECR. There is a connection issue between the task and Amazon ECR. Check your task network configuration.
 
 This error indicates that the task can't connect to Amazon ECR.
 
 Check the connection between the task and Amazon ECR. For information, see [Verifying Amazon ECS stopped task connectivity](verify-connectivity.md "verify-connectivity.md").
 
-## The task can't download the environment
-
-variable files from Amazon S3. There is a connection issue between the task and Amazon S3.
-Check your task network configuration.
+## The task can't download the environment variable files from Amazon S3. There is a connection issue between the task and Amazon S3. Check your task network configuration.
 
 This error occurs when your task can't download your environment file from Amazon S3.
 
 Check the connection between the task and the Amazon S3 VPC endpoint. For information, see
 [Verifying Amazon ECS stopped task connectivity](verify-connectivity.md "verify-connectivity.md").
 
-## The task cannot pull secrets from
-
-AWS Systems Manager Parameter Store. Check your network connection between the task and
-AWS Systems Manager.
+## The task cannot pull secrets from AWS Systems Manager Parameter Store. Check your network connection between the task and AWS Systems Manager.
 
 This error occurs when your task can't pull the image defined in the task definition
 using the credentials in Systems Manager.
@@ -61,10 +38,7 @@ using the credentials in Systems Manager.
 Check the connection between the task and the Systems Manager VPC endpoint. For information, see
 [Verifying Amazon ECS stopped task connectivity](verify-connectivity.md "verify-connectivity.md").
 
-## The task can’t pull secrets from AWS Secrets Manager.
-
-There is a connection issue between the task and Secrets Manager. Check your task network
-configuration.
+## The task can’t pull secrets from AWS Secrets Manager. There is a connection issue between the task and Secrets Manager. Check your task network configuration.
 
 This error occurs when your task can't pull the image defined in the task definition
 using the credentials in Secrets Manager.
@@ -75,11 +49,7 @@ endpoint and the task.
 For information about how to verify the connectivity between the task and the
 endpoint, see [Verifying Amazon ECS stopped task connectivity](verify-connectivity.md "verify-connectivity.md").
 
-## The task can’t pull the secret from Secrets Manager.
-
-The task can't retrieve the secret with ARN ‘`secretARN`'
-from Secrets Manager. Check whether the secret exists in the specified
-Region.
+## The task can’t pull the secret from Secrets Manager. The task can't retrieve the secret with ARN ‘`secretARN`' from Secrets Manager. Check whether the secret exists in the specified Region.
 
 This error occurs when your task can't pull the image defined in the task definition
 using the credentials in Secrets Manager.
@@ -92,9 +62,7 @@ This issue is caused by one of the following reasons:
 | The task execution role defined in the task definition doesn't have<br>the permissions for Secrets Manager.                                                                                                                                                                                                                                                                                                                                                                                  | Add the required permissions for Secrets Manager to the task execution role.<br>For more information, see [Secrets Manager or Systems Manager permissions](task_execution_IAM_role.md#task-execution-secrets "task_execution_IAM_role.md#task-execution-secrets").                                                     |
 | The secret ARN doesn't exist                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Check that the ARN exists in Secrets Manager. For information about viewing<br>your images, see [Find<br>secrets in Secrets Manager](../../../secretsmanager/latest/userguide/manage_search-secret.md "../../../secretsmanager/latest/userguide/manage_search-secret.md") in the _Secrets Manager<br>Developer Guide_. |
 
-## pull command failed: unable to pull secrets or
-
-registry auth Check your task network configuration.
+## pull command failed: unable to pull secrets or registry auth Check your task network configuration.
 
 This error occurs when your task can't connect to Amazon ECR, Systems Manager, or Secrets Manager. This is due
 to a misconfiguration in your network.
@@ -103,10 +71,7 @@ To fix this issue, verify the connectivty between the task and Amazon ECR. You a
 check connectivity between your task and the service which stores your secret (Systems Manager, or
 Secrets Manager). For more information, see [Verifying Amazon ECS stopped task connectivity](verify-connectivity.md "verify-connectivity.md").
 
-## The task
-
-cannot find the Amazon CloudWatch log group defined in the task
-definition. There is a connection issue between the task and Amazon CloudWatch. Check your network configuration.
+## The task cannot find the Amazon CloudWatch log group defined in the task definition. There is a connection issue between the task and Amazon CloudWatch. Check your network configuration.
 
 This error occurs when your task fails to find the CloudWatch log group you defined in the
 task definition.
@@ -151,10 +116,10 @@ value.
 
 The issue is either that the group specified in the task definition is incorrect, or the log group does not exist. 3. Fix the issue.
 
-| The issue is...                                              | Do this...                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The incorrect log group is specified in the task definition. | Update the task definition to include the log group configuration<br>in the container definition.For information about updating the task definition, see [Updating an Amazon ECS task definition using<br>the console](update-task-definition-console-v2.md "update-task-definition-console-v2.md") or [RegisterTaskDefinition](../APIReference/API_RegisterTaskDefinition.md "../APIReference/API_RegisterTaskDefinition.md") in the _Amazon Elastic Container Service API Reference_. |
-| The log group does not exist in CloudWatch                   | Create the log group. For more information, see [Create a log group in CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md") in the _Amazon CloudWatch Logs User Guide_.                                                                                                                                                                                        |
+| The issue is...                                              | Do this...                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| The incorrect log group is specified in the task definition. | Update the task definition to include the log group configuration<br>in the container definition.For information about updating the task definition, see [Updating an Amazon ECS task definition using the console](update-task-definition-console-v2.md "update-task-definition-console-v2.md") or [RegisterTaskDefinition](../APIReference/API_RegisterTaskDefinition.md "../APIReference/API_RegisterTaskDefinition.md") in the _Amazon Elastic Container Service API Reference_. |
+| The log group does not exist in CloudWatch                   | Create the log group. For more information, see [Create a log group in CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md") in the _Amazon CloudWatch Logs User Guide_.                                                                                                                                                                                     |
 
 ## failed to invoke EFS utils commands to set up EFS volumes
 

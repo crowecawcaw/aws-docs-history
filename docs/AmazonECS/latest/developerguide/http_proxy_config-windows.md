@@ -1,6 +1,4 @@
-# Using an HTTP proxy for Amazon ECS Windows container
-
-instances
+# Using an HTTP proxy for Amazon ECS Windows container instances
 
 You can configure your Amazon ECS container instances to use an HTTP proxy for both the Amazon ECS
 container agent and the Docker daemon. This is useful if your container instances do not
@@ -33,8 +31,7 @@ The example user data PowerShell script below configures the Amazon ECS containe
 the Docker daemon to use an HTTP proxy that you specify. You can also specify a cluster
 into which the container instance registers itself.
 
-To use this script when you launch a container instance, follow the steps in [Launching an Amazon ECS Windows container
-instance](launch_window-container_instance.md "launch_window-container_instance.md"). Just copy and paste the PowerShell
+To use this script when you launch a container instance, follow the steps in [Launching an Amazon ECS Windows container instance](launch_window-container_instance.md "launch_window-container_instance.md"). Just copy and paste the PowerShell
 script below into the **User data** field (be sure to substitute the
 red example values with your own proxy and cluster information).
 

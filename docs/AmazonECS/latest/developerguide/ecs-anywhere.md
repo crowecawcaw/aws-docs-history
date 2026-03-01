@@ -7,9 +7,7 @@ data. If your application requires inbound traffic, the lack of Elastic Load Bal
 these workloads less efficient. Amazon ECS added a new `EXTERNAL` launch type that you
 can use to create services or run tasks on your external instances.
 
-## Supported operating systems and system
-
-architectures
+## Supported operating systems and system architectures
 
 The following is the list of supported operating systems. The
 `x86_64` and `ARM64` CPU architectures are supported.
@@ -55,11 +53,10 @@ considerations.
   can add custom attributes to your external instances to use as a task placement
   constraint. For more information, see [Custom attributes](task-placement-constraints.md#ecs-custom-attributes "task-placement-constraints.md#ecs-custom-attributes").
 - You can add resource tags to your external instance. For more information, see
-  [Adding tags to External container
-  instances for Amazon ECS](instance-details-tags-external.md "instance-details-tags-external.md").
+  [Adding tags to External container instances for Amazon ECS](instance-details-tags-external.md "instance-details-tags-external.md").
 - ECS Exec is supported on external instances. For more information, see [Monitor Amazon ECS containers with ECS Exec](ecs-exec.md "ecs-exec.md").
 - The following are additional considerations that are specific to networking
-  with your external instances. For more information, see [Networking](#ecs-anywhere-networking "#ecs-anywhere-networking") .
+  with your external instances. For more information, see [Networking](#ecs-anywhere-networking "#ecs-anywhere-networking").
   - Service load balancing isn't supported.
   - Service discovery isn't supported.
   - Tasks that run on external instances must use the `bridge`,
@@ -80,8 +77,7 @@ considerations.
 
 - The `UpdateContainerAgent` API isn't supported. For instructions on
   how to update the SSM Agent or the Amazon ECS agent on your external instances, see
-  [Updating the AWS Systems Manager agent and Amazon ECS container
-  agent on an external instance](ecs-anywhere-updates.md "ecs-anywhere-updates.md").
+  [Updating the AWS Systems Manager agent and Amazon ECS container agent on an external instance](ecs-anywhere-updates.md "ecs-anywhere-updates.md").
 - Amazon ECS capacity providers aren't supported. To create a service or run a
   standalone task on your external instances, use the `EXTERNAL` launch
   type.
@@ -93,8 +89,7 @@ considerations.
   must create the task definition with the console JSON editor.
 - When you use a non Amazon ECS-optimized AMI, run the following commands on the
   external container instance to configure rules to use IAM roles for tasks. For
-  more information, see [External instance additional
-  configuration](task-iam-roles.md#enable_task_iam_roles "task-iam-roles.md#enable_task_iam_roles").
+  more information, see [External instance additional configuration](task-iam-roles.md#enable_task_iam_roles "task-iam-roles.md#enable_task_iam_roles").
 
 ```
 $ sysctl -w net.ipv4.conf.all.route_localnet=1
@@ -162,9 +157,7 @@ include an asterisk (for example, `ecs-a-*`).
   endpoints](../../../general/latest/gr/aws-service-information.md "../../../general/latest/gr/aws-service-information.md") in the _AWS General
   Reference_.
 
-### Amazon FSx for Windows File Server with ECS
-
-Anywhere
+### Amazon FSx for Windows File Server with ECS Anywhere
 
 ###### Important
 

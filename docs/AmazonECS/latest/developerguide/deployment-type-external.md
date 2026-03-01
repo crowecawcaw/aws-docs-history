@@ -1,6 +1,4 @@
-# Deploy Amazon ECS services using a third-party
-
-controller
+# Deploy Amazon ECS services using a third-party controller
 
 The _external_ deployment type allows you to use any
 third-party deployment controller for full control over the deployment process for
@@ -28,9 +26,7 @@ updated to the new value when a new primary task set is defined. If no primary t
 set is defined for a service, when describing the service, the task set fields are
 null.
 
-## External deployment
-
-considerations
+## External deployment considerations
 
 Consider the following when using the external deployment type:
 
@@ -46,16 +42,12 @@ Consider the following when using the external deployment type:
   task sets. Amazon ECS task sets calculate the `ComputedDesiredCount`
   based on the Amazon ECS service `DesiredCount`.
 
-## External deployment
-
-workflow
+## External deployment workflow
 
 The following is the basic workflow for managing an external deployment on
 Amazon ECS.
 
-###### To manage an Amazon ECS service using an external deployment
-
-controller
+###### To manage an Amazon ECS service using an external deployment controller
 
 1. Create an Amazon ECS service. The only required parameter is the service
    name. You can specify the following parameters when creating a service
@@ -292,8 +284,7 @@ Fargate, see [Amazon ECS task networking options for Fargate](fargate-task-netwo
 `serviceRegistries`
 
 The details of the service discovery registries to assign
-to this service. For more information, see [Use service discovery to connect Amazon ECS services with
-DNS names](service-discovery.md "service-discovery.md").
+to this service. For more information, see [Use service discovery to connect Amazon ECS services with DNS names](service-discovery.md "service-discovery.md").
 
 `scale`
 

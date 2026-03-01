@@ -1,6 +1,4 @@
-# Amazon ECS task metadata v3
-
-examples
+# Amazon ECS task metadata v3 examples
 
 The following examples show sample outputs from the task metadata
 endpoints.

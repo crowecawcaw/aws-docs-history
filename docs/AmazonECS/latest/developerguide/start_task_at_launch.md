@@ -27,8 +27,7 @@ identify the container instance. Then, it uses the AWS CLI and the
    instance to register into and `my_task_def` with the task
    definition to run on the instance at launch.
 
-For more information, see [Launching an Amazon ECS Linux container
-instance](launch_container_instance.md "launch_container_instance.md").
+For more information, see [Launching an Amazon ECS Linux container instance](launch_container_instance.md "launch_container_instance.md").
 
 ###### Note
 

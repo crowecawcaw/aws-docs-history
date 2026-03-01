@@ -108,14 +108,12 @@ not rely on `INACTIVE` clusters persisting.
   group capacity providers. An instance can only be registered to one cluster at a
   time.
 - You can restrict access to clusters by creating custom IAM policies. For
-  information, see [Amazon ECS cluster examples](security_iam_id-based-policy-examples.md#IAM_cluster_policies "security_iam_id-based-policy-examples.md#IAM_cluster_policies") section in [Identity-based policy examples for
-  Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+  information, see [Amazon ECS cluster examples](security_iam_id-based-policy-examples.md#IAM_cluster_policies "security_iam_id-based-policy-examples.md#IAM_cluster_policies") section in [Identity-based policy examples for Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 - You can use Service Auto Scaling to scale Fargate tasks. For more information, see [Automatically scale your Amazon ECS service](service-auto-scaling.md "service-auto-scaling.md").
 - You can configure a default Service Connect namespace for a cluster. After you
   set a default Service Connect namespace, any new services created in the cluster
   can be added as client services in the namespace by turning on Service Connect. No
-  additional configuration is required. For more information, see [Use Service Connect to connect Amazon ECS services with short
-  names](service-connect.md "service-connect.md").
+  additional configuration is required. For more information, see [Use Service Connect to connect Amazon ECS services with short names](service-connect.md "service-connect.md").
 
 ## Capacity providers
 

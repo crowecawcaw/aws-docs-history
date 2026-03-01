@@ -1,13 +1,10 @@
-# Exporting application metrics to
-
-Amazon CloudWatch
+# Exporting application metrics to Amazon CloudWatch
 
 Amazon ECS on Fargate supports exporting your custom application metrics to Amazon CloudWatch as
 custom metrics. This is done by adding the AWS Distro for OpenTelemetry sidecar
 container to your task definition. The Amazon ECS console simplifies this process by adding
 the **Use metric collection** option when creating a new task
-definition. For more information, see [Creating an Amazon ECS task definition using the
-console](create-task-definition.md "create-task-definition.md").
+definition. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").
 
 The application metrics are exported to CloudWatch Logs with log group name
 `/aws/ecs/application/metrics` and the metrics can be viewed in the
@@ -22,8 +19,7 @@ with AWS Distro for OpenTelemetry to send application metrics to Amazon CloudWat
 
 - This integration only sends your custom application metrics to CloudWatch. If
   you want task-level metrics, you can turn on Container Insights in the Amazon ECS cluster
-  configuration. For more information, see [Monitor Amazon ECS containers using Container Insights with
-  enhanced observability](cloudwatch-container-insights.md "cloudwatch-container-insights.md").
+  configuration. For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](cloudwatch-container-insights.md "cloudwatch-container-insights.md").
 - The AWS Distro for OpenTelemetry integration is supported for Amazon ECS
   workloads hosted on Fargate and Amazon ECS workloads hosted on Amazon EC2 instances.
   External instances aren't currently supported.
@@ -38,9 +34,7 @@ with AWS Distro for OpenTelemetry to send application metrics to Amazon CloudWat
   application to add additional dimensions. For more information, see [Using CloudWatch metrics with AWS Distro for OpenTelemetry](https://aws-otel.github.io/docs/getting-started/cloudwatch-metrics "https://aws-otel.github.io/docs/getting-started/cloudwatch-metrics") in the
   AWS Distro for OpenTelemetry documentation.
 
-## Required IAM permissions for
-
-AWS Distro for OpenTelemetry integration with Amazon CloudWatch
+## Required IAM permissions for AWS Distro for OpenTelemetry integration with Amazon CloudWatch
 
 The Amazon ECS integration with AWS Distro for OpenTelemetry requires that you create
 a task IAM role and specify the role in your task definition. We recommend that
@@ -106,14 +100,11 @@ When you name a role, note the following:
     information about using tags in IAM, see [Tags for AWS Identity and Access Management resources](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md") in the _IAM User Guide_.
 13. Review the role, and then choose **Create role**.
 
-## Specifying the
-
-AWS Distro for OpenTelemetry sidecar in your task definition
+## Specifying the AWS Distro for OpenTelemetry sidecar in your task definition
 
 The Amazon ECS console simplifies the experience of creating the AWS Distro for
 OpenTelemetry sidecar container by using the **Use metric
-collection** option. For more information, see [Creating an Amazon ECS task definition using the
-console](create-task-definition.md "create-task-definition.md").
+collection** option. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").
 
 If you're not using the Amazon ECS console, you can add the AWS Distro for
 OpenTelemetry sidecar container to your task definition manually. The following task

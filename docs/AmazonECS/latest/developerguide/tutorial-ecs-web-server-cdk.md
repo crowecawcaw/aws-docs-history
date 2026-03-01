@@ -1,6 +1,4 @@
-# Creating Amazon ECS resources using the
-
-AWS CDK
+# Creating Amazon ECS resources using the AWS CDK
 
 The AWS Cloud Development Kit (AWS CDK) is an Infrastructure-as-Code (IAC) framework that you can use to define
 AWS cloud infrastructure by using a programming language of your choosing. To define your
@@ -37,8 +35,7 @@ These instructions assume you are using AWS CDK v2.
 ###### Topics
 
 - [Step 1: Set up your AWS CDK project](#ecs-web-server-cdk-step-1 "#ecs-web-server-cdk-step-1")
-- [Step 2: Use the AWS CDK to define a
-  containerized web server on Fargate](#ecs-web-server-cdk-step-2 "#ecs-web-server-cdk-step-2")
+- [Step 2: Use the AWS CDK to define a containerized web server on Fargate](#ecs-web-server-cdk-step-2 "#ecs-web-server-cdk-step-2")
 - [Step 3: Test the web server](#ecs-web-server-cdk-step-3 "#ecs-web-server-cdk-step-3")
 - [Step 4: Clean up](#ecs-web-server-cdk-step-4 "#ecs-web-server-cdk-step-4")
 - [Next steps](#ecs-web-server-cdk-next-steps "#ecs-web-server-cdk-next-steps")
@@ -170,9 +167,7 @@ github.com/aws/aws-cdk-go/awscdk/v2/awsecs
 github.com/aws/aws-cdk-go/awscdk/v2/awsecspatterns
 ```
 
-## Step 2: Use the AWS CDK to define a
-
-containerized web server on Fargate
+## Step 2: Use the AWS CDK to define a containerized web server on Fargate
 
 Use the container image [`amazon-ecs-sample`](https://gallery.ecr.aws/ecs-sample-image/amazon-ecs-sample "https://gallery.ecr.aws/ecs-sample-image/amazon-ecs-sample"). This image contains a PHP web
 app that runs on Ngingx.

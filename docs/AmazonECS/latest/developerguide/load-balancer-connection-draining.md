@@ -1,6 +1,4 @@
-# Optimize load balancer
-
-connection draining parameters for Amazon ECS
+# Optimize load balancer connection draining parameters for Amazon ECS
 
 To allow for optimization, clients maintain a keep alive connection to the container
 service. This allows subsequent requests from that client to reuse the existing

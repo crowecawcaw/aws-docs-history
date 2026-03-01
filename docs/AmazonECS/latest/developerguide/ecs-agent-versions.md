@@ -85,12 +85,10 @@ While Amazon ECS supports multiple Docker versions, we recommend using the Docke
 
 The Linux variants of the Amazon ECS-optimized AMI use the Amazon Linux 2 AMI as their base. The
 Amazon Linux 2 source AMI name for each variant can be retrieved by querying the Systems Manager
-Parameter Store API. For more information, see [Retrieving Amazon ECS-optimized Linux AMI
-metadata](retrieve-ecs-optimized_AMI.md "retrieve-ecs-optimized_AMI.md").
+Parameter Store API. For more information, see [Retrieving Amazon ECS-optimized Linux AMI metadata](retrieve-ecs-optimized_AMI.md "retrieve-ecs-optimized_AMI.md").
 When you launch our container instances from the most recent Amazon ECS-optimized Amazon Linux 2 AMI you receive the
 current container agent version. To launch a container instance with the latest
-Amazon ECS-optimized Amazon Linux 2 AMI, see [Launching an Amazon ECS Linux container
-instance](launch_container_instance.md "launch_container_instance.md").
+Amazon ECS-optimized Amazon Linux 2 AMI, see [Launching an Amazon ECS Linux container instance](launch_container_instance.md "launch_container_instance.md").
 
 ## Additional information
 

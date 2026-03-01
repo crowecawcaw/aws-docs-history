@@ -1,6 +1,4 @@
-# Use Amazon VPC Lattice to connect, observe, and secure your Amazon ECS
-
-services
+# Use Amazon VPC Lattice to connect, observe, and secure your Amazon ECS services
 
 Amazon VPC Lattice is a fully managed application networking service that enables Amazon ECS customers to observe, secure, and
 monitor applications built across AWS compute services, VPCs, and accounts—without requiring any code changes.

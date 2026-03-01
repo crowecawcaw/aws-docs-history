@@ -1,6 +1,4 @@
-# Launching a Bottlerocket
-
-instance for Amazon ECS
+# Launching a Bottlerocket instance for Amazon ECS
 
 You can launch a Bottlerocket instance so that you can run your container
 workloads.
@@ -16,8 +14,7 @@ You can use the AWS CLI to launch the Bottlerocket instance.
 cluster = "`cluster-name`"
 ```
 
-2. Use one of the commands that are included in [Retrieving Amazon ECS-optimized
-   Bottlerocket AMI metadata](ecs-bottlerocket-retrieve-ami.md "ecs-bottlerocket-retrieve-ami.md")
+2. Use one of the commands that are included in [Retrieving Amazon ECS-optimized Bottlerocket AMI metadata](ecs-bottlerocket-retrieve-ami.md "ecs-bottlerocket-retrieve-ami.md")
    to get the Bottlerocket AMI ID. You use this in the following
    step.
 3. Run the following command to launch the Bottlerocket instance. Remember to

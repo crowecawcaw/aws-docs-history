@@ -4,9 +4,7 @@ The following examples show how to provide ephemeral storage for a container and
 to provide a shared volume for multiple containers, and how to provide NFS persistent
 storage for a container.
 
-###### To provide ephemeral storage for a container using a Docker
-
-volume
+###### To provide ephemeral storage for a container using a Docker volume
 
 In this example, a container uses an empty data volume that is disposed of
 after the task is finished. One example use case is that you might have a
@@ -53,9 +51,7 @@ This task can be achieved using a Docker volume.
 ]
 ```
 
-###### To provide persistent storage for multiple containers using a Docker
-
-volume
+###### To provide persistent storage for multiple containers using a Docker volume
 
 In this example, you want a shared volume for multiple containers to use and
 you want it to persist after any single task that use it stopped. The built-in
@@ -113,9 +109,7 @@ to the lifecycle of the container instance.
   ]
 ```
 
-###### To provide NFS persistent storage for a container using a Docker
-
-volume
+###### To provide NFS persistent storage for a container using a Docker volume
 
 In this example, a container uses an NFS data volume that is automatically
 mounted when the task starts and unmounted when the task stops. This uses the

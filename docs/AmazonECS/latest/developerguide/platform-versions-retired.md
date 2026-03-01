@@ -4,8 +4,7 @@
 
 On March 2, 2026, AWS will start force-updating all the Amazon ECS services running Fargate platform version 1.3.0 that are not migrated to the platform version 1.4.0. That may potentially impact your workloads. Starting March 16, 2026, we will make the platform version 1.3.0 as Retired. At that time, you will not be able to launch new tasks or create new services configured with platform version 1.3.0, but your existing tasks will continue running. On March 31, 2026, we will terminate all the remaining running tasks configured with platform version 1.3.0.
 
-For information about how to migrate to platform version 1.4, see [Migrating to Linux platform version 1.4.0
-on Amazon ECS](platform-version-migration.md "platform-version-migration.md").
+For information about how to migrate to platform version 1.4, see [Migrating to Linux platform version 1.4.0 on Amazon ECS](platform-version-migration.md "platform-version-migration.md").
 
 The following table lists Linux platform versions that AWS Fargate has deprecated or have been scheduled for deprecation. These platform versions remain available until the published deprecation date.
 
@@ -17,8 +16,7 @@ platform version scheduled for deprecation are stopped and new tasks are launche
 that the `LATEST` tag points to at that time. Standalone tasks or services with an explicit platform version set are
 not affected by the force update date.
 
-For information about how to migrate to latest platform version, see [Migrating to Linux platform version 1.4.0
-on Amazon ECS](platform-version-migration.md "platform-version-migration.md").
+For information about how to migrate to latest platform version, see [Migrating to Linux platform version 1.4.0 on Amazon ECS](platform-version-migration.md "platform-version-migration.md").
 
 After a platform version reaches the _deprecation date_, the
 platform version will no longer be available for new tasks or services. Any standalone
@@ -60,19 +58,16 @@ The following is the changelog for platform version `1.3.0`.
   launched supports injecting sensitive data into your containers by storing
   your sensitive data in either AWS Secrets Manager secrets or AWS Systems Manager Parameter Store
   parameters and then referencing them in your container definition. For more
-  information, see [Pass sensitive data to an Amazon ECS
-  container](specifying-sensitive-data.md "specifying-sensitive-data.md").
+  information, see [Pass sensitive data to an Amazon ECS container](specifying-sensitive-data.md "specifying-sensitive-data.md").
 - Beginning on May 1, 2019, any new Fargate task that is
   launched supports referencing sensitive data in the log configuration of a
   container using the `secretOptions` container definition
-  parameter. For more information, see [Pass sensitive data to an Amazon ECS
-  container](specifying-sensitive-data.md "specifying-sensitive-data.md").
+  parameter. For more information, see [Pass sensitive data to an Amazon ECS container](specifying-sensitive-data.md "specifying-sensitive-data.md").
 - Beginning on May 1, 2019, any new Fargate task that is
   launched supports the `splunk` log driver in addition to the
   `awslogs` log driver. For more information, see [Storage and logging](task_definition_parameters.md#container_definition_storage "task_definition_parameters.md#container_definition_storage").
 - Beginning on July 9, 2019, any new Fargate tasks that is
-  launched supports CloudWatch Container Insights. For more information, see [Monitor Amazon ECS containers using Container Insights with
-  enhanced observability](cloudwatch-container-insights.md "cloudwatch-container-insights.md").
+  launched supports CloudWatch Container Insights. For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](cloudwatch-container-insights.md "cloudwatch-container-insights.md").
 - Beginning on December 3, 2019, the Fargate Spot capacity provider is
   supported. For more information, see [Amazon ECS clusters for Fargate](fargate-capacity-providers.md "fargate-capacity-providers.md").
 - Based on Amazon Linux 2.
@@ -99,12 +94,10 @@ Platform version `1.1.0` is no longer available. For information about platform 
 deprecation, see [AWS Fargate Linux platform version deprecation](platform-versions-retired.md "platform-versions-retired.md").
 
 - Added support for the Amazon ECS task metadata endpoint. For more information,
-  see [Amazon ECS task metadata available for tasks on
-  Fargate](fargate-metadata.md "fargate-metadata.md").
+  see [Amazon ECS task metadata available for tasks on Fargate](fargate-metadata.md "fargate-metadata.md").
 - Added support for Docker health checks in container definitions. For more
   information, see [Health check](task_definition_parameters.md#container_definition_healthcheck "task_definition_parameters.md#container_definition_healthcheck").
-- Added support for Amazon ECS service discovery. For more information, see [Use service discovery to connect Amazon ECS services with
-  DNS names](service-discovery.md "service-discovery.md").
+- Added support for Amazon ECS service discovery. For more information, see [Use service discovery to connect Amazon ECS services with DNS names](service-discovery.md "service-discovery.md").
 
 ### 1.0.0
 

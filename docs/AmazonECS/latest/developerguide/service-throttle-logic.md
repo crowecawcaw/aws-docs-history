@@ -42,8 +42,7 @@ Common causes of task failures that trigger throttling include:
 
 - Insufficient disk space
   - Results in `CannotCreateContainerError` in [stopped task errors](stopped-task-errors.md "stopped-task-errors.md")
-  - For resolution steps, see [Troubleshoot the Docker API error (500):
-    devmapper in Amazon ECS](CannotCreateContainerError.md "CannotCreateContainerError.md")
+  - For resolution steps, see [Troubleshoot the Docker API error (500): devmapper in Amazon ECS](CannotCreateContainerError.md "CannotCreateContainerError.md")
 
 ###### Important
 

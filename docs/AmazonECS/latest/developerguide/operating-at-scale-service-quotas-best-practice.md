@@ -1,6 +1,4 @@
-# Amazon ECS service quotas and API throttling
-
-limits
+# Amazon ECS service quotas and API throttling limits
 
 Amazon ECS integrates with several AWS services, including Elastic Load Balancing, AWS Cloud Map, and Amazon EC2.
 With this tight integration, Amazon ECS includes several features such as service load
@@ -108,9 +106,7 @@ unique elastic network interface (ENI) for each task. When your Amazon ECS servi
 an Elastic Load Balancing load balancer, these network interfaces are also registered as targets to
 the appropriate target group defined in the service.
 
-### Elastic network interface service
-
-quotas
+### Elastic network interface service quotas
 
 When you run tasks that use the `awsvpc` network mode, a unique
 elastic network interface is attached to each task. If those tasks must be
@@ -154,9 +150,7 @@ you can run 10 tasks on the instance instead of the default two tasks. For more
 information, see [Elastic
 network interface trunking](container-instance-eni.md "container-instance-eni.md").
 
-### Elastic network interface API
-
-throttling
+### Elastic network interface API throttling
 
 When you run tasks that use the `awsvpc` network mode, Amazon ECS relies
 on the following Amazon EC2 APIs. Each of these APIs have different API throttles.

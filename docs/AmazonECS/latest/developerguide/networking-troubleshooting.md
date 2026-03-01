@@ -4,9 +4,7 @@ The following services and features can help you to gain insights about your net
 and service configurations. You can use this information to troubleshoot networking
 issues and better optimize your services.
 
-## CloudWatch Container
-
-Insights
+## CloudWatch Container Insights
 
 CloudWatch Container Insights collects, aggregates, and summarizes metrics and logs from
 your containerized applications and microservices. Metrics include the utilization

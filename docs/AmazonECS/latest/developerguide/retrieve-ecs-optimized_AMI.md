@@ -1,6 +1,4 @@
-# Retrieving Amazon ECS-optimized Linux AMI
-
-metadata
+# Retrieving Amazon ECS-optimized Linux AMI metadata
 
 You can programmatically retrieve the Amazon ECS-optimized AMI metadata. The metadata
 includes the AMI name, Amazon ECS container agent version, and Amazon ECS runtime version which
@@ -31,9 +29,7 @@ Amazon ECS-optimized AMI metadata. These permissions have been added to the
 - ssm:GetParameter
 - ssm:GetParametersByPath
 
-## Systems Manager Parameter Store parameter
-
-format
+## Systems Manager Parameter Store parameter format
 
 The following is the format of the parameter name for each Amazon ECS-optimized AMI
 variant.
@@ -139,9 +135,7 @@ later can be retrieved.
 The following examples show ways in which you can retrieve the metadata for each
 Amazon ECS-optimized AMI variant.
 
-### Retrieving the metadata
-
-of the latest recommended Amazon ECS-optimized AMI
+### Retrieving the metadata of the latest recommended Amazon ECS-optimized AMI
 
 You can retrieve the latest recommended Amazon ECS-optimized AMI using the AWS CLI with
 the following AWS CLI commands.
@@ -220,9 +214,7 @@ the following AWS CLI commands.
 `aws ssm get-parameters --names /aws/service/ecs/optimized-ami/amazon-linux-2/inf/recommended --region `us-east-1``
 ```
 
-### Retrieving the image ID
-
-of the latest recommended Amazon ECS-optimized Amazon Linux 2023 AMI
+### Retrieving the image ID of the latest recommended Amazon ECS-optimized Amazon Linux 2023 AMI
 
 You can retrieve the image ID of the latest recommended Amazon ECS-optimized Amazon Linux 2023 AMI ID by
 using the sub-parameter `image_id`.
@@ -238,9 +230,7 @@ parameter value; for example:
 `aws ssm get-parameters --names /aws/service/ecs/optimized-ami/amazon-linux-2023/recommended/`image_id` --region us-east-1 --query "`Parameters[0].Value`"`
 ```
 
-### Retrieving the metadata
-
-of a specific Amazon ECS-optimized Amazon Linux 2 AMI version
+### Retrieving the metadata of a specific Amazon ECS-optimized Amazon Linux 2 AMI version
 
 Retrieve the metadata of a specific Amazon ECS-optimized Amazon Linux AMI version using the AWS CLI with the
 following AWS CLI command. Replace the AMI name with the name of the Amazon ECS-optimized Amazon Linux AMI to
@@ -250,9 +240,7 @@ retrieve.
 `aws ssm get-parameters --names /aws/service/ecs/optimized-ami/amazon-linux-2/`amzn2-ami-ecs-hvm-2.0.20200928-x86_64-ebs` --region `us-east-1``
 ```
 
-### Retrieving the
-
-Amazon ECS-optimized Amazon Linux 2 kernel 5.10 AMI metadata using the Systems Manager GetParametersByPath API
+### Retrieving the Amazon ECS-optimized Amazon Linux 2 kernel 5.10 AMI metadata using the Systems Manager GetParametersByPath API
 
 Retrieve the Amazon ECS-optimized Amazon Linux 2 AMI metadata with the Systems Manager GetParametersByPath API using
 the AWS CLI with the following command.
@@ -261,9 +249,7 @@ the AWS CLI with the following command.
 `aws ssm get-parameters-by-path --path /aws/service/ecs/optimized-ami/amazon-linux-2/kernel-5.10/ --region `us-east-1``
 ```
 
-### Retrieving the image ID
-
-of the latest recommended Amazon ECS-optimized Amazon Linux 2 kernel 5.10 AMI
+### Retrieving the image ID of the latest recommended Amazon ECS-optimized Amazon Linux 2 kernel 5.10 AMI
 
 You can retrieve the image ID of the latest recommended Amazon ECS-optimized Amazon Linux 2 kernel 5.10 AMI ID by
 using the sub-parameter `image_id`.
@@ -279,9 +265,7 @@ parameter value; for example:
 `aws ssm get-parameters --names /aws/service/ecs/optimized-ami/amazon-linux-2/recommended/`image_id` --region us-east-1 --query "`Parameters[0].Value`"`
 ```
 
-### Using the latest
-
-recommended Amazon ECS-optimized AMI in an CloudFormation template
+### Using the latest recommended Amazon ECS-optimized AMI in an CloudFormation template
 
 You can reference the latest recommended Amazon ECS-optimized AMI in an CloudFormation
 template by referencing the Systems Manager parameter store name.

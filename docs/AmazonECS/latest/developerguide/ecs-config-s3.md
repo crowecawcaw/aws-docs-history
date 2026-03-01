@@ -49,8 +49,7 @@ _Amazon Simple Storage Service User Guide_.
    private S3 bucket.
 2. Launch new container instances and use the following example script in the EC2
    User data. The script installs the AWS CLI and copies your configuration file to
-   `/etc/ecs/ecs.config`. For more information, see [Launching an Amazon ECS Linux container
-   instance](launch_container_instance.md "launch_container_instance.md").
+   `/etc/ecs/ecs.config`. For more information, see [Launching an Amazon ECS Linux container instance](launch_container_instance.md "launch_container_instance.md").
 
 ```
 #!/bin/bash

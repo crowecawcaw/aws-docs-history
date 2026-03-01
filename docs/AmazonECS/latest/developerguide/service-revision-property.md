@@ -1,6 +1,4 @@
-# Properties included in an Amazon ECS service
-
-revision
+# Properties included in an Amazon ECS service revision
 
 The following properties are included in a service revision.
 

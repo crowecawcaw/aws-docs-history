@@ -12,9 +12,7 @@ have much recent historical data yet, predictive scaling might temporarily backf
 with aggregates created from the currently available historical aggregates. Forecasts
 are backfilled for up to two weeks before a policy's creation date.
 
-## View your predictive
-
-scaling recommendations
+## View your predictive scaling recommendations
 
 For effective analysis, service auto scaling should have at least two predictive scaling
 policies to compare. (However, you can still review the findings for a single
@@ -76,18 +74,14 @@ and switch it to **Forecast only** mode later, the findings for
 that policy are likely to be biased. This is because the policy has already
 contributed toward the actual capacity.
 
-## Review predictive
-
-scaling monitoring graphs
+## Review predictive scaling monitoring graphs
 
 In the console, you can review the forecast of the previous days, weeks, or months to
 visualize how well the policy performs over time. You can also use this information to
 evaluate the accuracy of predictions when deciding whether to let a policy scale your
 actual number of tasks.
 
-###### To review predictive scaling monitoring graphs in the Amazon ECS
-
-console
+###### To review predictive scaling monitoring graphs in the Amazon ECS console
 
 1. Open the console at
    [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2").

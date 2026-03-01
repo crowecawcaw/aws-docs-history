@@ -9,7 +9,7 @@ SSH.
 ###### Note
 
 If you are not sure how to collect all of the logs on your container instances, you
-can use the Amazon ECS logs collector. For more information, see [Collecting container logs with Amazon ECS logs collector](ecs-logs-collector.md "ecs-logs-collector.md") .
+can use the Amazon ECS logs collector. For more information, see [Collecting container logs with Amazon ECS logs collector](ecs-logs-collector.md "ecs-logs-collector.md").
 
 The `ecs-init` process stores logs at
 `/var/log/ecs/ecs-init.log`.

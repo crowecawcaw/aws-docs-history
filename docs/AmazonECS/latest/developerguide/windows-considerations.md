@@ -1,6 +1,4 @@
-# Windows containers on Fargate considerations
-
-for Amazon ECS
+# Windows containers on Fargate considerations for Amazon ECS
 
 The following are the differences and considerations to know when you run Windows containers on AWS Fargate.
 
@@ -15,7 +13,7 @@ Windows containers on AWS Fargate supports the following operating systems:
 - Windows Server 2019 Core
 - Windows Server 2022 Full
 - Windows Server 2022 Core
-  Windows containers on AWS Fargate supports the awslogs driver. For more information, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md") .
+  Windows containers on AWS Fargate supports the awslogs driver. For more information, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md").
 
 The following features are not supported on Windows containers on Fargate:
 

@@ -1,6 +1,4 @@
-# Configuring Amazon ECS Windows
-
-container instances to receive Spot Instance notices
+# Configuring Amazon ECS Windows container instances to receive Spot Instance notices
 
 Amazon EC2 terminates, stops, or hibernates your Spot Instance when the Spot price exceeds the
 maximum price for your request or capacity is no longer available. Amazon EC2 provides a
@@ -35,5 +33,4 @@ cluster.
 Initialize-ECSAgent -Cluster `my-cluster`
 ```
 
-For more information, see [Launching an Amazon ECS Windows container
-instance](launch_window-container_instance.md "launch_window-container_instance.md").
+For more information, see [Launching an Amazon ECS Windows container instance](launch_window-container_instance.md "launch_window-container_instance.md").

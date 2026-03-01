@@ -15,9 +15,7 @@ Amazon ECS Managed Instances implements a comprehensive security model that bala
 
 Amazon ECS Managed Instances includes several built-in security features designed to protect your workloads and maintain a strong security posture. These features range from automated security patching to support for privileged Linux capabilities when needed.
 
-### Security best
-
-practices
+### Security best practices
 
 Managed instances are configured according to AWS security best practices, including:
 

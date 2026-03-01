@@ -1,6 +1,4 @@
-# Increasing Amazon ECS Linux container instance network
-
-interfaces
+# Increasing Amazon ECS Linux container instance network interfaces
 
 ###### Note
 
@@ -20,9 +18,7 @@ Amazon ECS supports launching container instances with increased ENI density
 using supported Amazon EC2 instance types. When you use these instance types and turn on the
 `awsvpcTrunking` account setting, additional ENIs are available on newly
 launched container instances. This configuration allows you to place more tasks on each
-container instance. To use the console to turn on the feature, see [Modifying Amazon ECS account
-settings](ecs-modifying-longer-id-settings.md "ecs-modifying-longer-id-settings.md"). To use the AWS CLI to turn on the feature, see [Managing Amazon ECS account settings using
-the AWS CLI](account-setting-management-cli.md "account-setting-management-cli.md").
+container instance. To use the console to turn on the feature, see [Modifying Amazon ECS account settings](ecs-modifying-longer-id-settings.md "ecs-modifying-longer-id-settings.md"). To use the AWS CLI to turn on the feature, see [Managing Amazon ECS account settings using the AWS CLI](account-setting-management-cli.md "account-setting-management-cli.md").
 
 For example, a `c5.large` instance with `awsvpcTrunking` has an
 increased ENI limit of twelve. The container instance will have the primary
@@ -81,8 +77,7 @@ Consider the following when using the ENI trunking feature.
 
 Amazon ECS emits container instance state change events which you can monitor
 for instances that transition to a `REGISTRATION_FAILED` state.
-For more information, see [Amazon ECS container instance state change
-events](ecs_container_instance_events.md "ecs_container_instance_events.md").
+For more information, see [Amazon ECS container instance state change events](ecs_container_instance_events.md "ecs_container_instance_events.md").
 
 - Once the container instance is terminated, the instance transitions to a
   `DEREGISTERING` status while the trunk elastic network interface
@@ -116,8 +111,7 @@ the following prerequisites must be completed.
   role provides Amazon ECS with the permissions to make calls to other AWS services
   on your behalf. This role is created for you automatically when you create a
   cluster, or if you create or update a service in the AWS Management Console. For more
-  information, see [Using service-linked roles for
-  Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md"). You can also create the
+  information, see [Using service-linked roles for Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md"). You can also create the
   service-linked role with the following AWS CLI command.
 
 ```
@@ -133,13 +127,11 @@ the following prerequisites must be completed.
 
 After the prerequisites are met, you can launch a new container instance using one of
 the supported Amazon EC2 instance types, and the instance will have the increased
-ENI limits. For a list of supported instance types, see [Supported instances for
-increased Amazon ECS container network interfaces](eni-trunking-supported-instance-types.md "eni-trunking-supported-instance-types.md"). The container instance must
+ENI limits. For a list of supported instance types, see [Supported instances for increased Amazon ECS container network interfaces](eni-trunking-supported-instance-types.md "eni-trunking-supported-instance-types.md"). The container instance must
 have version `1.28.1` or later of the container agent and version
 `1.28.1-2` or later of the ecs-init package. If you use the latest Linux
 variant of the Amazon ECS-optimized AMI, these requirements will be met. For more
-information, see [Launching an Amazon ECS Linux container
-instance](launch_container_instance.md "launch_container_instance.md").
+information, see [Launching an Amazon ECS Linux container instance](launch_container_instance.md "launch_container_instance.md").
 
 ###### Important
 
@@ -153,9 +145,7 @@ command.
 `aws ec2 modify-private-dns-name-options --instance-id `i-xxxxxxx` --no-enable-resource-name-dns-a-record --no-dry-run`
 ```
 
-###### To view your container instances with increased ENI limits with
-
-the AWS CLI
+###### To view your container instances with increased ENI limits with the AWS CLI
 
 Each container instance has a default network interface, referred to as a trunk
 network interface. Use the following command to list your container instances with

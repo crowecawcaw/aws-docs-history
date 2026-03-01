@@ -1,19 +1,15 @@
-# Amazon ECS-optimized Windows AMI
-
-versions
+# Amazon ECS-optimized Windows AMI versions
 
 View the current and previous versions of the Amazon ECS-optimized AMIs and their
 corresponding versions of the Amazon ECS container agent, Docker, and the
 `ecs-init` package.
 
 The Amazon ECS-optimized AMI metadata, including the AMI ID, for each variant can be
-retrieved programmatically. For more information, see [Retrieving Amazon ECS-optimized Windows
-AMI metadata](retrieve-ecs-optimized_windows_AMI.md "retrieve-ecs-optimized_windows_AMI.md").
+retrieved programmatically. For more information, see [Retrieving Amazon ECS-optimized Windows AMI metadata](retrieve-ecs-optimized_windows_AMI.md "retrieve-ecs-optimized_windows_AMI.md").
 
 The following tabs display a list of Windows Amazon ECS-optimized AMIs versions. For
 details on referencing the Systems Manager Parameter Store parameter in an CloudFormation template, see
-[Using the latest
-recommended Amazon ECS-optimized AMI in an CloudFormation template](retrieve-ecs-optimized_AMI.md#ecs-optimized-ami-parameter-examples-5 "retrieve-ecs-optimized_AMI.md#ecs-optimized-ami-parameter-examples-5").
+[Using the latest recommended Amazon ECS-optimized AMI in an CloudFormation template](retrieve-ecs-optimized_AMI.md#ecs-optimized-ami-parameter-examples-5 "retrieve-ecs-optimized_AMI.md#ecs-optimized-ami-parameter-examples-5").
 
 ###### Important
 
@@ -38,7 +34,7 @@ of the following Windows platforms:
 
 gMSA plugin logging has been migrated from file-based logging
 `(C:\ProgramData\Amazon\gmsa)` to Windows Event logging with the August 2025 AMI
-release. The public log collector script will collect all gMSA logs. For more information, see [Collecting container logs with Amazon ECS logs collector](ecs-logs-collector.md "ecs-logs-collector.md") .
+release. The public log collector script will collect all gMSA logs. For more information, see [Collecting container logs with Amazon ECS logs collector](ecs-logs-collector.md "ecs-logs-collector.md").
 
 Windows Server 2025 Full AMI versions
 The table below lists the current and previous versions of the

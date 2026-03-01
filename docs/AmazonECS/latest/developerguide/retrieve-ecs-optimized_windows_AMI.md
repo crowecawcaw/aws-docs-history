@@ -1,6 +1,4 @@
-# Retrieving Amazon ECS-optimized Windows
-
-AMI metadata
+# Retrieving Amazon ECS-optimized Windows AMI metadata
 
 The AMI ID, image name, operating system, container agent version, and runtime
 version for each variant of the Amazon ECS-optimized AMIs can be programmatically retrieved by
@@ -18,9 +16,7 @@ Amazon ECS-optimized AMI metadata. These permissions have been added to the
 - ssm:GetParameter
 - ssm:GetParametersByPath
 
-## Systems Manager Parameter Store parameter
-
-format
+## Systems Manager Parameter Store parameter format
 
 ###### Note
 
@@ -119,9 +115,7 @@ are available:
 The following examples show ways in which you can retrieve the metadata for each
 Amazon ECS-optimized AMI variant.
 
-### Retrieving the
-
-metadata of the latest stable Amazon ECS-optimized AMI
+### Retrieving the metadata of the latest stable Amazon ECS-optimized AMI
 
 You can retrieve the latest stable Amazon ECS-optimized AMI using the AWS CLI with the
 following AWS CLI commands.
@@ -175,9 +169,7 @@ following AWS CLI commands.
 `aws ssm get-parameters --names /aws/service/ami-windows-latest/Windows_Server-2016-English-Full-ECS_Optimized --region `us-east-1``
 ```
 
-### Using the
-
-latest recommended Amazon ECS-optimized AMI in an CloudFormation template
+### Using the latest recommended Amazon ECS-optimized AMI in an CloudFormation template
 
 You can reference the latest recommended Amazon ECS-optimized AMI in an CloudFormation
 template by referencing the Systems Manager parameter store name.

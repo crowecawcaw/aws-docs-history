@@ -1,6 +1,4 @@
-# Encrypt data stored in Amazon EBS volumes attached to
-
-Amazon ECS tasks
+# Encrypt data stored in Amazon EBS volumes attached to Amazon ECS tasks
 
 You can use AWS Key Management Service (AWS KMS) to make and manage cryptographic keys that protect your
 data. Amazon EBS volumes are encrypted at rest by using AWS KMS keys. The following types
@@ -87,9 +85,7 @@ configuration, specify no cluster-level KMS key, and enable Amazon EBS
 encryption by default, the volume will still be encrypted with the key
 specified for Amazon EBS encryption by default.
 
-## Customer managed KMS key
-
-policy
+## Customer managed KMS key policy
 
 To encrypt an EBS volume that's attached to your task by using a customer managed key, you
 must configure your KMS key policy to ensure that the IAM role that you use for
@@ -156,5 +152,4 @@ own information. As always, only configure the permissions that you need.
 For more information about key policies and permissions, see [Key
 policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") and [AWS KMS
 permissions](../../../kms/latest/developerguide/kms-api-permissions-reference.md "../../../kms/latest/developerguide/kms-api-permissions-reference.md") in the _AWS KMS Developer Guide_. For
-troubleshooting EBS volume attachment issues related to key permissions, see [Troubleshooting Amazon EBS volume attachments to Amazon ECS
-tasks](troubleshoot-ebs-volumes.md "troubleshoot-ebs-volumes.md") .
+troubleshooting EBS volume attachment issues related to key permissions, see [Troubleshooting Amazon EBS volume attachments to Amazon ECS tasks](troubleshoot-ebs-volumes.md "troubleshoot-ebs-volumes.md").

@@ -1,6 +1,4 @@
-# Manually updating the Amazon ECS container agent (for
-
-non-Amazon ECS-Optimized AMIs)
+# Manually updating the Amazon ECS container agent (for non-Amazon ECS-Optimized AMIs)
 
 Occasionally, you might need to update the Amazon ECS container agent to pick up bug fixes and
 new features. Updating the Amazon ECS container agent does not interrupt running tasks or

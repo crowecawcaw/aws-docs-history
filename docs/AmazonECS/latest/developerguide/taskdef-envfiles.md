@@ -1,12 +1,9 @@
-# Pass an individual environment
-
-variable to an Amazon ECS container
+# Pass an individual environment variable to an Amazon ECS container
 
 ###### Important
 
 We recommend storing your sensitive data in either AWS Secrets Manager secrets or AWS Systems Manager
-Parameter Store parameters. For more information, see [Pass sensitive data to an Amazon ECS
-container](specifying-sensitive-data.md "specifying-sensitive-data.md").
+Parameter Store parameters. For more information, see [Pass sensitive data to an Amazon ECS container](specifying-sensitive-data.md "specifying-sensitive-data.md").
 
 Environment variables specified in the task definition are readable by all users and
 roles that are allowed the `DescribeTaskDefinition` action for the task

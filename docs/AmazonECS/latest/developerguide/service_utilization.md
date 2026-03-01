@@ -5,9 +5,7 @@ EBS volume attached to your tasks, EBS filesystem utilization. The service level
 are supported for services with tasks hosted on both Amazon EC2 instances and
 Fargate.
 
-## Service level CPU and memory
-
-utilization
+## Service level CPU and memory utilization
 
 The CPU and memory utilization is measured as the percentage of CPU and memory
 that is used by the Amazon ECS tasks that belong to a service on a cluster when compared
@@ -85,9 +83,7 @@ In this example, the CPU utilization will only go above 100% when the CPU
 units are defined at the container level. If you define CPU units at the task
 level, the utilization will not go above the defined task-level limit.
 
-## Service level EBS filesystem
-
-utilization
+## Service level EBS filesystem utilization
 
 The service level EBS filesystem utilization is measured as the total amount of
 the EBS filesystem in use by the tasks that belong to the service, divided by the
@@ -101,9 +97,7 @@ You can use CloudWatch metrics to view the number of tasks in your services that
 alert you if the number of running tasks in your service falls below a specified
 value.
 
-### Service `RUNNING` task count
-
-in Amazon ECS CloudWatch Container Insights
+### Service `RUNNING` task count in Amazon ECS CloudWatch Container Insights
 
 A "Number of Running Tasks" (`RunningTaskCount`) metric is available
 per cluster and per service when you use Amazon ECS CloudWatch Container Insights. You can use Container Insights for

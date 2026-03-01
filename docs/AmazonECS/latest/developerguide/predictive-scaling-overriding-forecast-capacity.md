@@ -1,6 +1,4 @@
-# Use scheduled actions to
-
-override forecast values for Amazon ECS
+# Use scheduled actions to override forecast values for Amazon ECS
 
 Sometimes, you might have additional information about your future application
 requirements that the forecast calculation is unable to take into account. For example,
@@ -21,8 +19,7 @@ time periods.
 
 ###### Topics
 
-- [Step 1: (Optional) Analyze time series
-  data](#analyzing-time-series-data "#analyzing-time-series-data")
+- [Step 1: (Optional) Analyze time series data](#analyzing-time-series-data "#analyzing-time-series-data")
 - [Step 2: Create two scheduled actions](#scheduling-capacity "#scheduling-capacity")
 
 ###### Important
@@ -34,9 +31,7 @@ scaling will continue to generate forecasts, but it will not automatically incre
 number of tasks. You can then monitor resource utilization and manually decrease the
 number of tasks as needed.
 
-## Step 1: (Optional) Analyze time series
-
-data
+## Step 1: (Optional) Analyze time series data
 
 Start by analyzing the forecast time series data. This is an optional step, but it
 is helpful if you want to understand the details of the forecast.
@@ -208,9 +203,7 @@ following:
   returns the minimum capacity to its original setting at the end of the
   event.
 
-### Scaling based on recurring
-
-schedules
+### Scaling based on recurring schedules
 
 To override the forecast for the same time period every week, create two
 scheduled actions and provide the time and date logic using a cron expression.

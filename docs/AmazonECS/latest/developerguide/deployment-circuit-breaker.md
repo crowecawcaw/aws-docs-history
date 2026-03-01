@@ -1,6 +1,4 @@
-# How the Amazon ECS deployment circuit breaker
-
-detects failures
+# How the Amazon ECS deployment circuit breaker detects failures
 
 The deployment circuit breaker is the rolling update mechanism that determines if the
 tasks reach a steady state. The deployment circuit breaker has an option that will
@@ -9,8 +7,7 @@ automatically roll back a failed deployment to the deployment that is in the
 
 When a service deployment changes state, Amazon ECS sends a service deployment state change
 event to EventBridge. This provides a programmatic way to monitor the status of your service
-deployments. For more information, see [Amazon ECS service deployment state change
-events](ecs_service_deployment_events.md "ecs_service_deployment_events.md"). We recommend that you create and
+deployments. For more information, see [Amazon ECS service deployment state change events](ecs_service_deployment_events.md "ecs_service_deployment_events.md"). We recommend that you create and
 monitor an EventBridge rule with an `eventName` of
 `SERVICE_DEPLOYMENT_FAILED` so that you can take manual action to start
 your deployment. For more information, see [Getting started with
@@ -62,16 +59,14 @@ launch in two stages.
   deployments that have started and have completed, Amazon ECS also sends an event when
   a deployment with circuit breaker turned on fails. These events provide details
   about why a deployment failed or if a deployment was started because of a
-  rollback. For more information, see [Amazon ECS service deployment state change
-  events](ecs_service_deployment_events.md "ecs_service_deployment_events.md").
+  rollback. For more information, see [Amazon ECS service deployment state change events](ecs_service_deployment_events.md "ecs_service_deployment_events.md").
 - If a new deployment is started because a previous deployment failed and a
   rollback occurred, the `reason` field of the service deployment state
   change event indicates the deployment was started because of a rollback.
 - The deployment circuit breaker is only supported for Amazon ECS services that use
   the rolling update (`ECS`) deployment controller.
 - You must use the Amazon ECS console, or the AWS CLI when you use the deployment
-  circuit breaker with the CloudWatch option. For more information, see [Create a service using defined
-  parameters](create-service-console-v2.md#create-custom-service "create-service-console-v2.md#create-custom-service") and [create-service](../../../cli/latest/reference/ecs/create-service.md "../../../cli/latest/reference/ecs/create-service.md") in
+  circuit breaker with the CloudWatch option. For more information, see [Create a service using defined parameters](create-service-console-v2.md#create-custom-service "create-service-console-v2.md#create-custom-service") and [create-service](../../../cli/latest/reference/ecs/create-service.md "../../../cli/latest/reference/ecs/create-service.md") in
   the _AWS Command Line Interface Reference_.
   The following `create-service` AWS CLI example shows how to create a Linux
   service when the deployment circuit breaker is used with the rollback option.

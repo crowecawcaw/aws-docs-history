@@ -11,8 +11,7 @@ Before troubleshooting Amazon ECS Managed Instances, ensure that you have the fo
 For more information, see [Installing or
 updating to the latest version of the AWS Command Line Interface](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the _AWS Command Line Interface User Guide_.
 
-- Access to a cluster with Amazon ECS Managed Instances capacity provider. For more information, see [Creating a cluster for
-  Amazon ECS Managed Instances](create-cluster-managed-instances.md "create-cluster-managed-instances.md").
+- Access to a cluster with Amazon ECS Managed Instances capacity provider. For more information, see [Creating a cluster for Amazon ECS Managed Instances](create-cluster-managed-instances.md "create-cluster-managed-instances.md").
 
 ## Common troubleshooting scenarios
 

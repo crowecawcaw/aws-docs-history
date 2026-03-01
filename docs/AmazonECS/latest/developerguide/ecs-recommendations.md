@@ -4,9 +4,7 @@ AWS Compute Optimizer generates recommendations for Amazon ECS task and containe
 information, see [What is
 AWS Compute Optimizer?](../../../compute-optimizer/latest/ug/what-is-compute-optimizer.md "../../../compute-optimizer/latest/ug/what-is-compute-optimizer.md") in the _AWS Compute Optimizer User Guide_.
 
-## Task and container size recommendations for
-
-Amazon ECS services on AWS Fargate
+## Task and container size recommendations for Amazon ECS services on AWS Fargate
 
 AWS Compute Optimizer generates recommendations for Amazon ECS services on AWS Fargate. AWS Compute Optimizer
 recommends task CPU and task memory size and container CPU, container memory and

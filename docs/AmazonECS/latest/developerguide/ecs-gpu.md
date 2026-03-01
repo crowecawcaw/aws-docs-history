@@ -91,8 +91,7 @@ Amazon ECS.
 - Your clusters can contain a mix of GPU and non-GPU container instances.
 - You can run GPU workloads on external instances. When registering an external
   instance with your cluster, ensure the `--enable-gpu` flag is
-  included on the installation script. For more information, see [Registering an external instance to an Amazon ECS
-  cluster](ecs-anywhere-registration.md "ecs-anywhere-registration.md").
+  included on the installation script. For more information, see [Registering an external instance to an Amazon ECS cluster](ecs-anywhere-registration.md "ecs-anywhere-registration.md").
 - You must set `ECS_ENABLE_GPU_SUPPORT` to `true` in your
   agent configuration file. For more information, see [Amazon ECS container agent configuration](ecs-agent-config.md "ecs-agent-config.md").
 - When running a task or creating a service, you can use instance type

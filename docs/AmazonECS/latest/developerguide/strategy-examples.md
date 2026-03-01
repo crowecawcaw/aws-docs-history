@@ -8,13 +8,9 @@ You can specify task placement strategies with the following actions: [CreateSer
 - [Distribute tasks evenly across all instances](#even-instance "#even-instance")
 - [Bin pack tasks based on memory](#binpack "#binpack")
 - [Place tasks randomly](#random "#random")
-- [Distribute tasks evenly across Availability Zones and
-  then distributes tasks evenly across the instances within each Availability
-  Zone](#az-instance "#az-instance")
-- [Distribute tasks evenly across Availability Zones and
-  then bin pack tasks based on memory within each Availability Zone](#az-memory "#az-memory")
-- [Distribute tasks evenly across instances and then
-  bin pack tasks based on memory](#instance-memory "#instance-memory")
+- [Distribute tasks evenly across Availability Zones and then distributes tasks evenly across the instances within each Availability Zone](#az-instance "#az-instance")
+- [Distribute tasks evenly across Availability Zones and then bin pack tasks based on memory within each Availability Zone](#az-memory "#az-memory")
+- [Distribute tasks evenly across instances and then bin pack tasks based on memory](#instance-memory "#instance-memory")
 
 ## Distribute tasks evenly across Availability Zones
 
@@ -67,10 +63,7 @@ The following strategy places tasks randomly.
 ]
 ```
 
-## Distribute tasks evenly across Availability Zones and
-
-then distributes tasks evenly across the instances within each Availability
-Zone
+## Distribute tasks evenly across Availability Zones and then distributes tasks evenly across the instances within each Availability Zone
 
 The following strategy distributes tasks evenly across Availability Zones and then
 distributes tasks evenly across the instances within each Availability Zone.
@@ -88,9 +81,7 @@ distributes tasks evenly across the instances within each Availability Zone.
 ]
 ```
 
-## Distribute tasks evenly across Availability Zones and
-
-then bin pack tasks based on memory within each Availability Zone
+## Distribute tasks evenly across Availability Zones and then bin pack tasks based on memory within each Availability Zone
 
 The following strategy distributes tasks evenly across Availability Zones and then
 bin packs tasks based on memory within each Availability Zone.
@@ -108,9 +99,7 @@ bin packs tasks based on memory within each Availability Zone.
 ]
 ```
 
-## Distribute tasks evenly across instances and then
-
-bin pack tasks based on memory
+## Distribute tasks evenly across instances and then bin pack tasks based on memory
 
 The following strategy distributes tasks evenly across evenly across all instances
 and then bin packs tasks based on memory within each instance.

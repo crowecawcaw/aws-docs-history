@@ -1,6 +1,4 @@
-# AWS for Fluent Bit image
-
-repositories for Amazon ECS
+# AWS for Fluent Bit image repositories for Amazon ECS
 
 AWS provides a Fluent Bit image with plugins for both CloudWatch Logs and
 Firehose. We recommend using Fluent Bit as your log router because it has a
@@ -54,9 +52,7 @@ pulling, use the following command.
 `aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws`
 ```
 
-#### AWS for Fluent
-
-Bit 3.0.0
+#### AWS for Fluent Bit 3.0.0
 
 In addition to the existing AWS for Fluent
 Bit versions `2.x`, AWS for Fluent Bit supports a new major

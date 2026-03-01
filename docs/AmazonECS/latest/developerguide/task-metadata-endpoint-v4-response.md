@@ -1,6 +1,4 @@
-# Amazon ECS task metadata V4 JSON
-
-response
+# Amazon ECS task metadata V4 JSON response
 
 The following information is returned from the task metadata endpoint
 (`${ECS_CONTAINER_METADATA_URI_V4}/task`) JSON response. This includes
@@ -193,8 +191,7 @@ The number of times the container has been restarted.
 
 ###### Note
 
-The `RestartCount` metadata is included only if a restart policy is enabled for the container. For more information, see [Restart individual containers in Amazon ECS tasks with
-container restart policies](container-restart-policy.md "container-restart-policy.md").
+The `RestartCount` metadata is included only if a restart policy is enabled for the container. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](container-restart-policy.md "container-restart-policy.md").
 
 `ExecutionStoppedAt`
 

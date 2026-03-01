@@ -24,9 +24,7 @@ to the following whitepapers.
 
 - [Architecting on Amazon ECS for PCI DSS compliance](https://d1.awsstatic.com/whitepapers/compliance/architecting-on-amazon-ecs-for-pci-dss-compliance.pdf "                     https://d1.awsstatic.com/whitepapers/compliance/architecting-on-amazon-ecs-for-pci-dss-compliance.pdf")
 
-## HIPAA (U.S. Health Insurance Portability
-
-and Accountability Act)
+## HIPAA (U.S. Health Insurance Portability and Accountability Act)
 
 Using Amazon ECS with workloads that process protected health information (PHI)
 requires no additional configuration. Amazon ECS acts as an orchestration service that
@@ -75,4 +73,4 @@ Guide_.
 
 We recommend that you engage the compliance program owners within your business early
 and use the AWS shared responsibility model to identify compliance control ownership
-for success with the relevant compliance programs. For more information, see [AWS shared responsibility model for Amazon ECS](security-shared-model.md "security-shared-model.md") .
+for success with the relevant compliance programs. For more information, see [AWS shared responsibility model for Amazon ECS](security-shared-model.md "security-shared-model.md").

@@ -142,9 +142,7 @@ volumes.
 After you create the file, you must grant your user permission to pass the role to
 Amazon ECS.
 
-## Permission to pass the
-
-infrastructure role to Amazon ECS
+## Permission to pass the infrastructure role to Amazon ECS
 
 To use an ECS infrastructure IAM role, you must grant your user permission to pass
 the role to Amazon ECS. Attach the following `iam:PassRole` permission to your

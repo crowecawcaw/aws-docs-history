@@ -1,6 +1,4 @@
-# Best practices for connecting Amazon ECS services in a
-
-VPC
+# Best practices for connecting Amazon ECS services in a VPC
 
 Using Amazon ECS tasks in a VPC, you can split monolithic applications into separate parts
 that can be deployed and scaled independently in a secure environment. This architecture
@@ -9,9 +7,7 @@ challenging to make sure that all of these parts, both in and outside of a VPC, 
 communicate with each other. There are several approaches for facilitating
 communication, all with different advantages and disadvantages.
 
-## Using Service
-
-Connect
+## Using Service Connect
 
 We recommend Service Connect, which provides Amazon ECS configuration for service discovery,
 connectivity, and traffic monitoring. With Service Connect, your applications can
@@ -27,7 +23,7 @@ to discover the names. Your application can look up the names by using the stand
 functionality for DNS names and making connections. If your application does this
 already, you don't need to modify your application to use Service Connect.
 
-![Diagram showing architecture of a network using service connect.](images/serviceconnect.png)
+![Diagram showing architecture of a network using service connect.](/images/AmazonECS/latest/developerguide/images/serviceconnect.png)
 
 ###### Changes only happen during deployments
 
@@ -42,9 +38,7 @@ configuration by replacing the client tasks. You can configure the deployment
 circuit breaker and other deployment configuration to affect Service Connect
 changes in the same way as any other deployment.
 
-## Using service
-
-discovery
+## Using service discovery
 
 Another approach for service-to-service communication is direct communication using
 service discovery. In this approach, you can use the AWS Cloud Map service discovery
@@ -96,9 +90,7 @@ the DNS record. So, your application might end up resolving the DNS record to po
 at another container that's no longer there. Your application needs to handle
 retries and have logic to ignore bad backends.
 
-## Using an internal load
-
-balancer
+## Using an internal load balancer
 
 Another approach to service-to-service communication is to use an internal load
 balancer. An internal load balancer exists entirely inside of your VPC and is only

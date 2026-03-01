@@ -1,6 +1,4 @@
-# Using Amazon ECS Windows containers with domainless
-
-gMSA using the AWS CLI
+# Using Amazon ECS Windows containers with domainless gMSA using the AWS CLI
 
 The following tutorial shows how to create an Amazon ECS task that runs a Windows container
 that has credentials to access Active Directory with the AWS CLI. By using domainless gMSA,
@@ -11,31 +9,21 @@ instance.
 ###### Topics
 
 - [Prerequisites](#tutorial-gmsa-windows-prerequisites "#tutorial-gmsa-windows-prerequisites")
-- [Step 1: Create and configure the
-  gMSA account on Active Directory Domain Services (AD DS)](#tutorial-gmsa-windows-step1 "#tutorial-gmsa-windows-step1")
+- [Step 1: Create and configure the gMSA account on Active Directory Domain Services (AD DS)](#tutorial-gmsa-windows-step1 "#tutorial-gmsa-windows-step1")
 - [Step 2: Upload Credentials to Secrets Manager](#tutorial-gmsa-windows-step2 "#tutorial-gmsa-windows-step2")
-- [Step 3: Modify your CredSpec JSON to include
-  domainless gMSA information](#tutorial-gmsa-windows-step3 "#tutorial-gmsa-windows-step3")
+- [Step 3: Modify your CredSpec JSON to include domainless gMSA information](#tutorial-gmsa-windows-step3 "#tutorial-gmsa-windows-step3")
 - [Step 4: Upload CredSpec to Amazon S3](#tutorial-gmsa-windows-step4 "#tutorial-gmsa-windows-step4")
-- [Step 5: (Optional) Create an Amazon ECS
-  cluster](#tutorial-gmsa-windows-step5 "#tutorial-gmsa-windows-step5")
-- [Step 6: Create an IAM role for container
-  instances](#tutorial-gmsa-windows-step6 "#tutorial-gmsa-windows-step6")
-- [Step 7: Create a custom task execution
-  role](#tutorial-gmsa-windows-step7 "#tutorial-gmsa-windows-step7")
-- [Step 8: Create a task role for
-  Amazon ECS Exec](#tutorial-gmsa-windows-step8 "#tutorial-gmsa-windows-step8")
-- [Step 9: Register a task definition that uses
-  domainless gMSA](#tutorial-gmsa-windows-step9 "#tutorial-gmsa-windows-step9")
-- [Step 10: Register a Windows container instance
-  to the cluster](#tutorial-gmsa-windows-step10 "#tutorial-gmsa-windows-step10")
+- [Step 5: (Optional) Create an Amazon ECS cluster](#tutorial-gmsa-windows-step5 "#tutorial-gmsa-windows-step5")
+- [Step 6: Create an IAM role for container instances](#tutorial-gmsa-windows-step6 "#tutorial-gmsa-windows-step6")
+- [Step 7: Create a custom task execution role](#tutorial-gmsa-windows-step7 "#tutorial-gmsa-windows-step7")
+- [Step 8: Create a task role for Amazon ECS Exec](#tutorial-gmsa-windows-step8 "#tutorial-gmsa-windows-step8")
+- [Step 9: Register a task definition that uses domainless gMSA](#tutorial-gmsa-windows-step9 "#tutorial-gmsa-windows-step9")
+- [Step 10: Register a Windows container instance to the cluster](#tutorial-gmsa-windows-step10 "#tutorial-gmsa-windows-step10")
 - [Step 11: Verify the container instance](#tutorial-gmsa-windows-step11 "#tutorial-gmsa-windows-step11")
 - [Step 12: Run a Windows task](#tutorial-gmsa-windows-step12 "#tutorial-gmsa-windows-step12")
-- [Step 13: Verify the container has gMSA
-  credentials](#tutorial-gmsa-windows-step13 "#tutorial-gmsa-windows-step13")
+- [Step 13: Verify the container has gMSA credentials](#tutorial-gmsa-windows-step13 "#tutorial-gmsa-windows-step13")
 - [Step 14: Clean up](#tutorial-gmsa-windows-step14 "#tutorial-gmsa-windows-step14")
-- [Debugging Amazon ECS domainless gMSA for
-  Windows containers](#tutorial-gmsa-windows-debugging "#tutorial-gmsa-windows-debugging")
+- [Debugging Amazon ECS domainless gMSA for Windows containers](#tutorial-gmsa-windows-debugging "#tutorial-gmsa-windows-debugging")
 
 ## Prerequisites
 
@@ -89,9 +77,7 @@ following table, specific to the Operating System of the container instances.
   needing to create their own EC2 instance. For more information, see [What is AWS CloudShell?](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md") in
   the _AWS CloudShell User Guide_.
 
-## Step 1: Create and configure the
-
-gMSA account on Active Directory Domain Services (AD DS)
+## Step 1: Create and configure the gMSA account on Active Directory Domain Services (AD DS)
 
 Create and configure a gMSA account on the Active Directory domain.
 
@@ -184,8 +170,7 @@ use `contoso`).
 
 3. Copy the JSON output from the previous command into a file called
    `gmsa-cred-spec.json`. This is the CredSpec file. It is used in
-   Step 3, [Step 3: Modify your CredSpec JSON to include
-   domainless gMSA information](#tutorial-gmsa-windows-step3 "#tutorial-gmsa-windows-step3").
+   Step 3, [Step 3: Modify your CredSpec JSON to include domainless gMSA information](#tutorial-gmsa-windows-step3 "#tutorial-gmsa-windows-step3").
 
 ## Step 2: Upload Credentials to Secrets Manager
 
@@ -200,8 +185,7 @@ AWS CloudShell in the default shell, which is `bash`.
 
 - Run the following AWS CLI command and replace the username, password, and domain name to
   match your environment. Use the service user account name (not the gMSA account name) for the username.
-  Keep the ARN of the secret to use in the next step, [Step 3: Modify your CredSpec JSON to include
-  domainless gMSA information](#tutorial-gmsa-windows-step3 "#tutorial-gmsa-windows-step3")
+  Keep the ARN of the secret to use in the next step, [Step 3: Modify your CredSpec JSON to include domainless gMSA information](#tutorial-gmsa-windows-step3 "#tutorial-gmsa-windows-step3")
 
 The following command uses backslash continuation characters that are
 used by `sh` and compatible shells. This command isn't compatible with
@@ -214,9 +198,7 @@ PowerShell. You must modify the command to use it with PowerShell.
 --secret-string "{\"username\":\"`ExampleServiceUser`\",\"password\":\"`Test123`\",\"domainName\":\"`contoso.com`\"}"`
 ```
 
-## Step 3: Modify your CredSpec JSON to include
-
-domainless gMSA information
+## Step 3: Modify your CredSpec JSON to include domainless gMSA information
 
 Before uploading the CredSpec to one of the storage options, add information to the
 CredSpec with the ARN of the secret in Secrets Manager from the previous step. For more information,
@@ -296,9 +278,7 @@ PowerShell. You must modify the command to use it with PowerShell.
 s3://`MyBucket/ecs-domainless-gmsa-credspec``
 ```
 
-## Step 5: (Optional) Create an Amazon ECS
-
-cluster
+## Step 5: (Optional) Create an Amazon ECS cluster
 
 By default, your account has an Amazon ECS cluster named `default`. This cluster is
 used by default in the AWS CLI, SDKs, and CloudFormation. You can use additional clusters to group and
@@ -319,9 +299,7 @@ AWS CloudShell in the default shell, which is `bash`.
 If you choose to create your own cluster, you must specify `--cluster
  clusterName` for each command that you intend to use with that cluster.
 
-## Step 6: Create an IAM role for container
-
-instances
+## Step 6: Create an IAM role for container instances
 
 A _container instance_ is a host computer to run containers in ECS
 tasks, for example Amazon EC2 instances. Each container instance registers to an Amazon ECS cluster.
@@ -331,9 +309,7 @@ role for your container instances to use.
 To create the container instance role, see [Amazon ECS container instance IAM role](instance_IAM_role.md "instance_IAM_role.md"). The default `ecsInstanceRole` has sufficient
 permissions to complete this tutorial.
 
-## Step 7: Create a custom task execution
-
-role
+## Step 7: Create a custom task execution role
 
 Amazon ECS can use a different IAM role for the permissions needed to start each task,
 instead of the container instance role. This role is the _task execution
@@ -387,9 +363,7 @@ JSON
 
 ```
 
-## Step 8: Create a task role for
-
-Amazon ECS Exec
+## Step 8: Create a task role for Amazon ECS Exec
 
 This tutorial uses Amazon ECS Exec to verify functionality by running a
 command inside a running task. To use ECS Exec, the service or task must turn on ECS Exec and the
@@ -474,9 +448,7 @@ PowerShell. You must modify the command to use it with PowerShell.
 You can delete the file
 `ecs-exec-demo-task-role-policy.json`.
 
-## Step 9: Register a task definition that uses
-
-domainless gMSA
+## Step 9: Register a task definition that uses domainless gMSA
 
 This step uses the AWS CLI. You can run these commands in
 AWS CloudShell in the default shell, which is `bash`.
@@ -529,17 +501,14 @@ PowerShell. You must modify the command to use it with PowerShell.
 --cli-input-json file://`windows-gmsa-domainless-task-def.json``
 ```
 
-## Step 10: Register a Windows container instance
-
-to the cluster
+## Step 10: Register a Windows container instance to the cluster
 
 Launch an Amazon EC2 Windows instance and run the ECS container agent to register it as a
 container instance in the cluster. ECS runs tasks on the container instances that are
 registered to the cluster that the tasks are started in.
 
 1. To launch an Amazon EC2 Windows instance that is configured for Amazon ECS in the AWS Management Console, see
-   [Launching an Amazon ECS Windows container
-   instance](launch_window-container_instance.md "launch_window-container_instance.md"). Stop at the step for _user
+   [Launching an Amazon ECS Windows container instance](launch_window-container_instance.md "launch_window-container_instance.md"). Stop at the step for _user
    data_.
 2. For gMSA, the user data must set the environment variable
    `ECS_GMSA_SUPPORTED` before starting the ECS container agent.
@@ -644,9 +613,7 @@ the task ID from the previous step.
 `$` `aws ecs wait tasks-running --task MyTaskID`
 ```
 
-## Step 13: Verify the container has gMSA
-
-credentials
+## Step 13: Verify the container has gMSA credentials
 
 Verify that the container in the task has a Kerberos token. gMSA
 
@@ -743,9 +710,7 @@ PowerShell. You must modify the command to use it with PowerShell.
 `$` `aws ecs delete-cluster --cluster `windows-domainless-gmsa-cluster``
 ```
 
-## Debugging Amazon ECS domainless gMSA for
-
-Windows containers
+## Debugging Amazon ECS domainless gMSA for Windows containers
 
 Amazon ECS task status
 

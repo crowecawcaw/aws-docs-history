@@ -11,8 +11,7 @@ in your task definition:
   for the task to route the logs.
   When creating a new task definition using the AWS Management Console, there is a FireLens
   integration section that makes it easy to add a log router container. For more
-  information, see [Creating an Amazon ECS task definition using the
-  console](create-task-definition.md "create-task-definition.md").
+  information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").
 
 Amazon ECS converts the log configuration and generates the Fluentd or Fluent Bit output
 configuration. The output configuration is mounted in the log routing container at

@@ -11,8 +11,7 @@ format types, see the [Cloud-Init
 documentation](https://cloudinit.readthedocs.io/en/latest/explanation/format.html "https://cloudinit.readthedocs.io/en/latest/explanation/format.html").
 
 You can pass this user data when using the Amazon EC2 launch wizard. For more information, see
-[Launching an Amazon ECS Linux container
-instance](launch_container_instance.md "launch_container_instance.md").
+[Launching an Amazon ECS Linux container instance](launch_container_instance.md "launch_container_instance.md").
 
 ## Default Windows user data
 

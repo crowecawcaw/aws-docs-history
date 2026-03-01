@@ -68,8 +68,7 @@ Amazon EC2 instances, see [run-instances](../../../cli/latest/reference/ec2/run-
 the _AWS CLI Command Reference_.
 
 For more information about launching container instances using the AWS Management Console,
-see [Launching an Amazon ECS Linux container
-instance](launch_container_instance.md "launch_container_instance.md").
+see [Launching an Amazon ECS Linux container instance](launch_container_instance.md "launch_container_instance.md").
 
 - By default, the Amazon ECS container agent will try to detect the container
   instance's compatibility for an IPv6-only configuration by looking at the

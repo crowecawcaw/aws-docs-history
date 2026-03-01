@@ -1,6 +1,4 @@
-# Updating an Amazon ECS task definition using
-
-the console
+# Updating an Amazon ECS task definition using the console
 
 A _task definition revision_ is a copy of the current task definition
 with the new parameter values replacing the existing ones. All parameters that you do not

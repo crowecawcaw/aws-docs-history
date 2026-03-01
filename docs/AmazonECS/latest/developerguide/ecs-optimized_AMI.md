@@ -10,8 +10,7 @@ Amazon ECS provides the Amazon ECS-optimized AMIs that are preconfigured with th
 recommendations to run your container workloads. We recommend that you use the Amazon ECS-optimized Amazon Linux 2023 AMI
 for your Amazon EC2 instances. Launching your container instances from the most recent
 Amazon ECS-Optimized AMI ensures that you receive the current security updates and container
-agent version. For information about how to launch an instance, see [Launching an Amazon ECS Linux container
-instance](launch_container_instance.md "launch_container_instance.md").
+agent version. For information about how to launch an instance, see [Launching an Amazon ECS Linux container instance](launch_container_instance.md "launch_container_instance.md").
 
 When you create a cluster using the console, Amazon ECS creates a launch template for
 your instances with the latest AMI associated with the selected operating system.
@@ -55,8 +54,7 @@ For more information, see [Changelog](https://github.com/aws/amazon-ecs-ami/blob
 
 The Linux variants of the Amazon ECS-optimized AMI use the Amazon Linux 2 AMI or Amazon Linux 2023 AMI as
 their base. You can retrieve the AMI name for each
-variant by querying the Systems Manager Parameter Store API. For more information, see [Retrieving Amazon ECS-optimized Linux AMI
-metadata](retrieve-ecs-optimized_AMI.md "retrieve-ecs-optimized_AMI.md"). The
+variant by querying the Systems Manager Parameter Store API. For more information, see [Retrieving Amazon ECS-optimized Linux AMI metadata](retrieve-ecs-optimized_AMI.md "retrieve-ecs-optimized_AMI.md"). The
 Amazon Linux 2 AMI release notes are available as well. For more information, see [Amazon Linux 2 release notes](../../../AL2/latest/relnotes/relnotes-al2.md "../../../AL2/latest/relnotes/relnotes-al2.md"). The
 Amazon Linux 2023 release notes are available as well. For more information see, [Amazon Linux 2023 release
 notes](../../../linux/al2023/release-notes/relnotes.md "../../../linux/al2023/release-notes/relnotes.md").
@@ -76,9 +74,7 @@ configuration for packaging the agent are now part of the agent repository. For
 older versions of `ecs-init` and packaging, see [Amazon
 ecs-init changelog](https://github.com/aws/amazon-ecs-init/blob/master/CHANGELOG.md "https://github.com/aws/amazon-ecs-init/blob/master/CHANGELOG.md") on GitHub
 
-## Applying security updates to the
-
-Amazon ECS-optimized AMI
+## Applying security updates to the Amazon ECS-optimized AMI
 
 The Amazon ECS-optimized AMIs based on Amazon Linux contain a customized version of
 cloud-init. Cloud-init is a package that is used to
@@ -94,8 +90,7 @@ available. The Amazon ECS-optimized AMIs are released when there are available s
 updates or base AMI changes. This will ensure you are receiving the latest package
 versions and security updates, and that the package versions are immutable through
 instance launches. For more information on retrieving the latest Amazon ECS-optimized AMI,
-see [Retrieving Amazon ECS-optimized Linux AMI
-metadata](retrieve-ecs-optimized_AMI.md "retrieve-ecs-optimized_AMI.md").
+see [Retrieving Amazon ECS-optimized Linux AMI metadata](retrieve-ecs-optimized_AMI.md "retrieve-ecs-optimized_AMI.md").
 
 We recommend automating your environment to update to a new AMI as they are made
 available. For information about the available options, see [Amazon ECS enables easier EC2 capacity management, with managed instance

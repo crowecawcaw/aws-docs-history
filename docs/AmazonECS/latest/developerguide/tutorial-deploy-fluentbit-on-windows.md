@@ -1,6 +1,4 @@
-# Deploying Fluent Bit on
-
-Amazon ECS Windows containers
+# Deploying Fluent Bit on Amazon ECS Windows containers
 
 Fluent Bit is a fast and flexible log processor and router supported by various operating
 systems. It can be used to route logs to various AWS destinations such as Amazon CloudWatch Logs, Firehose
@@ -92,23 +90,14 @@ You can use dual-stack service endpoints to interact with Amazon ECS from the AW
 ###### Steps
 
 - [Prerequisites](#tutorial-deploy-fluentbit-on-windows-prereqs "#tutorial-deploy-fluentbit-on-windows-prereqs")
-- [Step 1: Create
-  the IAM access roles](#tutorial-deploy-fluentbit-on-windows-iam-access-role "#tutorial-deploy-fluentbit-on-windows-iam-access-role")
-- [Step 2: Create an Amazon ECS
-  Windows container instance](#tutorial-deploy-fluentbit-on-windows-instance "#tutorial-deploy-fluentbit-on-windows-instance")
-- [Step 3:
-  Configure Fluent Bit](#tutorial-deploy-fluentbit-on-windows-configure-fluentbit "#tutorial-deploy-fluentbit-on-windows-configure-fluentbit")
-- [Step 4:
-  Register a Windows Fluent Bit task definition which routes the logs to CloudWatch](#tutorial-deploy-fluentbit-on-windows-register-task-definition "#tutorial-deploy-fluentbit-on-windows-register-task-definition")
-- [Step 5: Run the
-  ecs-windows-fluent-bit task definition as an Amazon ECS service using
-  the daemon scheduling strategy](#tutorial-deploy-fluentbit-on-windows-run-task "#tutorial-deploy-fluentbit-on-windows-run-task")
-- [Step 6:
-  Register a Windows task definition which generates the logs](#tutorial-deploy-fluentbit-on-windows-register-task-def-logs "#tutorial-deploy-fluentbit-on-windows-register-task-def-logs")
-- [Step 7: Run
-  the windows-app-task task definition](#tutorial-deploy-fluentbit-on-windows-run-task-fluentbit "#tutorial-deploy-fluentbit-on-windows-run-task-fluentbit")
-- [Step 8: Verify the logs on
-  CloudWatch](#tutorial-deploy-fluentbit-on-windows-verify "#tutorial-deploy-fluentbit-on-windows-verify")
+- [Step 1: Create the IAM access roles](#tutorial-deploy-fluentbit-on-windows-iam-access-role "#tutorial-deploy-fluentbit-on-windows-iam-access-role")
+- [Step 2: Create an Amazon ECS Windows container instance](#tutorial-deploy-fluentbit-on-windows-instance "#tutorial-deploy-fluentbit-on-windows-instance")
+- [Step 3: Configure Fluent Bit](#tutorial-deploy-fluentbit-on-windows-configure-fluentbit "#tutorial-deploy-fluentbit-on-windows-configure-fluentbit")
+- [Step 4: Register a Windows Fluent Bit task definition which routes the logs to CloudWatch](#tutorial-deploy-fluentbit-on-windows-register-task-definition "#tutorial-deploy-fluentbit-on-windows-register-task-definition")
+- [Step 5: Run the ecs-windows-fluent-bit task definition as an Amazon ECS service using the daemon scheduling strategy](#tutorial-deploy-fluentbit-on-windows-run-task "#tutorial-deploy-fluentbit-on-windows-run-task")
+- [Step 6: Register a Windows task definition which generates the logs](#tutorial-deploy-fluentbit-on-windows-register-task-def-logs "#tutorial-deploy-fluentbit-on-windows-register-task-def-logs")
+- [Step 7: Run the windows-app-task task definition](#tutorial-deploy-fluentbit-on-windows-run-task-fluentbit "#tutorial-deploy-fluentbit-on-windows-run-task-fluentbit")
+- [Step 8: Verify the logs on CloudWatch](#tutorial-deploy-fluentbit-on-windows-verify "#tutorial-deploy-fluentbit-on-windows-verify")
 - [Step 9: Clean up](#tutorial-deploy-fluentbit-on-windows-cleanup "#tutorial-deploy-fluentbit-on-windows-cleanup")
 
 ## Prerequisites
@@ -135,9 +124,7 @@ This tutorial assumes that the following prerequisites have been completed:
   in the _AWS General Reference_. For information about
   how to use the Amazon VPC wizard to create a VPC, see [Create a virtual private cloud](get-set-up-for-amazon-ecs.md#create-a-vpc "get-set-up-for-amazon-ecs.md#create-a-vpc").
 
-## Step 1: Create
-
-the IAM access roles
+## Step 1: Create the IAM access roles
 
 Create the Amazon ECS IAM roles.
 
@@ -182,9 +169,7 @@ JSON
    aws iam put-role-policy --role-name fluentTaskRole --policy-name fluentTaskPolicy --policy-document file://fluent-bit-policy.json
    ```
 
-## Step 2: Create an Amazon ECS
-
-Windows container instance
+## Step 2: Create an Amazon ECS Windows container instance
 
 Create an Amazon ECS Windows container instance.
 
@@ -233,9 +218,7 @@ Create an Amazon ECS Windows container instance.
        Choose **View Instances** to close the confirmation
        page and return to the console.
 
-## Step 3:
-
-Configure Fluent Bit
+## Step 3: Configure Fluent Bit
 
 You can use the following default configuration provided by AWS to get quickly
 started:
@@ -317,9 +300,7 @@ The Fluent Bit configuration described above has the following properties:
   of the CloudWatch output plug-in. For additional information, see [Configuration parameters](https://docs.fluentbit.io/manual/v/1.9-pre/pipeline/outputs/cloudwatch#configuration-parameters "https://docs.fluentbit.io/manual/v/1.9-pre/pipeline/outputs/cloudwatch#configuration-parameters") in the _Fluent Bit
   Official Manual_.
 
-## Step 4:
-
-Register a Windows Fluent Bit task definition which routes the logs to CloudWatch
+## Step 4: Register a Windows Fluent Bit task definition which routes the logs to CloudWatch
 
 Register a Windows Fluent Bit task definition which routes the logs to CloudWatch.
 
@@ -398,10 +379,7 @@ You can list the task definitions for your account by running the
 family and revision values that you can use together with `run-task`
 or `start-task`.
 
-## Step 5: Run the
-
-`ecs-windows-fluent-bit` task definition as an Amazon ECS service using
-the daemon scheduling strategy
+## Step 5: Run the `ecs-windows-fluent-bit` task definition as an Amazon ECS service using the daemon scheduling strategy
 
 After you register a task definition for your account, you can run a task in the
 cluster. For this tutorial, you run one instance of the
@@ -446,9 +424,7 @@ Replace the following variables:
 `aws ecs list-tasks --cluster `FluentBit-cluster`` --region `region`
 ```
 
-## Step 6:
-
-Register a Windows task definition which generates the logs
+## Step 6: Register a Windows task definition which generates the logs
 
 Register a task definition which generates the logs. This task definition deploys
 Windows container image which will write a incremental number to `stdout`
@@ -519,9 +495,7 @@ You can list the task definitions for your account by running the
 family and revision values that you can use together with `run-task`
 or `start-task`.
 
-## Step 7: Run
-
-the `windows-app-task` task definition
+## Step 7: Run the `windows-app-task` task definition
 
 After you register the `windows-app-task` task definition, run it in your
 `FluentBit-cluster` cluster.
@@ -546,9 +520,7 @@ Replace the following variables:
 `aws ecs list-tasks --cluster `FluentBit-cluster``
 ```
 
-## Step 8: Verify the logs on
-
-CloudWatch
+## Step 8: Verify the logs on CloudWatch
 
 In order to verify your Fluent Bit setup, check for the following log groups in the
 CloudWatch console:

@@ -75,8 +75,7 @@ following about the fields:
   _Amazon EventBridge Events Reference_.
 
 For information about how to configure an Amazon EventBridge event rule that only captures task events
-where the task has stopped running because one of its essential containers has terminated, see [Sending Amazon Simple Notification Service alerts for Amazon ECS task stopped
-events](ecs_cwet2.md "ecs_cwet2.md")
+where the task has stopped running because one of its essential containers has terminated, see [Sending Amazon Simple Notification Service alerts for Amazon ECS task stopped events](ecs_cwet2.md "ecs_cwet2.md")
 
 ```
 {

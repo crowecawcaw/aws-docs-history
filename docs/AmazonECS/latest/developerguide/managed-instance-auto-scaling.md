@@ -1,22 +1,16 @@
-# Amazon ECS Managed Instances auto scaling and task
-
-placement
+# Amazon ECS Managed Instances auto scaling and task placement
 
 Amazon ECS Managed Instances use intelligent algorithms to automatically scale your cluster capacity
 and place tasks efficiently across your infrastructure. Understanding how these algorithms
 work helps you optimize your service configurations and troubleshoot placement
 behaviors.
 
-## Task placement
-
-algorithm
+## Task placement algorithm
 
 Amazon ECS Managed Instances use a sophisticated placement algorithm that balances availability,
 resource utilization, and network requirements when scheduling tasks.
 
-### Availability Zone
-
-spread
+### Availability Zone spread
 
 By default, Amazon ECS Managed Instances prioritize availability by spreading tasks across
 multiple Availability Zones:
@@ -57,9 +51,7 @@ decisions:
 Improvements to ENI density calculations are continuously being made to
 optimize placement decisions.
 
-## Capacity provider
-
-decision logic
+## Capacity provider decision logic
 
 Amazon ECS Managed Instances capacity providers make scaling and placement decisions based on
 multiple factors:
@@ -103,9 +95,7 @@ Zone
 
 Suitable for development or cost-optimized workloads
 
-### Network mode
-
-considerations
+### Network mode considerations
 
 The network mode you choose affects placement decisions:
 
@@ -114,9 +104,7 @@ The network mode you choose affects placement decisions:
 - `host` mode – Tasks use the host's network directly, with
   placement primarily driven by resource availability
 
-### CPU architecture
-
-considerations
+### CPU architecture considerations
 
 The `cpuArchitecture` that you specify in your task definition is used
 for placing tasks on a specific architecture. If you don't specify a
@@ -124,13 +112,9 @@ for placing tasks on a specific architecture. If you don't specify a
 architecture based on the capacity provider configuration. You can specify either
 `X86_64` or `ARM64`.
 
-## Troubleshooting task
+## Troubleshooting task placement
 
-placement
-
-### Common placement
-
-patterns
+### Common placement patterns
 
 Understanding expected placement patterns helps distinguish normal behavior from
 potential issues:
@@ -163,9 +147,7 @@ May indicate ENI limits or resource constraints
 
 Consider reviewing instance types and network configuration
 
-### Optimizing placement
-
-behavior
+### Optimizing placement behavior
 
 To optimize task placement for your specific requirements:
 

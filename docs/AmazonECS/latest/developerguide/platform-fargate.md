@@ -16,7 +16,7 @@ of a platform version, ensuring that tasks are always started on secure and patc
 If a security issue is found that affects an existing platform version, AWS creates a
 new patched revision of the platform version and retires tasks running on the
 vulnerable revision. In some cases, you may be notified that your tasks on Fargate
-have been scheduled for retirement. For more information, see [Task retirement and maintenance for AWS Fargate on Amazon ECS](task-maintenance.md "task-maintenance.md") .
+have been scheduled for retirement. For more information, see [Task retirement and maintenance for AWS Fargate on Amazon ECS](task-maintenance.md "task-maintenance.md").
 
 You specify the platform version when you run a task, or deploy a service.
 

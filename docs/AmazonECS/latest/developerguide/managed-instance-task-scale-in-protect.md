@@ -25,9 +25,7 @@ After a task finishes its requisite work, you can set the `ProtectionEnabled`
 attribute to `false`, allowing the task to be terminated by subsequent scale-in
 events. If you're using the AWS CLI, you can specify the `--no-protection-enabled` option.
 
-## Task scale-in protection
-
-mechanisms
+## Task scale-in protection mechanisms
 
 You can set and get task scale-in protection using either the Amazon ECS container agent
 endpoint or the Amazon ECS API.
@@ -48,8 +46,7 @@ attribute using the same endpoint, making the task eligible for termination
 during subsequent scale-in events.
 
 For more information about the Amazon ECS container
-agent endpoint, see [Amazon ECS task scale-in protection
-endpoint](managed-instance-task-scale-in-protection-endpoint.md "managed-instance-task-scale-in-protection-endpoint.md").
+agent endpoint, see [Amazon ECS task scale-in protection endpoint](managed-instance-task-scale-in-protection-endpoint.md "managed-instance-task-scale-in-protection-endpoint.md").
 
 - **Amazon ECS API**
 
@@ -120,9 +117,7 @@ Consider the following points before using task scale-in protection:
     - Increase the desired task count of the service to more than
       the number of protected tasks.
 
-## IAM permissions required for task
-
-scale-in protection
+## IAM permissions required for task scale-in protection
 
 The task must have the Amazon ECS task role with the following permissions:
 

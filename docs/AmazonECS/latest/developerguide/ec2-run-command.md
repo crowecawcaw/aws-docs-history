@@ -1,6 +1,4 @@
-# Managing Amazon ECS container instances remotely using
-
-AWS Systems Manager
+# Managing Amazon ECS container instances remotely using AWS Systems Manager
 
 You can use the Run Command capability in AWS Systems Manager (Systems Manager) to securely and remotely
 manage the configuration of your Amazon ECS container instances. Run Command provides a simple

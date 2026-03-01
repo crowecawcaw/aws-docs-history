@@ -1,6 +1,4 @@
-# Defer volume configuration to launch time in an
-
-Amazon ECS task definition
+# Defer volume configuration to launch time in an Amazon ECS task definition
 
 To configure an Amazon EBS volume for attachment to your task, you must specify the mount
 point configuration in your task definition and name the volume. You must also set
@@ -11,8 +9,7 @@ for attachment during deployment.
 To register the task definition by using the AWS Command Line Interface (AWS CLI), save the template as a
 JSON file, and then pass the file as an input for the `register-task-definition` command.
 
-To create and register a task definition using the AWS Management Console, see [Creating an Amazon ECS task definition using the
-console](create-task-definition.md "create-task-definition.md").
+To create and register a task definition using the AWS Management Console, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").
 
 The following task definition shows the syntax for the `mountPoints` and
 `volumes` objects in the task definition. For more information about task

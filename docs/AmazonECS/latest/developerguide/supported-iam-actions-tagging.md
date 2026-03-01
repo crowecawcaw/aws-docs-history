@@ -1,6 +1,4 @@
-# Grant permission to tag resources on
-
-creation
+# Grant permission to tag resources on creation
 
 The following tag-on create Amazon ECS API actions allow you to specify tags when you create
 the resource. If tags are specified in the resource-creating action, AWS performs
@@ -15,8 +13,7 @@ additional authorization to verify that the correct permissions are assigned to 
 - `RunTask`
 - `StartTask`
   You can use resource tags to implement attribute-based control (ABAC). For more
-  information, see [Control access to Amazon ECS resources using
-  resource tags](control-access-with-tags.md "control-access-with-tags.md") and [Tagging Amazon ECS resources](ecs-using-tags.md "ecs-using-tags.md").
+  information, see [Control access to Amazon ECS resources using resource tags](control-access-with-tags.md "control-access-with-tags.md") and [Tagging Amazon ECS resources](ecs-using-tags.md "ecs-using-tags.md").
 
 To allow tagging on creation, create or modify a policy to include both the permissions to
 use the action that creates the resource, such as `ecs:CreateCluster` or

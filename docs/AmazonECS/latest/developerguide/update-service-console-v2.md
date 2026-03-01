@@ -5,8 +5,7 @@ parameters, for example the number of tasks.
 
 When you update a service that uses Amazon ECS circuit breaker, Amazon ECS creates a service
 deployment and a service revision. These resources allow you to view detailed information
-about the service history. For more information, see [View service history using Amazon ECS service
-deployments](service-deployment.md "service-deployment.md").
+about the service history. For more information, see [View service history using Amazon ECS service deployments](service-deployment.md "service-deployment.md").
 
 ## Prerequisites
 
@@ -129,8 +128,7 @@ options.
         to use an Auto Scaling group capacity provider.
 
 13. (Optional) To configure service Auto Scaling, expand **Service auto
-    scaling**, and then specify the following parameters.To use predicte auto scaling, which looks at past load data from traffic flows, configure it after you create the service. For more information, see [Use historical patterns to scale Amazon ECS services with predictive
-    scaling](predictive-auto-scaling.md "predictive-auto-scaling.md").
+    scaling**, and then specify the following parameters.To use predicte auto scaling, which looks at past load data from traffic flows, configure it after you create the service. For more information, see [Use historical patterns to scale Amazon ECS services with predictive scaling](predictive-auto-scaling.md "predictive-auto-scaling.md").
     1.  To use service auto scaling, select **Service auto
         scaling**.
     2.  For **Minimum number of tasks**, enter the lower limit of
@@ -252,5 +250,4 @@ aws ecs update-service \
 ## Next steps
 
 Track your deployment and view your service history for services that Amazon ECS circuit
-breaker. For more information, see [View service history using Amazon ECS service
-deployments](service-deployment.md "service-deployment.md").
+breaker. For more information, see [View service history using Amazon ECS service deployments](service-deployment.md "service-deployment.md").

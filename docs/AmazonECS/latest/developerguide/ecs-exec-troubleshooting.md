@@ -13,9 +13,7 @@ the latest version of the AWS CLI and that the `jq` is available. For more
 information, see [ECS Exec
 Checker](https://github.com/aws-containers/amazon-ecs-exec-checker "https://github.com/aws-containers/amazon-ecs-exec-checker") on GitHub.
 
-## Error when calling
-
-`execute-command`
+## Error when calling `execute-command`
 
 If a `The execute command failed` error occurs, the following are
 possible causes.

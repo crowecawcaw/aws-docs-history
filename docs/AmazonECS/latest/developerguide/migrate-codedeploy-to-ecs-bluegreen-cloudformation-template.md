@@ -1,6 +1,4 @@
-# Migrating an CloudFormation
-
-CodeDeploy blue/green deployment template to an Amazon ECS blue/green CloudFormation template
+# Migrating an CloudFormation CodeDeploy blue/green deployment template to an Amazon ECS blue/green CloudFormation template
 
 Migrate a CloudFormation template that uses CodeDeploy blue/green deployments for Amazon ECS
 services to one that uses the native Amazon ECS blue/green deployment strategy. The migration
@@ -336,9 +334,7 @@ User Guide_:
 
 ## Migration steps
 
-### Remove CodeDeploy-specific
-
-resources
+### Remove CodeDeploy-specific resources
 
 You no longer need the following properties:
 
@@ -349,9 +345,7 @@ You no longer need the following properties:
 - The `PrimaryTaskSet` resource (Amazon ECS will manage task sets
   internally)
 
-### Reconfigure the load balancer
-
-listener
+### Reconfigure the load balancer listener
 
 Modify the `ALBListenerProdTraffic` resource to use a forward action
 with two target groups:
@@ -429,12 +423,9 @@ Update and add the following:
 }
 ```
 
-### Create the
+### Create the AmazonECSInfrastructureRolePolicyForLoadBalancers role
 
-AmazonECSInfrastructureRolePolicyForLoadBalancers role
-
-Add a new IAM role that allows Amazon ECS to manage load balancer resources. For more information, see [Amazon ECS infrastructure
-IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md")
+Add a new IAM role that allows Amazon ECS to manage load balancer resources. For more information, see [Amazon ECS infrastructure IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md")
 
 ## Testing recommendations
 

@@ -32,8 +32,6 @@ To learn more about CloudFormation, see the following resources:
 
 ###### Topics
 
-- [Creating Amazon ECS resources using the CloudFormation
-  console](ecs-cloudformation-console.md "ecs-cloudformation-console.md")
-- [Creating Amazon ECS resources using AWS CLI commands
-  for CloudFormation](ecs-cloudformation-cli.md "ecs-cloudformation-cli.md")
+- [Creating Amazon ECS resources using the CloudFormation console](ecs-cloudformation-console.md "ecs-cloudformation-console.md")
+- [Creating Amazon ECS resources using AWS CLI commands for CloudFormation](ecs-cloudformation-cli.md "ecs-cloudformation-cli.md")
 - [CloudFormation example templates for Amazon ECS](working-with-templates.md "working-with-templates.md")

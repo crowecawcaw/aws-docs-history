@@ -1,6 +1,4 @@
-# Identify unauthorized behavior using
-
-Runtime Monitoring
+# Identify unauthorized behavior using Runtime Monitoring
 
 Amazon GuardDuty is a threat detection service that helps protect your accounts, containers,
 workloads, and the data within your AWS environment. Using machine learning (ML) models,
@@ -63,8 +61,7 @@ Amazon GuardDuty findings](../../../guardduty/latest/ug/findings_management.md "
 - The container agent introspection data. For more information, see [Amazon ECS container introspection](ecs-agent-introspection.md "ecs-agent-introspection.md").
 - The task metadata endpoint for the compute option:
   - [Amazon ECS task metadata endpoint version 4](task-metadata-endpoint-v4.md "task-metadata-endpoint-v4.md")
-  - [Amazon ECS task metadata endpoint version 4 for
-    tasks on Fargate](task-metadata-endpoint-v4-fargate.md "task-metadata-endpoint-v4-fargate.md")
+  - [Amazon ECS task metadata endpoint version 4 for tasks on Fargate](task-metadata-endpoint-v4-fargate.md "task-metadata-endpoint-v4-fargate.md")
 
 ## Considerations
 

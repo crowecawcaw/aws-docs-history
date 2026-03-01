@@ -1,6 +1,4 @@
-# Supported Regions for Amazon ECS on
-
-AWS Fargate
+# Supported Regions for Amazon ECS on AWS Fargate
 
 You can use the following tables to verify the Region support for Linux containers on AWS Fargate and Windows containers on AWS Fargate.
 

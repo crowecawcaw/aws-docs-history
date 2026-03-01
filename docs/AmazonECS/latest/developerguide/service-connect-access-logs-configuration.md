@@ -1,6 +1,4 @@
-# Enabling
-
-access logs for Amazon ECS Service Connect
+# Enabling access logs for Amazon ECS Service Connect
 
 Access logs are not enabled by default for Amazon ECS services that use Service Connect. You can enable
 access logs in the following ways.
@@ -41,13 +39,10 @@ service using the AWS CLI by specifying a `accessLogConfiguration` when you crea
  }'`
 ```
 
-## Enable access
-
-logs using the console
+## Enable access logs using the console
 
 For
-a detailed service creation procedure, see [Creating an Amazon ECS rolling update
-deployment](create-service-console-v2.md "create-service-console-v2.md").
+a detailed service creation procedure, see [Creating an Amazon ECS rolling update deployment](create-service-console-v2.md "create-service-console-v2.md").
 
 ###### To create a service with a shared namespace using the AWS Management Console
 

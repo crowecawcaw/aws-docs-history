@@ -60,9 +60,7 @@ If the connection is successful, you should see an interactive shell prompt from
 container. You can now run commands directly in the container environment. To exit the
 session, choose **End Session**.
 
-## Using the console for
-
-standalone tasks
+## Using the console for standalone tasks
 
 You can use the console to run commands using ECS Exec.
 

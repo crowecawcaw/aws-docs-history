@@ -62,7 +62,7 @@ through the **head** command for brevity. For more information, go to
 Docker logs are only available on the container instance if you are using the
 default `json` log driver. If you have configured your tasks to use
 the `awslogs` log driver, then your container logs are available in
-CloudWatch Logs. For more information, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md") .
+CloudWatch Logs. For more information, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md").
 
 ```
 `docker logs `dc7240fe892a` | head`

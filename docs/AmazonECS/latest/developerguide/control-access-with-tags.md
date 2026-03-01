@@ -1,6 +1,4 @@
-# Control access to Amazon ECS resources using
-
-resource tags
+# Control access to Amazon ECS resources using resource tags
 
 When you create an IAM policy that grants users permission to use Amazon ECS resources, you
 can include tag information in the `Condition` element of the policy to
@@ -23,7 +21,7 @@ To learn whether an Amazon ECS API action supports controlling access using the
 `Describe` actions do not support resource-level permissions, so you must
 specify them in a separate statement without conditions.
 
-For example IAM policies, see [Amazon ECS Example policies](iam-policies-ecs-console.md "iam-policies-ecs-console.md") .
+For example IAM policies, see [Amazon ECS Example policies](iam-policies-ecs-console.md "iam-policies-ecs-console.md").
 
 If you allow or deny users access to resources based on tags, you must consider
 explicitly denying users the ability to add those tags to or remove them from the same

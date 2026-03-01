@@ -3,8 +3,7 @@
 You turn on cluster auto scaling so that Amazon ECS manages the scaling of Amazon EC2 instances that are
 registered to your cluster.
 
-If you want to use the console to turn on Cluster auto scaling, see see [Creating a
-capacity provider for Amazon ECS](create-capacity-provider-console-v2.md "create-capacity-provider-console-v2.md").
+If you want to use the console to turn on Cluster auto scaling, see see [Creating a capacity provider for Amazon ECS](create-capacity-provider-console-v2.md "create-capacity-provider-console-v2.md").
 
 Before you begin, create an Auto Scaling group and a capacity provider. For more information, see
 [Amazon ECS capacity providers for EC2 workloads](asg-capacity-providers.md "asg-capacity-providers.md").

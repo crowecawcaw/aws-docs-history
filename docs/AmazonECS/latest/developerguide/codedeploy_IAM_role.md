@@ -6,8 +6,7 @@ provided by the CodeDeploy IAM role (`ecsCodeDeployRole`).
 
 ###### Note
 
-Users also require permissions to use CodeDeploy; these permissions are described in [Required IAM
-permissions](deployment-type-bluegreen.md#deployment-type-bluegreen-IAM "deployment-type-bluegreen.md#deployment-type-bluegreen-IAM").
+Users also require permissions to use CodeDeploy; these permissions are described in [Required IAM permissions](deployment-type-bluegreen.md#deployment-type-bluegreen-IAM "deployment-type-bluegreen.md#deployment-type-bluegreen-IAM").
 
 There are two managed policies provided. For more information, see one of the following
 in the _AWS Managed Policy Reference Guide_:
@@ -91,9 +90,7 @@ When the tasks in your service need a task execution role, you must add the
 `iam:PassRole` permission for each task execution role or task role
 override to the CodeDeploy role as a policy.
 
-### Task execution role
-
-permissions
+### Task execution role permissions
 
 When the tasks in your service need a task execution role, you must add the
 `iam:PassRole` permission for each task execution role or task role

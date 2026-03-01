@@ -212,8 +212,7 @@ The number of times the container has been restarted.
 
 ###### Note
 
-The `RestartCount` metadata is included only if a restart policy is enabled for the container. For more information, see [Restart individual containers in Amazon ECS tasks with
-container restart policies](container-restart-policy.md "container-restart-policy.md").
+The `RestartCount` metadata is included only if a restart policy is enabled for the container. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](container-restart-policy.md "container-restart-policy.md").
 
 `ClockDrift`
 

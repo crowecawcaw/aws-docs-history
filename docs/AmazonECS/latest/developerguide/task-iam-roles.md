@@ -302,13 +302,13 @@ JSONJSON
 After you create the role, add additional permissions to the role for the following
 features.
 
-| Feature                                           | Additional permissions                                                                                            |
-| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| Use ECS Exec                                      | [ECS Exec permissions](#ecs-exec-required-iam-permissions "#ecs-exec-required-iam-permissions")                   |
-| Use an image from a private Amazon ECR repository | [Amazon ECR permissions](#ecr-required-iam-permissions "#ecr-required-iam-permissions")                           |
-| Use EC2 instances (Windows and Linux)             | [Amazon EC2 instances additional<br>configuration](#task-iam-role-considerations "#task-iam-role-considerations") |
-| Use external instances                            | [External instance additional<br>configuration](#enable_task_iam_roles "#enable_task_iam_roles")                  |
-| Use Windows EC2 instances                         | [Amazon EC2 Windows instance additional configuration](#windows_task_IAM_roles "#windows_task_IAM_roles")         |
+| Feature                                           | Additional permissions                                                                                         |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Use ECS Exec                                      | [ECS Exec permissions](#ecs-exec-required-iam-permissions "#ecs-exec-required-iam-permissions")                |
+| Use an image from a private Amazon ECR repository | [Amazon ECR permissions](#ecr-required-iam-permissions "#ecr-required-iam-permissions")                        |
+| Use EC2 instances (Windows and Linux)             | [Amazon EC2 instances additional configuration](#task-iam-role-considerations "#task-iam-role-considerations") |
+| Use external instances                            | [External instance additional configuration](#enable_task_iam_roles "#enable_task_iam_roles")                  |
+| Use Windows EC2 instances                         | [Amazon EC2 Windows instance additional configuration](#windows_task_IAM_roles "#windows_task_IAM_roles")      |
 
 ## Amazon ECR permissions
 
@@ -375,9 +375,7 @@ JSON
 
 ```
 
-## Amazon EC2 instances additional
-
-configuration
+## Amazon EC2 instances additional configuration
 
 We recommend that you limit the permissions in your container instance role to the
 minimal list of permissions used in the `AmazonEC2ContainerServiceforEC2Role`
@@ -408,8 +406,7 @@ Uses IAM roles for tasks for containers with the `host`
 network mode. This variable is only supported on agent versions 1.12.0 and
 later.
 
-For an example run command, see [Manually updating the Amazon ECS container agent (for
-non-Amazon ECS-Optimized AMIs)](manually_update_agent.md "manually_update_agent.md"). You will also need to set the following
+For an example run command, see [Manually updating the Amazon ECS container agent (for non-Amazon ECS-Optimized AMIs)](manually_update_agent.md "manually_update_agent.md"). You will also need to set the following
 networking commands on your container instance so that the containers in your tasks can
 retrieve their AWS credentials:
 
@@ -457,8 +454,7 @@ You must save this **iptables** rule on your Amazon EC2 instance for
 
 ```
 
-## External instance additional
- configuration
+## External instance additional configuration
 
 
 Your external instances require at least version `1.11.0` of the container
@@ -495,8 +491,7 @@ Uses IAM roles for tasks for containers with the `host`
 
 
 
-For an example run command, see [Manually updating the Amazon ECS container agent (for
- non-Amazon ECS-Optimized AMIs)](manually_update_agent.md "manually_update_agent.md"). You will also need to set the following
+For an example run command, see [Manually updating the Amazon ECS container agent (for non-Amazon ECS-Optimized AMIs)](manually_update_agent.md "manually_update_agent.md"). You will also need to set the following
  networking commands on your container instance so that the containers in your tasks can
  retrieve their AWS credentials:
 
@@ -517,7 +512,7 @@ You must save these **iptables** rules on your container instance for
  consult your specific operating system documentation.
 
 
-##  Amazon EC2 Windows instance additional configuration
+## Amazon EC2 Windows instance additional configuration
 
 
 ###### Important
@@ -555,8 +550,7 @@ Initialize-ECSAgent -Cluster '`windows`' -EnableTaskIAMRole
  To expose your containers on port 80, we recommend configuring a service for them
  that uses load balancing. You can use port 80 on the load balancer. By doing so,
  traffic can be routed to another host port on your container instances. For more
- information, see [Use load balancing to distribute Amazon ECS service
- traffic](service-load-balancing.md "service-load-balancing.md").
+ information, see [Use load balancing to distribute Amazon ECS service traffic](service-load-balancing.md "service-load-balancing.md").
 * If your Windows instance is restarted, you must delete the proxy interface and
  initialize the Amazon ECS container agent again to bring the credential proxy back
  up.

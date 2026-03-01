@@ -1,14 +1,11 @@
-# Create a target tracking scaling policy
-
-for Amazon ECS service auto scaling
+# Create a target tracking scaling policy for Amazon ECS service auto scaling
 
 Create a target tracking scaling policy to have Amazon ECS increase or decrease the desired
 task count in your service automatically. Target tracking works off of a target metric
 value.
 
 1. In addition to the standard IAM permissions for creating and updating
-   services, you need additional permissions. For more information, see [IAM permissions required for Amazon ECS service auto
-   scaling](auto-scaling-IAM.md "auto-scaling-IAM.md").
+   services, you need additional permissions. For more information, see [IAM permissions required for Amazon ECS service auto scaling](auto-scaling-IAM.md "auto-scaling-IAM.md").
 2. Determine the metrics to use for the policy. The following metrics
    are available:
    - **ECSServiceAverageCPUUtilization** – The average CPU

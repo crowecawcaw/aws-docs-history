@@ -3,9 +3,7 @@
 CodeDeploy blue/green and Amazon ECS blue/green deployments provide similar functionality,
 but they differ in how you configure and manage them.
 
-## CodeDeploy blue/green deployment
-
-overview
+## CodeDeploy blue/green deployment overview
 
 When creating an Amazon ECS service using CodeDeploy, you:
 
@@ -35,9 +33,7 @@ cases, re-routing is achieved by changing the respective listener rule to point 
 the secondary target group associated with the green task set. Rollback is achieved
 by changing the production listener rule back to the primary target group.
 
-## Amazon ECS blue/green deployment
-
-overview
+## Amazon ECS blue/green deployment overview
 
 With Amazon ECS blue/green deployments, The deployment configuration is part of the
 Amazon ECS service itself:
@@ -110,8 +106,7 @@ following when using this approach:
   configuration.
 
 You use the same load balancer listener and target groups that are used for CodeDeploy.
-If you are using CloudFormation, see [Migrating an CloudFormation
-CodeDeploy blue/green deployment template to an Amazon ECS blue/green CloudFormation template](migrate-codedeploy-to-ecs-bluegreen-cloudformation-template.md "migrate-codedeploy-to-ecs-bluegreen-cloudformation-template.md").
+If you are using CloudFormation, see [Migrating an CloudFormation CodeDeploy blue/green deployment template to an Amazon ECS blue/green CloudFormation template](migrate-codedeploy-to-ecs-bluegreen-cloudformation-template.md "migrate-codedeploy-to-ecs-bluegreen-cloudformation-template.md").
 
 1. Modify the default rule of the production/test listeners to include the
    alternate target group and set the weight of the primary target group to 1

@@ -2,8 +2,7 @@
 
 Use the following reference to fix issues that you might encounter in the form of
 status reasons in the AWS Management Console when you configure Amazon EBS volumes for attachment to Amazon ECS
-tasks. For more information on locating these status reasons in the console, see [Check volume attachment
-status](troubleshoot-ebs-volumes.md#troubleshoot-ebs-volumes-location "troubleshoot-ebs-volumes.md#troubleshoot-ebs-volumes-location").
+tasks. For more information on locating these status reasons in the console, see [Check volume attachment status](troubleshoot-ebs-volumes.md#troubleshoot-ebs-volumes-location "troubleshoot-ebs-volumes.md#troubleshoot-ebs-volumes-location").
 
 **`ECS was unable to assume the configured ECS Infrastructure Role
  'arn:aws:iam::`111122223333`:role/`ecsInfrastructureRole`'.

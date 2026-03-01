@@ -1,6 +1,4 @@
-# Balancing an Amazon ECS service across Availability
-
-Zones
+# Balancing an Amazon ECS service across Availability Zones
 
 Starting September 5, 2025, Amazon ECS enables Availability Zone rebalancing for all services that are
 eligible for the feature. A service is eligible when Availability Zone spread is the first
@@ -94,9 +92,7 @@ Consider the following when you want to configure Availability Zone rebalancing:
   - Uses the `attribute:ecs.availability-zone` as a task placement
     constraint
 
-## Placement strategies and
-
-placement constraints with Availability Zone rebalancing
+## Placement strategies and placement constraints with Availability Zone rebalancing
 
 Placement strategies determine how Amazon ECS selects container instances and Availability
 Zones for task placement termination. Task placement constraints are rules that
@@ -153,10 +149,10 @@ The default behavior of `AvailabilityZoneRebalancing` differs between create and
 - For create service requests, when when no value is specified for `AvailabilityZoneRebalancing`, Amazon ECS defaults the value to to `ENABLED`.
 - For update service requests, when no value is specified for `AvailabilityZoneRebalancing`, Amazon ECS defaults to the existing service’s `AvailabilityZoneRebalancing` value. If the service never had an `AvailabilityZoneRebalancing` value set, Amazon ECS treats this as `DISABLED`.
 
-| Service type | API                                                                                          | Console                                                                                                            | CLI                                                                                                                         |
-| ------------ | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
-| Existing     | [UpdateService](../APIReference/API_UpdateService.md "../APIReference/API_UpdateService.md") | [Updating an Amazon ECS service](update-service-console-v2.md "update-service-console-v2.md")                      | [update-service](../../../cli/latest/reference/ecs/update-service.md "../../../cli/latest/reference/ecs/update-service.md") |
-| New          | [CreateService](../APIReference/API_CreateService.md "../APIReference/API_CreateService.md") | [Creating an Amazon ECS rolling update<br>deployment](create-service-console-v2.md "create-service-console-v2.md") | [create-service](../../../cli/latest/reference/ecs/create-service.md "../../../cli/latest/reference/ecs/create-service.md") |
+| Service type | API                                                                                          | Console                                                                                                         | CLI                                                                                                                         |
+| ------------ | -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Existing     | [UpdateService](../APIReference/API_UpdateService.md "../APIReference/API_UpdateService.md") | [Updating an Amazon ECS service](update-service-console-v2.md "update-service-console-v2.md")                   | [update-service](../../../cli/latest/reference/ecs/update-service.md "../../../cli/latest/reference/ecs/update-service.md") |
+| New          | [CreateService](../APIReference/API_CreateService.md "../APIReference/API_CreateService.md") | [Creating an Amazon ECS rolling update deployment](create-service-console-v2.md "create-service-console-v2.md") | [create-service](../../../cli/latest/reference/ecs/create-service.md "../../../cli/latest/reference/ecs/create-service.md") |
 
 The following example shows how to enable service rebalancing when creating a new service:
 
