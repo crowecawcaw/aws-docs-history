@@ -71,9 +71,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail
 `userIdentity` Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding Amazon ECR log file
-
-entries
+## Understanding Amazon ECR log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event
@@ -102,26 +100,16 @@ service DNS name.
 
 ###### Topics
 
-- [Example: Create
-  repository action](#cloudtrail-examples-create-repository "#cloudtrail-examples-create-repository")
-- [Example: AWS KMSCreateGrant API action when creating an Amazon ECR
-  repository](#cloudtrail-examples-create-repository-kms "#cloudtrail-examples-create-repository-kms")
-- [Example: Image push
-  action](#cloudtrail-examples-push-image "#cloudtrail-examples-push-image")
-- [Example: Image pull
-  action](#cloudtrail-examples-image-pull "#cloudtrail-examples-image-pull")
-- [Example: Image lifecycle policy
-  action](#cloudtrail-examples-lcp "#cloudtrail-examples-lcp")
-- [Example: Image archival
-  action](#cloudtrail-examples-image-archive "#cloudtrail-examples-image-archive")
-- [Example: Image restore
-  action](#cloudtrail-examples-image-restore "#cloudtrail-examples-image-restore")
-- [Example: Image
-  referrers action](#cloudtrail-examples-image-referrers-action "#cloudtrail-examples-image-referrers-action")
+- [Example: Create repository action](#cloudtrail-examples-create-repository "#cloudtrail-examples-create-repository")
+- [Example: AWS KMS CreateGrant API action when creating an Amazon ECR repository](#cloudtrail-examples-create-repository-kms "#cloudtrail-examples-create-repository-kms")
+- [Example: Image push action](#cloudtrail-examples-push-image "#cloudtrail-examples-push-image")
+- [Example: Image pull action](#cloudtrail-examples-image-pull "#cloudtrail-examples-image-pull")
+- [Example: Image lifecycle policy action](#cloudtrail-examples-lcp "#cloudtrail-examples-lcp")
+- [Example: Image archival action](#cloudtrail-examples-image-archive "#cloudtrail-examples-image-archive")
+- [Example: Image restore action](#cloudtrail-examples-image-restore "#cloudtrail-examples-image-restore")
+- [Example: Image referrers action](#cloudtrail-examples-image-referrers-action "#cloudtrail-examples-image-referrers-action")
 
-#### Example: Create
-
-repository action
+#### Example: Create repository action
 
 The following example shows a CloudTrail log entry that demonstrates the
 `CreateRepository` action.
@@ -180,9 +168,7 @@ The following example shows a CloudTrail log entry that demonstrates the
 }
 ```
 
-#### Example: AWS KMS`CreateGrant` API action when creating an Amazon ECR
-
-repository
+#### Example: AWS KMS `CreateGrant` API action when creating an Amazon ECR repository
 
 The following example shows a CloudTrail log entry that demonstrates the AWS KMS
 `CreateGrant` action when creating an Amazon ECR repository with
@@ -252,9 +238,7 @@ entries in CloudTrail.
 }
 ```
 
-#### Example: Image push
-
-action
+#### Example: Image push action
 
 The following example shows a CloudTrail log entry that demonstrates an image
 push which uses the `PutImage` action.
@@ -316,9 +300,7 @@ When pushing an image, you will also see
 }
 ```
 
-#### Example: Image pull
-
-action
+#### Example: Image pull action
 
 The following example shows a CloudTrail log entry that demonstrates an image
 pull which uses the `BatchGetImage` action.
@@ -379,9 +361,7 @@ CloudTrail logs.
 }
 ```
 
-#### Example: Image lifecycle policy
-
-action
+#### Example: Image lifecycle policy action
 
 The following example shows a CloudTrail log entry that demonstrates when an
 image is expired due to a lifecycle policy rule. This event type can be
@@ -488,9 +468,7 @@ image.
 }
 ```
 
-#### Example: Image archival
-
-action
+#### Example: Image archival action
 
 The following example shows a CloudTrail log entry that demonstrates an image
 being archived using the `UpdateImageStorageClass` action with
@@ -551,9 +529,7 @@ being archived using the `UpdateImageStorageClass` action with
 }
 ```
 
-#### Example: Image restore
-
-action
+#### Example: Image restore action
 
 The following examples show CloudTrail log entries that demonstrate an image
 being restored. When you restore an archived image, two events are
@@ -671,9 +647,7 @@ final image status.
 }
 ```
 
-#### Example: Image
-
-referrers action
+#### Example: Image referrers action
 
 The following example shows a AWS CloudTrail log entry that
 demonstrates when an OCI 1.1 compliant client fetches a list

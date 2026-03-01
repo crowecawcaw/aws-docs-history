@@ -1,6 +1,4 @@
-# Troubleshooting image scanning in
-
-Amazon ECR
+# Troubleshooting image scanning in Amazon ECR
 
 The following are common image scan failures. You can view errors like this in the
 Amazon ECR console by displaying the image details or through the API or AWS CLI by using the `DescribeImageScanFindings` API.
@@ -36,9 +34,7 @@ You may receive a scan finding that has a severity level of `UNDEFINED`. The fol
 To determine the severity and description of a vulnerability, you can view
 the CVE directly from the source.
 
-## Understanding scan
-
-status `SCAN_ELIGIBILITY_EXPIRED`
+## Understanding scan status `SCAN_ELIGIBILITY_EXPIRED`
 
 When enhanced scanning using Amazon Inspector is enabled for your private registry and
 you are viewing your scan vulnerabilities, you may see a scan status of `SCAN_ELIGIBILITY_EXPIRED`. The following are the most common causes of this.

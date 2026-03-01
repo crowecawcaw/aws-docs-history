@@ -1,6 +1,4 @@
-# Granting registry
-
-permissions for cross account replication in Amazon ECR
+# Granting registry permissions for cross account replication in Amazon ECR
 
 The cross account policy type is used to grant permissions to an AWS principal,
 allowing the replication of the repositories from a source registry to your

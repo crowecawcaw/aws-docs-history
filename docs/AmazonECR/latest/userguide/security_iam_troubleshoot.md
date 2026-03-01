@@ -1,22 +1,15 @@
-# Troubleshooting Amazon Elastic Container Registry Identity and
-
-Access
+# Troubleshooting Amazon Elastic Container Registry Identity and Access
 
 Use the following information to help you diagnose and fix common issues that you
 might encounter when working with Amazon ECR and IAM.
 
 ###### Topics
 
-- [I Am Not Authorized to
-  Perform an Action in Amazon ECR](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I Am Not Authorized to Perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to allow people
-  outside of my AWS account to access my Amazon ECR resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I Am Not Authorized to Perform an Action in Amazon ECR](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I Am Not Authorized to Perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I want to allow people outside of my AWS account to access my Amazon ECR resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-## I Am Not Authorized to
-
-Perform an Action in Amazon ECR
+## I Am Not Authorized to Perform an Action in Amazon ECR
 
 If you receive an error that you're not authorized to perform an action, your
 policies must be updated to allow you to perform the action.
@@ -36,9 +29,7 @@ In this case, the policy for the `mateojackson` user must be updated to allow ac
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I Am Not Authorized to Perform
-
-iam:PassRole
+## I Am Not Authorized to Perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to Amazon ECR.
 
@@ -57,9 +48,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I want to allow people
-
-outside of my AWS account to access my Amazon ECR resources
+## I want to allow people outside of my AWS account to access my Amazon ECR resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant

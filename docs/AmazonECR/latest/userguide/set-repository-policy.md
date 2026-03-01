@@ -1,6 +1,4 @@
-# Setting a private repository policy
-
-statement in Amazon ECR
+# Setting a private repository policy statement in Amazon ECR
 
 You can add an access policy statement to a repository in the AWS Management Console by following
 the steps below. You can add multiple policy statements per repository. For example
@@ -12,8 +10,7 @@ Amazon ECR requires that users have permission to make calls to the
 `ecr:GetAuthorizationToken` API through an IAM policy before they
 can authenticate to a registry and push or pull any images from any Amazon ECR
 repository. Amazon ECR provides several managed IAM policies to control user access at
-varying levels. For more information, see [Amazon Elastic Container Registry Identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+varying levels. For more information, see [Amazon Elastic Container Registry Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ###### To set a repository policy statement
 

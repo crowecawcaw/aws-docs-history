@@ -8,15 +8,11 @@ access to your repository.
 
 ###### Topics
 
-- [Repository policies vs IAM
-  policies](#repository-policy-vs-iam-policy "#repository-policy-vs-iam-policy")
+- [Repository policies vs IAM policies](#repository-policy-vs-iam-policy "#repository-policy-vs-iam-policy")
 - [Private repository policy examples in Amazon ECR](repository-policy-examples.md "repository-policy-examples.md")
-- [Setting a private repository policy
-  statement in Amazon ECR](set-repository-policy.md "set-repository-policy.md")
+- [Setting a private repository policy statement in Amazon ECR](set-repository-policy.md "set-repository-policy.md")
 
-## Repository policies vs IAM
-
-policies
+## Repository policies vs IAM policies
 
 Amazon ECR repository policies are a subset of IAM policies that are scoped for, and
 specifically used for, controlling access to individual Amazon ECR repositories. IAM
@@ -36,8 +32,7 @@ Amazon ECR requires that users have permission to make calls to the
 `ecr:GetAuthorizationToken` API through an IAM policy before they
 can authenticate to a registry and push or pull any images from any Amazon ECR
 repository. Amazon ECR provides several managed IAM policies to control user access at
-varying levels. For more information, see [Amazon Elastic Container Registry Identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+varying levels. For more information, see [Amazon Elastic Container Registry Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 You can use either of these policy types to control access to your repositories, as
 shown in the following examples.

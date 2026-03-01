@@ -20,11 +20,7 @@ layer instead of uploading a duplicate. For more information, see [Blob mounting
 
 ###### Topics
 
-- [IAM permissions for pushing an image to an Amazon ECR
-  private repository](image-push-iam.md "image-push-iam.md")
-- [Pushing a Docker image to an Amazon ECR private
-  repository](docker-push-ecr-image.md "docker-push-ecr-image.md")
-- [Pushing a multi-architecture
-  image to an Amazon ECR private repository](docker-push-multi-architecture-image.md "docker-push-multi-architecture-image.md")
-- [Pushing a Helm chart to an Amazon ECR private
-  repository](push-oci-artifact.md "push-oci-artifact.md")
+- [IAM permissions for pushing an image to an Amazon ECR private repository](image-push-iam.md "image-push-iam.md")
+- [Pushing a Docker image to an Amazon ECR private repository](docker-push-ecr-image.md "docker-push-ecr-image.md")
+- [Pushing a multi-architecture image to an Amazon ECR private repository](docker-push-multi-architecture-image.md "docker-push-multi-architecture-image.md")
+- [Pushing a Helm chart to an Amazon ECR private repository](push-oci-artifact.md "push-oci-artifact.md")

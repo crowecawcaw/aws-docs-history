@@ -1,6 +1,4 @@
-# Storing your upstream
-
-repository credentials in an AWS Secrets Manager secret
+# Storing your upstream repository credentials in an AWS Secrets Manager secret
 
 When creating a pull through cache rule for an upstream repository that requires
 authentication, you must store the credentials in a Secrets Manager secret. There may be a
@@ -13,9 +11,7 @@ secret using the Secrets Manager console. For more information, see [Creating a 
 
 Docker Hub
 
-###### To create a Secrets Manager secret for your Docker Hub credentials
-
-(AWS Management Console)
+###### To create a Secrets Manager secret for your Docker Hub credentials (AWS Management Console)
 
 1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. Choose **Store a new secret**.
@@ -92,9 +88,7 @@ doesn't appear, choose the refresh button.
 
 GitHub Container Registry
 
-###### To create an Secrets Manager secret for your GitHub Container Registry credentials
-
-(AWS Management Console)
+###### To create an Secrets Manager secret for your GitHub Container Registry credentials (AWS Management Console)
 
 1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. Choose **Store a new secret**.
@@ -172,9 +166,7 @@ doesn't appear, choose the refresh button.
 
 Microsoft Azure Container Registry
 
-###### To create an Secrets Manager secret for your Microsoft Azure Container Registry credentials
-
-(AWS Management Console)
+###### To create an Secrets Manager secret for your Microsoft Azure Container Registry credentials (AWS Management Console)
 
 1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. Choose **Store a new secret**.
@@ -251,9 +243,7 @@ doesn't appear, choose the refresh button.
 
 GitLab Container Registry
 
-###### To create an Secrets Manager secret for your GitLab Container Registry credentials
-
-(AWS Management Console)
+###### To create an Secrets Manager secret for your GitLab Container Registry credentials (AWS Management Console)
 
 1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. Choose **Store a new secret**.

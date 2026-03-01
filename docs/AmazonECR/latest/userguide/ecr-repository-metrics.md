@@ -7,19 +7,15 @@ automatically sent to CloudWatch in 1-minute periods. For more information about
 ###### Topics
 
 - [Enabling CloudWatch metrics](#enable_cloudwatch "#enable_cloudwatch")
-- [Available metrics and
-  dimensions](#available_cloudwatch_metrics "#available_cloudwatch_metrics")
-- [Viewing Amazon ECR metrics using the CloudWatch
-  console](#viewing_metrics_console "#viewing_metrics_console")
+- [Available metrics and dimensions](#available_cloudwatch_metrics "#available_cloudwatch_metrics")
+- [Viewing Amazon ECR metrics using the CloudWatch console](#viewing_metrics_console "#viewing_metrics_console")
 
 ## Enabling CloudWatch metrics
 
 Amazon ECR sends repository metrics automatically for all repositories. There is no
 need to take any manual steps.
 
-## Available metrics and
-
-dimensions
+## Available metrics and dimensions
 
 The following sections list the metrics and dimensions that Amazon ECR sends to
 Amazon CloudWatch.
@@ -52,9 +48,7 @@ the following dimensions.
 This dimension filters the data that you request for all container
 images in a specified repository.
 
-## Viewing Amazon ECR metrics using the CloudWatch
-
-console
+## Viewing Amazon ECR metrics using the CloudWatch console
 
 You can view Amazon ECR repository metrics on the CloudWatch console. The CloudWatch console
 provides a fine-grained and customizable display of your resources. For more

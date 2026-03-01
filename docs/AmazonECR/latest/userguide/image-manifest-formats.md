@@ -1,6 +1,4 @@
-# Container image manifest format support in
-
-Amazon ECR
+# Container image manifest format support in Amazon ECR
 
 Amazon ECR supports the following container image manifest formats:
 

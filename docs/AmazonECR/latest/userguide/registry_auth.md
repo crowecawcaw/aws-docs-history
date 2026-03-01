@@ -13,9 +13,7 @@ requests.
 The registry authentication methods that are detailed in the following sections are
 available.
 
-## Using the Amazon ECR credential
-
-helper
+## Using the Amazon ECR credential helper
 
 Amazon ECR provides a Docker credential helper which makes it easier to store and use
 Docker credentials when pushing and pulling images to Amazon ECR. For installation and

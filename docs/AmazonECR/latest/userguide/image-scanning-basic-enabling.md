@@ -1,6 +1,4 @@
-# Configuring basic scanning for
-
-images in Amazon ECR
+# Configuring basic scanning for images in Amazon ECR
 
 By default, Amazon ECR turns on basic scanning for all private registries. As a result,
 unless you've changed the scanning settings on your private registry there is no
@@ -20,8 +18,7 @@ You can use the following steps to define one or more scan on push filters.
 5. By default all of your repositories are set for **Manual**
    scanning. You can optionally configure scan on push by specifying **Scan
    on push filters**. You can set scan on push for all repositories or
-   individual repositories. For more information, see [Filters to choose which repositories are
-   scanned in Amazon ECR](image-scanning-filters.md "image-scanning-filters.md").
+   individual repositories. For more information, see [Filters to choose which repositories are scanned in Amazon ECR](image-scanning-filters.md "image-scanning-filters.md").
 
 ###### Note
 

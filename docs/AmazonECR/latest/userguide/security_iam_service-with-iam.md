@@ -7,17 +7,12 @@ That Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 
 ###### Topics
 
-- [Amazon ECR
-  Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Amazon ECR
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on Amazon ECR
-  tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Amazon ECR Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Amazon ECR resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on Amazon ECR tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
 - [Amazon ECR IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Amazon ECR
-
-Identity-based policies
+## Amazon ECR Identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied. Amazon ECR
@@ -134,12 +129,9 @@ resources you can use a condition key, see [Actions Defined by Amazon Elastic Co
 
 ### Examples
 
-To view examples of Amazon ECR identity-based policies, see [Amazon Elastic Container Registry Identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon ECR identity-based policies, see [Amazon Elastic Container Registry Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Amazon ECR
-
-resource-based policies
+## Amazon ECR resource-based policies
 
 Resource-based policies are JSON policy documents that specify what actions a
 specified principal can perform on an Amazon ECR resource and under what conditions.
@@ -176,9 +168,7 @@ additional characters and spacing not supported in IAM policies.
 
 To view examples of Amazon ECR resource-based policies, see [Private repository policy examples in Amazon ECR](repository-policy-examples.md "repository-policy-examples.md"),
 
-## Authorization based on Amazon ECR
-
-tags
+## Authorization based on Amazon ECR tags
 
 You can attach tags to Amazon ECR resources or pass tags in a request to Amazon ECR. To
 control access based on tags, you provide tag information in the [condition
@@ -196,9 +186,7 @@ on the tags on that resource, see [Using Tag-Based Access Control](ecr-supported
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using Temporary
-
-Credentials with Amazon ECR
+### Using Temporary Credentials with Amazon ECR
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security
@@ -213,5 +201,4 @@ other services to complete an action on your behalf. Service-linked roles appear
 in your IAM account and are owned by the service. An IAM administrator can
 view but not edit the permissions for service-linked roles.
 
-Amazon ECR supports service-linked roles. For more information, see [Using service-linked roles for
-Amazon ECR](using-service-linked-roles.md "using-service-linked-roles.md").
+Amazon ECR supports service-linked roles. For more information, see [Using service-linked roles for Amazon ECR](using-service-linked-roles.md "using-service-linked-roles.md").

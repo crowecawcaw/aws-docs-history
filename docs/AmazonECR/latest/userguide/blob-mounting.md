@@ -32,9 +32,7 @@ AWS Management Console
 Use the following steps to update your registry's blob mounting configuration
 using the AWS Management Console.
 
-###### Turn on the blob mounting configuration for your private
-
-registry
+###### Turn on the blob mounting configuration for your private registry
 
 1. Open the Amazon ECR console at [https://console.aws.amazon.com/ecr/private-registry/repositories](https://console.aws.amazon.com/ecr/private-registry/repositories "https://console.aws.amazon.com/ecr/private-registry/repositories")
 2. From the navigation bar, choose the Region.

@@ -1,13 +1,10 @@
-# Retrieving the findings for basic scans in
-
-Amazon ECR
+# Retrieving the findings for basic scans in Amazon ECR
 
 You can retrieve the scan findings for the last completed basic image scan. The
 software vulnerabilities that were discovered are listed by severity based on the
 Common Vulnerabilities and Exposures (CVEs) database.
 
-For troubleshooting details for some common issues when scanning images, see [Troubleshooting image scanning in
-Amazon ECR](image-scanning-troubleshooting.md "image-scanning-troubleshooting.md").
+For troubleshooting details for some common issues when scanning images, see [Troubleshooting image scanning in Amazon ECR](image-scanning-troubleshooting.md "image-scanning-troubleshooting.md").
 
 AWS Management Console
 Use the following steps to retrieve image scan findings using the

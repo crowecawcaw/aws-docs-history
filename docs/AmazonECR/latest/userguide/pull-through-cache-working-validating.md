@@ -1,6 +1,4 @@
-# Validating pull
-
-through cache rules in Amazon ECR
+# Validating pull through cache rules in Amazon ECR
 
 After you create a pull through cache rule, for upstream registries that require
 authentication you can validate that the rule works properly. When validating a pull through

@@ -1,6 +1,4 @@
-# Private registry policy examples for
-
-Amazon ECR
+# Private registry policy examples for Amazon ECR
 
 The following examples show registry permissions policy statements that you could
 use to control the permissions that users have to your Amazon ECR registry.
@@ -12,9 +10,7 @@ from your registry policy, replication can still occur. However, for successful
 replication, you need to create repositories with the same name within your
 account.
 
-## Example: Allow all IAM
-
-principals in a source account to replicate all repositories
+## Example: Allow all IAM principals in a source account to replicate all repositories
 
 The following registry permissions policy allows all IAM principals (users and
 roles) in a source account to replicate all repositories.
@@ -55,9 +51,7 @@ JSON
 
 ```
 
-## Example: Allow IAM
-
-principals from multiple accounts
+## Example: Allow IAM principals from multiple accounts
 
 The following registry permissions policy has two statements. Each statement
 allows all IAM principals (users and roles) in a source account to replicate all
@@ -102,9 +96,7 @@ JSON
 
 ```
 
-## Example: Allow all IAM
-
-principals in a source account to replicate all repositories with prefix `prod-`.
+## Example: Allow all IAM principals in a source account to replicate all repositories with prefix `prod-`.
 
 The following registry permissions policy allows all IAM principals (users and
 roles) in a source account to replicate all repositories that start with `prod-`.

@@ -6,8 +6,7 @@ private registry, you must create a pull through cache rule.
 For upstream registries that require authentication with secrets, you must store the
 credentials in a Secrets Manager secret. You can use an existing secret or create a new secret.
 You can create the Secrets Manager secret in either the Amazon ECR console or the Secrets Manager console. To
-create a Secrets Manager secret using the Secrets Manager console instead of the Amazon ECR console, see [Storing your upstream
-repository credentials in an AWS Secrets Manager secret](pull-through-cache-creating-secret.md "pull-through-cache-creating-secret.md").
+create a Secrets Manager secret using the Secrets Manager console instead of the Amazon ECR console, see [Storing your upstream repository credentials in an AWS Secrets Manager secret](pull-through-cache-creating-secret.md "pull-through-cache-creating-secret.md").
 
 ## Prerequisites
 
@@ -21,13 +20,10 @@ repository credentials in an AWS Secrets Manager secret](pull-through-cache-crea
   - The account and Region that the secret is in must match the account and Region that the
     pull through cache rule is in.
 
-## To create a pull
-
-through cache rule (AWS Management Console)
+## To create a pull through cache rule (AWS Management Console)
 
 The following steps show how to create a pull through cache rule and a Secrets Manager
-secret using the Amazon ECR console. To create a secret using the Secrets Manager console, see [Storing your upstream
-repository credentials in an AWS Secrets Manager secret](pull-through-cache-creating-secret.md "pull-through-cache-creating-secret.md").
+secret using the Amazon ECR console. To create a secret using the Secrets Manager console, see [Storing your upstream repository credentials in an AWS Secrets Manager secret](pull-through-cache-creating-secret.md "pull-through-cache-creating-secret.md").
 
 1.  Open the Amazon ECR console at
     [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
@@ -254,8 +250,7 @@ for each Region.
        to select your existing secret, and then choose
        **Next**. For more information on
        creating a Secrets Manager secret using the Secrets Manager console, see
-       [Storing your upstream
-       repository credentials in an AWS Secrets Manager secret](pull-through-cache-creating-secret.md "pull-through-cache-creating-secret.md").
+       [Storing your upstream repository credentials in an AWS Secrets Manager secret](pull-through-cache-creating-secret.md "pull-through-cache-creating-secret.md").
 
     ###### Note
 
@@ -323,8 +318,7 @@ for each Region.
 ###### Note
 
 To learn more about customizing cache and upstream namespaces,
-see [Customizing repository prefixes
-for ECR to ECR pull through cache](pull-through-cache-private-wildcards.md "pull-through-cache-private-wildcards.md"). 8. On the **Step 3: Review and create** page,
+see [Customizing repository prefixes for ECR to ECR pull through cache](pull-through-cache-private-wildcards.md "pull-through-cache-private-wildcards.md"). 8. On the **Step 3: Review and create** page,
 review the pull through cache rule configuration and then choose
 **Create**. 9. Repeat these steps for each pull through cache you want to create.
 The pull through cache rules are created separately for each
@@ -350,8 +344,7 @@ Region.
 
 ###### Note
 
-Make sure that you select the IAM role which uses the permissions created in [IAM policies
-required for cross-account ECR to ECR pull through cache](pull-through-cache-private.md#pull-through-cache-private-permissions "pull-through-cache-private.md#pull-through-cache-private-permissions"). 7. On the **Step 3: Specify namespaces** page, for
+Make sure that you select the IAM role which uses the permissions created in [IAM policies required for cross-account ECR to ECR pull through cache](pull-through-cache-private.md#pull-through-cache-private-permissions "pull-through-cache-private.md#pull-through-cache-private-permissions"). 7. On the **Step 3: Specify namespaces** page, for
 **Cache namespace**, choose whether to create
 pull through cache repositories with **A
 specific prefix** or **no
@@ -367,22 +360,18 @@ prompted, and then choose **Next**.
 ###### Note
 
 To learn more about customizing cache and upstream namespaces,
-see [Customizing repository prefixes
-for ECR to ECR pull through cache](pull-through-cache-private-wildcards.md "pull-through-cache-private-wildcards.md"). 9. On the **Step 4: Review and create** page,
+see [Customizing repository prefixes for ECR to ECR pull through cache](pull-through-cache-private-wildcards.md "pull-through-cache-private-wildcards.md"). 9. On the **Step 4: Review and create** page,
 review the pull through cache rule configuration and then choose
 **Create**. 10. Repeat these steps for each pull through cache you want to create.
 The pull through cache rules are created separately for each
 Region.
 
-## To create a pull through
-
-cache rule (AWS CLI)
+## To create a pull through cache rule (AWS CLI)
 
 Use the [create-pull-through-cache-rule](../../../cli/latest/reference/ecr/create-pull-through-cache-rule.md "../../../cli/latest/reference/ecr/create-pull-through-cache-rule.md") AWS CLI command to create a pull through
 cache rule for an Amazon ECR private registry. For upstream registries that require
 authentication with secrets, you must store the credentials in an Secrets Manager secret. To
-create a secret using the Secrets Manager console, see [Storing your upstream
-repository credentials in an AWS Secrets Manager secret](pull-through-cache-creating-secret.md "pull-through-cache-creating-secret.md").
+create a secret using the Secrets Manager console, see [Storing your upstream repository credentials in an AWS Secrets Manager secret](pull-through-cache-creating-secret.md "pull-through-cache-creating-secret.md").
 
 The following examples are provided for each supported upstream
 registry.
@@ -529,14 +518,11 @@ steps:
 - Create a repository creation template. A repository creation template
   gives you control to define the settings to use for new repositories
   created by Amazon ECR on your behalf during a pull through cache action. For
-  more information, see [Templates to control repositories created
-  during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
+  more information, see [Templates to control repositories created during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
 - Validate your pull through cache rules. When validating a pull through
   cache rule, Amazon ECR makes a network connection with the upstream registry,
   verifies that it can access the Secrets Manager secret containing the credentials
   for the upstream registry, and that authentication was successful. For
-  more information, see [Validating pull
-  through cache rules in Amazon ECR](pull-through-cache-working-validating.md "pull-through-cache-working-validating.md").
+  more information, see [Validating pull through cache rules in Amazon ECR](pull-through-cache-working-validating.md "pull-through-cache-working-validating.md").
 - Start using your pull through cache rules. For more information, see
-  [Pulling an image with a
-  pull through cache rule in Amazon ECR](pull-through-cache-working-pulling.md "pull-through-cache-working-pulling.md").
+  [Pulling an image with a pull through cache rule in Amazon ECR](pull-through-cache-working-pulling.md "pull-through-cache-working-pulling.md").

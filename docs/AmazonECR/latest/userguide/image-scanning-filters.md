@@ -1,6 +1,4 @@
-# Filters to choose which repositories are
-
-scanned in Amazon ECR
+# Filters to choose which repositories are scanned in Amazon ECR
 
 When you configure image scanning for your private registry, you can use filters to
 choose which repositories are scanned.

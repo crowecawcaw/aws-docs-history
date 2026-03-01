@@ -1,6 +1,4 @@
-# Installing a Helm chart on an
-
-Amazon EKS cluster
+# Installing a Helm chart on an Amazon EKS cluster
 
 Helm charts hosted in Amazon ECR can be installed on your Amazon EKS clusters.
 
@@ -11,8 +9,7 @@ Helm charts hosted in Amazon ECR can be installed on your Amazon EKS clusters.
 - You have at least version `1.23.9` or `2.6.3` of the
   AWS CLI installed on your computer. For more information, see [Installing or updating the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 - You have pushed a Helm chart to your Amazon ECR repository. For more information,
-  see [Pushing a Helm chart to an Amazon ECR private
-  repository](push-oci-artifact.md "push-oci-artifact.md").
+  see [Pushing a Helm chart to an Amazon ECR private repository](push-oci-artifact.md "push-oci-artifact.md").
 - You have configured `kubectl` to work with Amazon EKS. For more
   information, see [Create a
   `kubeconfig` for Amazon EKS](../../../eks/latest/userguide/create-kubeconfig.md "../../../eks/latest/userguide/create-kubeconfig.md") in the

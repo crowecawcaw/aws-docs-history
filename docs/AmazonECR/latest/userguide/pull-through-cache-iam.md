@@ -19,9 +19,7 @@ needed to use pull through cache rules effectively.
   can be granted by either an identity-based IAM policy or the private
   registry permissions policy.
 
-## Using registry
-
-permissions
+## Using registry permissions
 
 Amazon ECR private registry permissions may be used to scope the permissions of
 individual IAM entities to use pull through cache. If an IAM entity has more
@@ -116,5 +114,4 @@ next steps.
 - Create a repository creation template. A repository creation template
   gives you control to define the settings to use for new repositories created
   by Amazon ECR on your behalf during a pull through cache action. For more
-  information, see [Templates to control repositories created
-  during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
+  information, see [Templates to control repositories created during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").

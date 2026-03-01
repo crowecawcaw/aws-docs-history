@@ -5,15 +5,13 @@
 The repository policy examples on this page are meant to be applied to Amazon ECR
 private repositories. They will not work properly if used with an IAM principal
 directly unless modified to specify the Amazon ECR repository as the resource. For more
-information on setting repository policies, see [Setting a private repository policy
-statement in Amazon ECR](set-repository-policy.md "set-repository-policy.md").
+information on setting repository policies, see [Setting a private repository policy statement in Amazon ECR](set-repository-policy.md "set-repository-policy.md").
 
 Amazon ECR repository policies are a subset of IAM policies that are scoped for, and
 specifically used for, controlling access to individual Amazon ECR repositories. IAM
 policies are generally used to apply permissions for the entire Amazon ECR service but can
 also be used to control access to specific resources as well. For more information, see
-[Repository policies vs IAM
-policies](repository-policies.md#repository-policy-vs-iam-policy "repository-policies.md#repository-policy-vs-iam-policy").
+[Repository policies vs IAM policies](repository-policies.md#repository-policy-vs-iam-policy "repository-policies.md#repository-policy-vs-iam-policy").
 
 The following repository policy examples show permission statements that you could use
 to control access to your Amazon ECR private repositories.
@@ -24,8 +22,7 @@ Amazon ECR requires that users have permission to make calls to the
 `ecr:GetAuthorizationToken` API through an IAM policy before they
 can authenticate to a registry and push or pull any images from any Amazon ECR
 repository. Amazon ECR provides several managed IAM policies to control user access at
-varying levels. For more information, see [Amazon Elastic Container Registry Identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+varying levels. For more information, see [Amazon Elastic Container Registry Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Example: Allow one or more users
 
@@ -171,9 +168,7 @@ JSON
 
 ```
 
-## Example: Restricting access to specific IP
-
-addresses
+## Example: Restricting access to specific IP addresses
 
 The following example denies permissions to any user to perform any Amazon ECR
 operations when applied to a repository from a specific range of addresses.

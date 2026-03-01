@@ -1,6 +1,4 @@
-# Create a custom policy for
-
-repository creation templates
+# Create a custom policy for repository creation templates
 
 You can use the AWS Management Console to define a policy that will be subsequently associated
 with an IAM role. This IAM role can then be utilized as a repository creation role
@@ -8,9 +6,7 @@ when configuring a repository creation template.
 
 AWS Management Console
 
-###### To use the JSON policy editor to create a custom policy for
-
-repository creation templates.
+###### To use the JSON policy editor to create a custom policy for repository creation templates.
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane on the left, choose
@@ -64,5 +60,4 @@ JSONJSON
 9. Choose **Create policy** to save your new
    policy.
 10. Create a role to assign this policy for the creation template,
-    see [Create an IAM role for
-    repository creation templates](repository-creation-templates-create-iam.md "repository-creation-templates-create-iam.md").
+    see [Create an IAM role for repository creation templates](repository-creation-templates-create-iam.md "repository-creation-templates-create-iam.md").

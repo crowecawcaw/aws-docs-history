@@ -10,10 +10,8 @@ to your repositories.
 ###### Topics
 
 - [Private repository concepts](#repository-concepts "#repository-concepts")
-- [Creating an Amazon ECR private repository to store
-  images](repository-create.md "repository-create.md")
-- [Viewing the contents and details of a private
-  repository in Amazon ECR](repository-info.md "repository-info.md")
+- [Creating an Amazon ECR private repository to store images](repository-create.md "repository-create.md")
+- [Viewing the contents and details of a private repository in Amazon ECR](repository-info.md "repository-info.md")
 - [Deleting a private repository in Amazon ECR](repository-delete.md "repository-delete.md")
 - [Private repository policies in Amazon ECR](repository-policies.md "repository-policies.md")
 - [Tagging a private repository in Amazon ECR](ecr-using-tags.md "ecr-using-tags.md")
@@ -26,8 +24,7 @@ to your repositories.
   However, users require permissions to make calls to the Amazon ECR APIs and to push
   or pull images to and from your repositories. Amazon ECR provides several managed
   policies to control user access at varying levels. For more information, see
-  [Amazon Elastic Container Registry Identity-based policy
-  examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+  [Amazon Elastic Container Registry Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 - Repositories can be controlled with both user access policies and individual
   repository policies. For more information, see [Private repository policies in Amazon ECR](repository-policies.md "repository-policies.md").
 - Repository names can support namespaces, which you can use to group similar

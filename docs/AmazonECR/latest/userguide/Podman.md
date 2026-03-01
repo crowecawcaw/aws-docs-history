@@ -8,9 +8,7 @@ and optimize resource utilization. As containerization continues to gain momentu
 Podman and Amazon ECR provides a robust and flexible solution for managing and
 deploying containerized applications.
 
-## Using Podman to authenticate with
-
-Amazon ECR
+## Using Podman to authenticate with Amazon ECR
 
 Before interacting with Amazon ECR using Podman, authentication is required.
 This can be achieved by running the `aws ecr get-login-password` command to
@@ -21,9 +19,7 @@ retrieve an authentication token, and then using that token with the `podman
 `aws ecr get-login-password --region `<region>` | podman login --username AWS --password-stdin `<aws_account_id>`.dkr.ecr.`<region>`.amazonaws.com`
 ```
 
-## Using the Amazon ECR credential helper
-
-with Podman
+## Using the Amazon ECR credential helper with Podman
 
 Amazon ECR provides a Docker credential helper that works with Podman. The credential
 helper makes it easier to store and use Docker credentials when pushing and pulling
@@ -71,9 +67,7 @@ After successful authentication, container images can be pulled from Amazon ECR 
 `podman pull `aws_account_id`.dkr.ecr.`region`.amazonaws.com/`repository_name`:`tag``
 ```
 
-## Running containers for Amazon ECR with
-
-Podman
+## Running containers for Amazon ECR with Podman
 
 Once the desired image has been pulled, a container can be instantiated using the
 `podman run` command.
@@ -82,9 +76,7 @@ Once the desired image has been pulled, a container can be instantiated using th
 `podman run -d `aws_account_id`.dkr.ecr.`region`.amazonaws.com/`repository_name`:`tag``
 ```
 
-## Pushing images to Amazon ECR with
-
-Podman
+## Pushing images to Amazon ECR with Podman
 
 To push a local image to Amazon ECR, the image must first be tagged with the Amazon ECR
 repository URI using `podman tag`, and then the `podman push`

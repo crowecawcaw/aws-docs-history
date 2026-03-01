@@ -8,8 +8,7 @@ different registry policy scope: version 1 (V1) and version 2 (V2). V2 is the ex
 registry policy scope that includes all ECR permissions. For the full list of API
 actions, see the*[Amazon ECR API Guide](../APIReference/Welcome.md "../APIReference/Welcome.md")*.
 The V2 version is the default registry policy scope. For more information about viewing
-or setting your registry policy scope, see [Switching to the extended
-registry policy scope](registry-permissions-account-settings.md "registry-permissions-account-settings.md"). For information about
+or setting your registry policy scope, see [Switching to the extended registry policy scope](registry-permissions-account-settings.md "registry-permissions-account-settings.md"). For information about
 general settings for your Amazon ECR private registry, see [Private registry settings in Amazon ECR](registry-settings.md "registry-settings.md").
 
 The versions are detailed as follows.
@@ -39,11 +38,7 @@ based on the feature you're using rather than use a wildcard.
 
 ###### Topics
 
-- [Private registry policy examples for
-  Amazon ECR](registry-permissions-examples.md "registry-permissions-examples.md")
-- [Switching to the extended
-  registry policy scope](registry-permissions-account-settings.md "registry-permissions-account-settings.md")
-- [Granting registry
-  permissions for cross account replication in Amazon ECR](registry-permissions-create-replication.md "registry-permissions-create-replication.md")
-- [Granting registry
-  permissions for pull through cache in Amazon ECR](registry-permissions-create-pullthroughcache.md "registry-permissions-create-pullthroughcache.md")
+- [Private registry policy examples for Amazon ECR](registry-permissions-examples.md "registry-permissions-examples.md")
+- [Switching to the extended registry policy scope](registry-permissions-account-settings.md "registry-permissions-account-settings.md")
+- [Granting registry permissions for cross account replication in Amazon ECR](registry-permissions-create-replication.md "registry-permissions-create-replication.md")
+- [Granting registry permissions for pull through cache in Amazon ECR](registry-permissions-create-pullthroughcache.md "registry-permissions-create-pullthroughcache.md")

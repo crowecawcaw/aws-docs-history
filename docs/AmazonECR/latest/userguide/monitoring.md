@@ -29,8 +29,7 @@ create a monitoring plan that includes answers to the following questions:
 
 ###### Topics
 
-- [Visualizing your service quotas and setting
-  alarms](monitoring-quotas-alarms.md "monitoring-quotas-alarms.md")
+- [Visualizing your service quotas and setting alarms](monitoring-quotas-alarms.md "monitoring-quotas-alarms.md")
 - [Amazon ECR usage metrics](monitoring-usage.md "monitoring-usage.md")
 - [Amazon ECR usage reports](usage-reports.md "usage-reports.md")
 - [Amazon ECR repository metrics](ecr-repository-metrics.md "ecr-repository-metrics.md")

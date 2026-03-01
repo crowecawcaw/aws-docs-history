@@ -17,13 +17,11 @@ registries:
 For upstream registries that require authentication with secrets (such as Docker Hub),
 you must store your credentials in an AWS Secrets Manager secret. You can use the Amazon ECR console to
 create Secrets Manager secrets for each authenticated upstream registry. For more information about
-creating a Secrets Manager secret using the Secrets Manager console, see [Storing your upstream
-repository credentials in an AWS Secrets Manager secret](pull-through-cache-creating-secret.md "pull-through-cache-creating-secret.md").
+creating a Secrets Manager secret using the Secrets Manager console, see [Storing your upstream repository credentials in an AWS Secrets Manager secret](pull-through-cache-creating-secret.md "pull-through-cache-creating-secret.md").
 
 For Amazon ECR, you must create an IAM role if the upstream and downstream Amazon ECR registries
 belong to different AWS account. For more information about creating an IAM role, see
-[IAM policies
-required for cross-account ECR to ECR pull through cache](pull-through-cache-private.md#pull-through-cache-private-permissions "pull-through-cache-private.md#pull-through-cache-private-permissions").
+[IAM policies required for cross-account ECR to ECR pull through cache](pull-through-cache-private.md#pull-through-cache-private-permissions "pull-through-cache-private.md#pull-through-cache-private-permissions").
 
 After you've created a pull through cache rule for the upstream registry, pull an
 image from that upstream registry using your Amazon ECR private registry URI. Amazon ECR then creates
@@ -42,12 +40,9 @@ the configuration for all repository settings including resource-based access po
 tag immutability, encryption, and lifecycle policies. The settings in a repository
 creation template are only applied during repository creation and don't have any effect
 on existing repositories or repositories created using any other method. For more
-information, see [Templates to control repositories created
-during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
+information, see [Templates to control repositories created during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
 
-## Considerations for using pull
-
-through cache rules
+## Considerations for using pull through cache rules
 
 Consider the following when using Amazon ECR pull through cache rules.
 
@@ -90,13 +85,11 @@ Consider the following when using Amazon ECR pull through cache rules.
   needed for Amazon ECR to create the repository, retrieve the Secrets Manager secret value
   for authentication, and push the cached image on your behalf. The
   service-linked IAM role is created automatically when a pull through cache
-  rule is created. For more information, see [Amazon ECR service-linked role for pull through
-  cache](slr-pullthroughcache.md "slr-pullthroughcache.md").
+  rule is created. For more information, see [Amazon ECR service-linked role for pull through cache](slr-pullthroughcache.md "slr-pullthroughcache.md").
 - By default, the IAM principal pulling the cached image has the
   permissions granted to them through their IAM policy. You may use the
   Amazon ECR private registry permissions policy to further scope the permissions
-  of an IAM entity. For more information, see [Using registry
-  permissions](pull-through-cache-iam.md#pull-through-cache-registry-permissions "pull-through-cache-iam.md#pull-through-cache-registry-permissions").
+  of an IAM entity. For more information, see [Using registry permissions](pull-through-cache-iam.md#pull-through-cache-registry-permissions "pull-through-cache-iam.md#pull-through-cache-registry-permissions").
 - Amazon ECR repositories created using the pull through cache workflow are
   treated like any other Amazon ECR repository. All repository features, such as
   replication and image scanning are supported.
@@ -104,8 +97,7 @@ Consider the following when using Amazon ECR pull through cache rules.
   cache action, the following default settings are applied to the repository
   unless there is a matching repository creation template. You can use a
   repository creation template to define the settings applied to repositories
-  created by Amazon ECR on your behalf. For more information, see [Templates to control repositories created
-  during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
+  created by Amazon ECR on your behalf. For more information, see [Templates to control repositories created during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
   - Tag immutability – Tag immutability specifies whether image
     tags can be overwritten. By default, image tags are mutable (can be
     overwritten). You can modify tag behavior by configuring tag exclusion

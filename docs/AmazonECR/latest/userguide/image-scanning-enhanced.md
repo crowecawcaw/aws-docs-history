@@ -1,6 +1,4 @@
-# Scan images for OS and programming language
-
-package vulnerabilities in Amazon ECR
+# Scan images for OS and programming language package vulnerabilities in Amazon ECR
 
 Amazon ECR enhanced scanning is an integration with Amazon Inspector which provides vulnerability
 scanning for your container images. Your container images are scanned for both operating
@@ -13,9 +11,7 @@ With enhanced scanning, you can choose which repositories are configured for
 automatic, continuous scanning and which are configured for scan on push. This is done
 by setting scan filters.
 
-## Considerations for enhanced
-
-scanning
+## Considerations for enhanced scanning
 
 Consider the following before enabling Amazon ECR enhanced scanning.
 
@@ -50,8 +46,7 @@ Consider the following before enabling Amazon ECR enhanced scanning.
   repositories matching the scan filters are scanned using enhanced scanning
   only. Any repositories that don't match a filter will have an `Off`
   scan frequency and won't be scanned. Manual scans using enhanced scanning
-  aren't supported. For more information, see [Filters to choose which repositories are
-  scanned in Amazon ECR](image-scanning-filters.md "image-scanning-filters.md").
+  aren't supported. For more information, see [Filters to choose which repositories are scanned in Amazon ECR](image-scanning-filters.md "image-scanning-filters.md").
 - If you specify separate filters for scan on push and continuous scanning
   where multiple filters match the same repository, then Amazon ECR enforces the
   continuous scanning filter over the scan on push filter for that
@@ -61,9 +56,7 @@ Consider the following before enabling Amazon ECR enhanced scanning.
   an initial scan is completed and when an image scan finding is created,
   updated, or closed.
 
-## Changing the enhanced scanning
-
-duration for images in Amazon Inspector
+## Changing the enhanced scanning duration for images in Amazon Inspector
 
 After enabling enhanced scanning, Amazon ECR continually scans newly pushed images for
 the configured duration. By default, Amazon Inspector monitors your repositories until

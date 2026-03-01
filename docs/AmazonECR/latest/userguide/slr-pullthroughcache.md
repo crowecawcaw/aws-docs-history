@@ -1,16 +1,11 @@
-# Amazon ECR service-linked role for pull through
-
-cache
+# Amazon ECR service-linked role for pull through cache
 
 Amazon ECR uses a service-linked role named
 **AWSServiceRoleForECRPullThroughCache** which gives permission for
 Amazon ECR to perform actions on your behalf to complete pull through cache actions. For more
-information about pull through cache, see [Templates to control repositories created
-during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
+information about pull through cache, see [Templates to control repositories created during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
 
-## Service-linked role permissions
-
-for Amazon ECR
+## Service-linked role permissions for Amazon ECR
 
 The **AWSServiceRoleForECRPullThroughCache** service-linked role
 trusts the following service to assume the role.
@@ -81,9 +76,7 @@ group, or role) to create, edit, or delete a service-linked role. For more
 information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-Amazon ECR
+## Creating a service-linked role for Amazon ECR
 
 You don't need to manually create the Amazon ECR service-linked role for pull
 through cache. When you create a pull through cache rule for your private registry
@@ -95,9 +88,7 @@ the same process to recreate the role in your account. When you create a pull
 through cache rule for your private registry, Amazon ECR creates the
 service-linked role for you again if it doesn't already exist.
 
-## Editing a service-linked role for
-
-Amazon ECR
+## Editing a service-linked role for Amazon ECR
 
 Amazon ECR doesn't allow manually editing the
 **AWSServiceRoleForECRPullThroughCache** service-linked role.
@@ -106,9 +97,7 @@ because various entities might reference the role. However, you can edit the
 description of the role using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting the service-linked role for
-
-Amazon ECR
+## Deleting the service-linked role for Amazon ECR
 
 If you no longer need to use a feature or service that requires a service-linked
 role, we recommend that you delete that role. That way, you don’t have an unused
@@ -122,10 +111,7 @@ If you try to delete resources while the Amazon ECR service is still using
 the role, your delete action might fail. If that happens, wait for a few minutes
 and try again.
 
-###### To delete Amazon ECR resources used by the
-
-**AWSServiceRoleForECRPullThroughCache** service-linked
-role
+###### To delete Amazon ECR resources used by the **AWSServiceRoleForECRPullThroughCache** service-linked role
 
 1. Open the Amazon ECR console at
    [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").

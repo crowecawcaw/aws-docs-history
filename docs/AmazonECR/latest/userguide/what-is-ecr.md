@@ -23,8 +23,7 @@ Amazon ECR provides the following features:
 - Lifecycle policies help with managing the lifecycle of the images in your
   repositories. You define rules that result in the cleaning up of unused images.
   You can test rules before applying them to your repository. For more
-  information, see [Automate the cleanup of images by using lifecycle
-  policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md").
+  information, see [Automate the cleanup of images by using lifecycle policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md").
 - Image scanning helps in identifying software vulnerabilities in your container
   images. Each repository can be configured to **scan on push**.
   This ensures that each new image pushed to the repository is scanned. You can
@@ -40,8 +39,7 @@ Amazon ECR provides the following features:
   created by Amazon ECR on your behalf during pull through cache, create on push, or replication actions.
   You can specify tag immutability, encryption configuration, repository policies,
   lifecycle policies, and resource tags for automatically created repositories. For
-  more information, see [Templates to control repositories created
-  during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
+  more information, see [Templates to control repositories created during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
 - Managed signing automatically generates cryptographic signatures when images are pushed to Amazon ECR, simplifying container image signing. For more information, see [Managed signing](managed-signing.md "managed-signing.md").
 
 ## How to get started with Amazon ECR
@@ -57,8 +55,7 @@ version of the AWS CLI, see [Install or update to the
 latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the _AWS Command Line Interface User Guide_.
 
 To learn how to push a container image to a private Amazon ECR repository using the AWS CLI
-and Docker, see [Moving an image through its lifecycle in
-Amazon ECR](getting-started-cli.md "getting-started-cli.md").
+and Docker, see [Moving an image through its lifecycle in Amazon ECR](getting-started-cli.md "getting-started-cli.md").
 
 ## Pricing for Amazon ECR
 

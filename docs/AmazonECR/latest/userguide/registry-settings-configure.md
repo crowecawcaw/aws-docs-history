@@ -1,12 +1,9 @@
-# Configuring private image replication in
-
-Amazon ECR
+# Configuring private image replication in Amazon ECR
 
 Configure replication per Region for your private registry. You can configure
 cross-Region replication or cross-account replication.
 
-For examples of how replication is commonly used, see [Private image replication examples for
-Amazon ECR](registry-settings-examples.md "registry-settings-examples.md").
+For examples of how replication is commonly used, see [Private image replication examples for Amazon ECR](registry-settings-examples.md "registry-settings-examples.md").
 
 1. Open the Amazon ECR console at
    [https://console.aws.amazon.com/ecr/repositories](https://console.aws.amazon.com/ecr/repositories "https://console.aws.amazon.com/ecr/repositories").
@@ -50,8 +47,7 @@ rule**.
    registry. A replication configuration may contain up to 10 rules, with
    up to 25 unique destinations across all rules and 100 filters per each
    rule. To configure cross-Region replication within your own account, you
-   specify your own account ID. For more examples, see [Private image replication examples for
-   Amazon ECR](registry-settings-examples.md "registry-settings-examples.md").
+   specify your own account ID. For more examples, see [Private image replication examples for Amazon ECR](registry-settings-examples.md "registry-settings-examples.md").
 
 ```
 {

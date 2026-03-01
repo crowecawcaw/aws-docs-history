@@ -1,6 +1,4 @@
-# Troubleshooting pull through cache
-
-issues in Amazon ECR
+# Troubleshooting pull through cache issues in Amazon ECR
 
 When pulling an upstream image using a pull through cache rule, the following are the
 most common errors you may receive.
@@ -51,8 +49,7 @@ When pulling from a Docker Hub repository that is tagged as a
 If you omit the `/library/` for Docker Hub Official images, a
 `403 Forbidden` error will be returned when you attempt to
 pull the image using a pull through cache rule. For more information, see
-[Pulling an image with a
-pull through cache rule in Amazon ECR](pull-through-cache-working-pulling.md "pull-through-cache-working-pulling.md").
+[Pulling an image with a pull through cache rule in Amazon ECR](pull-through-cache-working-pulling.md "pull-through-cache-working-pulling.md").
 
 The following is an example of this error.
 

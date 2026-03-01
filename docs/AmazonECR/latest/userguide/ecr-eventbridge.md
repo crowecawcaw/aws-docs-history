@@ -24,8 +24,7 @@ basis.
 **Event for a completed image push**
 
 The following event is sent when each image push is completed. For more
-information, see [Pushing a Docker image to an Amazon ECR private
-repository](docker-push-ecr-image.md "docker-push-ecr-image.md").
+information, see [Pushing a Docker image to an Amazon ECR private repository](docker-push-ecr-image.md "docker-push-ecr-image.md").
 
 ```
 {
@@ -83,14 +82,12 @@ When basic scanning is enabled for your registry, the following event is sent wh
 each image scan is completed. The `finding-severity-counts` parameter
 will only return a value for a severity level if one exists. For example, if the
 image contains no findings at `CRITICAL` level, then no critical count is
-returned. For more information, see [Scan images for OS vulnerabilities in
-Amazon ECR](image-scanning-basic.md "image-scanning-basic.md").
+returned. For more information, see [Scan images for OS vulnerabilities in Amazon ECR](image-scanning-basic.md "image-scanning-basic.md").
 
 ###### Note
 
 For details about events that Amazon Inspector emits when enhanced scanning is enabled,
-see [EventBridge events sent for enhanced
-scanning in Amazon ECR](image-scanning-enhanced-events.md "image-scanning-enhanced-events.md").
+see [EventBridge events sent for enhanced scanning in Amazon ECR](image-scanning-enhanced-events.md "image-scanning-enhanced-events.md").
 
 ```
 {

@@ -44,9 +44,7 @@ JSON
 
 ```
 
-## Specifying an Amazon ECR image in an Amazon ECS task
-
-definition
+## Specifying an Amazon ECR image in an Amazon ECS task definition
 
 When creating an Amazon ECS task definition, you can specify a container image hosted in an
 Amazon ECR private repository. In the task definition, ensure that you use the full

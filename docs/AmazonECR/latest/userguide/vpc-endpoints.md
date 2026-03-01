@@ -8,9 +8,7 @@ gateway, a NAT device, or a virtual private gateway.
 
 For more information about AWS PrivateLink and VPC endpoints, see [VPC Endpoints](../../../vpc/latest/userguide/vpc-endpoints.md "../../../vpc/latest/userguide/vpc-endpoints.md") in the _Amazon VPC User Guide_.
 
-## Considerations for Amazon ECR VPC
-
-endpoints
+## Considerations for Amazon ECR VPC endpoints
 
 Before you configure VPC endpoints for Amazon ECR, be aware of the following
 considerations.
@@ -49,9 +47,7 @@ considerations.
 - For workloads requiring FIPS 140-3 validated cryptographic modules, Amazon ECR
   supports FIPS endpoints for VPC endpoints.
 
-### Considerations for Windows
-
-images
+### Considerations for Windows images
 
 Images based on the Windows operating system include artifacts that are restricted
 by license from being distributed. By default, when you push Windows images to an
@@ -225,12 +221,9 @@ The Amazon S3 gateway endpoint uses an IAM policy document to limit access to
 the service. The **Full Access** policy can be used because
 any restrictions that you have put in your task IAM roles or other IAM
 user policies still apply on top of this policy. If you want to limit Amazon S3
-bucket access to the minimum required permissions for using Amazon ECR, see [Minimum Amazon S3 Bucket Permissions for
-Amazon ECR](#ecr-minimum-s3-perms "#ecr-minimum-s3-perms").
+bucket access to the minimum required permissions for using Amazon ECR, see [Minimum Amazon S3 Bucket Permissions for Amazon ECR](#ecr-minimum-s3-perms "#ecr-minimum-s3-perms").
 
-### Minimum Amazon S3 Bucket Permissions for
-
-Amazon ECR
+### Minimum Amazon S3 Bucket Permissions for Amazon ECR
 
 The Amazon S3 gateway endpoint uses an IAM policy document to limit access to the
 service. To allow only the minimum Amazon S3 bucket permissions for Amazon ECR, restrict
@@ -275,9 +268,7 @@ interface VPC endpoint for CloudWatch Logs. For more information, see [Using
 CloudWatch Logs with interface VPC endpoints](../../../AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.md "../../../AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.md") in the
 _Amazon CloudWatch Logs User Guide_.
 
-## Create an endpoint policy for your Amazon ECR VPC
-
-endpoints
+## Create an endpoint policy for your Amazon ECR VPC endpoints
 
 A VPC endpoint policy is an IAM resource policy that you attach to an endpoint when
 you create or modify the endpoint. If you don't attach a policy when you create an

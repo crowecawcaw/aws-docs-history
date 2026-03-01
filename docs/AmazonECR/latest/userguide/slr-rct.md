@@ -79,10 +79,7 @@ If you try to delete resources while the Amazon ECR service is still using
 the role, your delete action might fail. If that happens, wait for a few minutes
 and try again.
 
-###### To delete Amazon ECR resources used by the
-
-**AWSServiceRoleForECRTemplate** service-linked
-role
+###### To delete Amazon ECR resources used by the **AWSServiceRoleForECRTemplate** service-linked role
 
 1. Open the Amazon ECR console at
    [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").

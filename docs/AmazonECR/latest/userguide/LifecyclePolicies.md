@@ -1,6 +1,4 @@
-# Automate the cleanup of images by using lifecycle
-
-policies in Amazon ECR
+# Automate the cleanup of images by using lifecycle policies in Amazon ECR
 
 Amazon ECR lifecycle policies provide more control over the lifecycle management of images in a
 private repository. A lifecycle policy contains one or more rules, and each rule defines an
@@ -42,8 +40,7 @@ The following diagram shows the lifecycle policy workflow.
 The lifecycle policy evaluator is responsible for parsing the plaintext JSON of
 the lifecycle policy, evaluating all rules, and then applying those rules based on
 rule priority to the images in the repository. The following explains the logic of
-the lifecycle policy evaluator in more detail. For examples, see [Examples of lifecycle policies in
-Amazon ECR](lifecycle_policy_examples.md "lifecycle_policy_examples.md").
+the lifecycle policy evaluator in more detail. For examples, see [Examples of lifecycle policies in Amazon ECR](lifecycle_policy_examples.md "lifecycle_policy_examples.md").
 
 - When reference artifacts are present in a repository, Amazon ECR lifecycle
   policies automatically expire or archive those artifacts within 24 hours of the

@@ -1,6 +1,4 @@
-# Templates to control repositories created
-
-during a pull through cache, create on push, or replication action
+# Templates to control repositories created during a pull through cache, create on push, or replication action
 
 Use Amazon ECR repository creation templates to define the settings for repositories created by
 Amazon ECR on your behalf. The settings in a repository creation template are only applied during
@@ -12,9 +10,7 @@ apply settings during repository creation for these features:
 - Create on push
 - Replication
 
-## How repository creation templates
-
-work
+## How repository creation templates work
 
 There are times when Amazon ECR needs to create a new private repository on your behalf.
 For example:
@@ -155,8 +151,7 @@ using the template. A lifecycle policy provides more control over the
 lifecycle management of images in a private repository. A lifecycle policy
 contains one or more rules, where each rule defines an action for Amazon ECR.
 This provides a way to automate the cleaning up of your container images by
-expiring images based on age or count. For more information, see [Automate the cleanup of images by using lifecycle
-policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md").
+expiring images based on age or count. For more information, see [Automate the cleanup of images by using lifecycle policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md").
 
 Resource tags
 

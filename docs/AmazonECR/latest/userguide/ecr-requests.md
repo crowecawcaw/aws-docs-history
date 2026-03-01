@@ -82,9 +82,7 @@ shown in the following example.
 ping ecr.us-west-2.api.aws
 ```
 
-## Making requests over IPv6 by using dual-stack
-
-endpoints
+## Making requests over IPv6 by using dual-stack endpoints
 
 You can make Amazon ECR API calls over IPv6 using dual-stack endpoints. The
 functionality and performance of Amazon ECR API operations remain consistent whether you
@@ -102,31 +100,23 @@ endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/la
 
 `aws configure set default.ecr.use_dualstack_endpoint true`
 
-###### Example Making requests over IPv6 using
-
-AWS CLI
+###### Example Making requests over IPv6 using AWS CLI
 
 `aws ecr describe-repositories --region us-west-2 --endpoint-url
  https://ecr.us-west-2.api.aws`
 
-## Using Amazon ECR endpoints from the docker
-
-CLI
+## Using Amazon ECR endpoints from the docker CLI
 
 After you sign in to your Amazon ECR repository and tag your image, you can push and pull
 OCI images and Docker images to and from Amazon ECR registries. The following examples
 demonstrate docker push and docker pull commands with both dual-stack endpoints.
 
-###### Example Pushing docker images using IPv4
-
-endpoint
+###### Example Pushing docker images using IPv4 endpoint
 
 `docker push
  `<registry-id>`.dkr.ecr.us-west-1.amazonaws.com/my-repository:tag`
 
-###### Example Pushing docker images using dual-stack
-
-endpoint
+###### Example Pushing docker images using dual-stack endpoint
 
 `docker push
  `<registry-id>`.dkr-ecr.us-west-1.on.aws/my-repository:tag`

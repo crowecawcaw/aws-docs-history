@@ -28,9 +28,7 @@ The following table provides the default service quotas for Amazon Elastic Conta
 | Tags per image                                                      | Each supported Region: 1,000            | No                                                                                                                                                                         | The maximum number of tags per image.                                                                                                                                                                                                                                                                                                       |
 | Unique destinations across all rules in a replication configuration | Each supported Region: 25               | No                                                                                                                                                                         | The maximum number of unique destinations across all rules in a replication configuration.                                                                                                                                                                                                                                                  |
 
-## Managing your Amazon ECR service quotas in the
-
-AWS Management Console
+## Managing your Amazon ECR service quotas in the AWS Management Console
 
 Amazon ECR has integrated with Service Quotas, an AWS service that enables you to view and
 manage your quotas from a central location. For more information, see [What Is Service
@@ -53,9 +51,7 @@ choose the quota name.
 To request a quota increase, see [Requesting a quota
 increase](../../../servicequotas/latest/userguide/request-increase.md "../../../servicequotas/latest/userguide/request-increase.md") in the _Service Quotas User Guide_.
 
-### Creating a CloudWatch alarm to monitor API usage
-
-metrics
+### Creating a CloudWatch alarm to monitor API usage metrics
 
 Amazon ECR provides CloudWatch usage metrics that correspond to the AWS service quotas for
 each of the APIs involved with the registry authentication, image push, and image

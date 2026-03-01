@@ -45,8 +45,7 @@ see [Using Amazon ECR images with Amazon ECS](ECR_on_ECS.md "ECR_on_ECS.md") and
 
 Amazon ECR lifecycle policies allow you to manage the lifecycle of your images
 by defining rules for pruning and expiring old or unused images. For more
-information, see [Automate the cleanup of images by using lifecycle
-policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md").
+information, see [Automate the cleanup of images by using lifecycle policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md").
 
 **Image Scanning**
 

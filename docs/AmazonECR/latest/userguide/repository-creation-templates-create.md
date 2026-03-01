@@ -1,6 +1,4 @@
-# Creating a repository creation
-
-template in Amazon ECR
+# Creating a repository creation template in Amazon ECR
 
 You can create a repository creation template to define the settings to use for
 repositories created by Amazon ECR on your behalf during pull through cache, create on push, or replication
@@ -12,16 +10,12 @@ When setting up a repository with templates, you have the option to specify KMS 
 and resource tags. If you intend to use KMS keys, resource tags, or a combination of
 both in one or more templates, you need to:
 
-- [Create a custom policy for
-  repository creation templates](repository-creation-templates-custom.md "repository-creation-templates-custom.md").
-- [Create an IAM role for
-  repository creation templates](repository-creation-templates-create-iam.md "repository-creation-templates-create-iam.md").
+- [Create a custom policy for repository creation templates](repository-creation-templates-custom.md "repository-creation-templates-custom.md").
+- [Create an IAM role for repository creation templates](repository-creation-templates-create-iam.md "repository-creation-templates-create-iam.md").
   Once configured, you can attach the custom role to specific templates in your
   registry.
 
-## IAM permissions for creating
-
-repository creation templates
+## IAM permissions for creating repository creation templates
 
 The following permissions are needed for an IAM principal to manage repository
 creation templates. These permission must be granted using an identity-based IAM
@@ -49,9 +43,7 @@ policy.
   necessary for services and applications that need to assume a role to
   perform actions on your behalf.
 
-## Create a repository
-
-creation template
+## Create a repository creation template
 
 Once you've completed the necessary prerequisites for your templates, you can
 proceed to create the repository creation templates.
@@ -102,8 +94,7 @@ AWS Management Console
    template.
    1. For **Image tag mutability**, choose
       the tag mutability setting to use. For more information,
-      see [Preventing image tags from being overwritten in
-      Amazon ECR](image-tag-mutability.md "image-tag-mutability.md").
+      see [Preventing image tags from being overwritten in Amazon ECR](image-tag-mutability.md "image-tag-mutability.md").
       - **Mutable** – Choose
         this option if you want image tags to be
         overwritten. Recommended for repositories using
@@ -157,16 +148,14 @@ AWS Management Console
    repositories created using this template. You can
    optionally use the drop down to select one of the JSON
    samples for the most common use cases. For more
-   information, see [Automate the cleanup of images by using lifecycle
-   policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md"). 5. For **Repository AWS tags**,
+   information, see [Automate the cleanup of images by using lifecycle policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md"). 5. For **Repository AWS tags**,
    specify the metadata, in the form of key-value pairs, to
    associate with the repositories created using this
    template and then choose **Next**. For
    more information, see [Tagging a private repository in Amazon ECR](ecr-using-tags.md "ecr-using-tags.md"). 6. For **Repository creation role**,
    select a custom IAM role from the drop-down menu to be
    used for repository creation templates when using
-   repository tags or KMS in the template (see [Create an IAM role for
-   repository creation templates](repository-creation-templates-create-iam.md "repository-creation-templates-create-iam.md") for details).Then choose
+   repository tags or KMS in the template (see [Create an IAM role for repository creation templates](repository-creation-templates-create-iam.md "repository-creation-templates-create-iam.md") for details).Then choose
    **Next**.
 
 9. On the **Step 3: Review and create** page,

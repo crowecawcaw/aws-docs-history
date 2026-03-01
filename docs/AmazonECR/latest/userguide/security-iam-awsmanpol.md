@@ -30,8 +30,7 @@ _Amazon Elastic Container Registry API Reference_.
 - [AWSECRPullThroughCache_ServiceRolePolicy](#security-iam-awsmanpol-AWSECRPullThroughCache_ServiceRolePolicy "#security-iam-awsmanpol-AWSECRPullThroughCache_ServiceRolePolicy")
 - [ECRReplicationServiceRolePolicy](#security-iam-awsmanpol-ECRReplicationServiceRolePolicy "#security-iam-awsmanpol-ECRReplicationServiceRolePolicy")
 - [ECRTemplateServiceRolePolicy](#security-iam-awsmanpol-ECRTemplateServiceRolePolicy "#security-iam-awsmanpol-ECRTemplateServiceRolePolicy")
-- [Amazon ECR updates to AWS managed
-  policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [Amazon ECR updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
 ## AmazonEC2ContainerRegistryFullAccess
 
@@ -73,26 +72,21 @@ To view the permissions for this policy, see [AmazonEC2ContainerRegistryReadOnly
 You can't attach the `AWSECRPullThroughCache_ServiceRolePolicy` managed
 IAM policy to your IAM entities. This policy is attached to a service-linked role
 that allows Amazon ECR to push images to your repositories through the pull through cache
-workflow. For more information, see [Amazon ECR service-linked role for pull through
-cache](slr-pullthroughcache.md "slr-pullthroughcache.md").
+workflow. For more information, see [Amazon ECR service-linked role for pull through cache](slr-pullthroughcache.md "slr-pullthroughcache.md").
 
 ## `ECRReplicationServiceRolePolicy`
 
 You can't attach the `ECRReplicationServiceRolePolicy` managed IAM policy
 to your IAM entities. This policy is attached to a service-linked role that allows
-Amazon ECR to perform actions on your behalf. For more information, see [Using service-linked roles for
-Amazon ECR](using-service-linked-roles.md "using-service-linked-roles.md").
+Amazon ECR to perform actions on your behalf. For more information, see [Using service-linked roles for Amazon ECR](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ## `ECRTemplateServiceRolePolicy`
 
 You can't attach the `ECRTemplateServiceRolePolicy` managed IAM policy
 to your IAM entities. This policy is attached to a service-linked role that allows
-Amazon ECR to perform actions on your behalf. For more information, see [Using service-linked roles for
-Amazon ECR](using-service-linked-roles.md "using-service-linked-roles.md").
+Amazon ECR to perform actions on your behalf. For more information, see [Using service-linked roles for Amazon ECR](using-service-linked-roles.md "using-service-linked-roles.md").
 
-## Amazon ECR updates to AWS managed
-
-policies
+## Amazon ECR updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon ECR since the time that
 this service began tracking these changes. For automatic alerts about changes to this
@@ -100,7 +94,7 @@ page, subscribe to the RSS feed on the Amazon ECR Document history page.
 
 | Change                                                                                                                                                                                                | Description                                                                                                                                                                                                                                                                                                                                | Date              |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
-| [Amazon ECR service-linked role for pull through<br>cache](slr-pullthroughcache.md "slr-pullthroughcache.md")<br>– Update to an existing policy                                                       | Amazon ECR added new permissions to the `AWSECRPullThroughCache_ServiceRolePolicy` policy. These permissions allow Amazon ECR to pull images from ECR private registry.<br>This is required when using a pull through cache rule to cache images from another Amazon ECR private registry.                                                 | March 12, 2025    |
+| [Amazon ECR service-linked role for pull through cache](slr-pullthroughcache.md "slr-pullthroughcache.md")<br>– Update to an existing policy                                                          | Amazon ECR added new permissions to the `AWSECRPullThroughCache_ServiceRolePolicy` policy. These permissions allow Amazon ECR to pull images from ECR private registry.<br>This is required when using a pull through cache rule to cache images from another Amazon ECR private registry.                                                 | March 12, 2025    |
 | [AmazonEC2ContainerRegistryPullOnly](#security-iam-awsmanpol-AmazonEC2ContainerRegistryPullOnly "#security-iam-awsmanpol-AmazonEC2ContainerRegistryPullOnly")<br>– New policy                         | Amazon ECR added a new policy which grants pull-only permissions to<br>Amazon ECR.                                                                                                                                                                                                                                                         | October 10, 2024  |
 | [ECRTemplateServiceRolePolicy](slr-rct.md "slr-rct.md") – New<br>policy                                                                                                                               | Amazon ECR added a new policy. This policy is associated with the<br>`ECRTemplateServiceRolePolicy` service-linked<br>role for the repository creation template feature.                                                                                                                                                                   | June 20, 2024     |
 | [AWSECRPullThroughCache_ServiceRolePolicy](slr-pullthroughcache.md "slr-pullthroughcache.md") – Update<br>to an existing policy                                                                       | Amazon ECR added new permissions to the<br>`AWSECRPullThroughCache_ServiceRolePolicy` policy.<br>These permissions allow Amazon ECR to retrieve the encrypted contents of<br>a Secrets Manager secret. This is required when using a pull through cache<br>rule to cache images from an upstream registry that requires<br>authentication. | November 15, 2023 |

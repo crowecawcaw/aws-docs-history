@@ -1,6 +1,4 @@
-# Pushing a multi-architecture
-
-image to an Amazon ECR private repository
+# Pushing a multi-architecture image to an Amazon ECR private repository
 
 You can push multi-architecture images to an Amazon ECR repository by creating and
 pushing Docker manifest lists. A _manifest list_ is a list of
@@ -19,11 +17,9 @@ pod spec like other Amazon ECR images.
   experimental features, see [Experimental
   features](https://docs.docker.com/engine/reference/commandline/cli/#experimental-features "https://docs.docker.com/engine/reference/commandline/cli/#experimental-features") in the Docker documentation.
 - The Amazon ECR repository must exist before you push the image. For more
-  information, see [Creating an Amazon ECR private repository to store
-  images](repository-create.md "repository-create.md").
+  information, see [Creating an Amazon ECR private repository to store images](repository-create.md "repository-create.md").
 - Images must be pushed to your repository before you create the Docker
-  manifest. For information about how to push an image, see [Pushing a Docker image to an Amazon ECR private
-  repository](docker-push-ecr-image.md "docker-push-ecr-image.md").
+  manifest. For information about how to push an image, see [Pushing a Docker image to an Amazon ECR private repository](docker-push-ecr-image.md "docker-push-ecr-image.md").
 
 ###### To push a multi-architecture Docker image to an Amazon ECR repository
 

@@ -16,9 +16,7 @@ You can verify signatures manually using the Notation CLI. This method requires 
 locally after signing](../../../signer/latest/developerguide/image-verification.md "../../../signer/latest/developerguide/image-verification.md") in the _AWS Signer Developer
 Guide_.
 
-## Configure authentication for the
-
-Notation client
+## Configure authentication for the Notation client
 
 If you use manual signing or verify signatures manually using the Notation CLI, you must configure the Notation client so it can authenticate to Amazon ECR. If you have Docker installed on the same
 host where you install the Notation client, then Notation will reuse the same

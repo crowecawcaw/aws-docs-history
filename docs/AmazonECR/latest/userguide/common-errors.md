@@ -4,9 +4,7 @@ In some cases, an API call that you have initiated through the Amazon ECR consol
 AWS CLI exits with an error message. Some common error messages and potential solutions
 are explained below.
 
-## HTTP 429: Too Many Requests or
-
-ThrottleException
+## HTTP 429: Too Many Requests or ThrottleException
 
 You may receive a `429: Too Many Requests` error or a
 `ThrottleException` error from one or more Amazon ECR actions or API
@@ -28,12 +26,9 @@ To handle throttling errors, implement a retry function with incremental backoff
 into your code. For more information, see [Retry behavior](../../../general/latest/gr/api-retries.md "../../../general/latest/gr/api-retries.md") in the _AWS SDKs and Tools Reference
 Guide_. Another option is to request a rate limit increase, which you
 can do using the Service Quotas console. For more information, see
-[Managing your Amazon ECR service quotas in the
-AWS Management Console](service-quotas.md#service-quotas-console "service-quotas.md#service-quotas-console")..
+[Managing your Amazon ECR service quotas in the AWS Management Console](service-quotas.md#service-quotas-console "service-quotas.md#service-quotas-console")..
 
-## HTTP 403: "User [arn] is not authorized to
-
-perform [operation]"
+## HTTP 403: "User [arn] is not authorized to perform [operation]"
 
 You may receive the following error when attempting to perform an action with
 Amazon ECR:
@@ -51,9 +46,7 @@ performing actions against an Amazon ECR repository, verify that the user has be
 granted permissions to access that repository. For more information about creating
 and verifying permissions for Amazon ECR, see [Identity and Access Management for Amazon Elastic Container Registry](security-iam.md "security-iam.md").
 
-## HTTP 404: "Repository Does Not Exist"
-
-error
+## HTTP 404: "Repository Does Not Exist" error
 
 If you specify a Docker Hub repository that does not currently exist, Docker Hub
 creates it automatically. With Amazon ECR, new repositories must be explicitly created
@@ -62,9 +55,7 @@ accidentally (for example, due to typos), and it also ensures that an appropriat
 security access policy is explicitly assigned to any new repositories. For more
 information about creating repositories, see [Amazon ECR private repositories](Repositories.md "Repositories.md").
 
-## Error: Cannot perform an
-
-interactive login from a non TTY device
+## Error: Cannot perform an interactive login from a non TTY device
 
 If you receive the error `Cannot perform an interactive login from a non TTY
  device`, the following troubleshooting steps should help.

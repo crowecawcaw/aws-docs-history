@@ -1,11 +1,8 @@
-# Lifecycle policy properties in
-
-Amazon ECR
+# Lifecycle policy properties in Amazon ECR
 
 Lifecycle policies have the following properties.
 
-To see examples of lifecycle policies, see [Examples of lifecycle policies in
-Amazon ECR](lifecycle_policy_examples.md "lifecycle_policy_examples.md"). For instructions about creating a
+To see examples of lifecycle policies, see [Examples of lifecycle policies in Amazon ECR](lifecycle_policy_examples.md "lifecycle_policy_examples.md"). For instructions about creating a
 lifecycle policy by using the AWS CLI, see [To create a lifecycle policy (AWS CLI)](lp_creation.md#lp-creation-cli "lp_creation.md#lp-creation-cli").
 
 ## Rule priority

@@ -8,20 +8,13 @@ information, see [Private registry permissions in Amazon ECR](registry-permissio
 
 ###### Topics
 
-- [Cross-account replication policy
-  requirements](#replication-policy-clarification "#replication-policy-clarification")
-- [Considerations for private image
-  replication](#replication-considerations "#replication-considerations")
-- [Private image replication examples for
-  Amazon ECR](registry-settings-examples.md "registry-settings-examples.md")
-- [Configuring private image replication in
-  Amazon ECR](registry-settings-configure.md "registry-settings-configure.md")
-- [Removing private image replication settings
-  in Amazon ECR](registry-settings-remove.md "registry-settings-remove.md")
+- [Cross-account replication policy requirements](#replication-policy-clarification "#replication-policy-clarification")
+- [Considerations for private image replication](#replication-considerations "#replication-considerations")
+- [Private image replication examples for Amazon ECR](registry-settings-examples.md "registry-settings-examples.md")
+- [Configuring private image replication in Amazon ECR](registry-settings-configure.md "registry-settings-configure.md")
+- [Removing private image replication settings in Amazon ECR](registry-settings-remove.md "registry-settings-remove.md")
 
-## Cross-account replication policy
-
-requirements
+## Cross-account replication policy requirements
 
 For cross-account ECR replication to work properly, you must understand which account
 needs which policies configured. This section clarifies the policy requirements for both
@@ -38,9 +31,7 @@ any special repository or registry policies.
 - **Destination Account**: Configure a registry
   permissions policy to allow the source account to replicate images.
 
-### Destination registry policy
-
-requirements
+### Destination registry policy requirements
 
 The destination account must configure a registry permissions policy that grants the
 source account permission to perform the following actions:
@@ -118,9 +109,7 @@ registry permissions policy.
 to individual repositories, while registry policies control registry-level
 operations like replication.
 
-### Troubleshooting replication
-
-failures
+### Troubleshooting replication failures
 
 If cross-account replication is failing, check the following:
 
@@ -135,9 +124,7 @@ If cross-account replication is failing, check the following:
 - Review CloudTrail logs for failed `CreateRepository` or
   `ReplicateImage` API calls
 
-## Considerations for private image
-
-replication
+## Considerations for private image replication
 
 The following should be considered when using private image replication.
 
@@ -151,8 +138,7 @@ The following should be considered when using private image replication.
 - The first time you configure your private registry for replication, Amazon ECR
   creates a service-linked IAM role on your behalf. The service-linked IAM
   role grants the Amazon ECR replication service the permission it needs to create
-  repositories and replicate images in your registry. For more information, see [Using service-linked roles for
-  Amazon ECR](using-service-linked-roles.md "using-service-linked-roles.md").
+  repositories and replicate images in your registry. For more information, see [Using service-linked roles for Amazon ECR](using-service-linked-roles.md "using-service-linked-roles.md").
 - For cross-account replication to occur, the private registry destination must
   grant permission to allow the source registry to replicate its images. This is
   done by setting a private registry permissions policy. For more information, see [Private registry permissions in Amazon ECR](registry-permissions.md "registry-permissions.md").
@@ -172,8 +158,7 @@ The following should be considered when using private image replication.
   example.
 - The replication configuration supports filtering which repositories in a
   private registry are replicated by specifying a repository prefix. For an
-  example, see [Example: Configuring
-  cross-Region replication using a repository filter](registry-settings-examples.md#registry-settings-examples-crr-filter "registry-settings-examples.md#registry-settings-examples-crr-filter").
+  example, see [Example: Configuring cross-Region replication using a repository filter](registry-settings-examples.md#registry-settings-examples-crr-filter "registry-settings-examples.md#registry-settings-examples-crr-filter").
 - A replication action only occurs once per image push or image restore. For example, if you
   configured cross-Region replication from `us-west-2` to `us-east-1` and from `us-east-1` to `us-east-2`, an
   image pushed to `us-west-2` replicates to only `us-east-1`,
@@ -192,8 +177,7 @@ The following should be considered when using private image replication.
 - Repository settings aren't replicated by default, you can replicate the
   repository settings using repository creation templates. These settings include
   tag mutability, encryption, repository permissions, and lifecycle policies. For
-  more information about repository creation templates, see [Templates to control repositories created
-  during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
+  more information about repository creation templates, see [Templates to control repositories created during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
 - If tag immutability is enabled on a repository and an image is replicated that
   uses the same tag as an existing image, the image is replicated but won't
   contain the duplicated tag. This might result in the image being

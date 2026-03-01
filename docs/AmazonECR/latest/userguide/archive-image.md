@@ -59,8 +59,7 @@ AWS CLI
 
   You can also configure lifecycle policies to permanently delete images after
   they've been archived for a specified period. For more information and examples of
-  lifecycle policies with archive actions, see [Automate the cleanup of images by using lifecycle
-  policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md").
+  lifecycle policies with archive actions, see [Automate the cleanup of images by using lifecycle policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md").
 
 ###### Note
 

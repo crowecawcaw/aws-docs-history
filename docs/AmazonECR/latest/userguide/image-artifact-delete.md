@@ -1,6 +1,4 @@
-# Deleting signatures and other artifacts from an
-
-Amazon ECR private repository
+# Deleting signatures and other artifacts from an Amazon ECR private repository
 
 You can use the ORAS client to list and delete signatures and other reference type
 artifacts from an Amazon ECR private repository. Deleting signatures and other reference

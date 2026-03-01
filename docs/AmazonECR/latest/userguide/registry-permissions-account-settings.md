@@ -1,6 +1,4 @@
-# Switching to the extended
-
-registry policy scope
+# Switching to the extended registry policy scope
 
 ###### Important
 
@@ -16,9 +14,7 @@ Use the following steps to view your account settings. To view or
 update the registry policy scope, see the CLI procedure on this
 page.
 
-###### Turn on the enhanced registry policy for your private
-
-registry
+###### Turn on the enhanced registry policy for your private registry
 
 1. Open the Amazon ECR console at [https://console.aws.amazon.com/ecr/private-registry/repositories](https://console.aws.amazon.com/ecr/private-registry/repositories "https://console.aws.amazon.com/ecr/private-registry/repositories")
 2. From the navigation bar, choose the Region.

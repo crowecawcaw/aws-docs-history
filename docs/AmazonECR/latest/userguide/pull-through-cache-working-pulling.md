@@ -1,11 +1,8 @@
-# Pulling an image with a
-
-pull through cache rule in Amazon ECR
+# Pulling an image with a pull through cache rule in Amazon ECR
 
 The following examples show the command syntax to use when pulling an image
 using a pull through cache rule. If you receive an error pulling an upstream
-image using a pull through cache rule, see [Troubleshooting pull through cache
-issues in Amazon ECR](error-pullthroughcache.md "error-pullthroughcache.md")
+image using a pull through cache rule, see [Troubleshooting pull through cache issues in Amazon ECR](error-pullthroughcache.md "error-pullthroughcache.md")
 for the most common errors and how to resolve them.
 
 Before you start working with your pull through cache rules, verify that you have the proper

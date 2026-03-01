@@ -1,6 +1,4 @@
-# Viewing the contents and details of a private
-
-repository in Amazon ECR
+# Viewing the contents and details of a private repository in Amazon ECR
 
 After you created a private repository, you can view details about the repository in
 the AWS Management Console:
@@ -47,7 +45,6 @@ AWS Management Console.
      [Private repository policies in Amazon ECR](repository-policies.md "repository-policies.md").
    - Choose **Lifecycle Policy** to view the lifecycle
      policy rules that are applied to the repository. The lifecycle events
-     history is also viewed here. For more information, see [Automate the cleanup of images by using lifecycle
-     policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md").
+     history is also viewed here. For more information, see [Automate the cleanup of images by using lifecycle policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md").
    - Choose **Tags** to view the metadata tags that are
      applied to the repository.

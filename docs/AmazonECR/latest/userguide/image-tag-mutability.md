@@ -1,6 +1,4 @@
-# Preventing image tags from being overwritten in
-
-Amazon ECR
+# Preventing image tags from being overwritten in Amazon ECR
 
 You can prevent image tags from being overwritten by turning on tag immutability in a
 repository. After tag immutability is turned on, the `ImageTagAlreadyExistsException` error is returned if you push an image with a tag
@@ -9,8 +7,7 @@ some tags immutable while others aren't.
 
 You can use the AWS Management Console and AWS CLI tools to set image tag mutability for a new
 repository or for an existing repository. To create a repository using console steps,
-see [Creating an Amazon ECR private repository to store
-images](repository-create.md "repository-create.md").
+see [Creating an Amazon ECR private repository to store images](repository-create.md "repository-create.md").
 
 ## Setting image tag mutability (AWS Management Console)
 
@@ -57,9 +54,7 @@ following tag mutability settings for the repository.
    repository is created.
 9. Choose **Save** to update the repository settings.
 
-## Setting image tag mutability
-
-(AWS CLI)
+## Setting image tag mutability (AWS CLI)
 
 ###### To create a repository with immutable tags configured
 

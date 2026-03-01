@@ -1,6 +1,4 @@
-# Troubleshooting Docker commands and issues when
-
-using Amazon ECR
+# Troubleshooting Docker commands and issues when using Amazon ECR
 
 In some cases, running a Docker command against Amazon ECR might result in an error message.
 Some common error messages and potential solutions are explained below.
@@ -8,13 +6,9 @@ Some common error messages and potential solutions are explained below.
 ###### Topics
 
 - [Docker logs do not contain expected error messages](#debug "#debug")
-- [Error: "Filesystem
-  Verification Failed" or "404: Image Not Found" when pulling an image from an
-  Amazon ECR repository](#error-filesystem-verification-failed "#error-filesystem-verification-failed")
-- [Error: "Filesystem Layer
-  Verification Failed" when pulling images from Amazon ECR](#error-filesystem-layer-verification "#error-filesystem-layer-verification")
-- [HTTP 403 Errors or "no basic auth credentials" error
-  when pushing to repository](#error-403 "#error-403")
+- [Error: "Filesystem Verification Failed" or "404: Image Not Found" when pulling an image from an Amazon ECR repository](#error-filesystem-verification-failed "#error-filesystem-verification-failed")
+- [Error: "Filesystem Layer Verification Failed" when pulling images from Amazon ECR](#error-filesystem-layer-verification "#error-filesystem-layer-verification")
+- [HTTP 403 Errors or "no basic auth credentials" error when pushing to repository](#error-403 "#error-403")
 
 ## Docker logs do not contain expected error messages
 
@@ -23,10 +17,7 @@ debugging output on the Docker daemon running on your host instances. If you are
 Amazon ECS container instances, see [Configuring verbose output from the Docker daemon](../../../AmazonECS/latest/developerguide/docker-debug-mode.md "../../../AmazonECS/latest/developerguide/docker-debug-mode.md")
 in the _Amazon Elastic Container Service Developer Guide_.
 
-## Error: "Filesystem
-
-Verification Failed" or "404: Image Not Found" when pulling an image from an
-Amazon ECR repository
+## Error: "Filesystem Verification Failed" or "404: Image Not Found" when pulling an image from an Amazon ECR repository
 
 You may receive the error `Filesystem verification failed` when using
 the **docker pull** command to pull an image from an Amazon ECR repository
@@ -65,9 +56,7 @@ If you are using Docker behind an HTTP proxy, you can configure Docker
 with the appropriate proxy settings. For more information, see [HTTP
 proxy](https://docs.docker.com/engine/admin/systemd/#/http-proxy "https://docs.docker.com/engine/admin/systemd/#/http-proxy") in the Docker documentation.
 
-## Error: "Filesystem Layer
-
-Verification Failed" when pulling images from Amazon ECR
+## Error: "Filesystem Layer Verification Failed" when pulling images from Amazon ECR
 
 You may receive the error `image image-name not found` when pulling
 images using the **docker pull** command. If you inspect the Docker
@@ -94,9 +83,7 @@ downloading, as discussed earlier about the `Filesystem
 to ensure that your filesystem is not full, and that you have enabled
 access to Amazon S3 from within your network.
 
-## HTTP 403 Errors or "no basic auth credentials" error
-
-when pushing to repository
+## HTTP 403 Errors or "no basic auth credentials" error when pushing to repository
 
 There are times when you may receive an `HTTP 403 (Forbidden)` error,
 or the error message `no basic auth credentials` from the **docker

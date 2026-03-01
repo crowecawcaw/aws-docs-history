@@ -1,12 +1,9 @@
-# Configuring enhanced scanning for
-
-images in Amazon ECR
+# Configuring enhanced scanning for images in Amazon ECR
 
 Configure enhanced scanning per Region for your private registry.
 
 Verify that you have the proper IAM permissions to configure enhanced scanning.
-For information, see [IAM permissions required for
-enhanced scanning in Amazon ECR](image-scanning-enhanced-iam.md "image-scanning-enhanced-iam.md").
+For information, see [IAM permissions required for enhanced scanning in Amazon ECR](image-scanning-enhanced-iam.md "image-scanning-enhanced-iam.md").
 
 AWS Management Console
 

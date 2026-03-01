@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-Amazon ECR
+# Using service-linked roles for Amazon ECR
 
 Amazon Elastic Container Registry (Amazon ECR) uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") to provide the permissions necessary to use the
 replication and pull through cache features. A service-linked role is a unique type of IAM
@@ -29,16 +27,12 @@ view the relevant service-linked role documentation for that service.
 
 ###### Topics
 
-- [Supported Regions for Amazon ECR service-linked
-  roles](#slr-regions "#slr-regions")
+- [Supported Regions for Amazon ECR service-linked roles](#slr-regions "#slr-regions")
 - [Amazon ECR service-linked role for replication](slr-replication.md "slr-replication.md")
-- [Amazon ECR service-linked role for pull through
-  cache](slr-pullthroughcache.md "slr-pullthroughcache.md")
+- [Amazon ECR service-linked role for pull through cache](slr-pullthroughcache.md "slr-pullthroughcache.md")
 - [Amazon ECR service-linked role for repository creation templates](slr-rct.md "slr-rct.md")
 
-## Supported Regions for Amazon ECR service-linked
-
-roles
+## Supported Regions for Amazon ECR service-linked roles
 
 Amazon ECR supports using service-linked roles in all of the Regions where the
 Amazon ECR service is available. For more information about Amazon ECR Region availability, see

@@ -1,11 +1,8 @@
-# Examples of lifecycle policies in
-
-Amazon ECR
+# Examples of lifecycle policies in Amazon ECR
 
 The following are example lifecycle policies showing the syntax.
 
-To see more information about policy properties, see [Lifecycle policy properties in
-Amazon ECR](lifecycle_policy_parameters.md "lifecycle_policy_parameters.md").
+To see more information about policy properties, see [Lifecycle policy properties in Amazon ECR](lifecycle_policy_parameters.md "lifecycle_policy_parameters.md").
 For instructions about creating a lifecycle policy by using the AWS CLI, see [To create a lifecycle policy (AWS CLI)](lp_creation.md#lp-creation-cli "lp_creation.md#lp-creation-cli").
 
 ## Lifecycle policy template
@@ -282,9 +279,7 @@ The logic of this lifecycle policy would be:
   additional images.
 - Result: Images A and B are expired.
 
-## Filtering on multiple tags in a single
-
-rule
+## Filtering on multiple tags in a single rule
 
 The following examples specify the lifecycle policy syntax for multiple tag
 patterns in a single rule. An example repository and lifecycle policy are given

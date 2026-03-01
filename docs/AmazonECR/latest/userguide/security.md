@@ -31,5 +31,4 @@ _in_ the cloud:
 - [Data protection in Amazon ECR](data-protection.md "data-protection.md")
 - [Compliance validation for Amazon Elastic Container Registry](ecr-compliance.md "ecr-compliance.md")
 - [Infrastructure Security in Amazon Elastic Container Registry](infrastructure-security.md "infrastructure-security.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")

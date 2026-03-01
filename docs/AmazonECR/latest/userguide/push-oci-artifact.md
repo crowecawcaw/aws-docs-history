@@ -1,13 +1,10 @@
-# Pushing a Helm chart to an Amazon ECR private
-
-repository
+# Pushing a Helm chart to an Amazon ECR private repository
 
 You can push Open Container Initiative (OCI) artifacts to an Amazon ECR repository. To
 see an example of this functionality, use the following steps to push a Helm chart
 to Amazon ECR.
 
-For information about using your Amazon ECR hosted Helm charts with Amazon EKS, see [Installing a Helm chart on an
-Amazon EKS cluster](using-helm-charts-eks.md "using-helm-charts-eks.md").
+For information about using your Amazon ECR hosted Helm charts with Amazon EKS, see [Installing a Helm chart on an Amazon EKS cluster](using-helm-charts-eks.md "using-helm-charts-eks.md").
 
 ###### To push a Helm chart to an Amazon ECR repository
 
@@ -58,8 +55,7 @@ Successfully packaged chart and saved it to: /Users/`username`/`helm-test-chart`
 
 4. Create a repository to store your Helm chart. The name of your repository
    should match the name you used when creating the Helm chart in step 2. For
-   more information, see [Creating an Amazon ECR private repository to store
-   images](repository-create.md "repository-create.md").
+   more information, see [Creating an Amazon ECR private repository to store images](repository-create.md "repository-create.md").
 
 ```
 `aws ecr create-repository \
@@ -117,5 +113,4 @@ indicates the proper artifact type.
 ```
 
 8. (Optional) For additional steps, install the Helm `ConfigMap`
-   and get started with Amazon EKS. For more information, see [Installing a Helm chart on an
-   Amazon EKS cluster](using-helm-charts-eks.md "using-helm-charts-eks.md").
+   and get started with Amazon EKS. For more information, see [Installing a Helm chart on an Amazon EKS cluster](using-helm-charts-eks.md "using-helm-charts-eks.md").

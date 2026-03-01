@@ -3,9 +3,7 @@
 Amazon ECR uses a service-linked role named **AWSServiceRoleForECRReplication**
 that allows Amazon ECR to replicate images across multiple accounts.
 
-## Service-linked role permissions for
-
-Amazon ECR
+## Service-linked role permissions for Amazon ECR
 
 The AWSServiceRoleForECRReplication service-linked role trusts the following services to assume the
 role:
@@ -44,9 +42,7 @@ group, or role) to create, edit, or delete a service-linked role. For more
 information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-Amazon ECR
+## Creating a service-linked role for Amazon ECR
 
 You don't need to manually create the Amazon ECR service-linked role. When you
 configure replication settings for your registry in the AWS Management Console, the AWS CLI, or the
@@ -65,9 +61,7 @@ because various entities might reference the role. However, you can edit the
 description of the role using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting the service-linked role for
-
-Amazon ECR
+## Deleting the service-linked role for Amazon ECR
 
 If you no longer need to use a feature or service that requires a service-linked
 role, we recommend that you delete that role. That way, you don’t have an unused

@@ -1,6 +1,4 @@
-# Private image replication examples for
-
-Amazon ECR
+# Private image replication examples for Amazon ECR
 
 The following examples show common use cases for private image replication. If you
 configure replication by using the AWS CLI, you can use the JSON examples as a starting
@@ -8,9 +6,7 @@ point when you create your JSON file. If you configure replication by using the
 AWS Management Console, you will see similar JSON when you review your replication rule on the **Review
 and submit** page.
 
-## Example: Configuring
-
-cross-Region replication to a single destination Region
+## Example: Configuring cross-Region replication to a single destination Region
 
 The following shows an example for configuring cross-Region replication within a
 single registry. This example assumes that your account ID is `111122223333` and that you're specifying this replication
@@ -31,9 +27,7 @@ configuration in a Region other than `us-west-2`.
 }
 ```
 
-## Example: Configuring
-
-cross-Region replication using a repository filter
+## Example: Configuring cross-Region replication using a repository filter
 
 The following shows an example for configuring cross-Region replication for
 repositories that match a prefix name value. This example assumes your account ID is `111122223333` and that you're specifying this replication
@@ -55,9 +49,7 @@ with a prefix of `prod`.
 }
 ```
 
-## Example:
-
-Configuring cross-Region replication to multiple destination Regions
+## Example: Configuring cross-Region replication to multiple destination Regions
 
 The following shows an example for configuring cross-Region replication within a
 single registry. This example assumes your account ID is `111122223333` and that you're specifying this replication
@@ -83,9 +75,7 @@ configuration in a Region other than `us-west-1` or `us-west-2`
 }
 ```
 
-## Example: Configuring
-
-cross-account replication
+## Example: Configuring cross-account replication
 
 The following shows an example for configuring cross-account replication for your
 registry. This example configures replication to the `444455556666`
@@ -112,9 +102,7 @@ information, see [Private registry permissions in Amazon ECR](registry-permissio
 }
 ```
 
-## Example: Specifying
-
-multiple rules in a configuration
+## Example: Specifying multiple rules in a configuration
 
 The following shows an example for configuring multiple replication rules for your
 registry. This example configures replication for the `111122223333` account with one rule that replicates
@@ -149,9 +137,7 @@ specifying up to 25 destinations.
 }
 ```
 
-## Example: Removing all
-
-replication settings
+## Example: Removing all replication settings
 
 The following shows an example for removing all replication settings from your
 registry. To remove replication settings, you must configure an empty rules

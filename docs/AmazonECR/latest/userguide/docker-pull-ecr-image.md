@@ -1,6 +1,4 @@
-# Pulling an image to your local environment from
-
-an Amazon ECR private repository
+# Pulling an image to your local environment from an Amazon ECR private repository
 
 If
 you want to run a Docker image that is available in Amazon ECR, you can pull it to your local

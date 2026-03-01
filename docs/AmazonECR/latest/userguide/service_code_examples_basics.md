@@ -1,6 +1,4 @@
-# Basic examples for
-
-Amazon ECR using AWS SDKs
+# Basic examples for Amazon ECR using AWS SDKs
 
 The following code examples show how to use the basics of Amazon Elastic Container Registry with AWS
 SDKs.

@@ -79,5 +79,4 @@ Amazon ECR lifecycle policies enable automated cleanup of stale container
 images based on defined rules such as age, count, or tags, optimizing
 storage costs, maintaining an organized registry, enhancing security and
 compliance, and streamlining development workflows through automation. For
-more information, see [Automate the cleanup of images by using lifecycle
-policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md")
+more information, see [Automate the cleanup of images by using lifecycle policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md")

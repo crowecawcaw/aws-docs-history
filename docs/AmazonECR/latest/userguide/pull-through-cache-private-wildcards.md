@@ -1,6 +1,4 @@
-# Customizing repository prefixes
-
-for ECR to ECR pull through cache
+# Customizing repository prefixes for ECR to ECR pull through cache
 
 Pull through cache rules support both the **ecr repository prefix**
 and the **upstream repository prefix**. The **ecr repository

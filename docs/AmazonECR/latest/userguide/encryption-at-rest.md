@@ -26,8 +26,7 @@ dual-layer server-side encryption with AWS KMS keys (DSSE-KMS)](../../../AmazonS
 
 Each Amazon ECR repository has an encryption configuration, which is set when the
 repository is created. You can use different encryption configurations on each
-repository. For more information, see [Creating an Amazon ECR private repository to store
-images](repository-create.md "repository-create.md").
+repository. For more information, see [Creating an Amazon ECR private repository to store images](repository-create.md "repository-create.md").
 
 When a repository is created with AWS KMS encryption enabled, a KMS key is used to
 encrypt the contents of the repository. Moreover, Amazon ECR adds an AWS KMS grant to the
@@ -86,9 +85,7 @@ The following points should be considered when using AWS KMS based encryption
 When creating or deleting an Amazon ECR repository with server-side encryption using
 AWS KMS, the permissions required depend on the specific KMS key you are using.
 
-### Required IAM permissions when
-
-using the AWS managed key for Amazon ECR
+### Required IAM permissions when using the AWS managed key for Amazon ECR
 
 By default, when AWS KMS encryption is enabled for an Amazon ECR repository but no
 KMS key is specified, the AWS managed key for Amazon ECR is used. When the
@@ -124,9 +121,7 @@ JSON
 
 ```
 
-### Required IAM permissions
-
-when using a customer managed key
+### Required IAM permissions when using a customer managed key
 
 When creating a repository with AWS KMS encryption enabled using a customer managed key,
 there are required permissions for both the KMS key policy and the IAM policy
@@ -212,9 +207,7 @@ JSON
 
 ```
 
-### Allow a user to list KMS keys
-
-in the console when creating a repository
+### Allow a user to list KMS keys in the console when creating a repository
 
 When using the Amazon ECR console to create a repository, you can grant permissions
 to enable a user to list the customer managed KMS keys in the Region when
@@ -240,9 +233,7 @@ JSON
 
 ```
 
-## Monitoring Amazon ECR interaction with
-
-AWS KMS
+## Monitoring Amazon ECR interaction with AWS KMS
 
 You can use AWS CloudTrail to track the requests that Amazon ECR sends to AWS KMS on your
 behalf. The log entries in the CloudTrail log contain an encryption context key to make

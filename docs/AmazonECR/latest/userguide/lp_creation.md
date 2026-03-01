@@ -1,6 +1,4 @@
-# Creating a lifecycle policy for a repository in
-
-Amazon ECR
+# Creating a lifecycle policy for a repository in Amazon ECR
 
 Use a lifecycle policy to create a set of rules that expire or archive unused repository images.
 After creating a lifecycle policy, the affected images are expired or archived within 24
@@ -79,8 +77,7 @@ instructions, see [Creating a lifecycle policy preview in Amazon ECR](lpp_creati
 ```
 
 2. Create a local file named `policy.json` with the contents
-   of the lifecycle policy. For lifecycle policy examples, see [Examples of lifecycle policies in
-   Amazon ECR](lifecycle_policy_examples.md "lifecycle_policy_examples.md").
+   of the lifecycle policy. For lifecycle policy examples, see [Examples of lifecycle policies in Amazon ECR](lifecycle_policy_examples.md "lifecycle_policy_examples.md").
 3. Create a lifecycle policy by specifying the repository name and
    reference the lifecycle policy JSON file you created.
 

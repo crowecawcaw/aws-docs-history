@@ -1,6 +1,4 @@
-# EventBridge events sent for enhanced
-
-scanning in Amazon ECR
+# EventBridge events sent for enhanced scanning in Amazon ECR
 
 When enhanced scanning is turned on, Amazon ECR sends an event to EventBridge when the scan
 frequency for a repository is changed. Amazon Inspector sends events to EventBridge when an initial
@@ -60,8 +58,7 @@ When enhanced scanning is turned on for your registry, the following event is se
 by Amazon Inspector when the initial image scan is completed. The `finding-severity-counts`
 parameter will only return a value for a severity level if one exists. For example,
 if the image contains no findings at `CRITICAL` level, then no critical
-count is returned. For more information, see [Scan images for OS and programming language
-package vulnerabilities in Amazon ECR](image-scanning-enhanced.md "image-scanning-enhanced.md").
+count is returned. For more information, see [Scan images for OS and programming language package vulnerabilities in Amazon ECR](image-scanning-enhanced.md "image-scanning-enhanced.md").
 
 Event pattern:
 
@@ -108,8 +105,7 @@ scanning)**
 
 When enhanced scanning is turned on for your registry, the following event is sent
 by Amazon Inspector when the image scan finding is created, updated, or closed. For more
-information, see [Scan images for OS and programming language
-package vulnerabilities in Amazon ECR](image-scanning-enhanced.md "image-scanning-enhanced.md").
+information, see [Scan images for OS and programming language package vulnerabilities in Amazon ECR](image-scanning-enhanced.md "image-scanning-enhanced.md").
 
 Event pattern:
 

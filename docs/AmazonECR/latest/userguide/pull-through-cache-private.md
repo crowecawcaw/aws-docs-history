@@ -1,15 +1,11 @@
-# Setting up permissions for cross-account
-
-ECR to ECR PTC
+# Setting up permissions for cross-account ECR to ECR PTC
 
 The Amazon ECR to Amazon ECR (ECR to ECR) pull through cache feature enables automatic
 synchronization of images between Regions, AWS accounts, or both. With ECR to ECR PTC,
 you can push images to your primary Amazon ECR registry and configure a pull through cache
 rule to cache images in downstream Amazon ECR registries.
 
-## IAM policies
-
-required for cross-account ECR to ECR pull through cache
+## IAM policies required for cross-account ECR to ECR pull through cache
 
 To cache images between Amazon ECR registries across different AWS accounts,
 create an IAM role in the downstream account and configure the policies in this
@@ -24,14 +20,11 @@ section to provide the following permissions:
 
 ###### Policies
 
-- [Creating an IAM role to
-  define the pull through cache permissions](#ecr-policies-for-cross-account-ecr-to-ecr-pull-through-cache "#ecr-policies-for-cross-account-ecr-to-ecr-pull-through-cache")
+- [Creating an IAM role to define the pull through cache permissions](#ecr-policies-for-cross-account-ecr-to-ecr-pull-through-cache "#ecr-policies-for-cross-account-ecr-to-ecr-pull-through-cache")
 - [Creating a Trust policy for the IAM role](#ecr-creating-a-trust-policy-for-the-iam-role "#ecr-creating-a-trust-policy-for-the-iam-role")
 - [Creating a resource policy in the upstream Amazon ECR registry](#ecr-creating-registry-permissions-policy-in-upstream-registry "#ecr-creating-registry-permissions-policy-in-upstream-registry")
 
-### Creating an IAM role to
-
-define the pull through cache permissions
+### Creating an IAM role to define the pull through cache permissions
 
 The following example shows a permissions policy that grants an IAM role
 permission to pull images from the upstream Amazon ECR registry on your behalf. When

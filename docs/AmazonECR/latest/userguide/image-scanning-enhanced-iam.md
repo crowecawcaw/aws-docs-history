@@ -1,6 +1,4 @@
-# IAM permissions required for
-
-enhanced scanning in Amazon ECR
+# IAM permissions required for enhanced scanning in Amazon ECR
 
 Amazon ECR enhanced scanning requires an Amazon Inspector service-linked IAM role and that the
 IAM principal enabling and using enhanced scanning has permissions to call the

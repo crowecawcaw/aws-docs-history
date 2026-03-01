@@ -1,6 +1,4 @@
-# Updating a repository creation
-
-template
+# Updating a repository creation template
 
 You can edit a repository creation template if you need to change its configurations.
 Once the repository creation template is edited, the new configurations will apply to

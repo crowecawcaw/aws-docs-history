@@ -20,8 +20,7 @@ To archive images, you have two options. First, you can configure lifecycle rule
 - Number of images in the repository
 
 You can also configure settings to permanently delete images after they've been
-archived for a specified period. Refer to [Automate the cleanup of images by using lifecycle
-policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md") for more information.
+archived for a specified period. Refer to [Automate the cleanup of images by using lifecycle policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md") for more information.
 
 You can also archive images using the Amazon ECR
 console or AWS CLI. Refer to [Archiving an image](archive-image.md "archive-image.md") for more information.

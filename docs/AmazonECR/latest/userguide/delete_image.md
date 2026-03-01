@@ -7,8 +7,7 @@ within it. For more information, see [Deleting a private repository in Amazon EC
 As an alternative to deleting images manually, you can create repository lifecycle
 policies which provide more control over the lifecycle management of images in your
 repositories. Lifecycle policies automate this process for you. For more information,
-see [Automate the cleanup of images by using lifecycle
-policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md").
+see [Automate the cleanup of images by using lifecycle policies in Amazon ECR](LifecyclePolicies.md "LifecyclePolicies.md").
 
 ###### Note
 

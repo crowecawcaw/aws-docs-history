@@ -16,8 +16,7 @@ Public User Guide_.
   private registry. However, users require permissions to make calls to the Amazon ECR
   APIs and to push or pull images to and from your private repositories. Amazon ECR
   provides several managed policies to control user access at varying levels. For
-  more information, see [Amazon Elastic Container Registry Identity-based policy
-  examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+  more information, see [Amazon Elastic Container Registry Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 - You must authenticate your Docker client to your private registry so that you
   can use the **docker push** and **docker pull**
   commands to push and pull images to and from the repositories in that registry.

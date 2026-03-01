@@ -1,14 +1,11 @@
-# Retrieving the
-
-findings for enhanced scans in Amazon ECR
+# Retrieving the findings for enhanced scans in Amazon ECR
 
 You can retrieve the scan findings for the last completed enhanced image scan, and
 then open the findings in Amazon Inspector to see more detail. The software vulnerabilities
 that were discovered are listed by severity based on the Common Vulnerabilities and
 Exposures (CVEs) database.
 
-For troubleshooting details for some common issues when scanning images, see [Troubleshooting image scanning in
-Amazon ECR](image-scanning-troubleshooting.md "image-scanning-troubleshooting.md").
+For troubleshooting details for some common issues when scanning images, see [Troubleshooting image scanning in Amazon ECR](image-scanning-troubleshooting.md "image-scanning-troubleshooting.md").
 
 AWS Management Console
 Use the following steps to retrieve image scan findings using the

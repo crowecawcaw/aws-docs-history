@@ -1,6 +1,4 @@
-# Moving an image through its lifecycle in
-
-Amazon ECR
+# Moving an image through its lifecycle in Amazon ECR
 
 If you are using Amazon ECR for the first time, use the following steps with the Docker CLI and
 the AWS CLI to create a sample image, authenticate to the default registry, and create a
@@ -8,8 +6,7 @@ private repository. Then push an image to and pull an image from the private rep
 When you are finished with the sample image, delete the sample image and the
 repository.
 
-To use the AWS Management Console instead of the AWS CLI, see [Creating an Amazon ECR private repository to store
-images](repository-create.md "repository-create.md").
+To use the AWS Management Console instead of the AWS CLI, see [Creating an Amazon ECR private repository to store images](repository-create.md "repository-create.md").
 
 For more information on the other tools available for managing your AWS resources,
 including the different AWS SDKs, IDE toolkits, and the Windows PowerShell command line
@@ -211,9 +208,7 @@ the following command:
  --region `region``
 ```
 
-## Step 3: Authenticate to your default
-
-registry
+## Step 3: Authenticate to your default registry
 
 After you have installed and configured the AWS CLI, authenticate the Docker CLI to your
 default registry. That way, the **docker** command can push and pull
