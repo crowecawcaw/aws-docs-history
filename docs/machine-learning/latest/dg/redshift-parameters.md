@@ -2,9 +2,7 @@ We are no longer updating the Amazon Machine Learning service or accepting
 new users for it. This documentation is available for existing users, but we are
 no longer updating it. For more information, see [What is Amazon Machine Learning](what-is-amazon-machine-learning.md "what-is-amazon-machine-learning.md").
 
-# Required Parameters for the Create Datasource
-
-Wizard
+# Required Parameters for the Create Datasource Wizard
 
 To allow Amazon ML to connect to your Amazon Redshift database and read data on your behalf, you must
 provide the following:

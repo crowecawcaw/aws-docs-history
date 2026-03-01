@@ -215,9 +215,7 @@ screenshot.
 
 ![Histogram showing duration distribution, with highest frequency near 0 and decreasing as duration increases.](images/image46.png)
 
-### Understanding the
-
-Distribution of Text Attributes
+### Understanding the Distribution of Text Attributes
 
 To view the distribution of a text attribute, click the **Preview**
 link of the attribute. When viewing the distribution of a text attribute, you will see the

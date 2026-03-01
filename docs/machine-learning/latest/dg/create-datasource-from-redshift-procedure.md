@@ -2,9 +2,7 @@ We are no longer updating the Amazon Machine Learning service or accepting
 new users for it. This documentation is available for existing users, but we are
 no longer updating it. For more information, see [What is Amazon Machine Learning](what-is-amazon-machine-learning.md "what-is-amazon-machine-learning.md").
 
-# Creating a Datasource with Amazon Redshift
-
-Data (Console)
+# Creating a Datasource with Amazon Redshift Data (Console)
 
 The Amazon ML console provides two ways to create a datasource using Amazon Redshift data. You can create
 a datasource by completing the Create Datasource wizard, or, if you already have a datasource
@@ -13,8 +11,7 @@ a datasource allows you to easily create multiple similar datasources.
 
 For information about creating a datasource using the API, see [CreateDataSourceFromRedshift](../APIReference/API_CreateDataSourceFromRedshift.md "../APIReference/API_CreateDataSourceFromRedshift.md").
 
-For more information about the parameters in the following procedures, see [Required Parameters for the Create Datasource
-Wizard](redshift-parameters.md "redshift-parameters.md").
+For more information about the parameters in the following procedures, see [Required Parameters for the Create Datasource Wizard](redshift-parameters.md "redshift-parameters.md").
 
 ###### Topics
 
@@ -60,8 +57,7 @@ To unload data from Amazon Redshift into an Amazon ML datasource, use the Create
     **Do you plan to use this dataset to create or evaluate an ML
     model?**, choose **Yes**. If you choose
     **Yes**, choose your target row. For information about targets, see
-    [Using the targetAttributeName
-    Field](creating-a-data-schema-for-amazon-ml.md#using-the-targetattributename-field "creating-a-data-schema-for-amazon-ml.md#using-the-targetattributename-field").
+    [Using the targetAttributeName Field](creating-a-data-schema-for-amazon-ml.md#using-the-targetattributename-field "creating-a-data-schema-for-amazon-ml.md#using-the-targetattributename-field").
 
 If you want to use this datasource along with a model that you have already created
 to create predictions, choose **No**. 18. Choose **Continue**. 19. For **Does your data contain an identifier?**, if your data doesn't
@@ -110,8 +106,7 @@ page, review the data types for all attributes and correct them, as necessary. 1
 **Do you plan to use this dataset to create or evaluate an ML
 model?**, choose **Yes**. If you choose
 **Yes**, choose your target row. For information about targets, see
-[Using the targetAttributeName
-Field](creating-a-data-schema-for-amazon-ml.md#using-the-targetattributename-field "creating-a-data-schema-for-amazon-ml.md#using-the-targetattributename-field").
+[Using the targetAttributeName Field](creating-a-data-schema-for-amazon-ml.md#using-the-targetattributename-field "creating-a-data-schema-for-amazon-ml.md#using-the-targetattributename-field").
 
 If you want to use this datasource along with a model that you have already created
 to create predictions, choose **No**. 14. Choose **Continue**. 15. For **Does your data contain an identifier?**, if your data doesn't

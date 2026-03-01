@@ -19,9 +19,7 @@ forum](https://forums.aws.amazon.com/forum.jspa?forumID=194 "https://forums.aws.
 
 ## Troubleshooting Errors
 
-### The format of the role is invalid. Provide a valid IAM role. For example,
-
-arn:aws:iam::YourAccountID:role/YourRedshiftRole.
+### The format of the role is invalid. Provide a valid IAM role. For example, arn:aws:iam::YourAccountID:role/YourRedshiftRole.
 
 **Cause**
 
@@ -33,9 +31,7 @@ In the Create Datasource wizard, correct the ARN for your role. For information 
 formatting role ARNs, see [IAM ARNs](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns "../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns") in the
 _IAM User Guide_. The region is optional for IAM role ARNs.
 
-### The role is invalid. Amazon ML can't assume the <role ARN> IAM role. Provide a valid IAM role and
-
-make it accessible to Amazon ML.
+### The role is invalid. Amazon ML can't assume the <role ARN> IAM role. Provide a valid IAM role and make it accessible to Amazon ML.
 
 **Cause**
 
@@ -58,9 +54,7 @@ Amazon ML.
 Attach a permissions policy to your IAM user that allows you to pass roles to Amazon ML. You
 can attach a permissions policy to your IAM user in the [IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 
-### Passing an IAM role across accounts isn't allowed. The IAM role must belong to this
-
-account.
+### Passing an IAM role across accounts isn't allowed. The IAM role must belong to this account.
 
 **Cause**
 
@@ -71,9 +65,7 @@ You can't pass a role that belongs to another IAM account.
 Sign in to the AWS account that you used to create the role. You can see your IAM
 roles in your [IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 
-### The specified role doesn't have permissions to perform the operation. Provide a role
-
-that has a policy that provides Amazon ML the required permissions.
+### The specified role doesn't have permissions to perform the operation. Provide a role that has a policy that provides Amazon ML the required permissions.
 
 **Cause**
 
@@ -83,9 +75,7 @@ Your IAM role doesn't have the permissions to perform the requested operation.
 
 Edit the permission policy attached to your role in the [IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") to provide the required permissions.
 
-### Amazon ML can't configure a security group on that Amazon Redshift cluster with the specified IAM
-
-role.
+### Amazon ML can't configure a security group on that Amazon Redshift cluster with the specified IAM role.
 
 **Cause**
 
@@ -97,9 +87,7 @@ cluster.
 Edit the permission policy attached to your role in the [IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") to provide the required
 permissions.
 
-### An error occurred when Amazon ML attempted to configure a security group on your cluster.
-
-Try again later.
+### An error occurred when Amazon ML attempted to configure a security group on your cluster. Try again later.
 
 **Cause**
 
@@ -110,10 +98,7 @@ When Amazon ML tried to connect to your Amazon Redshift cluster, it encountered 
 Verify that the IAM role that you provided in the Create Datasource wizard has all of
 the required permissions.
 
-### The format of the cluster ID is invalid. Cluster IDs must begin with a letter and must
-
-contain only alphanumeric characters and hyphens. They can't contain two consecutive hyphens
-or end with a hyphen.
+### The format of the cluster ID is invalid. Cluster IDs must begin with a letter and must contain only alphanumeric characters and hyphens. They can't contain two consecutive hyphens or end with a hyphen.
 
 **Cause**
 
@@ -125,9 +110,7 @@ In the Create Datasource wizard, correct your cluster ID so that it contains onl
 alphanumeric characters and hyphens and doesn't contain two consecutive hyphens or end with
 a hyphen.
 
-### There is no <Amazon Redshift cluster name> cluster, or the cluster is not in the same region as your Amazon ML
-
-service. Specify a cluster in the same region as this Amazon ML.
+### There is no <Amazon Redshift cluster name> cluster, or the cluster is not in the same region as your Amazon ML service. Specify a cluster in the same region as this Amazon ML.
 
 **Cause**
 
@@ -140,9 +123,7 @@ Verify that your cluster exists on the Amazon Redshift console [Clusters](https:
 datasource in the same region where your Amazon Redshift cluster is located, and that the cluster ID
 specified in the Create Datasource wizard is correct.
 
-### Amazon ML can't read the data in your Amazon Redshift cluster. Provide the correct Amazon Redshift cluster
-
-ID.
+### Amazon ML can't read the data in your Amazon Redshift cluster. Provide the correct Amazon Redshift cluster ID.
 
 **Cause**
 
@@ -167,9 +148,7 @@ Make the cluster publicly accessible and give it a public IP address. For inform
 about making clusters publicly accessible, see [Modifying a
 Cluster](../../../redshift/latest/mgmt/managing-clusters-console.md#modify-cluster "../../../redshift/latest/mgmt/managing-clusters-console.md#modify-cluster") in the _Amazon Redshift Management Guide_.
 
-### The <Redshift> cluster status isn't available to Amazon ML. Use the Amazon Redshift
-
-console to view and resolve this cluster status issue. The cluster status must be "available."
+### The <Redshift> cluster status isn't available to Amazon ML. Use the Amazon Redshift console to view and resolve this cluster status issue. The cluster status must be "available."
 
 **Cause**
 
@@ -183,10 +162,7 @@ an Overview of Cluster Status](../../../redshift/latest/mgmt/managing-clusters-c
 information on rebooting the cluster so that it is available, see [Rebooting a
 Cluster](../../../redshift/latest/mgmt/managing-clusters-console.md#reboot-cluster "../../../redshift/latest/mgmt/managing-clusters-console.md#reboot-cluster") in the _Amazon Redshift Management Guide_.
 
-### There is no <database name> database in this cluster. Verify
-
-that the database name is correct or specify another cluster and
-database.
+### There is no <database name> database in this cluster. Verify that the database name is correct or specify another cluster and database.
 
 **Cause**
 
@@ -196,9 +172,7 @@ Amazon ML can't find the specified database in the specified cluster.
 
 Verify that the database name entered in the Create Datasource wizard is correct, or specify the correct cluster and database names.
 
-### Amazon ML couldn't access your database. Provide a valid password for database user
-
-<user name>.
+### Amazon ML couldn't access your database. Provide a valid password for database user <user name>.
 
 **Cause**
 
@@ -219,9 +193,7 @@ There's an issue with your SQL query.
 
 Verify that your query is valid SQL.
 
-### An error occurred when executing your SQL query. Verify the database name and the
-
-provided query. Root cause: {serverMessage}.
+### An error occurred when executing your SQL query. Verify the database name and the provided query. Root cause: {serverMessage}.
 
 **Cause**
 

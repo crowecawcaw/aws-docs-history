@@ -2,9 +2,7 @@ We are no longer updating the Amazon Machine Learning service or accepting
 new users for it. This documentation is available for existing users, but we are
 no longer updating it. For more information, see [What is Amazon Machine Learning](what-is-amazon-machine-learning.md "what-is-amazon-machine-learning.md").
 
-# Splitting the Data into Training
-
-and Evaluation Data
+# Splitting the Data into Training and Evaluation Data
 
 The fundamental goal of ML is to _generalize_ beyond the data instances used
 to train models. We want to evaluate the model to

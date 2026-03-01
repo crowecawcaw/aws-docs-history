@@ -105,9 +105,7 @@ data type are associated with the fourth column, and so on. The ninth column is 
 with the `willRespondToCampaign` attribute with a `BINARY` data type,
 and this attribute also is defined as the target attribute.
 
-## Using the targetAttributeName
-
-Field
+## Using the targetAttributeName Field
 
 The `targetAttributeName` value is the name of the attribute that you want to
 predict. You must assign a `targetAttributeName` when creating or evaluating a
@@ -252,9 +250,7 @@ schema:
   automatically create a schema for you.
 - Provide a schema file when you upload your Amazon Simple Storage Service (Amazon S3) data.
 
-### Allowing Amazon ML to Create Your
-
-Schema
+### Allowing Amazon ML to Create Your Schema
 
 When you use the Amazon ML console to create a datasource, Amazon ML uses simple rules, based on
 the values of your variables, to create your schema. We strongly recommend that you review

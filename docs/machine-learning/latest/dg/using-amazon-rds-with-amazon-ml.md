@@ -2,9 +2,7 @@ We are no longer updating the Amazon Machine Learning service or accepting
 new users for it. This documentation is available for existing users, but we are
 no longer updating it. For more information, see [What is Amazon Machine Learning](what-is-amazon-machine-learning.md "what-is-amazon-machine-learning.md").
 
-# Using Data from an Amazon RDS Database to Create an
-
-Amazon ML Datasource
+# Using Data from an Amazon RDS Database to Create an Amazon ML Datasource
 
 Amazon ML allows you to create a datasource object from data stored in a MySQL database in
 Amazon Relational Database Service (Amazon RDS). When you perform this action, Amazon ML creates an AWS Data Pipeline object that
@@ -43,8 +41,7 @@ you need to provide the following:
 - (Optional) The location of the data schema file
   Additionally, you need to ensure that the IAM users or roles that create Amazon RDS datasources
   by using the [CreateDataSourceFromRDS](../APIReference/API_CreateDataSourceFromRDS.md "../APIReference/API_CreateDataSourceFromRDS.md") operation have the `iam:PassRole` permission. For
-  more information, see [Controlling Access to
-  Amazon ML Resources -with IAM](controlling-access-to-amazon-ml-resources-by-using-iam.md "controlling-access-to-amazon-ml-resources-by-using-iam.md").
+  more information, see [Controlling Access to Amazon ML Resources -with IAM](controlling-access-to-amazon-ml-resources-by-using-iam.md "controlling-access-to-amazon-ml-resources-by-using-iam.md").
 
 ###### Topics
 

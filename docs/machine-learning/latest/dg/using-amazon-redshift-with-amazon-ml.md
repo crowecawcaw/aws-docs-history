@@ -2,9 +2,7 @@ We are no longer updating the Amazon Machine Learning service or accepting
 new users for it. This documentation is available for existing users, but we are
 no longer updating it. For more information, see [What is Amazon Machine Learning](what-is-amazon-machine-learning.md "what-is-amazon-machine-learning.md").
 
-# Creating an Amazon ML Datasource from Data in
-
-Amazon Redshift
+# Creating an Amazon ML Datasource from Data in Amazon Redshift
 
 If you have data stored in Amazon Redshift, you can use the **Create Datasource**
 wizard in the Amazon Machine Learning (Amazon ML) console to create a datasource object. When you create a
@@ -21,8 +19,6 @@ cluster must have a public IP address.
 
 ###### Topics
 
-- [Required Parameters for the Create Datasource
-  Wizard](redshift-parameters.md "redshift-parameters.md")
-- [Creating a Datasource with Amazon Redshift
-  Data (Console)](create-datasource-from-redshift-procedure.md "create-datasource-from-redshift-procedure.md")
+- [Required Parameters for the Create Datasource Wizard](redshift-parameters.md "redshift-parameters.md")
+- [Creating a Datasource with Amazon Redshift Data (Console)](create-datasource-from-redshift-procedure.md "create-datasource-from-redshift-procedure.md")
 - [Troubleshooting Amazon Redshift Issues](troubleshooting.md "troubleshooting.md")

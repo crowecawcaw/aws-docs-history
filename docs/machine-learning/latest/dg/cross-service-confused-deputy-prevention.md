@@ -2,9 +2,7 @@ We are no longer updating the Amazon Machine Learning service or accepting
 new users for it. This documentation is available for existing users, but we are
 no longer updating it. For more information, see [What is Amazon Machine Learning](what-is-amazon-machine-learning.md "what-is-amazon-machine-learning.md").
 
-# Cross-service
-
-confused deputy prevention
+# Cross-service confused deputy prevention
 
 The confused deputy problem is a security issue where an entity that
 doesn't have permission to perform an action can coerce a

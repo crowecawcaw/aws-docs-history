@@ -2,9 +2,7 @@ We are no longer updating the Amazon Machine Learning service or accepting
 new users for it. This documentation is available for existing users, but we are
 no longer updating it. For more information, see [What is Amazon Machine Learning](what-is-amazon-machine-learning.md "what-is-amazon-machine-learning.md").
 
-# Tutorial: Using Amazon ML to Predict Responses to a Marketing
-
-Offer
+# Tutorial: Using Amazon ML to Predict Responses to a Marketing Offer
 
 With Amazon Machine Learning (Amazon ML), you can build and train predictive models and host your applications
 in a scalable cloud solution. In this tutorial, we show you how to use the Amazon ML console to
@@ -35,8 +33,6 @@ Learning](setting-up-amazon-machine-learning.md "setting-up-amazon-machine-learn
 - [Step 1: Prepare Your Data](step-1-download-edit-and-upload-data.md "step-1-download-edit-and-upload-data.md")
 - [Step 2: Create a Training Datasource](step-2-create-a-datasource.md "step-2-create-a-datasource.md")
 - [Step 3: Create an ML Model](step-3-create-an-ml-model.md "step-3-create-an-ml-model.md")
-- [Step 4: Review the ML Model's Predictive
-  Performance and Set a Score Threshold](step-4-review-model-and-set-cutoff.md "step-4-review-model-and-set-cutoff.md")
-- [Step 5: Use the ML Model to Generate
-  Predictions](step-5-create-predictions.md "step-5-create-predictions.md")
+- [Step 4: Review the ML Model's Predictive Performance and Set a Score Threshold](step-4-review-model-and-set-cutoff.md "step-4-review-model-and-set-cutoff.md")
+- [Step 5: Use the ML Model to Generate Predictions](step-5-create-predictions.md "step-5-create-predictions.md")
 - [Step 6: Clean Up](step-6-clean-up.md "step-6-clean-up.md")

@@ -2,9 +2,7 @@ We are no longer updating the Amazon Machine Learning service or accepting
 new users for it. This documentation is available for existing users, but we are
 no longer updating it. For more information, see [What is Amazon Machine Learning](what-is-amazon-machine-learning.md "what-is-amazon-machine-learning.md").
 
-# Controlling Access to
-
-Amazon ML Resources -with IAM
+# Controlling Access to Amazon ML Resources -with IAM
 
 AWS Identity and Access Management (IAM) enables you to securely control access to AWS services and resources for
 your users. Using IAM, you can create and manage AWS users, groups, and roles, and use

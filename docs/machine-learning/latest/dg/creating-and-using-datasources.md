@@ -19,13 +19,10 @@ This section assumes that you are familiar with [Amazon Machine Learning concept
 
 ###### Topics
 
-- [Understanding the Data Format for
-  Amazon ML](understanding-the-data-format-for-amazon-ml.md "understanding-the-data-format-for-amazon-ml.md")
+- [Understanding the Data Format for Amazon ML](understanding-the-data-format-for-amazon-ml.md "understanding-the-data-format-for-amazon-ml.md")
 - [Creating a Data Schema for Amazon ML](creating-a-data-schema-for-amazon-ml.md "creating-a-data-schema-for-amazon-ml.md")
 - [Splitting Your Data](splitting-types.md "splitting-types.md")
 - [Data Insights](data-insights.md "data-insights.md")
 - [Using Amazon S3 with Amazon ML](using-amazon-s3-with-amazon-ml.md "using-amazon-s3-with-amazon-ml.md")
-- [Creating an Amazon ML Datasource from Data in
-  Amazon Redshift](using-amazon-redshift-with-amazon-ml.md "using-amazon-redshift-with-amazon-ml.md")
-- [Using Data from an Amazon RDS Database to Create an
-  Amazon ML Datasource](using-amazon-rds-with-amazon-ml.md "using-amazon-rds-with-amazon-ml.md")
+- [Creating an Amazon ML Datasource from Data in Amazon Redshift](using-amazon-redshift-with-amazon-ml.md "using-amazon-redshift-with-amazon-ml.md")
+- [Using Data from an Amazon RDS Database to Create an Amazon ML Datasource](using-amazon-rds-with-amazon-ml.md "using-amazon-rds-with-amazon-ml.md")

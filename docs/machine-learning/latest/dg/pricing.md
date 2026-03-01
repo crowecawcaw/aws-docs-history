@@ -66,9 +66,7 @@ average data record size. This method of cost prediction is less precise than th
 used when the number of data records is available because the first records of your data
 file might not accurately represent the average record size.
 
-### Estimating Batch Prediction Cost When Neither Data Statistics nor Data Size Are
-
-Available
+### Estimating Batch Prediction Cost When Neither Data Statistics nor Data Size Are Available
 
 When neither data statistics nor the data size are available, Amazon ML cannot estimate the
 cost of your batch predictions. This is commonly the case when the data source you are using

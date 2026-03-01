@@ -2,9 +2,7 @@ We are no longer updating the Amazon Machine Learning service or accepting
 new users for it. This documentation is available for existing users, but we are
 no longer updating it. For more information, see [What is Amazon Machine Learning](what-is-amazon-machine-learning.md "what-is-amazon-machine-learning.md").
 
-# Solving Business Problems
-
-with Amazon Machine Learning
+# Solving Business Problems with Amazon Machine Learning
 
 You can use Amazon Machine Learning to apply machine learning to problems for which you have
 existing examples of actual answers. For example, if you want to use Amazon Machine Learning to predict

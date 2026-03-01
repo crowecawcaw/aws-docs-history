@@ -11,8 +11,7 @@ formatted it to conform to Amazon ML guidelines, and made it available for you t
 Download the dataset from our Amazon Simple Storage Service (Amazon S3) storage location and upload it to your own S3
 bucket by following the procedures in this topic.
 
-For Amazon ML formatting requirements, see [Understanding the Data Format for
-Amazon ML](understanding-the-data-format-for-amazon-ml.md "understanding-the-data-format-for-amazon-ml.md").
+For Amazon ML formatting requirements, see [Understanding the Data Format for Amazon ML](understanding-the-data-format-for-amazon-ml.md "understanding-the-data-format-for-amazon-ml.md").
 
 ###### To download the datasets
 

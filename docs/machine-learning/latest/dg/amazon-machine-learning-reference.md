@@ -8,10 +8,8 @@ no longer updating it. For more information, see [What is Amazon Machine Learnin
 
 - [Granting Amazon ML Permissions to Read Your Data from Amazon S3](granting-amazon-ml-permissions-to-read-your-data-from-amazon-s3.md "granting-amazon-ml-permissions-to-read-your-data-from-amazon-s3.md")
 - [Granting Amazon ML Permissions to Output Predictions to Amazon S3](granting-amazon-ml-permissions-to-output-predictions-to-amazon-s3.md "granting-amazon-ml-permissions-to-output-predictions-to-amazon-s3.md")
-- [Controlling Access to
-  Amazon ML Resources -with IAM](controlling-access-to-amazon-ml-resources-by-using-iam.md "controlling-access-to-amazon-ml-resources-by-using-iam.md")
-- [Cross-service
-  confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Controlling Access to Amazon ML Resources -with IAM](controlling-access-to-amazon-ml-resources-by-using-iam.md "controlling-access-to-amazon-ml-resources-by-using-iam.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Dependency Management of Asynchronous Operations](dependency-management-of-asynchronous-operations.md "dependency-management-of-asynchronous-operations.md")
 - [Checking Request Status](operation-request-status.md "operation-request-status.md")
 - [System Limits](system-limits.md "system-limits.md")

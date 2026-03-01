@@ -37,8 +37,7 @@ Amazon ML, you can reduce the model size by using L1 regularization or by specif
 restricting the model size by specifying the maximum size. Note that if you reduce the
 model size too much, you could reduce your model's predictive power.
 
-For information about the default model size, see [Training Parameters: Types and
-Default Values](training-parameters.md#training-parameters-types-and-default-values "training-parameters.md#training-parameters-types-and-default-values"). For more information
+For information about the default model size, see [Training Parameters: Types and Default Values](training-parameters.md#training-parameters-types-and-default-values "training-parameters.md#training-parameters-types-and-default-values"). For more information
 about regularization, see [Regularization](#regularization "#regularization").
 
 ## Number of Passes
@@ -52,8 +51,7 @@ an increasing number of passes. For smaller data sets, you can significantly inc
 number of passes, which allows the learning algorithm to effectively fit the data more
 closely. For extremely large datasets, a single pass might suffice.
 
-For information about the default number of passes, see [Training Parameters: Types and
-Default Values](training-parameters.md#training-parameters-types-and-default-values "training-parameters.md#training-parameters-types-and-default-values").
+For information about the default number of passes, see [Training Parameters: Types and Default Values](training-parameters.md#training-parameters-types-and-default-values "training-parameters.md#training-parameters-types-and-default-values").
 
 ## Data Shuffling
 
@@ -80,8 +78,7 @@ type, even if those updates degrade the patterns that fit movies. This sudden sw
 movie to toy type can produce a model that doesn't learn how
 to predict product types accurately.
 
-For information about the default shuffling type, see [Training Parameters: Types and
-Default Values](training-parameters.md#training-parameters-types-and-default-values "training-parameters.md#training-parameters-types-and-default-values").
+For information about the default shuffling type, see [Training Parameters: Types and Default Values](training-parameters.md#training-parameters-types-and-default-values "training-parameters.md#training-parameters-types-and-default-values").
 
 ## Regularization
 
@@ -97,5 +94,4 @@ features. You control the amount of L1 or L2 regularization applied by using the
 extremely large regularization value could result in all
 features having zero weights, preventing a model from learning patterns.
 
-For information about the default regularization values, see [Training Parameters: Types and
-Default Values](training-parameters.md#training-parameters-types-and-default-values "training-parameters.md#training-parameters-types-and-default-values").
+For information about the default regularization values, see [Training Parameters: Types and Default Values](training-parameters.md#training-parameters-types-and-default-values "training-parameters.md#training-parameters-types-and-default-values").

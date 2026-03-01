@@ -137,9 +137,7 @@ regularization, which is the default in the Amazon ML console. Advanced users ca
 three types of regularization (none, L1, or L2) and amount. For more information about
 regularization, go to [Regularization (mathematics)](<http://en.wikipedia.org/wiki/Regularization_(mathematics)> "http://en.wikipedia.org/wiki/Regularization_(mathematics)").
 
-## Training Parameters: Types and
-
-Default Values
+## Training Parameters: Types and Default Values
 
 The following table lists the Amazon ML training parameters, along with the
 default values and the allowable range for each.

@@ -33,10 +33,8 @@ regression algorithm.
 ###### Topics
 
 - [Prerequisites](#model-prereqs "#model-prereqs")
-- [Creating an ML Model with Default
-  Options](#creating-ml-model-using-default-settings "#creating-ml-model-using-default-settings")
-- [Creating an ML Model with Custom
-  Options](#creating-ml-model-using-custom-settings "#creating-ml-model-using-custom-settings")
+- [Creating an ML Model with Default Options](#creating-ml-model-using-default-settings "#creating-ml-model-using-default-settings")
+- [Creating an ML Model with Custom Options](#creating-ml-model-using-custom-settings "#creating-ml-model-using-custom-settings")
 
 ## Prerequisites
 
@@ -44,9 +42,7 @@ Before using the Amazon ML console to create an ML model, you need to create two
 one for training the model and one for evaluating the model. If you haven't created two
 datasources, see [Step 2: Create a Training Datasource](step-2-create-a-datasource.md "step-2-create-a-datasource.md") in the tutorial.
 
-## Creating an ML Model with Default
-
-Options
+## Creating an ML Model with Default Options
 
 Choose the **Default** options, if you want Amazon ML to:
 
@@ -76,9 +72,7 @@ Choose the **Default** options, if you want Amazon ML to:
 8. Review your data, delete any tags copied from the datasource that you don't
    want applied to your model and evaluations, and then choose **Finish**.
 
-## Creating an ML Model with Custom
-
-Options
+## Creating an ML Model with Custom Options
 
 Customizing your ML model allows you to:
 
@@ -143,5 +137,4 @@ If you want to evaluate the ML model now:
    from the datasource that you don't want applied to your model and evaluations, and then choose
    **Finish**.
 
-After you have created the model, see [Step 4: Review the ML Model's Predictive
-Performance and Set a Score Threshold](step-4-review-model-and-set-cutoff.md "step-4-review-model-and-set-cutoff.md").
+After you have created the model, see [Step 4: Review the ML Model's Predictive Performance and Set a Score Threshold](step-4-review-model-and-set-cutoff.md "step-4-review-model-and-set-cutoff.md").

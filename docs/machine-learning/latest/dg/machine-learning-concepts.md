@@ -12,8 +12,7 @@ behavior.
 
 ###### Topics
 
-- [Solving Business Problems
-  with Amazon Machine Learning](machine-learning-problems-in-amazon-machine-learning.md "machine-learning-problems-in-amazon-machine-learning.md")
+- [Solving Business Problems with Amazon Machine Learning](machine-learning-problems-in-amazon-machine-learning.md "machine-learning-problems-in-amazon-machine-learning.md")
 - [When to Use Machine Learning](when-to-use-machine-learning.md "when-to-use-machine-learning.md")
 - [Building a Machine Learning Application](building-machine-learning.md "building-machine-learning.md")
 - [The Amazon Machine Learning Process](the-machine-learning-process.md "the-machine-learning-process.md")

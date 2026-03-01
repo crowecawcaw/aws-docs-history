@@ -81,9 +81,7 @@ fails in processing, and no prediction can be generated, the output file
 of the batch prediction will have a blank line in the corresponding
 location.
 
-## Interpreting the Contents of Batch Prediction Files for a Binary Classification ML
-
-model
+## Interpreting the Contents of Batch Prediction Files for a Binary Classification ML model
 
 The columns of the batch prediction file for a binary classification model are named
 **bestAnswer** and **score**.
@@ -123,9 +121,7 @@ The second and fifth observations in the input file have received prediction sco
 0.75, so the bestAnswer column for these observations indicates value "1", while other
 observations have the value "0".
 
-## Interpreting the Contents of Batch Prediction Files for a Multiclass Classification ML
-
-Model
+## Interpreting the Contents of Batch Prediction Files for a Multiclass Classification ML Model
 
 The batch prediction file for a multiclass model contains one column for each class found
 in the training data. Column names appear in the header line of the batch prediction

@@ -38,10 +38,8 @@ To see an example of the exact response format that uses your model, see [Trying
 
 - [Trying Real-Time Predictions](#testing-real-time-predictions "#testing-real-time-predictions")
 - [Creating a Real-Time Endpoint](#creating-a-real-time-endpoint "#creating-a-real-time-endpoint")
-- [Locating the Real-time Prediction Endpoint
-  (Console)](#locate-endpoint-by-console "#locate-endpoint-by-console")
-- [Locating the Real-time Prediction
-  Endpoint (API)](#locating-the-real-time-prediction-endpoint "#locating-the-real-time-prediction-endpoint")
+- [Locating the Real-time Prediction Endpoint (Console)](#locate-endpoint-by-console "#locate-endpoint-by-console")
+- [Locating the Real-time Prediction Endpoint (API)](#locating-the-real-time-prediction-endpoint "#locating-the-real-time-prediction-endpoint")
 - [Creating a Real-time Prediction Request](#real-time-prediction-request-format "#real-time-prediction-request-format")
 - [Deleting a Real-Time Endpoint](#delete-endpoint "#delete-endpoint")
 
@@ -90,8 +88,7 @@ the prediction immediately.
 In the **Prediction results** pane, you see the prediction object
 that the `Predict` API call returns, along with the ML model type, the
 name of the target variable, and the predicted class or value. For information about
-interpreting the results, see [Interpreting the Contents of Batch Prediction Files for a Binary Classification ML
-model](reading-the-batchprediction-output-files.md#interpreting-the-contents-of-batch-prediction-files-for-a-binary-classification-ml-model "reading-the-batchprediction-output-files.md#interpreting-the-contents-of-batch-prediction-files-for-a-binary-classification-ml-model").
+interpreting the results, see [Interpreting the Contents of Batch Prediction Files for a Binary Classification ML model](reading-the-batchprediction-output-files.md#interpreting-the-contents-of-batch-prediction-files-for-a-binary-classification-ml-model "reading-the-batchprediction-output-files.md#interpreting-the-contents-of-batch-prediction-files-for-a-binary-classification-ml-model").
 
 ![Prediction results showing binary ML model type with predicted label 0 and score details.](images/real-time-result.png)
 
@@ -126,9 +123,7 @@ information about using the `Predict` API, see
 
 ![Real-time endpoint status showing Ready with an endpoint URL and Peak Requests Per Second value.](images/endpoint-ready.png)
 
-## Locating the Real-time Prediction Endpoint
-
-(Console)
+## Locating the Real-time Prediction Endpoint (Console)
 
 To use the Amazon ML console to find the endpoint URL for an ML model navigate to the model's
 **ML model summary** page.
@@ -147,9 +142,7 @@ To use the Amazon ML console to find the endpoint URL for an ML model navigate t
    calls. For information on how to use the endpoint to generate predictions, see
    [https://docs.aws.amazon.com/machine-learning/latest/APIReference/API_Predict.html](../APIReference/API_Predict.md "../APIReference/API_Predict.md") in the Amazon Machine Learning API Reference.
 
-## Locating the Real-time Prediction
-
-Endpoint (API)
+## Locating the Real-time Prediction Endpoint (API)
 
 When you
 create a real-time endpoint by using the `CreateRealtimeEndpoint` operation, the

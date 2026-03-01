@@ -105,5 +105,4 @@ code](https://github.com/awslabs/machine-learning-samples "https://github.com/aw
 After you have cross-validated the models, you can adjust the settings
 for the next model if your model does not perform to your standards. For more information about overfitting, see [Model Fit: Underfitting vs. Overfitting](model-fit-underfitting-vs-overfitting.md "model-fit-underfitting-vs-overfitting.md"). For more information about
 regularization, see [Regularization](training-parameters1.md#regularization "training-parameters1.md#regularization"). For more
-information on changing the regularization settings, see [Creating an ML Model with Custom
-Options](creating-ml-model-on-the-amazon-ml-console.md#creating-ml-model-using-custom-settings "creating-ml-model-on-the-amazon-ml-console.md#creating-ml-model-using-custom-settings").
+information on changing the regularization settings, see [Creating an ML Model with Custom Options](creating-ml-model-on-the-amazon-ml-console.md#creating-ml-model-using-custom-settings "creating-ml-model-on-the-amazon-ml-console.md#creating-ml-model-using-custom-settings").

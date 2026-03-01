@@ -36,9 +36,7 @@ real-time endpoint.
 3. For **Actions**, choose **Delete**.
 4. In the dialog box, choose **Delete** to delete the model.
 
-###### To delete an Amazon ML model with a real-time endpoint
-
-(console)
+###### To delete an Amazon ML model with a real-time endpoint (console)
 
 1. Sign in to the AWS Management Console and open the Amazon Machine Learning console at
    [https://console.aws.amazon.com/machinelearning/](https://console.aws.amazon.com/machinelearning/ "https://console.aws.amazon.com/machinelearning/").

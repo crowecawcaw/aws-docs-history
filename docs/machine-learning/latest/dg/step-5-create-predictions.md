@@ -2,9 +2,7 @@ We are no longer updating the Amazon Machine Learning service or accepting
 new users for it. This documentation is available for existing users, but we are
 no longer updating it. For more information, see [What is Amazon Machine Learning](what-is-amazon-machine-learning.md "what-is-amazon-machine-learning.md").
 
-# Step 5: Use the ML Model to Generate
-
-Predictions
+# Step 5: Use the ML Model to Generate Predictions
 
 Amazon Machine Learning (Amazon ML) can generate two types of predictions—batch and real-time.
 
@@ -132,8 +130,7 @@ The prediction is stored in a compressed .gzip file with the .gz extension. 4. D
 The file has two columns, **bestAnswer** and
 **score**, and a row for each observation in your datasource. The results
 in the **bestAnswer** column are based on the score threshold of 0.77 that
-you set in [Step 4: Review the ML Model's Predictive
-Performance and Set a Score Threshold](step-4-review-model-and-set-cutoff.md "step-4-review-model-and-set-cutoff.md"). A
+you set in [Step 4: Review the ML Model's Predictive Performance and Set a Score Threshold](step-4-review-model-and-set-cutoff.md "step-4-review-model-and-set-cutoff.md"). A
 **score** greater than 0.77 results in a **bestAnswer**
 of 1, which is a positive response or prediction, and a **score** less than
 0.77 results in a **bestAnswer** of 0, which is a negative response or
