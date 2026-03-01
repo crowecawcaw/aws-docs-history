@@ -92,7 +92,7 @@ infrastructure, tools, and workflows.
 patterns based on the data and analytics that are run on the large data sets. Selecting the
 right visualization tool and strategy is an important aspect of identifying security trends
 and KPIs. AWS provides a number of services to help with visualizing vehicle security
-patterns in a detailed graph and report. [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") is a cloud-native serverless business intelligence service that provides
+patterns in a detailed graph and report. [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") is a cloud-native serverless business intelligence service that provides
 data visuals, interactive dashboards, and data analytics powered by ML. [Amazon Managed Grafana](https://aws.amazon.com/grafana/ "https://aws.amazon.com/grafana/") is a fully managed service for
 open-source Grafana, a popular open-source analytics service for querying, visualizing, and
 understanding your metrics no matter where they are stored. [AWS OpenSearch](https://aws.amazon.com/opensearch-service/ "https://aws.amazon.com/opensearch-service/") with Kibana gives you the ability to

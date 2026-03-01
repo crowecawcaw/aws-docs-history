@@ -1,6 +1,4 @@
-# CM-S03 Vehicle data management and
-
-insights
+# CM-S03 Vehicle data management and insights
 
 Connected vehicles have hundreds of controllers and sensors producing thousands of
 individual data elements for operating, and conveying the state of a vehicle. Vehicle data
@@ -96,5 +94,5 @@ architecture**
    and vehicle owners.
 7. You can use Amazon SageMaker AI improve ADAS/AV models to optimize vehicle design for
    performance and efficiency. Insights from structured and semistructured data can be
-   gathered by using Amazon Redshift. Utilizing Quick Suite and other analytics platforms to continually
+   gathered by using Amazon Redshift. Utilizing Quick and other analytics platforms to continually
    improve vehicle quality, safety, and autonomy using near real time data from AWS IoT FleetWise.

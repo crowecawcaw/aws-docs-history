@@ -11,11 +11,7 @@ implemented.
 
 - [CM-S01 Vehicle and user provisioning](cm-s01-vehicle-and-user-provisioning.md "cm-s01-vehicle-and-user-provisioning.md")
 - [CM-S02 Vehicle connectivity management](cm-s02-vehicle-connectivity-management.md "cm-s02-vehicle-connectivity-management.md")
-- [CM-S03 Vehicle data management and
-  insights](cm-s03-vehicle-data-management-insights.md "cm-s03-vehicle-data-management-insights.md")
-- [CM-S04 Connected mobility core
-  services](cm-s04-connected-mobility-core-services.md "cm-s04-connected-mobility-core-services.md")
-- [CM-S05 Connected mobility supported
-  systems](cm-s05-connected-mobility-supported-systems.md "cm-s05-connected-mobility-supported-systems.md")
-- [CM-S06 Customer experience
-  management](cm-s06-customer-experience-management.md "cm-s06-customer-experience-management.md")
+- [CM-S03 Vehicle data management and insights](cm-s03-vehicle-data-management-insights.md "cm-s03-vehicle-data-management-insights.md")
+- [CM-S04 Connected mobility core services](cm-s04-connected-mobility-core-services.md "cm-s04-connected-mobility-core-services.md")
+- [CM-S05 Connected mobility supported systems](cm-s05-connected-mobility-supported-systems.md "cm-s05-connected-mobility-supported-systems.md")
+- [CM-S06 Customer experience management](cm-s06-customer-experience-management.md "cm-s06-customer-experience-management.md")

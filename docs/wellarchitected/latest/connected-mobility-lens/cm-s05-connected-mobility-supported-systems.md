@@ -1,6 +1,4 @@
-# CM-S05 Connected mobility supported
-
-systems
+# CM-S05 Connected mobility supported systems
 
 Connected mobility is a foundational component in enabling systems such as autonomous
 driving, battery health management, and fleet management. These downstream systems have

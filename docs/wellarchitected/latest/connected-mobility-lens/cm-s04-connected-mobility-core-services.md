@@ -1,6 +1,4 @@
-# CM-S04 Connected mobility core
-
-services
+# CM-S04 Connected mobility core services
 
 Vehicle manufacturers can deliver value-added services to fleet operators and vehicle
 operators that helps them improve the vehicle operating experience, such as remote lock or

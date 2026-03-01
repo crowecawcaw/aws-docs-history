@@ -1,6 +1,4 @@
-# CM-S06 Customer experience
-
-management
+# CM-S06 Customer experience management
 
 Insights from vehicle data help provide a personalized in-cabin experience, which can
 also be portable to other vehicles. Vehicle Manufacturers can also use such data to predict

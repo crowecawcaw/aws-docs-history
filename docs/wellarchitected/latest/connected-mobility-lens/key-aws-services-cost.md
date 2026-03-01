@@ -11,7 +11,7 @@ optimization previous covered in this document:
   Budgets, Anomaly Detector, AWS Cost and Usage Reports are AWS services that enable you
   to view and analyze your costs and usage.
 - **Matching supply and demand:** Analyzing the demands of
-  workloads over time can help in matching the supply. Quick Suite, and AWS Cost and Usage
+  workloads over time can help in matching the supply. Quick, and AWS Cost and Usage
   Reports, are two services that can help you perform a visual analysis of workload demand.
 - **Cloud Financial Management:** AWS Config, AWS CloudFormation resource
   tags, service control policies, AWS tags are AWS services that can help enable a

@@ -17,6 +17,6 @@
 - [Amazon Macie](https://aws.amazon.com/macie/ "https://aws.amazon.com/macie/")
 - [AWS Identity and Access Management](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/")
 - [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/")
-- [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
+- [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
 - [Amazon Managed Grafana](https://aws.amazon.com/grafana/ "https://aws.amazon.com/grafana/")
 - [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/ "https://aws.amazon.com/opensearch-service/")
