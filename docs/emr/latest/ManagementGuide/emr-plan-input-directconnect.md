@@ -1,6 +1,4 @@
-# Connect to data with
-
-AWS Direct Connect from Amazon EMR
+# Connect to data with AWS Direct Connect from Amazon EMR
 
 Direct Connect is a service you can use to establish a private dedicated network
 connection to Amazon Web Services from your data center, office, or colocation

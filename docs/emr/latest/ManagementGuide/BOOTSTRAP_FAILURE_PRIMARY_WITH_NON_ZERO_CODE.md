@@ -5,8 +5,7 @@
 When a cluster terminates with a
 `BOOTSTRAP_FAILURE_PRIMARY_WITH_NON_ZERO_CODE` error, a bootstrap
 action has failed in the primary instance. For more information about bootstrap
-actions, see [Create bootstrap actions to install additional
-software with an Amazon EMR cluster](emr-plan-bootstrap.md "emr-plan-bootstrap.md").
+actions, see [Create bootstrap actions to install additional software with an Amazon EMR cluster](emr-plan-bootstrap.md "emr-plan-bootstrap.md").
 
 ## Resolution
 
@@ -14,8 +13,7 @@ To resolve this error, review the details returned in the API error, modify
 your bootstrap action script, and create a new cluster with the updated
 bootstrap action.
 
-To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail
-information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
+To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
 
 **`primary-instance-id`**
 

@@ -1,6 +1,4 @@
-# Configure Amazon EMR cluster location and data
-
-storage
+# Configure Amazon EMR cluster location and data storage
 
 This section describes how to configure the region for a cluster, the different file systems available when you use Amazon EMR and how to use them. It also covers how to prepare or upload data to Amazon EMR if necessary, as well as how to prepare an output location for log files and any output data files you configure.
 

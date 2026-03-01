@@ -1,6 +1,4 @@
-# Configuration
-
-examples
+# Configuration examples
 
 The following examples demonstrate security configurations and cluster
 configurations for common scenarios. AWS CLI commands are shown for
@@ -10,8 +8,7 @@ brevity.
 
 The following commands create a cluster with a cluster-dedicated KDC
 running on the primary node. Additional configuration on the cluster is
-required. For more information, see [Configuring an Amazon EMR cluster for
-Kerberos-authenticated HDFS users and SSH connections](emr-kerberos-configuration-users.md "emr-kerberos-configuration-users.md").
+required. For more information, see [Configuring an Amazon EMR cluster for Kerberos-authenticated HDFS users and SSH connections](emr-kerberos-configuration-users.md "emr-kerberos-configuration-users.md").
 
 **Create Security Configuration**
 
@@ -33,15 +30,12 @@ aws emr create-cluster --release-label `emr-7.12.0` \
 --kerberos-attributes Realm=`EC2.INTERNAL`,KdcAdminPassword=`MyPassword`
 ```
 
-## Cluster-dedicated KDC
-
-with Active Directory cross-realm trust
+## Cluster-dedicated KDC with Active Directory cross-realm trust
 
 The following commands create a cluster with a cluster-dedicated KDC
 running on the primary node with a cross-realm trust to an Active
 Directory domain. Additional configuration on the cluster and in Active
-Directory is required. For more information, see [Tutorial: Configure a cross-realm trust
-with an Active Directory domain](emr-kerberos-cross-realm.md "emr-kerberos-cross-realm.md").
+Directory is required. For more information, see [Tutorial: Configure a cross-realm trust with an Active Directory domain](emr-kerberos-cross-realm.md "emr-kerberos-cross-realm.md").
 
 **Create Security Configuration**
 
@@ -67,15 +61,12 @@ ADDomainJoinUser=`ADUserLogonName`,ADDomainJoinPassword=`ADUserPassword`,\
 CrossRealmTrustPrincipalPassword=`MatchADTrustPassword`
 ```
 
-## External KDC on a
-
-different cluster
+## External KDC on a different cluster
 
 The following commands create a cluster that references a
 cluster-dedicated KDC on the primary node of a different cluster to
 authenticate principals. Additional configuration on the cluster is
-required. For more information, see [Configuring an Amazon EMR cluster for
-Kerberos-authenticated HDFS users and SSH connections](emr-kerberos-configuration-users.md "emr-kerberos-configuration-users.md").
+required. For more information, see [Configuring an Amazon EMR cluster for Kerberos-authenticated HDFS users and SSH connections](emr-kerberos-configuration-users.md "emr-kerberos-configuration-users.md").
 
 **Create Security Configuration**
 
@@ -99,17 +90,14 @@ aws emr create-cluster --release-label `emr-7.12.0` \
 --kerberos-attributes Realm=`EC2.INTERNAL`,KdcAdminPassword=`KDCOnMasterPassword`
 ```
 
-## External cluster
-
-KDC with Active Directory cross-realm trust
+## External cluster KDC with Active Directory cross-realm trust
 
 The following commands create a cluster with no KDC. The cluster
 references a cluster-dedicated KDC running on the primary node of another
 cluster to authenticate principals. That KDC has a cross-realm trust
 with an Active Directory domain controller. Additional configuration on
 the primary node with the KDC is required. For more information, see
-[Tutorial: Configure a cross-realm trust
-with an Active Directory domain](emr-kerberos-cross-realm.md "emr-kerberos-cross-realm.md").
+[Tutorial: Configure a cross-realm trust with an Active Directory domain](emr-kerberos-cross-realm.md "emr-kerberos-cross-realm.md").
 
 **Create Security Configuration**
 

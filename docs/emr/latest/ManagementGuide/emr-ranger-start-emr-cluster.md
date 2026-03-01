@@ -12,8 +12,6 @@ meets the following minimum version requirement:
   [Apache Ranger 0.5.0 installation](https://cwiki.apache.org/confluence/display/RANGER/Apache+Ranger+0.5.0+Installation "https://cwiki.apache.org/confluence/display/RANGER/Apache+Ranger+0.5.0+Installation").
 - Make sure there is network connectivity between your Amazon EMR cluster and the
   Apache Ranger Admin server. See [Set up a Ranger Admin server to integrate with Amazon EMR](emr-ranger-admin.md "emr-ranger-admin.md")
-- Create the necessary IAM Roles. See [IAM roles for native integration with Apache
-  Ranger](emr-ranger-iam.md "emr-ranger-iam.md").
+- Create the necessary IAM Roles. See [IAM roles for native integration with Apache Ranger](emr-ranger-iam.md "emr-ranger-iam.md").
 - Create a EMR security configuration for Apache Ranger installation. See
-  more information, see [Create the EMR security
-  configuration](emr-ranger-security-config.md "emr-ranger-security-config.md").
+  more information, see [Create the EMR security configuration](emr-ranger-security-config.md "emr-ranger-security-config.md").

@@ -1,8 +1,6 @@
 # Create an EMR Studio service role
 
-## About the EMR Studio service
-
-role
+## About the EMR Studio service role
 
 Each EMR Studio uses an IAM role with permissions that let the Studio
 interact with other AWS services. This service role must include permissions that allow
@@ -15,9 +13,7 @@ Use the Studio service role (instead of session policies) to define all
 Amazon S3 access permissions for storing notebook files, and to define
 AWS Secrets Manager access permissions.
 
-## How to create a service role for
-
-EMR Studio on Amazon EC2 or Amazon EKS
+## How to create a service role for EMR Studio on Amazon EC2 or Amazon EKS
 
 1. Follow the instructions in [Creating a role to
    delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") to create the service role with the
@@ -59,8 +55,7 @@ JSON
 
 2. Remove the default role permissions. Then, include the permissions from the
    following sample IAM permissions policy. Alternatively, you can create a custom policy
-   that uses the [EMR Studio service role
-   permissions](#emr-studio-service-role-permissions-table "#emr-studio-service-role-permissions-table").
+   that uses the [EMR Studio service role permissions](#emr-studio-service-role-permissions-table "#emr-studio-service-role-permissions-table").
 
 ###### Important
 
@@ -328,17 +323,13 @@ for AWS Key Management Service.
 permissions to `secretsmanager:GetSecretValue` in the EMR Studio
 **user role policy**, and remove permissions to
 `secretsmanager:GetSecretValue` policy from the EMR Studio **service role policy**. For more information on setting
-fine-grained user permissions, see [Create permissions policies for
-EMR Studio users](emr-studio-user-permissions.md#emr-studio-permissions-policies "emr-studio-user-permissions.md#emr-studio-permissions-policies").
+fine-grained user permissions, see [Create permissions policies for EMR Studio users](emr-studio-user-permissions.md#emr-studio-permissions-policies "emr-studio-user-permissions.md#emr-studio-permissions-policies").
 
-## Minimum service role for
-
-EMR Serverless
+## Minimum service role for EMR Serverless
 
 If you want to run interactive workloads with EMR Serverless through EMR Studio
 notebooks, use the same trust policy that you use to set up EMR Studio in the previous
-section, [How to create a service role for
-EMR Studio on Amazon EC2 or Amazon EKS](#emr-studio-service-role-instructions "#emr-studio-service-role-instructions").
+section, [How to create a service role for EMR Studio on Amazon EC2 or Amazon EKS](#emr-studio-service-role-instructions "#emr-studio-service-role-instructions").
 
 For your IAM policy, the minimum viable policy has permissions as follows. Update
 `bucket-name` with the name of the bucket that
@@ -390,9 +381,7 @@ policy:
 "kms:DescribeKey"
 ```
 
-## EMR Studio service role
-
-permissions
+## EMR Studio service role permissions
 
 The following table lists the operations that EMR Studio performs using the
 service role, along with the IAM actions required for each operation.

@@ -1,6 +1,4 @@
-# Create bootstrap actions to install additional
-
-software with an Amazon EMR cluster
+# Create bootstrap actions to install additional software with an Amazon EMR cluster
 
 You can use a _bootstrap action_ to install
 additional software or customize the configuration of cluster instances. Bootstrap actions are scripts that run on cluster after Amazon EMR launches the instance using the Amazon Linux Amazon Machine Image (AMI). Bootstrap actions run before Amazon EMR installs the applications that you specify when you create the cluster and before cluster nodes begin processing data. If you add nodes to a running cluster,
@@ -86,8 +84,7 @@ error.
 
 ###### Note
 
-When using Amazon EMR versions 4.0 and later, you must manually create the `/mnt/var/lib/instance-controller/public/shutdown-actions/` directory on the master node. It doesn't exist by default; however, after being created, scripts in this directory nevertheless run before shutdown. For more information about connecting to the Master node to create directories, see [Connect to the Amazon EMR cluster primary node using
-SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
+When using Amazon EMR versions 4.0 and later, you must manually create the `/mnt/var/lib/instance-controller/public/shutdown-actions/` directory on the master node. It doesn't exist by default; however, after being created, scripts in this directory nevertheless run before shutdown. For more information about connecting to the Master node to create directories, see [Connect to the Amazon EMR cluster primary node using SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
 
 ## Use custom bootstrap actions
 
@@ -101,8 +98,7 @@ For the best performance, we recommend that you store custom bootstrap actions, 
 ###### Contents
 
 - [Add custom bootstrap actions](#custom-bootstrap "#custom-bootstrap")
-- [Use a custom bootstrap action to copy an
-  object from Amazon S3 to each node](#CustomBootstrapCopyS3Object "#CustomBootstrapCopyS3Object")
+- [Use a custom bootstrap action to copy an object from Amazon S3 to each node](#CustomBootstrapCopyS3Object "#CustomBootstrapCopyS3Object")
 
 ### Add custom bootstrap actions
 
@@ -169,9 +165,7 @@ subcommand.
 
 For more information on using Amazon EMR commands in the AWS CLI, see [https://docs.aws.amazon.com/cli/latest/reference/emr](../../../cli/latest/reference/emr.md "../../../cli/latest/reference/emr.md").
 
-### Use a custom bootstrap action to copy an
-
-object from Amazon S3 to each node
+### Use a custom bootstrap action to copy an object from Amazon S3 to each node
 
 You can use a bootstrap action to copy objects from Amazon S3 to each node in
 a cluster before your applications are installed. The AWS CLI

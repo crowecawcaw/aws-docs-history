@@ -10,9 +10,7 @@ action, and instance state logs. Apache Hadoop writes logs to report the process
 tasks, and task attempts. Hadoop also records logs of its daemons. For more information
 about the logs written by Hadoop, go to [http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html "http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html").
 
-## View log files on the primary
-
-node
+## View log files on the primary node
 
 The following table lists some of the log files you'll find on the primary node.
 
@@ -28,8 +26,7 @@ The following table lists some of the log files you'll find on the primary node.
 
 ###### To view log files on the primary node with the AWS CLI.
 
-1. Use SSH to connect to the primary node as described in [Connect to the Amazon EMR cluster primary node using
-   SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
+1. Use SSH to connect to the primary node as described in [Connect to the Amazon EMR cluster primary node using SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
 2. Navigate to the directory that contains the log file information you wish to
    view. The preceding table gives a list of the types of log files that are
    available and where you will find them. The following example shows the command

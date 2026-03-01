@@ -1,6 +1,4 @@
-# Queries are unexpectedly
-
-failing for Ranger integration with Amazon EMR
+# Queries are unexpectedly failing for Ranger integration with Amazon EMR
 
 **Check Apache Ranger plugin logs (Apache Hive, EMR
 RecordServer, EMR SecretAgent, etc., logs)**

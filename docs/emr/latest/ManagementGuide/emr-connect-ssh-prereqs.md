@@ -1,6 +1,4 @@
-# Before you connect to Amazon EMR: Authorize inbound
-
-traffic
+# Before you connect to Amazon EMR: Authorize inbound traffic
 
 Before you connect to an Amazon EMR cluster, you must authorize inbound SSH traffic (port 22) from trusted clients such as your computer's IP address. In order to do so, edit the
 managed security group rules for the nodes to which you want to connect. For example,
@@ -11,9 +9,7 @@ For more information about using security groups with Amazon EMR, see [Control n
 
 Console
 
-###### To grant trusted sources SSH access to the primary security group
-
-with the console
+###### To grant trusted sources SSH access to the primary security group with the console
 
 To edit your security groups, you must have permission to manage
 security groups for the VPC that the cluster is in. For more

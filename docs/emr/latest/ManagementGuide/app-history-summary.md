@@ -5,8 +5,7 @@
 We recommend that you use the persistent application interface for an improved
 user experience that retains app history for up to 30 days. The high-level
 application history described on this page isn't available in the new Amazon EMR console
-([https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr")). For more information, see [View persistent application user
-interfaces in Amazon EMR](app-history-spark-UI.md "app-history-spark-UI.md").
+([https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr")). For more information, see [View persistent application user interfaces in Amazon EMR](app-history-spark-UI.md "app-history-spark-UI.md").
 
 With Amazon EMR releases 5.8.0 to 5.36.0 and 6.x releases up to 6.8.0, you can view a
 high-level application history from the **Application user interfaces**
@@ -29,9 +28,7 @@ interfaces** tab in the old Amazon EMR console.
   not available for Amazon EMR clusters with multiple master nodes or for Amazon EMR
   clusters integrated with AWS Lake Formation.
 
-## Example: View a high-level application
-
-history
+## Example: View a high-level application history
 
 The following sequence demonstrates a drill-down through a Spark or YARN
 application into job details using the **Application user

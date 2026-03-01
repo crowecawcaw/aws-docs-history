@@ -68,9 +68,7 @@ The default unhealthy node replacement setting depends on how you launch the clu
 
 Console
 
-###### To turn unhealthy node replacement on or off when you create a
-
-cluster with the console
+###### To turn unhealthy node replacement on or off when you create a cluster with the console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
@@ -88,9 +86,7 @@ cluster with the console
 
 AWS CLI
 
-###### To turn unhealthy node replacement on or off when you create a
-
-cluster using the AWS CLI
+###### To turn unhealthy node replacement on or off when you create a cluster using the AWS CLI
 
 - With the AWS CLI, you can launch a cluster with unhealthy node replacement
   enabled with the `create-cluster` command
@@ -119,9 +115,7 @@ You can turn unhealthy node replacement on or off for a running cluster using th
 
 Console
 
-###### To turn unhealthy node replacement on or off for a running cluster
-
-with the console
+###### To turn unhealthy node replacement on or off for a running cluster with the console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
@@ -137,9 +131,7 @@ with the console
 
 AWS CLI
 
-###### To turn unhealthy node replacement on or off for a running cluster
-
-using the AWS CLI
+###### To turn unhealthy node replacement on or off for a running cluster using the AWS CLI
 
 - To turn on unhealthy node replacement on a running cluster with the
   AWS CLI, use the `modify-cluster-attributes` command

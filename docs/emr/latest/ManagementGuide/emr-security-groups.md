@@ -58,10 +58,8 @@ block public access is off by default. For more information, see [Using Amazon E
 
 - [Working with Amazon EMR-managed security groups](emr-man-sec-groups.md "emr-man-sec-groups.md")
 - [Working with additional security groups for an Amazon EMR cluster](emr-additional-sec-groups.md "emr-additional-sec-groups.md")
-- [Specifying Amazon EMR-managed and additional security
-  groups](emr-sg-specify.md "emr-sg-specify.md")
-- [Specifying EC2 security groups
-  for EMR Notebooks](emr-managed-notebooks-security-groups.md "emr-managed-notebooks-security-groups.md")
+- [Specifying Amazon EMR-managed and additional security groups](emr-sg-specify.md "emr-sg-specify.md")
+- [Specifying EC2 security groups for EMR Notebooks](emr-managed-notebooks-security-groups.md "emr-managed-notebooks-security-groups.md")
 - [Using Amazon EMR block public access](emr-block-public-access.md "emr-block-public-access.md")
 
 ###### Note

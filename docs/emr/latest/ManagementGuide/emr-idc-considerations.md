@@ -1,6 +1,4 @@
-# Considerations and limitations for Amazon EMR with
-
-the Identity Center integration
+# Considerations and limitations for Amazon EMR with the Identity Center integration
 
 Consider the following points when you use IAM Identity Center with Amazon EMR:
 
@@ -8,8 +6,7 @@ Consider the following points when you use IAM Identity Center with Amazon EMR:
   is supported on Amazon EMR 7.8.0 and higher, and only with Apache Spark.
 - To enable EMR clusters with trusted identity propagation, you must use the AWS CLI to create a
   security configuration that has trusted identity propagation enabled, and use that security
-  configuration when you launch your cluster. For more information, see [Create an Identity Center enabled security
-  configuration](emr-idc-start.md#emr-idc-start-securityconfig "emr-idc-start.md#emr-idc-start-securityconfig").
+  configuration when you launch your cluster. For more information, see [Create an Identity Center enabled security configuration](emr-idc-start.md#emr-idc-start-securityconfig "emr-idc-start.md#emr-idc-start-securityconfig").
 - Fine-grained access controls using AWS Lake Formation that use Trusted Identity Propagation are available for
   Amazon EMR clusters on EMR version 7.2.0 and higher. Between EMR versions 6.15.0 and 7.1.0, only table-level access control, based on AWS Lake Formation, is available.
 - With Amazon EMR clusters that use Trusted Identity Propagation, operations that support access control based on Lake Formation with Apache Spark

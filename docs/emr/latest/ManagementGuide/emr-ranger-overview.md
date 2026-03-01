@@ -29,6 +29,5 @@ Apache Ranger has the following features:
 
 ###### Topics
 
-- [Architecture of Amazon EMR integration with
-  Apache Ranger](emr-ranger-architecture.md "emr-ranger-architecture.md")
+- [Architecture of Amazon EMR integration with Apache Ranger](emr-ranger-architecture.md "emr-ranger-architecture.md")
 - [Amazon EMR components for use with Apache Ranger](emr-ranger-components.md "emr-ranger-components.md")

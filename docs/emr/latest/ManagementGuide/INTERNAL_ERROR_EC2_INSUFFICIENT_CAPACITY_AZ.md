@@ -13,8 +13,7 @@ For more information about subnets for Amazon EMR, see [Configure networking in 
 To resolve this error, modify your instance type configurations and create a
 new cluster with your updated request.
 
-To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail
-information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
+To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
 
 **`instance-type`**
 
@@ -28,9 +27,7 @@ The Availability Zone that your subnet resolves to.
 
 The public URL of the documentation for the error code.
 
-## Steps to
-
-complete
+## Steps to complete
 
 Perform the following steps to identify and fix the root cause of the cluster
 configuration error:

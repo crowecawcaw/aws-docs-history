@@ -1,6 +1,4 @@
-# IAM roles for native integration with Apache
-
-Ranger
+# IAM roles for native integration with Apache Ranger
 
 The integration between Amazon EMR and Apache Ranger relies on three key roles that you
 should create before you launch your cluster:

@@ -1,6 +1,4 @@
-# Configure IAM roles for EMRFS requests to
-
-Amazon S3
+# Configure IAM roles for EMRFS requests to Amazon S3
 
 ###### Note
 
@@ -19,8 +17,7 @@ in Amazon S3 through EMRFS, you can set up a security configuration with IAM rol
 EMRFS. EMRFS can assume a different service role for cluster EC2 instances based on the user or group
 making the request, or based on the location of data in Amazon S3. Each IAM role for EMRFS
 can have different permissions for data access in Amazon S3. For more information about the
-service role for cluster EC2 instances, see [Service role for cluster EC2 instances (EC2
-instance profile)](emr-iam-role-for-ec2.md "emr-iam-role-for-ec2.md").
+service role for cluster EC2 instances, see [Service role for cluster EC2 instances (EC2 instance profile)](emr-iam-role-for-ec2.md "emr-iam-role-for-ec2.md").
 
 Using custom IAM roles for EMRFS is supported in Amazon EMR versions 5.10.0 and later. If
 you use an earlier version or have requirements beyond what IAM roles for EMRFS
@@ -55,8 +52,7 @@ When a cluster application makes a request to Amazon S3 through EMRFS, EMRFS eva
 mappings in the top-down order that they appear in the security configuration. If a
 request made through EMRFS doesn't match any identifier, EMRFS falls back to using the
 service role for cluster EC2 instances. For this reason, we recommend that the policies attached to this
-role limit permissions to Amazon S3. For more information, see [Service role for cluster EC2 instances (EC2
-instance profile)](emr-iam-role-for-ec2.md "emr-iam-role-for-ec2.md").
+role limit permissions to Amazon S3. For more information, see [Service role for cluster EC2 instances (EC2 instance profile)](emr-iam-role-for-ec2.md "emr-iam-role-for-ec2.md").
 
 ## Configure roles
 
@@ -68,12 +64,9 @@ _IAM User Guide_. When creating permissions policies, we
 recommend that you start with the managed policy attached to the default Amazon EMR role
 for EC2, and then edit this policy according to your requirements. The default role
 name is `EMR_EC2_DefaultRole`, and the default managed policy to edit is
-`AmazonElasticMapReduceforEC2Role`. For more information, see [Service role for cluster EC2 instances (EC2
-instance profile)](emr-iam-role-for-ec2.md "emr-iam-role-for-ec2.md").
+`AmazonElasticMapReduceforEC2Role`. For more information, see [Service role for cluster EC2 instances (EC2 instance profile)](emr-iam-role-for-ec2.md "emr-iam-role-for-ec2.md").
 
-### Updating trust policies to
-
-assume role permissions
+### Updating trust policies to assume role permissions
 
 Each role that EMRFS uses must have a trust policy that allows the cluster's
 Amazon EMR role for EC2 to assume it. Similarly, the cluster's Amazon EMR role for EC2
@@ -144,18 +137,14 @@ Open the IAM console at
    document** according to the guidelines above, and then
    choose **Update trust policy**.
 
-### Specifying a role as a key
-
-user
+### Specifying a role as a key user
 
 If a role allows access to a location in Amazon S3 that is encrypted using an
 AWS KMS key, make sure that the role is specified as a key user. This gives
 the role permission to use the KMS key. For more information, see [Key policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md#key-policy-default-allow-users "../../../kms/latest/developerguide/key-policies.md#key-policy-default-allow-users") in the
 _AWS Key Management Service Developer Guide_.
 
-## Set up a security configuration with
-
-IAM roles for EMRFS
+## Set up a security configuration with IAM roles for EMRFS
 
 ###### Important
 
@@ -163,8 +152,7 @@ If none of the IAM roles for EMRFS that you specify apply, EMRFS falls back
 to the Amazon EMR role for EC2. Consider customizing this role to restrict
 permissions to Amazon S3 as appropriate for your application and then specifying this
 custom role instead of `EMR_EC2_DefaultRole` when you create a
-cluster. For more information, see [Customize IAM roles with Amazon EMR](emr-iam-roles-custom.md "emr-iam-roles-custom.md") and [Specify custom IAM roles when you
-create a cluster](emr-iam-roles-custom.md#emr-iam-roles-launch-jobflow "emr-iam-roles-custom.md#emr-iam-roles-launch-jobflow").
+cluster. For more information, see [Customize IAM roles with Amazon EMR](emr-iam-roles-custom.md "emr-iam-roles-custom.md") and [Specify custom IAM roles when you create a cluster](emr-iam-roles-custom.md#emr-iam-roles-launch-jobflow "emr-iam-roles-custom.md#emr-iam-roles-launch-jobflow").
 
 ###### To specify IAM roles for EMRFS requests to Amazon S3 using the console
 
@@ -187,12 +175,10 @@ create a cluster](emr-iam-roles-custom.md#emr-iam-roles-launch-jobflow "emr-iam-
    5. Choose **Add role** to set up additional role
       mappings as described in the previous step.
    6. Set up other security configuration options as appropriate and
-      choose **Create**. For more information, see [Create a security
-      configuration with the Amazon EMR console or with the AWS CLI](emr-create-security-configuration.md "emr-create-security-configuration.md").
+      choose **Create**. For more information, see [Create a security configuration with the Amazon EMR console or with the AWS CLI](emr-create-security-configuration.md "emr-create-security-configuration.md").
 
 2. Specify the security configuration you created above when you create a
-   cluster. For more information, see [Specify a security configuration
-   for an Amazon EMR cluster](emr-specify-security-configuration.md "emr-specify-security-configuration.md").
+   cluster. For more information, see [Specify a security configuration for an Amazon EMR cluster](emr-specify-security-configuration.md "emr-specify-security-configuration.md").
 
 ###### To specify IAM roles for EMRFS requests to Amazon S3 using the AWS CLI
 
@@ -212,8 +198,7 @@ aws emr create-security-configuration --name `EMRFS_Roles_Security_Configuration
 Use the following guidelines for the structure of the
 `MyEmrFsSecConfig.json` file. You can specify this structure
 along with structures for other security configuration options. For more
-information, see [Create a security
-configuration with the Amazon EMR console or with the AWS CLI](emr-create-security-configuration.md "emr-create-security-configuration.md").
+information, see [Create a security configuration with the Amazon EMR console or with the AWS CLI](emr-create-security-configuration.md "emr-create-security-configuration.md").
 
 The following is an example JSON snippet for specifying custom IAM roles for EMRFS within a security
 configuration. It demonstrates role mappings for the three different identifier types,

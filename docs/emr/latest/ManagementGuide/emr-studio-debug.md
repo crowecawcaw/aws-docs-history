@@ -4,8 +4,7 @@ With Amazon EMR Studio, you can launch data application interfaces to analyze ap
 job runs in the browser.
 
 You can also launch the persistent, off-cluster user interfaces for Amazon EMR running on EC2
-clusters from the Amazon EMR console. For more information, see [View persistent application user
-interfaces in Amazon EMR](app-history-spark-UI.md "app-history-spark-UI.md").
+clusters from the Amazon EMR console. For more information, see [View persistent application user interfaces in Amazon EMR](app-history-spark-UI.md "app-history-spark-UI.md").
 
 ###### Note
 
@@ -48,8 +47,7 @@ _User Guide._
 
 1. In your EMR Studio, open the Workspace that you want to use and
    make sure that it is attached to an Amazon EMR cluster running on EC2. For
-   instructions, see [Attach a compute to an EMR Studio
-   Workspace](emr-studio-create-use-clusters.md "emr-studio-create-use-clusters.md").
+   instructions, see [Attach a compute to an EMR Studio Workspace](emr-studio-create-use-clusters.md "emr-studio-create-use-clusters.md").
 2. Open a notebook file and use the PySpark, Spark, or SparkR kernel. To select a
    kernel, choose the kernel name from the upper right of the notebook toolbar to
    open the **Select Kernel** dialog box. The name appears as
@@ -82,9 +80,7 @@ paths after `amazonaws.com`.
 
 Studio UI
 
-###### Launch the persistent YARN Timeline Server, Spark History Server, or Tez UI
-
-from the EMR Studio UI
+###### Launch the persistent YARN Timeline Server, Spark History Server, or Tez UI from the EMR Studio UI
 
 1. In your EMR Studio, select **Amazon EMR on EC2** on the left
    side of the page to open the **Amazon EMR on EC2** clusters list.
@@ -95,9 +91,7 @@ from the EMR Studio UI
    UIs** to select an application user interface. The Application UI opens
    in a new browser tab and might take some time to load.
 
-## Debug EMR Studio running on
-
-EMR Serverless
+## Debug EMR Studio running on EMR Serverless
 
 Similar to Amazon EMR running on Amazon EC2, you can use the Workspace user interface to analyze
 your EMR Serverless applications. From the Workspace UI, when you use Amazon EMR releases 6.14.0
@@ -105,9 +99,7 @@ and higher, you can launch the Spark web user interface (the Spark UI or Spark H
 Server) from a notebook in your Workspace. For your convenience, we also provide a link to
 the driver log for quick access the Spark driver logs.
 
-## Debug Amazon EMR on EKS job runs with the Spark History
-
-Server
+## Debug Amazon EMR on EKS job runs with the Spark History Server
 
 When you submit a job run to an Amazon EMR on EKS cluster, you can access logs for that job run
 using the Spark History Server. The Spark History Server provides tools for monitoring Spark
@@ -126,9 +118,7 @@ Instrumentation](https://spark.apache.org/docs/latest/monitoring.html "https://s
 runs, see [Concepts and
 components](../EMR-on-EKS-DevelopmentGuide/emr-eks-concepts.md "../EMR-on-EKS-DevelopmentGuide/emr-eks-concepts.md") in the _Amazon EMR on EKS Development Guide_.
 
-###### To launch the Spark History Server from a notebook file in your EMR Studio
-
-Workspace
+###### To launch the Spark History Server from a notebook file in your EMR Studio Workspace
 
 1. Open a Workspace that is connected to an Amazon EMR on EKS cluster.
 2. Select and open your notebook file in the Workspace.

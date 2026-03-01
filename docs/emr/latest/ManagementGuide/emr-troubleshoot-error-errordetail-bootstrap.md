@@ -1,6 +1,4 @@
-# Bootstrap failure error
-
-codes in Amazon EMR
+# Bootstrap failure error codes in Amazon EMR
 
 The following sections provide troubleshooting information for bootstrap failure error
 codes.

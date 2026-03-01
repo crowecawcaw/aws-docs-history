@@ -87,9 +87,7 @@ permissions for the resource type and regrant them. If you revoke permissions, A
 the AWS RAM resource share associated with the resource type. When you regrant permissions, AWS RAM
 creates new resource shares attaching the latest version of AWS RAM managed permissions.
 
-## Inserting into, creating, and altering
-
-tables
+## Inserting into, creating, and altering tables
 
 Inserting into, creating, or altering tables in databases protected by Lake Formation
 policies is not supported. When performing these operations, you will see the following exception in the

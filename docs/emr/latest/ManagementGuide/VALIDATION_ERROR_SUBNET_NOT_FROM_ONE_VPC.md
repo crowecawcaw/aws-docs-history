@@ -14,8 +14,7 @@ _Amazon EMR Management Guide_.
 To resolve this error, use subnets that belong to the same VPC as the
 cluster.
 
-To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail
-information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
+To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
 
 **`vpc`**
 
@@ -30,9 +29,7 @@ For each subnet:VPC pair, the ID for the subnet.
 
 The public URL of the documentation for the error code.
 
-## Steps to
-
-complete
+## Steps to complete
 
 Perform the following steps to identify and fix the error:
 

@@ -1,14 +1,9 @@
-# Administrator permissions to create and manage
-
-an EMR Studio
+# Administrator permissions to create and manage an EMR Studio
 
 The IAM permissions described on this page permit you to create and manage an
-EMR Studio. For detailed information about each required permission, see [Permissions required to manage an
-EMR Studio](#emr-studio-admin-permissions-table "#emr-studio-admin-permissions-table").
+EMR Studio. For detailed information about each required permission, see [Permissions required to manage an EMR Studio](#emr-studio-admin-permissions-table "#emr-studio-admin-permissions-table").
 
-## Permissions required to manage an
-
-EMR Studio
+## Permissions required to manage an EMR Studio
 
 The following table lists the operations related to creating and managing an
 EMR Studio. The table also displays the permissions needed for each operation.

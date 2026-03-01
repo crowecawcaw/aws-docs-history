@@ -1,6 +1,4 @@
-# Responding to Amazon EMR cluster
-
-insufficient instance capacity events
+# Responding to Amazon EMR cluster insufficient instance capacity events
 
 ## Overview
 
@@ -14,9 +12,7 @@ request for a cluster start or cluster resize operation.
 This page describes how you can best respond to this event type when it occurs for
 your EMR cluster.
 
-## Recommended response to an
-
-insufficient capacity event
+## Recommended response to an insufficient capacity event
 
 We recommend that you respond to an insufficient-capacity event in one of the
 following ways:
@@ -26,15 +22,12 @@ following ways:
   start or finish resizing as soon as Amazon EC2 capacity becomes available.
 - Alternatively, you can terminate your cluster, modify your instance type
   configurations, and create a new cluster with the updated cluster
-  configuration request. For more information, see [Availability Zone
-  flexibility for an Amazon EMR cluster](emr-flexibility.md "emr-flexibility.md").
+  configuration request. For more information, see [Availability Zone flexibility for an Amazon EMR cluster](emr-flexibility.md "emr-flexibility.md").
 
 You can also set up rules or automated responses to an insufficient capacity
 event, as described in the next section.
 
-## Automated recovery from an
-
-insufficient capacity event
+## Automated recovery from an insufficient capacity event
 
 You can build automation in response to Amazon EMR events such as the ones with event
 code `EC2 provisioning - Insufficient Instance Capacity`. For example,
@@ -48,8 +41,7 @@ The following conditions trigger the automated process to occur:
   nodes for more than 20 minutes.
 - The cluster is not in a **READY** or
   **WAITING** state. For more information about
-  EMR cluster states, see [Understanding the cluster
-  lifecycle](emr-overview.md#emr-overview-cluster-lifecycle "emr-overview.md#emr-overview-cluster-lifecycle").
+  EMR cluster states, see [Understanding the cluster lifecycle](emr-overview.md#emr-overview-cluster-lifecycle "emr-overview.md#emr-overview-cluster-lifecycle").
 
 ###### Note
 

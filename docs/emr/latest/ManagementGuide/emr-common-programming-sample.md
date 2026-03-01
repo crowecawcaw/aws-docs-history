@@ -1,6 +1,4 @@
-# End-to-end Amazon EMR Java source code
-
-sample
+# End-to-end Amazon EMR Java source code sample
 
 Developers can call the Amazon EMR API using custom Java code to do the same things
 possible with the Amazon EMR console or CLI. This section provides the end-to-end steps

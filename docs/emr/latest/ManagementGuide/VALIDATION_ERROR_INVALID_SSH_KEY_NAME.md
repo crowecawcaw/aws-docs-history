@@ -14,8 +14,7 @@ _Amazon EC2 User Guide_.
 To resolve this error, create a new cluster with a valid SSH key pair
 name.
 
-To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail
-information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
+To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
 
 **`ssh-key`**
 
@@ -26,9 +25,7 @@ cluster.
 
 The public URL of the documentation for the error code.
 
-## Steps to
-
-complete
+## Steps to complete
 
 Perform the following steps to identify and fix the error:
 

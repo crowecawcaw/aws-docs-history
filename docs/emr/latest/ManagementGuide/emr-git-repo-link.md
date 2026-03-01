@@ -10,14 +10,11 @@ EMR Notebooks are available as EMR Studio Workspaces in the console. The **Creat
 
 Console
 Because EMR Notebooks are EMR Studio Workspaces in the new
-console, you can you can refer to [Link Git-based repositories to an EMR Studio
-Workspace](emr-studio-git-repo.md "emr-studio-git-repo.md") for more information on
+console, you can you can refer to [Link Git-based repositories to an EMR Studio Workspace](emr-studio-git-repo.md "emr-studio-git-repo.md") for more information on
 working with Git repositories in your Workspace. But at this
 time, you can't delete Git repositories from Workspaces.
 
-## Understanding
-
-repository status
+## Understanding repository status
 
 A Git repository may have any of the following status in the repository list.
 For more information about linking EMR notebooks with Git repositories,

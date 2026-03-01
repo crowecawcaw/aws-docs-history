@@ -66,8 +66,7 @@ For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgro
 ###### Note
 
 With Amazon EMR release versions 5.10.0 or later, you can configure Kerberos to authenticate users
-and SSH connections to a cluster. For more information, see [Use Kerberos for
-authentication with Amazon EMR](emr-kerberos.md "emr-kerberos.md").
+and SSH connections to a cluster. For more information, see [Use Kerberos for authentication with Amazon EMR](emr-kerberos.md "emr-kerberos.md").
 
 To authenticate and connect to the nodes in a cluster over a
 secure channel using the Secure Shell (SSH) protocol, create an Amazon Elastic Compute Cloud (Amazon EC2) key pair before you launch the cluster. You can also create a cluster without a key pair. This is usually done with transient clusters that start, run steps, and then terminate automatically.

@@ -1,10 +1,7 @@
-# Create the Amazon EMR security configuration for
-
-LDAP integration
+# Create the Amazon EMR security configuration for LDAP integration
 
 Before you can launch an EMR cluster with LDAP integration, use the steps in
-[Create a security
-configuration with the Amazon EMR console or with the AWS CLI](emr-create-security-configuration.md "emr-create-security-configuration.md") to create an Amazon EMR security
+[Create a security configuration with the Amazon EMR console or with the AWS CLI](emr-create-security-configuration.md "emr-create-security-configuration.md") to create an Amazon EMR security
 configuration for the cluster. Complete the following configurations in the
 `LDAPConfiguration` block under
 `AuthenticationConfiguration`, or the in corresponding fields in the
@@ -36,8 +33,7 @@ The AWS Secrets Manager ARN that contains the certificate to sign the SSL
 certificate that the LDAP server uses. If your LDAP server is signed by
 a public Certificate Authority (CA), you can provide an AWS Secrets Manager ARN
 with a blank file. For more information on how to store your certificate
-in Secrets Manager, see [Store TLS certificates in
-AWS Secrets Manager](emr-ranger-tls-certificates.md "emr-ranger-tls-certificates.md").
+in Secrets Manager, see [Store TLS certificates in AWS Secrets Manager](emr-ranger-tls-certificates.md "emr-ranger-tls-certificates.md").
 
 **`BindCredentialsARN`**
 
@@ -109,9 +105,7 @@ The domain name used to create the User Principal Name (UPN) for user
 authentication with security configurations that use the Active
 Directory server type.
 
-## Considerations for security
-
-configurations with LDAP and Amazon EMR
+## Considerations for security configurations with LDAP and Amazon EMR
 
 - To create a security configuration with Amazon EMR LDAP integration, you
   must use in-transit encryption. For information about in-transit
@@ -126,9 +120,7 @@ configurations with LDAP and Amazon EMR
   protocol in its value.
 - The `LDAPAccessFilter` can't be empty.
 
-## Use LDAP with the Apache Ranger integration
-
-for Amazon EMR
+## Use LDAP with the Apache Ranger integration for Amazon EMR
 
 With the LDAP integration for Amazon EMR, you can further integrate with Apache
 Ranger. When you pull .your LDAP users into Ranger, you can then associate those
@@ -136,8 +128,7 @@ users with an Apache Ranger policy server to integrate with Amazon EMR and other
 applications. To do this, define the `RangerConfiguration` field
 within `AuthorizationConfiguration` in the security configuration
 that you use with your LDAP cluster. For more information on how to set up the
-security configuration, see [Create the EMR security
-configuration](emr-ranger-security-config.md "emr-ranger-security-config.md").
+security configuration, see [Create the EMR security configuration](emr-ranger-security-config.md "emr-ranger-security-config.md").
 
 When you use LDAP with Amazon EMR, you don't need to provide a
 `KerberosConfiguration` with the Amazon EMR integration for Apache

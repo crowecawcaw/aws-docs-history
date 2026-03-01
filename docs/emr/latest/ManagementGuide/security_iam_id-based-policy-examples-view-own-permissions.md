@@ -1,6 +1,4 @@
-# Allow
-
-users to view their own permissions
+# Allow users to view their own permissions
 
 This example shows how you might create a policy that allows a users to view the
 inline and managed policies that are attached to their user identity. This policy

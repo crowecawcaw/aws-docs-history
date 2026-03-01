@@ -1,6 +1,4 @@
-# Use Active Directory or LDAP servers for authentication with
-
-Amazon EMR
+# Use Active Directory or LDAP servers for authentication with Amazon EMR
 
 With Amazon EMR releases 6.12.0 and higher, you can use the LDAP over SSL (LDAPS) protocol to
 launch a cluster that natively integrates with your corporate identity server. LDAP
@@ -27,7 +25,6 @@ Highlights of the Amazon EMR LDAP integration include:
 
 - [Overview of LDAP with Amazon EMR](ldap-overview.md "ldap-overview.md")
 - [LDAP components for Amazon EMR](ldap-components.md "ldap-components.md")
-- [Application support and considerations with LDAP
-  for Amazon EMR](ldap-considerations.md "ldap-considerations.md")
+- [Application support and considerations with LDAP for Amazon EMR](ldap-considerations.md "ldap-considerations.md")
 - [Configure and launch an EMR cluster with LDAP](ldap-setup.md "ldap-setup.md")
 - [Examples using LDAP with Amazon EMR](ldap-examples.md "ldap-examples.md")

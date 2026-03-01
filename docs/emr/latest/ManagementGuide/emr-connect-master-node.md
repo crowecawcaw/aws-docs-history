@@ -21,8 +21,7 @@ cluster terminates, the EC2 instance acting as the primary node is terminated an
 longer available. To connect to the primary node, you must also authenticate to the
 cluster. You can either use Kerberos for authentication, or specify an Amazon EC2 key pair
 private key when you launch the cluster. For more information about configuring
-Kerberos, and then connecting, see [Use Kerberos for
-authentication with Amazon EMR](emr-kerberos.md "emr-kerberos.md"). When you launch a cluster from the console, the
+Kerberos, and then connecting, see [Use Kerberos for authentication with Amazon EMR](emr-kerberos.md "emr-kerberos.md"). When you launch a cluster from the console, the
 Amazon EC2 key pair private key is specified in the **Security and Access**
 section on the **Create Cluster** page.
 
@@ -39,7 +38,5 @@ Modifying these rules may interfere with the operation of the cluster.
 
 ###### Topics
 
-- [Before you connect to Amazon EMR: Authorize inbound
-  traffic](emr-connect-ssh-prereqs.md "emr-connect-ssh-prereqs.md")
-- [Connect to the Amazon EMR cluster primary node using
-  SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md")
+- [Before you connect to Amazon EMR: Authorize inbound traffic](emr-connect-ssh-prereqs.md "emr-connect-ssh-prereqs.md")
+- [Connect to the Amazon EMR cluster primary node using SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md")

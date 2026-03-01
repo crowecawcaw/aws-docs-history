@@ -1,6 +1,4 @@
-# Automate recurring Amazon EMR clusters with
-
-AWS Data Pipeline
+# Automate recurring Amazon EMR clusters with AWS Data Pipeline
 
 ###### Note
 

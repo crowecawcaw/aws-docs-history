@@ -35,7 +35,6 @@ higher. We recommend that you use EMR Notebooks with clusters that use the lates
 of Amazon EMR, or at least 5.30.0, 5.32.0, or 6.2.0. With these releases, Jupyter kernels run
 on the attached cluster rather than on a Jupyter instance. This improves performance and
 enhances your ability to customize kernels and libraries. For more information, see
-[Differences in capabilities by
-cluster release version](emr-managed-notebooks-considerations.md#considerations-cluster-version "emr-managed-notebooks-considerations.md#considerations-cluster-version").
+[Differences in capabilities by cluster release version](emr-managed-notebooks-considerations.md#considerations-cluster-version "emr-managed-notebooks-considerations.md#considerations-cluster-version").
 
 Applicable charges for Amazon S3 storage and for Amazon EMR clusters apply.

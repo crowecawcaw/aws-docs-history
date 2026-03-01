@@ -35,9 +35,7 @@ actions for the role policies to delete or terminate the resources. Otherwise, A
 can’t perform these cleanup actions, and you might incur costs for unused resources that
 remain on the cluster.
 
-## Terminate a cluster with the
-
-console
+## Terminate a cluster with the console
 
 You can terminate one or more clusters using the Amazon EMR console. The steps to terminate
 a cluster in the console vary depending on whether termination protection is on or off.
@@ -58,9 +56,7 @@ Console
    the cluster configuration, termination may take 5 to 10 minutes. For
    more information on how to Amazon EMR clusters, see [Terminate an Amazon EMR cluster in the starting, running, or waiting states](UsingEMR_TerminateJobFlow.md "UsingEMR_TerminateJobFlow.md").
 
-## Terminate a cluster with the
-
-AWS CLI
+## Terminate a cluster with the AWS CLI
 
 ###### To terminate an unprotected cluster using the AWS CLI
 
@@ -116,9 +112,7 @@ aws emr terminate-clusters --cluster-ids `j-3KVXXXXXXX7UG` `j-WJ2XXXXXX8EU`
 
 For more information on using Amazon EMR commands in the AWS CLI, see [https://docs.aws.amazon.com/cli/latest/reference/emr](../../../cli/latest/reference/emr.md "../../../cli/latest/reference/emr.md").
 
-## Terminate a cluster with the
-
-API
+## Terminate a cluster with the API
 
 The `TerminateJobFlows` operation ends step processing, uploads any log
 data from Amazon EC2 to Amazon S3 (if configured), and terminates the Hadoop cluster. A cluster

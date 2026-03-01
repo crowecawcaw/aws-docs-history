@@ -1,6 +1,4 @@
-# Upload data with
-
-AWS DataSync
+# Upload data with AWS DataSync
 
 AWS DataSync is an online data transfer service that simplifies,
 automates, and accelerates the process of moving data between your on-premises

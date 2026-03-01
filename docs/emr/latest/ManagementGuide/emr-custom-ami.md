@@ -6,16 +6,14 @@ following:
 
 - Pre-install applications and perform other customizations instead of using
   bootstrap actions. This can improve cluster start time and streamline the
-  startup work flow. For more information and an example, see [Creating a custom Amazon Linux AMI from a
-  preconfigured instance](#emr-custom-ami-preconfigure "#emr-custom-ami-preconfigure").
+  startup work flow. For more information and an example, see [Creating a custom Amazon Linux AMI from a preconfigured instance](#emr-custom-ami-preconfigure "#emr-custom-ami-preconfigure").
 - Implement more sophisticated cluster and node configurations than bootstrap
   actions allow.
 - Encrypt the EBS root device volumes (boot volumes) of EC2 instances in your
   cluster if you are using an Amazon EMR version lower than 5.24.0. As with the default
   AMI, the minimum root volume size for a custom AMI is 10 GiB for Amazon EMR
   releases 6.9 and lower, and 15 GiB for Amazon EMR releases 6.10 and higher. For
-  more information, see [Creating a custom AMI with an encrypted
-  Amazon EBS root device volume](#emr-custom-ami-encrypted "#emr-custom-ami-encrypted").
+  more information, see [Creating a custom AMI with an encrypted Amazon EBS root device volume](#emr-custom-ami-encrypted "#emr-custom-ami-encrypted").
 
 ###### Note
 
@@ -39,9 +37,7 @@ an Amazon EMR release becomes available, EMR cluster instances that run the defa
 download and install those updates. To get kernel updates, you can [customize your Amazon EMR AMI](emr-custom-ami.md "emr-custom-ami.md") to
 [use the latest Amazon Linux AMI](../../../AWSEC2/latest/UserGuide/finding-an-ami.md "../../../AWSEC2/latest/UserGuide/finding-an-ami.md").
 
-## Creating a custom Amazon Linux AMI from a
-
-preconfigured instance
+## Creating a custom Amazon Linux AMI from a preconfigured instance
 
 The basic steps for pre-installing software and performing other configurations to
 create a custom Amazon Linux AMI for Amazon EMR are as follows:
@@ -52,12 +48,9 @@ create a custom Amazon Linux AMI for Amazon EMR are as follows:
 - Create a new image (AMI snapshot) of the instance you configured.
 
 After you create the image based on your customized instance, you can copy that
-image to an encrypted target as described in [Creating a custom AMI with an encrypted
-Amazon EBS root device volume](#emr-custom-ami-encrypted "#emr-custom-ami-encrypted").
+image to an encrypted target as described in [Creating a custom AMI with an encrypted Amazon EBS root device volume](#emr-custom-ami-encrypted "#emr-custom-ami-encrypted").
 
-### Tutorial: Creating an
-
-AMI from an instance with custom software installed
+### Tutorial: Creating an AMI from an instance with custom software installed
 
 ###### To launch an EC2 instance based on the most recent Amazon Linux AMI
 
@@ -114,14 +107,10 @@ aws ec2 create-image --no-dry-run --instance-id `MyInstanceId` --name `MyEmrCust
 ```
 
 The `imageID` output value is used when you launch the
-cluster or create an encrypted snapshot. For more information, see [Use a single custom AMI in an EMR
-cluster](#single-custom-ami "#single-custom-ami") and
-[Creating a custom AMI with an encrypted
-Amazon EBS root device volume](#emr-custom-ami-encrypted "#emr-custom-ami-encrypted").
+cluster or create an encrypted snapshot. For more information, see [Use a single custom AMI in an EMR cluster](#single-custom-ami "#single-custom-ami") and
+[Creating a custom AMI with an encrypted Amazon EBS root device volume](#emr-custom-ami-encrypted "#emr-custom-ami-encrypted").
 
-## How to use a custom AMI in an Amazon EMR
-
-cluster
+## How to use a custom AMI in an Amazon EMR cluster
 
 You can use a custom AMI to provision an Amazon EMR cluster in two ways:
 
@@ -132,18 +121,15 @@ You can use a custom AMI to provision an Amazon EMR cluster in two ways:
 You can use only one of the two options when provisioning an EMR cluster, and you
 cannot change it once the cluster has started.
 
-Considerations for using single versus multiple custom AMIs in an Amazon EMR
-cluster| Consideration | Single custom AMI | Multiple custom AMIs |
-| --- | --- | --- |
-| Use both x86 and Graviton2 processors with custom AMIs in the<br>same cluster | Not supported | Supported |
-| AMI customization varies across instance types | Not supported | Supported |
-| Change custom AMIs when adding new task instance groups/fleets<br>to a running cluster. Note: you cannot change the custom AMI of<br>existing instance groups/fleets. | Not supported | Supported |
-| Use AWS Console to start a cluster | Supported | Not supported |
-| Use AWS CloudFormation to start a cluster | Supported | Supported |
+| Considerations for using single versus multiple custom AMIs in an Amazon EMR cluster                                                                                  | Consideration | Single custom AMI | Multiple custom AMIs |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------- | -------------------- |
+| Use both x86 and Graviton2 processors with custom AMIs in the<br>same cluster                                                                                         | Not supported | Supported         |
+| AMI customization varies across instance types                                                                                                                        | Not supported | Supported         |
+| Change custom AMIs when adding new task instance groups/fleets<br>to a running cluster. Note: you cannot change the custom AMI of<br>existing instance groups/fleets. | Not supported | Supported         |
+| Use AWS Console to start a cluster                                                                                                                                    | Supported     | Not supported     |
+| Use AWS CloudFormation to start a cluster                                                                                                                             | Supported     | Supported         |
 
-## Use a single custom AMI in an EMR
-
-cluster
+## Use a single custom AMI in an EMR cluster
 
 To specify a custom AMI ID when you create a cluster, use one of the
 following:
@@ -180,8 +166,7 @@ AWS CLI
 
 The following example specifies a cluster that uses a single
 custom AMI with a 20 GiB boot volume. For more information, see
-[Customizing the Amazon EBS root device
-volume](emr-custom-ami-root-volume-size.md "emr-custom-ami-root-volume-size.md").
+[Customizing the Amazon EBS root device volume](emr-custom-ami-root-volume-size.md "emr-custom-ami-root-volume-size.md").
 
 ###### Note
 
@@ -196,9 +181,7 @@ aws emr create-cluster --name "`Cluster with My Custom AMI`" \
 
 ```
 
-## Use multiple custom AMIs in an Amazon EMR
-
-cluster
+## Use multiple custom AMIs in an Amazon EMR cluster
 
 To create a cluster using multiple custom AMIs, use one of the following:
 
@@ -211,9 +194,7 @@ To create a cluster using multiple custom AMIs, use one of the following:
 The AWS Management Console currently does not support creating a cluster using
 multiple custom AMIs.
 
-###### Example- Use the AWS CLI to create an instance group cluster using multiple custom
-
-AMIs
+###### Example- Use the AWS CLI to create an instance group cluster using multiple custom AMIs
 
 Using the AWS CLI version 1.20.21 or higher, you can assign a single custom
 AMI to the entire cluster, or you can assign multiple custom AMIs to every
@@ -244,10 +225,7 @@ InstanceGroupType=TASK,InstanceType=`m6g.xlarge`,InstanceCount=`1`,CustomAmiId=`
 InstanceGroupType=TASK,InstanceType=`m5.xlarge`,InstanceCount=`1`,CustomAmiId=`ami-456789`
 ```
 
-###### Example- Use the AWS CLI version 1.20.21 or higher to add a task node to a running
-
-instance group cluster with multiple instance types and multiple custom
-AMIs
+###### Example- Use the AWS CLI version 1.20.21 or higher to add a task node to a running instance group cluster with multiple instance types and multiple custom AMIs
 
 Using the AWS CLI version 1.20.21 or higher, you can add multiple custom
 AMIs to an instance group that you add to a running cluster. The
@@ -270,10 +248,7 @@ InstanceGroupType=TASK,InstanceType=m5.xlarge,InstanceCount=1,CustomAmiId=ami-23
 aws emr add-instance-groups --cluster-id j-123456 --instance-groups InstanceGroupType=Task,InstanceType=m6g.xlarge,InstanceCount=1,CustomAmiId=ami-345678
 ```
 
-###### Example- Use the AWS CLI version 1.20.21 or higher to create an instance fleet
-
-cluster, multiple custom AMIs, multiple instance types, On-Demand primary,
-On-Demand core, multiple core and task nodes
+###### Example- Use the AWS CLI version 1.20.21 or higher to create an instance fleet cluster, multiple custom AMIs, multiple instance types, On-Demand primary, On-Demand core, multiple core and task nodes
 
 ```
 aws emr create-cluster --instance-fleets
@@ -283,9 +258,7 @@ InstanceFleetType=TASK,TargetSpotCapacity=1,InstanceTypeConfigs=['{InstanceType=
 
 ```
 
-###### Example- Use the AWS CLI version 1.20.21 or higher to add task nodes to a running
-
-cluster with multiple instance types and multiple custom AMIs
+###### Example- Use the AWS CLI version 1.20.21 or higher to add task nodes to a running cluster with multiple instance types and multiple custom AMIs
 
 ```
 aws emr create-cluster --instance-fleets
@@ -302,9 +275,7 @@ InstanceFleetType=TASK,TargetSpotCapacity=1,InstanceTypeConfigs=['{InstanceType=
 
 ```
 
-## Managing AMI package repository
-
-updates
+## Managing AMI package repository updates
 
 On first boot, by default, Amazon Linux AMIs connect to package repositories to install
 security updates before other services start. Depending on your requirements, you
@@ -330,9 +301,7 @@ command.
 
 With the Amazon EMR API, you can specify `NONE` for the [RepoUpgradeOnBoot](../../../ElasticMapReduce/latest/API/API_RunJobFlow.md#EMR-RunJobFlow-request-RepoUpgradeOnBoot "../../../ElasticMapReduce/latest/API/API_RunJobFlow.md#EMR-RunJobFlow-request-RepoUpgradeOnBoot") parameter.
 
-## Creating a custom AMI with an encrypted
-
-Amazon EBS root device volume
+## Creating a custom AMI with an encrypted Amazon EBS root device volume
 
 To encrypt the Amazon EBS root device volume of an Amazon Linux AMI for Amazon EMR, copy a snapshot
 image from an unencrypted AMI to an encrypted target. For information about creating
@@ -388,9 +357,7 @@ JSON
 
 ```
 
-### Tutorial: Creating a
-
-custom AMI with an encrypted root device volume using a KMS key
+### Tutorial: Creating a custom AMI with an encrypted root device volume using a KMS key
 
 The first step in this example is to find the ARN of a KMS key or create a
 new one. For more information about creating keys, see [Creating keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the
@@ -399,9 +366,7 @@ to add the default service role, `EMR_DefaultRole`, as a key user to
 the key policy. Write down the **ARN** value for the key as you
 create or edit it. You use the ARN higher, when you create the AMI.
 
-###### To add the service role for Amazon EC2 to the list of encryption key users
-
-with the console
+###### To add the service role for Amazon EC2 to the list of encryption key users with the console
 
 1. Sign in to the AWS Management Console and open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
 2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
@@ -432,15 +397,11 @@ aws ec2 copy-image --source-image-id `MyAmiId` \
 ```
 
 The output of the command provides the ID of the AMI that you created, which
-you can specify when you create a cluster. For more information, see [Use a single custom AMI in an EMR
-cluster](#single-custom-ami "#single-custom-ami"). You can
+you can specify when you create a cluster. For more information, see [Use a single custom AMI in an EMR cluster](#single-custom-ami "#single-custom-ami"). You can
 also choose to customize this AMI by installing software and performing other
-configurations. For more information, see [Creating a custom Amazon Linux AMI from a
-preconfigured instance](#emr-custom-ami-preconfigure "#emr-custom-ami-preconfigure").
+configurations. For more information, see [Creating a custom Amazon Linux AMI from a preconfigured instance](#emr-custom-ami-preconfigure "#emr-custom-ami-preconfigure").
 
-## Best practices and
-
-considerations
+## Best practices and considerations
 
 When you create a custom AMI for Amazon EMR, consider the following:
 

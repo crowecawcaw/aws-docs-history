@@ -11,7 +11,5 @@ For more information, see [AWS CloudFormation User Guide](../../../AWSCloudForma
 
 ###### Topics
 
-- [Create a security
-  configuration with the Amazon EMR console or with the AWS CLI](emr-create-security-configuration.md "emr-create-security-configuration.md")
-- [Specify a security configuration
-  for an Amazon EMR cluster](emr-specify-security-configuration.md "emr-specify-security-configuration.md")
+- [Create a security configuration with the Amazon EMR console or with the AWS CLI](emr-create-security-configuration.md "emr-create-security-configuration.md")
+- [Specify a security configuration for an Amazon EMR cluster](emr-specify-security-configuration.md "emr-specify-security-configuration.md")

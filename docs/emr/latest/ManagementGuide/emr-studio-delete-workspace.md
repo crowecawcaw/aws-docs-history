@@ -20,9 +20,7 @@ that are associated with your deleted Workspace from Amazon S3.
 
 From the Workspace UI
 
-###### Delete a Workspace and its associated backup files from
-
-EMR Studio
+###### Delete a Workspace and its associated backup files from EMR Studio
 
 1. Log in to your EMR Studio with your Studio access URL and
    choose **Workspaces** from the left
@@ -43,9 +41,7 @@ EMR Studio
 
 From the Workspaces list
 
-###### Delete a Workspace and its associated backup files from the
-
-Workspaces list
+###### Delete a Workspace and its associated backup files from the Workspaces list
 
 1. Navigate to the **Workspace**s list in the
    console.

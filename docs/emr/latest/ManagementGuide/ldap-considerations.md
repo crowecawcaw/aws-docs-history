@@ -1,12 +1,8 @@
-# Application support and considerations with LDAP
-
-for Amazon EMR
+# Application support and considerations with LDAP for Amazon EMR
 
 This topic lists supported applications, supported features and unsupported features.
 
-## Supported applications with LDAP for
-
-Amazon EMR
+## Supported applications with LDAP for Amazon EMR
 
 ###### Important
 
@@ -31,9 +27,7 @@ them to meet your security needs:
 - Apache Spark
 - Apache Hadoop
 
-## Supported features with LDAP for
-
-Amazon EMR
+## Supported features with LDAP for Amazon EMR
 
 You can use the following Amazon EMR features with the LDAP integration:
 

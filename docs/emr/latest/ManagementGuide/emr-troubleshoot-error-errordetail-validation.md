@@ -1,6 +1,4 @@
-# Validation failure error
-
-codes in Amazon EMR
+# Validation failure error codes in Amazon EMR
 
 The following sections provide troubleshooting information for validation failure
 error codes.

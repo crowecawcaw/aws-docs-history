@@ -1,6 +1,4 @@
-# Create an Amazon EMR cluster with instance
-
-fleets or uniform instance groups
+# Create an Amazon EMR cluster with instance fleets or uniform instance groups
 
 When you create a cluster and specify the configuration of the primary node, core
 nodes, and task nodes, you have two configuration options. You can use
@@ -67,24 +65,17 @@ more EC2 instances, and up to 48 optional task instance groups. Each core and
 task instance group can contain any number of Amazon EC2 instances. You can scale
 each instance group by adding and removing Amazon EC2 instances manually, or you can
 set up automatic scaling. For information about adding and removing instances,
-see [Use Amazon EMR cluster scaling to adjust
-for changing workloads](emr-scale-on-demand.md "emr-scale-on-demand.md").
+see [Use Amazon EMR cluster scaling to adjust for changing workloads](emr-scale-on-demand.md "emr-scale-on-demand.md").
 
-For more information about configuring uniform instance groups, see [Configure uniform instance
-groups for your Amazon EMR cluster](emr-uniform-instance-group.md "emr-uniform-instance-group.md").
+For more information about configuring uniform instance groups, see [Configure uniform instance groups for your Amazon EMR cluster](emr-uniform-instance-group.md "emr-uniform-instance-group.md").
 
-## Working with instance fleets and
-
-instance groups
+## Working with instance fleets and instance groups
 
 ###### Topics
 
 - [Planning and configuring instance fleets for your Amazon EMR cluster](emr-instance-fleet.md "emr-instance-fleet.md")
 - [Reconfiguring instance fleets for your Amazon EMR cluster](instance-fleet-reconfiguration.md "instance-fleet-reconfiguration.md")
-- [Use capacity reservations with
-  instance fleets in Amazon EMR](on-demand-capacity-reservations.md "on-demand-capacity-reservations.md")
-- [Configure uniform instance
-  groups for your Amazon EMR cluster](emr-uniform-instance-group.md "emr-uniform-instance-group.md")
-- [Availability Zone
-  flexibility for an Amazon EMR cluster](emr-flexibility.md "emr-flexibility.md")
+- [Use capacity reservations with instance fleets in Amazon EMR](on-demand-capacity-reservations.md "on-demand-capacity-reservations.md")
+- [Configure uniform instance groups for your Amazon EMR cluster](emr-uniform-instance-group.md "emr-uniform-instance-group.md")
+- [Availability Zone flexibility for an Amazon EMR cluster](emr-flexibility.md "emr-flexibility.md")
 - [Configuring Amazon EMR cluster instance types and best practices for Spot instances](emr-plan-instances-guidelines.md "emr-plan-instances-guidelines.md")

@@ -33,8 +33,7 @@ There are many ways to set the cluster configuration options, depending on the t
 
 - From the Hive command prompt, set the `fs.s3.canned.acl` configuration option to the canned ACL you want to have the cluster set on files it writes to Amazon S3.
   To access the Hive command prompt connect to the master node using SSH, and type Hive at the Hadoop command prompt.
-  For more information, see [Connect to the Amazon EMR cluster primary node using
-  SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
+  For more information, see [Connect to the Amazon EMR cluster primary node using SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
 
 The following example sets the `fs.s3.canned.acl` configuration option to `BucketOwnerFullControl`, which gives the owner of the Amazon S3 bucket complete control over the file.
 Note that the set command is case sensitive and contains no quotation marks or spaces.
@@ -53,8 +52,7 @@ The last two lines of the example create a table that is stored in Amazon S3 and
 
 - From the Pig command prompt, set the `fs.s3.canned.acl` configuration option to the canned ACL you want to have the cluster set on files it writes to Amazon S3.
   To access the Pig command prompt connect to the master node using SSH, and type Pig at the Hadoop command prompt.
-  For more information, see [Connect to the Amazon EMR cluster primary node using
-  SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
+  For more information, see [Connect to the Amazon EMR cluster primary node using SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
 
 The following example sets the `fs.s3.canned.acl` configuration option to BucketOwnerFullControl, which gives the owner of the Amazon S3 bucket complete control over the file.
 Note that the set command includes one space before the canned ACL name and contains no quotation marks.

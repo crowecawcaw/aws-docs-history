@@ -14,12 +14,9 @@ persistent application user interfaces store application history off-cluster for
 after a cluster terminates. See [View application
 history](emr-cluster-application-history.md "emr-cluster-application-history.md").
 
-For more information about cluster states, such as Waiting and Running, see [Understanding the cluster
-lifecycle](emr-overview.md#emr-overview-cluster-lifecycle "emr-overview.md#emr-overview-cluster-lifecycle").
+For more information about cluster states, such as Waiting and Running, see [Understanding the cluster lifecycle](emr-overview.md#emr-overview-cluster-lifecycle "emr-overview.md#emr-overview-cluster-lifecycle").
 
-## View cluster details using the
-
-AWS Management Console
+## View cluster details using the AWS Management Console
 
 The **Clusters** list in the [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr") lists all the
 clusters in your account and AWS Region, including terminated clusters. The list shows
@@ -53,8 +50,7 @@ The following examples demonstrate how to retrieve cluster details using the AWS
 For more information about available commands, see the [AWS CLI Command Reference for Amazon EMR](../../../cli/latest/reference/emr.md "../../../cli/latest/reference/emr.md"). You can use the [describe-cluster](../../../cli/latest/reference/emr/describe-cluster.md "../../../cli/latest/reference/emr/describe-cluster.md") command to
 view cluster-level details including status, hardware and software configuration, VPC
 settings, bootstrap actions, instance groups, and so on. For more information about
-cluster states, see [Understanding the cluster
-lifecycle](emr-overview.md#emr-overview-cluster-lifecycle "emr-overview.md#emr-overview-cluster-lifecycle"). The following example demonstrates
+cluster states, see [Understanding the cluster lifecycle](emr-overview.md#emr-overview-cluster-lifecycle "emr-overview.md#emr-overview-cluster-lifecycle"). The following example demonstrates
 using the `describe-cluster` command, followed by examples of the [list-clusters](../../../cli/latest/reference/emr/describe-cluster.md "../../../cli/latest/reference/emr/describe-cluster.md") command.
 
 ###### Example Viewing cluster status
@@ -233,5 +229,4 @@ aws emr list-clusters --cluster-states TERMINATED
 aws emr list-clusters --terminated
 ```
 
-For more information about cluster states, see [Understanding the cluster
-lifecycle](emr-overview.md#emr-overview-cluster-lifecycle "emr-overview.md#emr-overview-cluster-lifecycle").
+For more information about cluster states, see [Understanding the cluster lifecycle](emr-overview.md#emr-overview-cluster-lifecycle "emr-overview.md#emr-overview-cluster-lifecycle").

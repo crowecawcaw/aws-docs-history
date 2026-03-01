@@ -1,6 +1,4 @@
-# Creating rules for Amazon EMR events with
-
-CloudWatch
+# Creating rules for Amazon EMR events with CloudWatch
 
 Amazon EMR automatically sends events to a CloudWatch event stream. You can create rules that
 match events according to a specified pattern, and route the events to targets to take

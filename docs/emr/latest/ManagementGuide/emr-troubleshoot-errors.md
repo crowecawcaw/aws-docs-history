@@ -6,8 +6,7 @@ suggestions on how to resolve them.
 
 ###### Topics
 
-- [Error codes with ErrorDetail
-  information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md")
+- [Error codes with ErrorDetail information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md")
 - [Resource errors during Amazon EMR cluster operations](emr-troubleshoot-error-resource.md "emr-troubleshoot-error-resource.md")
 - [Cluster input and output errors during Amazon EMR operations](emr-troubleshoot-errors-io.md "emr-troubleshoot-errors-io.md")
 - [Permissions errors during Amazon EMR cluster operations](emr-troubleshoot-error-permissions.md "emr-troubleshoot-error-permissions.md")

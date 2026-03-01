@@ -23,6 +23,5 @@ history](emr-cluster-application-history.md "emr-cluster-application-history.md"
 - [View cluster instances in Amazon EC2](UsingEMR_Tagging.md "UsingEMR_Tagging.md")
 - [CloudWatch events and metrics from Amazon EMR](emr-manage-cluster-cloudwatch.md "emr-manage-cluster-cloudwatch.md")
 - [View cluster application metrics using Ganglia with Amazon EMR](ViewingGangliaMetrics.md "ViewingGangliaMetrics.md")
-- [Logging AWS EMR API calls using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Logging AWS EMR API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [EMR Observability Best Practices](emr-metrics-observability.md "emr-metrics-observability.md")

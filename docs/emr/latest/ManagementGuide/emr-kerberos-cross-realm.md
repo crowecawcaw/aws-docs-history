@@ -1,6 +1,4 @@
-# Tutorial: Configure a cross-realm trust
-
-with an Active Directory domain
+# Tutorial: Configure a cross-realm trust with an Active Directory domain
 
 When you set up a cross-realm trust, you allow principals (usually users) from a
 different Kerberos realm to authenticate to application components on the EMR
@@ -19,48 +17,36 @@ network traffic between KDCs is acceptable.
 Optionally, after you establish a cross-realm trust with Active Directory using a
 KDC on one cluster, you can create another cluster using a different security
 configuration to reference the KDC on the first cluster as an external KDC. For an
-example security configuration and cluster set up, see [External cluster
-KDC with Active Directory cross-realm trust](emr-kerberos-config-examples.md#emr-kerberos-example-extkdc-ad-trust "emr-kerberos-config-examples.md#emr-kerberos-example-extkdc-ad-trust").
+example security configuration and cluster set up, see [External cluster KDC with Active Directory cross-realm trust](emr-kerberos-config-examples.md#emr-kerberos-example-extkdc-ad-trust "emr-kerberos-config-examples.md#emr-kerberos-example-extkdc-ad-trust").
 
 For more information on Amazon EMR support for Kerberos and KDC, as well as links
-to MIT Kerberos Documentation, see [Use Kerberos for
-authentication with Amazon EMR](emr-kerberos.md "emr-kerberos.md").
+to MIT Kerberos Documentation, see [Use Kerberos for authentication with Amazon EMR](emr-kerberos.md "emr-kerberos.md").
 
 ###### Important
 
 Amazon EMR does not support cross-realm trusts with AWS Directory Service for Microsoft Active Directory.
 
-[Step 1: Set up the VPC and
-subnet](#emr-kerberos-ad-network "#emr-kerberos-ad-network")
+[Step 1: Set up the VPC and subnet](#emr-kerberos-ad-network "#emr-kerberos-ad-network")
 
-[Step 2: Launch and install the Active
-Directory domain controller](#emr-kerberos-ad-dc "#emr-kerberos-ad-dc")
+[Step 2: Launch and install the Active Directory domain controller](#emr-kerberos-ad-dc "#emr-kerberos-ad-dc")
 
-[Step 3: Add accounts to the domain for
-the EMR Cluster](#emr-kerberos-ad-users "#emr-kerberos-ad-users")
+[Step 3: Add accounts to the domain for the EMR Cluster](#emr-kerberos-ad-users "#emr-kerberos-ad-users")
 
-[Step 4: Configure an incoming
-trust on the Active Directory domain controller](#emr-kerberos-ad-configure-trust "#emr-kerberos-ad-configure-trust")
+[Step 4: Configure an incoming trust on the Active Directory domain controller](#emr-kerberos-ad-configure-trust "#emr-kerberos-ad-configure-trust")
 
-[Step 5: Use a DHCP option set to specify
-the Active Directory domain controller as a VPC DNS server](#emr-kerberos-ad-DHCP "#emr-kerberos-ad-DHCP")
+[Step 5: Use a DHCP option set to specify the Active Directory domain controller as a VPC DNS server](#emr-kerberos-ad-DHCP "#emr-kerberos-ad-DHCP")
 
-[Step 6: Launch a Kerberized EMR
-Cluster](#emr-kerberos-ad-cluster "#emr-kerberos-ad-cluster")
+[Step 6: Launch a Kerberized EMR Cluster](#emr-kerberos-ad-cluster "#emr-kerberos-ad-cluster")
 
-[Step 7: Create HDFS users and set
-permissions on the cluster for Active Directory accounts](#emr-kerberos-ad-hadoopuser "#emr-kerberos-ad-hadoopuser")
+[Step 7: Create HDFS users and set permissions on the cluster for Active Directory accounts](#emr-kerberos-ad-hadoopuser "#emr-kerberos-ad-hadoopuser")
 
-## Step 1: Set up the VPC and
-
-subnet
+## Step 1: Set up the VPC and subnet
 
 The following steps demonstrate creating a VPC and subnet so that the
 cluster-dedicated KDC can reach the Active Directory domain controller and
 resolve its domain name. In these steps, domain-name resolution is provided by
 referencing the Active Directory domain controller as the domain name server in
-the DHCP option set. For more information, see [Step 5: Use a DHCP option set to specify
-the Active Directory domain controller as a VPC DNS server](#emr-kerberos-ad-DHCP "#emr-kerberos-ad-DHCP").
+the DHCP option set. For more information, see [Step 5: Use a DHCP option set to specify the Active Directory domain controller as a VPC DNS server](#emr-kerberos-ad-DHCP "#emr-kerberos-ad-DHCP").
 
 The KDC and the Active Directory domain controller must be able to resolve one
 other's domain names. This allows Amazon EMR to join computers to the domain and
@@ -117,9 +103,7 @@ launch](../../../vpc/latest/userguide/using-instance-addressing.md#public-ip-add
 later when you launch the Active Directory domain controller and the
 cluster.
 
-## Step 2: Launch and install the Active
-
-Directory domain controller
+## Step 2: Launch and install the Active Directory domain controller
 
 1. Launch an EC2 instance based on the Microsoft Windows Server 2016 Base
    AMI. We recommend an m4.xlarge or better instance type. For more
@@ -127,8 +111,7 @@ Directory domain controller
    AWS Marketplace instance](../../../AWSEC2/latest/WindowsGuide/launch-marketplace-console.md "../../../AWSEC2/latest/WindowsGuide/launch-marketplace-console.md") in the
    _Amazon EC2 User Guide_.
 2. Make a note of the Group ID of the security group associated with the
-   EC2 instance. You need it for [Step 6: Launch a Kerberized EMR
-   Cluster](#emr-kerberos-ad-cluster "#emr-kerberos-ad-cluster"). We use
+   EC2 instance. You need it for [Step 6: Launch a Kerberized EMR Cluster](#emr-kerberos-ad-cluster "#emr-kerberos-ad-cluster"). We use
    `sg-012xrlmdomain345`. Alternatively, you
    can specify different security groups for the EMR cluster and this
    instance that allows traffic between them. For more information, see
@@ -149,9 +132,7 @@ Directory domain controller
 
 The instance restarts when you finish.
 
-## Step 3: Add accounts to the domain for
-
-the EMR Cluster
+## Step 3: Add accounts to the domain for the EMR Cluster
 
 RDP to the Active Directory domain controller to create accounts in Active
 Directory Users and Computers for each cluster user. For more information, see
@@ -163,16 +144,13 @@ configure the cluster.
 In addition, create a account with sufficient privileges to join computers to
 the domain. You specify this account when you create a cluster. Amazon EMR uses it to
 join cluster instances to the domain. You specify this account and its password
-in [Step 6: Launch a Kerberized EMR
-Cluster](#emr-kerberos-ad-cluster "#emr-kerberos-ad-cluster"). To delegate computer join
+in [Step 6: Launch a Kerberized EMR Cluster](#emr-kerberos-ad-cluster "#emr-kerberos-ad-cluster"). To delegate computer join
 privileges to the account, we recommend that you create a group with join
 privileges and then assign the user to the group. For instructions, see [Delegating directory
 join privileges](../../../directoryservice/latest/admin-guide/directory_join_privileges.md "../../../directoryservice/latest/admin-guide/directory_join_privileges.md") in the
 _AWS Directory Service Administration Guide_.
 
-## Step 4: Configure an incoming
-
-trust on the Active Directory domain controller
+## Step 4: Configure an incoming trust on the Active Directory domain controller
 
 The example commands below create a trust in Active Directory, which is a
 one-way, incoming, non-transitive, realm trust with the cluster-dedicated KDC.
@@ -198,9 +176,7 @@ C:\Users\Administrator> netdom trust `EC2.INTERNAL` /Domain:`ad.domain.com` /add
 C:\Users\Administrator> ksetup /SetEncTypeAttr EC2.INTERNAL AES256-CTS-HMAC-SHA1-96
 ```
 
-## Step 5: Use a DHCP option set to specify
-
-the Active Directory domain controller as a VPC DNS server
+## Step 5: Use a DHCP option set to specify the Active Directory domain controller as a VPC DNS server
 
 Now that the Active Directory domain controller is configured, you must
 configure the VPC to use it as a domain name server for name resolution within
@@ -216,16 +192,13 @@ name** as the domain name of your cluster - for example,
 For more information, see [Changing DHCP option
 sets](../../../vpc/latest/userguide/VPC_DHCP_Options.md#DHCPOptions "../../../vpc/latest/userguide/VPC_DHCP_Options.md#DHCPOptions").
 
-## Step 6: Launch a Kerberized EMR
-
-Cluster
+## Step 6: Launch a Kerberized EMR Cluster
 
 1. In Amazon EMR, create a security configuration that specifies the Active
    Directory domain controller you created in the previous steps. An example
    command is shown below. Replace the domain,
    `ad.domain.com`, with the name
-   of the domain you specified in [Step 2: Launch and install the Active
-   Directory domain controller](#emr-kerberos-ad-dc "#emr-kerberos-ad-dc").
+   of the domain you specified in [Step 2: Launch and install the Active Directory domain controller](#emr-kerberos-ad-dc "#emr-kerberos-ad-dc").
 
 ```
 aws emr create-security-configuration --name MyKerberosConfig \
@@ -255,14 +228,12 @@ aws emr create-security-configuration --name MyKerberosConfig \
          example.
         * Use the `SubnetId` property of the
          `--ec2-attributes option` to specify the subnet that
-         you created in [Step 1: Set up the VPC and
-         subnet](#emr-kerberos-ad-network "#emr-kerberos-ad-network"). We use
+         you created in [Step 1: Set up the VPC and subnet](#emr-kerberos-ad-network "#emr-kerberos-ad-network"). We use
          `step1-subnet` in the example.
         * Use the `AdditionalMasterSecurityGroups` and
          `AdditionalSlaveSecurityGroups` of the
          `--ec2-attributes` option to specify that the
-         security group associated with the AD domain controller from [Step 2: Launch and install the Active
-         Directory domain controller](#emr-kerberos-ad-dc "#emr-kerberos-ad-dc") is associated with the cluster primary node as well as core and
+         security group associated with the AD domain controller from [Step 2: Launch and install the Active Directory domain controller](#emr-kerberos-ad-dc "#emr-kerberos-ad-dc") is associated with the cluster primary node as well as core and
          task nodes. We use `sg-012xrlmdomain345` in
          the example.
 
@@ -272,13 +243,11 @@ aws emr create-security-configuration --name MyKerberosConfig \
         * The realm for the cluster that you specified when you set up the
          Active Directory domain controller.
         * The cross-realm trust principal password that you specified as
-         `passwordt` in [Step 4: Configure an incoming
-         trust on the Active Directory domain controller](#emr-kerberos-ad-configure-trust "#emr-kerberos-ad-configure-trust").
+         `passwordt` in [Step 4: Configure an incoming trust on the Active Directory domain controller](#emr-kerberos-ad-configure-trust "#emr-kerberos-ad-configure-trust").
         * A `KdcAdminPassword`, which you can use to administer
          the cluster-dedicated KDC.
         * The user logon name and password of the Active Directory account
-         with computer join privileges that you created in [Step 3: Add accounts to the domain for
-         the EMR Cluster](#emr-kerberos-ad-users "#emr-kerberos-ad-users").
+         with computer join privileges that you created in [Step 3: Add accounts to the domain for the EMR Cluster](#emr-kerberos-ad-users "#emr-kerberos-ad-users").
 
     The following example launches a Kerberized cluster.
 
@@ -299,9 +268,7 @@ ADDomainJoinUser=`ADUserLogonName`,ADDomainJoinPassword=`ADUserPassword`,\
 CrossRealmTrustPrincipalPassword=`MatchADTrustPwd`
 ```
 
-## Step 7: Create HDFS users and set
-
-permissions on the cluster for Active Directory accounts
+## Step 7: Create HDFS users and set permissions on the cluster for Active Directory accounts
 
 When setting up a trust relationship with Active Directory, Amazon EMR creates
 Linux users on the cluster for each Active Directory account. For example, the
@@ -345,14 +312,11 @@ for username in ${ADUSERS[@]}; do
 done
 ```
 
-### Active Directory groups mapped to
-
-Hadoop groups
+### Active Directory groups mapped to Hadoop groups
 
 Amazon EMR uses System Security Services Daemon (SSD) to map Active Directory
 groups to Hadoop groups. To confirm group mappings, after you log in to the
-primary node as described in [Using SSH to connect to Kerberized
-clusters with Amazon EMR](emr-kerberos-connect-ssh.md "emr-kerberos-connect-ssh.md"), you can use the `hdfs
+primary node as described in [Using SSH to connect to Kerberized clusters with Amazon EMR](emr-kerberos-connect-ssh.md "emr-kerberos-connect-ssh.md"), you can use the `hdfs
  groups` command to confirm that Active Directory groups to which
 your Active Directory account belongs have been mapped to Hadoop groups for
 the corresponding Hadoop user on the cluster. You can also check other

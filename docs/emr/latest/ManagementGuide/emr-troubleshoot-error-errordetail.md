@@ -1,6 +1,4 @@
-# Error codes with ErrorDetail
-
-information in Amazon EMR
+# Error codes with ErrorDetail information in Amazon EMR
 
 When an EMR cluster terminates with an error, the `DescribeCluster` and
 `ListClusters` APIs return an error code and an error message. For some

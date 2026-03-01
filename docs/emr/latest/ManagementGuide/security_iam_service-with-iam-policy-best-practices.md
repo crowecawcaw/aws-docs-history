@@ -1,6 +1,4 @@
-# Policy best
-
-practices for Amazon EMR
+# Policy best practices for Amazon EMR
 
 Identity-based policies are very powerful. They determine whether someone can
 create, access, or delete Amazon EMR resources in your account. These actions can incur
@@ -13,8 +11,7 @@ follow these guidelines and recommendations:
   available in your account and are maintained and updated by AWS. For more
   information, see [Get
   started using permissions with AWS managed policies](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies") in the
-  _IAM User Guide_ and [Amazon EMR managed
-  policies](emr-managed-iam-policies.md "emr-managed-iam-policies.md").
+  _IAM User Guide_ and [Amazon EMR managed policies](emr-managed-iam-policies.md "emr-managed-iam-policies.md").
 - **Grant Least Privilege** – When you
   create custom policies, grant only the permissions required to perform a
   task. Start with a minimum set of permissions and grant additional

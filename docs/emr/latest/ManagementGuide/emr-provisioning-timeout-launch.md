@@ -1,6 +1,4 @@
-# Configure provisioning timeouts
-
-for cluster launch in Amazon EMR
+# Configure provisioning timeouts for cluster launch in Amazon EMR
 
 You can define a timeout period to provision Spot Instances for each fleet in your
 cluster. If Amazon EMR can't provision Spot capacity, you can choose either to terminate
@@ -13,9 +11,7 @@ launch with the Amazon EMR console.
 
 Console
 
-###### To configure the provisioning timeout when you create a cluster
-
-with the console
+###### To configure the provisioning timeout when you create a cluster with the console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").

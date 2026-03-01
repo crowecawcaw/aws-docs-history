@@ -1,6 +1,4 @@
-# Configure Lake Formation for an IAM Identity Center enabled
-
-EMR cluster
+# Configure Lake Formation for an IAM Identity Center enabled EMR cluster
 
 You can integrate [AWS Lake Formation](../../../lake-formation/latest/dg.md "../../../lake-formation/latest/dg.md")
 with your AWS IAM Identity Center enabled EMR cluster.

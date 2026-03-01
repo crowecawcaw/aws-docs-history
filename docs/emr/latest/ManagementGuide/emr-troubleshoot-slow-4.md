@@ -18,8 +18,7 @@ Every Amazon EMR cluster reports metrics to CloudWatch. These metrics provide su
 
 Use the **Application user interfaces** tab on the cluster details page to view YARN application details. For certain applications, you can drill into further detail and access logs directly. This is particularly useful for Spark applications. For more information, see [View Amazon EMR application history](emr-cluster-application-history.md "emr-cluster-application-history.md").
 
-Hadoop provides a series of web interfaces you can use to view information. For more information about how to access these web interfaces, see [View web interfaces hosted on Amazon EMR
-clusters](emr-web-interfaces.md "emr-web-interfaces.md").
+Hadoop provides a series of web interfaces you can use to view information. For more information about how to access these web interfaces, see [View web interfaces hosted on Amazon EMR clusters](emr-web-interfaces.md "emr-web-interfaces.md").
 
 - JobTracker — provides information about the progress of job being processed by the cluster. You can use this interface to identify when a job has become stuck.
 - HDFS NameNode — provides information about the percentage of HDFS utilization and available space on each node. You can use this interface to identify when HDFS is becoming resource bound and requires additional capacity.

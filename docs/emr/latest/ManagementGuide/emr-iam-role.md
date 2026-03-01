@@ -16,8 +16,7 @@ provision EC2 instances when a cluster launches.
   tag `for-use-with-amazon-emr-managed-policies = true` when provisioning
   the cluster. Amazon EMR will automatically propagate those tags. Additionally, you may
   need to manually add a user tag to specific types of resources, such as EC2 security
-  groups that were not created by Amazon EMR. See [Tagging resources to use managed
-  policies](emr-managed-iam-policies.md#manually-tagged-resources "emr-managed-iam-policies.md#manually-tagged-resources").
+  groups that were not created by Amazon EMR. See [Tagging resources to use managed policies](emr-managed-iam-policies.md#manually-tagged-resources "emr-managed-iam-policies.md#manually-tagged-resources").
 
 ###### Important
 

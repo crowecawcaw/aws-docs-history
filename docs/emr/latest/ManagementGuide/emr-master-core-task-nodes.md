@@ -1,6 +1,4 @@
-# Understand node types in Amazon EMR:
-
-primary, core, and task nodes
+# Understand node types in Amazon EMR: primary, core, and task nodes
 
 Use this section to understand how Amazon EMR uses each of these node types and as a
 foundation for cluster capacity planning.
@@ -15,13 +13,11 @@ the health of the instance groups.
 
 To monitor the progress of a cluster and interact directly with applications, you
 can connect to the primary node over SSH as the Hadoop user. For more information,
-see [Connect to the Amazon EMR cluster primary node using
-SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md"). Connecting to the primary node
+see [Connect to the Amazon EMR cluster primary node using SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md"). Connecting to the primary node
 allows you to access directories and files, such as Hadoop log files, directly. For
 more information, see [View Amazon EMR log files](emr-manage-view-web-log-files.md "emr-manage-view-web-log-files.md"). You can also view user
 interfaces that applications publish as websites running on the primary node. For
-more information, see [View web interfaces hosted on Amazon EMR
-clusters](emr-web-interfaces.md "emr-web-interfaces.md").
+more information, see [View web interfaces hosted on Amazon EMR clusters](emr-web-interfaces.md "emr-web-interfaces.md").
 
 ###### Note
 
@@ -40,8 +36,7 @@ be multiple nodes running on multiple Amazon EC2 instances in the instance group
 instance fleet. With instance groups, you can add and remove Amazon EC2 instances while
 the cluster is running. You can also set up automatic scaling to add instances based
 on the value of a metric. For more information about adding and removing Amazon EC2
-instances with the instance groups configuration, see [Use Amazon EMR cluster scaling to adjust
-for changing workloads](emr-scale-on-demand.md "emr-scale-on-demand.md").
+instances with the instance groups configuration, see [Use Amazon EMR cluster scaling to adjust for changing workloads](emr-scale-on-demand.md "emr-scale-on-demand.md").
 
 With instance fleets, you can effectively add and remove instances by modifying
 the instance fleet's _target capacities_ for On-Demand and Spot
@@ -51,8 +46,7 @@ accordingly. For more information about target capacities, see [Instance fleet o
 
 Removing HDFS daemons from a running core node or terminating core nodes risks
 data loss. Use caution when configuring core nodes to use Spot Instances. For
-more information, see [When should you use Spot
-Instances?](emr-plan-instances-guidelines.md#emr-plan-spot-instances "emr-plan-instances-guidelines.md#emr-plan-spot-instances").
+more information, see [When should you use Spot Instances?](emr-plan-instances-guidelines.md#emr-plan-spot-instances "emr-plan-instances-guidelines.md#emr-plan-spot-instances").
 
 ## Task nodes
 
@@ -109,5 +103,4 @@ nodes if application process demand increases. Similarly, if
 you restrict application process to `CORE` nodes, managed scaling scales up
 `CORE` nodes if application process demand increases.
 
-For information about specific properties, see [Amazon EMR settings to prevent job
-failure because of task node Spot Instance termination](emr-plan-instances-guidelines.md#emr-plan-spot-YARN "emr-plan-instances-guidelines.md#emr-plan-spot-YARN").
+For information about specific properties, see [Amazon EMR settings to prevent job failure because of task node Spot Instance termination](emr-plan-instances-guidelines.md#emr-plan-spot-YARN "emr-plan-instances-guidelines.md#emr-plan-spot-YARN").

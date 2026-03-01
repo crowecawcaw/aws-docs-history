@@ -1,6 +1,4 @@
-# Configure uniform instance
-
-groups for your Amazon EMR cluster
+# Configure uniform instance groups for your Amazon EMR cluster
 
 With the instance groups configuration, each node type (master, core, or task)
 consists of the same instance type and the same purchasing option for instances:
@@ -17,34 +15,27 @@ targeted capacity reservations or prevent instances from launching into open
 capacity reservations with matching attributes when you provision clusters using
 instance groups. If you want to use targeted capacity reservations or prevent
 instances from launching into open capacity reservations, use Instance Fleets
-instead. For more information, see [Use capacity reservations with
-instance fleets in Amazon EMR](on-demand-capacity-reservations.md "on-demand-capacity-reservations.md").
+instead. For more information, see [Use capacity reservations with instance fleets in Amazon EMR](on-demand-capacity-reservations.md "on-demand-capacity-reservations.md").
 
 To add different instance types after a cluster is created, you can add
 additional task instance groups. You can choose different instance types and
-purchasing options for each instance group. For more information, see [Use Amazon EMR cluster scaling to adjust
-for changing workloads](emr-scale-on-demand.md "emr-scale-on-demand.md").
+purchasing options for each instance group. For more information, see [Use Amazon EMR cluster scaling to adjust for changing workloads](emr-scale-on-demand.md "emr-scale-on-demand.md").
 
 When launching instances, the On-Demand Instance's capacity reservation
 preference defaults to `open`, which enables it to run in any open
 capacity reservation that has matching attributes (instance type, platform,
 Availability Zone). For more information about On-Demand Capacity Reservations, see
-[Use capacity reservations with
-instance fleets in Amazon EMR](on-demand-capacity-reservations.md "on-demand-capacity-reservations.md").
+[Use capacity reservations with instance fleets in Amazon EMR](on-demand-capacity-reservations.md "on-demand-capacity-reservations.md").
 
 This section covers creating a cluster with uniform instance groups. For more
 information about modifying an existing instance group by adding or removing
 instances manually or with automatic scaling, see [Manage Amazon EMR clusters](emr-manage.md "emr-manage.md").
 
-## Use the console to
-
-configure uniform instance groups
+## Use the console to configure uniform instance groups
 
 Console
 
-###### To create a cluster with instance groups with the new
-
-console
+###### To create a cluster with instance groups with the new console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console
    at [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
@@ -90,9 +81,7 @@ configuration** to enter a JSON
 configuration or to load JSON from Amazon S3. 8. Choose any other options that apply to your cluster. 9. To launch your cluster, choose **Create
 cluster**.
 
-## Use the AWS CLI to create a
-
-cluster with uniform instance groups
+## Use the AWS CLI to create a cluster with uniform instance groups
 
 To specify the instance groups configuration for a cluster using the
 AWS CLI, use the `create-cluster` command along with the
@@ -169,9 +158,7 @@ aws emr add-instance-groups --cluster-id j-123456 \
     InstanceGroupType=Task,InstanceType=m5.xlarge,InstanceCount=1,CustomAmiId=ami-123456
 ```
 
-## Use the Java SDK to create an
-
-instance group
+## Use the Java SDK to create an instance group
 
 You instantiate an `InstanceGroupConfig` object that specifies
 the configuration of an instance group for a cluster. To use Spot Instances,

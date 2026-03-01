@@ -20,8 +20,7 @@ lowest latency and highest performance cloud object storage in Amazon S3.
   `s3express:CreateSession` permission so that the
   S3A connector can invoke the
   `CreateSession` API. For an example policy with this
-  permission, see [Getting started with
-  Amazon S3 Express One Zone](#emr-express-one-zone-start "#emr-express-one-zone-start").
+  permission, see [Getting started with Amazon S3 Express One Zone](#emr-express-one-zone-start "#emr-express-one-zone-start").
 - S3A connector
   – To configure your Spark cluster to access data from an Amazon S3
   bucket that uses the S3 Express One Zone storage class, you must use the
@@ -60,22 +59,15 @@ configurations:
 ]
 ```
 
-## Getting started with
-
-Amazon S3 Express One Zone
+## Getting started with Amazon S3 Express One Zone
 
 ###### Topics
 
-- [Create a permission
-  policy](#emr-express-one-zone-permissions "#emr-express-one-zone-permissions")
-- [Create and configure your
-  cluster](#emr-express-one-zone-create "#emr-express-one-zone-create")
-- [Configurations
-  overview](#emr-express-one-zone-configs "#emr-express-one-zone-configs")
+- [Create a permission policy](#emr-express-one-zone-permissions "#emr-express-one-zone-permissions")
+- [Create and configure your cluster](#emr-express-one-zone-create "#emr-express-one-zone-create")
+- [Configurations overview](#emr-express-one-zone-configs "#emr-express-one-zone-configs")
 
-### Create a permission
-
-policy
+### Create a permission policy
 
 Before you can create a cluster that uses Amazon S3 Express One Zone, you must
 create an IAM policy to attach to the Amazon EC2 instance profile for the
@@ -83,8 +75,7 @@ cluster. The policy must have permissions to access the S3 Express One Zone
 storage class. The following example policy shows how to grant the
 required permission. After you create the policy, attach the policy to
 the instance profile role that you use to create your EMR cluster, as
-described in the [Create and configure your
-cluster](#emr-express-one-zone-create "#emr-express-one-zone-create") section.
+described in the [Create and configure your cluster](#emr-express-one-zone-create "#emr-express-one-zone-create") section.
 
 JSON
 
@@ -107,9 +98,7 @@ JSON
 
 ```
 
-### Create and configure your
-
-cluster
+### Create and configure your cluster
 
 Next, create a cluster that runs Spark, HBase, Flink, or Hive with S3 Express One Zone. The following
 steps describe a high-level overview to create a cluster in the
@@ -125,8 +114,7 @@ AWS Management Console:
 4. To enable Amazon S3 Express One Zone, enter a configuration similar to
    the following example in the **Software
    settings** section. The configurations and
-   recommended values are described in the [Configurations
-   overview](#emr-express-one-zone-configs "#emr-express-one-zone-configs") section that
+   recommended values are described in the [Configurations overview](#emr-express-one-zone-configs "#emr-express-one-zone-configs") section that
    follows this procedure.
 
 ```
@@ -151,21 +139,17 @@ AWS Management Console:
 
 5. In the **EC2 instance profile for Amazon EMR**
    section, choose to use an existing role, and use a role with the
-   policy attached that you created in the [Create a permission
-   policy](#emr-express-one-zone-permissions "#emr-express-one-zone-permissions") section
+   policy attached that you created in the [Create a permission policy](#emr-express-one-zone-permissions "#emr-express-one-zone-permissions") section
    above.
 6. Configure the rest of your cluster settings as appropriate for
    your application, and then select **Create
    cluster**.
 
-### Configurations
-
-overview
+### Configurations overview
 
 The following tables describe the configurations and suggested values
 that you should specify when you set up a cluster that uses S3 Express One Zone
-with Amazon EMR, as described in the [Create and configure your
-cluster](#emr-express-one-zone-create "#emr-express-one-zone-create") section.
+with Amazon EMR, as described in the [Create and configure your cluster](#emr-express-one-zone-create "#emr-express-one-zone-create") section.
 
 **S3A
 configurations**

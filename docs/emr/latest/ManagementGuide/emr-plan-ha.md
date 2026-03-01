@@ -6,8 +6,7 @@ with Amazon EMR releases 5.36.1, 5.36.2, 6.8.1, 6.9.1, 6.10.1, 6.11.1, 6.12.0, a
 For _instance groups_, high availability is supported with
 Amazon EMR releases 5.23.0 and higher. To further improve cluster availability, Amazon EMR can use Amazon EC2
 placement groups to ensure that primary nodes are placed on distinct underlying
-hardware. For more information, see [Amazon EMR integration with EC2 placement
-groups](emr-plan-ha-placementgroup.md "emr-plan-ha-placementgroup.md").
+hardware. For more information, see [Amazon EMR integration with EC2 placement groups](emr-plan-ha-placementgroup.md "emr-plan-ha-placementgroup.md").
 
 An Amazon EMR cluster with multiple primary nodes provides the following benefits:
 
@@ -21,8 +20,7 @@ An Amazon EMR cluster with multiple primary nodes provides the following benefit
   applications.
 
 For more information about how an Amazon EMR cluster with multiple primary nodes supports open source
-applications and other Amazon EMR features, see [Features that support high availability in an Amazon EMR cluster and how they work
-with open-source applications](emr-plan-ha-applications.md "emr-plan-ha-applications.md").
+applications and other Amazon EMR features, see [Features that support high availability in an Amazon EMR cluster and how they work with open-source applications](emr-plan-ha-applications.md "emr-plan-ha-applications.md").
 
 ###### Note
 
@@ -34,11 +32,7 @@ for launching the cluster.
 
 ###### Topics
 
-- [Features that support high availability in an Amazon EMR cluster and how they work
-  with open-source applications](emr-plan-ha-applications.md "emr-plan-ha-applications.md")
-- [Launch an Amazon EMR Cluster with multiple
-  primary nodes](emr-plan-ha-launch.md "emr-plan-ha-launch.md")
-- [Amazon EMR integration with EC2 placement
-  groups](emr-plan-ha-placementgroup.md "emr-plan-ha-placementgroup.md")
-- [Considerations and best practices when you create
-  an Amazon EMR cluster with multiple primary nodes](emr-plan-ha-considerations.md "emr-plan-ha-considerations.md")
+- [Features that support high availability in an Amazon EMR cluster and how they work with open-source applications](emr-plan-ha-applications.md "emr-plan-ha-applications.md")
+- [Launch an Amazon EMR Cluster with multiple primary nodes](emr-plan-ha-launch.md "emr-plan-ha-launch.md")
+- [Amazon EMR integration with EC2 placement groups](emr-plan-ha-placementgroup.md "emr-plan-ha-placementgroup.md")
+- [Considerations and best practices when you create an Amazon EMR cluster with multiple primary nodes](emr-plan-ha-considerations.md "emr-plan-ha-considerations.md")

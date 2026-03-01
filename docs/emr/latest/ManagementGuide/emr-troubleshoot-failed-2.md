@@ -5,16 +5,12 @@ Things that affect those dependencies can impact the performance of Amazon EMR.
 
 ###### Topics
 
-- [Check for service
-  outages](#emr-troubleshoot-failed-2-outages "#emr-troubleshoot-failed-2-outages")
+- [Check for service outages](#emr-troubleshoot-failed-2-outages "#emr-troubleshoot-failed-2-outages")
 - [Check usage limits](#emr-troubleshoot-failed-2-limits "#emr-troubleshoot-failed-2-limits")
 - [Check the release version](#emr-troubleshoot-failed-2-ami "#emr-troubleshoot-failed-2-ami")
-- [Check the Amazon VPC subnet
-  configuration](#emr-troubleshoot-failed-2-vpc "#emr-troubleshoot-failed-2-vpc")
+- [Check the Amazon VPC subnet configuration](#emr-troubleshoot-failed-2-vpc "#emr-troubleshoot-failed-2-vpc")
 
-## Check for service
-
-outages
+## Check for service outages
 
 Amazon EMR uses several Amazon Web Services internally. It runs virtual servers on Amazon EC2, stores data and scripts on Amazon S3, and reports metrics to CloudWatch. Events that disrupt these services are rare — but when they occur — can cause issues in Amazon EMR.
 
@@ -38,8 +34,6 @@ features, patches, and bug fixes. The issue that is affecting your cluster may h
 already been fixed in the latest release version. If possible, re-run your cluster
 using the latest version.
 
-## Check the Amazon VPC subnet
-
-configuration
+## Check the Amazon VPC subnet configuration
 
 If your cluster was launched in a Amazon VPC subnet, the subnet needs to be configured as described in [Configure networking in a VPC for Amazon EMR](emr-plan-vpc-subnet.md "emr-plan-vpc-subnet.md"). In addition, check that the subnet you launch the cluster into has enough free elastic IP addresses to assign one to each node in the cluster.

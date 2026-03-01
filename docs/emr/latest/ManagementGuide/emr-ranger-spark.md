@@ -9,12 +9,9 @@ about EMR RecordServer, see the [Amazon EMR components for use with Apache Range
 ###### Topics
 
 - [Supported features](#emr-ranger-spark-supported-features "#emr-ranger-spark-supported-features")
-- [Redeploy service
-  definition to use INSERT, ALTER, or DDL statements](#emr-ranger-spark-redeploy-service-definition "#emr-ranger-spark-redeploy-service-definition")
-- [Installation of service
-  definition](#emr-ranger-spark-install-servicedef "#emr-ranger-spark-install-servicedef")
-- [Creating SparkSQL
-  policies](#emr-ranger-spark-create-sparksql "#emr-ranger-spark-create-sparksql")
+- [Redeploy service definition to use INSERT, ALTER, or DDL statements](#emr-ranger-spark-redeploy-service-definition "#emr-ranger-spark-redeploy-service-definition")
+- [Installation of service definition](#emr-ranger-spark-install-servicedef "#emr-ranger-spark-install-servicedef")
+- [Creating SparkSQL policies](#emr-ranger-spark-create-sparksql "#emr-ranger-spark-create-sparksql")
 - [Considerations](#emr-ranger-spark-considerations "#emr-ranger-spark-considerations")
 - [Limitations](#emr-ranger-spark-limitations "#emr-ranger-spark-limitations")
 
@@ -46,9 +43,7 @@ The following features are supported when using SparkSQL:
   users and groups.
 - Audit events are submitted to CloudWatch Logs.
 
-## Redeploy service
-
-definition to use INSERT, ALTER, or DDL statements
+## Redeploy service definition to use INSERT, ALTER, or DDL statements
 
 ###### Note
 
@@ -75,9 +70,7 @@ curl -u `<admin_user_login>`:`<password_for_ranger_admin_user>` -X PUT -d @range
 -k 'https://*`<RANGER SERVER ADDRESS>`*:6182/service/public/v2/api/servicedef/`<Spark service definition id from step 1>`'
 ```
 
-## Installation of service
-
-definition
+## Installation of service definition
 
 The installation of EMR's Apache Spark service definition requires the Ranger
 Admin server to be setup. See [Set up a Ranger Admin server to integrate with Amazon EMR](emr-ranger-admin.md "emr-ranger-admin.md").
@@ -157,9 +150,7 @@ The TLS certificate for this plugin should have been registered in the
 trust store on the Ranger Admin server. See [TLS certificates for Apache Ranger integration with Amazon EMR](emr-ranger-admin-tls.md "emr-ranger-admin-tls.md")
 for more details.
 
-## Creating SparkSQL
-
-policies
+## Creating SparkSQL policies
 
 When creating a new policy, the fields to fill in are:
 

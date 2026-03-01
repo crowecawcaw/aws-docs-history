@@ -13,8 +13,7 @@ guidelines](emr-plan-instances-guidelines.md "emr-plan-instances-guidelines.md")
   install on the cluster. During a Hadoop MapReduce or Spark job, for example,
   components on core and task nodes process data, transfer output to Amazon S3 or HDFS, and
   provide status metadata back to the primary node. With a single-node cluster, all
-  components run on the primary node. For more information, see [Understand node types in Amazon EMR:
-  primary, core, and task nodes](emr-master-core-task-nodes.md "emr-master-core-task-nodes.md").
+  components run on the primary node. For more information, see [Understand node types in Amazon EMR: primary, core, and task nodes](emr-master-core-task-nodes.md "emr-master-core-task-nodes.md").
 - **EC2 instances** – When you create a cluster,
   you make choices about the Amazon EC2 instances that each type of node will run on. The
   EC2 instance type determines the processing and storage profile of the node. The
@@ -33,8 +32,7 @@ guidelines](emr-plan-instances-guidelines.md "emr-plan-instances-guidelines.md")
   grouping configuration is a choice you make when you create a cluster. This choice
   determines how you can add nodes to your cluster while it is running. The
   configuration applies to all node types. It can't be changed later. For more
-  information, see [Create an Amazon EMR cluster with instance
-  fleets or uniform instance groups](emr-instance-group-configuration.md "emr-instance-group-configuration.md").
+  information, see [Create an Amazon EMR cluster with instance fleets or uniform instance groups](emr-instance-group-configuration.md "emr-instance-group-configuration.md").
 
 ###### Note
 

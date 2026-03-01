@@ -51,14 +51,10 @@ For more information about Amazon VPC, see the [Amazon VPC User Guide](../../../
 - [Amazon VPC options when you launch a cluster](emr-clusters-in-a-vpc.md "emr-clusters-in-a-vpc.md")
 - [Set up a VPC to host Amazon EMR clusters](emr-vpc-host-job-flows.md "emr-vpc-host-job-flows.md")
 - [Launch clusters into a VPC with Amazon EMR](emr-vpc-launching-job-flows.md "emr-vpc-launching-job-flows.md")
-- [Sample policies for private
-  subnets that access Amazon S3](private-subnet-iampolicy.md "private-subnet-iampolicy.md")
-- [More resources for learning about
-  VPCs](#emr-resources-about-vpcs "#emr-resources-about-vpcs")
+- [Sample policies for private subnets that access Amazon S3](private-subnet-iampolicy.md "private-subnet-iampolicy.md")
+- [More resources for learning about VPCs](#emr-resources-about-vpcs "#emr-resources-about-vpcs")
 
-## More resources for learning about
-
-VPCs
+## More resources for learning about VPCs
 
 Use the following topics to learn more about VPCs and subnets.
 

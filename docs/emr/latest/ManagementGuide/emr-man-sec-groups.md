@@ -39,32 +39,25 @@ The default managed security groups are as follows:
 
 - **ElasticMapReduce-primary**
 
-For rules in this security group, see [Amazon EMR-managed security group for
-the primary instance (public subnets)](#emr-sg-elasticmapreduce-master "#emr-sg-elasticmapreduce-master").
+For rules in this security group, see [Amazon EMR-managed security group for the primary instance (public subnets)](#emr-sg-elasticmapreduce-master "#emr-sg-elasticmapreduce-master").
 
 - **ElasticMapReduce-core**
 
-For rules in this security group, see [Amazon EMR-managed security group for
-core and task instances (public subnets)](#emr-sg-elasticmapreduce-slave "#emr-sg-elasticmapreduce-slave").
+For rules in this security group, see [Amazon EMR-managed security group for core and task instances (public subnets)](#emr-sg-elasticmapreduce-slave "#emr-sg-elasticmapreduce-slave").
 
 - **ElasticMapReduce-Primary-Private**
 
-For rules in this security group, see [Amazon EMR-managed security
-group for the primary instance (private subnets)](#emr-sg-elasticmapreduce-master-private "#emr-sg-elasticmapreduce-master-private").
+For rules in this security group, see [Amazon EMR-managed security group for the primary instance (private subnets)](#emr-sg-elasticmapreduce-master-private "#emr-sg-elasticmapreduce-master-private").
 
 - **ElasticMapReduce-Core-Private**
 
-For rules in this security group, see [Amazon EMR-managed security group
-for core and task instances (private subnets)](#emr-sg-elasticmapreduce-slave-private "#emr-sg-elasticmapreduce-slave-private").
+For rules in this security group, see [Amazon EMR-managed security group for core and task instances (private subnets)](#emr-sg-elasticmapreduce-slave-private "#emr-sg-elasticmapreduce-slave-private").
 
 - **ElasticMapReduce-ServiceAccess**
 
-For rules in this security group, see [Amazon EMR-managed security group
-for service access (private subnets)](#emr-sg-elasticmapreduce-sa-private "#emr-sg-elasticmapreduce-sa-private").
+For rules in this security group, see [Amazon EMR-managed security group for service access (private subnets)](#emr-sg-elasticmapreduce-sa-private "#emr-sg-elasticmapreduce-sa-private").
 
-## Amazon EMR-managed security group for
-
-the primary instance (public subnets)
+## Amazon EMR-managed security group for the primary instance (public subnets)
 
 The default managed security group for the primary instance in public subnets has
 the **Group Name** of
@@ -109,9 +102,7 @@ Before December 2020, there was a pre-configured rule to allow inbound traffic o
 
 Selecting SSH automatically enters **TCP** for **Protocol** and **22** for **Port Range**. 9. For source, select **My IP** to automatically add your IP address as the source address. You can also add a range of **Custom** trusted client IP addresses, or create additional rules for other clients. Many network environments dynamically allocate IP addresses, so you might need to update your IP addresses for trusted clients in the future. 10. Choose **Save**. 11. Optionally, choose the other security group under **Core and task nodes** in the **Network and security** pane and repeat the steps above to allow SSH client access to core and task nodes.
 
-## Amazon EMR-managed security group for
-
-core and task instances (public subnets)
+## Amazon EMR-managed security group for core and task instances (public subnets)
 
 The default managed security group for core and task instances in public subnets
 has the **Group Name** of
@@ -127,9 +118,7 @@ has the **Group Name** of
 | All TCP            | TCP      | All        |
 | All UDP            | UDP      | All        |
 
-## Amazon EMR-managed security
-
-group for the primary instance (private subnets)
+## Amazon EMR-managed security group for the primary instance (private subnets)
 
 The default managed security group for the primary instance in private subnets has
 the **Group Name** of
@@ -150,9 +139,7 @@ the **Group Name** of
 | Custom TCP          | TCP      | 9443                     | The Group ID of the managed security group for service access in<br>a private subnet.                                                         | If the above "All traffic" default outbound rule is<br>removed, this rule is a minimum requirement for Amazon EMR 5.30.0 and<br>later.NoteAmazon EMR does not add this rule when you use a custom managed<br>security group.                                                                                                                                                                                                                        |
 | Custom TCP          | TCP      | 80 (http) or 443 (https) | The Group ID of the managed security group for service access in<br>a private subnet.                                                         | If the above "All traffic" default outbound rule is<br>removed, this rule is a minimum requirement for Amazon EMR 5.30.0 and<br>later to connect to Amazon S3 over https.NoteAmazon EMR does not add this rule when you use a custom managed<br>security group.                                                                                                                                                                                     |
 
-## Amazon EMR-managed security group
-
-for core and task instances (private subnets)
+## Amazon EMR-managed security group for core and task instances (private subnets)
 
 The default managed security group for core and task instances in private subnets
 has the **Group Name** of
@@ -191,9 +178,7 @@ additional egress.
 | All Traffic | All      | All        | sg-`xxxxxxxxxxxxxxxxx` | The ID of the `ElasticMapReduce-Primary-Private`<br>security group. |
 | Custom TCP  | TCP      | 9443       | sg-`xxxxxxxxxxxxxxxxx` | The ID of the `ElasticMapReduce-ServiceAccess`<br>security group.   |
 
-## Amazon EMR-managed security group
-
-for service access (private subnets)
+## Amazon EMR-managed security group for service access (private subnets)
 
 The default managed security group for service access in private subnets has the
 **Group Name** of

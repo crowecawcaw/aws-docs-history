@@ -1,10 +1,6 @@
-# Define security groups to control EMR Studio
+# Define security groups to control EMR Studio network traffic
 
-network traffic
-
-## About the EMR Studio security
-
-groups
+## About the EMR Studio security groups
 
 Amazon EMR Studio uses two security groups to control network traffic between
 Workspaces in the Studio and an attached Amazon EMR cluster running on

@@ -1,6 +1,4 @@
-# Amazon EMR integration with EC2 placement
-
-groups
+# Amazon EMR integration with EC2 placement groups
 
 When you launch an Amazon EMR multiple primary node cluster on Amazon EC2, you have the
 option to use placement group strategies to specify how you want the primary node
@@ -24,9 +22,7 @@ groups Amazon EMR creates by tracking the key-value pair that Amazon EMR associa
 placement group strategy. For more information about EC2 cluster instance tags, see
 [View cluster instances in Amazon EC2](UsingEMR_Tagging.md "UsingEMR_Tagging.md").
 
-## Attach the placement group managed
-
-policy to the Amazon EMRrole
+## Attach the placement group managed policy to the Amazon EMRrole
 
 The placement group strategy requires a managed policy called
 `AmazonElasticMapReducePlacementGroupPolicy`, which allows Amazon EMR to
@@ -81,15 +77,12 @@ JSON
 
 ```
 
-## Launch an Amazon EMR cluster with
-
-multiple primary nodes using placement group strategy
+## Launch an Amazon EMR cluster with multiple primary nodes using placement group strategy
 
 To launch an Amazon EMR cluster that has multiple primary nodes with a placement group
 strategy, attach the placement group managed policy
 `AmazonElasticMapReducePlacementGroupPolicy` to the Amazon EMR role. For
-more information, see [Attach the placement group managed
-policy to the Amazon EMRrole](#emr-plan-ha-launch-pg-policy "#emr-plan-ha-launch-pg-policy").
+more information, see [Attach the placement group managed policy to the Amazon EMRrole](#emr-plan-ha-launch-pg-policy "#emr-plan-ha-launch-pg-policy").
 
 Every time you use this role to start an Amazon EMR cluster with multiple primary
 nodes, Amazon EMR attempts to launch a cluster with `SPREAD` strategy applied
@@ -249,9 +242,7 @@ aws emr create-cluster \
   `subnet-22XXXX02`with your subnet
   IDs.
 
-## Launch a cluster with multiple primary nodes
-
-without a placement group strategy
+## Launch a cluster with multiple primary nodes without a placement group strategy
 
 For a cluster with multiple primary nodes to launch primary nodes without the placement
 group strategy, you need to do one of the following:
@@ -265,9 +256,7 @@ group strategy, you need to do one of the following:
 
 Amazon EMR API
 
-###### Example– Launching a cluster with multiple primary nodes without placement group
-
-strategy using the Amazon EMRAPI.
+###### Example– Launching a cluster with multiple primary nodes without placement group strategy using the Amazon EMRAPI.
 
 When using the RunJobFlow action to create a cluster with multiple primary nodes,
 set the `PlacementGroupConfigs` property to the
@@ -315,9 +304,7 @@ following.
 
 Amazon EMR CLI
 
-###### Example– Launching a cluster with multiple primary nodes without a placement group
-
-strategy using the Amazon EMRCLI.
+###### Example– Launching a cluster with multiple primary nodes without a placement group strategy using the Amazon EMRCLI.
 
 When using the RunJobFlow action to create a cluster with multiple primary nodes,
 set the `PlacementGroupConfigs` property to the
@@ -343,9 +330,7 @@ aws emr create-cluster \
   optional and only required if you want to use SSH to access your
   cluster.
 
-## Checking placement group strategy
-
-configuration attached to the cluster with multiple primary nodes
+## Checking placement group strategy configuration attached to the cluster with multiple primary nodes
 
 You can use the Amazon EMR describe cluster API to see the placement group strategy
 configuration attached to the cluster with multiple primary nodes.

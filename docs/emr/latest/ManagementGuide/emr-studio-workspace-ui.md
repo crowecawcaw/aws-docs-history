@@ -1,6 +1,4 @@
-# Understand the Workspace user
-
-interface in EMR Studio
+# Understand the Workspace user interface in EMR Studio
 
 The EMR Studio Workspace user interface is based on the [JupyterLab
 interface](https://jupyterlab.readthedocs.io/en/latest/user/interface.html "https://jupyterlab.readthedocs.io/en/latest/user/interface.html") with icon-denoted tabs on the left sidebar. When you pause over an icon,
@@ -21,12 +19,10 @@ access the following panels.
   to or detach a cluster from the Workspace to run notebook code. The
   EMR cluster configuration panel also provides advanced configuration options to help
   you create and attach a _new_ cluster to the
-  Workspace. For more information, see [Create and attach a new EMR cluster to an
-  EMR Studio Workspace](emr-studio-create-use-clusters.md#emr-studio-create-cluster "emr-studio-create-use-clusters.md#emr-studio-create-cluster").
+  Workspace. For more information, see [Create and attach a new EMR cluster to an EMR Studio Workspace](emr-studio-create-use-clusters.md#emr-studio-create-cluster "emr-studio-create-use-clusters.md#emr-studio-create-cluster").
 - **Amazon EMR Git Repository** – Helps you link the
   Workspace with up to three Git repositories. For details and instructions, see
-  [Link Git-based repositories to an EMR Studio
-  Workspace](emr-studio-git-repo.md "emr-studio-git-repo.md").
+  [Link Git-based repositories to an EMR Studio Workspace](emr-studio-git-repo.md "emr-studio-git-repo.md").
 - **Notebook Examples** – Provides a list of
   notebook examples that you can save to the Workspace. You can also access the
   examples by choosing **Notebook Examples** on the

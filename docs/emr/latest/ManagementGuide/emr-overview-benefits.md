@@ -80,8 +80,7 @@ Amazon EMR also provides the option to run multiple instance groups so that you
 can use On-Demand Instances in one group for guaranteed processing power together
 with Spot Instances in another group to have your jobs completed faster and at lower
 costs. You can also mix different instance types to take advantage of better pricing
-for one Spot Instance type over another. For more information, see [When should you use Spot
-Instances?](emr-plan-instances-guidelines.md#emr-plan-spot-instances "emr-plan-instances-guidelines.md#emr-plan-spot-instances").
+for one Spot Instance type over another. For more information, see [When should you use Spot Instances?](emr-plan-instances-guidelines.md#emr-plan-spot-instances "emr-plan-instances-guidelines.md#emr-plan-spot-instances").
 
 Additionally, Amazon EMR provides the flexibility to use several file systems for
 your input, output, and intermediate data. For example, you might choose the Hadoop
@@ -114,8 +113,7 @@ your cluster from being terminated due to errors or issues during processing. Wh
 termination protection is enabled, you can recover data from instances before
 termination. The default settings for these options differ depending on whether you
 launch your cluster by using the console, CLI, or API. For more information, see
-[Using termination protection to protect your Amazon EMR clusters from
-accidental shut down](UsingEMR_TerminationProtection.md "UsingEMR_TerminationProtection.md").
+[Using termination protection to protect your Amazon EMR clusters from accidental shut down](UsingEMR_TerminationProtection.md "UsingEMR_TerminationProtection.md").
 
 ## Security
 
@@ -139,8 +137,7 @@ created for you automatically the first time you launch an EMR cluster from the
 console and choose default permissions. You can also create the default IAM
 roles from the AWS CLI. If you want to manage the permissions instead of AWS,
 you can choose custom roles for the service and instance profile. For more
-information, see [Configure IAM service roles for Amazon EMR permissions to AWS
-services and resources](emr-iam-roles.md "emr-iam-roles.md").
+information, see [Configure IAM service roles for Amazon EMR permissions to AWS services and resources](emr-iam-roles.md "emr-iam-roles.md").
 
 ### Security groups
 
@@ -177,8 +174,7 @@ information, see [Configure networking in a VPC for Amazon EMR](emr-plan-vpc-sub
 Amazon EMR integrates with CloudTrail to log information about requests made by or on
 behalf of your AWS account. With this information, you can track who is
 accessing your cluster when, and the IP address from which they made the
-request. For more information, see [Logging AWS EMR API calls using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+request. For more information, see [Logging AWS EMR API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 ### Amazon EC2 key pairs
 

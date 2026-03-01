@@ -12,8 +12,7 @@ If you had EMR notebooks in the old Amazon EMR console, you can find them in the
 console as EMR Studio Workspaces. EMR Notebooks users need additional IAM
 role permissions to access or create Workspaces. If you recently created a
 notebook in the old console, you might need to refresh the Workspaces list to see
-it in the console. For more information about the transition, see [Amazon EMR Notebooks are available as
-Amazon EMR Studio Workspaces in the console](emr-managed-notebooks-migration.md "emr-managed-notebooks-migration.md") and [Managing Amazon EMR clusters with the console](whats-new-in-console.md "whats-new-in-console.md")
+it in the console. For more information about the transition, see [Amazon EMR Notebooks are available as Amazon EMR Studio Workspaces in the console](emr-managed-notebooks-migration.md "emr-managed-notebooks-migration.md") and [Managing Amazon EMR clusters with the console](whats-new-in-console.md "whats-new-in-console.md")
 
 ###### To launch a Workspace for editing and running notebooks
 

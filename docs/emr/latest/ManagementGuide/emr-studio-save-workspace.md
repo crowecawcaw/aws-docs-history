@@ -10,5 +10,4 @@ open notebook tab or by using one of the save options under **File**.
 Another way to back up the notebook files in a Workspace is to associate the
 Workspace with a Git-based repository and sync your changes with the remote
 repository. Doing so also lets you save and share notebooks with team members who use a
-different Workspace or Studio. For instructions, see [Link Git-based repositories to an EMR Studio
-Workspace](emr-studio-git-repo.md "emr-studio-git-repo.md").
+different Workspace or Studio. For instructions, see [Link Git-based repositories to an EMR Studio Workspace](emr-studio-git-repo.md "emr-studio-git-repo.md").

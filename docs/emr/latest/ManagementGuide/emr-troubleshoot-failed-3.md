@@ -1,6 +1,4 @@
-# Step 3: Look at the last state
-
-change
+# Step 3: Look at the last state change
 
 The last state change provides information about what occurred the last time the
 cluster changed state. This often has information that can tell you what went wrong as a

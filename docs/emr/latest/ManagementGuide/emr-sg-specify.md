@@ -1,6 +1,4 @@
-# Specifying Amazon EMR-managed and additional security
-
-groups
+# Specifying Amazon EMR-managed and additional security groups
 
 You can specify security groups using the AWS Management Console, the AWS CLI, or the Amazon EMR API. If
 you don't specify security groups, Amazon EMR creates default security groups. Specifying
@@ -40,9 +38,7 @@ Console
 7. To launch your cluster, choose **Create
    cluster**.
 
-## Specifying security groups with the
-
-AWS CLI
+## Specifying security groups with the AWS CLI
 
 To specify security groups using the AWS CLI you use the `create-cluster`
 command with the following parameters of the `--ec2-attributes`
@@ -56,9 +52,7 @@ option:
 | `AdditionalPrimarySecurityGroups` | Use this parameter to specify up to four additional security<br>groups for the primary instance.                                                                                                                                                                                                                                                                                                       |
 | `AdditionalCoreSecurityGroups`    | Use this parameter to specify up to four additional security<br>groups for core and task instances.                                                                                                                                                                                                                                                                                                    |
 
-###### Example— specify custom Amazon EMR-managed security groups and additional security
-
-groups
+###### Example— specify custom Amazon EMR-managed security groups and additional security groups
 
 The following example specifies custom Amazon EMR managed security groups for a
 cluster in a private subnet, multiple additional security groups for the primary

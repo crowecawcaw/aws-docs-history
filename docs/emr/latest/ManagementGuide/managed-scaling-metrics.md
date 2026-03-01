@@ -1,6 +1,4 @@
-# Understanding managed scaling
-
-metrics in Amazon EMR
+# Understanding managed scaling metrics in Amazon EMR
 
 Amazon EMR publishes high-resolution metrics with data at a one-minute granularity when
 managed scaling is enabled for a cluster. You can view events on every resize
@@ -64,9 +62,7 @@ picture of the impact of managed scaling:
 | `YarnNodesUsedVCPUSeconds`           | Available to release label 7.3.0 and higher | The consumed node VCPU \<br>• seconds for the publishing period.<br>\*_Units:_<br>• VCPU \<br>• seconds      |
 | `YarnNodesTotalVCPUSeconds`          | Available to release label 7.3.0 and higher | The total node VCPU \<br>• seconds for the publishing period.<br>\*_Units:_<br>• VCPU \<br>• seconds         |
 
-## Graphing managed scaling
-
-metrics
+## Graphing managed scaling metrics
 
 You can graph metrics to visualize your cluster's workload patterns and
 corresponding scaling decisions made by Amazon EMR managed scaling as the following

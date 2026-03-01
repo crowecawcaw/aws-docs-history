@@ -1,6 +1,4 @@
-# IAM managed policy for
-
-read-only access (v2 managed default policy) for Amazon EMR
+# IAM managed policy for read-only access (v2 managed default policy) for Amazon EMR
 
 To grant read-only privileges to Amazon EMR, attach the **AmazonEMRReadOnlyAccessPolicy_v2** managed policy. This default
 managed policy replaces the [AmazonElasticMapReduceReadOnlyAccess](emr-managed-policy-readonly.md "emr-managed-policy-readonly.md") managed

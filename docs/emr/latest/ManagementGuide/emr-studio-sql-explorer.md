@@ -28,8 +28,7 @@ to verify table and column names before you write a SQL query.
 1. Open SQL Explorer in your Workspace.
 2. Make sure your Workspace is attached to an EMR cluster running on EC2
    that uses Amazon EMR version 6.4.0 or later with Presto installed. You can choose an existing
-   cluster, or create a new one. For more information, see [Attach a compute to an EMR Studio
-   Workspace](emr-studio-create-use-clusters.md "emr-studio-create-use-clusters.md").
+   cluster, or create a new one. For more information, see [Attach a compute to an EMR Studio Workspace](emr-studio-create-use-clusters.md "emr-studio-create-use-clusters.md").
 3. Select a **Database** from the dropdown list to browse.
 4. Expand a table in your database to see the table's column names. You can also enter
    a keyword in the search bar to filter table results.
@@ -41,8 +40,7 @@ to verify table and column names before you write a SQL query.
 1. Open SQL Explorer in your Workspace.
 2. Make sure your Workspace is attached to an EMR cluster running on EC2
    with Presto and Spark installed. You can choose an existing cluster, or create a new
-   one. For more information, see [Attach a compute to an EMR Studio
-   Workspace](emr-studio-create-use-clusters.md "emr-studio-create-use-clusters.md").
+   one. For more information, see [Attach a compute to an EMR Studio Workspace](emr-studio-create-use-clusters.md "emr-studio-create-use-clusters.md").
 3. Select **Open editor** to open a new editor tab in your
    Workspace.
 4. Compose your SQL query in the editor tab.

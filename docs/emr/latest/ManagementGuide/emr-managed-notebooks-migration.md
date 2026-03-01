@@ -1,10 +1,6 @@
-# Amazon EMR Notebooks are available as
+# Amazon EMR Notebooks are available as Amazon EMR Studio Workspaces in the console
 
-Amazon EMR Studio Workspaces in the console
-
-## Making the transition from
-
-EMR Notebooks to Workspaces
+## Making the transition from EMR Notebooks to Workspaces
 
 In the [new Amazon EMR
 console](whats-new-in-console.md "whats-new-in-console.md"), we've merged EMR Notebooks with Amazon EMR Studio Workspaces
@@ -42,13 +38,10 @@ At a minimum, to view existing EMR Notebooks as EMR Studio
 Workspaces and to create new Workspaces, users must have
 `elasticmapreduce:ListStudios` and
 `elasticmapreduce:CreateStudioPresignedUrl` permissions on their
-roles. To access all of the EMR Studio features, see [Enabling EMR Studio features
-for EMR Notebooks users](#emr-notebooks-workspaces-enable "#emr-notebooks-workspaces-enable") for the complete list of
+roles. To access all of the EMR Studio features, see [Enabling EMR Studio features for EMR Notebooks users](#emr-notebooks-workspaces-enable "#emr-notebooks-workspaces-enable") for the complete list of
 added permissions that EMR Notebooks users will need.
 
-## Enhanced capabilities in
-
-EMR Studio beyond EMR Notebooks
+## Enhanced capabilities in EMR Studio beyond EMR Notebooks
 
 With Amazon EMR Studio, you can set up and use the following capabilities that aren't
 available with EMR Notebooks:
@@ -68,9 +61,7 @@ available with EMR Notebooks:
 
 For a complete list of capabilities with Amazon EMR Studio, see [Key features of EMR Studio](emr-studio.md#emr-studio-key-features "emr-studio.md#emr-studio-key-features").
 
-## Enabling EMR Studio features
-
-for EMR Notebooks users
+## Enabling EMR Studio features for EMR Notebooks users
 
 The new EMR Studios that we will create as part of this merge use the existing
 `EMR_Notebooks_DefaultRole` IAM role as the EMR Studio service
@@ -89,8 +80,7 @@ Workspaces and to create new Workspaces, users must have
 `elasticmapreduce:CreateStudioPresignedUrl` permissions on their
 roles. To use all of the EMR Studio features, add all of the permissions
 listed below. Admin users also need permission to create and manage an
-EMR Studio. For more information, see [Administrator permissions to create and manage
-an EMR Studio](emr-studio-admin-permissions.md "emr-studio-admin-permissions.md").
+EMR Studio. For more information, see [Administrator permissions to create and manage an EMR Studio](emr-studio-admin-permissions.md "emr-studio-admin-permissions.md").
 
 ```
 "elasticmapreduce:DescribeStudio",

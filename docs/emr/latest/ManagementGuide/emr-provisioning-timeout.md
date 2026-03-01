@@ -8,7 +8,5 @@ provisioning timeout for cluster launch and for cluster scale-up operations.
 
 ###### Topics
 
-- [Configure provisioning timeouts
-  for cluster launch in Amazon EMR](emr-provisioning-timeout-launch.md "emr-provisioning-timeout-launch.md")
-- [Customize a provisioning timeout
-  period for cluster resize in Amazon EMR](emr-provisioning-timeout-resize.md "emr-provisioning-timeout-resize.md")
+- [Configure provisioning timeouts for cluster launch in Amazon EMR](emr-provisioning-timeout-launch.md "emr-provisioning-timeout-launch.md")
+- [Customize a provisioning timeout period for cluster resize in Amazon EMR](emr-provisioning-timeout-resize.md "emr-provisioning-timeout-resize.md")

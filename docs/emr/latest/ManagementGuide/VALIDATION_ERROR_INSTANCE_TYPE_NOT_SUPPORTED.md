@@ -15,8 +15,7 @@ instance types and Regions that Amazon EMR supports, see [Supported instance typ
 To resolve this error, specify instance types for your cluster that Amazon EMR
 supports in the Region and Availability Zone where you request the cluster.
 
-To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail
-information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
+To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
 
 **`instance-types`**
 
@@ -30,9 +29,7 @@ The list of Availability Zones that your subnet resolves to.
 
 The public URL of the documentation for the error code.
 
-## Steps to
-
-complete
+## Steps to complete
 
 Perform the following steps to identify and fix the error:
 

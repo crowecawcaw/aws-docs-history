@@ -29,9 +29,7 @@ the **Notebooks** list.
 | Stopped  | The notebook has shut down. You can start the notebook on the<br>same cluster, as long as the cluster is still running. You can<br>change clusters, and delete the cluster.                                                                                                                                                           |
 | Deleting | The cluster is being removed from the list of available<br>clusters. The notebook file,<br>``NotebookName`.ipynb` remains in Amazon S3 and continues to accrue applicable<br>storage charges.                                                                                                                                         |
 
-## Working with the Notebook
-
-editor
+## Working with the Notebook editor
 
 An advantage of using an EMR notebook is that you can launch the notebook
 in Jupyter or JupyterLab directly from the console.
@@ -56,9 +54,7 @@ editor URL. Doing this creates a security risk because recipients of the URL
 adopt your permissions to edit the notebook and run notebook code for the
 lifetime of the URL. If others need access to a notebook, provide permissions to
 their a user through permissions policies and ensure that the service role for
-EMR Notebooks has access to the Amazon S3 location. For more information, see [EMR notebooks security and
-access control](emr-managed-notebooks-security.md "emr-managed-notebooks-security.md") and [Service role for
-EMR Notebooks](emr-managed-notebooks-service-role.md "emr-managed-notebooks-service-role.md").
+EMR Notebooks has access to the Amazon S3 location. For more information, see [EMR notebooks security and access control](emr-managed-notebooks-security.md "emr-managed-notebooks-security.md") and [Service role for EMR Notebooks](emr-managed-notebooks-service-role.md "emr-managed-notebooks-service-role.md").
 
 ###### To open the notebook editor for an EMR notebook
 
@@ -76,9 +72,7 @@ language.
 You are now ready to write and run code from within the notebook
 editor.
 
-### Saving the contents of a
-
-Notebook
+### Saving the contents of a Notebook
 
 When you work in the notebook editor, the contents of notebook cells and
 output are saved automatically to the notebook file periodically in Amazon S3. A
@@ -120,9 +114,7 @@ Choose **Create a cluster** and then choose the cluster
 options. For more information, see [Cluster requirements](emr-managed-notebooks-considerations.md#considerations-limitations "emr-managed-notebooks-considerations.md#considerations-limitations"). 5. Choose an option for **Security groups**, and then choose
 **Change cluster and start notebook**.
 
-## Deleting Notebooks and Notebook
-
-files
+## Deleting Notebooks and Notebook files
 
 When you delete an EMR notebook using the Amazon EMR console, you delete the
 notebook from the list of available notebooks. However, notebook files remain in
@@ -172,9 +164,7 @@ You can use this process to use EMR notebooks shared by others, notebooks
 shared in the Jupyter community, or to restore a notebook that was deleted from the
 console when you still have the notebook file.
 
-###### To use a different notebook file as the basis for an
-
-EMR notebook
+###### To use a different notebook file as the basis for an EMR notebook
 
 1. Before proceeding, close the notebook editor for any notebooks that you
    will work with, and then stop the notebook if it's an

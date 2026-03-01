@@ -1,6 +1,4 @@
-# Ruby
-
-samples for an EMR notebook
+# Ruby samples for an EMR notebook
 
 This topic contains a Ruby sample that demonstrate notebook functionality.
 
@@ -20,9 +18,7 @@ emr = Aws::EMR::Client.new(
 )
 ```
 
-## Starting
-
-notebook execution and getting the execution id
+## Starting notebook execution and getting the execution id
 
 In this example, the Amazon S3 editor and EMR notebook are
 `s3://amzn-s3-demo-bucket/notebooks/e-EA8VGAA429FEQTC8HC9ZHWISK/test.ipynb`.
@@ -45,9 +41,7 @@ start_response = emr.start_notebook_execution({
 notebook_execution_id = start_resp.notebook_execution_id
 ```
 
-## Describing
-
-notebook execution and printing the details
+## Describing notebook execution and printing the details
 
 ```
 describe_resp = emr.describe_notebook_execution({
@@ -75,9 +69,7 @@ The output from the above commands will be as follows.
 }
 ```
 
-## Notebook
-
-filters
+## Notebook filters
 
 ```
 
@@ -86,9 +78,7 @@ filters
 "To" :
 ```
 
-### Stopping notebook
-
-execution
+### Stopping notebook execution
 
 ```
 stop_resp = emr.stop_notebook_execution({

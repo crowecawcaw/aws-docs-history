@@ -1,6 +1,4 @@
-# Configuring an Amazon EMR cluster to continue or
-
-terminate after step execution
+# Configuring an Amazon EMR cluster to continue or terminate after step execution
 
 This topic explains the differences between using a long-running cluster and creating
 a transient cluster that shuts down after the last step runs. It also covers how to
@@ -21,23 +19,18 @@ A long-running cluster is effective in the following situations:
   is inefficient to launch new clusters and load data each time.
 
 You can also set termination protection on a long-running cluster to avoid
-shutting down EC2 instances by accident or error. For more information, see [Using termination protection to protect your Amazon EMR clusters from
-accidental shut down](UsingEMR_TerminationProtection.md "UsingEMR_TerminationProtection.md").
+shutting down EC2 instances by accident or error. For more information, see [Using termination protection to protect your Amazon EMR clusters from accidental shut down](UsingEMR_TerminationProtection.md "UsingEMR_TerminationProtection.md").
 
 ###### Note
 
 Amazon EMR automatically enables termination protection for all clusters with multiple primary
 nodes, and overrides any step execution settings that you supply when you
-create the cluster. You can disable termination protection after the cluster has been launched. See [Configuring termination
-protection for running clusters](UsingEMR_TerminationProtection.md#emr-termination-protection-running-cluster "UsingEMR_TerminationProtection.md#emr-termination-protection-running-cluster").
+create the cluster. You can disable termination protection after the cluster has been launched. See [Configuring termination protection for running clusters](UsingEMR_TerminationProtection.md#emr-termination-protection-running-cluster "UsingEMR_TerminationProtection.md#emr-termination-protection-running-cluster").
 To shut down a cluster with multiple primary nodes, you must
 first modify the cluster attributes to disable termination protection. For
-instructions, see [Terminate an Amazon EMR Cluster with
-multiple primary nodes](emr-plan-ha-launch.md#emr-plan-ha-launch-terminate "emr-plan-ha-launch.md#emr-plan-ha-launch-terminate").
+instructions, see [Terminate an Amazon EMR Cluster with multiple primary nodes](emr-plan-ha-launch.md#emr-plan-ha-launch-terminate "emr-plan-ha-launch.md#emr-plan-ha-launch-terminate").
 
-## Configure a cluster to terminate after step
-
-execution
+## Configure a cluster to terminate after step execution
 
 When you configure termination after step execution, the cluster starts, runs
 bootstrap actions, and then runs the steps that you specify. As soon as the last

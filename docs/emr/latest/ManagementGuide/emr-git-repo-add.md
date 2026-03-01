@@ -10,8 +10,7 @@ EMR Notebooks are available as EMR Studio Workspaces in the console. The **Creat
 
 Console
 Because EMR Notebooks are EMR Studio Workspaces in the new
-console, you can follow the instructions in [Link Git-based repositories to an EMR Studio
-Workspace](emr-studio-git-repo.md "emr-studio-git-repo.md")
+console, you can follow the instructions in [Link Git-based repositories to an EMR Studio Workspace](emr-studio-git-repo.md "emr-studio-git-repo.md")
 to associate up to three Git repositories with your
 Workspace.
 
@@ -23,5 +22,4 @@ information about the extension, see the [jupyterlab-git](https://github.com/jup
 To associate a Git repository with a Workspace, your
 Studio administrator must take steps to configure the
 Studio to allow Git repository linking. For more information,
-see [Establish access and permissions for Git-based
-repositories](emr-studio-enable-git.md "emr-studio-enable-git.md").
+see [Establish access and permissions for Git-based repositories](emr-studio-enable-git.md "emr-studio-enable-git.md").

@@ -33,8 +33,7 @@ If you are seeing this issue, there are several things you can try:
 - Instruct the reduce phase to wait longer before starting. You can do this
   by altering the Hadoop configuration setting
   mapred.reduce.slowstart.completed.maps to a longer time. For more information,
-  see [Create bootstrap actions to install additional
-  software with an Amazon EMR cluster](emr-plan-bootstrap.md "emr-plan-bootstrap.md").
+  see [Create bootstrap actions to install additional software with an Amazon EMR cluster](emr-plan-bootstrap.md "emr-plan-bootstrap.md").
 - Match the reducer count to the total reducer capability of the cluster.
   You do this by adjusting the Hadoop configuration setting mapred.reduce.tasks
   for the job.

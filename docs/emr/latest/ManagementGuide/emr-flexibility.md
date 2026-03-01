@@ -1,6 +1,4 @@
-# Availability Zone
-
-flexibility for an Amazon EMR cluster
+# Availability Zone flexibility for an Amazon EMR cluster
 
 Each AWS Region has multiple, isolated locations known as Availability Zones. When
 you launch an instance, you can optionally specify an Availability Zone (AZ) in the
@@ -64,23 +62,17 @@ strategy, you can specify up to 30 EC2 instance types for each primary,
 core, and task node group. A broader range of instances improves the
 benefits of instance flexibility.
 
-### Expressing instance
-
-flexibility
+### Expressing instance flexibility
 
 Consider the following best practices to express instance flexibility
 for your application.
 
 ###### Topics
 
-- [Determine instance
-  family and size](#emr-flexibility-express-size "#emr-flexibility-express-size")
-- [Include additional
-  instances](#emr-flexibility-express-include "#emr-flexibility-express-include")
+- [Determine instance family and size](#emr-flexibility-express-size "#emr-flexibility-express-size")
+- [Include additional instances](#emr-flexibility-express-include "#emr-flexibility-express-include")
 
-#### Determine instance
-
-family and size
+#### Determine instance family and size
 
 Amazon EMR supports several instance types for different use cases.
 These instance types are listed in the [Supported instance types with Amazon EMR](emr-supported-instance-types.md "emr-supported-instance-types.md") documentation.
@@ -115,9 +107,7 @@ recommend that you start with general purpose, compute optimized, or
 memory optimized instances. These instance types will provide the
 greatest flexibility.
 
-#### Include additional
-
-instances
+#### Include additional instances
 
 For maximum diversity, include additional instance types.
 Prioritize instance size, Graviton, and generation flexibility

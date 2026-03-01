@@ -3,9 +3,7 @@
 Amazon EMR with Lake Formation is available in all [available
 regions](emr-plan-region.md "emr-plan-region.md").
 
-## Considerations for Amazon EMR with Lake Formation
-
-for version 7.9 and earlier
+## Considerations for Amazon EMR with Lake Formation for version 7.9 and earlier
 
 Consider the following when using AWS Lake Formation on EMR 7.9 and earlier
 versions.
@@ -42,9 +40,7 @@ PARTITION`.
   hierarchy in Glue Data Catalog. For more information, see [Working with a
   multi-catalog hierarchy in AWS Glue Data Catalog](../ReleaseGuide/emr-multi-catalog.md "../ReleaseGuide/emr-multi-catalog.md").
 
-## Considerations for Amazon EMR with Lake Formation for
-
-version 7.10 and later
+## Considerations for Amazon EMR with Lake Formation for version 7.10 and later
 
 Consider the following when using Amazon EMR with AWS Lake Formation on EMR 7.10 and later
 versions.
@@ -133,9 +129,7 @@ Iceberg:
 - We recommend that you use Iceberg DataFrameWriterV2 instead of
   V1.
 
-## Considerations for Amazon EMR with Lake Formation for version 7.12
-
-and later
+## Considerations for Amazon EMR with Lake Formation for version 7.12 and later
 
 ### General
 

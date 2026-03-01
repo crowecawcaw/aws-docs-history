@@ -7,10 +7,8 @@ The following errors are common to VPC configuration in Amazon EMR.
 - [Invalid subnet configuration](#emr-troubleshoot-error-gateway "#emr-troubleshoot-error-gateway")
 - [Missing DHCP Options Set](#emr-troubleshoot-error-dhcp "#emr-troubleshoot-error-dhcp")
 - [Permissions errors](#emr-troubleshoot-error-denied "#emr-troubleshoot-error-denied")
-- [Errors that result in
-  START_FAILED](#emr-troubleshoot-error-vpc-dns "#emr-troubleshoot-error-vpc-dns")
-- [Cluster Terminated with
-  errors and NameNode fails to start](#emr-troubleshoot-namenode-dns "#emr-troubleshoot-namenode-dns")
+- [Errors that result in START_FAILED](#emr-troubleshoot-error-vpc-dns "#emr-troubleshoot-error-vpc-dns")
+- [Cluster Terminated with errors and NameNode fails to start](#emr-troubleshoot-namenode-dns "#emr-troubleshoot-namenode-dns")
 
 ## Invalid subnet configuration
 
@@ -100,9 +98,7 @@ Access denied for getting the prefix for bucket - us-west-2.elasticmapreduce wit
 15/03/25 23:46:20 DEBUG http.wire: >> "Host: us-west-2.elasticmapreduce.s3.amazonaws.com[\r][\n]"
 ```
 
-## Errors that result in
-
-`START_FAILED`
+## Errors that result in `START_FAILED`
 
 Before AMI 3.7.0, for VPCs where a hostname is specified, Amazon EMR maps the internal hostnames of the subnet with custom domain addresses as follows:
 `ip-`X.X.X.X.customdomain.com`.tld`.
@@ -117,9 +113,7 @@ mapping.
 If you would like to preserve this behavior, you must provide the DNS and forward
 resolution setup you require for the custom domain.
 
-## Cluster `Terminated with
-
-errors` and NameNode fails to start
+## Cluster `Terminated with errors` and NameNode fails to start
 
 When launching an EMR cluster in a VPC which makes use of a custom DNS domain name,
 your cluster may fail with the following error message in the console:

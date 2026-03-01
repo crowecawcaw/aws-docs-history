@@ -11,8 +11,7 @@ just downloaded from the specified Amazon S3 bucket.
 To resolve this error, confirm that your primary instance has appropriate
 access to the bootstrap action script.
 
-To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail
-information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
+To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
 
 **`primary-instance-id`**
 
@@ -33,9 +32,7 @@ The Amazon S3 location of the bootstrap action that failed.
 
 The public URL of the documentation for the error code.
 
-## Steps to
-
-complete
+## Steps to complete
 
 Perform the following steps to identify and fix the root cause of the
 bootstrap action error. Then launch a new cluster.

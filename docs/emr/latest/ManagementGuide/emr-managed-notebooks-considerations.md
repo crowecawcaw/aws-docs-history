@@ -1,6 +1,4 @@
-# Requirements, differences in release versions, and security for
-
-EMR Notebooks
+# Requirements, differences in release versions, and security for EMR Notebooks
 
 ###### Note
 
@@ -24,8 +22,7 @@ using EMR notebook.
     EMR notebook, or you can create a compatible cluster when
     you create an EMR notebook.
   - Only clusters created using Amazon EMR release version 5.18.0 and later
-    are supported. See [Differences in capabilities by
-    cluster release version](#considerations-cluster-version "#considerations-cluster-version").
+    are supported. See [Differences in capabilities by cluster release version](#considerations-cluster-version "#considerations-cluster-version").
   - Clusters created using Amazon EC2 instances with AMD EPYC
     processors—for example, m5a.\* and r5a.\* instance
     types—are not supported.
@@ -53,9 +50,7 @@ using EMR notebook.
   - Clusters using Amazon EC2 instances based on AWS Graviton2 are not
     supported.
 
-## Differences in capabilities by
-
-cluster release version
+## Differences in capabilities by cluster release version
 
 We strongly recommend that you use EMR Notebooks with clusters created using Amazon EMR
 release versions 5.30.0, 5.32.0 or later, or 6.2.0 or later. With these versions,
@@ -72,8 +67,7 @@ versions has the following benefits:
   `conda` and `pip`. In addition, `pip`
   installation is supported using terminal commands within notebook cells. In
   earlier versions, only pre-installed kernels were available (Python,
-  PySpark, Spark, and SparkR). For more information, see [Installing kernels and Python
-  libraries on a cluster primary node](emr-managed-notebooks-installing-libraries-and-kernels.md#emr-managed-notebooks-cluster-kernel "emr-managed-notebooks-installing-libraries-and-kernels.md#emr-managed-notebooks-cluster-kernel").
+  PySpark, Spark, and SparkR). For more information, see [Installing kernels and Python libraries on a cluster primary node](emr-managed-notebooks-installing-libraries-and-kernels.md#emr-managed-notebooks-cluster-kernel "emr-managed-notebooks-installing-libraries-and-kernels.md#emr-managed-notebooks-cluster-kernel").
 - **Ability to install Python libraries**
   – You can [install Python libraries on the cluster primary node](emr-managed-notebooks-installing-libraries-and-kernels.md#emr-managed-notebooks-cluster-kernel "emr-managed-notebooks-installing-libraries-and-kernels.md#emr-managed-notebooks-cluster-kernel") using
   `conda` and `pip`. We recommend using
@@ -88,9 +82,7 @@ versions has the following benefits:
 | 6.0.0                                               | No                                                                                                                                                                                                                                 | No                                                                                                                                                                                                     | No                                                                                                                                                                                                     |
 | 5.32.0 and later, and 6.2.0 and later               | [Yes](emr-managed-notebooks-installing-libraries-and-kernels.md#emr-managed-notebooks-custom-libraries-limitations "emr-managed-notebooks-installing-libraries-and-kernels.md#emr-managed-notebooks-custom-libraries-limitations") | [Yes](emr-managed-notebooks-installing-libraries-and-kernels.md#emr-managed-notebooks-cluster-kernel "emr-managed-notebooks-installing-libraries-and-kernels.md#emr-managed-notebooks-cluster-kernel") | [Yes](emr-managed-notebooks-installing-libraries-and-kernels.md#emr-managed-notebooks-cluster-kernel "emr-managed-notebooks-installing-libraries-and-kernels.md#emr-managed-notebooks-cluster-kernel") |
 
-## Limits for concurrently
-
-attached EMR Notebooks
+## Limits for concurrently attached EMR Notebooks
 
 When you create a cluster that supports notebooks, consider the EC2 Instance type
 of the cluster primary node. The memory constraints of this EC2 Instance determine
@@ -107,22 +99,17 @@ the cluster.
 | \*.8xlarge                     | 24                      |
 | \*.16xlarge                    | 24                      |
 
-## Jupyter Notebook and Python
-
-versions
+## Jupyter Notebook and Python versions
 
 EMR Notebooks runs [Jupyter Notebook version 6.0.2](https://jupyter-notebook.readthedocs.io/en/stable/changelog.html#release-6-0-2 "https://jupyter-notebook.readthedocs.io/en/stable/changelog.html#release-6-0-2") and Python 3.6.5 regardless of the Amazon EMR
 release version of the attached cluster.
 
-## Security-related
-
-considerations
+## Security-related considerations
 
 **Using encrypted S3 locations**
 
 If you specify an encrypted location in Amazon S3 to store notebook files,
-you must set up the [Service role for
-EMR Notebooks](emr-managed-notebooks-service-role.md "emr-managed-notebooks-service-role.md") as a key user.
+you must set up the [Service role for EMR Notebooks](emr-managed-notebooks-service-role.md "emr-managed-notebooks-service-role.md") as a key user.
 The default service role is `EMR_Notebooks_DefaultRole`. If
 you are using an AWS KMS key for encryption, see [Using key policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md#key-policy-users-crypto "../../../kms/latest/developerguide/key-policies.md#key-policy-users-crypto") in the AWS Key Management Service Developer Guide and
 the [support article for adding key users](https://aws.amazon.com/premiumsupport/knowledge-center/s3-bucket-access-default-encryption/ "https://aws.amazon.com/premiumsupport/knowledge-center/s3-bucket-access-default-encryption/").

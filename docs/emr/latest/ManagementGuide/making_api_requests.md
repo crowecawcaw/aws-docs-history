@@ -7,8 +7,7 @@ details for you. For more information about calling Amazon EMR using one of the 
 
 ###### Topics
 
-- [End-to-end Amazon EMR Java source code
-  sample](emr-common-programming-sample.md "emr-common-programming-sample.md")
+- [End-to-end Amazon EMR Java source code sample](emr-common-programming-sample.md "emr-common-programming-sample.md")
 - [Common concepts for Amazon EMR API calls](emr-common-programming-concepts.md "emr-common-programming-concepts.md")
 - [Use SDKs to call Amazon EMR APIs](call-emr-using-sdks.md "call-emr-using-sdks.md")
 - [Manage Amazon EMR Service Quotas](emr-service-limits-manage.md "emr-service-limits-manage.md")

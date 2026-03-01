@@ -1,18 +1,13 @@
-# Tutorial: Configure an cluster-dedicated
-
-KDC with Amazon EMR
+# Tutorial: Configure an cluster-dedicated KDC with Amazon EMR
 
 This topic guides you through creating a cluster with a cluster-dedicated
 _key distribution center (KDC)_, manually adding Linux
 accounts to all cluster nodes, adding Kerberos principals to the KDC on the primary node, and ensuring that client computers have a Kerberos client installed.
 
 For more information on Amazon EMR support for Kerberos and KDC, as well as links
-to MIT Kerberos Documentation, see [Use Kerberos for
-authentication with Amazon EMR](emr-kerberos.md "emr-kerberos.md").
+to MIT Kerberos Documentation, see [Use Kerberos for authentication with Amazon EMR](emr-kerberos.md "emr-kerberos.md").
 
-## Step 1: Create the
-
-Kerberized cluster
+## Step 1: Create the Kerberized cluster
 
 1. Create a security configuration that enables Kerberos. The following
    example demonstrates a `create-security-configuration`
@@ -61,9 +56,7 @@ sudo adduser user2
 sudo adduser user3
 ```
 
-## Step 2: Add principals to
-
-the KDC, create HDFS user directories, and configure SSH
+## Step 2: Add principals to the KDC, create HDFS user directories, and configure SSH
 
 The KDC running on the primary node needs a principal added for the local host
 and for each user that you create on the cluster. You may also create HDFS
@@ -114,5 +107,4 @@ sudo systemctl restart sshd
 ```
 
 The users that you added should now be able to connect to the cluster using
-SSH. For more information, see [Using SSH to connect to Kerberized
-clusters with Amazon EMR](emr-kerberos-connect-ssh.md "emr-kerberos-connect-ssh.md").
+SSH. For more information, see [Using SSH to connect to Kerberized clusters with Amazon EMR](emr-kerberos-connect-ssh.md "emr-kerberos-connect-ssh.md").

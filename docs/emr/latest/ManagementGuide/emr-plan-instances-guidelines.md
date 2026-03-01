@@ -4,9 +4,7 @@ Use the guidance in this section to help you determine the instance types,
 purchasing options, and amount of storage to provision for each node type in an
 EMR cluster.
 
-## What instance type should you
-
-use?
+## What instance type should you use?
 
 There are several ways to add Amazon EC2 instances to a cluster. The method you
 should choose depends on whether you use the instance groups configuration
@@ -20,8 +18,7 @@ or the instance fleets configuration for the cluster.
   - Set up automatic scaling in Amazon EMR for an instance group,
     adding and removing instances automatically based on the
     value of an Amazon CloudWatch metric that you specify. For more
-    information, see [Use Amazon EMR cluster scaling to adjust
-    for changing workloads](emr-scale-on-demand.md "emr-scale-on-demand.md").
+    information, see [Use Amazon EMR cluster scaling to adjust for changing workloads](emr-scale-on-demand.md "emr-scale-on-demand.md").
 
 - **Instance Fleets**
   - Add a single task instance fleet.
@@ -77,9 +74,7 @@ The following guidelines apply to most Amazon EMR clusters.
   and as output. The input, intermediate, and output datasets all
   reside on the cluster during processing.
 
-## When should you use Spot
-
-Instances?
+## When should you use Spot Instances?
 
 When you launch a cluster in Amazon EMR, you can choose to launch primary,
 core, or task instances on Spot Instances. Because each type of instance
@@ -92,20 +87,13 @@ new task instance group or instance fleet, and remove the old one.
 
 ###### Topics
 
-- [Amazon EMR settings to prevent job
-  failure because of task node Spot Instance termination](#emr-plan-spot-YARN "#emr-plan-spot-YARN")
-- [Primary node on a
-  Spot Instance](#emr-dev-master-instance-group-spot "#emr-dev-master-instance-group-spot")
-- [Core nodes on Spot
-  Instances](#emr-dev-core-instance-group-spot "#emr-dev-core-instance-group-spot")
-- [Task nodes on Spot
-  Instances](#emr-dev-task-instance-group-spot "#emr-dev-task-instance-group-spot")
-- [Instance configurations for
-  application scenarios](#emr-plan-spot-scenarios "#emr-plan-spot-scenarios")
+- [Amazon EMR settings to prevent job failure because of task node Spot Instance termination](#emr-plan-spot-YARN "#emr-plan-spot-YARN")
+- [Primary node on a Spot Instance](#emr-dev-master-instance-group-spot "#emr-dev-master-instance-group-spot")
+- [Core nodes on Spot Instances](#emr-dev-core-instance-group-spot "#emr-dev-core-instance-group-spot")
+- [Task nodes on Spot Instances](#emr-dev-task-instance-group-spot "#emr-dev-task-instance-group-spot")
+- [Instance configurations for application scenarios](#emr-plan-spot-scenarios "#emr-plan-spot-scenarios")
 
-### Amazon EMR settings to prevent job
-
-failure because of task node Spot Instance termination
+### Amazon EMR settings to prevent job failure because of task node Spot Instance termination
 
 Because Spot Instances are often used to run task nodes, Amazon EMR has default functionality for scheduling YARN jobs so that running jobs do not fail when task nodes running on Spot Instances are terminated. Amazon EMR does this by allowing application master processes to run only on core nodes. The application master process controls running jobs and needs to stay alive for the life of the job.
 
@@ -153,9 +141,7 @@ YARN node labels feature by configuring following properties:
   - `yarn.scheduler.capacity.root.default.accessible-node-labels.CORE.capacity:
 100`
 
-### Primary node on a
-
-Spot Instance
+### Primary node on a Spot Instance
 
 The primary node controls and directs the cluster. When it terminates,
 the cluster ends, so you should only launch the primary node as a Spot
@@ -177,9 +163,7 @@ Typically, you would only run the primary node as a Spot Instance if
 you are running the entire cluster (all instance groups) as Spot
 Instances.
 
-### Core nodes on Spot
-
-Instances
+### Core nodes on Spot Instances
 
 Core nodes process data and store information using HDFS. Terminating
 a core instance risks data loss. For this reason, you should only run
@@ -195,12 +179,9 @@ all six Amazon EC2 instances are available or until you terminate the
 cluster. You can change the number of Spot Instances in a core instance
 group to add capacity to a running cluster. For more information about
 working with instance groups, and how Spot Instances work with instance
-fleets, see [Create an Amazon EMR cluster with instance
-fleets or uniform instance groups](emr-instance-group-configuration.md "emr-instance-group-configuration.md").
+fleets, see [Create an Amazon EMR cluster with instance fleets or uniform instance groups](emr-instance-group-configuration.md "emr-instance-group-configuration.md").
 
-### Task nodes on Spot
-
-Instances
+### Task nodes on Spot Instances
 
 The task nodes process data but do not hold persistent data in HDFS.
 If they terminate because the Spot price has risen above your maximum
@@ -225,28 +206,24 @@ You can add or remove task nodes using the console, AWS CLI, or API. You
 can also add additional task groups, but you cannot remove a task group
 after it is created.
 
-### Instance configurations for
-
-application scenarios
+### Instance configurations for application scenarios
 
 The following table is a quick reference to node type purchasing
 options and configurations that are usually appropriate for various
 application scenarios. Choose the link to view more information about
 each scenario type.
 
-| Application scenario                                                                                                            | Primary node purchasing option | Core nodes purchasing option    | Task nodes purchasing option |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------------------------------- | ---------------------------- |
-| [Long-running<br>clusters and data warehouses](#emr-dev-when-use-spot-data-warehouses "#emr-dev-when-use-spot-data-warehouses") | On-Demand                      | On-Demand or instance-fleet mix | Spot or instance-fleet mix   |
-| [Cost-driven<br>workloads](#emr-dev-when-use-spot-cost-driven "#emr-dev-when-use-spot-cost-driven")                             | Spot                           | Spot                            | Spot                         |
-| [Data-critical<br>workloads](#emr-dev-when-use-spot-data-critical "#emr-dev-when-use-spot-data-critical")                       | On-Demand                      | On-Demand                       | Spot or instance-fleet mix   |
-| [Application testing](#emr-dev-when-use-spot-application-testing "#emr-dev-when-use-spot-application-testing")                  | Spot                           | Spot                            | Spot                         |
+| Application scenario                                                                                                         | Primary node purchasing option | Core nodes purchasing option    | Task nodes purchasing option |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------------------------------- | ---------------------------- |
+| [Long-running clusters and data warehouses](#emr-dev-when-use-spot-data-warehouses "#emr-dev-when-use-spot-data-warehouses") | On-Demand                      | On-Demand or instance-fleet mix | Spot or instance-fleet mix   |
+| [Cost-driven workloads](#emr-dev-when-use-spot-cost-driven "#emr-dev-when-use-spot-cost-driven")                             | Spot                           | Spot                            | Spot                         |
+| [Data-critical workloads](#emr-dev-when-use-spot-data-critical "#emr-dev-when-use-spot-data-critical")                       | On-Demand                      | On-Demand                       | Spot or instance-fleet mix   |
+| [Application testing](#emr-dev-when-use-spot-application-testing "#emr-dev-when-use-spot-application-testing")               | Spot                           | Spot                            | Spot                         |
 
 There are several scenarios in which Spot Instances are useful for
 running an Amazon EMR cluster.
 
-#### Long-running
-
-clusters and data warehouses
+#### Long-running clusters and data warehouses
 
 If you are running a persistent Amazon EMR cluster that has a
 predictable variation in computational capacity, such as a data
@@ -256,9 +233,7 @@ On-Demand Instances to handle the normal capacity and launch the
 task instance group as Spot Instances to handle your peak load
 requirements.
 
-#### Cost-driven
-
-workloads
+#### Cost-driven workloads
 
 If you are running transient clusters for which lower cost is more
 important than the time to completion, and losing partial work is
@@ -266,9 +241,7 @@ acceptable, you can run the entire cluster (primary, core, and task
 instance groups) as Spot Instances to benefit from the largest cost
 savings.
 
-#### Data-critical
-
-workloads
+#### Data-critical workloads
 
 If you are running a cluster for which lower cost is more
 important than time to completion, but losing partial work is not
@@ -287,9 +260,7 @@ launch in a production environment, you can run the entire cluster
 (primary, core, and task instance groups) as Spot Instances to
 reduce your testing costs.
 
-## Calculating the required HDFS
-
-capacity of a cluster
+## Calculating the required HDFS capacity of a cluster
 
 The amount of HDFS storage available to your cluster depends on the
 following factors:

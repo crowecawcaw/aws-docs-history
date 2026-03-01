@@ -16,12 +16,9 @@ access S3.
 ###### Topics
 
 - [Supported features](#emr-ranger-emrfs-features "#emr-ranger-emrfs-features")
-- [Installation of service
-  configuration](#emr-ranger-emrfs-service-config "#emr-ranger-emrfs-service-config")
-- [Creating EMRFS S3
-  policies](#emr-ranger-emrfs-create-policies "#emr-ranger-emrfs-create-policies")
-- [EMRFS S3 policies usage
-  notes](#emr-ranger-emrfs-considerations "#emr-ranger-emrfs-considerations")
+- [Installation of service configuration](#emr-ranger-emrfs-service-config "#emr-ranger-emrfs-service-config")
+- [Creating EMRFS S3 policies](#emr-ranger-emrfs-create-policies "#emr-ranger-emrfs-create-policies")
+- [EMRFS S3 policies usage notes](#emr-ranger-emrfs-considerations "#emr-ranger-emrfs-considerations")
 - [Limitations](#emr-ranger-emrfs-limitations "#emr-ranger-emrfs-limitations")
 
 ## Supported features
@@ -30,9 +27,7 @@ EMRFS S3 plugin provides storage level authorization. Policies can be created
 to provide access to users and groups to S3 buckets and prefixes. Authorization
 is done only against EMRFS.
 
-## Installation of service
-
-configuration
+## Installation of service configuration
 
 To install the EMRFS service definition, you must set up the Ranger
 Admin server. To set up the server, see [Set up a Ranger Admin server to integrate with Amazon EMR](emr-ranger-admin.md "emr-ranger-admin.md").
@@ -107,9 +102,7 @@ as shown in the following image.
 
 ![Ranger Admin showing new EMRFS S3 service.](images/ranger-new-service-EMRFS.png)
 
-## Creating EMRFS S3
-
-policies
+## Creating EMRFS S3 policies
 
 To create a new policy in the **Create policy** page of the
 Service Manager, fill in the following fields.
@@ -120,8 +113,7 @@ Service Manager, fill in the following fields.
 this policy.
 
 **S3 Resource**: A resource starting with the
-bucket and optional prefix. See [EMRFS S3 policies usage
-notes](#emr-ranger-emrfs-considerations "#emr-ranger-emrfs-considerations") for information on best
+bucket and optional prefix. See [EMRFS S3 policies usage notes](#emr-ranger-emrfs-considerations "#emr-ranger-emrfs-considerations") for information on best
 practices. Resources in Ranger Admin server should not contain
 `s3://`, `s3a://` or
 `s3n://`.
@@ -141,16 +133,12 @@ three resources may result in an error when this policy is used on an EMR
 cluster. Adding more than three policies displays a reminder about the
 policy limit.
 
-## EMRFS S3 policies usage
-
-notes
+## EMRFS S3 policies usage notes
 
 When creating S3 policies within Apache Ranger, there are some usage
 considerations to be aware of.
 
-### Permissions to
-
-multiple S3 objects
+### Permissions to multiple S3 objects
 
 You can use recursive policies and wildcard expressions to give
 permissions to multiple S3 objects with common prefixes. Recursive policies
@@ -236,9 +224,7 @@ follows.
  - is recursive = "True"
 ```
 
-### Policies for
-
-PutObject and DeleteObject permissions
+### Policies for PutObject and DeleteObject permissions
 
 Writing policies for `PutObject` and `DeleteObject`
 permissions to files on EMRFS need special care because, unlike GetObject
@@ -279,9 +265,7 @@ permission to its prefix.
 - is recursive = "True"
 ```
 
-### Wildcards in
-
-policies
+### Wildcards in policies
 
 There are two areas in which wildcards can be specified. When specifying
 an S3 resource, the "\*" and "?" can be used. The "\*" provides matching

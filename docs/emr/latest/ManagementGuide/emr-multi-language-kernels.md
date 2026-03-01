@@ -1,6 +1,4 @@
-# Use multi-language notebooks with Spark
-
-kernels
+# Use multi-language notebooks with Spark kernels
 
 Each Jupyter notebook kernel has a default language. For example, the Spark kernel's
 default language is Scala, and the PySpark kernels's default language is Python. With Amazon EMR
@@ -53,9 +51,7 @@ Spark kernels.
 val a = 1
 ```
 
-## Share data across language interpreters with temporary
-
-tables
+## Share data across language interpreters with temporary tables
 
 You can also share data between language interpreters using temporary tables. The
 following example uses `%%pyspark` in one cell to create a temporary table in

@@ -1,6 +1,4 @@
-# Notebook CLI command
-
-samples in EMR Studio
+# Notebook CLI command samples in EMR Studio
 
 This topic shows CLI command samples for an EMR notebook. The example uses the demo notebook from the EMR Notebooks console. To
 locate the notebook, use the file path relative to the home directory. In this
@@ -28,9 +26,7 @@ You can use the AWS CLI to run your notebook with the
 `start-notebook-execution` action, as the following examples
 demonstrate.
 
-###### Example– Executing an EMR notebook in an EMR Studio
-
-Workspace with an Amazon EMR (running on Amazon EC2) cluster
+###### Example– Executing an EMR notebook in an EMR Studio Workspace with an Amazon EMR (running on Amazon EC2) cluster
 
 ```
 aws emr --region `us-east-1` \
@@ -47,9 +43,7 @@ start-notebook-execution \
 }
 ```
 
-###### Example– Executing an EMR notebook in an EMR Studio
-
-Workspace with an EMR Notebooks cluster
+###### Example– Executing an EMR notebook in an EMR Studio Workspace with an EMR Notebooks cluster
 
 ```
 aws emr start-notebook-execution \
@@ -62,9 +56,7 @@ aws emr start-notebook-execution \
     --relative-path `EMRonEKS-spark_python.ipynb`
 ```
 
-###### Example– Executing an EMR notebook specifying its Amazon S3
-
-location
+###### Example– Executing an EMR notebook specifying its Amazon S3 location
 
 ```
 aws emr start-notebook-execution \
@@ -78,18 +70,14 @@ aws emr start-notebook-execution \
     --output-notebook-s3-location '{"Bucket": "`amzn-s3-demo-bucket`","Key": "`s3-prefix-for-storing-output-notebook`"}'
 ```
 
-## Notebook
-
-output
+## Notebook output
 
 Here's the output from a sample notebook. Cell 3 shows the newly-injected
 parameter values.
 
 ![Jupyter notebook cells showing Python code and output for parameter injection and manipulation.](images/HelloWorld_notebook.png)
 
-## Describe a
-
-notebook
+## Describe a notebook
 
 You can use the `describe-notebook-execution` action to access
 information about a specific notebook execution.
@@ -120,9 +108,7 @@ describe-notebook-execution --notebook-execution-id ex-IZWZZVR9DKQ9WQ7VZWXJZR29U
 
 ```
 
-## Stop a
-
-notebook
+## Stop a notebook
 
 If your notebook is running an execution that you'd like to stop, you can do
 so with the `stop-notebook-execution` command.
@@ -157,9 +143,7 @@ describe-notebook-execution --notebook-execution-id ex-IZWZX78UVPAATC8LHJR129B1R
 
 ```
 
-## List the executions
-
-for a notebook by start time
+## List the executions for a notebook by start time
 
 You can pass a `--from` parameter to
 `list-notebook-executions` to list your notebook's executions by
@@ -212,9 +196,7 @@ list-notebook-executions --from 1593400000.000
 
 ```
 
-## List the executions
-
-for a notebook by start time and status
+## List the executions for a notebook by start time and status
 
 The `list-notebook-executions` command can also take a
 `--status` parameter to filter results.

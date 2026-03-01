@@ -1,6 +1,4 @@
-# Configure EMR Studio user permissions for
-
-Amazon EC2 or Amazon EKS
+# Configure EMR Studio user permissions for Amazon EC2 or Amazon EKS
 
 You must configure user permissions policies for Amazon EMR Studio so that you can set
 fine-grained user and group permissions. For information about how user permissions work in
@@ -12,9 +10,7 @@ The permissions covered in this section don't enforce data access control. To ma
 access to input datasets, you should configure permissions for the clusters that your
 Studio uses. For more information, see [Security in Amazon EMR](emr-security.md "emr-security.md").
 
-## Create an EMR Studio user role for IAM Identity Center
-
-authentication mode
+## Create an EMR Studio user role for IAM Identity Center authentication mode
 
 You must create an EMR Studio user role when you use IAM Identity Center authentication mode.
 
@@ -49,26 +45,19 @@ JSON
 2. Remove the default role permissions and policies.
 3. Before you assign users and groups to a Studio, attach your EMR Studio
    session policies to the user role. For instructions on how to create session policies,
-   see [Create permissions policies for
-   EMR Studio users](#emr-studio-permissions-policies "#emr-studio-permissions-policies").
+   see [Create permissions policies for EMR Studio users](#emr-studio-permissions-policies "#emr-studio-permissions-policies").
 
-## Create permissions policies for
-
-EMR Studio users
+## Create permissions policies for EMR Studio users
 
 Refer to the following sections to create permissions policies for
 EMR Studio.
 
 ###### Topics
 
-- [Create the permissions
-  policies](#emr-studio-permissions-policies-create "#emr-studio-permissions-policies-create")
-- [Set ownership for
-  Workspace collaboration](#emr-studio-workspace-collaboration-permissions "#emr-studio-workspace-collaboration-permissions")
-- [Create user-level Git secrets
-  policy](#emr-studio-permissions-policies-git "#emr-studio-permissions-policies-git")
-- [Attach the permissions policy
-  to your IAM identity](#emr-studio-permissions-policies-attach "#emr-studio-permissions-policies-attach")
+- [Create the permissions policies](#emr-studio-permissions-policies-create "#emr-studio-permissions-policies-create")
+- [Set ownership for Workspace collaboration](#emr-studio-workspace-collaboration-permissions "#emr-studio-workspace-collaboration-permissions")
+- [Create user-level Git secrets policy](#emr-studio-permissions-policies-git "#emr-studio-permissions-policies-git")
+- [Attach the permissions policy to your IAM identity](#emr-studio-permissions-policies-attach "#emr-studio-permissions-policies-attach")
 
 ###### Note
 
@@ -76,9 +65,7 @@ To set Amazon S3 access permissions for storing notebook files, and to set
 AWS Secrets Manager access permissions to read secrets when you link
 Workspaces to Git repositories, use the EMR Studio service role.
 
-### Create the permissions
-
-policies
+### Create the permissions policies
 
 Create one or more IAM permissions policies that specify what actions a user can
 take in your Studio. For example, you can create three separate policies for
@@ -86,8 +73,7 @@ basic, intermediate, and advanced Studio user
 types with the example policies on this page.
 
 For a breakdown of each Studio operation that a user might perform, and the
-minimum IAM actions that are required to perform each operation, see [AWS Identity and Access Management permissions for
-EMR Studio users](#emr-studio-iam-permissions-table "#emr-studio-iam-permissions-table"). For steps to create the policies,
+minimum IAM actions that are required to perform each operation, see [AWS Identity and Access Management permissions for EMR Studio users](#emr-studio-iam-permissions-table "#emr-studio-iam-permissions-table"). For steps to create the policies,
 see [Creating IAM
 policies](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") in the _IAM User Guide_.
 
@@ -110,9 +96,7 @@ Your permissions policy must include the following statements.
 }
 ```
 
-### Set ownership for
-
-Workspace collaboration
+### Set ownership for Workspace collaboration
 
 Workspace collaboration lets multiple users work simultaneously in the same
 Workspace and can be configured with the **Collaboration**
@@ -167,37 +151,27 @@ Variables and tags](../../../IAM/latest/UserGuide/reference_policies_variables.m
     }
 ```
 
-### Create user-level Git secrets
-
-policy
+### Create user-level Git secrets policy
 
 ###### Topics
 
-- [To use user-level
-  permissions](#emr-studio-permissions-policies-user "#emr-studio-permissions-policies-user")
-- [To transition from
-  service-level permissions to user-level permissions](#emr-studio-permissions-policies-transition "#emr-studio-permissions-policies-transition")
-- [To use service-level
-  permissions](#emr-studio-permissions-policies-service "#emr-studio-permissions-policies-service")
+- [To use user-level permissions](#emr-studio-permissions-policies-user "#emr-studio-permissions-policies-user")
+- [To transition from service-level permissions to user-level permissions](#emr-studio-permissions-policies-transition "#emr-studio-permissions-policies-transition")
+- [To use service-level permissions](#emr-studio-permissions-policies-service "#emr-studio-permissions-policies-service")
 
-#### To use user-level
-
-permissions
+#### To use user-level permissions
 
 EMR Studio automatically adds the
 `for-use-with-amazon-emr-managed-user-policies` tag when it creates Git
 secrets. If you want to control access to Git secrets at the user level, add tag-based
 permissions to the EMR Studio **user role policy**
-with `secretsmanager:GetSecretValue` as shown in the [To transition from
-service-level permissions to user-level permissions](#emr-studio-permissions-policies-transition "#emr-studio-permissions-policies-transition") section below.
+with `secretsmanager:GetSecretValue` as shown in the [To transition from service-level permissions to user-level permissions](#emr-studio-permissions-policies-transition "#emr-studio-permissions-policies-transition") section below.
 
 If you have existing permissions for `secretsmanager:GetSecretValue` in
 the EMR Studio **service role policy**, you should
 remove those permissions.
 
-#### To transition from
-
-service-level permissions to user-level permissions
+#### To transition from service-level permissions to user-level permissions
 
 ###### Note
 
@@ -252,9 +226,7 @@ _IAM User Guide_.
 }
 ```
 
-#### To use service-level
-
-permissions
+#### To use service-level permissions
 
 As of September 1, 2023, EMR Studio automatically adds the
 `for-use-with-amazon-emr-managed-user-policies` tag for user-level access
@@ -266,17 +238,14 @@ For secrets created before September 1, 2023, EMR Studio didn't add the
 `for-use-with-amazon-emr-managed-user-policies` tag. To keep using
 service-level permissions, simply retain your existing [EMR Studio service role](emr-studio-service-role.md "emr-studio-service-role.md") and user role
 permissions. However, to restrict who can access an individual secret, we recommend
-that you follow the steps in [To use user-level
-permissions](#emr-studio-permissions-policies-user "#emr-studio-permissions-policies-user") to manually add the
+that you follow the steps in [To use user-level permissions](#emr-studio-permissions-policies-user "#emr-studio-permissions-policies-user") to manually add the
 `for-use-with-amazon-emr-managed-user-policies` tag to your secrets, and
 then use tag-based access control in your user permissions policies.
 
 For more information about policy variables, see [IAM policy elements:
 Variables and tags](../../../IAM/latest/UserGuide/reference_policies_variables.md "../../../IAM/latest/UserGuide/reference_policies_variables.md") in the _IAM User Guide_.
 
-### Attach the permissions policy
-
-to your IAM identity
+### Attach the permissions policy to your IAM identity
 
 The following table summarizes which IAM identity you attach a permissions policy
 to, depending on your EMR Studio authentication mode. For instructions on how to
@@ -296,8 +265,7 @@ user create new Amazon EMR clusters.
 
 ###### Important
 
-The example policy does not include the `CreateStudioPresignedUrl` permission, which you must allow for a user when you use IAM authentication mode. For more information, see [Assign a user or group to an
-EMR Studio](emr-studio-manage-users.md#emr-studio-assign-users-groups "emr-studio-manage-users.md#emr-studio-assign-users-groups").
+The example policy does not include the `CreateStudioPresignedUrl` permission, which you must allow for a user when you use IAM authentication mode. For more information, see [Assign a user or group to an EMR Studio](emr-studio-manage-users.md#emr-studio-assign-users-groups "emr-studio-manage-users.md#emr-studio-assign-users-groups").
 
 The example policy includes `Condition` elements to enforce tag-based access
 control (TBAC) so that you can use the policy with the example service role for EMR Studio. For more
@@ -457,8 +425,7 @@ user create new Amazon EMR clusters using a cluster template.
 
 ###### Important
 
-The example policy does not include the `CreateStudioPresignedUrl` permission, which you must allow for a user when you use IAM authentication mode. For more information, see [Assign a user or group to an
-EMR Studio](emr-studio-manage-users.md#emr-studio-assign-users-groups "emr-studio-manage-users.md#emr-studio-assign-users-groups").
+The example policy does not include the `CreateStudioPresignedUrl` permission, which you must allow for a user when you use IAM authentication mode. For more information, see [Assign a user or group to an EMR Studio](emr-studio-manage-users.md#emr-studio-assign-users-groups "emr-studio-manage-users.md#emr-studio-assign-users-groups").
 
 The example policy includes `Condition` elements to enforce tag-based access
 control (TBAC) so that you can use the policy with the example service role for EMR Studio. For more
@@ -704,8 +671,7 @@ configuration.
 
 ###### Important
 
-The example policy does not include the `CreateStudioPresignedUrl` permission, which you must allow for a user when you use IAM authentication mode. For more information, see [Assign a user or group to an
-EMR Studio](emr-studio-manage-users.md#emr-studio-assign-users-groups "emr-studio-manage-users.md#emr-studio-assign-users-groups").
+The example policy does not include the `CreateStudioPresignedUrl` permission, which you must allow for a user when you use IAM authentication mode. For more information, see [Assign a user or group to an EMR Studio](emr-studio-manage-users.md#emr-studio-assign-users-groups "emr-studio-manage-users.md#emr-studio-assign-users-groups").
 
 The example policy includes `Condition` elements to enforce tag-based access
 control (TBAC) so that you can use the policy with the example service role for EMR Studio. For more
@@ -1163,9 +1129,7 @@ JSON
 
 ```
 
-## AWS Identity and Access Management permissions for
-
-EMR Studio users
+## AWS Identity and Access Management permissions for EMR Studio users
 
 The following table includes each Amazon EMR Studio operation that a user might perform,
 and lists the minimum IAM actions needed to perform that operation. You allow these
@@ -1173,8 +1137,7 @@ actions in your IAM permissions policies (when you use IAM authentication) or in
 user role session policies (when you use IAM Identity Center authentication) for EMR Studio.
 
 The table also displays the operations allowed in each of example permissions policy
-for EMR Studio. For more information about the example permissions policies, see [Create permissions policies for
-EMR Studio users](#emr-studio-permissions-policies "#emr-studio-permissions-policies").
+for EMR Studio. For more information about the example permissions policies, see [Create permissions policies for EMR Studio users](#emr-studio-permissions-policies "#emr-studio-permissions-policies").
 
 | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                | Basic | Intermediate | Advanced | Associated actions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

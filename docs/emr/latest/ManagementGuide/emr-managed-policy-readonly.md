@@ -1,6 +1,4 @@
-# IAM managed policy for read-only
-
-access (on path to deprecation)
+# IAM managed policy for read-only access (on path to deprecation)
 
 The `AmazonElasticMapReduceReadOnlyAccess` managed policy is on the
 path to deprecation. You cannot attach this policy when launching new clusters.

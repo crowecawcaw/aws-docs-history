@@ -4,9 +4,7 @@ If you no longer need a tag, you can remove it from the cluster.
 
 Console
 
-###### To remove tags on a cluster with the new
-
-console
+###### To remove tags on a cluster with the new console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
 2. Under **EMR on EC2** in the left navigation pane, choose

@@ -1,6 +1,4 @@
-# Responding to Amazon EMR cluster
-
-instance fleet resize timeout events
+# Responding to Amazon EMR cluster instance fleet resize timeout events
 
 ## Overview
 
@@ -14,9 +12,7 @@ consecutive resizes for the same instance fleet, Amazon EMR emits the `Spot
 operation expires. It then starts provisioning capacity for the fleet’s next resize
 operation.
 
-## Responding to instance fleet
-
-resize timeout events
+## Responding to instance fleet resize timeout events
 
 We recommend that you respond to a provisioning timeout event in one of the
 following ways:
@@ -40,9 +36,7 @@ following ways:
 You can also set up rules or automated responses to this event as described in the
 next section.
 
-## Automated recovery from a
-
-provisioning timeout event
+## Automated recovery from a provisioning timeout event
 
 You can build automation in response to Amazon EMR events with the `Spot
  Provisioning timeout` event code. For example, the following AWS Lambda

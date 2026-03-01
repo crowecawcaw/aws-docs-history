@@ -1,6 +1,4 @@
-# Sample policies for private
-
-subnets that access Amazon S3
+# Sample policies for private subnets that access Amazon S3
 
 For private subnets, at a minimum you must provide the ability for Amazon EMR to
 access Amazon Linux repositories. This private subnet policy is a part of the VPC

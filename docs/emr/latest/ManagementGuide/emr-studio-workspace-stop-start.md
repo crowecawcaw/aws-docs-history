@@ -1,6 +1,4 @@
-# Resolve Workspace connectivity
-
-issues
+# Resolve Workspace connectivity issues
 
 To resolve Workspace connectivity issues, you can stop and restart a
 Workspace. When you restart a Workspace, EMR Studio launches the

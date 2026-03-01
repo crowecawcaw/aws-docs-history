@@ -8,14 +8,11 @@ Exceeding disk utilization on one core node might lead to a chain reaction. If a
 
 ### Configure cluster hardware with adequate storage
 
-When you create a cluster, make sure that there are enough core nodes and that each has an adequate instance store and EBS storage volumes for HDFS. For more information, see [Calculating the required HDFS
-capacity of a cluster](emr-plan-instances-guidelines.md#emr-plan-instances-hdfs "emr-plan-instances-guidelines.md#emr-plan-instances-hdfs"). You can also add core instances to existing instance groups manually or by using auto-scaling. The new instances have the same storage configuration as other instances in the instance group. For more information, see [Use Amazon EMR cluster scaling to adjust
-for changing workloads](emr-scale-on-demand.md "emr-scale-on-demand.md").
+When you create a cluster, make sure that there are enough core nodes and that each has an adequate instance store and EBS storage volumes for HDFS. For more information, see [Calculating the required HDFS capacity of a cluster](emr-plan-instances-guidelines.md#emr-plan-instances-hdfs "emr-plan-instances-guidelines.md#emr-plan-instances-hdfs"). You can also add core instances to existing instance groups manually or by using auto-scaling. The new instances have the same storage configuration as other instances in the instance group. For more information, see [Use Amazon EMR cluster scaling to adjust for changing workloads](emr-scale-on-demand.md "emr-scale-on-demand.md").
 
 ### Enable termination protection
 
-Enable termination protection. This way, if a core node is deny listed, you can connect to the associated Amazon EC2 instance using SSH to troubleshoot and recover data. If you enable termination protection, be aware that Amazon EMR does not replace the Amazon EC2 instance with a new instance. For more information, see [Using termination protection to protect your Amazon EMR clusters from
-accidental shut down](UsingEMR_TerminationProtection.md "UsingEMR_TerminationProtection.md").
+Enable termination protection. This way, if a core node is deny listed, you can connect to the associated Amazon EC2 instance using SSH to troubleshoot and recover data. If you enable termination protection, be aware that Amazon EMR does not replace the Amazon EC2 instance with a new instance. For more information, see [Using termination protection to protect your Amazon EMR clusters from accidental shut down](UsingEMR_TerminationProtection.md "UsingEMR_TerminationProtection.md").
 
 ### Create an alarm for the MRUnhealthyNodes CloudWatch metric
 

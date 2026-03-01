@@ -10,10 +10,8 @@ open source Apache Ranger Admin server version 2.0 and later.
 ###### Topics
 
 - [Supported features](#emr-ranger-trino-features "#emr-ranger-trino-features")
-- [Installation of service
-  configuration](#emr-ranger-trino-service-config "#emr-ranger-trino-service-config")
-- [Creating Trino
-  policies](#emr-ranger-trino-create-policies "#emr-ranger-trino-create-policies")
+- [Installation of service configuration](#emr-ranger-trino-service-config "#emr-ranger-trino-service-config")
+- [Creating Trino policies](#emr-ranger-trino-create-policies "#emr-ranger-trino-create-policies")
 - [Considerations](#emr-ranger-trino-considerations "#emr-ranger-trino-considerations")
 - [Limitations](#emr-ranger-trino-limitations "#emr-ranger-trino-limitations")
 
@@ -26,9 +24,7 @@ data masking. Apache Ranger policies can include grant policies and deny
 policies to users and groups. Audit events are also submitted to CloudWatch
 logs.
 
-## Installation of service
-
-configuration
+## Installation of service configuration
 
 The installation of the Trino service definition requires that the Ranger
 Admin server be set up. To set up the Ranger Admin sever, see [Set up a Ranger Admin server to integrate with Amazon EMR](emr-ranger-admin.md "emr-ranger-admin.md").
@@ -102,9 +98,7 @@ registered in the trust store on the Ranger Admin server. For more
 information, see [TLS
 certificates](emr-ranger-admin-tls.md "emr-ranger-admin-tls.md").
 
-## Creating Trino
-
-policies
+## Creating Trino policies
 
 When you create a new policy, fill in the following fields.
 

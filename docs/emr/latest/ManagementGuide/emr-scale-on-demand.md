@@ -1,6 +1,4 @@
-# Use Amazon EMR cluster scaling to adjust
-
-for changing workloads
+# Use Amazon EMR cluster scaling to adjust for changing workloads
 
 You can adjust the number of Amazon EC2 instances available to an Amazon EMR cluster automatically
 or manually in response to workloads that have varying demands. To use automatic scaling,

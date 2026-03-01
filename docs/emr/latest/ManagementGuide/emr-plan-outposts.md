@@ -40,9 +40,7 @@ The following are the limitations of using Amazon EMR on AWS Outposts:
 | **Memory-optimized**  | `r5.xlarge`    | `r5.2xlarge`   | <br>`r5.4xlarge`   | `r5.12xlarge`  | <br>`r5d.xlarge`    | `r5d.2xlarge`   | <br>`r5d.4xlarge` | `r5d.12xlarge`     | <br>`r5d.24xlarge` |
 | **Storage-optimized** | `i3en.xlarge`  | `i3en.2xlarge` | <br>`i3en.3xlarge` | `i3en.6xlarge` | <br>`i3en.12xlarge` | `i3en.24xlarge` |
 
-## Network connectivity
-
-considerations
+## Network connectivity considerations
 
 - If network connectivity between your Outpost and its AWS Region is lost,
   your clusters will continue to run. However, you cannot create new clusters or

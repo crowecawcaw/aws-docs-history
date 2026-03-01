@@ -1,6 +1,4 @@
-# Using SSH to connect to Kerberized
-
-clusters with Amazon EMR
+# Using SSH to connect to Kerberized clusters with Amazon EMR
 
 This section demonstrates the steps for a Kerberos-authenticated user to connect
 to the primary node of an EMR cluster.
@@ -25,9 +23,7 @@ value that appears for **Master public DNS** on the
 **Summary** tab of the cluster details pane—for example,
 `ec2-11-222-33-44.compute-1.amazonaws.com`.
 
-## Prerequisite for krb5.conf (non-Active
-
-Directory)
+## Prerequisite for krb5.conf (non-Active Directory)
 
 When using a configuration without Active Directory integration, in addition
 to the SSH client and Kerberos client applications, each client computer must

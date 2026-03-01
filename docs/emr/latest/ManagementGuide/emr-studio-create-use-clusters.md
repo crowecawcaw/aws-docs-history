@@ -1,6 +1,4 @@
-# Attach a compute to an EMR Studio
-
-Workspace
+# Attach a compute to an EMR Studio Workspace
 
 Amazon EMR Studio runs notebook commands using a kernel on an EMR cluster. Before you can
 select a kernel, you should attach the Workspace to a cluster that uses Amazon EC2
@@ -20,14 +18,11 @@ provision clusters for EMR Studio:
 - [Create a cluster](#emr-studio-create-cluster "#emr-studio-create-cluster")
 - [Detach a compute](#emr-studio-detach-cluster "#emr-studio-detach-cluster")
 
-## Attach an Amazon EC2 cluster to an EMR Studio
-
-Workspace
+## Attach an Amazon EC2 cluster to an EMR Studio Workspace
 
 You can attach an EMR cluster running on Amazon EC2 to a Workspace when you create
 the Workspace, or attach a cluster to an existing Workspace. If you want
-to create and attach a _new_ cluster, see [Create and attach a new EMR cluster to an
-EMR Studio Workspace](#emr-studio-create-cluster "#emr-studio-create-cluster").
+to create and attach a _new_ cluster, see [Create and attach a new EMR cluster to an EMR Studio Workspace](#emr-studio-create-cluster "#emr-studio-create-cluster").
 
 ###### Note
 
@@ -52,9 +47,7 @@ attached.
 
 On launch
 
-###### Attach to an Amazon EMR compute cluster when you launch the
-
-Workspace
+###### Attach to an Amazon EMR compute cluster when you launch the Workspace
 
 1. Navigate to the Workspaces list and select the row for the
    Workspace that you want to launch. Then, select **Launch
@@ -85,9 +78,7 @@ attached.
 
 In the Workspace UI
 
-###### Attach a Workspace to an Amazon EMR compute cluster from the
-
-Workspace user interface
+###### Attach a Workspace to an Amazon EMR compute cluster from the Workspace user interface
 
 1. In the Workspace that you want to attach to a cluster, choose the
    **EMR clusters** icon from the left sidebar to open the
@@ -99,9 +90,7 @@ Workspace user interface
 4. Choose **Attach**. When the cluster is attached, you should
    see a success message appear.
 
-## Attach an Amazon EMR on EKS cluster to an
-
-EMR Studio Workspace
+## Attach an Amazon EMR on EKS cluster to an EMR Studio Workspace
 
 In addition to using Amazon EMR clusters running on Amazon EC2, you can attach a
 Workspace to an Amazon EMR on EKS cluster to run notebook code. For more information about
@@ -138,9 +127,7 @@ cluster is attached.
 
 In the Workspace UI
 
-###### To attach an Amazon EMR on EKS cluster from the Workspace user
-
-interface
+###### To attach an Amazon EMR on EKS cluster from the Workspace user interface
 
 1. In the Workspace that you want to attach to a cluster, choose the
    **EMR clusters** icon from the left sidebar to open the
@@ -154,9 +141,7 @@ interface
 5. Choose **Attach**. When the cluster is attached, you should
    see a success message appear.
 
-## Attach an Amazon EMR Serverless application
-
-to an EMR Studio Workspace
+## Attach an Amazon EMR Serverless application to an EMR Studio Workspace
 
 You can attach a Workspace to an EMR Serverless application to run interactive
 workloads. For more information, see [Using notebooks to
@@ -183,17 +168,14 @@ account administrator must grant you access permissions as described in [Require
    Now when you open this Workspace, you should see your selected application
    attached.
 
-## Create and attach a new EMR cluster to an
-
-EMR Studio Workspace
+## Create and attach a new EMR cluster to an EMR Studio Workspace
 
 Advanced EMR Studio users can provision new EMR clusters running on Amazon EC2 to use
 with a Workspace. The new cluster has all of the big data applications that are
 required for EMR Studio installed by default.
 
 To create clusters, your Studio administrator must first give you permission
-using a session policy. For more information, see [Create permissions policies for
-EMR Studio users](emr-studio-user-permissions.md#emr-studio-permissions-policies "emr-studio-user-permissions.md#emr-studio-permissions-policies").
+using a session policy. For more information, see [Create permissions policies for EMR Studio users](emr-studio-user-permissions.md#emr-studio-permissions-policies "emr-studio-user-permissions.md#emr-studio-permissions-policies").
 
 You can create a new cluster in the **Create a Workspace**
 dialog box or from the **Cluster** panel in the Workspace UI.
@@ -261,9 +243,7 @@ create a cluster.
    and provision the cluster. After EMR Studio provisions the new cluster, it attaches
    the cluster to your Workspace.
 
-## Detach a compute from an EMR Studio
-
-Workspace
+## Detach a compute from an EMR Studio Workspace
 
 To exchange the cluster attached to a Workspace, you can detach a cluster from
 the Workspace UI.
@@ -277,9 +257,7 @@ the Workspace UI.
    wait for EMR Studio to detach the cluster. When the cluster is detached, you will
    see a success message.
 
-###### To detach an EMR Serverless application from an EMR Studio
-
-Workspace
+###### To detach an EMR Serverless application from an EMR Studio Workspace
 
 To exchange the compute attached to a Workspace, you can detach the application from
 the Workspace UI.

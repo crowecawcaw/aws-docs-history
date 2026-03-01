@@ -1,6 +1,4 @@
-# Store TLS certificates in
-
-AWS Secrets Manager
+# Store TLS certificates in AWS Secrets Manager
 
 The Ranger plugins installed on an Amazon EMR cluster and the Ranger Admin server must
 communicate over TLS to ensure that policy data and other information sent cannot be
@@ -60,9 +58,7 @@ the following command:
 openssl x509 -in <**PEM FILE**> -text
 ```
 
-## Importing a certificate to the
-
-AWS Secrets Manager
+## Importing a certificate to the AWS Secrets Manager
 
 When creating your Secret in the Secrets Manager, choose **Other type
 of secrets** under **secret type** and paste your

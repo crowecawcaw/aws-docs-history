@@ -1,6 +1,4 @@
-# Amazon EMR cluster error: Cannot replicate block,
-
-only managed to replicate to zero nodes.
+# Amazon EMR cluster error: Cannot replicate block, only managed to replicate to zero nodes.
 
 The error, "Cannot replicate block,
 only managed to replicate to zero nodes." typically occurs when a cluster does not have enough HDFS storage. This error occurs when you

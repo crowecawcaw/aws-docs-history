@@ -17,8 +17,7 @@ Use the following steps to develop and run interactive queries on Amazon Athena 
 EMR Studio:
 
 1. Add the required permissions to the user role for the users who access the
-   Workspaces in this Studio. The permissions are listed in the [AWS Identity and Access Management permissions for
-   EMR Studio users](emr-studio-user-permissions.md#emr-studio-iam-permissions-table "emr-studio-user-permissions.md#emr-studio-iam-permissions-table") table in the column
+   Workspaces in this Studio. The permissions are listed in the [AWS Identity and Access Management permissions for EMR Studio users](emr-studio-user-permissions.md#emr-studio-iam-permissions-table "emr-studio-user-permissions.md#emr-studio-iam-permissions-table") table in the column
    **Access Amazon Athena SQL editor from your EMR Studio**.
    Alternatively, you can choose to copy the **Advanced** policy contents
    from the [Example user policies](emr-studio-user-permissions.md#emr-studio-example-policies "emr-studio-user-permissions.md#emr-studio-example-policies") to grant users full permissions to
@@ -39,9 +38,7 @@ workgroup that you use must also use trusted identity propagation. For steps to 
 Identity Center and enable trusted identity propagation for your workgroup, see [Using IAM Identity Center
 enabled Athena workgroups](../../../athena/latest/ug/workgroups-identity-center.md "../../../athena/latest/ug/workgroups-identity-center.md") in the _Amazon Athena User Guide_.
 
-## Considerations for using the Athena SQL
-
-editor in EMR Studio
+## Considerations for using the Athena SQL editor in EMR Studio
 
 - Integration with Athena is available in all commercial Regions where EMR Studio
   and Athena are available.

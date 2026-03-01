@@ -1,6 +1,4 @@
-# Import files with distributed
-
-cache with Amazon EMR
+# Import files with distributed cache with Amazon EMR
 
 DistributedCache is a Hadoop feature that can boost efficiency when
 a map or a reduce task needs access to common data. If your cluster depends on
@@ -17,17 +15,14 @@ duration of the job. You can cache files stored on any Hadoop-compatible file
 system, for example HDFS or Amazon S3. The default size of the file cache is 10GB. To
 change the size of the cache, reconfigure the Hadoop parameter,
 `local.cache.size` using the bootstrap action. For more information,
-see [Create bootstrap actions to install additional
-software with an Amazon EMR cluster](emr-plan-bootstrap.md "emr-plan-bootstrap.md").
+see [Create bootstrap actions to install additional software with an Amazon EMR cluster](emr-plan-bootstrap.md "emr-plan-bootstrap.md").
 
 ###### Topics
 
 - [Supported file types](#emr-dev-supported-file-types "#emr-dev-supported-file-types")
 - [Location of cached files](#locationofcache "#locationofcache")
-- [Access cached files from streaming
-  applications](#cachemapper "#cachemapper")
-- [Access cached files from streaming
-  applications](#cacheinconsole "#cacheinconsole")
+- [Access cached files from streaming applications](#cachemapper "#cachemapper")
+- [Access cached files from streaming applications](#cacheinconsole "#cacheinconsole")
 
 ## Supported file types
 
@@ -73,27 +68,21 @@ name. The individual files are located in the new subdirectory.
 
 You can use DistributedCache only when using Streaming.
 
-## Access cached files from streaming
-
-applications
+## Access cached files from streaming applications
 
 To access the cached files from your mapper or reducer applications, make sure
 that you have added the current working directory (./) into your application
 path and referenced the cached files as though they are present in the current
 working directory.
 
-## Access cached files from streaming
-
-applications
+## Access cached files from streaming applications
 
 You can use the AWS Management Console and the AWS CLI to create clusters that use
 Distributed Cache.
 
 Console
 
-###### To specify distributed cache files with the new
-
-console
+###### To specify distributed cache files with the new console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").

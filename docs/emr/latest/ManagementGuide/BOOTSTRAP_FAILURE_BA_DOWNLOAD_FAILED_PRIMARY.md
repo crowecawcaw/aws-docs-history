@@ -12,19 +12,16 @@ that you specify. Potential causes include the following:
 - The service role for Amazon EC2 instances on the cluster (also called the
   _EC2 instance profile for Amazon EMR_) doesn't have
   permissions to access the Amazon S3 bucket where the bootstrap action script
-  resides. For more information about service roles, see [Service role for cluster EC2 instances (EC2
-  instance profile)](emr-iam-role-for-ec2.md "emr-iam-role-for-ec2.md").
+  resides. For more information about service roles, see [Service role for cluster EC2 instances (EC2 instance profile)](emr-iam-role-for-ec2.md "emr-iam-role-for-ec2.md").
 
-For more information about bootstrap actions, see [Create bootstrap actions to install additional
-software with an Amazon EMR cluster](emr-plan-bootstrap.md "emr-plan-bootstrap.md").
+For more information about bootstrap actions, see [Create bootstrap actions to install additional software with an Amazon EMR cluster](emr-plan-bootstrap.md "emr-plan-bootstrap.md").
 
 ## Resolution
 
 To resolve this error, ensure that your primary instance has appropriate
 access to the bootstrap action script.
 
-To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail
-information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
+To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
 
 **`primary-instance-id`**
 
@@ -45,9 +42,7 @@ The Amazon S3 location of the bootstrap action that failed.
 
 The public URL of the documentation for the error code.
 
-## Steps to
-
-complete
+## Steps to complete
 
 Perform the following steps to identify and fix the root cause of the
 bootstrap action error. Then launch a new cluster.

@@ -22,5 +22,4 @@ usually created from the .pem file.
 - For more information about setting .pem file permissions and how to connect to
   an EMR cluster's primary node using different methods - including
   `ssh` from Linux or macOS, PuTTY from Windows, or the AWS CLI from
-  any supported operating system, see [Connect to the Amazon EMR cluster primary node using
-  SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
+  any supported operating system, see [Connect to the Amazon EMR cluster primary node using SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").

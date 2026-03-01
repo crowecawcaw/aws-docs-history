@@ -1,6 +1,4 @@
-# What tools are available for
-
-troubleshooting an Amazon EMR cluster?
+# What tools are available for troubleshooting an Amazon EMR cluster?
 
 To identify and fix cluster errors, you can use the tools described on this page. You
 might need to initialize some of the tools when you launch the cluster. Other tools are
@@ -10,11 +8,9 @@ available for every cluster by default.
 
 - [View EMR cluster details](#emr-troubleshoot-tools-details "#emr-troubleshoot-tools-details")
 - [View EMR cluster error details](#emr-troubleshoot-errordetail "#emr-troubleshoot-errordetail")
-- [Run scripts and configure Amazon EMR
-  processes](#emr-troubleshoot-tools-commands "#emr-troubleshoot-tools-commands")
+- [Run scripts and configure Amazon EMR processes](#emr-troubleshoot-tools-commands "#emr-troubleshoot-tools-commands")
 - [View log files](#emr-troubleshoot-tools-logs "#emr-troubleshoot-tools-logs")
-- [Monitor EMR cluster
-  performance](#emr-troubleshoot-tools-performance "#emr-troubleshoot-tools-performance")
+- [Monitor EMR cluster performance](#emr-troubleshoot-tools-performance "#emr-troubleshoot-tools-performance")
 
 ## View EMR cluster details
 
@@ -55,8 +51,7 @@ When an EMR cluster terminates with an error, the `DescribeCluster` and
 cluster errors, the `ErrorDetail` data array can help you troubleshoot the
 failure.
 
-For a list of error codes that include `ErrorDetail` data, see [Error codes with ErrorDetail
-information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md").
+For a list of error codes that include `ErrorDetail` data, see [Error codes with ErrorDetail information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md").
 
 ###### Note
 
@@ -64,25 +59,18 @@ We continuously refine our error messages so that you receive the most recent an
 pertinent information. We don't recommend that you parse the text from
 `ErrorMessage` because this text is subject to change.
 
-## Run scripts and configure Amazon EMR
-
-processes
+## Run scripts and configure Amazon EMR processes
 
 As part of your troubleshooting process, you might find it helpful to run custom
 scripts on your cluster or view and configure cluster processes.
 
-### View and restart
-
-application processes
+### View and restart application processes
 
 It can be helpful to view running processes on your cluster in order to diagnose
 potential issues. You can stop and restart cluster processes by connecting to the
-master node of your cluster. For more information, see [View and restart Amazon EMR and application
-processes (daemons)](emr-process-restart-stop-view.md "emr-process-restart-stop-view.md").
+master node of your cluster. For more information, see [View and restart Amazon EMR and application processes (daemons)](emr-process-restart-stop-view.md "emr-process-restart-stop-view.md").
 
-### Run commands and scripts
-
-without an SSH connection
+### Run commands and scripts without an SSH connection
 
 To run a command or a script on your cluster as a step, you can use the
 `command-runner.jar` or `script-runner.jar` tools without
@@ -95,9 +83,7 @@ Amazon EMR and Hadoop both generate log files as the cluster runs. You can acces
 files from several different tools, depending on the configuration that you specified
 when you launched the cluster. For more information, see [Configure Amazon EMR cluster logging and debugging](emr-plan-debugging.md "emr-plan-debugging.md").
 
-### Log files on the master
-
-node
+### Log files on the master node
 
 Every cluster publishes logs files to the /mnt/var/log/ directory on the master
 node. These log files are only available while the cluster is running.
@@ -110,9 +96,7 @@ ensures that you have access to the log files even after the cluster is terminat
 Because the files are archived in 5-minute intervals, the last few minutes of an
 suddenly terminated cluster may not be available.
 
-## Monitor EMR cluster
-
-performance
+## Monitor EMR cluster performance
 
 Amazon EMR provides several tools to monitor the performance of your cluster.
 
@@ -120,8 +104,7 @@ Amazon EMR provides several tools to monitor the performance of your cluster.
 
 Every cluster publishes a set of web interfaces on the master node that contain
 information about the cluster. You can access these web pages by using an SSH tunnel
-to connect them on the master node. For more information, see [View web interfaces hosted on Amazon EMR
-clusters](emr-web-interfaces.md "emr-web-interfaces.md").
+to connect them on the master node. For more information, see [View web interfaces hosted on Amazon EMR clusters](emr-web-interfaces.md "emr-web-interfaces.md").
 
 ### CloudWatch metrics
 

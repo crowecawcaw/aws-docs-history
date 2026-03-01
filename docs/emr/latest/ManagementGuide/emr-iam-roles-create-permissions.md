@@ -1,6 +1,4 @@
-# Allow users and groups to create and
-
-modify roles
+# Allow users and groups to create and modify roles
 
 IAM principals (users and groups) who create, modify, and specify roles for a
 cluster, including default roles, must be allowed to perform the following actions. For

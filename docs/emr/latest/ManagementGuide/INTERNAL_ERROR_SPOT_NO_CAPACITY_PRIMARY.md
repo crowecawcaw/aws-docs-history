@@ -13,8 +13,7 @@ Instances](../../../AWSEC2/latest/UserGuide/using-spot-instances.md "../../../AW
 To resolve this error, specify instance types for your cluster that are within
 your price target, or increase your price limit for the same instance type.
 
-To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail
-information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
+To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
 
 **`primary-instance-id`**
 
@@ -32,9 +31,7 @@ The Availability Zone that your subnet resolves to.
 
 The public URL of the documentation for the error code.
 
-## Steps to
-
-complete
+## Steps to complete
 
 Perform the following steps to troubleshoot your cluster configuration
 strategy, and then launch a new cluster:

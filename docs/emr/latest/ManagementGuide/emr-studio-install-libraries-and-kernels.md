@@ -1,13 +1,9 @@
-# Install kernels and libraries in an
-
-EMR Studio Workspace
+# Install kernels and libraries in an EMR Studio Workspace
 
 Each Amazon EMR Studio Workspace comes with a set of pre-installed libraries and
 kernels.
 
-## Kernels and libraries on clusters that
-
-run on Amazon EC2
+## Kernels and libraries on clusters that run on Amazon EC2
 
 You can also customize the environment for EMR Studio in the following ways when you
 use EMR clusters running on Amazon EC2:
@@ -24,12 +20,9 @@ use EMR clusters running on Amazon EC2:
 
 EMR Studio Workspaces have the same underlying architecture as EMR Notebooks.
 You can install and use Jupyter Notebook kernels and Python libraries with EMR Studio in
-the same way you would with EMR Notebooks. For instructions, see [Installing and
-using kernels and libraries in EMR Studio](emr-managed-notebooks-installing-libraries-and-kernels.md "emr-managed-notebooks-installing-libraries-and-kernels.md").
+the same way you would with EMR Notebooks. For instructions, see [Installing and using kernels and libraries in EMR Studio](emr-managed-notebooks-installing-libraries-and-kernels.md "emr-managed-notebooks-installing-libraries-and-kernels.md").
 
-## Kernels and libraries on Amazon EMR on EKS
-
-clusters
+## Kernels and libraries on Amazon EMR on EKS clusters
 
 Amazon EMR on EKS clusters include the PySpark and Python 3.7 kernels with a set of
 pre-installed libraries. Amazon EMR on EKS does not support installing additional libraries or
@@ -45,9 +38,7 @@ installed:
   matplotlib, numpy, pandas, plotly, pycryptodomex, py4j, requests, scikit-learn, scipy,
   seaborn
 
-## Kernels and libraries on
-
-EMR Serverless applications
+## Kernels and libraries on EMR Serverless applications
 
 Each EMR Serverless application comes with the following Python and PySpark libraries
 installed:

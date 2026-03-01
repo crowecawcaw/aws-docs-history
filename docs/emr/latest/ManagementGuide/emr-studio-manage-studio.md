@@ -8,9 +8,7 @@ see [Assign and manage EMR Studio users](emr-studio-manage-users.md "emr-studio-
 
 Console
 
-###### \*\*To view details about an EMR Studio with the new
-
-console\*\*
+###### **To view details about an EMR Studio with the new console**
 
 1. Open the Amazon EMR console at [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
 2. Under **EMR Studio** on the left navigation, choose
@@ -64,9 +62,7 @@ in JSON format.
 
 ## Monitor Amazon EMR Studio actions
 
-### View EMR Studio and API
-
-activity
+### View EMR Studio and API activity
 
 EMR Studio is integrated with AWS CloudTrail, a service that provides a record of
 actions taken by a user, by an IAM role, or by another AWS service in EMR Studio.
@@ -126,9 +122,7 @@ DescribeStudio excludes a value for `responseElements`.
 }
 ```
 
-### View Spark user and job
-
-activity
+### View Spark user and job activity
 
 To view Spark job activity by Amazon EMR Studio users, you can configure user impersonation
 on a cluster. With user impersonation, each Spark job that is submitted from a
@@ -165,8 +159,7 @@ configuration classifications:
 ```
 
 To view history server pages, see [Debug applications and jobs with EMR Studio](emr-studio-debug.md "emr-studio-debug.md"). You can also connect to the primary node of the
-cluster using SSH to view application web interfaces. For more information, see [View web interfaces hosted on Amazon EMR
-clusters](emr-web-interfaces.md "emr-web-interfaces.md").
+cluster using SSH to view application web interfaces. For more information, see [View web interfaces hosted on Amazon EMR clusters](emr-web-interfaces.md "emr-web-interfaces.md").
 
 ## Update an Amazon EMR Studio
 
@@ -208,9 +201,7 @@ aws emr describe-studio \
  --studio-id `<id-of-updated-studio>` \
 ```
 
-## Delete an Amazon EMR Studio and
-
-Workspaces
+## Delete an Amazon EMR Studio and Workspaces
 
 When you delete a Studio, EMR Studio deletes all of the IAM Identity Center user and group
 assignments that are associated with the Studio.
@@ -242,8 +233,7 @@ Studio
    associated with the deleted Workspace from Amazon S3.
 
 EMR Studio UI
-From the Workspace UIFrom the Workspaces listFrom the Workspace UI###### Delete a Workspace and its associated backup files from
-EMR Studio
+From the Workspace UIFrom the Workspaces listFrom the Workspace UI###### Delete a Workspace and its associated backup files from EMR Studio
 
 1. Log in to your EMR Studio with your Studio access URL and
    choose **Workspaces** from the left
@@ -261,8 +251,7 @@ EMR Studio
    _Console User Guide_. If you did not create
    the Studio, consult your Studio administrator to determine
    the Amazon S3 backup location for the deleted Workspace.
-   From the Workspaces list###### Delete a Workspace and its associated backup files from the
-   Workspaces list
+   From the Workspaces list###### Delete a Workspace and its associated backup files from the Workspaces list
 
 5. Navigate to the **Workspace**s list in the
    console.
@@ -280,9 +269,7 @@ EMR Studio
 
 Console
 
-###### \*\*To delete an EMR Studio with the new
-
-console\*\*
+###### **To delete an EMR Studio with the new console**
 
 1. Open the Amazon EMR console at [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
 2. Under **EMR Studio** on the left navigation, choose
@@ -293,9 +280,7 @@ console\*\*
 
 Old console
 
-###### \*\*To delete an EMR Studio with the old
-
-console\*\*
+###### **To delete an EMR Studio with the old console**
 
 1. Open the Amazon EMR console at [https://console.aws.amazon.com/elasticmapreduce/home](https://console.aws.amazon.com/elasticmapreduce/home "https://console.aws.amazon.com/elasticmapreduce/home").
 2. Choose **EMR Studio** from the left navigation.

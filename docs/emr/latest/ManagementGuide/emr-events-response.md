@@ -7,10 +7,7 @@ and recommneded responses to common evens.
 
 ###### Topics
 
-- [Creating rules for Amazon EMR events with
-  CloudWatch](emr-events-cloudwatch-console.md "emr-events-cloudwatch-console.md")
+- [Creating rules for Amazon EMR events with CloudWatch](emr-events-cloudwatch-console.md "emr-events-cloudwatch-console.md")
 - [Setting alarms on CloudWatch metrics from Amazon EMR](UsingEMR_ViewingMetrics_Alarm.md "UsingEMR_ViewingMetrics_Alarm.md")
-- [Responding to Amazon EMR cluster
-  insufficient instance capacity events](emr-events-response-insuff-capacity.md "emr-events-response-insuff-capacity.md")
-- [Responding to Amazon EMR cluster
-  instance fleet resize timeout events](emr-events-response-timeout-events.md "emr-events-response-timeout-events.md")
+- [Responding to Amazon EMR cluster insufficient instance capacity events](emr-events-response-insuff-capacity.md "emr-events-response-insuff-capacity.md")
+- [Responding to Amazon EMR cluster instance fleet resize timeout events](emr-events-response-timeout-events.md "emr-events-response-timeout-events.md")

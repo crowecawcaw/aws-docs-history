@@ -1,31 +1,22 @@
-# Configure managed scaling for
-
-Amazon EMR
+# Configure managed scaling for Amazon EMR
 
 The following sections explain how to launch an EMR cluster that uses managed
 scaling with the AWS Management Console, the AWS SDK for Java, or the AWS Command Line Interface.
 
 ###### Topics
 
-- [Use the AWS Management Console to configure managed
-  scaling](#managed-scaling-console "#managed-scaling-console")
-- [Use the AWS CLI to configure managed
-  scaling](#managed-scaling-cli "#managed-scaling-cli")
-- [Use AWS SDK for Java to configure managed
-  scaling](#managed-scaling-sdk "#managed-scaling-sdk")
+- [Use the AWS Management Console to configure managed scaling](#managed-scaling-console "#managed-scaling-console")
+- [Use the AWS CLI to configure managed scaling](#managed-scaling-cli "#managed-scaling-cli")
+- [Use AWS SDK for Java to configure managed scaling](#managed-scaling-sdk "#managed-scaling-sdk")
 
-## Use the AWS Management Console to configure managed
-
-scaling
+## Use the AWS Management Console to configure managed scaling
 
 You can use the Amazon EMR console to configure managed scaling when you create a
 cluster or to change a managed scaling policy for a running cluster.
 
 Console
 
-###### To configure managed scaling when you create a cluster with
-
-the console
+###### To configure managed scaling when you create a cluster with the console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
@@ -60,9 +51,7 @@ the console
    **Maximum** number of instances and the
    **On-Demand** limit.
 
-## Use the AWS CLI to configure managed
-
-scaling
+## Use the AWS CLI to configure managed scaling
 
 You can use AWS CLI commands for Amazon EMR to configure managed scaling when you
 create a cluster. You can use a shorthand syntax, specifying the JSON
@@ -168,9 +157,7 @@ the cluster with a cluster ID of `j-123456`.
 aws emr remove-managed-scaling-policy --cluster-id `j-123456`
 ```
 
-## Use AWS SDK for Java to configure managed
-
-scaling
+## Use AWS SDK for Java to configure managed scaling
 
 The following program excerpt shows how to configure managed scaling using the
 AWS SDK for Java:

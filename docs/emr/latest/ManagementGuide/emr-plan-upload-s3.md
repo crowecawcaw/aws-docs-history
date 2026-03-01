@@ -6,15 +6,12 @@ about using Amazon S3 with Hadoop, see [http://wiki.apache.org/hadoop/AmazonS3](
 
 ###### Topics
 
-- [Create and configure an Amazon S3
-  bucket](#create-s3-bucket-input "#create-s3-bucket-input")
+- [Create and configure an Amazon S3 bucket](#create-s3-bucket-input "#create-s3-bucket-input")
 - [Configure multipart upload for Amazon S3](#Config_Multipart "#Config_Multipart")
 - [Best practices](#emr-bucket-bestpractices "#emr-bucket-bestpractices")
 - [Upload data to Amazon S3 Express One Zone](emr-express-one-zone.md "emr-express-one-zone.md")
 
-## Create and configure an Amazon S3
-
-bucket
+## Create and configure an Amazon S3 bucket
 
 Amazon EMR uses the AWS SDK for Java with Amazon S3 to store input data, log files, and output
 data. Amazon S3 refers to these storage locations as _buckets_.

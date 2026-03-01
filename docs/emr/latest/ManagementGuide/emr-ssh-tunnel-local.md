@@ -1,6 +1,4 @@
-# Option 1: Set up an SSH tunnel to the
-
-Amazon EMR primary node using local port forwarding
+# Option 1: Set up an SSH tunnel to the Amazon EMR primary node using local port forwarding
 
 To connect to the local web server on the primary node, you create an SSH
 tunnel between your computer and the primary node. This is also known as
@@ -12,24 +10,17 @@ web server.
 
 Setting up an SSH tunnel using local port forwarding requires the public DNS
 name of the primary node and your key pair private key file. For information
-about how to locate the master public DNS name, see [Retrieve the public DNS name of the primary
-node](emr-connect-master-node-ssh.md#emr-connect-master-dns "emr-connect-master-node-ssh.md#emr-connect-master-dns").
+about how to locate the master public DNS name, see [Retrieve the public DNS name of the primary node](emr-connect-master-node-ssh.md#emr-connect-master-dns "emr-connect-master-node-ssh.md#emr-connect-master-dns").
 For more information about accessing your key pair, see [Amazon EC2 key pairs](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md") in the
 _Amazon EC2 User Guide_. For more information about the sites
-you might want to view on the primary node, see [View web interfaces hosted on Amazon EMR
-clusters](emr-web-interfaces.md "emr-web-interfaces.md").
+you might want to view on the primary node, see [View web interfaces hosted on Amazon EMR clusters](emr-web-interfaces.md "emr-web-interfaces.md").
 
-## Set up an SSH tunnel to the
+## Set up an SSH tunnel to the primary node using local port forwarding with OpenSSH
 
-primary node using local port forwarding with OpenSSH
-
-###### To set up an SSH tunnel using local
-
-port forwarding in terminal
+###### To set up an SSH tunnel using local port forwarding in terminal
 
 1. Ensure you've allowed inbound SSH traffic. For instructions, see
-   [Before you connect to Amazon EMR: Authorize inbound
-   traffic](emr-connect-ssh-prereqs.md "emr-connect-ssh-prereqs.md").
+   [Before you connect to Amazon EMR: Authorize inbound traffic](emr-connect-ssh-prereqs.md "emr-connect-ssh-prereqs.md").
 2. Open a terminal window. On Mac OS X, choose \*\*Applications
    > Utilities > Terminal**. On other Linux
    > distributions, terminal is typically found at **Applications

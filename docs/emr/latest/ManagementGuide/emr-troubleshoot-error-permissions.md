@@ -33,8 +33,7 @@ ssh -i mykey.pem hadoop@ec2-01-001-001-1.compute-1.amazonaws.com
 
 ```
 
-For more information, see [Connect to the Amazon EMR cluster primary node using
-SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
+For more information, see [Connect to the Amazon EMR cluster primary node using SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
 
 ## If you are using IAM, do you have the proper Amazon EC2 policies set?
 

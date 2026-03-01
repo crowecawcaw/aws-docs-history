@@ -23,8 +23,7 @@ varieties:
 - **Cell magics** – These magic commands are
   denoted by a double `%%` prefix and operate on multiple lines of code
 
-For all available magics, see [List magic and Sparkmagic
-commands](#accessing-all-magic-commands "#accessing-all-magic-commands").
+For all available magics, see [List magic and Sparkmagic commands](#accessing-all-magic-commands "#accessing-all-magic-commands").
 
 ## Considerations and limitations
 
@@ -49,9 +48,7 @@ spark.conf.set("spark.driver.maxResultSize", '6g')
   - Modifying `KERNEL_USERNAME` with `%env` or
     `%set_env`
 
-## List magic and Sparkmagic
-
-commands
+## List magic and Sparkmagic commands
 
 Use the following commands to list the available magic commands:
 
@@ -59,9 +56,7 @@ Use the following commands to list the available magic commands:
 - `%%help` lists currently-available Spark-related magic functions
   provided by the Sparkmagic package.
 
-## Use `%%configure` to configure
-
-Spark
+## Use `%%configure` to configure Spark
 
 One of the most useful Sparkmagic commands is the
 `%%configure` command, which configures the session creation parameters. Using
@@ -98,9 +93,7 @@ Hudi.
 }
 ```
 
-## Use `%%sh` to run
-
-`spark-submit`
+## Use `%%sh` to run `spark-submit`
 
 The `%%sh` magic runs shell commands in a subprocess on an instance of your
 attached cluster. Typically, you'd use one of the Spark-related kernels to run Spark
@@ -130,12 +123,9 @@ hadoop fs -chown emr-notebook /user/emr-notebook
 ```
 
 - You can turn on user impersonation in Livy, which automatically creates the user.
-  See [Enabling user impersonation to
-  monitor Spark user and job activity](emr-managed-notebooks-spark-monitor.md "emr-managed-notebooks-spark-monitor.md") for more information.
+  See [Enabling user impersonation to monitor Spark user and job activity](emr-managed-notebooks-spark-monitor.md "emr-managed-notebooks-spark-monitor.md") for more information.
 
-## Use `%%display` to visualize Spark
-
-dataframes
+## Use `%%display` to visualize Spark dataframes
 
 You can use the `%%display` magic to visualize a Spark dataframe. To use
 this magic, run the following command.
@@ -177,8 +167,7 @@ this kernel.
 
 Before you install EMR Notebooks magics, complete the following tasks:
 
-- Make sure that your [Service role for cluster EC2 instances (EC2
-  instance profile)](emr-iam-role-for-ec2.md "emr-iam-role-for-ec2.md") has read access for Amazon S3. The
+- Make sure that your [Service role for cluster EC2 instances (EC2 instance profile)](emr-iam-role-for-ec2.md "emr-iam-role-for-ec2.md") has read access for Amazon S3. The
   `EMR_EC2_DefaultRole` with the
   `AmazonElasticMapReduceforEC2Role` managed policy fulfills this
   requirement. If you use a custom role or policy, make sure that it has the necessary
@@ -258,9 +247,7 @@ Complete the following steps to install EMR Notebooks magics.
 %mount_workspace_dir?
 ```
 
-### Mount a Workspace directory with
-
-`%mount_workspace_dir`
+### Mount a Workspace directory with `%mount_workspace_dir`
 
 The `%mount_workspace_dir` magic lets you mount your Workspace
 directory onto your EMR cluster so that you can import and run other files, modules, or
@@ -297,9 +284,7 @@ Workspace directory.
 %umount_workspace_dir
 ```
 
-### Download an Amazon S3 object
-
-with `%generate_s3_download_url`
+### Download an Amazon S3 object with `%generate_s3_download_url`
 
 The `generate_s3_download_url` command creates a presigned URL for an
 object stored in Amazon S3. You can use the presigned URL to download the object
@@ -326,9 +311,7 @@ command to display help text.
 %generate_s3_download_url?
 ```
 
-### Run a notebook in headless mode with
-
-`%execute_notebook`
+### Run a notebook in headless mode with `%execute_notebook`
 
 With `%execute_notebook` magic, you can run another notebook in headless
 mode and view the output for each cell that you've run. This magic requires additional

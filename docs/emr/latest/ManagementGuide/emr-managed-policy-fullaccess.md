@@ -1,6 +1,4 @@
-# IAM managed policy for full
-
-access (on path to deprecation)
+# IAM managed policy for full access (on path to deprecation)
 
 The `AmazonElasticMapReduceFullAccess` and
 `AmazonEMRFullAccessPolicy_v2` AWS Identity and Access Management (IAM) managed policies

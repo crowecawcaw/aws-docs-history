@@ -38,8 +38,7 @@ console experience. These capabilities fall into the following categories:
 - [Creating clusters](#console-diff-cluster-create "#console-diff-cluster-create")
 - [Viewing or editing cluster details](#console-diff-cluster-details "#console-diff-cluster-details")
 - [Viewing and searching for clusters](#console-diff-cluster-list "#console-diff-cluster-list")
-- [Differences when you work with security
-  configurations](#console-diff-security "#console-diff-security")
+- [Differences when you work with security configurations](#console-diff-security "#console-diff-security")
 
 ### Cluster compatibility in the console
 
@@ -101,9 +100,7 @@ client side.
 | Viewing app UIs, logs, and configurations<br>([Apache Spark](https://aws.amazon.com/emr/features/spark/ "https://aws.amazon.com/emr/features/spark/") UI, Spark History service, Apache Tez UI,<br>YARN timeline server) | View cluster configurations in the<br>**Configurations\*<br>• tab. Launch a live,<br>persistent, application UI to see the logs for an application<br>from the **Applications\*<br>• tab. |
 | Exporting a cluster to CLI                                                                                                                                                                                               | Option available from cluster detail and list view Actions<br>menus as "View command for cloning cluster"                                                                                 |
 
-### Differences when you work with security
-
-configurations
+### Differences when you work with security configurations
 
 | Capability                                                                                                                                                                                                                                                                            | Console                 |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |

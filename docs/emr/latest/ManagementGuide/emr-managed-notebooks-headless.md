@@ -18,9 +18,7 @@ Amazon CloudWatch Events](../../../lambda/latest/dg/services-cloudwatchevents.md
 
 EMR Notebooks are available as EMR Studio Workspaces in the console. The **Create Workspace** button in the console lets you create new notebooks. To access or create Workspaces, EMR Notebooks users need additional IAM role permissions. For more information, see [Amazon EMR Notebooks are Amazon EMR Studio Workspaces in the console](emr-managed-notebooks-migration.md "emr-managed-notebooks-migration.md") and [Amazon EMR console](whats-new-in-console.md "whats-new-in-console.md").
 
-## Role permissions for
-
-programmatic execution
+## Role permissions for programmatic execution
 
 To use programmatic execution with EMR Notebooks, you must configure user
 permissions with the following policies:
@@ -99,9 +97,7 @@ JSON
 
 ```
 
-## Limitations with programmatic
-
-execution
+## Limitations with programmatic execution
 
 - A maximum of 100 concurrent executions are supported per AWS Region per
   account.
@@ -109,19 +105,14 @@ execution
 - Programmatic execution of notebooks isn't supported with
   Amazon EMR Serverless interactive applications.
 
-## Examples of programmatic
-
-EMR notebook execution
+## Examples of programmatic EMR notebook execution
 
 The following sections provide several examples of programmatic
 EMR notebook execution with the AWS CLI, Boto3 SDK (Python), and Ruby:
 
-- [Notebook CLI command
-  samples in EMR Studio](emr-managed-notebooks-headless-cli.md "emr-managed-notebooks-headless-cli.md")
-- [Python
-  samples for an EMR notebook](emr-managed-notebooks-headless-python.md "emr-managed-notebooks-headless-python.md")
-- [Ruby
-  samples for an EMR notebook](emr-managed-notebooks-headless-ruby.md "emr-managed-notebooks-headless-ruby.md")
+- [Notebook CLI command samples in EMR Studio](emr-managed-notebooks-headless-cli.md "emr-managed-notebooks-headless-cli.md")
+- [Python samples for an EMR notebook](emr-managed-notebooks-headless-python.md "emr-managed-notebooks-headless-python.md")
+- [Ruby samples for an EMR notebook](emr-managed-notebooks-headless-ruby.md "emr-managed-notebooks-headless-ruby.md")
 
 You can also run parameterized notebooks as part of scheduled workflows with an
 orchestration tool such as Apache Airflow or Amazon Managed Workflows for Apache

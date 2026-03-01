@@ -1,6 +1,4 @@
-# Service role for
-
-EMR Notebooks
+# Service role for EMR Notebooks
 
 Each EMR notebook needs permissions to access other AWS resources and
 perform actions. The IAM policies attached to this service role provide
@@ -187,9 +185,7 @@ JSON
 
 ```
 
-## EMR Notebooks
-
-service role permissions
+## EMR Notebooks service role permissions
 
 This table lists the actions that EMR Notebooks takes using the service role,
 along with the permissions that are needed for each action.
@@ -201,9 +197,7 @@ along with the permissions that are needed for each action.
 | Apply AWS tags to the network interface and default<br>security groups that EMR Notebooks creates while setting up the<br>secure network channel. For more information, see [Tagging AWS<br>resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md"). | `<br>"ec2:CreateTags"<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Access or upload notebook files and metadata to<br>Amazon S3.                                                                                                                                                                                                                                  | `<br>"s3:PutObject",<br>"s3:GetObject",<br>"s3:GetEncryptionConfiguration",<br>"s3:ListBucket",<br>"s3:DeleteObject"<br>`<br>The following permissions are only required if you use an<br>encrypted Amazon S3 bucket.<br>`<br>"kms:Decrypt",<br>"kms:GenerateDataKey",<br>"kms:ReEncryptFrom",<br>"kms:ReEncryptTo",<br>"kms:DescribeKey"<br>`                                                                                                                                                                                                                                                                                                 |
 
-## EMR Notebooks updates to AWS managed
-
-policies
+## EMR Notebooks updates to AWS managed policies
 
 View details about updates to AWS managed policies for EMR Notebooks since
 March 1, 2021.

@@ -1,6 +1,4 @@
-# Specifying EC2 security groups
-
-for EMR Notebooks
+# Specifying EC2 security groups for EMR Notebooks
 
 When you create an EMR notebook, two security groups are used to control
 network traffic between the EMR notebook and the Amazon EMR cluster when you use the
@@ -15,12 +13,9 @@ notebooks can run code within the notebook editor on particular clusters. The cl
 uses your custom security in addition to the default security groups for the cluster.
 For more information, see [Control
 network traffic with security groups](emr-security-groups.md "emr-security-groups.md") in the
-_Amazon EMR Management Guide_ and Specifying EC2 security groups
-for EMR Notebooks.
+_Amazon EMR Management Guide_ and Specifying EC2 security groups for EMR Notebooks.
 
-## Default EC2 security group for the
-
-primary instance
+## Default EC2 security group for the primary instance
 
 The default EC2 security group for the primary instance is associated with the
 primary instance in addition to the cluster's security groups for the primary
@@ -39,9 +34,7 @@ for EMR Notebooks
 
 None
 
-## Default EC2
-
-security group for EMR Notebooks
+## Default EC2 security group for EMR Notebooks
 
 The default EC2 security group for the EMR notebook is associated with the
 notebook editor for any EMR notebook to which it is assigned.
@@ -59,10 +52,7 @@ None
 Allow TCP Port 18888 to any resources in the default EC2 security group
 for EMR Notebooks.
 
-## Custom EC2
-
-security group for EMR Notebooks when associating Notebooks with Git
-repositories
+## Custom EC2 security group for EMR Notebooks when associating Notebooks with Git repositories
 
 To link a Git repository to your notebook, the security group for the
 EMR notebook must include an outbound rule so that the notebook can route

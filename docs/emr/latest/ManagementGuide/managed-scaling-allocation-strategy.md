@@ -1,6 +1,4 @@
-# Understanding Amazon EMR node allocation
-
-strategy and scenarios
+# Understanding Amazon EMR node allocation strategy and scenarios
 
 This section gives an overview of node allocation strategy and common scaling
 scenarios that you can use with Amazon EMR managed scaling.

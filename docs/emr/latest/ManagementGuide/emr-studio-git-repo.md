@@ -1,13 +1,9 @@
-# Link Git-based repositories to an EMR Studio
-
-Workspace
+# Link Git-based repositories to an EMR Studio Workspace
 
 Associate up to three Git-based repositories with an Amazon EMR Studio Workspace
 to save and share notebook files.
 
-## About Git repositories for
-
-EMR Studio
+## About Git repositories for EMR Studio
 
 You can associate a maximum of three Git repositories with an EMR Studio
 Workspace. By default, each Workspace lets you choose from a list of Git
@@ -29,8 +25,7 @@ jupyterlab-git extension for JupyterLab, see [jupyterlab-git](https://github.com
 
 - To associate a Git repository with a Workspace, the Studio must be
   configured to allow Git repository linking. Your Studio administrator should
-  take steps to [Establish access and permissions for Git-based
-  repositories](emr-studio-enable-git.md "emr-studio-enable-git.md").
+  take steps to [Establish access and permissions for Git-based repositories](emr-studio-enable-git.md "emr-studio-enable-git.md").
 - If you use a CodeCommit repository, you must use Git credentials and HTTPS. SSH keys and
   HTTPS with the AWS Command Line Interface credential helper are not supported. CodeCommit also does not
   support personal access tokens (PATs). For more information, see [Using IAM

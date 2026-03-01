@@ -1,6 +1,4 @@
-# IAM managed policy for full
-
-access (v2 managed default policy) for Amazon EMR
+# IAM managed policy for full access (v2 managed default policy) for Amazon EMR
 
 The v2 scoped EMR default managed policies grant specific access privileges to
 users. They require a predefined Amazon EMR resource tag and
@@ -19,8 +17,7 @@ pass the user tag `for-use-with-amazon-emr-managed-policies = true`
 when provisioning the cluster. Amazon EMR will automatically propagate the tag.
 Additionally, you may need to manually add a user tag to specific types of
 resources, such as EC2 security groups that were not created by Amazon EMR. For more
-information, see [Tagging resources to use managed
-policies](emr-managed-iam-policies.md#manually-tagged-resources "emr-managed-iam-policies.md#manually-tagged-resources").
+information, see [Tagging resources to use managed policies](emr-managed-iam-policies.md#manually-tagged-resources "emr-managed-iam-policies.md#manually-tagged-resources").
 
 The [`AmazonEMRFullAccessPolicy_v2`](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEMRFullAccessPolicy_v2 "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEMRFullAccessPolicy_v2") policy secures
 resources by doing the following:

@@ -1,6 +1,4 @@
-# Connect to the Amazon EMR cluster primary node using
-
-SSH
+# Connect to the Amazon EMR cluster primary node using SSH
 
 Secure Shell (SSH) is a network protocol you can use to create a secure connection to
 a remote computer. After you make a connection, the terminal on your local computer
@@ -16,8 +14,7 @@ Using SSH to connect to the primary node gives you the ability to monitor and in
 with the cluster. You can issue Linux commands on the primary node, run applications
 such as Hive and Pig interactively, browse directories, read log files, and so on. You
 can also create a tunnel in your SSH connection to view the web interfaces hosted on the
-primary node. For more information, see [View web interfaces hosted on Amazon EMR
-clusters](emr-web-interfaces.md "emr-web-interfaces.md").
+primary node. For more information, see [View web interfaces hosted on Amazon EMR clusters](emr-web-interfaces.md "emr-web-interfaces.md").
 
 To connect to the primary node using SSH, you need the public DNS name of the primary
 node. In addition, the security group associated with the primary node must have an
@@ -27,18 +24,14 @@ connection from your client. For more information about modifying security group
 see [Control network traffic with security groups for your Amazon EMR cluster](emr-security-groups.md "emr-security-groups.md") and [Adding rules to a security
 group](../../../AWSEC2/latest/UserGuide/using-network-security.md "../../../AWSEC2/latest/UserGuide/using-network-security.md") in the _Amazon EC2 User Guide_.
 
-## Retrieve the public DNS name of the primary
-
-node
+## Retrieve the public DNS name of the primary node
 
 You can retrieve the primary public DNS name using the Amazon EMR console and the
 AWS CLI.
 
 Console
 
-###### To retrieve the public DNS name of the primary node with the new
-
-console
+###### To retrieve the public DNS name of the primary node with the new console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
@@ -51,9 +44,7 @@ console
 
 CLI
 
-###### To retrieve the public DNS
-
-name of the primary node with the AWS CLI
+###### To retrieve the public DNS name of the primary node with the AWS CLI
 
 1. To retrieve the cluster identifier, type the following
    command.
@@ -121,9 +112,7 @@ IP addresses. Note the value for `PublicDnsName`.
 For more information, see [Amazon EMR commands
 in the AWS CLI](../../../cli/latest/reference/emr.md "../../../cli/latest/reference/emr.md").
 
-## Connect to the primary node using SSH and an
-
-Amazon EC2 private key on Linux, Unix, and Mac OS X
+## Connect to the primary node using SSH and an Amazon EC2 private key on Linux, Unix, and Mac OS X
 
 To create an SSH connection authenticated with a private key file, you need to
 specify the Amazon EC2 key pair private key when you launch a cluster. For more
@@ -140,17 +129,14 @@ SSH tools. For more information, see the [OpenSSH](http://www.openssh.org/ "http
 The following instructions demonstrate opening an SSH connection to the Amazon EMR
 primary node on Linux, Unix, and Mac OS X.
 
-###### To configure the key pair
-
-private key file permissions
+###### To configure the key pair private key file permissions
 
 Before you can use your Amazon EC2 key pair private key to create an SSH
 connection, you must set permissions on the `.pem` file so
 that only the key owner has permission to access the file. This is required for
 creating an SSH connection using terminal or the AWS CLI.
 
-1. Ensure you've allowed inbound SSH traffic. For instructions, see [Before you connect to Amazon EMR: Authorize inbound
-   traffic](emr-connect-ssh-prereqs.md "emr-connect-ssh-prereqs.md").
+1. Ensure you've allowed inbound SSH traffic. For instructions, see [Before you connect to Amazon EMR: Authorize inbound traffic](emr-connect-ssh-prereqs.md "emr-connect-ssh-prereqs.md").
 2. Locate your `.pem` file. These instructions assume that
    the file is named `mykeypair.pem` and that it is stored
    in the current user's home directory.
@@ -200,9 +186,7 @@ exit
 If you're experiencing difficulty with using SSH to connect to your primary node,
 see [Troubleshoot connecting to your instance](../../../AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.md "../../../AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.md").
 
-## Connect to the primary node using SSH on
-
-Windows
+## Connect to the primary node using SSH on Windows
 
 Windows users can use an SSH client such as PuTTY to connect to the primary
 node. Before connecting to the Amazon EMR primary node, you should download and install
@@ -218,12 +202,9 @@ connect to the primary node using PuTTY.
 For more information about converting your key, see [Converting your private key using
 PuTTYgen](../../../AWSEC2/latest/UserGuide/putty.md "../../../AWSEC2/latest/UserGuide/putty.md") in the _Amazon EC2 User Guide_.
 
-###### To connect to the primary node using
+###### To connect to the primary node using PuTTY
 
-PuTTY
-
-1. Ensure you've allowed inbound SSH traffic. For instructions, see [Before you connect to Amazon EMR: Authorize inbound
-   traffic](emr-connect-ssh-prereqs.md "emr-connect-ssh-prereqs.md").
+1. Ensure you've allowed inbound SSH traffic. For instructions, see [Before you connect to Amazon EMR: Authorize inbound traffic](emr-connect-ssh-prereqs.md "emr-connect-ssh-prereqs.md").
 2. Open `putty.exe`. You can also launch PuTTY from the
    Windows programs list.
 3. If necessary, in the **Category** list, choose
@@ -258,21 +239,17 @@ and choosing **Change Settings**.
 If you're experiencing difficulty with using SSH to connect to your primary node,
 see [Troubleshoot connecting to your instance](../../../AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.md "../../../AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.md").
 
-## Connect to the primary node using the
-
-AWS CLI
+## Connect to the primary node using the AWS CLI
 
 You can create an SSH connection with the primary node using the AWS CLI on Windows
 and on Linux, Unix, and Mac OS X. Regardless of the platform, you need the public
 DNS name of the primary node and your Amazon EC2 key pair private key. If you are using
 the AWS CLI on Linux, Unix, or Mac OS X, you must also set permissions on the private
-key (`.pem` or `.ppk`) file as shown in [To configure the key pair
-private key file permissions](#emr-keypair-file-permission-config "#emr-keypair-file-permission-config").
+key (`.pem` or `.ppk`) file as shown in [To configure the key pair private key file permissions](#emr-keypair-file-permission-config "#emr-keypair-file-permission-config").
 
 ###### To connect to the primary node using the AWS CLI
 
-1. Ensure you've allowed inbound SSH traffic. For instructions, see [Before you connect to Amazon EMR: Authorize inbound
-   traffic](emr-connect-ssh-prereqs.md "emr-connect-ssh-prereqs.md").
+1. Ensure you've allowed inbound SSH traffic. For instructions, see [Before you connect to Amazon EMR: Authorize inbound traffic](emr-connect-ssh-prereqs.md "emr-connect-ssh-prereqs.md").
 2. To retrieve the cluster identifier, type:
 
 ```

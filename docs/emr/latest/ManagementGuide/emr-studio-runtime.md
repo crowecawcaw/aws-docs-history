@@ -1,6 +1,4 @@
-# Run an EMR Studio Workspace with a runtime
-
-role
+# Run an EMR Studio Workspace with a runtime role
 
 ###### Note
 
@@ -26,22 +24,16 @@ Workspace.
 
 ###### On this page
 
-- [Configure user permissions for the
-  runtime role](#emr-studio-runtime-setup-permissions "#emr-studio-runtime-setup-permissions")
-- [Launch a new cluster with a runtime
-  role](#emr-studio-runtime-setup-cluster "#emr-studio-runtime-setup-cluster")
-- [Use the EMR cluster with a runtime role in
-  Workspaces](#emr-studio-runtime-use "#emr-studio-runtime-use")
+- [Configure user permissions for the runtime role](#emr-studio-runtime-setup-permissions "#emr-studio-runtime-setup-permissions")
+- [Launch a new cluster with a runtime role](#emr-studio-runtime-setup-cluster "#emr-studio-runtime-setup-cluster")
+- [Use the EMR cluster with a runtime role in Workspaces](#emr-studio-runtime-use "#emr-studio-runtime-use")
 - [Considerations](#emr-studio-runtime-considerations "#emr-studio-runtime-considerations")
 
-## Configure user permissions for the
-
-runtime role
+## Configure user permissions for the runtime role
 
 Configure user permissions so that the Studio user can call the
 `elasticmapreduce:GetClusterSessionCredentials` API on the runtime role that
-the user wants to use. You must also configure [Configure EMR Studio user permissions for
-Amazon EC2 or Amazon EKS](emr-studio-user-permissions.md "emr-studio-user-permissions.md")
+the user wants to use. You must also configure [Configure EMR Studio user permissions for Amazon EC2 or Amazon EKS](emr-studio-user-permissions.md "emr-studio-user-permissions.md")
 before the user can start using Studio.
 
 ###### Warning
@@ -121,23 +113,19 @@ holder will only be able to access Amazon EMR clusters tagged with the key-value
 }
 ```
 
-## Launch a new cluster with a runtime
-
-role
+## Launch a new cluster with a runtime role
 
 Now that you have the required permissions, launch a new cluster with a runtime role
 that you can use with your Amazon EMR Studio Workspace.
 
 If you have already launched a new cluster with a runtime role, you can skip to the
-[Use the EMR cluster with a runtime role in
-Workspaces](#emr-studio-runtime-use "#emr-studio-runtime-use") section.
+[Use the EMR cluster with a runtime role in Workspaces](#emr-studio-runtime-use "#emr-studio-runtime-use") section.
 
 1. First, complete the prerequisites in the [Runtime roles for Amazon EMR steps](emr-steps-runtime-roles.md#emr-steps-runtime-roles-configure "emr-steps-runtime-roles.md#emr-steps-runtime-roles-configure")
    section.
 2. Then, launch a cluster with the following settings to use runtime roles with
    Amazon EMR Studio Workspaces. For instructions on how to launch your cluster, see
-   [Specify a security configuration
-   for an Amazon EMR cluster](emr-specify-security-configuration.md "emr-specify-security-configuration.md").
+   [Specify a security configuration for an Amazon EMR cluster](emr-specify-security-configuration.md "emr-specify-security-configuration.md").
    - Choose release label emr-6.11.0 or later.
    - Select Spark, Livy, and Jupyter Enterprise Gateway as your cluster
      applications.
@@ -154,16 +142,13 @@ The [ExecutionRoleArn](../APIReference/API_ExecutionEngineConfig.md#EMR-Type-Exe
 value is currently not supported with the [StartNotebookExecution](../APIReference/API_StartNotebookExecution.md "../APIReference/API_StartNotebookExecution.md") API operation when the
 `ExecutionEngineConfig.Type` value is `EMR`.
 
-## Use the EMR cluster with a runtime role in
-
-Workspaces
+## Use the EMR cluster with a runtime role in Workspaces
 
 Once you have set up and launched your cluster, you can use the runtime role-enabled
 cluster with your EMR Studio Workspace.
 
 1. Create a new workspace or launch an existing workspace. For more information, see
-   [Create an EMR Studio
-   Workspace](emr-studio-create-workspace.md "emr-studio-create-workspace.md").
+   [Create an EMR Studio Workspace](emr-studio-create-workspace.md "emr-studio-create-workspace.md").
 2. Choose the **EMR clusters** tab in the left sidebar of your open
    Workspace, expand the **Compute type** section, and choose
    your cluster from the **EMR cluster on EC2** menu, and the runtime role

@@ -16,9 +16,7 @@ You can use the Amazon EMR console to resize a running cluster.
 
 Console
 
-###### To change the instance count for an existing cluster with the new
-
-console
+###### To change the instance count for an existing cluster with the new console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
@@ -71,9 +69,7 @@ automatically replaced.
 In addition to resizing the core and task groups, you can also add one or more
 task instance groups to a running cluster with the AWS CLI.
 
-###### To resize a cluster by changing the
-
-instance count with the AWS CLI
+###### To resize a cluster by changing the instance count with the AWS CLI
 
 You can add instances to the core group or task group, and you can remove
 instances from the task group with the AWS CLI `modify-instance-groups`
@@ -314,9 +310,7 @@ Use the `modify-instance-groups` subcommand with the
 aws emr modify-instance-groups --instance-groups InstanceGroupId=`ig-3SUXXXXXXQ9ZM`,InstanceCount=`3`
 ```
 
-## Considerations when reducing cluster
-
-size
+## Considerations when reducing cluster size
 
 If you choose to reduce the size of a running cluster, consider the following
 Amazon EMR behavior and best practices:

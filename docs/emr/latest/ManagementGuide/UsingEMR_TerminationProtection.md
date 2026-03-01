@@ -1,6 +1,4 @@
-# Using termination protection to protect your Amazon EMR clusters from
-
-accidental shut down
+# Using termination protection to protect your Amazon EMR clusters from accidental shut down
 
 Termination protection protects your clusters from accidental termination, which can be especially useful
 for long running clusters processing critical workloads.
@@ -31,8 +29,7 @@ any of the following actions:
 - Resizing a cluster manually with the AWS Management Console or AWS CLI. For more information,
   see [Manually resize a running Amazon EMR cluster](emr-manage-resize.md "emr-manage-resize.md").
 - Removing instances from a core or task instance group using a scale-in policy
-  with automatic scaling. For more information, see [Using automatic scaling with a custom policy for
-  instance groups in Amazon EMR](emr-automatic-scaling.md "emr-automatic-scaling.md").
+  with automatic scaling. For more information, see [Using automatic scaling with a custom policy for instance groups in Amazon EMR](emr-automatic-scaling.md "emr-automatic-scaling.md").
 - Removing instances from an instance fleet by reducing target capacity. For
   more information, see [Instance fleet options](emr-instance-fleet.md#emr-instance-fleet-options "emr-instance-fleet.md#emr-instance-fleet-options").
 
@@ -72,9 +69,7 @@ so that `DisableApiTermination` is `false`, and then the
 Amazon EC2 API or AWS CLI commands run the `TerminateInstances` operation,
 the Amazon EC2 instance terminates.
 
-## Termination protection and
-
-unhealthy YARN nodes
+## Termination protection and unhealthy YARN nodes
 
 Amazon EMR periodically checks the Apache Hadoop YARN status of nodes running on core
 and task Amazon EC2 instances in a cluster. The health status is reported by the [NodeManager health checker service](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/NodeManager.html#Health_checker_service "https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/NodeManager.html#Health_checker_service"). If a node reports
@@ -82,9 +77,7 @@ and task Amazon EC2 instances in a cluster. The health status is reported by the
 does not allocate YARN containers to it until it becomes healthy again. Depending on the statuses of termination protection,
 unhealthy node replacement, and Amazon EMR release version, Amazon EMR will either [replace the unhealthy instance or stop allocating controllers to the instance](emr-plan-node-replacement.md "emr-plan-node-replacement.md").
 
-## Termination protection and termination after step
-
-execution
+## Termination protection and termination after step execution
 
 When you enable termination after step execution and _also_ enable
 termination protection, Amazon EMR ignores the termination protection.
@@ -111,16 +104,12 @@ outcome.
 | Disabled            | Enabled                          | Cluster continues      |
 | Disabled            | Disabled                         | Cluster terminates     |
 
-## Termination protection and Spot
-
-Instances
+## Termination protection and Spot Instances
 
 Amazon EMR termination protection does not prevent an Amazon EC2 Spot Instance from
 terminating when the Spot price rises above the maximum Spot price.
 
-## Configuring termination
-
-protection when you launch a cluster
+## Configuring termination protection when you launch a cluster
 
 You can enable or disable termination protection when you launch a cluster using
 the console, the AWS CLI, or the API.
@@ -147,9 +136,7 @@ For high-availability clusters, default termination protection settings are as f
 
 Console
 
-###### To turn termination protection on or off when you create a
-
-cluster with the console
+###### To turn termination protection on or off when you create a cluster with the console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
@@ -167,9 +154,7 @@ cluster with the console
 
 AWS CLI
 
-###### To turn termination protection on or off when you create a
-
-cluster using the AWS CLI
+###### To turn termination protection on or off when you create a cluster using the AWS CLI
 
 - With the AWS CLI, you can launch a cluster with termination
   protection enabled with the `create-cluster` command
@@ -193,18 +178,14 @@ aws emr create-cluster --name "`TerminationProtectedCluster`" --release-label `e
 For more information about using Amazon EMR commands in the AWS CLI,
 see [https://docs.aws.amazon.com/cli/latest/reference/emr](../../../cli/latest/reference/emr.md "../../../cli/latest/reference/emr.md").
 
-## Configuring termination
-
-protection for running clusters
+## Configuring termination protection for running clusters
 
 You can configure termination protection for a running cluster with the console or
 the AWS CLI.
 
 Console
 
-###### To turn termination protection on or off for a running cluster
-
-with the console
+###### To turn termination protection on or off for a running cluster with the console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
@@ -221,9 +202,7 @@ with the console
 
 AWS CLI
 
-###### To turn termination protection on or off for a running cluster
-
-using the AWS CLI
+###### To turn termination protection on or off for a running cluster using the AWS CLI
 
 - To enable termination protection on a running cluster with the
   AWS CLI, use the `modify-cluster-attributes` command

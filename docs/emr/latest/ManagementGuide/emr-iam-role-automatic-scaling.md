@@ -1,6 +1,4 @@
-# Service role for automatic scaling
-
-in Amazon EMR (Auto Scaling role)
+# Service role for automatic scaling in Amazon EMR (Auto Scaling role)
 
 The Auto Scaling role for Amazon EMR performs a similar function as the service role,
 but allows additional actions for dynamically scaling environments.

@@ -1,6 +1,4 @@
-# Amazon EMR updates to AWS managed
-
-policies
+# Amazon EMR updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon EMR since this
 service began tracking these changes.

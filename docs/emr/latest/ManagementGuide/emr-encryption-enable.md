@@ -5,9 +5,7 @@ the provider you want to use for keys and encryption artifacts. For example, you
 use AWS KMS or a custom provider that you create. Next, create the keys or key
 provider as described in this section.
 
-## Providing keys for encrypting data
-
-at rest
+## Providing keys for encrypting data at rest
 
 You can use AWS Key Management Service (AWS KMS) or a custom key provider for at-rest data
 encryption in Amazon EMR. When you use AWS KMS, charges apply for the storage and use
@@ -17,9 +15,7 @@ This topic provides key policy details for a KMS key to be used with Amazon EMR,
 as well as guidelines and code examples for writing a custom key provider class
 for Amazon S3 encryption. For more information about creating keys, see [Creating keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the _AWS Key Management Service Developer Guide_.
 
-### Using AWS KMS keys for
-
-encryption
+### Using AWS KMS keys for encryption
 
 The AWS KMS encryption key must be created in the same Region
 as your Amazon EMR cluster instance and the Amazon S3 buckets used with EMRFS. If the key that you specify is in a different account from the one that you use to configure a cluster, you must specify the key using its ARN.
@@ -45,9 +41,7 @@ using the AWS Management Console. It assumes that you have already created a KMS
 create a new KMS key, see [Creating
 Keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the _AWS Key Management Service Developer Guide_.
 
-###### To add the EC2 instance profile for Amazon EMR to the list of encryption
-
-key users
+###### To add the EC2 instance profile for Amazon EMR to the list of encryption key users
 
 1. Sign in to the AWS Management Console and open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
 2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
@@ -57,9 +51,7 @@ key users
 5. In the **Add key users** dialog box, select the appropriate role. The name of the default role is `EMR_EC2_DefaultRole`.
 6. Choose **Add**.
 
-### Enabling EBS encryption by
-
-providing additional permissions for KMS keys
+### Enabling EBS encryption by providing additional permissions for KMS keys
 
 Beginning with Amazon EMR version 5.24.0, you can encrypt EBS root device and
 storage volumes by using a security configuration option. To enable such
@@ -77,9 +69,7 @@ user_. It assumes that you have already created a KMS key.
 To create a new KMS key, see [Creating keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md")
 in the _AWS Key Management Service Developer Guide_.
 
-###### To add the Amazon EMR service role to the list of encryption key
-
-users
+###### To add the Amazon EMR service role to the list of encryption key users
 
 1. Sign in to the AWS Management Console and open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
 2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
@@ -189,9 +179,7 @@ public class MyEncryptionMaterialsProviders implements EncryptionMaterialsProvid
 
 ```
 
-## Providing certificates for
-
-encrypting data in transit with Amazon EMR encryption
+## Providing certificates for encrypting data in transit with Amazon EMR encryption
 
 With Amazon EMR release version 4.8.0 or later, you have two options for specifying
 artifacts for encrypting data in transit using a security configuration:
@@ -208,9 +196,7 @@ Amazon EMR automatically downloads artifacts to each node in the cluster and lat
 uses them to implement the open-source, in-transit encryption features. For more
 information about available options, see [Encryption in transit](emr-data-encryption-options.md#emr-encryption-intransit "emr-data-encryption-options.md#emr-encryption-intransit").
 
-### Using PEM
-
-certificates
+### Using PEM certificates
 
 When you specify a .zip file for in-transit encryption, the security
 configuration expects PEM files within the .zip file to be named exactly as

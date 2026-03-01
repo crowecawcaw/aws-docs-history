@@ -9,8 +9,7 @@ through during processing.
 - [Getting familiar with clusters and nodes](#emr-overview-clusters "#emr-overview-clusters")
 - [Submitting work to a cluster](#emr-work-cluster "#emr-work-cluster")
 - [Processing data](#emr-overview-data-processing "#emr-overview-data-processing")
-- [Understanding the cluster
-  lifecycle](#emr-overview-cluster-lifecycle "#emr-overview-cluster-lifecycle")
+- [Understanding the cluster lifecycle](#emr-overview-cluster-lifecycle "#emr-overview-cluster-lifecycle")
 
 ## Getting familiar with clusters and nodes
 
@@ -61,9 +60,7 @@ install for your data processing needs. To process data in your Amazon EMR clust
 you can submit jobs or queries directly to installed applications, or you can run
 _steps_ in the cluster.
 
-### Submitting jobs directly to
-
-applications
+### Submitting jobs directly to applications
 
 You can submit jobs and interact directly with the software that is installed
 in your Amazon EMR cluster. To do this, you typically connect to the primary node
@@ -121,9 +118,7 @@ when a step fails during processing.
 
 ![Sequence diagram for Amazon EMR showing what happens to subsequent steps when a preceeding cluster step fails.](images/step-sequence-failed.png)
 
-## Understanding the cluster
-
-lifecycle
+## Understanding the cluster lifecycle
 
 A successful Amazon EMR cluster follows this process:
 
@@ -134,8 +129,7 @@ A successful Amazon EMR cluster follows this process:
    phase, the cluster state is `STARTING`.
 2. Amazon EMR runs _bootstrap actions_ that you specify on each
    instance. You can use bootstrap actions to install custom applications and
-   perform customizations that you require. For more information, see [Create bootstrap actions to install additional
-   software with an Amazon EMR cluster](emr-plan-bootstrap.md "emr-plan-bootstrap.md").
+   perform customizations that you require. For more information, see [Create bootstrap actions to install additional software with an Amazon EMR cluster](emr-plan-bootstrap.md "emr-plan-bootstrap.md").
    During this phase, the cluster state is `BOOTSTRAPPING`.
 3. Amazon EMR installs the native applications that you specify when you create
    the cluster, such as Hive, Hadoop, Spark, and so on.
@@ -158,8 +152,7 @@ all of its instances unless you enable termination protection. If a cluster
 terminates because of a failure, any data stored on the cluster is deleted, and the
 cluster state is set to `TERMINATED_WITH_ERRORS`. If you enabled
 termination protection, you can retrieve data from your cluster, and then remove
-termination protection and terminate the cluster. For more information, see [Using termination protection to protect your Amazon EMR clusters from
-accidental shut down](UsingEMR_TerminationProtection.md "UsingEMR_TerminationProtection.md").
+termination protection and terminate the cluster. For more information, see [Using termination protection to protect your Amazon EMR clusters from accidental shut down](UsingEMR_TerminationProtection.md "UsingEMR_TerminationProtection.md").
 
 The following diagram represents the lifecycle of a cluster, and how each stage of
 the lifecycle maps to a particular cluster state.

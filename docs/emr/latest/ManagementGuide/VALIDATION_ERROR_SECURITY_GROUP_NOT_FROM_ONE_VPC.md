@@ -5,16 +5,14 @@
 When your cluster and the security groups that you assign to your cluster
 belong to different virtual private clouds (VPCs), the cluster terminates with a
 `VALIDATION_ERROR_SECURITY_GROUP_NOT_FROM_ONE_VPC` error. For
-more information about security groups, see [Specifying Amazon EMR-managed and additional security
-groups](emr-sg-specify.md "emr-sg-specify.md") and [Control network traffic with security groups for your Amazon EMR cluster](emr-security-groups.md "emr-security-groups.md").
+more information about security groups, see [Specifying Amazon EMR-managed and additional security groups](emr-sg-specify.md "emr-sg-specify.md") and [Control network traffic with security groups for your Amazon EMR cluster](emr-security-groups.md "emr-security-groups.md").
 
 ## Resolution
 
 To resolve this error, use security groups that belong to the same VPC as the
 cluster.
 
-To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail
-information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
+To troubleshoot the failed EMR cluster, refer to the `ErrorDetail` information returned from the `DescribeCluster` and `ListClusters` APIs. For more information, see [Error codes with ErrorDetail information in Amazon EMR](emr-troubleshoot-error-errordetail.md "emr-troubleshoot-error-errordetail.md"). The `ErrorData` array within `ErrorDetail` returns the following information for this error code:
 
 **`vpc`**
 
@@ -30,9 +28,7 @@ group.
 
 The public URL of the documentation for the error code.
 
-## Steps to
-
-complete
+## Steps to complete
 
 Perform the following steps to identify and fix the error:
 

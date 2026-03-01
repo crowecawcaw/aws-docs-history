@@ -7,8 +7,7 @@ the default roles (for example, `AmazonElasticMapReduceforEC2Role` and
 `AmazonElasticMapReduceRole`). Then, copy and paste the contents to new
 policy statements, modify the permissions as appropriate, and attach the modified
 permissions policies to the roles that you create. You must have the appropriate IAM
-permissions to work with roles and policies. For more information, see [Allow users and groups to create and
-modify roles](emr-iam-roles-create-permissions.md "emr-iam-roles-create-permissions.md").
+permissions to work with roles and policies. For more information, see [Allow users and groups to create and modify roles](emr-iam-roles-create-permissions.md "emr-iam-roles-create-permissions.md").
 
 If you create a custom EMR role for EC2, follow the basic work flow, which automatically creates an instance profile of the same name. Amazon EC2 allows you to create instance profiles and roles with different names, but Amazon EMR does not support this configuration, and it results in an "invalid instance profile" error when you create the cluster.
 
@@ -17,8 +16,7 @@ If you create a custom EMR role for EC2, follow the basic work flow, which autom
 Inline policies are not automatically updated when service requirements change. If you create and attach inline policies, be aware that service updates might occur that suddenly cause permissions errors. For more
 information, see [Managed
 Policies and Inline Policies](../../../IAM/latest/UserGuide/policies_managed-vs-inline.md "../../../IAM/latest/UserGuide/policies_managed-vs-inline.md") in the _IAM User Guide_
-and [Specify custom IAM roles when you
-create a cluster](#emr-iam-roles-launch-jobflow "#emr-iam-roles-launch-jobflow").
+and [Specify custom IAM roles when you create a cluster](#emr-iam-roles-launch-jobflow "#emr-iam-roles-launch-jobflow").
 
 For more information about working with IAM roles, see the
 following topics in the _IAM User Guide_:
@@ -28,20 +26,15 @@ following topics in the _IAM User Guide_:
 - [Modifying a role](../../../IAM/latest/UserGuide/modifying-role.md "../../../IAM/latest/UserGuide/modifying-role.md")
 - [Deleting a role](../../../IAM/latest/UserGuide/deleting-roles.md "../../../IAM/latest/UserGuide/deleting-roles.md")
 
-## Specify custom IAM roles when you
-
-create a cluster
+## Specify custom IAM roles when you create a cluster
 
 You specify the service role for Amazon EMR and the role for the Amazon EC2 instance profile
 when you create a cluster. The user who is creating clusters needs permissions to
 retrieve and assign roles to Amazon EMR and EC2 instances. Otherwise, a **account
 is not authorized to call EC2** error occurs. For more information, see
-[Allow users and groups to create and
-modify roles](emr-iam-roles-create-permissions.md "emr-iam-roles-create-permissions.md").
+[Allow users and groups to create and modify roles](emr-iam-roles-create-permissions.md "emr-iam-roles-create-permissions.md").
 
-### Use the console to specify custom
-
-roles
+### Use the console to specify custom roles
 
 When you create a cluster, you can specify a custom service role for Amazon EMR, a
 custom role for the EC2 instance profile, and a custom Auto Scaling role using
@@ -73,9 +66,7 @@ the EC2 instance profile. For more information, see [IAM service roles used by A
 5. To launch your cluster, choose **Create
    cluster**.
 
-### Use the AWS CLI to specify custom
-
-roles
+### Use the AWS CLI to specify custom roles
 
 You can specify a service role for Amazon EMR and a service role for cluster EC2 instances explicitly
 using options with the `create-cluster` command from the AWS CLI. Use the
@@ -84,8 +75,7 @@ using options with the `create-cluster` command from the AWS CLI. Use the
 option to specify the role for the EC2 instance profile.
 
 The Auto Scaling role is specified using a separate option,
-`--auto-scaling-role`. For more information, see [Using automatic scaling with a custom policy for
-instance groups in Amazon EMR](emr-automatic-scaling.md "emr-automatic-scaling.md").
+`--auto-scaling-role`. For more information, see [Using automatic scaling with a custom policy for instance groups in Amazon EMR](emr-automatic-scaling.md "emr-automatic-scaling.md").
 
 ###### To specify custom IAM roles using the AWS CLI
 

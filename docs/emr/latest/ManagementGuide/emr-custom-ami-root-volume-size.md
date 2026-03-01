@@ -1,6 +1,4 @@
-# Customizing the Amazon EBS root device
-
-volume
+# Customizing the Amazon EBS root device volume
 
 You can set your volume type and other attributes, depending on your use case and cost requirements. You can accept default values or make customizations.
 
@@ -32,9 +30,7 @@ higher than 1 IOPS to 0.25 throughput (1:0.25).
 For more information about Amazon EBS, see [Amazon EC2 root device
 volume](../../../AWSEC2/latest/UserGuide/RootDeviceStorage.md "../../../AWSEC2/latest/UserGuide/RootDeviceStorage.md").
 
-## Root device volume type with the
-
-default AMI
+## Root device volume type with the default AMI
 
 When you use the default AMI, the root device volume type is determined by the
 Amazon EMR release that you use.
@@ -44,9 +40,7 @@ Amazon EMR release that you use.
 - With Amazon EMR releases lower than 6.15.0, Amazon EMR attaches **General Purpose SSD (gp2)** as the root device
   volume type.
 
-## Root device volume type with the custom
-
-AMI
+## Root device volume type with the custom AMI
 
 A custom AMI might have different root device volume types. Amazon EMR always uses your
 custom AMI volume type.
@@ -114,9 +108,7 @@ $0.040/provisioned MB/s/month over 125. That works out to be
 approximately $0.009293 per instance per hour, and $0.018586 per hour
 for the cluster.
 
-## Specifying custom root device volume
-
-settings
+## Specifying custom root device volume settings
 
 ###### Note
 
@@ -126,9 +118,7 @@ higher than 1 IOPS to 0.25 throughput (1:0.25).
 
 Console
 
-###### To specify Amazon EBS root device volume attributes from the Amazon EMR
-
-console
+###### To specify Amazon EBS root device volume attributes from the Amazon EMR console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
@@ -146,9 +136,7 @@ console
 
 CLI
 
-###### To specify Amazon EBS root device volume attributes with the
-
-AWS CLI
+###### To specify Amazon EBS root device volume attributes with the AWS CLI
 
 - Use the `--ebs-root-volume-size`,
   `--ebs-root-volume-iops`, and

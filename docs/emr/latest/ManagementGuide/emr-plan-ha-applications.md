@@ -1,6 +1,4 @@
-# Features that support high availability in an Amazon EMR cluster and how they work
-
-with open-source applications
+# Features that support high availability in an Amazon EMR cluster and how they work with open-source applications
 
 This topic provides information about the Hadoop high-availability features of HDFS
 NameNode and YARN ResourceManager in an Amazon EMR cluster, and how the high-availability
@@ -43,9 +41,7 @@ ip-##-#-#-##2.ec2.internal:8020 standby
 ip-##-#-#-##3.ec2.internal:8020 standby
 ```
 
-## High-availability YARN
-
-ResourceManager
+## High-availability YARN ResourceManager
 
 An Amazon EMR cluster with multiple primary nodes enables the YARN ResourceManager high availability feature
 in Hadoop. For more information, see [ResourceManager high availability](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html "https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html").
@@ -69,9 +65,7 @@ to get a list of the three primary nodes and their status:
 yarn rmadmin -getAllServiceState
 ```
 
-## Supported applications in an Amazon EMR
-
-Cluster with multiple primary nodes
+## Supported applications in an Amazon EMR Cluster with multiple primary nodes
 
 You can install and run the following applications on an Amazon EMR cluster with multiple primary nodes. For
 each application, the primary node failover process varies.
@@ -118,13 +112,9 @@ You can connect to any of the remaining primary nodes to continue your work
 because the Hive metastore daemon runs on all primary nodes. Or you can
 wait for the failed primary node to be replaced.
 
-## How Amazon EMR features work in a cluster with
+## How Amazon EMR features work in a cluster with multiple primary nodes
 
-multiple primary nodes
-
-### Connecting to primary nodes using
-
-SSH
+### Connecting to primary nodes using SSH
 
 You can connect to any of the three primary nodes in an Amazon EMR cluster
 using SSH in the same way you connect to a single primary node. For more
@@ -147,9 +137,7 @@ NameNode only runs on two or three of the primary nodes. However, you can run
 `hdfs` CLI commands and operate jobs to access HDFS on all
 three primary nodes.
 
-### Working with steps in an Amazon EMR
-
-Cluster with multiple primary nodes
+### Working with steps in an Amazon EMR Cluster with multiple primary nodes
 
 You can submit steps to an Amazon EMR cluster with multiple primary nodes in the same way you work with
 steps in a cluster with a single primary node. For more information, see
@@ -174,25 +162,18 @@ Amazon EMR cluster with multiple primary nodes:
   or CANCEL_AND_WAIT, instead of TERMINATE_JOB_FLOW, or
   TERMINATE_CLUSTER.
 
-### Automatic termination
-
-protection
+### Automatic termination protection
 
 Amazon EMR automatically enables termination protection for all clusters with multiple primary
 nodes, and overrides any step execution settings that you supply when you
-create the cluster. You can disable termination protection after the cluster has been launched. See [Configuring termination
-protection for running clusters](UsingEMR_TerminationProtection.md#emr-termination-protection-running-cluster "UsingEMR_TerminationProtection.md#emr-termination-protection-running-cluster").
+create the cluster. You can disable termination protection after the cluster has been launched. See [Configuring termination protection for running clusters](UsingEMR_TerminationProtection.md#emr-termination-protection-running-cluster "UsingEMR_TerminationProtection.md#emr-termination-protection-running-cluster").
 To shut down a cluster with multiple primary nodes, you must
 first modify the cluster attributes to disable termination protection. For
-instructions, see [Terminate an Amazon EMR Cluster with
-multiple primary nodes](emr-plan-ha-launch.md#emr-plan-ha-launch-terminate "emr-plan-ha-launch.md#emr-plan-ha-launch-terminate").
+instructions, see [Terminate an Amazon EMR Cluster with multiple primary nodes](emr-plan-ha-launch.md#emr-plan-ha-launch-terminate "emr-plan-ha-launch.md#emr-plan-ha-launch-terminate").
 
-For more information about termination protection, see [Using termination protection to protect your Amazon EMR clusters from
-accidental shut down](UsingEMR_TerminationProtection.md "UsingEMR_TerminationProtection.md").
+For more information about termination protection, see [Using termination protection to protect your Amazon EMR clusters from accidental shut down](UsingEMR_TerminationProtection.md "UsingEMR_TerminationProtection.md").
 
-### Unsupported features in an
-
-Amazon EMR Cluster with multiple primary nodes
+### Unsupported features in an Amazon EMR Cluster with multiple primary nodes
 
 The following Amazon EMR features are currently not available in an
 Amazon EMR cluster with multiple primary nodes:

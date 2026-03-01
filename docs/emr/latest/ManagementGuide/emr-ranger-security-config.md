@@ -1,6 +1,4 @@
-# Create the EMR security
-
-configuration
+# Create the EMR security configuration
 
 **Creating an Amazon EMR Security Configuration for Apache
 Ranger**
@@ -10,9 +8,7 @@ security configuration.
 
 Console
 
-###### To create a security configuration that specifies the AWS
-
-Ranger integration option
+###### To create a security configuration that specifies the AWS Ranger integration option
 
 1. In the Amazon EMR console, select **Security
    configurations**, then
@@ -24,8 +20,7 @@ Ranger integration option
    **Enable fine-grained access control managed by
    Apache Ranger**.
 4. Select your **IAM role for Apache Ranger** to
-   apply. For more information, see [IAM roles for native integration with Apache
-   Ranger](emr-ranger-iam.md "emr-ranger-iam.md").
+   apply. For more information, see [IAM roles for native integration with Apache Ranger](emr-ranger-iam.md "emr-ranger-iam.md").
 5. Select your **IAM role for other AWS
    services** to apply.
 6. Configure the plugins to connect to the Ranger Admin server by
@@ -51,9 +46,7 @@ the CLI.
 
 CLI
 
-###### To create a security configuration for Apache Ranger
-
-integration
+###### To create a security configuration for Apache Ranger integration
 
 1. Replace `<ACCOUNT
 ID>` with your AWS account
@@ -135,8 +128,7 @@ To securely integrate Amazon EMR with Apache Ranger, configure the following EMR
 security features:
 
 - Enable Kerberos authentication using the cluster-dedicated or external
-  KDC. For instructions, see [Use Kerberos for
-  authentication with Amazon EMR](emr-kerberos.md "emr-kerberos.md").
+  KDC. For instructions, see [Use Kerberos for authentication with Amazon EMR](emr-kerberos.md "emr-kerberos.md").
 - (Optional) Enable encryption in transit or at rest. For more information,
   see [Encryption options for Amazon EMR](emr-data-encryption-options.md "emr-data-encryption-options.md").
   For more information, see [Security in Amazon EMR](emr-security.md "emr-security.md").

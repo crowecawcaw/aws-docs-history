@@ -1,23 +1,18 @@
-# Use capacity reservations with
-
-instance fleets in Amazon EMR
+# Use capacity reservations with instance fleets in Amazon EMR
 
 To launch On-Demand Instance fleets with capacity reservations options, attach
 additional service role permissions which are required to use capacity
 reservation options. Since capacity reservation options must be used together
 with On-Demand allocation strategy, you also have to include the permissions
 required for allocation strategy in your service role and managed policy. For
-more information, see [Allocation strategy
-permissions](emr-instance-fleet.md#create-cluster-allocation-policy "emr-instance-fleet.md#create-cluster-allocation-policy").
+more information, see [Allocation strategy permissions](emr-instance-fleet.md#create-cluster-allocation-policy "emr-instance-fleet.md#create-cluster-allocation-policy").
 
 Amazon EMR supports both open and targeted capacity reservations. The following
 topics show instance fleets configurations that you can use with the
 `RunJobFlow` action or `create-cluster` command to
 launch instance fleets using On-Demand Capacity Reservations.
 
-## Use open
-
-capacity reservations on a best-effort basis
+## Use open capacity reservations on a best-effort basis
 
 If the cluster's On-Demand Instances match the attributes of open capacity
 reservations (instance type, platform, tenancy and Availability Zone) available in
@@ -122,9 +117,7 @@ Where,
 - `subnet-22XXXX01` is replaced with the subnet
   ID.
 
-## Use open capacity
-
-reservations first
+## Use open capacity reservations first
 
 You can choose to override the lowest-price allocation strategy and
 prioritize using available open capacity reservations first while
@@ -237,9 +230,7 @@ Where,
 - `subnet-22XXXX01` is replaced with the subnet
   ID.
 
-## Use targeted
-
-capacity reservations first
+## Use targeted capacity reservations first
 
 When you provision an Amazon EMR cluster, you can choose to override the
 lowest-price allocation strategy and prioritize using available targeted
@@ -359,9 +350,7 @@ Where,
 - `arn:aws:resource-groups:sa-east-1:123456789012:group/MyCRGroup`
   is replaced with your resource group ARN.
 
-## Avoid using
-
-available open capacity reservations
+## Avoid using available open capacity reservations
 
 ###### Example
 
@@ -408,16 +397,12 @@ Where,
 - `subnet-22XXXX01` is replaced with the subnet
   ID.
 
-## Scenarios for
-
-using capacity reservations
+## Scenarios for using capacity reservations
 
 You can benefit from using capacity reservations in the following
 scenarios.
 
-###### Scenario 1: Rotate a long-running cluster using capacity
-
-reservations
+###### Scenario 1: Rotate a long-running cluster using capacity reservations
 
 When rotating a long running cluster, you might have strict
 requirements on the instance types and Availability Zones for the new instances
@@ -426,9 +411,7 @@ assurance to complete the cluster rotation without interruptions.
 
 ![Cluster rotation using available capacity reservations](images/odcr-longrunning-cluster-diagram.png)
 
-###### Scenario 2: Provision successive short-lived clusters using capacity
-
-reservations
+###### Scenario 2: Provision successive short-lived clusters using capacity reservations
 
 You can also use capacity reservations to provision a group of
 successive, short-lived clusters for individual workloads so that when

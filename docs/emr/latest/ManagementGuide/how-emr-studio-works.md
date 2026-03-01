@@ -14,8 +14,7 @@ Each EMR Studio that you create uses the following AWS resources:
 - **IAM roles and permissions policies** - To manage user
   permissions, you create IAM permissions policies that you attach to a user's IAM
   identity or to a user role. EMR Studio also uses an IAM service role and security groups
-  to interoperate with other AWS services. For more information, see [Access control](#emr-studio-access-control "#emr-studio-access-control") and [Define security groups to control EMR Studio
-  network traffic](emr-studio-security-groups.md "emr-studio-security-groups.md").
+  to interoperate with other AWS services. For more information, see [Access control](#emr-studio-access-control "#emr-studio-access-control") and [Define security groups to control EMR Studio network traffic](emr-studio-security-groups.md "emr-studio-security-groups.md").
 - **Security groups** - EMR Studio uses security groups
   to establish a secure network channel between the Studio and an
   EMR cluster.
@@ -70,9 +69,7 @@ EMR Studio supports using the following identity providers for IAM Identity Cent
   identities in IAM Identity Center](../../../singlesignon/latest/userguide/manage-your-identity-source-sso.md "../../../singlesignon/latest/userguide/manage-your-identity-source-sso.md") and [Trusted Identity Propagation across applications](../../../singlesignon/latest/userguide/trustedidentitypropagation.md "../../../singlesignon/latest/userguide/trustedidentitypropagation.md") in the
   _AWS IAM Identity Center User Guide_.
 
-### How authentication affects login and
-
-user assignment
+### How authentication affects login and user assignment
 
 The authentication mode that you choose for EMR Studio affects how users log in to a
 Studio, how you assign a user to a Studio, and how you _authorize_ (give permissions to) users to perform actions such as
@@ -90,10 +87,10 @@ authentication mode.
 The following table outlines user assignment and authorization for EMR Studio by
 authentication mode.
 
-| EMR Studio user assignment and authorization by authentication mode | Authentication mode                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | User assignment                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | User authorization |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
-| IAM (authentication and federation)                                 | Allow the `CreateStudioPresignedUrl` action in an IAM permissions<br>policy attached to an IAM identity (user, group, or role).<br>For federated users, allow the `CreateStudioPresignedUrl` action in<br>an IAM in the permissions policy that you configure for the IAM role you use<br>for federation.<br>Use attribute-based access control (ABAC) to specify the Studio or<br>Studios that the user can access.<br>For instructions, see [Assign a user or group to an<br>EMR Studio](emr-studio-manage-users.md#emr-studio-assign-users-groups "emr-studio-manage-users.md#emr-studio-assign-users-groups"). | Define IAM permissions policies that allow certain EMR Studio actions.<br>For native a users, attach the IAM permissions policy to an IAM identity<br>(user, group, or role). For federated users, allow Studio actions in the<br>permissions policy that you configure for the IAM role you use for<br>federation.<br>For more information, see [Configure EMR Studio user permissions for<br>Amazon EC2 or Amazon EKS](emr-studio-user-permissions.md "emr-studio-user-permissions.md"). |
-| IAM Identity Center                                                 | For Studios created with `IdCUserAssignment` set to<br>`REQUIRED`, map users to the Studio with a specified session policy.<br>For more information, see [Assign a user or group to an<br>EMR Studio](emr-studio-manage-users.md#emr-studio-assign-users-groups "emr-studio-manage-users.md#emr-studio-assign-users-groups").<br>For Studios created with `IdCUserAssignment` set to<br>`OPTIONAL`, any Identity Center user or group can access the<br>Studio.                                                                                                                                                    | \*Optional:<br>• Define IAM session policies that allow certain EMR Studio actions. Map a<br>session policy to a user when you assign the user to a Studio.<br>For more information, see [User permissions for IAM Identity Center authentication<br>mode](#emr-studio-sso-authorization "#emr-studio-sso-authorization").                                                                                                                                                                 |
+| EMR Studio user assignment and authorization by authentication mode | Authentication mode                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | User assignment                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | User authorization |
+| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| IAM (authentication and federation)                                 | Allow the `CreateStudioPresignedUrl` action in an IAM permissions<br>policy attached to an IAM identity (user, group, or role).<br>For federated users, allow the `CreateStudioPresignedUrl` action in<br>an IAM in the permissions policy that you configure for the IAM role you use<br>for federation.<br>Use attribute-based access control (ABAC) to specify the Studio or<br>Studios that the user can access.<br>For instructions, see [Assign a user or group to an EMR Studio](emr-studio-manage-users.md#emr-studio-assign-users-groups "emr-studio-manage-users.md#emr-studio-assign-users-groups"). | Define IAM permissions policies that allow certain EMR Studio actions.<br>For native a users, attach the IAM permissions policy to an IAM identity<br>(user, group, or role). For federated users, allow Studio actions in the<br>permissions policy that you configure for the IAM role you use for<br>federation.<br>For more information, see [Configure EMR Studio user permissions for Amazon EC2 or Amazon EKS](emr-studio-user-permissions.md "emr-studio-user-permissions.md"). |
+| IAM Identity Center                                                 | For Studios created with `IdCUserAssignment` set to<br>`REQUIRED`, map users to the Studio with a specified session policy.<br>For more information, see [Assign a user or group to an EMR Studio](emr-studio-manage-users.md#emr-studio-assign-users-groups "emr-studio-manage-users.md#emr-studio-assign-users-groups").<br>For Studios created with `IdCUserAssignment` set to<br>`OPTIONAL`, any Identity Center user or group can access the<br>Studio.                                                                                                                                                    | \*Optional:<br>• Define IAM session policies that allow certain EMR Studio actions. Map a<br>session policy to a user when you assign the user to a Studio.<br>For more information, see [User permissions for IAM Identity Center authentication mode](#emr-studio-sso-authorization "#emr-studio-sso-authorization").                                                                                                                                                                 |
 
 ## Access control
 
@@ -101,20 +98,15 @@ In Amazon EMR Studio, you configure user authorization (permissions) with AWS Id
 (IAM) identity-based policies. In these policies, you specify allowed actions and resources,
 as well as the conditions under which the actions are allowed.
 
-### User permissions for IAM authentication
-
-mode
+### User permissions for IAM authentication mode
 
 To set user permissions when you use IAM authentication for EMR Studio, you allow
 actions such as `elasticmapreduce:RunJobFlow` in an IAM permissions policy. You
 can create one or more permissions policies to use. For example, you might create a basic
 policy that does not allow a user to create new Amazon EMR clusters, and another policy that does
-allow cluster creation. For a list of all Studio actions, see [AWS Identity and Access Management permissions for
-EMR Studio users](emr-studio-user-permissions.md#emr-studio-iam-permissions-table "emr-studio-user-permissions.md#emr-studio-iam-permissions-table").
+allow cluster creation. For a list of all Studio actions, see [AWS Identity and Access Management permissions for EMR Studio users](emr-studio-user-permissions.md#emr-studio-iam-permissions-table "emr-studio-user-permissions.md#emr-studio-iam-permissions-table").
 
-### User permissions for IAM Identity Center authentication
-
-mode
+### User permissions for IAM Identity Center authentication mode
 
 When you use IAM Identity Center authentication, you create a single EMR Studio user role. The
 _user role_ is a dedicated IAM role that a Studio assumes
@@ -148,11 +140,9 @@ The following list includes key features of EMR Studio Workspaces:
 
 - Workspace visibility is Studio-based. Workspaces that you
   create in one Studio aren't visible in other Studios.
-- By default, a Workspace is shared and can be seen by all Studio users. However, only one user can open and work in a Workspace at a time. To work simultaneously with other users, you can [Configure Workspace
-  collaboration in EMR Studio](emr-studio-workspace-collaboration.md "emr-studio-workspace-collaboration.md")
+- By default, a Workspace is shared and can be seen by all Studio users. However, only one user can open and work in a Workspace at a time. To work simultaneously with other users, you can [Configure Workspace collaboration in EMR Studio](emr-studio-workspace-collaboration.md "emr-studio-workspace-collaboration.md")
 - You can collaborate simultaneously with other users in a Workspace when you
-  enable Workspace collaboration. For more information, see [Configure Workspace
-  collaboration in EMR Studio](emr-studio-workspace-collaboration.md "emr-studio-workspace-collaboration.md").
+  enable Workspace collaboration. For more information, see [Configure Workspace collaboration in EMR Studio](emr-studio-workspace-collaboration.md "emr-studio-workspace-collaboration.md").
 - Notebooks in a Workspace share the same EMR cluster to run commands. You
   can attach a Workspace to an Amazon EMR cluster running on Amazon EC2 or to an Amazon EMR on EKS
   virtual cluster and managed endpoint.
@@ -162,8 +152,7 @@ The following list includes key features of EMR Studio Workspaces:
   Workspace in a different Availability Zone in the Studio's VPC when the
   Studio is configured with access to multiple Availability Zones. If the
   Studio has only one Availability Zone, EMR Studio attempts to launch the
-  Workspace in a different subnet. For more information, see [Resolve Workspace connectivity
-  issues](emr-studio-workspace-stop-start.md "emr-studio-workspace-stop-start.md").
+  Workspace in a different subnet. For more information, see [Resolve Workspace connectivity issues](emr-studio-workspace-stop-start.md "emr-studio-workspace-stop-start.md").
 - A Workspace can connect to clusters in any of the subnets that are associated
   with a Studio.
 

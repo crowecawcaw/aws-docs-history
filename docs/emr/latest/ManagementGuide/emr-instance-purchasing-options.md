@@ -1,6 +1,4 @@
-# Instance purchasing
-
-options in Amazon EMR
+# Instance purchasing options in Amazon EMR
 
 When you set up a cluster, you choose a purchasing option for Amazon EC2 instances.
 You can choose On-Demand Instances, Spot Instances, or both. Prices vary based
@@ -16,8 +14,7 @@ type and purchasing option apply to all Amazon EC2 instances in each instance gr
 If you choose instance fleets, you can change purchasing options after you
 create the instance fleet, and you can mix purchasing options to fulfill a
 target capacity that you specify. For more information about these
-configurations, see [Create an Amazon EMR cluster with instance
-fleets or uniform instance groups](emr-instance-group-configuration.md "emr-instance-group-configuration.md").
+configurations, see [Create an Amazon EMR cluster with instance fleets or uniform instance groups](emr-instance-group-configuration.md "emr-instance-group-configuration.md").
 
 ## On-Demand Instances
 
@@ -30,9 +27,7 @@ belong to other AWS accounts. For more information about purchasing
 options, see [Instance Purchasing Options](../../../AWSEC2/latest/UserGuide/instance-purchasing-options.md "../../../AWSEC2/latest/UserGuide/instance-purchasing-options.md") in the
 _Amazon EC2 User Guide_.
 
-### Using Reserved
-
-Instances
+### Using Reserved Instances
 
 To use Reserved Instances in Amazon EMR, you use Amazon EC2 to purchase the
 Reserved Instance and specify the parameters of the reservation,
@@ -59,9 +54,7 @@ instances. The first instance is billed at the Reserved Instance rate
 and the other is billed at the On-Demand rate. Reserved Instance
 capacity is used before any On-Demand Instances are created.
 
-### Using Dedicated
-
-Instances
+### Using Dedicated Instances
 
 To use Dedicated Instances, you purchase Dedicated Instances using
 Amazon EC2 and then create a VPC with the **Dedicated**
@@ -82,8 +75,7 @@ instance capacity at a reduced cost as compared to On-Demand purchasing. The
 disadvantage of using Spot Instances is that instances may terminate if Spot
 capacity becomes unavailable for the instance type you are running. For more
 information about when using Spot Instances may be appropriate for your
-application, see [When should you use Spot
-Instances?](emr-plan-instances-guidelines.md#emr-plan-spot-instances "emr-plan-instances-guidelines.md#emr-plan-spot-instances").
+application, see [When should you use Spot Instances?](emr-plan-instances-guidelines.md#emr-plan-spot-instances "emr-plan-instances-guidelines.md#emr-plan-spot-instances").
 
 When Amazon EC2 has unused capacity, it offers EC2 instances at a reduced cost,
 called the _Spot price_. This price fluctuates based on
@@ -125,9 +117,7 @@ _Amazon EC2 User Guide_.
 Spot Instance options depend on whether you use uniform instance groups or
 instance fleets in your cluster configuration.
 
-###### \*\*Spot Instances in uniform instance
-
-groups\*\*
+###### **Spot Instances in uniform instance groups**
 
 When you use Spot Instances in a uniform instance group, all instances
 in an instance group must be Spot Instances. You specify a single subnet
@@ -137,12 +127,9 @@ type launch if the Spot price in the cluster's Region and Availability Zone is
 below the maximum Spot price. Instances terminate if the Spot price is
 above your maximum Spot price. You set the maximum Spot price only when
 you configure an instance group. It can't be changed later. For more
-information, see [Create an Amazon EMR cluster with instance
-fleets or uniform instance groups](emr-instance-group-configuration.md "emr-instance-group-configuration.md").
+information, see [Create an Amazon EMR cluster with instance fleets or uniform instance groups](emr-instance-group-configuration.md "emr-instance-group-configuration.md").
 
-###### \*\*Spot Instances in instance
-
-fleets\*\*
+###### **Spot Instances in instance fleets**
 
 When you use the instance fleets configuration, additional options
 give you more control over how Spot Instances launch and terminate.

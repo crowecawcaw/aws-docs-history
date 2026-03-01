@@ -1,6 +1,4 @@
-# Considerations and best practices when you create
-
-an Amazon EMR cluster with multiple primary nodes
+# Considerations and best practices when you create an Amazon EMR cluster with multiple primary nodes
 
 Consider the following when you create an Amazon EMR cluster with multiple primary nodes:
 
@@ -35,8 +33,7 @@ clusters.
   launches from failing because of unsupported primary instance types. For more information,
   see [Instance type not supported](emr-INSTANCE_TYPE_NOT_SUPPORTED-error.md "emr-INSTANCE_TYPE_NOT_SUPPORTED-error.md").
 - Amazon EMR doesn't guarantee high availability for open-source applications other
-  than the ones that are specified in [Supported applications in an Amazon EMR
-  Cluster with multiple primary nodes](emr-plan-ha-applications.md#emr-plan-ha-applications-list "emr-plan-ha-applications.md#emr-plan-ha-applications-list").
+  than the ones that are specified in [Supported applications in an Amazon EMR Cluster with multiple primary nodes](emr-plan-ha-applications.md#emr-plan-ha-applications-list "emr-plan-ha-applications.md#emr-plan-ha-applications-list").
 - In Amazon EMR releases 5.23.0 through 5.36.2, only two of the three
   primary nodes for an instance group cluster run HDFS
   NameNode.

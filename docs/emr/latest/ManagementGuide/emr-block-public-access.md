@@ -9,9 +9,7 @@ inbound traffic from public IP addresses on a port.
 _Block public access_ is enabled by default. To increase
 account protection, we recommend that you keep it enabled.
 
-## Understanding block public
-
-access
+## Understanding block public access
 
 You can use the _block public access_ account-level
 configuration to centrally manage public network access to Amazon EMR clusters.
@@ -27,19 +25,15 @@ subnet to have a public access rule that violates the BPA configuration for your
 account, Amazon EMR revokes the new rule if it has permission to do so. If Amazon EMR doesn't
 have permission to revoke the rule, it creates an event in the AWS Health
 dashboard that describes the violation. To grant the revoke rule permission to
-Amazon EMR, see [Configure Amazon EMR to revoke security group
-rules](#revoke-block-public-access "#revoke-block-public-access").
+Amazon EMR, see [Configure Amazon EMR to revoke security group rules](#revoke-block-public-access "#revoke-block-public-access").
 
 Block public access is enabled by default for all clusters in every AWS Region
 for your AWS account. BPA applies to the entire lifecycle of a cluster, but
 doesn't apply to clusters that you create in private subnets. You can configure
 exceptions to the BPA rule; port 22 is an exception by default. For more information
-on setting exceptions, see [Configure block public
-access](#configure-block-public-access "#configure-block-public-access").
+on setting exceptions, see [Configure block public access](#configure-block-public-access "#configure-block-public-access").
 
-## Configure block public
-
-access
+## Configure block public access
 
 You can update security groups and the block public access configuration in your
 accounts at any time.
@@ -83,9 +77,7 @@ put-block-public-access-configuration` command to
 | Turn block public access off                                   | Set<br>`BlockPublicSecurityGroupRules` to<br>`false` as shown in the following<br>example. Security groups associated with a cluster<br>can have inbound rules that allow public access on<br>any port. We do not recommend this<br>configuration.<br>`<br>aws emr put-block-public-access-configuration --block-public-access-configuration BlockPublicSecurityGroupRules=false<br>`                                                                                                                                                             |
 | Turn block public access on and specify<br>ports as exceptions | The following example turns on block public<br>access, and specifies Port 22 and Ports 100-101 as<br>exceptions. This allows clusters to be created if<br>an associated security group has an inbound rule<br>that allows public access on Port 22, Port 100, or<br>Port 101.<br>`<br>aws emr put-block-public-access-configuration --block-public-access-configuration  '{ "BlockPublicSecurityGroupRules": true, "PermittedPublicSecurityGroupRuleRanges": [ { "MinRange": 22, "MaxRange": 22 }, { "MinRange": 100, "MaxRange": 101 } ] }'<br>` |
 
-## Configure Amazon EMR to revoke security group
-
-rules
+## Configure Amazon EMR to revoke security group rules
 
 Amazon EMR needs permission to revoke security group rules and comply with your block
 public access configuration. You can use one of the following approaches to give
@@ -100,16 +92,13 @@ Amazon EMR the permission that it needs:
   **Modifying a role permissions policy**
   with the [IAM Console](../../../IAM/latest/UserGuide/roles-managingrole-editing-console.md#roles-modify_permissions-policy "../../../IAM/latest/UserGuide/roles-managingrole-editing-console.md#roles-modify_permissions-policy"), [AWS API](../../../IAM/latest/UserGuide/roles-managingrole-editing-api.md#roles-modify_permissions-policy-api "../../../IAM/latest/UserGuide/roles-managingrole-editing-api.md#roles-modify_permissions-policy-api"), and [AWS CLI](../../../IAM/latest/UserGuide/roles-managingrole-editing-cli.md#roles-modify_permissions-policy-cli "../../../IAM/latest/UserGuide/roles-managingrole-editing-cli.md#roles-modify_permissions-policy-cli") in the _IAM User Guide_.
 
-## Resolve block public access
-
-violations
+## Resolve block public access violations
 
 If a block public access violation occurs, you can mitigate it with one of the
 following actions:
 
 - If you want to access a web interface on your cluster, use one of the
-  options described in [View web interfaces hosted on Amazon EMR
-  clusters](emr-web-interfaces.md "emr-web-interfaces.md") to access the interface through SSH
+  options described in [View web interfaces hosted on Amazon EMR clusters](emr-web-interfaces.md "emr-web-interfaces.md") to access the interface through SSH
   (port 22).
 - To allow traffic to the cluster from specific IP addresses rather than
   from the public IP address, add a security group rule. For more information,
@@ -119,12 +108,9 @@ following actions:
   BPA exceptions to include the desired port or range of ports. When you specify a
   BPA exception, you introduce risk with an unprotected port. If you plan to
   specify an exception, you should remove the exception as soon as it's no
-  longer needed. For more information, see [Configure block public
-  access](#configure-block-public-access "#configure-block-public-access").
+  longer needed. For more information, see [Configure block public access](#configure-block-public-access "#configure-block-public-access").
 
-## Identify clusters associated with
-
-security group rules
+## Identify clusters associated with security group rules
 
 You might need to identify all of the clusters that are associated with a given
 security group rule, or to find the security group rule for a given cluster.

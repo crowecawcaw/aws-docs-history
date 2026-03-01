@@ -6,8 +6,7 @@ enable at-rest data encryption, you can choose to encrypt EMRFS data in Amazon S
 in local disks, or both. Each security configuration that you create is stored in
 Amazon EMR rather than in the cluster configuration, so you can easily reuse a
 configuration to specify data encryption settings whenever you create a cluster. For
-more information, see [Create a security
-configuration with the Amazon EMR console or with the AWS CLI](emr-create-security-configuration.md "emr-create-security-configuration.md").
+more information, see [Create a security configuration with the Amazon EMR console or with the AWS CLI](emr-create-security-configuration.md "emr-create-security-configuration.md").
 
 The following diagram shows the different data encryption options available with
 security configurations.
@@ -45,9 +44,7 @@ management systems you want to use, so you can first create the keys and
 certificates or the custom providers that you specify as part of encryption
 settings.
 
-## Encryption at rest for EMRFS data in
-
-Amazon S3
+## Encryption at rest for EMRFS data in Amazon S3
 
 Amazon S3 encryption works with the Amazon EMR File System (EMRFS) objects read from and
 written to Amazon S3. You specify Amazon S3 server-side encryption (SSE) or client-side
@@ -102,9 +99,7 @@ not all data on cluster instance volumes is encrypted. Furthermore, because
 Hue does not use EMRFS, objects that the Hue S3 File Browser writes to Amazon S3
 are not encrypted.
 
-## Encryption at rest for data in Amazon EMR
-
-WAL
+## Encryption at rest for data in Amazon EMR WAL
 
 When you set up server-side encryption (SSE) for write-ahead logging (WAL),
 Amazon EMR encrypts data at rest. You can choose from two different key management
@@ -205,8 +200,7 @@ encryption.
 
 Several encryption mechanisms are enabled with in-transit encryption. These
 are open-source features, are application-specific, and might vary by Amazon EMR
-release. To enable in-transit encryption, use [Create a security
-configuration with the Amazon EMR console or with the AWS CLI](emr-create-security-configuration.md "emr-create-security-configuration.md") in Amazon EMR. For
+release. To enable in-transit encryption, use [Create a security configuration with the Amazon EMR console or with the AWS CLI](emr-create-security-configuration.md "emr-create-security-configuration.md") in Amazon EMR. For
 EMR clusters with in-transit encryption enabled, Amazon EMR automatically
 configures the open-source application configurations to enable in-transit encryption. For
 advanced use cases, you can configure open-source application configurations directly to override the default behavior in Amazon EMR. For more information, see
@@ -240,5 +234,4 @@ See the following to learn more specific details about open-source applications 
 You specify the encryption artifacts used for in-transit encryption in one of
 two ways: either by providing a zipped file of certificates that you upload to
 Amazon S3, or by referencing a custom Java class that provides encryption artifacts.
-For more information, see [Providing certificates for
-encrypting data in transit with Amazon EMR encryption](emr-encryption-enable.md#emr-encryption-certificates "emr-encryption-enable.md#emr-encryption-certificates").
+For more information, see [Providing certificates for encrypting data in transit with Amazon EMR encryption](emr-encryption-enable.md#emr-encryption-certificates "emr-encryption-enable.md#emr-encryption-certificates").

@@ -9,8 +9,7 @@ after which the data is discarded.
 
 The following table shows common uses for metrics reported by Amazon EMR. These are
 suggestions to get you started, not a comprehensive list. For a complete list of metrics
-reported by Amazon EMR, see [Metrics reported by Amazon EMR in
-CloudWatch](#UsingEMR_ViewingMetrics_MetricsReported "#UsingEMR_ViewingMetrics_MetricsReported").
+reported by Amazon EMR, see [Metrics reported by Amazon EMR in CloudWatch](#UsingEMR_ViewingMetrics_MetricsReported "#UsingEMR_ViewingMetrics_MetricsReported").
 
 | How do I?                                            | Relevant metrics                                                                                                                                                                                                                                              |
 | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -48,9 +47,7 @@ Console
    filter the time frame of your graph, select a prefilled option or
    choose **Custom**.
 
-## Metrics reported by Amazon EMR in
-
-CloudWatch
+## Metrics reported by Amazon EMR in CloudWatch
 
 The following tables list the metrics that Amazon EMR reports in the console and pushes to
 CloudWatch.

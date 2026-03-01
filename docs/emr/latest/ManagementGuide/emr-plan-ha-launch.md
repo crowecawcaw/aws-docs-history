@@ -1,6 +1,4 @@
-# Launch an Amazon EMR Cluster with multiple
-
-primary nodes
+# Launch an Amazon EMR Cluster with multiple primary nodes
 
 This topic provides configuration details and examples for launching an
 Amazon EMR cluster with multiple primary nodes.
@@ -11,8 +9,7 @@ Amazon EMR automatically enables termination protection for all clusters that ha
 multiple primary nodes, and overrides any auto-termination settings that you
 supply when you create the cluster. To shut down a cluster with multiple
 primary nodes, you must first modify the cluster attributes to disable
-termination protection. For instructions, see [Terminate an Amazon EMR Cluster with
-multiple primary nodes](#emr-plan-ha-launch-terminate "#emr-plan-ha-launch-terminate").
+termination protection. For instructions, see [Terminate an Amazon EMR Cluster with multiple primary nodes](#emr-plan-ha-launch-terminate "#emr-plan-ha-launch-terminate").
 
 ## Prerequisites
 
@@ -37,9 +34,7 @@ aws ec2 modify-subnet-attribute --subnet-id subnet-`22XXXX01` --map-public-ip-on
   external KDC. For more information, see [Configuring Kerberos on
   Amazon Amazon EMR](emr-kerberos-configure.md "emr-kerberos-configure.md").
 
-## Launch an Amazon EMR Cluster with multiple
-
-primary nodes
+## Launch an Amazon EMR Cluster with multiple primary nodes
 
 You can launch a cluster with multiple primary nodes when you use instance groups
 or instance fleets. When you use _instance groups_ with multiple
@@ -230,9 +225,7 @@ aws emr create-cluster \
 --custom-ami-id ami-MyAmiID
 ```
 
-## Terminate an Amazon EMR Cluster with
-
-multiple primary nodes
+## Terminate an Amazon EMR Cluster with multiple primary nodes
 
 To terminate an Amazon EMR cluster with multiple primary nodes, you must disable termination protection
 before terminating the cluster, as the following example demonstrates. Replace

@@ -7,8 +7,7 @@ We strongly recommend that you use the latest Amazon EMR release (Amazon EMR
 experience intermittent application failures or delays in scaling. Amazon EMR resolved
 this issue with 5.x releases 5.30.2, 5.31.1, 5.32.1, 5.33.1 and higher, and with 6.x
 releases 6.1.1, 6.2.1, 6.3.1 and higher. For more information Region and
-release availability, see [Managed scaling
-availability](#emr-managed-scaling-availability "#emr-managed-scaling-availability").
+release availability, see [Managed scaling availability](#emr-managed-scaling-availability "#emr-managed-scaling-availability").
 
 ## Overview
 
@@ -19,9 +18,7 @@ continuously evaluates cluster metrics to make scaling decisions that optimize y
 clusters for cost and speed. Managed scaling is available for clusters composed of
 either instance groups or instance fleets.
 
-## Managed scaling
-
-availability
+## Managed scaling availability
 
 - In the following AWS Regions, Amazon EMR managed scaling is available with Amazon EMR 6.14.0 and higher:
   - Asia Pacific (Taipei) (ap-east-2)
@@ -111,8 +108,7 @@ For more information about managed scaling parameters, see [`ComputeLimits`](../
 ## Considerations for Amazon EMR managed scaling
 
 - Managed scaling is supported in limited AWS Regions and Amazon EMR releases.
-  For more information, see [Managed scaling
-  availability](#emr-managed-scaling-availability "#emr-managed-scaling-availability").
+  For more information, see [Managed scaling availability](#emr-managed-scaling-availability "#emr-managed-scaling-availability").
 - You must configure the required parameters for Amazon EMR managed scaling. For
   more information, see [Managed scaling parameters](#emr-managed-scaling-parameters "#emr-managed-scaling-parameters").
 - To use managed scaling, the metrics-collector process must be able to
@@ -245,5 +241,5 @@ This table lists updates to the Amazon EMR managed scaling capability.
 | **February 13, 2024** | Managed scaling is available in the `eu-south-2`<br>Europe (Spain) Region.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 6.14.0 and higher                   |
 | **October 10, 2023**  | Managed scaling is available in the `ap-southeast-3`<br>Asia Pacific (Jakarta) Region.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 6.14.0 and higher                   |
 | **July 28, 2023**     | Enhanced managed scaling to switch to different task instance<br>group on scale-up when Amazon EMR experiences a delay in scale-up with<br>the current instance group.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 5.34.0 and higher, 6.4.0 and higher |
-| **June 16, 2023**     | Enhanced managed scaling to be aware of the nodes running<br>application master so that those nodes are not scaled down. For more<br>information, see [Understanding Amazon EMR node allocation<br>strategy and scenarios](managed-scaling-allocation-strategy.md "managed-scaling-allocation-strategy.md").                                                                                                                                                                                                                                                                                                                                                                                                                              | 5.34.0 and higher, 6.4.0 and higher |
+| **June 16, 2023**     | Enhanced managed scaling to be aware of the nodes running<br>application master so that those nodes are not scaled down. For more<br>information, see [Understanding Amazon EMR node allocation strategy and scenarios](managed-scaling-allocation-strategy.md "managed-scaling-allocation-strategy.md").                                                                                                                                                                                                                                                                                                                                                                                                                                 | 5.34.0 and higher, 6.4.0 and higher |
 | **March 21, 2022**    | Added Spark shuffle data awareness used when scaling-down<br>clusters. For Amazon EMR clusters with Apache Spark and the managed<br>scaling feature enabled, Amazon EMR continuously monitors Spark executors<br>and intermediate shuffle data locations. Using this information,<br>Amazon EMR scales-down only under-utilized instances which don't<br>contain actively used shuffle data. This prevents recomputation of<br>lost shuffle data, helping to lower cost and improve job<br>performance. For more information, see the [Spark Programming Guide](https://spark.apache.org/docs/latest/rdd-programming-guide.html#shuffle-operations "https://spark.apache.org/docs/latest/rdd-programming-guide.html#shuffle-operations"). | 5.34.0 and higher, 6.4.0 and higher |

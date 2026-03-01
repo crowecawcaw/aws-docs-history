@@ -36,9 +36,7 @@ forum](https://forums.aws.amazon.com/forum.jspa?forumID=52 "https://forums.aws.a
 
 ## Step 1: Configure data resources and launch an Amazon EMR cluster
 
-### Prepare storage for
-
-Amazon EMR
+### Prepare storage for Amazon EMR
 
 When you use Amazon EMR, you can choose from a variety of file systems to store input
 data, output data, and log files. In this tutorial, you use EMRFS to store data in
@@ -59,9 +57,7 @@ Buckets and folders that you use with Amazon EMR have the following limitations:
   accounts._
 - An output folder must be empty.
 
-### Prepare an application with input
-
-data for Amazon EMR
+### Prepare an application with input data for Amazon EMR
 
 The most common way to prepare an application for Amazon EMR is to upload the
 application and its input data to Amazon S3. Then, when you submit work to your cluster
@@ -150,9 +146,7 @@ if __name__ == "__main__":
 
 For more information about setting up data for EMR, see [Prepare input data for processing with Amazon EMR](emr-plan-input.md "emr-plan-input.md").
 
-### Launch an Amazon EMR
-
-cluster
+### Launch an Amazon EMR cluster
 
 After you prepare a storage location and your application, you can launch a sample
 Amazon EMR cluster. In this step, you launch an Apache Spark cluster using the latest
@@ -212,8 +206,7 @@ updates.
 Your cluster status changes to **Waiting** when the
 cluster is up, running, and ready to accept work. For more information
 about reading the cluster summary, see [View Amazon EMR cluster status and details](emr-manage-view-clusters.md "emr-manage-view-clusters.md"). For information about
-cluster status, see [Understanding the cluster
-lifecycle](emr-overview.md#emr-overview-cluster-lifecycle "emr-overview.md#emr-overview-cluster-lifecycle").
+cluster status, see [Understanding the cluster lifecycle](emr-overview.md#emr-overview-cluster-lifecycle "emr-overview.md#emr-overview-cluster-lifecycle").
 
 CLI
 
@@ -296,8 +289,7 @@ The `State` value changes from
 `WAITING` as Amazon EMR provisions the cluster.
 
 Cluster status changes to `**WAITING**` when a cluster is up, running, and
-ready to accept work. For information about cluster status, see [Understanding the cluster
-lifecycle](emr-overview.md#emr-overview-cluster-lifecycle "emr-overview.md#emr-overview-cluster-lifecycle").
+ready to accept work. For information about cluster status, see [Understanding the cluster lifecycle](emr-overview.md#emr-overview-cluster-lifecycle "emr-overview.md#emr-overview-cluster-lifecycle").
 
 ## Step 2: Submit work to your Amazon EMR cluster
 
@@ -356,8 +348,7 @@ Console
    Replace
    `s3://amzn-s3-demo-bucket/food_establishment_data.csv`
    with the S3 bucket URI of the input data you prepared in
-   [Prepare an application with input
-   data for Amazon EMR](#emr-getting-started-prepare-app "#emr-getting-started-prepare-app").
+   [Prepare an application with input data for Amazon EMR](#emr-getting-started-prepare-app "#emr-getting-started-prepare-app").
 
    Replace `amzn-s3-demo-bucket`
    with the name of the bucket that you created for this
@@ -386,8 +377,7 @@ CLI
 ###### To submit a Spark application as a step with the AWS CLI
 
 1. Make sure you have the `ClusterId` of the cluster
-   you launched in [Launch an Amazon EMR
-   cluster](#emr-getting-started-launch-sample-cluster "#emr-getting-started-launch-sample-cluster").
+   you launched in [Launch an Amazon EMR cluster](#emr-getting-started-launch-sample-cluster "#emr-getting-started-launch-sample-cluster").
    You can also retrieve your cluster ID with the following
    command.
 
@@ -535,12 +525,9 @@ When you use Amazon EMR, you may want to connect to a running cluster to read lo
 files, debug the cluster, or use CLI tools like the Spark shell. Amazon EMR lets you
 connect to a cluster using the Secure Shell (SSH) protocol. This section covers
 how to configure SSH, connect to your cluster, and view log files for Spark. For
-more information about connecting to a cluster, see [Authenticate to Amazon EMR cluster
-nodes](emr-authenticate-cluster-connections.md "emr-authenticate-cluster-connections.md").
+more information about connecting to a cluster, see [Authenticate to Amazon EMR cluster nodes](emr-authenticate-cluster-connections.md "emr-authenticate-cluster-connections.md").
 
-#### Authorize SSH connections
-
-to your cluster
+#### Authorize SSH connections to your cluster
 
 Before you connect to your cluster, you need to modify your cluster
 security groups to authorize inbound SSH connections. Amazon EC2 security groups
@@ -561,9 +548,7 @@ nodes.
 
 Console
 
-###### To allow SSH access for trusted sources for the primary
-
-security group with the console
+###### To allow SSH access for trusted sources for the primary security group with the console
 
 To edit your security groups, you must have permission to
 manage security groups for the VPC that the cluster is in.
@@ -631,9 +616,7 @@ nodes** from the list and repeat the steps
 above to allow SSH client access to core and task
 nodes.
 
-#### Connect to your cluster
-
-using the AWS CLI
+#### Connect to your cluster using the AWS CLI
 
 Regardless of your operating system, you can create an SSH connection to
 your cluster using the AWS CLI.
@@ -652,8 +635,7 @@ aws emr ssh --cluster-id `<j-2AL4XXXXXX5T9>` --key-pair-file `<~/mykeypair.key>`
 2. Navigate to `/mnt/var/log/spark` to access the Spark
    logs on your cluster's master node. Then view the files in that
    location. For a list of additional log files on the master node, see
-   [View log files on the primary
-   node](emr-manage-view-web-log-files.md#emr-manage-view-web-log-files-master-node "emr-manage-view-web-log-files.md#emr-manage-view-web-log-files-master-node").
+   [View log files on the primary node](emr-manage-view-web-log-files.md#emr-manage-view-web-log-files-master-node "emr-manage-view-web-log-files.md#emr-manage-view-web-log-files-master-node").
 
 ```
 cd /mnt/var/log/spark
@@ -664,9 +646,7 @@ Amazon EMR on EC2 is also a supported compute type for Amazon SageMaker AI Unifi
 [Managing Amazon EMR on EC2](../../../sagemaker-unified-studio/latest/userguide/managing-emr-on-ec2.md "../../../sagemaker-unified-studio/latest/userguide/managing-emr-on-ec2.md") for how to use and
 manage EMR on EC2 resources in Amazon SageMaker AI Unified Studio.
 
-## Step 3: Clean up your Amazon EMR
-
-resources
+## Step 3: Clean up your Amazon EMR resources
 
 ### Terminate your cluster
 
@@ -774,18 +754,14 @@ viewing results, and terminating a cluster.
 Use the following topics to learn more about how you can customize your Amazon EMR
 workflow.
 
-### Explore big data applications for
-
-Amazon EMR
+### Explore big data applications for Amazon EMR
 
 Discover and compare the big data applications you can install on a cluster in the
 [Amazon EMR Release
 Guide](../ReleaseGuide/emr-release-components.md "../ReleaseGuide/emr-release-components.md"). The Release Guide details each EMR release version and includes
 tips for using frameworks such as Spark and Hadoop on Amazon EMR.
 
-### Plan cluster hardware, networking, and
-
-security
+### Plan cluster hardware, networking, and security
 
 In this tutorial, you created a simple EMR cluster without configuring advanced
 options. Advanced options let you specify Amazon EC2 instance types, cluster networking,
@@ -806,8 +782,7 @@ web service API, or one of the many supported AWS SDKs. For more information, se
 
 You can also interact with applications installed on Amazon EMR clusters in many ways.
 Some applications like Apache Hadoop publish web interfaces that you can view. For
-more information, see [View web interfaces hosted on Amazon EMR
-clusters](emr-web-interfaces.md "emr-web-interfaces.md").
+more information, see [View web interfaces hosted on Amazon EMR clusters](emr-web-interfaces.md "emr-web-interfaces.md").
 
 ### Browse the EMR technical blog
 

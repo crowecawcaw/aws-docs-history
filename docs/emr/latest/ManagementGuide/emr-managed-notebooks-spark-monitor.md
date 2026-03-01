@@ -1,6 +1,4 @@
-# Enabling user impersonation to
-
-monitor Spark user and job activity
+# Enabling user impersonation to monitor Spark user and job activity
 
 EMR Notebooks allows you to configure user impersonation on a Spark cluster. This
 feature helps you track job activity initiated from within the notebook editor. In
@@ -14,9 +12,7 @@ node.
 
 EMR Notebooks are available as EMR Studio Workspaces in the console. The **Create Workspace** button in the console lets you create new notebooks. To access or create Workspaces, EMR Notebooks users need additional IAM role permissions. For more information, see [Amazon EMR Notebooks are Amazon EMR Studio Workspaces in the console](emr-managed-notebooks-migration.md "emr-managed-notebooks-migration.md") and [Amazon EMR console](whats-new-in-console.md "whats-new-in-console.md").
 
-## Setting up Spark user
-
-impersonation
+## Setting up Spark user impersonation
 
 By default, Spark jobs that users submit using the notebook editor appear to
 originate from an indistinct `livy` user identity. You can configure user
@@ -55,9 +51,7 @@ impersonation for EMR Notebooks:
 ]
 ```
 
-## Using the Spark job
-
-monitoring widget
+## Using the Spark job monitoring widget
 
 When you run code in the notebook editor that execute Spark jobs on the
 EMR cluster, the output includes a Jupyter Notebook widget for Spark job
@@ -66,8 +60,7 @@ server page and the Hadoop job history page, along with convenient links to job 
 in Amazon S3 for any failed jobs.
 
 To view history server pages on the cluster primary node, you must set up an SSH
-client and proxy as appropriate. For more information, see [View web interfaces hosted on Amazon EMR
-clusters](emr-web-interfaces.md "emr-web-interfaces.md"). To view logs
+client and proxy as appropriate. For more information, see [View web interfaces hosted on Amazon EMR clusters](emr-web-interfaces.md "emr-web-interfaces.md"). To view logs
 in Amazon S3, cluster logging must be enabled, which is the default for new clusters. For
 more information, see [View log files archived to Amazon S3](emr-manage-view-web-log-files.md#emr-manage-view-web-log-files-s3 "emr-manage-view-web-log-files.md#emr-manage-view-web-log-files-s3").
 

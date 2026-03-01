@@ -1,6 +1,4 @@
-# View persistent application user
-
-interfaces in Amazon EMR
+# View persistent application user interfaces in Amazon EMR
 
 Starting with Amazon EMR version 5.25.0, you can connect to the persistent Spark History
 Server application details hosted off-cluster using the cluster
@@ -62,9 +60,7 @@ history information will be available on the **Application user
 interfaces** tab, and you will lose access to all application user
 interfaces from the console.
 
-## Large Spark event log
-
-files
+## Large Spark event log files
 
 In some cases, long-running Spark jobs, such as Spark streaming, and large jobs,
 such as Spark SQL queries, can generate large event logs. With large events logs,
@@ -215,9 +211,7 @@ JSON
 
 ```
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 One-click access to persistent application user interfaces currently has the
 following limitations.

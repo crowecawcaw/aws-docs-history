@@ -1,6 +1,4 @@
-# Prerequisites and
-
-considerations when integrating an EMR notebook with a repository
+# Prerequisites and considerations when integrating an EMR notebook with a repository
 
 Consider the following best practices regarding commits, permissions, and hosting when planning to integrate a Git-based repository with
 EMR Notebooks.
@@ -20,15 +18,12 @@ _IAM User Guide_ and [Setup for HTTPS users
 using Git credentials](../../../codecommit/latest/userguide/setting-up-gc.md "../../../codecommit/latest/userguide/setting-up-gc.md") in the
 _AWS CodeCommit User Guide_.
 
-## Access and permission
-
-considerations
+## Access and permission considerations
 
 Before associating a repository with your notebook, make sure that your
 cluster, IAM role for EMR Notebooks, and security groups have the correct settings
 and permissions. You can also configure Git-based repositories that you host in
-a private network by following the instructions in [Configure a
-privately-hosted Git repository for EMR Notebooks](#emr-managed-notebooks-private-git-repo "#emr-managed-notebooks-private-git-repo").
+a private network by following the instructions in [Configure a privately-hosted Git repository for EMR Notebooks](#emr-managed-notebooks-private-git-repo "#emr-managed-notebooks-private-git-repo").
 
 - **Cluster internet access** – The
   network interface that is launched has only a private IP address. This
@@ -51,14 +46,11 @@ gateway (IGW).
 
 - **Permissions for AWS Secrets Manager** – If
   you use Secrets Manager to store secrets that you use to access a repository, the
-  [Service role for
-  EMR Notebooks](emr-managed-notebooks-service-role.md "emr-managed-notebooks-service-role.md") must have a
+  [Service role for EMR Notebooks](emr-managed-notebooks-service-role.md "emr-managed-notebooks-service-role.md") must have a
   permissions policy attached that allows the
   `secretsmanager:GetSecretValue` action.
 
-## Configure a
-
-privately-hosted Git repository for EMR Notebooks
+## Configure a privately-hosted Git repository for EMR Notebooks
 
 Use the following instructions to configure privately-hosted repositories for
 EMR Notebooks. You must provide a configuration file with information about your
@@ -74,9 +66,7 @@ must have the following:
 - An Amazon S3 Control location where files for your
   EMR notebook will be saved.
 
-###### To configure one or more privately-hosted Git repositories for
-
-EMR Notebooks
+###### To configure one or more privately-hosted Git repositories for EMR Notebooks
 
 1. Create a configuration file using the provided template. Include the
    following values for each Git server that you want to specify in your

@@ -40,8 +40,7 @@ cluster status and the applications you installed on the cluster.
   hosted on the master node and require you to set up a SSH connection to the web
   server. On-cluster application user interfaces keep application history for one week
   after an application terminates. For more information and instructions on setting up
-  an SSH tunnel, see [View web interfaces hosted on Amazon EMR
-  clusters](emr-web-interfaces.md "emr-web-interfaces.md").
+  an SSH tunnel, see [View web interfaces hosted on Amazon EMR clusters](emr-web-interfaces.md "emr-web-interfaces.md").
 
 With the exception of the Spark History Server, YARN timeline server, and Hive
 applications, on-cluster application history can only be viewed while the cluster is

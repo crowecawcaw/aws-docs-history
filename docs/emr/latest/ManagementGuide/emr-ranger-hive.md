@@ -8,8 +8,7 @@ version 2.0 and later.
 ###### Topics
 
 - [Supported features](#emr-ranger-supported-features "#emr-ranger-supported-features")
-- [Installation of service
-  configuration](#emr-ranger-hive-service-config "#emr-ranger-hive-service-config")
+- [Installation of service configuration](#emr-ranger-hive-service-config "#emr-ranger-hive-service-config")
 - [Considerations](#emr-ranger-hive-considerations "#emr-ranger-hive-considerations")
 - [Limitations](#emr-ranger-hive-limitations "#emr-ranger-hive-limitations")
 
@@ -20,9 +19,7 @@ open source plugin, which includes database, table, column level access controls
 and row filtering and data masking. For a table of Hive commands and associated
 Ranger permissions, see [Hive commands to Ranger permission mapping](https://cwiki.apache.org/confluence/display/RANGER/Hive+Commands+to+Ranger+Permission+Mapping "https://cwiki.apache.org/confluence/display/RANGER/Hive+Commands+to+Ranger+Permission+Mapping").
 
-## Installation of service
-
-configuration
+## Installation of service configuration
 
 The Apache Hive plugin is compatible with the existing Hive service definition
 within Apache Hive Hadoop SQL.

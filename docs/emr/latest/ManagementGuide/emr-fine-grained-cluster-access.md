@@ -1,6 +1,4 @@
-# IAM policies for tag-based
-
-access to clusters and EMR notebooks
+# IAM policies for tag-based access to clusters and EMR notebooks
 
 You can use conditions in your identity-based policy to control access to clusters
 and EMR notebooks based on tags.
@@ -22,9 +20,7 @@ themselves permissions that you did not intend to grant. If you don't deny
 tagging actions for a resource, a user can modify tags and circumvent the
 intention of the tag-based policies.
 
-## Example identity-based policy
-
-statements for clusters
+## Example identity-based policy statements for clusters
 
 The following examples demonstrate identity-based permissions policies that
 are used to control the actions that are allowed with EMR clusters.
@@ -34,21 +30,15 @@ are used to control the actions that are allowed with EMR clusters.
 The `ModifyInstanceGroup` action in Amazon EMR does not require that
 you specify a cluster ID. For that reason, denying this action based on
 cluster tags requires additional consideration. For more information, see
-[Denying the
-ModifyInstanceGroup action in Amazon EMR](emr-cluster-deny-modifyinstancegroup.md "emr-cluster-deny-modifyinstancegroup.md").
+[Denying the ModifyInstanceGroup action in Amazon EMR](emr-cluster-deny-modifyinstancegroup.md "emr-cluster-deny-modifyinstancegroup.md").
 
 ###### Topics
 
-- [Allow actions only on
-  clusters with specific tag values](#emr-cluster-access-example-tagvalue "#emr-cluster-access-example-tagvalue")
-- [Require cluster
-  tagging when a cluster is created](#emr-cluster-access-example-require-tagging "#emr-cluster-access-example-require-tagging")
-- [Allow actions on clusters
-  with a specific tag, regardless of tag value](#emr-cluster-access-example-tag "#emr-cluster-access-example-tag")
+- [Allow actions only on clusters with specific tag values](#emr-cluster-access-example-tagvalue "#emr-cluster-access-example-tagvalue")
+- [Require cluster tagging when a cluster is created](#emr-cluster-access-example-require-tagging "#emr-cluster-access-example-require-tagging")
+- [Allow actions on clusters with a specific tag, regardless of tag value](#emr-cluster-access-example-tag "#emr-cluster-access-example-tag")
 
-### Allow actions only on
-
-clusters with specific tag values
+### Allow actions only on clusters with specific tag values
 
 The following examples demonstrate a policy that allows a user to perform
 actions based on the cluster tag `department` with the value `dev` and also allows
@@ -110,9 +100,7 @@ replace the condition block in the earlier example with the following.
 
 ```
 
-### Require cluster
-
-tagging when a cluster is created
+### Require cluster tagging when a cluster is created
 
 As in the prior example, the following policy example looks for the same
 matching tag: the value `dev` for the `department` tag. But
@@ -208,9 +196,7 @@ JSON
 
 ```
 
-### Allow actions on clusters
-
-with a specific tag, regardless of tag value
+### Allow actions on clusters with a specific tag, regardless of tag value
 
 You can also allow actions only on clusters that have a particular tag,
 regardless of the tag value. To do this, you can use the `Null` operator. For more information, see
@@ -315,18 +301,14 @@ JSON
 
 ```
 
-## Example identity-based
-
-policy statements for EMR Notebooks
+## Example identity-based policy statements for EMR Notebooks
 
 The example IAM policy statements in this section demonstrate common
 scenarios for using keys to limit allowed actions using EMR Notebooks. As long as
 no other policy associated with the principal (user) allows the actions, the
 condition context keys limit allowed actions as indicated.
 
-###### Example– Allow access only to EMR Notebooks that a user creates based on
-
-tagging
+###### Example– Allow access only to EMR Notebooks that a user creates based on tagging
 
 The following example policy statement, when attached to a role or user,
 allows the a user to work only with notebooks that they have created. This
@@ -444,9 +426,7 @@ JSON
 
 ```
 
-###### Example–Limit notebook creation to tagged clusters, and require notebook
-
-tags
+###### Example–Limit notebook creation to tagged clusters, and require notebook tags
 
 This example allows notebook creation only if the notebook is created with
 a tag that has the key string `owner` set to one of the specified
@@ -615,9 +595,7 @@ JSON
 
 ```
 
-###### Example–Limit the ability to open the notebook editor based on
-
-tags
+###### Example–Limit the ability to open the notebook editor based on tags
 
 This example allows the notebook editor to be opened only if:
 

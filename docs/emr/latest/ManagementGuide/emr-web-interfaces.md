@@ -1,6 +1,4 @@
-# View web interfaces hosted on Amazon EMR
-
-clusters
+# View web interfaces hosted on Amazon EMR clusters
 
 ###### Important
 
@@ -14,8 +12,7 @@ Hadoop and other applications that you install on your EMR cluster publish user
 interfaces as web sites that are hosted on the primary node. For security reasons, when using
 Amazon EMR Managed Security Groups, these web sites are only available on the primary
 node's local web server. For that reason, you need to connect to the primary node to view the web interfaces.
-For more information, see [Connect to the Amazon EMR cluster primary node using
-SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md"). Hadoop also publishes user
+For more information, see [Connect to the Amazon EMR cluster primary node using SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md"). Hadoop also publishes user
 interfaces as web sites hosted on the core and task nodes. These web sites are also
 only available on local web servers on the nodes.
 
@@ -86,8 +83,7 @@ that provide full browser functionality. Choose one of the following:
   method lets you automatically filter URLs based on text patterns and limit
   the proxy settings to domains that match the form of the primary node's DNS
   name. For more information about how to configure FoxyProxy for Firefox and
-  Google Chrome, see [Option 2, part 2: Configure
-  proxy settings to view websites hosted on the Amazon EMR cluster primary node](emr-connect-master-node-proxy.md "emr-connect-master-node-proxy.md").
+  Google Chrome, see [Option 2, part 2: Configure proxy settings to view websites hosted on the Amazon EMR cluster primary node](emr-connect-master-node-proxy.md "emr-connect-master-node-proxy.md").
 
 ###### Note
 
@@ -103,9 +99,6 @@ access to persistent Spark history server](app-history-spark-UI.md "app-history-
 
 ###### Topics
 
-- [Option 1: Set up an SSH tunnel to the
-  Amazon EMR primary node using local port forwarding](emr-ssh-tunnel-local.md "emr-ssh-tunnel-local.md")
-- [Option 2, part 1: Set up an SSH tunnel to the
-  primary node using dynamic port forwarding](emr-ssh-tunnel.md "emr-ssh-tunnel.md")
-- [Option 2, part 2: Configure
-  proxy settings to view websites hosted on the Amazon EMR cluster primary node](emr-connect-master-node-proxy.md "emr-connect-master-node-proxy.md")
+- [Option 1: Set up an SSH tunnel to the Amazon EMR primary node using local port forwarding](emr-ssh-tunnel-local.md "emr-ssh-tunnel-local.md")
+- [Option 2, part 1: Set up an SSH tunnel to the primary node using dynamic port forwarding](emr-ssh-tunnel.md "emr-ssh-tunnel.md")
+- [Option 2, part 2: Configure proxy settings to view websites hosted on the Amazon EMR cluster primary node](emr-connect-master-node-proxy.md "emr-connect-master-node-proxy.md")

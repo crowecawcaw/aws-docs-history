@@ -10,8 +10,7 @@ EMR Studio interface automatically meet these requirements.
   series) or later. You can create a cluster using the Amazon EMR console, AWS Command Line Interface, or SDK, and
   then attach it to an EMR Studio Workspace. Studio users can also
   provision and attach clusters when creating or working in an Amazon EMR Workspace. For
-  more information, see [Attach a compute to an EMR Studio
-  Workspace](emr-studio-create-use-clusters.md "emr-studio-create-use-clusters.md").
+  more information, see [Attach a compute to an EMR Studio Workspace](emr-studio-create-use-clusters.md "emr-studio-create-use-clusters.md").
 - The cluster must be within an Amazon Virtual Private Cloud. The EC2-Classic platform isn't
   supported.
 - The cluster must have Spark, Livy, and Jupyter Enterprise Gateway installed. If you
@@ -51,8 +50,7 @@ EMR Studio interface automatically meet these requirements.
   r4.2x, r4.4x, r4.8x, r4.12, etc. For more information, see [Planning and configuring instance fleets for your Amazon EMR cluster](emr-instance-fleet.md "emr-instance-fleet.md").
 - Use the capacity-optimized allocation strategy for Spot Instances to help Amazon EMR make
   effective instance selections based on real-time capacity insights from Amazon EC2. For more
-  information, see [Allocation strategy for instance
-  fleets](emr-instance-fleet.md#emr-instance-fleet-allocation-strategy "emr-instance-fleet.md#emr-instance-fleet-allocation-strategy").
+  information, see [Allocation strategy for instance fleets](emr-instance-fleet.md#emr-instance-fleet-allocation-strategy "emr-instance-fleet.md#emr-instance-fleet-allocation-strategy").
 - Enable managed scaling on your cluster. Set the maximum core nodes parameter to the
   minimum persistent capacity that you plan to use, and configure scaling on a
   well-diversified task fleet that runs on Spot Instances to save on costs. For more

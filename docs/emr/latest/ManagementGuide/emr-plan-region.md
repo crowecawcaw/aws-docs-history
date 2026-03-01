@@ -34,9 +34,7 @@ that will be used with the cluster. The following table maps the Region
 names between services. For a list of Amazon EMR Regions, see [AWS Regions and endpoints](../../../general/latest/gr/rande.md#emr_region "../../../general/latest/gr/rande.md#emr_region") in the
 _Amazon Web Services General Reference_.
 
-## Choose a Region with the
-
-console
+## Choose a Region with the console
 
 Your default Region is displayed to the left of your account information
 on the navigation bar. To switch Regions in both the new and old
@@ -50,9 +48,7 @@ configure** command or the `AWS_DEFAULT_REGION` environment
 variable. For more information, see [Configuring the AWS Region](../../../cli/latest/userguide/cli-chap-getting-started.md#cli-installing-specifying-region "../../../cli/latest/userguide/cli-chap-getting-started.md#cli-installing-specifying-region") in the
 _AWS Command Line Interface User Guide_.
 
-## Choose a Region with an SDK or the
-
-API
+## Choose a Region with an SDK or the API
 
 To choose a Region using an SDK, configure your application to use that
 Region's endpoint. If you are creating a client application using an

@@ -1,6 +1,4 @@
-# Choose an authentication mode for
-
-Amazon EMR Studio
+# Choose an authentication mode for Amazon EMR Studio
 
 EMR Studio supports two authentication modes: IAM authentication mode and IAM Identity Center
 authentication mode. IAM mode uses AWS Identity and Access Management (IAM), while IAM Identity Center mode uses
@@ -15,9 +13,7 @@ Use the following table to choose an authentication mode for EMR Studio.
 | Already familiar with or have previously set up IAM authentication or<br>federation | [IAM authentication<br>mode](#emr-studio-iam-authentication "#emr-studio-iam-authentication"), which offers the<br>following benefits:<br>• Provides quick setup for EMR Studio if you already manage identities<br>such as users and groups in IAM.<br>• Works with identity providers that are compatible with OpenID Connect<br>(OIDC) or Security Assertion Markup Language 2.0 (SAML 2.0).<br>• Supports using multiple identity providers with the same<br>AWS account.<br>• Available in a wide number of AWS Regions.<br>• Compliant with SOC 2. |
 | New to AWS or Amazon EMR                                                            | [IAM Identity Center authentication<br>mode](#emr-studio-enable-sso "#emr-studio-enable-sso"), which provides the following<br>features:<br>• Supports easy user and group assignment to AWS resources.<br>• Works with Microsoft Active Directory and SAML 2.0 identity<br>providers.<br>• Facilitates multi-account federation setup so that you don't have to<br>separately configure federation for each AWS account in your<br>organization.                                                                                                        |
 
-## Set up IAM authentication mode for
-
-Amazon EMR Studio
+## Set up IAM authentication mode for Amazon EMR Studio
 
 With IAM authentication mode, you can use either IAM authentication or IAM
 federation. IAM _authentication_ lets you manage IAM identities
@@ -28,14 +24,11 @@ IAM permissions policies and [attribute-based access control (ABAC)](../../../IA
 ###### Note
 
 If you already use IAM to control access to AWS resources, or if you've already
-configured your identity provider (IdP) for IAM, see [User permissions for IAM authentication
-mode](how-emr-studio-works.md#emr-studio-iam-authorization "how-emr-studio-works.md#emr-studio-iam-authorization")
+configured your identity provider (IdP) for IAM, see [User permissions for IAM authentication mode](how-emr-studio-works.md#emr-studio-iam-authorization "how-emr-studio-works.md#emr-studio-iam-authorization")
 to set user permissions when you use IAM authentication mode for
 EMR Studio.
 
-### Use IAM federation for
-
-Amazon EMR Studio
+### Use IAM federation for Amazon EMR Studio
 
 To use IAM federation for EMR Studio, you create a trust relationship between
 your AWS account and your identity provider (IdP) and enable federated users to access
@@ -56,17 +49,14 @@ custom identity broker access to the AWS Management Console](../../../IAM/latest
    federated user when the user logs in. The role permits your IdP to request temporary
    security credentials for access to AWS. For instructions, see [Creating a role for a third-party identity provider (federation)](../../../IAM/latest/UserGuide/id_roles_create_for-idp.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp.md"). The
    permissions policies that you assign to the role determine what federated users can
-   do in AWS and in an EMR Studio. For more information, see [User permissions for IAM authentication
-   mode](how-emr-studio-works.md#emr-studio-iam-authorization "how-emr-studio-works.md#emr-studio-iam-authorization").
+   do in AWS and in an EMR Studio. For more information, see [User permissions for IAM authentication mode](how-emr-studio-works.md#emr-studio-iam-authorization "how-emr-studio-works.md#emr-studio-iam-authorization").
 4. (For SAML providers) Complete the SAML trust by configuring your IdP with
    information about AWS and the roles that you want federated users to assume. This
    configuration process creates _relying party trust_
    between your IdP and AWS. For more information, see [Configuring your SAML 2.0 IdP with relying party trust and adding
    claims](../../../IAM/latest/UserGuide/id_roles_providers_create_saml_relying-party.md "../../../IAM/latest/UserGuide/id_roles_providers_create_saml_relying-party.md").
 
-###### To configure an
-
-EMR Studio as a SAML application in your IdP portal
+###### To configure an EMR Studio as a SAML application in your IdP portal
 
 You can configure a particular EMR Studio as a SAML application using a deep
 link to the Studio. Doing so lets users log in to your IdP portal and launch a
@@ -79,9 +69,7 @@ specific Studio instead of navigating through the Amazon EMR console.
 https://console.aws.amazon.com/emr/home?region=`<aws-region>`#studio/`<your-studio-id>`/start
 ```
 
-## Set up IAM Identity Center authentication mode for
-
-Amazon EMR Studio
+## Set up IAM Identity Center authentication mode for Amazon EMR Studio
 
 To prepare AWS IAM Identity Center for EMR Studio, you must configure your identity
 source and provision users and groups. Provisioning is the process of making user and
@@ -130,5 +118,4 @@ EMR Studio supports using the following identity providers for IAM Identity Cent
 | The IAM Identity Center directory | When you create users and groups in IAM Identity Center, provisioning is automatic. For<br>more information, see [Manage identities in IAM Identity Center](../../../singlesignon/latest/userguide/manage-your-identity-source-sso.md "../../../singlesignon/latest/userguide/manage-your-identity-source-sso.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 You can now assign users and groups from your Identity Store to an EMR Studio. For
-instructions, see [Assign a user or group to an
-EMR Studio](emr-studio-manage-users.md#emr-studio-assign-users-groups "emr-studio-manage-users.md#emr-studio-assign-users-groups").
+instructions, see [Assign a user or group to an EMR Studio](emr-studio-manage-users.md#emr-studio-assign-users-groups "emr-studio-manage-users.md#emr-studio-assign-users-groups").

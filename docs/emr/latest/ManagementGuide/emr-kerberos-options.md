@@ -8,9 +8,7 @@ cluster, and you create HDFS directories for Linux users on the cluster that mat
 user principals in the KDC. For an explanation of configuration options and example
 configurations for each architecture, see [Configuring Kerberos on Amazon EMR](emr-kerberos-configure.md "emr-kerberos-configure.md").
 
-## Cluster-dedicated KDC (KDC on
-
-primary node)
+## Cluster-dedicated KDC (KDC on primary node)
 
 This configuration is available with Amazon EMR releases 5.10.0 and higher.
 
@@ -25,8 +23,7 @@ This configuration is available with Amazon EMR releases 5.10.0 and higher.
 - Performance impact is minimal because the KDC manages authentication
   only for local nodes within the cluster.
 - Optionally, other Kerberized clusters can reference the KDC as an
-  external KDC. For more information, see [External
-  KDC—primary node on a different cluster](#emr-kerberos-extkdc-cluster-summary "#emr-kerberos-extkdc-cluster-summary").
+  external KDC. For more information, see [External KDC—primary node on a different cluster](#emr-kerberos-extkdc-cluster-summary "#emr-kerberos-extkdc-cluster-summary").
 
 ###### Considerations and limitations
 
@@ -89,17 +86,11 @@ KDC on another Amazon EMR cluster are also supported.
 Configurations with an External KDC are supported with Amazon EMR 5.20.0 and
 later.
 
-- [External KDC—MIT
-  KDC](#emr-kerberos-extkdc-mit-summary "#emr-kerberos-extkdc-mit-summary")
-- [External
-  KDC—primary node on a different cluster](#emr-kerberos-extkdc-cluster-summary "#emr-kerberos-extkdc-cluster-summary")
-- [External
-  KDC—cluster KDC on a different cluster with Active Directory
-  cross-realm trust](#emr-kerberos-extkdc-ad-trust-summary "#emr-kerberos-extkdc-ad-trust-summary")
+- [External KDC—MIT KDC](#emr-kerberos-extkdc-mit-summary "#emr-kerberos-extkdc-mit-summary")
+- [External KDC—primary node on a different cluster](#emr-kerberos-extkdc-cluster-summary "#emr-kerberos-extkdc-cluster-summary")
+- [External KDC—cluster KDC on a different cluster with Active Directory cross-realm trust](#emr-kerberos-extkdc-ad-trust-summary "#emr-kerberos-extkdc-ad-trust-summary")
 
-### External KDC—MIT
-
-KDC
+### External KDC—MIT KDC
 
 This configuration allows one or more EMR clusters to use principals
 defined and maintained in an MIT KDC server.
@@ -109,8 +100,7 @@ defined and maintained in an MIT KDC server.
 ###### Advantages
 
 - Managing principals is consolidated in a single KDC.
-- Multiple clusters can use the same KDC in the same Kerberos realm. For more information, see [Requirements for using multiple
-  clusters with the same KDC](#emr-kerberos-multi-kdc "#emr-kerberos-multi-kdc").
+- Multiple clusters can use the same KDC in the same Kerberos realm. For more information, see [Requirements for using multiple clusters with the same KDC](#emr-kerberos-multi-kdc "#emr-kerberos-multi-kdc").
 - The primary node on a Kerberized cluster does not have the
   performance burden associated with maintaining the KDC.
 
@@ -134,23 +124,18 @@ defined and maintained in an MIT KDC server.
 - Troubleshooting can be more difficult because of
   interdependencies.
 
-### External
-
-KDC—primary node on a different cluster
+### External KDC—primary node on a different cluster
 
 This configuration is nearly identical to the external MIT KDC
 implementation above, except that the KDC is on the primary node of an EMR
-cluster. For more information, see [Cluster-dedicated KDC (KDC on
-primary node)](#emr-kerberos-localkdc-summary "#emr-kerberos-localkdc-summary") and [Tutorial: Configure a cross-realm trust
-with an Active Directory domain](emr-kerberos-cross-realm.md "emr-kerberos-cross-realm.md").
+cluster. For more information, see [Cluster-dedicated KDC (KDC on primary node)](#emr-kerberos-localkdc-summary "#emr-kerberos-localkdc-summary") and [Tutorial: Configure a cross-realm trust with an Active Directory domain](emr-kerberos-cross-realm.md "emr-kerberos-cross-realm.md").
 
 ![Diagram of Amazon EMR clusters with Kerberos realm, showing master and core nodes.](images/kerb-external-cluster-kdc.png)
 
 ###### Advantages
 
 - Managing principals is consolidated in a single KDC.
-- Multiple clusters can use the same KDC in the same Kerberos realm. For more information, see [Requirements for using multiple
-  clusters with the same KDC](#emr-kerberos-multi-kdc "#emr-kerberos-multi-kdc").
+- Multiple clusters can use the same KDC in the same Kerberos realm. For more information, see [Requirements for using multiple clusters with the same KDC](#emr-kerberos-multi-kdc "#emr-kerberos-multi-kdc").
 
 ###### Considerations and limitations
 
@@ -172,18 +157,13 @@ with an Active Directory domain](emr-kerberos-cross-realm.md "emr-kerberos-cross
 - Troubleshooting can be more difficult because of
   interdependencies.
 
-### External
-
-KDC—cluster KDC on a different cluster with Active Directory
-cross-realm trust
+### External KDC—cluster KDC on a different cluster with Active Directory cross-realm trust
 
 In this configuration, you first create a cluster with a cluster-dedicated
 KDC that has a one-way cross-realm trust with Active Directory. For a
-detailed tutorial, see [Tutorial: Configure a cross-realm trust
-with an Active Directory domain](emr-kerberos-cross-realm.md "emr-kerberos-cross-realm.md"). You then launch additional
+detailed tutorial, see [Tutorial: Configure a cross-realm trust with an Active Directory domain](emr-kerberos-cross-realm.md "emr-kerberos-cross-realm.md"). You then launch additional
 clusters, referencing the cluster KDC that has the trust as an external KDC.
-For an example, see [External cluster
-KDC with Active Directory cross-realm trust](emr-kerberos-config-examples.md#emr-kerberos-example-extkdc-ad-trust "emr-kerberos-config-examples.md#emr-kerberos-example-extkdc-ad-trust"). This allows each
+For an example, see [External cluster KDC with Active Directory cross-realm trust](emr-kerberos-config-examples.md#emr-kerberos-example-extkdc-ad-trust "emr-kerberos-config-examples.md#emr-kerberos-example-extkdc-ad-trust"). This allows each
 Amazon EMR cluster that uses the external KDC to authenticate principals defined
 and maintained in a Microsoft Active Directory domain.
 
@@ -196,8 +176,7 @@ and maintained in a Microsoft Active Directory domain.
 - Amazon EMR joins the Active Directory realm, which eliminates the need
   to create Linux users that correspond Active Directory users. You
   still must create HDFS directories for each user.
-- Multiple clusters can use the same KDC in the same Kerberos realm. For more information, see [Requirements for using multiple
-  clusters with the same KDC](#emr-kerberos-multi-kdc "#emr-kerberos-multi-kdc").
+- Multiple clusters can use the same KDC in the same Kerberos realm. For more information, see [Requirements for using multiple clusters with the same KDC](#emr-kerberos-multi-kdc "#emr-kerberos-multi-kdc").
 - User principals in the Active Directory domain can access
   Kerberized clusters using `kinit` credentials, without
   the EC2 private key file. This eliminates the need to share the
@@ -220,9 +199,7 @@ and maintained in a Microsoft Active Directory domain.
 - Troubleshooting can be more difficult because of
   interdependencies.
 
-## Requirements for using multiple
-
-clusters with the same KDC
+## Requirements for using multiple clusters with the same KDC
 
 Multiple clusters can use the same KDC in the same Kerberos realm. However, if
 the clusters concurrently run, then the clusters might fail if they use Kerberos

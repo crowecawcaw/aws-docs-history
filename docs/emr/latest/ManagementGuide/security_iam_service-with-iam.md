@@ -21,9 +21,7 @@ To get a high-level view of how Amazon EMR and other AWS services work with most
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Amazon EMR
+## Identity-based policies for Amazon EMR
 
 **Supports identity-based policies:**
 
@@ -40,12 +38,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Amazon EMR
 
-Identity-based policy examples for Amazon EMR
-
-To view examples of Amazon EMR identity-based policies, see [Amazon EMR identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon EMR identity-based policies, see [Amazon EMR identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies within Amazon EMR
 
@@ -63,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy
-
-actions for Amazon EMR
+## Policy actions for Amazon EMR
 
 **Supports policy actions:**
 
@@ -96,12 +89,9 @@ commas.
          ]
 ```
 
-To view examples of Amazon EMR identity-based policies, see [Amazon EMR identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon EMR identity-based policies, see [Amazon EMR identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Amazon EMR
+## Policy resources for Amazon EMR
 
 **Supports policy resources:**
 
@@ -120,8 +110,7 @@ To see a list of Amazon EMR resource types and their ARNs, see
 [Resources Defined by Amazon EMR](../../../service-authorization/latest/reference/list_amazonelasticmapreduce.md#amazonelasticmapreduce-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonelasticmapreduce.md#amazonelasticmapreduce-resources-for-iam-policies") in the _Service Authorization Reference_. To learn which
 actions you can specify the ARN of each resource, see [Actions, resources, and condition keys for Amazon EMR](../../../service-authorization/latest/reference/list_amazonemroneksemrcontainers.md "../../../service-authorization/latest/reference/list_amazonemroneksemrcontainers.md").
 
-To view examples of Amazon EMR identity-based policies, see [Amazon EMR identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon EMR identity-based policies, see [Amazon EMR identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy condition keys for Amazon EMR
 
@@ -142,12 +131,9 @@ To see a list of Amazon EMR condition keys and to learn which actions and resour
 you can use a condition key, see [Actions, resources, and condition keys for Amazon EMR](../../../service-authorization/latest/reference/list_amazonemroneksemrcontainers.md "../../../service-authorization/latest/reference/list_amazonemroneksemrcontainers.md") in the
 _Service Authorization Reference_.
 
-To view examples of Amazon EMR identity-based policies, see [Amazon EMR identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon EMR identity-based policies, see [Amazon EMR identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control lists (ACLs) in
-
-Amazon EMR
+## Access control lists (ACLs) in Amazon EMR
 
 **Supports ACLs:**
 
@@ -156,9 +142,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with Amazon EMR
+## Attribute-based access control (ABAC) with Amazon EMR
 
 |                                  |     |
 | -------------------------------- | --- |
@@ -175,9 +159,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using Temporary
-
-credentials with Amazon EMR
+## Using Temporary credentials with Amazon EMR
 
 **Supports temporary credentials:**
 
@@ -189,9 +171,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Amazon EMR
+## Cross-service principal permissions for Amazon EMR
 
 **Supports forward access sessions (FAS):**
 
@@ -200,17 +180,13 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon EMR
+## Service roles for Amazon EMR
 
 |                        |     |
 | ---------------------- | --- |
 | Supports service roles | No  |
 
-## Service-linked
-
-roles for Amazon EMR
+## Service-linked roles for Amazon EMR
 
 |                               |     |
 | ----------------------------- | --- |
@@ -222,9 +198,7 @@ a `Yes` in the **Service-linked role** column. Choose
 the **Yes** link to view the service-linked role documentation for
 that service.
 
-## Use cluster and Notebook tags with IAM
-
-policies for access control
+## Use cluster and Notebook tags with IAM policies for access control
 
 Permission for Amazon EMR actions associated with EMR Notebooks and EMR clusters can be
 fine-tuned using tag-based access control with identity-based IAM policies. You can
@@ -254,8 +228,7 @@ with tags that have the`TagKeyString``that you specify. If an action passes both
 the notebook. This means that both resources must have the tag key string or
 key-value combination that you specify. You can use the
 `Resource` element to limit the statement so that it applies
-  only to clusters or notebooks as required. For more information, see [Amazon EMR identity-based policy
-  examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+  only to clusters or notebooks as required. For more information, see [Amazon EMR identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 - Use the `elasticmapreduce:RequestTag/`TagKeyString``condition context key to require a specific tag with actions/API calls. For
 example, you can use this condition context key along with the
 `CreateEditor` action to require that a key with``TagKeyString`` is applied to a

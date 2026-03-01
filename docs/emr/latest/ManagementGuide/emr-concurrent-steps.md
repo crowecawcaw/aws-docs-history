@@ -1,6 +1,4 @@
-# Considerations for running multiple steps in
-
-parallel when you submit work to Amazon EMR
+# Considerations for running multiple steps in parallel when you submit work to Amazon EMR
 
 Running multiple steps in parallel when you submit work to Amazon EMR requires preliminary decisions about resource planning and
 expectations regarding cluster behavior. These are covered in detail here.

@@ -1,6 +1,4 @@
-# Installing and
-
-using kernels and libraries in EMR Studio
+# Installing and using kernels and libraries in EMR Studio
 
 Each EMR notebook comes with a set of pre-installed libraries and kernels. You
 can install additional libraries and kernels in an EMR cluster if the cluster has
@@ -29,9 +27,7 @@ Python and PySpark:
   scikit-learn, scipy,
   scipy
 
-## Installing kernels and Python
-
-libraries on a cluster primary node
+## Installing kernels and Python libraries on a cluster primary node
 
 With Amazon EMR release version 5.30.0 and later, excluding 6.0.0, you can install
 additional Python libraries and kernels on the primary node of the cluster. After
@@ -143,8 +139,7 @@ You can similarly create a Spark executor environment.
 You can also use `conda` to install Python libraries. You don't
 need sudo access to use `conda`. You must connect to the primary node
 with SSH, and then run `conda` from the terminal. For more
-information, see [Connect to the Amazon EMR cluster primary node using
-SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
+information, see [Connect to the Amazon EMR cluster primary node using SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
 
 ###### Example– Installing kernels
 
@@ -161,9 +156,7 @@ These instructions do not install kernel dependencies. If your kernel has
 third-party dependencies, you may need to take additional setup steps before
 you can use the kernel with your notebook.
 
-## Considerations
-
-and limitations with notebook-scoped libraries
+## Considerations and limitations with notebook-scoped libraries
 
 When you use notebook-scoped libraries, consider the following:
 
@@ -183,9 +176,7 @@ When you use notebook-scoped libraries, consider the following:
   and as notebook-scoped libraries, the notebook-scoped library version
   overrides the cluster library version.
 
-## Working with
-
-Notebook-scoped libraries
+## Working with Notebook-scoped libraries
 
 To install libraries, your Amazon EMR cluster must have access to the PyPI repository
 where the libraries are located.
@@ -222,9 +213,7 @@ import celery
 sc.range(1,10000,1,100).map(lambda x: celery.__version__).collect()
 ```
 
-###### Example– Installing the Arrow library, specifying the version and
-
-repository
+###### Example– Installing the Arrow library, specifying the version and repository
 
 The following command installs the [Arrow](https://pypi.org/project/arrow/ "https://pypi.org/project/arrow/") library as a
 notebook-scoped library, with a specification of the library version and

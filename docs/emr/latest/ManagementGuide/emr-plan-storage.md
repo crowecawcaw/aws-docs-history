@@ -25,8 +25,7 @@ EMR clusters:
   reusable custom configurations, use a custom AMI (available in Amazon EMR version
   5.7.0 and later). For more information, see [Using a custom AMI to provide more flexibility for Amazon EMR cluster configuration](emr-custom-ami.md "emr-custom-ami.md").
 - An encrypted Amazon EBS root device volume is supported only when using a custom
-  AMI. For more information, see [Creating a custom AMI with an encrypted
-  Amazon EBS root device volume](emr-custom-ami.md#emr-custom-ami-encrypted "emr-custom-ami.md#emr-custom-ami-encrypted").
+  AMI. For more information, see [Creating a custom AMI with an encrypted Amazon EBS root device volume](emr-custom-ami.md#emr-custom-ami-encrypted "emr-custom-ami.md#emr-custom-ami-encrypted").
 - If you apply tags using the Amazon EMR API, those operations are applied to EBS
   volumes.
 - There is a limit of 25 volumes per instance.
@@ -36,9 +35,7 @@ EMR clusters:
   manually scale up the cluster or with Amazon EMR managed scaling as needed. To learn more about the EBS volume limit,
   see [Service quotas](../../../general/latest/gr/ebs-service.md#limits_ebs:~:text=Amazon%20EBS%20has,exceeding%20the%20limit. "../../../general/latest/gr/ebs-service.md#limits_ebs:~:text=Amazon%20EBS%20has,exceeding%20the%20limit.").
 
-## Default Amazon EBS storage for
-
-instances
+## Default Amazon EBS storage for instances
 
 For EC2 instances that have EBS-only storage, Amazon EMR allocates Amazon EBS gp2 or gp3 storage
 volumes to instances. When you create a cluster with Amazon EMR releases 5.22.0 and higher,
@@ -50,32 +47,27 @@ performance and, in turn, increased performance for some standardized workloads.
 want to use a different Amazon EBS instance storage configuration, you can specify this when
 you create an EMR cluster or add nodes to an existing cluster. You can use Amazon EBS gp2
 or gp3 volumes as root volumes, and add gp2 or gp3 volumes as additional volumes. For
-more information, see [Specifying additional EBS
-storage volumes](#emr-plan-storage-additional-ebs-volumes "#emr-plan-storage-additional-ebs-volumes").
+more information, see [Specifying additional EBS storage volumes](#emr-plan-storage-additional-ebs-volumes "#emr-plan-storage-additional-ebs-volumes").
 
 The following table identifies the default number of Amazon EBS gp2 storage volumes, sizes,
 and total sizes per instance type. For information about gp2 volumes compared to gp3,
-see [Comparing Amazon EBS volume types gp2
-and gp3](emr-plan-storage-compare-volume-types.md "emr-plan-storage-compare-volume-types.md").
+see [Comparing Amazon EBS volume types gp2 and gp3](emr-plan-storage-compare-volume-types.md "emr-plan-storage-compare-volume-types.md").
 
-Default Amazon EBS gp2 storage volumes and size by instance type for Amazon EMR 5.22.0 and
-higher| Instance size | Number of volumes | Volume size (GiB) | Total size (GiB) |
-| --- | --- | --- | --- |
-| \*.large | 1 | 32 | 32 |
-| \*.xlarge | 2 | 32 | 64 |
-| \*.2xlarge | 4 | 32 | 128 |
-| \*.4xlarge | 4 | 64 | 256 |
-| \*.8xlarge | 4 | 128 | 512 |
-| \*.9xlarge | 4 | 144 | 576 |
-| \*.10xlarge | 4 | 160 | 640 |
-| \*.12xlarge | 4 | 192 | 768 |
-| \*.16xlarge | 4 | 256 | 1024 |
-| \*.18xlarge | 4 | 288 | 1152 |
-| \*.24xlarge | 4 | 384 | 1536 |
+| Default Amazon EBS gp2 storage volumes and size by instance type for Amazon EMR 5.22.0 and higher | Instance size | Number of volumes | Volume size (GiB) | Total size (GiB) |
+| ------------------------------------------------------------------------------------------------- | ------------- | ----------------- | ----------------- | ---------------- |
+| \*.large                                                                                          | 1             | 32                | 32                |
+| \*.xlarge                                                                                         | 2             | 32                | 64                |
+| \*.2xlarge                                                                                        | 4             | 32                | 128               |
+| \*.4xlarge                                                                                        | 4             | 64                | 256               |
+| \*.8xlarge                                                                                        | 4             | 128               | 512               |
+| \*.9xlarge                                                                                        | 4             | 144               | 576               |
+| \*.10xlarge                                                                                       | 4             | 160               | 640               |
+| \*.12xlarge                                                                                       | 4             | 192               | 768               |
+| \*.16xlarge                                                                                       | 4             | 256               | 1024              |
+| \*.18xlarge                                                                                       | 4             | 288               | 1152              |
+| \*.24xlarge                                                                                       | 4             | 384               | 1536              |
 
-## Default Amazon EBS root volume for
-
-instances
+## Default Amazon EBS root volume for instances
 
 With Amazon EMR releases 6.15 and higher, Amazon EMR automatically attaches an Amazon EBS General
 Purpose SSD (gp3) as the root device for its AMIs to enhance performance. With earlier
@@ -88,12 +80,9 @@ releases, Amazon EMR attaches EBS General Purpose SSD (gp2) as the root device.
 | Default IOPS             | • 3000<br>• (configurable)      |                                                                            |
 | Default throughput       | • 125 MiB/s<br>• (configurable) |                                                                            |
 
-For information on how to customize the Amazon EBS root device volume, see [Specifying additional EBS
-storage volumes](#emr-plan-storage-additional-ebs-volumes "#emr-plan-storage-additional-ebs-volumes").
+For information on how to customize the Amazon EBS root device volume, see [Specifying additional EBS storage volumes](#emr-plan-storage-additional-ebs-volumes "#emr-plan-storage-additional-ebs-volumes").
 
-## Specifying additional EBS
-
-storage volumes
+## Specifying additional EBS storage volumes
 
 When you configure instance types in Amazon EMR, you can specify additional EBS volumes to
 add capacity beyond the instance store (if present) and the default EBS volume. Amazon EBS
@@ -114,9 +103,7 @@ EMR cluster. To use gp3 for your workloads, launch a new EMR cluster. In additio
 we don't recommend that you update the throughput and IOPS on a cluster that is in use
 or that is being provisioned, because Amazon EMR uses the throughput and IOPS values you
 specify at cluster launch time for any new instance that it adds during cluster
-scale-up. For more information, see [Comparing Amazon EBS volume types gp2
-and gp3](emr-plan-storage-compare-volume-types.md "emr-plan-storage-compare-volume-types.md") and [Selecting IOPS and throughput
-when migrating to gp3 Amazon EBS volume types](emr-plan-storage-gp3-migration-selection.md "emr-plan-storage-gp3-migration-selection.md").
+scale-up. For more information, see [Comparing Amazon EBS volume types gp2 and gp3](emr-plan-storage-compare-volume-types.md "emr-plan-storage-compare-volume-types.md") and [Selecting IOPS and throughput when migrating to gp3 Amazon EBS volume types](emr-plan-storage-gp3-migration-selection.md "emr-plan-storage-gp3-migration-selection.md").
 
 ###### Important
 

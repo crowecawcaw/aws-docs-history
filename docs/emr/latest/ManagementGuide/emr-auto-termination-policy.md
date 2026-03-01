@@ -103,9 +103,7 @@ policy:
   [Amazon EMR-managed security group for the primary instance (private
   subnets)](emr-man-sec-groups.md#emr-sg-elasticmapreduce-master-private "emr-man-sec-groups.md#emr-sg-elasticmapreduce-master-private").
 
-## Permissions to use
-
-auto-termination
+## Permissions to use auto-termination
 
 Before you can apply and manage auto-termination policies for Amazon EMR, you need to attach the permissions that are listed in the following example IAM permissions policy to the IAM resources that manage your EMR cluster.
 
@@ -125,20 +123,15 @@ Before you can apply and manage auto-termination policies for Amazon EMR, you ne
 }
 ```
 
-## Attach, update, or remove an
-
-auto-termination policy
+## Attach, update, or remove an auto-termination policy
 
 This section includes instructions to help you attach, update, or remove an
 auto-termination policy from an Amazon EMR cluster. Before you work with auto-termination
-policies, make sure you have the necessary IAM permissions. See [Permissions to use
-auto-termination](#emr-auto-termination-permissions "#emr-auto-termination-permissions").
+policies, make sure you have the necessary IAM permissions. See [Permissions to use auto-termination](#emr-auto-termination-permissions "#emr-auto-termination-permissions").
 
 Console
 
-###### To attach an auto-termination policy when you create a cluster
-
-with the console
+###### To attach an auto-termination policy when you create a cluster with the console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
@@ -154,9 +147,7 @@ with the console
 6. To launch your cluster, choose **Create
    cluster**.
 
-###### To attach, update, or remove an auto-termination policy on a
-
-running cluster with the console
+###### To attach, update, or remove an auto-termination policy on a running cluster with the console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
@@ -179,9 +170,7 @@ Before you work with auto-termination policies, we recommend that you
 update to the latest version of the AWS CLI. For instructions, see [Installing,
 updating, and uninstalling the AWS CLI](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md").
 
-###### To attach or update an auto-termination policy using the
-
-AWS CLI
+###### To attach or update an auto-termination policy using the AWS CLI
 
 - You can use the `aws emr
 put-auto-termination-policy` command to attach or

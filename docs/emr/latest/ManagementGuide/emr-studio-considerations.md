@@ -53,8 +53,7 @@ Consider the following when you work with EMR Studio:
   interface to attach clusters to Workspaces with a managed endpoint to run
   notebook jobs.
 - There are additional considerations when you use trusted identity propagation with Amazon EMR that also apply to
-  EMR Studio. For more information, see [Considerations and limitations for Amazon EMR with
-  the Identity Center integration](emr-idc-considerations.md "emr-idc-considerations.md").
+  EMR Studio. For more information, see [Considerations and limitations for Amazon EMR with the Identity Center integration](emr-idc-considerations.md "emr-idc-considerations.md").
 - EMR Studio doesn't support the following Python magic commands:
   - `%alias`
   - `%alias_magic`
@@ -123,8 +122,7 @@ val df = spark.sql("SELECT * from table_name).
   cluster in the following Amazon EMR release versions: 5.32.0, 5.33.0, 6.2.0, and 6.3.0. Idle
   kernels consume computing resources and can cause long running clusters to fail. You can
   configure idle kernel cleanup for Jupyter Enterprise Gateway using the following example
-  script. You can [Connect to the Amazon EMR cluster primary node using
-  SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md"), or submit the script as a step. For more
+  script. You can [Connect to the Amazon EMR cluster primary node using SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md"), or submit the script as a step. For more
   information, see [Run commands and scripts on an
   Amazon EMR cluster](../ReleaseGuide/emr-commandrunner.md "../ReleaseGuide/emr-commandrunner.md").
 

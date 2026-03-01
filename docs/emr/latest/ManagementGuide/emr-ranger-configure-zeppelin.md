@@ -1,6 +1,4 @@
-# Configure Zeppelin for Apache
-
-Ranger-enabled Amazon EMR clusters
+# Configure Zeppelin for Apache Ranger-enabled Amazon EMR clusters
 
 The topic covers how to configure [Apache
 Zeppelin](https://zeppelin.apache.org/ "https://zeppelin.apache.org/") for an Apache Ranger-enabled Amazon EMR cluster so that you can use

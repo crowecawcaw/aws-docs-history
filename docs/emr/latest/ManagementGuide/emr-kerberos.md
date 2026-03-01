@@ -1,6 +1,4 @@
-# Use Kerberos for
-
-authentication with Amazon EMR
+# Use Kerberos for authentication with Amazon EMR
 
 Amazon EMR releases 5.10.0 and higher support Kerberos. Kerberos is a network
 authentication protocol that uses secret-key cryptography to provide strong
@@ -42,9 +40,6 @@ documentation](http://web.mit.edu/kerberos/krb5-latest/doc/ "http://web.mit.edu/
 - [Supported applications with Amazon EMR](emr-kerberos-principals.md "emr-kerberos-principals.md")
 - [Kerberos architecture options with Amazon EMR](emr-kerberos-options.md "emr-kerberos-options.md")
 - [Configuring Kerberos on Amazon EMR](emr-kerberos-configure.md "emr-kerberos-configure.md")
-- [Using SSH to connect to Kerberized
-  clusters with Amazon EMR](emr-kerberos-connect-ssh.md "emr-kerberos-connect-ssh.md")
-- [Tutorial: Configure an cluster-dedicated
-  KDC with Amazon EMR](emr-kerberos-cluster-kdc.md "emr-kerberos-cluster-kdc.md")
-- [Tutorial: Configure a cross-realm trust
-  with an Active Directory domain](emr-kerberos-cross-realm.md "emr-kerberos-cross-realm.md")
+- [Using SSH to connect to Kerberized clusters with Amazon EMR](emr-kerberos-connect-ssh.md "emr-kerberos-connect-ssh.md")
+- [Tutorial: Configure an cluster-dedicated KDC with Amazon EMR](emr-kerberos-cluster-kdc.md "emr-kerberos-cluster-kdc.md")
+- [Tutorial: Configure a cross-realm trust with an Active Directory domain](emr-kerberos-cross-realm.md "emr-kerberos-cross-realm.md")

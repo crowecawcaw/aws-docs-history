@@ -7,14 +7,10 @@ This section helps you configure Amazon EMR to integrate with AWS IAM Identity C
 - [Create an Identity Center instance](#emr-idc-start-instance "#emr-idc-start-instance")
 - [Create an IAM role for Identity Center](#emr-idc-start-role "#emr-idc-start-role")
 - [Add permissions for services not integrated with IAM Identity Center](#emr-idc-start-securityconfig-nonidc "#emr-idc-start-securityconfig-nonidc")
-- [Create an Identity Center enabled security
-  configuration](#emr-idc-start-securityconfig "#emr-idc-start-securityconfig")
-- [Create and launch an Identity Center enabled
-  cluster](#emr-idc-cluster "#emr-idc-cluster")
-- [Configure Lake Formation for an IAM Identity Center enabled
-  EMR cluster](emr-idc-lf.md "emr-idc-lf.md")
-- [Working with S3 Access Grants on an IAM Identity Center enabled
-  EMR cluster](emr-idc-s3ag.md "emr-idc-s3ag.md")
+- [Create an Identity Center enabled security configuration](#emr-idc-start-securityconfig "#emr-idc-start-securityconfig")
+- [Create and launch an Identity Center enabled cluster](#emr-idc-cluster "#emr-idc-cluster")
+- [Configure Lake Formation for an IAM Identity Center enabled EMR cluster](emr-idc-lf.md "emr-idc-lf.md")
+- [Working with S3 Access Grants on an IAM Identity Center enabled EMR cluster](emr-idc-s3ag.md "emr-idc-s3ag.md")
 
 ###### Note
 
@@ -121,9 +117,7 @@ and Amazon S3 Access Grants.
 To learn more about Trusted Identity Propagation,
 see [Trusted Identity Propagation across applications](../../../singlesignon/latest/userguide/trustedidentitypropagation.md "../../../singlesignon/latest/userguide/trustedidentitypropagation.md").
 
-## Create an Identity Center enabled security
-
-configuration
+## Create an Identity Center enabled security configuration
 
 To launch an EMR cluster with IAM Identity Center integration, use the following example
 command to create an Amazon EMR security configuration that has Identity Center enabled. Each
@@ -187,20 +181,15 @@ To enable Identity Center integration with Amazon EMR, you must specify
 `EncryptionConfiguration` and
 `IntransitEncryptionConfiguration`.
 
-## Create and launch an Identity Center enabled
-
-cluster
+## Create and launch an Identity Center enabled cluster
 
 Now that you've set up the IAM role that authenticates with Identity Center, and
 created an Amazon EMR security configuration that has Identity Center enabled, you can create
 and launch your identity-aware cluster. For steps to launch your cluster with the
-required security configuration, see [Specify a security configuration
-for an Amazon EMR cluster](emr-specify-security-configuration.md "emr-specify-security-configuration.md").
+required security configuration, see [Specify a security configuration for an Amazon EMR cluster](emr-specify-security-configuration.md "emr-specify-security-configuration.md").
 
 The following sections describe how to configure your Identity Center
 enabled cluster with security options that Amazon EMR supports:
 
-- [Working with S3 Access Grants on an IAM Identity Center enabled
-  EMR cluster](emr-idc-s3ag.md "emr-idc-s3ag.md")
-- [Configure Lake Formation for an IAM Identity Center enabled
-  EMR cluster](emr-idc-lf.md "emr-idc-lf.md")
+- [Working with S3 Access Grants on an IAM Identity Center enabled EMR cluster](emr-idc-s3ag.md "emr-idc-s3ag.md")
+- [Configure Lake Formation for an IAM Identity Center enabled EMR cluster](emr-idc-lf.md "emr-idc-lf.md")

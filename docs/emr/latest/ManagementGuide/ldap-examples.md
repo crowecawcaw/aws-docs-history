@@ -4,11 +4,9 @@ Once you [provision an EMR cluster that uses
 LDAP](ldap-setup-launch.md "ldap-setup-launch.md") integration, you can provide your LDAP credentials to any [supported application](ldap-considerations.md#ldap-considerations-apps "ldap-considerations.md#ldap-considerations-apps") through its built-in
 username and password authentication mechanism. This page shows some examples.
 
-## Using LDAP authentication with Apache
+## Using LDAP authentication with Apache Hive
 
-Hive
-
-###### Example - Apache Hive
+###### Example- Apache Hive
 
 The following example command starts an Apache Hive session through
 HiveServer2 and Beeline:
@@ -17,11 +15,9 @@ HiveServer2 and Beeline:
 beeline -u "jdbc:hive2://`$HOSTNAME`:10000/default;ssl=true;sslTrustStore=$`TRUSTSTORE_PATH`;trustStorePassword=$`TRUSTSTORE_PASS`"  -n `LDAP_USERNAME` -p `LDAP_PASSWORD`
 ```
 
-## Using LDAP authentication with Apache
+## Using LDAP authentication with Apache Livy
 
-Livy
-
-###### Example - Apache Livy
+###### Example- Apache Livy
 
 The following example command starts a Livy session through cURL. Replace
 `ENCODED-KEYPAIR` with a
@@ -34,7 +30,7 @@ curl -X POST --data '{"proxyUser":"`LDAP_USERNAME`","kind": "pyspark"}' -H "Cont
 
 ## Using LDAP authentication with Presto
 
-###### Example - Presto
+###### Example- Presto
 
 The following example command starts a Presto session through the Presto
 CLI:
@@ -47,7 +43,7 @@ After you run this command, enter the LDAP password at the prompt.
 
 ## Using LDAP authentication with Trino
 
-###### Example - Trino
+###### Example- Trino
 
 The following example command starts a Trino session through the Trino
 CLI:
@@ -71,9 +67,7 @@ To use the Hue UI, open the Hue UI in your browser and enter your LDAP username
 password to log in. If the credentials are correct, Hue logs you in and uses your
 identity to authenticate you with all supported applications.
 
-## Using SSH for password authentication and
-
-Kerberos tickets for other applications
+## Using SSH for password authentication and Kerberos tickets for other applications
 
 ###### Important
 

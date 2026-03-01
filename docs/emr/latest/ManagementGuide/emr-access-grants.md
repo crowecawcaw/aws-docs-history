@@ -39,9 +39,7 @@ protected by S3 Access Grants.
 4. Amazon EMR uses the STS token to retrieve data from S3.
 5. Amazon EMR receives the data from S3 and returns the results to the user.
 
-## S3 Access Grants considerations with
-
-Amazon EMR
+## S3 Access Grants considerations with Amazon EMR
 
 Take note of the following behaviors and limitations when you use S3 Access Grants with
 Amazon EMR.
@@ -83,9 +81,7 @@ Amazon EMR.
   Amazon EMR is set to use the IAM role that was specified for job execution. For
   more information, see [Fall back to IAM roles](#emr-access-grants-fallback "#emr-access-grants-fallback").
 
-## Launch an Amazon EMR cluster with
-
-S3 Access Grants
+## Launch an Amazon EMR cluster with S3 Access Grants
 
 This section describes how to launch an EMR cluster that runs on Amazon EC2, and uses
 S3 Access Grants to manage access to data in Amazon S3. For steps to use S3 Access Grants with other Amazon EMR

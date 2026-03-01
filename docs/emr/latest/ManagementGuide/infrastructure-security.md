@@ -16,5 +16,4 @@ support the following:
 
 ###### Topics
 
-- [Connect to Amazon EMR using an interface VPC
-  endpoint](interface-vpc-endpoint.md "interface-vpc-endpoint.md")
+- [Connect to Amazon EMR using an interface VPC endpoint](interface-vpc-endpoint.md "interface-vpc-endpoint.md")

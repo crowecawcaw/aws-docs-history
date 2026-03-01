@@ -1,6 +1,4 @@
-# Python
-
-samples for an EMR notebook
+# Python samples for an EMR notebook
 
 This topic contains a sample command file. The code example is an SDK for Python (Boto3) file called `demo.py`. It
 shows the notebook execution APIs.

@@ -1,6 +1,4 @@
-# Service definition
-
-installation for Ranger integration with Amazon EMR
+# Service definition installation for Ranger integration with Amazon EMR
 
 A service definition is used by the Ranger Admin server to describe the
 attributes of policies for an application. The policies are then stored in a

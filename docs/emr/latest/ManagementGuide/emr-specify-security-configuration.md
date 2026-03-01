@@ -1,6 +1,4 @@
-# Specify a security configuration
-
-for an Amazon EMR cluster
+# Specify a security configuration for an Amazon EMR cluster
 
 You can specify encryption settings when you create a cluster by specifying the
 security configuration. You can use the AWS Management Console or the AWS CLI.

@@ -1,10 +1,6 @@
-# Create AWS CloudFormation templates
+# Create AWS CloudFormation templates for Amazon EMR Studio
 
-for Amazon EMR Studio
-
-## About EMR Studio cluster
-
-templates
+## About EMR Studio cluster templates
 
 You can create AWS CloudFormation templates to help EMR Studio users
 launch new Amazon EMR clusters in a Workspace. CloudFormation templates are formatted text
@@ -28,9 +24,7 @@ The following video demonstrates how to set up cluster templates in
 AWS Service Catalog for EMR Studio. You can also learn more in the [Build a self-service environment for each line of business using Amazon EMR and Service Catalog](https://aws.amazon.com/blogs/big-data/build-a-self-service-environment-for-each-line-of-business-using-amazon-emr-and-aws-service-catalog/ "https://aws.amazon.com/blogs/big-data/build-a-self-service-environment-for-each-line-of-business-using-amazon-emr-and-aws-service-catalog/")
 blog post.
 
-### Optional template
-
-parameters
+### Optional template parameters
 
 You can include additional options in the [`Parameters`](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") section of your template. _Parameters_ let Studio users input or select custom values for a
 cluster. For example, you could add a parameter that lets users select a particular Amazon EMR

@@ -1,6 +1,4 @@
-# Configure Workspace
-
-collaboration in EMR Studio
+# Configure Workspace collaboration in EMR Studio
 
 Workspace collaboration lets you write and run notebook code simultaneously with
 other members of your team. When you work in the same notebook file, you'll see changes as

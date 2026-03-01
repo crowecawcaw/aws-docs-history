@@ -8,20 +8,15 @@ mode.
   and permissions in IAM or with IAM and your identity provider.
 - With IAM Identity Center authentication mode, you use the Amazon EMR management console or the AWS CLI to
   manage users.
-  To learn more about authentication for Amazon EMR Studio, see [Choose an authentication mode for
-  Amazon EMR Studio](emr-studio-authentication.md "emr-studio-authentication.md").
+  To learn more about authentication for Amazon EMR Studio, see [Choose an authentication mode for Amazon EMR Studio](emr-studio-authentication.md "emr-studio-authentication.md").
 
-## Assign a user or group to an
-
-EMR Studio
+## Assign a user or group to an EMR Studio
 
 IAM
-When you use [Set up IAM authentication mode for
-Amazon EMR Studio](emr-studio-authentication.md#emr-studio-iam-authentication "emr-studio-authentication.md#emr-studio-iam-authentication"), you must allow the
+When you use [Set up IAM authentication mode for Amazon EMR Studio](emr-studio-authentication.md#emr-studio-iam-authentication "emr-studio-authentication.md#emr-studio-iam-authentication"), you must allow the
 `CreateStudioPresignedUrl` action in a user's IAM permissions policy
 and restrict the user to a particular Studio. You can include
-`CreateStudioPresignedUrl` in your [User permissions for IAM authentication
-mode](how-emr-studio-works.md#emr-studio-iam-authorization "how-emr-studio-works.md#emr-studio-iam-authorization") or use a separate policy.
+`CreateStudioPresignedUrl` in your [User permissions for IAM authentication mode](how-emr-studio-works.md#emr-studio-iam-authorization "how-emr-studio-works.md#emr-studio-iam-authorization") or use a separate policy.
 
 To restrict a user to a Studio (or set of Studios), you can use
 attribute-based access control (ABAC) or specify the Amazon Resource Name (ARN) of a
@@ -105,9 +100,7 @@ JSONJSON
 
 ```
 
-###### Example Assign a user to a Studio using the aws:SourceIdentity global
-
-condition key
+###### Example Assign a user to a Studio using the aws:SourceIdentity global condition key
 
 When you use IAM federation, you can use the global condition key
 `aws:SourceIdentity` in a permissions policy to give users
@@ -169,9 +162,7 @@ in the session policy for that user or group. If a user belongs to more than one
 group assigned to the Studio, EMR Studio uses a union of permissions
 for that user.
 
-###### To assign users or groups to an EMR Studio using the Amazon EMR
-
-console
+###### To assign users or groups to an EMR Studio using the Amazon EMR console
 
 1. Navigate to the new Amazon EMR console and select **Switch to the old console** from the side navigation. For more information on what to expect when you switch to the old console, see [Using the old console](whats-new-in-console.md#console-opt-in "whats-new-in-console.md#console-opt-in").
 2. Choose **EMR Studio** from the left navigation.
@@ -190,8 +181,7 @@ console
    **Add**. You should see the users and groups appear in the
    **Studio users** list. It might take a few seconds
    for the list to refresh.
-8. Follow the instructions in [Update permissions for a user or group assigned
-   to a Studio](#emr-studio-update-user "#emr-studio-update-user") to refine the Studio
+8. Follow the instructions in [Update permissions for a user or group assigned to a Studio](#emr-studio-update-user "#emr-studio-update-user") to refine the Studio
    permissions for a user or group.
 
 **To assign a user or group to an EMR Studio using the
@@ -215,8 +205,7 @@ Command Reference_](../../../cli/latest/reference/emr/create-studio-session-mapp
 - **`--session-policy-arn`**
   – The Amazon Resource Name (ARN) for the session policy you want to
   associate with the user or group. For example, `**arn:aws:iam::`<aws-account-id>`:policy/`EMRStudio_Advanced_User_Policy`**`.
-  For more information, see [Create permissions policies for
-  EMR Studio users](emr-studio-user-permissions.md#emr-studio-permissions-policies "emr-studio-user-permissions.md#emr-studio-permissions-policies").
+  For more information, see [Create permissions policies for EMR Studio users](emr-studio-user-permissions.md#emr-studio-permissions-policies "emr-studio-user-permissions.md#emr-studio-permissions-policies").
 
 ```
 aws emr create-studio-session-mapping \
@@ -241,23 +230,18 @@ aws emr get-studio-session-mapping \
  --identity-name `<user-or-group-name>` \
 ```
 
-## Update permissions for a user or group assigned
-
-to a Studio
+## Update permissions for a user or group assigned to a Studio
 
 IAM
 To update user or group permissions when you use IAM authentication mode, use
 IAM to change the IAM permissions policies attached to your IAM identities
 (users, groups, or roles).
 
-For more information, see [User permissions for IAM authentication
-mode](how-emr-studio-works.md#emr-studio-iam-authorization "how-emr-studio-works.md#emr-studio-iam-authorization").
+For more information, see [User permissions for IAM authentication mode](how-emr-studio-works.md#emr-studio-iam-authorization "how-emr-studio-works.md#emr-studio-iam-authorization").
 
 IAM Identity Center
 
-###### \*\*To update EMR Studio permissions for a user or
-
-group using the console\*\*
+###### **To update EMR Studio permissions for a user or group using the console**
 
 1. Navigate to the new Amazon EMR console and select **Switch to the old console** from the side navigation. For more information on what to expect when you switch to the old console, see [Using the old console](whats-new-in-console.md#console-opt-in "whats-new-in-console.md#console-opt-in").
 2. Choose **EMR Studio** from the left navigation.
@@ -304,9 +288,7 @@ aws emr get-studio-session-mapping \
  --identity-name `<user-or-group-name>` \
 ```
 
-## Remove a user or group from a
-
-Studio
+## Remove a user or group from a Studio
 
 IAM
 To remove a user or group from an EMR Studio when you use IAM
@@ -352,9 +334,7 @@ JSONJSON
 
 IAM Identity Center
 
-###### \*\*To remove a user or group from an EMR Studio using
-
-the console\*\*
+###### **To remove a user or group from an EMR Studio using the console**
 
 1. Navigate to the new Amazon EMR console and select **Switch to the old console** from the side navigation. For more information on what to expect when you switch to the old console, see [Using the old console](whats-new-in-console.md#console-opt-in "whats-new-in-console.md#console-opt-in").
 2. Choose **EMR Studio** from the left navigation.

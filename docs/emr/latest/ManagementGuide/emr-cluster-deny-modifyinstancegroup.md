@@ -1,6 +1,4 @@
-# Denying the
-
-ModifyInstanceGroup action in Amazon EMR
+# Denying the ModifyInstanceGroup action in Amazon EMR
 
 The [ModifyInstanceGroups](../APIReference/API_ModifyInstanceGroups.md "../APIReference/API_ModifyInstanceGroups.md") action in Amazon EMR does not require that you provide
 a cluster ID with the action. Instead, you can specify only an instance group ID.

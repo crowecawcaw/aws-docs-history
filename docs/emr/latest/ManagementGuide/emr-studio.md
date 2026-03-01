@@ -24,8 +24,7 @@ Amazon EMR Studio provides the following features:
 - Analyze data using Python, PySpark, Spark Scala, Spark R, or SparkSQL, and install
   custom kernels and libraries.
 - Collaborate in real time with other users in the same Workspace. For more
-  information, see [Configure Workspace
-  collaboration in EMR Studio](emr-studio-workspace-collaboration.md "emr-studio-workspace-collaboration.md").
+  information, see [Configure Workspace collaboration in EMR Studio](emr-studio-workspace-collaboration.md "emr-studio-workspace-collaboration.md").
 - Use the EMR Studio SQL Explorer to browse your data catalog, run SQL queries, and
   download results before you work with the data in a notebook.
 - Run parameterized notebooks as part of scheduled workflows with an orchestration tool

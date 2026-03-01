@@ -1,6 +1,4 @@
-# Associating Git-based repositories with
-
-EMR Notebooks
+# Associating Git-based repositories with EMR Notebooks
 
 You can associate Git-based repositories with your Amazon EMR notebooks to save your
 notebooks in a version controlled environment. You can associate up to three
@@ -38,12 +36,9 @@ benefits.
 
 ###### Topics
 
-- [Prerequisites and
-  considerations when integrating an EMR notebook with a repository](emr-managed-notebooks-git-considerations.md "emr-managed-notebooks-git-considerations.md")
+- [Prerequisites and considerations when integrating an EMR notebook with a repository](emr-managed-notebooks-git-considerations.md "emr-managed-notebooks-git-considerations.md")
 - [Add a Git-based repository to Amazon EMR](emr-git-repo-add.md "emr-git-repo-add.md")
-- [Update or delete a Git-based
-  repository from an EMR Studio Workspace](emr-git-repo-delete.md "emr-git-repo-delete.md")
+- [Update or delete a Git-based repository from an EMR Studio Workspace](emr-git-repo-delete.md "emr-git-repo-delete.md")
 - [Link or unlink a Git-based repository in EMR Studio](emr-git-repo-link.md "emr-git-repo-link.md")
-- [Create a new Notebook with an
-  associated Git repository in EMR Studio](emr-git-repo-create-notebook.md "emr-git-repo-create-notebook.md")
+- [Create a new Notebook with an associated Git repository in EMR Studio](emr-git-repo-create-notebook.md "emr-git-repo-create-notebook.md")
 - [Use Git repositories in an EMR Studio Notebook](emr-git-repo-open.md "emr-git-repo-open.md")

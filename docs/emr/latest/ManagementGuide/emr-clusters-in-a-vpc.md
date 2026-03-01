@@ -55,8 +55,7 @@ Private subnets differ from public subnets in the following ways:
 - To access AWS services that do not provide a VPC endpoint, you
   still must use a NAT instance or an internet gateway.
 - At a minimum, you must provide a route to the Amazon EMR service logs
-  bucket and Amazon Linux repository in Amazon S3. For more information, see [Sample policies for private
-  subnets that access Amazon S3](private-subnet-iampolicy.md "private-subnet-iampolicy.md")
+  bucket and Amazon Linux repository in Amazon S3. For more information, see [Sample policies for private subnets that access Amazon S3](private-subnet-iampolicy.md "private-subnet-iampolicy.md")
 - If you use EMRFS features, you need to have an Amazon S3 VPC endpoint
   and a route from your private subnet to DynamoDB.
 - Debugging only works if you provide a route from your private

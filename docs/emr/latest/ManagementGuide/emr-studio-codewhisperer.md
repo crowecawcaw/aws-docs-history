@@ -1,6 +1,4 @@
-# Amazon CodeWhisperer integration with EMR Studio
-
-Workspaces
+# Amazon CodeWhisperer integration with EMR Studio Workspaces
 
 ## Overview
 
@@ -16,9 +14,7 @@ service improvement purposes. For more information and instructions to opt out o
 sharing, see [Sharing your data with
 AWS](../../../codewhisperer/latest/userguide/sharing-data.md "../../../codewhisperer/latest/userguide/sharing-data.md") in the _Amazon CodeWhisperer User Guide_.
 
-## Considerations for using CodeWhisperer
-
-with Workspaces
+## Considerations for using CodeWhisperer with Workspaces
 
 - CodeWhisperer integration is available in the same AWS Regions where EMR Studio is
   available, as documented in the [EMR Studio
@@ -30,9 +26,7 @@ with Workspaces
 - A client-side telemetry option quantifies your usage of CodeWhisperer. This
   functionality isn't supported with EMR Studio.
 
-## Permissions required for
-
-CodeWhisperer
+## Permissions required for CodeWhisperer
 
 To use CodeWhisperer, you must attach the following policy to your IAM user role for
 Amazon EMR Studio:
@@ -58,9 +52,7 @@ JSON
 
 ```
 
-## Use CodeWhisperer with
-
-Workspaces
+## Use CodeWhisperer with Workspaces
 
 To display the CodeWhisperer reference log in JupyterLab, open the
 **CodeWhisperer** panel at the bottom of the JupyterLab window and choose

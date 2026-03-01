@@ -1,14 +1,10 @@
-# Create a new Notebook with an
-
-associated Git repository in EMR Studio
+# Create a new Notebook with an associated Git repository in EMR Studio
 
 ###### Note
 
 EMR Notebooks are available as EMR Studio Workspaces in the console. The **Create Workspace** button in the console lets you create new notebooks. To access or create Workspaces, EMR Notebooks users need additional IAM role permissions. For more information, see [Amazon EMR Notebooks are Amazon EMR Studio Workspaces in the console](emr-managed-notebooks-migration.md "emr-managed-notebooks-migration.md") and [Amazon EMR console](whats-new-in-console.md "whats-new-in-console.md").
 
-###### To create a notebook and associate it with Git repositories in the old Amazon EMR
-
-console
+###### To create a notebook and associate it with Git repositories in the old Amazon EMR console
 
 1. Follow the instructions at [Create a Notebook in EMR Studio](emr-managed-notebooks-create.md "emr-managed-notebooks-create.md").
 2. For **Security group**, choose **Use your own

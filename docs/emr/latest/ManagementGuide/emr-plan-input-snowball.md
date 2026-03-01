@@ -1,6 +1,4 @@
-# Upload large amounts of data for Amazon EMR with
-
-AWS Snowball Edge
+# Upload large amounts of data for Amazon EMR with AWS Snowball Edge
 
 AWS Snowball Edge is a service you can use to transfer large amounts of data between
 Amazon Simple Storage Service (Amazon S3) and your onsite data storage location at faster-than-internet

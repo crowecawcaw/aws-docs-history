@@ -1,6 +1,4 @@
-# Use resource-based policies for Amazon EMR access to
-
-AWS Glue Data Catalog
+# Use resource-based policies for Amazon EMR access to AWS Glue Data Catalog
 
 If you use AWS Glue in conjunction with Hive, Spark, or Presto in Amazon EMR, AWS Glue supports resource-based policies to control access to Data Catalog resources. These resources include databases, tables, connections, and user-defined functions. For more information, see [AWS Glue Resource Policies](../../../glue/latest/dg/glue-resource-policies.md "../../../glue/latest/dg/glue-resource-policies.md") in the _AWS Glue Developer Guide_.
 

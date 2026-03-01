@@ -1,6 +1,4 @@
-# Configuring an Amazon EMR cluster for
-
-Kerberos-authenticated HDFS users and SSH connections
+# Configuring an Amazon EMR cluster for Kerberos-authenticated HDFS users and SSH connections
 
 Amazon EMR creates Kerberos-authenticated user clients for the applications that
 run on the cluster—for example, the `hadoop` user,
@@ -19,9 +17,7 @@ configurations are required:
   primary node. In addition, users must have an SSH client with GSSAPI
   enabled.
 
-## Adding Linux users and
-
-Kerberos principals to the primary node
+## Adding Linux users and Kerberos principals to the primary node
 
 If you do not use Active Directory, you must create Linux accounts on the
 cluster primary node and add principals for these Linux users to the KDC.
@@ -31,9 +27,7 @@ the local host.
 
 When your architecture includes Active Directory integration, Linux users
 and principals on the local KDC, if applicable, are created automatically.
-You can skip this step. For more information, see [Cross-realm trust](emr-kerberos-options.md#emr-kerberos-crossrealm-summary "emr-kerberos-options.md#emr-kerberos-crossrealm-summary") and [External
-KDC—cluster KDC on a different cluster with Active Directory
-cross-realm trust](emr-kerberos-options.md#emr-kerberos-extkdc-ad-trust-summary "emr-kerberos-options.md#emr-kerberos-extkdc-ad-trust-summary").
+You can skip this step. For more information, see [Cross-realm trust](emr-kerberos-options.md#emr-kerberos-crossrealm-summary "emr-kerberos-options.md#emr-kerberos-crossrealm-summary") and [External KDC—cluster KDC on a different cluster with Active Directory cross-realm trust](emr-kerberos-options.md#emr-kerberos-extkdc-ad-trust-summary "emr-kerberos-options.md#emr-kerberos-extkdc-ad-trust-summary").
 
 ###### Important
 
@@ -45,8 +39,7 @@ Submitting a step to the cluster after you create it or when you create
 the cluster is the easiest way to add users and KDC principals.
 Alternatively, you can connect to the primary node using an EC2 key pair as
 the default `hadoop` user to run the commands. For more
-information, see [Connect to the Amazon EMR cluster primary node using
-SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
+information, see [Connect to the Amazon EMR cluster primary node using SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
 
 The following example submits a bash script
 `configureCluster.sh` to a cluster that already exists,
@@ -92,9 +85,7 @@ sudo sed -i 's/^.*GSSAPICleanupCredentials.*$/GSSAPICleanupCredentials yes/' /et
 sudo systemctl restart sshd
 ```
 
-## Adding user HDFS
-
-directories
+## Adding user HDFS directories
 
 To allow your users to log in to the cluster to run Hadoop jobs, you must
 add HDFS user directories for their Linux accounts, and grant each user
@@ -104,8 +95,7 @@ Submitting a step to the cluster after you create it or when you create
 the cluster is the easiest way to create HDFS directories. Alternatively,
 you could connect to the primary node using an EC2 key pair as the default
 `hadoop` user to run the commands. For more information, see
-[Connect to the Amazon EMR cluster primary node using
-SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
+[Connect to the Amazon EMR cluster primary node using SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
 
 The following example submits a bash script `AddHDFSUsers.sh`
 to a cluster that already exists, referencing its cluster ID. The script is

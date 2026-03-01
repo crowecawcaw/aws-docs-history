@@ -1,6 +1,4 @@
-# Adding steps to a cluster with the Amazon EMR
-
-Management Console
+# Adding steps to a cluster with the Amazon EMR Management Console
 
 Use the following procedures to add steps to a cluster with the AWS Management Console. For
 detailed information about how to submit steps for specific big data applications, see
@@ -17,9 +15,7 @@ Guide](../ReleaseGuide/emr-release-components.md "../ReleaseGuide/emr-release-co
   or script as a step](../ReleaseGuide/emr-launch-custom-jar-cli.md "../ReleaseGuide/emr-launch-custom-jar-cli.md")
 - [Pass values into steps to run Hive scripts](../ReleaseGuide/emr-hive-differences.md#emr-hive-additional-features "../ReleaseGuide/emr-hive-differences.md#emr-hive-additional-features")
 
-## Add steps during cluster
-
-creation
+## Add steps during cluster creation
 
 From the AWS Management Console, you can add steps when you create a cluster.
 
@@ -42,9 +38,7 @@ Console
 5. To launch your cluster, choose **Create
    cluster**.
 
-## Add steps to a running
-
-cluster
+## Add steps to a running cluster
 
 With the AWS Management Console, you can add steps to a cluster with the auto-terminate option
 disabled.
@@ -67,9 +61,7 @@ Console
    type. To add your step and exit the dialog, choose **Add
    step**.
 
-## Modify the step
-
-concurrency level in a running cluster
+## Modify the step concurrency level in a running cluster
 
 With the AWS Management Console, you can modify the step concurrency level in a running
 cluster.

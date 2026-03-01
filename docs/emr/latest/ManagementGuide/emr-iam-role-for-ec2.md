@@ -1,6 +1,4 @@
-# Service role for cluster EC2 instances (EC2
-
-instance profile)
+# Service role for cluster EC2 instances (EC2 instance profile)
 
 The service role for cluster EC2 instances (also called the EC2 instance profile for Amazon EMR) is a
 special type of service role that is assigned to every EC2 instance in an Amazon EMR
@@ -28,8 +26,7 @@ and default policy.
   support. Instead of using a default managed policy for the EC2 instance
   profile, apply resource-based policies to S3 buckets and other resources
   that Amazon EMR needs, or use your own customer-managed policy with an IAM
-  role as an instance profile. For more information, see [Creating a service role for
-  cluster EC2 instances with least-privilege permissions](#emr-ec2-role-least-privilege "#emr-ec2-role-least-privilege").
+  role as an instance profile. For more information, see [Creating a service role for cluster EC2 instances with least-privilege permissions](#emr-ec2-role-least-privilege "#emr-ec2-role-least-privilege").
 
 The following shows the contents of version 3 of
 `AmazonElasticMapReduceforEC2Role`.
@@ -121,9 +118,7 @@ JSON
 
 ```
 
-## Creating a service role for
-
-cluster EC2 instances with least-privilege permissions
+## Creating a service role for cluster EC2 instances with least-privilege permissions
 
 As a best practice, we strongly recommend that you create a
 service role for cluster EC2 instances and permissions policy that has the minimum permissions
@@ -151,17 +146,14 @@ For more information about creating and specifying custom roles, see [Customize 
 
 If you create a custom EMR role for EC2, follow the basic work flow, which automatically creates an instance profile of the same name. Amazon EC2 allows you to create instance profiles and roles with different names, but Amazon EMR does not support this configuration, and it results in an "invalid instance profile" error when you create the cluster.
 
-### Reading and writing data to Amazon S3 using
-
-EMRFS
+### Reading and writing data to Amazon S3 using EMRFS
 
 When an application running on an Amazon EMR cluster references data using the
 `s3://`mydata``
 format, Amazon EMR uses the EC2 instance profile to make the request. Clusters
 typically read and write data to Amazon S3 in this way, and Amazon EMR uses the
 permissions attached to the service role for cluster EC2 instances by default. For more
-information, see [Configure IAM roles for EMRFS requests to
-Amazon S3](emr-emrfs-iam-roles.md "emr-emrfs-iam-roles.md").
+information, see [Configure IAM roles for EMRFS requests to Amazon S3](emr-emrfs-iam-roles.md "emr-emrfs-iam-roles.md").
 
 Because IAM roles for EMRFS will fall back to the permissions attached
 to the service role for cluster EC2 instances, as a best practice, we recommend that you use

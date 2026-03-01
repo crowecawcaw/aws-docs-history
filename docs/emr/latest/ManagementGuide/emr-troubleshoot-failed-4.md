@@ -9,9 +9,7 @@ in the step logs to identify Hadoop jobs launched as part of a step with errors.
 
 The following sections describe how to use the various log files to identify error in your cluster.
 
-## Check the bootstrap
-
-action logs
+## Check the bootstrap action logs
 
 Bootstrap actions run scripts on the cluster as it is launched. They are commonly used to install additional software on the cluster
 or to alter configuration settings from the default values. Checking these logs may provide insight into errors that occurred during set up of the cluster as well as
@@ -43,9 +41,7 @@ mapper and reducer applications being run in the cluster.
 Examine the last lines of controller and syslog for notices of errors or failures.
 Follow any notices about failed tasks, particularly if it says "Job Failed".
 
-## Check the task attempt
-
-logs
+## Check the task attempt logs
 
 If the previous analysis of the step logs turned up one or more failed tasks, investigate
 the logs of the corresponding task attempts for more detailed error information.

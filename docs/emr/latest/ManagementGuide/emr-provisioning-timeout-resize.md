@@ -1,6 +1,4 @@
-# Customize a provisioning timeout
-
-period for cluster resize in Amazon EMR
+# Customize a provisioning timeout period for cluster resize in Amazon EMR
 
 You can define a timeout period for provisioning Spot Instances for each fleet in
 your cluster. If Amazon EMR can't provision the Spot capacity, it cancels the resize
@@ -12,14 +10,10 @@ When the timeout period expires, Amazon EMR automatically sends events to an Ama
 stream. With CloudWatch, you can create rules that match events according to a specified
 pattern, and then route the events to targets to take action. For example, you might
 configure a rule to send an email notification. For more information on how to
-create rules, see [Creating rules for Amazon EMR events with
-CloudWatch](emr-events-cloudwatch-console.md "emr-events-cloudwatch-console.md"). For more information about
-different event details, see [Instance fleet state-change
-events](emr-manage-cloudwatch-events.md#emr-cloudwatch-instance-fleet-events "emr-manage-cloudwatch-events.md#emr-cloudwatch-instance-fleet-events").
+create rules, see [Creating rules for Amazon EMR events with CloudWatch](emr-events-cloudwatch-console.md "emr-events-cloudwatch-console.md"). For more information about
+different event details, see [Instance fleet state-change events](emr-manage-cloudwatch-events.md#emr-cloudwatch-instance-fleet-events "emr-manage-cloudwatch-events.md#emr-cloudwatch-instance-fleet-events").
 
-## Examples of provisioning
-
-timeouts for cluster resize
+## Examples of provisioning timeouts for cluster resize
 
 **Specify a provisioning timeout for resize with the
 AWS CLI**
@@ -69,9 +63,7 @@ aws emr create-cluster \
 --instance-fleets '[{"InstanceFleetType":"MASTER","TargetOnDemandCapacity":1,"TargetSpotCapacity":0,"LaunchSpecifications":{"OnDemandSpecification":{"AllocationStrategy":"lowest-price"}},"InstanceTypeConfigs":[{"WeightedCapacity":1,"EbsConfiguration":{"EbsBlockDeviceConfigs":[{"VolumeSpecification":{"SizeInGB":32,"VolumeType":"gp2"},"VolumesPerInstance":2}]},"BidPriceAsPercentageOfOnDemandPrice":100,"InstanceType":"m5.xlarge"}],"Name":"Master - 1"},{"InstanceFleetType":"CORE","TargetOnDemandCapacity":1,"TargetSpotCapacity":1,"LaunchSpecifications":{"SpotSpecification":{"TimeoutDurationMinutes":120,"TimeoutAction":"SWITCH_TO_ON_DEMAND"},"OnDemandSpecification":{"AllocationStrategy":"lowest-price"}},"ResizeSpecifications":{"SpotResizeSpecification":{"TimeoutDurationMinutes":20},"OnDemandResizeSpecification":{"TimeoutDurationMinutes":25}},"InstanceTypeConfigs":[{"WeightedCapacity":1,"EbsConfiguration":{"EbsBlockDeviceConfigs":[{"VolumeSpecification":{"SizeInGB":32,"VolumeType":"gp2"},"VolumesPerInstance":2}]},"BidPriceAsPercentageOfOnDemandPrice":1,"InstanceType":"m5.xlarge"}],"Name":"Core - 2"}]'
 ```
 
-## Considerations for
-
-resize provisioning timeouts
+## Considerations for resize provisioning timeouts
 
 When you configure cluster provisioning timeouts for your instance fleets,
 consider the following behaviors.

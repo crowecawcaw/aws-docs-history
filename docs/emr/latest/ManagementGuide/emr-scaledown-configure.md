@@ -1,6 +1,4 @@
-# Configure Amazon EMR scale-down
-
-behavior
+# Configure Amazon EMR scale-down behavior
 
 ###### Note
 

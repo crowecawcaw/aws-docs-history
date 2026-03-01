@@ -4,9 +4,7 @@ You can add tags to a cluster when you create it.
 
 Console
 
-###### To add tags when you create a cluster with the new
-
-console
+###### To add tags when you create a cluster with the new console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
 2. Under **EMR on EC2** in the left navigation pane, choose
@@ -55,9 +53,7 @@ You can also add tags to an existing cluster.
 
 Console
 
-###### To add tags to an existing cluster with the new
-
-console
+###### To add tags to an existing cluster with the new console
 
 1. Sign in to the AWS Management Console, and open the Amazon EMR console at [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
 2. Under **EMR on EC2** in the left navigation pane, choose

@@ -8,8 +8,7 @@ Amazon S3. You can specify runtime roles with Amazon EMR for Spark and Hive jobs
 You can also specify runtime roles when you connect to Amazon EMR clusters in
 Amazon SageMaker AI and when you attach an Amazon EMR Studio Workspace to an EMR cluster.
 For more information, see [Connect to an Amazon EMR cluster from SageMaker AI
-Studio](../../../sagemaker/latest/dg/connect-emr-clusters.md "../../../sagemaker/latest/dg/connect-emr-clusters.md") and [Run an EMR Studio Workspace with a runtime
-role](emr-studio-runtime.md "emr-studio-runtime.md").
+Studio](../../../sagemaker/latest/dg/connect-emr-clusters.md "../../../sagemaker/latest/dg/connect-emr-clusters.md") and [Run an EMR Studio Workspace with a runtime role](emr-studio-runtime.md "emr-studio-runtime.md").
 
 Previously, Amazon EMR clusters ran Amazon EMR jobs or queries with permissions based on the IAM
 policy attached to the instance profile that you used to launch the cluster. This meant that
@@ -29,21 +28,15 @@ These jobs and queries can't access the Instance Metadata Service on the EC2 ins
 of the cluster or use the EC2 instance profile of the cluster to access any AWS
 resources.
 
-## Prerequisites for launching an Amazon EMR
-
-cluster with a runtime role
+## Prerequisites for launching an Amazon EMR cluster with a runtime role
 
 ###### Topics
 
-- [Step 1: Set up security configurations in
-  Amazon EMR](#configure-security "#configure-security")
-- [Step 2: Set up an EC2 instance profile for
-  the Amazon EMR cluster](#configure-ec2-profile "#configure-ec2-profile")
+- [Step 1: Set up security configurations in Amazon EMR](#configure-security "#configure-security")
+- [Step 2: Set up an EC2 instance profile for the Amazon EMR cluster](#configure-ec2-profile "#configure-ec2-profile")
 - [Step 3: Set up a trust policy](#configure-trust-policy "#configure-trust-policy")
 
-### Step 1: Set up security configurations in
-
-Amazon EMR
+### Step 1: Set up security configurations in Amazon EMR
 
 Use the following JSON structure to create a security configuration on the AWS Command Line Interface (AWS CLI),
 and set `EnableApplicationScopedIAMRole` to `true`. For more
@@ -68,9 +61,7 @@ encryption, see [Configure data encryption](emr-create-security-configuration.md
 Alternatively, you can create a security configuration with custom settings with
 the [AWS Management Console](https://console.aws.amazon.com/emr/home#/securityConfigs "https://console.aws.amazon.com/emr/home#/securityConfigs").
 
-### Step 2: Set up an EC2 instance profile for
-
-the Amazon EMR cluster
+### Step 2: Set up an EC2 instance profile for the Amazon EMR cluster
 
 Amazon EMR clusters use the Amazon EC2 instance profile role to assume the runtime roles. To
 use runtime roles with Amazon EMR steps, add the following policies to the IAM role
@@ -121,18 +112,14 @@ role trust policy](../../../IAM/latest/UserGuide/roles-managingrole-editing-cons
 }
 ```
 
-## Launch an Amazon EMR cluster with role-based
-
-access control
+## Launch an Amazon EMR cluster with role-based access control
 
 After you set up your configurations, you can launch an Amazon EMR cluster with the
-security configuration from [Step 1: Set up security configurations in
-Amazon EMR](#configure-security "#configure-security"). To use runtime roles with Amazon EMR steps, use
+security configuration from [Step 1: Set up security configurations in Amazon EMR](#configure-security "#configure-security"). To use runtime roles with Amazon EMR steps, use
 release label `emr-6.7.0` or later, and select Hive, Spark, or both as your
 cluster application. CloudWatchAgent is supported on Runtime Role Clusters for EMR 7.6 and above. To connect from SageMaker AI Studio, use release `emr-6.9.0` or
 later, and select Livy, Spark, Hive, or Presto as your cluster application. For
-instructions on how to launch your cluster, see [Specify a security configuration
-for an Amazon EMR cluster](emr-specify-security-configuration.md "emr-specify-security-configuration.md").
+instructions on how to launch your cluster, see [Specify a security configuration for an Amazon EMR cluster](emr-specify-security-configuration.md "emr-specify-security-configuration.md").
 
 ### Submit Spark jobs using Amazon EMR steps
 
@@ -175,9 +162,7 @@ f","s3://`DOC_EXAMPLE_BUCKET`/QUERY_FILE.hql"] }]' \
 --region $REGION
 ```
 
-### Connect to Amazon EMR clusters with runtime roles from a SageMaker AI
-
-Studio notebook
+### Connect to Amazon EMR clusters with runtime roles from a SageMaker AI Studio notebook
 
 You can apply Amazon EMR runtime roles to queries that you run in Amazon EMR clusters from
 SageMaker AI Studio. To do so, go through the following steps.
@@ -234,9 +219,7 @@ shows.
 }
 ```
 
-### Establish trust between runtime roles and Amazon EMR
-
-clusters
+### Establish trust between runtime roles and Amazon EMR clusters
 
 Amazon EMR generates a unique identifier `ExternalId` for each security
 configuration with activated runtime role authorization. This authorization allows
@@ -332,9 +315,7 @@ policy of your runtime roles.
 }
 ```
 
-## Additional
-
-considerations
+## Additional considerations
 
 ###### Note
 

@@ -1,6 +1,4 @@
-# Run Amazon EMR Studio Workspace Workspace notebooks
-
-programmatically
+# Run Amazon EMR Studio Workspace Workspace notebooks programmatically
 
 ###### Note
 

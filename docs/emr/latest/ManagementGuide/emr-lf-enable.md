@@ -9,9 +9,7 @@ In this section, we cover how to create a security configuration and set up Lake
 to work with Amazon EMR. We also go over how to launch a cluster with the security
 configuration that you created for Lake Formation.
 
-## Step 1: Set up a runtime role for your
-
-EMR cluster
+## Step 1: Set up a runtime role for your EMR cluster
 
 To use a runtime role for your EMR cluster, you must create a security
 configuration. With a security configuration, you can apply consistent security,
@@ -48,8 +46,7 @@ The example below illustrates how to use a zip file with certificates
 in Amazon S3 for certificate configuration:
 
     * A zip file with certificates in Amazon S3 is used as the key
-     provider. (See [Providing certificates for
-     encrypting data in transit with Amazon EMR encryption](emr-encryption-enable.md#emr-encryption-certificates "emr-encryption-enable.md#emr-encryption-certificates") for
+     provider. (See [Providing certificates for encrypting data in transit with Amazon EMR encryption](emr-encryption-enable.md#emr-encryption-certificates "emr-encryption-enable.md#emr-encryption-certificates") for
      certificate requirements.)
 
 ```
@@ -62,8 +59,7 @@ in Amazon S3 for certificate configuration:
 The example below illustrates how to use a custom key provider for
 certificate configuration:
 
-    * A custom key provider is used. (See [Providing certificates for
-     encrypting data in transit with Amazon EMR encryption](emr-encryption-enable.md#emr-encryption-certificates "emr-encryption-enable.md#emr-encryption-certificates") for
+    * A custom key provider is used. (See [Providing certificates for encrypting data in transit with Amazon EMR encryption](emr-encryption-enable.md#emr-encryption-certificates "emr-encryption-enable.md#emr-encryption-certificates") for
      certificate requirements.)
 
 ```
@@ -96,9 +92,7 @@ Now you’re ready to launch an EMR cluster with the security configuration
 that you created in the previous step. For more information on security
 configurations, see [Use security configurations to set up Amazon EMR cluster security](emr-security-configurations.md "emr-security-configurations.md") and [Runtime roles for Amazon EMR steps](emr-steps-runtime-roles.md "emr-steps-runtime-roles.md").
 
-## Step 3: Set up Lake Formation-based column, row, or
-
-cell-level permissions with Amazon EMR runtime roles
+## Step 3: Set up Lake Formation-based column, row, or cell-level permissions with Amazon EMR runtime roles
 
 To apply fine-grained access control at the column, row, or cell level with
 Lake Formation, the data lake administrator for Lake Formation must set `Amazon EMR` as the
@@ -109,9 +103,7 @@ settings** section of the Lake Formation console. Replace
 `123456789012` with your own AWS account
 ID.
 
-## Step 4: Configure AWS Glue and Lake Formation grants
-
-for Amazon EMR runtime roles
+## Step 4: Configure AWS Glue and Lake Formation grants for Amazon EMR runtime roles
 
 To continue with your setup of Lake Formation based access control with Amazon EMR runtime
 roles, you must configure AWS Glue and Lake Formation grants for Amazon EMR runtime roles. To

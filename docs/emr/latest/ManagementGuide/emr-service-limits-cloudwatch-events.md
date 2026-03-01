@@ -11,9 +11,7 @@ might also reach your service quota.
 Following are a few cases when you might benefit by moving to an event-driven
 architecture.
 
-## Case 1: Polling EMR using
-
-DescribeCluster API calls for step completion
+## Case 1: Polling EMR using DescribeCluster API calls for step completion
 
 ###### Example Polling EMR using DescribeCluster API calls for step completion
 
