@@ -56,8 +56,7 @@ A: Auto Scaling groups are updated with an AMI replacement in the Auto Scaling
 group configuration and preform a rolling update. A rolling update observes
 the HealthyHostThreshold setting of your patching configuration, which
 determines how many Amazon EC2 instances in a stack must be maintained active
-during patching. For more information, see [AMI updates patching (using patched AMIs
-for Auto Scaling groups)](patching-method-immutable.md "patching-method-immutable.md").
+during patching. For more information, see [AMI updates patching (using patched AMIs for Auto Scaling groups)](patching-method-immutable.md "patching-method-immutable.md").
 
 - Q: How do I get updates installed outside the normal cycle?
 

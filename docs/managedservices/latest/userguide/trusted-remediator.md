@@ -44,7 +44,7 @@ automatically or manually. The following are details for each type of remediatio
   [Trusted Remediator | Finding | Remediate](../ctref/management-trusted-finding-remediate.md "../ctref/management-trusted-finding-remediate.md"), change type to remediate
   the resource. For information on the manual remediation steps, see [Run manual remediations in Trusted Remediator](tr-gs.md#tr-gs-manual-remediation "tr-gs.md#tr-gs-manual-remediation").
 
-Remediation logs are stored in an Amazon S3 bucket. You can use the data in the S3 bucket to build custom Quick Suite dashboards for reporting. AMS also provides
+Remediation logs are stored in an Amazon S3 bucket. You can use the data in the S3 bucket to build custom Quick dashboards for reporting. AMS also provides
 on-request reports for Trusted Remediator. To receive these reports, contact your CSDM.
 
 ## Key terms for Trusted Remediator

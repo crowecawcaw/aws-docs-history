@@ -14,7 +14,7 @@ within your account (all are prefaced with `AWSManagedServices`):
 
 Access to these roles is configured via federation, with each role being mapped to a group within your Active Directory domain.
 
-To learn more about these roles, see [IAM user role in AMS](defaults-user-role.md "defaults-user-role.md") .
+To learn more about these roles, see [IAM user role in AMS](defaults-user-role.md "defaults-user-role.md").
 
 Single-Account Landing Zone (SALZ)
 The default `Customer_ReadOnly_Role` for AMS single-account landing zone allows your

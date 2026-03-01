@@ -1,6 +1,4 @@
-# AMI updates patching (using patched AMIs
-
-for Auto Scaling groups)
+# AMI updates patching (using patched AMIs for Auto Scaling groups)
 
 AMI-replacement patching is done on immutable infrastructures by updating the AMI
 ID that is configured to deploy new Amazon EC2 instances in an Auto Scaling group.

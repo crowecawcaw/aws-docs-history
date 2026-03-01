@@ -1,7 +1,7 @@
 # Remediation logs in Trusted Remediator
 
 Trusted Remediator creates logs in JSON format and uploads them to Amazon Simple Storage Service The log files are uploaded to an S3 bucket created by AMS and named
-`ams-trusted-remediator-{your-account-id}-logs`. AMS creates the S3 bucket in the Delegated Administrator account. You can import the log files into Quick Suite to
+`ams-trusted-remediator-{your-account-id}-logs`. AMS creates the S3 bucket in the Delegated Administrator account. You can import the log files into Quick to
 generate customized remediation reports.
 
 ## Remediation item log
@@ -117,9 +117,7 @@ unix timestamp-Security Hub CSPM check ID- Resource ID`.json`
 }
 ```
 
-## Automated remediation execution log, Compute Optimizer, Security Hub CSPM, and
-
-Trusted Advisor
+## Automated remediation execution log, Compute Optimizer, Security Hub CSPM, and Trusted Advisor
 
 Trusted Remediator creates the `Automated remediation execution log` when an automated SSM document run is completed. This log contains SSM run details for
 automated remediation OpsItem only. You can use this log file to track automated remediations.
