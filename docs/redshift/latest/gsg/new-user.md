@@ -82,12 +82,10 @@ Depending on your configuration, the following items appear in the navigation pa
 - [Signing up for AWS](#provisioned-prereq-signup "#provisioned-prereq-signup")
 - [Determine firewall rules](#rs-gsg-prereq-firewall-rules "#rs-gsg-prereq-firewall-rules")
 - [Step 1: Create a sample Amazon Redshift cluster](#rs-gsg-launch-sample-cluster "#rs-gsg-launch-sample-cluster")
-- [Step 2: Configure inbound rules for SQL
-  clients](#rs-gsg-authorize-cluster-access "#rs-gsg-authorize-cluster-access")
+- [Step 2: Configure inbound rules for SQL clients](#rs-gsg-authorize-cluster-access "#rs-gsg-authorize-cluster-access")
 - [Step 3: Grant access to a SQL client and run queries](#rs-gsg-connect-to-cluster "#rs-gsg-connect-to-cluster")
 - [Step 4: Load data from Amazon S3 to Amazon Redshift](#rs-gsg-create-sample-db "#rs-gsg-create-sample-db")
-- [Step 5: Try example queries using the query
-  editor](#rs-gsg-try-query "#rs-gsg-try-query")
+- [Step 5: Try example queries using the query editor](#rs-gsg-try-query "#rs-gsg-try-query")
 - [Step 6: Reset your environment](#rs-gsg-clean-up-tasks "#rs-gsg-clean-up-tasks")
 
 ## Signing up for AWS
@@ -254,9 +252,7 @@ can configure a network address translation (NAT) address in your VPC for the
 cluster to access the internet. Or you can configure an Amazon S3 VPC endpoint in
 your VPC. For more information about enhanced Amazon VPC routing, see [Enhanced Amazon VPC routing](../mgmt/enhanced-vpc-enabling-cluster.md "../mgmt/enhanced-vpc-enabling-cluster.md") in the _Amazon Redshift Management Guide_. 8. Choose **Create cluster**. Wait for your cluster to be created with `Available` status on the **Clusters** page.
 
-## Step 2: Configure inbound rules for SQL
-
-clients
+## Step 2: Configure inbound rules for SQL clients
 
 ###### Note
 
@@ -487,9 +483,7 @@ To view details about the TICKIT data, see
 [Sample database](../dg/c_sampledb.md "../dg/c_sampledb.md") in the
 _Amazon Redshift Database Developer Guide_.
 
-## Step 5: Try example queries using the query
-
-editor
+## Step 5: Try example queries using the query editor
 
 To set up and use the Amazon Redshift query editor v2 to query a database, see
 [Working with query editor v2](../mgmt/query-editor-v2-using.md "../mgmt/query-editor-v2-using.md") in the

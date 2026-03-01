@@ -112,9 +112,7 @@ For more information about canceling a query, see
 [CANCEL](../dg/r_CANCEL.md "../dg/r_CANCEL.md") in the
 _Amazon Redshift Database Developer Guide_.
 
-## Cancel a query
-
-using the superuser queue
+## Cancel a query using the superuser queue
 
 If your current session has too many queries running concurrently, you might not
 be able to run the CANCEL command until another query finishes. In that case, run

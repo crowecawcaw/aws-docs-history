@@ -13,9 +13,7 @@ in the _Amazon Redshift Database Developer Guide_. The description for each tabl
 visible to all users or only to superusers. Log in as a superuser to query tables
 that are visible only to superusers.
 
-## View a
-
-list of table names
+## View a list of table names
 
 To view a list of all tables in a schema, you
 can query the PG_TABLE_DEF system catalog table. You can first examine the setting for `search_path`.
