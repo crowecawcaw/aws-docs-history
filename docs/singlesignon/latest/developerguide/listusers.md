@@ -601,9 +601,7 @@ Authorization: Bearer <bearer_token>
 }
 ```
 
-### User id and
-
-manager
+### User id and manager
 
 Both `id` and `manager` can be used together, and their
 order can be interchanged.

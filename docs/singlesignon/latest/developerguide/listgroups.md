@@ -426,9 +426,7 @@ Authorization: Bearer <bearer_token>
 }
 ```
 
-### Group id and
-
-members
+### Group id and members
 
 Both group `id` and `members` are interchangeable in
 order.

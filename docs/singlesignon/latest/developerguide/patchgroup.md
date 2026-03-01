@@ -78,9 +78,7 @@ operation for a group.
 
 These member operations can be applied using the examples below.
 
-### Add members to a
-
-group
+### Add members to a group
 
 In the value field, provide a list of objects containing the value of the user
 **id**. Multiple members can be added at a time. For
@@ -124,9 +122,7 @@ Content-Type: application/json
 x-amzn-RequestId: 1e9abe4c-b6e1-4d3b-bb86-73ca6187e08b
 ```
 
-### Remove members from a
-
-group
+### Remove members from a group
 
 In the value field, provide a list of objects containing the value of the user
 id. Multiple members can be removed at a time, but you can remove up to 100 members in one API call,
