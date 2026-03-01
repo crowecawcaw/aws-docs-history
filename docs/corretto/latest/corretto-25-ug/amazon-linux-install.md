@@ -2,36 +2,7 @@
 
 This topic describes how to install and uninstall Amazon Corretto 25 on a host or container running the Amazon Linux 2023 operating systems.
 
-##
-
-Option 1: Install using the yum Package Manager on Amazon Linux
-
-1. Enable the yum repository in Amazon Linux 2. This is not required on Amazon Linux 2022 and later.
-
-###### Example
-
-```
-sudo amazon-linux-extras enable corretto8
-```
-
-2. You can install Amazon Corretto 25 as either the runtime environment (JRE) or the full development environment (JDK).
-   The development environment includes the runtime environment.
-
-Install Amazon Corretto 25 as JRE.
-
-###### Example
-
-```
-sudo yum install java-25-amazon-corretto
-```
-
-Install Amazon Corretto 25 as JDK.
-
-###### Example
-
-```
-sudo yum install java-25-amazon-corretto-devel
-```
+## Option 1: Install using the yum Package Manager on Amazon Linux
 
 Amazon Corretto 25 has a 'headless' variant available. This variant omits runtime dependencies that are
 typically associated with GUI applications such as X11 and ALSA and is worth considering for
@@ -127,22 +98,6 @@ sudo alternatives --config javac
 ## Uninstall Amazon Corretto 25
 
 You can uninstall Amazon Corretto 25 with the following commands.
-
-Uninstall JRE:
-
-###### Example
-
-```
-sudo yum remove java-25-amazon-corretto
-```
-
-Uninstall JDK:
-
-###### Example
-
-```
-sudo yum remove java-25-amazon-corretto-devel
-```
 
 Uninstall headless:
 

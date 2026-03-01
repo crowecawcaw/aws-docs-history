@@ -1,6 +1,4 @@
-# Amazon Corretto 25 Installation Instructions for macOS 11 or
-
-later
+# Amazon Corretto 25 Installation Instructions for macOS 11 or later
 
 This topic describes how to install and uninstall Amazon Corretto 25 on a host running the Mac
 OS version 11 or later. You must have administrator permissions to install
