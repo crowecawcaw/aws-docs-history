@@ -537,9 +537,7 @@ To associate an IAM role with your VM import configuration, select the role from
 to create a new one. If you create a new role, the IAM Roles console page opens in a
 separate tab.
 
-#### Advanced settings –
-
-_optional_
+#### Advanced settings – _optional_
 
 The following settings are optional. With these settings, you can configure
 encryption, licensing, tags, and more for the base image that the import

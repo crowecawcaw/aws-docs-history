@@ -2,8 +2,7 @@
 
 Tagging your resources can be useful for filtering and tracking resource costs, or other
 categories. You can also control access based on tags. For more information about tag-based
-authorization, see [Authorization based on Image Builder
-tags](security_iam_service-with-iam.md#security-iam-service-with-ib-tags "security_iam_service-with-iam.md#security-iam-service-with-ib-tags")
+authorization, see [Authorization based on Image Builder tags](security_iam_service-with-iam.md#security-iam-service-with-ib-tags "security_iam_service-with-iam.md#security-iam-service-with-ib-tags")
 
 Image Builder supports the following dynamic tags:
 
@@ -28,8 +27,7 @@ automatically adds the following tags to your output AMIs.
 
 - [Tag a resource from the AWS CLI](#cli-tag-resource "#cli-tag-resource")
 - [Untag a resource from the AWS CLI](#cli-untag-resource "#cli-untag-resource")
-- [List all of the tags for a
-  specific resource from the AWS CLI](#cli-list-tags-for-resource "#cli-list-tags-for-resource")
+- [List all of the tags for a specific resource from the AWS CLI](#cli-list-tags-for-resource "#cli-list-tags-for-resource")
 
 ## Tag a resource from the AWS CLI
 
@@ -81,9 +79,7 @@ Run the following command, which references the preceding
 aws imagebuilder untag-resource --cli-input-json file://untag-resource.json
 ```
 
-## List all of the tags for a
-
-specific resource from the AWS CLI
+## List all of the tags for a specific resource from the AWS CLI
 
 The following example shows how to use an **imagebuilder**
 CLI command to list all the tags for a specific resource.

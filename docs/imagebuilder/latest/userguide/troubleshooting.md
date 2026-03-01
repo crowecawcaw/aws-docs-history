@@ -10,8 +10,7 @@ For advanced troubleshooting, you can run predefined commands and scripts using
 ###### Contents
 
 - [Troubleshoot pipeline builds](#troubleshooting-pipelines "#troubleshooting-pipelines")
-- [Troubleshooting
-  scenarios](#image-builder-troubleshooting-scenarios "#image-builder-troubleshooting-scenarios")
+- [Troubleshooting scenarios](#image-builder-troubleshooting-scenarios "#image-builder-troubleshooting-scenarios")
 
 ## Troubleshoot pipeline builds
 
@@ -87,18 +86,14 @@ You can also change the instance settings with the
 **update-infrastructure-configuration** command in the AWS CLI. Set the
 `terminateInstanceOnFailure` value to `false` in the JSON file
 that the command references with the `--cli-input-json` parameter. For
-details, see [Update an
-infrastructure configuration](update-infra-config.md "update-infra-config.md").
+details, see [Update an infrastructure configuration](update-infra-config.md "update-infra-config.md").
 
-## Troubleshooting
-
-scenarios
+## Troubleshooting scenarios
 
 This section lists the following detailed troubleshooting scenarios:
 
 - [Access denied – status code 403](#ts-access-denied "#ts-access-denied")
-- [Build times out while verifying the Systems Manager Agent availability
-  on the build instance](#ts-timeout-ssm-agent "#ts-timeout-ssm-agent")
+- [Build times out while verifying the Systems Manager Agent availability on the build instance](#ts-timeout-ssm-agent "#ts-timeout-ssm-agent")
 - [Windows secondary disk is offline at launch](#ts-win-disk-offline "#ts-win-disk-offline")
 - [Build fails with CIS hardened base image](#ts-cis-base "#ts-cis-base")
 - [AssertInventoryCollection fails (Systems Manager Automation)](#ts-ssm-mult-inventory "#ts-ssm-mult-inventory")
@@ -165,8 +160,7 @@ Depending on the possible cause, this issue can be resolved as follows:
       + AmazonSSMManagedInstanceCore
 
   For more information about the Image Builder service-linked role, see
-  [Use IAM service-linked roles for
-  Image Builder](image-builder-service-linked-role.md "image-builder-service-linked-role.md").
+  [Use IAM service-linked roles for Image Builder](image-builder-service-linked-role.md "image-builder-service-linked-role.md").
 
 #### Description
 

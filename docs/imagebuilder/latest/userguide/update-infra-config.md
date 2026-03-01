@@ -1,6 +1,4 @@
-# Update an
-
-infrastructure configuration
+# Update an infrastructure configuration
 
 This section covers how you can use the Image Builder console or **imagebuilder**
 commands in the AWS CLI to update an infrastructure configuration resource. To track your

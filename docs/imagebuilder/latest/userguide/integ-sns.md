@@ -32,8 +32,7 @@ are encrypted with keys from other accounts.
 The following example shows the additional section that you add to the
 KMS key policy. Use the Amazon Resource Name (ARN) for the IAM
 service-linked role that Image Builder created under your account when you first created
-an Image Builder image. To learn more about the Image Builder service-linked role, see [Use IAM service-linked roles for
-Image Builder](image-builder-service-linked-role.md "image-builder-service-linked-role.md").
+an Image Builder image. To learn more about the Image Builder service-linked role, see [Use IAM service-linked roles for Image Builder](image-builder-service-linked-role.md "image-builder-service-linked-role.md").
 
 ```
 {

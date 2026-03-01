@@ -148,8 +148,7 @@ compliant AMIs. For more information, see [Managing the AWS accounts in Your Org
 
 To update your distribution settings using the Image Builder console, follow the steps to
 [Create a new image recipe version from the console](create-image-recipes.md#create-image-recipe-version-console "create-image-recipes.md#create-image-recipe-version-console"), or
-[Create a new container recipe version
-with the console](create-container-recipes.md#create-container-recipe-version "create-container-recipes.md#create-container-recipe-version").
+[Create a new container recipe version with the console](create-container-recipes.md#create-container-recipe-version "create-container-recipes.md#create-container-recipe-version").
 
 ## Sharing Resources
 

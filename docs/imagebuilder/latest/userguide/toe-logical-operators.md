@@ -1,12 +1,9 @@
-# Use logical operators in
-
-AWSTOE component documents
+# Use logical operators in AWSTOE component documents
 
 You can use the following logical operators to add or modify conditional
 expressions in your component document. AWSTOE evaluates conditional expressions
 in the order that the conditions are specified. For more information about comparison
-operators for component documents, see [Use comparison operators in
-AWSTOE component documents](toe-comparison-operators.md "toe-comparison-operators.md").
+operators for component documents, see [Use comparison operators in AWSTOE component documents](toe-comparison-operators.md "toe-comparison-operators.md").
 
 **and**
 

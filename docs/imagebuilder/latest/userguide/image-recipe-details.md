@@ -6,13 +6,10 @@ and view details for your EC2 Image Builder image recipes.
 ###### Image recipe details
 
 - [List image recipes from the console](#list-image-recipes-console "#list-image-recipes-console")
-- [List image
-  recipes from the AWS CLI](#cli-list-image-recipes "#cli-list-image-recipes")
+- [List image recipes from the AWS CLI](#cli-list-image-recipes "#cli-list-image-recipes")
 - [View image recipe details from the console](#view-image-recipe-details-console "#view-image-recipe-details-console")
-- [Get image recipe
-  details from the AWS CLI](#cli-get-image-recipe "#cli-get-image-recipe")
-- [Get image recipe
-  policy details from the AWS CLI](#cli-get-image-recipe-policy "#cli-get-image-recipe-policy")
+- [Get image recipe details from the AWS CLI](#cli-get-image-recipe "#cli-get-image-recipe")
+- [Get image recipe policy details from the AWS CLI](#cli-get-image-recipe-policy "#cli-get-image-recipe-policy")
 
 ## List image recipes from the console
 
@@ -34,9 +31,7 @@ You can also select the check box next to the
 **Recipe name**, then choose
 **View details**.
 
-## List image
-
-recipes from the AWS CLI
+## List image recipes from the AWS CLI
 
 The following example shows how to list all of your image
 recipes, using the AWS CLI.
@@ -60,17 +55,14 @@ On the recipe detail page, you can:
   **Create pipeline from this recipe**,
   you are taken to the pipeline wizard. For more information
   about creating an Image Builder pipeline using the pipeline wizard,
-  see [Tutorial: Create an image
-  pipeline with output AMI from the Image Builder console wizard](start-build-image-pipeline.md "start-build-image-pipeline.md")
+  see [Tutorial: Create an image pipeline with output AMI from the Image Builder console wizard](start-build-image-pipeline.md "start-build-image-pipeline.md")
 
 ###### Note
 
 When you create a pipeline from an existing recipe,
 the option to create a new recipe is not available.
 
-## Get image recipe
-
-details from the AWS CLI
+## Get image recipe details from the AWS CLI
 
 The following example shows how to use an **imagebuilder** CLI
 command to get the details of an image recipe by specifying its Amazon Resource Name
@@ -80,9 +72,7 @@ command to get the details of an image recipe by specifying its Amazon Resource 
 aws imagebuilder get-image-recipe --image-recipe-arn arn:aws:imagebuilder:us-west-`2:123456789012`:image-recipe/`my-example-recipe`/2020.12.03
 ```
 
-## Get image recipe
-
-policy details from the AWS CLI
+## Get image recipe policy details from the AWS CLI
 
 The following example shows how to use an **imagebuilder**
 CLI command to get the details of an image recipe policy by specifying its ARN.

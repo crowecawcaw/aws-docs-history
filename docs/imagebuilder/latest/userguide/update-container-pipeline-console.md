@@ -58,9 +58,7 @@ section are editable only on their respective detail tabs.
   actions that link to the EventBridge console. For more information about this tab, see
   [Use EventBridge rules](ev-rules-for-pipeline.md "ev-rules-for-pipeline.md").
 
-## Edit infrastructure
-
-configuration for your pipeline
+## Edit infrastructure configuration for your pipeline
 
 Infrastructure configuration includes the following details
 that you can edit after creating the pipeline:
@@ -88,9 +86,7 @@ page, follow these steps:
    infrastructure configuration, choose **Save
    changes**.
 
-## Edit distribution
-
-settings for your pipeline
+## Edit distribution settings for your pipeline
 
 Distribution settings include the following details
 that you can edit after creating the pipeline:
@@ -135,9 +131,7 @@ page, follow these steps:
 3. When you are ready to save updates you've made to your
    distribution settings, choose **Save changes**.
 
-## Edit the build
-
-schedule for your pipeline
+## Edit the build schedule for your pipeline
 
 The **Edit pipeline** page includes the following
 details that you can edit after creating the pipeline:

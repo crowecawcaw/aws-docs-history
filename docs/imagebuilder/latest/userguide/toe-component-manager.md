@@ -15,8 +15,7 @@ It doesn't require any additional setup, and can also run on premises.
 - [AWSTOE command reference](#toe-commands "#toe-commands")
 - [Manual set up to develop custom components with AWSTOE](toe-get-started.md "toe-get-started.md")
 - [Use the AWSTOE component document framework for custom components](toe-use-documents.md "toe-use-documents.md")
-- [Action modules supported by AWSTOE
-  component manager](toe-action-modules.md "toe-action-modules.md")
+- [Action modules supported by AWSTOE component manager](toe-action-modules.md "toe-action-modules.md")
 - [Configure input for the AWSTOE run command](toe-run-config-input.md "toe-run-config-input.md")
 
 ## AWSTOE downloads
@@ -25,8 +24,7 @@ To install AWSTOE, choose the download link for your architecture and platform. 
 a VPC endpoint for your service (Image Builder, for example), it must have a custom endpoint policy attached
 that includes access to the S3 bucket for AWSTOE downloads. Otherwise, your build and test instances
 will not be able to download the bootstrap script (`bootstrap.sh`) and install
-the AWSTOE application. For more information see [Create a VPC endpoint policy for
-Image Builder](vpc-interface-endpoints.md#vpc-endpoint-policy "vpc-interface-endpoints.md#vpc-endpoint-policy").
+the AWSTOE application. For more information see [Create a VPC endpoint policy for Image Builder](vpc-interface-endpoints.md#vpc-endpoint-policy "vpc-interface-endpoints.md#vpc-endpoint-policy").
 
 ###### Important
 
@@ -93,8 +91,7 @@ Some AWSTOE action modules require elevated permissions to run on a Linux server
 To use elevated permissions, prefix the command syntax with **sudo**, or run the
 **sudo su** command one time when you log in before running the
 commands linked below. For more information about AWSTOE action modules, see
-[Action modules supported by AWSTOE
-component manager](toe-action-modules.md "toe-action-modules.md").
+[Action modules supported by AWSTOE component manager](toe-action-modules.md "toe-action-modules.md").
 
 **_[run](#cmd-run "#cmd-run")_**
 

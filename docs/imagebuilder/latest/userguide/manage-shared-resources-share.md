@@ -20,9 +20,7 @@ AWS resources owned by you](../../../ram/latest/userguide/working-with-sharing.m
 To create your resource share using the AWS RAM command line interface, run
 the **[create-resource-share](../../../cli/latest/reference/ram/create-resource-share.md "../../../cli/latest/reference/ram/create-resource-share.md")** command in the AWS CLI.
 
-## Option 2: Apply a resource policy and
-
-promote to an existing resource share
+## Option 2: Apply a resource policy and promote to an existing resource share
 
 The second option for sharing your resources involves two steps, running commands in
 the AWS CLI for both. The first step uses Image Builder commands in the AWS CLI to apply resource-based

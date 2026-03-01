@@ -42,8 +42,7 @@ through the Image Builder API, or with **imagebuilder** commands in the AWS CLI.
 
 - [List and view infrastructure configuration details](infra-config-details.md "infra-config-details.md")
 - [Create an infrastructure configuration](create-infra-config.md "create-infra-config.md")
-- [Update an
-  infrastructure configuration](update-infra-config.md "update-infra-config.md")
+- [Update an infrastructure configuration](update-infra-config.md "update-infra-config.md")
 - [Image Builder and AWS PrivateLink interface VPC endpoints](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 
 ###### Tip

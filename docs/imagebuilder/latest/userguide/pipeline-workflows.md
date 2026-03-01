@@ -54,9 +54,7 @@ and some that should run one at a time, you can configure your test groups to ac
 this goal. The only limit to how you configure your test groups is the maximum number of
 test workflows that can run for your pipeline
 
-## Set workflow parameters in an Image Builder
-
-pipeline from the console
+## Set workflow parameters in an Image Builder pipeline from the console
 
 Workflow parameters function the same way for build workflows and test workflows.
 When you create or update a pipeline, you select build and test workflows that you want

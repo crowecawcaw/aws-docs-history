@@ -90,9 +90,7 @@ To delete an image pipeline and its resources, follow these steps:
 5. To confirm the deletion, enter `Delete` in the box,
    and choose **Delete**.
 
-## Delete an image
-
-pipeline from the AWS CLI
+## Delete an image pipeline from the AWS CLI
 
 The following examples show how to delete Image Builder resources using the AWS CLI.
 As mentioned previously, resources must be deleted in the following order

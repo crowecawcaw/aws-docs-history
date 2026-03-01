@@ -13,14 +13,10 @@ Amazon Machine Image (AMI) or container image.
 - [Document schema and definitions](#document-schema "#document-schema")
 - [Document examples](#document-example "#document-example")
 - [Use variables in your custom component document](toe-user-defined-variables.md "toe-user-defined-variables.md")
-- [Use conditional constructs in
-  AWSTOE](toe-conditional-constructs.md "toe-conditional-constructs.md")
-- [Use comparison operators in
-  AWSTOE component documents](toe-comparison-operators.md "toe-comparison-operators.md")
-- [Use logical operators in
-  AWSTOE component documents](toe-logical-operators.md "toe-logical-operators.md")
-- [Use looping constructs in
-  AWSTOE](toe-looping-constructs.md "toe-looping-constructs.md")
+- [Use conditional constructs in AWSTOE](toe-conditional-constructs.md "toe-conditional-constructs.md")
+- [Use comparison operators in AWSTOE component documents](toe-comparison-operators.md "toe-comparison-operators.md")
+- [Use logical operators in AWSTOE component documents](toe-logical-operators.md "toe-logical-operators.md")
+- [Use looping constructs in AWSTOE](toe-looping-constructs.md "toe-looping-constructs.md")
 
 ## Component document workflow
 
@@ -78,8 +74,7 @@ as input. This is called "chaining".
 
 For a complete list of supported action modules, how
 they work, input/output values, and examples, see
-[Action modules supported by AWSTOE
-component manager](toe-action-modules.md "toe-action-modules.md").
+[Action modules supported by AWSTOE component manager](toe-action-modules.md "toe-action-modules.md").
 
 ## Component logging
 

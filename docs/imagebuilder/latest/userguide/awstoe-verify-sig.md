@@ -1,6 +1,4 @@
-# Verify the signature of the AWSTOE installation
-
-download
+# Verify the signature of the AWSTOE installation download
 
 This section describes the recommended process for verifying the validity of the
 installation download for AWSTOE on Linux, macOS and Windows based operating
@@ -8,14 +6,10 @@ systems.
 
 ###### Topics
 
-- [Verify the signature of the AWSTOE
-  installation download on Linux or macOS](#awstoe-verify-sig-linux "#awstoe-verify-sig-linux")
-- [Verify the signature of the AWSTOE
-  installation download on Windows](#awstoe-verify-sig-win "#awstoe-verify-sig-win")
+- [Verify the signature of the AWSTOE installation download on Linux or macOS](#awstoe-verify-sig-linux "#awstoe-verify-sig-linux")
+- [Verify the signature of the AWSTOE installation download on Windows](#awstoe-verify-sig-win "#awstoe-verify-sig-win")
 
-## Verify the signature of the AWSTOE
-
-installation download on Linux or macOS
+## Verify the signature of the AWSTOE installation download on Linux or macOS
 
 This topic describes the recommended process for verifying the validity of the
 installation download for the AWSTOE on Linux-based or macOS operating systems.
@@ -49,8 +43,7 @@ signature of the application.
 
 - [Installing the GPG tools](#awstoe-verify-signature-of-binary-download-install-tools "#awstoe-verify-signature-of-binary-download-install-tools")
 - [Authenticating and importing the public key](#awstoe-verify-signature-of-binary-download-authenticate-import-public-key "#awstoe-verify-signature-of-binary-download-authenticate-import-public-key")
-- [Verify the signature
-  of the package](#awstoe-verify-signature-of-binary-package "#awstoe-verify-signature-of-binary-package")
+- [Verify the signature of the package](#awstoe-verify-signature-of-binary-package "#awstoe-verify-signature-of-binary-package")
 
 ### Installing the GPG tools
 
@@ -160,9 +153,7 @@ preceding example. Compare the key fingerprint that is returned to the
 one published on this page. They should match. If they don't match, do
 not install the AWSTOE installation script, and contact Support.
 
-### Verify the signature
-
-of the package
+### Verify the signature of the package
 
 After you install the `GPG` tools, authenticate and import the
 AWSTOE public key, and verify that the public key is trusted, you are ready to
@@ -240,9 +231,7 @@ The following are details about the warnings that you might see:
 
 For more information, see [http://www.gnupg.org](http://www.gnupg.org "http://www.gnupg.org").
 
-## Verify the signature of the AWSTOE
-
-installation download on Windows
+## Verify the signature of the AWSTOE installation download on Windows
 
 This topic describes the recommended process for verifying the validity of the
 installation file for the AWS Task Orchestrator and Executor application on Windows-based operating systems.

@@ -327,9 +327,7 @@ aws imagebuilder create-component --cli-input-json file://`install-wget-macos-co
      the command. For example, Windows uses the backslash (\) to
      refer to the directory path, while Linux and macOS use the forward slash (/).
 
-### AWSTOE component versioning for updates
-
-from the AWS CLI
+### AWSTOE component versioning for updates from the AWS CLI
 
 AWSTOE component names and versions are embedded in the component's Amazon Resource
 Name (ARN), after the component prefix. Each new version of a component has its own

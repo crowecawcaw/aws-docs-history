@@ -1,6 +1,4 @@
-# Manage data perimeters for S3 bucket
-
-download access in Image Builder
+# Manage data perimeters for S3 bucket download access in Image Builder
 
 EC2 Image Builder maintains two classes of AWS service-owned S3 buckets that contain
 downloadable resources needed to run Image Builder workloads in your account. If you use

@@ -9,12 +9,9 @@ AWS CLI to get policy details.
 
 ###### Contents
 
-- [View lifecycle policy details
-  in the Image Builder console](#view-lifecycle-policy-details-console "#view-lifecycle-policy-details-console")
+- [View lifecycle policy details in the Image Builder console](#view-lifecycle-policy-details-console "#view-lifecycle-policy-details-console")
 
-## View lifecycle policy details
-
-in the Image Builder console
+## View lifecycle policy details in the Image Builder console
 
 The image detail page in the Image Builder console includes a summary section, with
 additional information grouped into tabs. The page heading is the

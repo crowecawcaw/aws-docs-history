@@ -49,10 +49,8 @@ dependencies for your images when you configure policy actions.
 
 ###### Contents
 
-- [Lifecycle management prerequisites for
-  Image Builder images](image-lifecycle-prerequisites.md "image-lifecycle-prerequisites.md")
-- [List lifecycle management policies for Image Builder
-  image resources](list-lifecycle-policies.md "list-lifecycle-policies.md")
+- [Lifecycle management prerequisites for Image Builder images](image-lifecycle-prerequisites.md "image-lifecycle-prerequisites.md")
+- [List lifecycle management policies for Image Builder image resources](list-lifecycle-policies.md "list-lifecycle-policies.md")
 - [View lifecycle policy details](view-lifecycle-policy.md "view-lifecycle-policy.md")
 - [Create lifecycle policies](create-lifecycle-policies.md "create-lifecycle-policies.md")
 - [How lifecycle management rules work for Image Builder image resources](image-lifecycle-rules.md "image-lifecycle-rules.md")

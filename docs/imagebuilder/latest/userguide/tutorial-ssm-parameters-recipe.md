@@ -15,15 +15,11 @@ and using it in an image recipe. Image Builder steps in this tutorial are consol
 
 ###### Contents
 
-- [Step 1: Find or create a Parameter Store
-  parameter](#tutorial-ssm-create-parameter "#tutorial-ssm-create-parameter")
+- [Step 1: Find or create a Parameter Store parameter](#tutorial-ssm-create-parameter "#tutorial-ssm-create-parameter")
 - [Step 2: Configure IAM permissions (optional)](#tutorial-ssm-configure-iam "#tutorial-ssm-configure-iam")
-- [Step 3: Create an Image Recipe that uses the
-  parameter](#tutorial-ssm-create-recipe "#tutorial-ssm-create-recipe")
+- [Step 3: Create an Image Recipe that uses the parameter](#tutorial-ssm-create-recipe "#tutorial-ssm-create-recipe")
 
-## Step 1: Find or create a Parameter Store
-
-parameter
+## Step 1: Find or create a Parameter Store parameter
 
 The process for this step depends on the type of AMI that you specify for your base image.
 For AWS managed AMIs, you can use a public parameter that refers to the current version. Some
@@ -103,9 +99,7 @@ JSON
 
 For more information about public parameter resources, see [Calling AMI public parameters](../../../systems-manager/latest/userguide/parameter-store-public-parameters-ami.md "../../../systems-manager/latest/userguide/parameter-store-public-parameters-ami.md") in the _AWS Systems Manager User Guide_.
 
-## Step 3: Create an Image Recipe that uses the
-
-parameter
+## Step 3: Create an Image Recipe that uses the parameter
 
 1. Open the EC2 Image Builder console at
    [https://console.aws.amazon.com/imagebuilder/](https://console.aws.amazon.com/imagebuilder/ "https://console.aws.amazon.com/imagebuilder/").

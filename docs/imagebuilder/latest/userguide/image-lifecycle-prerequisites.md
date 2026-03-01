@@ -1,12 +1,18 @@
-# Lifecycle management prerequisites for
-
-Image Builder images
+# Lifecycle management prerequisites for Image Builder images
 
 Before you can define EC2 Image Builder lifecycle management policies and rules for your image
 resources, you must meet the following prerequisites.
 
 - Create an IAM role that grants permission for Image Builder to run lifecycle policies.
-  To create the role, see [Create an IAM role for Image Builder lifecycle management](#image-lifecycle-prereq-role "#image-lifecycle-prereq-role").
+  You can create this role in one of the following ways:
+  - Use the **Create lifecycle execution role using service defaults** option
+    in the Image Builder console when creating a lifecycle policy. This automatically creates a
+    role with the `EC2ImageBuilderLifecycleExecutionPolicy` managed policy attached.
+  - Use the **Create a new lifecycle execution role** option in the Image Builder
+    console, which opens IAM with pre-filled settings for one-click role creation.
+  - Manually create the role in the IAM console. For step-by-step instructions, see
+    [Create an IAM role for Image Builder lifecycle management](#image-lifecycle-prereq-role "#image-lifecycle-prereq-role").
+
 - Create an IAM role in the destination account for associated resources that
   were distributed across accounts. The role grants permission for Image Builder to perform lifecycle
   actions in the destination account for associated resources. To create the role, see

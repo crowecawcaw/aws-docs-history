@@ -1,6 +1,4 @@
-# Use conditional constructs in
-
-AWSTOE
+# Use conditional constructs in AWSTOE
 
 Conditional constructs perform different actions in your component document based
 on whether the specified conditional expression evaluates to `true` or

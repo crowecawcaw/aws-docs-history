@@ -23,9 +23,7 @@ For more information about VPC endpoints, see [Interface
 VPC endpoints (AWS PrivateLink)](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for Image Builder VPC
-
-endpoints
+## Considerations for Image Builder VPC endpoints
 
 Before you set up an interface VPC endpoint for Image Builder, ensure that you review
 [Interface
@@ -33,9 +31,7 @@ endpoint properties and limitations](../../../vpc/latest/privatelink/create-inte
 
 Image Builder supports making calls to all of its API actions from your VPC.
 
-## Create an interface VPC endpoint for
-
-Image Builder
+## Create an interface VPC endpoint for Image Builder
 
 To create a VPC endpoint for the Image Builder service, you can use either the Amazon VPC
 console or the AWS Command Line Interface (AWS CLI). For more information, see [Creating
@@ -55,9 +51,7 @@ and quotas](../../../general/latest/gr/imagebuilder.md#imagebuilder_region "../.
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#access-service-though-endpoint "../../../vpc/latest/privatelink/create-interface-endpoint.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-## Create a VPC endpoint policy for
-
-Image Builder
+## Create a VPC endpoint policy for Image Builder
 
 You can attach an endpoint policy to your VPC endpoint that controls access to
 Image Builder. The policy specifies the following information:

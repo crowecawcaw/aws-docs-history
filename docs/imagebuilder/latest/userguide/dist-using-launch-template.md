@@ -1,6 +1,4 @@
-# Configure AMI distribution with
-
-an EC2 launch template
+# Configure AMI distribution with an EC2 launch template
 
 To help ensure a consistent launch experience for your Image Builder AMI in target accounts
 and Regions, you can specify an Amazon EC2 launch template in your distribution settings,
@@ -22,9 +20,7 @@ template must include the following tag so that Image Builder can enable Windows
 
 `CreatedBy: EC2 Image Builder`
 
-## Add an EC2 launch template to AMI
-
-distribution settings from the console
+## Add an EC2 launch template to AMI distribution settings from the console
 
 To provide a launch template with your output AMI, follow these steps in the console:
 
@@ -59,9 +55,7 @@ To remove a launch template, choose **Remove**. 7. Continue specifying any addit
 **Create settings** to create your new distribution
 settings resource.
 
-## Add an EC2 launch template to
-
-AMI distribution settings from the AWS CLI
+## Add an EC2 launch template to AMI distribution settings from the AWS CLI
 
 This section describes how to configure a distribution settings file with a
 launch template, and use the **create-image** command in the AWS CLI

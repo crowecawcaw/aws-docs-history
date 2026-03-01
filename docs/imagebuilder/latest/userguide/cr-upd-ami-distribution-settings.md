@@ -5,13 +5,10 @@ This section covers creating and updating distribution configurations for an Ima
 ###### Contents
 
 - [AMI distribution prerequisites](#ami-distribution-config-prereqs "#ami-distribution-config-prereqs")
-- [Create an AMI distribution
-  configuration](#create-ami-distribution-config "#create-ami-distribution-config")
+- [Create an AMI distribution configuration](#create-ami-distribution-config "#create-ami-distribution-config")
 - [Update an AMI distribution configuration](#update-ami-distribution-config "#update-ami-distribution-config")
-- [Example: Enable EC2 Fast Launch with a launch template for
-  output AMIs](#create-ami-dist-win-fast-launch "#create-ami-dist-win-fast-launch")
-- [Example: Create
-  distribution settings for output VM disks from the AWS CLI](#cli-create-vm-dist-config "#cli-create-vm-dist-config")
+- [Example: Enable EC2 Fast Launch with a launch template for output AMIs](#create-ami-dist-win-fast-launch "#create-ami-dist-win-fast-launch")
+- [Example: Create distribution settings for output VM disks from the AWS CLI](#cli-create-vm-dist-config "#cli-create-vm-dist-config")
 
 ## AMI distribution prerequisites
 
@@ -69,9 +66,7 @@ creates an CloudFormation stack with the following resources in your AWS account
 Image Builder doesn't support cross-account distribution for AMIs with EC2 Fast Launch
 pre-enabled. EC2 Fast Launch must be enabled from the destination account.
 
-## Create an AMI distribution
-
-configuration
+## Create an AMI distribution configuration
 
 Distribution configurations include the output AMI name, specific Region settings
 for encryption, launch permissions, and AWS accounts, organizations, and organizational units (OUs)
@@ -373,8 +368,7 @@ details** section. Some fields are locked, such as the
 **Name** of the distribution configuration, and the
 default **Region** that is displayed as
 **Region 1**. For more information about the distribution
-configuration settings, see [Create an AMI distribution
-configuration](#create-ami-distribution-config "#create-ami-distribution-config"). 5. Choose **Save changes** when you are done.
+configuration settings, see [Create an AMI distribution configuration](#create-ami-distribution-config "#create-ami-distribution-config"). 5. Choose **Save changes** when you are done.
 
 AWS CLI
 The following example shows how to use the **[update-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/update-distribution-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/update-distribution-configuration.html")**
@@ -441,9 +435,7 @@ For more detailed information, see **[update-distribution-configuration](https:/
 in the _AWS CLI Command Reference_. To update tags for your distribution configuration
 resource, see the [Tag resources](tag-resources.md "tag-resources.md") section.
 
-## Example: Enable EC2 Fast Launch with a launch template for
-
-output AMIs
+## Example: Enable EC2 Fast Launch with a launch template for output AMIs
 
 The following example shows how to use the **[create-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-distribution-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-distribution-configuration.html")**
 command with a launch template to create distribution settings that have EC2 Fast Launch
@@ -519,9 +511,7 @@ but you can't specify both the name and Id. 2. ###### Run the following command,
 For more detailed information, see **[create-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-distribution-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-distribution-configuration.html")**
 in the _AWS CLI Command Reference_.
 
-## Example: Create
-
-distribution settings for output VM disks from the AWS CLI
+## Example: Create distribution settings for output VM disks from the AWS CLI
 
 The following example shows how to use the **create-distribution-configuration**
 command to create distribution settings that will export VM image disks to Amazon S3 with every image build.

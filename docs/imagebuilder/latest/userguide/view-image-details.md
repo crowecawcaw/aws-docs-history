@@ -25,16 +25,11 @@ to your image, the tab is inactive and doesn't display data.
 
 - [Summary section](#view-image-details-console-summary "#view-image-details-console-summary")
 - [Output resources tab](#view-image-details-console-output-tab "#view-image-details-console-output-tab")
-- [Infrastructure configuration
-  tab](#view-image-details-console-infra-tab "#view-image-details-console-infra-tab")
-- [Distribution
-  settings tab](#view-image-details-console-distrib-tab "#view-image-details-console-distrib-tab")
-- [Workflow
-  tab](#view-image-details-console-workflow-tab "#view-image-details-console-workflow-tab")
-- [Security findings
-  tab](#view-image-details-console-findings-tab "#view-image-details-console-findings-tab")
-- [Tags
-  tab](#view-image-details-console-tags-tab "#view-image-details-console-tags-tab")
+- [Infrastructure configuration tab](#view-image-details-console-infra-tab "#view-image-details-console-infra-tab")
+- [Distribution settings tab](#view-image-details-console-distrib-tab "#view-image-details-console-distrib-tab")
+- [Workflow tab](#view-image-details-console-workflow-tab "#view-image-details-console-workflow-tab")
+- [Security findings tab](#view-image-details-console-findings-tab "#view-image-details-console-findings-tab")
+- [Tags tab](#view-image-details-console-tags-tab "#view-image-details-console-tags-tab")
 
 ### Summary section
 
@@ -115,9 +110,7 @@ one entry for distribution to the account that created the image. Additional
 destinations can include distributions across Regions, AWS accounts, or
 AWS Organizations. For more information, see [Manage Image Builder distribution settings](manage-distribution-settings.md "manage-distribution-settings.md").
 
-### Infrastructure configuration
-
-tab
+### Infrastructure configuration tab
 
 The **Infrastructure configuration** tab displays the Amazon EC2 infrastructure
 settings that Image Builder used to build and test the image that is currently displayed.
@@ -136,9 +129,7 @@ values, additional infrastructure details can include the following
 
 For more information, see [Manage Image Builder infrastructure configuration](manage-infra-config.md "manage-infra-config.md").
 
-### Distribution
-
-settings tab
+### Distribution settings tab
 
 The **Distribution settings** tab displays settings that
 Image Builder used to distribute your output images. Image Builder always displays the name of
@@ -204,9 +195,7 @@ one entry for distribution to the account that created the image. Additional
 destinations can include distributions across Regions, AWS accounts, or
 AWS Organizations. For more information, see [Manage Image Builder distribution settings](manage-distribution-settings.md "manage-distribution-settings.md").
 
-### Workflow
-
-tab
+### Workflow tab
 
 Workflows define the sequence of steps that Image Builder performs
 when it creates a new image. All images have build, test, and distribution workflows. The **Workflow** tab displays
@@ -322,9 +311,7 @@ of the workflow started.
 The timestamp when the specified step for this runtime instance
 of the workflow finished.
 
-### Security findings
-
-tab
+### Security findings tab
 
 If you've activated scanning, the **Security findings** tab displays
 Common Vulnerabilities and Exposures (CVE) findings. Amazon Inspector identified these findings
@@ -375,9 +362,7 @@ your image.
 
 The score that Amazon Inspector assigned for the CVE finding.
 
-### Tags
-
-tab
+### Tags tab
 
 The **Tags** tab displays any tags that you have
 defined for your image.

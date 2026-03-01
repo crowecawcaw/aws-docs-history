@@ -1,6 +1,4 @@
-# Use IAM service-linked roles for
-
-Image Builder
+# Use IAM service-linked roles for Image Builder
 
 EC2 Image Builder uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that
 is linked directly to Image Builder. Service-linked roles are predefined by Image Builder and include all of
@@ -16,9 +14,7 @@ For information about other services that support service-linked roles, see [AWS
 column. Choose a **Yes** with a link to view the service-linked
 role documentation for that service.
 
-## Service-linked role permissions for
-
-Image Builder
+## Service-linked role permissions for Image Builder
 
 Image Builder uses the **AWSServiceRoleForImageBuilder**
 service-linked role to allow EC2 Image Builder to access AWS resources on your behalf.
@@ -55,9 +51,7 @@ about configuring permissions for a service-linked role, see
 [Service-Linked
 Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-## Removing an Image Builder service-linked role from
-
-your account
+## Removing an Image Builder service-linked role from your account
 
 You can use the IAM console, the AWS CLI, or the AWS API to manually remove the
 service-linked role for Image Builder from your account. However, before you do this, you must
@@ -88,9 +82,7 @@ You can use the IAM console, the AWS CLI, or the AWS API to delete the
 `AWSServiceRoleForImageBuilder` role from your account. For more
 information, see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported Regions for Image Builder
-
-service-linked roles
+## Supported Regions for Image Builder service-linked roles
 
 Image Builder supports using service-linked roles in all of the AWS Regions where the service
 is available. For the list of supported AWS Regions, see [AWS Regions and Endpoints](what-is-image-builder.md#image-builder-regions "what-is-image-builder.md#image-builder-regions").

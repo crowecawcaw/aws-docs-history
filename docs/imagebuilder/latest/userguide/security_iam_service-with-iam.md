@@ -7,9 +7,7 @@ To get a high-level view of how Image Builder and other AWS services work with m
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Image Builder
+## Identity-based policies for Image Builder
 
 **Supports identity-based policies:**
 
@@ -26,16 +24,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Image Builder
 
-Identity-based policy examples for Image Builder
+To view examples of Image Builder identity-based policies, see [Image Builder identity-based policies](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
 
-To view examples of Image Builder identity-based policies, see [Image Builder
-identity-based policies](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
-
-## Resource-based
-
-policies within Image Builder
+## Resource-based policies within Image Builder
 
 **Supports resource-based policies:**
 
@@ -51,9 +44,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Image Builder
+## Policy actions for Image Builder
 
 **Supports policy actions:**
 
@@ -83,12 +74,9 @@ To specify multiple actions in a single statement, separate them with commas.
 	]
 ```
 
-To view examples of Image Builder identity-based policies, see [Image Builder
-identity-based policies](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
+To view examples of Image Builder identity-based policies, see [Image Builder identity-based policies](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
 
-## Policy
-
-resources for Image Builder
+## Policy resources for Image Builder
 
 **Supports policy resources:**
 
@@ -108,12 +96,9 @@ To see a list of Image Builder resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by EC2 Image Builder](../../../service-authorization/latest/reference/list_amazonec2imagebuilder.md#amazonec2imagebuilder-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonec2imagebuilder.md#amazonec2imagebuilder-actions-as-permissions").
 
-To view examples of Image Builder identity-based policies, see [Image Builder
-identity-based policies](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
+To view examples of Image Builder identity-based policies, see [Image Builder identity-based policies](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
 
-## Policy
-
-condition keys for Image Builder
+## Policy condition keys for Image Builder
 
 **Supports service-specific policy condition keys:**
 
@@ -132,8 +117,7 @@ To see a list of Image Builder condition keys, see [Condition keys for EC2 Image
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by EC2 Image Builder](../../../service-authorization/latest/reference/list_amazonec2imagebuilder.md#amazonec2imagebuilder-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonec2imagebuilder.md#amazonec2imagebuilder-actions-as-permissions").
 
-To view examples of Image Builder identity-based policies, see [Image Builder
-identity-based policies](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
+To view examples of Image Builder identity-based policies, see [Image Builder identity-based policies](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
 
 ## ACLs in Image Builder
 
@@ -161,9 +145,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Image Builder
+## Using temporary credentials with Image Builder
 
 **Supports temporary credentials:**
 
@@ -175,9 +157,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Image Builder
+## Cross-service principal permissions for Image Builder
 
 **Supports forward access sessions (FAS):**
 
@@ -186,9 +166,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Image Builder
+## Service roles for Image Builder
 
 **Supports service roles:**
 
@@ -203,9 +181,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Image Builder functionality.
 Edit service roles only when Image Builder provides guidance to do so.
 
-## Service-linked
-
-roles for Image Builder
+## Service-linked roles for Image Builder
 
 **Supports service-linked roles:**
 
@@ -215,12 +191,9 @@ A service-linked role is a type of service role that is linked to an AWS service
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
 but not edit the permissions for service-linked roles.
 
-For details about the Image Builder service-linked role, see [Use IAM service-linked roles for
-Image Builder](image-builder-service-linked-role.md "image-builder-service-linked-role.md").
+For details about the Image Builder service-linked role, see [Use IAM service-linked roles for Image Builder](image-builder-service-linked-role.md "image-builder-service-linked-role.md").
 
-## Image Builder
-
-identity-based policies
+## Image Builder identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources, and also the conditions under which actions are allowed or denied. Image Builder
@@ -440,9 +413,7 @@ only the `CreateInfrastrucutreConfiguration` and
 To view examples of Image Builder identity-based policies, see
 [Image Builder identity-based policies](security-iam-identity-based-policies.md "security-iam-identity-based-policies.md").
 
-## Image Builder
-
-resource-based policies
+## Image Builder resource-based policies
 
 Resource-based policies specify what actions a specified principal can perform
 on the Image Builder resource and under what conditions. Image Builder supports resource-based
@@ -459,9 +430,7 @@ component, image, or image recipe, see [Share Image Builder resources with AWS R
 When you update a resource policy using Image Builder, the update will appear in the
 RAM console.
 
-## Authorization based on Image Builder
-
-tags
+## Authorization based on Image Builder tags
 
 You can attach tags to Image Builder resources or pass tags in a request to Image Builder. To
 control access based on tags, you provide tag information in the [condition
@@ -476,9 +445,7 @@ resources, see [Tag a resource from the AWS CLI](tag-resources.md#cli-tag-resour
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with Image Builder
+### Using temporary credentials with Image Builder
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security
@@ -492,12 +459,9 @@ in your IAM account and are owned by the service. A user with administrative acc
 can view but not edit the permissions for service-linked roles.
 
 Image Builder supports service-linked roles. For information about creating or managing
-Image Builder service-linked roles, see [Use IAM service-linked roles for
-Image Builder](image-builder-service-linked-role.md "image-builder-service-linked-role.md").
+Image Builder service-linked roles, see [Use IAM service-linked roles for Image Builder](image-builder-service-linked-role.md "image-builder-service-linked-role.md").
 
-### Service
-
-roles
+### Service roles
 
 This feature allows a service to assume a [service role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role") on your behalf. This role allows the service to access
 resources in other services to complete an action on your behalf. Service roles

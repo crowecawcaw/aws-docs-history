@@ -1,20 +1,14 @@
-# Create and update distribution settings
-
-for container images
+# Create and update distribution settings for container images
 
 This section covers creating and updating distribution settings for Image Builder container
 images.
 
 ###### Contents
 
-- [Create
-  distribution settings for Image Builder container images from the AWS CLI](#cli-create-container-distribution-configuration "#cli-create-container-distribution-configuration")
-- [Update
-  distribution settings for your container image from the AWS CLI](#cli-update-container-distribution-configuration "#cli-update-container-distribution-configuration")
+- [Create distribution settings for Image Builder container images from the AWS CLI](#cli-create-container-distribution-configuration "#cli-create-container-distribution-configuration")
+- [Update distribution settings for your container image from the AWS CLI](#cli-update-container-distribution-configuration "#cli-update-container-distribution-configuration")
 
-## Create
-
-distribution settings for Image Builder container images from the AWS CLI
+## Create distribution settings for Image Builder container images from the AWS CLI
 
 A distribution configuration enables you to specify the name and description of your output
 container image and replicate the container image to other AWS Regions. You can
@@ -81,9 +75,7 @@ example uses a file named
 For more detailed information, see **[create-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-distribution-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-distribution-configuration.html")**
 in the _AWS CLI Command Reference_.
 
-## Update
-
-distribution settings for your container image from the AWS CLI
+## Update distribution settings for your container image from the AWS CLI
 
 The following example shows how to use the **[update-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/update-distribution-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/update-distribution-configuration.html")**
 command to update distribution settings for your container image, using the AWS CLI. You can

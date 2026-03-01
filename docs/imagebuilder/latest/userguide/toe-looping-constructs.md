@@ -1,6 +1,4 @@
-# Use looping constructs in
-
-AWSTOE
+# Use looping constructs in AWSTOE
 
 This section provides information to help you create looping constructs in the AWSTOE.
 Looping constructs define a repeated sequence of instructions. You can use the following
@@ -20,15 +18,12 @@ Looping constructs support only string data types.
 
 ###### Looping construct topics
 
-- [Reference
-  iteration variables](#toe-loop-iteration-variables "#toe-loop-iteration-variables")
+- [Reference iteration variables](#toe-loop-iteration-variables "#toe-loop-iteration-variables")
 - [Types of looping constructs](#toe-loop-types "#toe-loop-types")
 - [Step fields](#toe-loop-step-fields "#toe-loop-step-fields")
 - [Step and iteration outputs](#toe-loop-step-output "#toe-loop-step-output")
 
-## Reference
-
-iteration variables
+## Reference iteration variables
 
 To refer to the index and value of the current iteration variable, the reference expression `{{ loop.* }}` must be used within the input body of a step that contains a looping construct. This expression
 cannot be used to refer to the iteration variables of the looping construct of another step.

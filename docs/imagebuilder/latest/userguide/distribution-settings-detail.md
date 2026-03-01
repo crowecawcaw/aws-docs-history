@@ -8,8 +8,7 @@ view details for your EC2 Image Builder distribution configuration.
 - [List distribution configurations from the console](#list-distribution-config-console "#list-distribution-config-console")
 - [View distribution configuration details from the console](#view-distribution-config-details-console "#view-distribution-config-details-console")
 - [List distributions from the AWS CLI](#cli-list-distributions "#cli-list-distributions")
-- [Get
-  distribution configuration detail from the AWS CLI](#cli-get-distribution-configuration "#cli-get-distribution-configuration")
+- [Get distribution configuration detail from the AWS CLI](#cli-get-distribution-configuration "#cli-get-distribution-configuration")
 
 ## List distribution configurations from the console
 
@@ -52,9 +51,7 @@ command in the AWS CLI to list all of your distributions.
 aws imagebuilder list-distribution-configurations
 ```
 
-## Get
-
-distribution configuration detail from the AWS CLI
+## Get distribution configuration detail from the AWS CLI
 
 The following example shows how to use the **[get-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/get-distribution-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/get-distribution-configuration.html")**
 command in the AWS CLI to get the details of a distribution configuration by specifying

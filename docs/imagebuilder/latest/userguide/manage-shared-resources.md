@@ -48,9 +48,7 @@ in the console or when you run the command in the AWS CLI.
 
 For more information about AWS RAM, see the [_AWS RAM User Guide_](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md").
 
-### Prerequisites for sharing
-
-Image Builder resources
+### Prerequisites for sharing Image Builder resources
 
 To share an Image Builder resource, such as a component, image, or recipe:
 
@@ -77,8 +75,7 @@ units (OUs) that you specify in your distribution configuration.
 
 For more information about distribution settings for your AMI, see [Create and update AMI distribution configurations](cr-upd-ami-distribution-settings.md "cr-upd-ami-distribution-settings.md").
 For more information about distribution settings for your container image in Amazon ECR,
-see [Create and update distribution settings
-for container images](cr-upd-container-distribution-settings.md "cr-upd-container-distribution-settings.md").
+see [Create and update distribution settings for container images](cr-upd-container-distribution-settings.md "cr-upd-container-distribution-settings.md").
 
 For more information about sharing your AMI with AWS Organizations and OUs,
 see [Share an

@@ -4,14 +4,10 @@ This section shows you how to create a new version of a container recipe.
 
 ###### Contents
 
-- [Create a new container recipe version
-  with the console](#create-container-recipe-version "#create-container-recipe-version")
-- [Create a container recipe with the
-  AWS CLI](#create-container-recipe-cli "#create-container-recipe-cli")
+- [Create a new container recipe version with the console](#create-container-recipe-version "#create-container-recipe-version")
+- [Create a container recipe with the AWS CLI](#create-container-recipe-cli "#create-container-recipe-cli")
 
-## Create a new container recipe version
-
-with the console
+## Create a new container recipe version with the console
 
 Creating a new version of a container recipe is virtually the same as creating a new
 recipe. The difference is that certain details are pre-selected to match the base
@@ -234,9 +230,7 @@ For more information on how to create a container recipe when you create an imag
 pipeline, see [Step 2: Choose recipe](start-build-container-pipeline.md#start-build-container-step2 "start-build-container-pipeline.md#start-build-container-step2") in the **Get
 started** section of this guide.
 
-## Create a container recipe with the
-
-AWS CLI
+## Create a container recipe with the AWS CLI
 
 To create an Image Builder container recipe with the `imagebuilder
  create-container-recipe` command in the AWS CLI, follow these steps:

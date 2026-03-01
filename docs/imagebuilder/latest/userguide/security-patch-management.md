@@ -42,8 +42,7 @@ The following are two ways you can keep your Image Builder AMIs up to date.
   operating systems of supported AMIs, you can author an Image Builder component to install
   the required patches. A custom component can install patches using shell scripts
   (Bash or PowerShell), or it can use the `UpdateOS` action module to
-  specify patches for installation or exclusion. For more information, see [Action modules supported by AWSTOE
-  component manager](toe-action-modules.md "toe-action-modules.md").
+  specify patches for installation or exclusion. For more information, see [Action modules supported by AWSTOE component manager](toe-action-modules.md "toe-action-modules.md").
 
 Component that uses the `UpdateOS` action module (Linux and
 Windows only. The `UpdateOS` action module is not supported for macOS.)

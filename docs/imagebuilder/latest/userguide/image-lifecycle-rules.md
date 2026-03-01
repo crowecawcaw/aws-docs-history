@@ -51,7 +51,8 @@ used to run new containers.
 
 The following exclusion rules define exceptions to the lifecycle rules for AMIs. AMIs that
 meet the criteria specified by the exclusion rules are
-excluded from lifecycle actions. Exclusion rules are not available in the AWS Management Console.
+excluded from lifecycle actions. You can configure exclusion rules in the AWS Management Console
+or by using the API and AWS CLI.
 
 The following terms use API notation from the `LifecyclePolicyDetailExclusionRules` data type.
 

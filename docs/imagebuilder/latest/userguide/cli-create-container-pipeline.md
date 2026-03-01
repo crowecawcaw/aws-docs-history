@@ -1,6 +1,4 @@
-# Create a container image
-
-pipeline from the AWS CLI
+# Create a container image pipeline from the AWS CLI
 
 To create an image pipeline from the AWS CLI, run the
 **create-image-pipeline** command with the configuration options

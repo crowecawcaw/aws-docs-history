@@ -40,12 +40,10 @@ distributes the AMI to the source Region. The source Region is the Region
 where you run the pipeline.
 For more information and a step-by-step tutorial about using the
 **Create image pipeline** console wizard with default
-values where provided, see [Tutorial: Create an image
-pipeline with output AMI from the Image Builder console wizard](start-build-image-pipeline.md "start-build-image-pipeline.md").
+values where provided, see [Tutorial: Create an image pipeline with output AMI from the Image Builder console wizard](start-build-image-pipeline.md "start-build-image-pipeline.md").
 
 ###### Contents
 
-- [Create an AMI image
-  pipeline from the AWS CLI](cli-create-image-pipeline.md "cli-create-image-pipeline.md")
+- [Create an AMI image pipeline from the AWS CLI](cli-create-image-pipeline.md "cli-create-image-pipeline.md")
 - [Update AMI image pipelines from the console](update-image-pipeline-console.md "update-image-pipeline-console.md")
 - [Update AMI image pipelines from the AWS CLI](cli-update-image-pipeline.md "cli-update-image-pipeline.md")

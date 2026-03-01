@@ -1,6 +1,4 @@
-# Use comparison operators in
-
-AWSTOE component documents
+# Use comparison operators in AWSTOE component documents
 
 You can use the following comparison operators with the **[Assert](toe-action-modules.md#action-modules-assertion "toe-action-modules.md#action-modules-assertion")**
 action module and with conditional expressions that use the

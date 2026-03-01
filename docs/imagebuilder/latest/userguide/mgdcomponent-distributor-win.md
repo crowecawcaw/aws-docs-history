@@ -14,13 +14,11 @@ packages on Windows instances.
 - The `distributor-package-windows` managed component uses AWS Systems Manager
   Distributor to install application packages that you specify on your Windows image
   build instance. To configure parameters when you include this component in your
-  recipe, see [Configure distributor-package-windows
-  as a standalone component](#mgdcomponent-distributor-config-standalone "#mgdcomponent-distributor-config-standalone").
+  recipe, see [Configure distributor-package-windows as a standalone component](#mgdcomponent-distributor-config-standalone "#mgdcomponent-distributor-config-standalone").
 - The `aws-vss-components-windows` component uses AWS Systems Manager Distributor
   to install the `AwsVssComponents` package on your Windows image build
   instance. To configure parameters when you include this component in your recipe,
-  see [Configure aws-vss-components-windows
-  as a standalone component](#mgdcomponent-vss-config-standalone "#mgdcomponent-vss-config-standalone").
+  see [Configure aws-vss-components-windows as a standalone component](#mgdcomponent-vss-config-standalone "#mgdcomponent-vss-config-standalone").
   For more information about how to use managed components in your Image Builder recipe, see
   [Create a new version of an image recipe](create-image-recipes.md "create-image-recipes.md") for image recipes or
   [Create a new version of a container recipe](create-container-recipes.md "create-container-recipes.md") for container
@@ -145,9 +143,7 @@ Use this role in the Image Builder Infrastructure Configuration resource for any
 includes components that use Systems Manager Distributor. For more information, see
 [Create an infrastructure configuration](create-infra-config.md "create-infra-config.md").
 
-## Configure `distributor-package-windows`
-
-as a standalone component
+## Configure `distributor-package-windows` as a standalone component
 
 To use the `distributor-package-windows` component in a
 recipe, set the following parameters that configure the package to install.
@@ -173,9 +169,7 @@ you must ensure that all of the [Prerequisites](#mgdcomponent-distributor-prereq
   **Inputs** section of the
   **Systems Manager Command document plugin reference** page.
 
-## Configure `aws-vss-components-windows`
-
-as a standalone component
+## Configure `aws-vss-components-windows` as a standalone component
 
 When you use the `aws-vss-components-windows` component in a
 recipe, you can optionally set the `PackageVersion` parameter to use a

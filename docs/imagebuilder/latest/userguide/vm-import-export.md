@@ -218,5 +218,4 @@ aws imagebuilder import-vm-image --cli-input-json file://`import-vm-image.json`
 
 You can set up distribution of supported VM disk format files to S3 buckets in target
 Regions as part of your regular image build process, using Image Builder distribution
-configurations in the AWS CLI. For more information, see [Example: Create
-distribution settings for output VM disks from the AWS CLI](cr-upd-ami-distribution-settings.md#cli-create-vm-dist-config "cr-upd-ami-distribution-settings.md#cli-create-vm-dist-config").
+configurations in the AWS CLI. For more information, see [Example: Create distribution settings for output VM disks from the AWS CLI](cr-upd-ami-distribution-settings.md#cli-create-vm-dist-config "cr-upd-ami-distribution-settings.md#cli-create-vm-dist-config").

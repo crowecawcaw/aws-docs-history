@@ -1,6 +1,4 @@
-# Action modules supported by AWSTOE
-
-component manager
+# Action modules supported by AWSTOE component manager
 
 Image building services, such as EC2 Image Builder, use AWSTOE action modules to help configure
 the EC2 instances that are used for building and testing customized machine images. This
@@ -72,9 +70,7 @@ The following cross-reference categorizes action modules by the type of actions 
 - [SetRegistry (Windows)](#action-modules-setregistry "#action-modules-setregistry")
 - [UpdateOS (Linux, Windows)](#action-modules-updateos "#action-modules-updateos")
 
-## General execution
-
-modules
+## General execution modules
 
 The following section contains details for action modules that run
 commands and control execution workflow.
@@ -664,9 +660,7 @@ fail.
 }`
 ```
 
-## File download and upload
-
-modules
+## File download and upload modules
 
 The following section contains details for action modules that upload or download files.
 
@@ -762,9 +756,7 @@ The following example shows how to copy an Amazon S3 object to a local file.
         expectedBucketOwner: `123456789022`
 ```
 
-###### Input example: copy all Amazon S3 objects in an Amazon S3 bucket with
-
-key prefix to a local folder
+###### Input example: copy all Amazon S3 objects in an Amazon S3 bucket with key prefix to a local folder
 
 The following example shows how to copy all Amazon S3 objects in an
 Amazon S3 bucket with the key prefix to a local folder.
@@ -843,9 +835,7 @@ The following example shows how to copy a local file to an Amazon S3 object.
         expectedBucketOwner: `123456789022`
 ```
 
-###### Input example: copy all files in a local folder to an Amazon S3 bucket
-
-with key prefix
+###### Input example: copy all files in a local folder to an Amazon S3 bucket with key prefix
 
 The following example shows how to copy all files in the local folder to
 an Amazon S3 bucket with key prefix. This example does not copy
@@ -863,9 +853,7 @@ and it defaults to `false`.
         expectedBucketOwner: `123456789022`
 ```
 
-###### Input example: copy all files and folders recursively from a
-
-local folder to an Amazon S3 bucket
+###### Input example: copy all files and folders recursively from a local folder to an Amazon S3 bucket
 
 The following example shows how to copy all files and folders recursively from a
 local folder to an Amazon S3 bucket with key prefix.
@@ -1005,9 +993,7 @@ certification validation**
 }`
 ```
 
-## File system
-
-operations modules
+## File system operations modules
 
 The following section contains details for action modules that perform file system
 operations.
@@ -2521,9 +2507,7 @@ permissions for all of the contents of a folder**
 
 None.
 
-## Software
-
-installation actions
+## Software installation actions
 
 The following section describes action modules that install or uninstall software.
 
@@ -2761,9 +2745,7 @@ The following is an example of the output from the `UninstallMSI` action module.
 }`
 ```
 
-## System action
-
-modules
+## System action modules
 
 The following section describes action modules that perform system actions
 or update system settings.

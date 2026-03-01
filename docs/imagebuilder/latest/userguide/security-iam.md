@@ -5,15 +5,12 @@
 - [Audience](#security-iam-audience "#security-iam-audience")
 - [Authenticating with identities](#security-iam-authentication "#security-iam-authentication")
 - [How Image Builder works with IAM policies and roles](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [Manage data perimeters for S3 bucket
-  download access in Image Builder](security-iam-data-perimeter.md "security-iam-data-perimeter.md")
+- [Manage data perimeters for S3 bucket download access in Image Builder](security-iam-data-perimeter.md "security-iam-data-perimeter.md")
 - [Image Builder identity-based policies](security-iam-identity-based-policies.md "security-iam-identity-based-policies.md")
 - [IAM permissions for custom workflows](#security-iam-custom-workflows "#security-iam-custom-workflows")
-- [Image Builder
-  resource-based policies](#security-iam-resource-based-policies "#security-iam-resource-based-policies")
+- [Image Builder resource-based policies](#security-iam-resource-based-policies "#security-iam-resource-based-policies")
 - [Use AWS managed policies for EC2 Image Builder](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [Use IAM service-linked roles for
-  Image Builder](image-builder-service-linked-role.md "image-builder-service-linked-role.md")
+- [Use IAM service-linked roles for Image Builder](image-builder-service-linked-role.md "image-builder-service-linked-role.md")
 - [Troubleshoot IAM issues in Image Builder](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## Audience
@@ -25,8 +22,7 @@ How you use AWS Identity and Access Management (IAM) differs based on your role:
 - **Service administrator** - determine user access and
   submit permission requests (see [How Image Builder works with IAM policies and roles](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
-  access (see [Image Builder
-  identity-based policies](security_iam_service-with-iam.md#security_iam_id-based-policy-examples "security_iam_service-with-iam.md#security_iam_id-based-policy-examples"))
+  access (see [Image Builder identity-based policies](security_iam_service-with-iam.md#security_iam_id-based-policy-examples "security_iam_service-with-iam.md#security_iam_id-based-policy-examples"))
 
 ## Authenticating with identities
 
@@ -99,9 +95,7 @@ When `includeSnapshotTags` is enabled, the RegisterImage step action will:
 - Merge snapshot tags with Image Builder's default AMI registration tags
 - Give precedence to Image Builder tags when tag keys conflict
 
-## Image Builder
-
-resource-based policies
+## Image Builder resource-based policies
 
 For information about how to create a component, see [Use components to customize your Image Builder image](manage-components.md "manage-components.md").
 

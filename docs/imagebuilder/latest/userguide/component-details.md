@@ -6,11 +6,9 @@ components that you use in your EC2 Image Builder recipes.
 ###### Component details
 
 - [List Image Builder components](#list-components "#list-components")
-- [List component build
-  versions from the AWS CLI](#cli-list-component-versions "#cli-list-component-versions")
+- [List component build versions from the AWS CLI](#cli-list-component-versions "#cli-list-component-versions")
 - [Get component details from the AWS CLI](#cli-get-component "#cli-get-component")
-- [Get component policy
-  details from the AWS CLI](#cli-get-component-policy "#cli-get-component-policy")
+- [Get component policy details from the AWS CLI](#cli-get-component-policy "#cli-get-component-policy")
 
 ## List Image Builder components
 
@@ -102,9 +100,7 @@ aws imagebuilder list-components --owner Shared
 aws imagebuilder list-components --owner ThirdParty
 ```
 
-## List component build
-
-versions from the AWS CLI
+## List component build versions from the AWS CLI
 
 The following example shows how to use the **[list-component-build-versions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/list-component-build-versions.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/list-component-build-versions.html")**
 command to list component build versions that have a specific semantic version.
@@ -156,9 +152,7 @@ aws imagebuilder get-component --component-build-version-arn arn:aws:imagebuilde
 }`
 ```
 
-## Get component policy
-
-details from the AWS CLI
+## Get component policy details from the AWS CLI
 
 The following example shows how to use the **[get-component-policy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/get-component-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/get-component-policy.html")** command
 to get details of a component policy when you specify the component's ARN.

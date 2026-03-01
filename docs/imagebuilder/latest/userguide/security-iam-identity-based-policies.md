@@ -2,14 +2,10 @@
 
 ###### Topics
 
-- [Identity-based policy best
-  practices](#security-iam-service-policy-best-practices "#security-iam-service-policy-best-practices")
-- [Using the Image Builder
-  console](#sec-iam-id-based-policies-using-console "#sec-iam-id-based-policies-using-console")
+- [Identity-based policy best practices](#security-iam-service-policy-best-practices "#security-iam-service-policy-best-practices")
+- [Using the Image Builder console](#sec-iam-id-based-policies-using-console "#sec-iam-id-based-policies-using-console")
 
-## Identity-based policy best
-
-practices
+## Identity-based policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Image Builder resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -42,9 +38,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Image Builder
-
-console
+## Using the Image Builder console
 
 To access the EC2 Image Builder console, you must have a minimum set of permissions. These
 permissions allow you to list and view details about the Image Builder resources in your

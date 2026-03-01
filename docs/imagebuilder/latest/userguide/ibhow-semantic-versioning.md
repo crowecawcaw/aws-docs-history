@@ -36,6 +36,27 @@ selection using wildcards produces the following results:
 - `x.2.x` is not valid, and produces an error
 - `1.x.8` is not valid, and produces an error
 
+## Wildcard versioning in lifecycle policies
+
+You can use wildcard patterns for semantic versions in lifecycle policy recipe selection
+to target multiple versions of a recipe with a single policy. This simplifies lifecycle
+management by eliminating the need to create separate policies for each recipe version.
+
+The following wildcard patterns are supported for lifecycle policy recipe versions:
+
+- `x.x.x` – Matches all versions of the recipe.
+- `1.x.x` – Matches all minor and patch versions within
+  major version 1.
+- `1.0.x` – Matches all patch versions within version 1.0.
+
+When a lifecycle policy with wildcard patterns runs, Image Builder resolves the wildcards to
+all matching recipe versions at execution time. This creates an immutable list of versions
+for that execution. New recipe versions created after the policy execution begins are
+automatically included in the next scheduled execution.
+
+For more information about creating lifecycle policies with wildcard versioning, see
+[Create lifecycle policies](create-lifecycle-policies.md "create-lifecycle-policies.md").
+
 ## Using version references
 
 Version references are ready-to-use ARN strings that incorporate wildcard patterns based

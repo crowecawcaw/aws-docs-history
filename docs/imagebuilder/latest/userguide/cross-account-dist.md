@@ -252,9 +252,7 @@ There are some limitations when distributing Image Builder images across account
 For more information, see [CreateDistributionConfiguration](../APIReference/API_CreateDistributionConfiguration.md "../APIReference/API_CreateDistributionConfiguration.md")
 in the _EC2 Image Builder API Reference_.
 
-## Configure cross-account distribution
-
-for an Image Builder AMI from the console
+## Configure cross-account distribution for an Image Builder AMI from the console
 
 This section describes how to create and configure distribution settings for
 cross-account distribution of your Image Builder AMIs using the AWS Management Console.
@@ -291,9 +289,7 @@ Enter the **Output AMI name** for each Region. 7. Continue specifying any additi
 **Create settings** to create your new distribution
 settings resource.
 
-## Configure cross-account distribution
-
-for an Image Builder AMI from the AWS CLI
+## Configure cross-account distribution for an Image Builder AMI from the AWS CLI
 
 This section describes how to configure a distribution settings file and use the
 **create-image** command in the AWS CLI to build and distribute an

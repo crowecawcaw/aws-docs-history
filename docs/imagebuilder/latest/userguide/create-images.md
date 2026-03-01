@@ -112,9 +112,7 @@ _AWS CLI Command Reference_.
 }`
 ```
 
-## Cancel image
-
-creation from the AWS CLI
+## Cancel image creation from the AWS CLI
 
 To cancel an in-progress image build, use the
 **cancel-image-creation** command, as follows:

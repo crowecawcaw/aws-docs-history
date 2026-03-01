@@ -4,8 +4,7 @@ When you create an image workflow, you have more control over your image creatio
 process. You can specify what workflow runs when Image Builder builds your image, and what
 workflows run when it tests the image. You can also specify a customer managed key to
 encrypt your workflow resources. To learn more about encryption for your workflow
-resources, see [Encryption and key management in
-Image Builder](data-protection.md#ib-encryption "data-protection.md#ib-encryption").
+resources, see [Encryption and key management in Image Builder](data-protection.md#ib-encryption "data-protection.md#ib-encryption").
 
 For image creation, you can specify one build stage workflow, and one or more test
 stage workflows. You can even skip the build or test stage entirely, depending on your

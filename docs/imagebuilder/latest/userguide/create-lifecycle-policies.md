@@ -40,10 +40,27 @@ Configure **General** settings for your policy.
    default setting activates the lifecycle policy and adds it to
    the schedule right away. To create a policy that's initially
    deactivated, you can turn **Activate** off.
-5. Select the **IAM role** that you
-   created for lifecycle policy permissions. If you haven't
-   created this role yet, see [Prerequisites](image-lifecycle-prerequisites.md "image-lifecycle-prerequisites.md")
-   for more information.
+5. For the **IAM role**, select one of the following options:
+   - **Create lifecycle execution role using service defaults**
+     – Generates a pre-configured role with the
+     `EC2ImageBuilderLifecycleExecutionPolicy` managed policy
+     attached. This is the recommended option if you don't have specific
+     custom permission requirements.
+   - **Choose an existing role** – Select an
+     existing IAM role from the dropdown list. The list filters out
+     Service-Linked Roles (SLRs) that are not compatible with lifecycle
+     policy execution.
+   - **Create a new lifecycle execution role** –
+     Opens the IAM console with pre-filled trust policy and lifecycle
+     execution policy settings for one-click role creation. For step-by-step
+     instructions, see [Create an IAM role for Image Builder lifecycle management](image-lifecycle-prerequisites.md#image-lifecycle-prereq-role "image-lifecycle-prerequisites.md#image-lifecycle-prereq-role").
+
+###### Note
+
+Service-Linked Roles are not compatible with lifecycle policy execution
+and are automatically filtered from the role selection. If you previously
+created a lifecycle policy with a Service-Linked Role, you can update the
+policy to use a compatible execution role.
 
 Configure the **Rule scope** for your policy.
 
@@ -52,10 +69,57 @@ based on the type of filter that you use.
 
 1. **Filter type: Recipes** – To apply lifecycle
    rules to image resources based on the recipe that created them, select up
-   to 50 recipe versions for the policy.
-2. **Filter type: Tags** – To apply lifecycle
-   rules to image resources based on resource tags, enter a list of up to 50
-   key value pairs for the policy to match on.
+   to 50 recipe versions for the policy. You can use the split panel browser
+   to search for recipes and select specific versions.
+
+You can also use wildcard patterns for the semantic version to target
+multiple versions of a recipe with a single policy. The following wildcard
+patterns are supported:
+
+    * `x.x.x` – Matches all versions of the recipe.
+    * `1.x.x` – Matches all minor and patch versions
+     within major version 1.
+    * `1.0.x` – Matches all patch versions within
+     version 1.0.
+
+Wildcard patterns are resolved to all matching recipe versions at
+execution time. This means that new recipe versions created after you
+set up the policy are automatically included in the next scheduled
+execution.
+
+###### Note
+
+Recipe versions created or deleted after a policy execution begins
+are not included until the next scheduled execution. 2. **Filter type: Tags** – To apply lifecycle
+rules to image resources based on resource tags, enter a list of up to 50
+key value pairs for the policy to match on. Image Builder discovers resources
+through tag scanning and applies lifecycle rules to matching resources.
+
+###### Note
+
+Resources tagged or untagged after a policy execution begins
+are not included until the next scheduled execution.
+
+Configure **Exclusion rules** for your policy (optional).
+
+Exclusion rules define exceptions to the lifecycle rules. Resources that meet
+the criteria specified by the exclusion rules are excluded from lifecycle
+actions.
+
+1. For AMI image policies, you can configure the following AMI exclusion rules:
+   - **Exclude public AMIs** – Select this option
+     to exclude public AMIs from lifecycle actions.
+   - **Exclude AMIs by Region** – Specify AWS Regions
+     to exclude from lifecycle actions.
+   - **Exclude AMIs shared with accounts** – Specify
+     AWS accounts whose shared AMIs should be excluded from lifecycle actions.
+   - **Exclude recently launched AMIs** – Specify a
+     time period to exclude AMIs that were recently used to launch instances.
+   - **Exclude AMIs by tags** – Specify tags for AMIs
+     that should be excluded from lifecycle actions.
+
+2. For tag-based Image Builder image policies, you can specify tags for Image Builder image
+   resources that should be excluded from lifecycle actions.
 
 Turn on one or more of the following **Lifecycle rules** to
 apply to the resources that the lifecycle policy selects. If a resource matches
@@ -162,7 +226,7 @@ follow these steps:
 
 Configure **General** settings for your policy.
 
-1. Select the **AMI** option from **Policy type**.
+1. Select the **Container image** option from **Policy type**.
 2. Enter the **Policy name**.
 3. Optionally enter a **Description** for
    your lifecycle policy.
@@ -170,10 +234,27 @@ Configure **General** settings for your policy.
    default setting activates the lifecycle policy and adds it to
    the schedule right away. To create a policy that's initially
    deactivated, you can turn **Activate** off.
-5. Select the **IAM role** that you
-   created for lifecycle policy permissions. If you haven't
-   created this role yet, see [Prerequisites](image-lifecycle-prerequisites.md "image-lifecycle-prerequisites.md")
-   for more information.
+5. For the **IAM role**, select one of the following options:
+   - **Create lifecycle execution role using service defaults**
+     – Generates a pre-configured role with the
+     `EC2ImageBuilderLifecycleExecutionPolicy` managed policy
+     attached. This is the recommended option if you don't have specific
+     custom permission requirements.
+   - **Choose an existing role** – Select an
+     existing IAM role from the dropdown list. The list filters out
+     Service-Linked Roles (SLRs) that are not compatible with lifecycle
+     policy execution.
+   - **Create a new lifecycle execution role** –
+     Opens the IAM console with pre-filled trust policy and lifecycle
+     execution policy settings for one-click role creation. For step-by-step
+     instructions, see [Create an IAM role for Image Builder lifecycle management](image-lifecycle-prerequisites.md#image-lifecycle-prereq-role "image-lifecycle-prerequisites.md#image-lifecycle-prereq-role").
+
+###### Note
+
+Service-Linked Roles are not compatible with lifecycle policy execution
+and are automatically filtered from the role selection. If you previously
+created a lifecycle policy with a Service-Linked Role, you can update the
+policy to use a compatible execution role.
 
 Configure the **Rule scope** for your policy.
 
@@ -182,10 +263,57 @@ based on the type of filter that you use.
 
 1. **Filter type: Recipes** – To apply lifecycle
    rules to image resources based on the recipe that created them, select up
-   to 50 recipe versions for the policy.
-2. **Filter type: Tags** – To apply lifecycle
-   rules to image resources based on resource tags, enter a list of up to 50
-   key value pairs for the policy to match on.
+   to 50 recipe versions for the policy. You can use the split panel browser
+   to search for recipes and select specific versions.
+
+You can also use wildcard patterns for the semantic version to target
+multiple versions of a recipe with a single policy. The following wildcard
+patterns are supported:
+
+    * `x.x.x` – Matches all versions of the recipe.
+    * `1.x.x` – Matches all minor and patch versions
+     within major version 1.
+    * `1.0.x` – Matches all patch versions within
+     version 1.0.
+
+Wildcard patterns are resolved to all matching recipe versions at
+execution time. This means that new recipe versions created after you
+set up the policy are automatically included in the next scheduled
+execution.
+
+###### Note
+
+Recipe versions created or deleted after a policy execution begins
+are not included until the next scheduled execution. 2. **Filter type: Tags** – To apply lifecycle
+rules to image resources based on resource tags, enter a list of up to 50
+key value pairs for the policy to match on. Image Builder discovers resources
+through tag scanning and applies lifecycle rules to matching resources.
+
+###### Note
+
+Resources tagged or untagged after a policy execution begins
+are not included until the next scheduled execution.
+
+Configure **Exclusion rules** for your policy (optional).
+
+Exclusion rules define exceptions to the lifecycle rules. Resources that meet
+the criteria specified by the exclusion rules are excluded from lifecycle
+actions.
+
+1. For AMI image policies, you can configure the following AMI exclusion rules:
+   - **Exclude public AMIs** – Select this option
+     to exclude public AMIs from lifecycle actions.
+   - **Exclude AMIs by Region** – Specify AWS Regions
+     to exclude from lifecycle actions.
+   - **Exclude AMIs shared with accounts** – Specify
+     AWS accounts whose shared AMIs should be excluded from lifecycle actions.
+   - **Exclude recently launched AMIs** – Specify a
+     time period to exclude AMIs that were recently used to launch instances.
+   - **Exclude AMIs by tags** – Specify tags for AMIs
+     that should be excluded from lifecycle actions.
+
+2. For tag-based Image Builder image policies, you can specify tags for Image Builder image
+   resources that should be excluded from lifecycle actions.
 
 ###### Delete rule
 

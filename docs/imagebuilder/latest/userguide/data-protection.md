@@ -29,9 +29,7 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
   provide a URL to an external server, we strongly recommend that you do not include credentials
   information in the URL to validate your request to that server.
 
-## Encryption and key management in
-
-Image Builder
+## Encryption and key management in Image Builder
 
 Image Builder encrypts data in transit and at rest by default with a service-owned
 KMS key, except for the following:
@@ -305,9 +303,7 @@ a workflow resource before they can use it.
 Image Builder doesn't store any of your logs in the service. All logs are saved on your
 Amazon EC2 instance that is used to build the image, or in your Systems Manager automation logs.
 
-## Inter-network Traffic Privacy in
-
-Image Builder
+## Inter-network Traffic Privacy in Image Builder
 
 Connections are secured between Image Builder and on-premises locations, between AZs within
 an AWS Region, and between AWS Regions through HTTPS. There are no direct

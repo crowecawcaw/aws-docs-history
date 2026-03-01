@@ -6,13 +6,10 @@ these prerequisites are required for all types of pipelines.
 
 ###### Prerequisites
 
-- [Image Builder service-linked
-  role](#prereq-slr "#prereq-slr")
+- [Image Builder service-linked role](#prereq-slr "#prereq-slr")
 - [Configuration requirements](#prereq-config "#prereq-config")
-- [Container repository for
-  container image pipelines](#start-prereq-container "#start-prereq-container")
-- [Dedicated host for
-  macOS images](#start-prereq-macos-host "#start-prereq-macos-host")
+- [Container repository for container image pipelines](#start-prereq-container "#start-prereq-container")
+- [Dedicated host for macOS images](#start-prereq-macos-host "#start-prereq-macos-host")
 - [IAM prerequisites](#image-builder-IAM-prereq "#image-builder-IAM-prereq")
 - [Systems Manager Agent prerequisites](#image-builder-SSM-prereq "#image-builder-SSM-prereq")
   After you've met the prerequisites, you can manage EC2 Image Builder from any of the
@@ -23,16 +20,13 @@ these prerequisites are required for all types of pipelines.
 - [EC2 Image Builder API Reference](../APIReference.md "../APIReference.md")
 - [AWS SDKs and Tools](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/")
 
-## Image Builder service-linked
-
-role
+## Image Builder service-linked role
 
 EC2 Image Builder uses a service-linked role to grant permissions to other AWS services
 on your behalf. You don't need to manually create a service-linked role. When you
 create your first Image Builder resource in the AWS Management Console, the AWS CLI, or the
 AWS API, Image Builder creates the service-linked role for you. For more information about
-the service-linked role that Image Builder creates in your account, see [Use IAM service-linked roles for
-Image Builder](image-builder-service-linked-role.md "image-builder-service-linked-role.md").
+the service-linked role that Image Builder creates in your account, see [Use IAM service-linked roles for Image Builder](image-builder-service-linked-role.md "image-builder-service-linked-role.md").
 
 ## Configuration requirements
 
@@ -65,9 +59,7 @@ see [Manually
 install Systems Manager Agent on EC2 instances for Windows Server](../../../systems-manager/latest/userguide/manually-install-ssm-agent-windows.md "../../../systems-manager/latest/userguide/manually-install-ssm-agent-windows.md") in the
 _AWS Systems Manager User Guide_.
 
-## Container repository for
-
-container image pipelines
+## Container repository for container image pipelines
 
 For container image pipelines, the recipe defines the configuration for
 the Docker images that are produced and stored in the target container
@@ -79,9 +71,7 @@ repository, follow the steps described in
 [Creating a
 repository](../../../AmazonECR/latest/userguide/repository-create.md "../../../AmazonECR/latest/userguide/repository-create.md") in the _Amazon Elastic Container Registry User Guide_.
 
-## Dedicated host for
-
-macOS images
+## Dedicated host for macOS images
 
 Amazon EC2 Mac instances require a Dedicated Host running on a metal instance type.
 Before you create a custom macOS image, you must [Allocate a

@@ -32,8 +32,7 @@ To make an AMI public, set the launch permission authorized accounts to
   organizations or OUs](../../../AWSEC2/latest/UserGuide/share-amis-with-organizations-and-OUs.md "../../../AWSEC2/latest/UserGuide/share-amis-with-organizations-and-OUs.md").
 - Copy the AMI to the owner's account in other AWS Regions.
 - Export VM image disks to Amazon Simple Storage Service (Amazon S3). For more information, see
-  [Example: Create
-  distribution settings for output VM disks from the AWS CLI](cr-upd-ami-distribution-settings.md#cli-create-vm-dist-config "cr-upd-ami-distribution-settings.md#cli-create-vm-dist-config").
+  [Example: Create distribution settings for output VM disks from the AWS CLI](cr-upd-ami-distribution-settings.md#cli-create-vm-dist-config "cr-upd-ami-distribution-settings.md#cli-create-vm-dist-config").
 
 ###### Container image distribution
 
@@ -71,9 +70,7 @@ section of this guide.
 
 - [List and view distribution configuration detail](distribution-settings-detail.md "distribution-settings-detail.md")
 - [Create and update AMI distribution configurations](cr-upd-ami-distribution-settings.md "cr-upd-ami-distribution-settings.md")
-- [Create and update distribution settings
-  for container images](cr-upd-container-distribution-settings.md "cr-upd-container-distribution-settings.md")
+- [Create and update distribution settings for container images](cr-upd-container-distribution-settings.md "cr-upd-container-distribution-settings.md")
 - [Set up cross-account AMI distribution with Image Builder](cross-account-dist.md "cross-account-dist.md")
-- [Configure AMI distribution with
-  an EC2 launch template](dist-using-launch-template.md "dist-using-launch-template.md")
+- [Configure AMI distribution with an EC2 launch template](dist-using-launch-template.md "dist-using-launch-template.md")
 - [Use enhanced AMI distribution capabilities](distribution-enhanced_functionality.md "distribution-enhanced_functionality.md")
