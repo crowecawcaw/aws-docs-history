@@ -554,9 +554,7 @@ several seconds to complete.
 
 ![Amazon RDS interface showing a confirmation dialog to delete a database instance, with options to create a final snapshot and retain automated backups, and a text field requiring 'delete me' for confirmation.](images/interface-confirmation-dialog-delete.png)
 
-## Additional
-
-resources: Working with Amazon RDS and Amazon Aurora
+## Additional resources: Working with Amazon RDS and Amazon Aurora
 
 - [Getting started with AWS Backup](../../../aws-backup/latest/devguide/getting-started.md "../../../aws-backup/latest/devguide/getting-started.md")
 - [How to
