@@ -1,6 +1,4 @@
-# Evaluate your AWS DeepRacer models in
-
-simulation
+# Evaluate your AWS DeepRacer models in simulation
 
 After your training job is complete, you should evaluate the trained model to assess its
 convergency behavior. The evaluation proceeds by completing a number of trials on a chosen
@@ -88,7 +86,7 @@ physical environment, you need to download the model artifacts. To do so, choose
 physical device doesn't support new sensors and your model has been trained with the new
 sensor types, you'll get an error message when you use the model on your AWS DeepRacer device in
 a real-world environment. For more information about testing an AWS DeepRacer model with a
-physical device, see [Operate your AWS DeepRacer vehicle](operate-deepracer-vehicle.md "operate-deepracer-vehicle.md") .
+physical device, see [Operate your AWS DeepRacer vehicle](operate-deepracer-vehicle.md "operate-deepracer-vehicle.md").
 
 Once you've trained your model on a track identical or similar to the one specified in an
 AWS DeepRacer League racing event or an AWS DeepRacer community race, you can submit the model to the
@@ -97,5 +95,4 @@ virtual circuit** or **Community races** on the main
 navigation pane. For more information, see [Join an AWS DeepRacer race](deepracer-racing-series.md "deepracer-racing-series.md").
 
 To train a model for obstacle avoidance or head-to-bot racing, you may need to add new
-sensors to the model and the physical device. For more information, see [Understanding racing types and enabling sensors
-supported by AWS DeepRacer](deepracer-choose-race-type.md "deepracer-choose-race-type.md").
+sensors to the model and the physical device. For more information, see [Understanding racing types and enabling sensors supported by AWS DeepRacer](deepracer-choose-race-type.md "deepracer-choose-race-type.md").

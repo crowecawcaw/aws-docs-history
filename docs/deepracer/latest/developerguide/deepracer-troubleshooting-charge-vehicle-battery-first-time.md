@@ -1,6 +1,4 @@
-# How to charge the AWS DeepRacer drive module
-
-battery
+# How to charge the AWS DeepRacer drive module battery
 
 The AWS DeepRacer drive module battery has two sets of cables with two different color JST connectors, white and red. The
 white 3-pin connector, at the end of the black, red, and white cables, connects the vehicle module battery to its

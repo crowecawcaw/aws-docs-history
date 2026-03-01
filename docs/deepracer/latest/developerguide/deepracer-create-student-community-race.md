@@ -1,6 +1,4 @@
-# Create an AWS DeepRacer Student
-
-community race
+# Create an AWS DeepRacer Student community race
 
 You can set up a virtual race quickly using the default student community race settings.
 
@@ -18,8 +16,7 @@ for submitted models on the leaderboard page as soon as the race is initiated.
 
 ![Create a AWS DeepRacer Student community race.](images/deepracer-student-community-race-create.png) 4. Enter an original, descriptive name for the race. 5. Specify the start date and time of the event in 24-hour format. The AWS DeepRacer console automatically
 recognizes your time zone. Also enter an end date and time. 6. To use the default race settings, choose **Next**. When you're ready to learn about
-all of your options, go to [Customize an AWS DeepRacer Student community
-race](customize-student-community-race.md "customize-student-community-race.md"). 7. On the **Review race details** page, check the race specifications. To make
+all of your options, go to [Customize an AWS DeepRacer Student community race](customize-student-community-race.md "customize-student-community-race.md"). 7. On the **Review race details** page, check the race specifications. To make
 changes, choose **Edit** or **Previous** to return to the
 **Race details** page. When you're ready to get the invitation link, choose
 **Submit**. 8. To share your race, choose **Copy** and paste the

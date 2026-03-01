@@ -1,6 +1,4 @@
-# How to charge the AWS DeepRacer compute module
-
-battery
+# How to charge the AWS DeepRacer compute module battery
 
 Follow the steps below to charge your AWS DeepRacer compute module battery:
 

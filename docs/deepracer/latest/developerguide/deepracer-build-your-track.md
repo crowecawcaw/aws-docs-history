@@ -1,6 +1,4 @@
-# Build your physical track for
-
-AWS DeepRacer
+# Build your physical track for AWS DeepRacer
 
 This section describes how you can build a physical track for a AWS DeepRacer model. To drive
 your AWS DeepRacer autonomously and to test your reinforcement learning model in a physical
@@ -18,6 +16,5 @@ Storefront.](https://www.amazon.com/b/?node=32957528011&ref_=aws_dr_sf_doc_dg_bw
 ###### Topics
 
 - [Track materials and build tools](deepracer-build-your-track-materials-and-tools.md "deepracer-build-your-track-materials-and-tools.md")
-- [Lay your track for
-  AWS DeepRacer](deepracer-build-your-track-construction.md "deepracer-build-your-track-construction.md")
+- [Lay your track for AWS DeepRacer](deepracer-build-your-track-construction.md "deepracer-build-your-track-construction.md")
 - [AWS DeepRacer track design templates](deepracer-track-examples.md "deepracer-track-examples.md")

@@ -1,6 +1,4 @@
-# Input parameters of the AWS DeepRacer
-
-reward function
+# Input parameters of the AWS DeepRacer reward function
 
 The AWS DeepRacer reward function takes a dictionary object as the input.
 

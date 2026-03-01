@@ -1,6 +1,4 @@
-# Choose a Wi-Fi network for your AWS DeepRacer
-
-vehicle
+# Choose a Wi-Fi network for your AWS DeepRacer vehicle
 
 The first time you open your AWS DeepRacer vehicle, you must set it up to connect to a Wi-Fi network. Complete this
 setup to get the vehicle's software updated and to get the IP address to access the vehicle's device console.
@@ -27,13 +25,10 @@ AWS DeepRacer does not support Wi-Fi network that requires active
 
 ###### Topics
 
-- [Get ready to set up
-  Wi-Fi connection for your AWS DeepRacer vehicle](#deepracer-set-up-vehicle-connect-computer-with-vehicle "#deepracer-set-up-vehicle-connect-computer-with-vehicle")
+- [Get ready to set up Wi-Fi connection for your AWS DeepRacer vehicle](#deepracer-set-up-vehicle-connect-computer-with-vehicle "#deepracer-set-up-vehicle-connect-computer-with-vehicle")
 - [Set up Wi-Fi connection and update your AWS DeepRacer vehicle's software](#deepracer-set-up-vehicle-wifi-connection "#deepracer-set-up-vehicle-wifi-connection")
 
-## Get ready to set up
-
-Wi-Fi connection for your AWS DeepRacer vehicle
+## Get ready to set up Wi-Fi connection for your AWS DeepRacer vehicle
 
 To set up your vehicle's Wi-Fi connection, connect your a laptop or desktop computer to your vehicle's
 compute module using the included _USB-to-USB C_ cable.
@@ -47,13 +42,10 @@ To connect your computer to your vehicle's compute module, follow the steps belo
 
 You're now ready to proceed to setting up your vehicle's Wi-Fi connection.
 
-##
-
-Set up Wi-Fi connection and update your AWS DeepRacer vehicle's software
+## Set up Wi-Fi connection and update your AWS DeepRacer vehicle's software
 
 Before you follow the steps here to set up the Wi-Fi connection, be sure you complete the steps in
-[Get ready to set up
-Wi-Fi connection for your AWS DeepRacer vehicle](#deepracer-set-up-vehicle-connect-computer-with-vehicle "#deepracer-set-up-vehicle-connect-computer-with-vehicle") .
+[Get ready to set up Wi-Fi connection for your AWS DeepRacer vehicle](#deepracer-set-up-vehicle-connect-computer-with-vehicle "#deepracer-set-up-vehicle-connect-computer-with-vehicle").
 
 1. Look at the bottom of your vehicle and make note of the password printed under
    **Host name**. You'll need it to log in to the device control console to

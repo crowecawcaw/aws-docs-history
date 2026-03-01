@@ -1,6 +1,4 @@
-# How to wrap a Dell battery connector cable when installing
-
-a LiDAR sensor
+# How to wrap a Dell battery connector cable when installing a LiDAR sensor
 
 Fitting the Evo shell over a LiDAR sensor connected to an AWS DeepRacer vehicle using the extra long Dell USB-C to angle
 USB-C connector cable requires a specific cable wrapping technique.

@@ -1,23 +1,17 @@
-#
-
-Participate in an AWS DeepRacer LIVE race
+# Participate in an AWS DeepRacer LIVE race
 
 ###### Note
 
 Submit your model at least one hour prior to the LIVE race start time. You can enter multiple models,
 but only the last model you submit before the submission window closes will be used.
 
-######
-
-Before you start
+###### Before you start
 
 - Use a Chrome or Firefox browser (Check that your browser is up to date).
 - Disconnect virtual private network (VPN) if you're using one.
 - Close all extra tabs.
 
-######
-
-To participate in a LIVE race
+###### To participate in a LIVE race
 
 1. Sign in to the [AWS DeepRacer console](https://console.aws.amazon.com/deepracer "https://console.aws.amazon.com/deepracer").
 2. If you haven't submitted a model, find the race card for the race you want to participate in and

@@ -4,9 +4,7 @@ This section provides you with information and resources to integrate the AWS De
 Learning curriculum in the classroom, hold AWS DeepRacer Student hands-on labs, and create student community
 races.
 
-##
-
-Integrate AWS DeepRacer Student in the classroom
+## Integrate AWS DeepRacer Student in the classroom
 
 If you’re an educator that’s just getting started with AWS DeepRacer, we recommend that you read the AWS DeepRacer Student
 educator playbooks.
@@ -23,9 +21,7 @@ The [AWS DeepRacer Student Labs Playbook](samples/AWS_DeepRacer_Educator_Playboo
 hold AWS DeepRacer Student hands-on labs. Hands-on labs consist of virtual events like AWS DeepRacer Student League races,
 Private Community Races, Live Virtual Racing, and in person events with a physical track and AWS DeepRacer device.
 
-##
-
-Create student community races
+## Create student community races
 
 After you get started with the educator playbooks, use **Community races** in the
 [AWS DeepRacer console](https://console.aws.amazon.com/deepracer "https://console.aws.amazon.com/deepracer") to create races for students in
@@ -42,8 +38,6 @@ Continue to one of the following topics to create or manage an AWS DeepRacer Stu
 
 ###### Topics
 
-- [Create an AWS DeepRacer Student
-  community race](deepracer-create-student-community-race.md "deepracer-create-student-community-race.md")
-- [Customize an AWS DeepRacer Student community
-  race](customize-student-community-race.md "customize-student-community-race.md")
+- [Create an AWS DeepRacer Student community race](deepracer-create-student-community-race.md "deepracer-create-student-community-race.md")
+- [Customize an AWS DeepRacer Student community race](customize-student-community-race.md "customize-student-community-race.md")
 - [Manage an AWS DeepRacer Student community race](deepracer-manage-student-community-races.md "deepracer-manage-student-community-races.md")

@@ -9,16 +9,13 @@ Before driving your vehicle for the first time, you must set up the vehicle, ins
 software updates, and calibrate its drive-chain sub-system.
 
 To drive your vehicle on a physical track, you must have a track. For more information,
-see [Build your physical track for
-AWS DeepRacer](deepracer-build-your-track.md "deepracer-build-your-track.md")
+see [Build your physical track for AWS DeepRacer](deepracer-build-your-track.md "deepracer-build-your-track.md")
 
 ###### Topics
 
 - [Get to know your AWS DeepRacer vehicle](deepracer-prep-vehicle.md "deepracer-prep-vehicle.md")
-- [Choose a Wi-Fi network for your AWS DeepRacer
-  vehicle](deepracer-set-up-vehicle.md "deepracer-set-up-vehicle.md")
-- [Launch the AWS DeepRacer vehicle's
-  device console](deepracer-set-up-vehicle-test-drive.md "deepracer-set-up-vehicle-test-drive.md")
+- [Choose a Wi-Fi network for your AWS DeepRacer vehicle](deepracer-set-up-vehicle.md "deepracer-set-up-vehicle.md")
+- [Launch the AWS DeepRacer vehicle's device console](deepracer-set-up-vehicle-test-drive.md "deepracer-set-up-vehicle-test-drive.md")
 - [Calibrate your AWS DeepRacer vehicle](deepracer-calibrate-vehicle.md "deepracer-calibrate-vehicle.md")
 - [Upload a model to your AWS DeepRacer vehicle](deepracer-upload-model-to-vehicle.md "deepracer-upload-model-to-vehicle.md")
 - [Drive your AWS DeepRacer vehicle](deepracer-drive-your-vehicle.md "deepracer-drive-your-vehicle.md")

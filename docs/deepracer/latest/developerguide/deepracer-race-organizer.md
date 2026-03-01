@@ -1,6 +1,4 @@
-# Organize
-
-an AWS DeepRacer community race
+# Organize an AWS DeepRacer community race
 
 _Community races_ are races organized by AWS DeepRacer users who are not officially
 sponsored by AWS.

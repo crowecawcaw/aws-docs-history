@@ -1,6 +1,4 @@
-# AWS DeepRacer-Dependent AWS
-
-Services
+# AWS DeepRacer-Dependent AWS Services
 
 AWS DeepRacer uses the following AWS services to manage required resources:
 
@@ -39,5 +37,4 @@ The following table shows AWS services used by AWS DeepRacer, directly or indire
 
 To use AWS DeepRacer to call these services, you must have appropriate IAM roles
 with required policies attached to them. Learn the details about these
-policies and roles in [Required IAM roles
-for AWS DeepRacer to call dependent AWS Services](deepracer-understand-required-permissions-and-iam-roles.md "deepracer-understand-required-permissions-and-iam-roles.md").
+policies and roles in [Required IAM roles for AWS DeepRacer to call dependent AWS Services](deepracer-understand-required-permissions-and-iam-roles.md "deepracer-understand-required-permissions-and-iam-roles.md").

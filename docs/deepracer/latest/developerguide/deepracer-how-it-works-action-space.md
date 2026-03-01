@@ -1,6 +1,4 @@
-# AWS DeepRacer action space and reward
-
-function
+# AWS DeepRacer action space and reward function
 
 ###### Action space
 

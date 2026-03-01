@@ -1,13 +1,8 @@
-# How to maintain your vehicle's Wi-Fi
-
-connection
+# How to maintain your vehicle's Wi-Fi connection
 
 The following troubleshooting guide provides you tips for maintaining your vehicle's connection.
 
-## How to
-
-troubleshoot Wi-Fi connection if your vehicle's Wi-Fi LED indicator flashes blue, then turns red for two
-seconds, and finally off
+## How to troubleshoot Wi-Fi connection if your vehicle's Wi-Fi LED indicator flashes blue, then turns red for two seconds, and finally off
 
 Check the following to verify you have the valid Wi-Fi connection settings.
 
@@ -39,9 +34,7 @@ MyHomeWi-Fi'`
   or some other text editor shows single quotes as of the '...' form, but not of ‘...’. If the field value
   does not contain spaces, the value can be without single quotes.
 
-## What does it mean when the vehicle's
-
-Wi-Fi or power LED indicator flashes blue?
+## What does it mean when the vehicle's Wi-Fi or power LED indicator flashes blue?
 
 If the USB drive contains _wifi-creds.txt_ file, the Wi-Fi LED indicator flashes blue while
 the vehicle is attempting to connect to the Wi-Fi network specified in the file.
@@ -55,9 +48,7 @@ loading models.
 
 The Wi-Fi LED might also turn red for two seconds if the Wi-Fi connection attempt fails.
 
-## How can I connect to the
-
-vehicle's device console using its hostname?
+## How can I connect to the vehicle's device console using its hostname?
 
 When connecting to the vehicle's device console using its hostname, make sure you type:
 `https://`hostname`.local` in the browser, where
@@ -65,9 +56,7 @@ When connecting to the vehicle's device console using its hostname, make sure yo
 `AMSS-`1234`` format) is printed on the bottom of the AWS DeepRacer
 vehicle. )
 
-## How to connect to vehicle's
-
-device console using its IP address
+## How to connect to vehicle's device console using its IP address
 
 To connect to the device console using IP address as shown in the _device-status.txt_ file
 (found on the USB drive), make sure the following conditions are met.

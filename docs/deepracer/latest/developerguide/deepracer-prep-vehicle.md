@@ -1,6 +1,4 @@
-#
-
-Get to know your AWS DeepRacer vehicle
+# Get to know your AWS DeepRacer vehicle
 
 Your AWS DeepRacer vehicle is a machine learning-enabled, battery-powered, and Wi-Fi-connected 1/18th-scale
 model four-wheel drive car with a front-mounted 4-megapixel camera and an Ubuntu-based compute module.
@@ -17,17 +15,13 @@ that operates the steering system is protected by the black cover in the AWS Dee
 ###### Topics
 
 - [Inspect your AWS DeepRacer vehicle](#deepracer-prep-vehicle-inspect-components "#deepracer-prep-vehicle-inspect-components")
-- [Charge and install your AWS DeepRacer
-  batteries](#deepracer-prep-vehicle-charge-battery-power-bank "#deepracer-prep-vehicle-charge-battery-power-bank")
-- [Test your AWS DeepRacer
-  compute module](#deepracer-prep-vehicle-test-compute-module "#deepracer-prep-vehicle-test-compute-module")
+- [Charge and install your AWS DeepRacer batteries](#deepracer-prep-vehicle-charge-battery-power-bank "#deepracer-prep-vehicle-charge-battery-power-bank")
+- [Test your AWS DeepRacer compute module](#deepracer-prep-vehicle-test-compute-module "#deepracer-prep-vehicle-test-compute-module")
 - [Turn off your AWS DeepRacer vehicle](#deepracer-shutdown-device "#deepracer-shutdown-device")
 - [AWS DeepRacer vehicle LED indicators](deepracer-vehicle-led-indicators.md "deepracer-vehicle-led-indicators.md")
 - [AWS DeepRacer device spare parts](deepracer-vehicle-chassis-parts.md "deepracer-vehicle-chassis-parts.md")
 
-##
-
-Inspect your AWS DeepRacer vehicle
+## Inspect your AWS DeepRacer vehicle
 
 When you open your AWS DeepRacer vehicle box, you should find the following components
 and accessories:
@@ -58,9 +52,7 @@ To set up your AWS DeepRacer vehicle, you must also have the following items rea
 Now follow the instructions in the [next section](#deepracer-prep-vehicle-charge-battery-power-bank "#deepracer-prep-vehicle-charge-battery-power-bank") to make sure your
 vehicle battery and the power bank are charged.
 
-## Charge and install your AWS DeepRacer
-
-batteries
+## Charge and install your AWS DeepRacer batteries
 
 Your AWS DeepRacer vehicle has two power sources: the vehicle battery and the compute module power bank.
 
@@ -93,8 +85,7 @@ below.
        outlet or to a USB port if a USB cable is used to charge the battery.
 
     For a graphical illustration of how to charge the vehicle battery using the enclosed
-    charger, see [How to charge the AWS DeepRacer drive module
-    battery](deepracer-troubleshooting-charge-vehicle-battery-first-time.md "deepracer-troubleshooting-charge-vehicle-battery-first-time.md"). 2. After the battery is charged, plug the two-wired cable set of the vehicle battery
+    charger, see [How to charge the AWS DeepRacer drive module battery](deepracer-troubleshooting-charge-vehicle-battery-first-time.md "deepracer-troubleshooting-charge-vehicle-battery-first-time.md"). 2. After the battery is charged, plug the two-wired cable set of the vehicle battery
     cable into the black and red cable connector on your vehicle. 3. To secure the vehicle battery, tie the battery under the vehicle chassis with the
     attached straps.
 
@@ -131,16 +122,12 @@ below.
     Do not connect the power bank to the compute module in this
     step.
 
-## Test your AWS DeepRacer
-
-compute module
+## Test your AWS DeepRacer compute module
 
 Test the compute module to verify that it can be started successfully. To test the module by using
 an external power source, follow the steps below:
 
-######
-
-To test your vehicle's compute module
+###### To test your vehicle's compute module
 
 1. Connect the compute module to a power source. Connect the power cord to the power adapter,
    plug the power cord to a power outlet, and insert the power adapter's USB C plug into the

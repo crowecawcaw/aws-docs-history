@@ -1,6 +1,4 @@
-# How to
-
-recover your AWS DeepRacer device console default password
+# How to recover your AWS DeepRacer device console default password
 
 Recovering your AWS DeepRacer device console default password involves retrieving or resetting the
 default password. The default password is printed at the bottom of the device, as shown

@@ -1,6 +1,4 @@
-#
-
-Update and restore your AWS DeepRacer device
+# Update and restore your AWS DeepRacer device
 
 Update your AWS DeepRacer device to the latest software stack including Ubuntu 20.04 Focal Fossa,
 Intel® OpenVINO™ toolkit 2021.1.110, ROS2 Foxy Fitzroy, and Python 3.8. This update is required to run AWS DeepRacer open-source projects but is otherwise optional. AWS DeepRacer only supports Ubuntu 20.04 Focal Fossa and ROS2 Foxy Fitzroy.
@@ -15,30 +13,21 @@ Updating to the new AWS DeepRacer software stack will wipe all data on your AWS 
 - [Prepare to update your AWS DeepRacer device to the Ubuntu 20.04 software stack](#deepracer-ubuntu-update-preparation "#deepracer-ubuntu-update-preparation")
 - [Update your AWS DeepRacer device to the Ubuntu 20.04 software stack](#deepracer-ubuntu-update-instructions "#deepracer-ubuntu-update-instructions")
 
-##
+## Check which software version your AWS DeepRacer device is currently running
 
-Check which software version your AWS DeepRacer device is currently running
+###### To check which software version your AWS DeepRacer device is currently running
 
-######
-
-To check which software version your AWS DeepRacer device is currently running
-
-1. Log in to the AWS DeepRacer device console. To learn how, follow the steps in [Launch the AWS DeepRacer vehicle's
-   device console](deepracer-set-up-vehicle-test-drive.md "deepracer-set-up-vehicle-test-drive.md").
+1. Log in to the AWS DeepRacer device console. To learn how, follow the steps in [Launch the AWS DeepRacer vehicle's device console](deepracer-set-up-vehicle-test-drive.md "deepracer-set-up-vehicle-test-drive.md").
 2. Choose **Settings** on the navigation pane.
 3. Check the **About** section to verify which software version your AWS DeepRacer Vehicle is currently running.
 
 ![Image: This image is a screenshot of the AWS DeepRacer device console "About" page.](images/deepracer-about-software-version.png)
 
-##
-
-Prepare to update your AWS DeepRacer device to the Ubuntu 20.04 software stack
+## Prepare to update your AWS DeepRacer device to the Ubuntu 20.04 software stack
 
 This topic walks you through the process to create the AWS DeepRacer Ubuntu instalation media. Preparing the bootable USB drive requires additional hardware.
 
-###
-
-Prerequisites
+### Prerequisites
 
 Before you get started, make sure you have the following items ready:
 
@@ -53,9 +42,7 @@ Before you get started, make sure you have the following items ready:
   compute module on your AWS DeepRacer device as a Linux computer by connecting a mouse, keyboard, and monitor with
   an HDMI type A cable.
 
-###
-
-Preparation
+### Preparation
 
 To prepare the AWS DeepRacer update media, you will perform the following tasks:
 
@@ -77,9 +64,7 @@ Ubuntu
 
 Follow the instructions here to use an Ubuntu computer, including your AWS DeepRacer device's compute module, to prepare the update media for your AWS DeepRacer device. If you are using a different Linux distribution, replace the `apt-get *` commands with those compatible with your operating system’s package manager.
 
-######
-
-To erase and partition the USB drive
+###### To erase and partition the USB drive
 
 1. Run the following commands to install and launch GParted.
 
@@ -146,9 +131,7 @@ set the following parameters, and choose **Add**.
 `Data` 5. On the menu bar, choose **Edit**, then **Apply All Operations**. A warning prompt will appear asking if you want to apply the changes. Choose **Apply**. 6. After the FAT32 and NTFS partitions are created, the USB drive's partition information
 will appear in the GParted console. Make note of the `BOOT` partition's drive path, you will need it to complete the next step.
 
-######
-
-To make the USB drive bootable from the FAT32 partition
+###### To make the USB drive bootable from the FAT32 partition
 
 1. Make sure you downloaded the
    [custom Ubuntu ISO image](https://s3.amazonaws.com/deepracer-public/factory-restore/Ubuntu20.04/BIOS-0.0.8/ubuntu-20.04.1-20.11.13_V1-desktop-amd64.iso "https://s3.amazonaws.com/deepracer-public/factory-restore/Ubuntu20.04/BIOS-0.0.8/ubuntu-20.04.1-20.11.13_V1-desktop-amd64.iso") from the pre-requisites section.
@@ -188,9 +171,7 @@ If you get a **/dev/sda1 not mounted** alert message, choose **OK** to close the
 message, unplug the USB drive, plug in the drive again, and then follow the preceding steps to create the Ubuntu
 ISO image.
 
-######
-
-To extract the AWS DeepRacer update files to the NTFS partition
+###### To extract the AWS DeepRacer update files to the NTFS partition
 
 1. Unzip the[software update package](https://s3.amazonaws.com/deepracer-public/factory-restore/Ubuntu20.04/BIOS-0.0.8/factory_reset.zip "https://s3.amazonaws.com/deepracer-public/factory-restore/Ubuntu20.04/BIOS-0.0.8/factory_reset.zip") you downloaded from the prerequisites section.
 2. Extract the contents of the update package to the root of your USB drive's Data (NTFS) partition.
@@ -199,9 +180,7 @@ Windows
 
 Follow the instructions here to use a Windows computer to prepare the update media for your AWS DeepRacer device.
 
-######
-
-To erase the USB drive
+###### To erase the USB drive
 
 1. Open the Windows command prompt, enter `diskpart`, and choose **OK** to launch Windows DiskPart.
 2. Once the terminal for Microsoft DiskPart opens, list the available disks to find the USB drive you want to clean by entering
@@ -216,9 +195,7 @@ To erase the USB drive
 6. Exit the Windows **DiskPart** console by entering `Exit` after the
    **DISKPART>** prompt.
 
-######
-
-To partition the USB drive
+###### To partition the USB drive
 
 1. Open the Windows command prompt, enter `diskmgmt.msc`, and choose **OK**
    to launch the **Disk Management** console.
@@ -261,9 +238,7 @@ To partition the USB drive
 
    Leave **Perform a quick format** checked.
 
-######
-
-To make the USB drive bootable from the FAT32 partition
+###### To make the USB drive bootable from the FAT32 partition
 
 1.  Make sure you've downloaded the [customized Ubuntu ISO image](https://s3.amazonaws.com/deepracer-public/factory-restore/Ubuntu20.04/BIOS-0.0.8/ubuntu-20.04.1-20.11.13_V1-desktop-amd64.iso "https://s3.amazonaws.com/deepracer-public/factory-restore/Ubuntu20.04/BIOS-0.0.8/ubuntu-20.04.1-20.11.13_V1-desktop-amd64.iso") from the prerequisites section.
 2.  After downloading [UNetbootin](https://unetbootin.github.io/ "https://unetbootin.github.io/"), start the **UNetbootin** console.
@@ -279,9 +254,7 @@ To make the USB drive bootable from the FAT32 partition
 
     ![Image: Set ISO file for boot disk image (Ubuntu).](images/update_and_restore/netbootin_win.png)
 
-######
-
-To extract the AWS DeepRacer update files to the NTFS partition
+###### To extract the AWS DeepRacer update files to the NTFS partition
 
 1. Unzip the[software update package](https://s3.amazonaws.com/deepracer-public/factory-restore/Ubuntu20.04/BIOS-0.0.8/factory_reset.zip "https://s3.amazonaws.com/deepracer-public/factory-restore/Ubuntu20.04/BIOS-0.0.8/factory_reset.zip") you downloaded from the prerequisites section.
 
@@ -294,9 +267,7 @@ macOS
 
 Follow the instructions here to use a Mac to prepare the update media for your AWS DeepRacer device.
 
-######
-
-To erase and partition the USB drive
+###### To erase and partition the USB drive
 
 1. Plug in the USB drive to your Mac.
 2. Press **Command+Space bar** to open the **Spotlight** search field,
@@ -332,9 +303,7 @@ then select **Info** from the Toolbar. Make note of the **BSD device node** valu
 In our case, the value assigned is `disk4s2`. You need to supply this path when making the USB drive bootable from the
 FAT32 partition.
 
-######
-
-To make the USB drive bootable from the FAT32 partition
+###### To make the USB drive bootable from the FAT32 partition
 
 1. Make sure you've downloaded the [customized Ubuntu ISO image](https://s3.amazonaws.com/deepracer-public/factory-restore/Ubuntu20.04/BIOS-0.0.8/ubuntu-20.04.1-20.11.13_V1-desktop-amd64.iso "https://s3.amazonaws.com/deepracer-public/factory-restore/Ubuntu20.04/BIOS-0.0.8/ubuntu-20.04.1-20.11.13_V1-desktop-amd64.iso") from the prerequisites section.
 2. After downloading [UNetbootin](https://unetbootin.github.io/ "https://unetbootin.github.io/"), select **open** from the context (right-click) menu. A security prompt will appear asking if you want to open the application, select **open**
@@ -366,16 +335,12 @@ If you are using a [Mac with Apple Silicon](https://support.apple.com/en-us/HT21
 If you get a **/dev/disk4s2 not mounted** alert message, choose **OK** to close
 the message, unplug the USB drive, replug the drive, and then follow the steps above create the Ubuntu ISO image.
 
-######
-
-To extract the AWS DeepRacer update files to the ExFAT partition
+###### To extract the AWS DeepRacer update files to the ExFAT partition
 
 1. Unzip the[software update package](https://s3.amazonaws.com/deepracer-public/factory-restore/Ubuntu20.04/BIOS-0.0.8/factory_reset.zip "https://s3.amazonaws.com/deepracer-public/factory-restore/Ubuntu20.04/BIOS-0.0.8/factory_reset.zip") you downloaded from the prerequisites section.
 2. Extract the contents of the update package to the root of your USB drive's Data (ExFAT) partition.
 
-##
-
-Update your AWS DeepRacer device to the Ubuntu 20.04 software stack
+## Update your AWS DeepRacer device to the Ubuntu 20.04 software stack
 
 Once you create the USB update media as described in the previous steps, you can update your AWS DeepRacer device to the latest software stack including Ubuntu 20.04 Focal Fossa,
 Intel® OpenVINO™ toolkit 2021.1.110, ROS2 Foxy Fitzroy, and Python 3.8.
@@ -384,9 +349,7 @@ Intel® OpenVINO™ toolkit 2021.1.110, ROS2 Foxy Fitzroy, and Python 3.8.
 
 Updating to the new AWS DeepRacer software stack will wipe all data on your AWS DeepRacer device.
 
-######
-
-To update your AWS DeepRacer device software to the Ubuntu 20.04 stack
+###### To update your AWS DeepRacer device software to the Ubuntu 20.04 stack
 
 1. Connect your AWS DeepRacer device to a monitor. You'll need an HDMI-to-HDMI, HDMI-to-DVI, or similar
    cable. Insert the HDMI end of the cable into the compute module's HDMI port and

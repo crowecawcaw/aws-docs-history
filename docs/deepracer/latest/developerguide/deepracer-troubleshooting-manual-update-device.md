@@ -1,6 +1,4 @@
-# How to
-
-manually update your AWS DeepRacer device
+# How to manually update your AWS DeepRacer device
 
 Recent changes in the AWS DeepRacer service has made certain legacy devices, such as those distributed at AWS re:Invent 2018,
 unable to update automatically. Follow the steps below to manually update such a device.

@@ -24,9 +24,7 @@ highlighted in red, it means that something went wrong with the racer's model su
 - If you are a racer, resubmit your model to the race. Go to [Run a LIVE AWS DeepRacer community race](deepracer-moderate-live-community-race.md "deepracer-moderate-live-community-race.md") and choose **To join a LIVE race**
   for help.
 
-## I'm running a LIVE Race and I can't launch the
-
-racers
+## I'm running a LIVE Race and I can't launch the racers
 
 - Verify that you have selected **Launch simulator** under the **Launch live
   racing simulator** section of the **LIVE: <Your Race Name>** page. For
@@ -40,9 +38,7 @@ racers
 
 ![Choose the Launch simulator button.](images/live-race-toggle-off-model-entries.png)
 
-## I'm using a Chrome or Firefox browser but I'm still
-
-having issues seeing the LIVE race
+## I'm using a Chrome or Firefox browser but I'm still having issues seeing the LIVE race
 
 - Verify that you have the most recent version of the Chrome or Firefox browser. If not, update your
   browser to the latest version and try viewing the race again.

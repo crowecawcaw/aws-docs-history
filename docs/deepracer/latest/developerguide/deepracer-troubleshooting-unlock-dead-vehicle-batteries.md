@@ -1,6 +1,4 @@
-# How to unlock an AWS DeepRacer vehicle battery
-
-after lockout
+# How to unlock an AWS DeepRacer vehicle battery after lockout
 
 To unlock your AWS DeepRacer battery after lockout, use the [unlock cable](https://www.amazon.com/gp/product/B0849J6WL9 "https://www.amazon.com/gp/product/B0849J6WL9"):
 

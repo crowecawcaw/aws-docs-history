@@ -1,6 +1,4 @@
-# AWS DeepRacer
-
-training algorithms
+# AWS DeepRacer training algorithms
 
 ###### Proximal Policy Optimization (PPO) versus Soft Actor Critic (SAC)
 

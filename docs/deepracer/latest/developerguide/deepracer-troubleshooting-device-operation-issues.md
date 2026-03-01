@@ -1,7 +1,4 @@
-# How to diagnose and
-
-resolve common AWS DeepRacer operational
-issues
+# How to diagnose and resolve common AWS DeepRacer operational issues
 
 As you explore reinforcement learning with your AWS DeepRacer vehicle, the device may become non
 functional. The following troubleshooting topics help you
@@ -9,20 +6,14 @@ diagnose the problems and resolve the issues.
 
 ###### Topics
 
-- [Why
-  doesn't the video player on the device console show the video stream from my vehicle's camera?](#deepracer-device-why-no-video-showing-on-device-console "#deepracer-device-why-no-video-showing-on-device-console")
-- [Why
-  Doesn't my AWS DeepRacer vehicle move?](#deepracer-device-why-vehicle-not-moving "#deepracer-device-why-vehicle-not-moving")
-- [Why
-  don't I see the latest device update?
-  How do I get the latest update?](#deepracer-device-why-no-update-showing-up "#deepracer-device-why-no-update-showing-up")
+- [Why doesn't the video player on the device console show the video stream from my vehicle's camera?](#deepracer-device-why-no-video-showing-on-device-console "#deepracer-device-why-no-video-showing-on-device-console")
+- [Why Doesn't my AWS DeepRacer vehicle move?](#deepracer-device-why-vehicle-not-moving "#deepracer-device-why-vehicle-not-moving")
+- [Why don't I see the latest device update? How do I get the latest update?](#deepracer-device-why-no-update-showing-up "#deepracer-device-why-no-update-showing-up")
 - [Why isn't my AWS DeepRacer vehicle connected to my Wi-Fi network?](#deepracer-device-why-vehicle-not-connected-to-wifi "#deepracer-device-why-vehicle-not-connected-to-wifi")
 - [Why does the AWS DeepRacer device console page take a long time to load?](#deepracer-device-why-device-console-page-takes-long-time-to-load "#deepracer-device-why-device-console-page-takes-long-time-to-load")
 - [Why does a model fail to perform well when deployed to an AWS DeepRacer vehicle?](#deepracer-device-why-deployed-model-fails-to-perform-as-well "#deepracer-device-why-deployed-model-fails-to-perform-as-well")
 
-## Why
-
-doesn't the video player on the device console show the video stream from my vehicle's camera?
+## Why doesn't the video player on the device console show the video stream from my vehicle's camera?
 
 After logging into the AWS DeepRacer device console, you don't see any
 live video streamed from the camera mounted on the AWS DeepRacer
@@ -39,9 +30,7 @@ cause this issue:
   available, to test whether this
   is the cause.
 
-## Why
-
-Doesn't my AWS DeepRacer vehicle move?
+## Why Doesn't my AWS DeepRacer vehicle move?
 
 You powered on your AWS DeepRacer vehicle, but you can't make it to move. The
 following could cause this issue:
@@ -67,10 +56,7 @@ following could cause this issue:
 - The power switch of the vehicle battery is not turned on. Turn on the power switch and make sure
   you hear two beeps followed by a long beep.
 
-## Why
-
-don't I see the latest device update?
-How do I get the latest update?
+## Why don't I see the latest device update? How do I get the latest update?
 
 Why is my AWS DeepRacer vehicle's software outdated?
 
@@ -111,8 +97,7 @@ vehicle doesn't perform as expected. What went wrong?
 In general, optimizing a trained model for transfer to a physical AWS DeepRacer vehicle is a
 challenging learning process. It often requires iterations through
 trial and error. For general guidelines on best
-practices, see [Optimize training AWS DeepRacer
-models for real environments](deepracer-console-train-evaluate-models.md#deepracer-evaluate-model-test-approaches "deepracer-console-train-evaluate-models.md#deepracer-evaluate-model-test-approaches").
+practices, see [Optimize training AWS DeepRacer models for real environments](deepracer-console-train-evaluate-models.md#deepracer-evaluate-model-test-approaches "deepracer-console-train-evaluate-models.md#deepracer-evaluate-model-test-approaches").
 
 The following are some likely common factors affecting the model performance in your AWS DeepRacer vehicle:
 
@@ -134,8 +119,7 @@ The following are some likely common factors affecting the model performance in 
   this is true, switch to manual driving and see if the vehicle drives as
   expected. If it doesn't, [calibrate the vehicle](deepracer-calibrate-vehicle.md "deepracer-calibrate-vehicle.md").
 - You are running the vehicle autonomously on a track that
-  doesn't meet the requirements. For track requirements, see [Build your physical track for
-  AWS DeepRacer](deepracer-build-your-track.md "deepracer-build-your-track.md").
+  doesn't meet the requirements. For track requirements, see [Build your physical track for AWS DeepRacer](deepracer-build-your-track.md "deepracer-build-your-track.md").
 - There are too many objects close to the physical track, making the
   track significantly different from the simulated environment. Clear the track
   surroundings to make the physical track as close to the simulated one

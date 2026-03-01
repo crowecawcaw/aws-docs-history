@@ -1,12 +1,8 @@
-#
-
-Join an AWS DeepRacer League Virtual Circuit race
+# Join an AWS DeepRacer League Virtual Circuit race
 
 In this section, learn how to use the AWS DeepRacer console to submit your trained model to a Virtual Circuit race.
 
-######
-
-To enter the AWS DeepRacer League Virtual Circuit
+###### To enter the AWS DeepRacer League Virtual Circuit
 
 1. Sign in to the [AWS DeepRacer console](https://console.aws.amazon.com/deepracer "https://console.aws.amazon.com/deepracer").
 2. From the main navigation pane, choose **AWS Virtual Circuit**.

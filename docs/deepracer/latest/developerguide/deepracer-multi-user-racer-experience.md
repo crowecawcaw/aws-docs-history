@@ -1,6 +1,4 @@
-# AWS DeepRacer multi-user experience
-
-(participant)
+# AWS DeepRacer multi-user experience (participant)
 
 This walkthrough demonstrates the experience of an individual participant whose
 profile is sponsored by an organization’s account in multi-user mode.
@@ -49,9 +47,7 @@ The AWS Player account page appears.
 
 ![AWS Player account](images/deepracer-aws-player-account.png)
 
-## Step 2. Create or log in to
-
-an AWS Player account
+## Step 2. Create or log in to an AWS Player account
 
 1. In the **AWS Player account** page, create or log in to an existing AWS
    Player account.
@@ -110,9 +106,7 @@ name must be globally unique. Once you select your country of residence, it is l
 When you have customized your profile, you are ready to start training models. For
 more information, see [Train and evaluate AWS DeepRacer models](create-deepracer-project.md "create-deepracer-project.md").
 
-## Step 5. View sponsored
-
-usage
+## Step 5. View sponsored usage
 
 You'll want to keep track of your sponsored hours and models so you can get the most out of them.
 

@@ -1,8 +1,7 @@
 # Run a LIVE AWS DeepRacer community race
 
 You've created a LIVE race and invited racers. You've decided whether to broadcast your event privately or publicly
-with support from [Broadcast a LIVE community race using AWS DeepRacer League production
-playbooks](deepracer-broadcast-live-community-race.md "deepracer-broadcast-live-community-race.md"). Now, learn how to manage the queue, set
+with support from [Broadcast a LIVE community race using AWS DeepRacer League production playbooks](deepracer-broadcast-live-community-race.md "deepracer-broadcast-live-community-race.md"). Now, learn how to manage the queue, set
 up the race simulator and launch your racers.
 
 ###### Before you start

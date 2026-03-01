@@ -1,6 +1,4 @@
-# Launch the AWS DeepRacer vehicle's
-
-device console
+# Launch the AWS DeepRacer vehicle's device console
 
 After you set up the vehicle's Wi-Fi connection and install required software updates, you should open
 the device console to verify if the vehicle's network connection is working. Subsequently, you can launch
@@ -10,9 +8,7 @@ signing in to your vehicle's device console using the IP address of your vehicle
 The device control console is hosted on the vehicle and is accessed with the IP address you obtained at
 the end of the [Wi-Fi setup](deepracer-set-up-vehicle.md#deepracer-set-up-vehicle-wifi-connection "deepracer-set-up-vehicle.md#deepracer-set-up-vehicle-wifi-connection") section.
 
-######
-
-To access the device console of your AWS DeepRacer vehicle through the Wi-Fi connection
+###### To access the device console of your AWS DeepRacer vehicle through the Wi-Fi connection
 
 1. To access the device console of your vehicle, open a web browser on your computer, tablet or a
    smart phone and type your vehicle's IP address into the address bar.

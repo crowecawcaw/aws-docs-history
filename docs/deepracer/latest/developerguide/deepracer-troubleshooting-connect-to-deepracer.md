@@ -1,6 +1,4 @@
-# Why can't I connect to the device console with
-
-USB connection between my computer and vehicle?
+# Why can't I connect to the device console with USB connection between my computer and vehicle?
 
 When setting up your vehicle for the first time, you might find it unable to open the device console (also known as
 the device web server, `https://deepracer.aws`, hosted on the vehicle) after connecting your AWS DeepRacer vehicle
@@ -24,9 +22,7 @@ The instructions below assume you're working with a MacOS computer. For other co
 network preferences documentation for the respective operating system and use the below instructions as a general
 guide.
 
-###### To activate the device's
-
-USB-over-ethernet network on your MacOS computer
+###### To activate the device's USB-over-ethernet network on your MacOS computer
 
 1. Choose the network icon (on the top-right corner of the display) to open **Network
    preferences**.

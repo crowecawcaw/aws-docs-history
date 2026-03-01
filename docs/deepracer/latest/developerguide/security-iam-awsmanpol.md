@@ -23,15 +23,11 @@ mode to sponsor multiple participants under your AWS account.
 
 ###### Topics
 
-- [AWSDeepRacerAccountAdminAccess managed policy for
-  AWS DeepRacer administrators](#security-iam-awsmanpol-AWSDeepRacerAccountAdminAccess "#security-iam-awsmanpol-AWSDeepRacerAccountAdminAccess")
-- [AWSDeepRacerDefaultMultiUserAccess managed policy
-  for AWS DeepRacer multi-user racers](#security-iam-awsmanpol-AWSDeepRacerDefaultUserAccess "#security-iam-awsmanpol-AWSDeepRacerDefaultUserAccess")
+- [AWSDeepRacerAccountAdminAccess managed policy for AWS DeepRacer administrators](#security-iam-awsmanpol-AWSDeepRacerAccountAdminAccess "#security-iam-awsmanpol-AWSDeepRacerAccountAdminAccess")
+- [AWSDeepRacerDefaultMultiUserAccess managed policy for AWS DeepRacer multi-user racers](#security-iam-awsmanpol-AWSDeepRacerDefaultUserAccess "#security-iam-awsmanpol-AWSDeepRacerDefaultUserAccess")
 - [AWS DeepRacer updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
-## AWSDeepRacerAccountAdminAccess managed policy for
-
-AWS DeepRacer administrators
+## AWSDeepRacerAccountAdminAccess managed policy for AWS DeepRacer administrators
 
 To enable multiple profiles to use your AWS account ID and billing information with AWS DeepRacer, attach the
 `AWSDeepRacerAccountAdminAccess` policy.
@@ -66,9 +62,7 @@ JSON
 
 ```
 
-## AWSDeepRacerDefaultMultiUserAccess managed policy
-
-for AWS DeepRacer multi-user racers
+## AWSDeepRacerDefaultMultiUserAccess managed policy for AWS DeepRacer multi-user racers
 
 The policy, `AWSDeepRacerDefaultMultiUserAccess`, gives AWS DeepRacer racers access to all AWS DeepRacer actions except
 multi-user account admin actions.

@@ -11,8 +11,6 @@ the IAM roles and policy defining the required permissions to access the depende
 ###### Topics
 
 - [Data protection in AWS DeepRacer](data-protection.md "data-protection.md")
-- [AWS DeepRacer-Dependent AWS
-  Services](deepracer-dependent-aws-services.md "deepracer-dependent-aws-services.md")
-- [Required IAM roles
-  for AWS DeepRacer to call dependent AWS Services](deepracer-understand-required-permissions-and-iam-roles.md "deepracer-understand-required-permissions-and-iam-roles.md")
+- [AWS DeepRacer-Dependent AWS Services](deepracer-dependent-aws-services.md "deepracer-dependent-aws-services.md")
+- [Required IAM roles for AWS DeepRacer to call dependent AWS Services](deepracer-understand-required-permissions-and-iam-roles.md "deepracer-understand-required-permissions-and-iam-roles.md")
 - [AWS Identity and Access Management for AWS DeepRacer](security-iam.md "security-iam.md")

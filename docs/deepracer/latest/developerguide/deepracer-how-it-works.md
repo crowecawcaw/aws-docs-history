@@ -19,13 +19,8 @@ understanding of the basics of reinforcement learning training implemented in AW
 
 ###### Topics
 
-- [Reinforcement
-  learning in AWS DeepRacer](deepracer-how-it-works-overview-reinforcement-learning.md "deepracer-how-it-works-overview-reinforcement-learning.md")
-- [AWS DeepRacer action space and reward
-  function](deepracer-how-it-works-action-space.md "deepracer-how-it-works-action-space.md")
-- [AWS DeepRacer
-  training algorithms](deepracer-how-it-works-reinforcement-learning-algorithm.md "deepracer-how-it-works-reinforcement-learning-algorithm.md")
-- [AWS DeepRacer solution
-  workflow](deepracer-how-it-works-solution-workflow.md "deepracer-how-it-works-solution-workflow.md")
-- [Simulated-to-real
-  performance gaps](deepracer-how-it-works-virtual-to-physical.md "deepracer-how-it-works-virtual-to-physical.md")
+- [Reinforcement learning in AWS DeepRacer](deepracer-how-it-works-overview-reinforcement-learning.md "deepracer-how-it-works-overview-reinforcement-learning.md")
+- [AWS DeepRacer action space and reward function](deepracer-how-it-works-action-space.md "deepracer-how-it-works-action-space.md")
+- [AWS DeepRacer training algorithms](deepracer-how-it-works-reinforcement-learning-algorithm.md "deepracer-how-it-works-reinforcement-learning-algorithm.md")
+- [AWS DeepRacer solution workflow](deepracer-how-it-works-solution-workflow.md "deepracer-how-it-works-solution-workflow.md")
+- [Simulated-to-real performance gaps](deepracer-how-it-works-virtual-to-physical.md "deepracer-how-it-works-virtual-to-physical.md")

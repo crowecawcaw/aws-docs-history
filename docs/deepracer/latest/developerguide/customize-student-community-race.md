@@ -1,6 +1,4 @@
-# Customize an AWS DeepRacer Student community
-
-race
+# Customize an AWS DeepRacer Student community race
 
 To create a race that is tailored for your group, add customizations that increase or decrease a race's complexity and challenge.
 

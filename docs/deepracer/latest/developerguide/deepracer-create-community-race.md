@@ -24,8 +24,7 @@ the last model they submit before you close the door can race during the event. 
 queued participants have the option of using interactive speed controls to give their model a competitive
 edge on their turn. Participants in LIVE races must also receive an invitation link to submit a model to
 the race, but you can choose to broadcast the event privately to invited participants only or publicly
-using a LIVE streaming service like Twitch. See [Broadcast a LIVE community race using AWS DeepRacer League production
-playbooks](deepracer-broadcast-live-community-race.md "deepracer-broadcast-live-community-race.md")
+using a LIVE streaming service like Twitch. See [Broadcast a LIVE community race using AWS DeepRacer League production playbooks](deepracer-broadcast-live-community-race.md "deepracer-broadcast-live-community-race.md")
 to learn more.
 
 ###### To begin creating a community race
@@ -88,8 +87,7 @@ prizes, model submission time frame and the conference bridge link where your ra
 queue up and prepare for the race.
 
 LIVE races are private and can be seen only by racers with the invitation link unless you choose to
-broadcast publicly. See [Broadcast a LIVE community race using AWS DeepRacer League production
-playbooks](deepracer-broadcast-live-community-race.md "deepracer-broadcast-live-community-race.md") to learn more. The
+broadcast publicly. See [Broadcast a LIVE community race using AWS DeepRacer League production playbooks](deepracer-broadcast-live-community-race.md "deepracer-broadcast-live-community-race.md") to learn more. The
 link expires at 12:00 AM PDT on the race's close date. 9. Choose the **Race details** tab. 10. Under **Race details**, note the options for broadcasting your LIVE race. Once
 you've decided whether to broadcast your race publicly or privately, use playbooks created by the
 AWS DeepRacer League team to get started. The **View broadcast mode** button allows you to see the

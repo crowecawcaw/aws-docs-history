@@ -1,6 +1,4 @@
-# How to prevent AWS DeepRacer vehicle battery
-
-lockout
+# How to prevent AWS DeepRacer vehicle battery lockout
 
 Learn how to prevent AWS DeepRacer vehicle battery lockout.
 

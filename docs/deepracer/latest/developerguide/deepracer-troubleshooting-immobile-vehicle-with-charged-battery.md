@@ -1,6 +1,4 @@
-# My battery is charged but my AWS DeepRacer
-
-vehicle doesn't move
+# My battery is charged but my AWS DeepRacer vehicle doesn't move
 
 Follow these steps if your AWS DeepRacer console is set up, your compute battery is charged, and your Wi-Fi is connected, but
 your vehicle still doesn't move:

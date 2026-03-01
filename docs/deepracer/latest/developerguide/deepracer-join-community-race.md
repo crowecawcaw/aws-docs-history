@@ -1,6 +1,4 @@
-#
-
-To join a AWS DeepRacer community race
+# To join a AWS DeepRacer community race
 
 ###### Note
 
@@ -33,9 +31,7 @@ the asynchronous competition.
 
 ![Your race card indicates your competition format.](images/live-and-classic-race-cards.png)
 
-##
-
-Join an AWS DeepRacer community race as a race participant
+## Join an AWS DeepRacer community race as a race participant
 
 If you're new to AWS and receive an invitation to join an AWS DeepRacer community race, follow the steps in
 **To join as a new user**. If you're invited to an active community race and you've
@@ -48,9 +44,7 @@ join the race.
 As a new AWS DeepRacer user or a first-time participant to any AWS DeepRacer race, follow the steps to join a
 community race in the AWS DeepRacer console.
 
-######
-
-To join a race as a new user
+###### To join a race as a new user
 
 1. Create an AWS account in the [AWS DeepRacer console](https://console.aws.amazon.com/deepracer "https://console.aws.amazon.com/deepracer").
 2. Once you are set up and signed in, choose the link shared with you by the race organizer
@@ -63,7 +57,7 @@ To join a race as a new user
    training an AWS DeepRacer model for autonomous driving.
 6. Train and evaluate your model for the race in the AWS DeepRacer console.
 
-For more information on training your model, see [Train your first AWS DeepRacer model](deepracer-get-started-training-model.md "deepracer-get-started-training-model.md") . 7. Navigate to **Community races**. 8. Find the race you're invited to. Choose **Enter race** on the race
+For more information on training your model, see [Train your first AWS DeepRacer model](deepracer-get-started-training-model.md "deepracer-get-started-training-model.md"). 7. Navigate to **Community races**. 8. Find the race you're invited to. Choose **Enter race** on the race
 card.
 
 ![Image: Enter a AWS DeepRacer community race from the console.](images/deepracer-community-race-welcome-enter.png) 9. Follow the steps in **To join a Classic race** or **To join

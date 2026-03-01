@@ -1,6 +1,4 @@
-# Simulated-to-real
-
-performance gaps
+# Simulated-to-real performance gaps
 
 Because the simulation cannot capture all aspects of the real world accurately, the
 models trained in simulation may not work well in the real world. Such discrepancies are
@@ -21,5 +19,4 @@ action space used in training matches the real world. Evaluating model performan
 different simulation track than the one used in training can show the extent of the
 _real2real_ performance gap.
 
-For more information about how to reduce the _sim2real_ gap when training an AWS DeepRacer model, see [Optimize training AWS DeepRacer
-models for real environments](deepracer-console-train-evaluate-models.md#deepracer-evaluate-model-test-approaches "deepracer-console-train-evaluate-models.md#deepracer-evaluate-model-test-approaches").
+For more information about how to reduce the _sim2real_ gap when training an AWS DeepRacer model, see [Optimize training AWS DeepRacer models for real environments](deepracer-console-train-evaluate-models.md#deepracer-evaluate-model-test-approaches "deepracer-console-train-evaluate-models.md#deepracer-evaluate-model-test-approaches").

@@ -100,9 +100,7 @@ Before you can import a model, you need to copy the Amazon S3 URL for the model 
 If you added a prefix during the Copy to S3 process, such as `my_model/version_2`, the path
 of your model folder is `deep_racer_bucket/model_name/`my_model/version_2`/root/`.
 
-######
-
-Import your model to the AWS DeepRacer console
+###### Import your model to the AWS DeepRacer console
 
 1. On the [AWS DeepRacer console](https://console.aws.amazon.com/deepracer/home#league "https://console.aws.amazon.com/deepracer/home#league"), go to the **Your models** page.
 2. Select the **Import Model** button on the models container.

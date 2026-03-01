@@ -15,7 +15,7 @@ to create race environments specially tuned to your event goals.
 race**, in which your guests can participate on their own schedule within the time frame you
 set, or a **LIVE race**, which can be broadcast privately or publicly as a real-time
 event. 5. Based on your competition format choice, follow steps 1-3 of **To continue creating a Classic
-race** or **To continue creating a LIVE race** in [Create a virtual community race: a quick start guide](deepracer-create-community-race.md "deepracer-create-community-race.md") . 6. After choosing your **Race dates**, expand **Race customizations**.
+race** or **To continue creating a LIVE race** in [Create a virtual community race: a quick start guide](deepracer-create-community-race.md "deepracer-create-community-race.md"). 6. After choosing your **Race dates**, expand **Race customizations**.
 
 ![Expand the Race customizations arrow to customize your race.](images/expand-race-customizations.png) 7. Choose a competition track. You can sort tracks by **Popularity: Most to least/Least to
 most**, **Difficulty: Most to least/Least to most**, and **Length:

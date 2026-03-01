@@ -14,9 +14,7 @@ This section discusses how to
 participate in an AWS DeepRacer League Virtual Circuit race or a community-based virtual race and your
 different options for formatting.
 
-##
-
-AWS DeepRacer racing event types
+## AWS DeepRacer racing event types
 
 An event can be categorized by its sponsor or organizer. Both AWS DeepRacer League and community racing events can
 take place in person on a physical track or online on a virtual track.
@@ -30,9 +28,7 @@ take place in person on a physical track or online on a virtual track.
 - **Community-sponsored racing events** – Racing events created
   by AWS DeepRacer users are called community racing events.
 
-##
-
-Joining an online AWS-sponsored or community-sponsored race
+## Joining an online AWS-sponsored or community-sponsored race
 
 You can use the AWS DeepRacer console to enter an AWS DeepRacer League Virtual Circuit event or a community-based online race.
 
@@ -41,9 +37,7 @@ You can use the AWS DeepRacer console to enter an AWS DeepRacer League Virtual C
   invited when they receive an invitation link sent by the race organizer or forwarded by another
   race participant.
 
-######
-
-Topics
+###### Topics
 
 - [Join an AWS DeepRacer League Virtual Circuit race](deepracer-submit-model-to-leaderboard.md "deepracer-submit-model-to-leaderboard.md")
 - [To join a AWS DeepRacer community race](deepracer-join-community-race.md "deepracer-join-community-race.md")

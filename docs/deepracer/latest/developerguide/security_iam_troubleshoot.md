@@ -5,20 +5,14 @@ encounter when working with DeepRacer and IAM.
 
 ###### Topics
 
-- [I get an authorization error in DeepRacer multi-user account
-  mode](#security_iam_troubleshoot-multi-user "#security_iam_troubleshoot-multi-user")
-- [I am not authorized to perform an action in
-  DeepRacer](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I get an authorization error in DeepRacer multi-user account mode](#security_iam_troubleshoot-multi-user "#security_iam_troubleshoot-multi-user")
+- [I am not authorized to perform an action in DeepRacer](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
 - [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
 - [I want to view my access keys](#security_iam_troubleshoot-access-keys "#security_iam_troubleshoot-access-keys")
-- [I'm an administrator and want to allow others to access
-  DeepRacer](#security_iam_troubleshoot-admin-delegate "#security_iam_troubleshoot-admin-delegate")
-- [I want to allow people outside of my AWS account to
-  access my DeepRacer resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I'm an administrator and want to allow others to access DeepRacer](#security_iam_troubleshoot-admin-delegate "#security_iam_troubleshoot-admin-delegate")
+- [I want to allow people outside of my AWS account to access my DeepRacer resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-## I get an authorization error in DeepRacer multi-user account
-
-mode
+## I get an authorization error in DeepRacer multi-user account mode
 
 If you are an Administrator with an [AWSDeepRacerAccountAdminAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDeepRacerAccountAdminAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDeepRacerAccountAdminAccess") policy, you may get an authorization error if there is a user-token
 associated with your session. Administrators should not have any user-tokens associated with a session. To resolve
@@ -32,9 +26,7 @@ If the account is in single-user mode and you are a racer with an `AWSDeepRacerD
 policy, you may get an authorization error. To resolve this, check with your AWS account admin because in
 single-user mode a user with an `AWSDeepRacerDefaultMultiUserAccess` policy cannot use AWS DeepRacer.
 
-## I am not authorized to perform an action in
-
-DeepRacer
+## I am not authorized to perform an action in DeepRacer
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you must contact your
 administrator for assistance. Your administrator is the person that provided you with your user name and
@@ -90,9 +82,7 @@ is available only at the time you create it. If you lose your secret access key,
 maximum of two access keys. If you already have two, you must delete one key pair before creating a new one. To view instructions, see [Managing access keys](../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_CreateAccessKey "../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_CreateAccessKey") in the
 _IAM User Guide_.
 
-## I'm an administrator and want to allow others to access
-
-DeepRacer
+## I'm an administrator and want to allow others to access DeepRacer
 
 To allow others to access DeepRacer, you must grant permission to the people or applications that need access. If you are using AWS IAM Identity Center
 to manage people and applications, you assign permission sets to users or groups to define their level of access. Permission sets automatically create
@@ -103,9 +93,7 @@ a policy to the entity that grants them the correct permissions in DeepRacer. Af
 or application developer. They will use those credentials to access AWS. To learn more about creating IAM users, groups, policies, and permissions,
 see [IAM Identities](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") and [Policies and permissions in IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the _IAM User Guide_.
 
-## I want to allow people outside of my AWS account to
-
-access my DeepRacer resources
+## I want to allow people outside of my AWS account to access my DeepRacer resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant

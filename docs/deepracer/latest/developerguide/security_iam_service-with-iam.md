@@ -37,15 +37,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-### Identity-based policy examples for
-
-DeepRacer
+### Identity-based policy examples for DeepRacer
 
 To view examples of DeepRacer identity-based policies, see [Identity-based policy examples for AWS DeepRacer](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based policies within
-
-DeepRacer
+## Resource-based policies within DeepRacer
 
 **Supports resource-based policies:**
 
@@ -113,9 +109,7 @@ which actions you can specify the ARN of each resource, see [Actions defined by 
 
 To view examples of DeepRacer identity-based policies, see [Identity-based policy examples for AWS DeepRacer](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy condition keys for
-
-DeepRacer
+## Policy condition keys for DeepRacer
 
 **Supports service-specific policy condition keys:**
 
@@ -174,9 +168,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service principal permissions for
-
-DeepRacer
+## Cross-service principal permissions for DeepRacer
 
 **Supports forward access sessions (FAS):**
 

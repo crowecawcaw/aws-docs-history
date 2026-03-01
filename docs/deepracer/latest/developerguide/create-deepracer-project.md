@@ -64,7 +64,6 @@ trained by other AWS DeepRacer users on a [leaderboard](deepracer-racing-series.
 
 ###### Topics
 
-- [Understanding racing types and enabling sensors
-  supported by AWS DeepRacer](deepracer-choose-race-type.md "deepracer-choose-race-type.md")
+- [Understanding racing types and enabling sensors supported by AWS DeepRacer](deepracer-choose-race-type.md "deepracer-choose-race-type.md")
 - [Train and evaluate AWS DeepRacer models using the AWS DeepRacer console](deepracer-console-train-evaluate-models.md "deepracer-console-train-evaluate-models.md")
 - [AWS DeepRacer reward function reference](deepracer-reward-function-reference.md "deepracer-reward-function-reference.md")

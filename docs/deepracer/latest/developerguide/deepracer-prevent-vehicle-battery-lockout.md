@@ -13,7 +13,5 @@ fire, explosion, or other safety concerns. Follow all instructions and heed all 
 
 ###### Topics
 
-- [How to prevent AWS DeepRacer vehicle battery
-  lockout](deepracer-prevent-vehicle-battery-lockout-actual.md "deepracer-prevent-vehicle-battery-lockout-actual.md")
-- [How to unlock an AWS DeepRacer vehicle battery
-  after lockout](deepracer-troubleshooting-unlock-dead-vehicle-batteries.md "deepracer-troubleshooting-unlock-dead-vehicle-batteries.md")
+- [How to prevent AWS DeepRacer vehicle battery lockout](deepracer-prevent-vehicle-battery-lockout-actual.md "deepracer-prevent-vehicle-battery-lockout-actual.md")
+- [How to unlock an AWS DeepRacer vehicle battery after lockout](deepracer-troubleshooting-unlock-dead-vehicle-batteries.md "deepracer-troubleshooting-unlock-dead-vehicle-batteries.md")

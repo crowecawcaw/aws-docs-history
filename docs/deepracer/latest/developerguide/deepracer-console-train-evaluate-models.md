@@ -3,7 +3,7 @@
 To train a reinforcement learning model, you can use the AWS DeepRacer console. In the console,
 create a training job, choose a supported framework and an available algorithm, add a reward
 function, and configure training settings. You can also watch training proceed in a
-simulator. You can find the step-by-step instructions in [Train your first AWS DeepRacer model](deepracer-get-started-training-model.md "deepracer-get-started-training-model.md") .
+simulator. You can find the step-by-step instructions in [Train your first AWS DeepRacer model](deepracer-get-started-training-model.md "deepracer-get-started-training-model.md").
 
 This section explains how to train and evaluate an AWS DeepRacer model. It also shows how to create
 and improve a reward function, how an action space affects model performance, and how
@@ -13,22 +13,15 @@ performance, and how to address some of the simulation to real-world challenges.
 
 ###### Topics
 
-- [Create your reward
-  function](#deepracer-train-models-define-reward-function "#deepracer-train-models-define-reward-function")
-- [Explore action
-  space to train a robust model](#deepracer-define-action-space-for-training "#deepracer-define-action-space-for-training")
+- [Create your reward function](#deepracer-train-models-define-reward-function "#deepracer-train-models-define-reward-function")
+- [Explore action space to train a robust model](#deepracer-define-action-space-for-training "#deepracer-define-action-space-for-training")
 - [Systematically tune hyperparameters](#deepracer-iteratively-adjust-hyperparameters "#deepracer-iteratively-adjust-hyperparameters")
 - [Examine AWS DeepRacer training job progress](#deepracer-examine-training-progress "#deepracer-examine-training-progress")
-- [Clone a trained model to start a new
-  training pass](#deepracer-clone-trained-model "#deepracer-clone-trained-model")
-- [Evaluate AWS DeepRacer models in
-  simulations](#deepracer-evaluate-models-in-simulator "#deepracer-evaluate-models-in-simulator")
-- [Optimize training AWS DeepRacer
-  models for real environments](#deepracer-evaluate-model-test-approaches "#deepracer-evaluate-model-test-approaches")
+- [Clone a trained model to start a new training pass](#deepracer-clone-trained-model "#deepracer-clone-trained-model")
+- [Evaluate AWS DeepRacer models in simulations](#deepracer-evaluate-models-in-simulator "#deepracer-evaluate-models-in-simulator")
+- [Optimize training AWS DeepRacer models for real environments](#deepracer-evaluate-model-test-approaches "#deepracer-evaluate-model-test-approaches")
 
-## Create your reward
-
-function
+## Create your reward function
 
 A
 [reward
@@ -72,14 +65,10 @@ functions.
 
 ###### Topics
 
-- [Simple reward function
-  examples](#deepracer-reward-function-simple-examples "#deepracer-reward-function-simple-examples")
-- [Enhance your reward
-  function](#deepracer-iteratively-enhance-reward-functions "#deepracer-iteratively-enhance-reward-functions")
+- [Simple reward function examples](#deepracer-reward-function-simple-examples "#deepracer-reward-function-simple-examples")
+- [Enhance your reward function](#deepracer-iteratively-enhance-reward-functions "#deepracer-iteratively-enhance-reward-functions")
 
-### Simple reward function
-
-examples
+### Simple reward function examples
 
 We can start building the reward function by first considering the most basic
 situation. The situation is driving on a straight track from start to finish without
@@ -125,9 +114,7 @@ challenging undertaking. You should start with a simple one and progressively
 enhance or improve the function. With systematic experimentation, the function can
 become more robust and efficient.
 
-### Enhance your reward
-
-function
+### Enhance your reward function
 
 After you have successfully trained your AWS DeepRacer model for the simple straight track,
 the AWS DeepRacer vehicle (virtual or physical) can drive itself without going off the track.
@@ -148,12 +135,9 @@ For more advanced reward functions, see the following examples:
 - [Example 1: Follow the center line in time trials](deepracer-reward-function-examples.md#deepracer-reward-function-example-0 "deepracer-reward-function-examples.md#deepracer-reward-function-example-0")
 - [Example 2: Stay inside the two borders in time trials](deepracer-reward-function-examples.md#deepracer-reward-function-example-1 "deepracer-reward-function-examples.md#deepracer-reward-function-example-1")
 - [Example 3: Prevent zig-zag in time trials](deepracer-reward-function-examples.md#deepracer-reward-function-example-2 "deepracer-reward-function-examples.md#deepracer-reward-function-example-2")
-- [Example 4: Stay in one lane
-  without crashing into stationary obstacles or moving vehicles](deepracer-reward-function-examples.md#deepracer-reward-function-example-3 "deepracer-reward-function-examples.md#deepracer-reward-function-example-3")
+- [Example 4: Stay in one lane without crashing into stationary obstacles or moving vehicles](deepracer-reward-function-examples.md#deepracer-reward-function-example-3 "deepracer-reward-function-examples.md#deepracer-reward-function-example-3")
 
-## Explore action
-
-space to train a robust model
+## Explore action space to train a robust model
 
 As a general rule, train your model to be as robust as possible so that you can
 apply it to as many environments as possible. A robust model is one that can be applied
@@ -326,9 +310,7 @@ A training job is good if the averaged reward and track completion show trends t
 In particular, the model has likely converged if the progress per episode continuously reach 100% and the reward levels out.
 If not, clone the model and retrain it.
 
-## Clone a trained model to start a new
-
-training pass
+## Clone a trained model to start a new training pass
 
 If you clone a previously trained model as the starting point of a new round of
 training, you could improve training efficiency. To do this, modify the hyperparameters
@@ -336,9 +318,7 @@ to make use of already learned knowledge.
 
 In this section, you learn how to clone a trained model using the AWS DeepRacer console.
 
-###### To iterate training the reinforcement learning model using the AWS DeepRacer
-
-console
+###### To iterate training the reinforcement learning model using the AWS DeepRacer console
 
 1. Sign in to the AWS DeepRacer console, if you're not already signed in.
 2. On the **Models** page, choose a trained model and then
@@ -366,9 +346,7 @@ console
 As with training a robust machine learning model in general, it is important that you
 conduct systematic experimentation to come up with the best solution.
 
-## Evaluate AWS DeepRacer models in
-
-simulations
+## Evaluate AWS DeepRacer models in simulations
 
 To evaluate a model is to test the performance of a trained model. In AWS DeepRacer, the
 standard performance metric is the average time of finishing three consecutive laps.
@@ -391,11 +369,9 @@ ranking on the leaderboard lets you know how well your model performs against
 other participants.
 
 Test an AWS DeepRacer model with an AWS DeepRacer vehicle driving on a physical track, see
-[Operate your AWS DeepRacer vehicle](operate-deepracer-vehicle.md "operate-deepracer-vehicle.md") .
+[Operate your AWS DeepRacer vehicle](operate-deepracer-vehicle.md "operate-deepracer-vehicle.md").
 
-## Optimize training AWS DeepRacer
-
-models for real environments
+## Optimize training AWS DeepRacer models for real environments
 
 Many factors affect the real-world performance of a trained model, including the
 choice of the [action

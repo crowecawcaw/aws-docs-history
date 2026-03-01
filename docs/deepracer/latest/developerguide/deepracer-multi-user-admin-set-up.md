@@ -55,9 +55,7 @@ mode
   multi-user mode and performing typical AWS DeepRacer administrator tasks, you need to set up your account as an AWS DeepRacer admin with [AWSDeepRacerAccountAdminAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDeepRacerAccountAdminAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDeepRacerAccountAdminAccess") permission.
 - [Provide AWS console access and racer policy permission to the participants you want to sponsor.](#deepracer-provide-console-access "#deepracer-provide-console-access")
 
-### Set up your account with AWS DeepRacer admin permissions for
-
-multi-user
+### Set up your account with AWS DeepRacer admin permissions for multi-user
 
 To set up as an AWS DeepRacer admin for multi-user mode, you need to have the IAM AWS DeepRacer
 administrator policy, [AWSDeepRacerAccountAdminAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDeepRacerAccountAdminAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDeepRacerAccountAdminAccess"), attached to your user, group, or role.
@@ -67,9 +65,7 @@ IAM policy, or you may have your IT administrator provide it. For information
 about the required administrator policy, see [AWSDeepRacerAccountAdminAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDeepRacerAccountAdminAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDeepRacerAccountAdminAccess").
 For more information about IAM policies, see [Access Management](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-### Provide AWS console access to your sponsored
-
-participants
+### Provide AWS console access to your sponsored participants
 
 To provide racers you sponsor with access to the AWS DeepRacer console, we recommend using
 standard AWS authorization protocols such as [AWS IAM Identity Center](../../../singlesignon/latest/userguide/useraccess.md "../../../singlesignon/latest/userguide/useraccess.md") or [AWS Identity and Access Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md"). You can also provide access through your
@@ -167,10 +163,7 @@ To invite participants
    include a SSO URL for your participants to use. Alternatively, you can provide IAM credentials for the
    participants to use to log in to the AWS console.
 
-## Step 4: Set
-
-usage
-quotas
+## Step 4: Set usage quotas
 
 After your sponsored participants have received their invitation email and have
 created their profiles under your account, they appear in the **Sponsored
@@ -288,7 +281,7 @@ Community races provide an exciting way for your sponsored participants to exper
 
 You can create community races and invite your sponsored participants.
 
-For more information, see [Create a virtual community race: a quick start guide](deepracer-create-community-race.md "deepracer-create-community-race.md") .
+For more information, see [Create a virtual community race: a quick start guide](deepracer-create-community-race.md "deepracer-create-community-race.md").
 
 ### Request a workshop
 

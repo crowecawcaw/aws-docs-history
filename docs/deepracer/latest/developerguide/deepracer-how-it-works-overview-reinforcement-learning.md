@@ -1,6 +1,4 @@
-# Reinforcement
-
-learning in AWS DeepRacer
+# Reinforcement learning in AWS DeepRacer
 
 In reinforcement learning, an _agent_, such as a physical or
 virtual AWS DeepRacer vehicle, with an objective to achieve an intended goal interacts with an

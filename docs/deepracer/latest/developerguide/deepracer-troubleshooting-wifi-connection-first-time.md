@@ -1,6 +1,4 @@
-# How to use a USB flash drive to connect AWS DeepRacer to
-
-your Wi-Fi network
+# How to use a USB flash drive to connect AWS DeepRacer to your Wi-Fi network
 
 To connect an AWS DeepRacer vehicle to your home or office Wi-Fi network using a USB flash drive, you need the
 following:

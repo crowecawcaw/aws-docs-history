@@ -17,5 +17,4 @@ service.
 ###### Topics
 
 - [Set up multi-user mode (admin)](deepracer-multi-user-admin-set-up.md "deepracer-multi-user-admin-set-up.md")
-- [AWS DeepRacer multi-user experience
-  (participant)](deepracer-multi-user-racer-experience.md "deepracer-multi-user-racer-experience.md")
+- [AWS DeepRacer multi-user experience (participant)](deepracer-multi-user-racer-experience.md "deepracer-multi-user-racer-experience.md")

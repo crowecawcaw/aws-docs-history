@@ -1,6 +1,4 @@
-# Lay your track for
-
-AWS DeepRacer
+# Lay your track for AWS DeepRacer
 
 When you build your track, it's a good practice to start with a simple design, such as
 a straight or single-turn track. Next you can move on to looped tracks. Here, we use a
@@ -9,14 +7,11 @@ track. First let's review dimensional requirements of a track.
 
 ###### Topics
 
-- [Dimensional
-  Requirements](#deepracer-build-your-track-construction-dimensions "#deepracer-build-your-track-construction-dimensions")
+- [Dimensional Requirements](#deepracer-build-your-track-construction-dimensions "#deepracer-build-your-track-construction-dimensions")
 - [Considerations for model performance](#deepracer-build-your-track-performance-considerations "#deepracer-build-your-track-performance-considerations")
 - [Steps to build the track](#deepracer-build-your-track-construction-steps "#deepracer-build-your-track-construction-steps")
 
-## Dimensional
-
-Requirements
+## Dimensional Requirements
 
 You can build a track of any shape as long as it meets the following
 requirements:

@@ -1,6 +1,4 @@
-# Required IAM roles
-
-for AWS DeepRacer to call dependent AWS Services
+# Required IAM roles for AWS DeepRacer to call dependent AWS Services
 
 Before you create a model, use the AWS DeepRacer console to set up resources for your account.
 As you do this, the AWS DeepRacer console creates the following IAM roles:

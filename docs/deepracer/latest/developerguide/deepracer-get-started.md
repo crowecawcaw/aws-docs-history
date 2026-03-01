@@ -8,5 +8,4 @@ quality of the model. Once you've trained your model, you can iterate on it and 
 ###### Topics
 
 - [Train your first AWS DeepRacer model](deepracer-get-started-training-model.md "deepracer-get-started-training-model.md")
-- [Evaluate your AWS DeepRacer models in
-  simulation](deepracer-get-started-test-in-simulator.md "deepracer-get-started-test-in-simulator.md")
+- [Evaluate your AWS DeepRacer models in simulation](deepracer-get-started-test-in-simulator.md "deepracer-get-started-test-in-simulator.md")

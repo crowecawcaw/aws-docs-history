@@ -13,8 +13,7 @@ use with no additional charge.
 - [How AWS DeepRacer works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
 - [Identity-based policy examples for AWS DeepRacer](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
 - [AWS managed policies for AWS DeepRacer](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Troubleshooting AWS DeepRacer identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## Audience

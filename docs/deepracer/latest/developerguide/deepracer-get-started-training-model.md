@@ -2,9 +2,7 @@
 
 This walkthrough demonstrates how to train your first model using the AWS DeepRacer console.
 
-## Train a reinforcement learning model using the AWS DeepRacer
-
-console
+## Train a reinforcement learning model using the AWS DeepRacer console
 
 Learn where to find the **Create model** button in the AWS DeepRacer console to start your model training
 journey.
@@ -49,10 +47,8 @@ for your skill level and training goals.
    trial**, **Object avoidance**, or **Head-to-bot**.
 
 For your first run, we recommend choosing **Time trial**. For guidance on optimizing your
-agent's sensor configuration for this race type, see [Tailor AWS DeepRacer training
-for time trials](deepracer-choose-race-type.md#deepracer-get-started-training-simple-time-trial "deepracer-choose-race-type.md#deepracer-get-started-training-simple-time-trial"). 2. Optionally, on later runs, choose **Object avoidance** to go around stationary obstacles
-placed at fixed or random locations along the chosen track. For more information, see [Tailor AWS DeepRacer training
-for object avoidance races](deepracer-choose-race-type.md#deepracer-get-started-training-object-avoidance "deepracer-choose-race-type.md#deepracer-get-started-training-object-avoidance").
+agent's sensor configuration for this race type, see [Tailor AWS DeepRacer training for time trials](deepracer-choose-race-type.md#deepracer-get-started-training-simple-time-trial "deepracer-choose-race-type.md#deepracer-get-started-training-simple-time-trial"). 2. Optionally, on later runs, choose **Object avoidance** to go around stationary obstacles
+placed at fixed or random locations along the chosen track. For more information, see [Tailor AWS DeepRacer training for object avoidance races](deepracer-choose-race-type.md#deepracer-get-started-training-object-avoidance "deepracer-choose-race-type.md#deepracer-get-started-training-object-avoidance").
 
     1. Choose **Fixed location** to generate boxes in fixed,
      user designated locations across the two lanes of the track or select **Random location** to
@@ -63,8 +59,7 @@ for object avoidance races](deepracer-choose-race-type.md#deepracer-get-started-
      By default, objects are evenly distributed across the track. To change how far between the start and the finish line an object is, enter a percentage of that distance between seven and 90 on the **Location (%) between start and finish** field.
 
 3. Optionally, for more ambitious runs, choose **Head-to-bot racing** to race against up to
-   four bot vehicles moving at a constant speed. To learn more, see [Tailor AWS DeepRacer training for
-   head-to-bot races](deepracer-choose-race-type.md#deepracer-get-started-training-h2h-racing "deepracer-choose-race-type.md#deepracer-get-started-training-h2h-racing").
+   four bot vehicles moving at a constant speed. To learn more, see [Tailor AWS DeepRacer training for head-to-bot races](deepracer-choose-race-type.md#deepracer-get-started-training-h2h-racing "deepracer-choose-race-type.md#deepracer-get-started-training-h2h-racing").
    1. Under **Choose the number of bot vehicles**, select with how many bot vehicles you
       want your agent to train.
    2. Next, choose the speed in millimeters per second at which you want the bot vehicles to travel around
@@ -100,8 +95,7 @@ On the **Define action space** page, if you've chosen to train with the Soft Act
 algorithm, your default action space is the continuous action space. If you've chosen to train with the Proximal
 Policy Optimization (PPO) algorithm, choose between **Continuous action space** and
 **Discrete action space**. To learn more about how each action space and algorithm shapes the
-agent's training experience, see [AWS DeepRacer action space and reward
-function](deepracer-how-it-works-action-space.md "deepracer-how-it-works-action-space.md").
+agent's training experience, see [AWS DeepRacer action space and reward function](deepracer-how-it-works-action-space.md "deepracer-how-it-works-action-space.md").
 
 1. Under **Define continuous action space**, choose the degrees of your **Left
    steering angle range** and **Right steering angle range**.
@@ -155,17 +149,14 @@ Open Division each month.
 
 For **Time trial** training, the default sensor configuration and single-lens camera of
 **The Original DeepRacer** is all you need, but all other shells and sensor
-configurations work as long as the action space matches. For more information, see [Tailor AWS DeepRacer training
-for time trials](deepracer-choose-race-type.md#deepracer-get-started-training-simple-time-trial "deepracer-choose-race-type.md#deepracer-get-started-training-simple-time-trial").
+configurations work as long as the action space matches. For more information, see [Tailor AWS DeepRacer training for time trials](deepracer-choose-race-type.md#deepracer-get-started-training-simple-time-trial "deepracer-choose-race-type.md#deepracer-get-started-training-simple-time-trial").
 
 For **Object avoidance** training, stereo cameras are helpful, but a single camera can also
-be used for avoiding stationary obstacles in fixed locations. A LiDAR sensor is optional. See [AWS DeepRacer action space and reward
-function](deepracer-how-it-works-action-space.md "deepracer-how-it-works-action-space.md").
+be used for avoiding stationary obstacles in fixed locations. A LiDAR sensor is optional. See [AWS DeepRacer action space and reward function](deepracer-how-it-works-action-space.md "deepracer-how-it-works-action-space.md").
 
 For **Head-to-bot** training, in addition to either a single camera or a stereo camera, a
 LiDAR unit is optimal for detecting and avoiding blind spots while passing other moving vehicles. To learn
-more, see [Tailor AWS DeepRacer training for
-head-to-bot races](deepracer-choose-race-type.md#deepracer-get-started-training-h2h-racing "deepracer-choose-race-type.md#deepracer-get-started-training-h2h-racing"). 2. Choose **Next**.
+more, see [Tailor AWS DeepRacer training for head-to-bot races](deepracer-choose-race-type.md#deepracer-get-started-training-h2h-racing "deepracer-choose-race-type.md#deepracer-get-started-training-h2h-racing"). 2. Choose **Next**.
 
 ## Customize your reward function
 

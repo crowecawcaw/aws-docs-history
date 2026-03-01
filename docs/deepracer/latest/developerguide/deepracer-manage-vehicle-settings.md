@@ -1,6 +1,4 @@
-#
-
-Inspect and manage your AWS DeepRacer vehicle settings
+# Inspect and manage your AWS DeepRacer vehicle settings
 
 After the initial setup, you can use the AWS DeepRacer device control console to manage your vehicle's
 settings. The tasks include the following:
@@ -14,9 +12,7 @@ settings. The tasks include the following:
 
 The procedure below walks you through these tasks.
 
-######
-
-To inspect and manage your vehicle's settings
+###### To inspect and manage your vehicle's settings
 
 1. With your AWS DeepRacer vehicle connected to the Wi-Fi network, follow [the instructions](deepracer-set-up-vehicle-test-drive.md "deepracer-set-up-vehicle-test-drive.md") to sign in to the
    vehicle's device control console.

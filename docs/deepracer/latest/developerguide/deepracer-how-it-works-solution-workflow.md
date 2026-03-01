@@ -1,6 +1,4 @@
-# AWS DeepRacer solution
-
-workflow
+# AWS DeepRacer solution workflow
 
 Training an AWS DeepRacer model involves the following general tasks:
 
@@ -44,5 +42,4 @@ and surface textures and colors.
 
 The device's performance in a physical environment may not match the
 performance in a simulated environment due to model limitations or insufficient
-training. The phenomenon is referred to as the _sim2real_ performance gap. To reduce the gap, see [Simulated-to-real
-performance gaps](deepracer-how-it-works-virtual-to-physical.md "deepracer-how-it-works-virtual-to-physical.md").
+training. The phenomenon is referred to as the _sim2real_ performance gap. To reduce the gap, see [Simulated-to-real performance gaps](deepracer-how-it-works-virtual-to-physical.md "deepracer-how-it-works-virtual-to-physical.md").

@@ -1,6 +1,4 @@
-# Understanding racing types and enabling sensors
-
-supported by AWS DeepRacer
+# Understanding racing types and enabling sensors supported by AWS DeepRacer
 
 In AWS DeepRacer League, you can participate in the following types of racing events:
 
@@ -20,19 +18,13 @@ events.
 
 ###### Topics
 
-- [Choose sensors for
-  AWS DeepRacer racing types](#deepracer-how-it-works-autonomous-driving-sensors "#deepracer-how-it-works-autonomous-driving-sensors")
+- [Choose sensors for AWS DeepRacer racing types](#deepracer-how-it-works-autonomous-driving-sensors "#deepracer-how-it-works-autonomous-driving-sensors")
 - [Configure agent for training AWS DeepRacer models](#deepracer-configure-agent "#deepracer-configure-agent")
-- [Tailor AWS DeepRacer training
-  for time trials](#deepracer-get-started-training-simple-time-trial "#deepracer-get-started-training-simple-time-trial")
-- [Tailor AWS DeepRacer training
-  for object avoidance races](#deepracer-get-started-training-object-avoidance "#deepracer-get-started-training-object-avoidance")
-- [Tailor AWS DeepRacer training for
-  head-to-bot races](#deepracer-get-started-training-h2h-racing "#deepracer-get-started-training-h2h-racing")
+- [Tailor AWS DeepRacer training for time trials](#deepracer-get-started-training-simple-time-trial "#deepracer-get-started-training-simple-time-trial")
+- [Tailor AWS DeepRacer training for object avoidance races](#deepracer-get-started-training-object-avoidance "#deepracer-get-started-training-object-avoidance")
+- [Tailor AWS DeepRacer training for head-to-bot races](#deepracer-get-started-training-h2h-racing "#deepracer-get-started-training-h2h-racing")
 
-## Choose sensors for
-
-AWS DeepRacer racing types
+## Choose sensors for AWS DeepRacer racing types
 
 Your AWS DeepRacer vehicle comes with a front-facing monocular camera as the default sensor.
 You can add another front-facing monocular camera to make front-facing stereo cameras or
@@ -199,9 +191,7 @@ previous steps starting at **Step 4**.
 
 Now, your agent is ready for training.
 
-## Tailor AWS DeepRacer training
-
-for time trials
+## Tailor AWS DeepRacer training for time trials
 
 If this is your first time to use AWS DeepRacer, you should start with a simple time trial to
 become familiar with how to train AWS DeepRacer models to drive your vehicle. This way, you get a
@@ -251,9 +241,7 @@ To train your model with the default agent, follow the recommendations below.
 6. (Optional) Examine and analyze the AWS DeepRacer logs. For sample code that you can use
    to analyze the logs, see [https://github.com/aws-samples/aws-deepracer-workshops/tree/master/log-analysis](https://github.com/aws-samples/aws-deepracer-workshops/tree/master/log-analysis "https://github.com/aws-samples/aws-deepracer-workshops/tree/master/log-analysis").
 
-## Tailor AWS DeepRacer training
-
-for object avoidance races
+## Tailor AWS DeepRacer training for object avoidance races
 
 After you become familiar with time trials and have trained a few converged models,
 move on to the next more demanding challenge—obstacle avoidance. Here, your goal is to
@@ -315,9 +303,7 @@ of sensors and tweak the reward functions and hyperparameter values. Experiment
 with the **5-layer CNN** network topology. Then, retrain the
 model to determine how they affect convergence of the training.
 
-## Tailor AWS DeepRacer training for
-
-head-to-bot races
+## Tailor AWS DeepRacer training for head-to-bot races
 
 Having gone through training obstacle avoidance, you're now ready to tackle the next
 level of challenge: training models for head-to-bot races. Unlike the obstacle

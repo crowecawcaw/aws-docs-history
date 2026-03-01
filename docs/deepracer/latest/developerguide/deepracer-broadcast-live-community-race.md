@@ -1,6 +1,4 @@
-# Broadcast a LIVE community race using AWS DeepRacer League production
-
-playbooks
+# Broadcast a LIVE community race using AWS DeepRacer League production playbooks
 
 LIVE races are real-time events that occur at a designated date and time. They range in scope from small events with
 one race organizer facilitating one private video conference to large events broadcast publicly by a small team of

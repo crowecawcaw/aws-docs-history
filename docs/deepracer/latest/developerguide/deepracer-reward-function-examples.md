@@ -7,8 +7,7 @@ The following lists some examples of the AWS DeepRacer reward function.
 - [Example 1: Follow the center line in time trials](#deepracer-reward-function-example-0 "#deepracer-reward-function-example-0")
 - [Example 2: Stay inside the two borders in time trials](#deepracer-reward-function-example-1 "#deepracer-reward-function-example-1")
 - [Example 3: Prevent zig-zag in time trials](#deepracer-reward-function-example-2 "#deepracer-reward-function-example-2")
-- [Example 4: Stay in one lane
-  without crashing into stationary obstacles or moving vehicles](#deepracer-reward-function-example-3 "#deepracer-reward-function-example-3")
+- [Example 4: Stay in one lane without crashing into stationary obstacles or moving vehicles](#deepracer-reward-function-example-3 "#deepracer-reward-function-example-3")
 
 ## Example 1: Follow the center line in time trials
 
@@ -116,9 +115,7 @@ def reward_function(params):
     return float(reward)
 ```
 
-## Example 4: Stay in one lane
-
-without crashing into stationary obstacles or moving vehicles
+## Example 4: Stay in one lane without crashing into stationary obstacles or moving vehicles
 
 This reward function rewards the agent for staying inside the track's borders and
 penalizes the agent for getting too close to objects in front of it. The agent can move
