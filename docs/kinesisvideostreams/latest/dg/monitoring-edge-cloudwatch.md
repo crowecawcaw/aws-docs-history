@@ -1,6 +1,4 @@
-# Monitor the Amazon Kinesis Video Streams Edge Agent with
-
-CloudWatch
+# Monitor the Amazon Kinesis Video Streams Edge Agent with CloudWatch
 
 You can monitor the Amazon Kinesis Video Streams Edge Agent using Amazon CloudWatch, which collects and processes raw
 data into readable, near real-time metrics. These statistics are recorded for a period

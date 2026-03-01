@@ -1,6 +1,4 @@
-# Create resources for your IP camera
-
-RTSP URLs
+# Create resources for your IP camera RTSP URLs
 
 Follow these procedures to create the streams and secrets needed in
 AWS Secrets Manager. Do this step first, because you need the ARNs of the

@@ -1,6 +1,4 @@
-# Add permissions to the token exchange service
-
-(TES) role
+# Add permissions to the token exchange service (TES) role
 
 Grant the token exchange service (TES) role to the device that assumes permissions
 to look at the secrets. This is necessary for the AWS Secrets Manager AWS IoT Greengrass
@@ -78,8 +76,7 @@ Replace the policy with the following:
 ###### Note
 
 Replace `arn:aws:secretsmanager:*:*:secret:*` with the ARNs
-containing the MediaURI secrets that you created in [Create the Amazon Kinesis Video Streams and
-AWS Secrets Manager resources for your IP camera RTSP URLs](gs-create-resources.md "gs-create-resources.md").
+containing the MediaURI secrets that you created in [Create the Amazon Kinesis Video Streams and AWS Secrets Manager resources for your IP camera RTSP URLs](gs-create-resources.md "gs-create-resources.md").
 
 JSON
 

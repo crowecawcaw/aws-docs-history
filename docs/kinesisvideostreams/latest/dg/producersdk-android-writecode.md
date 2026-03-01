@@ -12,9 +12,7 @@ following coding pattern:
   client.
   The following sections provide details.
 
-## Create an instance
-
-of KinesisVideoClient
+## Create an instance of KinesisVideoClient
 
 You create the `KinesisVideoClient` object by calling the
 `createKinesisVideoClient` operation.
@@ -32,9 +30,7 @@ authenticate. You pass in an instance of `AWSCredentialsProvider`, which
 reads your Amazon Cognito credentials from the `awsconfiguration.json` file that
 you modified in the previous section.
 
-## Create an
-
-instance of MediaSource
+## Create an instance of MediaSource
 
 To send bytes to your Kinesis video stream, you must produce the data. Amazon Kinesis Video Streams provides
 the `MediaSource` interface, which represents the data source.
@@ -77,9 +73,7 @@ mCameraMediaSource = (AndroidCameraMediaSource) mKinesisVideoClient
     .createMediaSource(mStreamName, mConfiguration);
 ```
 
-## Start the media
-
-source
+## Start the media source
 
 Start the media source so that it can begin generating data and sending it to the
 client. The following code example is from the `fragment/StreamingFragment.java` file:

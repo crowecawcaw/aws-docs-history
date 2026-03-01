@@ -1,6 +1,4 @@
-# Troubleshooting build issues on C++ producer SDK
-
-for Raspberry Pi
+# Troubleshooting build issues on C++ producer SDK for Raspberry Pi
 
 If you encounter a build issue and want to try different CMake arguments, make
 sure to perform a clean build. Delete the `open-source`,

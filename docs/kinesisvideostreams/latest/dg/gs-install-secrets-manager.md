@@ -1,6 +1,4 @@
-# Install the AWS IoT Greengrass Secret Manager
-
-component on the device
+# Install the AWS IoT Greengrass Secret Manager component on the device
 
 The Amazon Kinesis Video Streams Edge Agent requires the AWS IoT Greengrass Secret Manager component to be installed on
 the device first.
@@ -51,8 +49,7 @@ deployment**. 4. Complete the following sections:
     ###### Note
 
     Replace `arn:aws:secretsmanager:*:*:secret:*` with
-     the ARNs of the secrets that you created in [Create the Amazon Kinesis Video Streams and
-     AWS Secrets Manager resources for your IP camera RTSP URLs](gs-create-resources.md "gs-create-resources.md").
+     the ARNs of the secrets that you created in [Create the Amazon Kinesis Video Streams and AWS Secrets Manager resources for your IP camera RTSP URLs](gs-create-resources.md "gs-create-resources.md").
 
 
 
@@ -102,8 +99,7 @@ Type `sudo service greengrass restart` to restart the AWS IoT Greengrass core
 service.
 
 If the deployment error was related to missing permissions, review the
-[Add permissions to the token exchange service
-(TES) role](gs-add-permissions.md "gs-add-permissions.md") section to make sure that the TES
+[Add permissions to the token exchange service (TES) role](gs-add-permissions.md "gs-add-permissions.md") section to make sure that the TES
 role has the proper permissions. Then, repeat this section. 7. **Update the secrets on the AWS IoT Greengrass Secret Manager component**
 
 ###### Important

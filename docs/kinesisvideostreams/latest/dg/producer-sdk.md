@@ -74,9 +74,7 @@ applications. For more information, see the supported languages in the following
 _Related
 Topics_.
 
-## Understand what producer libraries
-
-are
+## Understand what producer libraries are
 
 [Use the Java producer library](producer-sdk-javaapi.md "producer-sdk-javaapi.md")
 

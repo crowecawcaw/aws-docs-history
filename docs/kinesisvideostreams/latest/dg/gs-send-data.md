@@ -1,8 +1,7 @@
 # Send data to an Amazon Kinesis video stream
 
 This section describes how to send media data from a camera to the Kinesis video stream that you
-created in the previous section. This section uses the [Use the C++ producer library](producer-sdk-cpp.md "producer-sdk-cpp.md") as a [Example: Kinesis Video Streams producer SDK GStreamer
-Plugin - kvssink](examples-gstreamer-plugin.md "examples-gstreamer-plugin.md") plugin.
+created in the previous section. This section uses the [Use the C++ producer library](producer-sdk-cpp.md "producer-sdk-cpp.md") as a [Example: Kinesis Video Streams producer SDK GStreamer Plugin - kvssink](examples-gstreamer-plugin.md "examples-gstreamer-plugin.md") plugin.
 
 To send media from a variety of devices on a variety of operating systems, this tutorial uses the Kinesis Video Streams
 C++ producer library and [GStreamer](https://gstreamer.freedesktop.org/ "https://gstreamer.freedesktop.org/"), an open-source media
@@ -278,8 +277,7 @@ To stop the GStreamer pipeline, select the terminal window and press
 ###### Note
 
 For more information about using the GStreamer plugin to stream video
-from an RTSP stream from a camera, or from a USB camera, see [Example: Kinesis Video Streams producer SDK GStreamer
-Plugin - kvssink](examples-gstreamer-plugin.md "examples-gstreamer-plugin.md").
+from an RTSP stream from a camera, or from a USB camera, see [Example: Kinesis Video Streams producer SDK GStreamer Plugin - kvssink](examples-gstreamer-plugin.md "examples-gstreamer-plugin.md").
 
 ## Review acknowledgement objects
 

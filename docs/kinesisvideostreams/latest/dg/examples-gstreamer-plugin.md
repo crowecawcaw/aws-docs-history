@@ -1,20 +1,14 @@
-# Example: Kinesis Video Streams producer SDK GStreamer
-
-Plugin - kvssink
+# Example: Kinesis Video Streams producer SDK GStreamer Plugin - kvssink
 
 This topic describes how to build the Amazon Kinesis Video Streams producer SDK to use as a GStreamer plugin.
 
 ###### Topics
 
-- [Download, build, and configure the
-  GStreamer element](#examples-gstreamer-plugin-download "#examples-gstreamer-plugin-download")
+- [Download, build, and configure the GStreamer element](#examples-gstreamer-plugin-download "#examples-gstreamer-plugin-download")
 - [Run the GStreamer element](#examples-gstreamer-plugin-run "#examples-gstreamer-plugin-run")
-- [Example GStreamer launch
-  commands](#examples-gstreamer-plugin-launch "#examples-gstreamer-plugin-launch")
-- [Run the GStreamer element in a
-  Docker container](#examples-gstreamer-plugin-docker "#examples-gstreamer-plugin-docker")
-- [GStreamer element parameter
-  reference](examples-gstreamer-plugin-parameters.md "examples-gstreamer-plugin-parameters.md")
+- [Example GStreamer launch commands](#examples-gstreamer-plugin-launch "#examples-gstreamer-plugin-launch")
+- [Run the GStreamer element in a Docker container](#examples-gstreamer-plugin-docker "#examples-gstreamer-plugin-docker")
+- [GStreamer element parameter reference](examples-gstreamer-plugin-parameters.md "examples-gstreamer-plugin-parameters.md")
   [GStreamer](https://gstreamer.freedesktop.org/ "https://gstreamer.freedesktop.org/") is a popular media
   framework used by multiple cameras and video sources to create custom media pipelines by
   combining modular plugins. The Kinesis Video Streams GStreamer plugin streamlines the integration of
@@ -43,13 +37,10 @@ analysis of your video stream.
 
 ![Functional view of the GStreamer media pipeline for streaming video from a camera to the service.](images/gstreamer-pipeline.png)
 
-## Download, build, and configure the
-
-GStreamer element
+## Download, build, and configure the GStreamer element
 
 The GStreamer Plugin example is included with the Kinesis Video Streams C++ producer SDK. For
-information about SDK prerequisites and downloading, see [Download and configure the C++ producer
-library code](producersdk-cpp-download.md "producersdk-cpp-download.md").
+information about SDK prerequisites and downloading, see [Download and configure the C++ producer library code](producersdk-cpp-download.md "producersdk-cpp-download.md").
 
 You can build the producer SDK GStreamer sink as a dynamic library on macOS,
 Ubuntu, Raspberry Pi, or Windows. The GStreamer plugin is located in your
@@ -79,8 +70,7 @@ required parameter:
 
 - `stream-name` – The name of the destination Kinesis Video Streams.
 
-For information about `kvssink` optional parameters, see [GStreamer element parameter
-reference](examples-gstreamer-plugin-parameters.md "examples-gstreamer-plugin-parameters.md").
+For information about `kvssink` optional parameters, see [GStreamer element parameter reference](examples-gstreamer-plugin-parameters.md "examples-gstreamer-plugin-parameters.md").
 
 For the latest information about GStreamer plugins and parameters, see [GStreamer Plugins](https://gstreamer.freedesktop.org/documentation/plugins_doc.html?gi-language=c "https://gstreamer.freedesktop.org/documentation/plugins_doc.html?gi-language=c"). You may also use `gst-inspect-1.0`
 followed by the name of a GStreamer element or plugin to print its information and
@@ -97,16 +87,12 @@ similar to this:
 No such element or plugin 'kvssink'
 ```
 
-## Example GStreamer launch
-
-commands
+## Example GStreamer launch commands
 
 The following examples demonstrate how to use the `kvssink` GStreamer plugin to
 stream video from different types of devices.
 
-### Example 1: Stream video
-
-from an RTSP camera on Ubuntu
+### Example 1: Stream video from an RTSP camera on Ubuntu
 
 The following command creates a GStreamer pipeline on Ubuntu that streams from
 a network RTSP camera, using the [rtspsrc](https://gstreamer.freedesktop.org/documentation/rtsp/rtspsrc.html?gi-language=c "https://gstreamer.freedesktop.org/documentation/rtsp/rtspsrc.html?gi-language=c") GStreamer plugin:
@@ -115,9 +101,7 @@ a network RTSP camera, using the [rtspsrc](https://gstreamer.freedesktop.org/doc
 gst-launch-1.0 -v rtspsrc location="rtsp://YourCameraRtspUrl" short-header=TRUE ! rtph264depay ! h264parse ! kvssink stream-name="YourStreamName" storage-size=128
 ```
 
-### Example 2: Encode and
-
-stream video from a USB camera on Ubuntu
+### Example 2: Encode and stream video from a USB camera on Ubuntu
 
 The following command creates a GStreamer pipeline on Ubuntu that encodes the
 stream from a USB camera in H.264 format, and streams it to Kinesis Video Streams. This example
@@ -127,9 +111,7 @@ uses the [v4l2src](https://gstreamer.freedesktop.org/documentation/video4linux2/
 gst-launch-1.0 v4l2src do-timestamp=TRUE device=/dev/video0 ! videoconvert ! video/x-raw,format=I420,width=640,height=480,framerate=30/1 ! x264enc  bframes=0 key-int-max=45 bitrate=500 ! video/x-h264,stream-format=avc,alignment=au,profile=baseline ! kvssink stream-name="YourStreamName" storage-size=512 access-key="YourAccessKey" secret-key="YourSecretKey" aws-region="YourAWSRegion"
 ```
 
-### Example 3: Stream
-
-pre-encoded video from a USB camera on Ubuntu
+### Example 3: Stream pre-encoded video from a USB camera on Ubuntu
 
 The following command creates a GStreamer pipeline on Ubuntu that streams
 video that the camera has already encoded in H.264 format to Kinesis Video Streams. This
@@ -139,9 +121,7 @@ example uses the [v4l2src](https://gstreamer.freedesktop.org/documentation/video
 gst-launch-1.0 v4l2src do-timestamp=TRUE device=/dev/video0 ! h264parse ! video/x-h264,stream-format=avc,alignment=au ! kvssink stream-name="plugin" storage-size=512 access-key="YourAccessKey" secret-key="YourSecretKey" aws-region="YourAWSRegion"
 ```
 
-### Example 4: Stream video
-
-from a network camera on macOS
+### Example 4: Stream video from a network camera on macOS
 
 The following command creates a GStreamer pipeline on macOS that streams video
 to Kinesis Video Streams from a network camera. This example uses the [rtspsrc](https://gstreamer.freedesktop.org/documentation/rtsp/rtspsrc.html#rtspsrc-page "https://gstreamer.freedesktop.org/documentation/rtsp/rtspsrc.html#rtspsrc-page") GStreamer plugin.
@@ -150,9 +130,7 @@ to Kinesis Video Streams from a network camera. This example uses the [rtspsrc](
 gst-launch-1.0 rtspsrc location="rtsp://YourCameraRtspUrl" short-header=TRUE ! rtph264depay ! h264parse ! video/x-h264, format=avc,alignment=au ! kvssink stream-name="YourStreamName" storage-size=512  access-key="YourAccessKey" secret-key="YourSecretKey" aws-region="YourAWSRegion"
 ```
 
-### Example 5: Stream video
-
-from a network camera on Windows
+### Example 5: Stream video from a network camera on Windows
 
 The following command creates a GStreamer pipeline on Windows that streams
 video to Kinesis Video Streams from a network camera. This example uses the [rtspsrc](https://gstreamer.freedesktop.org/documentation/rtsp/rtspsrc.html#rtspsrc-page "https://gstreamer.freedesktop.org/documentation/rtsp/rtspsrc.html#rtspsrc-page") GStreamer plugin.
@@ -161,9 +139,7 @@ video to Kinesis Video Streams from a network camera. This example uses the [rts
 gst-launch-1.0 rtspsrc location="rtsp://YourCameraRtspUrl" short-header=TRUE ! rtph264depay ! video/x-h264, format=avc,alignment=au ! kvssink stream-name="YourStreamName" storage-size=512  access-key="YourAccessKey" secret-key="YourSecretKey" aws-region="YourAWSRegion"
 ```
 
-### Example 6: Stream video
-
-from a camera on Raspberry Pi
+### Example 6: Stream video from a camera on Raspberry Pi
 
 The following command creates a GStreamer pipeline on Raspberry Pi that
 streams video to Kinesis Video Streams. This example uses the [v4l2src](https://gstreamer.freedesktop.org/documentation/video4linux2/v4l2src.html?gi-language=c#v4l2src-page "https://gstreamer.freedesktop.org/documentation/video4linux2/v4l2src.html?gi-language=c#v4l2src-page") GStreamer plugin.
@@ -172,31 +148,23 @@ streams video to Kinesis Video Streams. This example uses the [v4l2src](https://
 gst-launch-1.0 v4l2src do-timestamp=TRUE device=/dev/video0 ! videoconvert ! video/x-raw,format=I420,width=640,height=480,framerate=30/1 ! omxh264enc control-rate=1 target-bitrate=5120000 periodicity-idr=45 inline-header=FALSE ! h264parse ! video/x-h264,stream-format=avc,alignment=au,width=640,height=480,framerate=30/1,profile=baseline ! kvssink stream-name="YourStreamName" access-key="YourAccessKey" secret-key="YourSecretKey" aws-region="YourAWSRegion"
 ```
 
-### Example 7: Stream both
-
-audio and video in Raspberry Pi and Ubuntu
+### Example 7: Stream both audio and video in Raspberry Pi and Ubuntu
 
 See how to [run the gst-launch-1.0 command to start streaming both audio and video in
 Raspberry-PI and Ubuntu](https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp/blob/master/docs/linux.md#running-the-gst-launch-10-command-to-start-streaming-both-audio-and-video-in-raspberry-pi-and-ubuntu "https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp/blob/master/docs/linux.md#running-the-gst-launch-10-command-to-start-streaming-both-audio-and-video-in-raspberry-pi-and-ubuntu").
 
-### Example 8: Stream both
-
-audio and video from device sources in macOS
+### Example 8: Stream both audio and video from device sources in macOS
 
 See how to [run the gst-launch-1.0 command to start streaming both audio and video in
 MacOS](https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp/blob/master/docs/macos.md#running-the-gst-launch-10-command-to-start-streaming-both-audio-and-raw-video-in-mac-os "https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp/blob/master/docs/macos.md#running-the-gst-launch-10-command-to-start-streaming-both-audio-and-raw-video-in-mac-os").
 
-### Example 9: Upload MKV
-
-file that contains both audio and video
+### Example 9: Upload MKV file that contains both audio and video
 
 See how to [run the gst-launch-1.0 command to upload MKV file that contains both audio
 and video](https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp/blob/master/docs/windows.md#running-the-gst-launch-10-command-to-upload-mkv-file-that-contains-both-audio-and-video "https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp/blob/master/docs/windows.md#running-the-gst-launch-10-command-to-upload-mkv-file-that-contains-both-audio-and-video"). You will need an MKV test file with h.264 and AAC encoded
 media.
 
-## Run the GStreamer element in a
-
-Docker container
+## Run the GStreamer element in a Docker container
 
 Docker is a platform for developing, deploying, and running applications using
 containers. Using Docker to create the GStreamer pipeline standardizes the operating
@@ -219,25 +187,18 @@ container, do the following:
 
 ###### Topics
 
-- [Authenticate your
-  Docker client](#examples-gstreamer-plugin-docker-authenticate "#examples-gstreamer-plugin-docker-authenticate")
-- [Download the Docker
-  image for Ubuntu, macOS, Windows, or Raspberry Pi](#examples-gstreamer-plugin-docker-download "#examples-gstreamer-plugin-docker-download")
-- [Run the Docker
-  image](#examples-gstreamer-plugin-docker-run "#examples-gstreamer-plugin-docker-run")
+- [Authenticate your Docker client](#examples-gstreamer-plugin-docker-authenticate "#examples-gstreamer-plugin-docker-authenticate")
+- [Download the Docker image for Ubuntu, macOS, Windows, or Raspberry Pi](#examples-gstreamer-plugin-docker-download "#examples-gstreamer-plugin-docker-download")
+- [Run the Docker image](#examples-gstreamer-plugin-docker-run "#examples-gstreamer-plugin-docker-run")
 
-### Authenticate your
-
-Docker client
+### Authenticate your Docker client
 
 Authenticate your Docker client to the Amazon ECR registry that you intend to pull
 your image from. You must get authentication tokens for each registry used.
 Tokens are valid for 12 hours. For more information, see [Registry
 Authentication](../../../AmazonECR/latest/userguide/Registries.md#registry_auth "../../../AmazonECR/latest/userguide/Registries.md#registry_auth") in the _Amazon Elastic Container Registry User Guide_.
 
-###### Example: Authenticate with Amazon
-
-ECR
+###### Example: Authenticate with Amazon ECR
 
 To authenticate with Amazon ECR, copy and paste the following command as is
 shown.
@@ -248,40 +209,30 @@ sudo aws ecr get-login-password --region us-west-2 | docker login -u AWS --passw
 
 If successful, the output prints `Login Succeeded`.
 
-### Download the Docker
-
-image for Ubuntu, macOS, Windows, or Raspberry Pi
+### Download the Docker image for Ubuntu, macOS, Windows, or Raspberry Pi
 
 Download the Docker image to your Docker environment using one the following
 commands, depending on your operating system:
 
-#### Download
-
-the Docker image for Ubuntu
+#### Download the Docker image for Ubuntu
 
 ```
 sudo docker pull 546150905175.dkr.ecr.us-west-2.amazonaws.com/kinesis-video-producer-sdk-cpp-amazon-linux:latest
 ```
 
-#### Download
-
-the Docker image for macOS
+#### Download the Docker image for macOS
 
 ```
 docker pull 546150905175.dkr.ecr.us-west-2.amazonaws.com/kinesis-video-producer-sdk-cpp-amazon-linux:latest
 ```
 
-#### Download
-
-the Docker image for Windows
+#### Download the Docker image for Windows
 
 ```
 docker pull 546150905175.dkr.ecr.us-west-2.amazonaws.com/kinesis-video-producer-sdk-cpp-amazon-windows:latest
 ```
 
-#### Download the
-
-Docker image for Raspberry Pi
+#### Download the Docker image for Raspberry Pi
 
 ```
 sudo docker pull 546150905175.dkr.ecr.us-west-2.amazonaws.com/kinesis-video-producer-sdk-cpp-raspberry-pi:latest
@@ -294,40 +245,30 @@ command:
 docker images
 ```
 
-### Run the Docker
-
-image
+### Run the Docker image
 
 Use one of the following commands to run the Docker image, depending on your
 operating system:
 
-#### Run the Docker
-
-image on Ubuntu
+#### Run the Docker image on Ubuntu
 
 ```
 sudo docker run -it --network="host" --device=/dev/video0 546150905175.dkr.ecr.us-west-2.amazonaws.com/kinesis-video-producer-sdk-cpp-amazon-linux /bin/bash
 ```
 
-#### Run the Docker
-
-image on macOS
+#### Run the Docker image on macOS
 
 ```
 sudo docker run -it --network="host" 546150905175.dkr.ecr.us-west-2.amazonaws.com/kinesis-video-producer-sdk-cpp-amazon-linux /bin/bash
 ```
 
-#### Run the
-
-Docker image on Windows
+#### Run the Docker image on Windows
 
 ```
 docker run -it 546150905175.dkr.ecr.us-west-2.amazonaws.com/kinesis-video-producer-sdk-cpp-windows `AWS_ACCESS_KEY_ID` `AWS_SECRET_ACCESS_KEY` `RTSP_URL` `STREAM_NAME`
 ```
 
-#### Run the Docker
-
-image on Raspberry Pi
+#### Run the Docker image on Raspberry Pi
 
 ```
 sudo docker run -it --device=/dev/video0 --device=/dev/vchiq -v /opt/vc:/opt/vc 546150905175.dkr.ecr.us-west-2.amazonaws.com/kinesis-video-producer-sdk-cpp-raspberry-pi /bin/bash
@@ -347,5 +288,4 @@ export GST_PLUGIN_PATH=/opt/awssdk/amazon-kinesis-video-streams-producer-sdk-cpp
 
 Start streaming to `kvssink` using the `gst-launch-1.0` to run a
 pipeline appropriate for your device and video source. For example pipelines,
-see [Example GStreamer launch
-commands](#examples-gstreamer-plugin-launch "#examples-gstreamer-plugin-launch").
+see [Example GStreamer launch commands](#examples-gstreamer-plugin-launch "#examples-gstreamer-plugin-launch").

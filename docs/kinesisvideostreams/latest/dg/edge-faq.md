@@ -2,9 +2,7 @@
 
 The following are some common questions for the Amazon Kinesis Video Streams Edge Agent service.
 
-## What operating systems does Amazon Kinesis Video Streams Edge Agent
-
-support?
+## What operating systems does Amazon Kinesis Video Streams Edge Agent support?
 
 Amazon Kinesis Video Streams Edge Agent currently supports the following operating systems:
 
@@ -21,9 +19,7 @@ Amazon Kinesis Video Streams Edge Agent currently supports the following operati
 - amzn2
   - AMD64 amazonlinux:2.0.20210219.0-amd64 (Snowball)
 
-## Does the Amazon Kinesis Video Streams Edge Agent support H.265
-
-media?
+## Does the Amazon Kinesis Video Streams Edge Agent support H.265 media?
 
 Amazon Kinesis Video Streams Edge Agent only supports H.264 elementary streams.
 
@@ -31,26 +27,20 @@ Amazon Kinesis Video Streams Edge Agent only supports H.264 elementary streams.
 
 Yes.
 
-## How can I run multiple streams within
-
-the AWS IoT thing or device?
+## How can I run multiple streams within the AWS IoT thing or device?
 
 Send another [StartEdgeConfigurationUpdate](API_StartEdgeConfigurationUpdate.md "API_StartEdgeConfigurationUpdate.md") to the same
 `HubDeviceArn`, but different
 Amazon Kinesis Video Streams/AWS Secrets Manager ARNs.
 
-## How can I edit a
-
-`StartEdgeConfigurationUpdate` after it has been sent?
+## How can I edit a `StartEdgeConfigurationUpdate` after it has been sent?
 
 Send an updated [StartEdgeConfigurationUpdate](API_StartEdgeConfigurationUpdate.md "API_StartEdgeConfigurationUpdate.md")to the same
 `HubDeviceArn` with the same Amazon Kinesis Video Streams ARN. When the application
 receives the message from Amazon Kinesis Video Streams, it overrides the previous configuration for
 that stream. Changes will take place then.
 
-## Do you have any examples of common
-
-`ScheduleConfigs`?
+## Do you have any examples of common `ScheduleConfigs`?
 
 The Amazon Kinesis Video Streams Edge Agent uses the system time of the device that it's running
 on.
@@ -77,23 +67,17 @@ The Amazon Kinesis Video Streams Edge Agent currently has a hard limit of 16 str
 device. Updating a configuration for the same stream using the [StartEdgeConfigurationUpdate](API_StartEdgeConfigurationUpdate.md "API_StartEdgeConfigurationUpdate.md") does not increase the device’s
 stream count.
 
-## How do I restart a job that has errored
-
-out?
+## How do I restart a job that has errored out?
 
 If an error is encountered, the Amazon Kinesis Video Streams Edge Agent will attempt to restart the job.
 However, with some errors (such as configuration errors), you must manually restart
 the job.
 
-To determine which jobs need to be restarted manually, see the **FatalError** metric in [Monitor the Amazon Kinesis Video Streams Edge Agent with
-CloudWatch](monitoring-edge-cloudwatch.md "monitoring-edge-cloudwatch.md").
+To determine which jobs need to be restarted manually, see the **FatalError** metric in [Monitor the Amazon Kinesis Video Streams Edge Agent with CloudWatch](monitoring-edge-cloudwatch.md "monitoring-edge-cloudwatch.md").
 
 Resend the [StartEdgeConfigurationUpdate](API_StartEdgeConfigurationUpdate.md "API_StartEdgeConfigurationUpdate.md") to restart the job
 for the stream.
 
-## How do I monitor the health of my
+## How do I monitor the health of my Amazon Kinesis Video Streams Edge Agent?
 
-Amazon Kinesis Video Streams Edge Agent?
-
-For more information, see [Monitor the Amazon Kinesis Video Streams Edge Agent with
-CloudWatch](monitoring-edge-cloudwatch.md "monitoring-edge-cloudwatch.md").
+For more information, see [Monitor the Amazon Kinesis Video Streams Edge Agent with CloudWatch](monitoring-edge-cloudwatch.md "monitoring-edge-cloudwatch.md").

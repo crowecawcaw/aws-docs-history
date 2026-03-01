@@ -1,6 +1,4 @@
-# Example: Sending data to Kinesis Video Streams using the PutMedia
-
-API
+# Example: Sending data to Kinesis Video Streams using the PutMedia API
 
 This example demonstrates how to use the [PutMedia](API_dataplane_PutMedia.md "API_dataplane_PutMedia.md") API. It shows how
 to send data that's already in a container format (MKV). If your data must be assembled
@@ -91,8 +89,7 @@ the following coding pattern:
 ###### Topics
 
 - [Create the PutMediaClient](#producersdk-javaapi-writecode-putmediaapi-putmediaclient "#producersdk-javaapi-writecode-putmediaapi-putmediaclient")
-- [Stream media and
-  pause the thread](#producersdk-javaapi-writecode-putmediaapi-run "#producersdk-javaapi-writecode-putmediaapi-run")
+- [Stream media and pause the thread](#producersdk-javaapi-writecode-putmediaapi-run "#producersdk-javaapi-writecode-putmediaapi-run")
 
 The code examples in this section are from the `PutMediaDemo`
 class.
@@ -159,9 +156,7 @@ final PutMediaClient client = PutMediaClient.builder()
         .build();
 ```
 
-### Stream media and
-
-pause the thread
+### Stream media and pause the thread
 
 After the client is created, the sample starts asynchronous streaming with
 `putMediaInBackground`. The main thread is then paused with

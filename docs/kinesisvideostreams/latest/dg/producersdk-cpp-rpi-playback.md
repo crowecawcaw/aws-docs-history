@@ -51,8 +51,7 @@ media appears, verify that your stream is being sent to the correct region and
 review the spelling of the stream name. You can find this information in the
 logs.
 
-See [Provide a region to
-kvssink](examples-gstreamer-plugin-parameters.md#kvssink-region "examples-gstreamer-plugin-parameters.md#kvssink-region") for more information on how kvssink determines which region to use.
+See [Provide a region to kvssink](examples-gstreamer-plugin-parameters.md#kvssink-region "examples-gstreamer-plugin-parameters.md#kvssink-region") for more information on how kvssink determines which region to use.
 
 ### The media takes a long time to load in the AWS Management Console
 

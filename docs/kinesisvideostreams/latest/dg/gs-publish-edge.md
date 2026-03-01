@@ -1,6 +1,4 @@
-# Install the AWS IoT Greengrass log manager component on the
-
-device
+# Install the AWS IoT Greengrass log manager component on the device
 
 ###### Note
 
@@ -169,6 +167,5 @@ If there was an error, revise the deployment to remove the
 Type `sudo service greengrass restart` to restart the AWS IoT Greengrass core
 service.
 
-If the deployment error was related to missing permissions, review [Add permissions to the token exchange service
-(TES) role](gs-add-permissions.md "gs-add-permissions.md") to make sure that the TES role has proper
+If the deployment error was related to missing permissions, review [Add permissions to the token exchange service (TES) role](gs-add-permissions.md "gs-add-permissions.md") to make sure that the TES role has proper
 permissions. Then, repeat this section.

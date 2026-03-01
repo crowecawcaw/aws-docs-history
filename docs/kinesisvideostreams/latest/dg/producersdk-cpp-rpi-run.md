@@ -4,10 +4,8 @@ To run the sample application, you need the following information:
 
 - The name of the stream you created in the [Prerequisites](producersdk-cpp-rpi-prerequisites.md "producersdk-cpp-rpi-prerequisites.md") section.
 - The account credentials (access key ID and secret access key) that you created
-  in [Create an IAM user with permission to write
-  to Kinesis Video Streams](producersdk-cpp-rpi-iam.md "producersdk-cpp-rpi-iam.md").
-- GStreamer is able to locate the `kvssink` plugin. See [Download and build the Kinesis Video Streams C++
-  producer SDK](producersdk-cpp-rpi-download.md "producersdk-cpp-rpi-download.md") for more information.
+  in [Create an IAM user with permission to write to Kinesis Video Streams](producersdk-cpp-rpi-iam.md "producersdk-cpp-rpi-iam.md").
+- GStreamer is able to locate the `kvssink` plugin. See [Download and build the Kinesis Video Streams C++ producer SDK](producersdk-cpp-rpi-download.md "producersdk-cpp-rpi-download.md") for more information.
 
 1. Set the credentials and region.
 
@@ -17,8 +15,7 @@ export AWS_SECRET_ACCESS_KEY=`YourSecretKey`
 export AWS_DEFAULT_REGION=`us-west-2`
 ```
 
-For other authentication methods, see [Provide credentials to
-kvssink](examples-gstreamer-plugin-parameters.md#credentials-to-kvssink "examples-gstreamer-plugin-parameters.md#credentials-to-kvssink").
+For other authentication methods, see [Provide credentials to kvssink](examples-gstreamer-plugin-parameters.md#credentials-to-kvssink "examples-gstreamer-plugin-parameters.md#credentials-to-kvssink").
 
 ###### Note
 
@@ -332,8 +329,7 @@ WARNING: erroneous pipeline: no element "videoconvert"
 
 Based on which element is missing, determine the appropriate action:
 
-- `kvssink`: See [Download and build the Kinesis Video Streams C++
-  producer SDK](producersdk-cpp-rpi-download.md "producersdk-cpp-rpi-download.md").
+- `kvssink`: See [Download and build the Kinesis Video Streams C++ producer SDK](producersdk-cpp-rpi-download.md "producersdk-cpp-rpi-download.md").
 - `libcamerasrc`: See ["Buffer pool activation failed" error](#rpi-troubleshoot-buffer "#rpi-troubleshoot-buffer") to install the `libcamerasrc` GStreamer element.
 - `omxh264enc` or `v4l2h264enc`:
 
@@ -412,8 +408,7 @@ Kinesis Video Streams PIC uses unaligned memory access to optimize memory usage,
 
 To use the SDK in aligned memory access mode, you need to explicitly set the
 `ALIGNED_MEMORY_MODEL` CMake flag to `ON` when compiling
-`kvssink`, since it defaults to `OFF`. See [Download and build the Kinesis Video Streams C++
-producer SDK](producersdk-cpp-rpi-download.md "producersdk-cpp-rpi-download.md") for more detailed instructions.
+`kvssink`, since it defaults to `OFF`. See [Download and build the Kinesis Video Streams C++ producer SDK](producersdk-cpp-rpi-download.md "producersdk-cpp-rpi-download.md") for more detailed instructions.
 
 ### Timestamp freezes and the pipeline stalls
 

@@ -16,8 +16,8 @@ ways:
 
 | Metric                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ArchivedFragmentsConsumed.Media`           | The number of fragment media quota points that were consumed by all of the APIs. For an<br>explanation of the concept of quota points, see [Fragment-metadata and fragment-media<br>quotas](limits.md#fragment_based_throttling "limits.md#fragment_based_throttling").Units:<br>Count                                                                                                                                                                                                                                                                  |
-| `ArchivedFragmentsConsumed.Metadata`        | The number of fragments metadata quota points that were consumed by all of the APIs. For<br>an explanation of the concept of quota points, see [Fragment-metadata and fragment-media<br>quotas](limits.md#fragment_based_throttling "limits.md#fragment_based_throttling").Units: Count                                                                                                                                                                                                                                                                 |
+| `ArchivedFragmentsConsumed.Media`           | The number of fragment media quota points that were consumed by all of the APIs. For an<br>explanation of the concept of quota points, see [Fragment-metadata and fragment-media quotas](limits.md#fragment_based_throttling "limits.md#fragment_based_throttling").Units:<br>Count                                                                                                                                                                                                                                                                     |
+| `ArchivedFragmentsConsumed.Metadata`        | The number of fragments metadata quota points that were consumed by all of the APIs. For<br>an explanation of the concept of quota points, see [Fragment-metadata and fragment-media quotas](limits.md#fragment_based_throttling "limits.md#fragment_based_throttling").Units: Count                                                                                                                                                                                                                                                                    |
 | `PutMedia.Requests`                         | The number of `PutMedia` API requests for a given stream.<br>Units: Count                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `PutMedia.IncomingBytes`                    | The number of bytes received as part of `PutMedia` for the stream.<br>Units: Bytes                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `PutMedia.IncomingFragments`                | The number of complete fragments received as part of `PutMedia` for the<br>stream.<br>Units: Count                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
@@ -84,26 +84,15 @@ CloudWatch metrics can help find answers to the following questions:
 
 ###### Topics
 
-- [Is data reaching the
-  Amazon Kinesis Video Streams service?](#monitoring-cloudwatch-guidance-incoming "#monitoring-cloudwatch-guidance-incoming")
-- [Why is data not being
-  successfully ingested by the Amazon Kinesis Video Streams service?](#monitoring-cloudwatch-guidance-errors "#monitoring-cloudwatch-guidance-errors")
-- [Why can't the data be read
-  from the Amazon Kinesis Video Streams service at the same rate as it's being sent from the
-  producer?](#monitoring-cloudwatch-guidance-rate "#monitoring-cloudwatch-guidance-rate")
-- [Why is there no video
-  in the console, or why is the video being played with a delay?](#monitoring-cloudwatch-guidance-novideo "#monitoring-cloudwatch-guidance-novideo")
-- [What is the delay in
-  reading real-time data, and why is the client lagging behind the head of the
-  stream?](#monitoring-cloudwatch-guidance-delay "#monitoring-cloudwatch-guidance-delay")
-- [Is the client reading
-  data out of the Kinesis video stream, and at what rate?](#monitoring-cloudwatch-guidance-isread "#monitoring-cloudwatch-guidance-isread")
-- [Why can't the client
-  read data out of the Kinesis video stream?](#monitoring-cloudwatch-guidance-noread "#monitoring-cloudwatch-guidance-noread")
+- [Is data reaching the Amazon Kinesis Video Streams service?](#monitoring-cloudwatch-guidance-incoming "#monitoring-cloudwatch-guidance-incoming")
+- [Why is data not being successfully ingested by the Amazon Kinesis Video Streams service?](#monitoring-cloudwatch-guidance-errors "#monitoring-cloudwatch-guidance-errors")
+- [Why can't the data be read from the Amazon Kinesis Video Streams service at the same rate as it's being sent from the producer?](#monitoring-cloudwatch-guidance-rate "#monitoring-cloudwatch-guidance-rate")
+- [Why is there no video in the console, or why is the video being played with a delay?](#monitoring-cloudwatch-guidance-novideo "#monitoring-cloudwatch-guidance-novideo")
+- [What is the delay in reading real-time data, and why is the client lagging behind the head of the stream?](#monitoring-cloudwatch-guidance-delay "#monitoring-cloudwatch-guidance-delay")
+- [Is the client reading data out of the Kinesis video stream, and at what rate?](#monitoring-cloudwatch-guidance-isread "#monitoring-cloudwatch-guidance-isread")
+- [Why can't the client read data out of the Kinesis video stream?](#monitoring-cloudwatch-guidance-noread "#monitoring-cloudwatch-guidance-noread")
 
-### Is data reaching the
-
-Amazon Kinesis Video Streams service?
+### Is data reaching the Amazon Kinesis Video Streams service?
 
 **Relevant metrics:**
 
@@ -119,9 +108,7 @@ Amazon Kinesis Video Streams service?
   insufficient, it could be slowing down the rate the service is receiving
   the data.
 
-### Why is data not being
-
-successfully ingested by the Amazon Kinesis Video Streams service?
+### Why is data not being successfully ingested by the Amazon Kinesis Video Streams service?
 
 **Relevant metrics:**
 
@@ -139,10 +126,7 @@ successfully ingested by the Amazon Kinesis Video Streams service?
   `PutMedia.ErrorAckCount`, look at the ack error code in the ack responses sent by the service
   to see why ingestion of data is failing. For more information, see [AckErrorCode.Values](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesisvideo/model/AckErrorCode.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesisvideo/model/AckErrorCode.md").
 
-### Why can't the data be read
-
-from the Amazon Kinesis Video Streams service at the same rate as it's being sent from the
-producer?
+### Why can't the data be read from the Amazon Kinesis Video Streams service at the same rate as it's being sent from the producer?
 
 **Relevant metrics:**
 
@@ -154,9 +138,7 @@ producer?
 - If there's a drop in these metrics, check the network bandwidth of your connections.
   Low-bandwidth connections could cause the data to reach the service at a lower rate.
 
-### Why is there no video
-
-in the console, or why is the video being played with a delay?
+### Why is there no video in the console, or why is the video being played with a delay?
 
 **Relevant metrics:**
 
@@ -178,10 +160,7 @@ in the console, or why is the video being played with a delay?
   persists for an extended period of time, check with your customer service contact to see if there's an
   issue with your service.
 
-### What is the delay in
-
-reading real-time data, and why is the client lagging behind the head of the
-stream?
+### What is the delay in reading real-time data, and why is the client lagging behind the head of the stream?
 
 **Relevant metrics:**
 
@@ -200,9 +179,7 @@ stream?
 - If there's an increase in `GetMedia.MillisBehindNow`, look at your bandwidth
   limits to see if you're receiving the data at a slower rate because of lower bandwidth.
 
-### Is the client reading
-
-data out of the Kinesis video stream, and at what rate?
+### Is the client reading data out of the Kinesis video stream, and at what rate?
 
 **Relevant metrics:**
 
@@ -218,9 +195,7 @@ data out of the Kinesis video stream, and at what rate?
 - These metrics indicate the rate at which real-time and archived data
   is being read.
 
-### Why can't the client
-
-read data out of the Kinesis video stream?
+### Why can't the client read data out of the Kinesis video stream?
 
 **Relevant metrics:**
 

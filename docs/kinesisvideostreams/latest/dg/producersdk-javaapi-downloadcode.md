@@ -1,6 +1,4 @@
-# Download and configure the Java
-
-producer library code
+# Download and configure the Java producer library code
 
 In this section of the Java producer library procedure, you download the Java example
 code, import the project into your Java IDE, and configure the library locations.

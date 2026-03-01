@@ -1,6 +1,4 @@
-# Create an AWS IoT thing and get AWS IoT Core
-
-credentials
+# Create an AWS IoT thing and get AWS IoT Core credentials
 
 At this point you've created:
 

@@ -47,5 +47,4 @@ Use the following API operations to configure the Amazon Kinesis Video Streams E
 
 ## Monitoring Amazon Kinesis Video Streams Edge Agent
 
-To monitor your Amazon Kinesis Video Streams Edge Agent, see [Monitor the Amazon Kinesis Video Streams Edge Agent with
-CloudWatch](monitoring-edge-cloudwatch.md "monitoring-edge-cloudwatch.md").
+To monitor your Amazon Kinesis Video Streams Edge Agent, see [Monitor the Amazon Kinesis Video Streams Edge Agent with CloudWatch](monitoring-edge-cloudwatch.md "monitoring-edge-cloudwatch.md").

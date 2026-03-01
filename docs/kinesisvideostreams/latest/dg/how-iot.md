@@ -38,8 +38,7 @@ Documentation](../../../iot.md "../../../iot.md"). For more information about IA
 - [Step 2: Create an IAM role to be assumed by AWS IoT](#how-iot-add-iot-policy "#how-iot-add-iot-policy")
 - [Step 3: Create and configure the X.509 certificate](#how-iot-create-cert-keys "#how-iot-create-cert-keys")
 - [Step 4: Test the AWS IoT credentials with your Kinesis video stream](#how-iot-test-it "#how-iot-test-it")
-- [Step 5: Deploying AWS IoT certificates and credentials on your camera's
-  file system and streaming data to your video stream](#how-iot-deploy "#how-iot-deploy")
+- [Step 5: Deploying AWS IoT certificates and credentials on your camera's file system and streaming data to your video stream](#how-iot-deploy "#how-iot-deploy")
 
 ### Step 1: Create an AWS IoT thing type and an AWS IoT thing
 
@@ -267,9 +266,7 @@ use to access the Kinesis Video Streams. 3. For your test, you can use these cre
 AWS_ACCESS_KEY_ID=$(jq --raw-output '.credentials.accessKeyId' token.json) AWS_SECRET_ACCESS_KEY=$(jq --raw-output '.credentials.secretAccessKey' token.json) AWS_SESSION_TOKEN=$(jq --raw-output '.credentials.sessionToken' token.json) aws kinesisvideo describe-stream --stream-name kvs_example_camera_stream
 ```
 
-### Step 5: Deploying AWS IoT certificates and credentials on your camera's
-
-file system and streaming data to your video stream
+### Step 5: Deploying AWS IoT certificates and credentials on your camera's file system and streaming data to your video stream
 
 ###### Note
 

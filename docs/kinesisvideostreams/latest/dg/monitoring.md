@@ -20,6 +20,5 @@ monitoring plan that includes answers to the following questions:
 ###### Topics
 
 - [Monitor Amazon Kinesis Video Streams metrics with CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
-- [Monitor the Amazon Kinesis Video Streams Edge Agent with
-  CloudWatch](monitoring-edge-cloudwatch.md "monitoring-edge-cloudwatch.md")
+- [Monitor the Amazon Kinesis Video Streams Edge Agent with CloudWatch](monitoring-edge-cloudwatch.md "monitoring-edge-cloudwatch.md")
 - [Log Amazon Kinesis Video Streams API calls with AWS CloudTrail](monitoring-cloudtrail.md "monitoring-cloudtrail.md")

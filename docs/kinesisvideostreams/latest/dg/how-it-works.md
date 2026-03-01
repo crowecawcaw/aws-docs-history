@@ -2,8 +2,7 @@
 
 ###### Topics
 
-- [Kinesis Video Streams API and producer libraries
-  support](how-it-works-kinesis-video-api-producer-sdk.md "how-it-works-kinesis-video-api-producer-sdk.md")
+- [Kinesis Video Streams API and producer libraries support](how-it-works-kinesis-video-api-producer-sdk.md "how-it-works-kinesis-video-api-producer-sdk.md")
 - [Kinesis Video Streams data model](how-data.md "how-data.md")
   You can use Amazon Kinesis Video Streams, a fully managed AWS service, to stream live video from devices to the AWS Cloud
   and durably store it. You can then build your own applications for real-time video processing or perform

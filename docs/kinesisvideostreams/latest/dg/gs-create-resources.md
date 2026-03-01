@@ -1,6 +1,4 @@
-# Create the Amazon Kinesis Video Streams and
-
-AWS Secrets Manager resources for your IP camera RTSP URLs
+# Create the Amazon Kinesis Video Streams and AWS Secrets Manager resources for your IP camera RTSP URLs
 
 Follow these procedures to create the streams and secrets needed in
 AWS Secrets Manager. Do this step first, because you need the ARNs of the

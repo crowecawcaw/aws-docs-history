@@ -63,8 +63,7 @@ encoding complexity (when the frame size is larger due to high motion) or when t
 producer reaches memory pressure, it emits storage overflow pressure callbacks
 (`StorageOverflowPressureFunc`). However, when no memory is available in the content store, it
 drops the frame that’s being pushed into Kinesis Video Streams with an error (`STATUS_STORE_OUT_OF_MEMORY =
- 0x5200002e`). For more information, see [Error and status codes returned by the client
-library](producer-sdk-errors.md#producer-sdk-errors-client "producer-sdk-errors.md#producer-sdk-errors-client"). This can also happen if the application acknowledgements (ACKs)
+ 0x5200002e`). For more information, see [Error and status codes returned by the client library](producer-sdk-errors.md#producer-sdk-errors-client "producer-sdk-errors.md#producer-sdk-errors-client"). This can also happen if the application acknowledgements (ACKs)
 are not available, or the persisted ACKs are delayed. In this case, the buffers fill to the "buffer duration"
 capacity before the previous frames start dropping out.
 

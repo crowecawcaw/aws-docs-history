@@ -4,8 +4,7 @@ Before you can start using the Amazon Kinesis Video Streams producer SDK, you ne
 
 ###### Note
 
-For a list of supported operating systems, see [What operating systems does Amazon Kinesis Video Streams Edge Agent
-support?](edge-faq.md#edge-faq-os "edge-faq.md#edge-faq-os").
+For a list of supported operating systems, see [What operating systems does Amazon Kinesis Video Streams Edge Agent support?](edge-faq.md#edge-faq-os "edge-faq.md#edge-faq-os").
 
 ###### Install dependencies on the device
 

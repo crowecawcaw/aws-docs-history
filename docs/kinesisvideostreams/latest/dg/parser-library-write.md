@@ -167,9 +167,7 @@ This class performs the following operations:
 - Uses a [StreamingMkvReader](#parser-library-write-SMSR "#parser-library-write-SMSR") to parse the returned
   fragments on the stream, and uses a [FragmentMetadataVisitor](#parser-library-write-FMV "#parser-library-write-FMV") to log the fragments.
 
-### Delete and recreate the
-
-stream
+### Delete and recreate the stream
 
 The following code example (from the `StreamOps.java` file) deletes
 a given Kinesis video stream:
@@ -220,9 +218,7 @@ GetMediaResult result = videoMedia.getMedia(new GetMediaRequest().withStreamName
 This section describes how to use [StreamingMkvReader](#parser-library-write-SMSR "#parser-library-write-SMSR"), [FragmentMetadataVisitor](#parser-library-write-FMV "#parser-library-write-FMV") and `CompositeMkvElementVisitor` to parse, save to file, and log
 the data returned from `GetMedia`.
 
-#### Read the output of
-
-GetMedia with StreamingMkvReader
+#### Read the output of GetMedia with StreamingMkvReader
 
 The following code example (from the `GetMediaWorker.java`
 file) creates a [StreamingMkvReader](#parser-library-write-SMSR "#parser-library-write-SMSR") and uses it to parse the
@@ -243,9 +239,7 @@ In the preceding code example, the [StreamingMkvReader](#parser-library-write-SM
 `GetMedia` result. In the next section, the elements are
 passed to a [FragmentMetadataVisitor](#parser-library-write-FMV "#parser-library-write-FMV").
 
-#### Retrieve fragments with
-
-FragmentMetadataVisitor
+#### Retrieve fragments with FragmentMetadataVisitor
 
 The following code examples (from the
 `KinesisVideoExample.java` and
@@ -271,9 +265,7 @@ if (mkvElementOptional.isPresent()) {
         }
 ```
 
-#### Log the elements
-
-and write them to a file
+#### Log the elements and write them to a file
 
 The following code example (from the `KinesisVideoExample.java`
 file) creates the following objects and returns them as part of the return

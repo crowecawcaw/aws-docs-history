@@ -1,6 +1,4 @@
-# Download and configure the Android
-
-producer library code
+# Download and configure the Android producer library code
 
 In this section of the Android producer library procedure, you download the Android
 example code and open the project in Android Studio.

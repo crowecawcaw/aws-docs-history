@@ -48,14 +48,10 @@ Kinesis Video Streams.
 ###### Issues
 
 - [Error: "Unknown options"](#troubleshooting-api-unknown-options "#troubleshooting-api-unknown-options")
-- [Error: "Unable to determine
-  service/operation name to be authorized"](#troubleshooting-api-name-auth "#troubleshooting-api-name-auth")
-- [Error: "Failed to put a frame in the
-  stream"](#troubleshooting-api-putframe "#troubleshooting-api-putframe")
-- [Error: "Service closed
-  connection before final AckEvent was received"](#troubleshooting-api-closeconnection "#troubleshooting-api-closeconnection")
-- [Error:
-  "STATUS_STORE_OUT_OF_MEMORY"](#troubleshooting-api-storeoutofmemory "#troubleshooting-api-storeoutofmemory")
+- [Error: "Unable to determine service/operation name to be authorized"](#troubleshooting-api-name-auth "#troubleshooting-api-name-auth")
+- [Error: "Failed to put a frame in the stream"](#troubleshooting-api-putframe "#troubleshooting-api-putframe")
+- [Error: "Service closed connection before final AckEvent was received"](#troubleshooting-api-closeconnection "#troubleshooting-api-closeconnection")
+- [Error: "STATUS_STORE_OUT_OF_MEMORY"](#troubleshooting-api-storeoutofmemory "#troubleshooting-api-storeoutofmemory")
 - [Error: "Credential should be scoped to a valid region."](#troubleshoot-api-credential "#troubleshoot-api-credential")
 
 ### Error: "Unknown options"
@@ -72,9 +68,7 @@ This error occurs if you configured the AWS CLI with an `output` type of
 (`none`). For information about configuring the AWS CLI, see [configure](../../../cli/latest/reference/configure.md "../../../cli/latest/reference/configure.md") in the
 _AWS CLI Command Reference_.
 
-### Error: "Unable to determine
-
-service/operation name to be authorized"
+### Error: "Unable to determine service/operation name to be authorized"
 
 `GetMedia` can fail with the following error:
 
@@ -93,9 +87,7 @@ called:
 --api-name LIST_FRAGMENTS
 ```
 
-### Error: "Failed to put a frame in the
-
-stream"
+### Error: "Failed to put a frame in the stream"
 
 `PutMedia` can fail with the following error:
 
@@ -113,9 +105,7 @@ aws kinesisvideo describe-stream --stream-name `StreamName` --endpoint `https://
 
 If the call fails, see [Troubleshooting AWS CLI Errors](../../../cli/latest/userguide/troubleshooting.md "../../../cli/latest/userguide/troubleshooting.md") for more information.
 
-### Error: "Service closed
-
-connection before final AckEvent was received"
+### Error: "Service closed connection before final AckEvent was received"
 
 `PutMedia` can fail with the following error:
 
@@ -126,9 +116,7 @@ com.amazonaws.SdkClientException: Service closed connection before final AckEven
 This error might occur if `PushbackInputStream` is improperly implemented. Verify that the
 `unread()` methods are correctly implemented.
 
-### Error:
-
-"STATUS_STORE_OUT_OF_MEMORY"
+### Error: "STATUS_STORE_OUT_OF_MEMORY"
 
 `PutMedia` can fail with the following error:
 
@@ -207,36 +195,21 @@ This section describes issues that you might encounter when using the [Upload to
 ###### Issues
 
 - [Cannot compile the producer SDK](#troubleshooting-producer-compile "#troubleshooting-producer-compile")
-- [Video stream does not appear in the
-  console](#troubleshooting-producer-console "#troubleshooting-producer-console")
-- [Error: "Security
-  token included in the request is invalid" when streaming data using the
-  GStreamer demo application](#troubleshooting-producer-general-securitytoken "#troubleshooting-producer-general-securitytoken")
-- [Error: "Failed to
-  submit frame to Kinesis Video client"](#troubleshooting-producer-failed-frame-client "#troubleshooting-producer-failed-frame-client")
-- [GStreamer application
-  stops with "streaming stopped, reason not-negotiated" message on OS X](#troubleshooting-producer-failed-stream-osx "#troubleshooting-producer-failed-stream-osx")
-- [Error: "Failed to
-  allocate heap" when creating Kinesis Video Client in GStreamer demo on Raspberry
-  Pi](#troubleshooting-producer-raspberrypi-heap "#troubleshooting-producer-raspberrypi-heap")
-- [Error:
-  "Illegal Instruction" when running GStreamer demo on Raspberry Pi](#troubleshooting-producer-raspberrypi-illegalinstruction "#troubleshooting-producer-raspberrypi-illegalinstruction")
-- [Camera fails to load
-  on Raspberry Pi](#troubleshooting-producer-raspberrypi-camera "#troubleshooting-producer-raspberrypi-camera")
-- [Camera can't be found on
-  macOS High Sierra](#troubleshooting-producer-sierra-camera "#troubleshooting-producer-sierra-camera")
-- [jni.h file not found when
-  compiling on macOS High Sierra](#troubleshooting-producer-sierra-compile "#troubleshooting-producer-sierra-compile")
-- [Curl errors when running the
-  GStreamer demo application](#troubleshooting-producer-curl "#troubleshooting-producer-curl")
+- [Video stream does not appear in the console](#troubleshooting-producer-console "#troubleshooting-producer-console")
+- [Error: "Security token included in the request is invalid" when streaming data using the GStreamer demo application](#troubleshooting-producer-general-securitytoken "#troubleshooting-producer-general-securitytoken")
+- [Error: "Failed to submit frame to Kinesis Video client"](#troubleshooting-producer-failed-frame-client "#troubleshooting-producer-failed-frame-client")
+- [GStreamer application stops with "streaming stopped, reason not-negotiated" message on OS X](#troubleshooting-producer-failed-stream-osx "#troubleshooting-producer-failed-stream-osx")
+- [Error: "Failed to allocate heap" when creating Kinesis Video Client in GStreamer demo on Raspberry Pi](#troubleshooting-producer-raspberrypi-heap "#troubleshooting-producer-raspberrypi-heap")
+- [Error: "Illegal Instruction" when running GStreamer demo on Raspberry Pi](#troubleshooting-producer-raspberrypi-illegalinstruction "#troubleshooting-producer-raspberrypi-illegalinstruction")
+- [Camera fails to load on Raspberry Pi](#troubleshooting-producer-raspberrypi-camera "#troubleshooting-producer-raspberrypi-camera")
+- [Camera can't be found on macOS High Sierra](#troubleshooting-producer-sierra-camera "#troubleshooting-producer-sierra-camera")
+- [jni.h file not found when compiling on macOS High Sierra](#troubleshooting-producer-sierra-compile "#troubleshooting-producer-sierra-compile")
+- [Curl errors when running the GStreamer demo application](#troubleshooting-producer-curl "#troubleshooting-producer-curl")
 - [Timestamp/range assertion at runtime on Raspberry Pi](#troubleshooting-producer-raspberrypi-timestamp-assert "#troubleshooting-producer-raspberrypi-timestamp-assert")
-- [Assertion on
-  gst_value_set_fraction_range_full on Raspberry Pi](#troubleshooting-producer-raspberrypi-gst-assert "#troubleshooting-producer-raspberrypi-gst-assert")
-- [STATUS_MKV_INVALID_ANNEXB_NALU_IN_FRAME_DATA (0x3200000d) error on
-  Android](#troubleshooting-producer-android-invalid-annexb "#troubleshooting-producer-android-invalid-annexb")
+- [Assertion on gst_value_set_fraction_range_full on Raspberry Pi](#troubleshooting-producer-raspberrypi-gst-assert "#troubleshooting-producer-raspberrypi-gst-assert")
+- [STATUS_MKV_INVALID_ANNEXB_NALU_IN_FRAME_DATA (0x3200000d) error on Android](#troubleshooting-producer-android-invalid-annexb "#troubleshooting-producer-android-invalid-annexb")
 - [Maximum fragment duration was reached error](#troubleshooting-producer-maxfragmentduration "#troubleshooting-producer-maxfragmentduration")
-- ["Invalid thing name passed" error
-  when using IoT authorization](#troubleshooting-producer-thingname "#troubleshooting-producer-thingname")
+- ["Invalid thing name passed" error when using IoT authorization](#troubleshooting-producer-thingname "#troubleshooting-producer-thingname")
 
 ### Cannot compile the producer SDK
 
@@ -248,9 +221,7 @@ env | grep LD_LIBRARY_PATH
 LD_LIBRARY_PATH=/home/local/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp/kinesis-video-native-build/downloads/local/lib
 ```
 
-### Video stream does not appear in the
-
-console
+### Video stream does not appear in the console
 
 To display your video stream in the console, it must be encoded using H.264 in
 AvCC format. If your stream is not displayed, verify the following:
@@ -276,10 +247,7 @@ AvCC format. Unless the media pipeline gives the CPD separately, the application
 the frame by looking for the first Idr frame (which should contain the SPS and PPS), extract the two NALUs
 (which will be Ab(Sps)Ab(Pps)) and set it in the CPD in `StreamDefinition`.
 
-### Error: "Security
-
-token included in the request is invalid" when streaming data using the
-GStreamer demo application
+### Error: "Security token included in the request is invalid" when streaming data using the GStreamer demo application
 
 If this error occurs, there is an issue with your credentials. Verify the
 following:
@@ -291,9 +259,7 @@ following:
 - On macOS, verify that you do not have credentials cached in
   Keychain.
 
-### Error: "Failed to
-
-submit frame to Kinesis Video client"
+### Error: "Failed to submit frame to Kinesis Video client"
 
 If this error occurs, the timestamps are not properly set in the source stream.
 Try the following:
@@ -303,9 +269,7 @@ Try the following:
 - Set the high-quality stream to a higher bitrate, and fix any jitter in the source stream if
   the camera supports doing so.
 
-### GStreamer application
-
-stops with "streaming stopped, reason not-negotiated" message on OS X
+### GStreamer application stops with "streaming stopped, reason not-negotiated" message on OS X
 
 Streaming may stop on OS X with the following message:
 
@@ -328,10 +292,7 @@ GstCaps *h264_caps = gst_caps_new_simple("video/x-h264",
                                              NULL);
 ```
 
-### Error: "Failed to
-
-allocate heap" when creating Kinesis Video Client in GStreamer demo on Raspberry
-Pi
+### Error: "Failed to allocate heap" when creating Kinesis Video Client in GStreamer demo on Raspberry Pi
 
 The GStreamer sample application tries to allocate 512 MB of RAM, which might not
 be available on your system. You can reduce this allocation by reducing the
@@ -341,9 +302,7 @@ following value in `KinesisVideoProducer.cpp`:
 device_info.storageInfo.storageSize = `512` * 1024 * 1024;
 ```
 
-### Error:
-
-"Illegal Instruction" when running GStreamer demo on Raspberry Pi
+### Error: "Illegal Instruction" when running GStreamer demo on Raspberry Pi
 
 If you encounter the following error when running the GStreamer demo, verify that you have compiled
 the application for the correct version of your device. (For example, verify that you're not compiling for
@@ -354,9 +313,7 @@ INFO - Initializing curl.
 Illegal instruction
 ```
 
-### Camera fails to load
-
-on Raspberry Pi
+### Camera fails to load on Raspberry Pi
 
 To check whether the camera is loaded, run the following:
 
@@ -399,23 +356,17 @@ sudo modprobe bcm2835-v4l2
 ls /dev/video*
 ```
 
-### Camera can't be found on
-
-macOS High Sierra
+### Camera can't be found on macOS High Sierra
 
 On macOS High Sierra, the demo application can't find the camera if more than one
 camera is available.
 
-### jni.h file not found when
-
-compiling on macOS High Sierra
+### jni.h file not found when compiling on macOS High Sierra
 
 To resolve this error, update your installation of Xcode to the latest
 version.
 
-### Curl errors when running the
-
-GStreamer demo application
+### Curl errors when running the GStreamer demo application
 
 To resolve curl errors when you run the GStreamer demo application, copy [this certificate
 file](https://www.amazontrust.com/repository/SFSRootCAG2.pem "https://www.amazontrust.com/repository/SFSRootCAG2.pem") to `/etc/ssl/cert.pem`.
@@ -430,9 +381,7 @@ sudo rpi-update
 $ sudo reboot
 ```
 
-### Assertion on
-
-gst_value_set_fraction_range_full on Raspberry Pi
+### Assertion on gst_value_set_fraction_range_full on Raspberry Pi
 
 The following assertion appears if the `uv4l` service is running:
 
@@ -443,9 +392,7 @@ gst_util_fraction_compare (numerator_start, denominator_start, numerator_end, de
 If this occurs, stop the `uv4l` service and restart the
 application.
 
-### STATUS_MKV_INVALID_ANNEXB_NALU_IN_FRAME_DATA (0x3200000d) error on
-
-Android
+### STATUS_MKV_INVALID_ANNEXB_NALU_IN_FRAME_DATA (0x3200000d) error on Android
 
 The following error appears if the [NAL adaptation flags](producer-reference-nal.md "producer-reference-nal.md") are incorrect for the media
 stream:
@@ -481,15 +428,12 @@ To resolve this issue, try the following:
   seconds.
 - If you're using an IP (RTSP) camera, set the GOP size to 60.
 
-### "Invalid thing name passed" error
-
-when using IoT authorization
+### "Invalid thing name passed" error when using IoT authorization
 
 To avoid this error (`HTTP Error 403: Response: {"message":"Invalid thing name passed"}`)
 when you're using IoT credentials for authorization, make sure that the value of `stream-name` (a
 required parameter of the `kvssink` element) is identical to the value of `iot-thingname`.
-For more information, see [GStreamer element parameter
-reference](examples-gstreamer-plugin-parameters.md "examples-gstreamer-plugin-parameters.md").
+For more information, see [GStreamer element parameter reference](examples-gstreamer-plugin-parameters.md "examples-gstreamer-plugin-parameters.md").
 
 ## Stream parser library issues
 
@@ -497,13 +441,10 @@ This section describes issues that you might encounter when using the [Stream us
 
 ###### Issues
 
-- [Cannot access a single frame from the
-  stream](#troubleshooting-parser-frame "#troubleshooting-parser-frame")
+- [Cannot access a single frame from the stream](#troubleshooting-parser-frame "#troubleshooting-parser-frame")
 - [Fragment decoding error](#troubleshooting-parser-fragment "#troubleshooting-parser-fragment")
 
-### Cannot access a single frame from the
-
-stream
+### Cannot access a single frame from the stream
 
 To access a single frame from a streaming source in your consumer application, verify that your stream
 contains the correct codec private data. For information about the format of the data in a stream, see [Data model](how-data.md "how-data.md").

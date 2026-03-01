@@ -1,6 +1,4 @@
-# Create an IAM user with permission to write
-
-to Kinesis Video Streams
+# Create an IAM user with permission to write to Kinesis Video Streams
 
 If you haven't already done so, set up an AWS Identity and Access Management (IAM) user with permissions to
 write to a Kinesis video stream.

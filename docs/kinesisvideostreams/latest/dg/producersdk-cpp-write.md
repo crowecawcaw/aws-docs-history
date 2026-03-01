@@ -15,9 +15,7 @@ following coding pattern:
   frame of data, as it becomes available, to send it to the stream.
   The following sections provide more information about this coding pattern.
 
-## Create an instance of
-
-KinesisVideoProducer
+## Create an instance of KinesisVideoProducer
 
 You create the `KinesisVideoProducer` object by calling the
 `KinesisVideoProducer::createSync` method. The following example
@@ -64,9 +62,7 @@ Mb\*\*.
   credential environment variables.
 - The AWS Region ("us-west-2"). The service endpoint is determined from the Region.
 
-## Create an instance of
-
-KinesisVideoStream
+## Create an instance of KinesisVideoStream
 
 You create the `KinesisVideoStream` object by calling the
 `KinesisVideoProducer::CreateStream` method with a
@@ -108,9 +104,7 @@ The `StreamDefinition` object has the following fields:
 - Whether the media uses timecodes.
 - Whether the media uses absolute fragment times.
 
-## Add an audio track
-
-to the Kinesis video stream
+## Add an audio track to the Kinesis video stream
 
 You can add audio track details to a video track stream definition by using the
 `addTrack` method of the `StreamDefinition`:
@@ -131,9 +125,7 @@ calling the addTrack function. You can also send the codec private data after
 creating the KinesisVideoStream object while calling the start method in
 KinesisVideoStream.
 
-## Put a frame into the
-
-Kinesis video stream
+## Put a frame into the Kinesis video stream
 
 You put media into the Kinesis video stream using `KinesisVideoStream::putFrame`,
 passing in a `Frame` object that contains the header and media data. The
@@ -181,9 +173,7 @@ The `Frame` object has the following fields:
 
 For more information about the format of the frame, see [Kinesis Video Streams data model](how-data.md "how-data.md").
 
-## Put a
-
-KinesisVideoFrame into a specific track of KinesisVideoStream
+## Put a KinesisVideoFrame into a specific track of KinesisVideoStream
 
 You can use the `PutFrameHelper` class to put frame data into a specific track. First, call the
 `getFrameDataBuffer` to get a pointer to one of the pre-allocated buffers to fill in the `KinesisVideoFrame` data.
@@ -200,9 +190,7 @@ The `PutFrameHelper` has the following fields:
 - Size to allocate for a single audio frame.
 - Size to allocate for a single video frame.
 
-## Access metrics and metric
-
-logging
+## Access metrics and metric logging
 
 The C++ producer SDK includes functionality for metrics and metric logging.
 

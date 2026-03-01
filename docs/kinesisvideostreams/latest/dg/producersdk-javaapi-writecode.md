@@ -14,9 +14,7 @@ pattern:
   client.
   The following sections provide details.
 
-## Create an instance
-
-of KinesisVideoClient
+## Create an instance of KinesisVideoClient
 
 You create the `KinesisVideoClient` object by calling the
 `createKinesisVideoClient` operation.
@@ -40,9 +38,7 @@ aws_access_key_id = ABCDEFGHIJKLMOPQRSTU
 aws_secret_access_key = AbCd1234EfGh5678IjKl9012MnOp3456QrSt7890
 ```
 
-## Create an
-
-instance of MediaSource
+## Create an instance of MediaSource
 
 To send bytes to your Kinesis video stream, you must produce the data. Amazon Kinesis Video Streams provides the
 `MediaSource` interface, which represents the data source.
@@ -56,9 +52,7 @@ Kinesis video stream, but you can use it for testing the code.
 final MediaSource bytesMediaSource = createImageFileMediaSource();
 ```
 
-## Register the
-
-MediaSource with the client
+## Register the MediaSource with the client
 
 Register the media source that you created with the
 `KinesisVideoClient` so that it knows about the client (and can then
@@ -68,9 +62,7 @@ send data to the client).
 kinesisVideoClient.registerMediaSource(mediaSource);
 ```
 
-## Start the media
-
-source
+## Start the media source
 
 Start the media source so that it can begin generating data and send it to the client.
 

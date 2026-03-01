@@ -33,10 +33,8 @@ in the following players:
 ###### Topics
 
 - [Set up the Kinesis Video Streams client for MPEG-DASH playback](#dash-example-setup "#dash-example-setup")
-- [Retrieve the Kinesis Video Streams archived content
-  endpoint for MPEG-DASH playback](#dash-example-endpoint "#dash-example-endpoint")
-- [Retrieve the MPEG-DASH streaming session
-  URL](#dash-example-session "#dash-example-session")
+- [Retrieve the Kinesis Video Streams archived content endpoint for MPEG-DASH playback](#dash-example-endpoint "#dash-example-endpoint")
+- [Retrieve the MPEG-DASH streaming session URL](#dash-example-session "#dash-example-session")
 - [Display the streaming video with MPEG-DASH playback](#dash-example-display "#dash-example-display")
 - [Completed example](#dash-example-complete "#dash-example-complete")
 
@@ -64,9 +62,7 @@ var kinesisVideoArchivedContent = new AWS.KinesisVideoArchivedMedia(options);
 
 ```
 
-### Retrieve the Kinesis Video Streams archived content
-
-endpoint for MPEG-DASH playback
+### Retrieve the Kinesis Video Streams archived content endpoint for MPEG-DASH playback
 
 After the clients are initiated, retrieve the Kinesis Video Streams archived content endpoint
 so that you can retrieve the MPEG-DASH streaming session URL as follows:
@@ -85,9 +81,7 @@ kinesisVideo.getDataEndpoint({
 
 ```
 
-### Retrieve the MPEG-DASH streaming session
-
-URL
+### Retrieve the MPEG-DASH streaming session URL
 
 When you have the archived content endpoint, call the [GetDASHStreamingSessionURL](API_reader_GetDASHStreamingSessionURL.md "API_reader_GetDASHStreamingSessionURL.md") API to retrieve the MPEG-DASH streaming
 session URL as follows:

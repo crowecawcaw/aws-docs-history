@@ -13,9 +13,7 @@ data to your Kinesis video stream:
 
 When you want to start streaming, you must create a custom media source.
 
-## Procedure: Use the Android producer
-
-SDK
+## Procedure: Use the Android producer SDK
 
 This procedure demonstrates how to use the Kinesis Video Streams Android producer client in your
 Android application to send data to your Kinesis video stream.
@@ -23,7 +21,6 @@ Android application to send data to your Kinesis video stream.
 The procedure includes the following steps:
 
 - [Prerequisites](producersdk-android-prerequisites.md "producersdk-android-prerequisites.md")
-- [Download and configure the Android
-  producer library code](producersdk-android-downloadcode.md "producersdk-android-downloadcode.md")
+- [Download and configure the Android producer library code](producersdk-android-downloadcode.md "producersdk-android-downloadcode.md")
 - [Examine the code](producersdk-android-writecode.md "producersdk-android-writecode.md")
 - [Run and verify the code](producersdk-android-reviewcode.md "producersdk-android-reviewcode.md")

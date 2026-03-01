@@ -1,12 +1,9 @@
-# Example: Parsing and rendering Kinesis Video Streams
-
-fragments
+# Example: Parsing and rendering Kinesis Video Streams fragments
 
 The [Stream using parser library](parser-library.md "parser-library.md") contains a
 demo application named `KinesisVideoRendererExample` that demonstrates
 parsing and rendering Amazon Kinesis video stream fragments. The example uses [JCodec](http://jcodec.org/ "http://jcodec.org/") to decode the H.264 encoded frames that are
-ingested using the [Example: Kinesis Video Streams producer SDK GStreamer
-Plugin - kvssink](examples-gstreamer-plugin.md "examples-gstreamer-plugin.md") application. After the frame is decoded
+ingested using the [Example: Kinesis Video Streams producer SDK GStreamer Plugin - kvssink](examples-gstreamer-plugin.md "examples-gstreamer-plugin.md") application. After the frame is decoded
 using JCodec, the visible image is rendered using [JFrame](https://docs.oracle.com/javase/7/docs/api/javax/swing/JFrame.html "https://docs.oracle.com/javase/7/docs/api/javax/swing/JFrame.html").
 
 This example shows how to do the following:
@@ -88,10 +85,8 @@ git clone https://github.com/aws/amazon-kinesis-video-streams-parser-library
 ###### The example application demonstrates the following:
 
 - [Sending MKV data](#examples-renderer-howitworks-send "#examples-renderer-howitworks-send")
-- [Parsing MKV fragments into
-  frames](#examples-renderer-howitworks-parse "#examples-renderer-howitworks-parse")
-- [Decoding and displaying
-  the frame](#examples-renderer-howitworks-display "#examples-renderer-howitworks-display")
+- [Parsing MKV fragments into frames](#examples-renderer-howitworks-parse "#examples-renderer-howitworks-parse")
+- [Decoding and displaying the frame](#examples-renderer-howitworks-display "#examples-renderer-howitworks-display")
 
 ### Sending MKV data
 
@@ -114,9 +109,7 @@ executorService.submit(putMediaWorker);
 For information about the `PutMediaWorker` class, see [Call PutMedia](parser-library-write.md#parser-library-write-example-putmedia "parser-library-write.md#parser-library-write-example-putmedia") in the [Stream using parser library](parser-library.md "parser-library.md")
 documentation.
 
-### Parsing MKV fragments into
-
-frames
+### Parsing MKV fragments into frames
 
 The example then retrieves and parses the MKV fragments from the stream using
 a `GetMediaWorker`:
@@ -134,9 +127,7 @@ executorService.submit(getMediaWorker);
 For more information about the `GetMediaWorker` class, see [Call GetMedia](parser-library-write.md#parser-library-write-example-getmedia "parser-library-write.md#parser-library-write-example-getmedia") in the [Stream using parser library](parser-library.md "parser-library.md")
 documentation.
 
-### Decoding and displaying
-
-the frame
+### Decoding and displaying the frame
 
 The example then decodes and displays the frame using [JFrame](https://docs.oracle.com/javase/7/docs/api/javax/swing/JFrame.html "https://docs.oracle.com/javase/7/docs/api/javax/swing/JFrame.html").
 

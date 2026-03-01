@@ -202,12 +202,10 @@ The application retrieves these values from the input boxes on the HTML page and
 
 - [Import the AWS SDK for JavaScript for browsers](#how-hls-ex1-import "#how-hls-ex1-import")
 - [Set up the Kinesis Video Streams client](#how-hls-ex1-setup "#how-hls-ex1-setup")
-- [Retrieve the endpoint for HLS
-  playback](#how-hls-ex1-endpoint "#how-hls-ex1-endpoint")
+- [Retrieve the endpoint for HLS playback](#how-hls-ex1-endpoint "#how-hls-ex1-endpoint")
 - [Set up the Kinesis Video Streams archived media client](#how-hls-ex1-session "#how-hls-ex1-session")
 - [Retrieve the HLS streaming session URL](#how-hls-ex1-retrieve-url "#how-hls-ex1-retrieve-url")
-- [Display the HLS stream on the web
-  page](#how-hls-ex1-display "#how-hls-ex1-display")
+- [Display the HLS stream on the web page](#how-hls-ex1-display "#how-hls-ex1-display")
 
 ### Import the AWS SDK for JavaScript for browsers
 
@@ -237,9 +235,7 @@ const kinesisVideoClient = new AWS.KinesisVideo(clientConfig);
 
 The application retrieves the necessary values from input boxes on the HTML page.
 
-### Retrieve the endpoint for HLS
-
-playback
+### Retrieve the endpoint for HLS playback
 
 Use the Kinesis Video Streams client to invoke the [GetDataEndpoint](API_GetDataEndpoint.md "API_GetDataEndpoint.md") API to retrieve the
 endpoint.
@@ -287,9 +283,7 @@ const getHLSStreamingSessionURLResponse = await kinesisVideoArchivedMediaClient
 const hlsUrl = getHLSStreamingSessionURLResponse.HLSStreamingSessionURL;
 ```
 
-### Display the HLS stream on the web
-
-page
+### Display the HLS stream on the web page
 
 When you have the HLS streaming session URL, provide it to the video player.
 The method for providing the URL to the video player is specific to the player
@@ -379,14 +373,10 @@ This section describes issues that you might encounter when using HTTP Live Stre
 
 ###### Issues
 
-- [Retrieving HLS streaming session URL
-  succeeds, but playback fails in video player](#troubleshooting-hls-playback "#troubleshooting-hls-playback")
-- [Latency too high between producer and
-  player](#troubleshooting-hls-latency "#troubleshooting-hls-latency")
+- [Retrieving HLS streaming session URL succeeds, but playback fails in video player](#troubleshooting-hls-playback "#troubleshooting-hls-playback")
+- [Latency too high between producer and player](#troubleshooting-hls-latency "#troubleshooting-hls-latency")
 
-### Retrieving HLS streaming session URL
-
-succeeds, but playback fails in video player
+### Retrieving HLS streaming session URL succeeds, but playback fails in video player
 
 This situation occurs when you can successfully retrieve an HLS streaming session
 URL using `GetHLSStreamingSessionURL`, but the video fails to play back
@@ -421,9 +411,7 @@ To troubleshoot this situation, try the following:
   that the encoder settings (resolution and frame rate) are not changing between fragments in each
   track.
 
-### Latency too high between producer and
-
-player
+### Latency too high between producer and player
 
 This situation occurs when the latency is too high from when the video is captured
 to when it is played in the video player.

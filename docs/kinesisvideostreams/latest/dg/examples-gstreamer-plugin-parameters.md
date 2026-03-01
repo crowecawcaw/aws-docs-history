@@ -1,25 +1,17 @@
-# GStreamer element parameter
-
-reference
+# GStreamer element parameter reference
 
 To send video to the Amazon Kinesis Video Streams producer C++ SDK, you specify `kvssink`
 as the _sink_, or final destination of the pipeline. This
 reference provides information about `kvssink` required and optional
-parameters. For more information, see [Example: Kinesis Video Streams producer SDK GStreamer
-Plugin - kvssink](examples-gstreamer-plugin.md "examples-gstreamer-plugin.md").
+parameters. For more information, see [Example: Kinesis Video Streams producer SDK GStreamer Plugin - kvssink](examples-gstreamer-plugin.md "examples-gstreamer-plugin.md").
 
 **Topics**
 
-- [Provide credentials to
-  kvssink](#credentials-to-kvssink "#credentials-to-kvssink")
-- [Provide a region to
-  kvssink](#kvssink-region "#kvssink-region")
-- [kvssink optional
-  parameters](#kvssink-optional-parameters "#kvssink-optional-parameters")
+- [Provide credentials to kvssink](#credentials-to-kvssink "#credentials-to-kvssink")
+- [Provide a region to kvssink](#kvssink-region "#kvssink-region")
+- [kvssink optional parameters](#kvssink-optional-parameters "#kvssink-optional-parameters")
 
-## Provide credentials to
-
-`kvssink`
+## Provide credentials to `kvssink`
 
 To allow the `kvssink` GStreamer element to make requests to AWS,
 provide AWS credentials for it to use when it calls the Amazon Kinesis Video Streams service.
@@ -143,9 +135,7 @@ you're using temporary credentials, the credentials file must be
 updated by an outside source before the expiration time minus
 the grace period.
 
-## Provide a region to
-
-`kvssink`
+## Provide a region to `kvssink`
 
 The following is the region lookup order:
 
@@ -156,9 +146,7 @@ The following is the region lookup order:
    that region is used to configure the client.
 3. If neither of the previous methods were used, `kvssink` defaults to `us-west-2`.
 
-## `kvssink` optional
-
-parameters
+## `kvssink` optional parameters
 
 The `kvssink` element has the following optional parameters. For
 more information about these parameters, see [Kinesis video stream structures](producer-reference-structures-stream.md "producer-reference-structures-stream.md").

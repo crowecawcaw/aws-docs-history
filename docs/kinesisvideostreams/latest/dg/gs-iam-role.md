@@ -69,8 +69,7 @@ Replace `arn:aws:kinesisvideo:*:*:stream/streamName1/*` and
 `arn:aws:kinesisvideo:*:*:stream/streamName2/*` with the
 ARNs for the video streams, and replace
 `arn:aws:secretsmanager:*:*:secret:*` with the ARNs that
-contain the MediaURI secrets that you created in [Create resources for your IP camera
-RTSP URLs](gs-create-resources-standalone.md "gs-create-resources-standalone.md"). Use the ARNs for the
+contain the MediaURI secrets that you created in [Create resources for your IP camera RTSP URLs](gs-create-resources-standalone.md "gs-create-resources-standalone.md"). Use the ARNs for the
 secrets that you want the Amazon Kinesis Video Streams Edge Agent to access. 6. Choose **Next**.
 
 ###### Note

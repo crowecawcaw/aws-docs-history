@@ -1,6 +1,4 @@
-# Download and configure the C++ producer
-
-library code
+# Download and configure the C++ producer library code
 
 For information about how to download and configure the C++ producer library, see [Amazon Kinesis Video Streams CPP Producer, GStreamer Plugin and JNI](https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp "https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp").
 

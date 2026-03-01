@@ -85,9 +85,7 @@ The following errors or acks are thrown when a fragment-level limit is reached:
 | **GetMP4MediaFragment**     | 20 TPS [h]          | N/A                                                 |
 | **GetTSFragment**           | 20 TPS [h]          | N/A                                                 |
 
-## Fragment-metadata and fragment-media
-
-quotas
+## Fragment-metadata and fragment-media quotas
 
 Kinesis Video Streams [APIs for accessing archived media](API_Reference.md "API_Reference.md") are throttled based on the number of
 fragments requested rather than the number of API calls. APIs are rate-limited by both
