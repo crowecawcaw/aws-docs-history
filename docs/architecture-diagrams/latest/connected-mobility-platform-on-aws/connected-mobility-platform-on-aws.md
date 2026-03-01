@@ -24,7 +24,7 @@ This architecture addresses three elements of the connected platform: in-vehicle
 7. Create a fleet management portal for fleet operators to monitor vehicles in near
    real time using **Amazon Location Service**.
 8. **Amazon Connect** and **Amazon Chime** enable
-   the call center. You can visualize call insights through **Amazon Quick Suite**.
+   the call center. You can visualize call insights through **Amazon Quick**.
 
 ## Download editable diagram
 
