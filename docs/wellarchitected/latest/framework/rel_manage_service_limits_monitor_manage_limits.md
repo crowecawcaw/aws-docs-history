@@ -61,17 +61,13 @@ For management:
 **Related best practices:**
 
 - [REL01-BP01 Aware of service quotas and constraints](rel_manage_service_limits_aware_quotas_and_constraints.md "rel_manage_service_limits_aware_quotas_and_constraints.md")
-- [REL01-BP02 Manage service quotas across accounts and
-  regions](rel_manage_service_limits_limits_considered.md "rel_manage_service_limits_limits_considered.md")
-- [REL01-BP03 Accommodate fixed service quotas and constraints
-  through architecture](rel_manage_service_limits_aware_fixed_limits.md "rel_manage_service_limits_aware_fixed_limits.md")
+- [REL01-BP02 Manage service quotas across accounts and regions](rel_manage_service_limits_limits_considered.md "rel_manage_service_limits_limits_considered.md")
+- [REL01-BP03 Accommodate fixed service quotas and constraints through architecture](rel_manage_service_limits_aware_fixed_limits.md "rel_manage_service_limits_aware_fixed_limits.md")
 - [REL01-BP05 Automate quota management](rel_manage_service_limits_automated_monitor_limits.md "rel_manage_service_limits_automated_monitor_limits.md")
-- [REL01-BP06 Ensure that a sufficient gap exists between the
-  current quotas and the maximum usage to accommodate failover](rel_manage_service_limits_suff_buffer_limits.md "rel_manage_service_limits_suff_buffer_limits.md")
+- [REL01-BP06 Ensure that a sufficient gap exists between the current quotas and the maximum usage to accommodate failover](rel_manage_service_limits_suff_buffer_limits.md "rel_manage_service_limits_suff_buffer_limits.md")
 - [REL03-BP01 Choose how to segment your workload](rel_service_architecture_monolith_soa_microservice.md "rel_service_architecture_monolith_soa_microservice.md")
 - [REL10-BP01 Deploy the workload to multiple locations](rel_fault_isolation_multiaz_region_system.md "rel_fault_isolation_multiaz_region_system.md")
-- [REL11-BP01 Monitor all components of the workload to detect
-  failures](rel_withstand_component_failures_monitoring_health.md "rel_withstand_component_failures_monitoring_health.md")
+- [REL11-BP01 Monitor all components of the workload to detect failures](rel_withstand_component_failures_monitoring_health.md "rel_withstand_component_failures_monitoring_health.md")
 - [REL11-BP03 Automate healing on all layers](rel_withstand_component_failures_auto_healing_system.md "rel_withstand_component_failures_auto_healing_system.md")
 - [REL12-BP04 Test resiliency using chaos engineering](rel_testing_resiliency_failure_injection_resiliency.md "rel_testing_resiliency_failure_injection_resiliency.md")
 

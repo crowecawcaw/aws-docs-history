@@ -1,6 +1,4 @@
-# SEC05-BP02 Control traffic flow within your network
-
-layers
+# SEC05-BP02 Control traffic flow within your network layers
 
 Within the layers of your network, use further segmentation to
 restrict traffic only to the flows necessary for each workload.

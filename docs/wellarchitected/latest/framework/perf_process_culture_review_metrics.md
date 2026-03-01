@@ -79,5 +79,5 @@ prevent or more quickly resolve future incidents.
 **Related examples:**
 
 - [Creating
-  a dashboard with Quick Suite](https://github.com/aws-samples/amazon-quicksight-sdk-proserve "https://github.com/aws-samples/amazon-quicksight-sdk-proserve")
+  a dashboard with Quick](https://github.com/aws-samples/amazon-quicksight-sdk-proserve "https://github.com/aws-samples/amazon-quicksight-sdk-proserve")
 - [CloudWatch Dashboards](https://catalog.us-east-1.prod.workshops.aws/workshops/a8e9c6a6-0ba9-48a7-a90d-378a440ab8ba/en-US/300-cloudwatch/340-cloudwatch-dashboards "https://catalog.us-east-1.prod.workshops.aws/workshops/a8e9c6a6-0ba9-48a7-a90d-378a440ab8ba/en-US/300-cloudwatch/340-cloudwatch-dashboards")

@@ -6,9 +6,7 @@ The way users and applications consume your workloads and other resources can he
 
 - [SUS02-BP01 Scale workload infrastructure dynamically](sus_sus_user_a2.md "sus_sus_user_a2.md")
 - [SUS02-BP02 Align SLAs with sustainability goals](sus_sus_user_a3.md "sus_sus_user_a3.md")
-- [SUS02-BP03 Stop the creation and maintenance of unused
-  assets](sus_sus_user_a4.md "sus_sus_user_a4.md")
+- [SUS02-BP03 Stop the creation and maintenance of unused assets](sus_sus_user_a4.md "sus_sus_user_a4.md")
 - [SUS02-BP04 Optimize geographic placement of workloads based on their networking requirements](sus_sus_user_a5.md "sus_sus_user_a5.md")
-- [SUS02-BP05 Optimize team member resources for activities
-  performed](sus_sus_user_a6.md "sus_sus_user_a6.md")
+- [SUS02-BP05 Optimize team member resources for activities performed](sus_sus_user_a6.md "sus_sus_user_a6.md")
 - [SUS02-BP06 Implement buffering or throttling to flatten the demand curve](sus_sus_user_a7.md "sus_sus_user_a7.md")

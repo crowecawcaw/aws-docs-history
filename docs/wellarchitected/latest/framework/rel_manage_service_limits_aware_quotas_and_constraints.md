@@ -75,8 +75,7 @@ or services may be degraded or disrupted.
 If there is a use case where service quotas impact an application’s performance
 and they cannot be adjusted to required needs, contact Support to see if
 there are mitigations. For more detail on adjusting fixed quotas, see
-[REL01-BP03 Accommodate fixed service quotas and constraints
-through architecture](rel_manage_service_limits_aware_fixed_limits.md "rel_manage_service_limits_aware_fixed_limits.md").
+[REL01-BP03 Accommodate fixed service quotas and constraints through architecture](rel_manage_service_limits_aware_fixed_limits.md "rel_manage_service_limits_aware_fixed_limits.md").
 
 There are a number of AWS services and tools to help monitor and manage Service Quotas.
 The service and tools should be leveraged to provide automated or manual checks of quota levels.
@@ -104,14 +103,12 @@ For Service Quotas:
 - Determine all the services your workload requires by looking at the deployment code.
 - Determine the service quotas that apply. Use the programmatically accessible information from Trusted Advisor and Service Quotas.
 - Establish an automated monitoring method
-  (see [REL01-BP02 Manage service quotas across accounts and
-  regions](rel_manage_service_limits_limits_considered.md "rel_manage_service_limits_limits_considered.md")
+  (see [REL01-BP02 Manage service quotas across accounts and regions](rel_manage_service_limits_limits_considered.md "rel_manage_service_limits_limits_considered.md")
   and [REL01-BP04 Monitor and manage quotas](rel_manage_service_limits_monitor_manage_limits.md "rel_manage_service_limits_monitor_manage_limits.md"))
   to alert and inform if services quotas are near or have reached their limit.
 - Establish an automated and programmatic method to check if a service quota has
   been changed in one region but not in other regions in the same account
-  (see [REL01-BP02 Manage service quotas across accounts and
-  regions](rel_manage_service_limits_limits_considered.md "rel_manage_service_limits_limits_considered.md")
+  (see [REL01-BP02 Manage service quotas across accounts and regions](rel_manage_service_limits_limits_considered.md "rel_manage_service_limits_limits_considered.md")
   and [REL01-BP04 Monitor and manage quotas](rel_manage_service_limits_monitor_manage_limits.md "rel_manage_service_limits_monitor_manage_limits.md")).
 - Automate scanning application logs and metrics to determine if there
   are any quota or service constraint errors. If these errors are present,
@@ -143,18 +140,14 @@ For service constraints:
 
 **Related best practices:**
 
-- [REL01-BP02 Manage service quotas across accounts and
-  regions](rel_manage_service_limits_limits_considered.md "rel_manage_service_limits_limits_considered.md")
-- [REL01-BP03 Accommodate fixed service quotas and constraints
-  through architecture](rel_manage_service_limits_aware_fixed_limits.md "rel_manage_service_limits_aware_fixed_limits.md")
+- [REL01-BP02 Manage service quotas across accounts and regions](rel_manage_service_limits_limits_considered.md "rel_manage_service_limits_limits_considered.md")
+- [REL01-BP03 Accommodate fixed service quotas and constraints through architecture](rel_manage_service_limits_aware_fixed_limits.md "rel_manage_service_limits_aware_fixed_limits.md")
 - [REL01-BP04 Monitor and manage quotas](rel_manage_service_limits_monitor_manage_limits.md "rel_manage_service_limits_monitor_manage_limits.md")
 - [REL01-BP05 Automate quota management](rel_manage_service_limits_automated_monitor_limits.md "rel_manage_service_limits_automated_monitor_limits.md")
-- [REL01-BP06 Ensure that a sufficient gap exists between the
-  current quotas and the maximum usage to accommodate failover](rel_manage_service_limits_suff_buffer_limits.md "rel_manage_service_limits_suff_buffer_limits.md")
+- [REL01-BP06 Ensure that a sufficient gap exists between the current quotas and the maximum usage to accommodate failover](rel_manage_service_limits_suff_buffer_limits.md "rel_manage_service_limits_suff_buffer_limits.md")
 - [REL03-BP01 Choose how to segment your workload](rel_service_architecture_monolith_soa_microservice.md "rel_service_architecture_monolith_soa_microservice.md")
 - [REL10-BP01 Deploy the workload to multiple locations](rel_fault_isolation_multiaz_region_system.md "rel_fault_isolation_multiaz_region_system.md")
-- [REL11-BP01 Monitor all components of the workload to detect
-  failures](rel_withstand_component_failures_monitoring_health.md "rel_withstand_component_failures_monitoring_health.md")
+- [REL11-BP01 Monitor all components of the workload to detect failures](rel_withstand_component_failures_monitoring_health.md "rel_withstand_component_failures_monitoring_health.md")
 - [REL11-BP03 Automate healing on all layers](rel_withstand_component_failures_auto_healing_system.md "rel_withstand_component_failures_auto_healing_system.md")
 - [REL12-BP04 Test resiliency using chaos engineering](rel_testing_resiliency_failure_injection_resiliency.md "rel_testing_resiliency_failure_injection_resiliency.md")
 

@@ -1,6 +1,4 @@
-# SEC09-BP01 Implement secure key and certificate
-
-management
+# SEC09-BP01 Implement secure key and certificate management
 
 Transport Layer Security (TLS) certificates are used to secure
 network communications and establish the identity of websites,

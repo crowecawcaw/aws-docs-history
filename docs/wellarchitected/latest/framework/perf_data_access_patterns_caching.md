@@ -1,6 +1,4 @@
-# PERF03-BP05 Implement data access patterns that utilize
-
-caching
+# PERF03-BP05 Implement data access patterns that utilize caching
 
 Implement access patterns that can benefit from caching data for
 fast retrieval of frequently accessed data.

@@ -42,8 +42,7 @@ Some AWS SDKs implement retries and exponential backoff by default. Use these bu
 - [REL05-BP02 Throttle requests](rel_mitigate_interaction_failure_throttle_requests.md "rel_mitigate_interaction_failure_throttle_requests.md")
 - [REL05-BP04 Fail fast and limit queues](rel_mitigate_interaction_failure_fail_fast.md "rel_mitigate_interaction_failure_fail_fast.md")
 - [REL05-BP05 Set client timeouts](rel_mitigate_interaction_failure_client_timeouts.md "rel_mitigate_interaction_failure_client_timeouts.md")
-- [REL11-BP01 Monitor all components of the workload to detect
-  failures](rel_withstand_component_failures_monitoring_health.md "rel_withstand_component_failures_monitoring_health.md")
+- [REL11-BP01 Monitor all components of the workload to detect failures](rel_withstand_component_failures_monitoring_health.md "rel_withstand_component_failures_monitoring_health.md")
 
 **Related documents:**
 

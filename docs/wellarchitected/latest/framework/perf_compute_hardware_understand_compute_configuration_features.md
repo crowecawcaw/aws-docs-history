@@ -1,6 +1,4 @@
-# PERF02-BP02 Understand the available compute configuration and
-
-features
+# PERF02-BP02 Understand the available compute configuration and features
 
 Understand the available configuration options and features for your
 compute service to help you provision the right amount of resources

@@ -83,8 +83,7 @@ _Monolithic, service-oriented, and microservices architectures_
 
 **Related best practices:**
 
-- [REL03-BP02 Build services focused on specific business domains
-  and functionality](rel_service_architecture_business_domains.md "rel_service_architecture_business_domains.md")
+- [REL03-BP02 Build services focused on specific business domains and functionality](rel_service_architecture_business_domains.md "rel_service_architecture_business_domains.md")
 
 **Related documents:**
 

@@ -1,6 +1,4 @@
-# SUS06-BP01 Communicate and cascade your sustainability
-
-goals
+# SUS06-BP01 Communicate and cascade your sustainability goals
 
 Technology is a key enabler of sustainability. IT teams play a
 crucial role in driving meaningful change towards your

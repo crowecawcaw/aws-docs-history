@@ -1,6 +1,4 @@
-# SUS05-BP01 Use the minimum amount of hardware to meet your
-
-needs
+# SUS05-BP01 Use the minimum amount of hardware to meet your needs
 
 Use the minimum amount of hardware for your workload to efficiently meet your business
 needs.

@@ -1,6 +1,4 @@
-# REL06-BP03 Send notifications (Real-time processing and
-
-alarming)
+# REL06-BP03 Send notifications (Real-time processing and alarming)
 
 When organizations detect potential issues, they send real-time notifications and alerts to the appropriate personnel and systems in order to respond quickly and effectively to these issues.
 
@@ -62,8 +60,7 @@ Messages are unstructured and can be in any format. Amazon SNS supports forwardi
 
 **Related Well-Architected best practices:**
 
-- [REL06-BP01 Monitor all components for the workload
-  (Generation)](rel_monitor_aws_resources_monitor_resources.md "rel_monitor_aws_resources_monitor_resources.md")
+- [REL06-BP01 Monitor all components for the workload (Generation)](rel_monitor_aws_resources_monitor_resources.md "rel_monitor_aws_resources_monitor_resources.md")
 - [REL06-BP02 Define and calculate metrics (Aggregation)](rel_monitor_aws_resources_notification_aggregation.md "rel_monitor_aws_resources_notification_aggregation.md")
 - [REL12-BP01 Use playbooks to investigate failures](rel_testing_resiliency_playbook_resiliency.md "rel_testing_resiliency_playbook_resiliency.md")
 

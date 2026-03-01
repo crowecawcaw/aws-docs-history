@@ -1,6 +1,4 @@
-# REL06-BP06 Regularly review monitoring scope and
-
-metrics
+# REL06-BP06 Regularly review monitoring scope and metrics
 
 Frequently review how workload monitoring is implemented, and update
 it as your workload and its architecture evolves. Regular audits of

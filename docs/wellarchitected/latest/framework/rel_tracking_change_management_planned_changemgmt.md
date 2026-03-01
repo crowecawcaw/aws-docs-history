@@ -1,6 +1,4 @@
-# REL08-BP01 Use runbooks for standard activities such as
-
-deployment
+# REL08-BP01 Use runbooks for standard activities such as deployment
 
 Runbooks are the predefined procedures to achieve specific outcomes.
 Use runbooks to perform standard activities, whether done manually

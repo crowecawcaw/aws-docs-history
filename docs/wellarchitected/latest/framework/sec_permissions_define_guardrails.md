@@ -1,6 +1,4 @@
-# SEC03-BP05 Define permission guardrails for
-
-your organization
+# SEC03-BP05 Define permission guardrails for your organization
 
 Use permission guardrails to reduce the scope of available
 permissions that can be granted to principals. The permission policy

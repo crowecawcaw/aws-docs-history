@@ -1,6 +1,4 @@
-# COST07-BP03 Select third-party agreements with cost-efficient
-
-terms
+# COST07-BP03 Select third-party agreements with cost-efficient terms
 
 Cost efficient agreements and terms ensure the cost of these
 services scales with the benefits they provide. Select agreements

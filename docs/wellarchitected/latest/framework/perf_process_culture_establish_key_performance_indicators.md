@@ -1,6 +1,4 @@
-# PERF05-BP01 Establish key performance indicators (KPIs) to
-
-measure workload health and performance
+# PERF05-BP01 Establish key performance indicators (KPIs) to measure workload health and performance
 
 Identify the KPIs that quantitatively and qualitatively measure
 workload performance. KPIs help you measure the health and
@@ -71,7 +69,7 @@ requirements change.  
   [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/") or
   [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/") to collect metrics and measure KPIs.
 - **Visually communicate KPIs:**
-  Use dashboard tools like [Amazon Quick Suite](https://aws.amazon.com/pm/quicksight/ "https://aws.amazon.com/pm/quicksight/") to visualize and communicate KPIs with
+  Use dashboard tools like [Amazon Quick](https://aws.amazon.com/pm/quicksight/ "https://aws.amazon.com/pm/quicksight/") to visualize and communicate KPIs with
   stakeholders.
 - **Analyze and optimize:**
   Regularly review and analyze KPIs to identify areas of your
@@ -94,7 +92,7 @@ requirements change.  
   Documentation](../../../xray/latest/devguide/aws-xray.md "../../../xray/latest/devguide/aws-xray.md")
 - [Using
   Amazon CloudWatch dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md")
-- [Quick Suite KPIs](../../../quicksight/latest/user/kpi.md "../../../quicksight/latest/user/kpi.md")
+- [Quick KPIs](../../../quicksight/latest/user/kpi.md "../../../quicksight/latest/user/kpi.md")
 
 **Related videos:**
 
@@ -111,4 +109,4 @@ requirements change.  
 **Related examples:**
 
 - [Creating
-  a dashboard with Quick Suite](https://github.com/aws-samples/amazon-quicksight-sdk-proserve "https://github.com/aws-samples/amazon-quicksight-sdk-proserve")
+  a dashboard with Quick](https://github.com/aws-samples/amazon-quicksight-sdk-proserve "https://github.com/aws-samples/amazon-quicksight-sdk-proserve")

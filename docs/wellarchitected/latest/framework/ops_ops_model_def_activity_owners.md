@@ -1,6 +1,4 @@
-# OPS02-BP03 Operations activities have identified owners
-
-responsible for their performance
+# OPS02-BP03 Operations activities have identified owners responsible for their performance
 
 Understand who has responsibility to perform specific activities on
 defined workloads and why that responsibility exists. Understanding

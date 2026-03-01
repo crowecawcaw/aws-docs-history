@@ -1,6 +1,4 @@
-# SEC10-BP01 Identify key personnel and external
-
-resources
+# SEC10-BP01 Identify key personnel and external resources
 
 Identify internal and external personnel, resources, and legal
 obligations to help your organization respond to an incident.

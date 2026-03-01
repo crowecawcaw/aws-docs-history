@@ -43,8 +43,7 @@ Fail fast strategies can be coded into software solutions as well as configured 
 - [REL05-BP02 Throttle requests](rel_mitigate_interaction_failure_throttle_requests.md "rel_mitigate_interaction_failure_throttle_requests.md")
 - [REL05-BP03 Control and limit retry calls](rel_mitigate_interaction_failure_limit_retries.md "rel_mitigate_interaction_failure_limit_retries.md")
 - [REL06-BP02 Define and calculate metrics (Aggregation)](rel_monitor_aws_resources_notification_aggregation.md "rel_monitor_aws_resources_notification_aggregation.md")
-- [REL06-BP07 Monitor end-to-end tracing of requests through your
-  system](rel_monitor_aws_resources_end_to_end.md "rel_monitor_aws_resources_end_to_end.md")
+- [REL06-BP07 Monitor end-to-end tracing of requests through your system](rel_monitor_aws_resources_end_to_end.md "rel_monitor_aws_resources_end_to_end.md")
 
 **Related documents:**
 

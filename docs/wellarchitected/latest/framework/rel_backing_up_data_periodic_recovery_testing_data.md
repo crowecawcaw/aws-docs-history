@@ -1,6 +1,4 @@
-# REL09-BP04 Perform periodic recovery of the data to verify
-
-backup integrity and processes
+# REL09-BP04 Perform periodic recovery of the data to verify backup integrity and processes
 
 Validate that your backup process implementation meets your Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO) by performing a recovery test.
 
@@ -63,8 +61,7 @@ AWS Elastic Disaster Recovery offers continual point-in-time recovery snapshots 
 
 1. **Identify data sources** that
    are currently being backed up and where these backups are
-   being stored. For implementation guidance, see [REL09-BP01 Identify and back up all data that needs to be
-   backed up, or reproduce the data from sources](rel_backing_up_data_identified_backups_data.md "rel_backing_up_data_identified_backups_data.md").
+   being stored. For implementation guidance, see [REL09-BP01 Identify and back up all data that needs to be backed up, or reproduce the data from sources](rel_backing_up_data_identified_backups_data.md "rel_backing_up_data_identified_backups_data.md").
 2. **Establish criteria for data
    validation** for each data source. Different types of
    data will have different properties which might require
@@ -78,8 +75,7 @@ AWS Elastic Disaster Recovery offers continual point-in-time recovery snapshots 
    the backup was created.
 3. **Establish RTO and RPO** for
    restoring the data based on data criticality. For implementation guidance, see
-   [REL13-BP01 Define recovery objectives for downtime and data
-   loss](rel_planning_for_recovery_objective_defined_recovery.md "rel_planning_for_recovery_objective_defined_recovery.md").
+   [REL13-BP01 Define recovery objectives for downtime and data loss](rel_planning_for_recovery_objective_defined_recovery.md "rel_planning_for_recovery_objective_defined_recovery.md").
 4. **Assess your recovery
    capability**. Review your backup and restore strategy
    to understand if it can meet your RTO and RPO, and adjust the

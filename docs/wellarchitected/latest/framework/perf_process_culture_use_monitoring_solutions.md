@@ -1,6 +1,4 @@
-# PERF05-BP02 Use monitoring solutions to understand the areas
-
-where performance is most critical
+# PERF05-BP02 Use monitoring solutions to understand the areas where performance is most critical
 
 Understand and identify areas where increasing the performance of
 your workload will have a positive impact on efficiency or customer

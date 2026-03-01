@@ -1,6 +1,4 @@
-# SUS06-BP02 Adopt methods that can rapidly introduce
-
-sustainability improvements
+# SUS06-BP02 Adopt methods that can rapidly introduce sustainability improvements
 
 Adopt methods and processes to validate potential improvements,
 minimize testing costs, and deliver small improvements.

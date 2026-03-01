@@ -1,6 +1,4 @@
-# SUS03-BP01 Optimize software and architecture for asynchronous
-
-and scheduled jobs
+# SUS03-BP01 Optimize software and architecture for asynchronous and scheduled jobs
 
 Use efficient software and architecture patterns such as queue-driven to
 maintain consistent high utilization of deployed resources.

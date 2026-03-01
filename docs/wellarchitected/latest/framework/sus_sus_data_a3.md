@@ -1,6 +1,4 @@
-# SUS04-BP02 Use technologies that support data access and
-
-storage patterns
+# SUS04-BP02 Use technologies that support data access and storage patterns
 
 Use storage technologies that best support how your
 data is accessed and stored to minimize the resources

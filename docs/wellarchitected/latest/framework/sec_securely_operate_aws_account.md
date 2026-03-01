@@ -190,8 +190,7 @@ practice guidelines](https://aws.amazon.com/premiumsupport/knowledge-center/secu
 - [SEC01-BP01 Separate workloads using accounts](sec_securely_operate_multi_accounts.md "sec_securely_operate_multi_accounts.md")
 - [SEC02-BP01 Use strong sign-in mechanisms](sec_identities_enforce_mechanisms.md "sec_identities_enforce_mechanisms.md")
 - [SEC03-BP02 Grant least privilege access](sec_permissions_least_privileges.md "sec_permissions_least_privileges.md")
-- [SEC03-BP03 Establish emergency access
-  process](sec_permissions_emergency_process.md "sec_permissions_emergency_process.md")
+- [SEC03-BP03 Establish emergency access process](sec_permissions_emergency_process.md "sec_permissions_emergency_process.md")
 - [SEC10-BP05 Pre-provision access](sec_incident_response_pre_provision_access.md "sec_incident_response_pre_provision_access.md")
 
 **Related documents:**

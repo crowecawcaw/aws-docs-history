@@ -1,6 +1,4 @@
-# COST08-BP03 Implement services to reduce data transfer
-
-costs
+# COST08-BP03 Implement services to reduce data transfer costs
 
 Implement services to reduce data transfer. For example, use edge
 locations or content delivery networks (CDN) to deliver content to

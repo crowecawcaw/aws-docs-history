@@ -1,6 +1,4 @@
-# COST05-BP03 Perform a thorough analysis of each
-
-component
+# COST05-BP03 Perform a thorough analysis of each component
 
 Look at overall cost to the organization of each component.
 Calculate the total cost of ownership by factoring in cost

@@ -1,6 +1,4 @@
-# REL08-BP03 Integrate resiliency testing as part of your
-
-deployment
+# REL08-BP03 Integrate resiliency testing as part of your deployment
 
 Integrate resiliency testing by consciously introducing failures in
 your system to measure its capability in case of disruptive

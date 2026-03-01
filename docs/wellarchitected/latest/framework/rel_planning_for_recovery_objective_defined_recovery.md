@@ -1,6 +1,4 @@
-# REL13-BP01 Define recovery objectives for downtime and data
-
-loss
+# REL13-BP01 Define recovery objectives for downtime and data loss
 
 Failures can impact your business in several ways. First, failures
 can cause service interruption (downtime). Second, failures can

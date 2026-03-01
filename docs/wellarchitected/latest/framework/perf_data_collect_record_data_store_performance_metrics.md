@@ -1,6 +1,4 @@
-# PERF03-BP03 Collect and record data store performance
-
-metrics
+# PERF03-BP03 Collect and record data store performance metrics
 
 Track and record relevant performance metrics for your data store to
 understand how your data management solutions are performing. These

@@ -34,7 +34,7 @@ Working from KPIs, identify the metrics and sources of data that might reflect t
 
 **Related documents:**
 
-- [Quick Suite - Using KPIs](../../../quicksight/latest/user/kpi.md "../../../quicksight/latest/user/kpi.md")
+- [Quick - Using KPIs](../../../quicksight/latest/user/kpi.md "../../../quicksight/latest/user/kpi.md")
 - [Amazon CloudWatch - Using Metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md")
 - [Building Dashboards](https://aws.amazon.com/builders-library/building-dashboards-for-operational-visibility/ "https://aws.amazon.com/builders-library/building-dashboards-for-operational-visibility/")
 - [How to track your cost optimization KPIs with KPI Dashboard](https://aws.amazon.com/blogs/aws-cloud-financial-management/how-to-track-your-cost-optimization-kpis-with-the-kpi-dashboard/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/how-to-track-your-cost-optimization-kpis-with-the-kpi-dashboard/")

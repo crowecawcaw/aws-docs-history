@@ -1,6 +1,4 @@
-# OPS02-BP05 Mechanisms exist to request additions, changes, and
-
-exceptions
+# OPS02-BP05 Mechanisms exist to request additions, changes, and exceptions
 
 You can make requests to owners of processes, procedures, and resources. Requests
 include additions, changes, and exceptions. These requests go through a change management
@@ -42,10 +40,8 @@ to follow. Using the RACI matrix and the process, anyone can submit change reque
 
 1. Identify the processes, procedures, and resources for your workload and the owners for each. Document them in your knowledge management system.
    1. If you have not implemented [OPS02-BP01 Resources have identified owners](ops_ops_model_def_resource_owners.md "ops_ops_model_def_resource_owners.md"),
-      [OPS02-BP02 Processes and procedures have identified
-      owners](ops_ops_model_def_proc_owners.md "ops_ops_model_def_proc_owners.md"), or
-      [OPS02-BP03 Operations activities have identified owners
-      responsible for their performance](ops_ops_model_def_activity_owners.md "ops_ops_model_def_activity_owners.md"), start with those first.
+      [OPS02-BP02 Processes and procedures have identified owners](ops_ops_model_def_proc_owners.md "ops_ops_model_def_proc_owners.md"), or
+      [OPS02-BP03 Operations activities have identified owners responsible for their performance](ops_ops_model_def_activity_owners.md "ops_ops_model_def_activity_owners.md"), start with those first.
 
 2. Work with stakeholders in your organization to develop a change management process.
    The process should cover additions, changes, and exceptions for resources, processes, and procedures.
@@ -61,10 +57,8 @@ management process requires alignment with multiple stakeholders across your org
 **Related best practices:**
 
 - [OPS02-BP01 Resources have identified owners](ops_ops_model_def_resource_owners.md "ops_ops_model_def_resource_owners.md") - Resources need identified owners before you build a change management process.
-- [OPS02-BP02 Processes and procedures have identified
-  owners](ops_ops_model_def_proc_owners.md "ops_ops_model_def_proc_owners.md") - Processes need identified owners before you build a change management process.
-- [OPS02-BP03 Operations activities have identified owners
-  responsible for their performance](ops_ops_model_def_activity_owners.md "ops_ops_model_def_activity_owners.md") - Operations activities need identified owners before you build a change management process.
+- [OPS02-BP02 Processes and procedures have identified owners](ops_ops_model_def_proc_owners.md "ops_ops_model_def_proc_owners.md") - Processes need identified owners before you build a change management process.
+- [OPS02-BP03 Operations activities have identified owners responsible for their performance](ops_ops_model_def_activity_owners.md "ops_ops_model_def_activity_owners.md") - Operations activities need identified owners before you build a change management process.
 
 **Related documents:**
 

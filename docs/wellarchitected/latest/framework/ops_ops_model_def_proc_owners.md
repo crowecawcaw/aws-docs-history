@@ -1,6 +1,4 @@
-# OPS02-BP02 Processes and procedures have identified
-
-owners
+# OPS02-BP02 Processes and procedures have identified owners
 
 Understand who has ownership of the definition of individual
 processes and procedures, why those specific process and procedures

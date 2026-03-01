@@ -1,6 +1,4 @@
-# REL06-BP01 Monitor all components for the workload
-
-(Generation)
+# REL06-BP01 Monitor all components for the workload (Generation)
 
 Monitor the components of the workload with Amazon CloudWatch or
 third-party tools. Monitor AWS services with AWS Health Dashboard.

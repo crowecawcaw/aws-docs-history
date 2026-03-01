@@ -1,6 +1,4 @@
-# SUS02-BP03 Stop the creation and maintenance of unused
-
-assets
+# SUS02-BP03 Stop the creation and maintenance of unused assets
 
 Decommission unused assets in your workload to reduce
 the number of cloud resources required to support your

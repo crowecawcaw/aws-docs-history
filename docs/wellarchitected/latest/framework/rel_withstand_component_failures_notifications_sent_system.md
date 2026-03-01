@@ -1,6 +1,4 @@
-# REL11-BP06 Send notifications when events impact
-
-availability
+# REL11-BP06 Send notifications when events impact availability
 
 Notifications are sent upon the detection of thresholds breached,
 even if the event causing the issue was automatically resolved.

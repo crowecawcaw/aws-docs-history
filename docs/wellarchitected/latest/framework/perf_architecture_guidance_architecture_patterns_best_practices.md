@@ -1,7 +1,4 @@
-# PERF01-BP02 Use guidance from your cloud provider or an
-
-appropriate partner to learn about architecture patterns and best
-practices
+# PERF01-BP02 Use guidance from your cloud provider or an appropriate partner to learn about architecture patterns and best practices
 
 Use cloud company resources such as documentation, solutions
 architects, professional services, or appropriate partners to guide

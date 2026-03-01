@@ -1,6 +1,4 @@
-# PERF02-BP01 Select the best compute options for your
-
-workload
+# PERF02-BP01 Select the best compute options for your workload
 
 Selecting the most appropriate compute option for your workload
 allows you to improve performance, reduce unnecessary infrastructure
@@ -52,8 +50,7 @@ requirements.
   patterns, data access patterns, scaling needs, and latency
   requirements.
 - Learn about different [AWS compute services](../../../whitepapers/latest/aws-overview/compute-services.md "../../../whitepapers/latest/aws-overview/compute-services.md") for your
-  workload. For more information, see [PERF01-BP01 Learn
-  about and understand available cloud services and features](perf_architecture_understand_cloud_services_and_features.md "perf_architecture_understand_cloud_services_and_features.md"). Here are some key
+  workload. For more information, see [PERF01-BP01 Learn about and understand available cloud services and features](perf_architecture_understand_cloud_services_and_features.md "perf_architecture_understand_cloud_services_and_features.md"). Here are some key
   AWS compute options, their characteristics, and common
   use cases:
 

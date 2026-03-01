@@ -1,6 +1,4 @@
-# SEC11-BP02 Automate testing throughout the development and
-
-release lifecycle
+# SEC11-BP02 Automate testing throughout the development and release lifecycle
 
 Automate the testing for security properties throughout the
 development and release lifecycle. Automation makes it easier to

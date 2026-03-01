@@ -1,6 +1,4 @@
-# SUS03-BP02 Remove or refactor workload components with low or
-
-no use
+# SUS03-BP02 Remove or refactor workload components with low or no use
 
 Remove components that are unused and no longer required, and refactor
 components with little utilization to minimize waste in your workload.

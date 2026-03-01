@@ -1,6 +1,4 @@
-# OPS02-BP06 Responsibilities between teams are predefined or
-
-negotiated
+# OPS02-BP06 Responsibilities between teams are predefined or negotiated
 
 Have defined or negotiated agreements between teams describing how they work with
 and support each other (for example, response times, service level objectives, or
@@ -61,10 +59,8 @@ between teams, it can take effort to come to agreement with stakeholders across 
 
 **Related best practices:**
 
-- [OPS02-BP02 Processes and procedures have identified
-  owners](ops_ops_model_def_proc_owners.md "ops_ops_model_def_proc_owners.md") - Process ownership must be identified before setting agreements between teams.
-- [OPS02-BP03 Operations activities have identified owners
-  responsible for their performance](ops_ops_model_def_activity_owners.md "ops_ops_model_def_activity_owners.md") - Operations activities ownership must be identified before setting agreements between teams.
+- [OPS02-BP02 Processes and procedures have identified owners](ops_ops_model_def_proc_owners.md "ops_ops_model_def_proc_owners.md") - Process ownership must be identified before setting agreements between teams.
+- [OPS02-BP03 Operations activities have identified owners responsible for their performance](ops_ops_model_def_activity_owners.md "ops_ops_model_def_activity_owners.md") - Operations activities ownership must be identified before setting agreements between teams.
 
 **Related documents:**
 

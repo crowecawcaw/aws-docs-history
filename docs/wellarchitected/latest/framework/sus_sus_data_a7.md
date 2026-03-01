@@ -1,6 +1,4 @@
-# SUS04-BP06 Use shared file systems or storage to access common
-
-data
+# SUS04-BP06 Use shared file systems or storage to access common data
 
 Adopt shared file systems or storage to avoid data duplication and allow for more efficient
 infrastructure for your workload.

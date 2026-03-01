@@ -1,6 +1,4 @@
-# REL03-BP02 Build services focused on specific business domains
-
-and functionality
+# REL03-BP02 Build services focused on specific business domains and functionality
 
 Service-oriented architectures (SOA) define services with well-delineated functions defined by business needs. Microservices use domain models and bounded context to draw service boundaries along business context boundaries. Focusing on business domains and functionality helps teams define independent reliability requirements for their services. Bounded contexts isolate and encapsulate business logic, allowing teams to better reason about how to handle failures.
 

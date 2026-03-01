@@ -1,6 +1,4 @@
-# REL13-BP04 Manage configuration drift at the DR site or
-
-Region
+# REL13-BP04 Manage configuration drift at the DR site or Region
 
 To perform a successful disaster recovery (DR) procedure, your
 workload must be able to resume normal operations in a timely manner

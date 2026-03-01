@@ -1,6 +1,4 @@
-# REL08-BP02 Integrate functional testing as part of your
-
-deployment
+# REL08-BP02 Integrate functional testing as part of your deployment
 
 Use techniques such as unit tests and integration tests that
 validate required functionality.

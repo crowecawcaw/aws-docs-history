@@ -1,6 +1,4 @@
-# COST07-BP04 Implement pricing models for all components of this
-
-workload
+# COST07-BP04 Implement pricing models for all components of this workload
 
 Permanently running resources should utilize reserved capacity such
 as Savings Plans or Reserved Instances. Short-term capacity is

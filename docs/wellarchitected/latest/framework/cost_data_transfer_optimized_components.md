@@ -1,6 +1,4 @@
-# COST08-BP02 Select components to optimize data transfer
-
-cost
+# COST08-BP02 Select components to optimize data transfer cost
 
 All components are selected, and architecture is designed to reduce data transfer costs.
 This includes using components such as wide-area-network (WAN) optimization and
@@ -33,8 +31,7 @@ When planning or reviewing your workload architecture, consider the following:
 **Related best practices:**
 
 - [COST08-BP01 Perform data transfer modeling](cost_data_transfer_modeling.md "cost_data_transfer_modeling.md")
-- [COST08-BP03 Implement services to reduce data transfer
-  costs](cost_data_transfer_implement_services.md "cost_data_transfer_implement_services.md")
+- [COST08-BP03 Implement services to reduce data transfer costs](cost_data_transfer_implement_services.md "cost_data_transfer_implement_services.md")
 
 **Related documents:**
 

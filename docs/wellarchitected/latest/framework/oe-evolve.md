@@ -24,7 +24,7 @@ On AWS, you can export your log data to Amazon S3 or send logs
 directly to Amazon S3 for long-term storage. Using AWS Glue, you
 can discover and prepare your log data in Amazon S3 for
 analytics, and store associated metadata in the AWS Glue Data Catalog. Amazon Athena, through its native integration with AWS Glue, can then be used to analyze your log data, querying it using
-standard SQL. Using a business intelligence tool like Amazon Quick Suite, you can visualize, explore, and analyze your data.
+standard SQL. Using a business intelligence tool like Amazon Quick, you can visualize, explore, and analyze your data.
 Discovering trends and events of interest that may drive
 improvement.
 

@@ -1,6 +1,4 @@
-# REL05-BP01 Implement graceful degradation to transform
-
-applicable hard dependencies into soft dependencies
+# REL05-BP01 Implement graceful degradation to transform applicable hard dependencies into soft dependencies
 
 Application components should continue to perform their core function even if dependencies become unavailable. They might be serving slightly stale data, alternate data, or even no data. This ensures overall system function is only minimally impeded by localized failures while delivering the central business value.
 

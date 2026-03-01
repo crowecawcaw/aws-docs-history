@@ -1,6 +1,4 @@
-# OPS03-BP02 Team members are empowered to take action when
-
-outcomes are at risk
+# OPS03-BP02 Team members are empowered to take action when outcomes are at risk
 
 A cultural behavior of ownership instilled by leadership results in
 any employee feeling empowered to act on behalf of the entire

@@ -77,7 +77,7 @@ demand.
 
 Finally, you can use
 [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/") or
-[Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") with the AWS Cost and Usage Report (CUR) file or your application
+[Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") with the AWS Cost and Usage Report (CUR) file or your application
 logs to perform advanced analysis of workload demand.
 
 Overall, a comprehensive workload demand analysis allows
@@ -120,7 +120,7 @@ performance, cost efficiency, and user satisfaction.
 - [Getting
   started with Amazon SQS](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-getting-started.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-getting-started.md")
 - [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/")
-- [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
+- [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
 
 **Related examples:**
 

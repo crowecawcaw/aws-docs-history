@@ -1,6 +1,4 @@
-# REL02-BP01 Use highly available network connectivity for your
-
-workload public endpoints
+# REL02-BP01 Use highly available network connectivity for your workload public endpoints
 
 Building highly available network connectivity to public endpoints of your workloads can help you reduce downtime due to loss of connectivity and improve the availability and SLA of your workload. To achieve this, use highly available DNS, content delivery networks (CDNs), API gateways, load balancing, or reverse proxies.
 
@@ -68,10 +66,8 @@ To help protect customers from DDoS attacks, AWS provides AWS Shield Standard. S
 **Related best practices:**
 
 - [REL10-BP01 Deploy the workload to multiple locations](rel_fault_isolation_multiaz_region_system.md "rel_fault_isolation_multiaz_region_system.md")
-- [REL11-BP04 Rely on the data plane and not the control plane
-  during recovery](rel_withstand_component_failures_avoid_control_plane.md "rel_withstand_component_failures_avoid_control_plane.md")
-- [REL11-BP06 Send notifications when events impact
-  availability](rel_withstand_component_failures_notifications_sent_system.md "rel_withstand_component_failures_notifications_sent_system.md")
+- [REL11-BP04 Rely on the data plane and not the control plane during recovery](rel_withstand_component_failures_avoid_control_plane.md "rel_withstand_component_failures_avoid_control_plane.md")
+- [REL11-BP06 Send notifications when events impact availability](rel_withstand_component_failures_notifications_sent_system.md "rel_withstand_component_failures_notifications_sent_system.md")
 
 **Related documents:**
 

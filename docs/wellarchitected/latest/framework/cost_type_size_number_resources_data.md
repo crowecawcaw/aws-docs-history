@@ -1,6 +1,4 @@
-# COST06-BP02 Select resource type, size, and number based on
-
-data
+# COST06-BP02 Select resource type, size, and number based on data
 
 Select resource size or type based on data about the workload and resource characteristics.
 For example, compute, memory, throughput, or write intensive. This selection is typically made

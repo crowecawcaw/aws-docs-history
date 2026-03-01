@@ -1,6 +1,4 @@
-# OPS 5. How do you reduce defects, ease remediation, and improve flow into
-
-production?
+# OPS 5. How do you reduce defects, ease remediation, and improve flow into production?
 
 Adopt approaches that improve flow of changes into production, that activate refactoring, fast feedback on quality, and bug fixing.
 These accelerate beneficial changes entering production, limit issues deployed,

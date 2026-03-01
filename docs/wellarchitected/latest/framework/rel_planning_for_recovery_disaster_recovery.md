@@ -1,6 +1,4 @@
-# REL13-BP02 Use defined recovery strategies to meet the recovery
-
-objectives
+# REL13-BP02 Use defined recovery strategies to meet the recovery objectives
 
 Define a disaster recovery (DR) strategy that meets your workload's recovery objectives. Choose a strategy such as backup and restore, standby (active/passive), or active/active.
 
@@ -36,8 +34,7 @@ disaster.
 A DR strategy relies on the ability to stand up your workload in a
 recovery site if your primary location becomes unable to run the
 workload. The most common recovery objectives are RTO and RPO, as
-discussed in [REL13-BP01 Define recovery objectives for downtime and data
-loss](rel_planning_for_recovery_objective_defined_recovery.md "rel_planning_for_recovery_objective_defined_recovery.md").
+discussed in [REL13-BP01 Define recovery objectives for downtime and data loss](rel_planning_for_recovery_objective_defined_recovery.md "rel_planning_for_recovery_objective_defined_recovery.md").
 
 A DR strategy across multiple Availability Zones (AZs) within a
 single AWS Region, can provide mitigation against disaster events
@@ -299,8 +296,7 @@ databases to become the primary read/write instance.
 For backup and restore, restoring data from backup creates resources for that data
 such as EBS volumes, RDS DB instances, and DynamoDB tables. You also need to restore the
 infrastructure and deploy code. You can use AWS Backup to restore data in the recovery
-Region. See [REL09-BP01 Identify and back up all data that needs to be
-backed up, or reproduce the data from sources](rel_backing_up_data_identified_backups_data.md "rel_backing_up_data_identified_backups_data.md") for more details.
+Region. See [REL09-BP01 Identify and back up all data that needs to be backed up, or reproduce the data from sources](rel_backing_up_data_identified_backups_data.md "rel_backing_up_data_identified_backups_data.md") for more details.
 Rebuilding the infrastructure includes creating resources like EC2 instances in addition
 to the [Amazon Virtual Private Cloud (Amazon VPC)](https://aws.amazon.com/vpc "https://aws.amazon.com/vpc"), subnets, and security
 groups needed. You can automate much of the restoration process. To learn how, see [this blog post](https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-ii-backup-and-restore-with-rapid-recovery/ "https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-ii-backup-and-restore-with-rapid-recovery/"). 5. **Determine and implement how you will reroute traffic to failover
@@ -319,8 +315,7 @@ Amazon Route 53, you can associate multiple IP endpoints in one or more AWS Reg
 a Route 53 domain name. To implement manually initiated failover you can use [Amazon
 Application Recovery Controller](https://aws.amazon.com/application-recovery-controller/ "https://aws.amazon.com/application-recovery-controller/"), which provides a highly available data plane
 API to reroute traffic to the recovery Region. When implementing failover, use data plane
-operations and avoid control plane ones as described in [REL11-BP04 Rely on the data plane and not the control plane
-during recovery](rel_withstand_component_failures_avoid_control_plane.md "rel_withstand_component_failures_avoid_control_plane.md").
+operations and avoid control plane ones as described in [REL11-BP04 Rely on the data plane and not the control plane during recovery](rel_withstand_component_failures_avoid_control_plane.md "rel_withstand_component_failures_avoid_control_plane.md").
 
 To learn more about this and other options see [this section of the Disaster Recovery Whitepaper](../../../whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.md#pilot-light "../../../whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.md#pilot-light"). 6. **Design a plan for how your workload will fail back.**
 
@@ -361,12 +356,9 @@ failback process. For more details, see [Performing a failback](../../../drs/lat
 
 **Related best practices:**
 
-- [REL09-BP01 Identify and back up all data that needs to be
-  backed up, or reproduce the data from sources](rel_backing_up_data_identified_backups_data.md "rel_backing_up_data_identified_backups_data.md")
-- [REL11-BP04 Rely on the data plane and not the control plane
-  during recovery](rel_withstand_component_failures_avoid_control_plane.md "rel_withstand_component_failures_avoid_control_plane.md")
-- [REL13-BP01 Define recovery objectives for downtime and data
-  loss](rel_planning_for_recovery_objective_defined_recovery.md "rel_planning_for_recovery_objective_defined_recovery.md")
+- [REL09-BP01 Identify and back up all data that needs to be backed up, or reproduce the data from sources](rel_backing_up_data_identified_backups_data.md "rel_backing_up_data_identified_backups_data.md")
+- [REL11-BP04 Rely on the data plane and not the control plane during recovery](rel_withstand_component_failures_avoid_control_plane.md "rel_withstand_component_failures_avoid_control_plane.md")
+- [REL13-BP01 Define recovery objectives for downtime and data loss](rel_planning_for_recovery_objective_defined_recovery.md "rel_planning_for_recovery_objective_defined_recovery.md")
 
 **Related documents:**
 

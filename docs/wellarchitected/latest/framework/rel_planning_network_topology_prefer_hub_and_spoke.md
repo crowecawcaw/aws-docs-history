@@ -1,6 +1,4 @@
-# REL02-BP04 Prefer hub-and-spoke topologies over many-to-many
-
-mesh
+# REL02-BP04 Prefer hub-and-spoke topologies over many-to-many mesh
 
 When connecting multiple private networks, such as Virtual Private
 Clouds (VPCs) and on-premises networks, opt for a hub-and-spoke

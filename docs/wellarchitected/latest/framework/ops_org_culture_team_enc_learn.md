@@ -1,6 +1,4 @@
-# OPS03-BP06 Team members are encouraged to maintain
-
-and grow their skill sets
+# OPS03-BP06 Team members are encouraged to maintain and grow their skill sets
 
 Teams must grow their skill sets to adopt new technologies, and to
 support changes in demand and responsibilities in support of your

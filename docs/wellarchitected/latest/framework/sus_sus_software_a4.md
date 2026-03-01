@@ -1,6 +1,4 @@
-# SUS03-BP03 Optimize areas of code that consume the most time or
-
-resources
+# SUS03-BP03 Optimize areas of code that consume the most time or resources
 
 Optimize your code that runs within different components of your
 architecture to minimize resource usage while maximizing performance.

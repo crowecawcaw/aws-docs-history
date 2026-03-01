@@ -1,6 +1,4 @@
-# COST05-BP04 Select software with cost-effective
-
-licensing
+# COST05-BP04 Select software with cost-effective licensing
 
 Open-source software eliminates software licensing costs, which can
 contribute significant costs to workloads. Where licensed software

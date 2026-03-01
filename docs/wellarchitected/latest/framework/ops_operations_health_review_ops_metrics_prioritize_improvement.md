@@ -30,7 +30,7 @@ Identify where time, people, and tools can aid in operations outcomes. Determine
 
 - [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/")
 - [Amazon CloudWatch metrics and dimensions reference](../../../AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.md "../../../AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.md")
-- [Amazon Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
+- [Amazon Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
 - [AWS Glue](https://aws.amazon.com/glue/ "https://aws.amazon.com/glue/")
 - [AWS Glue Data Catalog](../../../glue/latest/dg/populate-data-catalog.md "../../../glue/latest/dg/populate-data-catalog.md")
 - [Collect metrics and logs from Amazon EC2 instances and on-premises servers with the Amazon CloudWatch Agent](../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md "../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md")

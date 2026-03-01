@@ -1,6 +1,4 @@
-# REL07-BP03 Obtain resources upon detection that more resources
-
-are needed for a workload
+# REL07-BP03 Obtain resources upon detection that more resources are needed for a workload
 
 One of the most valuable features of cloud computing is the ability
 to provision resources dynamically.

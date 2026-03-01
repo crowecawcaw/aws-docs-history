@@ -49,7 +49,7 @@ names, or owners) to organize your costs across multiple services.
 Verify that you use the right level of detail and granularity in cost
 and usage reporting and monitoring. For high level insights and
 trends, use daily granularity with AWS Cost Explorer. For deeper
-analysis and inspection use hourly granularity in AWS Cost Explorer, or Amazon Athena and Amazon Quick Suite with the Cost and
+analysis and inspection use hourly granularity in AWS Cost Explorer, or Amazon Athena and Amazon Quick with the Cost and
 Usage Report (CUR) at an hourly granularity.
 
 Combining tagged resources with entity lifecycle tracking

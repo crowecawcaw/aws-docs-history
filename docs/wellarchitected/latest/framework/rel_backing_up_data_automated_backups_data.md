@@ -59,11 +59,9 @@ in the same, or a different AWS Region.
 **Implementation steps**
 
 1. **Identify data sources** that
-   are currently being backed up manually. For more detail, see [REL09-BP01 Identify and back up all data that needs to be
-   backed up, or reproduce the data from sources](rel_backing_up_data_identified_backups_data.md "rel_backing_up_data_identified_backups_data.md").
+   are currently being backed up manually. For more detail, see [REL09-BP01 Identify and back up all data that needs to be backed up, or reproduce the data from sources](rel_backing_up_data_identified_backups_data.md "rel_backing_up_data_identified_backups_data.md").
 2. **Determine the RPO** for the
-   workload. For more detail, see [REL13-BP01 Define recovery objectives for downtime and data
-   loss](rel_planning_for_recovery_objective_defined_recovery.md "rel_planning_for_recovery_objective_defined_recovery.md").
+   workload. For more detail, see [REL13-BP01 Define recovery objectives for downtime and data loss](rel_planning_for_recovery_objective_defined_recovery.md "rel_planning_for_recovery_objective_defined_recovery.md").
 3. **Use an automated backup solution or
    managed service**. AWS Backup is a fully-managed
    service that makes it easy to

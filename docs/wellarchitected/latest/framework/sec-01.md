@@ -17,7 +17,5 @@ validation permit you to scale your security operations.
 - [SEC01-BP04 Stay up to date with security threats and recommendations](sec_securely_operate_updated_threats.md "sec_securely_operate_updated_threats.md")
 - [SEC01-BP05 Reduce security management scope](sec_securely_operate_reduce_management_scope.md "sec_securely_operate_reduce_management_scope.md")
 - [SEC01-BP06 Automate deployment of standard security controls](sec_securely_operate_automate_security_controls.md "sec_securely_operate_automate_security_controls.md")
-- [SEC01-BP07 Identify threats and prioritize mitigations using a threat
-  model](sec_securely_operate_threat_model.md "sec_securely_operate_threat_model.md")
-- [SEC01-BP08 Evaluate and implement new security services and
-  features regularly](sec_securely_operate_implement_services_features.md "sec_securely_operate_implement_services_features.md")
+- [SEC01-BP07 Identify threats and prioritize mitigations using a threat model](sec_securely_operate_threat_model.md "sec_securely_operate_threat_model.md")
+- [SEC01-BP08 Evaluate and implement new security services and features regularly](sec_securely_operate_implement_services_features.md "sec_securely_operate_implement_services_features.md")

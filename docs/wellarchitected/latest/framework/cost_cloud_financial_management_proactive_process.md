@@ -17,13 +17,13 @@ indicate the organization’s focus on cost optimization. Visible dashboards all
 actively promote successful outcomes and implement them throughout your organization.
 
 Create a daily or frequent routine to use [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/") or any other dashboard such
-as [Amazon Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") to see the costs and analyze
+as [Amazon Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") to see the costs and analyze
 proactively. Analyze AWS service usage and costs at the AWS account-level, workload-level,
 or specific AWS service-level with grouping and filtering, and validate whether they are
 expected or not. Use the hourly- and resource-level granularity and tags to filter and
 identify incurring costs for the top resources. You can also build your own reports with the
 [Cost
-Intelligence Dashboard](https://wellarchitectedlabs.com/cost/200_labs/200_cloud_intelligence/ "https://wellarchitectedlabs.com/cost/200_labs/200_cloud_intelligence/"), an [Amazon Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") solution built by AWS Solutions Architects, and compare your budgets
+Intelligence Dashboard](https://wellarchitectedlabs.com/cost/200_labs/200_cloud_intelligence/ "https://wellarchitectedlabs.com/cost/200_labs/200_cloud_intelligence/"), an [Amazon Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") solution built by AWS Solutions Architects, and compare your budgets
 with the actual cost and usage.
 
 **Implementation steps**
@@ -48,7 +48,7 @@ with the actual cost and usage.
   multiple alert subscriptions for business owners and technology teams, including a name, a
   cost impact threshold, and alerting frequency (individual alerts, daily summary, weekly
   summary) for each subscription.
-- **Use AWS Cost Explorer or integrate your AWS Cost and Usage Report (CUR) data with Amazon Quick Suite
+- **Use AWS Cost Explorer or integrate your AWS Cost and Usage Report (CUR) data with Amazon Quick
   dashboards to visualize your organization’s costs:** AWS Cost Explorer has an
   easy-to-use interface that lets you visualize, understand, and manage your AWS costs and
   usage over time. The [Cost

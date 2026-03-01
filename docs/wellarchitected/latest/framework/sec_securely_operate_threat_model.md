@@ -1,6 +1,4 @@
-# SEC01-BP07 Identify threats and prioritize mitigations using a threat
-
-model
+# SEC01-BP07 Identify threats and prioritize mitigations using a threat model
 
 Perform threat modeling to identify and maintain an up-to-date register of potential threats and associated mitigations for your workload. Prioritize your threats and adapt your security control mitigations to prevent, detect, and respond. Revisit and maintain this in the context of your workload, and the evolving security landscape.
 
@@ -65,8 +63,7 @@ For further reference, visit Threat Composer and switch to the system-defined **
 - [SEC01-BP03 Identify and validate control objectives](sec_securely_operate_control_objectives.md "sec_securely_operate_control_objectives.md")
 - [SEC01-BP04 Stay up to date with security threats and recommendations](sec_securely_operate_updated_threats.md "sec_securely_operate_updated_threats.md")
 - [SEC01-BP05 Reduce security management scope](sec_securely_operate_reduce_management_scope.md "sec_securely_operate_reduce_management_scope.md")
-- [SEC01-BP08 Evaluate and implement new security services and
-  features regularly](sec_securely_operate_implement_services_features.md "sec_securely_operate_implement_services_features.md")
+- [SEC01-BP08 Evaluate and implement new security services and features regularly](sec_securely_operate_implement_services_features.md "sec_securely_operate_implement_services_features.md")
 
 **Related documents:**
 

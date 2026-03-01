@@ -1,6 +1,4 @@
-# PERF02-BP06 Use optimized
-
-hardware-based compute accelerators
+# PERF02-BP06 Use optimized hardware-based compute accelerators
 
 Use hardware accelerators to perform certain functions more efficiently than CPU-based
 alternatives.

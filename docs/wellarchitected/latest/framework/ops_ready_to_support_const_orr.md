@@ -1,6 +1,4 @@
-# OPS07-BP02 Ensure a consistent review of
-
-operational readiness
+# OPS07-BP02 Ensure a consistent review of operational readiness
 
 Use Operational Readiness Reviews (ORRs) to validate that you can
 operate your workload. ORR is a mechanism developed at Amazon to
