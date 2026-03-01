@@ -1,13 +1,9 @@
-# Advanced Use Cases for the IVS iOS Broadcast
-
-SDK | Low-Latency Streaming
+# Advanced Use Cases for the IVS iOS Broadcast SDK | Low-Latency Streaming
 
 Here we present some advanced use cases. Start with the basic setup above and continue
 here.
 
-## Create a Broadcast
-
-Configuration
+## Create a Broadcast Configuration
 
 Here we create a custom configuration with two mixer slots that allow us to bind
 two video sources to the mixer. One (`custom`) is full screen and laid
@@ -46,9 +42,7 @@ config.mixer.slots = [
 ]
 ```
 
-## Create the Broadcast Session
-
-(Advanced Version)
+## Create the Broadcast Session (Advanced Version)
 
 Create an `IVSBroadcastSession` as you did in the [basic example](broadcast-ios-getting-started.md#broadcast-ios-create-session "broadcast-ios-getting-started.md#broadcast-ios-create-session"), but provide your
 custom configuration here. Also provide `nil` for the device array, as we
@@ -61,14 +55,11 @@ let broadcastSession = try IVSBroadcastSession(
    delegate: self)
 ```
 
-## Iterate and Attach a Camera
-
-Device
+## Iterate and Attach a Camera Device
 
 Here we iterate through input devices that the SDK has detected. The SDK will only
 return built-in devices on iOS. Even if Bluetooth audio devices are connected, they
-will appear as a built-in device. For more information, see [Known Issues & Workarounds in the IVS iOS
-Broadcast SDK | Low-Latency Streaming](broadcast-ios-issues.md "broadcast-ios-issues.md").
+will appear as a built-in device. For more information, see [Known Issues & Workarounds in the IVS iOS Broadcast SDK | Low-Latency Streaming](broadcast-ios-issues.md "broadcast-ios-issues.md").
 
 Once we find a device that we want to use, we call `attachDevice` to
 attach it:
@@ -107,9 +98,7 @@ broadcastSession.exchangeOldDevice(currentCamera, withNewDevice: newCamera) { ne
 }
 ```
 
-## Create a Custom Input
-
-Source
+## Create a Custom Input Source
 
 To input sound or image data that your app generates, use
 `createImageSource` or `createAudioSource`. Both these
@@ -140,9 +129,7 @@ let customImageSource = broadcastSession.createImageSource(withName: "video")
 try broadcastSession.attach(customImageSource, toSlotWithName: "custom")
 ```
 
-## Monitor Network
-
-Connectivity
+## Monitor Network Connectivity
 
 It is common for mobile devices to temporarily lose and regain network
 connectivity while on the go. Because of this, it is important to monitor your app’s
@@ -209,9 +196,7 @@ instead of `IVSReplayKitBroadcastSession`. However, the
 ReplayKit-specific variant has several modifications to reduce the internal memory
 footprint, to stay within Apple’s memory ceiling for broadcast extensions.
 
-## Get Recommended Broadcast
-
-Settings
+## Get Recommended Broadcast Settings
 
 To evaluate your user’s connection before starting a broadcast, use
 `IVSBroadcastSession.recommendedVideoSettings` to run a brief test.
@@ -303,9 +288,7 @@ configuring the broadcast session, before the session goes live._ The
 method is expensive (it encodes video), so performance of a live broadcast while
 this method is running may be degraded.
 
-### Example: Generating a
-
-Static Image for Background Video
+### Example: Generating a Static Image for Background Video
 
 Providing a single image to the background source generates a full GOP of that
 static image.
@@ -360,9 +343,7 @@ guard let cgImage = UIImage(named: "image")?.cgImage else {
 let ciImage = CIImage(cgImage: cgImage)
 ```
 
-### Example: Video
-
-with AVAssetImageGenerator
+### Example: Video with AVAssetImageGenerator
 
 You can use an `AVAssetImageGenerator` to generate
 `CMSampleBuffers` from an `AVAsset` (though not an HLS

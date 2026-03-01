@@ -26,8 +26,7 @@ cloud:
 - [IVS Data Protection](security-data-protection.md "security-data-protection.md")
 - [Identity and Access Management in IVS](security-iam.md "security-iam.md")
 - [Managed Policies for Amazon IVS](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [Using Service-Linked Roles for
-  Amazon IVS](security-service-linked-roles.md "security-service-linked-roles.md")
+- [Using Service-Linked Roles for Amazon IVS](security-service-linked-roles.md "security-service-linked-roles.md")
 - [IVS Logging and Monitoring](security-logging-monitoring.md "security-logging-monitoring.md")
 - [IVS Incident Response](security-incident-response.md "security-incident-response.md")
 - [IVS Resilience](security-resilience.md "security-resilience.md")

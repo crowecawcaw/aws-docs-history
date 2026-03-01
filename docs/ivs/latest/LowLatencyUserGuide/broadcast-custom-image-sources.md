@@ -1,6 +1,4 @@
-# IVS Broadcast SDK: Custom Image
-
-Sources | Low-Latency Streaming
+# IVS Broadcast SDK: Custom Image Sources | Low-Latency Streaming
 
 This guide assumes you are already familiar with how to set up a broadcast session ([Android](broadcast-android.md "broadcast-android.md"), [iOS](broadcast-ios.md "broadcast-ios.md"))
 and how to [use the mixed devices API](broadcast-mixed-devices.md "broadcast-mixed-devices.md").

@@ -1,6 +1,4 @@
-# Broadcasting a Stage:
-
-Client-Side versus Server-Side Composition
+# Broadcasting a Stage: Client-Side versus Server-Side Composition
 
 When developers want to broadcast a stage to an IVS channel, they have two
 choices:

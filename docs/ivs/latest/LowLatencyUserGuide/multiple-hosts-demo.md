@@ -64,9 +64,7 @@ Content-type: application/json
 }
 ```
 
-## 2. Distribute Participant
-
-Tokens
+## 2. Distribute Participant Tokens
 
 The client now has a token for Alice (A) and Bob (B). By default, tokens are valid
 for 1 hour; optionally you can pass in a custom `duration` when you
@@ -139,9 +137,7 @@ try {
 
 ## 4. Broadcast the Stage
 
-### Client-Side
-
-Composition
+### Client-Side Composition
 
 ![Broadcasting the stage: client-side composition.](images/Demo_Broadcast_the_Stage_Client_Side_Composition_1_crop.png)
 
@@ -195,9 +191,7 @@ Broadcast SDK. Here is what this looks like architecturally:
 
 ![Broadcasting the stage: client-side composition. Alice is broadcasting to multiple viewers.](images/Demo_Broadcast_the_Stage_Client_Side_Composition_2_crop.png)
 
-### Server-Side
-
-Composition
+### Server-Side Composition
 
 For comparison, here is how [server-side
 composition](multiple-hosts-broadcasting-client-vs-server.md "multiple-hosts-broadcasting-client-vs-server.md") works. (For details, see [Server-Side

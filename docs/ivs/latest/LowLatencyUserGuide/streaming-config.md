@@ -71,9 +71,7 @@ change renditions.
 - Ensure that buffer size (VBV) does not exceed the average bitrate
   (kilobits-per-second) of the stream.
 
-### Avoid Third-Party
-
-Streaming/Forwarding Services
+### Avoid Third-Party Streaming/Forwarding Services
 
 We strongly recommend you do not use third-party service to restream or forward
 content to Amazon IVS. _This will incur extra
@@ -302,9 +300,7 @@ _We strongly recommend you only use CBR._ If you
 use VBR, your streams will be more subject to buffering and playback that is not
 smooth.
 
-### Use Progressive
-
-Signals
+### Use Progressive Signals
 
 **Use progressive signal flows; avoid any interlaced video in
 production flow and/or encoding.** Progressive stream signals yield
@@ -466,9 +462,7 @@ reconnect when a broadcaster switches networks (for example, from WiFi to cellul
 - On Android, set `config.autoReconnect.setEnabled(true)` on your
   `BroadcastConfiguration` object.
 
-### Considerations for Using Auto-Reconnect and
-
-Stream Takeover Together
+### Considerations for Using Auto-Reconnect and Stream Takeover Together
 
 When mobile broadcast SDK customers enable auto-reconnect as described above, the ongoing streamer
 (Broadcaster A) will try to reconnect up to 5 times following a network disruption, starting with `priority=1`
@@ -487,9 +481,7 @@ it could create challenges if another takeover is needed later. We recommend mai
 for Broadcaster A during network instability and stream takeover by Broadcaster B as distinct
 use cases.
 
-## Stream with the Amazon IVS
-
-Broadcast SDK
+## Stream with the Amazon IVS Broadcast SDK
 
 The Amazon IVS broadcast SDK is for developers who are building Android, iOS, or Web
 applications with Amazon IVS. See the broadcast SDK documentation in the _Amazon IVS User Guide_, starting [here](broadcast.md "broadcast.md"). There are subpages with guides for Android, iOS, and Web streaming.

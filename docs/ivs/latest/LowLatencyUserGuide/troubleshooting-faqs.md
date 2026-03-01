@@ -16,23 +16,14 @@ servers.
 
 Topics:
 
-- [What is stream
-  starvation?](#broadcast-encode-stream-starvation "#broadcast-encode-stream-starvation")
-- [Why did the stream suddenly
-  stop?](#broadcast-encode-stream-stop "#broadcast-encode-stream-stop")
-- [What happens when I switch
-  networks while streaming?](#broadcast-encode-switch-networks "#broadcast-encode-switch-networks")
-- [How can I have multi-region
-  redundancy with IVS?](#broadcast-encode-multi-region "#broadcast-encode-multi-region")
-- [How do I troubleshoot
-  an IVS Web Broadcast SDK session?](#broadcast-troubleshoot-web-broadcast-session "#broadcast-troubleshoot-web-broadcast-session")
-- [How do I use
-  Google Chrome’s WebRTC-internals metrics to evaluate an IVS Web Broadcast SDK
-  session?](#broadcast-evaluate-with-webrtc-internals-metrics "#broadcast-evaluate-with-webrtc-internals-metrics")
+- [What is stream starvation?](#broadcast-encode-stream-starvation "#broadcast-encode-stream-starvation")
+- [Why did the stream suddenly stop?](#broadcast-encode-stream-stop "#broadcast-encode-stream-stop")
+- [What happens when I switch networks while streaming?](#broadcast-encode-switch-networks "#broadcast-encode-switch-networks")
+- [How can I have multi-region redundancy with IVS?](#broadcast-encode-multi-region "#broadcast-encode-multi-region")
+- [How do I troubleshoot an IVS Web Broadcast SDK session?](#broadcast-troubleshoot-web-broadcast-session "#broadcast-troubleshoot-web-broadcast-session")
+- [How do I use Google Chrome’s WebRTC-internals metrics to evaluate an IVS Web Broadcast SDK session?](#broadcast-evaluate-with-webrtc-internals-metrics "#broadcast-evaluate-with-webrtc-internals-metrics")
 
-### What is stream
-
-starvation?
+### What is stream starvation?
 
 "Stream starvation" is a delay or halt in content packet delivery when you are
 sending content to IVS; that is, when content is being ingested by IVS. If IVS does
@@ -55,12 +46,9 @@ conditions.
 
 For additional starvation monitoring tools, see [Monitoring Amazon IVS Low-Latency Streaming](stream-health.md "stream-health.md"), the IVS [ListStreams](../LowLatencyAPIReference/API_ListStreams.md "../LowLatencyAPIReference/API_ListStreams.md")
 API operation (filtering by health), and the IVS [GetStream](../LowLatencyAPIReference/API_GetStream.md "../LowLatencyAPIReference/API_GetStream.md")
-operation (to analyze an individual stream). Also see [How do I monitor
-stream-starvation events?](#monitor-metrics-events-stream-starvation "#monitor-metrics-events-stream-starvation")
+operation (to analyze an individual stream). Also see [How do I monitor stream-starvation events?](#monitor-metrics-events-stream-starvation "#monitor-metrics-events-stream-starvation")
 
-### Why did the stream suddenly
-
-stop?
+### Why did the stream suddenly stop?
 
 The following are the most common reasons why a stream can abruptly stop (i.e.,
 the stream session ends):
@@ -94,9 +82,7 @@ to no data being sent to IVS.
   it may be determined that the stream was disconnected due to an
   unintentional error.
 
-### What happens when I switch
-
-networks while streaming?
+### What happens when I switch networks while streaming?
 
 When a broadcaster switches networks (for example, from WiFi to cellular), an
 ongoing RTMPS connection is disconnected. While the broadcaster’s internet
@@ -116,9 +102,7 @@ if the priority provided for the new stream is greater than the priority set for
 ongoing stream. (Note that the original stream-up does not require the priority parameter
 to be set, but all takeover attempts do.)
 
-### How can I have multi-region
-
-redundancy with IVS?
+### How can I have multi-region redundancy with IVS?
 
 Redundancy within IVS can be achieved in several ways; see [IVS Resilience](security-resilience.md "security-resilience.md") in _IVS Security_ .
 
@@ -174,9 +158,7 @@ interruption in the event of a regional control-plane failure. IVS maintains
 an SLA of 99.9% uptime and is committed to ensuring the stability of its
 infrastructure for its customers (see our [SLA](https://aws.amazon.com/ivs/sla/ "https://aws.amazon.com/ivs/sla/")).
 
-### How do I troubleshoot
-
-an IVS Web Broadcast SDK session?
+### How do I troubleshoot an IVS Web Broadcast SDK session?
 
 The [IVS Web Broadcast
 SDK](broadcast-web.md "broadcast-web.md") works slightly differently than a normal IVS RTMPS ingest session.
@@ -211,10 +193,7 @@ encoding behaviors:
   of the undesirable behavior.
 - Try using Google Chrome’s WebRTC-internals (see below).
 
-### How do I use
-
-Google Chrome’s WebRTC-internals metrics to evaluate an IVS Web Broadcast SDK
-session?
+### How do I use Google Chrome’s WebRTC-internals metrics to evaluate an IVS Web Broadcast SDK session?
 
 When streaming via the IVS Web Broadcast SDK, various behaviors can occur during
 encoding and sending of the broadcast. Follow these steps to troubleshoot or gather
@@ -242,16 +221,11 @@ Questions in this section are about IVS monitoring, metrics, and events.
 
 Topics:
 
-- [How do I monitor
-  stream-starvation events?](#monitor-metrics-events-stream-starvation "#monitor-metrics-events-stream-starvation")
-- [How do I use Amazon CloudWatch to
-  monitor IVS service quotas?](#monitor-metrics-service-quotas "#monitor-metrics-service-quotas")
-- [How do I diagnose stream
-  instability using IVS Stream Health?](#monitor-metrics-stream-instability "#monitor-metrics-stream-instability")
+- [How do I monitor stream-starvation events?](#monitor-metrics-events-stream-starvation "#monitor-metrics-events-stream-starvation")
+- [How do I use Amazon CloudWatch to monitor IVS service quotas?](#monitor-metrics-service-quotas "#monitor-metrics-service-quotas")
+- [How do I diagnose stream instability using IVS Stream Health?](#monitor-metrics-stream-instability "#monitor-metrics-stream-instability")
 
-### How do I monitor
-
-stream-starvation events?
+### How do I monitor stream-starvation events?
 
 We recommend the following methods of monitoring for stream-starvation
 events:
@@ -278,12 +252,9 @@ events:
   Streaming](stream-health.md "stream-health.md").
 - You can use the IVS [GetStream](../LowLatencyAPIReference/API_GetStream.md "../LowLatencyAPIReference/API_GetStream.md") operation to analyze an individual stream.
 
-Also see [What is stream
-starvation?](#broadcast-encode-stream-starvation "#broadcast-encode-stream-starvation")
+Also see [What is stream starvation?](#broadcast-encode-stream-starvation "#broadcast-encode-stream-starvation")
 
-### How do I use Amazon CloudWatch to
-
-monitor IVS service quotas?
+### How do I use Amazon CloudWatch to monitor IVS service quotas?
 
 You can use Amazon CloudWatch to proactively monitor/manage IVS service quotas.
 See [IVS Service
@@ -296,9 +267,7 @@ quota is adjustable, you should request a service-quota increase with a new valu
 See [IVS Service
 Quotas](service-quotas.md "service-quotas.md") for information on requesting an increase.
 
-### How do I diagnose stream
-
-instability using IVS Stream Health?
+### How do I diagnose stream instability using IVS Stream Health?
 
 We recommend that you evaluate stream instability using the IVS Stream Health
 dashboard. Instructions are in [Monitoring Amazon IVS
@@ -310,9 +279,7 @@ CloudWatch** to view the data in Amazon CloudWatch.
 
 Several scenarios are discussed below.
 
-#### Low Internet Bandwidth or
-
-Internet Congestion
+#### Low Internet Bandwidth or Internet Congestion
 
 In this case, the stream is relatively unstable, even when bitrates are
 lowered. Either there is not enough bandwidth between the broadcaster and the
@@ -343,9 +310,7 @@ listed in [Resolution/Bitrate/FPS](streaming-config.md#streaming-config-settings
 
 ![Checking for excessive high bitrate on CloudWatch.](images/high_bitrate_cloudwatch.png)
 
-#### Network or Hardware
-
-Problems
+#### Network or Hardware Problems
 
 Video encoding takes a lot of computing resources, and sometimes the machine
 doing the video encoding cannot keep up with the load. In this case, verify that
@@ -361,9 +326,7 @@ CPU.
 
 ![Checking for network or hardware problems on CloudWatch.](images/network_or_hardware_problems_cloudwatch.png)
 
-#### Bitrate Spikes and
-
-Dips
+#### Bitrate Spikes and Dips
 
 Sometimes streaming encoders try to be too smart and optimize bitrate, often
 depending on the complexity of the frame being compressed. If the bitrate
@@ -381,9 +344,7 @@ enough CPU power for the encoder to compress video.
 
 ![Checking for bitrate spikes and dips on CloudWatch.](images/bitrate_spikes_and_dips_cloudwatch.png)
 
-#### Internet
-
-Disconnection
+#### Internet Disconnection
 
 When a broadcast device experiences an internet issue, IVS servers enter a
 30-second period in which they evaluate whether the same connection is
@@ -408,16 +369,11 @@ Player](player.md "player.md").
 
 Topics:
 
-- [How do I debug IVS player
-  behaviors?](#playback-player-behavior "#playback-player-behavior")
-- [Why did playback freeze/stop for all
-  viewers?](#playback-viewer-freeze "#playback-viewer-freeze")
-- [What is causing the IVS player to
-  buffer?](#playback-player-buffering "#playback-player-buffering")
+- [How do I debug IVS player behaviors?](#playback-player-behavior "#playback-player-behavior")
+- [Why did playback freeze/stop for all viewers?](#playback-viewer-freeze "#playback-viewer-freeze")
+- [What is causing the IVS player to buffer?](#playback-player-buffering "#playback-player-buffering")
 
-### How do I debug IVS player
-
-behaviors?
+### How do I debug IVS player behaviors?
 
 To enable verbose logging to assist in debugging the IVS Player, use the
 `setLogLevel` player method. Alter the log level of the player to use
@@ -429,9 +385,7 @@ enabled, use the [https://debug.ivsdemos.com/](https://debug.ivsdemos.com/ "http
 are enabled via the settings menu, you can view the logs in the browser console
 view.
 
-### Why did playback freeze/stop for all
-
-viewers?
+### Why did playback freeze/stop for all viewers?
 
 If playback for all viewers freezes/stops at the same time within the content,
 this probably is the result of an upstream behavior. Often the root cause is the
@@ -444,9 +398,7 @@ started, all viewers stop receiving content concurrently. When you are evaluatin
 this behavior, we recommend you evaluate the stream session using [Monitoring Amazon IVS Low-Latency
 Streaming](stream-health.md "stream-health.md").
 
-### What is causing the IVS player to
-
-buffer?
+### What is causing the IVS player to buffer?
 
 In the context of playback of live-streaming video and audio, "buffering" means
 the playback device is unable to download the content before the content is supposed
@@ -486,14 +438,10 @@ S3](record-to-s3.md "record-to-s3.md").
 
 Topics:
 
-- [Why is some recording content
-  missing?](#autorecord-s3-missing-content "#autorecord-s3-missing-content")
-- [Can KMS-S3 encryption be used with
-  auto-record to S3?](#autorecord-s3-kms_s3_encryption "#autorecord-s3-kms_s3_encryption")
+- [Why is some recording content missing?](#autorecord-s3-missing-content "#autorecord-s3-missing-content")
+- [Can KMS-S3 encryption be used with auto-record to S3?](#autorecord-s3-kms_s3_encryption "#autorecord-s3-kms_s3_encryption")
 
-### Why is some recording content
-
-missing?
+### Why is some recording content missing?
 
 There are various reasons why recorded content may be missing. We recommend the
 following steps to troubleshoot the missing content:
@@ -524,9 +472,7 @@ following steps to troubleshoot the missing content:
    the stream was missing (i.e., stream starvation occurred), recorded content
    may be missing as nothing was generated.
 
-### Can KMS-S3 encryption be used with
-
-auto-record to S3?
+### Can KMS-S3 encryption be used with auto-record to S3?
 
 The IVS auto-record to Amazon S3 feature does not support [KMS-S3 encryption](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md"). When attempting to use KMS-S3 encryption, the
 recording start will fail and produce a [Recording Start Failure EventBridge event](eventbridge.md#eventbridge-examples-recording-state-change "eventbridge.md#eventbridge-examples-recording-state-change"). The recommended
@@ -540,13 +486,10 @@ elsewhere.
 
 Topics:
 
-- [What does the "pending
-  verification" error mean?](#misc-pending-verification-error "#misc-pending-verification-error")
+- [What does the "pending verification" error mean?](#misc-pending-verification-error "#misc-pending-verification-error")
 - [Can I estimate the cost of IVS usage?](#misc-ivs-usage-cost "#misc-ivs-usage-cost")
 
-### What does the "pending
-
-verification" error mean?
+### What does the "pending verification" error mean?
 
 When using IVS, an error may appear that states: "Your account is pending
 verification. Until the verification process is complete, you may not be able to

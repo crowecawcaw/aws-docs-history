@@ -1,6 +1,4 @@
-# Known Issues & Workarounds in the IVS iOS Player
-
-SDK
+# Known Issues & Workarounds in the IVS iOS Player SDK
 
 This document lists known issues that you might encounter when using the Amazon IVS
 iOS player SDK and suggests potential workarounds.

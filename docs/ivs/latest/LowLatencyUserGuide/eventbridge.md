@@ -55,9 +55,7 @@ decreases this latency. See ["Reducing
 Latency"](streaming-config.md#streaming-config-reducing-latency "streaming-config.md#streaming-config-reducing-latency") in _Amazon IVS Streaming Configuration_
 for information on setting `IDR/Keyframe`.
 
-## Creating Amazon EventBridge Rules for
-
-Amazon IVS
+## Creating Amazon EventBridge Rules for Amazon IVS
 
 You can create a rule that triggers on an event emitted by Amazon IVS. Follow the
 steps in [Create a rule in Amazon
@@ -65,9 +63,7 @@ EventBridge](../../../eventbridge/latest/userguide/eb-get-started.md "../../../e
 Guide_. When selecting a service, choose **Interactive
 Video Service (IVS)**.
 
-## Examples: Stream State
-
-Change
+## Examples: Stream State Change
 
 **Session Created:** This event is sent when a channel stream key was used successfully and a stream session was created.
 
@@ -233,9 +229,7 @@ or surpassing the maximum number of takeovers per stream.
 }
 ```
 
-## Examples: Stream Health
-
-Change
+## Examples: Stream Health Change
 
 **Starvation Start:** This event is sent when a stream is
 not receiving data from the streamer; the stream is said to be in “starvation.”
@@ -414,9 +408,7 @@ limit.
 }
 ```
 
-## Examples: Recording State
-
-Change
+## Examples: Recording State Change
 
 For all recording state change events, the top-level path where all objects for this
 live stream are stored is `recording_s3_key_prefix`. In the case of failures,

@@ -33,8 +33,7 @@ How you use IAM differs, depending on the work you do in Amazon IVS:
 - **IAM administrator** – If you're an IAM
   administrator, you can write policies to manage access to Amazon IVS. To
   view example Amazon IVS identity-based policies that you can use in IAM, see
-  [Identity-Based Policy
-  Examples](#security-iam-policy-examples "#security-iam-policy-examples").
+  [Identity-Based Policy Examples](#security-iam-policy-examples "#security-iam-policy-examples").
 
 ## How Amazon IVS Works with IAM
 
@@ -125,9 +124,7 @@ set of permissions to identities (read only or full access). You can choose to u
 policies instead of the identity-based policies shown below. For details,
 see [Managed Policies for Amazon IVS](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
-## Authorization Based on Amazon IVS
-
-Tags
+## Authorization Based on Amazon IVS Tags
 
 You can attach tags to Amazon IVS resources or pass tags in a request to Amazon
 IVS. To control access based on tags, you provide tag information in the condition
@@ -140,8 +137,7 @@ Streaming API Reference](../LowLatencyAPIReference/Welcome.md "../LowLatencyAPIR
 Streaming API Reference](../RealTimeAPIReference/Welcome.md "../RealTimeAPIReference/Welcome.md"), and
 [IVS Chat API Reference](../ChatAPIReference/Welcome.md "../ChatAPIReference/Welcome.md").
 
-For an example, see [View Amazon IVS Channels
-Based on Tags](#security-iam-policy-examples-tags "#security-iam-policy-examples-tags").
+For an example, see [View Amazon IVS Channels Based on Tags](#security-iam-policy-examples-tags "#security-iam-policy-examples-tags").
 
 ## Roles
 
@@ -160,16 +156,12 @@ security credentials by calling [AWS Security Token
 Service](../../../STS/latest/APIReference/welcome.md "../../../STS/latest/APIReference/welcome.md") API operations such as `AssumeRole` or
 `GetFederationToken`.
 
-## Privileged and Unprivileged
-
-Access
+## Privileged and Unprivileged Access
 
 API resources have privileged access. Unprivileged playback access can be set up
 through private channels; see [Setting Up Private Channels](private-channels.md "private-channels.md").
 
-## Best Practices for
-
-Policies
+## Best Practices for Policies
 
 See [IAM Best
 Practices](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User
@@ -197,13 +189,9 @@ incur costs for your AWS account. Follow these recommendations:
   within a specified date or time range, or to require the use of SSL or
   MFA.
 
-## Identity-Based Policy
+## Identity-Based Policy Examples
 
-Examples
-
-### Use the Amazon IVS
-
-Console
+### Use the Amazon IVS Console
 
 To access the Amazon IVS console, you must have a minimum set of permissions
 which allow you to list and view details about the Amazon IVS resources in your
@@ -281,9 +269,7 @@ JSON
 
 ```
 
-### Allow Users to View
-
-Their Own Permissions
+### Allow Users to View Their Own Permissions
 
 This example shows a policy that allows IAM users to view the inline and
 managed policies that are attached to their user identity. This policy includes
@@ -330,9 +316,7 @@ JSON
 
 ```
 
-### Access an Amazon IVS
-
-Channel
+### Access an Amazon IVS Channel
 
 Here, you want to grant an IAM user in your AWS account access to one of
 your Amazon IVS channels, `VgNkEJgOVX9N`. You also want to allow the
@@ -383,9 +367,7 @@ JSON
 
 ```
 
-### View Amazon IVS Channels
-
-Based on Tags
+### View Amazon IVS Channels Based on Tags
 
 You can use conditions in your identity-based policy to control access to
 Amazon IVS resources based on tags. This example shows a policy that allows

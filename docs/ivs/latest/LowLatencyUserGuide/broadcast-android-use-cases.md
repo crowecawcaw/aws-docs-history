@@ -1,13 +1,9 @@
-# Advanced Use Cases for the IVS Android Broadcast SDK |
-
-Low-Latency Streaming
+# Advanced Use Cases for the IVS Android Broadcast SDK | Low-Latency Streaming
 
 Here we present some advanced use cases. Start with the basic setup above and continue
 here.
 
-## Create a Broadcast
-
-Configuration
+## Create a Broadcast Configuration
 
 Here we create a custom configuration with two mixer slots that allow us to bind
 two video sources to the mixer. One (`custom`) is full screen and laid
@@ -48,9 +44,7 @@ BroadcastConfiguration config = BroadcastConfiguration.with($ -> {
 });
 ```
 
-## Create the Broadcast
-
-Session (Advanced Version)
+## Create the Broadcast Session (Advanced Version)
 
 Create a `BroadcastSession` as you did in the [basic example](broadcast-android-getting-started.md#broadcast-android-create-session "broadcast-android-getting-started.md#broadcast-android-create-session"), but provide
 your custom configuration here. Also provide `null` for the device array,
@@ -66,9 +60,7 @@ broadcastSession = new BroadcastSession(ctx,
                        null); // We’ll manually attach devices after
 ```
 
-## Iterate and Attach a Camera
-
-Device
+## Iterate and Attach a Camera Device
 
 Here we iterate through input devices that the SDK has detected. On Android 7
 (Nougat) this will only return default microphone devices, because the Amazon IVS
@@ -121,9 +113,7 @@ for(Device device: BroadcastSession.listAvailableDevices()) {
 }
 ```
 
-## Create an Input
-
-Surface
+## Create an Input Surface
 
 To input sound or image data that your app generates, use
 `createImageInputSource` or `createAudioInputSource`. Both
@@ -153,9 +143,7 @@ or `Device.Descriptor`.
 session.detachDevice(currentCamera);
 ```
 
-## Screen and System Audio
-
-Capture
+## Screen and System Audio Capture
 
 The Amazon IVS Broadcast SDK for Android includes some helpers that simplify
 capturing the device’s screen (Android 6 and higher) and system audio (Android 10
@@ -235,9 +223,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-## Get Recommended Broadcast
-
-Settings
+## Get Recommended Broadcast Settings
 
 To evaluate your user’s connection before starting a broadcast, use the
 `recommendedVideoSettings` method to run a brief test. As the test
@@ -276,9 +262,7 @@ When something causes the stream to unexpectedly stop, the SDK retries up to 5 t
 
 Behind the scenes, auto-reconnect uses IVS [stream-takeover](streaming-config.md#streaming-config-stream-takeover "streaming-config.md#streaming-config-stream-takeover") functionality by appending a priority number, starting with 1, to the end of the provided stream key. For the duration of the `BroadcastSession` instance, that number is incremented by 1 each time a reconnect is attempted. This means if the device’s connection is lost 4 times during a broadcast, and each loss requires 1-4 retry attempts, the priority of the last stream up could be anywhere between 5 and 17. Because of this, _we recommend you do not use IVS stream takeover from another device while auto-reconnect is enabled in the SDK for the same channel_. There are no guarantees what priority the SDK is using at the time, and the SDK will try to reconnect with a higher priority if another device takes over.
 
-## Using Bluetooth
-
-Microphones
+## Using Bluetooth Microphones
 
 To broadcast using Bluetooth microphone devices, you must start a Bluetooth SCO
 connection:

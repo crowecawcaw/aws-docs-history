@@ -81,9 +81,7 @@ following:
 
 For more information, see this [issue report](https://issuetracker.google.com/issues/353554169 "https://issuetracker.google.com/issues/353554169").
 
-## Create the Player and Set Up Event
-
-Listener
+## Create the Player and Set Up Event Listener
 
 The player interface is `com.amazonaws.ivs.player.Player`. Initialize
 it as shown below:

@@ -62,9 +62,7 @@ be implemented outside the player using the default Chromecast receiver apps. Ho
 latency in those apps is higher than in the Amazon IVS player SDK, so the switch will not be
 seamless. Also see our documentation on the Amazon IVS Broadcast SDK: for [Low-Latency Streaming](broadcast.md "broadcast.md") and for [Real-Time Streaming](../RealTimeUserGuide/broadcast.md "../RealTimeUserGuide/broadcast.md").
 
-## Browser & Platform
-
-Requirements
+## Browser & Platform Requirements
 
 For details on the latest released versions of various browsers, see:
 
@@ -84,9 +82,7 @@ devices” (TVs, consoles, set-top boxes) which support web applications. Please
 IVS Support if you're unsure of specific browser support outside of the tables listed
 below.
 
-### Desktop
-
-Browsers
+### Desktop Browsers
 
 | Desktop Browser | Supported Platforms   | Supported Versions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -95,9 +91,7 @@ Browsers
 | Edge            | Windows 8.1 and later | 44.0 and later<br>(In auto-quality mode on [Microsoft Edge Legacy](https://support.microsoft.com/en-us/microsoft-edge/what-is-microsoft-edge-legacy-3e779e55-4c55-08e6-ecc8-2333768c0fb0 "https://support.microsoft.com/en-us/microsoft-edge/what-is-microsoft-edge-legacy-3e779e55-4c55-08e6-ecc8-2333768c0fb0"), only normal-latency playback<br>is supported, not low-latency playback. Auto-quality mode refers<br>to whether ABR is enabled. For example, on the Web player, see<br>`setAutoQualityMode`. |
 | Safari          | macOS                 | Two major versions (current and most recent prior<br>version)(In auto-quality mode on Safari for macOS 14 and above, IVS Player 1.3.0 and above support<br>low-latency playback. For earlier versions of Safari and IVS<br>Player, only normal-latency playback is supported. See above for<br>"auto-quality mode.")                                                                                                                                                                                           |
 
-### Mobile
-
-Browsers
+### Mobile Browsers
 
 | Mobile Browser                       | Supported Versions                                                                                                                                                                                                                                                      |
 | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -105,9 +99,7 @@ Browsers
 | Chrome for iPadOS, Safari for iPadOS | Two major versions (current and most recent prior<br>version)<br>(When "Request Mobile Website" is selected:<br>• Low-latency playback is not supported.<br>• Timed metadata is supported only in Player 1.3.0 and<br>later.)                                           |
 | Chrome for Android                   | Two major versions (current and most recent prior<br>version)                                                                                                                                                                                                           |
 
-### Native
-
-Platforms
+### Native Platforms
 
 | Platform | Supported Versions | Supported Devices  |
 | -------- | ------------------ | ------------------ |
@@ -119,9 +111,7 @@ version support may extend beyond these minimums. Customers will be notified via
 release notes at least 3 months in advance of a major version no longer being
 supported.
 
-## Reducing Latency in Third-Party
-
-Players
+## Reducing Latency in Third-Party Players
 
 **For Basic and Standard channel types**: For the lowest
 possible latency, you must use the Amazon IVS player. In third-party players (including

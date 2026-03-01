@@ -1,6 +1,4 @@
-# Working With Content Security
-
-Policy
+# Working With Content Security Policy
 
 The Amazon IVS Web player SDK is configured to work on pages that use Content Security
 Policy (CSP). A few key CSP directives must be in place. Here, we describe a minimal set

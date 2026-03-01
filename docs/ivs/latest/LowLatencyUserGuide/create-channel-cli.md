@@ -1,6 +1,4 @@
-# CLI Instructions for Creating an IVS
-
-Channel
+# CLI Instructions for Creating an IVS Channel
 
 Creating a channel with the AWS CLI is an advanced option and requires that you
 first download and configure the CLI on your machine. For details, see the [AWS
@@ -9,9 +7,7 @@ Command Line Interface User Guide](../../../cli/latest/userguide/cli-chap-welcom
 Follow one of the two procedures below, depending on whether you want to create a
 channel with or without recording enabled.
 
-## Create a
-
-Channel without Recording
+## Create a Channel without Recording
 
 1. Run the `create-channel` command and pass in an optional
    name:
@@ -55,9 +51,7 @@ aws ivs create-channel --name test-channel
    `playbackUrl`. You will use these to set up streaming and
    playback.
 
-## Create a Channel
-
-with Recording
+## Create a Channel with Recording
 
 **Prerequisite:** Before starting this procedure,
 create an Amazon S3 bucket and note its ARN. See [Getting Started with

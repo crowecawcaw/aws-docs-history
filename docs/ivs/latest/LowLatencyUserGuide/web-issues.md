@@ -1,6 +1,4 @@
-# Known Issues & Workarounds in the IVS Web Player
-
-SDK
+# Known Issues & Workarounds in the IVS Web Player SDK
 
 This document lists known issues that you might encounter when using the Amazon IVS
 Web player SDK and suggests potential workarounds.

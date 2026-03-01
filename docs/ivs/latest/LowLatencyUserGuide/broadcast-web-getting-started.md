@@ -9,9 +9,7 @@ which extends the global Reflect object. Although this should not create any
 conflicts, there may be rare instances where this could cause unwanted
 behavior.
 
-### Using a Script
-
-Tag​
+### Using a Script Tag​
 
 The Web broadcast SDK is distributed as a JavaScript library and can be
 retrieved at [https://web-broadcast.live-video.net/1.32.0/amazon-ivs-web-broadcast.js](https://web-broadcast.live-video.net/1.32.0/amazon-ivs-web-broadcast.js "https://web-broadcast.live-video.net/1.32.0/amazon-ivs-web-broadcast.js").
@@ -48,9 +46,7 @@ To get started quickly, see the examples below:
   to an IVS channel](https://stream.ivs.rocks/ "https://stream.ivs.rocks/") ([React
   Source Code](https://github.com/aws-samples/amazon-ivs-broadcast-web-demo "https://github.com/aws-samples/amazon-ivs-broadcast-web-demo"))
 
-## Create an Instance of the
-
-AmazonIVSBroadcastClient​
+## Create an Instance of the AmazonIVSBroadcastClient​
 
 To use the library, you must create an instance of the client. You can
 do that by calling the `create` method on `IVSBroadcastClient`
@@ -149,9 +145,7 @@ async function handlePermissions() {
 
 For additional information, see the [Permissions API](https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API "https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API") and [MediaDevices.getUserMedia()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia "https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia").
 
-## Set Up a Stream
-
-Preview
+## Set Up a Stream Preview
 
 To preview what will be broadcast, provide the SDK with a `<canvas>`
 element.
@@ -172,9 +166,7 @@ window.videoDevices = devices.filter((d) => d.kind === 'videoinput');
 window.audioDevices = devices.filter((d) => d.kind === 'audioinput');
 ```
 
-## Retrieve a MediaStream from a
-
-Device
+## Retrieve a MediaStream from a Device
 
 After acquiring the list of available devices, you can retrieve a stream
 from any number of devices. For example, you can use the `getUserMedia()`

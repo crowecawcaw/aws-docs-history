@@ -1,6 +1,4 @@
-# IVS Broadcast SDK: Android Guide | Low-Latency
-
-Streaming
+# IVS Broadcast SDK: Android Guide | Low-Latency Streaming
 
 The IVS Low-Latency Streaming Android Broadcast SDK provides the interfaces required to
 broadcast to IVS on Android.

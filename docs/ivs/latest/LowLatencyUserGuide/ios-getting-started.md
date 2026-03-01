@@ -1,6 +1,4 @@
-# Getting Started with the IVS iOS Player
-
-SDK
+# Getting Started with the IVS iOS Player SDK
 
 This document takes you through the steps involved in getting started with the Amazon
 IVS iOS player SDK.
@@ -9,9 +7,7 @@ We recommend that you integrate the player SDK via Swift Package Manager.
 (Alternately, you can manually add the framework to your
 project.)
 
-## Recommended: Integrate the Player SDK
-
-(Swift Package Manager)
+## Recommended: Integrate the Player SDK (Swift Package Manager)
 
 1. Download the Package.swift file from [https://player.live-video.net/1.49.0/Package.swift](https://player.live-video.net/1.49.0/Package.swift "https://player.live-video.net/1.49.0/Package.swift").
 2. In your project, create a new directory named AmazonIVSPlayer and add it
@@ -27,9 +23,7 @@ project.)
    Product** by setting your application target in the **Add to Target** section.
 7. Select **Add Package**.
 
-## Alternate Approach: Install the
-
-Framework Manually
+## Alternate Approach: Install the Framework Manually
 
 1. Download the latest version from [https://player.live-video.net/1.49.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.49.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.49.0/AmazonIVSPlayer.xcframework.zip").
 2. Extract the contents of the archive.

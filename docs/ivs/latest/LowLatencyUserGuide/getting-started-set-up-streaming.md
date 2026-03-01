@@ -1,6 +1,4 @@
-# Step 5: Set Up Streaming
-
-Software
+# Step 5: Set Up Streaming Software
 
 You can stream (low-latency) to Amazon IVS with:
 
@@ -232,9 +230,7 @@ It’s advisable to check for OBS Studio updates regularly and update to the mos
 current version. (For instance, if you get a "Failed to connect to server" error,
 you may be using an old version of OBS Studio that does not support RTMPS.)
 
-## Streaming a Recorded Video with FFmpeg using
-
-RTMPS
+## Streaming a Recorded Video with FFmpeg using RTMPS
 
 Follow these steps:
 
@@ -269,9 +265,7 @@ _Note, the above command is an example. For
 production streaming, tune the parameters to your
 needs._
 
-## Streaming a Recorded Video with FFmpeg using
-
-SRT
+## Streaming a Recorded Video with FFmpeg using SRT
 
 1. Download and install FFmpeg: [https://www.ffmpeg.org/download.html](https://www.ffmpeg.org/download.html "https://www.ffmpeg.org/download.html"). If you are using an
    old/compiled version of FFmpeg, build a new version with the

@@ -1,6 +1,4 @@
-# Getting Started with the IVS Web Player
-
-SDK
+# Getting Started with the IVS Web Player SDK
 
 This document takes you through the steps involved in getting started with the Amazon
 IVS Web player SDK.
@@ -162,9 +160,7 @@ player.addEventListener(PlayerState.READY, () => {
 Setting the quality within `READY` works for both autoplay and
 non-autoplay modes.
 
-## Optimizing Background
-
-Playback
+## Optimizing Background Playback
 
 Starting with SDK version 1.45.0, the client can be configured to optimize data usage while playing in a background tab. When this feature is enabled, then after the duration specified, the player selects the highest available SD video quality, with a maximum of 480p. The player always selects video; audio_only is not selected. This applies to both manual and auto modes. When the tab is foregrounded, the player automatically switches back to its prior setting.
 

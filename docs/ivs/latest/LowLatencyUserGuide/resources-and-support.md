@@ -1,6 +1,4 @@
-# IVS Resources and Support | Low-Latency
-
-Streaming
+# IVS Resources and Support | Low-Latency Streaming
 
 This document lists resources to help support your use of Amazon IVS low-latency
 streaming.

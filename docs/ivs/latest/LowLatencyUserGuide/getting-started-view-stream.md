@@ -6,9 +6,7 @@ You can view your live stream with:
   SDKs](#view-stream-player-sdks "#view-stream-player-sdks").
 - The [Amazon IVS console](#view-stream-console "#view-stream-console").
 
-## Viewing with the Amazon IVS Player
-
-SDKs
+## Viewing with the Amazon IVS Player SDKs
 
 1. Set up the IVS Player. Start with the [IVS Player
    SDK overview](player.md "player.md"), then read the appropriate platform-specific Player

@@ -5,18 +5,14 @@ organized by date of release.
 
 ## February 19, 2026
 
-### IVS Player SDK: Android 1.49.0, iOS
-
-1.49.0
+### IVS Player SDK: Android 1.49.0, iOS 1.49.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android player<br>1.49.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.49.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.49.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.49.0/android/")<br>• Fixed an issue related to automatic quality switching<br>in auto mode when consuming certain OBS x264 encoded<br>streams. Previously, switching from a manually selected<br>rendition back to auto could impact the transition up to<br>the source quality.<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | [iOS Player 1.49.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.49.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.49.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.49.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.49.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.49.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.49.0/ios/")<br>• Bug fixes and stability improvements.<br>• Effective with this release, the IVS SDKs are no<br>longer distributed via CocoaPods.<br>CocoaPods announced its deprecation in 2024 and will<br>enter read-only state later this year. Swift Package<br>Manager (SPM) replaces CocoaPods as Apple’s supported<br>dependency-management solution and is the standard way<br>to integrate SDKs in modern Xcode projects.<br>We recommend that you migrate to SPM or integrate the<br>IVS SDK frameworks directly into your project. IVS SDKs<br>are fully supported via both approaches.<br>Related documentation changes were made in [iOS Player SDK<br>Guide](ios-getting-started.md "ios-getting-started.md") (in "Getting Started with the IVS iOS<br>Player SDK"). |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -41,18 +37,14 @@ Android
 
 ## February 13, 2026
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.39.0, iOS 1.39.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.39.0, iOS 1.39.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.39.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.39.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.39.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.39.0/android/")<br>• Updated core Android build tools and NDK<br>version.<br>• Fixed rare deadlock when stopping a<br>`MixedImageDevice`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | [iOS Broadcast SDK<br>1.39.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.39.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.39.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.39.0/ios/")<br>• Updated Xcode to version 26.2.<br>• Effective with this release, the IVS SDKs are no<br>longer distributed via CocoaPods.<br>CocoaPods announced its deprecation in 2024 and will<br>enter read-only state later this year. Swift Package<br>Manager (SPM) replaces CocoaPods as Apple’s supported<br>dependency-management solution and is the standard way<br>to integrate SDKs in modern Xcode projects.<br>We recommend that you migrate to SPM or integrate the<br>IVS SDK frameworks directly into your project. IVS SDKs<br>are fully supported via both approaches.<br>Related documentation changes were made in [iOS Broadcast SDK<br>Guide](broadcast-ios-getting-started.md#broadcast-ios-install "broadcast-ios-getting-started.md#broadcast-ios-install") (in "Install the Library"). |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -69,9 +61,7 @@ Android
 
 ## February 12, 2026
 
-### IVS Broadcast SDK: Web 1.32.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.32.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -79,18 +69,14 @@ Android
 
 ## January 13, 2026
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.38.0, iOS 1.38.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.38.0, iOS 1.38.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.38.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.38.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.38.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.38.0/android/")<br>• Changed the codes associated with some errors. See<br>[Mobile Broadcast SDK Error Migration Guide](#broadcast-1380-ll-sdk-error-migration "#broadcast-1380-ll-sdk-error-migration")<br>below.                                                                                                                                                                                                                                                                            |
 | [iOS Broadcast SDK<br>1.38.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.38.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.38.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.38.0/ios/")<br>• Changed the codes associated with some errors. See<br>[Mobile Broadcast SDK Error Migration Guide](#broadcast-1380-ll-sdk-error-migration "#broadcast-1380-ll-sdk-error-migration")<br>below. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -105,9 +91,7 @@ Android
 | ------------ | --------------- | ----------------- |
 | arm64        | 0.946 MB        | 2.296 MB          |
 
-#### Mobile Broadcast SDK
-
-Error Migration Guide
+#### Mobile Broadcast SDK Error Migration Guide
 
 In version 1.38.0 of the iOS and Android broadcast SDKs, the codes associated
 with some errors have changed. Previously, there was no single property that
@@ -190,18 +174,14 @@ information.
 
 ## December 18, 2025
 
-### IVS Player SDK: Android 1.48.0, iOS
-
-1.48.0
+### IVS Player SDK: Android 1.48.0, iOS 1.48.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android player<br>1.48.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.48.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.48.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.48.0/android/")<br>• The public constructor for the<br>`UnavailableQuality` class has been<br>removed. (This was previously made public in<br>error.)<br>• Bug fixes and stability improvements.                                                                                   |
 | [iOS Player 1.48.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.48.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.48.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.48.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.48.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.48.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.48.0/ios/")<br>• Bug fixes and stability improvements. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -218,17 +198,13 @@ Android
 
 ## December 11, 2025
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.37.1 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.37.1 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                      |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android Broadcast SDK<br>1.37.1](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.37.1/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.37.1/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.37.1/android/")<br>• Stability improvement in the networking stack. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -239,9 +215,7 @@ Android
 
 ## December 5, 2025
 
-### IVS Broadcast SDK: Web 1.31.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.31.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -249,18 +223,14 @@ Android
 
 ## December 5, 2025
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.37.0, iOS 1.37.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.37.0, iOS 1.37.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android Broadcast SDK<br>1.37.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.37.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.37.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.37.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                                                                            |
 | [iOS Broadcast SDK<br>1.37.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.37.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.37.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.37.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.37.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.37.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.37.0/ios/")<br>• Bug fixes and stability improvements. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -285,18 +255,14 @@ Android
 
 ## November 20, 2025
 
-### IVS Player SDK: Android 1.47.0, iOS
-
-1.47.0
+### IVS Player SDK: Android 1.47.0, iOS 1.47.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android player<br>1.47.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.47.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.47.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.47.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                         |
 | [iOS Player 1.47.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.47.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.47.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.47.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.47.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.47.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.47.0/ios/")<br>• Bug fixes and stability improvements. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -313,9 +279,7 @@ Android
 
 ## October 30, 2025
 
-### IVS Broadcast SDK: Web 1.30.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.30.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -323,18 +287,14 @@ Android
 
 ## October 30, 2025
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.36.0, iOS 1.36.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.36.0, iOS 1.36.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android Broadcast SDK<br>1.36.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.36.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.36.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.36.0/android/")<br>• Improved camera recovery when returning to the<br>foreground after being in the background for a prolonged<br>period of time.                                                                                                                                                                                    |
 | [iOS Broadcast SDK<br>1.36.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.36.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.36.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.36.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.36.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.36.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.36.0/ios/")<br>• Bug fixes and stability improvements. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -359,18 +319,14 @@ Android
 
 ## October 23, 2025
 
-### IVS Player SDK: Android 1.46.0, iOS
-
-1.46.0
+### IVS Player SDK: Android 1.46.0, iOS 1.46.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android player<br>1.46.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.46.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.46.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.46.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                         |
 | [iOS Player 1.46.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.46.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.46.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.46.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.46.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.46.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.46.0/ios/")<br>• Bug fixes and stability improvements. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -387,9 +343,7 @@ Android
 
 ## October 15, 2025
 
-### Expanded Interface
-
-VPC Endpoints
+### Expanded Interface VPC Endpoints
 
 We extended the supported regions for interface VPC (Virtual Private Cloud)
 endpoints (released on September 10, 2025). See [Private Ingest](private-ingest-ll.md "private-ingest-ll.md") in the _IVS Low-Latency Streaming
@@ -397,9 +351,7 @@ User Guide_.
 
 ## October 2, 2025
 
-### IVS Broadcast SDK: Web 1.29.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.29.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -407,18 +359,14 @@ User Guide_.
 
 ## October 2, 2025
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.35.0, iOS 1.35.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.35.0, iOS 1.35.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android Broadcast SDK<br>1.35.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.35.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.35.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.35.0/android/")<br>• We changed the<br>`BroadcastSession.recommendedVideoSettings`<br>operation:<br>+ A cancelled operation emits a final result<br>with an error.<br>+ All callbacks are emitted on the main<br>thread.<br>+ If bandwidth is too low to broadcast, an error<br>(instead of a video configuration) is emitted for<br>the final result.<br>• Support for Android 5 is deprecated as of this<br>release.                                                                                                                                                                                                                                                                                                                                                                                        |
 | [iOS Broadcast SDK<br>1.35.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.35.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.35.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.35.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.35.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.35.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.35.0/ios/")<br>• `IVSImageDevice.setOnFrameCallback` can now<br>be customized with a `DispatchQueue`, and<br>optionally can include the `CVPixelBuffer`<br>associated with the frame.<br>• We changed the<br>`IVSBroadcastSession.recommendedVideoSettings`<br>operation:<br>+ A cancelled operation emits a final result<br>with an error.<br>+ All callbacks are emitted on the main<br>queue.<br>+ If bandwidth is too low to broadcast, an error<br>(instead of a video configuration) is emitted for<br>the final result. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -443,18 +391,14 @@ Android
 
 ## September 25, 2025
 
-### IVS Player SDK: Android 1.45.0, iOS
-
-1.45.0
+### IVS Player SDK: Android 1.45.0, iOS 1.45.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android player<br>1.45.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.45.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.45.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.45.0/android/")<br>• Bug fixes and stability improvements.<br>• Support for Android 5 is deprecated as of this<br>release.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | [iOS Player 1.45.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.45.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.45.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.45.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.45.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.45.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.45.0/ios/")<br>• Fixed a race condition that could occur as a result of<br>reassigning the `player` property of the<br>`IVSPlayerLayer` or<br>`IVSPlayerView` class to a different<br>player instance.<br>• It is now considered thread-safe to dealloc<br>`IVSPlayer` instances off the main<br>thread.<br>• Additional bug fixes and stability<br>improvements. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -471,18 +415,14 @@ Android
 
 ## September 11, 2025
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.34.0, iOS 1.34.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.34.0, iOS 1.34.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.34.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.34.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.34.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.34.0/android/")<br>• CPU improvements for RTMP and RTMPS<br>broadcasting.<br>• Support for Android 5 will be deprecated as of IVS<br>Broadcast SDK 1.35.0.                                                                                                                                                                                           |
 | [iOS Broadcast SDK<br>1.34.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.34.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.34.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.34.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.34.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.34.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.34.0/ios/")<br>• CPU improvements for RTMP and RTMPS<br>broadcasting. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -499,9 +439,7 @@ Android
 
 ## September 10, 2025
 
-### Interface VPC
-
-Endpoints
+### Interface VPC Endpoints
 
 New support for interface VPC (Virtual Private Cloud) endpoints enables you to
 establish a secure private connection between your Amazon VPC and IVS, for workloads
@@ -514,9 +452,7 @@ Streaming User Guide_.
 
 ## September 4, 2025
 
-### IVS Broadcast SDK: Web 1.28.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.28.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -532,18 +468,14 @@ Streaming User Guide_.
 
 ## August 28, 2025
 
-### IVS Player SDK: Android 1.44.0, iOS
-
-1.44.0
+### IVS Player SDK: Android 1.44.0, iOS 1.44.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android player<br>1.44.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.44.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.44.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.44.0/android/")<br>• Bug fixes and stability improvements.<br>• Support for Android 5 will be deprecated as of IVS<br>Player 1.45.0.                                                                                                                                               |
 | [iOS Player 1.44.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.44.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.44.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.44.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.44.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.44.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.44.0/ios/")<br>• Bug fixes and stability improvements. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -560,9 +492,7 @@ Android
 
 ## August 7, 2025
 
-### IVS Broadcast SDK: Web 1.27.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.27.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -570,18 +500,14 @@ Android
 
 ## August 7, 2025
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.33.0, iOS 1.33.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.33.0, iOS 1.33.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android Broadcast SDK<br>1.33.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.33.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.33.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.33.0/android/")<br>• Added support for insecure ingest (RTMP).<br>• New methods to control device torch:<br>+ `CameraSource.Capabilities`<br>implements `isTorchSupported`.<br>+ `CameraSource.Options.Builder`<br>implements `setEnableTorch`.<br>• The Android broadcast SDK meets Google Play’s [16 KB page-size compatibility requirement](https://android-developers.googleblog.com/2025/05/prepare-play-apps-for-devices-with-16kb-page-size.html "https://android-developers.googleblog.com/2025/05/prepare-play-apps-for-devices-with-16kb-page-size.html").<br>(Note: This was implemented as of version 1.23.0 of the<br>SDK.)<br>• Support for Android 5 will be deprecated as of IVS<br>Broadcast SDK 1.35.0. |
 | [iOS Broadcast SDK<br>1.33.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.33.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.33.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.33.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.33.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.33.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.33.0/ios/")<br>• Added support for insecure ingest (RTMP).<br>• New method to control device torch:<br>`IVSImageDevice` implements two<br>properties, `isTorchSupported` and<br>`torchEnabled`. Check if the device<br>supports torch with `isTorchSupported`, and<br>then toggle it by setting<br>`torchEnabled`.<br>• Support for iOS 13 is deprecated as of this<br>release.                                                            |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -598,18 +524,14 @@ Android
 
 ## July 31, 2025
 
-### IVS Player SDK: Android 1.43.0, iOS
-
-1.43.0
+### IVS Player SDK: Android 1.43.0, iOS 1.43.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android player<br>1.43.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.43.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.43.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.43.0/android/")<br>• The SDK now supports using the system's default<br>CookieManager for HTTP requests. To use this<br>feature:<br>+ Set the default CookieManager before creating<br>a Player instance.<br>+ If you are using `okhttp3:4.x` as<br>an HTTP client, add<br>`okhttp-urlconnection` as a<br>dependency. No additional dependencies are<br>required if you are using other HTTP<br>clients.<br>+ Add the cookie to the default<br>CookieManager.<br>• Bug fixes and stability improvements.<br>• Support for Android 5 will be deprecated as of IVS<br>Player 1.45.0.                                                                  |
 | [iOS Player 1.43.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.43.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.43.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.43.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.43.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.43.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.43.0/ios/")<br>• Using the Swift Package Manager is now the recommended<br>way to integrate the Player SDK. See [Recommended: Integrate the Player SDK (Swift<br>Package Manager)](ios-getting-started.md#ios-integrate-sdk-swift "ios-getting-started.md#ios-integrate-sdk-swift") in the iOS Player<br>Guide.<br>• Bug fixes and stability improvements.<br>• Support for iOS 13 is deprecated as of this<br>release. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -634,17 +556,13 @@ Android
 
 ## July 25, 2025
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.32.2 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.32.2 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.32.2](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.32.2/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.32.2/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.32.2/android/")<br>• There were no changes to the low-latency SDK in this<br>release.<br>• Support for Android 5 will be deprecated as of IVS<br>Broadcast SDK 1.35.0. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -663,18 +581,14 @@ Android
 
 ## July 10, 2025
 
-### IVS Player SDK: Android 1.42.0, iOS
-
-1.42.0
+### IVS Player SDK: Android 1.42.0, iOS 1.42.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android player<br>1.42.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.42.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.42.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.42.0/android/")<br>• With this release we also began publishing a version<br>of the Android Player SDK with support for debug<br>symbols. See [Using the SDK with Debug Symbols](android-getting-started.md#player-android-using-debug-symbols-ll "android-getting-started.md#player-android-using-debug-symbols-ll").<br>• Bug fixes and stability improvements.<br>• Support for Android 5 will be deprecated as of IVS<br>Player 1.45.0. |
 | [iOS Player 1.42.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.42.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.42.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.42.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.42.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.42.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.42.0/ios/")<br>• Bug fixes and stability improvements.<br>• Support for iOS 13 will be deprecated as of IVS Player<br>1.43.0.                                                                                   |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -691,18 +605,14 @@ Android
 
 ## July 10, 2025
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.32.1, iOS 1.32.1 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.32.1, iOS 1.32.1 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.32.1](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.32.1/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.32.1/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.32.1/android/")<br>• RTMP auto-reconnect improvements.<br>• RTMP stability improvements.<br>• Added a `MixedDevice` API suite for<br>compositing multiple image and audio sources into a<br>single output `Device`, replacing<br>`BroadcastSession.Mixer`.<br>• Support for Android 5 will be deprecated as of IVS<br>Broadcast SDK 1.35.0.                                                                                                                                                                                                                                                                 |
 | [iOS Broadcast SDK<br>1.32.1](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.32.1/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.32.1/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.32.1/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.32.1/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.32.1/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.32.1/ios/")<br>• RTMP auto-reconnect improvements.<br>• RTMP stability improvements.<br>• Added an `IVSMixedDevice` API suite for<br>compositing multiple image and audio sources into a<br>single output `IVSDevice`, replacing<br>`IVSMixer`.<br>• Support for iOS 13 will be deprecated as of IVS<br>Broadcast SDK 1.33.0 |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -719,9 +629,7 @@ Android
 
 ## July 7, 2025
 
-### IVS Broadcast SDK: Web 1.26.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.26.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -729,9 +637,7 @@ Android
 
 ## June 16, 2025
 
-### IVS Broadcast SDK: Web 1.25.1
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.25.1 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                               |
 | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -739,18 +645,14 @@ Android
 
 ## June 12, 2025
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.31.0, iOS 1.31.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.31.0, iOS 1.31.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.31.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.31.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.31.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.31.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                                                                                                                                                         |
 | [iOS Broadcast SDK<br>1.31.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.31.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.31.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.31.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.31.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.31.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.31.0/ios/")<br>• Bug fixes and stability improvements.<br>• Support for iOS 13 will be deprecated as of IVS<br>Broadcast SDK 1.33.0 |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -767,9 +669,7 @@ Android
 
 ## June 12, 2025
 
-### IVS Broadcast SDK: Web 1.25.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.25.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -777,18 +677,14 @@ Android
 
 ## June 5, 2025
 
-### IVS Player SDK: Android 1.41.0, iOS
-
-1.41.0
+### IVS Player SDK: Android 1.41.0, iOS 1.41.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android player<br>1.41.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.41.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.41.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.41.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                                                                                                |
 | [iOS Player 1.41.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.41.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.41.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.41.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.41.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.41.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.41.0/ios/")<br>• Bug fixes and stability improvements.<br>• Support for iOS 13 will be deprecated as of IVS Player<br>1.43.0. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -813,17 +709,13 @@ Android
 
 ## May 26, 2025
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.30.1 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.30.1 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android Broadcast SDK<br>1.30.1](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.30.1/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.30.1/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.30.1/android/")<br>• There were no changes to the low-latency SDK in this<br>release. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -834,9 +726,7 @@ Android
 
 ## May 15, 2025
 
-### IVS Broadcast SDK: Web 1.24.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.24.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -844,18 +734,14 @@ Android
 
 ## May 15, 2025
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.30.0, iOS 1.30.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.30.0, iOS 1.30.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.30.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.30.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.30.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.30.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                                                                                                                                                         |
 | [iOS Broadcast SDK<br>1.30.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.30.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.30.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.30.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.30.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.30.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.30.0/ios/")<br>• Bug fixes and stability improvements.<br>• Support for iOS 13 will be deprecated as of IVS<br>Broadcast SDK 1.33.0 |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -872,18 +758,14 @@ Android
 
 ## May 8, 2025
 
-### IVS Player SDK: Android 1.40.0, iOS
-
-1.40.0
+### IVS Player SDK: Android 1.40.0, iOS 1.40.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android player<br>1.40.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.40.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.40.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.40.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                                                                                                                                                                           |
 | [iOS Player 1.40.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.40.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.40.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.40.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.40.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.40.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.40.0/ios/")<br>• dSYM files are now shipped alongside the SDK in the<br>`xcframework`.<br>• Bug fixes and stability improvements.<br>• Support for iOS 13 will be deprecated as of IVS Player<br>1.43.0. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -908,9 +790,7 @@ Android
 
 ## May 2, 2025
 
-### IVS Broadcast SDK: Web 1.23.1
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.23.1 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -918,18 +798,14 @@ Android
 
 ## April 17, 2025
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.29.0, iOS 1.29.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.29.0, iOS 1.29.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android Broadcast SDK<br>1.29.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.29.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.29.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.29.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                                                                            |
 | [iOS Broadcast SDK<br>1.29.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.29.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.29.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.29.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.29.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.29.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.29.0/ios/")<br>• Bug fixes and stability improvements. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -946,9 +822,7 @@ Android
 
 ## April 17, 2025
 
-### IVS Broadcast SDK: Web 1.23.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.23.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -964,18 +838,14 @@ Android
 
 ## April 10, 2025
 
-### IVS Player SDK: Android 1.39.0, iOS
-
-1.39.0
+### IVS Player SDK: Android 1.39.0, iOS 1.39.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android player<br>1.39.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.39.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.39.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.39.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | [iOS Player 1.39.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.39.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.39.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.39.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.39.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.39.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.39.0/ios/")<br>• Fixed a bug that could cause a crash as a result of<br>reassigning the `player` property of the<br>`IVSPlayerLayer` or<br>`IVSPlayerView` class to a different<br>player instance.<br>• Additional bug fixes and stability<br>improvements. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -992,18 +862,14 @@ Android
 
 ## March 20, 2025
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.28.1, iOS 1.28.1 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.28.1, iOS 1.28.1 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android Broadcast SDK<br>1.28.1](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.28.1/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.28.1/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.28.1/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                                                                            |
 | [iOS Broadcast SDK<br>1.28.1](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.28.1/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.28.1/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.28.1/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.28.1/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.28.1/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.28.1/ios/")<br>• Bug fixes and stability improvements. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1020,9 +886,7 @@ Android
 
 ## March 20, 2025
 
-### IVS Broadcast SDK: Web 1.22.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.22.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1030,18 +894,14 @@ Android
 
 ## March 19, 2025
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.27.2, iOS 1.27.2 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.27.2, iOS 1.27.2 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.27.2](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.27.2/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.27.2/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.27.2/android/")<br>• Fixed a resource-leak regression that impacted some<br>devices when creating 50 or more sessions.                                                                                                                                                                                                              |
 | [iOS Broadcast SDK<br>1.27.2](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.27.2/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.27.2/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.27.2/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.27.2/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.27.2/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.27.2/ios/")<br>• No changes for the low-latency SDK. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1066,18 +926,14 @@ Android
 
 ## March 13, 2025
 
-### IVS Player SDK: Android 1.38.0, iOS
-
-1.38.0
+### IVS Player SDK: Android 1.38.0, iOS 1.38.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android player<br>1.38.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.38.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.38.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.38.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                         |
 | [iOS Player 1.38.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.38.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.38.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.38.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.38.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.38.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.38.0/ios/")<br>• Bug fixes and stability improvements. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1094,9 +950,7 @@ Android
 
 ## March 3, 2025
 
-### Amazon IVS Broadcast SDK: iOS
-
-1.27.1 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: iOS 1.27.1 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1110,18 +964,14 @@ Android
 
 ## February 20, 2025
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.27.0, iOS 1.27.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.27.0, iOS 1.27.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android Broadcast SDK<br>1.27.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.27.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.27.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.27.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                                                                            |
 | [iOS Broadcast SDK<br>1.27.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.27.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.27.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.27.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.27.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.27.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.27.0/ios/")<br>• Bug fixes and stability improvements. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1138,9 +988,7 @@ Android
 
 ## February 20, 2025
 
-### IVS Broadcast SDK: Web 1.21.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.21.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1148,18 +996,14 @@ Android
 
 ## February 13, 2025
 
-### IVS Player SDK: Android 1.37.0, iOS
-
-1.37.0
+### IVS Player SDK: Android 1.37.0, iOS 1.37.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android player<br>1.37.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.37.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.37.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.37.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                         |
 | [iOS Player 1.37.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.37.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.37.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.37.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.37.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.37.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.37.0/ios/")<br>• Bug fixes and stability improvements. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1184,18 +1028,14 @@ Android
 
 ## January 30, 2025
 
-### Amazon IVS Broadcast SDK: Android
-
-1.26.0, iOS 1.26.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.26.0, iOS 1.26.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android Broadcast SDK<br>1.26.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.26.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.26.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.26.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                                                                            |
 | [iOS Broadcast SDK<br>1.26.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.26.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.26.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.26.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.26.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.26.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.26.0/ios/")<br>• Bug fixes and stability improvements. |
 
-### Broadcast SDK Size:
-
-Android
+### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1212,9 +1052,7 @@ Android
 
 ## January 23, 2025
 
-### IVS Broadcast SDK: Web 1.20.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.20.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1222,18 +1060,14 @@ Android
 
 ## January 16, 2025
 
-### IVS Player SDK: Android 1.36.0, iOS
-
-1.36.0
+### IVS Player SDK: Android 1.36.0, iOS 1.36.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android player<br>1.36.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.36.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.36.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.36.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                                                                                                                                                                                                         |
 | [iOS Player 1.36.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.36.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.36.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.36.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.36.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.36.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.36.0/ios/")<br>• Fixed a bug where playback could stall for streams<br>with many discontinuities.<br>• Fixed a bug where buffering could occur on muted<br>sections of a VOD.<br>• Additional bug fixes and stability<br>improvements. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1258,18 +1092,14 @@ Android
 
 ## December 12, 2024
 
-### Amazon IVS Broadcast SDK: Android
-
-1.25.0, iOS 1.25.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.25.0, iOS 1.25.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android Broadcast SDK<br>1.25.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.25.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.25.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.25.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                                                                            |
 | [iOS Broadcast SDK<br>1.25.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.25.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.25.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.25.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.25.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.25.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.25.0/ios/")<br>• Bug fixes and stability improvements. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1286,9 +1116,7 @@ Android
 
 ## December 12, 2024
 
-### IVS Broadcast SDK: Web 1.19.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.19.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1304,18 +1132,14 @@ Android
 
 ## December 6, 2024
 
-### IVS Player SDK: Android 1.35.0, iOS
-
-1.35.0
+### IVS Player SDK: Android 1.35.0, iOS 1.35.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android player<br>1.35.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.35.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.35.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.35.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                         |
 | [iOS Player 1.35.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.35.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.35.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.35.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.35.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.35.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.35.0/ios/")<br>• Bug fixes and stability improvements. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1354,18 +1178,14 @@ Reference tables).
 
 ## November 13, 2024
 
-### Amazon IVS Broadcast SDK: Android
-
-1.24.0, iOS 1.24.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.24.0, iOS 1.24.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.24.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.24.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.24.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.24.0/android/")<br>• Added a new section, “Using Auto-Reconnect,” to the<br>Android Broadcast SDK Guide.<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                                                                        |
 | [iOS Broadcast SDK<br>1.24.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.24.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.24.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.24.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.24.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.24.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.24.0/ios/")<br>• Added a new section, “Using Auto-Reconnect,” to the<br>iOS Broadcast SDK Guide.<br>• Bug fixes and stability improvements. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1382,9 +1202,7 @@ Android
 
 ## November 12, 2024
 
-### IVS Broadcast SDK: Web 1.18.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.18.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1400,18 +1218,14 @@ Android
 
 ## October 31, 2024
 
-### IVS Player SDK: Android 1.34.0, iOS
-
-1.34.0
+### IVS Player SDK: Android 1.34.0, iOS 1.34.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android player<br>1.34.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.34.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.34.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.34.0/android/")<br>• Minor bug fixes.                                                                                                                                                                                                                         |
 | [iOS Player 1.34.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.34.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.34.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.34.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.34.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.34.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.34.0/ios/")<br>• Minor bug fixes. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1436,9 +1250,7 @@ For details on the documentation changes, see the [Document History](doc-history
 
 ## October 10, 2024
 
-### IVS Broadcast SDK: Web 1.17.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.17.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                               |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1446,18 +1258,14 @@ For details on the documentation changes, see the [Document History](doc-history
 
 ## October 10, 2024
 
-### Amazon IVS Broadcast SDK: Android
-
-1.23.0, iOS 1.23.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.23.0, iOS 1.23.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.23.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.23.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.23.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.23.0/android/")<br>• With this release we also began publishing a version<br>of the Android broadcast SDK which includes debug<br>symbols. See [Using the SDK with Debug Symbols](broadcast-android-getting-started.md#broadcast-android-using-debug-symbols-ll "broadcast-android-getting-started.md#broadcast-android-using-debug-symbols-ll").<br>• Minor bug fixes. |
 | [iOS Broadcast SDK<br>1.23.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.23.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.23.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.23.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.23.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.23.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.23.0/ios/")<br>• Minor bug fixes.                                                        |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1474,18 +1282,14 @@ Android
 
 ## October 3, 2024
 
-### IVS Player SDK: Android 1.33.0, iOS
-
-1.33.0
+### IVS Player SDK: Android 1.33.0, iOS 1.33.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android player<br>1.33.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.33.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.33.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.33.0/android/")<br>• Fixed an infinite buffering issue that occurred during<br>MP4 playback.<br>• Fixed a bug where the player would sometimes skip<br>content.                                                                                                                                                                                                                         |
 | [iOS Player 1.33.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.33.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.33.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.33.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.33.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.33.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.33.0/ios/")<br>• Fixed an infinite buffering issue that occurred during<br>MP4 playback.<br>• Fixed a bug where the player would sometimes skip<br>content. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1510,18 +1314,14 @@ Android
 
 ## September 11, 2024
 
-### Amazon IVS Broadcast SDK: Android
-
-1.22.0, iOS 1.22.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.22.0, iOS 1.22.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.22.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.22.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.22.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.22.0/android/")<br>• Minor bug fixes.                                                                                                                                                                                                                                                                            |
 | [iOS Broadcast SDK<br>1.22.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.22.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.22.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.22.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.22.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.22.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.22.0/ios/")<br>• Minor bug fixes. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1538,9 +1338,7 @@ Android
 
 ## September 11, 2024
 
-### IVS Broadcast SDK: Web 1.16.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.16.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                               |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1556,18 +1354,14 @@ Android
 
 ## September 5, 2024
 
-### IVS Player SDK: Android 1.32.0, iOS
-
-1.32.0
+### IVS Player SDK: Android 1.32.0, iOS 1.32.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android player<br>1.32.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.32.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.32.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.32.0/android/")<br>• Minor bug fixes.                                                                                                                                                                                                                         |
 | [iOS Player 1.32.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.32.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.32.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.32.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.32.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.32.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.32.0/ios/")<br>• Minor bug fixes. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1584,9 +1378,7 @@ Android
 
 ## August 15, 2024
 
-### IVS Broadcast SDK: Web 1.15.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.15.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                               |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1594,18 +1386,14 @@ Android
 
 ## August 15, 2024
 
-### Amazon IVS Broadcast SDK: Android
-
-1.21.0, iOS 1.21.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.21.0, iOS 1.21.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.21.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.21.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.21.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.21.0/android/")<br>• Minor bug fixes.                                                                                                                                                                                                                                                                            |
 | [iOS Broadcast SDK<br>1.21.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.21.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.21.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.21.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.21.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.21.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.21.0/ios/")<br>• Minor bug fixes. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1630,18 +1418,14 @@ Android
 
 ## August 8, 2024
 
-### IVS Player SDK: Android 1.31.0, iOS
-
-1.31.0
+### IVS Player SDK: Android 1.31.0, iOS 1.31.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android player<br>1.31.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.31.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.31.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.31.0/android/")<br>• Minor bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | [iOS Player 1.31.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.31.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.31.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.31.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.31.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.31.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.31.0/ios/")<br>• Updated the SDK reference documentation to clarify<br>that calling the<br>`IVSPlayerLayer.copyDisplayedPixelBuffer`<br>method at high frequencies (e.g., the video framerate)<br>is not supported and may result in undefined behavior.<br>• Minor bug fixes. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1658,9 +1442,7 @@ Android
 
 ## July 18, 2024
 
-### IVS Broadcast SDK: Web 1.14.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.14.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                               |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1668,18 +1450,14 @@ Android
 
 ## July 18, 2024
 
-### Amazon IVS Broadcast SDK: Android
-
-1.20.0, iOS 1.20.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.20.0, iOS 1.20.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.20.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.20.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.20.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.20.0/android/")<br>• Fixed some microphone issues that occur when detaching<br>devices.<br>• Minor bug fixes.                                                                                                                                                                                                    |
 | [iOS Broadcast SDK<br>1.20.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.20.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.20.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.20.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.20.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.20.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.20.0/ios/")<br>• Minor bug fixes. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1696,18 +1474,14 @@ Android
 
 ## July 11, 2024
 
-### IVS Player SDK: Android 1.30.0, iOS
-
-1.30.0
+### IVS Player SDK: Android 1.30.0, iOS 1.30.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android player<br>1.30.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.30.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.30.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.30.0/android/")<br>• Minor bug fixes.                                                                                                                                                                                                                                                                                                 |
 | [iOS Player 1.30.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.30.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.30.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.30.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.30.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.30.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.30.0/ios/")<br>• Minor bug fixes.<br>• The iOS Player SDK now requires iOS 13+ as the native<br>platform. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1732,18 +1506,14 @@ Android
 
 ## June 13, 2024
 
-### Amazon IVS Broadcast SDK: Android
-
-1.19.0, iOS 1.19.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.19.0, iOS 1.19.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.19.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.19.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.19.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.19.0/android/")<br>• Recent Android versions require an icon in the<br>notification that is displayed when capturing the<br>screen. If desired, you can now customize the icon by<br>calling `setSmallIcon` on the<br>`Notification.Builder` returned by<br>`Session #<br>createServiceNotificationBuilder`.                                                          |
 | [iOS Broadcast SDK<br>1.19.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.19.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.19.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.19.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.19.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.19.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.19.0/ios/")<br>• The iOS Broadcast SDK now requires iOS 13+ as the<br>native platform. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1760,9 +1530,7 @@ Android
 
 ## June 13, 2024
 
-### IVS Broadcast SDK: Web 1.13.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.13.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                               |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1770,18 +1538,14 @@ Android
 
 ## June 6, 2024
 
-### IVS Player SDK: Android 1.29.0, iOS
-
-1.29.0
+### IVS Player SDK: Android 1.29.0, iOS 1.29.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android player<br>1.29.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.29.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.29.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.29.0/android/")<br>• Added the `getChannelMetadata()` method,<br>which returns a list of String values to communicate<br>channel features.                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | [iOS Player 1.29.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.29.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.29.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.29.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.29.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.29.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.29.0/ios/")<br>• The iOS 12 deprecation that was planned for iOS player<br>1.29.0 is delayed until version 1.30.0.<br>• Added the `getChannelMetadata()` method,<br>which returns a list of String values to communicate<br>channel features.<br>• Improved consistency when deallocating<br>`IVSPlayerLayer` on a background<br>queue. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1806,9 +1570,7 @@ Android
 
 ## May 20, 2024
 
-### IVS Broadcast SDK: Web 1.12.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.12.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                          |
 | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1816,18 +1578,14 @@ Android
 
 ## May 16, 2024
 
-### Amazon IVS Broadcast SDK: Android
-
-1.18.0, iOS 1.18.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.18.0, iOS 1.18.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.18.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.18.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.18.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.18.0/android/")<br>• Minor bug fixes.                                                                                                                                                                                                                                                                                                                                                                                       |
 | [iOS Broadcast SDK<br>1.18.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.18.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.18.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.18.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.18.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.18.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.18.0/ios/")<br>• Added the IVSCamera `setVideoZoomFactor`<br>method and the associated `IVSCameraDelegate`<br>methods.<br>• Minor bug fixes. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1852,18 +1610,14 @@ Android
 
 ## May 9, 2024
 
-### IVS Player SDK: Android 1.28.0, iOS
-
-1.28.0
+### IVS Player SDK: Android 1.28.0, iOS 1.28.0
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android player<br>1.28.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.28.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.28.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.28.0/android/")<br>• No changes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | [iOS Player 1.28.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.28.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.28.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.28.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.28.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.28.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.28.0/ios/")<br>• Added the `CF_RETURNS_RETAINED` annotation<br>to the<br>`IVSPlayerLayer.copyDisplayedPixelBuffer`<br>method for [automatic memory management when using<br>Swift](https://developer.apple.com/documentation/swift/working-with-core-foundation-types "https://developer.apple.com/documentation/swift/working-with-core-foundation-types"). |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1880,9 +1634,7 @@ Android
 
 ## May 6, 2024
 
-### IVS Broadcast SDK: Web 1.11.0
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.11.0 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                          |
 | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1890,9 +1642,7 @@ Android
 
 ## April 30, 2024
 
-### IVS Broadcast SDK: Web 1.10.1
-
-(Low-Latency Streaming)
+### IVS Broadcast SDK: Web 1.10.1 (Low-Latency Streaming)
 
 | Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                               |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1900,18 +1650,14 @@ Android
 
 ## April 30, 2024
 
-### Amazon IVS Broadcast SDK: Android 1.15.2,
-
-iOS 1.15.2 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.15.2, iOS 1.15.2 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.15.2](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.15.2/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.15.2/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.15.2/android/")<br>• Minor bug fixes. Upgrade to this version only if you<br>have a specific reason to do so; otherwise, use the<br>highest version that is released.                                                                                                                                                                                                                                                                            |
 | [iOS Broadcast SDK<br>1.15.2](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.15.2/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.15.2/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.15.2/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.15.2/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.15.2/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.15.2/ios/")<br>• Minor bug fixes. Upgrade to this version only if you<br>have a specific reason to do so; otherwise, use the<br>highest version that is released. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1928,18 +1674,14 @@ Android
 
 ## April 22, 2024
 
-### Amazon IVS Broadcast SDK: Android
-
-1.17.0, iOS 1.17.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.17.0, iOS 1.17.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.17.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.17.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.17.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.17.0/android/")<br>• No changes.                                                                                                                                                                                                                                                                                                                                                                |
 | [iOS Broadcast SDK<br>1.17.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.17.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.17.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.17.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.17.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.17.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.17.0/ios/")<br>• The `AmazonIVSBroadcast` framework now<br>includes a privacy manifest, as required by<br>Apple. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -1956,9 +1698,7 @@ Android
 
 ## April 11, 2024
 
-### Amazon IVS Player SDK: Mobile & Web
-
-1.27.0
+### Amazon IVS Player SDK: Mobile & Web 1.27.0
 
 | Platform                                                                                                                                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1983,9 +1723,7 @@ Android
 
 ## April 4, 2024
 
-### Secure Reliable Transport (SRT) Ingest
-
-Support
+### Secure Reliable Transport (SRT) Ingest Support
 
 Amazon IVS introduces support for streaming using the [SRT](https://www.srtalliance.org/ "https://www.srtalliance.org/") protocol. SRT is an open-source
 transport technology optimized for live audio/video streaming. SRT enables secure
@@ -2001,9 +1739,7 @@ We support H.264-encoded video content using the SRT protocol.
 
 ## March 21, 2024
 
-### Amazon IVS Broadcast SDK: Android
-
-1.16.0, iOS 1.16.0, Web 1.10.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.16.0, iOS 1.16.0, Web 1.10.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2011,9 +1747,7 @@ We support H.264-encoded video content using the SRT protocol.
 | [Android Broadcast SDK<br>1.16.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.16.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.16.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.16.0/android/")<br>• Fixed a previews freeze on the Exynos variant of<br>Samsung devices with Android 14.                                                                                                                                                                                                        |
 | [iOS Broadcast SDK<br>1.16.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.16.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.16.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.16.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.16.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.16.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.16.0/ios/")<br>• Minor bug fixes. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -2055,18 +1789,14 @@ Android
 
 ## March 13, 2024
 
-### Amazon IVS Broadcast SDK: Android
-
-1.15.1, iOS 1.15.1 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.15.1, iOS 1.15.1 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.15.1](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.15.1/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.15.1/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.15.1/android/")<br>• No changes in this release.                                                                                                                                                                                                                                                                            |
 | [iOS Broadcast SDK<br>1.15.1](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.15.1/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.15.1/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.15.1/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.15.1/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.15.1/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.15.1/ios/")<br>• No changes in this release. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -2091,9 +1821,7 @@ Android
 
 ## February 22, 2024
 
-### Amazon IVS Broadcast SDK: Android
-
-1.15.0, iOS 1.15.0, Web 1.9.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.15.0, iOS 1.15.0, Web 1.9.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2101,9 +1829,7 @@ Android
 | [Android Broadcast SDK<br>1.15.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.15.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.15.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.15.0/android/")<br>• Minor bug fixes.                                                                                                                                                                                                                                                                            |
 | [iOS Broadcast SDK<br>1.15.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.15.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.15.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.15.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.15.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.15.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.15.0/ios/")<br>• Minor bug fixes. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -2127,9 +1853,7 @@ Android
 | [Android player<br>1.25.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.25.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.25.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.25.0/android/")<br>• Minor bug fixes.                                                                                                                                                                                                                         |
 | [iOS Player 1.25.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.25.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.25.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.25.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.25.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.25.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.25.0/ios/")<br>• Minor bug fixes. |
 
-#### Mobile SDK Size:
-
-Android
+#### Mobile SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -2146,9 +1870,7 @@ Android
 
 ## February 1, 2024
 
-### Amazon IVS Broadcast SDK: Android
-
-1.14.1, iOS 1.14.1, Web 1.8.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.14.1, iOS 1.14.1, Web 1.8.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2156,9 +1878,7 @@ Android
 | [Android Broadcast SDK<br>1.14.1](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.14.1/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.14.1/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.14.1/android/")<br>• Minor bug fixes and improvements.                                                                                                                                                                                                                                                                                     |
 | [iOS Broadcast SDK<br>1.14.1](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.14.1/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.14.1/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.14.1/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.14.1/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.14.1/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.14.1/ios/")<br>• Fixed multiple stability issues on iOS 12. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -2175,9 +1895,7 @@ Android
 
 ## January 31, 2024
 
-### Tokenless Playback
-
-Restrictions
+### Tokenless Playback Restrictions
 
 This release enables origin enforcement and geofencing outside of playback
 authorization. The IVS Low-Latency Streaming User Guide and API Reference were
@@ -2219,9 +1937,7 @@ Playback](web-getting-started.md#web-audio-only-playback "web-getting-started.md
 
 ## January 3, 2024
 
-### Amazon IVS Broadcast SDK: Android
-
-1.13.4, iOS 1.13.4, Web 1.7.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.13.4, iOS 1.13.4, Web 1.7.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2229,9 +1945,7 @@ Playback](web-getting-started.md#web-audio-only-playback "web-getting-started.md
 | [Android Broadcast SDK<br>1.13.4](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.13.4/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.13.4/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.13.4/android/")<br>• No changes to the low-latency SDK.                                                                                                                                                                                                                                                                            |
 | [iOS Broadcast SDK<br>1.13.4](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.13.4/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.13.4/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.13.4/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.13.4/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.13.4/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.13.4/ios/")<br>• No changes to the low-latency SDK. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -2248,18 +1962,14 @@ Android
 
 ## December 4, 2023
 
-### Amazon IVS Broadcast SDK: Android
-
-1.13.2 and iOS 1.13.2 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.13.2 and iOS 1.13.2 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.13.2](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.13.2/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.13.2/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.13.2/android/")<br>• No changes in the low-latency SDK.                                                                                                                                                                                                                                                                            |
 | [iOS Broadcast SDK<br>1.13.2](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.13.2/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.13.2/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.13.2/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.13.2/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.13.2/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.13.2/ios/")<br>• No changes in the low-latency SDK. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -2276,17 +1986,13 @@ Android
 
 ## November 21, 2023
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.13.1 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.13.1 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                          |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Android Broadcast SDK<br>1.13.1](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.13.1/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.13.1/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.13.1/android/")<br>• No changes in the low-latency SDK. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -2297,9 +2003,7 @@ Android
 
 ## November 17, 2023
 
-### Amazon IVS Broadcast SDK: Android
-
-1.13.0 and iOS 1.13.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.13.0 and iOS 1.13.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2307,9 +2011,7 @@ Android
 | [Android Broadcast SDK<br>1.13.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.13.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.13.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.13.0/android/")<br>• Fixed a crash when an AudioSource object is used after<br>releasing it.<br>• Added support to `Surfaceview`-based<br>preview for better performance. The existing<br>`getPreview` methods in<br>`Session` and `StageStream`<br>continue to return a subclass of<br>`TextureView`, but this may change in a<br>future SDK version.<br>+ If your application depends on<br>`TextureView` specifically, you can<br>continue with no changes. You also can switch from<br>`getPreview` to<br>`getPreviewTextureView` to prepare for<br>the eventual change of what the default<br>`getPreview` returns.<br>+ If your application does not require<br>`TextureView` specifically, we<br>recommend switching to<br>`getPreviewSurfaceView` for lower CPU<br>and memory usage.<br>• The SDK now implements a new type of preview called<br>`ImagePreviewSurfaceTarget` which works<br>with the application-provided Android Surface object. It<br>is not a subclass of Android View, which provides better<br>flexibility. |
 | [iOS Broadcast SDK<br>1.13.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.13.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.13.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.13.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.13.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.13.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.13.0/ios/")<br>• There were no changes for this release.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -2351,9 +2053,7 @@ Android
 
 ## October 16, 2023
 
-### Amazon IVS Broadcast SDK: Web 1.6.0
-
-(Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Web 1.6.0 (Low-Latency Streaming)
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                              |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2361,17 +2061,13 @@ Android
 
 ## October 12, 2023
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.12.1 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.12.1 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                            |
 | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.12.1](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.12.1/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.12.1/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.12.1/android/")<br>• Fixed a bug where calling<br>`BroadcastSession.setListener` resulted<br>in an error. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -2415,9 +2111,7 @@ Software](getting-started-set-up-streaming.md "getting-started-set-up-streaming.
 
 ## September 14, 2023
 
-### Amazon IVS Broadcast SDK: Web 1.5.2
-
-(Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Web 1.5.2 (Low-Latency Streaming)
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                      |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -2425,9 +2119,7 @@ Software](getting-started-set-up-streaming.md "getting-started-set-up-streaming.
 
 ## August 23, 2023
 
-### Amazon IVS Broadcast SDK: Web 1.5.1,
-
-Android 1.12.0, and iOS 1.12.0 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Web 1.5.1, Android 1.12.0, and iOS 1.12.0 (Low-Latency Streaming)
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2435,9 +2127,7 @@ Android 1.12.0, and iOS 1.12.0 (Low-Latency Streaming)
 | [Android Broadcast SDK<br>1.12.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.12.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.12.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.12.0/android/")<br>• Fixed a rare bug that caused broadcasts to end<br>prematurely with the message "Attempted to recv after<br>receiving shutdown from peer."                                                                                                                                                                                                                                                                                            |
 | [iOS Broadcast SDK<br>1.12.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.12.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.12.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.12.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.12.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.12.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.12.0/ios/")<br>• Corrected the signature of<br>`IVSDeviceDiscovery.createAudioSourceWithName`<br>to return an `IVSCustomAudioSource` instead<br>of `IVSCustomImageSource`. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -2454,17 +2144,13 @@ Android
 
 ## August 23, 2023
 
-### Amazon IVS Broadcast SDK: Android
-
-1.7.6 (Low-Latency Streaming)
+### Amazon IVS Broadcast SDK: Android 1.7.6 (Low-Latency Streaming)
 
 | Platform                                                                      | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                              |
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.7.6](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.7.6/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.7.6/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.7.6/android/")<br>• Fixed a rare bug that caused broadcasts to end<br>prematurely with the message "Attempted to recv after<br>receiving shutdown from peer." |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -2500,9 +2186,7 @@ Android
 
 ## August 7, 2023
 
-### Amazon IVS Broadcast SDK: Web 1.5.0, Android 1.11.0,
-
-and iOS 1.11.0
+### Amazon IVS Broadcast SDK: Web 1.5.0, Android 1.11.0, and iOS 1.11.0
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -2527,9 +2211,7 @@ and iOS 1.11.0
 
 ## July 17, 2023
 
-### R2S3 Rendition Filtering & Thumbnail
-
-Enhancements
+### R2S3 Rendition Filtering & Thumbnail Enhancements
 
 IVS customers can now control what renditions are generated for a stream when
 recording to Amazon S3 and what resolutions are generated for thumbnails. For more
@@ -2589,9 +2271,7 @@ information, see:
 
 ## July 13, 2023
 
-### Amazon IVS Broadcast SDK: Web 1.4.0,
-
-Android 1.10.0, and iOS 1.10.0
+### Amazon IVS Broadcast SDK: Web 1.4.0, Android 1.10.0, and iOS 1.10.0
 
 | Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2600,9 +2280,7 @@ Android 1.10.0, and iOS 1.10.0
 | [Android Broadcast SDK<br>1.10.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.10.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.10.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.10.0/android/")<br>• Fixed a bug where rotating while reconnecting to a<br>stage caused other participants to appear badly<br>cropped.<br>• Fixed an issue where the `AudioStageStream`<br>device could not be cast to<br>`AudioDevice`.<br>• Fixed an issue where rapid background-to-foreground<br>app switch caused subscribed video streams to be<br>muted.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | [iOS Broadcast SDK<br>1.10.0](broadcast-ios.md "broadcast-ios.md")             | **Download without stages:**<br>[https://broadcast.live-video.net/1.10.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.10.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.10.0/AmazonIVSBroadcast.xcframework.zip")<br>**Download with stages:**<br>[https://broadcast.live-video.net/1.10.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.10.0/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.10.0/AmazonIVSBroadcast-Stages.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.10.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.10.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.10.0/ios/")<br>• Fixed an issue where viewers could lose audio after a<br>broadcast session is interrupted by a phone call. The<br>workaround (restarting the broadcast session after a<br>phone-call interruption) is no longer needed.<br>• Fixes an issue that prevented multiple stages from<br>existing and all being able to play audio.<br>• When network loss happens suddenly, an ongoing<br>Broadcast will now be stopped immediately instead of<br>waiting for the connection to time out. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size without Stage Functionality | Uncompressed Size without Stage Functionality | Compressed Size with Stage Functionality | Uncompressed Size with Stage Functionality |
 | ------------ | ------------------------------------------- | --------------------------------------------- | ---------------------------------------- | ------------------------------------------ |
@@ -2619,9 +2297,7 @@ Android
 
 ## June 28, 2023
 
-### Viewer Session Revocation for Private
-
-Channels
+### Viewer Session Revocation for Private Channels
 
 IVS customers can now revoke the viewer session associated with an auth token, to
 prevent and stop playback using that token. For more information, see:
@@ -2636,9 +2312,7 @@ prevent and stop playback using that token. For more information, see:
 
 ## June 27, 2023
 
-### Amazon IVS Broadcast SDK: iOS
-
-1.9.1
+### Amazon IVS Broadcast SDK: iOS 1.9.1
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -2652,9 +2326,7 @@ prevent and stop playback using that token. For more information, see:
 
 ## June 27, 2023
 
-### Amazon IVS Broadcast SDK
-
-1.7.5
+### Amazon IVS Broadcast SDK 1.7.5
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2668,9 +2340,7 @@ prevent and stop playback using that token. For more information, see:
 
 ## June 16, 2023
 
-### Amazon IVS Broadcast SDK: Web
-
-1.3.3
+### Amazon IVS Broadcast SDK: Web 1.3.3
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                   |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2716,9 +2386,7 @@ to the IVS User Guide and IVS API Reference.
 
 ## June 1, 2023
 
-### Amazon IVS Broadcast SDK: Android 1.9.0 and
-
-iOS 1.9.0
+### Amazon IVS Broadcast SDK: Android 1.9.0 and iOS 1.9.0
 
 | Platform                                                                      | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2726,9 +2394,7 @@ iOS 1.9.0
 | [Android Broadcast SDK<br>1.9.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.9.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.9.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.9.0/android/")<br>• Fixed a bug where disconnecting wired headphones would<br>result in an error when the user tried to switch to a<br>non-default microphone on some devices.<br>• Fixed a bug on some devices where an incorrect<br>microphone is attached when switching microphones during<br>a broadcasting session.<br>• Fixed a crash when calling `Presets`<br>methods before creating a `BroadcastSession`,<br>`Stage`, or `DeviceDiscovery`<br>object.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | [iOS Broadcast SDK<br>1.9.0](broadcast-ios.md "broadcast-ios.md")             | **Download without stages:**<br>[https://broadcast.live-video.net/1.9.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.9.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.9.0/AmazonIVSBroadcast.xcframework.zip")<br>**Download with stages:**<br>[https://broadcast.live-video.net/1.9.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.9.0/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.9.0/AmazonIVSBroadcast-Stages.xcframework.zip")<br>**Reference documentation:\*<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.9.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.9.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.9.0/ios/")<br>• When you have joined a Stage and have not attached a<br>microphone to the Stage, the new default behavior when<br>entering the background is to stay in the Stage instead<br>of leaving automatically. This enables the use case of<br>listening to a Stage as a viewer-only participant while<br>in the background.<br>• Improved the handling of a stageâ€™s Bluetooth device<br>connect/disconnect.<br>• Fixed an issue where audio is much lower when using<br>`setGain` to mute and unmute.<br>• When attaching a camera to a<br>`IVSBroadcastSession`, the camera now<br>configures itself based on the `size` and<br>`targetFramerate` on the<br>`IVSVideoConfiguration`.<br>• The iOS SDK now requires iOS 12.0 or higher. (iOS 11<br>is no longer supported.)<br>**Known issue\*\*: Viewers may lose<br>audio after a broadcast session is interrupted by a phone call.<br>The workaround is to restart the broadcast session after a<br>phone-call interruption. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size without Stage Functionality | Uncompressed Size without Stage Functionality | Compressed Size with Stage Functionality | Uncompressed Size with Stage Functionality |
 | ------------ | ------------------------------------------- | --------------------------------------------- | ---------------------------------------- | ------------------------------------------ |
@@ -2770,9 +2436,7 @@ Android
 
 ## May 16, 2023
 
-### Amazon IVS Broadcast SDK: iOS
-
-1.8.1
+### Amazon IVS Broadcast SDK: iOS 1.8.1
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2786,9 +2450,7 @@ Android
 
 ## May 16, 2023
 
-### Amazon IVS Broadcast SDK
-
-1.7.4
+### Amazon IVS Broadcast SDK 1.7.4
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -2821,9 +2483,7 @@ Now you can monitor the health of your IVS stages with multiple hosts. See:
 
 ## May 1, 2023
 
-### Amazon IVS Web Broadcast SDK
-
-1.3.2
+### Amazon IVS Web Broadcast SDK 1.3.2
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2897,9 +2557,7 @@ Tokens](private-channels-generate-tokens.md "private-channels-generate-tokens.md
 
 ## March 28, 2023
 
-### Amazon IVS Web Broadcast SDK
-
-1.3.1
+### Amazon IVS Web Broadcast SDK 1.3.1
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                       |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2907,9 +2565,7 @@ Tokens](private-channels-generate-tokens.md "private-channels-generate-tokens.md
 
 ## March 23, 2023
 
-### Support for Multiple Hosts on a Stream
-
-(Stage Resource)
+### Support for Multiple Hosts on a Stream (Stage Resource)
 
 This is the first release of new functionality: you can now combine video from
 multiple participants into one live stream. A _stage_ is a virtual space where participants can exchange audio and
@@ -2928,9 +2584,7 @@ stage" to contribute to the live conversation. For details, see:
 
 ## March 23, 2023
 
-### Amazon IVS Broadcast SDK: Android
-
-1.8.0, iOS 1.8.0, Web 1.3.0
+### Amazon IVS Broadcast SDK: Android 1.8.0, iOS 1.8.0, Web 1.3.0
 
 In conjunction with adding support for multiple hosts on a stream, the Android and
 iOS Broadcast SDKs were updated to support the new stage functionality.
@@ -2942,9 +2596,7 @@ iOS Broadcast SDKs were updated to support the new stage functionality.
 | [iOS Broadcast SDK<br>1.8.0](broadcast-ios.md "broadcast-ios.md")             | **Download without stages:**<br>[https://broadcast.live-video.net/1.8.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.8.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.8.0/AmazonIVSBroadcast.xcframework.zip")<br>**Download with stages:**<br>[https://broadcast.live-video.net/1.8.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.8.0/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.8.0/AmazonIVSBroadcast-Stages.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.8.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.8.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.8.0/ios/")<br>• Depending on how your pod file is configured, you can<br>download the SDK with or without stage support The SDK<br>without stage support is smaller. For installation<br>details, see [Broadcast<br>SDK: iOS Guide](broadcast-ios.md "broadcast-ios.md").<br>• In [Broadcast SDK: iOS<br>Guide](broadcast-ios.md "broadcast-ios.md"), added "Add Multiple Hosts with the<br>Stage SDK" and stage-related "Known Issues and<br>Workarounds."<br>• Deprecated bitcode support from the SDK, as Apple has<br>officially deprecated bitcode and no longer accepts it<br>for App Store submissions. For more information, see the<br>[Xcode 14 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-14-release-notes#Deprecations "https://developer.apple.com/documentation/xcode-release-notes/xcode-14-release-notes#Deprecations"). |
 | [Web Broadcast SDK<br>1.3.0](broadcast-web.md "broadcast-web.md")             | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference")<br>• In [Broadcast SDK: Web<br>Guide](broadcast-web.md "broadcast-web.md"), added "Add Multiple Hosts with the<br>Stage SDK" and stage-related "Known Issues and<br>Workarounds."                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size without Stage Functionality | Uncompressed Size without Stage Functionality | Compressed Size with Stage Functionality | Uncompressed Size with Stage Functionality |
 | ------------ | ------------------------------------------- | --------------------------------------------- | ---------------------------------------- | ------------------------------------------ |
@@ -2961,17 +2613,13 @@ Android
 
 ## March 2, 2023
 
-### Amazon IVS Broadcast SDK: Android
-
-1.7.3
+### Amazon IVS Broadcast SDK: Android 1.7.3
 
 | Platform                                                                      | Downloads and Changes                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.7.3](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.7.3/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.7.3/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.7.3/android/")<br>• Fixed an issue where custom image sources failed to<br>work properly on devices with the MediaTek Dimensity 700<br>SoC. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -3007,9 +2655,7 @@ Android
 
 ## February 16, 2023
 
-### Byte-Range Tags and Manifest Files for
-
-Auto-Record to S3
+### Byte-Range Tags and Manifest Files for Auto-Record to S3
 
 The auto-record-to-S3 feature now supports [byte-range playlist](https://datatracker.ietf.org/doc/html/draft-pantos-http-live-streaming-23#section-4.3.2.2 "https://datatracker.ietf.org/doc/html/draft-pantos-http-live-streaming-23#section-4.3.2.2") generation, in addition to standard HLS playlists.
 For more information, see [Auto-Record to Amazon
@@ -3019,17 +2665,13 @@ S3](record-to-s3.md "record-to-s3.md") ("Recording Contents," "Byte-Range Playli
 
 ## January 31, 2023
 
-### Amazon IVS Chat Client Messaging
-
-SDK: Android 1.1.0
+### Amazon IVS Chat Client Messaging SDK: Android 1.1.0
 
 | Platform                                                                                                                  | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android<br>Chat Client Messaging SDK 1.1.0](../ChatUserGuide/chat-sdk-android.md "../ChatUserGuide/chat-sdk-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-chat-messaging-sdk-android/1.1.0/](https://aws.github.io/amazon-ivs-chat-messaging-sdk-android/1.1.0/ "https://aws.github.io/amazon-ivs-chat-messaging-sdk-android/1.1.0/")<br>• To support Kotlin Coroutines, we added new IVS Chat<br>Messaging APIs in the<br>com.amazonaws.ivs.chat.messaging.coroutines package.<br>Also see the new Kotlin Coroutines tutorial; part 1 (of<br>2) is [Chat Rooms](../ChatUserGuide/chat-sdk-kotlin-tutorial-chat-rooms.md "../ChatUserGuide/chat-sdk-kotlin-tutorial-chat-rooms.md"). |
 
-#### Chat Client Messaging SDK Size:
-
-Android
+#### Chat Client Messaging SDK Size: Android
 
 | Architecture                 | Compressed Size | Uncompressed Size |
 | ---------------------------- | --------------- | ----------------- |
@@ -3062,9 +2704,7 @@ Android
 
 ## December 9, 2022
 
-### Timestamp Added to Auto-Record to S3
-
-Manifest Files
+### Timestamp Added to Auto-Record to S3 Manifest Files
 
 When [Auto-Record to Amazon S3](record-to-s3.md "record-to-s3.md") is enabled, HLS
 manifest files are created. Those files now contain HLS Program-Date-Time (PDT) tags
@@ -3073,17 +2713,13 @@ ISO-8601 format.
 
 ## December 6, 2022
 
-### Amazon IVS Broadcast SDK: Android
-
-1.7.2
+### Amazon IVS Broadcast SDK: Android 1.7.2
 
 | Platform                                                                      | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.7.2](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.7.2/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.7.2/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.7.2/android/")<br>• Fixed a bug where the `Device.Descriptior`<br>returned by a non-Camera device subclassing<br>`SurfaceSource` would provide a unique<br>`deviceId` and `urn` on each<br>call, making those properties unreliable for identifying<br>devices.<br>• Fixed a bug where the `preferredAudioInput`<br>property on a<br>`BroadcastConfiguration.Mixer.Slot` was<br>null when queried by `Mixer.getSlots()`, if<br>the associated slot had a<br>`preferredAudioInput` value of<br>`Device.Descriptor.DeviceType.MICROPHONE`<br>when it was added. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -3121,9 +2757,7 @@ Dec 28, 2023 update: Chat-related CloudWatch content was moved to [Monitoring Am
 
 ## November 9, 2022
 
-### Amazon IVS Chat Client Messaging SDK:
-
-JavaScript 1.0.2
+### Amazon IVS Chat Client Messaging SDK: JavaScript 1.0.2
 
 | Platform                                                                                                           | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -3157,9 +2791,7 @@ JavaScript 1.0.2
 
 ## October 18, 2022
 
-### Amazon IVS Chat Client Messaging SDK:
-
-JavaScript 1.0.1
+### Amazon IVS Chat Client Messaging SDK: JavaScript 1.0.1
 
 | Platform                                                                                                           | Downloads and Changes                                                                                                                                                                                                          |
 | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -3191,9 +2823,7 @@ Note: There was no 1.6.0 release.
 | [Android Broadcast SDK<br>1.7.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.7.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.7.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.7.0/android/")                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | [iOS Broadcast SDK<br>1.7.0](broadcast-ios.md "broadcast-ios.md")             | **Download:**<br>[https://broadcast.live-video.net/1.7.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.7.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.7.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.7.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.7.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.7.0/ios/")<br>• Added<br>`IVSBroadcastSessionAudioSessionStrategy.PlayAndRecordDefaultToSpeaker`,<br>which allows developers to specify whether devices with<br>handsets (e.g., iPhones) prefer the speaker over the<br>headset. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -3235,9 +2865,7 @@ Android
 
 ## September 15, 2022
 
-### Vertical Video Improvement (Final
-
-Release)
+### Vertical Video Improvement (Final Release)
 
 Today we began rolling out the changes documented in [Vertical Video Improvement](#vertical-video-improvement "#vertical-video-improvement")
 _for all Amazon IVS customers_. It will take 2-3 days for the
@@ -3245,9 +2873,7 @@ changes to propagate across all accounts.
 
 ## September 12, 2022
 
-### Amazon IVS Broadcast SDK 1.5.2:
-
-iOS
+### Amazon IVS Broadcast SDK 1.5.2: iOS
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -3261,26 +2887,20 @@ iOS
 
 ## September 8, 2022
 
-### Amazon IVS Chat Client Messaging
-
-SDK: Android 1.0.0 and iOS 1.0.0
+### Amazon IVS Chat Client Messaging SDK: Android 1.0.0 and iOS 1.0.0
 
 | Platform                                                                                                                  | Downloads and Changes                                                                                                                                                                                                                           |
 | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android<br>Chat Client Messaging SDK 1.0.0](../ChatUserGuide/chat-sdk-android.md "../ChatUserGuide/chat-sdk-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-chat-messaging-sdk-android/1.0.0/](https://aws.github.io/amazon-ivs-chat-messaging-sdk-android/1.0.0/ "https://aws.github.io/amazon-ivs-chat-messaging-sdk-android/1.0.0/") |
 | [iOS Chat<br>Client Messaging SDK 1.0.0](../ChatUserGuide/chat-sdk-ios.md "../ChatUserGuide/chat-sdk-ios.md")             | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-chat-messaging-sdk-ios/1.0.0/](https://aws.github.io/amazon-ivs-chat-messaging-sdk-ios/1.0.0/ "https://aws.github.io/amazon-ivs-chat-messaging-sdk-ios/1.0.0/")             |
 
-#### Chat Client Messaging SDK Size:
-
-Android
+#### Chat Client Messaging SDK Size: Android
 
 | Architecture                 | Compressed Size | Uncompressed Size |
 | ---------------------------- | --------------- | ----------------- |
 | All architectures (bytecode) | 53 KB           | 58 KB             |
 
-#### Chat Client Messaging SDK Size:
-
-iOS
+#### Chat Client Messaging SDK Size: iOS
 
 | Architecture                         | Compressed Size | Uncompressed Size |
 | ------------------------------------ | --------------- | ----------------- |
@@ -3291,9 +2911,7 @@ iOS
 
 ## September 2, 2022
 
-### Amazon IVS Web Broadcast SDK
-
-1.2.0
+### Amazon IVS Web Broadcast SDK 1.2.0
 
 | Platform                                                    | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                               |
 | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -3334,9 +2952,7 @@ considered a single broadcast and merged. For more information, see:
 
 ## July 28, 2022
 
-### Amazon IVS iOS Broadcast SDK
-
-1.5.1
+### Amazon IVS iOS Broadcast SDK 1.5.1
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -3388,9 +3004,7 @@ considered a single broadcast and merged. For more information, see:
 | [Android Broadcast SDK<br>1.5.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.5.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.5.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.5.0/android/")<br>• Added a new configuration option to `Video`<br>that enables transparency for the broadcast session:<br>`enableTransparency(boolean)` and<br>`isTransparencyEnabled()`. By default,<br>transparency is disabled. Note that you must set<br>`Video.enableTransparency` to<br>`TRUE` for individual slotâ€™s<br>`fillColor` or `transparency`<br>values to work as expected. Enable transparency only<br>when required, since it is more computationally<br>intensive.                                                                                                                                                                                                                                                                               |
 | [iOS Broadcast SDK<br>1.5.0](broadcast-ios.md "broadcast-ios.md")             | **Download:**<br>[https://broadcast.live-video.net/1.5.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.5.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.5.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.5.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.5.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.5.0/ios/")<br>• When using `IVSReplayKitBroadcastSession`<br>for screen share, we recommend that you call<br>`IVSReplayKitBroadcastSession::broadcastFinished`<br>in<br>`RPBroadcastSampleHandler::broadcastFinished`<br>to ensure proper shutdown of the stream. Failure to do<br>this might result in the stream staying live until it<br>times out.<br>• `IVSImagePreviewView` is no longer backed<br>by `MTKView`, but instead a normal<br>`UIView` that has a<br>`AVSampleBufferDisplayLayer` based<br>`CALayer`. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -3473,9 +3087,7 @@ that or it may break after this change is applied.
 
 ## May 24, 2022
 
-### Amazon IVS Web and Android Player SDK
-
-1.10.0
+### Amazon IVS Web and Android Player SDK 1.10.0
 
 | Platform                                                                                                                                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -3567,9 +3179,7 @@ As always, documentation changes are described in the Amazon IVS [Document Histo
 | [Android Broadcast SDK<br>1.4.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.4.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.4.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.4.0/android/")<br>• Fixed a bug in<br>`createServiceNotificationBuilder` to<br>enable targeting Android 12.<br>• Fix issue on devices with a buggy main AVC profile by<br>falling back to the baseline AVC profile.<br>• Adds some NonNull annotations to several public API<br>method signatures to prevent unexpected exceptions from<br>crashing the application.                                                                                                                                                                                                                                                                                                                                                                        |
 | [iOS Broadcast SDK<br>1.4.0](broadcast-ios.md "broadcast-ios.md")             | **Download:**<br>[https://broadcast.live-video.net/1.4.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.4.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.4.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.4.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.4.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.4.0/ios/")<br>• Improved performance on iOS throughout the entire SDK<br>by better utilizing GCD and Darwin-optimized locks, and<br>improving buffer reuse.<br>• In BroadcastConfiguration, changed the Keyframe<br>interval maximum value from 10 to 5 to be consistent<br>with Android.<br>• Added a new method to control the audio encoder<br>quality. On `IVSAudioConfiguration`, use the<br>`setQuality` method. Reducing the encoder<br>quality can have a large impact on CPU usage. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -3608,9 +3218,7 @@ Android
 | [Android Broadcast SDK<br>1.3.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.3.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.3.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.3.0/android/")<br>• Fixed an intermittent issue where disconnecting a<br>Bluetooth headset while streaming would lead to a<br>crash.<br>• The `BroadcastSession.onBroadcastQuality`<br>method now reports low initial broadcast-quality<br>values.<br>• Added support for PCM buffers that include multiple<br>`AudioBufferLists`. This is common for<br>USB microphones.<br>Incorporates changes from the Android 1.2.1 release: new<br>methods and a bug fix to properly support surface size and<br>rotation changes:<br>• Fixed a bug where<br>`SurfaceSource.setSize(...)` did not set<br>a new size for the SurfaceSource.<br>• Added the `Device.setRotation(float<br>rotation)` method to set the rotation on a<br>device in radians.<br>• Added the<br>`ImageDevice.rotateOnConfigurationChanges(boolean<br>enable)` method to enable/disable automatic<br>rotation of the ImageDevice when the physical handset is<br>rotated.<br>• Added the<br>`ImageDevice.willRotateOnConfigurationChanges()`<br>method to return whether the ImageDevice is configured<br>to automatically rotate when the physical handset<br>rotates. |
 | [iOS Broadcast SDK<br>1.3.0](broadcast-ios.md "broadcast-ios.md")             | **Download:**<br>[https://broadcast.live-video.net/1.3.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.3.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.3.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.3.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.3.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.3.0/ios/")<br>• Fixed some race conditions when using the<br>`createAppBackgroundImageSource` method,<br>which could have prevented the stream from resuming<br>after the app returns to the foreground.<br>• Added support for the arm64 simulator.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -3653,17 +3261,13 @@ Android
 
 ## February 3, 2022
 
-### Amazon IVS Broadcast SDK: Android
-
-1.2.1
+### Amazon IVS Broadcast SDK: Android 1.2.1
 
 | Platform                                                                      | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Android Broadcast SDK<br>1.2.1](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.2.1/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.2.1/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.2.1/android/")<br>This release has new methods and a bug fix to properly support<br>surface size and rotation changes. This is needed for use cases<br>involving custom video input.<br>• Fixed a bug where<br>`SurfaceSource.setSize(...)` did not set<br>a new size for the SurfaceSource.<br>• Added the `Device.setRotation(float<br>rotation)` method to set the rotation on a<br>device in radians.<br>• Added the<br>`ImageDevice.rotateOnConfigurationChanges(boolean<br>enable)` method to enable/disable automatic<br>rotation of the ImageDevice when the physical handset is<br>rotated.<br>• Added the<br>`ImageDevice.willRotateOnConfigurationChanges()` method to return whether the ImageDevice is<br>configured to automatically rotate when the physical<br>handset rotates. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -3735,9 +3339,7 @@ session. This is the first release of this new functionality. See:
 | [Android Broadcast SDK<br>1.2.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.2.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.2.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.2.0/android/")<br>• Fixed a bug where, even if transparency was enabled, a<br>slotâ€™s video or image was not blended with other slots<br>beneath it (using zIndex values).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | [iOS Broadcast SDK<br>1.2.0](broadcast-ios.md "broadcast-ios.md")             | **Download:**<br>[https://broadcast.live-video.net/1.2.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.2.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.2.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.2<br>.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.2.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.2.0/ios/")<br>• Improved the connection stability of Bluetooth and<br>wired headsets.<br>• Added support to `IVSCustomImageSource` for<br>the following pixel formats:<br>+ kCVPixelFormatType_Lossless_420YpCbCr8BiPlanarFullRange<br>+ kCVPixelFormatType_Lossy_420YpCbCr8BiPlanarFullRange<br>+ kCVPixelFormatType_Lossless_420YpCbCr8BiPlanarVideoRange<br>+ kCVPixelFormatType_Lossy_420YpCbCr8BiPlanarVideoRange<br>+ kCVPixelFormatType_Lossless_32BGRA<br>+ kCVPixelFormatType_Lossy_32BGRA<br>• Fixed two race conditions when using the<br>`createAppBackgroundImageSource` method,<br>which could have prevented the stream from resuming<br>after the app returns to the foreground. |
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -3822,9 +3424,7 @@ Streaming](stream-health.md "stream-health.md").
 
 ## October 20, 2021
 
-### Amazon IVS Broadcast SDK 1.1.0: Android and
-
-iOS
+### Amazon IVS Broadcast SDK 1.1.0: Android and iOS
 
 | Platform                                                                      | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -3832,9 +3432,7 @@ iOS
 | [Android Broadcast SDK<br>1.1.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.1.0/android/reference/packages.html](https://aws.github.io/amazon-ivs-broadcast-docs/1.1.0/android/reference/packages.html "https://aws.github.io/amazon-ivs-broadcast-docs/1.1.0/android/reference/packages.html")<br>• Fixed a bug where device-orientation changes could<br>crash the SDK.<br>• Fixed a bug where `getPreviewView()` worked<br>only the first time it was called. Now<br>`getPreviewView()` returns a new<br>`ImagePreviewView` every time it is<br>called, so you can add multiple<br>`ImagePreviewViews` of the same device or<br>session to your view hierarchy at the same time. Note<br>that using many `ImagePreviewViews`<br>simultaneously can degrade performance.<br>• Added `stopSystemCapture()` to stop the<br>system-capture service without releasing the entire<br>broadcast session.<br>• Added an `attachDevice` override, to ignore<br>mixer-slot preferred devices when attaching a<br>device.                                                                                                                                                                                                                                                                                                                                                                                           |
 | [iOS Broadcast SDK<br>1.1.0](broadcast-ios.md "broadcast-ios.md")             | **Download:**<br>[https://broadcast.live-video.net/1.1.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.1.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.1.0/AmazonIVSBroadcast.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.1.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.1.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.1.0/ios/")<br>• Setting size on an<br>`IVSMixerSlotConfiguration` object now<br>sets `matchCanvasSize` to `false`.<br>Similarly, setting aspect on an<br>`IVSMixerSlotConfiguration` object sets<br>`matchCanvasAspectMode` to<br>`false`.<br>• Added support for background audio with pre-encoded<br>video. A new method,<br>`createAppBackgroundImageSourceOnComplete`,<br>changes the default behavior when backgrounding an app.<br>Previously, the entire stream stopped because the SDK no<br>longer had access to the camera or the GPU (which means<br>no video input compositing or video encoding could be<br>done).<br>The new method returns a subclass of<br>`IVSCustomVideoSource`. Normally,<br>`IVSCustomVideoSource` allows you to<br>submit image samples to be broadcast. The subclass<br>allows you to submit image samples to be pre-encoded for<br>broadcast later, when your app is in the<br>background.                    |
 
-#### Broadcast SDK Mixer: Migrating from
-
-1.0.0 to 1.1.0
+#### Broadcast SDK Mixer: Migrating from 1.0.0 to 1.1.0
 
 Version 1.1.0 of the Broadcast SDK changes how the mixer coordinate system
 works. In 1.0.0, the mixer used inconsistent origin points. In 1.1.0, the origin
@@ -3860,9 +3458,7 @@ relative to the top-left corner. Therefore, to expand a slot from the center,
 you must change the position at the same time as the size; otherwise, the slot
 will appear to grow down and to the right.
 
-#### Broadcast SDK Size:
-
-Android
+#### Broadcast SDK Size: Android
 
 | Architecture | Compressed Size | Uncompressed Size |
 | ------------ | --------------- | ----------------- |
@@ -3879,9 +3475,7 @@ Android
 
 ## September 29, 2021
 
-### Amazon IVS Player SDK: Android
-
-1.5.1
+### Amazon IVS Player SDK: Android 1.5.1
 
 | Platform                                                         | Downloads and Changes                                                                                                                                                                                                                                                                                  |
 | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -3954,9 +3548,7 @@ Android
 
 ## August 13, 2021
 
-### ListTagsForResource API
-
-Endpoint
+### ListTagsForResource API Endpoint
 
 We removed support for pagination in this endpoint; i.e., the
 `maxResults` request field and `nextToken`
@@ -3992,9 +3584,7 @@ request/response field. (Pagination did not work correctly.)
 
 ## July 27, 2021
 
-### Amazon IVS Broadcast SDK:
-
-Android 1.0.0 and iOS 1.0.0
+### Amazon IVS Broadcast SDK: Android 1.0.0 and iOS 1.0.0
 
 | Platform                                                                      | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -4003,9 +3593,7 @@ Android 1.0.0 and iOS 1.0.0
 
 ## June 1, 2021
 
-### Amazon IVS Player SDK: Android
-
-1.3.3 and iOS 1.3.3
+### Amazon IVS Player SDK: Android 1.3.3 and iOS 1.3.3
 
 | Platform                                                         | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -4015,9 +3603,7 @@ Android 1.0.0 and iOS 1.0.0
 
 ## May 19, 2021
 
-### Amazon IVS Player SDK: Android
-
-1.3.2
+### Amazon IVS Player SDK: Android 1.3.2
 
 **Reference documentation:** [https://aws.github.io/amazon-ivs-player-docs/1.3.2/android/](https://aws.github.io/amazon-ivs-player-docs/1.3.2/android/ "https://aws.github.io/amazon-ivs-player-docs/1.3.2/android/")
 
@@ -4037,9 +3623,7 @@ calls after the `player.release()` method is called.
 
 ## April 26, 2021
 
-### Service Quotas Integration
-
-with CloudWatch Usage Metrics
+### Service Quotas Integration with CloudWatch Usage Metrics
 
 You can use CloudWatch to proactively manage your service quotas, via CloudWatch
 _usage metrics_. See [Amazon IVS Service Quotas](../userguide/service-quotas.md#quotas-cloudwatch-integration "../userguide/service-quotas.md#quotas-cloudwatch-integration").
@@ -4078,9 +3662,7 @@ Amazon IVS console or API. For details, see [Getting Started with IVS](getting-s
 
 ## January 28, 2021
 
-### Amazon IVS Player SDK: JW Player Integration
-
-1.2.0
+### Amazon IVS Player SDK: JW Player Integration 1.2.0
 
 The Amazon IVS player now integrates with JW Player. See [JW Player Integration](player-jwplayer.md "player-jwplayer.md").
 
@@ -4091,9 +3673,7 @@ live streams and VODs, using Safari on an iPhone.
 
 ## December 16, 2020
 
-### Amazon IVS Player: SDK for Android
-
-1.2.1
+### Amazon IVS Player: SDK for Android 1.2.1
 
 **Reference documentation:** [https://aws.github.io/amazon-ivs-player-docs/1.2.1/android/](https://aws.github.io/amazon-ivs-player-docs/1.2.1/android/ "https://aws.github.io/amazon-ivs-player-docs/1.2.1/android/")
 
@@ -4120,9 +3700,7 @@ The `stream_id` field was added to several events. See [Using Amazon EventBridge
 
 ## November 9, 2020
 
-### Add Metadata Viewing to
-
-Console
+### Add Metadata Viewing to Console
 
 Timed metadata can now be viewed from the Amazon IVS console. In the _Amazon IVS User Guide_, see the new section on [Viewing Timed Metadata](metadata.md#metadata-viewing "metadata.md#metadata-viewing") in _Embedding Metadata within a Video Stream_.
 
@@ -4142,9 +3720,7 @@ Guide_.
 
 ## October 27, 2020
 
-### Higher Limits for Channels, CCV, and
-
-CCB
+### Higher Limits for Channels, CCV, and CCB
 
 We increased three service-quota limits:
 
@@ -4161,16 +3737,12 @@ These increases are available in [all regions](https://aws.amazon.com/about-aws/
 
 ## October 9, 2020
 
-### New Service Quotas and EventBridge
-
-Event
+### New Service Quotas and EventBridge Event
 
 There are now service quotas and EventBridge events related to ingest resolution.
 See [IVS Service Quotas | Low-Latency Streaming](service-quotas.md "service-quotas.md") and [Using Amazon EventBridge with IVS](eventbridge.md "eventbridge.md").
 
-### Amazon IVS Player: SDK for Web
-
-1.1.2
+### Amazon IVS Player: SDK for Web 1.1.2
 
 **NPM Package:**
 [https://www.npmjs.com/package/amazon-ivs-player](https://www.npmjs.com/package/amazon-ivs-player "https://www.npmjs.com/package/amazon-ivs-player")
@@ -4201,17 +3773,13 @@ The Amazon Interactive Video Service (IVS) Player SDKs use [semantic versioning]
 
 ## September 14, 2020
 
-### New Event Field,
-
-channel_name
+### New Event Field, channel_name
 
 The `channel_name` field was added to several events. See [Using Amazon EventBridge with IVS](eventbridge.md "eventbridge.md").
 
 ## August 19, 2020
 
-### Playback Authorization (Private
-
-Channels)
+### Playback Authorization (Private Channels)
 
 Amazon IVS now offers customers the ability to create private channels, allowing
 customers to restrict which vieres can watch their streams. Customers control access
@@ -4224,9 +3792,7 @@ channel is private. See the [Amazon IVS API Reference](../APIReference.md "../AP
 
 ## August 11, 2020
 
-### Amazon IVS Player: SDK for iOS
-
-1.0.6
+### Amazon IVS Player: SDK for iOS 1.0.6
 
 **Download:** <deprecated>
 
@@ -4240,13 +3806,10 @@ uploading.
 
 ## August 5, 2020
 
-### Using Amazon EventBridge with Amazon
-
-IVS
+### Using Amazon EventBridge with Amazon IVS
 
 Amazon IVS EventBridge events are now available through the Amazon EventBridge
-console. See the section on [Creating Amazon EventBridge Rules for
-Amazon IVS](eventbridge.md#eventbridge-creating-rules "eventbridge.md#eventbridge-creating-rules") in _Using
+console. See the section on [Creating Amazon EventBridge Rules for Amazon IVS](eventbridge.md#eventbridge-creating-rules "eventbridge.md#eventbridge-creating-rules") in _Using
 Amazon EventBridge with Amazon IVS_, in the _Amazon IVS User Guide_.
 
 ## July 15, 2020

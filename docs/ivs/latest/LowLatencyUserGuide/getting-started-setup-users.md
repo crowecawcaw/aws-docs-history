@@ -1,6 +1,4 @@
-# Step 2: Set Up Root and Administrative
-
-Users
+# Step 2: Set Up Root and Administrative Users
 
 When you sign up for an AWS account, an AWS account root user is created. The root
 user has access to all AWS services and resources in the account. As a security best
@@ -8,9 +6,7 @@ practice, [assign administrative access to an administrative user](../../../sing
 user only to perform [tasks
 that require root user access](../../../IAM/latest/UserGuide/root-user-tasks.md "../../../IAM/latest/UserGuide/root-user-tasks.md").
 
-## Secure Your AWS Account Root
-
-User
+## Secure Your AWS Account Root User
 
 1. To sign in as the administrative user in the IAM Identity Center, use the
    sign-in URL that was sent to your email address when you created the IAM
@@ -24,9 +20,7 @@ For instructions, see [Enable a virtual MFA device for your AWS account root use
 (console)](../../../IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.md#enable-virt-mfa-for-root "../../../IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.md#enable-virt-mfa-for-root") in the _IAM User
 Guide_.
 
-## Create an Administrative
-
-User
+## Create an Administrative User
 
 You should create an administrative user so that you do not use the root user for
 everyday tasks.

@@ -68,9 +68,7 @@ For more information, see:
    Streaming](stream-health.md "stream-health.md")
 2. [Creating a CloudWatch alarm based on anomaly detection](../../../AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.md "../../../AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.md")
 
-### Custom Content
-
-Moderation
+### Custom Content Moderation
 
 You can explore custom content-moderation solutions to detect undesired content
 via image recognition. Amazon IVS provides the ability to [automatically record Amazon IVS live streams to Amazon
@@ -87,13 +85,9 @@ Consider these additional detection and prevention techniques:
 - [Creating Safer Online Communities with AI/ML Content Moderation](https://dev.to/aws/creating-safer-online-communities-with-aiml-content-moderation-1bn "https://dev.to/aws/creating-safer-online-communities-with-aiml-content-moderation-1bn") is a blog post about using Amazon Rekognition within an IVS
   application.
 
-## Preventing Undesired Content and
+## Preventing Undesired Content and Viewers
 
-Viewers
-
-### Stop the Stream and Reset the Stream
-
-Key
+### Stop the Stream and Reset the Stream Key
 
 If you detect that a channel is being used to stream undesired content, you can
 use the Amazon IVS console to shut down the stream:
@@ -151,9 +145,7 @@ To learn more about private channels, see:
 - [Creating a Private Channel for Authorized Live Stream Playback with
   Amazon IVS](https://dev.to/aws/creating-a-private-channel-for-authorized-live-stream-playback-with-amazon-ivs-2mdl "https://dev.to/aws/creating-a-private-channel-for-authorized-live-stream-playback-with-amazon-ivs-2mdl") (blog post)
 
-### Use Playback Restriction
-
-Policies
+### Use Playback Restriction Policies
 
 If you do not want to use [private channels](#undesired-content-private-channels "#undesired-content-private-channels"), you can still benefit from some of the same
 protections by leveraging playback restriction policies. These policies allow you to
@@ -161,9 +153,7 @@ enable features such as GeoBlocking and origin enforcement on public channels. Y
 create a playback restriction policy using the IVS console or API, then attach the
 policy’s ARN to your channels.
 
-#### Console Instructions (Playback
-
-Restriction Policy)
+#### Console Instructions (Playback Restriction Policy)
 
 1. Create a playback restriction policy
    1. [Open the Amazon
@@ -209,9 +199,7 @@ third-party database. The accuracy of the mapping between IP addresses and count
 varies by region. Based on recent tests, the overall accuracy is 99.8%. If IVS can't
 determine a user's location, IVS serves the content that the user requested.
 
-#### CLI Instructions (Playback Restriction
-
-Policy)
+#### CLI Instructions (Playback Restriction Policy)
 
 1. Create a playback restriction policy. Here is an example. _For
    the `allowed-countries` and `allowed-origins`

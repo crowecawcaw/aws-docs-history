@@ -1,6 +1,4 @@
-# Network Requirements | Low-Latency
-
-Streaming
+# Network Requirements | Low-Latency Streaming
 
 IVS low-latency streaming relies on RTMP(S), SRT, and WebRTC protocols for the
 transmission of media and data. To ensure a seamless experience, the destinations and ports

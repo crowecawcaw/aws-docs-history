@@ -236,9 +236,7 @@ To filter streams by health (e.g. `STARVING`):
 aws ivs list-streams --filter-by health=STARVING
 ```
 
-### CloudWatch Health
-
-Dimension for ConcurrentStreams
+### CloudWatch Health Dimension for ConcurrentStreams
 
 You can filter `ConcurrentStreams` by a specific `Health`.
 See [CloudWatch Metrics: IVS Low-Latency Streaming](#stream-health-cloudwatch-metrics-low-latency-streaming "#stream-health-cloudwatch-metrics-low-latency-streaming").
@@ -262,9 +260,7 @@ as the metrics age. Here is the schedule:
 When you call `getMetricData` you can specify a period of 1, 5
 (recommended), 10, 30 or any multiple of 60 seconds for high-resolution metrics.
 
-### CloudWatch Console
-
-Instructions
+### CloudWatch Console Instructions
 
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the side navigation, expand the **Metrics** dropdown, then select **All
@@ -315,9 +311,7 @@ For more information, see [Using Amazon
 CloudWatch Metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md") in the _Amazon CloudWatch User
 Guide_.
 
-## CloudWatch
-
-Metrics: IVS Low-Latency Streaming
+## CloudWatch Metrics: IVS Low-Latency Streaming
 
 Amazon IVS provides the following metrics in the **AWS/IVS** namespace.
 

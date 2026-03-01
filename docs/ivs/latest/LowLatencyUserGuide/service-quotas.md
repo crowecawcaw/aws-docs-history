@@ -88,9 +88,7 @@ API call rate quotas are not adjustable.
 | Stream key                                                                                               | 1                                           | No         | Maximum number of stream keys, per channel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Stream takeovers                                                                                         | 100                                         | Yes        | Maximum number of stream takeovers, per stream.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-## Service Quotas Integration with
-
-CloudWatch Usage Metrics
+## Service Quotas Integration with CloudWatch Usage Metrics
 
 You can use CloudWatch to proactively manage your service quotas, via CloudWatch
 _usage metrics_. You can use these metrics to
@@ -132,9 +130,7 @@ The following dimensions are used to refine the usage metric:
 | Type      | The type of resource being tracked. Valid value:<br>`Resource`.                                                                                                                                                                                                                                                                                  |
 | Resource  | The name of the AWS resource. Valid values:<br>`ConcurrentStreams`,<br>`ConcurrentViews`.<br>The ConcurrentStreams and ConcurrentViews usage metrics are<br>copies of the ones in the **AWS/IVS**<br>namespace (with the None dimension), as described in [Monitoring Amazon IVS Low-Latency<br>Streaming](stream-health.md "stream-health.md"). |
 
-### Creating a CloudWatch Alarm for Usage
-
-Metrics
+### Creating a CloudWatch Alarm for Usage Metrics
 
 To create a CloudWatch alarm based on an Amazon IVS usage metric:
 

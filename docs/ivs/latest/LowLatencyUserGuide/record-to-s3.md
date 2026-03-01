@@ -148,8 +148,7 @@ EventBridge:** Recording End events and _recording-ended_ JSON metadata files ar
 `recordingReconnectWindowSeconds`, as Amazon IVS waits to ensure a new
 stream is not started.
 
-For instructions on setting up the merge-streams functionality, see [Step 4: Create a Channel with Optional
-Recording](getting-started-create-channel.md "getting-started-create-channel.md") in _Getting
+For instructions on setting up the merge-streams functionality, see [Step 4: Create a Channel with Optional Recording](getting-started-create-channel.md "getting-started-create-channel.md") in _Getting
 Started with Amazon IVS_.
 
 ### Eligibility
@@ -215,9 +214,7 @@ This metadata is in JSON format. It comprises the following information.
 | `recording_status_message`  | string  | Conditional | Descriptive information on the status. This is available only<br>when `recording_status` is `"RECORDING_ENDED"`<br>or `"RECORDING_ENDED_WITH_FAILURE"`.                                                                                                                                                                                                                                                                          |
 | `version`                   | string  | Yes         | The version of the metadata schema.                                                                                                                                                                                                                                                                                                                                                                                              |
 
-### Example:
-
-recording_started.json
+### Example: recording_started.json
 
 ```
 {
@@ -275,9 +272,7 @@ recording_started.json
 }
 ```
 
-### Example:
-
-recording_ended.json
+### Example: recording_ended.json
 
 ```
 {
@@ -337,9 +332,7 @@ recording_ended.json
 }
 ```
 
-### Example:
-
-recording_failed.json
+### Example: recording_failed.json
 
 ```
 {
@@ -383,9 +376,7 @@ recording_failed.json
 }
 ```
 
-## Discovering the Renditions of a
-
-Recording
+## Discovering the Renditions of a Recording
 
 When you stream content to an Amazon IVS channel, auto-record-to-s3 uses the source
 video to generate multiple renditions. Using [Adaptive Bitrate
@@ -480,9 +471,7 @@ def lambda_handler(event, context):
    }
 ```
 
-## Playback of Recorded Content from Private
-
-Buckets
+## Playback of Recorded Content from Private Buckets
 
 Objects recorded with the Auto-Record to Amazon S3 feature are private by default;
 hence, these objects are inaccessible for playback using the direct S3 URL. If you try

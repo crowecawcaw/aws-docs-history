@@ -1,6 +1,4 @@
-# Create or Import an IVS Playback
-
-Key
+# Create or Import an IVS Playback Key
 
 Amazon IVS allows a maximum of three key pairs that can be used to sign and verify
 playback tokens. Amazon IVS does not offer any key rotations.
@@ -18,9 +16,7 @@ requests.
 
 There are various ways to create a key pair; below, we give two examples.
 
-### Console
-
-Instructions
+### Console Instructions
 
 To create a new key pair in the console, follow these steps. Note this process
 enables you to download only the private key.
@@ -42,9 +38,7 @@ The private key is immediately downloaded to your machine and is not
 saved in the console or available for future download. **_Be sure you save the private
 key; you cannot retrieve it later._**
 
-### OpenSSL
-
-Instructions
+### OpenSSL Instructions
 
 **Note:** You may have to install [OpenSSL](https://www.openssl.org/source/ "https://www.openssl.org/source/") before following these
 instructions.
@@ -60,17 +54,13 @@ openssl ec -in priv.pem -pubout -out public.pem
 
 Now import your new public key, using the instructions below.
 
-## Importing an Existing Public
-
-Key
+## Importing an Existing Public Key
 
 If you already have a key pair, you can import the public key into IVS. The
 private key is not needed by our system but is employed by you to sign
 tokens.
 
-### Console
-
-Instructions
+### Console Instructions
 
 To import an existing public key with the console:
 

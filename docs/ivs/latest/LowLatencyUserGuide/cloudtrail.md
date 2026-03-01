@@ -54,9 +54,7 @@ identity information helps you determine whether the request was made:
 For more information, see the [CloudTrail userIdentity
 Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding Amazon IVS Log File
-
-Entries
+## Understanding Amazon IVS Log File Entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. An event represents a single request from any source and includes

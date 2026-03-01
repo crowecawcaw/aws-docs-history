@@ -1,6 +1,4 @@
-# How Session Protection
-
-Works
+# How Session Protection Works
 
 When you request a playback URL with a valid playback token, IVS creates an authorized
 session and returns playlist and segment URLs that are unique to that session. These

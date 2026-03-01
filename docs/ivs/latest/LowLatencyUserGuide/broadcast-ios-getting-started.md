@@ -1,6 +1,4 @@
-# Getting Started with the IVS iOS
-
-Broadcast SDK | Low-Latency Streaming
+# Getting Started with the IVS iOS Broadcast SDK | Low-Latency Streaming
 
 This document takes you through the steps involved in getting started with the Amazon
 IVS low-latency streaming iOS broadcast SDK.
@@ -11,9 +9,7 @@ We recommend that you integrate broadcast SDK via Swift Package Manager.
 (Alternatively, you can manually add the framework to
 your project.)
 
-### Recommended: Integrate the
-
-Broadcast SDK (Swift Package Manager)
+### Recommended: Integrate the Broadcast SDK (Swift Package Manager)
 
 1. Download the Package.swift file from [https://broadcast.live-video.net/1.39.0/Package.swift](https://broadcast.live-video.net/1.39.0/Package.swift "https://broadcast.live-video.net/1.39.0/Package.swift").
 2. In your project, create a new directory named AmazonIVSBroadcast and
@@ -30,9 +26,7 @@ Broadcast SDK (Swift Package Manager)
    **Add to Target** section.
 7. Select **Add Package**.
 
-### Alternate Approach: Install the
-
-Framework Manually
+### Alternate Approach: Install the Framework Manually
 
 1. Download the latest version from [https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast.xcframework.zip").
 2. Extract the contents of the archive.
@@ -44,9 +38,7 @@ Framework Manually
 
 ![The Frameworks, Libraries, and Embedded Content section of the General tab for your application target.](images/iOS_Broadcast_SDK_Guide_xcframework.png)
 
-## Implement
-
-IVSBroadcastSession.Delegate
+## Implement IVSBroadcastSession.Delegate
 
 Implement `IVSBroadcastSession.Delegate`, which allows you to receive
 state updates and device-change notifications:
@@ -93,9 +85,7 @@ You also need to add entries for `NSCameraUsageDescription` and
 `NSMicrophoneUsageDescription` to your `Info.plist`.
 Otherwise, your app will crash when trying to request permissions.
 
-## Disable the Application Idle
-
-Timer
+## Disable the Application Idle Timer
 
 This is optional but recommended. It prevents your device from going to sleep
 while using the broadcast SDK, which would interrupt the broadcast.
@@ -111,9 +101,7 @@ override func viewDidDisappear(_ animated: Bool) {
 }
 ```
 
-## (Optional) Set Up
-
-AVAudioSession
+## (Optional) Set Up AVAudioSession
 
 By default, the broadcast SDK will set up your application’s
 `AVAudioSession`. If you want to manage this yourself, set
@@ -155,12 +143,9 @@ let broadcastSession = try IVSBroadcastSession(
    delegate: self)
 ```
 
-Also see [Create the Broadcast Session
-(Advanced Version)](broadcast-ios-use-cases.md#broadcast-ios-create-session-advanced "broadcast-ios-use-cases.md#broadcast-ios-create-session-advanced")
+Also see [Create the Broadcast Session (Advanced Version)](broadcast-ios-use-cases.md#broadcast-ios-create-session-advanced "broadcast-ios-use-cases.md#broadcast-ios-create-session-advanced")
 
-## Set the IVSImagePreviewView for
-
-Preview
+## Set the IVSImagePreviewView for Preview
 
 If you want to display a preview for an active camera device, add the preview
 `IVSImagePreviewView` for the device to your view hierarchy:
@@ -254,9 +239,7 @@ private func audioSessionInterrupted(_ notification: Notification) {
 }
 ```
 
-### App Going Into
-
-Background
+### App Going Into Background
 
 Standard applications on iOS are not allowed to use cameras in the background.
 There also are restrictions on video encoding in the background: since hardware

@@ -1,6 +1,4 @@
-# Step 7: Check Your Service-Quota
-
-Limits (Optional)
+# Step 7: Check Your Service-Quota Limits (Optional)
 
 All accounts have limits on the number of concurrent viewers and concurrent
 broadcasts. _Ensure that your limits are adequate and request an

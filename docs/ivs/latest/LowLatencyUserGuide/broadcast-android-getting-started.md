@@ -1,6 +1,4 @@
-#
-
-Getting Started​ with the IVS Android Broadcast SDK | Low-Latency Streaming
+# Getting Started​ with the IVS Android Broadcast SDK | Low-Latency Streaming
 
 This document takes you through the steps involved in getting started with the Amazon IVS low-latency
 streaming Android broadcast SDK.
@@ -72,9 +70,7 @@ Before packaging the release `.apk` file, the Android Gradle Plugin automaticall
 
 For more information, see this [issue report](https://issuetracker.google.com/issues/353554169 "https://issuetracker.google.com/issues/353554169").
 
-## Create the Event
-
-Listener
+## Create the Event Listener
 
 Setting up an event listener allows you to receive state updates, device-change
 notifications, errors, and session-audio information.
@@ -137,9 +133,7 @@ public void onRequestPermissionsResult(int requestCode,
 }
 ```
 
-## Create the Broadcast
-
-Session
+## Create the Broadcast Session
 
 The broadcast interface is
 `com.amazonaws.ivs.broadcast.BroadcastSession`. Initialize it with a
@@ -163,12 +157,9 @@ broadcastSession = new BroadcastSession(ctx,
                        Presets.Devices.FRONT_CAMERA(ctx));
 ```
 
-Also see [Create the Broadcast
-Session (Advanced Version)](broadcast-android-use-cases.md#broadcast-android-create-session-advanced "broadcast-android-use-cases.md#broadcast-android-create-session-advanced") .
+Also see [Create the Broadcast Session (Advanced Version)](broadcast-android-use-cases.md#broadcast-android-create-session-advanced "broadcast-android-use-cases.md#broadcast-android-create-session-advanced") .
 
-## Set the ImagePreviewView
-
-for Preview
+## Set the ImagePreviewView for Preview
 
 If you want to display a preview for an active camera device, add a preview
 `ImagePreviewView` for the device to your view hierarchy.
@@ -211,9 +202,7 @@ ingest).
 broadcastSession.stop();
 ```
 
-## Release the Broadcast
-
-Session
+## Release the Broadcast Session
 
 You _must call_ the
 `broadcastSession.release()` method when the broadcast session is no

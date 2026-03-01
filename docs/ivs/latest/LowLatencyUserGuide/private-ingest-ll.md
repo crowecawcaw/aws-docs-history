@@ -59,9 +59,7 @@ using an interface VPC endpoint:
 4. [Stream to an IVS channel
    or stage](#private-ingest-stream-to-channel-or-stage "#private-ingest-stream-to-channel-or-stage").
 
-## Step 1: Create an
-
-Interface VPC Endpoint
+## Step 1: Create an Interface VPC Endpoint
 
 Each VPC endpoint needs to be associated with a VPC in your account. If your account
 already has a default VPC, you can use that; otherwise, create a new VPC. If you want to
@@ -92,9 +90,7 @@ see the VPC endpoint you just created:
   endpoint. Copy and save the first one listed; you will need to specify it as
   your stream-ingestion server URL in a future step.
 
-## Step 2: Launch an EC2
-
-Instance
+## Step 2: Launch an EC2 Instance
 
 There are many options that customers can use to broadcast a stream from AWS. The
 example here uses an Ubuntu EC2 instance with FFmpeg installed.
@@ -110,9 +106,7 @@ operations in step 3 below.
 Launch the instance. Once it initializes, use SSH or AWS Session Manager to connect to
 the instance.
 
-## Step 3: Install FFmpeg on your
-
-Instance
+## Step 3: Install FFmpeg on your Instance
 
 Once connected to your instance, run the following commands on your machine (assuming
 you created the instance with Ubuntu) to install FFmpeg:
@@ -123,9 +117,7 @@ sudo apt-get update
 sudo apt-get install ffmpeg
 ```
 
-## Step 4: Stream to an IVS
-
-Channel or Stage
+## Step 4: Stream to an IVS Channel or Stage
 
 The private ingest URL format is:
 

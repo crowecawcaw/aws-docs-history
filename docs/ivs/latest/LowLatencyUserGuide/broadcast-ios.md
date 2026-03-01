@@ -23,9 +23,7 @@ documentation at [https://aws.github.io/amazon-ivs-broadcast-docs/1.39.0/ios/](h
 
 **Platform requirements:** iOS 14+
 
-## How iOS Chooses Camera
-
-Resolution and Frame Rate
+## How iOS Chooses Camera Resolution and Frame Rate
 
 The camera managed by the broadcast SDK optimizes its resolution and frame rate
 (frames-per-second, or FPS) to minimize heat production and energy consumption. This

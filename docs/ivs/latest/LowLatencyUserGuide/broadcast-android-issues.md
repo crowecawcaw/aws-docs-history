@@ -1,6 +1,4 @@
-# Known Issues & Workarounds in the IVS
-
-Android Broadcast SDK | Low-Latency Streaming
+# Known Issues & Workarounds in the IVS Android Broadcast SDK | Low-Latency Streaming
 
 This document lists known issues that you might encounter when using the Amazon IVS low-latency
 streaming Android broadcast SDK and suggests potential workarounds.
