@@ -24,6 +24,5 @@ CloudWatch:
 
 ###### Manage Infrastructure Performance tasks
 
-- [Manage CloudWatch subscriptions using the AWS Network Manager
-  console](nmip-subscriptions-manage.md "nmip-subscriptions-manage.md")
+- [Manage CloudWatch subscriptions using the AWS Network Manager console](nmip-subscriptions-manage.md "nmip-subscriptions-manage.md")
 - [Manage CloudWatch subscriptions using the AWS CLI](getting-started-nmip-cli.md "getting-started-nmip-cli.md")

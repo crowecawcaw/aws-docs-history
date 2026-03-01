@@ -4,13 +4,10 @@ The following sections describe how Infrastructure Performance works with IAM.
 
 ###### Contents
 
-- [Infrastructure Performance
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Infrastructure Performance identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
 - [Infrastructure Performance IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Infrastructure Performance
-
-identity-based policies
+## Infrastructure Performance identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied. Infrastructure Performance
@@ -69,9 +66,7 @@ use a wildcard (\*) to indicate that the statement applies to all resources.
 "Resource": "*"
 ```
 
-### Condition
-
-keys
+### Condition keys
 
 The `Condition` element (or `Condition`
 _block_) lets you specify conditions in which a statement
@@ -93,9 +88,7 @@ The `Condition` element is optional.
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within your
 AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with Infrastructure Performance
+### Using temporary credentials with Infrastructure Performance
 
 You can use temporary credentials to sign in with federation, to assume an IAM role,
 or to assume a cross-account role. You obtain temporary security credentials by calling
@@ -103,9 +96,7 @@ AWS STS API operations such as [AssumeRole](../../../STS/latest/APIReference/API
 
 Infrastructure Performance supports using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 Infrastructure Performance has no service-linked roles.
 

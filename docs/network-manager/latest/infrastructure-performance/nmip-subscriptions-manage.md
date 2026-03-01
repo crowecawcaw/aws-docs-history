@@ -1,6 +1,4 @@
-# Manage CloudWatch subscriptions using the AWS Network Manager
-
-console
+# Manage CloudWatch subscriptions using the AWS Network Manager console
 
 Subscriptions allow you to send and view Infrastructure Performance metrics in Amazon CloudWatch.
 Using the console you can either subscribe to, or unsubscribe from, CloudWatch performance

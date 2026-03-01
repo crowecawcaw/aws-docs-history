@@ -1,6 +1,4 @@
-# Identity and access management for
-
-Infrastructure Performance
+# Identity and access management for Infrastructure Performance
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
@@ -19,5 +17,4 @@ secure your AWS resources, by controlling who can perform Infrastructure Perform
 ###### Contents
 
 - [How Infrastructure Performance works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [Allow IAM users or groups to access
-  Infrastructure Performance](security_iam_create-iam-policy.md "security_iam_create-iam-policy.md")
+- [Allow IAM users or groups to access Infrastructure Performance](security_iam_create-iam-policy.md "security_iam_create-iam-policy.md")
