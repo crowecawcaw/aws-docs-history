@@ -57,9 +57,7 @@ CodeCommit repository, run **git fetch** followed by **git fetch
 In the following steps, we assume that you have already connected the local repo to
 a CodeCommit repository. For instructions, see [Connect to a repository](how-to-connect.md "how-to-connect.md").
 
-### To view a list of Git tags in a
-
-local repo
+### To view a list of Git tags in a local repo
 
 1. Run the **git tag** command:
 
@@ -80,9 +78,7 @@ If no tags have been defined, **git tag** returns nothing.
 
 For more options, see your Git documentation.
 
-### To view information about a Git tag in a
-
-local repo
+### To view information about a Git tag in a local repo
 
 1. Run the **git show `tag-name`** command. For
    example, to view information about a Git tag named `beta`,
@@ -117,9 +113,7 @@ To exit the output of the Git tag information, type **:q**.
 
 For more options, see your Git documentation.
 
-### To view information about Git tags in a
-
-CodeCommit repository
+### To view information about Git tags in a CodeCommit repository
 
 1. Run the **git ls-remote --tags** command.
 

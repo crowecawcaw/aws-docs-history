@@ -60,8 +60,7 @@ protocol you want to use next to the repository's name.
 
 To share this repository with others, you must send them the HTTPS or SSH link to use to
 clone the repository. Make sure they have the permissions required to access the repository.
-For more information, see [Share a repository](how-to-share-repository.md "how-to-share-repository.md") and [Authentication and access control for
-AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md").
+For more information, see [Share a repository](how-to-share-repository.md "how-to-share-repository.md") and [Authentication and access control for AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md").
 
 ## Create a repository (AWS CLI)
 

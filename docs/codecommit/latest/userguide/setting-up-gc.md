@@ -30,16 +30,14 @@ to CodeCommit.
 CodeCommit requires AWS Key Management Service. If you are using an existing IAM user, make sure there are no policies attached to the user that expressly deny the AWS KMS actions required
 by CodeCommit. For more information, see [AWS KMS and encryption](encryption.md "encryption.md"). 3. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 4. In the IAM console, in the navigation pane, choose **Users**, and then choose the IAM user you want to configure for CodeCommit access. 5. On the **Permissions** tab, choose **Add Permissions**. 6. In **Grant permissions**, choose **Attach existing policies
 directly**. 7. From the list of policies, select **AWSCodeCommitPowerUser** or another
-managed policy for CodeCommit access. For more information, see [AWS managed policies for
-CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+managed policy for CodeCommit access. For more information, see [AWS managed policies for CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
 After you have selected the policy you want to attach, choose **Next:
 Review** to review the list of policies to attach to the IAM user. If the
 list is correct, choose **Add permissions**.
 
 For more information about CodeCommit managed policies and sharing access to repositories with other groups and users, see [Share a repository](how-to-share-repository.md "how-to-share-repository.md")
-and [Authentication and access control for
-AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md").
+and [Authentication and access control for AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md").
 
 If you want to use AWS CLI commands with CodeCommit, install the AWS CLI. We recommend that
 you create a profile for using the AWS CLI with CodeCommit. For more information, see [Command line reference](cmd-ref.md "cmd-ref.md") and [Using named profiles](../../../cli/latest/userguide/cli-configure-files.md#cli-configure-files-using-profiles "../../../cli/latest/userguide/cli-configure-files.md#cli-configure-files-using-profiles").
@@ -95,9 +93,7 @@ After you have saved your credentials, choose **Close**.
 This is your only chance to save the user name and password. If you do not save them, you can copy the user name from the IAM
 console, but you cannot look up the password. You must reset the password and then save it.
 
-## Step 4: Connect to the CodeCommit console and clone
-
-the repository
+## Step 4: Connect to the CodeCommit console and clone the repository
 
 If an administrator has already sent you the name and connection details for the CodeCommit
 repository, you can skip this step and clone the repository directly.

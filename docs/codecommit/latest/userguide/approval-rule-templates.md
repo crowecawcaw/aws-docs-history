@@ -7,8 +7,7 @@ that different branches have appropriate levels of approvals and control. You ca
 different rules for production and development branches. Those rules are applied every time
 a pull request that matches the rule conditions is
 created. For more
-information about managed policies and permissions for approval rule templates, see [Permissions for actions on approval rule templates](auth-and-access-control-permissions-reference.md#aa-art "auth-and-access-control-permissions-reference.md#aa-art") and [AWS managed policies for
-CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+information about managed policies and permissions for approval rule templates, see [Permissions for actions on approval rule templates](auth-and-access-control-permissions-reference.md#aa-art "auth-and-access-control-permissions-reference.md#aa-art") and [AWS managed policies for CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
 You can associate an approval rule template with one or more repositories in the AWS Region where they are created. When a template is associated with a repository, it
 automatically creates approval rules for pull requests in that repository as part of
@@ -27,9 +26,7 @@ defined in the template is only applied to pull requests if the destination bran
 ###### Topics
 
 - [Create an approval rule template](how-to-create-template.md "how-to-create-template.md")
-- [Associate an approval rule template with a
-  repository](how-to-associate-template.md "how-to-associate-template.md")
+- [Associate an approval rule template with a repository](how-to-associate-template.md "how-to-associate-template.md")
 - [Manage approval rule templates](how-to-manage-templates.md "how-to-manage-templates.md")
-- [Disassociate an approval rule
-  template](how-to-disassociate-template.md "how-to-disassociate-template.md")
+- [Disassociate an approval rule template](how-to-disassociate-template.md "how-to-disassociate-template.md")
 - [Delete an approval rule template](how-to-delete-template.md "how-to-delete-template.md")

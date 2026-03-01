@@ -1,6 +1,4 @@
-# How AWS CodeCommit works with
-
-IAM
+# How AWS CodeCommit works with IAM
 
 Before you use IAM to manage access to CodeCommit, you should understand what
 IAM features are available to use with CodeCommit. To get a high-level view of how
@@ -28,8 +26,7 @@ some global condition keys. To see all AWS global condition keys, see [AWS Globa
 Context Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_.
 
 Some CodeCommit actions support the `codecommit:References` condition key. For an example
-policy that uses this key, see [Example 4: Deny or allow
-actions on branches](customer-managed-policies.md#identity-based-policies-example-4 "customer-managed-policies.md#identity-based-policies-example-4").
+policy that uses this key, see [Example 4: Deny or allow actions on branches](customer-managed-policies.md#identity-based-policies-example-4 "customer-managed-policies.md#identity-based-policies-example-4").
 
 To see a list of CodeCommit condition keys, see [Condition Keys for AWS CodeCommit](../../../IAM/latest/UserGuide/list_awscodecommit.md#awscodecommit-policy-keys "../../../IAM/latest/UserGuide/list_awscodecommit.md#awscodecommit-policy-keys")
 in the _IAM User Guide_. To learn with which actions and
@@ -37,5 +34,4 @@ resources you can use a condition key, see [Actions Defined by AWS CodeCommit](.
 
 ## Examples
 
-To view examples of CodeCommit identity-based policies, see [AWS CodeCommit identity-based
-policy examples](security-iam.md#security_iam_id-based-policy-examples "security-iam.md#security_iam_id-based-policy-examples").
+To view examples of CodeCommit identity-based policies, see [AWS CodeCommit identity-based policy examples](security-iam.md#security_iam_id-based-policy-examples "security-iam.md#security_iam_id-based-policy-examples").

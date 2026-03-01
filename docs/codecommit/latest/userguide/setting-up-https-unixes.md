@@ -1,6 +1,4 @@
-# Setup steps for HTTPS connections to AWS CodeCommit repositories on
-
-Linux, macOS, or Unix with the AWS CLI credential helper
+# Setup steps for HTTPS connections to AWS CodeCommit repositories on Linux, macOS, or Unix with the AWS CLI credential helper
 
 Before you can connect to AWS CodeCommit for the first time, you must complete the initial configuration steps. For
 most users, this can be done most easily by following the steps in [For HTTPS users using Git credentials](setting-up-gc.md "setting-up-gc.md"). However, if you want to connect to CodeCommit using a root account, federated access,
@@ -11,16 +9,14 @@ or temporary credentials, you can use the credential helper that is included in 
 Although the credential helper is a supported method for connecting to CodeCommit using
 federated access, an identity provider, or temporary credentials, the recommended method is to
 install and use the **git-remote-codecommit** utility. For more information,
-see [Setup steps for HTTPS connections to AWS CodeCommit with
-git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
+see [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
 
 ###### Topics
 
 - [Step 1: Initial configuration for CodeCommit](#setting-up-https-unixes-account "#setting-up-https-unixes-account")
 - [Step 2: Install Git](#setting-up-https-unixes-install-git "#setting-up-https-unixes-install-git")
 - [Step 3: Set up the credential helper](#setting-up-https-unixes-credential-helper "#setting-up-https-unixes-credential-helper")
-- [Step 4: Connect to the CodeCommit console and clone the
-  repository](#setting-up-https-unixes-connect-console "#setting-up-https-unixes-connect-console")
+- [Step 4: Connect to the CodeCommit console and clone the repository](#setting-up-https-unixes-connect-console "#setting-up-https-unixes-connect-console")
 - [Next steps](#setting-up-https-unixes-next-step "#setting-up-https-unixes-next-step")
 
 ## Step 1: Initial configuration for CodeCommit
@@ -38,16 +34,14 @@ Follow these steps to set up an Amazon Web Services account, create and configur
 CodeCommit requires AWS Key Management Service. If you are using an existing IAM user, make sure there are no policies attached to the user that expressly deny the AWS KMS actions required
 by CodeCommit. For more information, see [AWS KMS and encryption](encryption.md "encryption.md"). 3. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 4. In the IAM console, in the navigation pane, choose **Users**, and then choose the IAM user you want to configure for CodeCommit access. 5. On the **Permissions** tab, choose **Add Permissions**. 6. In **Grant permissions**, choose **Attach existing policies
 directly**. 7. From the list of policies, select **AWSCodeCommitPowerUser** or another
-managed policy for CodeCommit access. For more information, see [AWS managed policies for
-CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+managed policy for CodeCommit access. For more information, see [AWS managed policies for CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
 After you have selected the policy you want to attach, choose **Next:
 Review** to review the list of policies to attach to the IAM user. If the
 list is correct, choose **Add permissions**.
 
 For more information about CodeCommit managed policies and sharing access to repositories with other groups and users, see [Share a repository](how-to-share-repository.md "how-to-share-repository.md")
-and [Authentication and access control for
-AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md").
+and [Authentication and access control for AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md").
 
 ###### To install and configure the AWS CLI
 
@@ -232,12 +226,9 @@ credentials from being used, you must either:
     	 item (access to this item is not restricted)** option. This prevents the pop-ups, but the
     	 credentials eventually expire (on average, in about 15 minutes) and you see a 403 error message.
     	 When this happens, you must delete the keychain item to restore functionality.
-    	* For more information, see [Git for macOS: I configured the credential helper
-    	 successfully, but now I am denied access to my repository (403)](troubleshooting-ch.md#troubleshooting-macoshttps "troubleshooting-ch.md#troubleshooting-macoshttps").
+    	* For more information, see [Git for macOS: I configured the credential helper successfully, but now I am denied access to my repository (403)](troubleshooting-ch.md#troubleshooting-macoshttps "troubleshooting-ch.md#troubleshooting-macoshttps").
 
-## Step 4: Connect to the CodeCommit console and clone the
-
-repository
+## Step 4: Connect to the CodeCommit console and clone the repository
 
 If an administrator has already sent you the name and connection details for the CodeCommit repository, you can
 skip this step and clone the repository directly.

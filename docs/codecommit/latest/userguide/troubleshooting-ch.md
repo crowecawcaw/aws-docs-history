@@ -1,6 +1,4 @@
-# Troubleshooting the credential helper and HTTPS connections to
-
-AWS CodeCommit
+# Troubleshooting the credential helper and HTTPS connections to AWS CodeCommit
 
 The following information might help you troubleshoot common issues when you use the credential helper
 included with the AWS CLI and HTTPS to connect to CodeCommit repositories.
@@ -10,20 +8,16 @@ included with the AWS CLI and HTTPS to connect to CodeCommit repositories.
 Although the credential helper is a supported method for connecting to CodeCommit using
 federated access, an identity provider, or temporary credentials, the recommended method
 is to install and use the **git-remote-codecommit** utility. For more
-information, see [Setup steps for HTTPS connections to AWS CodeCommit with
-git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
+information, see [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
 
 ###### Topics
 
 - [I receive an error when running the git config command to configure the credential helper](#troubleshooting-os-syn1 "#troubleshooting-os-syn1")
 - [I see an error reading the user name when attempting to clone a repository](#troubleshooting-gitconfig1 "#troubleshooting-gitconfig1")
-- [I get a command not found error in Windows when using the credential
-  helper](#troubleshooting-py3 "#troubleshooting-py3")
+- [I get a command not found error in Windows when using the credential helper](#troubleshooting-py3 "#troubleshooting-py3")
 - [I am prompted for a user name when I connect to a CodeCommit repository](#troubleshooting-ae1 "#troubleshooting-ae1")
-- [Git for macOS: I configured the credential helper
-  successfully, but now I am denied access to my repository (403)](#troubleshooting-macoshttps "#troubleshooting-macoshttps")
-- [Git for Windows: I installed Git for Windows, but I am denied
-  access to my repository (403)](#troubleshooting-windowshttps "#troubleshooting-windowshttps")
+- [Git for macOS: I configured the credential helper successfully, but now I am denied access to my repository (403)](#troubleshooting-macoshttps "#troubleshooting-macoshttps")
+- [Git for Windows: I installed Git for Windows, but I am denied access to my repository (403)](#troubleshooting-windowshttps "#troubleshooting-windowshttps")
 
 ## I receive an error when running the `git config` command to configure the credential helper
 
@@ -45,9 +39,7 @@ that the system could not read the user name for the repository URL.
 correctly on your computer. Open your .gitconfig file and make sure that the credential helper is set correctly. If you are on a computer running
 Linux, macOS, or Unix, also make sure that the value of `$HOME` is set correctly for your system.
 
-## I get a command not found error in Windows when using the credential
-
-helper
+## I get a command not found error in Windows when using the credential helper
 
 **Problem:** After updating the AWS CLI, credential helper connections to
 CodeCommit repositories fail with `aws codecommit credential-helper $@ get: aws: command not
@@ -94,16 +86,12 @@ git config --global credential.UseHttpPath true
 CodeCommit repository, a message appears prompting you for your user name.
 
 **Possible fixes:** Configure your AWS profile or make sure the profile you
-are using is the one you configured for working with CodeCommit. For more information about setting up, see [Setup steps for HTTPS connections to AWS CodeCommit repositories on
-Linux, macOS, or Unix with the AWS CLI credential helper](setting-up-https-unixes.md "setting-up-https-unixes.md") or [Setup steps for HTTPS connections to AWS CodeCommit repositories on
-Windows with the AWS CLI credential helper](setting-up-https-windows.md "setting-up-https-windows.md"). For more information
+are using is the one you configured for working with CodeCommit. For more information about setting up, see [Setup steps for HTTPS connections to AWS CodeCommit repositories on Linux, macOS, or Unix with the AWS CLI credential helper](setting-up-https-unixes.md "setting-up-https-unixes.md") or [Setup steps for HTTPS connections to AWS CodeCommit repositories on Windows with the AWS CLI credential helper](setting-up-https-windows.md "setting-up-https-windows.md"). For more information
 about IAM, access keys, and secret keys, see [Managing
 Access Keys for IAM Users](../../../IAM/latest/UserGuide/ManagingCredentials.md "../../../IAM/latest/UserGuide/ManagingCredentials.md") and [How Do I Get
 Credentials?](../../../IAM/latest/UserGuide/IAM_Introduction.md#IAM_SecurityCredentials "../../../IAM/latest/UserGuide/IAM_Introduction.md#IAM_SecurityCredentials")
 
-## Git for macOS: I configured the credential helper
-
-successfully, but now I am denied access to my repository (403)
+## Git for macOS: I configured the credential helper successfully, but now I am denied access to my repository (403)
 
 **Problem:** On macOS, the credential helper does not seem to access or use
 your credentials as expected. This can be caused by two different problems:
@@ -261,9 +249,7 @@ permissions to apply this change. Make sure to verify that the command applied s
 Configuration](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration "https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration") and [this article on
 Stack Overflow](https://stackoverflow.com/questions/16052602/disable-git-credential-osxkeychain "https://stackoverflow.com/questions/16052602/disable-git-credential-osxkeychain").
 
-## Git for Windows: I installed Git for Windows, but I am denied
-
-access to my repository (403)
+## Git for Windows: I installed Git for Windows, but I am denied access to my repository (403)
 
 **Problem:** On Windows, the credential helper does not seem to access or use
 your credentials as expected. This can be caused by different problems:

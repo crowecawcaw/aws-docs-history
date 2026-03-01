@@ -5,16 +5,11 @@ AWS CodeCommit repositories.
 
 ###### Topics
 
-- [Access error: I am prompted for a user name and password when
-  I connect to a CodeCommit repository from Windows](#troubleshooting-ae1w "#troubleshooting-ae1w")
-- [Access error: Public key denied when connecting to a CodeCommit
-  repository](#troubleshooting-ae2 "#troubleshooting-ae2")
-- [Access error: “Rate Exceeded” or “429” message when connecting
-  to a CodeCommit repository](#troubleshooting-ae3 "#troubleshooting-ae3")
+- [Access error: I am prompted for a user name and password when I connect to a CodeCommit repository from Windows](#troubleshooting-ae1w "#troubleshooting-ae1w")
+- [Access error: Public key denied when connecting to a CodeCommit repository](#troubleshooting-ae2 "#troubleshooting-ae2")
+- [Access error: “Rate Exceeded” or “429” message when connecting to a CodeCommit repository](#troubleshooting-ae3 "#troubleshooting-ae3")
 
-## Access error: I am prompted for a user name and password when
-
-I connect to a CodeCommit repository from Windows
+## Access error: I am prompted for a user name and password when I connect to a CodeCommit repository from Windows
 
 **Problem:** When you try to use Git to communicate with
 a CodeCommit repository, you see a dialog box that prompts you for your user name and
@@ -36,14 +31,10 @@ Git Credential Manager. You can also install and configure
 **git-remote-codecommit** as an alternative to using the
 credential helper for CodeCommit.
 
-For more information, see [Setup steps for HTTPS connections to AWS CodeCommit with
-git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md"), [For HTTPS connections on Windows with the AWS CLI credential
-helper](setting-up-https-windows.md "setting-up-https-windows.md"), and [Git for Windows: I installed Git for Windows, but I am denied
-access to my repository (403)](troubleshooting-ch.md#troubleshooting-windowshttps "troubleshooting-ch.md#troubleshooting-windowshttps").
+For more information, see [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md"), [For HTTPS connections on Windows with the AWS CLI credential
+helper](setting-up-https-windows.md "setting-up-https-windows.md"), and [Git for Windows: I installed Git for Windows, but I am denied access to my repository (403)](troubleshooting-ch.md#troubleshooting-windowshttps "troubleshooting-ch.md#troubleshooting-windowshttps").
 
-## Access error: Public key denied when connecting to a CodeCommit
-
-repository
+## Access error: Public key denied when connecting to a CodeCommit repository
 
 **Problem:** When you try to use an SSH endpoint to
 communicate with a CodeCommit repository, an error message appears containing the phrase
@@ -54,9 +45,7 @@ is that you have not completed setup for SSH connections. Configure a public and
 SSH key pair, and then associate the public key with your IAM user. For more
 information about configuring SSH, see [For SSH connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md "setting-up-ssh-unixes.md") and [For SSH connections on Windows](setting-up-ssh-windows.md "setting-up-ssh-windows.md").
 
-## Access error: “Rate Exceeded” or “429” message when connecting
-
-to a CodeCommit repository
+## Access error: “Rate Exceeded” or “429” message when connecting to a CodeCommit repository
 
 **Problem:** When you try to communicate with a CodeCommit
 repository, a message appears that says “Rate Exceeded” or with an error code of “429”.

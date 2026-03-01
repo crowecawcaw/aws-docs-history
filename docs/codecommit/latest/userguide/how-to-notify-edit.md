@@ -6,13 +6,10 @@ other settings.
 
 ###### Topics
 
-- [Edit a trigger for a repository
-  (console)](#how-to-notify-edit-console "#how-to-notify-edit-console")
+- [Edit a trigger for a repository (console)](#how-to-notify-edit-console "#how-to-notify-edit-console")
 - [Edit a trigger for a repository (AWS CLI)](#how-to-notify-edit-cli "#how-to-notify-edit-cli")
 
-## Edit a trigger for a repository
-
-(console)
+## Edit a trigger for a repository (console)
 
 1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home").
 2. In **Repositories**, choose the repository where you want to edit a trigger

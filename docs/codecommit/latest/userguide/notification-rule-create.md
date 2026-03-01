@@ -11,9 +11,7 @@ notifications in the experience available in that Region, see [Configure Reposit
 
 You can use the console or the AWS CLI to create notification rules for AWS CodeCommit.
 
-# To create a notification rule
-
-(console)
+# To create a notification rule (console)
 
 1. Sign in to the AWS Management Console and open the CodeCommit console at
    [https://console.aws.amazon.com/codecommit/](https://console.aws.amazon.com/codecommit/ "https://console.aws.amazon.com/codecommit/").

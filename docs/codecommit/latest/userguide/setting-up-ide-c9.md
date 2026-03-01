@@ -15,8 +15,7 @@ To use AWS Cloud9 with CodeCommit, you need the following:
 - An IAM user with one of the CodeCommit managed policies and one of the AWS Cloud9 managed
   policies applied to it.
 
-For more information, see [AWS managed policies for
-CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md") and [Understanding and Getting Your
+For more information, see [AWS managed policies for CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md") and [Understanding and Getting Your
 Security Credentials](../../../general/latest/gr/aws-sec-cred-types.md "../../../general/latest/gr/aws-sec-cred-types.md").
 
 ###### Note
@@ -36,10 +35,8 @@ see:
 ###### Topics
 
 - [Step 1: Create an AWS Cloud9 development environment](#setting-up-ide-c9-connect "#setting-up-ide-c9-connect")
-- [Step 2: Configure the AWS CLI credential helper on
-  your AWS Cloud9 EC2 development environment](#setting-up-ide-c9-credentials "#setting-up-ide-c9-credentials")
-- [Step 3: Clone a CodeCommit repository into your AWS Cloud9 EC2
-  development environment](#setting-up-ide-c9-checkout "#setting-up-ide-c9-checkout")
+- [Step 2: Configure the AWS CLI credential helper on your AWS Cloud9 EC2 development environment](#setting-up-ide-c9-credentials "#setting-up-ide-c9-credentials")
+- [Step 3: Clone a CodeCommit repository into your AWS Cloud9 EC2 development environment](#setting-up-ide-c9-checkout "#setting-up-ide-c9-checkout")
 - [Next steps](#setting-up-ide-c9-next "#setting-up-ide-c9-next")
 
 ## Step 1: Create an AWS Cloud9 development environment
@@ -104,9 +101,7 @@ git --version
     git config --global user.email `mary.major@example.com`
 ```
 
-## Step 2: Configure the AWS CLI credential helper on
-
-your AWS Cloud9 EC2 development environment
+## Step 2: Configure the AWS CLI credential helper on your AWS Cloud9 EC2 development environment
 
 After you've created an AWS Cloud9 environment, you can configure the AWS CLI credential
 helper to manage the credentials for connections to your CodeCommit repository. The AWS Cloud9
@@ -142,9 +137,7 @@ alternative credential management system when connecting to those other
 repositories. For more information, see [Git
 Tools - Credential Storage](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage "https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage") on the Git website.
 
-## Step 3: Clone a CodeCommit repository into your AWS Cloud9 EC2
-
-development environment
+## Step 3: Clone a CodeCommit repository into your AWS Cloud9 EC2 development environment
 
 After you've configured the AWS CLI credential helper, you can clone your CodeCommit
 repository onto it. Then you can start working with the code.

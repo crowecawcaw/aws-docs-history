@@ -108,9 +108,7 @@ FIPS endpoints are not available in all AWS Regions. For more
 information, see the entry for AWS CodeCommit in [Federal Information Processing Standard (FIPS)
 140-2 Overview](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
 
-## Create a VPC endpoint policy for
-
-CodeCommit
+## Create a VPC endpoint policy for CodeCommit
 
 You can create a policy for Amazon VPC endpoints for CodeCommit in which you can specify:
 
@@ -119,8 +117,7 @@ You can create a policy for Amazon VPC endpoints for CodeCommit in which you can
 - The resources that can have actions performed on them.
 
 For example, a company might want to restrict access to repositories to the network
-address range for a VPC. You can view an example of this kind of policy here: [Example 3: Allow a user
-connecting from a specified IP address range access to a repository](customer-managed-policies.md#identity-based-policies-example-3 "customer-managed-policies.md#identity-based-policies-example-3") . The company configured two Git VPC
+address range for a VPC. You can view an example of this kind of policy here: [Example 3: Allow a user connecting from a specified IP address range access to a repository](customer-managed-policies.md#identity-based-policies-example-3 "customer-managed-policies.md#identity-based-policies-example-3"). The company configured two Git VPC
 endpoints for the US East (Ohio) region:
 `com.amazonaws.us-east-2.codecommit` and
 `com-amazonaws.us-east-2.git-codecommit-fips`. They want to allow code

@@ -5,12 +5,9 @@ AWS CodeCommit.
 
 ###### Topics
 
-- [Trigger error: A repository trigger does not run when
-  expected](#troubleshooting-ti1 "#troubleshooting-ti1")
+- [Trigger error: A repository trigger does not run when expected](#troubleshooting-ti1 "#troubleshooting-ti1")
 
-## Trigger error: A repository trigger does not run when
-
-expected
+## Trigger error: A repository trigger does not run when expected
 
 **Problem:** One or more triggers configured for a repository
 does not appear to run or does not run as expected.

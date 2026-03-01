@@ -7,8 +7,7 @@ other AWS resources that are associated with that tag.
 
 Removing tags for a repository can impact access to that repository. Before you remove a tag from a repository, make sure to review any IAM policies
 that might use the key or value for a tag to control access to resources such as
-repositories. For examples of tag-based access policies, see [Example 5: Deny or allow
-actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5 "customer-managed-policies.md#identity-based-policies-example-5").
+repositories. For examples of tag-based access policies, see [Example 5: Deny or allow actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5 "customer-managed-policies.md#identity-based-policies-example-5").
 
 ## Remove a tag from a repository (console)
 

@@ -29,8 +29,7 @@ The following information applies only to the use of
 **git-remote-codecommit** or the AWS CLI credential helper to connect
 to CodeCommit repositories. Because the recommended approach for temporary or federated
 access to CodeCommit is to set up **git-remote-codecommit**, this topic
-provides examples using that utility. For more information, see [Setup steps for HTTPS connections to AWS CodeCommit with
-git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
+provides examples using that utility. For more information, see [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
 
 You cannot use SSH or Git credentials and HTTPS to connect to CodeCommit repositories with rotating or
 temporary access credentials.
@@ -72,8 +71,7 @@ using rotating credentials:
   [About AWS STS Web Identity
   Federation](../../../STS/latest/UsingSTS/web-identity-federation.md "../../../STS/latest/UsingSTS/web-identity-federation.md").
 
-Use the information in [Authentication and access control for
-AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md")
+Use the information in [Authentication and access control for AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md")
 to specify the CodeCommit permissions you want to grant the user.
 
 ## Step 2: Get role name or access credentials
@@ -92,10 +90,7 @@ rotating credentials in one of the following ways:
   AWS CLI [assume-role-with-web-identity](../../../cli/latest/reference/sts/assume-role-with-web-identity.md "../../../cli/latest/reference/sts/assume-role-with-web-identity.md") command or the AWS STS [AssumeRoleWithWebIdentity](../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md "../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md")
   API.
 
-## Step 3:
-
-Install
-git-remote-codecommit and configure the AWS CLI
+## Step 3: Install git-remote-codecommit and configure the AWS CLI
 
 You must configure your local computer to use the access credentials by
 installing [**git-remote-codecommit**](https://pypi.org/project/git-remote-codecommit/ "https://pypi.org/project/git-remote-codecommit/") and

@@ -36,19 +36,14 @@ setup](setting-up.md "setting-up.md") procedure, including:
 
 ###### Topics
 
-- [Step 1: Create a CodeCommit
-  repository](#getting-started-cc-create-repo "#getting-started-cc-create-repo")
+- [Step 1: Create a CodeCommit repository](#getting-started-cc-create-repo "#getting-started-cc-create-repo")
 - [Step 2: Add files to your repository](#getting-started-cc-add "#getting-started-cc-add")
-- [Step 3: Browse the contents of your
-  repository](#getting-started-cc-browse "#getting-started-cc-browse")
-- [Step 4: Create and collaborate on a
-  pull request](#getting-started-cc-pullrequest "#getting-started-cc-pullrequest")
+- [Step 3: Browse the contents of your repository](#getting-started-cc-browse "#getting-started-cc-browse")
+- [Step 4: Create and collaborate on a pull request](#getting-started-cc-pullrequest "#getting-started-cc-pullrequest")
 - [Step 5: Clean up](#getting-started-cc-clean-up "#getting-started-cc-clean-up")
 - [Step 6: Next steps](#getting-started-cc-next "#getting-started-cc-next")
 
-## Step 1: Create a CodeCommit
-
-repository
+## Step 1: Create a CodeCommit repository
 
 You can use the CodeCommit console to create a CodeCommit repository. If you already have a
 repository you want to use for this tutorial, you can skip this step.
@@ -169,9 +164,7 @@ how to do this with a CodeCommit repository, you can view examples and instructi
 After you have added some files to the CodeCommit repository, you can view them in the
 console.
 
-## Step 3: Browse the contents of your
-
-repository
+## Step 3: Browse the contents of your repository
 
 You can use the CodeCommit console to review the files in a repository or quickly read the
 contents of a file. This helps you determine which branch to check out or whether to
@@ -230,11 +223,9 @@ The commit graph is displayed, with the subject line for each commit shown
 next to its point in the graph. The subject line display is limited to 80
 characters. 10. To see more details about a commit, choose its abbreviated commit ID. To
 render the graph from a specific commit, choose that point in the graph. For
-more information, see [View a graph of the commit history of a repository](how-to-view-commit-details.md#how-to-view-commit-details-console-visualizer "how-to-view-commit-details.md#how-to-view-commit-details-console-visualizer") .
+more information, see [View a graph of the commit history of a repository](how-to-view-commit-details.md#how-to-view-commit-details-console-visualizer "how-to-view-commit-details.md#how-to-view-commit-details-console-visualizer").
 
-## Step 4: Create and collaborate on a
-
-pull request
+## Step 4: Create and collaborate on a pull request
 
 When you work in a repository with other users, you can collaborate on code and review
 changes. You can create a pull request so that other users can review and comment on
@@ -244,8 +235,7 @@ other users to approve the pull request before it can be merged. After the pull 
 is approved, you can merge those changes into its destination branch. If you set up
 notifications for your repository, repository users can receive emails about repository
 events (for example, for pull requests or when someone comments on code). For more
-information, see [Configuring notifications for events in an
-AWS CodeCommit repository](how-to-repository-email.md "how-to-repository-email.md").
+information, see [Configuring notifications for events in an AWS CodeCommit repository](how-to-repository-email.md "how-to-repository-email.md").
 
 ###### Important
 
@@ -288,8 +278,7 @@ can be merged, you might name the rule `Require two approvals before
  merge`. In **Number of approvals needed**, enter
 `2`, the number you want. The default is 1. Choose
 **Submit**. To learn more about approval rules and approval
-pool members, see [Create an approval rule for a pull
-request](how-to-create-pull-request-approval-rule.md "how-to-create-pull-request-approval-rule.md").
+pool members, see [Create an approval rule for a pull request](how-to-create-pull-request-approval-rule.md "how-to-create-pull-request-approval-rule.md").
 
 ![Creating an approval rule for a pull request](images/codecommit-create-approval-rule.png) 7. If you configured notifications for your repository and chose to notify users
 of pull request events, users receive email about your new pull request. Users

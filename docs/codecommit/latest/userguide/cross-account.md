@@ -45,14 +45,10 @@ The example account ID for AccountB is
        installer, pip. You can download the utility from [**git-remote-codecommit**](https://pypi.org/project/git-remote-codecommit/ "https://pypi.org/project/git-remote-codecommit/") on the Python
        Package Index website.
 
-  For more information, see [Setup steps for HTTPS connections to AWS CodeCommit with
-  git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md") and [IAM users](../../../IAM/latest/UserGuide/introduction_identity-management.md#intro-identity-users "../../../IAM/latest/UserGuide/introduction_identity-management.md#intro-identity-users").
+  For more information, see [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md") and [IAM users](../../../IAM/latest/UserGuide/introduction_identity-management.md#intro-identity-users "../../../IAM/latest/UserGuide/introduction_identity-management.md#intro-identity-users").
 
 ###### Topics
 
-- [Cross-account repository access: Actions for the
-  administrator in AccountA](cross-account-administrator-a.md "cross-account-administrator-a.md")
-- [Cross-account repository access: Actions for the
-  administrator in AccountB](cross-account-administrator-b.md "cross-account-administrator-b.md")
-- [Cross-account repository access: Actions for the repository
-  user in AccountB](cross-account-user-b.md "cross-account-user-b.md")
+- [Cross-account repository access: Actions for the administrator in AccountA](cross-account-administrator-a.md "cross-account-administrator-a.md")
+- [Cross-account repository access: Actions for the administrator in AccountB](cross-account-administrator-b.md "cross-account-administrator-b.md")
+- [Cross-account repository access: Actions for the repository user in AccountB](cross-account-user-b.md "cross-account-user-b.md")

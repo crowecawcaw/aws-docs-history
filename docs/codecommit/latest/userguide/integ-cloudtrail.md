@@ -42,8 +42,7 @@ file size.
 All CodeCommit actions are logged by CloudTrail, including some (such as
 `GetObjectIdentifier`) that are not currently documented in the
 [AWS CodeCommit API Reference](../APIReference.md "../APIReference.md") but are instead referenced as
-access permissions and documented in [CodeCommit
-permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md"). For example, calls to the
+access permissions and documented in [CodeCommit permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md"). For example, calls to the
 `ListRepositories` (in the AWS CLI, `aws codecommit
  list-repositories`), `CreateRepository` (`aws
  codecommit create-repository`) and `PutRepositoryTriggers`
@@ -70,9 +69,7 @@ You can store your log files in your Amazon S3 bucket for as long as you want, b
 define Amazon S3 lifecycle rules to archive or delete log files automatically. By default, your log
 files are encrypted with Amazon S3 server-side encryption (SSE).
 
-## Understanding CodeCommit log file
-
-entries
+## Understanding CodeCommit log file entries
 
 CloudTrail log files can contain one or more log entries. Each entry lists multiple
 JSON-formatted events. A log event represents a single request from any source and
@@ -91,8 +88,7 @@ AWS services.
 
 - [Example: A log entry for listing CodeCommit repositories](integ-cloudtrail.md#integ-cloudtrail-listrepositories "integ-cloudtrail.md#integ-cloudtrail-listrepositories")
 - [Example: A log entry for creating a CodeCommit repository](integ-cloudtrail.md#integ-cloudtrail-createrepository "integ-cloudtrail.md#integ-cloudtrail-createrepository")
-- [Examples: Log entries for Git pull calls to a CodeCommit
-  repository](integ-cloudtrail.md#integ-cloudtrail-gitpull "integ-cloudtrail.md#integ-cloudtrail-gitpull")
+- [Examples: Log entries for Git pull calls to a CodeCommit repository](integ-cloudtrail.md#integ-cloudtrail-gitpull "integ-cloudtrail.md#integ-cloudtrail-gitpull")
 - [Example: A log entry for a successful push to a CodeCommit repository](integ-cloudtrail.md#integ-cloudtrail-gitpush "integ-cloudtrail.md#integ-cloudtrail-gitpush")
 
 ### Example: A log entry for listing CodeCommit repositories
@@ -190,9 +186,7 @@ The following example shows a CloudTrail log entry that demonstrates the
 }
 ```
 
-### Examples: Log entries for Git pull calls to a CodeCommit
-
-repository
+### Examples: Log entries for Git pull calls to a CodeCommit repository
 
 The following example shows a CloudTrail log entry that demonstrates the
 `GitPull` action where the local repo is already up-to-date.

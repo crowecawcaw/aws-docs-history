@@ -1,6 +1,4 @@
-# Working with pull requests in AWS CodeCommit
-
-repositories
+# Working with pull requests in AWS CodeCommit repositories
 
 A pull request is the primary way you and other repository users can review, comment on,
 and merge code changes from one branch to another. You can use pull requests to
@@ -75,16 +73,12 @@ For information about working with other aspects of your repository in CodeCommi
 ###### Topics
 
 - [Create a pull request](how-to-create-pull-request.md "how-to-create-pull-request.md")
-- [Create an approval rule for a pull
-  request](how-to-create-pull-request-approval-rule.md "how-to-create-pull-request-approval-rule.md")
-- [View pull requests in an AWS CodeCommit
-  repository](how-to-view-pull-request.md "how-to-view-pull-request.md")
+- [Create an approval rule for a pull request](how-to-create-pull-request-approval-rule.md "how-to-create-pull-request-approval-rule.md")
+- [View pull requests in an AWS CodeCommit repository](how-to-view-pull-request.md "how-to-view-pull-request.md")
 - [Review a pull request](how-to-review-pull-request.md "how-to-review-pull-request.md")
 - [Update a pull request](how-to-update-pull-request.md "how-to-update-pull-request.md")
-- [Edit or delete an approval
-  rule for a pull request](how-to-edit-delete-pull-request-approval-rule.md "how-to-edit-delete-pull-request-approval-rule.md")
+- [Edit or delete an approval rule for a pull request](how-to-edit-delete-pull-request-approval-rule.md "how-to-edit-delete-pull-request-approval-rule.md")
 - [Override approval rules on a pull request](how-to-override-approval-rules.md "how-to-override-approval-rules.md")
 - [Merge a pull request in an AWS CodeCommit repository](how-to-merge-pull-request.md "how-to-merge-pull-request.md")
 - [Resolve conflicts in a pull request in an AWS CodeCommit repository](how-to-resolve-conflict-pull-request.md "how-to-resolve-conflict-pull-request.md")
-- [Close a pull request in an AWS CodeCommit
-  repository](how-to-close-pull-request.md "how-to-close-pull-request.md")
+- [Close a pull request in an AWS CodeCommit repository](how-to-close-pull-request.md "how-to-close-pull-request.md")

@@ -86,9 +86,7 @@ of the following commands:
 - [update-repository-name](#how-to-change-repository-cli-name "#how-to-change-repository-cli-name") to change the name of an
   CodeCommit repository.
 
-### To change a CodeCommit repository's
-
-description
+### To change a CodeCommit repository's description
 
 1.  Run the **update-repository-description** command,
     specifying:

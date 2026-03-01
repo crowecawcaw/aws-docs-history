@@ -6,10 +6,8 @@ The following information might help you troubleshoot common issues in AWS CodeC
 
 - [Troubleshooting Git credentials and HTTPS connections to AWS CodeCommit](troubleshooting-gc.md "troubleshooting-gc.md")
 - [Troubleshooting git-remote-codecommit and AWS CodeCommit](troubleshooting-grc.md "troubleshooting-grc.md")
-- [Troubleshooting SSH connections to
-  AWS CodeCommit](troubleshooting-ssh.md "troubleshooting-ssh.md")
-- [Troubleshooting the credential helper and HTTPS connections to
-  AWS CodeCommit](troubleshooting-ch.md "troubleshooting-ch.md")
+- [Troubleshooting SSH connections to AWS CodeCommit](troubleshooting-ssh.md "troubleshooting-ssh.md")
+- [Troubleshooting the credential helper and HTTPS connections to AWS CodeCommit](troubleshooting-ch.md "troubleshooting-ch.md")
 - [Troubleshooting Git clients and AWS CodeCommit](troubleshooting-git.md "troubleshooting-git.md")
 - [Troubleshooting access errors and AWS CodeCommit](troubleshooting-ae.md "troubleshooting-ae.md")
 - [Troubleshooting configuration errors and AWS CodeCommit](troubleshooting-cf.md "troubleshooting-cf.md")

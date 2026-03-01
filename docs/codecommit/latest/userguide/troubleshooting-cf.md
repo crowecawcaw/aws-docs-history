@@ -4,12 +4,9 @@ The following information might help you troubleshoot configuration errors you m
 
 ###### Topics
 
-- [Configuration error: Cannot configure AWS CLI credentials on
-  macOS](#troubleshooting-cf1 "#troubleshooting-cf1")
+- [Configuration error: Cannot configure AWS CLI credentials on macOS](#troubleshooting-cf1 "#troubleshooting-cf1")
 
-## Configuration error: Cannot configure AWS CLI credentials on
-
-macOS
+## Configuration error: Cannot configure AWS CLI credentials on macOS
 
 **Problem:** When you run `aws configure` to
 configure the AWS CLI, you see a `ConfigParseError` message.

@@ -1,31 +1,20 @@
-# Troubleshooting SSH connections to
-
-AWS CodeCommit
+# Troubleshooting SSH connections to AWS CodeCommit
 
 The following information might help you troubleshoot common issues when using SSH to
 connect to CodeCommit repositories.
 
 ###### Topics
 
-- [Access error: Public key is uploaded successfully
-  to IAM but connection fails on Linux, macOS, or Unix systems](#troubleshooting-ae4 "#troubleshooting-ae4")
-- [Access error: Public key is uploaded successfully
-  to IAM and SSH tested successfully but connection fails on Windows systems](#troubleshooting-ae5 "#troubleshooting-ae5")
-- [Authentication challenge: Authenticity of host
-  can't be established when connecting to a CodeCommit repository](#troubleshooting-ac1 "#troubleshooting-ac1")
-- [IAM error: 'Invalid format' when attempting to
-  add a public key to IAM](#troubleshooting-iam1 "#troubleshooting-iam1")
-- [I need to access CodeCommit repositories in
-  multiple Amazon Web Services accounts with SSH credentials](#troubleshooting-ssh-multi "#troubleshooting-ssh-multi")
-- [Git on Windows: Bash emulator or command line
-  freezes when attempting to connect using SSH](#troubleshooting-gw2 "#troubleshooting-gw2")
+- [Access error: Public key is uploaded successfully to IAM but connection fails on Linux, macOS, or Unix systems](#troubleshooting-ae4 "#troubleshooting-ae4")
+- [Access error: Public key is uploaded successfully to IAM and SSH tested successfully but connection fails on Windows systems](#troubleshooting-ae5 "#troubleshooting-ae5")
+- [Authentication challenge: Authenticity of host can't be established when connecting to a CodeCommit repository](#troubleshooting-ac1 "#troubleshooting-ac1")
+- [IAM error: 'Invalid format' when attempting to add a public key to IAM](#troubleshooting-iam1 "#troubleshooting-iam1")
+- [I need to access CodeCommit repositories in multiple Amazon Web Services accounts with SSH credentials](#troubleshooting-ssh-multi "#troubleshooting-ssh-multi")
+- [Git on Windows: Bash emulator or command line freezes when attempting to connect using SSH](#troubleshooting-gw2 "#troubleshooting-gw2")
 - [Public key format requires specification in some distributions of Linux](#troubleshooting-os-syn2 "#troubleshooting-os-syn2")
-- [Access error: SSH public key denied when connecting to a CodeCommit
-  repository](#troubleshooting-permission-denied-ssh-key "#troubleshooting-permission-denied-ssh-key")
+- [Access error: SSH public key denied when connecting to a CodeCommit repository](#troubleshooting-permission-denied-ssh-key "#troubleshooting-permission-denied-ssh-key")
 
-## Access error: Public key is uploaded successfully
-
-to IAM but connection fails on Linux, macOS, or Unix systems
+## Access error: Public key is uploaded successfully to IAM but connection fails on Linux, macOS, or Unix systems
 
 **Problem:** When you try to connect to an SSH endpoint
 to communicate with a CodeCommit repository, either when testing the connection or cloning a
@@ -67,9 +56,7 @@ git clone ssh://`Your-SSH-Key-ID`@git-codecommit.us-east-2.amazonaws.com/v1/repo
 
 For more information, see [For SSH connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md "setting-up-ssh-unixes.md").
 
-## Access error: Public key is uploaded successfully
-
-to IAM and SSH tested successfully but connection fails on Windows systems
+## Access error: Public key is uploaded successfully to IAM and SSH tested successfully but connection fails on Windows systems
 
 **Problem:** When you try to use an SSH endpoint to clone
 or communicate with a CodeCommit repository, an error message appears containing the phrase
@@ -100,9 +87,7 @@ IAM as part of the command. For example:
 git clone ssh://`Your-SSH-Key-ID`@git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo my-demo-repo
 ```
 
-## Authentication challenge: Authenticity of host
-
-can't be established when connecting to a CodeCommit repository
+## Authentication challenge: Authenticity of host can't be established when connecting to a CodeCommit repository
 
 **Problem:** When you try to use an SSH endpoint to
 communicate with a CodeCommit repository, a warning message appears containing the phrase
@@ -184,9 +169,7 @@ in the SSH setup topics before you continue with the connection.
 | git-codecommit.il-central-1.amazonaws.com      | MD5    | `04:74:89:16:98:7a:61:b1:69:46:42:3c:d1:b4:ac:a9` |
 | git-codecommit.il-central-1.amazonaws.com      | SHA256 | `uFxhp51kUWhleTLeYbxQVYm4RnNLNZ5Dbdm1cgdSl/8`     |
 
-## IAM error: 'Invalid format' when attempting to
-
-add a public key to IAM
+## IAM error: 'Invalid format' when attempting to add a public key to IAM
 
 **Problem:** In IAM, when attempting to set up to use
 SSH with CodeCommit, an error message appears containing the phrase `Invalid
@@ -206,17 +189,13 @@ required number of bits, you see this error.
   introduced line breaks. Make sure that there are no line breaks in the public
   key that you add to IAM.
 - Some Windows operating systems do not use the OpenSSH format. To generate a
-  key pair and copy the OpenSSH format required by IAM, see [Step 3:
-
-Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows "setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows").
+  key pair and copy the OpenSSH format required by IAM, see [Step 3: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows "setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows") .
 
 For more information about the requirements for SSH keys in IAM, see [Use SSH
 Keys with CodeCommit](../../../IAM/latest/UserGuide/id_credentials_ssh-keys.md#ssh-keys-code-commit "../../../IAM/latest/UserGuide/id_credentials_ssh-keys.md#ssh-keys-code-commit") in the _IAM User
 Guide_.
 
-## I need to access CodeCommit repositories in
-
-multiple Amazon Web Services accounts with SSH credentials
+## I need to access CodeCommit repositories in multiple Amazon Web Services accounts with SSH credentials
 
 **Problem:** I want to set up SSH access to CodeCommit
 repositories in more than one Amazon Web Services account.
@@ -257,9 +236,7 @@ For more examples, see [this forum
 post](https://forums.aws.amazon.com/thread.jspa?messageID=711158 "https://forums.aws.amazon.com/thread.jspa?messageID=711158") and [this
 contribution on GitHub](https://gist.github.com/justinpawela/3a7056cd592d688425e59de2ef6f1da0 "https://gist.github.com/justinpawela/3a7056cd592d688425e59de2ef6f1da0").
 
-## Git on Windows: Bash emulator or command line
-
-freezes when attempting to connect using SSH
+## Git on Windows: Bash emulator or command line freezes when attempting to connect using SSH
 
 **Problem:** After you configure SSH access for Windows
 and confirm connectivity at the command line or terminal, you see a message that the
@@ -301,9 +278,7 @@ Overflow.
 `~/.ssh/config` file that specifies the accepted types of public keys. For more information, see the documentation for your distribution about
 `PubkeyAcceptedKeyTypes`.
 
-## Access error: SSH public key denied when connecting to a CodeCommit
-
-repository
+## Access error: SSH public key denied when connecting to a CodeCommit repository
 
 **Problem:** When you try to use an SSH endpoint to
 communicate with a CodeCommit repository, an error message appears containing the phrase

@@ -27,11 +27,9 @@ cryptographic modules that protect sensitive information, see [Federal Informati
 ###### Topics
 
 - [Introducing CodeCommit](#welcome-introducing "#welcome-introducing")
-- [CodeCommit, Git, and choosing the right AWS service for your
-  needs](#welcome-alternate-services "#welcome-alternate-services")
+- [CodeCommit, Git, and choosing the right AWS service for your needs](#welcome-alternate-services "#welcome-alternate-services")
 - [How does CodeCommit work?](#welcome-how-it-works "#welcome-how-it-works")
-- [How is CodeCommit different from file versioning in
-  Amazon S3?](#welcome-arc-vs-s3 "#welcome-arc-vs-s3")
+- [How is CodeCommit different from file versioning in Amazon S3?](#welcome-arc-vs-s3 "#welcome-arc-vs-s3")
 - [How do I get started with CodeCommit?](#welcome-get-started "#welcome-get-started")
 - [Where can I learn more about Git?](#welcome-get-started-with-git "#welcome-get-started-with-git")
 
@@ -71,9 +69,7 @@ With CodeCommit, you can:
 - **Use the Git tools you already know**. CodeCommit supports
   Git commands as well as its own AWS CLI commands and APIs.
 
-## CodeCommit, Git, and choosing the right AWS service for your
-
-needs
+## CodeCommit, Git, and choosing the right AWS service for your needs
 
 As a Git-based service, CodeCommit is well suited to most version control needs. There are no
 arbitrary limits on file size, file type, and repository size. However, there are inherent
@@ -120,9 +116,7 @@ console, and the CodeCommit service to create and manage repositories:
 
 You can use the AWS CLI or the CodeCommit console to track and manage your repositories.
 
-## How is CodeCommit different from file versioning in
-
-Amazon S3?
+## How is CodeCommit different from file versioning in Amazon S3?
 
 CodeCommit is optimized for team software development. It manages batches of changes across
 multiple files, which can occur in parallel with changes made by other developers. Amazon S3

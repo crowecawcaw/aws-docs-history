@@ -8,10 +8,8 @@ AWS CodeCommit repositories.
 - [I see an error: git: 'remote-codecommit' is not a git command](#troubleshooting-grc-syn1 "#troubleshooting-grc-syn1")
 - [I see an error: fatal: Unable to find remote helper for 'codecommit'](#troubleshooting-grc-syn2 "#troubleshooting-grc-syn2")
 - [Cloning error: I cannot clone a CodeCommit repository from an IDE](#troubleshooting-grc-ide1 "#troubleshooting-grc-ide1")
-- [Push or pull error: I cannot push or pull commits from an IDE to a CodeCommit
-  repository](#troubleshooting-grc-ide2 "#troubleshooting-grc-ide2")
-- [Installation error: I see an externally-managed-environment error when I
-  try to install git-remote-codecommit](#troubleshooting-grc-pm1 "#troubleshooting-grc-pm1")
+- [Push or pull error: I cannot push or pull commits from an IDE to a CodeCommit repository](#troubleshooting-grc-ide2 "#troubleshooting-grc-ide2")
+- [Installation error: I see an externally-managed-environment error when I try to install git-remote-codecommit](#troubleshooting-grc-pm1 "#troubleshooting-grc-pm1")
 
 ## I see an error: git: 'remote-codecommit' is not a git command
 
@@ -26,8 +24,7 @@ remote-codecommit, or when an extra git is placed before git-remote-codecommit.
 
 You might also encounter this error if you have updated your local installation to an unsupported version. For more information about supported versions of Python, see [git-remote-codecommit](https://pypi.org/project/git-remote-codecommit/ "https://pypi.org/project/git-remote-codecommit/").
 
-For more information about setting up and using git-remote-codecommit, see [Setup steps for HTTPS connections to AWS CodeCommit with
-git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
+For more information about setting up and using git-remote-codecommit, see [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
 
 ## I see an error: fatal: Unable to find remote helper for 'codecommit'
 
@@ -42,8 +39,7 @@ are:
 - You are using a terminal or command line window that has not been restarted
   since the installation of git-remote-codecommit completed
 
-For more information about setting up and using git-remote-codecommit, see [Setup steps for HTTPS connections to AWS CodeCommit with
-git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
+For more information about setting up and using git-remote-codecommit, see [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
 
 ## Cloning error: I cannot clone a CodeCommit repository from an IDE
 
@@ -53,12 +49,9 @@ an IDE, you see an error that says the endpoint or URL is not valid.
 **Possible fixes:** Not all IDEs support the URL used by
 **git-remote-codecommit** during cloning. Clone the repository
 locally from the terminal or command line, and then add that local repo to your IDE. For
-more information, see [Step 3: Connect to the CodeCommit console and clone
-the repository](setting-up-git-remote-codecommit.md#setting-up-git-remote-codecommit-connect-console "setting-up-git-remote-codecommit.md#setting-up-git-remote-codecommit-connect-console").
+more information, see [Step 3: Connect to the CodeCommit console and clone the repository](setting-up-git-remote-codecommit.md#setting-up-git-remote-codecommit-connect-console "setting-up-git-remote-codecommit.md#setting-up-git-remote-codecommit-connect-console").
 
-## Push or pull error: I cannot push or pull commits from an IDE to a CodeCommit
-
-repository
+## Push or pull error: I cannot push or pull commits from an IDE to a CodeCommit repository
 
 **Problem:** When you try to pull or push code from an IDE, you see a connection error.
 
@@ -69,9 +62,7 @@ functionality to commit, push, and pull code, update the local repo manually fro
 For more information about remote helpers and Git, see the
 [Git documentation](https://git-scm.com/docs/gitremote-helpers "https://git-scm.com/docs/gitremote-helpers").
 
-## Installation error: I see an externally-managed-environment error when I
-
-try to install git-remote-codecommit
+## Installation error: I see an externally-managed-environment error when I try to install git-remote-codecommit
 
 **Problem:** When you try to run the `pip install git-remote-codecommit` command, you see an error indicating that the
 environment is externally managed.

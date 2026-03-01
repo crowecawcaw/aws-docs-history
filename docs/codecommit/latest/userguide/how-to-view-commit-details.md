@@ -123,9 +123,7 @@ following commands:
 - To view the base64-encoded content of a Git blob object in a repository, run
   **[aws codecommit get-blob](#how-to-view-commit-details-cli-blob "#how-to-view-commit-details-cli-blob")**.
 
-### To view information about a
-
-commit
+### To view information about a commit
 
 1.  Run the **aws codecommit get-commit** command, specifying:
 
@@ -176,9 +174,7 @@ aws codecommit get-commit  --repository-name MyDemoRepo  --commit-id 317f8570EXA
 }
 ```
 
-### To view information about a
-
-merge commit
+### To view information about a merge commit
 
 1.  Run the **get-merge-commit** command, specifying:
 
@@ -212,9 +208,7 @@ aws codecommit get-merge-commit --source-commit-specifier `bugfix-bug1234` --des
 }
 ```
 
-### To view information about
-
-multiple commits
+### To view information about multiple commits
 
 1.  Run the **batch-get-commits** command, specifying:
 
@@ -287,9 +281,7 @@ aws codecommit batch-get-commits  --repository-name MyDemoRepo  --commit-ids 317
 }
 ```
 
-### To view information about the
-
-changes for a commit specifier
+### To view information about the changes for a commit specifier
 
 1.  Run the
     **aws codecommit get-differences**
@@ -340,9 +332,7 @@ aws codecommit get-differences  --repository-name MyDemoRepo  --before-commit-sp
 }
 ```
 
-### To view information about a Git blob
-
-object
+### To view information about a Git blob object
 
 1.  Run the
     **aws codecommit get-blob**

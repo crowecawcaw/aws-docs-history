@@ -4,16 +4,10 @@ The following information might help you troubleshoot common issues when using G
 
 ###### Topics
 
-- [Git credentials for AWS CodeCommit: I keep seeing a prompt for
-  credentials when I connect to my CodeCommit repository at the terminal or command
-  line](#troubleshooting-gc1 "#troubleshooting-gc1")
-- [Git credentials for AWS CodeCommit: I set up Git credentials, but
-  my system is not using them](#troubleshooting-gc2 "#troubleshooting-gc2")
+- [Git credentials for AWS CodeCommit: I keep seeing a prompt for credentials when I connect to my CodeCommit repository at the terminal or command line](#troubleshooting-gc1 "#troubleshooting-gc1")
+- [Git credentials for AWS CodeCommit: I set up Git credentials, but my system is not using them](#troubleshooting-gc2 "#troubleshooting-gc2")
 
-## Git credentials for AWS CodeCommit: I keep seeing a prompt for
-
-credentials when I connect to my CodeCommit repository at the terminal or command
-line
+## Git credentials for AWS CodeCommit: I keep seeing a prompt for credentials when I connect to my CodeCommit repository at the terminal or command line
 
 **Problem:** When you try to push, pull, or otherwise interact with a CodeCommit repository from the terminal
 or command line, you are prompted to provide a user name and password, and you must supply the Git credentials for your IAM user.
@@ -30,9 +24,7 @@ If your computer is running Windows, you can use the Git Credential Manager that
 with Git for Windows. For more information, see [For HTTPS users using Git credentials](setting-up-gc.md "setting-up-gc.md") and [Credential Storage](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage "https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage")
 in the Git documentation.
 
-## Git credentials for AWS CodeCommit: I set up Git credentials, but
-
-my system is not using them
+## Git credentials for AWS CodeCommit: I set up Git credentials, but my system is not using them
 
 **Problem:** When you try to use CodeCommit with a Git client,
 the client does not appear to use the Git credentials for your IAM user.

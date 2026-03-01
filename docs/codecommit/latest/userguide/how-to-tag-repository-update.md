@@ -11,8 +11,7 @@ information, see [Limits](limits.md#limits-tags "limits.md#limits-tags").
 Editing tags for a repository can impact access to that repository. Before you edit the name
 (key) or value of a tag for a repository, make sure to review any IAM policies
 that might use the key or value for a tag to control access to resources such as
-repositories. For examples of tag-based access policies, see [Example 5: Deny or allow
-actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5 "customer-managed-policies.md#identity-based-policies-example-5").
+repositories. For examples of tag-based access policies, see [Example 5: Deny or allow actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5 "customer-managed-policies.md#identity-based-policies-example-5").
 
 ## Edit a tag for a repository (console)
 

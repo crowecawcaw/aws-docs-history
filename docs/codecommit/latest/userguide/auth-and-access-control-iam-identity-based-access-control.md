@@ -1,6 +1,4 @@
-# Using
-
-identity-based policies (IAM Policies) for CodeCommit
+# Using identity-based policies (IAM Policies) for CodeCommit
 
 The following examples of identity-based policies demonstrate how an account
 administrator can attach permissions policies to IAM identities (users, groups, and
@@ -10,16 +8,13 @@ roles) to grant permissions to perform operations on CodeCommit resources.
 
 We recommend that you first review the introductory topics that explain the basic
 concepts and options available to manage access to your CodeCommit resources. For
-more information, see [Overview of
-managing access permissions to your CodeCommit resources](auth-and-access-control.md#auth-and-access-control-iam-access-control-identity-based "auth-and-access-control.md#auth-and-access-control-iam-access-control-identity-based").
+more information, see [Overview of managing access permissions to your CodeCommit resources](auth-and-access-control.md#auth-and-access-control-iam-access-control-identity-based "auth-and-access-control.md#auth-and-access-control-iam-access-control-identity-based").
 
 ###### Topics
 
-- [Permissions required to use the CodeCommit
-  console](#console-permissions "#console-permissions")
+- [Permissions required to use the CodeCommit console](#console-permissions "#console-permissions")
 - [Viewing resources in the console](#console-resources "#console-resources")
-- [AWS managed policies for
-  CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
+- [AWS managed policies for CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [Customer managed policy examples](customer-managed-policies.md "customer-managed-policies.md")
   The following is an example of an identity-based permissions policy:
 
@@ -48,13 +43,10 @@ This policy has one statement that allows a user to get information about the Co
 repository named `MyDestinationRepo` and all CodeCommit repositories that start
 with the name `MyDemo` in the `us-east-2` Region.
 
-## Permissions required to use the CodeCommit
-
-console
+## Permissions required to use the CodeCommit console
 
 To see the required permissions for each CodeCommit API operation, and for more
-information about CodeCommit operations, see [CodeCommit
-permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+information about CodeCommit operations, see [CodeCommit permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
 
 To allow users to use the CodeCommit console, the administrator must grant them
 permissions for CodeCommit actions. For example, you could attach the [AWSCodeCommitPowerUser](security-iam-awsmanpol.md#managed-policies-poweruser "security-iam-awsmanpol.md#managed-policies-poweruser") managed

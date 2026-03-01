@@ -1,6 +1,4 @@
-# Associate or disassociate an AWS CodeCommit
-
-repository with Amazon CodeGuru Reviewer
+# Associate or disassociate an AWS CodeCommit repository with Amazon CodeGuru Reviewer
 
 Amazon CodeGuru Reviewer is an automated code review service that uses program analysis and machine
 learning to detect common issues and recommend fixes in your Java or Python code. You can associate
@@ -35,29 +33,22 @@ the association for the following reasons:
   **Activity** tab.
 
 ![A recommendation created by Amazon CodeGuru Reviewer with a review job in progress.](images/codecommit-pull-request-reply-bot.png)
-For more information, see [Working with pull requests in AWS CodeCommit
-repositories](pull-requests.md "pull-requests.md"), [Review a pull request](how-to-review-pull-request.md "how-to-review-pull-request.md"), and
+For more information, see [Working with pull requests in AWS CodeCommit repositories](pull-requests.md "pull-requests.md"), [Review a pull request](how-to-review-pull-request.md "how-to-review-pull-request.md"), and
 the [_Amazon CodeGuru Reviewer User Guide_](../../../codeguru/latest/reviewer-ug/welcome.md "../../../codeguru/latest/reviewer-ug/welcome.md").
 
 ###### Note
 
 You must be signed in with an IAM user or role that has sufficient permissions to
 associate or disassociate a repository with CodeGuru Reviewer. For information about the managed policies
-for CodeCommit that include these permissions, see [AWS managed policies for
-CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md") and [AWS CodeCommit managed policies and
-Amazon CodeGuru Reviewer](security-iam-awsmanpol.md#codeguru-permissions "security-iam-awsmanpol.md#codeguru-permissions"). For information about CodeGuru Reviewer permissions and security, see
+for CodeCommit that include these permissions, see [AWS managed policies for CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md") and [AWS CodeCommit managed policies and Amazon CodeGuru Reviewer](security-iam-awsmanpol.md#codeguru-permissions "security-iam-awsmanpol.md#codeguru-permissions"). For information about CodeGuru Reviewer permissions and security, see
 the _Amazon CodeGuru Reviewer User Guide_.
 
 ###### Topics
 
-- [Associate a repository with
-  CodeGuru Reviewer](#how-to-amazon-codeguru-reviewer-associate "#how-to-amazon-codeguru-reviewer-associate")
-- [Disassociate a repository from
-  CodeGuru Reviewer](#how-to-amazon-codeguru-reviewer-disassociate "#how-to-amazon-codeguru-reviewer-disassociate")
+- [Associate a repository with CodeGuru Reviewer](#how-to-amazon-codeguru-reviewer-associate "#how-to-amazon-codeguru-reviewer-associate")
+- [Disassociate a repository from CodeGuru Reviewer](#how-to-amazon-codeguru-reviewer-disassociate "#how-to-amazon-codeguru-reviewer-disassociate")
 
-## Associate a repository with
-
-CodeGuru Reviewer
+## Associate a repository with CodeGuru Reviewer
 
 Use the AWS CodeCommit console to quickly associate a repository with CodeGuru Reviewer. For other methods,
 see the _Amazon CodeGuru Reviewer User Guide_.
@@ -77,9 +68,7 @@ button.
 
 ![An CodeCommit repository that has been associated with Amazon CodeGuru Reviewer.](images/codecommit-settings-associate-disassociate.png)
 
-## Disassociate a repository from
-
-CodeGuru Reviewer
+## Disassociate a repository from CodeGuru Reviewer
 
 Use the AWS CodeCommit console to quickly disassociate a repository from CodeGuru Reviewer. For other
 methods, see the _Amazon CodeGuru Reviewer User Guide_.

@@ -2,8 +2,7 @@
 
 Tags can help you identify and organize your AWS resources and manage access to
 them. For more information about tagging
-strategies, see [Tagging AWS Resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md"). For examples of tag-based access policies, see [Example 5: Deny or allow
-actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5 "customer-managed-policies.md#identity-based-policies-example-5").
+strategies, see [Tagging AWS Resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md"). For examples of tag-based access policies, see [Example 5: Deny or allow actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5 "customer-managed-policies.md#identity-based-policies-example-5").
 
 ## View tags for a repository (console)
 

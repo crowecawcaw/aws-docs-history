@@ -14,17 +14,13 @@ repository to CodeCommit. As part of this process, you:
 
 ###### Topics
 
-- [Step 0: Setup required for access to
-  CodeCommit](#how-to-migrate-existing-setup "#how-to-migrate-existing-setup")
+- [Step 0: Setup required for access to CodeCommit](#how-to-migrate-existing-setup "#how-to-migrate-existing-setup")
 - [Step 1: Create a CodeCommit repository](#how-to-migrate-existing-create "#how-to-migrate-existing-create")
-- [Step 2: Clone the repository and push to the
-  CodeCommit repository](#how-to-migrate-existing-clone "#how-to-migrate-existing-clone")
+- [Step 2: Clone the repository and push to the CodeCommit repository](#how-to-migrate-existing-clone "#how-to-migrate-existing-clone")
 - [Step 3: View files in CodeCommit](#how-to-migrate-existing-view "#how-to-migrate-existing-view")
 - [Step 4: Share the CodeCommit repository](#how-to-migrate-existing-share "#how-to-migrate-existing-share")
 
-## Step 0: Setup required for access to
-
-CodeCommit
+## Step 0: Setup required for access to CodeCommit
 
 Before you can migrate a repository to CodeCommit, you must create and configure an IAM
 user for CodeCommit and configure your local computer for access. You should also install the
@@ -44,16 +40,14 @@ If you are already set up for CodeCommit, you can skip ahead to [Step 1: Create 
 CodeCommit requires AWS Key Management Service. If you are using an existing IAM user, make sure there are no policies attached to the user that expressly deny the AWS KMS actions required
 by CodeCommit. For more information, see [AWS KMS and encryption](encryption.md "encryption.md"). 3. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 4. In the IAM console, in the navigation pane, choose **Users**, and then choose the IAM user you want to configure for CodeCommit access. 5. On the **Permissions** tab, choose **Add Permissions**. 6. In **Grant permissions**, choose **Attach existing policies
 directly**. 7. From the list of policies, select **AWSCodeCommitPowerUser** or another
-managed policy for CodeCommit access. For more information, see [AWS managed policies for
-CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+managed policy for CodeCommit access. For more information, see [AWS managed policies for CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
 After you have selected the policy you want to attach, choose **Next:
 Review** to review the list of policies to attach to the IAM user. If the
 list is correct, choose **Add permissions**.
 
 For more information about CodeCommit managed policies and sharing access to repositories with other groups and users, see [Share a repository](how-to-share-repository.md "how-to-share-repository.md")
-and [Authentication and access control for
-AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md").
+and [Authentication and access control for AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md").
 
 ###### To install and configure the AWS CLI
 
@@ -173,8 +167,7 @@ installation default settings except for the following:
     + (Optional) If you intend to use HTTPS with the credential helper that is included in the AWS CLI instead of configuring Git credentials for CodeCommit,
      on the **Configuring extra options** page, make sure the **Enable Git Credential Manager** option is cleared.
      The Git Credential Manager is only compatible with CodeCommit if IAM users configure Git credentials. For more information, see [For HTTPS users using Git credentials](setting-up-gc.md "setting-up-gc.md")
-     and [Git for Windows: I installed Git for Windows, but I am denied
-     access to my repository (403)](troubleshooting-ch.md#troubleshooting-windowshttps "troubleshooting-ch.md#troubleshooting-windowshttps").
+     and [Git for Windows: I installed Git for Windows, but I am denied access to my repository (403)](troubleshooting-ch.md#troubleshooting-windowshttps "troubleshooting-ch.md#troubleshooting-windowshttps").
 
 ###### Note
 
@@ -188,15 +181,9 @@ for CodeCommit (HTTPS, recommended for most users), an SSH key pair to use when 
 credential helper included in the AWS CLI (HTTPS).
 
 - For Git credentials on all supported operating systems, see [Step 3: Create Git credentials for HTTPS connections to CodeCommit](setting-up-gc.md#setting-up-gc-iam "setting-up-gc.md#setting-up-gc-iam").
-- For SSH on Linux, macOS, or Unix, see [SSH
-  and Linux, macOS, or Unix: Set up the public and private keys for Git and
-  CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes "setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes").
-- For SSH on Windows, see [Step 3:
-
-Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows "setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows").
-
-- For **git-remote-codecommit**, see [Setup steps for HTTPS connections to AWS CodeCommit with
-  git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
+- For SSH on Linux, macOS, or Unix, see [SSH and Linux, macOS, or Unix: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes "setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes").
+- For SSH on Windows, see [Step 3: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows "setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows") .
+- For **git-remote-codecommit**, see [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
 - For the credential helper on Linux, macOS, or Unix, see [Set Up the Credential Helper
   (Linux, macOS, or Unix)](setting-up-https-unixes.md#setting-up-https-unixes-ch-config "setting-up-https-unixes.md#setting-up-https-unixes-ch-config").
 - For the credential helper on Windows, see [Set Up the Credential Helper
@@ -251,12 +238,9 @@ HTTPS in the US East (Ohio) Region, the URL looks like the following:
 `https`://git-codecommit.us-east-2.amazonaws.com/`MyClonedRepository`
 ```
 
-You need this URL later in [Step 2: Clone the repository and push to the
-CodeCommit repository](#how-to-migrate-existing-clone "#how-to-migrate-existing-clone").
+You need this URL later in [Step 2: Clone the repository and push to the CodeCommit repository](#how-to-migrate-existing-clone "#how-to-migrate-existing-clone").
 
-## Step 2: Clone the repository and push to the
-
-CodeCommit repository
+## Step 2: Clone the repository and push to the CodeCommit repository
 
 In this section, you clone a Git repository to your local computer, creating what
 is called a local repo. You then push the contents of the local repo to the CodeCommit repository you

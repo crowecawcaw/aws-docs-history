@@ -1,6 +1,4 @@
-# Authentication and access control for
-
-AWS CodeCommit
+# Authentication and access control for AWS CodeCommit
 
 Access to AWS CodeCommit requires credentials. Those credentials must have permissions
 to access AWS resources, such as CodeCommit repositories, and your IAM user, which you use to
@@ -104,8 +102,7 @@ IAM roles are useful for federated user access, temporary IAM user permissions, 
 You cannot use Git credentials or SSH public-private key pairs with
 federated users. In addition, user preferences are not available for
 federated users. For information about how to set up connections using
-federated access, see [Setup steps for HTTPS connections to AWS CodeCommit with
-git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
+federated access, see [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
 
 ## Access control
 
@@ -117,16 +114,11 @@ so on.
 The following sections describe how to manage permissions for CodeCommit. We
 recommend that you read the overview first.
 
-- [Overview of
-  managing access permissions to your CodeCommit resources](#auth-and-access-control-iam-access-control-identity-based "#auth-and-access-control-iam-access-control-identity-based")
-- [Using
-  identity-based policies (IAM Policies) for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md "auth-and-access-control-iam-identity-based-access-control.md")
-- [CodeCommit
-  permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md")
+- [Overview of managing access permissions to your CodeCommit resources](#auth-and-access-control-iam-access-control-identity-based "#auth-and-access-control-iam-access-control-identity-based")
+- [Using identity-based policies (IAM Policies) for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md "auth-and-access-control-iam-identity-based-access-control.md")
+- [CodeCommit permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md")
 
-## Overview of
-
-managing access permissions to your CodeCommit resources
+## Overview of managing access permissions to your CodeCommit resources
 
 Every AWS resource is owned by an Amazon Web Services account. Permissions to create or access a
 resource are governed by permissions policies. An account administrator can attach
@@ -146,12 +138,10 @@ resources.
 ###### Topics
 
 - [CodeCommit resources and operations](#arn-formats "#arn-formats")
-- [Understanding resource
-  ownership](#understanding-resource-ownership "#understanding-resource-ownership")
+- [Understanding resource ownership](#understanding-resource-ownership "#understanding-resource-ownership")
 - [Managing access to resources](#managing-access-resources "#managing-access-resources")
 - [Resource scoping in CodeCommit](#resource-scoping "#resource-scoping")
-- [Specifying policy elements: resources,
-  actions, effects, and principals](#actions-effects-principals "#actions-effects-principals")
+- [Specifying policy elements: resources, actions, effects, and principals](#actions-effects-principals "#actions-effects-principals")
 - [Specifying conditions in a policy](#policy-conditions "#policy-conditions")
 
 ### CodeCommit resources and operations
@@ -212,12 +202,9 @@ arn:aws:codecommit:us-east-2:111111111111:MyDemo*
 ```
 
 For a list of available operations that work with the CodeCommit resources,
-see [CodeCommit
-permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+see [CodeCommit permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
 
-### Understanding resource
-
-ownership
+### Understanding resource ownership
 
 The Amazon Web Services account owns the resources that are created in the account, regardless
 of who created them. Specifically, the resource owner is the Amazon Web Services account of the
@@ -259,14 +246,10 @@ supports only identity-based policies (IAM policies).
 
 ###### Topics
 
-- [Identity-based policies (IAM
-  policies)](#identity-based-policies "#identity-based-policies")
-- [Resource-based
-  policies](#resource-based-policies-overview "#resource-based-policies-overview")
+- [Identity-based policies (IAM policies)](#identity-based-policies "#identity-based-policies")
+- [Resource-based policies](#resource-based-policies-overview "#resource-based-policies-overview")
 
-#### Identity-based policies (IAM
-
-policies)
+#### Identity-based policies (IAM policies)
 
 To manage access to AWS resources, you attach permissions policies to IAM
 identities. In CodeCommit, you use identity-based policies to control access
@@ -336,20 +319,16 @@ JSON
 To restrict the calls and resources that users in your account have access to,
 create specific IAM policies, and then attach those policies to IAM users.
 For more information about how to create IAM roles and to explore example
-IAM policy statements for CodeCommit, see [Customer managed identity
-policy examples](customer-managed-policies.md#customer-managed-policies-identity "customer-managed-policies.md#customer-managed-policies-identity").
+IAM policy statements for CodeCommit, see [Customer managed identity policy examples](customer-managed-policies.md#customer-managed-policies-identity "customer-managed-policies.md#customer-managed-policies-identity").
 
-#### Resource-based
-
-policies
+#### Resource-based policies
 
 Some services, such as Amazon S3, also support resource-based permissions policies.
 For example, you can attach a resource-based policy to an S3 bucket to manage
 access permissions to that bucket. CodeCommit doesn't support resource-based
 policies, but you can use tags to identify resources, which you can then use in
 IAM policies. For an example of a tag-based policy, see
-[Identity-based policies (IAM
-policies)](#identity-based-policies "#identity-based-policies").
+[Identity-based policies (IAM policies)](#identity-based-policies "#identity-based-policies").
 
 ### Resource scoping in CodeCommit
 
@@ -361,9 +340,7 @@ the action fails.
 
 All other CodeCommit permissions can be scoped to resources.
 
-### Specifying policy elements: resources,
-
-actions, effects, and principals
+### Specifying policy elements: resources, actions, effects, and principals
 
 You can create policies to allow or deny users access to resources, or allow or
 deny users to take specific actions on those resources. CodeCommit defines a set
@@ -373,8 +350,7 @@ APIs. To grant permissions for these API operations, CodeCommit defines a set of
 actions that you can specify in a policy.
 
 Some API operations can require permissions for more than one action. For more
-information about resources and API operations, see [CodeCommit resources and operations](#arn-formats "#arn-formats") and [CodeCommit
-permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+information about resources and API operations, see [CodeCommit resources and operations](#arn-formats "#arn-formats") and [CodeCommit permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
 
 The following are the basic elements of a policy:
 
@@ -401,8 +377,7 @@ To learn more about IAM policy syntax, see [IAM Policy Reference](../../../IAM/l
 in the _IAM User Guide_.
 
 For a table showing all of the CodeCommit API actions and the resources that
-they apply to, see [CodeCommit
-permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+they apply to, see [CodeCommit permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
 
 ### Specifying conditions in a policy
 

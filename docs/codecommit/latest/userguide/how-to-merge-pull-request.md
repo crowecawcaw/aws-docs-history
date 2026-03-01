@@ -147,8 +147,7 @@ requirements of an approval rule have not been satisfied. To merge this pull
 request, you can have reviewers approve it to meet the conditions of the
 rule. Depending on your permissions and how the rule was created, you might
 also be able to edit, override, or delete the rule. For more information,
-see [Review a pull request](how-to-review-pull-request.md "how-to-review-pull-request.md"), [Override approval rules on a pull request](how-to-override-approval-rules.md "how-to-override-approval-rules.md"), and [Edit or delete an approval
-rule for a pull request](how-to-edit-delete-pull-request-approval-rule.md "how-to-edit-delete-pull-request-approval-rule.md"). 2. To merge and close a pull
+see [Review a pull request](how-to-review-pull-request.md "how-to-review-pull-request.md"), [Override approval rules on a pull request](how-to-override-approval-rules.md "how-to-override-approval-rules.md"), and [Edit or delete an approval rule for a pull request](how-to-edit-delete-pull-request-approval-rule.md "how-to-edit-delete-pull-request-approval-rule.md"). 2. To merge and close a pull
 request using the fast-forward merge strategy, run the
 **merge-pull-request-by-fast-forward** command,
 specifying:

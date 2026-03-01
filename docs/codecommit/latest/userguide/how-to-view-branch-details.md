@@ -114,9 +114,7 @@ Here is some example output based on the preceding example command:
 }
 ```
 
-### To view information about a
-
-branch
+### To view information about a branch
 
 1.  Run the **get-branch** command, specifying:
 

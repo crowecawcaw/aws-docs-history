@@ -13,8 +13,7 @@ these tags. You can use the the CodeCommit console or the AWS CLI to add tags to
 Adding tags to a repository can impact access to that repository. Before you add a
 tag to a repository, make sure to review any IAM policies that might use tags to
 control access to resources such as repositories. For examples of tag-based access
-policies, see [Example 5: Deny or allow
-actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5 "customer-managed-policies.md#identity-based-policies-example-5").
+policies, see [Example 5: Deny or allow actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5 "customer-managed-policies.md#identity-based-policies-example-5").
 
 For more information about adding tags to a repository when you create it, see [Create a repository (console)](how-to-create-repository.md#how-to-create-repository-console "how-to-create-repository.md#how-to-create-repository-console").
 

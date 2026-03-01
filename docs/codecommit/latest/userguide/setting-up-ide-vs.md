@@ -34,8 +34,7 @@ OR
 If the IAM user already has Git credentials configured, one of the CodeCommit
 managed policies or equivalent permissions.
 
-For more information, see [AWS managed policies for
-CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md") and [Understanding and Getting Your
+For more information, see [AWS managed policies for CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md") and [Understanding and Getting Your
 Security Credentials](../../../general/latest/gr/aws-sec-cred-types.md "../../../general/latest/gr/aws-sec-cred-types.md").
 
 - The AWS Toolkit for Visual Studio installed on the computer where you've installed Visual Studio. For more

@@ -8,8 +8,7 @@ This topic assumes:
 
 - You have set up an IAM user with the policies or permissions required for CodeCommit and the
   **IAMUserSSHKeys** managed policy or equivalent permissions required for
-  uploading keys. For more information, see [Using
-  identity-based policies (IAM Policies) for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md "auth-and-access-control-iam-identity-based-access-control.md").
+  uploading keys. For more information, see [Using identity-based policies (IAM Policies) for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md "auth-and-access-control-iam-identity-based-access-control.md").
 - You already have, or know how to create, a public-private key pair. We strongly recommend that
   you use a secure passphrase for your SSH key.
 - You are familiar with SSH, your Git client, and its configuration files.
@@ -19,14 +18,11 @@ This topic assumes:
 
 ###### Topics
 
-- [Step 1: Associate your public key with your
-  IAM user](#setting-up-without-cli-add-key "#setting-up-without-cli-add-key")
+- [Step 1: Associate your public key with your IAM user](#setting-up-without-cli-add-key "#setting-up-without-cli-add-key")
 - [Step 2: Add CodeCommit to your SSH configuration](#setting-up-without-cli-configure-client "#setting-up-without-cli-configure-client")
 - [Next steps](#setting-up-without-cli-next-step "#setting-up-without-cli-next-step")
 
-## Step 1: Associate your public key with your
-
-IAM user
+## Step 1: Associate your public key with your IAM user
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the IAM console, in the navigation pane, choose **Users**, and

@@ -6,9 +6,7 @@ and the Amazon SNS topic used to send emails about the repository. You can also 
 console to manage the list of email addresses and endpoints subscribed to the topic or to
 disable notifications.
 
-###### To change notification
-
-settings
+###### To change notification settings
 
 1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home").
 2. In **Repositories**, choose the name of the repository where you want

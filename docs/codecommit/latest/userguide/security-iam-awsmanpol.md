@@ -1,6 +1,4 @@
-# AWS managed policies for
-
-CodeCommit
+# AWS managed policies for CodeCommit
 
 To add permissions to users, groups, and roles, it is easier to use AWS managed policies
 than to write policies yourself. It takes time and expertise to [create IAM customer
@@ -44,12 +42,9 @@ account, are specific to CodeCommit.
 - [AWS managed policy: AWSCodeCommitFullAccess](#managed-policies-full "#managed-policies-full")
 - [AWS managed policy: AWSCodeCommitPowerUser](#managed-policies-poweruser "#managed-policies-poweruser")
 - [AWS managed policy: AWSCodeCommitReadOnly](#managed-policies-read "#managed-policies-read")
-- [CodeCommit managed policies and
-  notifications](#notifications-permissions "#notifications-permissions")
-- [AWS CodeCommit managed policies and
-  Amazon CodeGuru Reviewer](#codeguru-permissions "#codeguru-permissions")
-- [CodeCommit updates to AWS managed
-  policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [CodeCommit managed policies and notifications](#notifications-permissions "#notifications-permissions")
+- [AWS CodeCommit managed policies and Amazon CodeGuru Reviewer](#codeguru-permissions "#codeguru-permissions")
+- [CodeCommit updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
 ## AWS managed policy: AWSCodeCommitFullAccess
 
@@ -606,9 +601,7 @@ JSON
 
 ```
 
-## CodeCommit managed policies and
-
-notifications
+## CodeCommit managed policies and notifications
 
 AWS CodeCommit supports notifications, which can notify users of important changes to
 repositories.
@@ -616,9 +609,7 @@ Managed policies for CodeCommit include policy statements for notification
 functionality. For more information, see [What are
 notifications?](../../../codestar-notifications/latest/userguide/welcome.md "../../../codestar-notifications/latest/userguide/welcome.md").
 
-### Permissions related to notifications in full access
-
-managed policies
+### Permissions related to notifications in full access managed policies
 
 The `AWSCodeCommitFullAccess` managed policy includes the following statements
 to allow full access to notifications. Users with this managed policy applied can also
@@ -674,9 +665,7 @@ clients configured for Slack.
     }
 ```
 
-### Permissions related to notifications in read-only managed
-
-policies
+### Permissions related to notifications in read-only managed policies
 
 The `AWSCodeCommitReadOnlyAccess` managed policy includes the following
 statements to allow read-only access to notifications. Users with this managed policy
@@ -707,9 +696,7 @@ them.
     }
 ```
 
-### Permissions related to notifications in other managed
-
-policies
+### Permissions related to notifications in other managed policies
 
 The `AWSCodeCommitPowerUser` managed policy includes the following statements
 to allow users to create, edit, and subscribe to notifications. Users cannot delete
@@ -764,18 +751,14 @@ notification rules or manage tags for resources.
 
 For more information about IAM and notifications, see [Identity and Access Management for AWS CodeStar Notifications](../../../codestar-notifications/latest/userguide/security-iam.md "../../../codestar-notifications/latest/userguide/security-iam.md").
 
-## AWS CodeCommit managed policies and
-
-Amazon CodeGuru Reviewer
+## AWS CodeCommit managed policies and Amazon CodeGuru Reviewer
 
 CodeCommit supports Amazon CodeGuru Reviewer, an automated code review service that uses program analysis and
 machine learning to detect common issues and recommend fixes in your Java or Python code. Managed
 policies for CodeCommit include policy statements for CodeGuru Reviewer functionality. For more information,
 see [What Is Amazon CodeGuru Reviewer](../../../codeguru/latest/reviewer-ug/welcome.md "../../../codeguru/latest/reviewer-ug/welcome.md").
 
-### Permissions related to CodeGuru Reviewer in
-
-AWSCodeCommitFullAccess
+### Permissions related to CodeGuru Reviewer in AWSCodeCommitFullAccess
 
 The `AWSCodeCommitFullAccess` managed policy includes the following statements
 to allow CodeGuru Reviewer to be associated and disassociated with CodeCommit repositories. Users with
@@ -904,9 +887,7 @@ service-linked role is named AWSServiceRoleForAmazonCodeGuruReviewer. For more i
 For more information, see [AWS Managed Policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## CodeCommit updates to AWS managed
-
-policies
+## CodeCommit updates to AWS managed policies
 
 View details about updates to AWS managed policies for CodeCommit since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

@@ -1,6 +1,4 @@
-# Configuring notifications for events in an
-
-AWS CodeCommit repository
+# Configuring notifications for events in an AWS CodeCommit repository
 
 You can set up notification rules for a repository so that repository users receive emails
 about the repository event types you specify. Notifications are sent when events match the

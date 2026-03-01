@@ -24,8 +24,7 @@ In CodeCommit, the primary resource is a repository. You can use the CodeCommit 
 CodeCommit APIs, or AWS SDKs to add, manage, and remove tags for a repository. In addition to
 identifying, organizing, and tracking your repository with tags, you can use tags in IAM
 policies to help control who can view and interact with your repository. For examples of
-tag-based access policies, see [Example 5: Deny or allow
-actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5 "customer-managed-policies.md#identity-based-policies-example-5").
+tag-based access policies, see [Example 5: Deny or allow actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5 "customer-managed-policies.md#identity-based-policies-example-5").
 
 ###### Topics
 

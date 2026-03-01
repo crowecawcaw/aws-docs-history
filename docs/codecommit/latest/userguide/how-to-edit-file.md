@@ -8,8 +8,7 @@ CodeCommit repository.
 ###### Topics
 
 - [Edit a file (console)](#how-to-edit-file-console "#how-to-edit-file-console")
-- [Edit or delete a file
-  (AWS CLI)](#how-to-edit-file-cli "#how-to-edit-file-cli")
+- [Edit or delete a file (AWS CLI)](#how-to-edit-file-cli "#how-to-edit-file-cli")
 - [Edit a file (Git)](#how-to-edit-file-git "#how-to-edit-file-git")
 
 ## Edit a file (console)
@@ -50,9 +49,7 @@ why.
 6. Choose **Commit changes** to save your changes to the file and commit
    the changes to the repository.
 
-## Edit or delete a file
-
-(AWS CLI)
+## Edit or delete a file (AWS CLI)
 
 You can use the AWS CLI and the **put-file** command to make changes to a
 file in a CodeCommit repository. You can also use the **put-file** command to add a

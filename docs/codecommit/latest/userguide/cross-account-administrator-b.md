@@ -1,6 +1,4 @@
-# Cross-account repository access: Actions for the
-
-administrator in AccountB
+# Cross-account repository access: Actions for the administrator in AccountB
 
 To allow users or groups in AccountB to access a repository in AccountA, the AccountB
 administrator must create a group in AccountB. This group must be configured with a
@@ -11,22 +9,16 @@ The following sections provide steps and examples.
 
 ###### Topics
 
-- [Step 1: Create an IAM group for repository access for
-  AccountB users](#cross-account-create-group-b "#cross-account-create-group-b")
-- [Step 2: Create a policy and add users to the IAM
-  group](#cross-account-create-policy-b "#cross-account-create-policy-b")
+- [Step 1: Create an IAM group for repository access for AccountB users](#cross-account-create-group-b "#cross-account-create-group-b")
+- [Step 2: Create a policy and add users to the IAM group](#cross-account-create-policy-b "#cross-account-create-policy-b")
 
-## Step 1: Create an IAM group for repository access for
-
-AccountB users
+## Step 1: Create an IAM group for repository access for AccountB users
 
 The simplest way to manage which IAM users in AccountB can access the AccountA
 repository is to create an IAM group in AccountB that has permission to assume the
 role in AccountA, and then add the IAM users to that group.
 
-###### To create a group for
-
-cross-account repository access
+###### To create a group for cross-account repository access
 
 1. Sign in to the AWS Management Console as an IAM user with the permissions
    required to create IAM groups and policies and manage IAM users in
@@ -42,17 +34,13 @@ cross-account repository access
    You create the cross-account policy in the next procedure. Finish creating
    the group.
 
-## Step 2: Create a policy and add users to the IAM
-
-group
+## Step 2: Create a policy and add users to the IAM group
 
 Now that you have a group, create the policy that allows members of this group to assume
 the role that gives them access to the repository in AccountA. Then add to the group
 the IAM users in AccountB that you want to allow access in AccountA.
 
-###### To create a policy for the group
-
-and add users to it
+###### To create a policy for the group and add users to it
 
 1. In the IAM console, choose **Groups**, and then choose the name of the group you
    just created (for example,

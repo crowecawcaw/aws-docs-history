@@ -8,12 +8,9 @@ content and structure of a template. You can review which templates are associat
 a repository, and which repositories are associated with a template.
 
 For more information about managed policies and permissions for approval rule
-templates, see [Permissions for actions on approval rule templates](auth-and-access-control-permissions-reference.md#aa-art "auth-and-access-control-permissions-reference.md#aa-art") and [AWS managed policies for
-CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+templates, see [Permissions for actions on approval rule templates](auth-and-access-control-permissions-reference.md#aa-art "auth-and-access-control-permissions-reference.md#aa-art") and [AWS managed policies for CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
-## Manage approval rule templates
-
-(console)
+## Manage approval rule templates (console)
 
 You can view and manage your approval rule templates in the CodeCommit console.
 
@@ -29,9 +26,7 @@ Approval rule templates are only available in the AWS Region where
 they were created. 3. If you want to make changes to a template, choose it from the list, and
 then choose **Edit**. 4. Make your changes, and then choose **Save**.
 
-## Manage approval rule templates
-
-(AWS CLI)
+## Manage approval rule templates (AWS CLI)
 
 You can manage your approval rule templates with the following AWS CLI
 commands:
@@ -51,9 +46,7 @@ commands:
 - [list-associated-approval-rule-templates-for-repository](#list-associated-templates "#list-associated-templates"),
   to view all approval rule templates associated with a repository
 
-## To list all approval rule templates in an
-
-AWS Region
+## To list all approval rule templates in an AWS Region
 
 1. At the terminal or command line, run the
    **list-approval-rule-templates** command. For example, to
@@ -75,9 +68,7 @@ aws codecommit list-approval-rule-templates --region us-east-2
 }
 ```
 
-## To get the content of an approval rule
-
-template
+## To get the content of an approval rule template
 
 1. At the terminal or command line, run the
    **get-approval-rule-template** command, specifying the
@@ -105,9 +96,7 @@ aws codecommit get-approval-rule-template --approval-rule-template-name 1-approv
 }
 ```
 
-## To update the content of an approval
-
-rule template
+## To update the content of an approval rule template
 
 1. At the terminal or command prompt, run the
    **update-approval-rule-template-content** command,
@@ -138,9 +127,7 @@ aws codecommit update-approval-rule-template-content --approval-rule-template-na
 }
 ```
 
-## To update the name of an approval rule
-
-template
+## To update the name of an approval rule template
 
 1. At the terminal or command prompt, run the
    **update-approval-rule-template-name** command,
@@ -171,9 +158,7 @@ aws codecommit update-approval-rule-template-name --old-approval-rule-template-n
 }
 ```
 
-## To update the description of an
-
-approval rule template
+## To update the description of an approval rule template
 
 1. At the terminal or command line, run the
    **update-approval-rule-template-description** command,
@@ -202,9 +187,7 @@ aws codecommit update-approval-rule-template-description --approval-rule-templat
 }
 ```
 
-## To list all repositories
-
-associated with a template
+## To list all repositories associated with a template
 
 1. At the command line or terminal, run the
    **list-repositories-for-approval-rule-template** command,
@@ -226,9 +209,7 @@ aws codecommit list-repositories-for-approval-rule-template --approval-rule-temp
 }
 ```
 
-## To list all templates associated
-
-with a repository
+## To list all templates associated with a repository
 
 1. At the command line or terminal, run the
    **list-associated-approval-rule-templates-for-repository**

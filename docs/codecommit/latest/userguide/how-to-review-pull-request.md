@@ -11,13 +11,10 @@ or a diff tool.
 
 ###### Topics
 
-- [Review a pull request
-  (console)](#how-to-review-pull-request-console "#how-to-review-pull-request-console")
+- [Review a pull request (console)](#how-to-review-pull-request-console "#how-to-review-pull-request-console")
 - [Review pull requests (AWS CLI)](#how-to-review-pull-request-cli "#how-to-review-pull-request-cli")
 
-## Review a pull request
-
-(console)
+## Review a pull request (console)
 
 You can use the CodeCommit console to review a pull request in a CodeCommit repository.
 
@@ -98,8 +95,7 @@ Java or Python code.
     * You only see Amazon CodeGuru Reviewer comments if you have associated the
      repository with Amazon CodeGuru Reviewer, if the analysis is complete, and if the
      code in the pull request is Java or Python code. For more
-     information, see [Associate or disassociate an AWS CodeCommit
-     repository with Amazon CodeGuru Reviewer](how-to-amazon-codeguru-reviewer.md "how-to-amazon-codeguru-reviewer.md").
+     information, see [Associate or disassociate an AWS CodeCommit repository with Amazon CodeGuru Reviewer](how-to-amazon-codeguru-reviewer.md "how-to-amazon-codeguru-reviewer.md").
     * Amazon CodeGuru Reviewer comments only appear in the **Changes**
      tab if the comments were made on the most recent revision of the
      pull request. They always appear in the

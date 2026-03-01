@@ -14,14 +14,11 @@ Depending on your usage, you might be charged for creating or accessing a reposi
 
 ###### Topics
 
-- [Prerequisites for connecting to a CodeCommit
-  repository](#how-to-connect-prerequisites "#how-to-connect-prerequisites")
+- [Prerequisites for connecting to a CodeCommit repository](#how-to-connect-prerequisites "#how-to-connect-prerequisites")
 - [Connect to the CodeCommit repository by cloning the repository](#how-to-connect-http "#how-to-connect-http")
 - [Connect a local repo to the CodeCommit repository](#how-to-connect-local "#how-to-connect-local")
 
-## Prerequisites for connecting to a CodeCommit
-
-repository
+## Prerequisites for connecting to a CodeCommit repository
 
 Before you can clone a CodeCommit repository or connect a local repo to an
 CodeCommit repository:

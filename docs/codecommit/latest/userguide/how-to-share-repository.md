@@ -5,8 +5,7 @@ a federated access, temporary credentials, or a web identity provider such as
 IAM Identity Center when accessing CodeCommit, or if you want to use Git credentials or SSH key pairs with IAM users. If you're using the former, you
 will need to set up users, access, and permissions for your identity provider, and then provide instructions for
 your users to use **git-remote-codecommit**.
-For more information, see [Setup steps for HTTPS connections to AWS CodeCommit with
-git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md") and
+For more information, see [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md") and
 [Connecting to AWS CodeCommit repositories with rotating credentials](temporary-access.md "temporary-access.md").
 
 You cannot use Git credentials or SSH key pairs with federated access
@@ -33,16 +32,12 @@ Depending on your usage, you might be charged for creating or accessing a reposi
 
 ###### Topics
 
-- [Choose the connection protocol to share with your
-  users](#how-to-share-repo-choose "#how-to-share-repo-choose")
+- [Choose the connection protocol to share with your users](#how-to-share-repo-choose "#how-to-share-repo-choose")
 - [Create IAM policies for your repository](#how-to-share-repo-create-policy "#how-to-share-repo-create-policy")
 - [Create an IAM group for repository users](#how-to-share-repository-IAMgroup "#how-to-share-repository-IAMgroup")
-- [Share the connection information with your
-  users](#how-to-share-repository-cli "#how-to-share-repository-cli")
+- [Share the connection information with your users](#how-to-share-repository-cli "#how-to-share-repository-cli")
 
-## Choose the connection protocol to share with your
-
-users
+## Choose the connection protocol to share with your users
 
 When you create a repository in CodeCommit, two endpoints are generated: one for HTTPS
 connections and one for SSH connections. Both provide secure connections over a network. Your
@@ -97,8 +92,7 @@ one customer managed policy and apply the policies to different IAM users and
 groups.
 
 For information about reviewing the contents of managed policies and using policies
-to create and apply permissions, see [Authentication and access control for
-AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md").
+to create and apply permissions, see [Authentication and access control for AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md").
 
 ###### Create a customer managed policy for your repository
 
@@ -175,9 +169,7 @@ access to the CodeCommit repository, and then choose **Add Users**.
 
 You can use the Search box to quickly find users by name. 8. When you have added your users, close the IAM console.
 
-## Share the connection information with your
-
-users
+## Share the connection information with your users
 
 1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home").
 2. In the region selector, choose the AWS Region where the repository was created.

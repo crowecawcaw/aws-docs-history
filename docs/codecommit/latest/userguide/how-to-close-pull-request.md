@@ -1,6 +1,4 @@
-# Close a pull request in an AWS CodeCommit
-
-repository
+# Close a pull request in an AWS CodeCommit repository
 
 If you want to close a pull request without merging the code, you can do so in one of
 several ways:

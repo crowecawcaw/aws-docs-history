@@ -15,14 +15,11 @@ you are using a version that contains the `create-commit` command.
 
 ###### Topics
 
-- [Create the first commit for a repository using
-  the AWS CLI](#how-to-create-first-commit "#how-to-create-first-commit")
+- [Create the first commit for a repository using the AWS CLI](#how-to-create-first-commit "#how-to-create-first-commit")
 - [Create a commit using a Git client](#how-to-create-commit-git "#how-to-create-commit-git")
 - [Create a commit using the AWS CLI](#how-to-create-commit-cli "#how-to-create-commit-cli")
 
-## Create the first commit for a repository using
-
-the AWS CLI
+## Create the first commit for a repository using the AWS CLI
 
 You can use the AWS CLI and the `put-file` command to create your first commit
 
@@ -35,9 +32,7 @@ new branch as the default branch for your repository.
 To use AWS CLI commands with CodeCommit, install the AWS CLI. For more information, see
 [Command line reference](cmd-ref.md "cmd-ref.md").
 
-## To create the first commit for a repository using
-
-the AWS CLI
+## To create the first commit for a repository using the AWS CLI
 
 1.  On your local computer, create the file you want to add as the first file to the CodeCommit
     repository. A common practice is to create a `README.md` markdown file that

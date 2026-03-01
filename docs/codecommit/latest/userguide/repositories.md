@@ -16,8 +16,7 @@ such as emails or code functions. You can even configure a repository on your lo
 Before you can push changes to a CodeCommit repository, you must configure an IAM user in
 your Amazon Web Services account, or set up access for federated access or temporary credentials.
 For more information, see [Step 1: Initial configuration for CodeCommit](setting-up-gc.md#setting-up-gc-account "setting-up-gc.md#setting-up-gc-account")
-and [Setup steps for HTTPS connections to AWS CodeCommit with
-git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
+and [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
 
 For information about working with other aspects of your repository in CodeCommit, see [Working with files](files.md "files.md"), [Working with pull requests](pull-requests.md "pull-requests.md") , [Working with commits](commits.md "commits.md"), [Working with branches](branches.md "branches.md"), and
 [Working with user preferences](user-preferences.md "user-preferences.md"). For information about
@@ -28,16 +27,13 @@ migrating to CodeCommit, see [Migrate to CodeCommit](how-to-migrate-repository.m
 - [Create an AWS CodeCommit repository](how-to-create-repository.md "how-to-create-repository.md")
 - [Connect to an AWS CodeCommit repository](how-to-connect.md "how-to-connect.md")
 - [Share a AWS CodeCommit repository](how-to-share-repository.md "how-to-share-repository.md")
-- [Configuring notifications for events in an
-  AWS CodeCommit repository](how-to-repository-email.md "how-to-repository-email.md")
+- [Configuring notifications for events in an AWS CodeCommit repository](how-to-repository-email.md "how-to-repository-email.md")
 - [Tagging repositories in AWS CodeCommit](how-to-tag-repository.md "how-to-tag-repository.md")
 - [Manage triggers for an AWS CodeCommit repository](how-to-notify.md "how-to-notify.md")
-- [Associate or disassociate an AWS CodeCommit
-  repository with Amazon CodeGuru Reviewer](how-to-amazon-codeguru-reviewer.md "how-to-amazon-codeguru-reviewer.md")
+- [Associate or disassociate an AWS CodeCommit repository with Amazon CodeGuru Reviewer](how-to-amazon-codeguru-reviewer.md "how-to-amazon-codeguru-reviewer.md")
 - [View CodeCommit repository details](how-to-view-repository-details.md "how-to-view-repository-details.md")
 - [Change AWS CodeCommit repository settings](how-to-change-repository.md "how-to-change-repository.md")
-- [Synchronize changes between a local repo and an AWS CodeCommit
-  repository](how-to-sync-changes.md "how-to-sync-changes.md")
+- [Synchronize changes between a local repo and an AWS CodeCommit repository](how-to-sync-changes.md "how-to-sync-changes.md")
 - [Push commits to an additional Git repository](how-to-mirror-repo-pushes.md "how-to-mirror-repo-pushes.md")
 - [Configure cross-account access to an AWS CodeCommit repository using roles](cross-account.md "cross-account.md")
 - [Delete an AWS CodeCommit repository](how-to-delete-repository.md "how-to-delete-repository.md")

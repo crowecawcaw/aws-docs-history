@@ -115,9 +115,7 @@ To use the AWS CLI to view repository details, run the following commands:
 - To view information about multiple repositories in CodeCommit, run
   [batch-get-repositories](#how-to-view-repository-details-with-names-cli "#how-to-view-repository-details-with-names-cli").
 
-### To view a list of CodeCommit
-
-repositories
+### To view a list of CodeCommit repositories
 
 1. Run the **list-repositories** command:
 
@@ -147,9 +145,7 @@ Here is some example output based on the preceding command:
 }
 ```
 
-### To view details about a single
-
-CodeCommit repository
+### To view details about a single CodeCommit repository
 
 1. Run the **get-repository** command, specifying the
    name of the CodeCommit repository with the `--repository-name`
@@ -196,9 +192,7 @@ aws codecommit get-repository --repository-name MyDemoRepo
 }
 ```
 
-### To view details about multiple
-
-CodeCommit repositories
+### To view details about multiple CodeCommit repositories
 
 1. Run the **batch-get-repositories** command with the
    `--repository-names` option. Add a space between

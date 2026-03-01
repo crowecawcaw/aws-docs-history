@@ -7,12 +7,9 @@ custom IAM policies for integration between CodeCommit and other AWS services.
 
 ###### Topics
 
-- [Customer managed identity
-  policy examples](#customer-managed-policies-identity "#customer-managed-policies-identity")
+- [Customer managed identity policy examples](#customer-managed-policies-identity "#customer-managed-policies-identity")
 
-## Customer managed identity
-
-policy examples
+## Customer managed identity policy examples
 
 The following example IAM policies grant permissions for various
 CodeCommit actions. Use them to limit CodeCommit access for your IAM
@@ -26,20 +23,13 @@ account IDs.
 
 **Examples**
 
-- [Example 1: Allow a user
-  to perform CodeCommit operations in a single AWS Region](#identity-based-policies-example-1 "#identity-based-policies-example-1")
-- [Example 2: Allow a user
-  to use Git for a single repository](#identity-based-policies-example-2 "#identity-based-policies-example-2")
-- [Example 3: Allow a user
-  connecting from a specified IP address range access to a repository](#identity-based-policies-example-3 "#identity-based-policies-example-3")
-- [Example 4: Deny or allow
-  actions on branches](#identity-based-policies-example-4 "#identity-based-policies-example-4")
-- [Example 5: Deny or allow
-  actions on repositories with tags](#identity-based-policies-example-5 "#identity-based-policies-example-5")
+- [Example 1: Allow a user to perform CodeCommit operations in a single AWS Region](#identity-based-policies-example-1 "#identity-based-policies-example-1")
+- [Example 2: Allow a user to use Git for a single repository](#identity-based-policies-example-2 "#identity-based-policies-example-2")
+- [Example 3: Allow a user connecting from a specified IP address range access to a repository](#identity-based-policies-example-3 "#identity-based-policies-example-3")
+- [Example 4: Deny or allow actions on branches](#identity-based-policies-example-4 "#identity-based-policies-example-4")
+- [Example 5: Deny or allow actions on repositories with tags](#identity-based-policies-example-5 "#identity-based-policies-example-5")
 
-### Example 1: Allow a user
-
-to perform CodeCommit operations in a single AWS Region
+### Example 1: Allow a user to perform CodeCommit operations in a single AWS Region
 
 The following permissions policy uses a wildcard character
 (`"codecommit:*"`) to allow users to perform all CodeCommit
@@ -76,9 +66,7 @@ JSON
 
 ```
 
-### Example 2: Allow a user
-
-to use Git for a single repository
+### Example 2: Allow a user to use Git for a single repository
 
 In CodeCommit, the `GitPull` IAM policy permissions apply to any
 Git client command where data is retrieved from CodeCommit, including
@@ -114,9 +102,7 @@ JSON
 
 ```
 
-### Example 3: Allow a user
-
-connecting from a specified IP address range access to a repository
+### Example 3: Allow a user connecting from a specified IP address range access to a repository
 
 You can create a policy that only allows users to connect to a CodeCommit
 repository if their IP address is within a certain IP address range. There
@@ -201,9 +187,7 @@ JSON
 
 ```
 
-### Example 4: Deny or allow
-
-actions on branches
+### Example 4: Deny or allow actions on branches
 
 You can create a policy that denies users permissions to actions you
 specify on one or more branches. Alternatively, you can create a policy that
@@ -298,9 +282,7 @@ JSON
 
 ```
 
-### Example 5: Deny or allow
-
-actions on repositories with tags
+### Example 5: Deny or allow actions on repositories with tags
 
 You can create a policy that allows or denies actions on repositories
 based on the AWS tags associated with those repositories, and then apply

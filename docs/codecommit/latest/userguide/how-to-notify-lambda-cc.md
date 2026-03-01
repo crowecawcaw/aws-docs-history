@@ -13,25 +13,18 @@ manually configure the permissions required for CodeCommit to run the function.
 
 ###### Topics
 
-- [Manually configure permissions to allow CodeCommit to
-  run a Lambda function](#how-to-notify-lam-perm "#how-to-notify-lam-perm")
-- [Create a trigger for the Lambda function in a CodeCommit
-  repository (console)](#how-to-notify-lam-console "#how-to-notify-lam-console")
-- [Create a trigger to a Lambda function for a CodeCommit
-  repository (AWS CLI)](#how-to-notify-lam-cli "#how-to-notify-lam-cli")
+- [Manually configure permissions to allow CodeCommit to run a Lambda function](#how-to-notify-lam-perm "#how-to-notify-lam-perm")
+- [Create a trigger for the Lambda function in a CodeCommit repository (console)](#how-to-notify-lam-console "#how-to-notify-lam-console")
+- [Create a trigger to a Lambda function for a CodeCommit repository (AWS CLI)](#how-to-notify-lam-cli "#how-to-notify-lam-cli")
 
-## Manually configure permissions to allow CodeCommit to
-
-run a Lambda function
+## Manually configure permissions to allow CodeCommit to run a Lambda function
 
 If you create a trigger in CodeCommit that invokes a Lambda function, you must manually
 configure the permissions that allow CodeCommit to run the Lambda function. To avoid this
 manual configuration, consider creating the trigger for the function in the Lambda
 console instead.
 
-###### To allow CodeCommit to run a
-
-Lambda function
+###### To allow CodeCommit to run a Lambda function
 
 1. Open a plain-text editor and create a JSON file that specifies the Lambda
    function name, the details of the CodeCommit repository, and the actions you want to
@@ -114,9 +107,7 @@ JSON
 
 ```
 
-## Create a trigger for the Lambda function in a CodeCommit
-
-repository (console)
+## Create a trigger for the Lambda function in a CodeCommit repository (console)
 
 After you have created the Lambda function, you can create a trigger in CodeCommit that runs
 the function in response to the repository events you specify.
@@ -125,8 +116,7 @@ the function in response to the repository events you specify.
 
 Before you can successfully test or run the trigger for the example, you must
 configure the policies that allow CodeCommit to invoke the function and the Lambda
-function to get information about the repository. For more information, see [To allow CodeCommit to run a
-Lambda function](#how-to-notify-lambda-create-function-perm "#how-to-notify-lambda-create-function-perm").
+function to get information about the repository. For more information, see [To allow CodeCommit to run a Lambda function](#how-to-notify-lambda-create-function-perm "#how-to-notify-lambda-create-function-perm").
 
 ###### To create a trigger for a Lambda function
 
@@ -179,9 +169,7 @@ Lambda function](#how-to-notify-lambda-create-function-perm "#how-to-notify-lamb
    Lambda function on the **Monitoring** tab for that function in
    the Lambda console.
 
-## Create a trigger to a Lambda function for a CodeCommit
-
-repository (AWS CLI)
+## Create a trigger to a Lambda function for a CodeCommit repository (AWS CLI)
 
 You can also use the command line to create a trigger for a Lambda function in response
 to CodeCommit repository events, such as when someone pushes a commit to your repository.

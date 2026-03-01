@@ -5,19 +5,14 @@ Deleting unused approval rule templates helps keep your templates organized and 
 easier to find templates that make sense for your workflows.
 
 For more information about managed policies and permissions for approval rule
-templates, see [Permissions for actions on approval rule templates](auth-and-access-control-permissions-reference.md#aa-art "auth-and-access-control-permissions-reference.md#aa-art") and [AWS managed policies for
-CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+templates, see [Permissions for actions on approval rule templates](auth-and-access-control-permissions-reference.md#aa-art "auth-and-access-control-permissions-reference.md#aa-art") and [AWS managed policies for CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
 ###### Topics
 
-- [Delete an approval rule template
-  (console)](#how-to-delete-template-console "#how-to-delete-template-console")
-- [Delete an approval rule template
-  (AWS CLI)](#how-to-delete-template-cli "#how-to-delete-template-cli")
+- [Delete an approval rule template (console)](#how-to-delete-template-console "#how-to-delete-template-console")
+- [Delete an approval rule template (AWS CLI)](#how-to-delete-template-cli "#how-to-delete-template-cli")
 
-## Delete an approval rule template
-
-(console)
+## Delete an approval rule template (console)
 
 You can delete an approval rule template if it is no longer relevant to your
 development work. When you use the console to delete an approval rule template, it
@@ -29,13 +24,10 @@ is disassociated from any repositories during the deletion process.
 2. Choose **Approval rule templates**. Choose the template
    you want to delete, and then choose **Delete**.
 
-## Delete an approval rule template
-
-(AWS CLI)
+## Delete an approval rule template (AWS CLI)
 
 You can use the AWS CLI to delete an approval rule if it has been disassociated from
-all repositories. For more information, see [Disassociate an approval rule
-template (AWS CLI)](how-to-disassociate-template.md#how-to-disassociate-template-cli "how-to-disassociate-template.md#how-to-disassociate-template-cli").
+all repositories. For more information, see [Disassociate an approval rule template (AWS CLI)](how-to-disassociate-template.md#how-to-disassociate-template-cli "how-to-disassociate-template.md#how-to-disassociate-template-cli").
 
 ## To delete an approval rule template
 

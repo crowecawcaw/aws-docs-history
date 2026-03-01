@@ -13,9 +13,7 @@ your repository from the command line or by using the API, notifications no long
 easiest way to restore notifications is to delete the notification settings and then
 configure them again.
 
-###### To delete notification
-
-settings
+###### To delete notification settings
 
 1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home").
 2. In **Repositories**, choose the name of the repository where you want

@@ -16,13 +16,10 @@ with other services, such as Amazon Simple Queue Service (Amazon SQS) and AWS La
 
 ###### Topics
 
-- [Create a trigger to an Amazon SNS topic for a CodeCommit
-  repository (console)](#how-to-notify-sns-console "#how-to-notify-sns-console")
+- [Create a trigger to an Amazon SNS topic for a CodeCommit repository (console)](#how-to-notify-sns-console "#how-to-notify-sns-console")
 - [Create a trigger to an Amazon SNS topic for a CodeCommit repository (AWS CLI)](#how-to-notify-sns-cli "#how-to-notify-sns-cli")
 
-## Create a trigger to an Amazon SNS topic for a CodeCommit
-
-repository (console)
+## Create a trigger to an Amazon SNS topic for a CodeCommit repository (console)
 
 1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home").
 2. In **Repositories**, choose the repository where you want to

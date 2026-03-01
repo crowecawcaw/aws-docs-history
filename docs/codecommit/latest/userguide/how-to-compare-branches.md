@@ -1,6 +1,4 @@
-# Compare and merge branches in
-
-AWS CodeCommit
+# Compare and merge branches in AWS CodeCommit
 
 You can use the CodeCommit console to compare branches in a CodeCommit repository. Comparing
 branches helps you quickly view the differences between a branch and the default branch, or
@@ -8,14 +6,11 @@ view the differences between any two branches.
 
 ###### Topics
 
-- [Compare a branch to the default
-  branch](#how-to-compare-branches-default "#how-to-compare-branches-default")
+- [Compare a branch to the default branch](#how-to-compare-branches-default "#how-to-compare-branches-default")
 - [Compare two specific branches](#how-to-compare-branches-two "#how-to-compare-branches-two")
 - [Merge two branches (AWS CLI)](#how-to-merge-branches-cli "#how-to-merge-branches-cli")
 
-## Compare a branch to the default
-
-branch
+## Compare a branch to the default branch
 
 Use the CodeCommit console to quickly view the differences between a branch and the default
 branch for your repository.

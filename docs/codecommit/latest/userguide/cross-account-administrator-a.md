@@ -1,6 +1,4 @@
-# Cross-account repository access: Actions for the
-
-administrator in AccountA
+# Cross-account repository access: Actions for the administrator in AccountA
 
 To allow users or groups in AccountB to access a repository in AccountA, an AccountA
 administrator must:
@@ -14,8 +12,7 @@ administrator must:
 ###### Topics
 
 - [Step 1: Create a policy for repository access in AccountA](#cross-account-create-policy-a "#cross-account-create-policy-a")
-- [Step 2: Create a role for repository access in
-  AccountA](#cross-account-create-role-a "#cross-account-create-role-a")
+- [Step 2: Create a role for repository access in AccountA](#cross-account-create-role-a "#cross-account-create-role-a")
 
 ## Step 1: Create a policy for repository access in AccountA
 
@@ -131,9 +128,7 @@ repository name with your Amazon Web Services account ID and repository name). 7
 can also provide an optional description for this policy. Choose
 **Create policy**.
 
-## Step 2: Create a role for repository access in
-
-AccountA
+## Step 2: Create a role for repository access in AccountA
 
 After you have configured a policy, create a role that IAM users and groups in
 AccountB can assume, and attach the policy to that role.

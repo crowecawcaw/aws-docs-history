@@ -1,6 +1,4 @@
-# Synchronize changes between a local repo and an AWS CodeCommit
-
-repository
+# Synchronize changes between a local repo and an AWS CodeCommit repository
 
 You use Git to synchronize changes between a local repo and the CodeCommit repository
 connected to the local repo.

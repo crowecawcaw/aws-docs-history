@@ -9,13 +9,10 @@ Amazon Simple Notification Service notification.
 
 ###### Topics
 
-- [Test a trigger for a repository
-  (console)](#how-to-notify-test-console "#how-to-notify-test-console")
+- [Test a trigger for a repository (console)](#how-to-notify-test-console "#how-to-notify-test-console")
 - [Test a trigger for a repository (AWS CLI)](#how-to-notify-test-cli "#how-to-notify-test-cli")
 
-## Test a trigger for a repository
-
-(console)
+## Test a trigger for a repository (console)
 
 1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home").
 2. In **Repositories**, choose the repository where you want to

@@ -1,6 +1,4 @@
-# Create an approval rule for a pull
-
-request
+# Create an approval rule for a pull request
 
 Creating approval rules for your pull requests helps ensure the quality of your code by
 requiring users to approve the pull request before the code can be merged into the destination
@@ -18,14 +16,10 @@ repository.
 
 ###### Topics
 
-- [Create an approval rule for a
-  pull request (console)](#how-to-create-pull-request-approval-rule-console "#how-to-create-pull-request-approval-rule-console")
-- [Create an approval rule for a pull
-  request (AWS CLI)](#how-to-create-pull-request-approval-rule-cli "#how-to-create-pull-request-approval-rule-cli")
+- [Create an approval rule for a pull request (console)](#how-to-create-pull-request-approval-rule-console "#how-to-create-pull-request-approval-rule-console")
+- [Create an approval rule for a pull request (AWS CLI)](#how-to-create-pull-request-approval-rule-cli "#how-to-create-pull-request-approval-rule-cli")
 
-## Create an approval rule for a
-
-pull request (console)
+## Create an approval rule for a pull request (console)
 
 You can use the CodeCommit console to create an approval rule for a pull request in a
 CodeCommit repository.
@@ -100,16 +94,12 @@ Identifiers](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-
 Approval rules do not support cross-account approvals. 8. When you have finished configuring the approval rule, choose
 **Submit**.
 
-## Create an approval rule for a pull
-
-request (AWS CLI)
+## Create an approval rule for a pull request (AWS CLI)
 
 To use AWS CLI commands with CodeCommit, install the AWS CLI. For more information, see
 [Command line reference](cmd-ref.md "cmd-ref.md").
 
-## To create an approval rule for a
-
-pull request in a CodeCommit repository
+## To create an approval rule for a pull request in a CodeCommit repository
 
 - Run the **create-pull-request-approval-rule** command, specifying:
 

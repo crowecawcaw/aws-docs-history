@@ -7,8 +7,7 @@ clone the repository to an Amazon CloudWatch log.
 ###### Topics
 
 - [Create the Lambda function](#how-to-notify-lambda-create-function "#how-to-notify-lambda-create-function")
-- [View the trigger for the Lambda function in the AWS CodeCommit
-  repository](#how-to-notify-lam-view "#how-to-notify-lam-view")
+- [View the trigger for the Lambda function in the AWS CodeCommit repository](#how-to-notify-lam-view "#how-to-notify-lam-view")
 
 ## Create the Lambda function
 
@@ -174,9 +173,7 @@ def lambda_handler(event, context):
    `GetRepository` permission for the repository you want to use the
    trigger.
 
-## View the trigger for the Lambda function in the AWS CodeCommit
-
-repository
+## View the trigger for the Lambda function in the AWS CodeCommit repository
 
 After you have created the Lambda function, you can view and test the trigger in AWS CodeCommit.
 Testing the trigger runs the function in response to the repository events you

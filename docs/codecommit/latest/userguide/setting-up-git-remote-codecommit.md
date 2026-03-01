@@ -1,6 +1,4 @@
-# Setup steps for HTTPS connections to AWS CodeCommit with
-
-git-remote-codecommit
+# Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit
 
 If you want to connect to CodeCommit using a root account, federated access, or temporary credentials, you should set
 up access using **git-remote-codecommit**. This utility provides a simple method for pushing and
@@ -27,25 +25,20 @@ information about how to configure access for federated users and other rotating
 
 ###### Topics
 
-- [Step 0: Install prerequisites for
-  git-remote-codecommit](#setting-up-git-remote-codecommit-prereq "#setting-up-git-remote-codecommit-prereq")
+- [Step 0: Install prerequisites for git-remote-codecommit](#setting-up-git-remote-codecommit-prereq "#setting-up-git-remote-codecommit-prereq")
 - [Step 1: Initial configuration for CodeCommit](#setting-up-git-remote-codecommit-account "#setting-up-git-remote-codecommit-account")
 - [Step 2: Install git-remote-codecommit](#setting-up-git-remote-codecommit-install "#setting-up-git-remote-codecommit-install")
-- [Step 3: Connect to the CodeCommit console and clone
-  the repository](#setting-up-git-remote-codecommit-connect-console "#setting-up-git-remote-codecommit-connect-console")
+- [Step 3: Connect to the CodeCommit console and clone the repository](#setting-up-git-remote-codecommit-connect-console "#setting-up-git-remote-codecommit-connect-console")
 - [Next steps](#setting-up-git-remote-codecommit-next-step "#setting-up-git-remote-codecommit-next-step")
 
-## Step 0: Install prerequisites for
-
-git-remote-codecommit
+## Step 0: Install prerequisites for git-remote-codecommit
 
 Before you can use **git-remote-codecommit**, you must install some prerequisites on your local
 computer. These include:
 
 - A supported version of Python. For more information about supported versions of Python, see [git-remote-codecommit](https://pypi.org/project/git-remote-codecommit/ "https://pypi.org/project/git-remote-codecommit/").
 
-For more information about setting up and using git-remote-codecommit, see [Setup steps for HTTPS connections to AWS CodeCommit with
-git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
+For more information about setting up and using git-remote-codecommit, see [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
 
 - Git
 
@@ -94,16 +87,14 @@ and secret key, and install and configure the AWS CLI.
 CodeCommit requires AWS Key Management Service. If you are using an existing IAM user, make sure there are no policies attached to the user that expressly deny the AWS KMS actions required
 by CodeCommit. For more information, see [AWS KMS and encryption](encryption.md "encryption.md"). 3. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 4. In the IAM console, in the navigation pane, choose **Users**, and then choose the IAM user you want to configure for CodeCommit access. 5. On the **Permissions** tab, choose **Add Permissions**. 6. In **Grant permissions**, choose **Attach existing policies
 directly**. 7. From the list of policies, select **AWSCodeCommitPowerUser** or another
-managed policy for CodeCommit access. For more information, see [AWS managed policies for
-CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+managed policy for CodeCommit access. For more information, see [AWS managed policies for CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
 After you have selected the policy you want to attach, choose **Next:
 Review** to review the list of policies to attach to the IAM user. If the
 list is correct, choose **Add permissions**.
 
 For more information about CodeCommit managed policies and sharing access to repositories with other groups and users, see [Share a repository](how-to-share-repository.md "how-to-share-repository.md")
-and [Authentication and access control for
-AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md").
+and [Authentication and access control for AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md").
 
 ###### To install and configure the AWS CLI
 
@@ -228,9 +219,7 @@ pip install --user git-remote-codecommit
 2. Monitor the installation process until you see a success
    message.
 
-## Step 3: Connect to the CodeCommit console and clone
-
-the repository
+## Step 3: Connect to the CodeCommit console and clone the repository
 
 If an administrator has already sent you the clone URL to use with **git-remote-codecommit**
 for the CodeCommit repository, you can skip connecting to the console and clone the repository directly.

@@ -19,15 +19,11 @@ User and Group](../../../IAM/latest/UserGuide/getting-started_create-admin-group
 
 ###### Topics
 
-- [Configure an IAM policy to limit pushes and
-  merges to a branch](#how-to-conditional-branch-create-policy "#how-to-conditional-branch-create-policy")
-- [Apply the IAM policy to an IAM group or
-  role](#how-to-conditional-branch-apply-policy "#how-to-conditional-branch-apply-policy")
+- [Configure an IAM policy to limit pushes and merges to a branch](#how-to-conditional-branch-create-policy "#how-to-conditional-branch-create-policy")
+- [Apply the IAM policy to an IAM group or role](#how-to-conditional-branch-apply-policy "#how-to-conditional-branch-apply-policy")
 - [Test the policy](#how-to-conditional-branch-test "#how-to-conditional-branch-test")
 
-## Configure an IAM policy to limit pushes and
-
-merges to a branch
+## Configure an IAM policy to limit pushes and merges to a branch
 
 You can create a policy in IAM that prevents users from updating a branch, including
 pushing commits to a branch and merging pull requests to a branch. To do this, your policy uses a
@@ -112,18 +108,14 @@ not grant permissions. This is expected.
      is optional, but recommended.
     * Choose **Create policy**.
 
-## Apply the IAM policy to an IAM group or
-
-role
+## Apply the IAM policy to an IAM group or role
 
 You've created a policy that limits pushes and merges to a branch, but the policy has no
 effect until you apply it to an IAM user, group, or role. As a best practice, consider applying
 the policy to an IAM group or role. Applying policies to individual IAM users does not scale
 well.
 
-###### To apply the
-
-conditional policy to a group or role
+###### To apply the conditional policy to a group or role
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, if you want to apply the policy to an IAM group, choose

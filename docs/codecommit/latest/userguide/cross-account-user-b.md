@@ -1,6 +1,4 @@
-# Cross-account repository access: Actions for the repository
-
-user in AccountB
+# Cross-account repository access: Actions for the repository user in AccountB
 
 To access the repository in AccountA, users in the AccountB group must configure their
 local computers for repository access. The following sections provide steps and
@@ -8,14 +6,10 @@ examples.
 
 ###### Topics
 
-- [Step 1: Configure the AWS CLI and Git for an
-  AccountB user to access the repository in AccountA](#cross-account-configure-credentials "#cross-account-configure-credentials")
-- [Step 2: Clone and access the CodeCommit repository in
-  AccountA](#cross-account-clone-and-use "#cross-account-clone-and-use")
+- [Step 1: Configure the AWS CLI and Git for an AccountB user to access the repository in AccountA](#cross-account-configure-credentials "#cross-account-configure-credentials")
+- [Step 2: Clone and access the CodeCommit repository in AccountA](#cross-account-clone-and-use "#cross-account-clone-and-use")
 
-## Step 1: Configure the AWS CLI and Git for an
-
-AccountB user to access the repository in AccountA
+## Step 1: Configure the AWS CLI and Git for an AccountB user to access the repository in AccountA
 
 You cannot use SSH keys or Git credentials to access repositories in another Amazon Web Services account. AccountB
 users must configure their computers to use either **git-remote-codecommit**
@@ -26,9 +20,7 @@ Follow these steps to configure access using
 **git-remote-codecommit**. If you have not already installed
 **git-remote-codecommit**, download it from [**git-remote-codecommit**](https://pypi.org/project/git-remote-codecommit/ "https://pypi.org/project/git-remote-codecommit/")on the Python Package Index website.
 
-###### To configure the AWS CLI and Git for cross-account
-
-access
+###### To configure the AWS CLI and Git for cross-account access
 
 1. Install the AWS CLI on the local computer. See instructions for your operating system in [Installing the AWS CLI](../../../cli/latest/userguide/installing.md "../../../cli/latest/userguide/installing.md").
 2. Install Git on the local computer. To install Git, we recommend websites such as [Git Downloads](http://git-scm.com/downloads "http://git-scm.com/downloads") or [Git for Windows](http://msysgit.github.io/ "http://msysgit.github.io/").
@@ -142,9 +134,7 @@ output = json
 
 Save your changes, and close the plain-text editor.
 
-## Step 2: Clone and access the CodeCommit repository in
-
-AccountA
+## Step 2: Clone and access the CodeCommit repository in AccountA
 
 Run **git clone**, **git push**, and **git
 pull** to clone, push to, and pull from, the cross-account CodeCommit

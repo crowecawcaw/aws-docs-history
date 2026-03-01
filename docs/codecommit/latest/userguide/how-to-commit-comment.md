@@ -20,8 +20,7 @@ access, or temporary credentials.
 
 - [View comments on a commit in a repository](#how-to-commit-comment-view-console "#how-to-commit-comment-view-console")
 - [Add and reply to comments on a commit in a repository](#how-to-commit-comment-add-console "#how-to-commit-comment-add-console")
-- [View, add, update, and reply to commments
-  (AWS CLI)](#how-to-commit-comment-cli "#how-to-commit-comment-cli")
+- [View, add, update, and reply to commments (AWS CLI)](#how-to-commit-comment-cli "#how-to-commit-comment-cli")
 
 ## View comments on a commit in a repository
 
@@ -43,9 +42,7 @@ You can use the CodeCommit console to add comments to the comparison of a commit
 or to the comparison between two specified commits. You can also reply to comments with
 emojis, with your own comments, or both.
 
-### Add and reply to comments on a commit
-
-(console)
+### Add and reply to comments on a commit (console)
 
 You can add and reply to comments to a commit with text and with emojis. Your comments
 and emojis are marked as belonging to the IAM user or role you used to sign in to the
@@ -67,7 +64,7 @@ The page for that commit is displayed, along with any comments. 4. To add a comm
 
 
 
-    ![A general comment on the changes in a commit.](/images/codecommit/latest/userguide/images/codecommit-commenting-changecomment.png)
+    ![A general comment on the changes in a commit.](images/codecommit-commenting-changecomment.png)
     * To add a comment to a file in the commit, find the name of the file. Choose
      **Comment on file**, enter your comment, and then choose
      **Save**.
@@ -118,9 +115,7 @@ commit specifiers. Use the drop-down lists or paste in commit IDs. Choose **Comp
     .
     * To add general comments on the compared changes, go to **Comments on changes**.
 
-## View, add, update, and reply to commments
-
-(AWS CLI)
+## View, add, update, and reply to commments (AWS CLI)
 
 You can view, add, reply, update, and delete the contents of a comment by running the
 following commands:
@@ -134,9 +129,7 @@ following commands:
 - To reply to a comment with an emoji, run [put-comment-reaction](#how-to-commit-comment-cli-commit-reply-emoji "#how-to-commit-comment-cli-commit-reply-emoji").
 - To view emoji reactions to a comment, run [get-comment-reactions](#how-to-commit-comment-cli-commit-emoji-view "#how-to-commit-comment-cli-commit-emoji-view").
 
-### To view comments on a
-
-commit
+### To view comments on a commit
 
 1.  Run the **get-comments-for-compared-commit** command,
     specifying:
@@ -214,9 +207,7 @@ aws codecommit get-comments-for-compared-commit --repository-name `MyDemoRepo` -
 }
 ```
 
-### To view details of a comment on
-
-a commit
+### To view details of a comment on a commit
 
 1. Run the **get-comment** command, specifying the system-generated
    comment ID. For example:
@@ -248,9 +239,7 @@ aws codecommit get-comment --comment-id ff30b348EXAMPLEb9aa670f
 }
 ```
 
-### To delete the contents of a
-
-comment on a commit
+### To delete the contents of a comment on a commit
 
 1. Run the **delete-comment-content** command, specifying the
    system-generated comment ID. For example:
@@ -350,9 +339,7 @@ aws codecommit post-comment-for-compared-commit --repository-name MyDemoRepo --b
  }
 ```
 
-### To update a comment on a
-
-commit
+### To update a comment on a commit
 
 1. Run the **update-comment** command, specifying the system-generated
    comment ID and the content to replace any existing content.
@@ -386,9 +373,7 @@ aws codecommit update-comment --comment-id `442b498bEXAMPLE5756813` --content "F
  }
 ```
 
-### To reply to a comment on a
-
-commit
+### To reply to a comment on a commit
 
 1. To post a reply to a comment in a pull request, run the
    **post-comment-reply** command, specifying:
@@ -424,9 +409,7 @@ aws codecommit post-comment-reply --in-reply-to `abcd1234EXAMPLEb5678efgh` --con
  }
 ```
 
-### To reply to a comment on a
-
-commit with an emoji
+### To reply to a comment on a commit with an emoji
 
 1. To reply to a comment in a pull request with an emoji, or to change the value of
    your emoji reaction, run the **put-comment-reaction** command,
@@ -463,9 +446,7 @@ aws codecommit put-comment-reaction --comment-id `abcd1234EXAMPLEb5678efgh` --re
 
 2. If successful, this command produces no output.
 
-### To view emoji reactions to a
-
-comment
+### To view emoji reactions to a comment
 
 1. To view emoji reactions to a comment, including the users who reacted with those
    emojis, run the **get-comment-reactions** command, specifying the

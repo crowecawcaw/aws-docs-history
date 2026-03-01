@@ -10,33 +10,24 @@ use with no additional charge.
 - [Audience](#security_iam_audience "#security_iam_audience")
 - [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
-- [Authentication and access control for
-  AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md")
-- [How AWS CodeCommit works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [CodeCommit
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authentication and access control for AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md")
+- [How AWS CodeCommit works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
+- [CodeCommit resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
 - [Authorization based on CodeCommit tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [CodeCommit IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
-- [AWS CodeCommit identity-based
-  policy examples](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
-- [Troubleshooting AWS CodeCommit identity
-  and access](#security_iam_troubleshoot "#security_iam_troubleshoot")
+- [CodeCommit IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [AWS CodeCommit identity-based policy examples](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
+- [Troubleshooting AWS CodeCommit identity and access](#security_iam_troubleshoot "#security_iam_troubleshoot")
 
 ## Audience
 
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting AWS CodeCommit identity
-  and access](#security_iam_troubleshoot "#security_iam_troubleshoot"))
+  administrator if you cannot access features (see [Troubleshooting AWS CodeCommit identity and access](#security_iam_troubleshoot "#security_iam_troubleshoot"))
 - **Service administrator** - determine user access and
-  submit permission requests (see [How AWS CodeCommit works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
+  submit permission requests (see [How AWS CodeCommit works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
-  access (see [AWS CodeCommit identity-based
-  policy examples](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples"))
+  access (see [AWS CodeCommit identity-based policy examples](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples"))
 
 ## Authenticating with identities
 
@@ -70,17 +61,13 @@ Using policies, administrators specify who has access to what by defining which 
 
 By default, users and roles have no permissions. An IAM administrator creates IAM policies and adds them to roles, which users can then assume. IAM policies define permissions regardless of the method used to perform the operation.
 
-### Identity-based
-
-policies
+### Identity-based policies
 
 Identity-based policies are JSON permissions policy documents that you attach to an identity (user, group, or role). These policies control what actions identities can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
 
 Identity-based policies can be _inline policies_ (embedded directly into a single identity) or _managed policies_ (standalone policies attached to multiple identities). To learn how to choose between managed and inline policies, see [Choose between managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md "../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md") in the _IAM User Guide_.
 
-### Resource-based
-
-policies
+### Resource-based policies
 
 Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy.
 
@@ -104,15 +91,11 @@ AWS supports additional policy types that can set the maximum permissions grante
 - **Resource control policies (RCPs)** – Set the maximum available permissions for resources in your accounts. For more information, see [Resource control policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") in the _AWS Organizations User Guide_.
 - **Session policies** – Advanced policies passed as a parameter when creating a temporary session for a role or federated user. For more information, see [Session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _IAM User Guide_.
 
-### Multiple policy
-
-types
+### Multiple policy types
 
 When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.
 
-## CodeCommit
-
-resource-based policies
+## CodeCommit resource-based policies
 
 CodeCommit does not support resource-based policies.
 
@@ -122,16 +105,13 @@ You can attach tags to CodeCommit resources or pass tags in a request to CodeCom
 access based on tags, you provide tag information in the [condition element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") of a policy using
 the `codecommit:ResourceTag/`key-name``,
  `aws:RequestTag/`key-name``, or `aws:TagKeys` condition
-keys. For more information about tagging CodeCommit resources, see [Example 5: Deny or allow
-actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5 "customer-managed-policies.md#identity-based-policies-example-5").
+keys. For more information about tagging CodeCommit resources, see [Example 5: Deny or allow actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5 "customer-managed-policies.md#identity-based-policies-example-5").
 For more information about tagging
 strategies, see [Tagging AWS Resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md").
 
 CodeCommit also supports policies based on session tags. For more information, see [Session Tags](../../../IAM/latest/UserGuide/id_session-tags.md "../../../IAM/latest/UserGuide/id_session-tags.md").
 
-### Using tags to provide
-
-identity information in CodeCommit
+### Using tags to provide identity information in CodeCommit
 
 CodeCommit supports the use of session tags, which are key-value pair attributes that you
 pass when you assume an IAM role, use temporary credentials, or federate a user in
@@ -243,16 +223,12 @@ aws sts get-federation-token \
 
 For more information, see [Passing Session Tags using GetFederationToken](../../../IAM/latest/UserGuide/id_session-tags.md#id_session-tags_adding-getfederationtoken "../../../IAM/latest/UserGuide/id_session-tags.md#id_session-tags_adding-getfederationtoken").
 
-## CodeCommit IAM
-
-roles
+## CodeCommit IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your Amazon Web Services account that has specific permissions.
 
-### Using temporary
-
-credentials with CodeCommit
+### Using temporary credentials with CodeCommit
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
@@ -260,9 +236,7 @@ calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIRefer
 
 CodeCommit supports using temporary credentials. For more information, see [Connecting to AWS CodeCommit repositories with rotating credentials](temporary-access.md "temporary-access.md").
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your
@@ -282,9 +256,7 @@ functionality of the service.
 
 CodeCommit does not use service roles.
 
-## AWS CodeCommit identity-based
-
-policy examples
+## AWS CodeCommit identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify
 CodeCommit resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -295,16 +267,11 @@ those permissions.
 
 For examples of policies, see the following:
 
-- [Example 1: Allow a user
-  to perform CodeCommit operations in a single AWS Region](customer-managed-policies.md#identity-based-policies-example-1 "customer-managed-policies.md#identity-based-policies-example-1")
-- [Example 2: Allow a user
-  to use Git for a single repository](customer-managed-policies.md#identity-based-policies-example-2 "customer-managed-policies.md#identity-based-policies-example-2")
-- [Example 3: Allow a user
-  connecting from a specified IP address range access to a repository](customer-managed-policies.md#identity-based-policies-example-3 "customer-managed-policies.md#identity-based-policies-example-3")
-- [Example 4: Deny or allow
-  actions on branches](customer-managed-policies.md#identity-based-policies-example-4 "customer-managed-policies.md#identity-based-policies-example-4")
-- [Example 5: Deny or allow
-  actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5 "customer-managed-policies.md#identity-based-policies-example-5")
+- [Example 1: Allow a user to perform CodeCommit operations in a single AWS Region](customer-managed-policies.md#identity-based-policies-example-1 "customer-managed-policies.md#identity-based-policies-example-1")
+- [Example 2: Allow a user to use Git for a single repository](customer-managed-policies.md#identity-based-policies-example-2 "customer-managed-policies.md#identity-based-policies-example-2")
+- [Example 3: Allow a user connecting from a specified IP address range access to a repository](customer-managed-policies.md#identity-based-policies-example-3 "customer-managed-policies.md#identity-based-policies-example-3")
+- [Example 4: Deny or allow actions on branches](customer-managed-policies.md#identity-based-policies-example-4 "customer-managed-policies.md#identity-based-policies-example-4")
+- [Example 5: Deny or allow actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5 "customer-managed-policies.md#identity-based-policies-example-5")
 - [Configure cross-account access to an AWS CodeCommit repository using roles](cross-account.md "cross-account.md")
 
 To learn how to create an IAM identity-based policy using these example JSON policy
@@ -313,18 +280,12 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the
-  CodeCommit console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Viewing
-  CodeCommit repositories based on tags](#security_iam_id-based-policy-examples-view-repositories-tags "#security_iam_id-based-policy-examples-view-repositories-tags")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the CodeCommit console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Viewing CodeCommit repositories based on tags](#security_iam_id-based-policy-examples-view-repositories-tags "#security_iam_id-based-policy-examples-view-repositories-tags")
 
-### Policy best
-
-practices
+### Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete CodeCommit resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -357,9 +318,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-### Using the
-
-CodeCommit console
+### Using the CodeCommit console
 
 To access the AWS CodeCommit console, you must have a minimum set of
 permissions. These permissions must allow you to list and view details about the
@@ -371,16 +330,13 @@ To ensure that those entities can still use the CodeCommit console, also attach
 the following AWS managed policy to the entities. For more information, see [Adding Permissions to a User](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_:
 
-For more information, see [Using
-identity-based policies (IAM Policies) for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md "auth-and-access-control-iam-identity-based-access-control.md").
+For more information, see [Using identity-based policies (IAM Policies) for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md "auth-and-access-control-iam-identity-based-access-control.md").
 
 You don't need to allow minimum console permissions for users that are making calls
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
 the API operation that you're trying to perform.
 
-### Allow users
-
-to view their own permissions
+### Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -420,52 +376,37 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-### Viewing
-
-CodeCommit `repositories` based on tags
+### Viewing CodeCommit `repositories` based on tags
 
 You can use conditions in your identity-based policy to control access to
 CodeCommit resources based on tags. For an example policy that demonstrates how to
-do this, see [Example 5: Deny or allow
-actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5 "customer-managed-policies.md#identity-based-policies-example-5").
+do this, see [Example 5: Deny or allow actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5 "customer-managed-policies.md#identity-based-policies-example-5").
 
 For more information, see [IAM JSON Policy
 Elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
 
-## Troubleshooting AWS CodeCommit identity
-
-and access
+## Troubleshooting AWS CodeCommit identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with CodeCommit and IAM.
 
 ###### Topics
 
-- [I Am not authorized to
-  perform an action in CodeCommit](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I Am not authorized to perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to view my access
-  keys](#security_iam_troubleshoot-access-keys "#security_iam_troubleshoot-access-keys")
-- [I'm an administrator and want
-  to allow others to access CodeCommit](#security_iam_troubleshoot-admin-delegate "#security_iam_troubleshoot-admin-delegate")
-- [I want to allow people
-  outside of my Amazon Web Services account to access my CodeCommit resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I Am not authorized to perform an action in CodeCommit](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I Am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I want to view my access keys](#security_iam_troubleshoot-access-keys "#security_iam_troubleshoot-access-keys")
+- [I'm an administrator and want to allow others to access CodeCommit](#security_iam_troubleshoot-admin-delegate "#security_iam_troubleshoot-admin-delegate")
+- [I want to allow people outside of my Amazon Web Services account to access my CodeCommit resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-### I Am not authorized to
-
-perform an action in CodeCommit
+### I Am not authorized to perform an action in CodeCommit
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you
 must contact your administrator for assistance. Your administrator is the person that
 provided you with your sign-in credentials.
 
-For more information, see [Permissions required to use the CodeCommit
-console](auth-and-access-control-iam-identity-based-access-control.md#console-permissions "auth-and-access-control-iam-identity-based-access-control.md#console-permissions")
+For more information, see [Permissions required to use the CodeCommit console](auth-and-access-control-iam-identity-based-access-control.md#console-permissions "auth-and-access-control-iam-identity-based-access-control.md#console-permissions")
 
-### I Am not authorized to perform
-
-iam:PassRole
+### I Am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to CodeCommit.
 
@@ -484,9 +425,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-### I want to view my access
-
-keys
+### I want to view my access keys
 
 After you create your IAM user access keys, you can view your access key ID at any time. However, you can't view your secret access key again.
 If you lose your secret key, you must create a new access key pair.
@@ -505,9 +444,7 @@ is available only at the time you create it. If you lose your secret access key,
 maximum of two access keys. If you already have two, you must delete one key pair before creating a new one. To view instructions, see [Managing access keys](../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_CreateAccessKey "../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_CreateAccessKey") in the
 _IAM User Guide_.
 
-### I'm an administrator and want
-
-to allow others to access CodeCommit
+### I'm an administrator and want to allow others to access CodeCommit
 
 To allow others to access CodeCommit, you must grant permission to the people or applications that need access. If you are using AWS IAM Identity Center
 to manage people and applications, you assign permission sets to users or groups to define their level of access. Permission sets automatically create
@@ -518,8 +455,6 @@ a policy to the entity that grants them the correct permissions in CodeCommit. A
 or application developer. They will use those credentials to access AWS. To learn more about creating IAM users, groups, policies, and permissions,
 see [IAM Identities](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") and [Policies and permissions in IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the _IAM User Guide_.
 
-### I want to allow people
-
-outside of my Amazon Web Services account to access my CodeCommit resources
+### I want to allow people outside of my Amazon Web Services account to access my CodeCommit resources
 
 For more information, see [Configure cross-account access to an AWS CodeCommit repository using roles](cross-account.md "cross-account.md").

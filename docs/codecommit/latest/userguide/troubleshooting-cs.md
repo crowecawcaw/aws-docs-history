@@ -5,16 +5,12 @@ repositories.
 
 ###### Topics
 
-- [Access error: Encryption key access denied for a CodeCommit
-  repository from the console or AWS CLI](#troubleshooting-ae3 "#troubleshooting-ae3")
+- [Access error: Encryption key access denied for a CodeCommit repository from the console or AWS CLI](#troubleshooting-ae3 "#troubleshooting-ae3")
 - [Encryption error: Repository can't be decrypted](#troubleshooting-ck1 "#troubleshooting-ck1")
-- [Console error: Cannot browse the code in a CodeCommit repository
-  from the console](#troubleshooting-cs1 "#troubleshooting-cs1")
+- [Console error: Cannot browse the code in a CodeCommit repository from the console](#troubleshooting-cs1 "#troubleshooting-cs1")
 - [Display error: Cannot view a file or a comparison between files](#troubleshooting-dd1 "#troubleshooting-dd1")
 
-## Access error: Encryption key access denied for a CodeCommit
-
-repository from the console or AWS CLI
+## Access error: Encryption key access denied for a CodeCommit repository from the console or AWS CLI
 
 **Problem:** When you try to access CodeCommit from the console or the AWS CLI,
 an error message appears containing the phrase `EncryptionKeyAccessDeniedException`
@@ -44,9 +40,7 @@ For more information about CodeCommit and AWS Key Management Service, see [AWS K
 If the key that was used to encrypt and decrypt the data for the repository has been permanently deleted or is otherwise inaccessible,
 data in the repositories encrypted with that key cannot be accessed.
 
-## Console error: Cannot browse the code in a CodeCommit repository
-
-from the console
+## Console error: Cannot browse the code in a CodeCommit repository from the console
 
 **Problem:** When you try to browse the contents of a repository from the console,
 an error message appears denying access.
@@ -54,8 +48,7 @@ an error message appears denying access.
 **Possible fixes:** The most common cause for this error is
 that an IAM policy applied to your Amazon Web Services account denies one or more of the permissions
 required for browsing code from the CodeCommit console. For more information about CodeCommit access
-permissions and browsing, see [Authentication and access control for
-AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md").
+permissions and browsing, see [Authentication and access control for AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md").
 
 ## Display error: Cannot view a file or a comparison between files
 

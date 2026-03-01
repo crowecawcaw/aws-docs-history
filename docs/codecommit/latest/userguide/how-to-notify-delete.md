@@ -11,13 +11,10 @@ triggers. Be sure to delete those resources, too, if they are no longer needed.
 
 ###### Topics
 
-- [Delete a trigger from a repository
-  (console)](#how-to-notify-delete-console "#how-to-notify-delete-console")
+- [Delete a trigger from a repository (console)](#how-to-notify-delete-console "#how-to-notify-delete-console")
 - [Delete a trigger from a repository (AWS CLI)](#how-to-notify-delete-cli "#how-to-notify-delete-cli")
 
-## Delete a trigger from a repository
-
-(console)
+## Delete a trigger from a repository (console)
 
 1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home").
 2. In **Repositories**, choose the repository where you want to delete triggers

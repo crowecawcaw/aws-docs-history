@@ -21,8 +21,6 @@ from only the specific VPC in the AWS network.
 
 For more information, see the following:
 
-- [Example 1: Allow a user
-  to perform CodeCommit operations in a single AWS Region](customer-managed-policies.md#identity-based-policies-example-1 "customer-managed-policies.md#identity-based-policies-example-1")
-- [Example 3: Allow a user
-  connecting from a specified IP address range access to a repository](customer-managed-policies.md#identity-based-policies-example-3 "customer-managed-policies.md#identity-based-policies-example-3")
+- [Example 1: Allow a user to perform CodeCommit operations in a single AWS Region](customer-managed-policies.md#identity-based-policies-example-1 "customer-managed-policies.md#identity-based-policies-example-1")
+- [Example 3: Allow a user connecting from a specified IP address range access to a repository](customer-managed-policies.md#identity-based-policies-example-3 "customer-managed-policies.md#identity-based-policies-example-3")
 - [Using AWS CodeCommit with interface VPC endpoints](codecommit-and-interface-VPC.md "codecommit-and-interface-VPC.md")

@@ -13,8 +13,7 @@ The following examples show events for CodeCommit.
 CodeCommit supports providing `displayName` and `emailAddress` information
 included in session tags in events, if that information is available. For more information,
 see [Session
-Tags](../../../IAM/latest/UserGuide/id_session-tags.md "../../../IAM/latest/UserGuide/id_session-tags.md") and [Using tags to provide
-identity information in CodeCommit](security-iam.md#security-iam_service-with-iam-tags-identity "security-iam.md#security-iam_service-with-iam-tags-identity").
+Tags](../../../IAM/latest/UserGuide/id_session-tags.md "../../../IAM/latest/UserGuide/id_session-tags.md") and [Using tags to provide identity information in CodeCommit](security-iam.md#security-iam_service-with-iam-tags-identity "security-iam.md#security-iam_service-with-iam-tags-identity").
 
 ###### Topics
 

@@ -36,8 +36,7 @@ Complete the [prerequisites and setup](setting-up.md "setting-up.md"), including
 - [Step 2: Create a local repo](#getting-started-set-up-folders "#getting-started-set-up-folders")
 - [Step 3: Create your first commit](#getting-started-create-commit "#getting-started-create-commit")
 - [Step 4: Push your first commit](#getting-started-init-repo "#getting-started-init-repo")
-- [Step 5: Share the CodeCommit repository and push and
-  pull another commit](#getting-started-pull-commits "#getting-started-pull-commits")
+- [Step 5: Share the CodeCommit repository and push and pull another commit](#getting-started-pull-commits "#getting-started-pull-commits")
 - [Step 6: Create and share a branch](#getting-started-branching "#getting-started-branching")
 - [Step 7: Create and share a tag](#getting-started-tags "#getting-started-tags")
 - [Step 8: Set up access permissions](#getting-started-permissions "#getting-started-permissions")
@@ -225,9 +224,7 @@ git push -u origin main
 After you have pushed files to your CodeCommit repository, you can use the CodeCommit console to view the
 contents. For more information, see [Browse files in a repository](how-to-browse.md "how-to-browse.md").
 
-## Step 5: Share the CodeCommit repository and push and
-
-pull another commit
+## Step 5: Share the CodeCommit repository and push and pull another commit
 
 In this step, you share information about the CodeCommit repository with a fellow team member.
 The team member uses this information to get a local copy, make some changes to it, and then
@@ -501,8 +498,7 @@ for access to CodeCommit repositories.
 
 If you are using federated access, temporary credentials, or a web identity provider such as
 IAM Identity Center, set up users, access, and permissions for your identity provider, and then use **git-remote-codecommit**.
-For more information, see [Setup steps for HTTPS connections to AWS CodeCommit with
-git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md") and
+For more information, see [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md") and
 [Connecting to AWS CodeCommit repositories with rotating credentials](temporary-access.md "temporary-access.md").
 
 To do this, you use the IAM console to create a user, who, by default, does not
@@ -526,11 +522,7 @@ access key for each user** box, and then choose **Create**. 4. Choose **Show Use
 key ID and secret access key or choose **Download Credentials**. 5. Follow the instructions in [For HTTPS users using Git credentials](setting-up-gc.md "setting-up-gc.md") to generate and supply the credentials
 of the IAM user.
 
-If you want to use SSH, follow the instructions in [SSH
-and Linux, macOS, or Unix: Set up the public and private keys for Git and
-CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes "setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes") or [Step 3:
-
-Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows "setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows") to set up the user with public and
+If you want to use SSH, follow the instructions in [SSH and Linux, macOS, or Unix: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes "setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes") or [Step 3: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows "setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows") to set up the user with public and
 private keys. 6. Run **git pull**. The following error should appear:
 
 For HTTPS:
@@ -596,8 +588,7 @@ JSON
 ```
 
 For information about other CodeCommit action and resource permissions you can give to
-users, see [Authentication and access control for
-AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md"). 11. In the navigation pane, choose **Users**. 12. Choose the example user name (for example,
+users, see [Authentication and access control for AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md"). 11. In the navigation pane, choose **Users**. 12. Choose the example user name (for example,
 `JaneDoe-CodeCommit`) to which you want to attach the
 policy. 13. Choose the **Permissions** tab. 14. In **Managed Policies**, choose **Attach
 Policy**. 15. Select the `CodeCommitAccess-GettingStarted` policy you
@@ -605,15 +596,10 @@ just created, and then choose **Attach Policy**. 16. Run **git pull**. This time
 `Already up-to-date` message should appear. 17. If you are using HTTPS, switch to your original Git credentials or, if using
 **git-remote-codecommit**, your usual profile. For more information, see
 the instructions in [Setup for HTTPS users using Git credentials](setting-up-gc.md "setting-up-gc.md") or
-[Setup steps for HTTPS connections to AWS CodeCommit with
-git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
+[Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
 
-If you are using SSH, switch to your original keys. For more information, see [SSH
-and Linux, macOS, or Unix: Set up the public and private keys for Git and
-CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes "setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes") or
-[Step 3:
-
-Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows "setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows").
+If you are using SSH, switch to your original keys. For more information, see [SSH and Linux, macOS, or Unix: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes "setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes") or
+[Step 3: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows "setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows") .
 
 You've reached the end of this tutorial.
 

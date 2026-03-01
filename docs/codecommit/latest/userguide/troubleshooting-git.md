@@ -7,20 +7,14 @@ or SSH, also see [Troubleshooting Git credentials (HTTPS)](troubleshooting-gc.md
 
 ###### Topics
 
-- [Git error: Error: RPC failed; result=56, HTTP code = 200
-  fatal: The remote end hung up unexpectedly](#troubleshooting-ge1 "#troubleshooting-ge1")
+- [Git error: Error: RPC failed; result=56, HTTP code = 200 fatal: The remote end hung up unexpectedly](#troubleshooting-ge1 "#troubleshooting-ge1")
 - [Git error: Too many reference update commands](#troubleshooting-ge2 "#troubleshooting-ge2")
-- [Git error: Push via HTTPS is broken in some versions of
-  Git](#troubleshooting-ge3 "#troubleshooting-ge3")
+- [Git error: Push via HTTPS is broken in some versions of Git](#troubleshooting-ge3 "#troubleshooting-ge3")
 - [Git error: 'gnutls_handshake() failed'](#troubleshooting-ge4 "#troubleshooting-ge4")
-- [Git error: Git cannot find the CodeCommit repository or does not
-  have permission to access the repository](#troubleshooting-ge5 "#troubleshooting-ge5")
-- [Git on Windows: No supported authentication methods available
-  (publickey)](#troubleshooting-gw1 "#troubleshooting-gw1")
+- [Git error: Git cannot find the CodeCommit repository or does not have permission to access the repository](#troubleshooting-ge5 "#troubleshooting-ge5")
+- [Git on Windows: No supported authentication methods available (publickey)](#troubleshooting-gw1 "#troubleshooting-gw1")
 
-## Git error: Error: RPC failed; result=56, HTTP code = 200
-
-fatal: The remote end hung up unexpectedly
+## Git error: Error: RPC failed; result=56, HTTP code = 200 fatal: The remote end hung up unexpectedly
 
 **Problem:** When pushing a large change, a large number of
 changes, or a large repository, long-running HTTPS connections are often terminated
@@ -39,9 +33,7 @@ is 4,000. This error appears when the push contains more than 4,000 reference up
 individually with `git push --all` and `git push --tags`. If you have
 too many tags, split the tags into multiple pushes. For more information, see [Quotas](limits.md "limits.md").
 
-## Git error: Push via HTTPS is broken in some versions of
-
-Git
+## Git error: Push via HTTPS is broken in some versions of Git
 
 **Problem:** An issue with the curl update to 7.41.0
 causes SSPI-based digest authentication to fail. Known affected versions of Git include
@@ -68,18 +60,14 @@ Ubuntu forums.
 
 Alternatively, use SSH instead of HTTPS to communicate with CodeCommit repositories.
 
-## Git error: Git cannot find the CodeCommit repository or does not
-
-have permission to access the repository
+## Git error: Git cannot find the CodeCommit repository or does not have permission to access the repository
 
 **Problem:** A trailing slash in the connection string can cause connection attempts to fail.
 
 **Possible fixes:** Make sure that you have provided the correct name and connection string for the repository, and that
 there are no trailing slashes. For more information, see [Connect to a repository](how-to-connect.md "how-to-connect.md").
 
-## Git on Windows: No supported authentication methods available
-
-(publickey)
+## Git on Windows: No supported authentication methods available (publickey)
 
 **Problem:** After you configure SSH access for Windows, you
 see an access denied error when you attempt to use commands such as **git
