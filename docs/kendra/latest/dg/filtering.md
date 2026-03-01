@@ -223,9 +223,7 @@ with the value "husky", you get `FacetResults` with three facets.
 
 For more information, see [Query responses and response types](query-responses-types.md "query-responses-types.md").
 
-## Using document attributes to filter search
-
-results
+## Using document attributes to filter search results
 
 By default, `Query` returns all search results. To filter responses,
 you can perform logical operations on the document attributes. For example, if you
@@ -288,9 +286,7 @@ response=kendra.query(
         )
 ```
 
-## Filtering each document's attributes
-
-in the search results
+## Filtering each document's attributes in the search results
 
 Amazon Kendra returns document attributes for each document in the search
 results. You can filter certain document attributes you want to include in the

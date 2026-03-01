@@ -204,10 +204,7 @@ a data source that updates your index on a regular schedule.
 
 ###### Topics
 
-- [Adding documents directly to an index with batch
-  upload](in-adding-documents.md "in-adding-documents.md")
-- [Adding frequently asked questions (FAQs) to an
-  index](in-creating-faq.md "in-creating-faq.md")
+- [Adding documents directly to an index with batch upload](in-adding-documents.md "in-adding-documents.md")
+- [Adding frequently asked questions (FAQs) to an index](in-creating-faq.md "in-creating-faq.md")
 - [Creating custom document fields](custom-attributes.md "custom-attributes.md")
-- [Controlling user access to documents with
-  tokens](create-index-access-control.md "create-index-access-control.md")
+- [Controlling user access to documents with tokens](create-index-access-control.md "create-index-access-control.md")

@@ -2,9 +2,7 @@
 
 This section can help you solve common issues when configuring and using Amazon Kendra data source connectors.
 
-## My documents were not
-
-indexed
+## My documents were not indexed
 
 When you synchronize your Amazon Kendra index with a data source, you may run
 into issues that prevent the documents from being indexed. Indexing is a two-step
@@ -25,9 +23,7 @@ errors using the CloudWatch console.
 
 To generate a document sync status report, see [I want to generate a sync status report for my documents](troubleshooting-data-sources.md#troubleshooting-data-sources-sync-status-manifest "troubleshooting-data-sources.md#troubleshooting-data-sources-sync-status-manifest").
 
-## My synchronization job
-
-failed
+## My synchronization job failed
 
 A synchronization job typically fails when there is a configuration error in the
 index or the data source. In the console, you can find the error message in the
@@ -65,9 +61,7 @@ source, see [IAM roles](iam-roles.md "iam-roles.md").
 
 To generate a document sync status report, see [I want to generate a sync status report for my documents](troubleshooting-data-sources.md#troubleshooting-data-sources-sync-status-manifest "troubleshooting-data-sources.md#troubleshooting-data-sources-sync-status-manifest").
 
-## My
-
-synchronization job is incomplete
+## My synchronization job is incomplete
 
 Jobs are generally incomplete when they have completed the data source level
 process but have some error during the document level process. When a job is
@@ -87,9 +81,7 @@ To troubleshoot an incomplete synchronization job, look first to your CloudWatch
 
 To generate a document sync status report, see [I want to generate a sync status report for my documents](troubleshooting-data-sources.md#troubleshooting-data-sources-sync-status-manifest "troubleshooting-data-sources.md#troubleshooting-data-sources-sync-status-manifest").
 
-## My
-
-synchronization job succeeded but there are no indexed documents
+## My synchronization job succeeded but there are no indexed documents
 
 Occasionally, an index synchronization job run will be marked as
 **Succeeded** but there are no new or updated documents indexed
@@ -107,9 +99,7 @@ when you expect them. Possible reasons include:
 
 To generate a document sync status report, see [I want to generate a sync status report for my documents](troubleshooting-data-sources.md#troubleshooting-data-sources-sync-status-manifest "troubleshooting-data-sources.md#troubleshooting-data-sources-sync-status-manifest").
 
-## I am running into
-
-file format issues while syncing my data source
+## I am running into file format issues while syncing my data source
 
 If you run into file format issues while adding files to your data source or
 syncing your data source, make sure that your document types are Amazon Kendra
@@ -119,9 +109,7 @@ types or formats](index-document-types.md "index-document-types.md").
 If you are using the `BatchPutDocument` API with plain text files,
 specify `PLAIN_TEXT` as content type.
 
-## I want to
-
-generate a sync history report for my documents
+## I want to generate a sync history report for my documents
 
 You can view a document-level sync run history report in CloudWatch for your data source
 sync job by selecting **View Report**. A sync run history report
@@ -181,9 +169,7 @@ have to set up a new bucket to store new sync reports.
 A sync history report provides information only about whether an Amazon S3
 connector successfully crawled and ingested data.
 
-## How much time does syncing
-
-a data source take?
+## How much time does syncing a data source take?
 
 If there are no updates to documents, sync time for a Amazon Kendra index
 increases in linear proportion to the number of documents. For example, 1,000
@@ -192,9 +178,7 @@ documents without any updates will take about 10 minutes. If there are any updat
 to the documents, then the sync time will increase based on the number of documents
 updated.
 
-## What is the charge for
-
-syncing a data source?
+## What is the charge for syncing a data source?
 
 When you sync your index, it takes two minutes to warm up and activate Amazon EC2 to establish the necessary connections. You are not charged during
 this process. Your usage meter begins only after the sync job starts. For more
@@ -208,9 +192,7 @@ virtual private cloud (VPC) data source, it's likely that your VPC IAM role lack
 you use for your data source has the attached permissions. For more information, see
 [Virtual private cloud IAM role](iam-roles.md#iam-roles-vpc "iam-roles.md#iam-roles-vpc").
 
-## I am unable to use search
-
-index links to open my Amazon S3 objects
+## I am unable to use search index links to open my Amazon S3 objects
 
 Your Amazon Kendra index can only access files that an Amazon S3 data
 source grants it permissions to access. For example, Amazon Kendra cannot
@@ -229,10 +211,7 @@ you have two options:
   (CDN) connected to an Amazon S3 bucket. Or, you can use an API Gateway proxy endpoint that returns a presigned URL and redirect to
   it.
 
-## I am
-
-getting an **`AccessDenied When Using SSL Certificate File`**
-error message
+## I am getting an **`AccessDenied When Using SSL Certificate File`** error message
 
 If you are getting an access denied error when using an SSL certificate with your
 data source, make sure that your IAM role has the permission to
@@ -241,17 +220,13 @@ encrypted with an AWS KMS key, your IAM role should also
 have permission to decrypt using the AWS KMS key. For more information,
 see [_Authentication and access control for AWS KMS_](../../../kms/latest/developerguide/control-access.md "../../../kms/latest/developerguide/control-access.md").
 
-## I am
-
-getting an authorization error when using a SharePoint data source
+## I am getting an authorization error when using a SharePoint data source
 
 If you are getting an authorization error while syncing your index with a
 SharePoint data source, confirm that you have a Site Admin role assigned to you in
 SharePoint.
 
-## My index
-
-does not crawl documents from my Confluence data source
+## My index does not crawl documents from my Confluence data source
 
 If your Amazon Kendra index is not crawling documents from your Confluence
 data source during the syncing process, confirm that you are part of Administrator

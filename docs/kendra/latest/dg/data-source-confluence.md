@@ -27,9 +27,7 @@ API.
 
 Amazon Kendra has two versions of the Confluence connector. The following features are supported.
 
-###### \*\*Confluence connector V2.0 / [TemplateConfiguration](../APIReference/API_TemplateConfiguration.md "../APIReference/API_TemplateConfiguration.md")
-
-API\*\*
+###### **Confluence connector V2.0 / [TemplateConfiguration](../APIReference/API_TemplateConfiguration.md "../APIReference/API_TemplateConfiguration.md") API**
 
 - Field mappings
 - User access control
@@ -37,9 +35,7 @@ API\*\*
 - Full and incremental content syncs
 - Virtual private cloud (VPC)
 
-###### \*\*Confluence connector V1.0 / [ConfluenceConfiguration](../APIReference/API_ConfluenceConfiguration.md "../APIReference/API_ConfluenceConfiguration.md")
-
-API\*\* (no longer supported)
+###### **Confluence connector V1.0 / [ConfluenceConfiguration](../APIReference/API_ConfluenceConfiguration.md "../APIReference/API_ConfluenceConfiguration.md") API** (no longer supported)
 
 - Field mappings
 - User access control

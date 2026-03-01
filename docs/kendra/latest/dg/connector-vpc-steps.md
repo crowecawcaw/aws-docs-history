@@ -1,6 +1,4 @@
-# Configuring Amazon VPC support for
-
-Amazon Kendra connectors
+# Configuring Amazon VPC support for Amazon Kendra connectors
 
 To configure Amazon VPC for use with your Amazon Kendra connectors,
 take the following steps.
@@ -9,8 +7,7 @@ take the following steps.
 
 - [Step 1. Create Amazon VPC subnets for Amazon Kendra](#connector-vpc-prerequisites-1 "#connector-vpc-prerequisites-1")
 - [Step 2. Create Amazon VPC security groups for Amazon Kendra](#connector-vpc-prerequisites-2 "#connector-vpc-prerequisites-2")
-- [Step 3. Configure your external
-  data source and Amazon VPC](#connector-vpc-prerequisites-3 "#connector-vpc-prerequisites-3")
+- [Step 3. Configure your external data source and Amazon VPC](#connector-vpc-prerequisites-3 "#connector-vpc-prerequisites-3")
 
 ## Step 1. Create Amazon VPC subnets for Amazon Kendra
 
@@ -84,9 +81,7 @@ values for Amazon Kendra to use:
 For more information about how to configure Amazon VPC security
 groups, see [Security group rules](../../../vpc/latest/userguide/security-group-rules.md "../../../vpc/latest/userguide/security-group-rules.md") in the _Amazon VPC User Guide_.
 
-## Step 3. Configure your external
-
-data source and Amazon VPC
+## Step 3. Configure your external data source and Amazon VPC
 
 Make sure that your external data source has the correct permissions
 configuration and network settings for Amazon Kendra to access it. You can

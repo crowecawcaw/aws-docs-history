@@ -65,9 +65,7 @@ the Service Quotas console.
 | Maximum number of synonym rules per thesaurus                      | 10,000  | Developer, Enterprise | Yes        |
 | Maximum number of synonyms per term in all thesauri in an<br>index | 10      | Developer, Enterprise | No         |
 
-### Amazon Kendra experience
-
-quotas
+### Amazon Kendra experience quotas
 
 | Description                                              | Default | Edition               | Adjustable |
 | -------------------------------------------------------- | ------- | --------------------- | ---------- |
@@ -123,9 +121,7 @@ Query per second is shared across retrieve and query API.
 | Maximum number of characters per query text in a featured results<br>set | 1000    | Enterprise | Yes        |
 | Maximum number of featured results sets per index                        | 50      | Enterprise | Yes        |
 
-### Rescore/rerank search results
-
-quotas
+### Rescore/rerank search results quotas
 
 | Description                                                                                                                                          | Default | Edition    | Adjustable |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---------- | ---------- |

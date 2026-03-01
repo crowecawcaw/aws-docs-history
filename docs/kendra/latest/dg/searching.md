@@ -28,5 +28,4 @@ with Amazon Lex, see [Creating a FAQ Bot for an Amazon Kendra Index](../../../le
 - [Filtering on user context](user-context-filter.md "user-context-filter.md")
 - [Query responses and response types](query-responses-types.md "query-responses-types.md")
 - [Tuning and sorting responses](tuning-sorting-responses.md "tuning-sorting-responses.md")
-- [Collapsing/expanding query
-  results](expand-collapse-query-results.md "expand-collapse-query-results.md")
+- [Collapsing/expanding query results](expand-collapse-query-results.md "expand-collapse-query-results.md")

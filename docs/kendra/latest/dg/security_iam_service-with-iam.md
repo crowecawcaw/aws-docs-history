@@ -1,6 +1,4 @@
-# How Amazon Kendra works with
-
-IAM
+# How Amazon Kendra works with IAM
 
 Before you use IAM to manage access to Amazon Kendra, you should understand what
 IAM features are available to use with Amazon Kendra. To get a high-level view of how
@@ -9,19 +7,13 @@ Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [Amazon Kendra
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Amazon Kendra
-  Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Amazon Kendra identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Amazon Kendra Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
 - [Access control lists (ACLs)](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")
-- [Authorization based on
-  Amazon Kendra tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Amazon Kendra IAM
-  Roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Authorization based on Amazon Kendra tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Amazon Kendra IAM Roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Amazon Kendra
-
-identity-based policies
+## Amazon Kendra identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -130,12 +122,9 @@ _IAM User Guide_.
 
 ### Examples
 
-To view examples of Amazon Kendra identity-based policies, see [Amazon Kendra Identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Kendra identity-based policies, see [Amazon Kendra Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Amazon Kendra
-
-Resource-based policies
+## Amazon Kendra Resource-based policies
 
 Amazon Kendra does not support resource-based policies.
 
@@ -144,9 +133,7 @@ Amazon Kendra does not support resource-based policies.
 Amazon Kendra does not support access control lists (ACLs) for access to AWS
 services and resources.
 
-## Authorization based on
-
-Amazon Kendra tags
+## Authorization based on Amazon Kendra tags
 
 You can associate tags with certain types of Amazon Kendra resources to authorize
 access to those resources. To control access based on tags, provide tag information in
@@ -172,16 +159,12 @@ a resource based on resource tags, see [Tag-based policy examples](security_iam_
 access to resources, see [Controlling access using
 tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the _IAM User Guide_.
 
-## Amazon Kendra IAM
-
-Roles
+## Amazon Kendra IAM Roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with Amazon Kendra
+### Using temporary credentials with Amazon Kendra
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
@@ -200,9 +183,7 @@ functionality of the service.
 
 Amazon Kendra supports service roles.
 
-### Choosing an IAM role
-
-in Amazon Kendra
+### Choosing an IAM role in Amazon Kendra
 
 When you create an index, call the `BatchPutDocument` operation, create
 a data source or create an FAQ, you must provide an access role Amazon Resource Name

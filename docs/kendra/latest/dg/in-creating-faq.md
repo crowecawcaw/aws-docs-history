@@ -1,6 +1,4 @@
-# Adding frequently asked questions (FAQs) to an
-
-index
+# Adding frequently asked questions (FAQs) to an index
 
 ###### Note
 

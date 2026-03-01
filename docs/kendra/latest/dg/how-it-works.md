@@ -34,8 +34,7 @@ Amazon Kendra has the following components:
 
 ###### Topics
 
-- [Indexes
-  in Amazon Kendra](hiw-index.md "hiw-index.md")
+- [Indexes in Amazon Kendra](hiw-index.md "hiw-index.md")
 - [Documents](hiw-documents.md "hiw-documents.md")
 - [Data sources](hiw-data-source.md "hiw-data-source.md")
 - [Queries](hiw-query.md "hiw-query.md")

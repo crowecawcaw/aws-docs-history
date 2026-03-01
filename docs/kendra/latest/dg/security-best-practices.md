@@ -7,9 +7,7 @@ security solution. Because these best practices might not be appropriate
 or sufficient for your environment, treat them as helpful considerations
 rather than prescriptions.
 
-## Apply principle of least
-
-privilege
+## Apply principle of least privilege
 
 Amazon Kendra provides a granular access policy for applications
 using IAM roles. We recommend that the roles be granted
@@ -18,9 +16,7 @@ your application and access to log destination. We also recommend auditing
 the jobs for permissions on a regular basis and upon any change to
 your application.
 
-## Role-based access control (RBAC)
-
-permissions
+## Role-based access control (RBAC) permissions
 
 Administrators should strictly control Role-based access control (RBAC)
 permissions for Amazon Kendra applications.

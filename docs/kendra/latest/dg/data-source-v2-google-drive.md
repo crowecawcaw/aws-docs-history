@@ -17,8 +17,7 @@ For troubleshooting your Amazon Kendra Google Drive data source connector, see [
 
 - [Supported features](#supported-features-v2-google-drive "#supported-features-v2-google-drive")
 - [Prerequisites](#prerequisites-v2-google-drive "#prerequisites-v2-google-drive")
-- [Connection
-  instructions](#data-source-procedure-v2-google-drive "#data-source-procedure-v2-google-drive")
+- [Connection instructions](#data-source-procedure-v2-google-drive "#data-source-procedure-v2-google-drive")
 - [Notes](#google-drive-notes "#google-drive-notes")
 
 ## Supported features
@@ -134,9 +133,7 @@ console to create a new IAM role and Secrets Manager secret when you
 connect your Google Drive data source to Amazon Kendra. If you are using the
 API, you must provide the ARN of an existing IAM role and Secrets Manager secret, and an index ID.
 
-## Connection
-
-instructions
+## Connection instructions
 
 To connect Amazon Kendra to your Google Drive data source, you must
 provide the necessary details of your Google Drive data source so that Amazon Kendra can access your data. If you have not yet configured

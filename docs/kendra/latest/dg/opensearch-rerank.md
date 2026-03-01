@@ -1,6 +1,4 @@
-# Amazon Kendra Intelligent Ranking for self-managed
-
-OpenSearch
+# Amazon Kendra Intelligent Ranking for self-managed OpenSearch
 
 You can leverage Amazon Kendra's semantic search capabilities to improve search
 results from [OpenSearch](https://opensearch.org/docs/latest "https://opensearch.org/docs/latest"), the self
@@ -17,12 +15,9 @@ return results for a street address on Main Street, for example.
 
 The Intelligent Ranking plugin for OpenSearch is available for OpenSearch (self managed)
 version 2.4.0 and later. You can install the plugin using a quick start Bash script to build
-a new Docker image of OpenSearch with the Intelligent Ranking plugin included. See [Setting up the intelligent search
-plugin](#setup-opensearch-rerank-plugin "#setup-opensearch-rerank-plugin")—this is an example of a setup to get you up and running quickly.
+a new Docker image of OpenSearch with the Intelligent Ranking plugin included. See [Setting up the intelligent search plugin](#setup-opensearch-rerank-plugin "#setup-opensearch-rerank-plugin")—this is an example of a setup to get you up and running quickly.
 
-## How the intelligent search plugin
-
-works
+## How the intelligent search plugin works
 
 The overall process of the Intelligent Ranking plugin for OpenSearch (self managed) is
 as follows:
@@ -46,16 +41,12 @@ the definition of a document body and title. For example, if your index contains
 chapters of a book with fields like "chapter_heading" and "chapter_contents", you can
 map the former to "title" and the latter to "body" to get the best results.
 
-## Setting up the intelligent search
-
-plugin
+## Setting up the intelligent search plugin
 
 The following outlines how to quickly set up OpenSearch (self managed) with the
 Intelligent Ranking plugin.
 
-###### Setting up OpenSearch (self managed) with the Intelligent Ranking plugin (quick
-
-setup)
+###### Setting up OpenSearch (self managed) with the Intelligent Ranking plugin (quick setup)
 
 If you are already using Docker image `opensearch:2.4.0`, you can use
 this [Dockerfile](opensearch-rerank.md#dockerfile-build-opensearch-example "opensearch-rerank.md#dockerfile-build-opensearch-example") to build a new image of OpenSearch 2.4.0 with the
@@ -212,9 +203,7 @@ permissions to invoke Amazon Kendra Intelligent Ranking. The following is an
 example of an IAM policy to grant permission to use the
 `Rescore` API for a specific rescore execution plan:
 
-### Example of
-
-docker-compose.yml
+### Example of docker-compose.yml
 
 An example of a docker-compose.yml file using OpenSearch 2.4.0 or later with the
 Intelligent Ranking plugin and OpenSearch Dashboards 2.4.0 or later.
@@ -261,9 +250,7 @@ services:
      - opensearch-net
 ```
 
-### Example of a Dockerfile and
-
-building an image
+### Example of a Dockerfile and building an image
 
 An example of a `Dockerfile` for using OpenSearch 2.4.0 or later with
 the Intelligent Ranking plugin.
@@ -279,9 +266,7 @@ Building a Docker image for OpenSearch with the Intelligent Ranking plugin.
 docker build --tag=<`Docker image tag name of OpenSearch with Intelligent Ranking plugin`>
 ```
 
-## Interacting with the intelligent
-
-search plugin
+## Interacting with the intelligent search plugin
 
 Once you have set up OpenSearch (self managed) with the Intelligent Ranking plugin,
 you can interact with the plugin using curl commands or OpenSearch client libraries. The
@@ -561,9 +546,7 @@ print('\nSearch results:')
 print(response)
 ```
 
-## Comparing OpenSearch results with
-
-Amazon Kendra results
+## Comparing OpenSearch results with Amazon Kendra results
 
 You can compare side-by-side OpenSearch (self managed) ranked results against Amazon Kendra's re-ranked results. OpenSearch Dashboards version 2.4.0 and later offers
 side-by-side results so that you can compare how OpenSearch ranks documents with how
@@ -572,8 +555,7 @@ Amazon Kendra or the plugin ranks documents for a search query.
 Before you can compare OpenSearch ranked results against Amazon Kendra re-ranked
 results, make sure your OpenSearch Dashboards is backed by an OpenSearch server with the
 Intelligent Ranking plugin. You can set this up using Docker and a quick start Bash
-script. See [Setting up the intelligent search
-plugin](#setup-opensearch-rerank-plugin "#setup-opensearch-rerank-plugin").
+script. See [Setting up the intelligent search plugin](#setup-opensearch-rerank-plugin "#setup-opensearch-rerank-plugin").
 
 The following outlines how to compare OpenSearch and Amazon Kendra search results
 in OpenSearch Dashboards. For more information, see the [OpenSearch

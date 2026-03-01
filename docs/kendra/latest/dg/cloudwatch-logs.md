@@ -127,9 +127,7 @@ If indexing a document fails, this message is output to the log stream:
 }
 ```
 
-## View Amazon Kendra metrics for your synchronization
-
-jobs
+## View Amazon Kendra metrics for your synchronization jobs
 
 You can view a document-level sync run history report in CloudWatch for your data source
 sync job by selecting **View Report**. A sync run history report

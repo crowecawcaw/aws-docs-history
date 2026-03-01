@@ -1,6 +1,4 @@
-# Amazon Kendra Amazon Kendra Intelligent
-
-Ranking and interface VPC endpoints (AWS PrivateLink)
+# Amazon Kendra Amazon Kendra Intelligent Ranking and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and Amazon Kendra by creating
 an _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that allows you
@@ -12,9 +10,7 @@ doesn't leave the Amazon network.
 Each interface endpoint is represented by one or more [Elastic Network Interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") in your
 subnets.
 
-## Considerations for Amazon Kendra and
-
-Amazon Kendra Intelligent Ranking VPC endpoints
+## Considerations for Amazon Kendra and Amazon Kendra Intelligent Ranking VPC endpoints
 
 Before you set up an interface VPC endpoint for Amazon Kendra or Amazon Kendra
 Intelligent Ranking, make sure that you review the [prerequisites](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the
@@ -23,9 +19,7 @@ _Amazon VPC User Guide_.
 Amazon Kendra and Amazon Kendra Intelligent Ranking supports making calls to
 all of its API actions from your VPC.
 
-## Creating an interface VPC endpoint for
-
-Amazon Kendra and Amazon Kendra Intelligent Ranking
+## Creating an interface VPC endpoint for Amazon Kendra and Amazon Kendra Intelligent Ranking
 
 You can create a VPC endpoint for the Amazon Kendra or Amazon Kendra Intelligent
 Ranking service using either the Amazon VPC console or the AWS Command Line Interface (AWS CLI).
@@ -59,9 +53,7 @@ Amazon Kendra using its default DNS name for the region. For example,
 For more information, see [Creating an interface endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the
 _Amazon VPC User Guide_.
 
-## Creating a VPC endpoint policy for
-
-Amazon Kendra and Amazon Kendra Intelligent Ranking
+## Creating a VPC endpoint policy for Amazon Kendra and Amazon Kendra Intelligent Ranking
 
 You can attach an endpoint policy to your VPC endpoint that controls access to
 Amazon Kendra or Amazon Kendra Intelligent Ranking.

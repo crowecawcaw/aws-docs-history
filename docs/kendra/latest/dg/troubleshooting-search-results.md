@@ -1,12 +1,8 @@
-# Troubleshooting document search
-
-results
+# Troubleshooting document search results
 
 This section can help you fix issues in your Amazon Kendra search results.
 
-## My search
-
-results are not relevant to my search query
+## My search results are not relevant to my search query
 
 If your search results seem irrelevant, it might be for the following
 reasons:
@@ -38,9 +34,7 @@ reasons:
   terms. For more details on how and when to use synonyms, see [Adding
   custom synonyms to an index](index-synonyms.md "index-synonyms.md").
 
-## Why do I
-
-only see 100 results?
+## Why do I only see 100 results?
 
 Amazon Kendra returns the total count of relevant documents. The top 100 are
 returned per query by default. The results are paginated. You can use
@@ -52,9 +46,7 @@ you can request this by contacting [Quotas
 Support](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/"). Increasing the number of search results could impact
 latency.
 
-## Why
-
-are documents that I expect to see missing?
+## Why are documents that I expect to see missing?
 
 Amazon Kendra supports access control lists (ACLs) based on user and groups.
 Amazon Kendra ingests ACL policies via connectors. If an index does not
@@ -65,9 +57,7 @@ ACL will not be shown.
 If you are using token-based access control, documents without an ACL policy and
 documents that match the user and groups will be shown.
 
-## Why do I see
-
-documents that have an ACL policy?
+## Why do I see documents that have an ACL policy?
 
 If an index does not configure an access control policy, then user and groups can
 be provided by the filter. If no user and group filter is applied, then all related

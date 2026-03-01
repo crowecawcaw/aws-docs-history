@@ -53,14 +53,10 @@ using the [BatchPutDocument](../APIReference/API_BatchPutDocument.md "../APIRefe
 
 ###### Topics
 
-- [Adding custom attributes or fields
-  with the BatchPutDocument API](#custom-attributes-batch "#custom-attributes-batch")
-- [Adding custom attributes or fields to an
-  Amazon S3 data source](#custom-attributes-s3 "#custom-attributes-s3")
+- [Adding custom attributes or fields with the BatchPutDocument API](#custom-attributes-batch "#custom-attributes-batch")
+- [Adding custom attributes or fields to an Amazon S3 data source](#custom-attributes-s3 "#custom-attributes-s3")
 
-### Adding custom attributes or fields
-
-with the BatchPutDocument API
+### Adding custom attributes or fields with the BatchPutDocument API
 
 When you use the [BatchPutDocument](../APIReference/API_BatchPutDocument.md "../APIReference/API_BatchPutDocument.md") API to add a document to your index, you specify
 custom fields or attributes as part of `Attributes`. You can add
@@ -76,9 +72,7 @@ attribute that adds "Department" to a document.
     }
 ```
 
-### Adding custom attributes or fields to an
-
-Amazon S3 data source
+### Adding custom attributes or fields to an Amazon S3 data source
 
 When you use an S3 bucket as a data source for your index, you add metadata to
 the documents with companion metadata files. You place the metadata JSON files
@@ -104,22 +98,15 @@ source.
 
 ###### Topics
 
-- [Step 1: Create a Amazon Kendra
-  index](#custom-attributes-s3-1 "#custom-attributes-s3-1")
-- [Step 2: Update index to add custom
-  document fields](#custom-attributes-s3-2 "#custom-attributes-s3-2")
-- [Step 3: Create an Amazon S3 data source
-  and map data source fields to custom attributes](#custom-attributes-s3-3 "#custom-attributes-s3-3")
+- [Step 1: Create a Amazon Kendra index](#custom-attributes-s3-1 "#custom-attributes-s3-1")
+- [Step 2: Update index to add custom document fields](#custom-attributes-s3-2 "#custom-attributes-s3-2")
+- [Step 3: Create an Amazon S3 data source and map data source fields to custom attributes](#custom-attributes-s3-3 "#custom-attributes-s3-3")
 
-#### Step 1: Create a Amazon Kendra
-
-index
+#### Step 1: Create a Amazon Kendra index
 
 Follow the steps in [Creating an index](create-index.md "create-index.md") to create your Amazon Kendra index.
 
-#### Step 2: Update index to add custom
-
-document fields
+#### Step 2: Update index to add custom document fields
 
 After creating an index, you add fields to it. The following procedure
 shows how to add fields to an index using the console and the CLI.
@@ -191,9 +178,7 @@ aws kendra `update-index`  \
 ]"
 ```
 
-#### Step 3: Create an Amazon S3 data source
-
-and map data source fields to custom attributes
+#### Step 3: Create an Amazon S3 data source and map data source fields to custom attributes
 
 To create an Amazon S3 data source and map fields to it, follow the
 instructions in [Amazon S3](data-source-s3.md "data-source-s3.md").

@@ -1,6 +1,4 @@
-# Set up an Amazon Kendra data source to
-
-connect to Amazon VPC
+# Set up an Amazon Kendra data source to connect to Amazon VPC
 
 When you add a new data source in Amazon Kendra, you can use the Amazon VPC feature if the selected data source connector supports this feature.
 
@@ -21,14 +19,10 @@ information:
 
 ###### Topics
 
-- [Viewing Amazon VPC
-  identifiers](#viewing-vpc-identifiers "#viewing-vpc-identifiers")
-- [Checking your data source IAM
-  role](#vpc-iam-roles "#vpc-iam-roles")
+- [Viewing Amazon VPC identifiers](#viewing-vpc-identifiers "#viewing-vpc-identifiers")
+- [Checking your data source IAM role](#vpc-iam-roles "#vpc-iam-roles")
 
-## Viewing Amazon VPC
-
-identifiers
+## Viewing Amazon VPC identifiers
 
 The identifiers for subnets and security groups are configured in the Amazon VPC console. To view the identifiers, use the following
 procedures.
@@ -54,9 +48,7 @@ procedures.
 4. From the **Details** tab, make a note of the
    identifier in the **Security Group ID** field.
 
-## Checking your data source IAM
-
-role
+## Checking your data source IAM role
 
 Make sure that your data source connector AWS Identity and Access Management IAM) role
 contains permissions to access your Amazon VPC.

@@ -1,6 +1,4 @@
-# Using a JSON Web Token (JWT) with
-
-a shared secret
+# Using a JSON Web Token (JWT) with a shared secret
 
 The following examples show how to use JSON Web Token (JWT) with a shared secret token for
 user access control when you create an index.

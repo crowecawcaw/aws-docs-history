@@ -1,6 +1,4 @@
-# Using the Amazon Kendra JavaScript library to
-
-submit feedback
+# Using the Amazon Kendra JavaScript library to submit feedback
 
 Amazon Kendra provides a JavaScript library that you can use to add click
 feedback to your search results page. To use the library, you insert a script tag in
@@ -104,8 +102,7 @@ kendraFeedback('searchDivClassName', '`class name`');
 
 ```
 
-## Step 2: Add the feedback token to search
- results
+## Step 2: Add the feedback token to search results
 
 
 On your result page, add an HTML attribute called `data-kendra-token`

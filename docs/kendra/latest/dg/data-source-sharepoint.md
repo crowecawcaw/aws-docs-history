@@ -37,7 +37,5 @@ For troubleshooting your Amazon Kendra SharePoint data source connector, see [Tr
 
 ###### Topics
 
-- [SharePoint connector
-  V1.0](data-source-v1-sharepoint.md "data-source-v1-sharepoint.md")
-- [SharePoint connector
-  V2.0](data-source-v2-sharepoint.md "data-source-v2-sharepoint.md")
+- [SharePoint connector V1.0](data-source-v1-sharepoint.md "data-source-v1-sharepoint.md")
+- [SharePoint connector V2.0](data-source-v2-sharepoint.md "data-source-v2-sharepoint.md")

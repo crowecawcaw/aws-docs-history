@@ -1,6 +1,4 @@
-# Amazon Kendra Web Crawler
-
-connector v2.0
+# Amazon Kendra Web Crawler connector v2.0
 
 You can use Amazon Kendra Web Crawler to crawl and index web pages.
 
@@ -18,8 +16,7 @@ _When selecting websites to index, you must adhere to the [Amazon Acceptable Use
 other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler
 to index your own web pages, or web pages that you have authorization to index. To
 learn how to stop Amazon Kendra Web Crawler from indexing your website(s),
-please see [Configuring the robots.txt file for
-Amazon Kendra Web Crawler](stop-web-crawler.md "stop-web-crawler.md")._. Abusing Amazon Kendra Web Crawler to aggressively crawl
+please see [Configuring the robots.txt file for Amazon Kendra Web Crawler](stop-web-crawler.md "stop-web-crawler.md")._. Abusing Amazon Kendra Web Crawler to aggressively crawl
 websites or web pages you don't own is **not** considered
 acceptable use.
 
@@ -40,8 +37,7 @@ the Web Crawler v1.0 connector if you need CloudFormation support.
 
 - [Supported features](#supported-features-v2-web-crawler "#supported-features-v2-web-crawler")
 - [Prerequisites](#prerequisites-v2-web-crawler "#prerequisites-v2-web-crawler")
-- [Connection
-  instructions](#data-source-v2-procedure-web-crawler "#data-source-v2-procedure-web-crawler")
+- [Connection instructions](#data-source-v2-procedure-web-crawler "#data-source-v2-procedure-web-crawler")
 
 ## Supported features
 
@@ -149,9 +145,7 @@ If you don't have an existing IAM role or secret, you can use the
 console to create a new IAM role and Secrets Manager secret when
 you connect your web crawler data source to Amazon Kendra. If you are using the API, you must provide the ARN of an existing IAM role and Secrets Manager secret, and an index ID.
 
-## Connection
-
-instructions
+## Connection instructions
 
 To connect Amazon Kendra to your web crawler data
 source, you must provide the necessary details of your

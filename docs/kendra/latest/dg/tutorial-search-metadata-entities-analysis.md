@@ -1,6 +1,4 @@
-# Step 2: Running an entities
-
-analysis job on Amazon Comprehend
+# Step 2: Running an entities analysis job on Amazon Comprehend
 
 After storing the sample dataset in your S3 bucket, you run an Amazon Comprehend entities analysis job
 to extract entities from your documents. These entities will form Amazon Kendra custom attributes and
@@ -9,12 +7,9 @@ Entities](../../../comprehend/latest/dg/how-entities.md "../../../comprehend/lat
 
 ###### Topics
 
-- [Running an Amazon Comprehend entities
-  analysis job](#tutorial-search-metadata-entities-analysis-job "#tutorial-search-metadata-entities-analysis-job")
+- [Running an Amazon Comprehend entities analysis job](#tutorial-search-metadata-entities-analysis-job "#tutorial-search-metadata-entities-analysis-job")
 
-## Running an Amazon Comprehend entities
-
-analysis job
+## Running an Amazon Comprehend entities analysis job
 
 To extract entities from your dataset, you run an Amazon Comprehend entities analysis job.
 

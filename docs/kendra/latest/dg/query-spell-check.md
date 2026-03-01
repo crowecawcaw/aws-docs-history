@@ -50,9 +50,7 @@ is activated by default in the console. It is built into the console by default.
 Spell Checker can also suggest spell corrections for queries in multiple languages,
 not only English. For a list of languages supported for Spell Checker, see [Amazon Kendra supported languages](in-adding-languages.md "in-adding-languages.md").
 
-## Using the query spell checker with
-
-default limits
+## Using the query spell checker with default limits
 
 Spell Checker is designed with certain defaults or limits. The following is a list
 of current limits that apply when you activate spell correction suggestions.

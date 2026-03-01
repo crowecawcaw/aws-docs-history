@@ -81,9 +81,7 @@ name and all the groups the user belongs to when you issue a query. You can also
 fetch access levels of groups and users in your IAM Identity Center identity source by using the
 [UserGroupResolutionConfiguration](../APIReference/API_UserGroupResolutionConfiguration.md "../APIReference/API_UserGroupResolutionConfiguration.md") object.
 
-## Filtering by user ID and
-
-group
+## Filtering by user ID and group
 
 When you query an index, you can use the user ID and group to filter search
 results based on the user or their group access to documents. When you issue a
@@ -189,16 +187,11 @@ following section describes each implementation.
 
 ###### Topics
 
-- [User context filtering for documents added
-  directly to an index](#context-filter-batch "#context-filter-batch")
-- [User context filtering for frequently asked
-  questions](#context-filter-faq "#context-filter-faq")
-- [User context filtering for data
-  sources](#datasource-context-filter "#datasource-context-filter")
+- [User context filtering for documents added directly to an index](#context-filter-batch "#context-filter-batch")
+- [User context filtering for frequently asked questions](#context-filter-faq "#context-filter-faq")
+- [User context filtering for data sources](#datasource-context-filter "#datasource-context-filter")
 
-## User context filtering for documents added
-
-directly to an index
+## User context filtering for documents added directly to an index
 
 When you add documents directly to an index using the [BatchPutDocument](../APIReference/API_BatchPutDocument.md "../APIReference/API_BatchPutDocument.md") API, Amazon Kendra gets user and group
 information from the `AccessControlList` field of the document. You
@@ -217,9 +210,7 @@ the `BatchPutDocument` API. You provide the following information:
 
 You can add up to 200 entries in the `AccessControlList` field.
 
-## User context filtering for frequently asked
-
-questions
+## User context filtering for frequently asked questions
 
 When you [add a FAQ](../APIReference/API_CreateFaq.md "../APIReference/API_CreateFaq.md") to an
 index, Amazon Kendra gets user and group information from the
@@ -236,9 +227,7 @@ You provide the following information:
 
 For more information, see [FAQ files](in-creating-faq.md "in-creating-faq.md").
 
-## User context filtering for data
-
-sources
+## User context filtering for data sources
 
 Amazon Kendra also crawls user and group access control list (ACL)
 information from supported data source connectors. This is useful for user context
@@ -252,76 +241,43 @@ connectors.
 
 ###### Topics
 
-- [User context filtering for Adobe Experience
-  Manager data sources](#context-filter-aem "#context-filter-aem")
-- [User context filtering for Alfresco
-  data sources](#context-filter-alfresco "#context-filter-alfresco")
+- [User context filtering for Adobe Experience Manager data sources](#context-filter-aem "#context-filter-aem")
+- [User context filtering for Alfresco data sources](#context-filter-alfresco "#context-filter-alfresco")
 - [User context filtering for Aurora (MySQL) data sources](#context-filter-aurora-mysql "#context-filter-aurora-mysql")
-- [User context filtering for
-  Aurora (PostgreSQL) data sources](#context-filter-aurora-postgresql "#context-filter-aurora-postgresql")
+- [User context filtering for Aurora (PostgreSQL) data sources](#context-filter-aurora-postgresql "#context-filter-aurora-postgresql")
 - [User context filtering for Amazon FSx data sources](#context-filter-fsx "#context-filter-fsx")
-- [User context filtering for database data
-  sources](#context-filter-jdbc "#context-filter-jdbc")
-- [User context filtering for
-  Amazon RDS (Microsoft SQL Server) data sources](#context-filter-rds-ms-sql-server "#context-filter-rds-ms-sql-server")
+- [User context filtering for database data sources](#context-filter-jdbc "#context-filter-jdbc")
+- [User context filtering for Amazon RDS (Microsoft SQL Server) data sources](#context-filter-rds-ms-sql-server "#context-filter-rds-ms-sql-server")
 - [User context filtering for Amazon RDS (MySQL) data sources](#context-filter-rds-mysql "#context-filter-rds-mysql")
 - [User context filtering for Amazon RDS (Oracle) data sources](#context-filter-rds-oracle "#context-filter-rds-oracle")
-- [User context filtering for
-  Amazon RDS (PostgreSQL) data sources](#context-filter-rds-postgresql "#context-filter-rds-postgresql")
-- [User context filtering for Amazon S3
-  data sources](#context-filter-s3 "#context-filter-s3")
-- [User context filtering for Box data
-  sources](#context-filter-box "#context-filter-box")
-- [User context filtering for
-  Confluence data sources](#context-filter-confluence "#context-filter-confluence")
-- [User context filtering for Dropbox data
-  sources](#context-filter-dropbox "#context-filter-dropbox")
-- [User context filtering for Drupal data
-  sources](#context-filter-drupal "#context-filter-drupal")
-- [User context filtering for GitHub data
-  sources](#context-filter-github "#context-filter-github")
-- [User context filtering for Gmail data
-  sources](#context-filter-gmail "#context-filter-gmail")
-- [User context filtering for Google Drive
-  data sources](#context-filter-google "#context-filter-google")
-- [User context filtering for IBM DB2 data
-  sources](#context-filter-ibm-db2 "#context-filter-ibm-db2")
-- [User context filtering for Jira data
-  sources](#context-filter-jira "#context-filter-jira")
-- [User context filtering for Microsoft
-  Exchange data sources](#context-filter-exchange "#context-filter-exchange")
-- [User context filtering for Microsoft
-  OneDrive data sources](#context-filter-onedrive "#context-filter-onedrive")
-- [User context filtering for Microsoft
-  OneDrive v2.0 data sources](#context-filter-onedrivev2 "#context-filter-onedrivev2")
-- [User context filtering for
-  Microsoft SharePoint data sources](#context-filter-sharepoint-online "#context-filter-sharepoint-online")
-- [User context filtering for
-  Microsoft SQL Server data sources](#context-filter-ms-sql-server "#context-filter-ms-sql-server")
-- [User context filtering for Microsoft
-  Teams data sources](#context-filter-teams "#context-filter-teams")
-- [User context filtering for Microsoft
-  Yammer data sources](#context-filter-yammer "#context-filter-yammer")
-- [User context filtering for MySQL data
-  sources](#context-filter-mysql "#context-filter-mysql")
-- [User context filtering for
-  Oracle Database data sources](#context-filter-oracle-database "#context-filter-oracle-database")
-- [User context filtering for
-  PostgreSQL data sources](#context-filter-postgresql "#context-filter-postgresql")
-- [User context filtering for Quip data
-  sources](#context-filter-quip "#context-filter-quip")
-- [User context filtering for
-  Salesforce data sources](#context-filter-salesforce "#context-filter-salesforce")
-- [User context filtering for
-  ServiceNow data sources](#context-filter-servicenow "#context-filter-servicenow")
-- [User context filtering for Slack data
-  sources](#context-filter-slack "#context-filter-slack")
-- [User context filtering for Zendesk data
-  sources](#context-filter-zendesk "#context-filter-zendesk")
+- [User context filtering for Amazon RDS (PostgreSQL) data sources](#context-filter-rds-postgresql "#context-filter-rds-postgresql")
+- [User context filtering for Amazon S3 data sources](#context-filter-s3 "#context-filter-s3")
+- [User context filtering for Box data sources](#context-filter-box "#context-filter-box")
+- [User context filtering for Confluence data sources](#context-filter-confluence "#context-filter-confluence")
+- [User context filtering for Dropbox data sources](#context-filter-dropbox "#context-filter-dropbox")
+- [User context filtering for Drupal data sources](#context-filter-drupal "#context-filter-drupal")
+- [User context filtering for GitHub data sources](#context-filter-github "#context-filter-github")
+- [User context filtering for Gmail data sources](#context-filter-gmail "#context-filter-gmail")
+- [User context filtering for Google Drive data sources](#context-filter-google "#context-filter-google")
+- [User context filtering for IBM DB2 data sources](#context-filter-ibm-db2 "#context-filter-ibm-db2")
+- [User context filtering for Jira data sources](#context-filter-jira "#context-filter-jira")
+- [User context filtering for Microsoft Exchange data sources](#context-filter-exchange "#context-filter-exchange")
+- [User context filtering for Microsoft OneDrive data sources](#context-filter-onedrive "#context-filter-onedrive")
+- [User context filtering for Microsoft OneDrive v2.0 data sources](#context-filter-onedrivev2 "#context-filter-onedrivev2")
+- [User context filtering for Microsoft SharePoint data sources](#context-filter-sharepoint-online "#context-filter-sharepoint-online")
+- [User context filtering for Microsoft SQL Server data sources](#context-filter-ms-sql-server "#context-filter-ms-sql-server")
+- [User context filtering for Microsoft Teams data sources](#context-filter-teams "#context-filter-teams")
+- [User context filtering for Microsoft Yammer data sources](#context-filter-yammer "#context-filter-yammer")
+- [User context filtering for MySQL data sources](#context-filter-mysql "#context-filter-mysql")
+- [User context filtering for Oracle Database data sources](#context-filter-oracle-database "#context-filter-oracle-database")
+- [User context filtering for PostgreSQL data sources](#context-filter-postgresql "#context-filter-postgresql")
+- [User context filtering for Quip data sources](#context-filter-quip "#context-filter-quip")
+- [User context filtering for Salesforce data sources](#context-filter-salesforce "#context-filter-salesforce")
+- [User context filtering for ServiceNow data sources](#context-filter-servicenow "#context-filter-servicenow")
+- [User context filtering for Slack data sources](#context-filter-slack "#context-filter-slack")
+- [User context filtering for Zendesk data sources](#context-filter-zendesk "#context-filter-zendesk")
 
-### User context filtering for Adobe Experience
-
-Manager data sources
+### User context filtering for Adobe Experience Manager data sources
 
 When you use an Adobe Experience Manager data source, Amazon Kendra gets
 the user and group information from the Adobe Experience Manager
@@ -339,9 +295,7 @@ The group and user IDs are mapped as follows:
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for Alfresco
-
-data sources
+### User context filtering for Alfresco data sources
 
 When you use an Alfresco data source, Amazon Kendra gets the user and
 group information from the Alfresco instance.
@@ -374,9 +328,7 @@ limitations:
 - The database column should be a string containing a semicolon
   delimited list of groups.
 
-### User context filtering for
-
-Aurora (PostgreSQL) data sources
+### User context filtering for Aurora (PostgreSQL) data sources
 
 When you use a Aurora (PostgreSQL) data source, Amazon Kendra
 gets user and group information from a column in the source table. You specify
@@ -410,9 +362,7 @@ The Amazon FSx group and user IDs are mapped as follows:
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for database data
-
-sources
+### User context filtering for database data sources
 
 When you use a database data source, such as Amazon Aurora PostgreSQL,
 Amazon Kendra gets user and group information from a column in the
@@ -427,9 +377,7 @@ A database data source has the following limitations:
 - The database column should be a string containing a semicolon
   delimited list of groups.
 
-### User context filtering for
-
-Amazon RDS (Microsoft SQL Server) data sources
+### User context filtering for Amazon RDS (Microsoft SQL Server) data sources
 
 When you use a Amazon RDS (Microsoft SQL Server) data source, Amazon Kendra gets user and group information from a column in the source
 table. You specify this column in the console or using the [TemplateConfiguration](../APIReference/API_TemplateConfiguration.md "../APIReference/API_TemplateConfiguration.md") object as part of the [CreateDataSource](../APIReference/API_CreateDataSource.md "../APIReference/API_CreateDataSource.md") API.
@@ -476,9 +424,7 @@ limitations:
 - The database column should be a string containing a semicolon
   delimited list of groups.
 
-### User context filtering for
-
-Amazon RDS (PostgreSQL) data sources
+### User context filtering for Amazon RDS (PostgreSQL) data sources
 
 When you use a Amazon RDS (PostgreSQL) data source, Amazon Kendra
 gets user and group information from a column in the source table. You specify
@@ -494,9 +440,7 @@ limitations:
 - The database column should be a string containing a semicolon
   delimited list of groups.
 
-### User context filtering for Amazon S3
-
-data sources
+### User context filtering for Amazon S3 data sources
 
 You add user context filtering to a document in an Amazon S3 data
 source using a metadata file associated with the document. You add the
@@ -515,9 +459,7 @@ You provide three pieces of information:
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for Box data
-
-sources
+### User context filtering for Box data sources
 
 When you use a Box data source, Amazon Kendra gets user and group
 information from the Box instance.
@@ -534,9 +476,7 @@ The Box group and user IDs are mapped as follows:
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for
-
-Confluence data sources
+### User context filtering for Confluence data sources
 
 When you use a Confluence data source, Amazon Kendra gets user and group
 information from the Confluence instance.
@@ -582,9 +522,7 @@ Documentation.
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for Dropbox data
-
-sources
+### User context filtering for Dropbox data sources
 
 When you use a Dropbox data source, Amazon Kendra gets the user and group
 information from the Dropbox instance.
@@ -601,9 +539,7 @@ The group and user IDs are mapped as follows:
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for Drupal data
-
-sources
+### User context filtering for Drupal data sources
 
 When you use a Drupal data source, Amazon Kendra gets the user and group
 information from the Drupalinstance.
@@ -620,9 +556,7 @@ The group and user IDs are mapped as follows:
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for GitHub data
-
-sources
+### User context filtering for GitHub data sources
 
 When you use a GitHub data source, Amazon Kendra gets user information
 from the GitHub instance.
@@ -636,9 +570,7 @@ The GitHub user IDs are mapped as follows:
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for Gmail data
-
-sources
+### User context filtering for Gmail data sources
 
 When you use a Gmail data source, Amazon Kendra gets the user information
 from the Gmail instance.
@@ -652,9 +584,7 @@ The user IDs are mapped as follows:
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for Google Drive
-
-data sources
+### User context filtering for Google Drive data sources
 
 A Google Workspace Drive data source returns user and group information for
 Google Drive users and groups. Group and domain membership are mapped to the
@@ -710,9 +640,7 @@ documents shared with the "example.com" domain.
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for IBM DB2 data
-
-sources
+### User context filtering for IBM DB2 data sources
 
 When you use a IBM DB2 data source, Amazon Kendra gets user and group
 information from a column in the source table. You specify this column in the
@@ -727,9 +655,7 @@ A IBM DB2 database data source has the following limitations:
 - The database column should be a string containing a semicolon
   delimited list of groups.
 
-### User context filtering for Jira data
-
-sources
+### User context filtering for Jira data sources
 
 When you use a Jira data source, Amazon Kendra gets user and group
 information from the Jira instance.
@@ -743,9 +669,7 @@ The Jira user IDs are mapped as follows:
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for Microsoft
-
-Exchange data sources
+### User context filtering for Microsoft Exchange data sources
 
 When you use a Microsoft Exchange data source, Amazon Kendra gets the
 user information from the Microsoft Exchange instance.
@@ -759,9 +683,7 @@ The Microsoft Exchange user IDs are mapped as follows:
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for Microsoft
-
-OneDrive data sources
+### User context filtering for Microsoft OneDrive data sources
 
 Amazon Kendra retrieves user and group information from Microsoft
 OneDrive when it indexes the documents on the site. The user and group
@@ -812,9 +734,7 @@ aws kendra  query \
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for Microsoft
-
-OneDrive v2.0 data sources
+### User context filtering for Microsoft OneDrive v2.0 data sources
 
 A Microsoft OneDrive v2.0 data source returns section and page information
 from OneDrive access control list (ACL) entities. Amazon Kendra uses the
@@ -832,9 +752,7 @@ used as follows:
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for
-
-Microsoft SharePoint data sources
+### User context filtering for Microsoft SharePoint data sources
 
 Amazon Kendra retrieves user and group information from Microsoft
 SharePoint when it indexes the site documents. To filter search results based on
@@ -904,9 +822,7 @@ aws kendra  query \
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for
-
-Microsoft SQL Server data sources
+### User context filtering for Microsoft SQL Server data sources
 
 When you use a Microsoft SQL Server data source, Amazon Kendra gets user
 and group information from a column in the source table. You specify this column
@@ -922,9 +838,7 @@ limitations:
 - The database column should be a string containing a semicolon
   delimited list of groups.
 
-### User context filtering for Microsoft
-
-Teams data sources
+### User context filtering for Microsoft Teams data sources
 
 Amazon Kendra retrieves user information from Microsoft Teams when it
 indexes the documents. The user information is taken from the underlying
@@ -933,9 +847,7 @@ Microsoft Teams instance.
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for Microsoft
-
-Yammer data sources
+### User context filtering for Microsoft Yammer data sources
 
 Amazon Kendra retrieves user information from Microsoft Yammer when it
 indexes the documents. The user and group information is taken from the
@@ -949,9 +861,7 @@ The Microsoft Yammer user IDs are mapped as follows:
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for MySQL data
-
-sources
+### User context filtering for MySQL data sources
 
 When you use a MySQL data source, Amazon Kendra gets user and group
 information from a column in the source table. You specify this column in the
@@ -966,9 +876,7 @@ A MySQL database data source has the following limitations:
 - The database column should be a string containing a semicolon
   delimited list of groups.
 
-### User context filtering for
-
-Oracle Database data sources
+### User context filtering for Oracle Database data sources
 
 When you use a Oracle Database data source, Amazon Kendra gets user and
 group information from a column in the source table. You specify this column in
@@ -983,9 +891,7 @@ A Oracle Database database data source has the following limitations:
 - The database column should be a string containing a semicolon
   delimited list of groups.
 
-### User context filtering for
-
-PostgreSQL data sources
+### User context filtering for PostgreSQL data sources
 
 When you use a PostgreSQL data source, Amazon Kendra gets user and group
 information from a column in the source table. You specify this column in the
@@ -1000,9 +906,7 @@ A PostgreSQL database data source has the following limitations:
 - The database column should be a string containing a semicolon
   delimited list of groups.
 
-### User context filtering for Quip data
-
-sources
+### User context filtering for Quip data sources
 
 When you use a Quip data source, Amazon Kendra gets the user information
 from the Quip instance.
@@ -1016,9 +920,7 @@ The Quip user IDs are mapped as follows:
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for
-
-Salesforce data sources
+### User context filtering for Salesforce data sources
 
 A Salesforce data source returns user and group information from Salesforce
 access control list (ACL) entities. You can apply user context filtering to
@@ -1054,9 +956,7 @@ used as follows:
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for
-
-ServiceNow data sources
+### User context filtering for ServiceNow data sources
 
 User context filtering for ServiceNow is supported only for the
 TemplateConfiguration API and ServiceNow Connector v2.0. ServiceNowConfiguration
@@ -1077,9 +977,7 @@ The group and user IDs are mapped as follows:
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for Slack data
-
-sources
+### User context filtering for Slack data sources
 
 When you use a Slack data source, Amazon Kendra gets the user information
 from the Slack instance.
@@ -1093,9 +991,7 @@ The Slack user IDs are mapped as follows:
 You can add up to 200 entries in the `AccessControlList`
 field.
 
-### User context filtering for Zendesk data
-
-sources
+### User context filtering for Zendesk data sources
 
 When you use a Zendesk data source, Amazon Kendra gets the user and group
 information from the Zendesk instance.

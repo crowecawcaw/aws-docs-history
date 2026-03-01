@@ -1,6 +1,4 @@
-# Troubleshooting VPC connection
-
-issues
+# Troubleshooting VPC connection issues
 
 If you encounter any issues with your virtual private cloud (VPC) connection,
 check that your IAM permissions, security group settings, and the
@@ -32,8 +30,7 @@ source.
 
 - [Step 1: Launch an Amazon EC2 instance](#vpc-connector-troubleshoot-1 "#vpc-connector-troubleshoot-1")
 - [Step 2: Connect to Amazon EC2 instance](#vpc-connector-troubleshoot-2 "#vpc-connector-troubleshoot-2")
-- [Step 3: Test Amazon S3
-  access](#vpc-connector-troubleshoot-3 "#vpc-connector-troubleshoot-3")
+- [Step 3: Test Amazon S3 access](#vpc-connector-troubleshoot-3 "#vpc-connector-troubleshoot-3")
 
 ## Step 1: Launch an Amazon EC2 instance
 
@@ -73,9 +70,7 @@ page and connect to your instance. To do so, use the steps in [Connect to your i
 IPv4 address using EC2 Instance Connect Endpoint](../../../AWSEC2/latest/UserGuide/connect-with-ec2-instance-connect-endpoint.md "../../../AWSEC2/latest/UserGuide/connect-with-ec2-instance-connect-endpoint.md") in the _Amazon EC2 User Guide for Linux
 Instances_.
 
-## Step 3: Test Amazon S3
-
-access
+## Step 3: Test Amazon S3 access
 
 After you have connected to your Amazon EC2 instance terminal, run an
 AWS CLI command to test the connection from this private subnet to your Amazon S3 bucket.

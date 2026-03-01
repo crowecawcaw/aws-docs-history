@@ -6,14 +6,11 @@ describe the features of each index.
 
 ###### Topics
 
-- [Amazon Kendra GenAI Enterprise Edition
-  index](#kendra-gen-ai-index "#kendra-gen-ai-index")
+- [Amazon Kendra GenAI Enterprise Edition index](#kendra-gen-ai-index "#kendra-gen-ai-index")
 - [Amazon Kendra Enterprise Edition index](#kendra-enterprise-index "#kendra-enterprise-index")
 - [Amazon Kendra Developer Edition index](#kendra-developer-index "#kendra-developer-index")
 
-## Amazon Kendra GenAI Enterprise Edition
-
-index
+## Amazon Kendra GenAI Enterprise Edition index
 
 An
 Amazon Kendra
@@ -50,13 +47,10 @@ Amazon Kendra GenAI Enterprise Edition index.
 
 ###### Topics
 
-- [Supported
-  features](#kendra-gen-ai-index-features "#kendra-gen-ai-index-features")
+- [Supported features](#kendra-gen-ai-index-features "#kendra-gen-ai-index-features")
 - [Limitations](#genai-index-limitations "#genai-index-limitations")
 
-### Supported
-
-features
+### Supported features
 
 The following features are supported for an Amazon Kendra GenAI Enterprise Edition
 index if you're using the [Retrieve](../APIReference/API_Retrieve.md "../APIReference/API_Retrieve.md") API

@@ -42,8 +42,7 @@ For information about the query responses, see [Query responses and response typ
 - [Searching an index (console)](#searching-index-console "#searching-index-console")
 - [Searching an index (SDK)](#searching-index-sdk "#searching-index-sdk")
 - [Searching an index (Postman)](#searching-index-postman "#searching-index-postman")
-- [Searching with advanced query
-  syntax](#searching-index-query-syntax "#searching-index-query-syntax")
+- [Searching with advanced query syntax](#searching-index-query-syntax "#searching-index-query-syntax")
 - [Searching in languages](#searching-index-languages "#searching-index-languages")
 
 ## Prerequisites
@@ -249,9 +248,7 @@ test your Amazon Kendra index.
 
 6. Select **Send** (near the top right).
 
-## Searching with advanced query
-
-syntax
+## Searching with advanced query syntax
 
 You can create queries that are more specific than simple keyword or natural
 language queries by using advanced query syntax or operators. This includes ranges,

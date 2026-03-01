@@ -1,24 +1,16 @@
-# Step 1: Adding documents to
-
-Amazon S3
+# Step 1: Adding documents to Amazon S3
 
 Before you run an Amazon Comprehend entities analysis job on your dataset, you create an Amazon S3 bucket
 to host the data, metadata, and the Amazon Comprehend entities analysis output.
 
 ###### Topics
 
-- [Downloading the
-  sample dataset](#tutorial-search-metadata-add-documents-download-extract "#tutorial-search-metadata-add-documents-download-extract")
-- [Creating an Amazon S3
-  bucket](#tutorial-search-metadata-add-documents-create-bucket "#tutorial-search-metadata-add-documents-create-bucket")
-- [Creating data and
-  metadata folders in your S3 bucket](#tutorial-search-metadata-add-documents-data-metadata "#tutorial-search-metadata-add-documents-data-metadata")
-- [Uploading the input
-  data](#tutorial-search-metadata-add-documents-upload-data "#tutorial-search-metadata-add-documents-upload-data")
+- [Downloading the sample dataset](#tutorial-search-metadata-add-documents-download-extract "#tutorial-search-metadata-add-documents-download-extract")
+- [Creating an Amazon S3 bucket](#tutorial-search-metadata-add-documents-create-bucket "#tutorial-search-metadata-add-documents-create-bucket")
+- [Creating data and metadata folders in your S3 bucket](#tutorial-search-metadata-add-documents-data-metadata "#tutorial-search-metadata-add-documents-data-metadata")
+- [Uploading the input data](#tutorial-search-metadata-add-documents-upload-data "#tutorial-search-metadata-add-documents-upload-data")
 
-## Downloading the
-
-sample dataset
+## Downloading the sample dataset
 
 Before Amazon Comprehend can run an entities analysis job on your data, you must download and
 extract the dataset and upload it to an S3 bucket.
@@ -104,9 +96,7 @@ called `tutorial-dataset`. This folder contains a
 called `data` containing the dataset for this tutorial. The dataset
 consists of 100 files with `.story` extensions.
 
-## Creating an Amazon S3
-
-bucket
+## Creating an Amazon S3 bucket
 
 After downloading and extracting the sample data folder, you store it in an Amazon S3
 bucket.
@@ -202,9 +192,7 @@ Windows
 aws s3 ls
 ```
 
-## Creating data and
-
-metadata folders in your S3 bucket
+## Creating data and metadata folders in your S3 bucket
 
 After creating your S3 bucket, you create data and metadata folders inside it.
 
@@ -329,9 +317,7 @@ Where:
 
     * amzn-s3-demo-bucket is your bucket name.
 
-## Uploading the input
-
-data
+## Uploading the input data
 
 After creating your data and metadata folders, you upload the sample dataset into the
 `data` folder.

@@ -91,7 +91,5 @@ best results, you should submit feedback within 24 hours of making the query.
 
 ###### Topics
 
-- [Using the Amazon Kendra JavaScript library to
-  submit feedback](feedback-javascript.md "feedback-javascript.md")
-- [Using the Amazon Kendra API to submit
-  feedback](feedback-api.md "feedback-api.md")
+- [Using the Amazon Kendra JavaScript library to submit feedback](feedback-javascript.md "feedback-javascript.md")
+- [Using the Amazon Kendra API to submit feedback](feedback-api.md "feedback-api.md")

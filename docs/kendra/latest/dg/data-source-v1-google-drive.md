@@ -1,6 +1,4 @@
-# Google Drive connector
-
-V1.0
+# Google Drive connector V1.0
 
 Google Drive is a cloud-based file storage service. You can use Amazon Kendra to index documents and comments stored in shared drives, My Drives, and Shared with
 me folders in your Google Drive data source. You can index Google Workspace
@@ -19,8 +17,7 @@ For troubleshooting your Amazon Kendra Google Drive data source connector, see [
 
 - [Supported features](#supported-features-v1-google-drive "#supported-features-v1-google-drive")
 - [Prerequisites](#prerequisites-v1-google-drive "#prerequisites-v1-google-drive")
-- [Connection
-  instructions](#data-source-v1-procedure-google-drive "#data-source-v1-procedure-google-drive")
+- [Connection instructions](#data-source-v1-procedure-google-drive "#data-source-v1-procedure-google-drive")
 - [Learn more](#google-drive-learn-more "#google-drive-learn-more")
 
 ## Supported features
@@ -100,9 +97,7 @@ console to create a new IAM role and Secrets Manager secret when you
 connect your Google Drive data source to Amazon Kendra. If you are using the
 API, you must provide the ARN of an existing IAM role and Secrets Manager secret, and an index ID.
 
-## Connection
-
-instructions
+## Connection instructions
 
 To connect Amazon Kendra to your Google Drive data source, you must
 provide the necessary details of your Google Drive data source so that Amazon Kendra can access your data. If you have not yet configured

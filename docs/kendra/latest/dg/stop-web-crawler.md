@@ -1,6 +1,4 @@
-# Configuring the `robots.txt` file for
-
-Amazon Kendra Web Crawler
+# Configuring the `robots.txt` file for Amazon Kendra Web Crawler
 
 Amazon Kendra is an intelligent search service that AWS customers
 use to index and search documents of their choice. In order to index documents on the
@@ -47,9 +45,7 @@ User-agent: * # any (other) robot
 Disallow: / # disallow access to any pages
 ```
 
-## Stopping Amazon Kendra Web Crawler
-
-from crawling your website
+## Stopping Amazon Kendra Web Crawler from crawling your website
 
 You can stop Amazon Kendra Web Crawler from indexing your website using the
 `Disallow` directive. You can also control which web pages are

@@ -363,8 +363,7 @@ in order for Amazon Kendra to search your documents. You must map your document 
 field name in your data source to the index field name `_document_body`. All other
 fields are optional.
 
-For a list of other important JSON keys to configure, see [Amazon RDS (Microsoft SQL Server)
-template schema](ds-schemas.md#ds-rds-ms-sql-server-schema "ds-schemas.md#ds-rds-ms-sql-server-schema").
+For a list of other important JSON keys to configure, see [Amazon RDS (Microsoft SQL Server) template schema](ds-schemas.md#ds-rds-ms-sql-server-schema "ds-schemas.md#ds-rds-ms-sql-server-schema").
 
 ## Notes
 

@@ -1,6 +1,4 @@
-# Step 3: Formatting the entities
-
-analysis output as Amazon Kendra metadata
+# Step 3: Formatting the entities analysis output as Amazon Kendra metadata
 
 To convert the entities extracted by Amazon Comprehend to the metadata format required by an Amazon Kendra
 index, you run a Python 3 script. The results of the conversion are stored in the
@@ -11,18 +9,12 @@ metadata](s3-metadata.md "s3-metadata.md").
 
 ###### Topics
 
-- [Downloading and
-  extracting the Amazon Comprehend output](#tutorial-search-metadata-format-output-download-extract "#tutorial-search-metadata-format-output-download-extract")
-- [Uploading the output into
-  the S3 bucket](#tutorial-search-metadata-format-output-upload "#tutorial-search-metadata-format-output-upload")
-- [Converting the output to
-  Amazon Kendra metadata format](#tutorial-search-metadata-format-output-script "#tutorial-search-metadata-format-output-script")
-- [Cleaning up your Amazon S3
-  bucket](#tutorial-search-metadata-format-output-cleanup "#tutorial-search-metadata-format-output-cleanup")
+- [Downloading and extracting the Amazon Comprehend output](#tutorial-search-metadata-format-output-download-extract "#tutorial-search-metadata-format-output-download-extract")
+- [Uploading the output into the S3 bucket](#tutorial-search-metadata-format-output-upload "#tutorial-search-metadata-format-output-upload")
+- [Converting the output to Amazon Kendra metadata format](#tutorial-search-metadata-format-output-script "#tutorial-search-metadata-format-output-script")
+- [Cleaning up your Amazon S3 bucket](#tutorial-search-metadata-format-output-cleanup "#tutorial-search-metadata-format-output-cleanup")
 
-## Downloading and
-
-extracting the Amazon Comprehend output
+## Downloading and extracting the Amazon Comprehend output
 
 To format the Amazon Comprehend entities analysis output, you must first download the Amazon Comprehend entities
 analysis `output.tar.gz` archive and extract the entities analysis
@@ -56,8 +48,7 @@ aws comprehend describe-entities-detection-job \
 Where:
 
     * `entities-job-id` is your saved
-     `comprehend-job-id` from [Step 2: Running an entities
-     analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md "tutorial-search-metadata-entities-analysis.md"),
+     `comprehend-job-id` from [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md "tutorial-search-metadata-entities-analysis.md"),
     * `aws-region` is your AWS region.
 
 macOS
@@ -71,8 +62,7 @@ aws comprehend describe-entities-detection-job \
 Where:
 
     * `entities-job-id` is your saved
-     `comprehend-job-id` from [Step 2: Running an entities
-     analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md "tutorial-search-metadata-entities-analysis.md"),
+     `comprehend-job-id` from [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md "tutorial-search-metadata-entities-analysis.md"),
     * `aws-region` is your AWS region.
 
 Windows
@@ -86,8 +76,7 @@ aws comprehend describe-entities-detection-job ^
 Where:
 
     * `entities-job-id` is your saved
-     `comprehend-job-id` from [Step 2: Running an entities
-     analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md "tutorial-search-metadata-entities-analysis.md"),
+     `comprehend-job-id` from [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md "tutorial-search-metadata-entities-analysis.md"),
     * `aws-region` is your AWS region.
 
 2. From the `OutputDataConfig` object in your entities job description,
@@ -180,9 +169,7 @@ Where:
 At the end of this step, you should have a file on your device called
 `output` with a list of Amazon Comprehend identified entities.
 
-## Uploading the output into
-
-the S3 bucket
+## Uploading the output into the S3 bucket
 
 After downloading and extracting the Amazon Comprehend entities analysis file, you upload the
 extracted `output` file to your Amazon S3 bucket.
@@ -270,9 +257,7 @@ Where:
 
     * amzn-s3-demo-bucket is the name of your S3 bucket.
 
-## Converting the output to
-
-Amazon Kendra metadata format
+## Converting the output to Amazon Kendra metadata format
 
 To convert the Amazon Comprehend output to Amazon Kendra metadata, you run a Python 3 script. If you are
 using the Console, you use AWS CloudShell for this step.
@@ -461,9 +446,7 @@ exact.
 At the end of this step, the formatted metadata is deposited inside the
 `metadata` folder in your S3 bucket.
 
-## Cleaning up your Amazon S3
-
-bucket
+## Cleaning up your Amazon S3 bucket
 
 Since the Amazon Kendra index syncs all files stored in a bucket, we recommend you clean up your
 Amazon S3 bucket to prevent redundant search results.

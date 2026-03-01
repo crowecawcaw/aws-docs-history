@@ -11,8 +11,7 @@ also use authentication to access and crawl websites.
 _When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/ "https://aws.amazon.com/aup/") and all other
 Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index
 your own web pages, or web pages that you have authorization to index. To learn how to
-stop Amazon Kendra Web Crawler from indexing your website(s), please see [Configuring the robots.txt file for
-Amazon Kendra Web Crawler](stop-web-crawler.md "stop-web-crawler.md")._
+stop Amazon Kendra Web Crawler from indexing your website(s), please see [Configuring the robots.txt file for Amazon Kendra Web Crawler](stop-web-crawler.md "stop-web-crawler.md")._
 
 ###### Note
 
@@ -45,9 +44,6 @@ For troubleshooting your Amazon Kendra web crawler data source connector, see [T
 
 ###### Topics
 
-- [Amazon Kendra Web Crawler
-  connector v1.0](data-source-v1-web-crawler.md "data-source-v1-web-crawler.md")
-- [Amazon Kendra Web Crawler
-  connector v2.0](data-source-v2-web-crawler.md "data-source-v2-web-crawler.md")
-- [Configuring the robots.txt file for
-  Amazon Kendra Web Crawler](stop-web-crawler.md "stop-web-crawler.md")
+- [Amazon Kendra Web Crawler connector v1.0](data-source-v1-web-crawler.md "data-source-v1-web-crawler.md")
+- [Amazon Kendra Web Crawler connector v2.0](data-source-v2-web-crawler.md "data-source-v2-web-crawler.md")
+- [Configuring the robots.txt file for Amazon Kendra Web Crawler](stop-web-crawler.md "stop-web-crawler.md")

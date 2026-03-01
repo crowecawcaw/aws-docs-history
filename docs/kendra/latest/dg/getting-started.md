@@ -10,9 +10,6 @@ AWS SDK for Java.
 - [Getting started (AWS CLI)](gs-cli.md "gs-cli.md")
 - [Getting started (AWS SDK for Python (Boto3))](gs-python.md "gs-python.md")
 - [Getting started (AWS SDK for Java)](gs-java.md "gs-java.md")
-- [Getting started with an Amazon S3 data source
-  (console)](getting-started-s3.md "getting-started-s3.md")
-- [Getting started with a MySQL database data source
-  (console)](getting-started-mysql.md "getting-started-mysql.md")
-- [Getting started with an AWS IAM Identity Center identity source
-  (console)](getting-started-aws-sso.md "getting-started-aws-sso.md")
+- [Getting started with an Amazon S3 data source (console)](getting-started-s3.md "getting-started-s3.md")
+- [Getting started with a MySQL database data source (console)](getting-started-mysql.md "getting-started-mysql.md")
+- [Getting started with an AWS IAM Identity Center identity source (console)](getting-started-aws-sso.md "getting-started-aws-sso.md")

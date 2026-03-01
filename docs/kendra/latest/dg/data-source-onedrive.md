@@ -32,10 +32,8 @@ For troubleshooting your Amazon Kendra OneDrive data source connector, see [Trou
 
 ###### Topics
 
-- [Microsoft OneDrive connector
-  V1.0](data-source-v1-onedrive.md "data-source-v1-onedrive.md")
-- [Microsoft OneDrive connector
-  V2.0](data-source-v2-onedrive.md "data-source-v2-onedrive.md")
+- [Microsoft OneDrive connector V1.0](data-source-v1-onedrive.md "data-source-v1-onedrive.md")
+- [Microsoft OneDrive connector V2.0](data-source-v2-onedrive.md "data-source-v2-onedrive.md")
 - [Learn more](#onedrive-learn-more "#onedrive-learn-more")
 - [Notes](#onedrive-notes "#onedrive-notes")
 

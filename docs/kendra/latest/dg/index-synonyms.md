@@ -82,5 +82,4 @@ not within acceptable boundaries, you can try one or both of the following:
 - [Adding a thesaurus to an index](index-synonyms-adding-thesaurus-file.md "index-synonyms-adding-thesaurus-file.md")
 - [Updating a thesaurus](index-synonyms-update.md "index-synonyms-update.md")
 - [Deleting a thesaurus](index-synonyms-delete.md "index-synonyms-delete.md")
-- [Highlights in search
-  results](index-synonyms-enabling-synonyms-in-results.md "index-synonyms-enabling-synonyms-in-results.md")
+- [Highlights in search results](index-synonyms-enabling-synonyms-in-results.md "index-synonyms-enabling-synonyms-in-results.md")

@@ -1,6 +1,4 @@
-# Controlling user access to documents with
-
-tokens
+# Controlling user access to documents with tokens
 
 ###### Note
 
@@ -39,8 +37,6 @@ control using the following token types:
 ###### Topics
 
 - [Using OpenID](create-index-access-control-tokens-openid.md "create-index-access-control-tokens-openid.md")
-- [Using a JSON Web Token (JWT) with
-  a shared secret](create-index-access-control-tokens-jwtshared.md "create-index-access-control-tokens-jwtshared.md")
-- [Using a JSON Web Token (JWT) with
-  a public key](create-index-access-control-tokens-jwtpublic.md "create-index-access-control-tokens-jwtpublic.md")
+- [Using a JSON Web Token (JWT) with a shared secret](create-index-access-control-tokens-jwtshared.md "create-index-access-control-tokens-jwtshared.md")
+- [Using a JSON Web Token (JWT) with a public key](create-index-access-control-tokens-jwtpublic.md "create-index-access-control-tokens-jwtpublic.md")
 - [Using JSON](create-index-access-control-tokens-json.md "create-index-access-control-tokens-json.md")

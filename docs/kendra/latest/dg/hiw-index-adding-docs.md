@@ -1,6 +1,4 @@
-# Adding documents to an index in
-
-Amazon Kendra
+# Adding documents to an index in Amazon Kendra
 
 The way you add documents to an index depends on how you store your
 documents.

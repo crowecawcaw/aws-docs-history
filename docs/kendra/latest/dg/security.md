@@ -28,14 +28,11 @@ cloud and security _in_ the cloud:
 ###### Topics
 
 - [Data protection in Amazon Kendra](data-protection.md "data-protection.md")
-- [Amazon Kendra Amazon Kendra Intelligent
-  Ranking and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Amazon Kendra Amazon Kendra Intelligent Ranking and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Identity and access management for Amazon Kendra](security-iam.md "security-iam.md")
 - [Security best practices](security-best-practices.md "security-best-practices.md")
 - [Logging and monitoring in Amazon Kendra](incident-response.md "incident-response.md")
 - [Compliance validation for Amazon Kendra](kendra-compliance.md "kendra-compliance.md")
 - [Resilience in Amazon Kendra](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  Amazon Kendra](infrastructure-security.md "infrastructure-security.md")
-- [Configuration
-  and vulnerability analysis in AWS Identity and Access Management](configuration-and-vulnerability-analysis.md "configuration-and-vulnerability-analysis.md")
+- [Infrastructure security in Amazon Kendra](infrastructure-security.md "infrastructure-security.md")
+- [Configuration and vulnerability analysis in AWS Identity and Access Management](configuration-and-vulnerability-analysis.md "configuration-and-vulnerability-analysis.md")

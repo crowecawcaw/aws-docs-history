@@ -1,6 +1,4 @@
-# Logging Amazon Kendra Intelligent
-
-Ranking API calls with AWS CloudTrail logs
+# Logging Amazon Kendra Intelligent Ranking API calls with AWS CloudTrail logs
 
 Amazon Kendra Intelligent Ranking is integrated with AWS CloudTrail, a service that provides
 a record of actions taken by a user, role, or an AWS service in Amazon Kendra
@@ -16,9 +14,7 @@ details.
 
 To learn more about CloudTrail, including how to configure and activate it, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
 
-## Amazon Kendra
-
-Intelligent Ranking information in CloudTrail
+## Amazon Kendra Intelligent Ranking information in CloudTrail
 
 CloudTrail is activated on your AWS account when you create the account. When activity
 occurs in Amazon Kendra Intelligent Ranking, that activity is recorded in a CloudTrail
@@ -50,9 +46,7 @@ Every event or log entry contains information about who generated the request. F
 more information, see the [CloudTrail
 userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Example: Amazon Kendra
-
-Intelligent Ranking log file entries
+## Example: Amazon Kendra Intelligent Ranking log file entries
 
 A _trail_ is a configuration that allows delivery
 of events as log files to a specified S3 bucket. CloudTrail log files contain one or more

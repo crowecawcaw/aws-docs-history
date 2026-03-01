@@ -1,6 +1,4 @@
-# Getting started with a MySQL database data source
-
-(console)
+# Getting started with a MySQL database data source (console)
 
 You can use the Amazon Kendra console to get started using a MySQL database as a data
 source. When you use the console you specify the connection information you need to index

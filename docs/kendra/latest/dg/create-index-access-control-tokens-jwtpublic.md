@@ -1,6 +1,4 @@
-# Using a JSON Web Token (JWT) with
-
-a public key
+# Using a JSON Web Token (JWT) with a public key
 
 The following examples show how to use JSON Web Token (JWT) with a public key for
 user access control when you create an index. For more information about JWT, see [jwt.io](http://jwt.io "http://jwt.io").

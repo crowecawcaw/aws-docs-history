@@ -41,8 +41,7 @@ component's source.
 - [Results component](#results-component "#results-component")
 - [Facets component](#facets-component "#facets-component")
 - [Pagination component](#pagination-component "#pagination-component")
-- [Building a search experience with
-  no code](deploying-search-experience-no-code.md "deploying-search-experience-no-code.md")
+- [Building a search experience with no code](deploying-search-experience-no-code.md "deploying-search-experience-no-code.md")
 
 ## Overview
 

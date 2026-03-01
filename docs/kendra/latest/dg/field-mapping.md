@@ -121,9 +121,7 @@ search. You can choose from the following:
 
 ```
 
-## Using Amazon Kendra reserved or common document
-
-fields
+## Using Amazon Kendra reserved or common document fields
 
 With the [UpdateIndex API](../APIReference/API_UpdateIndex.md "../APIReference/API_UpdateIndex.md"), you can create reserved or common fields using
 `DocumentMetadataConfigurationUpdates` and specifying the Amazon Kendra

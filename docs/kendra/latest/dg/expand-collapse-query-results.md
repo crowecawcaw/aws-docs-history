@@ -1,6 +1,4 @@
-# Collapsing/expanding query
-
-results
+# Collapsing/expanding query results
 
 ###### Note
 
@@ -54,9 +52,7 @@ collapsed upon. Supported attribute key fields include `String` and
 `Number`. `String list` and `Date` type are not
 supported.
 
-## Choosing a primary document using sort
-
-order
+## Choosing a primary document using sort order
 
 To configure the primary document to display for a collapsed group, you use the
 `SortingConfigurations` parameter under [CollapseConfiguration](../APIReference/API_CollapseConfiguration.md "../APIReference/API_CollapseConfiguration.md"). For example, to get the most recent version of a

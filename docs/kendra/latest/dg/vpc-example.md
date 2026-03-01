@@ -10,8 +10,7 @@ one.
 ###### Steps
 
 - [Step 1: Configure a VPC](#vpc-example-1 "#vpc-example-1")
-- [Step 2: Create and configure security
-  groups](#vpc-example-2 "#vpc-example-2")
+- [Step 2: Create and configure security groups](#vpc-example-2 "#vpc-example-2")
 - [Step 3: Create a database](#vpc-example-3 "#vpc-example-3")
 - [Step 4: Create a data source connector](#vpc-example-4 "#vpc-example-4")
 
@@ -58,9 +57,7 @@ subnet route table`. From the **VPC**
     subnet with the NAT gateway that you noted previously. Choose
     **Save associations** when you're done.
 
-## Step 2: Create and configure security
-
-groups
+## Step 2: Create and configure security groups
 
 Next, configure security groups for your database.
 

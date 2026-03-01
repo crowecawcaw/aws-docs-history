@@ -22,9 +22,7 @@ a new feature, AWS adds read-only permissions for new operations and resources. 
 and descriptions of job function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## AWS managed policy:
-
-AmazonKendraReadOnly
+## AWS managed policy: AmazonKendraReadOnly
 
 Grants read-only access to Amazon Kendra resources. This policy includes the following
 permissions.
@@ -58,9 +56,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AmazonKendraFullAccess
+## AWS managed policy: AmazonKendraFullAccess
 
 Grants full access to create, read, update, delete, tag, and run all Amazon Kendra resources.
 This policy includes the following permissions.
@@ -160,9 +156,7 @@ JSON
 
 ```
 
-## Amazon Kendra updates to AWS managed
-
-policies
+## Amazon Kendra updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Kendra since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

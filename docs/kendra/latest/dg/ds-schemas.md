@@ -4,21 +4,16 @@ The following are template schemas for data sources where templates are supporte
 
 ###### Topics
 
-- [Adobe Experience Manager template
-  schema](#ds-aem-schema "#ds-aem-schema")
+- [Adobe Experience Manager template schema](#ds-aem-schema "#ds-aem-schema")
 - [Amazon FSx (Windows) template schema](#ds-fsx-windows-schema "#ds-fsx-windows-schema")
-- [Amazon FSx (NetApp ONTAP) template
-  schema](#ds-fsx-ontap-schema "#ds-fsx-ontap-schema")
+- [Amazon FSx (NetApp ONTAP) template schema](#ds-fsx-ontap-schema "#ds-fsx-ontap-schema")
 - [Alfresco template schema](#ds-alfresco-schema "#ds-alfresco-schema")
 - [Aurora (MySQL) template schema](#ds-aurora-mysql-schema "#ds-aurora-mysql-schema")
-- [Aurora (PostgreSQL) template
-  schema](#ds-aurora-postgresql-schema "#ds-aurora-postgresql-schema")
-- [Amazon RDS (Microsoft SQL Server)
-  template schema](#ds-rds-ms-sql-server-schema "#ds-rds-ms-sql-server-schema")
+- [Aurora (PostgreSQL) template schema](#ds-aurora-postgresql-schema "#ds-aurora-postgresql-schema")
+- [Amazon RDS (Microsoft SQL Server) template schema](#ds-rds-ms-sql-server-schema "#ds-rds-ms-sql-server-schema")
 - [Amazon RDS (MySQL) template schema](#ds-rds-mysql-schema "#ds-rds-mysql-schema")
 - [Amazon RDS (Oracle) template schema](#ds-rds-oracle-schema "#ds-rds-oracle-schema")
-- [Amazon RDS (PostgreSQL) template
-  schema](#ds-rds-postgresql-schema "#ds-rds-postgresql-schema")
+- [Amazon RDS (PostgreSQL) template schema](#ds-rds-postgresql-schema "#ds-rds-postgresql-schema")
 - [Amazon S3 template schema](#ds-s3-schema "#ds-s3-schema")
 - [Amazon Kendra Web Crawler template schema](#ds-schema-web-crawler "#ds-schema-web-crawler")
 - [Confluence template schema](#ds-confluence-schema "#ds-confluence-schema")
@@ -42,9 +37,7 @@ The following are template schemas for data sources where templates are supporte
 - [Slack template schema](#ds-schema-slack "#ds-schema-slack")
 - [Zendesk template schema](#ds-schema-zendesk "#ds-schema-zendesk")
 
-## Adobe Experience Manager template
-
-schema
+## Adobe Experience Manager template schema
 
 You include a JSON that contains the data source schema as part of the [TemplateConfiguration](API_TemplateConfiguration.md "API_TemplateConfiguration.md") object. You provide the Adobe
 Experience Manager host URL, the authentication type, and whether you use
@@ -1192,9 +1185,7 @@ schema.
 }
 ```
 
-## Amazon FSx (NetApp ONTAP) template
-
-schema
+## Amazon FSx (NetApp ONTAP) template schema
 
 You include a JSON that contains the data source schema as part of the [TemplateConfiguration](../APIReference/API_TemplateConfiguration.md "../APIReference/API_TemplateConfiguration.md") object. You provide the file system ID and
 the storage virtual machine (SVM) as part of the connection configuration or repository
@@ -1831,17 +1822,14 @@ schema.
 }
 ```
 
-## Aurora (PostgreSQL) template
-
-schema
+## Aurora (PostgreSQL) template schema
 
 You include a JSON that contains the data source schema as part of the [TemplateConfiguration](../APIReference/API_TemplateConfiguration.md "../APIReference/API_TemplateConfiguration.md") object. Specify the type of data source as `JDBC`,
 the database type as `postgresql`, a secret for your authentication credentials,
 and other necessary configurations. You then specify `TEMPLATE` as the
 `Type` when you call [CreateDataSource](../APIReference/API_CreateDataSource.md "../APIReference/API_CreateDataSource.md").
 
-You can use the template provided in this developer guide. See [Aurora (PostgreSQL) JSON
-schema](#aurora-postgresql-json "#aurora-postgresql-json").
+You can use the template provided in this developer guide. See [Aurora (PostgreSQL) JSON schema](#aurora-postgresql-json "#aurora-postgresql-json").
 
 The following table describes the parameters of the Aurora (PostgreSQL) JSON
 schema.
@@ -2035,17 +2023,14 @@ schema.
 }
 ```
 
-## Amazon RDS (Microsoft SQL Server)
-
-template schema
+## Amazon RDS (Microsoft SQL Server) template schema
 
 You include a JSON that contains the data source schema as part of the [TemplateConfiguration](../APIReference/API_TemplateConfiguration.md "../APIReference/API_TemplateConfiguration.md") object. Specify the type of data source as `JDBC`,
 the database type as `sqlserver`, a secret for your authentication credentials, and
 other necessary configurations. You then specify `TEMPLATE` as the
 `Type` when you call [CreateDataSource](../APIReference/API_CreateDataSource.md "../APIReference/API_CreateDataSource.md").
 
-You can use the template provided in this developer guide. See [Amazon RDS (Microsoft SQL Server) JSON
-schema](#rds-ms-sql-server-json "#rds-ms-sql-server-json").
+You can use the template provided in this developer guide. See [Amazon RDS (Microsoft SQL Server) JSON schema](#rds-ms-sql-server-json "#rds-ms-sql-server-json").
 
 The following table describes the parameters of the Amazon RDS (Microsoft SQL
 Server) JSON schema.
@@ -2641,9 +2626,7 @@ schema.
 }
 ```
 
-## Amazon RDS (PostgreSQL) template
-
-schema
+## Amazon RDS (PostgreSQL) template schema
 
 You include a JSON that contains the data source schema as part of the [TemplateConfiguration](../APIReference/API_TemplateConfiguration.md "../APIReference/API_TemplateConfiguration.md") object. Specify the type of data source as `JDBC`,
 the database type as `postgresql`, a secret for your authentication credentials,
@@ -3014,8 +2997,7 @@ Crawler v1.0 connector if you need CloudFormation support.
 _When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/ "https://aws.amazon.com/aup/") and all other
 Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your
 own web pages, or web pages that you have authorization to index. To learn how to stop
-Amazon Kendra Web Crawler from indexing your websites, see [Configuring the robots.txt file for
-Amazon Kendra Web Crawler](stop-web-crawler.md "stop-web-crawler.md")._
+Amazon Kendra Web Crawler from indexing your websites, see [Configuring the robots.txt file for Amazon Kendra Web Crawler](stop-web-crawler.md "stop-web-crawler.md")._
 
 You can use the template provided in this developer guide. See [Amazon Kendra Web Crawler JSON schema](#web-crawler-json "#web-crawler-json").
 

@@ -16,20 +16,15 @@ you.
 ###### Topics
 
 - [IAM roles for indexes](#iam-roles-index "#iam-roles-index")
-- [IAM roles for the BatchPutDocument
-  API](#iam-roles-batch "#iam-roles-batch")
+- [IAM roles for the BatchPutDocument API](#iam-roles-batch "#iam-roles-batch")
 - [IAM roles for data sources](#iam-roles-ds "#iam-roles-ds")
 - [Virtual private cloud (VPC) IAM role](#iam-roles-vpc "#iam-roles-vpc")
-- [IAM roles for frequently asked questions
-  (FAQs)](#iam-roles-ds-faq "#iam-roles-ds-faq")
-- [IAM roles for query
-  suggestions](#iam-roles-query-suggestions "#iam-roles-query-suggestions")
-- [IAM roles for principal mapping
-  of users and groups](#iam-roles-principal-mapping "#iam-roles-principal-mapping")
+- [IAM roles for frequently asked questions (FAQs)](#iam-roles-ds-faq "#iam-roles-ds-faq")
+- [IAM roles for query suggestions](#iam-roles-query-suggestions "#iam-roles-query-suggestions")
+- [IAM roles for principal mapping of users and groups](#iam-roles-principal-mapping "#iam-roles-principal-mapping")
 - [IAM roles for AWS IAM Identity Center](#iam-roles-aws-sso "#iam-roles-aws-sso")
 - [IAM roles for Amazon Kendra experiences](#iam-roles-amazon-kendra-experiences "#iam-roles-amazon-kendra-experiences")
-- [IAM roles for Custom
-  Document Enrichment](#iam-roles-custom-document-enrichment "#iam-roles-custom-document-enrichment")
+- [IAM roles for Custom Document Enrichment](#iam-roles-custom-document-enrichment "#iam-roles-custom-document-enrichment")
 
 ## IAM roles for indexes
 
@@ -167,9 +162,7 @@ JSON
 
 ```
 
-## IAM roles for the BatchPutDocument
-
-API
+## IAM roles for the BatchPutDocument API
 
 ###### Warning
 
@@ -789,8 +782,7 @@ JSON
 Amazon Kendra doesn't use a bucket policy that grants permissions to an Amazon Kendra principal to interact with an S3 bucket. Instead, it uses IAM roles. Make sure that Amazon Kendra isn't included as a trusted member in your
 bucket policy to avoid any data security issues in accidentally granting permissions to
 arbitrary principals. However, you can add a bucket policy to use an Amazon S3
-bucket across different accounts. For more information, see [Policies to use Amazon S3
-across accounts](#iam-roles-ds-s3-cross-accounts "#iam-roles-ds-s3-cross-accounts") (scroll down).
+bucket across different accounts. For more information, see [Policies to use Amazon S3 across accounts](#iam-roles-ds-s3-cross-accounts "#iam-roles-ds-s3-cross-accounts") (scroll down).
 
 When you use an Amazon S3 bucket as a data source, you supply a role that has
 permission to access the bucket, and to use the `BatchPutDocument` and
@@ -894,9 +886,7 @@ JSON
 
 ```
 
-#### Policies to use Amazon S3
-
-across accounts
+#### Policies to use Amazon S3 across accounts
 
 If your Amazon S3 bucket is in a different account to the account you use
 for your Amazon Kendra index, you can create policies to use it across
@@ -3173,9 +3163,7 @@ JSON
 
 ```
 
-## IAM roles for frequently asked questions
-
-(FAQs)
+## IAM roles for frequently asked questions (FAQs)
 
 When you use the [CreateFaq](../APIReference/API_CreateFaq.md "../APIReference/API_CreateFaq.md") API to load questions
 and answers into an index, you must provide Amazon Kendra with an IAM role
@@ -3256,9 +3244,7 @@ JSON
 
 ```
 
-## IAM roles for query
-
-suggestions
+## IAM roles for query suggestions
 
 When you use an Amazon S3 file as a query suggestions block list, you supply a
 role that has permission to access the Amazon S3 file and the Amazon S3
@@ -3331,9 +3317,7 @@ JSON
 
 ```
 
-## IAM roles for principal mapping
-
-of users and groups
+## IAM roles for principal mapping of users and groups
 
 When you use the [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
 API to map users to their groups for filtering search results by user context, you need to
@@ -3583,9 +3567,7 @@ This prevents unauthorized entities from accessing your IAM roles and their
 permissions. For more information, see the AWS Identity and Access Management guide on the [confused deputy
 problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md").
 
-## IAM roles for Custom
-
-Document Enrichment
+## IAM roles for Custom Document Enrichment
 
 When you use the [CustomDocumentEnrichmentConfiguration](../APIReference/API_CustomDocumentEnrichmentConfiguration.md "../APIReference/API_CustomDocumentEnrichmentConfiguration.md") object to apply advanced alterations of your
 document metadata and content, you must supply a role that has the required permissions to run

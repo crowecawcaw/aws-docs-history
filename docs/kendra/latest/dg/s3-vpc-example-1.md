@@ -1,6 +1,4 @@
-# Using Amazon VPC with an Amazon S3
-
-data source
+# Using Amazon VPC with an Amazon S3 data source
 
 This topic provides a step-by-step example that shows how to connect to an Amazon S3 bucket
 by using an Amazon S3 connector through Amazon VPC. The example assumes that you're starting with
@@ -31,17 +29,14 @@ Amazon VPC, you must complete the following steps:
 
 - [Step 1: Configure an Amazon VPC](#s3-configure-vpc "#s3-configure-vpc")
 - [(Optional) Step 2: Configure Amazon S3 bucket policy](#s3-configure-bucket-policy "#s3-configure-bucket-policy")
-- [Step 3: Create a test Amazon S3 data source
-  connector](#s3-connect-vpc "#s3-connect-vpc")
+- [Step 3: Create a test Amazon S3 data source connector](#s3-connect-vpc "#s3-connect-vpc")
 
 ## Step 1: Configure an Amazon VPC
 
 Create a VPC network including a private subnet with an Amazon S3 gateway
 endpoint and a security group for Amazon Kendra to use later.
 
-###### To configure a VPC with a private subnet, an S3 endpoint, and a security
-
-group
+###### To configure a VPC with a private subnet, an S3 endpoint, and a security group
 
 1. Sign in to the AWS Management Console and open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
 2. **Create a VPC with a private subnet and an S3
@@ -137,9 +132,7 @@ bucket name and the Amazon S3 endpoint ID that you noted earlier. 6. Select **Sa
 Your S3 bucket is now accessible only from the specific VPC that you
 created.
 
-## Step 3: Create a test Amazon S3 data source
-
-connector
+## Step 3: Create a test Amazon S3 data source connector
 
 To test your Amazon VPC configuration, create an Amazon S3
 connector. Then, configure it with the VPC that you created by following the steps

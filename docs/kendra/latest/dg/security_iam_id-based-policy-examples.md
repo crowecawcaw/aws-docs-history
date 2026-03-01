@@ -1,6 +1,4 @@
-# Amazon Kendra Identity-based
-
-policy examples
+# Amazon Kendra Identity-based policy examples
 
 By default, users and roles don't have permission to create or modify Amazon Kendra
 resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An IAM
@@ -14,19 +12,13 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [AWS
-  Managed (Predefined) Polices for Amazon Kendra](#security_iam_id-predefined-policies "#security_iam_id-predefined-policies")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Accessing one
-  Amazon Kendra index](#security_iam_id-based-policy-examples-access-query-index "#security_iam_id-based-policy-examples-access-query-index")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [AWS Managed (Predefined) Polices for Amazon Kendra](#security_iam_id-predefined-policies "#security_iam_id-predefined-policies")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Accessing one Amazon Kendra index](#security_iam_id-based-policy-examples-access-query-index "#security_iam_id-based-policy-examples-access-query-index")
 - [Tag-based policy examples](#examples-tagging "#examples-tagging")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Kendra resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -59,9 +51,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## AWS
-
-Managed (Predefined) Polices for Amazon Kendra
+## AWS Managed (Predefined) Polices for Amazon Kendra
 
 AWS addresses many common use cases by providing standalone IAM policies that are
 created and administered by AWS. These policies are called AWS managed policies.
@@ -91,12 +81,9 @@ for specific policies.
 You can also create your own custom policies to allow permissions for
 Amazon Kendra API actions. You can attach these custom policies to the IAM roles or
 groups that require those permissions. For examples of IAM policies for
-Amazon Kendra, see [Amazon Kendra Identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+Amazon Kendra, see [Amazon Kendra Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -136,9 +123,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Accessing one
-
-Amazon Kendra index
+## Accessing one Amazon Kendra index
 
 In this example, you want to grant an user in your AWS account access to query an
 index.
@@ -148,9 +133,7 @@ index.
 Tag-based policies are JSON policy documents that specify the actions that a
 principal can perform on tagged resources.
 
-### Example: Use a tag to access a
-
-resource
+### Example: Use a tag to access a resource
 
 This example policy grants a user or role in your AWS account permission to use
 the `Query` operation with any resource tagged with the key
@@ -180,9 +163,7 @@ JSON
 
 ```
 
-### Example: Use a tag to activate Amazon Kendra
-
-operations
+### Example: Use a tag to activate Amazon Kendra operations
 
 This example policy grants a user or role in your AWS account permission to use
 any Amazon Kendra operation except `TagResource` operation with any resource
@@ -217,9 +198,7 @@ JSON
 
 ```
 
-### Example: Use a tag to restrict
-
-access to an operation
+### Example: Use a tag to restrict access to an operation
 
 This example policy restricts access for a user or role in your AWS account to
 use the `CreateIndex` operation unless the user provides the

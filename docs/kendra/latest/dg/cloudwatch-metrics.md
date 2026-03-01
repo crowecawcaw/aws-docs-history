@@ -60,9 +60,7 @@ period that you specify.
 
 You must provide a name for your CloudWatch alarm.
 
-## CloudWatch Metrics for index synchronization
-
-Jobs
+## CloudWatch Metrics for index synchronization Jobs
 
 The following table describes the Amazon Kendra metrics for data source
 synchronization jobs.
@@ -79,9 +77,7 @@ If you use the API or CLI, you must specify the `Namespace` as
 | `DocumentsSubmittedForDeletion`       | The number of documents that the synchronization job asked<br>to be removed from the index.<br>Dimensions:<br>• IndexId<br>• DataSourceId<br>Unit: Count                                                |
 | `DocumentsSubmittedForDeletionFailed` | The number of documents that failed to be deleted. Check<br>the contents of the CloudWatch log for the synchronization job for<br>details.<br>Dimensions:<br>• IndexId<br>• DataSourceId<br>Unit: Count |
 
-## Metrics for Amazon Kendra data
-
-sources
+## Metrics for Amazon Kendra data sources
 
 The following table describes the Amazon Kendra metrics for data source
 synchronization jobs. Metrics marked with an asterisk (\*) are used only for Amazon S3

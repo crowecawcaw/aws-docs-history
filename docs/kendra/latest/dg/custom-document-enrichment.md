@@ -1,6 +1,4 @@
-# Enriching your documents during
-
-ingestion
+# Enriching your documents during ingestion
 
 ###### Note
 
@@ -31,9 +29,7 @@ function to apply more complex operations on your data. For example, you could u
 operation to simply remove all values in the document metadata field 'Customer_ID', and then
 apply a Lambda function to extract text from images of the text in the documents.
 
-## How Custom Document Enrichment
-
-works
+## How Custom Document Enrichment works
 
 The overall process of Custom Document Enrichment is as follows:
 
@@ -43,8 +39,7 @@ The overall process of Custom Document Enrichment is as follows:
    data. For more information, see [Basic operations to change metadata](#basic-data-maniplation "#basic-data-maniplation").
 3. If you choose to configure advanced data manipulation, Amazon Kendra can
    apply this on your original, raw documents or on the structured, parsed
-   documents. For more information, see [Lambda functions: extract and change
-   metadata or content](#advanced-data-manipulation "#advanced-data-manipulation").
+   documents. For more information, see [Lambda functions: extract and change metadata or content](#advanced-data-manipulation "#advanced-data-manipulation").
 4. Your altered documents are ingested into Amazon Kendra.
 
 At any point in this process, if your configuration is not valid, Amazon Kendra
@@ -72,8 +67,7 @@ are not saved if you don't complete all the steps.
 You can manipulate your document fields and content using basic logic. This includes
 removing values in a field, modifying values in a field using a condition, or creating a
 field. For advanced manipulations that go beyond what you can manipulate using basic
-logic, invoke a Lambda function. For more information, see [Lambda functions: extract and change
-metadata or content](#advanced-data-manipulation "#advanced-data-manipulation").
+logic, invoke a Lambda function. For more information, see [Lambda functions: extract and change metadata or content](#advanced-data-manipulation "#advanced-data-manipulation").
 
 To apply basic logic, you specify the target field you want to manipulate using the
 [DocumentAttributeTarget](../APIReference/API_DocumentAttributeTarget.md "../APIReference/API_DocumentAttributeTarget.md") object. You provide the attribute key. For example,
@@ -148,9 +142,7 @@ customer identification numbers associated with the documents.
 
 Console
 
-###### To configure basic data manipulation to remove customer
-
-identification numbers
+###### To configure basic data manipulation to remove customer identification numbers
 
 1. In the left navigation pane, under **Indexes**,
    select **Document enrichments** and then select
@@ -401,9 +393,7 @@ public class CreateDataSourceWithCustomizationsExample {
 }
 ```
 
-## Lambda functions: extract and change
-
-metadata or content
+## Lambda functions: extract and change metadata or content
 
 You can manipulate your document fields and content using Lambda functions. This is
 useful if you want to go beyond basic logic and apply advanced data manipulations. For
@@ -500,9 +490,7 @@ manipulation on the raw, original data.
 
 Console
 
-###### To configure a Lambda function for advanced data manipulation on the
-
-raw, original data
+###### To configure a Lambda function for advanced data manipulation on the raw, original data
 
 1. In the left navigation pane, under **Indexes**,
    select **Document enrichments** and then select
@@ -852,9 +840,7 @@ TextContent
 }
 ```
 
-### Example of a Lambda
-
-function that adheres to data contracts
+### Example of a Lambda function that adheres to data contracts
 
 The following Python code is an example of a Lambda function that applies advanced
 manipulation of the metadata fields `_authors`,

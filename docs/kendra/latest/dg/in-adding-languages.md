@@ -1,6 +1,4 @@
-# Adding documents in languages other than
-
-English
+# Adding documents in languages other than English
 
 You can index documents in multiple languages. If you don't specify a language,
 Amazon Kendra indexes documents in English by default. You include the language

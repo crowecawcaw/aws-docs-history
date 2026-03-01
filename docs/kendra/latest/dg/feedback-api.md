@@ -1,6 +1,4 @@
-# Using the Amazon Kendra API to submit
-
-feedback
+# Using the Amazon Kendra API to submit feedback
 
 To use the Amazon Kendra API to submit query feedback, use the [SubmitFeedback](../APIReference/API_SubmitFeedback.md "../APIReference/API_SubmitFeedback.md") API. To identify the query, you supply the index ID of the
 index that the query applies to, and the query ID returned in the response from the

@@ -1,6 +1,4 @@
-# Getting started with an Amazon S3 data source
-
-(console)
+# Getting started with an Amazon S3 data source (console)
 
 You can use the Amazon Kendra console to get started using an Amazon S3
 bucket as a data store. When you use the console you specify all of the connection

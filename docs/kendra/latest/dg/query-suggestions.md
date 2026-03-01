@@ -53,16 +53,11 @@ suggestions if a user types fewer than two characters or more than 60 characters
 
 ###### Topics
 
-- [Query suggestions using query
-  history](#query-suggestions-history "#query-suggestions-history")
-- [Query suggestions using document
-  fields](#query-suggestions-doc-fields "#query-suggestions-doc-fields")
-- [Block certain queries or document
-  field content from suggestions](#query-suggestions-blocklist "#query-suggestions-blocklist")
+- [Query suggestions using query history](#query-suggestions-history "#query-suggestions-history")
+- [Query suggestions using document fields](#query-suggestions-doc-fields "#query-suggestions-doc-fields")
+- [Block certain queries or document field content from suggestions](#query-suggestions-blocklist "#query-suggestions-blocklist")
 
-## Query suggestions using query
-
-history
+## Query suggestions using query history
 
 ###### Note
 
@@ -72,12 +67,9 @@ types](hiw-index-types.md "hiw-index-types.md").
 
 ###### Topics
 
-- [Settings for selecting
-  queries for suggestions](#query-suggestions-history-settings "#query-suggestions-history-settings")
-- [Clear suggestions while
-  retaining query history](#query-suggestions-history-clear "#query-suggestions-history-clear")
-- [No suggestions
-  available](#query-suggestions-history-none "#query-suggestions-history-none")
+- [Settings for selecting queries for suggestions](#query-suggestions-history-settings "#query-suggestions-history-settings")
+- [Clear suggestions while retaining query history](#query-suggestions-history-clear "#query-suggestions-history-clear")
+- [No suggestions available](#query-suggestions-history-none "#query-suggestions-history-none")
 
 You can choose to suggest queries relevant to your users based on popular queries
 in the query history or query log. Amazon Kendra uses all of the queries that
@@ -100,9 +92,7 @@ by at least 10 unique users (default is three), have been searched within the la
 list](query-suggestions.md#query-suggestions-blocklist "query-suggestions.md#query-suggestions-blocklist"). Amazon Kendra requires that a query has at least one search
 result and contains at least one word of more than four characters.
 
-### Settings for selecting
-
-queries for suggestions
+### Settings for selecting queries for suggestions
 
 You can configure the following settings for selecting queries for suggestions
 by using the [UpdateQuerySuggestionsConfig](../APIReference/API_UpdateQuerySuggestionsConfig.md "../APIReference/API_UpdateQuerySuggestionsConfig.md") API:
@@ -281,9 +271,7 @@ except ClientError as e:
 print("Program ends.")
 ```
 
-### Clear suggestions while
-
-retaining query history
+### Clear suggestions while retaining query history
 
 ###### Note
 
@@ -336,9 +324,7 @@ except ClientError as e:
 print("Program ends.")
 ```
 
-### No suggestions
-
-available
+### No suggestions available
 
 If you don't see suggestions for a query, it could be for one of the following
 reasons:
@@ -353,16 +339,12 @@ reasons:
 
 You can check your current settings using the [DescribeQuerySuggestionsConfig](../APIReference/API_DescribeQuerySuggestionsConfig.md "../APIReference/API_DescribeQuerySuggestionsConfig.md") API.
 
-## Query suggestions using document
-
-fields
+## Query suggestions using document fields
 
 ###### Topics
 
-- [Settings for selecting
-  fields for suggestions](#query-suggestions-doc-fields-settings "#query-suggestions-doc-fields-settings")
-- [User control in
-  document fields](#query-suggestions-doc-fields-user-control "#query-suggestions-doc-fields-user-control")
+- [Settings for selecting fields for suggestions](#query-suggestions-doc-fields-settings "#query-suggestions-doc-fields-settings")
+- [User control in document fields](#query-suggestions-doc-fields-user-control "#query-suggestions-doc-fields-user-control")
 
 You can choose to suggest queries relevant to your users based on the contents of
 document fields. Instead of using the query history to suggest other popular
@@ -388,9 +370,7 @@ phrases are not shown to your users. You can use one block list. The block list
 applies whether you set query suggestions to use the query history or document
 fields.
 
-### Settings for selecting
-
-fields for suggestions
+### Settings for selecting fields for suggestions
 
 You can configure the following settings for selecting document fields for
 suggestions using [AttributeSuggestionsConfig](../APIReference/API_AttributeSuggestionsConfig.md "../APIReference/API_AttributeSuggestionsConfig.md") and calling the
@@ -560,9 +540,7 @@ except ClientError as e:
 print("Program ends.")
 ```
 
-### User control in
-
-document fields
+### User control in document fields
 
 You can apply user context filtering to the document fields that you want to
 base query suggestions on. This filters document field information based on the
@@ -579,9 +557,7 @@ filtering applied to your document fields configuration for query suggestions.
 User context filtering is part of your document fields configuration. You use
 the [AttributeSuggestionsGetConfig](../APIReference/API_AttributeSuggestionsConfig.md "../APIReference/API_AttributeSuggestionsConfig.md") and call [GetQuerySuggestions](../APIReference/API_GetQuerySuggestions.md "../APIReference/API_GetQuerySuggestions.md").
 
-## Block certain queries or document
-
-field content from suggestions
+## Block certain queries or document field content from suggestions
 
 A _block list_ stops Amazon Kendra from
 suggesting certain queries to your users. A block list is a list of words or phrases

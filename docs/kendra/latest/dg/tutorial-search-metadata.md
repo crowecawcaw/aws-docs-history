@@ -1,6 +1,4 @@
-# Tutorial: Building a metadata-enriched, intelligent
-
-search solution with Amazon Kendra
+# Tutorial: Building a metadata-enriched, intelligent search solution with Amazon Kendra
 
 This tutorial shows you how to build a metadata-enriched, natural language based,
 intelligent search solution for your enterprise data using [Amazon Kendra](https://aws.amazon.com/kendra/ "https://aws.amazon.com/kendra/"), [Amazon Comprehend](https://aws.amazon.com/comprehend/ "https://aws.amazon.com/comprehend/"), [Amazon Simple Storage Service](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/") (S3), and [AWS CloudShell](https://aws.amazon.com/cloudshell/ "https://aws.amazon.com/cloudshell/").
@@ -40,16 +38,11 @@ pages for [Amazon S3](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com
 ###### Topics
 
 - [Prerequisites](#tutorial-search-metadata-prereqs "#tutorial-search-metadata-prereqs")
-- [Step 1: Adding documents to
-  Amazon S3](tutorial-search-metadata-add-documents.md "tutorial-search-metadata-add-documents.md")
-- [Step 2: Running an entities
-  analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md "tutorial-search-metadata-entities-analysis.md")
-- [Step 3: Formatting the entities
-  analysis output as Amazon Kendra metadata](tutorial-search-metadata-format-output.md "tutorial-search-metadata-format-output.md")
-- [Step 4: Creating an Amazon Kendra index
-  and ingesting the metadata](tutorial-search-metadata-create-index-ingest.md "tutorial-search-metadata-create-index-ingest.md")
-- [Step 5: Querying the Amazon Kendra
-  index](tutorial-search-metadata-query-kendra.md "tutorial-search-metadata-query-kendra.md")
+- [Step 1: Adding documents to Amazon S3](tutorial-search-metadata-add-documents.md "tutorial-search-metadata-add-documents.md")
+- [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md "tutorial-search-metadata-entities-analysis.md")
+- [Step 3: Formatting the entities analysis output as Amazon Kendra metadata](tutorial-search-metadata-format-output.md "tutorial-search-metadata-format-output.md")
+- [Step 4: Creating an Amazon Kendra index and ingesting the metadata](tutorial-search-metadata-create-index-ingest.md "tutorial-search-metadata-create-index-ingest.md")
+- [Step 5: Querying the Amazon Kendra index](tutorial-search-metadata-query-kendra.md "tutorial-search-metadata-query-kendra.md")
 - [Step 6: Cleaning up](tutorial-search-metadata-cleanup.md "tutorial-search-metadata-cleanup.md")
 
 ## Prerequisites

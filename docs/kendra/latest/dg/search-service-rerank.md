@@ -1,6 +1,4 @@
-# Semantically ranking a search
-
-service's results
+# Semantically ranking a search service's results
 
 Amazon Kendra Intelligent Ranking uses Amazon Kendra's semantic search
 capabilities to re-rank a search service's results. It does this by taking into

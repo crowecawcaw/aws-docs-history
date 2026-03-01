@@ -96,9 +96,7 @@ To add or remove capacity using the Amazon Kendra API, use the
 `CapacityUnits` parameter in the [UpdateIndex](../APIReference/API_UpdateIndex.md "../APIReference/API_UpdateIndex.md")
 API.
 
-## Amazon Kendra Intelligent Ranking
-
-capacity
+## Amazon Kendra Intelligent Ranking capacity
 
 A capacity unit provides the following additional rescore requests per second for a
 rescore execution plan. A rescore execution plan is a resource used to provision the
@@ -126,9 +124,7 @@ base of 2.5 calls per second. If you add another 0.1 queries per second to total
 queries per second for an index, the `GetQuerySuggestions` capacity is 2.5
 calls per second (higher than five times 0.2 queries per second).
 
-## Amazon Kendra experience
-
-capacity
+## Amazon Kendra experience capacity
 
 ### Search experience capacity
 

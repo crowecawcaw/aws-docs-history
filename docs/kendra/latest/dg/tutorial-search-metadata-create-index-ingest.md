@@ -1,6 +1,4 @@
-# Step 4: Creating an Amazon Kendra index
-
-and ingesting the metadata
+# Step 4: Creating an Amazon Kendra index and ingesting the metadata
 
 To implement your intelligent search solution, you create an Amazon Kendra index and ingest your
 S3 data and metadata into it.
@@ -16,12 +14,9 @@ document attributes](custom-attributes.md "custom-attributes.md").
 ###### Topics
 
 - [Creating an Amazon Kendra index](#tutorial-search-metadata-create-index "#tutorial-search-metadata-create-index")
-- [Updating the IAM role
-  for Amazon S3 access](#tutorial-search-metadata-create-index-update-IAM "#tutorial-search-metadata-create-index-update-IAM")
-- [Creating Amazon Kendra custom
-  search index fields](#tutorial-search-metadata-create-index-custom-fields "#tutorial-search-metadata-create-index-custom-fields")
-- [Adding the Amazon S3 bucket
-  as a data source for the index](#tutorial-search-metadata-create-index-connect-data "#tutorial-search-metadata-create-index-connect-data")
+- [Updating the IAM role for Amazon S3 access](#tutorial-search-metadata-create-index-update-IAM "#tutorial-search-metadata-create-index-update-IAM")
+- [Creating Amazon Kendra custom search index fields](#tutorial-search-metadata-create-index-custom-fields "#tutorial-search-metadata-create-index-custom-fields")
+- [Adding the Amazon S3 bucket as a data source for the index](#tutorial-search-metadata-create-index-connect-data "#tutorial-search-metadata-create-index-connect-data")
 - [Syncing the Amazon Kendra index](#tutorial-search-metadata-create-index-sync "#tutorial-search-metadata-create-index-sync")
 
 ## Creating an Amazon Kendra index
@@ -342,9 +337,7 @@ created, you can start the next step.
 If you are using the AWS CLI in this step, you create and attach an IAM policy to your
 Amazon Kendra IAM role that gives your index permissions to access your S3 bucket.
 
-## Updating the IAM role
-
-for Amazon S3 access
+## Updating the IAM role for Amazon S3 access
 
 While the index is being created, you update your Amazon Kendra IAM role to allow the index
 you created to read data from your Amazon S3 bucket. For more information, see [IAM access roles for
@@ -468,9 +461,7 @@ Where:
     * `policy-arn` is your saved
      `kendra-S3-access-arn`.
 
-## Creating Amazon Kendra custom
-
-search index fields
+## Creating Amazon Kendra custom search index fields
 
 To prepare Amazon Kendra to recognize your metadata as custom document attributes, you create
 custom fields corresponding to Amazon Comprehend entity types. You input the following nine Amazon Comprehend entity
@@ -700,9 +691,7 @@ Where:
      `kendra-index-id`,
     * `aws-region` is your AWS region.
 
-## Adding the Amazon S3 bucket
-
-as a data source for the index
+## Adding the Amazon S3 bucket as a data source for the index
 
 Before you can sync your index, you must connect your S3 data source to it.
 

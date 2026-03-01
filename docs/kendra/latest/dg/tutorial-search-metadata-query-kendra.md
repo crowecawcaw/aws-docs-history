@@ -1,6 +1,4 @@
-# Step 5: Querying the Amazon Kendra
-
-index
+# Step 5: Querying the Amazon Kendra index
 
 Your Amazon Kendra index is now ready for natural language queries. When you search your index,
 Amazon Kendra uses all the data and metadata you provided to return the most accurate answers to your
@@ -14,14 +12,10 @@ There are three kinds of queries that Amazon Kendra can answer:
 
 ###### Topics
 
-- [Querying your Amazon Kendra
-  index](#tutorial-search-metadata-query-kendra-basic "#tutorial-search-metadata-query-kendra-basic")
-- [Filtering your search
-  results](#tutorial-search-metadata-query-kendra-filters "#tutorial-search-metadata-query-kendra-filters")
+- [Querying your Amazon Kendra index](#tutorial-search-metadata-query-kendra-basic "#tutorial-search-metadata-query-kendra-basic")
+- [Filtering your search results](#tutorial-search-metadata-query-kendra-filters "#tutorial-search-metadata-query-kendra-filters")
 
-## Querying your Amazon Kendra
-
-index
+## Querying your Amazon Kendra index
 
 You can query your Amazon Kendra index using questions that correspond to the three kinds of
 queries that Amazon Kendra supports. For more information, see [Queries](searching-example.md "searching-example.md").
@@ -197,9 +191,7 @@ Where:
 
 The AWS CLI displays the returned answers to your query.
 
-## Filtering your search
-
-results
+## Filtering your search results
 
 You can filter and sort your search results using custom document attributes in the
 Amazon Kendra console. For more information on how Amazon Kendra processes queries, see [Filtering

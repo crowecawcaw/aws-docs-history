@@ -1,6 +1,4 @@
-# Adding documents directly to an index with batch
-
-upload
+# Adding documents directly to an index with batch upload
 
 You can add documents directly to an index using the [BatchPutDocument](../APIReference/API_BatchPutDocument.md "../APIReference/API_BatchPutDocument.md")
 API. You can't add documents directly using the console. If you use the console, you
@@ -39,13 +37,10 @@ index.
 
 ###### Topics
 
-- [Adding documents with the BatchPutDocument
-  API](#in-adding-binary-doc "#in-adding-binary-doc")
+- [Adding documents with the BatchPutDocument API](#in-adding-binary-doc "#in-adding-binary-doc")
 - [Adding documents from an S3 bucket](#in-adding-plain-text "#in-adding-plain-text")
 
-## Adding documents with the BatchPutDocument
-
-API
+## Adding documents with the BatchPutDocument API
 
 The following example adds a blob of text to an index by calling [BatchPutDocument](../APIReference/API_BatchPutDocument.md "../APIReference/API_BatchPutDocument.md").
 You can use the `BatchPutDocument` API to add documents directly to your

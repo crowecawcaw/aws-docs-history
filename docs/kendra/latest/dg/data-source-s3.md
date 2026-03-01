@@ -47,8 +47,7 @@ For troubleshooting your Amazon Kendra S3 data source connector, see [Troublesho
 - [Creating an Amazon S3 data source](create-ds-s3.md "create-ds-s3.md")
 - [Amazon S3 document metadata](s3-metadata.md "s3-metadata.md")
 - [Access control for Amazon S3 data sources](s3-acl.md "s3-acl.md")
-- [Using Amazon VPC with an Amazon S3
-  data source](s3-vpc-example-1.md "s3-vpc-example-1.md")
+- [Using Amazon VPC with an Amazon S3 data source](s3-vpc-example-1.md "s3-vpc-example-1.md")
 
 ## Supported features
 

@@ -1,6 +1,4 @@
-# SharePoint connector
-
-V2.0
+# SharePoint connector V2.0
 
 SharePoint is a collaborative website building service that you can use to
 customize web content and create pages, sites, document libraries, and lists. You can
@@ -20,8 +18,7 @@ For troubleshooting your Amazon Kendra SharePoint data source connector, see [Tr
 
 - [Supported features](#supported-features-v2-sharepoint "#supported-features-v2-sharepoint")
 - [Prerequisites](#prerequisites-v2-sharepoint "#prerequisites-v2-sharepoint")
-- [Connection
-  instructions](#data-source-procedure-v2-sharepoint "#data-source-procedure-v2-sharepoint")
+- [Connection instructions](#data-source-procedure-v2-sharepoint "#data-source-procedure-v2-sharepoint")
 - [Notes](#sharepoint-notes "#sharepoint-notes")
 
 ## Supported features
@@ -279,9 +276,7 @@ console to create a new IAM role and Secrets Manager secret when you
 connect your SharePoint data source to Amazon Kendra. If you are using the
 API, you must provide the ARN of an existing IAM role and Secrets Manager secret, and an index ID.
 
-## Connection
-
-instructions
+## Connection instructions
 
 To connect Amazon Kendra to your SharePoint data source, you must
 provide details of your SharePoint credentials so that Amazon Kendra

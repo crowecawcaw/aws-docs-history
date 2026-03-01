@@ -34,6 +34,5 @@ For troubleshooting your Amazon Kendra Google Drive data source connector, see [
 
 ###### Topics
 
-- [Google Drive connector
-  V1.0](data-source-v1-google-drive.md "data-source-v1-google-drive.md")
+- [Google Drive connector V1.0](data-source-v1-google-drive.md "data-source-v1-google-drive.md")
 - [Google Drive connector V2.0](data-source-v2-google-drive.md "data-source-v2-google-drive.md")

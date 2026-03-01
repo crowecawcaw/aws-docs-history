@@ -1,6 +1,4 @@
-# Getting started with an AWS IAM Identity Center identity source
-
-(console)
+# Getting started with an AWS IAM Identity Center identity source (console)
 
 An AWS IAM Identity Center identity source contains information on your users and groups. This is useful
 for setting up user context filtering, where Amazon Kendra filters search results for
@@ -81,9 +79,7 @@ The following is an overview of how to set up a data source with
 results on user context. This assumes you have already created an index and an IAM role for indexes. You create an index and provide the IAM role
 using the [CreateIndex](../APIReference/API_CreateIndex.md "../APIReference/API_CreateIndex.md") API.
 
-###### Setting up a data source with `UserGroupResolutionConfiguration` and user
-
-context filtering
+###### Setting up a data source with `UserGroupResolutionConfiguration` and user context filtering
 
 1. Create an [IAM
    role](iam-roles.md#iam-roles-aws-sso "iam-roles.md#iam-roles-aws-sso") that gives permission to access your IAM Identity Center identity source.

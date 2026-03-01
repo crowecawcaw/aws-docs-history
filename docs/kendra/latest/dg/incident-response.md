@@ -15,5 +15,4 @@ use AWS CloudTrail. To monitor the status of your jobs, use Amazon CloudWatch Lo
   request that was made to Amazon Kendra, the IP address from which the request was made,
   who made the request, when it was made, and additional details. For more information,
   see [Logging Amazon Kendra API calls with AWS CloudTrail logs](cloudtrail.md "cloudtrail.md") and
-  [Logging Amazon Kendra Intelligent
-  Ranking API calls with AWS CloudTrail logs](cloudtrail-intelligent-ranking.md "cloudtrail-intelligent-ranking.md").
+  [Logging Amazon Kendra Intelligent Ranking API calls with AWS CloudTrail logs](cloudtrail-intelligent-ranking.md "cloudtrail-intelligent-ranking.md").

@@ -126,9 +126,7 @@ metric in the console by selecting **Analytics** on the navigation
 panel in the console, then selecting **Top queries** under
 **Query lists**.
 
-### Top queries with zero
-
-clicks
+### Top queries with zero clicks
 
 The top 100 queries that lead to zero clicks in the search results. This helps you
 understand any gaps in your content, where there’s a lack of documents relevant to
@@ -147,9 +145,7 @@ console by selecting **Analytics** on the navigation panel in the
 console, then selecting **Top zero click queries** under
 **Query lists**.
 
-### Top queries with zero search
-
-results
+### Top queries with zero search results
 
 The top 100 queries that lead to zero search results. This helps you understand
 any gaps in your content, where there are no documents relevant to some queries. Or,
@@ -312,9 +308,7 @@ Oceanic region, with 100 percent instant answer rates and a high click-through r
 more information on available regions as part of the answer. This suggests there's
 interest and demand for your product or service in this region.
 
-## Visualizing and reporting search
-
-analytics
+## Visualizing and reporting search analytics
 
 There are five metrics that include trends data for you to visualize and look for
 trends or patterns over time. If you use the console, graphs of the trends data are
@@ -363,9 +357,7 @@ If you use the API, you can retrieve these data by specifying
 `TREND_QUERY_DOC_METRICS`. You can use the data to create your own
 graphs, or use the graphs provided in the console.
 
-### Zero search results rate
-
-graph
+### Zero search results rate graph
 
 A line graph of the proportion of zero search results per day. The graph helps you
 visualize patterns in daily zero search results rate. Some examples include a steady

@@ -351,8 +351,7 @@ in order for Amazon Kendra to search your documents. You must map your document 
 field name in your data source to the index field name `_document_body`. All other
 fields are optional.
 
-For a list of other important JSON keys to configure, see [Aurora (PostgreSQL) template
-schema](ds-schemas.md#ds-aurora-postgresql-schema "ds-schemas.md#ds-aurora-postgresql-schema").
+For a list of other important JSON keys to configure, see [Aurora (PostgreSQL) template schema](ds-schemas.md#ds-aurora-postgresql-schema "ds-schemas.md#ds-aurora-postgresql-schema").
 
 ## Notes
 

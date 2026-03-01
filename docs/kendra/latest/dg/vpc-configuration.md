@@ -27,10 +27,7 @@ documentation](../../../vpn.md "../../../vpn.md").
 
 ###### Topics
 
-- [Configuring Amazon VPC support for
-  Amazon Kendra connectors](connector-vpc-steps.md "connector-vpc-steps.md")
-- [Set up an Amazon Kendra data source to
-  connect to Amazon VPC](connector-vpc-setup.md "connector-vpc-setup.md")
+- [Configuring Amazon VPC support for Amazon Kendra connectors](connector-vpc-steps.md "connector-vpc-steps.md")
+- [Set up an Amazon Kendra data source to connect to Amazon VPC](connector-vpc-setup.md "connector-vpc-setup.md")
 - [Connecting to a database in a VPC](vpc-example.md "vpc-example.md")
-- [Troubleshooting VPC connection
-  issues](vpc-connector-troubleshoot.md "vpc-connector-troubleshoot.md")
+- [Troubleshooting VPC connection issues](vpc-connector-troubleshoot.md "vpc-connector-troubleshoot.md")

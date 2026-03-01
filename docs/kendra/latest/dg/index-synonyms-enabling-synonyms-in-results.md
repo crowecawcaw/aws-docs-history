@@ -1,6 +1,4 @@
-# Highlights in search
-
-results
+# Highlights in search results
 
 Synonym highlighting is on by default. Highlight information is included in Amazon Kendra SDK and CLI query results. If you interact with Amazon Kendra using the SDK
 or CLI, you determine how to display results.

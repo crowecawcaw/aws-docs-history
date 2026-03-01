@@ -77,9 +77,7 @@ If you are using another data source, you must have an active site and credentia
 connect to the data source.
 If you are using the console to get started, start with [Getting started with the Amazon Kendra console](gs-console.md "gs-console.md").
 
-## Amazon Kendra resources: AWS CLI, SDK,
-
-console
+## Amazon Kendra resources: AWS CLI, SDK, console
 
 There are certain permissions required if you use CLI, SDK, or the console.
 
@@ -161,9 +159,7 @@ policy to access Amazon CloudWatch Logs. If you are using the console, you don't
 create an IAM role and policy for this. You create this as part of the
 console procedure.
 
-###### To create an IAM role and policy for the AWS CLI and SDK
-
-that allows Amazon Kendra to access your Amazon CloudWatch Logs.
+###### To create an IAM role and policy for the AWS CLI and SDK that allows Amazon Kendra to access your Amazon CloudWatch Logs.
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. From the left menu, choose **Policies** and then choose
@@ -264,9 +260,7 @@ test Amazon Kendra, you also must create an IAM role and policy to
 access your bucket. If you are using another data source, see [IAM roles for data
 sources](iam-roles.md#iam-roles-ds "iam-roles.md#iam-roles-ds").
 
-###### To create an IAM role and policy that allows Amazon Kendra to
-
-access and index your Amazon S3 bucket.
+###### To create an IAM role and policy that allows Amazon Kendra to access and index your Amazon S3 bucket.
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. From the left menu, choose **Policies** and then choose

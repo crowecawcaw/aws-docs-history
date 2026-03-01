@@ -1,6 +1,4 @@
-# Microsoft OneDrive connector
-
-V1.0
+# Microsoft OneDrive connector V1.0
 
 Microsoft OneDrive is a cloud-based storage service that you can use to store,
 share, and host your content. You can use Amazon Kendra to index your Microsoft

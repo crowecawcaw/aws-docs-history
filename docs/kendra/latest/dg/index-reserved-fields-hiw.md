@@ -1,6 +1,4 @@
-# Using Amazon Kendra reserved or
-
-common document fields
+# Using Amazon Kendra reserved or common document fields
 
 With the
 [UpdateIndex](../APIReference/API_UpdateIndex.md "../APIReference/API_UpdateIndex.md") API operation, you can create reserved or common fields.

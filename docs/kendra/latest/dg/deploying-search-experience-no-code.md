@@ -1,6 +1,4 @@
-# Building a search experience with
-
-no code
+# Building a search experience with no code
 
 You can build and deploy an Amazon Kendra search application without the need for
 any front-end code. Amazon Kendra
@@ -16,9 +14,7 @@ search. You can invite others to collaborate in building your search experience,
 evaluate search results for tuning purposes. Once your search experience is ready for
 your users to start searching, you simply share the secure endpoint URL.
 
-## How the search Experience
-
-Builder works
+## How the search Experience Builder works
 
 The overall process of building a search experience is as follows:
 
@@ -27,8 +23,7 @@ The overall process of building a search experience is as follows:
    experience.
 2. You configure your list of users and groups in AWS IAM Identity Center and then assign
    them access rights to your search experience. You include yourself as an
-   owner of the experience. For more information, see [Providing access to your search
-   page](#access-search-experience "#access-search-experience").
+   owner of the experience. For more information, see [Providing access to your search page](#access-search-experience "#access-search-experience").
 3. You open the Amazon Kendra Experience Builder to design and tune your
    search page. You can share your endpoint URL of your search experience with
    others who you assign own-edit access rights or view-search access
@@ -39,9 +34,7 @@ you use the console, you select your index and then select
 **Experiences** in the navigation menu to configure your
 experience.
 
-## Design and tune your search
-
-experience
+## Design and tune your search experience
 
 Once you create and configure your search experience, you open the search
 experience using an endpoint URL to start customizing your search as an owner with
@@ -108,9 +101,7 @@ these fields a weight of 1 to 10, depending on their importance. You can apply
 different relevance tuning configurations for each search application or
 experience.
 
-## Providing access to your search
-
-page
+## Providing access to your search page
 
 Access to your search experience is through IAM Identity Center. When you configure your search
 experience, you grant other people listed in your Identity Center directory access

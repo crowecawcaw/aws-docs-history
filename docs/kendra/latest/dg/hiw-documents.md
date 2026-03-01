@@ -86,9 +86,7 @@ method that you use to add the document fields depends on the data source. For m
 information, see [Mapping data source
 fields](field-mapping.md "field-mapping.md").
 
-### Using Amazon Kendra reserved or common document
-
-fields
+### Using Amazon Kendra reserved or common document fields
 
 With the [UpdateIndex API](../APIReference/API_UpdateIndex.md "../APIReference/API_UpdateIndex.md"), you can create reserved or common fields using
 `DocumentMetadataConfigurationUpdates` and specifying the Amazon Kendra
