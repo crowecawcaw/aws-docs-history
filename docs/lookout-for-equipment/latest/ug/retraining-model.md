@@ -36,9 +36,7 @@ You may choose to [manually](versioning-model.md#model-activation "versioning-mo
 choose to allow Lookout for Equipment to activate your new models immediately utilizing managed mode,
 when appropriate.
 
-## Setting up your retraining
-
-scheduler
+## Setting up your retraining scheduler
 
 This section describes how set up your retraining scheduler.
 
@@ -91,9 +89,7 @@ the dataset and the accumulated inference data, the dataset takes priority.
 During the retraining process, Lookout for Equipment also fetches labels from the location configured in
 the model's [LabelsInputConfiguration](API_LabelsInputConfiguration.md "API_LabelsInputConfiguration.md").
 
-## Understanding retraining
-
-metrics
+## Understanding retraining metrics
 
 This section describes retraining metrics in the context of Lookout for Equipment.
 

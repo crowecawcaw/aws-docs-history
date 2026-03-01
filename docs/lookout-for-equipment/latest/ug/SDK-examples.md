@@ -359,7 +359,7 @@ how to list all your datasets, get information about a dataset, and delete a dat
 You must have the modules installed from code examples that showed you how to create a
 dataset to successfully use the following code.
 
-To run the following code, you must first run the example code in either [Creating a schema from a single .csv file](#sdk-schema-single-file "#sdk-schema-single-file") or [Creating a schema from multiple .csv files](#sdk-schema-multiple-files "#sdk-schema-multiple-files") .
+To run the following code, you must first run the example code in either [Creating a schema from a single .csv file](#sdk-schema-single-file "#sdk-schema-single-file") or [Creating a schema from multiple .csv files](#sdk-schema-multiple-files "#sdk-schema-multiple-files").
 
 ```
 

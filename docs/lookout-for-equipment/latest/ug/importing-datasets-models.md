@@ -12,10 +12,8 @@ information,
 - [APIs related to importing](#importing-APIs "#importing-APIs")
 - [Importing a dataset](#import-dataset "#import-dataset")
 - [Controlling access to your model](#control-model-access "#control-model-access")
-- [Comparing access to model versions with access to
-  parent models](#versions-and-parents "#versions-and-parents")
-- [Importing a model version with accumulated
-  inference data](#importing-with-data "#importing-with-data")
+- [Comparing access to model versions with access to parent models](#versions-and-parents "#versions-and-parents")
+- [Importing a model version with accumulated inference data](#importing-with-data "#importing-with-data")
 
 ## Importing a model
 
@@ -246,9 +244,7 @@ policies will not appear in the IAM console, nor in the context of using IAM API
 For more information, see [Policies and permissions in
 IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the _IAM User Guide_.
 
-## Comparing access to model versions with access to
-
-parent models
+## Comparing access to model versions with access to parent models
 
 When you give another account access to a model, you are giving that account access to
 _all_ versions of that model.
@@ -336,9 +332,7 @@ model version permissions.
 
 ![alt_text](images/permissions-grid.png)
 
-## Importing a model version with accumulated
-
-inference data
+## Importing a model version with accumulated inference data
 
 When you're importing a model version, you may want to also import the accumulated
 inference data along with it.

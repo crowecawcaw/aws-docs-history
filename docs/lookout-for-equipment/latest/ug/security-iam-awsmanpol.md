@@ -28,9 +28,7 @@ a new feature, AWS adds read-only permissions for new operations and resources. 
 and descriptions of job function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## Amazon Web Services managed
-
-policy: AmazonLookoutEquipmentReadOnlyAccess
+## Amazon Web Services managed policy: AmazonLookoutEquipmentReadOnlyAccess
 
 You can attach AmazonLookoutEquipmentReadOnlyAccess to your IAM entities. Lookout for Equipment also
 attaches this policy to a service role that allows Lookout for Equipment to perform actions on your behalf.
@@ -57,9 +55,7 @@ JSON
 
 ```
 
-## Amazon Web Services managed
-
-policy: AmazonLookoutEquipmentFullAccess
+## Amazon Web Services managed policy: AmazonLookoutEquipmentFullAccess
 
 You can attach AmazonLookoutEquipmentFullAccess to your IAM entities. Lookout for Equipment also
 attaches this policy to a service role that allows Lookout for Equipment to perform actions on your behalf.
@@ -120,9 +116,7 @@ JSON
 
 ```
 
-## Lookout for Equipment updates to AWS managed
-
-policies
+## Lookout for Equipment updates to AWS managed policies
 
 View details about updates to AWS managed policies for Lookout for Equipment since this service began
 tracking these changes. For automatic alerts about changes to this page, subscribe to the

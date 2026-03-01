@@ -30,9 +30,7 @@ files_. You can also read about [why the ingestion of an entire job can
 fail](when-ingestion-jobs-fail.md "when-ingestion-jobs-fail.md"), and about [evaluating the
 data from specific sensors](reading-details-by-sensor.md "reading-details-by-sensor.md").
 
-## Anticipating schema detection
-
-problems
+## Anticipating schema detection problems
 
 The following circumstances will lead to the failure of an entire ingestion
 job:

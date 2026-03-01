@@ -35,16 +35,12 @@ cloud and security _in_ the cloud:
 
 - [Data protection in Amazon Lookout for Equipment](data-protection.md "data-protection.md")
 - [Identity and access management for Amazon Lookout for Equipment](security-iam.md "security-iam.md")
-- [Amazon Lookout for Equipment and interface VPC endpoints
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Amazon Lookout for Equipment and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Compliance validation for Amazon Lookout for Equipment](SERVICENAME-compliance.md "SERVICENAME-compliance.md")
 - [Resilience in Amazon Lookout for Equipment](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  Amazon Lookout for Equipment](#infrastructure-security "#infrastructure-security")
+- [Infrastructure security in Amazon Lookout for Equipment](#infrastructure-security "#infrastructure-security")
 
-## Infrastructure security in
-
-Amazon Lookout for Equipment
+## Infrastructure security in Amazon Lookout for Equipment
 
 As a managed service, Amazon Lookout for Equipment is protected by the AWS global network security
 procedures that are described in the [Amazon

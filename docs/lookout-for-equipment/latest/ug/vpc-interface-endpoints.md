@@ -4,9 +4,7 @@ able to access the Lookout for Equipment console or resources. For more
 information,
 [see the following](https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/ "https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/").
 
-# Amazon Lookout for Equipment and interface VPC endpoints
-
-(AWS PrivateLink)
+# Amazon Lookout for Equipment and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and Amazon Lookout for Equipment by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that you can use
@@ -22,18 +20,14 @@ For more information, see [Interface VPC
 endpoints (Amazon Web Services PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for Lookout for Equipment VPC
-
-endpoints
+## Considerations for Lookout for Equipment VPC endpoints
 
 Before you set up an interface VPC endpoint for Lookout for Equipment, ensure that you review [Interface
 endpoint properties and limitations](../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations") in the _Amazon VPC User Guide_.
 
 Lookout for Equipment supports making calls to all of its API actions from your VPC.
 
-## Creating an interface VPC endpoint for
-
-Lookout for Equipment
+## Creating an interface VPC endpoint for Lookout for Equipment
 
 You can create a VPC endpoint for the Lookout for Equipment service using either the Amazon VPC console
 or the AWS Command Line Interface (AWS CLI). For more information, see [Creating an
@@ -50,9 +44,7 @@ default DNS name for the Region, for example,
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-## Creating a VPC endpoint policy for
-
-Lookout for Equipment
+## Creating a VPC endpoint policy for Lookout for Equipment
 
 You can attach an endpoint policy to your VPC endpoint that controls access to
 Lookout for Equipment. The policy specifies the following information:

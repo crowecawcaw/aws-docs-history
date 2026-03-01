@@ -13,9 +13,7 @@ To get a high-level view of how Lookout for Equipment and other AWS services wor
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Lookout for Equipment
-
-identity-based policies
+## Lookout for Equipment identity-based policies
 
 Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as an IAM user, group of users, or role. These
 policies control what actions users and roles can perform, on which resources, and under what conditions. To learn how to create an identity-based
@@ -68,9 +66,7 @@ action.
 "Action": "lookoutequipment:Describe*"
 ```
 
-##
-
-Resources
+## Resources
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
 **actions** on what **resources**, and under what **conditions**.
@@ -116,12 +112,9 @@ policy with values in the request. To see all AWS global
 condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
 _IAM User Guide_.
 
-To view examples of Amazon Lookout for Equipment identity-based policies, see [Identity-based policy examples for
-Amazon Lookout for Equipment](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Lookout for Equipment identity-based policies, see [Identity-based policy examples for Amazon Lookout for Equipment](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control lists (ACLs) in
-
-Lookout for Equipment
+## Access control lists (ACLs) in Lookout for Equipment
 
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
@@ -167,9 +160,7 @@ The ID field in the ACL is the AWS account canonical user ID. To learn how to vi
 this ID in an account that you own, see [Finding an AWS account
 canonical user ID](../../../general/latest/gr/acct-identifiers.md#FindingCanonicalId "../../../general/latest/gr/acct-identifiers.md#FindingCanonicalId").
 
-## Attribute-based access control
-
-(ABAC) with Lookout for Equipment
+## Attribute-based access control (ABAC) with Lookout for Equipment
 
 Attribute-based access control (ABAC) is an authorization strategy that defines permissions
 based on attributes called tags. You can attach tags to IAM entities and AWS resources, then design ABAC policies to allow operations when the principal's tag matches the tag on the resource.
@@ -182,9 +173,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using Temporary
-
-credentials with Lookout for Equipment
+## Using Temporary credentials with Lookout for Equipment
 
 Temporary credentials provide short-term access to AWS resources and are automatically created when you use federation or switch roles. AWS recommends that you
 dynamically generate temporary credentials instead of using long-term access keys. For
@@ -192,16 +181,12 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Lookout for Equipment
+## Cross-service principal permissions for Lookout for Equipment
 
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Lookout for Equipment
+## Service roles for Lookout for Equipment
 
 A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") that a service assumes to perform
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
@@ -212,9 +197,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Lookout for Equipment functionality.
 Edit service roles only when Lookout for Equipment provides guidance to do so.
 
-### Choosing an IAM role
-
-in Lookout for Equipment
+### Choosing an IAM role in Lookout for Equipment
 
 When you create a resource in Lookout for Equipment, you must choose a role to allow Lookout for Equipment
 to access Amazon S3 on your behalf. If you have previously created a service role or

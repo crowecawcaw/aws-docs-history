@@ -4,9 +4,7 @@ able to access the Lookout for Equipment console or resources. For more
 information,
 [see the following](https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/ "https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/").
 
-# Creating Amazon Lookout for Equipment resources with
-
-AWS CloudFormation
+# Creating Amazon Lookout for Equipment resources with AWS CloudFormation
 
 Amazon Lookout for Equipment is integrated with AWS CloudFormation, a service that helps you to model and set up your
 AWS resources so that you can spend less time creating and managing your Lookout for Equipment resources and
